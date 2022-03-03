@@ -41,13 +41,11 @@ async function main() {
             title = titleLine[1];
           }
         }
+
         const homeLink = line.match(/\[Home\]\(.\/index\.md\) &gt; (.*)/);
         if (homeLink) {
-          // Skip the breadcrumb for the toplevel index file.
-          if (id !== "sdk") {
-            output.push(homeLink[1]);
-          }
-          skip = true;
+          //skip the breadcrumb line alltogether
+          return;
         }
         // See issue #4. api-documenter expects \| to escape table
         // column delimiters, but docusaurus uses a markdown processor
@@ -65,9 +63,8 @@ async function main() {
         if (line.includes("<!-- -->")) {
           line = line.replace(/<!-- -->/g, "");
         }
-        if (!skip) {
-          output.push(line);
-        }
+
+        output.push(line);
       });
 
       await new Promise((resolve) => lines.once("close", resolve));

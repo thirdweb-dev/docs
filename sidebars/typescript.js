@@ -32,6 +32,12 @@ const sidebars = {
       type: "category",
       label: "Contracts",
       collapsed: false,
+      link: {
+        type: "generated-index",
+        title: "Contracts",
+        description: "Interfaces for on-chain contracts.",
+        keywords: ["contracts"],
+      },
       items: [
         {
           type: "doc",
@@ -81,7 +87,17 @@ const sidebars = {
       ],
     },
     {
-      "Common Interfaces": [
+      type: "category",
+      label: "Common Interfaces",
+      collapsed: false,
+      link: {
+        type: "generated-index",
+        title: "Common Contract Interfaces",
+        description:
+          "Contract interfaces that are shared between different contracts.",
+        keywords: ["contracts", "shared-interfaces"],
+      },
+      items: [
         {
           type: "doc",
           label: "ERC 20",

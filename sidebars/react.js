@@ -31,6 +31,13 @@ const sidebars = {
     {
       type: "category",
       label: "General Hooks",
+      link: {
+        type: "generated-index",
+        title: "General Hooks",
+        description:
+          "Basic hooks to interact with the user's wallet and connected network.",
+        keywords: ["general", "hooks"],
+      },
       collapsed: false,
       items: [
         {
@@ -60,11 +67,6 @@ const sidebars = {
         },
         {
           type: "doc",
-          label: "useConnect",
-          id: "react.useconnect",
-        },
-        {
-          type: "doc",
           label: "useDisconnect",
           id: "react.usedisconnect",
         },
@@ -79,6 +81,12 @@ const sidebars = {
       type: "category",
       label: "SDK Hooks",
       collapsed: false,
+      link: {
+        type: "generated-index",
+        title: "Thirdweb SDK Hooks",
+        description: "Hooks to interact with thirdweb contracts and sdk",
+        keywords: ["general", "hooks"],
+      },
       items: [
         {
           type: "doc",
@@ -109,6 +117,11 @@ const sidebars = {
           type: "doc",
           label: "usePack",
           id: "react.usepackmodule",
+        },
+        {
+          type: "doc",
+          label: "useSplit",
+          id: "react.usesplit",
         },
         {
           type: "doc",

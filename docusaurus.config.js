@@ -55,7 +55,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      colorMode: {
+        respectPrefersColorScheme: true,
+      },
       navbar: {
+        hideOnScroll: true,
         // title: "thirdweb SDK",
         logo: {
           alt: "thirdweb SDK",
@@ -81,7 +85,7 @@ const config = {
             position: "left",
           },
           {
-            href: "https://github.com/thirdweb-dev/typescript-sdk",
+            href: "https://github.com/thirdweb-dev",
             label: "GitHub",
             position: "right",
           },
@@ -90,15 +94,19 @@ const config = {
       footer: {
         style: "light",
         links: [
-          // {
-          //   title: "Docs",
-          //   items: [
-          //     {
-          //       label: "Tutorial",
-          //       to: "/docs/intro",
-          //     },
-          //   ],
-          // },
+          {
+            title: "Docs",
+            items: [
+              {
+                label: "JavaScript / TypeScript",
+                to: "/typescript",
+              },
+              {
+                label: "React.JS",
+                to: "/react",
+              },
+            ],
+          },
           {
             title: "Community",
             items: [
