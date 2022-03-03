@@ -26,10 +26,11 @@ hide_title: true
 |  [useNetworkMismatch()](./react.usenetworkmismatch.md) |  |
 |  [useNFTCollection(moduleAddress)](./react.usenftcollection.md) |  |
 |  [useNFTDrop(moduleAddress)](./react.usenftdrop.md) |  |
-|  [usePackModule(moduleAddress)](./react.usepackmodule.md) |  |
+|  [usePack(moduleAddress)](./react.usepack.md) |  |
 |  [useReadonlySDK(readonlyRpcUrl, sdkOptions, storageInterface)](./react.usereadonlysdk.md) |  |
 |  [useSDK()](./react.usesdk.md) |  |
 |  [useSigner()](./react.usesigner.md) |  |
+|  [useSplit(moduleAddress)](./react.usesplit.md) |  |
 |  [useToken(moduleAddress)](./react.usetoken.md) |  |
 |  [useVote(moduleAddress)](./react.usevote.md) |  |
 |  [useWalletConnect()](./react.usewalletconnect.md) |  |

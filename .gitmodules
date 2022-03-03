@@ -3,4 +3,4 @@
 	url = https://github.com/thirdweb-dev/typescript-sdk
 [submodule "submodules/react"]
 	path = submodules/react
-	url = https://github.com/thirdweb-dev/react.git
+	url = https://github.com/thirdweb-dev/react
