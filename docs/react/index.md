@@ -33,11 +33,21 @@ const App = () => {
 2. Add a way for your users to connect your wallet somewhere in your app
 
 ```jsx title="ConnectMetamaskButton.jsx"
-import { useMetamask } from "@thirdweb-dev/react";
+import { useAddress, useDisconnect, useMetamask } from "@thirdweb-dev/react";
 
-const ConnectMetamaskButtonComponent = () => {
+export const ConnectMetamaskButtonComponent = () => {
   const connectWithMetamask = useMetamask();
-  return <button onClick={connectWithMetamask}>Connect Metamask wallet</button>;
+  const disconnect = useDisconnect();
+  const address = useAddress();
+  return (
+    <div>
+      {address ? (
+        <button onClick={disconnect}>{address}</button>
+      ) : (
+        <button onClick={connectWithMetamask}>Connect Metamask Wallet</button>
+      )}
+    </div>
+  );
 };
 ```
 
@@ -70,6 +80,57 @@ const NFTListComponent = () => {
         <li key={nft.id}>{nft.name}</li>
       ))}
     </ul>
+  );
+};
+```
+
+## Kitchen Sink Configuration
+
+This is an example of an as-full-as-possible configuration of the `<ThirdwebProvider />`.
+Please keep in mind that you will likely not have to configure _anywhere near_ as much for most scenarios.
+
+```jsx title="App.jsx"
+import { ThirdwebProvider, ChainId, IpfsStorage } from "@thirdweb-dev/react";
+
+const KitchenSinkExample = () => {
+  return (
+    <ThirdwebProvider
+      desiredChainId={ChainId.Mainnet}
+      chainRpc={{ [ChainId.Mainnet]: "https://mainnet.infura.io/v3" }}
+      dAppMeta={{
+        name: "Example App",
+        description: "This is an example app",
+        isDarkMode: false,
+        logoUrl: "https://example.com/logo.png",
+        url: "https://example.com",
+      }}
+      storageInterface={new IpfsStorage("https://your.ipfs.host.com")}
+      supportedChains={[ChainId.Mainnet]}
+      walletConnectors={[
+        "walletConnect",
+        { name: "injected", options: { shimDisconnect: false } },
+        {
+          name: "walletLink",
+          options: {
+            appName: "Example App",
+          },
+        },
+      ]}
+      sdkOptions={{
+        gasSettings: { maxPriceInGwei: 500, speed: "fast" },
+        readonlySettings: {
+          chainId: ChainId.Mainnet,
+          rpcUrl: "https://mainnet.infura.io/v3",
+        },
+        gasless: {
+          openzeppelin: {
+            relayerUrl: "your-relayer-url",
+          },
+        },
+      }}
+    >
+      <YourApp />
+    </ThirdwebProvider>
   );
 };
 ```

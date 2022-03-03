@@ -8,6 +8,8 @@ hide_title: true
 
 ## useMetamask() function
 
+Convienience hook for connecting to a metamask (or any injected) wallet
+
 **Signature:**
 
 ```typescript
@@ -19,3 +21,5 @@ export declare function useMetamask(): () => Promise<{
 **Returns:**
 
 () =&gt; Promise&lt;{ data?: import("wagmi-core").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;
+
+a function that will prompt the user to connect their metamask wallet
