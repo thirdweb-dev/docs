@@ -14,10 +14,12 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "make-docs:typescript": "node scripts/make-typescript-docs.mjs"
+    "make-docs:typescript": "node scripts/make-typescript-docs.mjs",
+    "make-docs:react": "node scripts/make-react-docs.mjs"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-beta.15",
+    "@docusaurus/plugin-content-docs": "^2.0.0-beta.16",
     "@docusaurus/preset-classic": "^2.0.0-beta.15",
     "@mdx-js/react": "^1.6.21",
     "clsx": "^1.1.1",

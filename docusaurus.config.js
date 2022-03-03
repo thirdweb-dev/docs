@@ -23,7 +23,7 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve("./sidebars.js"),
+          sidebarPath: require.resolve("./sidebars/typescript.js"),
           id: "typescript",
           path: "docs/typescript",
           routeBasePath: "typescript",
@@ -37,6 +37,18 @@ const config = {
           customCss: require.resolve("./src/css/custom.css"),
         },
       }),
+    ],
+  ],
+  plugins: [
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "react",
+        path: "docs/react",
+        routeBasePath: "react",
+        sidebarPath: require.resolve("./sidebars/react.js"),
+        // ... other options
+      },
     ],
   ],
 

@@ -1,3 +1,6 @@
 [submodule "submodules/typescript"]
 	path = submodules/typescript
 	url = https://github.com/thirdweb-dev/typescript-sdk
+[submodule "submodules/react"]
+	path = submodules/react
+	url = https://github.com/thirdweb-dev/react.git
