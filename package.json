@@ -16,7 +16,8 @@
     "typecheck": "tsc",
     "make-docs:typescript": "node scripts/make-typescript-docs.mjs",
     "make-docs:react": "node scripts/make-react-docs.mjs",
-    "make-docs": "yarn make-docs:typescript && yarn make-docs:react"
+    "make-docs:contracts": "node scripts/make-contracts-docs.mjs",
+    "make-docs": "yarn make-docs:typescript && yarn make-docs:react && yarn make-docs:contracts"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-beta.15",
