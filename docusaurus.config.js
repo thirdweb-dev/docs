@@ -50,6 +50,16 @@ const config = {
         // ... other options
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "contracts",
+        path: "docs/contracts",
+        routeBasePath: "contracts",
+        sidebarPath: require.resolve("./sidebars/contracts.js"),
+        // ... other options
+      },
+    ],
   ],
 
   themeConfig:

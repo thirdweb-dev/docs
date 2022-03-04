@@ -4,3 +4,6 @@
 [submodule "submodules/react"]
 	path = submodules/react
 	url = https://github.com/thirdweb-dev/react
+[submodule "submodules/contracts"]
+	path = submodules/contracts
+	url = git@github.com:thirdweb-dev/contracts.git
