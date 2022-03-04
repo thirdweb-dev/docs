@@ -31,7 +31,7 @@ const sidebars = {
         type: "generated-index",
         title: "Contracts",
         description: "solidity on-chain smart contracts.",
-        keywords: ["solidty", "contracts"],
+        keywords: ["solidity", "contracts"],
       },
       items: [
         {
@@ -61,6 +61,11 @@ const sidebars = {
         },
         {
           type: "doc",
+          label: "VoteERC20",
+          id: "VoteERC20",
+        },
+        {
+          type: "doc",
           label: "Marketplace",
           id: "Marketplace",
         },
@@ -68,11 +73,6 @@ const sidebars = {
           type: "doc",
           label: "Split",
           id: "Split",
-        },
-        {
-          type: "doc",
-          label: "VoteERC20",
-          id: "VoteERC20",
         },
       ],
     },
@@ -84,9 +84,34 @@ const sidebars = {
         type: "generated-index",
         title: "Interfaces",
         description: "solidity on-chain smart contracts interfaces.",
-        keywords: ["solidty", "contracts"],
+        keywords: ["solidity", "interfaces"],
       },
       items: [
+        {
+          type: "doc",
+          label: "IThirdwebContract",
+          id: "IThirdwebContract",
+        },
+        {
+          type: "doc",
+          label: "IThirdwebOwnable",
+          id: "IThirdwebOwnable",
+        },
+        {
+          type: "doc",
+          label: "IThirdwebPrimarySale",
+          id: "IThirdwebPrimarySale",
+        },
+        {
+          type: "doc",
+          label: "IThirdwebPlatformFee",
+          id: "IThirdwebPlatformFee",
+        },
+        {
+          type: "doc",
+          label: "IThirdwebRoyalty",
+          id: "IThirdwebRoyalty",
+        },
         {
           type: "doc",
           label: "ITokenERC20",
@@ -111,6 +136,39 @@ const sidebars = {
           type: "doc",
           label: "IDropERC1155",
           id: "IDropERC1155",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Platform",
+      collapsed: true,
+      link: {
+        type: "generated-index",
+        title: "Platform",
+        description: "solidity on-chain smart contracts for the platform.",
+        keywords: ["solidity", "platform"],
+      },
+      items: [
+        {
+          type: "doc",
+          label: "TWRegistry",
+          id: "TWRegistry",
+        },
+        {
+          type: "doc",
+          label: "TWFactory",
+          id: "TWFactory",
+        },
+        {
+          type: "doc",
+          label: "TWProxy",
+          id: "TWProxy",
+        },
+        {
+          type: "doc",
+          label: "TWFee",
+          id: "TWFee",
         },
       ],
     },
