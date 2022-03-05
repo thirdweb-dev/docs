@@ -70,9 +70,11 @@ hide_title: true
 |  [IPackBatchArgs](./sdk.ipackbatchargs.md) | **<i>(BETA)</i>** |
 |  [IPackCreateArgs](./sdk.ipackcreateargs.md) |  |
 |  [IStorage](./sdk.istorage.md) |  |
+|  [MarketplaceContractDeployMetadata](./sdk.marketplacecontractdeploymetadata.md) | Options for deploying a Marketplace contract |
 |  [NativeToken](./sdk.nativetoken.md) |  |
 |  [NewAuctionListing](./sdk.newauctionlisting.md) | Represents a new marketplace auction listing. |
 |  [NewDirectListing](./sdk.newdirectlisting.md) | Represents a new marketplace direct listing. |
+|  [NFTContractDeployMetadata](./sdk.nftcontractdeploymetadata.md) | Options for deploying an NFT contract |
 |  [Offer](./sdk.offer.md) |  |
 |  [PackMetadata](./sdk.packmetadata.md) |  |
 |  [PackMetadataWithBalance](./sdk.packmetadatawithbalance.md) |  |
@@ -81,7 +83,11 @@ hide_title: true
 |  [ProposalExecutable](./sdk.proposalexecutable.md) |  |
 |  [ProposalVote](./sdk.proposalvote.md) |  |
 |  [QueryAllParams](./sdk.queryallparams.md) |  |
+|  [SplitContractDeployMetadata](./sdk.splitcontractdeploymetadata.md) | Options for deploying Split contract |
 |  [SplitRecipient](./sdk.splitrecipient.md) | The SplitRecipient type represents a recipient of some royalty, indicated by their split percentage. |
+|  [SplitRecipientInput](./sdk.splitrecipientinput.md) |  |
+|  [TokenContractDeployMetadata](./sdk.tokencontractdeploymetadata.md) | Options for deploying a Token contract |
+|  [VoteContractDeployMetadata](./sdk.votecontractdeploymetadata.md) | Options for deploying a Vote contract |
 |  [VoteSettings](./sdk.votesettings.md) |  |
 
 ## Variables
@@ -92,6 +98,7 @@ hide_title: true
 |  [MintRequest721](./sdk.mintrequest721.md) |  |
 |  [NATIVE\_TOKEN\_ADDRESS](./sdk.native_token_address.md) |  |
 |  [NATIVE\_TOKENS](./sdk.native_tokens.md) |  |
+|  [SDKOptionsSchema](./sdk.sdkoptionsschema.md) |  |
 |  [SUPPORTED\_CHAIN\_IDS](./sdk.supported_chain_ids.md) |  |
 
 ## Type Aliases
@@ -127,7 +134,7 @@ hide_title: true
 |  [PermitRequestMessage](./sdk.permitrequestmessage.md) | EIP-2612 token permit message for gasless transaction |
 |  [Price](./sdk.price.md) | Represents a currency price already formatted. ie. "1" for 1 ether. |
 |  [Role](./sdk.role.md) |  |
-|  [SDKOptions](./sdk.sdkoptions.md) |  |
+|  [SDKOptions](./sdk.sdkoptions.md) | All these configuration options are optional with sane defaults: |
 |  [SignedPayload](./sdk.signedpayload.md) |  |
 |  [SignedPayload1155](./sdk.signedpayload1155.md) |  |
 |  [SignerOrProvider](./sdk.signerorprovider.md) |  |
