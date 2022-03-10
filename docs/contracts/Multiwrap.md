@@ -316,7 +316,7 @@ function hasRole(bytes32 role, address account) external view returns (bool)
 ### initialize
 
 ```solidity
-function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address _trustedForwarder, address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
+function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
 ```
 
 
@@ -331,7 +331,7 @@ function initialize(address _defaultAdmin, string _name, string _symbol, string 
 | _name | string | undefined
 | _symbol | string | undefined
 | _contractURI | string | undefined
-| _trustedForwarder | address | undefined
+| _trustedForwarders | address[] | undefined
 | _royaltyRecipient | address | undefined
 | _royaltyBps | uint256 | undefined
 
@@ -838,7 +838,7 @@ function uri(uint256 _tokenId) external view returns (string)
 ### wrap
 
 ```solidity
-function wrap(IMultiwrap.WrappedContents _wrappedContents, uint256 _shares, string _uriForShares) external payable returns (uint256 tokenId)
+function wrap(MultiTokenTransferLib.MultiToken _wrappedContents, uint256 _shares, string _uriForShares) external payable returns (uint256 tokenId)
 ```
 
 
@@ -849,7 +849,7 @@ function wrap(IMultiwrap.WrappedContents _wrappedContents, uint256 _shares, stri
 
 | Name | Type | Description |
 |---|---|---|
-| _wrappedContents | IMultiwrap.WrappedContents | undefined
+| _wrappedContents | MultiTokenTransferLib.MultiToken | undefined
 | _shares | uint256 | undefined
 | _uriForShares | string | undefined
 
@@ -990,7 +990,7 @@ event RoyaltyForToken(uint256 indexed tokenId, address royaltyRecipient, uint256
 ### TokensUnwrapped
 
 ```solidity
-event TokensUnwrapped(address indexed wrapper, address sentTo, uint256 indexed tokenIdOfShares, uint256 sharesUnwrapped, IMultiwrap.WrappedContents wrappedContents)
+event TokensUnwrapped(address indexed wrapper, address sentTo, uint256 indexed tokenIdOfShares, uint256 sharesUnwrapped, MultiTokenTransferLib.MultiToken wrappedContents)
 ```
 
 
@@ -1005,12 +1005,12 @@ event TokensUnwrapped(address indexed wrapper, address sentTo, uint256 indexed t
 | sentTo  | address | undefined |
 | tokenIdOfShares `indexed` | uint256 | undefined |
 | sharesUnwrapped  | uint256 | undefined |
-| wrappedContents  | IMultiwrap.WrappedContents | undefined |
+| wrappedContents  | MultiTokenTransferLib.MultiToken | undefined |
 
 ### TokensWrapped
 
 ```solidity
-event TokensWrapped(address indexed wrapper, uint256 indexed tokenIdOfShares, IMultiwrap.WrappedContents wrappedContents)
+event TokensWrapped(address indexed wrapper, uint256 indexed tokenIdOfShares, MultiTokenTransferLib.MultiToken wrappedContents)
 ```
 
 
@@ -1023,7 +1023,7 @@ event TokensWrapped(address indexed wrapper, uint256 indexed tokenIdOfShares, IM
 |---|---|---|
 | wrapper `indexed` | address | undefined |
 | tokenIdOfShares `indexed` | uint256 | undefined |
-| wrappedContents  | IMultiwrap.WrappedContents | undefined |
+| wrappedContents  | MultiTokenTransferLib.MultiToken | undefined |
 
 ### TransferBatch
 

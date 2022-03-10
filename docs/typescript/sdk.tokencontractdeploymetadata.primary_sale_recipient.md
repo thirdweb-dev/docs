@@ -13,5 +13,5 @@ The address that will receive the proceeds from primary sales
 **Signature:**
 
 ```typescript
-primary_sale_recipient?: string;
+primary_sale_recipient: string;
 ```
