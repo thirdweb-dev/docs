@@ -14,7 +14,8 @@ jobs:
           submodules: recursive
       - run: yarn install
       - run: yarn make-docs
-      - run: |
+      - name: Commit changes
+        run: |
           git config --global user.email "gitbot@thirdweb.com"
           git config --global user.name "thirdweb Git Bot"
           git status
