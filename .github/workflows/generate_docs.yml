@@ -12,6 +12,7 @@ jobs:
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           submodules: recursive
+      - run: yarn install
       - run: yarn make-docs
       - run: git add .
       - run: git commit -m "Update docs"
