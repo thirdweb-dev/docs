@@ -122,7 +122,7 @@ function claim(address _receiver, uint256 _tokenId, uint256 _quantity, address _
 
 
 
-*Lets an account claim a given quantity of tokens, of a single tokenId.*
+*Lets an account claim a given quantity of NFTs, of a single tokenId.*
 
 #### Parameters
 
@@ -144,7 +144,7 @@ function claimCondition(uint256) external view returns (uint256 currentStartId, 
 
 
 
-*Token ID =&gt; public claim conditions for tokens with that ID.*
+*Mapping from token ID =&gt; the set of all claim conditions, at any given moment, for tokens of the token ID.*
 
 #### Parameters
 
@@ -167,7 +167,7 @@ function contractType() external pure returns (bytes32)
 
 
 
-*Returns the module type of the contract.*
+*Returns the type of the contract.*
 
 
 #### Returns
@@ -218,7 +218,7 @@ function getActiveClaimConditionId(uint256 _tokenId) external view returns (uint
 
 
 
-*At any given moment, returns the uid for the active mint condition for a given tokenId.*
+*At any given moment, returns the uid for the active claim condition, for a given tokenId.*
 
 #### Parameters
 
@@ -240,7 +240,7 @@ function getClaimConditionById(uint256 _tokenId, uint256 _conditionId) external 
 
 
 
-*Returns the claim condition for a given tokenId for the given condition id.*
+*Returns the claim condition at the given uid.*
 
 #### Parameters
 
@@ -263,7 +263,7 @@ function getClaimTimestamp(uint256 _tokenId, uint256 _conditionId, address _clai
 
 
 
-*Returns the timestamp for next available claim for a claimer address*
+*Returns the timestamp for when a claimer is eligible for claiming NFTs again.*
 
 #### Parameters
 
@@ -288,7 +288,7 @@ function getDefaultRoyaltyInfo() external view returns (address, uint16)
 
 
 
-*Returns the platform fee bps and recipient.*
+*Returns the default royalty recipient and bps.*
 
 
 #### Returns
@@ -306,7 +306,7 @@ function getPlatformFeeInfo() external view returns (address, uint16)
 
 
 
-*Returns the platform fee bps and recipient.*
+*Returns the platform fee recipient and bps.*
 
 
 #### Returns
@@ -391,7 +391,7 @@ function getRoyaltyInfoForToken(uint256 _tokenId) external view returns (address
 
 
 
-*Returns the royalty recipient for a particular token Id.*
+*Returns the royalty recipient and bps for a particular token Id.*
 
 #### Parameters
 
@@ -524,7 +524,7 @@ function lazyMint(uint256 _amount, string _baseURIForTokens) external nonpayable
 
 
 
-*Lets an account with `MINTER_ROLE` mint tokens of ID from `nextTokenIdToMint`       to `nextTokenIdToMint + _amount - 1`. The URIs for these tokenIds is baseURI + `${tokenId}`.*
+*Lets an account with `MINTER_ROLE` lazy mint &#39;n&#39; NFTs.       The URIs for each token is the provided `_baseURIForTokens` + `{tokenId}`.*
 
 #### Parameters
 
@@ -541,7 +541,7 @@ function maxTotalSupply(uint256) external view returns (uint256)
 
 
 
-*Token ID =&gt; maximum allowed total circulating supply of tokens with that ID.*
+*Mapping from token ID =&gt; maximum possible total circulating supply of tokens with that ID.*
 
 #### Parameters
 
@@ -563,7 +563,7 @@ function maxWalletClaimCount(uint256) external view returns (uint256)
 
 
 
-*Token ID =&gt; max claim limit per wallet.*
+*Mapping from token ID =&gt; the max number of NFTs of the token ID a wallet can claim.*
 
 #### Parameters
 
@@ -658,7 +658,7 @@ function primarySaleRecipient() external view returns (address)
 
 
 
-*The adress that receives all primary sales value.*
+*The address that receives all primary sales value.*
 
 
 #### Returns
@@ -709,7 +709,7 @@ function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (
 
 
 
-*See EIP-2981*
+*Returns the royalty recipient and amount, given a tokenId and sale price.*
 
 #### Parameters
 
@@ -773,7 +773,7 @@ function saleRecipient(uint256) external view returns (address)
 
 
 
-*Token ID =&gt; the address of the recipient of primary sales.*
+*Mapping from token ID =&gt; the address of the recipient of primary sales.*
 
 #### Parameters
 
@@ -807,12 +807,12 @@ function setApprovalForAll(address operator, bool approved) external nonpayable
 ### setClaimConditions
 
 ```solidity
-function setClaimConditions(uint256 _tokenId, IDropClaimCondition.ClaimCondition[] _phases, bool _resetLimitRestriction) external nonpayable
+function setClaimConditions(uint256 _tokenId, IDropClaimCondition.ClaimCondition[] _phases, bool _resetClaimEligibility) external nonpayable
 ```
 
 
 
-*Lets a module admin set mint conditions.*
+*Lets a contract admin (account with `DEFAULT_ADMIN_ROLE`) set claim conditions, for a tokenId.*
 
 #### Parameters
 
@@ -820,7 +820,7 @@ function setClaimConditions(uint256 _tokenId, IDropClaimCondition.ClaimCondition
 |---|---|---|
 | _tokenId | uint256 | undefined
 | _phases | IDropClaimCondition.ClaimCondition[] | undefined
-| _resetLimitRestriction | bool | undefined
+| _resetClaimEligibility | bool | undefined
 
 ### setContractURI
 
@@ -830,7 +830,7 @@ function setContractURI(string _uri) external nonpayable
 
 
 
-*Lets a module admin set the URI for contract-level metadata.*
+*Lets a contract admin set the URI for contract-level metadata.*
 
 #### Parameters
 
@@ -846,7 +846,7 @@ function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) e
 
 
 
-*Lets a module admin update the royalty bps and recipient.*
+*Lets a contract admin update the default royalty recipient and bps.*
 
 #### Parameters
 
@@ -880,7 +880,7 @@ function setMaxWalletClaimCount(uint256 _tokenId, uint256 _count) external nonpa
 
 
 
-*Lets a module admin set a maximum number of claim per wallet.*
+*Lets a contract admin set a maximum number of NFTs of a tokenId that can be claimed by any wallet.*
 
 #### Parameters
 
@@ -897,7 +897,7 @@ function setOwner(address _newOwner) external nonpayable
 
 
 
-*Lets a module admin set a new owner for the contract. The new owner must be a module admin.*
+*Lets a contract admin set a new owner for the contract. The new owner must be a contract admin.*
 
 #### Parameters
 
@@ -913,7 +913,7 @@ function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeB
 
 
 
-*Lets a module admin update the fees on primary sales.*
+*Lets a contract admin update the platform fee recipient and bps*
 
 #### Parameters
 
@@ -930,7 +930,7 @@ function setPrimarySaleRecipient(address _saleRecipient) external nonpayable
 
 
 
-*Lets a module admin set the default recipient of all primary sales.*
+*Lets a contract admin set the recipient for all primary sales.*
 
 #### Parameters
 
@@ -946,7 +946,7 @@ function setRoyaltyInfoForToken(uint256 _tokenId, address _recipient, uint256 _b
 
 
 
-*Lets a module admin set the royalty recipient for a particular token Id.*
+*Lets a contract admin set the royalty recipient and bps for a particular token Id.*
 
 #### Parameters
 
@@ -964,7 +964,7 @@ function setWalletClaimCount(uint256 _tokenId, address _claimer, uint256 _count)
 
 
 
-*Lets a module admin set a claim limit on a wallet.*
+*Lets a contract admin set a claim count for a wallet.*
 
 #### Parameters
 
@@ -1038,7 +1038,7 @@ function totalSupply(uint256) external view returns (uint256)
 
 
 
-*Token ID =&gt; total circulating supply of tokens with that ID.*
+*Mapping from token ID =&gt; total circulating supply of tokens with that ID.*
 
 #### Parameters
 
@@ -1082,7 +1082,7 @@ function verifyClaim(uint256 _conditionId, address _claimer, uint256 _tokenId, u
 
 
 
-*Checks whether a request to claim tokens obeys the active mint condition.*
+*Checks a request to claim NFTs against the active claim condition&#39;s criteria.*
 
 #### Parameters
 
@@ -1103,7 +1103,7 @@ function verifyClaimMerkleProof(uint256 _conditionId, address _claimer, uint256 
 
 
 
-
+*Checks whether a claimer meets the claim condition&#39;s allowlist criteria.*
 
 #### Parameters
 
@@ -1131,7 +1131,7 @@ function walletClaimCount(uint256, address) external view returns (uint256)
 
 
 
-*Token ID =&gt; claimer wallet address =&gt; number of claim.*
+*Mapping from token ID =&gt; claimer wallet address =&gt; total number of NFTs of the token ID a wallet has claimed.*
 
 #### Parameters
 
