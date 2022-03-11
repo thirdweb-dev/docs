@@ -160,16 +160,6 @@ const sidebars = {
           label: "TWFactory",
           id: "TWFactory",
         },
-        {
-          type: "doc",
-          label: "TWProxy",
-          id: "TWProxy",
-        },
-        {
-          type: "doc",
-          label: "TWFee",
-          id: "TWFee",
-        },
       ],
     },
   ],
