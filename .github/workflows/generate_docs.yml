@@ -16,7 +16,7 @@ jobs:
         run: ./update.sh
       - name: Commit changes
         run: |
-          git config --global user.email "gitbot@thirdweb.com"
+          git config --global user.email "joaquim.verges@gmail.com"
           git config --global user.name "thirdweb Git Bot"
           git status
           git add .
