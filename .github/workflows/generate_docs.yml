@@ -14,6 +14,9 @@ jobs:
           submodules: recursive
       - run: yarn install
       - run: yarn make-docs
-      - run: git add .
-      - run: git commit -m "Update docs"
-      - run: git push origin main
+      - run: |
+          git config --global user.email "gitbot@thirdweb.com"
+          git config --global user.name "thirdweb Git Bot"
+          git add .
+          git commit -m "Update docs"
+          git push origin main
