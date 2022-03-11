@@ -146,7 +146,7 @@ function contractType() external pure returns (bytes32)
 
 
 
-*Returns the module type of the contract.*
+*Returns the type of the contract.*
 
 
 #### Returns
@@ -163,7 +163,7 @@ function contractURI() external view returns (string)
 
 
 
-*Collection level metadata.*
+*Contract level metadata.*
 
 
 #### Returns
@@ -213,7 +213,7 @@ function getPlatformFeeInfo() external view returns (address, uint16)
 
 
 
-*Returns the platform fee bps and recipient.*
+*Returns the platform fee recipient and bps.*
 
 
 #### Returns
@@ -380,7 +380,7 @@ function listings(uint256) external view returns (uint256 listingId, address tok
 
 
 
-*listingId =&gt; listing info.*
+*Mapping from uid of listing =&gt; listing info.*
 
 #### Parameters
 
@@ -454,7 +454,7 @@ function offers(uint256, address) external view returns (uint256 listingId, addr
 
 
 
-*listingId =&gt; address =&gt; info related to offers on a direct listing.*
+*Mapping from uid of a direct listing =&gt; offeror address =&gt; offer made to the direct listing by the respective offeror.*
 
 #### Parameters
 
@@ -505,7 +505,7 @@ function onERC1155BatchReceived(address, address, uint256[], uint256[], bytes) e
 function onERC1155Received(address, address, uint256, uint256, bytes) external nonpayable returns (bytes4)
 ```
 
-ERC 1155 and ERC 721 Receiver functions.*
+
 
 
 
@@ -592,7 +592,7 @@ function setAuctionBuffers(uint256 _timeBuffer, uint256 _bidBufferBps) external 
 
 
 
-*Lets a module admin set auction buffers*
+*Lets a contract admin set auction buffers.*
 
 #### Parameters
 
@@ -609,7 +609,7 @@ function setContractURI(string _uri) external nonpayable
 
 
 
-*Sets contract URI for the storefront-level metadata of the contract.*
+*Lets a contract admin set the URI for the contract-level metadata.*
 
 #### Parameters
 
@@ -625,7 +625,7 @@ function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeB
 
 
 
-*Lets a module admin update the fees on platform fee*
+*Lets a contract admin update platform fee recipient and bps.*
 
 #### Parameters
 
@@ -664,7 +664,7 @@ function thirdwebFee() external view returns (contract ITWFee)
 
 
 
-
+*The thirdweb contract with fee related information.*
 
 
 #### Returns
@@ -681,7 +681,7 @@ function timeBuffer() external view returns (uint64)
 
 
 
-*The minimum amount of time left in an auction after a new bid is created. Default: 15 minutes.*
+*The amount of time added to an auction&#39;s &#39;endTime&#39;, if a bid is made within `timeBuffer`       seconds of the existing `endTime`. Default: 15 minutes.*
 
 
 #### Returns
@@ -698,7 +698,7 @@ function totalListings() external view returns (uint256)
 
 
 
-*Total number of listings on market.*
+*Total number of listings ever created in the marketplace.*
 
 
 #### Returns
@@ -737,7 +737,7 @@ function winningBid(uint256) external view returns (uint256 listingId, address o
 
 
 
-*listingId =&gt; current winning bid in an auction.*
+*Mapping from uid of an auction listing =&gt; current winning bid in an auction.*
 
 #### Parameters
 
