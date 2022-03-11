@@ -12,8 +12,8 @@ jobs:
         with:
           token: ${{ secrets.REPO_ACCESS_TOKEN }}
           submodules: recursive
-      - run: yarn install
-      - run: yarn make-docs
+      - name: Run update.sh
+        run: ./update.sh
       - name: Commit changes
         run: |
           git config --global user.email "gitbot@thirdweb.com"
