@@ -11,7 +11,7 @@ hide_title: true
 **Signature:**
 
 ```typescript
-getVoteBalanceOf(account: string): Promise<BigNumber>;
+getVoteBalanceOf(account: string): Promise<CurrencyValue>;
 ```
 
 ## Parameters
@@ -22,4 +22,4 @@ getVoteBalanceOf(account: string): Promise<BigNumber>;
 
 **Returns:**
 
-Promise&lt;BigNumber&gt;
+Promise&lt;[CurrencyValue](./sdk.currencyvalue.md)&gt;

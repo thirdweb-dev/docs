@@ -13,7 +13,7 @@ Get Token Allowance
 **Signature:**
 
 ```typescript
-allowance(spender: string): Promise<BigNumber>;
+allowance(spender: string): Promise<CurrencyValue>;
 ```
 
 ## Parameters
@@ -24,7 +24,7 @@ allowance(spender: string): Promise<BigNumber>;
 
 **Returns:**
 
-Promise&lt;BigNumber&gt;
+Promise&lt;[CurrencyValue](./sdk.currencyvalue.md)&gt;
 
 The allowance of one wallet over anothers funds.
 

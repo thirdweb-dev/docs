@@ -13,8 +13,8 @@ The total supply for this Token
 **Signature:**
 
 ```typescript
-totalSupply(): Promise<BigNumber>;
+totalSupply(): Promise<CurrencyValue>;
 ```
 **Returns:**
 
-Promise&lt;BigNumber&gt;
+Promise&lt;[CurrencyValue](./sdk.currencyvalue.md)&gt;

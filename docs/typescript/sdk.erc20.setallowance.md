@@ -13,7 +13,7 @@ Allows the specified `spender` wallet to transfer the given `amount` of tokens t
 **Signature:**
 
 ```typescript
-setAllowance(spender: string, amount: BigNumber): Promise<TransactionResult>;
+setAllowance(spender: string, amount: Amount): Promise<TransactionResult>;
 ```
 
 ## Parameters
@@ -21,7 +21,7 @@ setAllowance(spender: string, amount: BigNumber): Promise<TransactionResult>;
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  spender | string |  |
-|  amount | BigNumber |  |
+|  amount | [Amount](./sdk.amount.md) |  |
 
 **Returns:**
 

@@ -13,14 +13,14 @@ Burn Tokens
 **Signature:**
 
 ```typescript
-burn(amount: BigNumberish): Promise<TransactionResult>;
+burn(amount: Amount): Promise<TransactionResult>;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  amount | BigNumberish |  |
+|  amount | [Amount](./sdk.amount.md) |  |
 
 **Returns:**
 
@@ -35,7 +35,7 @@ Burn tokens held by the connected wallet
 
 ```javascript
 // The amount of this token you want to burn
-const amount = 100;
+const amount = 1.2;
 
 await contract.burn(amount);
 ```

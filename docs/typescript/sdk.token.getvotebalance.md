@@ -13,10 +13,10 @@ Get your wallet voting power for the current checkpoints
 **Signature:**
 
 ```typescript
-getVoteBalance(): Promise<BigNumber>;
+getVoteBalance(): Promise<CurrencyValue>;
 ```
 **Returns:**
 
-Promise&lt;BigNumber&gt;
+Promise&lt;[CurrencyValue](./sdk.currencyvalue.md)&gt;
 
 the amount of voting power in tokens
