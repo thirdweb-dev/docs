@@ -39,6 +39,7 @@ hide_title: true
 |  [Split](./sdk.split.md) | Create custom royalty splits to distribute funds. |
 |  [ThirdwebSDK](./sdk.thirdwebsdk.md) | The main entry point for the thirdweb SDK |
 |  [Token](./sdk.token.md) | Create a standard crypto token or cryptocurrency. |
+|  [TransactionError](./sdk.transactionerror.md) |  |
 |  [Vote](./sdk.vote.md) | Create a decentralized organization for token holders to vote on proposals. |
 
 ## Enumerations
