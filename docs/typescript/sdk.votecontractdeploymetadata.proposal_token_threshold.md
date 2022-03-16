@@ -8,7 +8,7 @@ hide_title: true
 
 ## VoteContractDeployMetadata.proposal\_token\_threshold property
 
-The minimum amount in governance token owned to be able to vote
+The minimum amount in governance token owned to be able to create a proposal
 
 **Signature:**
 
