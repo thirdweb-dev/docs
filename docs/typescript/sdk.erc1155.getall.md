@@ -13,8 +13,15 @@ Get All NFTs
 **Signature:**
 
 ```typescript
-getAll(): Promise<EditionMetadata[]>;
+getAll(queryParams?: QueryAllParams): Promise<EditionMetadata[]>;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  queryParams | [QueryAllParams](./sdk.queryallparams.md) | optional filtering to only fetch a subset of results. |
+
 **Returns:**
 
 Promise&lt;[EditionMetadata](./sdk.editionmetadata.md)\[\]&gt;
