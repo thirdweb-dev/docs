@@ -8,6 +8,8 @@ hide_title: true
 
 ## Erc1155SignatureMinting.mintBatch() method
 
+Mint any number of dynamically generated NFT at once
+
 **Signature:**
 
 ```typescript
@@ -18,8 +20,12 @@ mintBatch(signedPayloads: SignedPayload1155[]): Promise<TransactionResultWithId[
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  signedPayloads | [SignedPayload1155](./sdk.signedpayload1155.md)\[\] |  |
+|  signedPayloads | [SignedPayload1155](./sdk.signedpayload1155.md)\[\] | the array of signed payloads to mint |
 
 **Returns:**
 
 Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)\[\]&gt;
+
+## Remarks
+
+Mint multiple dynamic NFTs in one transaction. Note that this is only possible for free mints (cannot batch mints with a price attached to it for security reasons)
