@@ -8,6 +8,7 @@ hide_title: true
 
 ## QueryAllParams interface
 
+Pagination Parameters
 
 **Signature:**
 
@@ -19,5 +20,5 @@ export interface QueryAllParams
 
 |  Property | Type | Description |
 |  --- | --- | --- |
-|  [count](./sdk.queryallparams.count.md) | BigNumberish |  |
-|  [start](./sdk.queryallparams.start.md) | BigNumberish |  |
+|  [count?](./sdk.queryallparams.count.md) | BigNumberish | <i>(Optional)</i> how many items to return (default: 100) |
+|  [start?](./sdk.queryallparams.start.md) | BigNumberish | <i>(Optional)</i> the index to start from (default: 0) |

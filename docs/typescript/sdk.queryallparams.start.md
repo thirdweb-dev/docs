@@ -8,8 +8,10 @@ hide_title: true
 
 ## QueryAllParams.start property
 
+the index to start from (default: 0)
+
 **Signature:**
 
 ```typescript
-start: BigNumberish;
+start?: BigNumberish;
 ```

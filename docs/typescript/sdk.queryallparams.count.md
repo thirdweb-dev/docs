@@ -8,8 +8,10 @@ hide_title: true
 
 ## QueryAllParams.count property
 
+how many items to return (default: 100)
+
 **Signature:**
 
 ```typescript
-count: BigNumberish;
+count?: BigNumberish;
 ```
