@@ -115,6 +115,10 @@ const config = {
                 label: "React.JS",
                 to: "/react",
               },
+              {
+                label: "Contracts",
+                to: "/contracts",
+              },
             ],
           },
           {
