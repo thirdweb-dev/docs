@@ -13,7 +13,7 @@ Mint a unique NFT
 **Signature:**
 
 ```typescript
-mintTo(to: string, metadata: NFTMetadataInput): Promise<TransactionResultWithId<NFTMetadataOwner>>;
+mintTo(to: string, metadata: NFTMetadataOrUri): Promise<TransactionResultWithId<NFTMetadataOwner>>;
 ```
 
 ## Parameters
@@ -21,7 +21,7 @@ mintTo(to: string, metadata: NFTMetadataInput): Promise<TransactionResultWithId<
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  to | string |  |
-|  metadata | [NFTMetadataInput](./sdk.nftmetadatainput.md) |  |
+|  metadata | NFTMetadataOrUri |  |
 
 **Returns:**
 
