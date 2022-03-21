@@ -4,13 +4,15 @@
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
+const baseUrl = process.env.BASE_URL || "/";
+
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: "thirdweb docs",
   tagline:
     "Typescript SDK for deploying and interacting with thirdweb contracts",
-  url: "https://typescript-docs.thirdweb.com",
-  baseUrl: "/",
+  url: "https://docs.thirdweb.com",
+  baseUrl,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
@@ -65,6 +67,12 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: {
+        appId: "IAIE3FU2AD",
+        apiKey: "1d9ebc991c049c913bedcf3d50916922",
+        indexName: "thirdweb",
+        contextualSearch: false,
+      },
       colorMode: {
         respectPrefersColorScheme: true,
       },
