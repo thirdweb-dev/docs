@@ -11,7 +11,7 @@ const config = {
   title: "thirdweb docs",
   tagline:
     "Typescript SDK for deploying and interacting with thirdweb contracts",
-  url: "https://typescript-docs.thirdweb.com",
+  url: "https://docs.thirdweb.com",
   baseUrl,
   onBrokenLinks: "throw",
   onBrokenMarkdownLinks: "warn",
