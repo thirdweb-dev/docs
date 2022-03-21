@@ -65,6 +65,11 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      algolia: {
+        appId: "IAIE3FU2AD",
+        apiKey: "1d9ebc991c049c913bedcf3d50916922",
+        indexName: "thirdweb",
+      },
       colorMode: {
         respectPrefersColorScheme: true,
       },
