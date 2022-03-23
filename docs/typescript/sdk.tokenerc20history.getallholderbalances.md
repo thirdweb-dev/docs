@@ -13,11 +13,11 @@ Get all holder balances
 **Signature:**
 
 ```typescript
-getAllHolderBalances(): Promise<Record<string, BigNumber>>;
+getAllHolderBalances(): Promise<TokenHolderBalance[]>;
 ```
 **Returns:**
 
-Promise&lt;Record&lt;string, BigNumber&gt;&gt;
+Promise&lt;[TokenHolderBalance](./sdk.tokenholderbalance.md)\[\]&gt;
 
 - A JSON object of all token holders and their corresponding balances
 
