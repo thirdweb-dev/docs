@@ -13,7 +13,7 @@ Standard ERC20 functions
 **Signature:**
 
 ```typescript
-export declare class Erc20<T extends TokenERC20> implements UpdateableNetwork 
+export declare class Erc20<T extends TokenERC20 | DropERC20> implements UpdateableNetwork 
 ```
 **Implements:** UpdateableNetwork
 
@@ -44,6 +44,7 @@ export declare class Erc20<T extends TokenERC20> implements UpdateableNetwork
 |  [get()](./sdk.erc20.get.md) |  | Get the token Metadata (name, symbol, etc...) |
 |  [getAddress()](./sdk.erc20.getaddress.md) |  |  |
 |  [isTransferRestricted()](./sdk.erc20.istransferrestricted.md) |  | Get whether users can transfer tokens from this contract |
+|  [normalizeAmount(amount)](./sdk.erc20.normalizeamount.md) |  |  |
 |  [setAllowance(spender, amount)](./sdk.erc20.setallowance.md) |  | Allows the specified <code>spender</code> wallet to transfer the given <code>amount</code> of tokens to another wallet |
 |  [totalSupply()](./sdk.erc20.totalsupply.md) |  | The total supply for this Token |
 |  [transfer(to, amount)](./sdk.erc20.transfer.md) |  | Transfer Tokens |

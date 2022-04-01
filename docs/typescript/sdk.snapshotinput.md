@@ -13,5 +13,5 @@ Input model to pass a snapshot of addresses + amount claimable for a claim condi
 **Signature:**
 
 ```typescript
-export declare type SnapshotInput = z.output<typeof SnapshotInputSchema>;
+export declare type SnapshotInput = z.input<typeof SnapshotInputSchema>;
 ```
