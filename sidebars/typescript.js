@@ -81,6 +81,11 @@ const sidebars = {
         },
         {
           type: "doc",
+          label: "TokenDrop",
+          id: "sdk.tokendrop",
+        },
+        {
+          type: "doc",
           label: "Vote",
           id: "sdk.vote",
         },
