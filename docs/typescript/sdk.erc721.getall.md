@@ -20,7 +20,7 @@ getAll(queryParams?: QueryAllParams): Promise<NFTMetadataOwner[]>;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  queryParams | [QueryAllParams](./sdk.queryallparams.md) | optional filtering to only fetch a subset of results. |
+|  queryParams | [QueryAllParams](./sdk.queryallparams.md) | <i>(Optional)</i> optional filtering to only fetch a subset of results. |
 
 **Returns:**
 

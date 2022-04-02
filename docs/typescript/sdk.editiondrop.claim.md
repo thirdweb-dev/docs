@@ -22,7 +22,7 @@ claim(tokenId: BigNumberish, quantity: BigNumberish, proofs?: BytesLike[]): Prom
 |  --- | --- | --- |
 |  tokenId | BigNumberish | Id of the token you want to claim |
 |  quantity | BigNumberish | Quantity of the tokens you want to claim |
-|  proofs | BytesLike\[\] | Array of proofs |
+|  proofs | BytesLike\[\] | <i>(Optional)</i> Array of proofs |
 
 **Returns:**
 

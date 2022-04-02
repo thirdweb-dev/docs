@@ -20,7 +20,7 @@ getOwned(_address?: string): Promise<NFTMetadataOwner[]>;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  \_address | string |  |
+|  \_address | string | <i>(Optional)</i> |
 
 **Returns:**
 

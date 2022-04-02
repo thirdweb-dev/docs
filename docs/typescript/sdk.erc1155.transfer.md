@@ -23,7 +23,7 @@ transfer(to: string, tokenId: BigNumberish, amount: BigNumberish, data?: BytesLi
 |  to | string |  |
 |  tokenId | BigNumberish |  |
 |  amount | BigNumberish |  |
-|  data | BytesLike |  |
+|  data | BytesLike | <i>(Optional)</i> |
 
 **Returns:**
 

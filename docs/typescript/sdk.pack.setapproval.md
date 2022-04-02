@@ -19,7 +19,7 @@ setApproval(operator: string, approved?: boolean): Promise<TransactionResult>;
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  operator | string |  |
-|  approved | boolean |  |
+|  approved | boolean | <i>(Optional)</i> |
 
 **Returns:**
 
