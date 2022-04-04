@@ -20,7 +20,7 @@ export declare function useVote(contractAddress?: string): Vote | undefined;
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  contractAddress | string | the address of the Vote contract, found in your thirdweb dashboard |
+|  contractAddress | string | <i>(Optional)</i> the address of the Vote contract, found in your thirdweb dashboard |
 
 **Returns:**
 

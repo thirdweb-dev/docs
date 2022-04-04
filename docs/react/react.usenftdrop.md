@@ -20,7 +20,7 @@ export declare function useNFTDrop(contractAddress?: string): NFTDrop | undefine
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  contractAddress | string | the address of the NFT Drop contract, found in your thirdweb dashboard |
+|  contractAddress | string | <i>(Optional)</i> the address of the NFT Drop contract, found in your thirdweb dashboard |
 
 **Returns:**
 

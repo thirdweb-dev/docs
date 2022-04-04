@@ -20,7 +20,7 @@ export declare function useNFTCollection(contractAddress?: string): NFTCollectio
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  contractAddress | string | the address of the NFT Collection contract, found in your thirdweb dashboard |
+|  contractAddress | string | <i>(Optional)</i> the address of the NFT Collection contract, found in your thirdweb dashboard |
 
 **Returns:**
 

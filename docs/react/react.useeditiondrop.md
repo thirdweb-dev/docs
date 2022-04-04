@@ -20,7 +20,7 @@ export declare function useEditionDrop(contractAddress?: string): EditionDrop | 
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  contractAddress | string | the address of the Edition Drop contract, found in your thirdweb dashboard |
+|  contractAddress | string | <i>(Optional)</i> the address of the Edition Drop contract, found in your thirdweb dashboard |
 
 **Returns:**
 
