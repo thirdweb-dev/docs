@@ -13,15 +13,22 @@ Get all active listings
 **Signature:**
 
 ```typescript
-getActiveListings(): Promise<(AuctionListing | DirectListing)[]>;
+getActiveListings(filter?: MarketplaceFilter): Promise<(AuctionListing | DirectListing)[]>;
 ```
+
+## Parameters
+
+|  Parameter | Type | Description |
+|  --- | --- | --- |
+|  filter | [MarketplaceFilter](./sdk.marketplacefilter.md) | <i>(Optional)</i> optional filter parameters |
+
 **Returns:**
 
 Promise&lt;([AuctionListing](./sdk.auctionlisting.md) \| [DirectListing](./sdk.directlisting.md))\[\]&gt;
 
 ## Remarks
 
-Fetch all the active listings from this marketplace contract.
+Fetch all the active listings from this marketplace contract. An active listing means it can be bought or bid on.
 
 ## Example
 

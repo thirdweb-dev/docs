@@ -77,6 +77,7 @@ hide_title: true
 |  [IPackCreateArgs](./sdk.ipackcreateargs.md) |  |
 |  [IStorage](./sdk.istorage.md) |  |
 |  [MarketplaceContractDeployMetadata](./sdk.marketplacecontractdeploymetadata.md) | Options for deploying a Marketplace contract |
+|  [MarketplaceFilter](./sdk.marketplacefilter.md) |  |
 |  [NativeToken](./sdk.nativetoken.md) |  |
 |  [NewAuctionListing](./sdk.newauctionlisting.md) | Represents a new marketplace auction listing. |
 |  [NewDirectListing](./sdk.newdirectlisting.md) | Represents a new marketplace direct listing. |
