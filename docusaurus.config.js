@@ -77,7 +77,7 @@ const config = {
       posthog: {
         apiKey: "phc_hKK4bo8cHZrKuAVXfXGpfNSLSJuucUnguAgt2j6dgSV",
         appUrl: "https://a.thirdweb.com", // optional
-        enableInDevelopment: true, // optional
+        enableInDevelopment: false, // optional
       },
       colorMode: {
         respectPrefersColorScheme: true,
