@@ -62,6 +62,16 @@ const config = {
         // ... other options
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "python",
+        path: "docs/python",
+        routeBasePath: "python",
+        sidebarPath: require.resolve("./sidebars/python.js"),
+        // ... other options
+      },
+    ],
     "posthog-docusaurus",
   ],
 
