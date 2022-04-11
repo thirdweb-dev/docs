@@ -7,3 +7,6 @@
 [submodule "submodules/contracts"]
 	path = submodules/contracts
 	url = git@github.com:thirdweb-dev/contracts.git
+[submodule "submodules/python"]
+	path = submodules/python
+	url = https://github.com/thirdweb-dev/python-sdk.git
