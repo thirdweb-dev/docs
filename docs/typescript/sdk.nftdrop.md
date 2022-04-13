@@ -15,7 +15,7 @@ Setup a collection of one-of-one NFTs that are minted as users claim them.
 ```typescript
 export declare class NFTDrop extends Erc721<DropERC721> 
 ```
-**Extends:** [Erc721](./sdk.erc721.md)&lt;DropERC721
+**Extends:** [Erc721](./sdk.erc721.md)&lt;DropERC721&gt;
 
 ## Example
 
