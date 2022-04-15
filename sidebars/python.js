@@ -69,6 +69,11 @@ const sidebars = {
           label: "NFT Drop",
           id: "nft-drop",
         },
+        {
+          type: "doc",
+          label: "Edition Drop",
+          id: "edition-drop",
+        },
       ],
     },
     {
@@ -110,8 +115,13 @@ const sidebars = {
         },
         {
           type: "doc",
-          label: "Claim Conditions",
-          id: "drop-claim-conditions",
+          label: "NFT Drop Claim Conditions",
+          id: "nft-drop-claim-conditions",
+        },
+        {
+          type: "doc",
+          label: "Edition Drop Claim Conditions",
+          id: "edition-drop-claim-conditions",
         },
       ],
     },
