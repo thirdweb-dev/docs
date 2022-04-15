@@ -26,7 +26,12 @@ const sidebars = {
     {
       type: "doc",
       label: "ThirdwebSDK",
-      id: "thirdweb.core",
+      id: "sdk",
+    },
+    {
+      type: "doc",
+      label: "Deploying Contracts",
+      id: "contract-deployer",
     },
     {
       type: "category",
@@ -41,59 +46,137 @@ const sidebars = {
       items: [
         {
           type: "doc",
-          label: "Edition",
-          id: "thirdweb.contracts",
-        },
-        {
-          type: "doc",
-          label: "Marketplace",
-          id: "thirdweb.contracts",
-        },
-        {
-          type: "doc",
           label: "NFT Collection",
-          id: "thirdweb.contracts",
+          id: "nft-collection",
+        },
+        {
+          type: "doc",
+          label: "Edition",
+          id: "edition",
         },
         {
           type: "doc",
           label: "Token",
-          id: "thirdweb.contracts",
+          id: "token",
+        },
+        {
+          type: "doc",
+          label: "Marketplace",
+          id: "marketplace",
+        },
+        {
+          type: "doc",
+          label: "NFT Drop",
+          id: "nft-drop",
         },
       ],
     },
     {
       type: "category",
-      label: "Common Interfaces",
-      collapsed: false,
+      label: "Contract Interfaces",
+      collapsed: true,
       link: {
         type: "generated-index",
-        title: "Common Contract Interfaces",
+        title: "Contract Interfaces",
         description:
-          "Contract interfaces that are shared between different contracts.",
+          "Contract interfaces that extend the functionality of contracts.",
         keywords: ["contracts", "shared-interfaces"],
       },
       items: [
         {
           type: "doc",
           label: "ERC 20",
-          id: "thirdweb.core",
+          id: "erc20",
         },
         {
           type: "doc",
           label: "ERC 721",
-          id: "thirdweb.core",
+          id: "erc721",
         },
         {
           type: "doc",
           label: "ERC 1155",
-          id: "thirdweb.core",
+          id: "erc1155",
+        },
+        {
+          type: "doc",
+          label: "Direct Listing",
+          id: "marketplace-direct",
+        },
+        {
+          type: "doc",
+          label: "Auction Listing",
+          id: "marketplace-auction",
+        },
+        {
+          type: "doc",
+          label: "Claim Conditions",
+          id: "drop-claim-conditions",
         },
       ],
     },
     {
-      type: "doc",
-      id: "thirdweb",
-      label: "Full Reference",
+      type: "category",
+      label: "Signature Minting",
+      collapsed: true,
+      link: {
+        type: "generated-index",
+        title: "Signature Minting",
+        description:
+          "Signature based minting for contracts.",
+        keywords: ["contracts", "signature-minting"],
+      },
+      items: [
+        {
+          type: "doc",
+          label: "ERC 20 Signature Minting",
+          id: "erc20-signature-minting",
+        },
+        {
+          type: "doc",
+          label: "ERC 721 Signature Minting",
+          id: "erc721-signature-minting",
+        },
+        {
+          type: "doc",
+          label: "ERC 1155 Signature Minting",
+          id: "erc1155-signature-minting",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Contract Settings",
+      collapsed: true,
+      link: {
+        type: "generated-index",
+        title: "Contract Settings",
+        description:
+          "Interfaces to manage contract settings.",
+        keywords: ["contracts", "settings"],
+      },
+      items: [
+        {
+          type: "doc",
+          label: "Contract Metadata",
+          id: "contract-metadata",
+        },
+        {
+          type: "doc",
+          label: "Platform Fee",
+          id: "contract-platform-fee",
+        },
+        {
+          type: "doc",
+          label: "Royalties",
+          id: "contract-royalty",
+        },
+        {
+          type: "doc",
+          label: "Primary Sales",
+          id: "contract-sales",
+        },
+      ],
     },
   ],
 };

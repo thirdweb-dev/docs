@@ -9,7 +9,7 @@ const { readdir, createReadStream, writeFile, copyFile } = pkg;
 
 const outDir = "./docs/python";
 const packageRoot = "./submodules/python";
-const inDir = packageRoot + "/docs";
+const inDir = packageRoot + "/docs/docs";
 const readmePath = packageRoot + "/README.md";
 
 pkg.ensureDirSync(outDir);
