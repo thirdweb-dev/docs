@@ -10,7 +10,6 @@ const { readdir, createReadStream, writeFile, copyFile } = pkg;
 const outDir = "./docs/python";
 const packageRoot = "./submodules/python";
 const inDir = packageRoot + "/docs/docs";
-const readmePath = packageRoot + "/README.md";
 
 pkg.ensureDirSync(outDir);
 
@@ -83,11 +82,6 @@ async function main() {
       console.error(`Could not process ${docFile}: ${err}`);
     }
   }
-  await copyReadMe();
-}
-
-async function copyReadMe() {
-  await copyFile(readmePath, join(outDir, "index.md"));
 }
 
 main();
