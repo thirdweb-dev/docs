@@ -173,6 +173,11 @@ const sidebars = {
         },
         {
           type: "doc",
+          label: "Contract Roles",
+          id: "contract-roles",
+        },
+        {
+          type: "doc",
           label: "Platform Fee",
           id: "contract-platform-fee",
         },
@@ -187,6 +192,11 @@ const sidebars = {
           id: "contract-sales",
         },
       ],
+    },
+    {
+      type: "doc",
+      label: "Contract Events",
+      id: "contract-events",
     },
   ],
 };
