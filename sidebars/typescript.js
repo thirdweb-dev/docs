@@ -29,6 +29,11 @@ const sidebars = {
       id: "sdk.thirdwebsdk",
     },
     {
+      type: "doc",
+      label: "Deploying Contracts",
+      id: "sdk.contractdeployer",
+    },
+    {
       type: "category",
       label: "Contracts",
       collapsed: false,
@@ -93,13 +98,13 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Common Interfaces",
-      collapsed: false,
+      label: "Contract Interfaces",
+      collapsed: true,
       link: {
         type: "generated-index",
-        title: "Common Contract Interfaces",
+        title: "Contract Interfaces",
         description:
-          "Contract interfaces that are shared between different contracts.",
+          "Contract interfaces that extend the functionality of contracts",
         keywords: ["contracts", "shared-interfaces"],
       },
       items: [
@@ -118,7 +123,100 @@ const sidebars = {
           label: "ERC 1155",
           id: "sdk.erc1155",
         },
+        {
+          type: "doc",
+          label: "Direct Listing",
+          id: "sdk.erc1155",
+        },
+        {
+          type: "doc",
+          label: "Auction Listing",
+          id: "sdk.erc1155",
+        },
+        {
+          type: "doc",
+          label: "NFT Drop Claim Conditions",
+          id: "sdk.dropclaimconditions",
+        },
+        {
+          type: "doc",
+          label: "Edition Drop Claim Conditions",
+          id: "sdk.droperc1155claimconditions",
+        },
       ],
+    },
+    {
+      type: "category",
+      label: "Signature Minting",
+      collapsed: true,
+      link: {
+        type: "generated-index",
+        title: "Signature Minting",
+        description:
+          "Signature based minting for contracts.",
+        keywords: ["contracts", "signature-minting"],
+      },
+      items: [
+        {
+          type: "doc",
+          label: "ERC 20 Signature Minting",
+          id: "sdk.erc20signatureminting",
+        },
+        {
+          type: "doc",
+          label: "ERC 721 Signature Minting",
+          id: "sdk.erc721signatureminting",
+        },
+        {
+          type: "doc",
+          label: "ERC 1155 Signature Minting",
+          id: "sdk.erc1155signatureminting",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Contract Settings",
+      collapsed: true,
+      link: {
+        type: "generated-index",
+        title: "Contract Settings",
+        description:
+          "Interfaces to manage contract settings.",
+        keywords: ["contracts", "settings"],
+      },
+      items: [
+        {
+          type: "doc",
+          label: "Contract Metadata",
+          id: "sdk.contractmetadata",
+        },
+        {
+          type: "doc",
+          label: "Contract Roles",
+          id: "sdk.contractroles",
+        },
+        {
+          type: "doc",
+          label: "Platform Fee",
+          id: "sdk.contractplatformfee",
+        },
+        {
+          type: "doc",
+          label: "Royalties",
+          id: "sdk.contractroyalty",
+        },
+        {
+          type: "doc",
+          label: "Primary Sales",
+          id: "sdk.contractprimarysale",
+        },
+      ],
+    },
+    {
+      type: "doc",
+      label: "Contract Events",
+      id: "sdk.contractevents",
     },
     {
       type: "doc",
