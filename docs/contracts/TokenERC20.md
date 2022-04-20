@@ -967,7 +967,7 @@ function unpause() external nonpayable
 ### verify
 
 ```solidity
-function verify(ITokenERC20.MintRequest _req, bytes _signature) external view returns (bool, address)
+function verify(ITokenERC20.MintRequest _req, bytes _signature) external view returns (bool success, address signer)
 ```
 
 
@@ -985,8 +985,8 @@ function verify(ITokenERC20.MintRequest _req, bytes _signature) external view re
 
 | Name | Type | Description |
 |---|---|---|
-| _0 | bool | undefined
-| _1 | address | undefined
+| success | bool | undefined
+| signer | address | undefined
 
 
 

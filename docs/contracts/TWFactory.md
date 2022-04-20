@@ -57,7 +57,7 @@ function addImplementation(address _implementation) external nonpayable
 
 
 
-*Lets a contract admin set the address of a module type x version.*
+*Lets a contract admin set the address of a contract type x version.*
 
 #### Parameters
 
@@ -134,7 +134,7 @@ function deployProxy(bytes32 _type, bytes _data) external nonpayable returns (ad
 
 
 
-*Deploys a proxy that points to the latest version of the given module type.*
+*Deploys a proxy that points to the latest version of the given contract type.*
 
 #### Parameters
 
@@ -181,7 +181,7 @@ function deployProxyDeterministic(bytes32 _type, bytes _data, bytes32 _salt) ext
 
 
 
-*Deploys a proxy at a deterministic address by taking in `salt` as a parameter.       Proxy points to the latest version of the given module type.*
+*Deploys a proxy at a deterministic address by taking in `salt` as a parameter.       Proxy points to the latest version of the given contract type.*
 
 #### Parameters
 
@@ -227,7 +227,7 @@ function getImplementation(bytes32 _type, uint256 _version) external view return
 
 
 
-*Returns the implementation given a module type and version.*
+*Returns the implementation given a contract type and version.*
 
 #### Parameters
 
@@ -235,6 +235,28 @@ function getImplementation(bytes32 _type, uint256 _version) external view return
 |---|---|---|
 | _type | bytes32 | undefined
 | _version | uint256 | undefined
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined
+
+### getLatestImplementation
+
+```solidity
+function getLatestImplementation(bytes32 _type) external view returns (address)
+```
+
+
+
+*Returns the latest implementation given a contract type.*
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| _type | bytes32 | undefined
 
 #### Returns
 

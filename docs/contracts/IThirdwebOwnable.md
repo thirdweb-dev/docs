@@ -50,3 +50,23 @@ function setOwner(address _newOwner) external nonpayable
 
 
 
+## Events
+
+### OwnerUpdated
+
+```solidity
+event OwnerUpdated(address prevOwner, address newOwner)
+```
+
+
+
+*Emitted when a new Owner is set.*
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| prevOwner  | address | undefined |
+| newOwner  | address | undefined |
+
+

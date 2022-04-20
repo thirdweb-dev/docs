@@ -943,7 +943,7 @@ function transferFrom(address from, address to, uint256 tokenId) external nonpay
 ### verify
 
 ```solidity
-function verify(ITokenERC721.MintRequest _req, bytes _signature) external view returns (bool, address)
+function verify(ITokenERC721.MintRequest _req, bytes _signature) external view returns (bool success, address signer)
 ```
 
 
@@ -961,8 +961,8 @@ function verify(ITokenERC721.MintRequest _req, bytes _signature) external view r
 
 | Name | Type | Description |
 |---|---|---|
-| _0 | bool | undefined
-| _1 | address | undefined
+| success | bool | undefined
+| signer | address | undefined
 
 
 
@@ -1020,25 +1020,6 @@ event DefaultRoyalty(address newRoyaltyRecipient, uint256 newRoyaltyBps)
 |---|---|---|
 | newRoyaltyRecipient  | address | undefined |
 | newRoyaltyBps  | uint256 | undefined |
-
-### FundsWithdrawn
-
-```solidity
-event FundsWithdrawn(address indexed paymentReceiver, address feeRecipient, uint256 totalAmount, uint256 feeCollected)
-```
-
-
-
-
-
-#### Parameters
-
-| Name | Type | Description |
-|---|---|---|
-| paymentReceiver `indexed` | address | undefined |
-| feeRecipient  | address | undefined |
-| totalAmount  | uint256 | undefined |
-| feeCollected  | uint256 | undefined |
 
 ### OwnerUpdated
 
