@@ -18,6 +18,7 @@ hide_title: true
 |  [useDisconnect()](./react.usedisconnect.md) |  |
 |  [useEdition(contractAddress)](./react.useedition.md) | Returns a Edition contract instance |
 |  [useEditionDrop(contractAddress)](./react.useeditiondrop.md) | Returns a Edition Drop contract instance |
+|  [useMagic()](./react.usemagic.md) | Convienience hook for connecting to magic link |
 |  [useMarketplace(contractAddress)](./react.usemarketplace.md) | Returns a Marketplace contract instance |
 |  [useMetamask()](./react.usemetamask.md) | Convienience hook for connecting to a metamask (or any injected) wallet |
 |  [useNetworkMismatch()](./react.usenetworkmismatch.md) |  |
