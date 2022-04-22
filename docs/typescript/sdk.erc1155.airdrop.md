@@ -21,7 +21,7 @@ airdrop(tokenId: BigNumberish, addresses: AirdropInput, data?: BytesLike): Promi
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  tokenId | BigNumberish |  |
-|  addresses | AirdropInput |  |
+|  addresses | [AirdropInput](./sdk.airdropinput.md) |  |
 |  data | BytesLike | <i>(Optional)</i> |
 
 **Returns:**
