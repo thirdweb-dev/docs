@@ -67,6 +67,11 @@ const sidebars = {
         },
         {
           type: "doc",
+          label: "useMagic",
+          id: "react.usemagic",
+        },
+        {
+          type: "doc",
           label: "useDisconnect",
           id: "react.usedisconnect",
         },
