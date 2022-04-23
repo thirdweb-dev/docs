@@ -13,7 +13,7 @@ Returns a NFT Drop contract instance
 **Signature:**
 
 ```typescript
-declare function useNFTDrop(contractAddress?: string): NFTDrop | undefined;
+export declare function useNFTDrop(contractAddress?: string): NFTDrop | undefined;
 ```
 
 ## Parameters
