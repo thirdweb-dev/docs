@@ -1,12 +1,15 @@
 [submodule "submodules/typescript"]
 	path = submodules/typescript
 	url = https://github.com/thirdweb-dev/typescript-sdk
+	branch = byoc
 [submodule "submodules/react"]
 	path = submodules/react
 	url = https://github.com/thirdweb-dev/react
+	branch = byoc
 [submodule "submodules/contracts"]
 	path = submodules/contracts
 	url = git@github.com:thirdweb-dev/contracts.git
+	branch = byoc
 [submodule "submodules/python"]
 	path = submodules/python
 	url = https://github.com/thirdweb-dev/python-sdk.git

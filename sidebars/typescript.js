@@ -34,6 +34,11 @@ const sidebars = {
       id: "sdk.contractdeployer",
     },
     {
+      type: "doc",
+      label: "Custom Contracts",
+      id: "sdk.customcontract",
+    },
+    {
       type: "category",
       label: "Contracts",
       collapsed: false,

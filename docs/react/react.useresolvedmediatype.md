@@ -11,7 +11,7 @@ hide_title: true
 **Signature:**
 
 ```typescript
-export declare function useResolvedMediaType(uri?: string): {
+declare function useResolvedMediaType(uri?: string): {
     url: string | undefined;
     mimeType: string | undefined;
 };

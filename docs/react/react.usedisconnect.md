@@ -11,7 +11,7 @@ hide_title: true
 **Signature:**
 
 ```typescript
-export declare function useDisconnect(): () => void;
+declare function useDisconnect(): () => void;
 ```
 **Returns:**
 

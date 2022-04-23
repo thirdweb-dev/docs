@@ -18,110 +18,71 @@ hide_title: true
 ### approve
 
 ```solidity
-function approve(address to, uint256 tokenId) external nonpayable
+function approve(address _approved, uint256 _tokenId) external payable
 ```
 
+Change or reaffirm the approved address for an NFT
 
-
-*Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event.*
+*The zero address indicates there is no approved address.  Throws unless `msg.sender` is the current NFT owner, or an authorized  operator of the current owner.*
 
 #### Parameters
 
 | Name | Type | Description |
 |---|---|---|
-| to | address | undefined
-| tokenId | uint256 | undefined
+| _approved | address | The new approved NFT controller
+| _tokenId | uint256 | The NFT to approve
 
 ### balanceOf
 
 ```solidity
-function balanceOf(address owner) external view returns (uint256 balance)
+function balanceOf(address _owner) external view returns (uint256)
 ```
 
+Count all NFTs assigned to an owner
 
-
-*Returns the number of tokens in ``owner``&#39;s account.*
+*NFTs assigned to the zero address are considered invalid, and this  function throws for queries about the zero address.*
 
 #### Parameters
 
 | Name | Type | Description |
 |---|---|---|
-| owner | address | undefined
+| _owner | address | An address for whom to query the balance
 
 #### Returns
 
 | Name | Type | Description |
 |---|---|---|
-| balance | uint256 | undefined
-
-### burn
-
-```solidity
-function burn(uint256 tokenId) external nonpayable
-```
-
-
-
-*Burns `tokenId`. See {ERC721-_burn}. Requirements: - The caller must own `tokenId` or be an approved operator.*
-
-#### Parameters
-
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined
+| _0 | uint256 | The number of NFTs owned by `_owner`, possibly zero
 
 ### getApproved
 
 ```solidity
-function getApproved(uint256 tokenId) external view returns (address operator)
+function getApproved(uint256 _tokenId) external view returns (address)
 ```
 
+Get the approved address for a single NFT
 
-
-*Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist.*
+*Throws if `_tokenId` is not a valid NFT.*
 
 #### Parameters
 
 | Name | Type | Description |
 |---|---|---|
-| tokenId | uint256 | undefined
+| _tokenId | uint256 | The NFT to find the approved address for
 
 #### Returns
 
 | Name | Type | Description |
 |---|---|---|
-| operator | address | undefined
+| _0 | address | The approved address for this NFT, or the zero address if there is none
 
 ### isApprovedForAll
 
 ```solidity
-function isApprovedForAll(address owner, address operator) external view returns (bool)
+function isApprovedForAll(address _owner, address _operator) external view returns (bool)
 ```
 
-
-
-*Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}*
-
-#### Parameters
-
-| Name | Type | Description |
-|---|---|---|
-| owner | address | undefined
-| operator | address | undefined
-
-#### Returns
-
-| Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined
-
-### mintTo
-
-```solidity
-function mintTo(address to, string uri) external nonpayable returns (uint256)
-```
-
-Lets an account with MINTER_ROLE mint an NFT.
+Query if an address is an authorized operator for another address
 
 
 
@@ -129,37 +90,14 @@ Lets an account with MINTER_ROLE mint an NFT.
 
 | Name | Type | Description |
 |---|---|---|
-| to | address | The address to mint the NFT to.
-| uri | string | The URI to assign to the NFT.
+| _owner | address | The address that owns the NFTs
+| _operator | address | The address that acts on behalf of the owner
 
 #### Returns
 
 | Name | Type | Description |
 |---|---|---|
-| _0 | uint256 | tokenId of the NFT minted.
-
-### mintWithSignature
-
-```solidity
-function mintWithSignature(ITokenERC721.MintRequest req, bytes signature) external payable returns (uint256)
-```
-
-Mints an NFT according to the provided mint request.
-
-
-
-#### Parameters
-
-| Name | Type | Description |
-|---|---|---|
-| req | ITokenERC721.MintRequest | The mint request.
-| signature | bytes | he signature produced by an account signing the mint request.
-
-#### Returns
-
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| _0 | bool | True if `_operator` is an approved operator for `_owner`, false otherwise
 
 ### name
 
@@ -167,9 +105,9 @@ Mints an NFT according to the provided mint request.
 function name() external view returns (string)
 ```
 
+A descriptive name for a collection of NFTs in this contract
 
 
-*Returns the token collection name.*
 
 
 #### Returns
@@ -181,82 +119,60 @@ function name() external view returns (string)
 ### ownerOf
 
 ```solidity
-function ownerOf(uint256 tokenId) external view returns (address owner)
+function ownerOf(uint256 _tokenId) external view returns (address)
 ```
 
+Find the owner of an NFT
 
-
-*Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist.*
+*NFTs assigned to zero address are considered invalid, and queries  about them do throw.*
 
 #### Parameters
 
 | Name | Type | Description |
 |---|---|---|
-| tokenId | uint256 | undefined
+| _tokenId | uint256 | The identifier for an NFT
 
 #### Returns
 
 | Name | Type | Description |
 |---|---|---|
-| owner | address | undefined
+| _0 | address | The address of the owner of the NFT
 
 ### safeTransferFrom
 
 ```solidity
-function safeTransferFrom(address from, address to, uint256 tokenId, bytes data) external nonpayable
+function safeTransferFrom(address _from, address _to, uint256 _tokenId, bytes data) external payable
 ```
 
+Transfers the ownership of an NFT from one address to another address
 
-
-*Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.*
+*Throws unless `msg.sender` is the current owner, an authorized  operator, or the approved address for this NFT. Throws if `_from` is  not the current owner. Throws if `_to` is the zero address. Throws if  `_tokenId` is not a valid NFT. When transfer is complete, this function  checks if `_to` is a smart contract (code size &gt; 0). If so, it calls  `onERC721Received` on `_to` and throws if the return value is not  `bytes4(keccak256(&quot;onERC721Received(address,address,uint256,bytes)&quot;))`.*
 
 #### Parameters
 
 | Name | Type | Description |
 |---|---|---|
-| from | address | undefined
-| to | address | undefined
-| tokenId | uint256 | undefined
-| data | bytes | undefined
+| _from | address | The current owner of the NFT
+| _to | address | The new owner
+| _tokenId | uint256 | The NFT to transfer
+| data | bytes | Additional data with no specified format, sent in call to `_to`
 
 ### setApprovalForAll
 
 ```solidity
-function setApprovalForAll(address operator, bool _approved) external nonpayable
+function setApprovalForAll(address _operator, bool _approved) external nonpayable
 ```
 
+Enable or disable approval for a third party (&quot;operator&quot;) to manage  all of `msg.sender`&#39;s assets
 
-
-*Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event.*
+*Emits the ApprovalForAll event. The contract MUST allow  multiple operators per owner.*
 
 #### Parameters
 
 | Name | Type | Description |
 |---|---|---|
-| operator | address | undefined
-| _approved | bool | undefined
-
-### supportsInterface
-
-```solidity
-function supportsInterface(bytes4 interfaceId) external view returns (bool)
-```
-
-
-
-*Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas.*
-
-#### Parameters
-
-| Name | Type | Description |
-|---|---|---|
-| interfaceId | bytes4 | undefined
-
-#### Returns
-
-| Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined
+| _operator | address | Address to add to the set of authorized operators
+| _approved | bool | True if the operator is approved, false to revoke approval
 
 ### symbol
 
@@ -264,9 +180,9 @@ function supportsInterface(bytes4 interfaceId) external view returns (bool)
 function symbol() external view returns (string)
 ```
 
+An abbreviated name for NFTs in this contract
 
 
-*Returns the token collection symbol.*
 
 
 #### Returns
@@ -278,63 +194,63 @@ function symbol() external view returns (string)
 ### tokenByIndex
 
 ```solidity
-function tokenByIndex(uint256 index) external view returns (uint256)
+function tokenByIndex(uint256 _index) external view returns (uint256)
 ```
 
+Enumerate valid NFTs
 
-
-*Returns a token ID at a given `index` of all the tokens stored by the contract. Use along with {totalSupply} to enumerate all tokens.*
+*Throws if `_index` &gt;= `totalSupply()`.*
 
 #### Parameters
 
 | Name | Type | Description |
 |---|---|---|
-| index | uint256 | undefined
+| _index | uint256 | A counter less than `totalSupply()`
 
 #### Returns
 
 | Name | Type | Description |
 |---|---|---|
-| _0 | uint256 | undefined
+| _0 | uint256 | The token identifier for the `_index`th NFT,  (sort order not specified)
 
 ### tokenOfOwnerByIndex
 
 ```solidity
-function tokenOfOwnerByIndex(address owner, uint256 index) external view returns (uint256)
+function tokenOfOwnerByIndex(address _owner, uint256 _index) external view returns (uint256)
 ```
 
+Enumerate NFTs assigned to an owner
 
-
-*Returns a token ID owned by `owner` at a given `index` of its token list. Use along with {balanceOf} to enumerate all of ``owner``&#39;s tokens.*
+*Throws if `_index` &gt;= `balanceOf(_owner)` or if  `_owner` is the zero address, representing invalid NFTs.*
 
 #### Parameters
 
 | Name | Type | Description |
 |---|---|---|
-| owner | address | undefined
-| index | uint256 | undefined
+| _owner | address | An address where we are interested in NFTs owned by them
+| _index | uint256 | A counter less than `balanceOf(_owner)`
 
 #### Returns
 
 | Name | Type | Description |
 |---|---|---|
-| _0 | uint256 | undefined
+| _0 | uint256 | The token identifier for the `_index`th NFT assigned to `_owner`,   (sort order not specified)
 
 ### tokenURI
 
 ```solidity
-function tokenURI(uint256 tokenId) external view returns (string)
+function tokenURI(uint256 _tokenId) external view returns (string)
 ```
 
+A distinct Uniform Resource Identifier (URI) for a given asset.
 
-
-*Returns the Uniform Resource Identifier (URI) for `tokenId` token.*
+*Throws if `_tokenId` is not a valid NFT. URIs are defined in RFC  3986. The URI may point to a JSON file that conforms to the &quot;ERC721  Metadata JSON Schema&quot;.*
 
 #### Parameters
 
 | Name | Type | Description |
 |---|---|---|
-| tokenId | uint256 | undefined
+| _tokenId | uint256 | undefined
 
 #### Returns
 
@@ -348,58 +264,34 @@ function tokenURI(uint256 tokenId) external view returns (string)
 function totalSupply() external view returns (uint256)
 ```
 
+Count NFTs tracked by this contract
 
 
-*Returns the total amount of tokens stored by the contract.*
 
 
 #### Returns
 
 | Name | Type | Description |
 |---|---|---|
-| _0 | uint256 | undefined
+| _0 | uint256 | A count of valid NFTs tracked by this contract, where each one of  them has an assigned and queryable owner not equal to the zero address
 
 ### transferFrom
 
 ```solidity
-function transferFrom(address from, address to, uint256 tokenId) external nonpayable
+function transferFrom(address _from, address _to, uint256 _tokenId) external payable
 ```
 
+Transfer ownership of an NFT -- THE CALLER IS RESPONSIBLE  TO CONFIRM THAT `_to` IS CAPABLE OF RECEIVING NFTS OR ELSE  THEY MAY BE PERMANENTLY LOST
 
-
-*Transfers `tokenId` token from `from` to `to`. WARNING: Usage of this method is discouraged, use {safeTransferFrom} whenever possible. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event.*
+*Throws unless `msg.sender` is the current owner, an authorized  operator, or the approved address for this NFT. Throws if `_from` is  not the current owner. Throws if `_to` is the zero address. Throws if  `_tokenId` is not a valid NFT.*
 
 #### Parameters
 
 | Name | Type | Description |
 |---|---|---|
-| from | address | undefined
-| to | address | undefined
-| tokenId | uint256 | undefined
-
-### verify
-
-```solidity
-function verify(ITokenERC721.MintRequest req, bytes signature) external view returns (bool success, address signer)
-```
-
-Verifies that a mint request is signed by an account holding         MINTER_ROLE (at the time of the function call).
-
-
-
-#### Parameters
-
-| Name | Type | Description |
-|---|---|---|
-| req | ITokenERC721.MintRequest | The mint request.
-| signature | bytes | The signature produced by an account signing the mint request.  returns (success, signer) Result of verification and the recovered address.
-
-#### Returns
-
-| Name | Type | Description |
-|---|---|---|
-| success | bool | undefined
-| signer | address | undefined
+| _from | address | The current owner of the NFT
+| _to | address | The new owner
+| _tokenId | uint256 | The NFT to transfer
 
 
 
@@ -408,7 +300,7 @@ Verifies that a mint request is signed by an account holding         MINTER_ROLE
 ### Approval
 
 ```solidity
-event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
+event Approval(address indexed _owner, address indexed _approved, uint256 indexed _tokenId)
 ```
 
 
@@ -419,14 +311,14 @@ event Approval(address indexed owner, address indexed approved, uint256 indexed 
 
 | Name | Type | Description |
 |---|---|---|
-| owner `indexed` | address | undefined |
-| approved `indexed` | address | undefined |
-| tokenId `indexed` | uint256 | undefined |
+| _owner `indexed` | address | undefined |
+| _approved `indexed` | address | undefined |
+| _tokenId `indexed` | uint256 | undefined |
 
 ### ApprovalForAll
 
 ```solidity
-event ApprovalForAll(address indexed owner, address indexed operator, bool approved)
+event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved)
 ```
 
 
@@ -437,51 +329,14 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 
 | Name | Type | Description |
 |---|---|---|
-| owner `indexed` | address | undefined |
-| operator `indexed` | address | undefined |
-| approved  | bool | undefined |
-
-### TokensMinted
-
-```solidity
-event TokensMinted(address indexed mintedTo, uint256 indexed tokenIdMinted, string uri)
-```
-
-
-
-*Emitted when an account with MINTER_ROLE mints an NFT.*
-
-#### Parameters
-
-| Name | Type | Description |
-|---|---|---|
-| mintedTo `indexed` | address | undefined |
-| tokenIdMinted `indexed` | uint256 | undefined |
-| uri  | string | undefined |
-
-### TokensMintedWithSignature
-
-```solidity
-event TokensMintedWithSignature(address indexed signer, address indexed mintedTo, uint256 indexed tokenIdMinted, ITokenERC721.MintRequest mintRequest)
-```
-
-
-
-*Emitted when tokens are minted.*
-
-#### Parameters
-
-| Name | Type | Description |
-|---|---|---|
-| signer `indexed` | address | undefined |
-| mintedTo `indexed` | address | undefined |
-| tokenIdMinted `indexed` | uint256 | undefined |
-| mintRequest  | ITokenERC721.MintRequest | undefined |
+| _owner `indexed` | address | undefined |
+| _operator `indexed` | address | undefined |
+| _approved  | bool | undefined |
 
 ### Transfer
 
 ```solidity
-event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
+event Transfer(address indexed _from, address indexed _to, uint256 indexed _tokenId)
 ```
 
 
@@ -492,8 +347,8 @@ event Transfer(address indexed from, address indexed to, uint256 indexed tokenId
 
 | Name | Type | Description |
 |---|---|---|
-| from `indexed` | address | undefined |
-| to `indexed` | address | undefined |
-| tokenId `indexed` | uint256 | undefined |
+| _from `indexed` | address | undefined |
+| _to `indexed` | address | undefined |
+| _tokenId `indexed` | uint256 | undefined |
 
 
