@@ -80,6 +80,11 @@ const sidebars = {
           label: "useNetwork",
           id: "react.usenetwork",
         },
+        {
+          type: "doc",
+          label: "useCustomContract",
+          id: "react.usecustomcontract",
+        },
       ],
     },
     {

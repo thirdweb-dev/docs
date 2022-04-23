@@ -24,7 +24,7 @@ getCustomContractFromAbi(address: string, abi: ContractInterface): CustomContrac
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  address | string | the address of the deployed contract |
-|  abi | ContractInterface |  |
+|  abi | ContractInterface | the JSON abi |
 
 **Returns:**
 

@@ -13,7 +13,7 @@ Returns a Token contract instance
 **Signature:**
 
 ```typescript
-export declare function useToken(contractAddress?: string): Token | undefined;
+declare function useToken(contractAddress?: string): Token | undefined;
 ```
 
 ## Parameters

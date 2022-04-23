@@ -8,41 +8,18 @@ hide_title: true
 
 ## useMagic() function
 
-Convienience hook for connecting to magic link (email wallet).
+Convienience hook for connecting to magic link
 
 **Signature:**
 
 ```typescript
-export declare function useMagic(): (configuration: LoginWithMagicLinkConfiguration) => Promise<{
-    data?: import("wagmi-core").ConnectorData<any> | undefined;
+declare function useMagic(): (configuration: LoginWithMagicLinkConfiguration) => Promise<{
+    data?: wagmi_core.ConnectorData<any> | undefined;
     error?: Error | undefined;
 }>;
 ```
 **Returns:**
 
-(configuration: LoginWithMagicLinkConfiguration) =&gt; Promise&lt;{ data?: import("wagmi-core").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;
+(configuration: LoginWithMagicLinkConfiguration) =&gt; Promise&lt;{ data?: wagmi\_core.ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;
 
-a function that will prompt the user to connect their magic link, given an email.
-
-## Example
-
-In order to use the hook to connect users with magic link, you just need to provide the users email to the connect function.
-
-You can setup the hook with the following configuration:
-
-```javascript
-import { useMagic } from "@thirdweb-dev/react"
-import { useState } from "react"
-
-const LoginWithMagicLink = () => {
-  const connectWithMagic = useMagic()
-  const [email, setEmail] = useState()
-
-  return (
-    <div>
-      <input value={email} onChange={(e) => setEmail(e.target.value)} />
-      <button onClick={() => connectWithMagic({ email })}>Login</button>
-    </div>
-  )
-}
-```
+a function that will prompt the user to connect their magic link

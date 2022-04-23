@@ -13,7 +13,7 @@ Returns a Pack contract instance
 **Signature:**
 
 ```typescript
-export declare function usePack(contractAddress?: string): Pack | undefined;
+declare function usePack(contractAddress?: string): Pack | undefined;
 ```
 
 ## Parameters

@@ -13,7 +13,7 @@ Returns a Edition Drop contract instance
 **Signature:**
 
 ```typescript
-export declare function useEditionDrop(contractAddress?: string): EditionDrop | undefined;
+declare function useEditionDrop(contractAddress?: string): EditionDrop | undefined;
 ```
 
 ## Parameters

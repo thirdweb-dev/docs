@@ -13,7 +13,7 @@ Returns a NFT Collection contract instance
 **Signature:**
 
 ```typescript
-export declare function useNFTCollection(contractAddress?: string): NFTCollection | undefined;
+declare function useNFTCollection(contractAddress?: string): NFTCollection | undefined;
 ```
 
 ## Parameters
