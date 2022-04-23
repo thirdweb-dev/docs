@@ -15,22 +15,15 @@ hide_title: true
 |  [useAddress()](./react.useaddress.md) |  |
 |  [useChainId()](./react.usechainid.md) |  |
 |  [useCoinbaseWallet()](./react.usecoinbasewallet.md) | Convienience hook for connecting to a wallet via Coinbase Wallet |
-|  [useContractMetadata(contractAddress)](./react.usecontractmetadata.md) | **<i>(BETA)</i>** Use this to get the contract metadata for a (built-in or custom) contract. |
-|  [useContractPublishMetadata(contractAddress)](./react.usecontractpublishmetadata.md) | **<i>(BETA)</i>** Use this to get the publish metadata for a deployed contract. |
-|  [useContractType(contractAddress)](./react.usecontracttype.md) | **<i>(BETA)</i>** Use this to get the contract type for a (built-in or custom) contract. |
-|  [useCustomContract(contractAddress)](./react.usecustomcontract.md) | **<i>(BETA)</i>** Use this resolve a contract address to a thirdweb (built-in / custom) contract instance. |
 |  [useDisconnect()](./react.usedisconnect.md) |  |
 |  [useEdition(contractAddress)](./react.useedition.md) | Returns a Edition contract instance |
 |  [useEditionDrop(contractAddress)](./react.useeditiondrop.md) | Returns a Edition Drop contract instance |
-|  [useMagic()](./react.usemagic.md) | Convienience hook for connecting to magic link |
+|  [useMagic()](./react.usemagic.md) | Convienience hook for connecting to magic link (email wallet). |
 |  [useMarketplace(contractAddress)](./react.usemarketplace.md) | Returns a Marketplace contract instance |
 |  [useMetamask()](./react.usemetamask.md) | Convienience hook for connecting to a metamask (or any injected) wallet |
 |  [useNetworkMismatch()](./react.usenetworkmismatch.md) |  |
 |  [useNFTCollection(contractAddress)](./react.usenftcollection.md) | Returns a NFT Collection contract instance |
 |  [useNFTDrop(contractAddress)](./react.usenftdrop.md) | Returns a NFT Drop contract instance |
-|  [useNFTList(contract, queryParams)](./react.usenftlist.md) | **<i>(BETA)</i>** Use this to get a list of NFT tokens of your ERC721 contract. |
-|  [useNFTMint(contract, toAddress)](./react.usenftmint.md) | **<i>(BETA)</i>** Use this to mint a new NFT on your ERC721 contract |
-|  [useNFTSupply(contract)](./react.usenftsupply.md) | **<i>(BETA)</i>** Use this to get a the total (minted) supply of your ERC721 contract. |
 |  [usePack(contractAddress)](./react.usepack.md) | Returns a Pack contract instance |
 |  [useResolvedMediaType(uri)](./react.useresolvedmediatype.md) |  |
 |  [useSplit(contractAddress)](./react.usesplit.md) | Returns a Split contract instance |

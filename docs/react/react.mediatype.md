@@ -11,7 +11,7 @@ hide_title: true
 **Signature:**
 
 ```typescript
-interface MediaType 
+export interface MediaType 
 ```
 
 ## Properties
