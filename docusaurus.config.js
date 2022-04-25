@@ -29,10 +29,6 @@ const config = {
           id: "typescript",
           path: "docs/typescript",
           routeBasePath: "typescript",
-
-          // Please change this to your repo.
-          // editUrl:
-          //   "https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/",
         },
         blog: false,
         theme: {
