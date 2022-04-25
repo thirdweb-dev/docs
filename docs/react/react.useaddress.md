@@ -11,7 +11,7 @@ hide_title: true
 **Signature:**
 
 ```typescript
-declare function useAddress(): string | undefined;
+export declare function useAddress(): string | undefined;
 ```
 **Returns:**
 

@@ -11,7 +11,7 @@ hide_title: true
 **Signature:**
 
 ```typescript
-declare function useChainId(): number | undefined;
+export declare function useChainId(): number | undefined;
 ```
 **Returns:**
 
