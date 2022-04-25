@@ -12,5 +12,5 @@ hide_title: true
 **Signature:**
 
 ```typescript
-ALL_ROLES: ("transfer" | "lister" | "admin" | "minter" | "pauser" | "editor" | "asset")[]
+ALL_ROLES: ("admin" | "transfer" | "minter" | "pauser" | "editor" | "lister" | "asset")[]
 ```

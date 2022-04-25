@@ -15,7 +15,7 @@ Create a standard crypto token or cryptocurrency.
 ```typescript
 export declare class Token extends Erc20<TokenERC20> 
 ```
-**Extends:** [Erc20](./sdk.erc20.md)&lt;TokenERC20
+**Extends:** [Erc20](./sdk.erc20.md)&lt;TokenERC20&gt;
 
 ## Example
 
@@ -55,13 +55,10 @@ const contract = sdk.getToken("{{contract_address}}");
 
 |  Method | Modifiers | Description |
 |  --- | --- | --- |
-|  [burn(amount)](./sdk.token.burn.md) |  | Burn Tokens |
-|  [burnFrom(holder, amount)](./sdk.token.burnfrom.md) |  | Burn Tokens |
 |  [getDelegation()](./sdk.token.getdelegation.md) |  | Get your voting delegatee address |
 |  [getDelegationOf(account)](./sdk.token.getdelegationof.md) |  | Get a specific address voting delegatee address |
 |  [getVoteBalance()](./sdk.token.getvotebalance.md) |  | Get your wallet voting power for the current checkpoints |
 |  [getVoteBalanceOf(account)](./sdk.token.getvotebalanceof.md) |  |  |
-|  [isTransferRestricted()](./sdk.token.istransferrestricted.md) |  | Get whether users can transfer tokens from this contract |
 |  [mint(amount)](./sdk.token.mint.md) |  | Mint Tokens for the connected wallet |
 |  [mintBatchTo(args)](./sdk.token.mintbatchto.md) |  | Mint Tokens To Many Wallets |
 |  [mintTo(to, amount)](./sdk.token.mintto.md) |  | Mint Tokens |

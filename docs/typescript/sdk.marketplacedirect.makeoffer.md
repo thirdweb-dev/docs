@@ -13,7 +13,7 @@ Make an offer for a Direct Listing
 **Signature:**
 
 ```typescript
-makeOffer(listingId: BigNumberish, quantityDesired: BigNumberish, currencyContractAddress: string, pricePerToken: Price, expirationDate?: Date): Promise<TransactionResult>;
+makeOffer(listingId: BigNumberish, quantityDesired: BigNumberish, currencyContractAddress: string, pricePerToken: Price): Promise<TransactionResult>;
 ```
 
 ## Parameters
@@ -24,7 +24,6 @@ makeOffer(listingId: BigNumberish, quantityDesired: BigNumberish, currencyContra
 |  quantityDesired | BigNumberish |  |
 |  currencyContractAddress | string |  |
 |  pricePerToken | [Price](./sdk.price.md) |  |
-|  expirationDate | Date | <i>(Optional)</i> |
 
 **Returns:**
 

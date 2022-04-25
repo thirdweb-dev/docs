@@ -15,8 +15,14 @@ Return all the contracts deployed by the specified address
 ```typescript
 getContractList(walletAddress: string): Promise<{
         address: string;
-        contractType: "custom" | "token" | "pack" | "split" | "edition-drop" | "edition" | "token-drop" | "vote" | "marketplace" | "nft-drop" | "nft-collection";
-        metadata: () => Promise<any>;
+        contractType: "split" | "edition-drop" | "edition" | "token" | "token-drop" | "vote" | "marketplace" | "pack" | "nft-drop" | "nft-collection";
+        metadata: () => Promise<{
+            [x: string]: import("./types").Json;
+            description?: string | undefined;
+            image?: string | undefined;
+            external_link?: string | undefined;
+            name: string;
+        }>;
     }[]>;
 ```
 
@@ -28,4 +34,4 @@ getContractList(walletAddress: string): Promise<{
 
 **Returns:**
 
-Promise&lt;{ address: string; contractType: "custom" \| "token" \| "pack" \| "split" \| "edition-drop" \| "edition" \| "token-drop" \| "vote" \| "marketplace" \| "nft-drop" \| "nft-collection"; metadata: () =&gt; Promise&lt;any&gt;; }\[\]&gt;
+Promise&lt;{ address: string; contractType: "split" \| "edition-drop" \| "edition" \| "token" \| "token-drop" \| "vote" \| "marketplace" \| "pack" \| "nft-drop" \| "nft-collection"; metadata: () =&gt; Promise&lt;{ \[x: string\]: import("./types").[Json](./sdk.json.md); description?: string \| undefined; image?: string \| undefined; external\_link?: string \| undefined; name: string; }&gt;; }\[\]&gt;
