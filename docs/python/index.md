@@ -1,8 +1,3 @@
----
-slug: /index
-title: Installation
-hide_title: true
----
 # Getting Started
 
 The thirdweb SDK for Python. Currently supports Mainnet, Rinkeby, Goerli, Polygon, and Mumbai.
