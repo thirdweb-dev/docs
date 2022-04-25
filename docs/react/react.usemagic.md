@@ -8,7 +8,7 @@ hide_title: true
 
 ## useMagic() function
 
-Hook for connecting to an email wallet using magic link
+Hook for connecting to an email wallet using magic link. This enables users without their own wallets to connect to your application and sign transactions securely using their email.
 
 ```javascript
 import { useMagic } from "@thirdweb-dev/react"
