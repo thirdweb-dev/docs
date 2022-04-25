@@ -8,7 +8,7 @@ hide_title: true
 
 ## useSplit() function
 
-Returns a Split contract instance
+Hook for getting an instance of a `Split` contract. This contract supports fund distribution to multiple parties.
 
 **Signature:**
 
@@ -25,3 +25,26 @@ export declare function useSplit(contractAddress?: string): Split | undefined;
 **Returns:**
 
 Split \| undefined
+
+## Example
+
+
+```javascript
+import { useSplit } from '@thirdweb/react-hooks'
+
+const App = () => {
+  const split = useSplit("<YOUR-CONTRACT-ADDRESS>")
+
+  // Now you can use the split contract in the rest of the component
+
+  // For example, this function will retrun all the receipients of the split
+  async function getRecipients() {
+    const recipients = await split.getAllRecipients()
+    return recipients
+  }
+
+  return (
+    ...
+  )
+}
+```

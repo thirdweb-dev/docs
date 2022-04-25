@@ -13,7 +13,7 @@
   --ifm-color-primary-light: #b875f8;
   --ifm-color-primary-lighter: #c085f9;
   --ifm-color-primary-lightest: #d9b4fb;
-  --ifm-code-font-size: 95%;
+  --ifm-code-font-size: 90%; /*95%;*/
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -27,6 +27,27 @@ html[data-theme="dark"] {
   --ifm-color-primary-lightest: #d9b4fb;
 }
 
+@media screen and (max-width: 996px) {
+  :root {
+    --ifm-font-size-base: 18px;
+  }
+  article header h1 {
+    font-size: 1.5rem !important;
+  }
+  .hero .hero__title {
+    font-size: 2.5rem;
+  }
+}
+
+@media screen and (min-width: 997px) {
+  :root {
+    --ifm-font-size-base: 17px;
+  }
+  article header h1 {
+    font-size: 2rem !important;
+  }
+}
+
 .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.1);
   display: block;
@@ -34,6 +55,26 @@ html[data-theme="dark"] {
   padding: 0 var(--ifm-pre-padding);
 }
 
+.theme-doc-sidebar-container {
+  margin-right: auto;
+}
+
 html[data-theme="dark"] .docusaurus-highlight-code-line {
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+article {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Adjust footer link colors */
+#__docusaurus > footer > div > div.text--center > div > a {
+  color: unset;
+}
+
+#__docusaurus > footer > div > div.text--center > div > a:hover {
+  color: var(--ifm-link-color);
+  text-decoration: underline;
 }
