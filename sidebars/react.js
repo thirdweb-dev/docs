@@ -85,6 +85,11 @@ const sidebars = {
         },
         {
           type: "doc",
+          label: "useNetwork",
+          id: "react.usenetwork",
+        },
+        {
+          type: "doc",
           label: "useNetworkMismatch",
           id: "react.usenetworkmismatch",
         },
