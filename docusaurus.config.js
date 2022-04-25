@@ -94,7 +94,6 @@ const config = {
       },
       navbar: {
         hideOnScroll: true,
-        // title: "thirdweb SDK",
         logo: {
           alt: "thirdweb SDK",
           src: "img/thirdweb.png",

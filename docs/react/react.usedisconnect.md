@@ -8,6 +8,28 @@ hide_title: true
 
 ## useDisconnect() function
 
+Hook for disconnecting the currently connected wallet
+
+```javascript
+import { useDisconnect } from "@thirdweb-dev/react"
+```
+\#\# Usage
+
+```javascript
+import { useDisconnect } from "@thirdweb-dev/react"
+
+const App = () => {
+  const disconnect = useDisconnect()
+
+  return (
+    <button onClick={disconnect}>
+      Disconnect
+    </button>
+  )
+}
+```
+\#\# Types
+
 **Signature:**
 
 ```typescript
@@ -16,5 +38,3 @@ export declare function useDisconnect(): () => void;
 **Returns:**
 
 () =&gt; void
-
-a function to call to disconnect the connected wallet
