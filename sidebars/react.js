@@ -33,7 +33,7 @@ const sidebars = {
           "Hooks to let users connect and disconnect their wallets.",
         keywords: ["wallet", "connection"],
       },
-      collapsed: false,
+      collapsed: true,
       items: [
         {
           type: "doc",
@@ -145,6 +145,24 @@ const sidebars = {
           type: "doc",
           label: "useVote",
           id: "react.usevote",
+        },
+      ],
+    },
+    {
+      type: "category",
+      label: "Components",
+      collapsed: true,
+      link: {
+        type: "generated-index",
+        title: "Components",
+        description: "Convenient react components that give you out-of-the-box functionality",
+        keywords: ["general", "hooks"],
+      },
+      items: [
+        {
+          type: "doc",
+          label: "Media Renderer",
+          id: "react.mediarenderer",
         },
       ],
     },
