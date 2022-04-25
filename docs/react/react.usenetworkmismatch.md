@@ -25,7 +25,8 @@ boolean
 
 `true` if the chainId of the connected wallet is different from the desired chainId passed into <ThirdwebProvider />
 
-\#\# Usage
+## Example
+
 
 ```javascript
 import { useNetworkMismatch } from "@thirdweb-dev/react"
@@ -36,4 +37,3 @@ const App = () => {
   return <div>{isMismatched}</div>
 }
 ```
-\#\# Types

@@ -57,6 +57,9 @@ async function main() {
         if (line.includes("<b>")) {
           line = line.replace(/<b>/g, "**");
         }
+        if (line.includes("\#\#")) {
+          line = line.replace(/\\#\\#/g, "**");
+        }
         if (line.includes("</b>")) {
           line = line.replace(/<\/b>/g, "**");
         }

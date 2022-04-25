@@ -8,7 +8,7 @@ hide_title: true
 
 ## usePack() function
 
-Returns a Pack contract instance
+Hook for getting an instance of a `Pack` contract. This contract supports the creation of on-chain luck-based lootboxes.
 
 **Signature:**
 
@@ -25,3 +25,18 @@ export declare function usePack(contractAddress?: string): Pack | undefined;
 **Returns:**
 
 Pack \| undefined
+
+## Example
+
+
+```javascript
+import { usePack } from '@thirdweb/react-hooks'
+
+const App = () => {
+  const pack = usePack("<YOUR-CONTRACT-ADDRESS>")
+
+  // Now you can use the pack contract in the rest of the component
+
+  ...
+}
+```

@@ -13,7 +13,18 @@ Hook for disconnecting the currently connected wallet
 ```javascript
 import { useDisconnect } from "@thirdweb-dev/react"
 ```
-\#\# Usage
+
+**Signature:**
+
+```typescript
+export declare function useDisconnect(): () => void;
+```
+**Returns:**
+
+() =&gt; void
+
+## Example
+
 
 ```javascript
 import { useDisconnect } from "@thirdweb-dev/react"
@@ -28,13 +39,3 @@ const App = () => {
   )
 }
 ```
-\#\# Types
-
-**Signature:**
-
-```typescript
-export declare function useDisconnect(): () => void;
-```
-**Returns:**
-
-() =&gt; void

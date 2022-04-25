@@ -13,7 +13,18 @@ Hook for accessing the chain ID of the network the current wallet is connected t
 ```javascript
 import { useChainId } from "@thirdweb-dev/react"
 ```
-\#\# Usage
+
+**Signature:**
+
+```typescript
+export declare function useChainId(): number | undefined;
+```
+**Returns:**
+
+number \| undefined
+
+## Example
+
 
 ```javascript
 import { useChainId } from "@thirdweb-dev/react"
@@ -24,13 +35,3 @@ const App = () => {
   return <div>{chainId}</div>
 }
 ```
-\#\# Types
-
-**Signature:**
-
-```typescript
-export declare function useChainId(): number | undefined;
-```
-**Returns:**
-
-number \| undefined

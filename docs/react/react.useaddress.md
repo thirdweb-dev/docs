@@ -13,7 +13,18 @@ Hook for accessing the address of the connected wallet
 ```javascript
 import { useAddress } from "@thirdweb-dev/react"
 ```
-\#\# Usage
+
+**Signature:**
+
+```typescript
+export declare function useAddress(): string | undefined;
+```
+**Returns:**
+
+string \| undefined
+
+## Example
+
 
 ```javascript
 import { useAddress } from "@thirdweb-dev/react"
@@ -24,13 +35,3 @@ const App = () => {
   return <div>{address}</div>
 }
 ```
-\#\# Types
-
-**Signature:**
-
-```typescript
-export declare function useAddress(): string | undefined;
-```
-**Returns:**
-
-string \| undefined

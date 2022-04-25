@@ -24,32 +24,17 @@ const sidebars = {
       id: "index",
     },
     {
-      type: "doc",
-      label: "ThirdwebProvider",
-      id: "react.thirdwebprovider",
-    },
-    {
       type: "category",
-      label: "General Hooks",
+      label: "Wallet Connection",
       link: {
         type: "generated-index",
-        title: "General Hooks",
+        title: "Wallet Connection",
         description:
-          "Basic hooks to interact with the user's wallet and connected network.",
-        keywords: ["general", "hooks"],
+          "Hooks to let users connect and disconnect their wallets.",
+        keywords: ["wallet", "connection"],
       },
       collapsed: false,
       items: [
-        {
-          type: "doc",
-          label: "useAddress",
-          id: "react.useaddress",
-        },
-        {
-          type: "doc",
-          label: "useChainId",
-          id: "react.usechainid",
-        },
         {
           type: "doc",
           label: "useMetamask",
@@ -75,25 +60,43 @@ const sidebars = {
           label: "useDisconnect",
           id: "react.usedisconnect",
         },
-        {
-          type: "doc",
-          label: "useNetwork",
-          id: "react.usenetwork",
-        },
-        {
-          type: "doc",
-          label: "useCustomContract",
-          id: "react.usecustomcontract",
-        },
       ],
     },
     {
       type: "category",
-      label: "SDK Hooks",
-      collapsed: false,
+      label: "Wallet Info",
       link: {
         type: "generated-index",
-        title: "Thirdweb SDK Hooks",
+        title: "Wallet Info",
+        description:
+          "Hooks to get information about the connected wallet.",
+        keywords: ["wallet", "info"],
+      },
+      items: [
+        {
+          type: "doc",
+          label: "useAddress",
+          id: "react.useaddress",
+        },
+        {
+          type: "doc",
+          label: "useChainId",
+          id: "react.usechainid",
+        },
+        {
+          type: "doc",
+          label: "useNetworkMismatch",
+          id: "react.usenetworkmismatch",
+        },
+      ]
+    },
+    {
+      type: "category",
+      label: "Contracts",
+      collapsed: true,
+      link: {
+        type: "generated-index",
+        title: "Contracts Hooks",
         description: "Hooks to interact with thirdweb contracts and sdk",
         keywords: ["general", "hooks"],
       },
@@ -126,7 +129,7 @@ const sidebars = {
         {
           type: "doc",
           label: "usePack",
-          id: "react.usepackmodule",
+          id: "react.usepack",
         },
         {
           type: "doc",
@@ -144,11 +147,6 @@ const sidebars = {
           id: "react.usevote",
         },
       ],
-    },
-    {
-      type: "doc",
-      id: "react",
-      label: "Full Reference",
     },
   ],
 };

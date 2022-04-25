@@ -13,7 +13,21 @@ Hook for connecting to a Metamask wallet.
 ```javascript
 import { useMetamask } from "@thirdweb-dev/react"
 ```
-\#\# Usage
+
+**Signature:**
+
+```typescript
+export declare function useMetamask(): () => Promise<{
+    data?: import("wagmi-core").ConnectorData<any> | undefined;
+    error?: Error | undefined;
+}>;
+```
+**Returns:**
+
+() =&gt; Promise&lt;{ data?: import("wagmi-core").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;
+
+## Example
+
 
 ```javascript
 import { useMetamask } from "@thirdweb-dev/react"
@@ -28,16 +42,3 @@ const App = () => {
   )
 }
 ```
-\#\# Types
-
-**Signature:**
-
-```typescript
-export declare function useMetamask(): () => Promise<{
-    data?: import("wagmi-core").ConnectorData<any> | undefined;
-    error?: Error | undefined;
-}>;
-```
-**Returns:**
-
-() =&gt; Promise&lt;{ data?: import("wagmi-core").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;
