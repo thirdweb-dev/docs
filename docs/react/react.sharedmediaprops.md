@@ -11,7 +11,7 @@ hide_title: true
 **Signature:**
 
 ```typescript
-interface SharedMediaProps 
+export interface SharedMediaProps 
 ```
 
 ## Properties

@@ -13,7 +13,7 @@ Returns a Edition contract instance
 **Signature:**
 
 ```typescript
-declare function useEdition(contractAddress?: string): Edition | undefined;
+export declare function useEdition(contractAddress?: string): Edition | undefined;
 ```
 
 ## Parameters

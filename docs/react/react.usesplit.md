@@ -13,7 +13,7 @@ Returns a Split contract instance
 **Signature:**
 
 ```typescript
-declare function useSplit(contractAddress?: string): Split | undefined;
+export declare function useSplit(contractAddress?: string): Split | undefined;
 ```
 
 ## Parameters
