@@ -15,6 +15,8 @@ hide_title: true
 class ThirdwebSDK(ProviderHandler)
 ```
 
+The main entry point for the Thirdweb SDK.
+
 <a id="core.sdk.ThirdwebSDK.__init__"></a>
 
 #### \_\_init\_\_
