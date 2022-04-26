@@ -114,6 +114,7 @@ hide_title: true
 
 |  Type Alias | Description |
 |  --- | --- |
+|  [AirdropInput](./sdk.airdropinput.md) | Input model to pass a list of addresses + amount to transfer to each one |
 |  [Amount](./sdk.amount.md) | Represents a currency amount already formatted. ie. "1" for 1 ether. |
 |  [BufferOrStringWithName](./sdk.bufferorstringwithname.md) |  |
 |  [ClaimCondition](./sdk.claimcondition.md) | Represents a claim condition fetched from the SDK |
