@@ -25,6 +25,11 @@ def get() -> Currency
 
 Get the token metadata including name, symbol, decimals, etc.
 
+```python
+token = contract.get()
+print(token)
+```
+
 **Returns**:
 
 token metadata
@@ -39,6 +44,11 @@ def balance() -> CurrencyValue
 
 Get the token balance of the connected wallet.
 
+```python
+balance = contract.balance()
+print(balance)
+```
+
 **Returns**:
 
 balance of the connected wallet
@@ -52,6 +62,12 @@ def balance_of(address: str) -> CurrencyValue
 ```
 
 Get the balance of the specified wallet
+
+```python
+address = "{{wallet_address}}"
+balance = contract.balance_of(address)
+print(balance)
+```
 
 **Arguments**:
 
@@ -85,6 +101,11 @@ def allowance(spender: str) -> CurrencyValue
 
 Get a specific spenders allowance of this token for the connected wallet.
 
+```python
+spender = "{{wallet_address}}"
+allowance = contract.allowance(spender)
+```
+
 **Arguments**:
 
 - `spender`: wallet address to check the allowance of
@@ -102,6 +123,17 @@ def allowance_of(owner: str, spender: str) -> CurrencyValue
 ```
 
 Get the allowance of the specified spender for a specified owner.
+
+```python
+# Address of the wallet who owns the funds
+address = "{{wallet_address}}"
+
+# Address of the wallet to check the token allowance
+spender = "0x..."
+
+allowance = contract.allowance_of(address, spender)
+print(allowance)
+```
 
 **Arguments**:
 
@@ -136,6 +168,16 @@ def transfer(to: str, amount: Price) -> TxReceipt
 
 Transfer a specified amount of tokens from the connected wallet to a specified address.
 
+```python
+# Address to send tokens to
+to = "0x...
+
+# Amount of tokens to transfer
+amount = 0.1
+
+contract.transfer(to, amount)
+```
+
 **Arguments**:
 
 - `to`: wallet address to transfer the tokens to
@@ -154,6 +196,19 @@ def transfer_from(fr: str, to: str, amount: Price) -> TxReceipt
 ```
 
 Transfer a specified amount of tokens from one specified address to another.
+
+```python
+# Address to send tokens from
+fr = "{{wallet_address}}"
+
+# Address to send tokens to
+to = "0x..."
+
+# Amount of tokens to transfer
+amount = 0.1
+
+contract.transfer_from(fr, to, amount)
+```
 
 **Arguments**:
 
@@ -177,6 +232,12 @@ Sets the allowance of the specified wallet over the connected wallets funds to
 
 a specified amount.
 
+```python
+spender = "0x..."
+amount = 100
+contract.set_allowance(spender, amount)
+```
+
 **Arguments**:
 
 - `spender`: wallet address to set the allowance of
@@ -196,6 +257,17 @@ def transfer_batch(args: List[TokenAmount])
 
 Transfer tokens from the connected wallet to many wallets.
 
+```python
+from thirdweb.types.currency import TokenAmount
+
+data = [
+    TokenAmount("{{wallet_address}}", 0.1),
+    TokenAmount("0x...", 0.2),
+]
+
+contract.transfer_batch(data)
+```
+
 **Arguments**:
 
 - `args`: list of token amounts and addressed to transfer to
@@ -214,6 +286,11 @@ def burn(amount: Price) -> TxReceipt
 
 Burn a specified amount of tokens from the connected wallet.
 
+```python
+amount = 0.1
+contract.burn(amount)
+```
+
 **Arguments**:
 
 - `amount`: amount of tokens to burn
@@ -231,6 +308,12 @@ def burn_from(holder: str, amount: Price) -> TxReceipt
 ```
 
 Burn a specified amount of tokens from a specified wallet.
+
+```python
+holder = "{{wallet_address}}"
+amount = 0.1
+contract.burn_from(holder, amount)
+```
 
 **Arguments**:
 
