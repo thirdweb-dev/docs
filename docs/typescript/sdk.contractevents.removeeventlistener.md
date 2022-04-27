@@ -11,14 +11,14 @@ hide_title: true
 **Signature:**
 
 ```typescript
-removeEventListener(eventName: keyof TContract["filters"], listener: Listener): void;
+removeEventListener(eventName: keyof TContract["filters"] | string, listener: Listener): void;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  eventName | keyof TContract\["filters"\] | the event name as defined in the contract |
+|  eventName | keyof TContract\["filters"\] &#124; string | the event name as defined in the contract |
 |  listener | Listener | the listener to unregister |
 
 **Returns:**
