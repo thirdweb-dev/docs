@@ -30,7 +30,7 @@ Edition \| undefined
 
 
 ```javascript
-import { useEdition } from '@thirdweb/react-hooks'
+import { useEdition } from '@thirdweb-dev/react'
 
 const App = () => {
   const edition = useEdition("<YOUR-CONTRACT-ADDRESS>")
@@ -43,8 +43,6 @@ const App = () => {
     return nfts
   }
 
-  return (
-    ...
-  )
+  ...
 }
 ```

@@ -30,7 +30,7 @@ Split \| undefined
 
 
 ```javascript
-import { useSplit } from '@thirdweb/react-hooks'
+import { useSplit } from '@thirdweb-dev/react'
 
 const App = () => {
   const split = useSplit("<YOUR-CONTRACT-ADDRESS>")
@@ -43,8 +43,6 @@ const App = () => {
     return recipients
   }
 
-  return (
-    ...
-  )
+  ...
 }
 ```

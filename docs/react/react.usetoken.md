@@ -30,7 +30,7 @@ Token \| undefined
 
 
 ```javascript
-import { useToken } from '@thirdweb/react-hooks'
+import { useToken } from '@thirdweb-dev/react'
 
 const App = () => {
   const token = useToken("<YOUR-CONTRACT-ADDRESS>")
@@ -43,8 +43,6 @@ const App = () => {
     return balance
   }
 
-  return (
-    ...
-  )
+  ...
 }
 ```

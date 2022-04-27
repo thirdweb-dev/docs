@@ -30,7 +30,7 @@ Vote \| undefined
 
 
 ```javascript
-import { useVote } from '@thirdweb/react-hooks'
+import { useVote } from '@thirdweb-dev/react'
 
 const App = () => {
   const vote = useVote("<YOUR-CONTRACT-ADDRESS>")
@@ -43,8 +43,6 @@ const App = () => {
     return proposals
   }
 
-  return (
-    ...
-  )
+  ...
 }
 ```

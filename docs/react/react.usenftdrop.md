@@ -30,7 +30,7 @@ NFTDrop \| undefined
 
 
 ```javascript
-import { useNFTDrop } from '@thirdweb/react-hooks'
+import { useNFTDrop } from '@thirdweb-dev/react'
 
 const App = () => {
   const nftDrop = useNFTDrop("<YOUR-CONTRACT-ADDRESS>")
@@ -42,8 +42,6 @@ const App = () => {
     await nftDrop.claim(quantity)
   }
 
-  return (
-    ...
-  )
+  ...
 }
 ```
