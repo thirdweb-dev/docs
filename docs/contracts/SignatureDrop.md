@@ -1,9 +1,9 @@
 ---
-slug: /TokenERC721
-title: TokenERC721
+slug: /SignatureDrop
+title: SignatureDrop
 hide_title: true
 ---
-# TokenERC721
+# SignatureDrop
 
 
 
@@ -87,6 +87,49 @@ function burn(uint256 tokenId) external nonpayable
 |---|---|---|
 | tokenId | uint256 | undefined
 
+### claim
+
+```solidity
+function claim(address _receiver, uint256 _quantity, address _currency, uint256 _pricePerToken) external payable
+```
+
+
+
+*Lets an account claim NFTs.*
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| _receiver | address | undefined
+| _quantity | uint256 | undefined
+| _currency | address | undefined
+| _pricePerToken | uint256 | undefined
+
+### claimCondition
+
+```solidity
+function claimCondition() external view returns (uint256 startTimestamp, uint256 maxClaimableSupply, uint256 supplyClaimed, uint256 quantityLimitPerTransaction, uint256 waitTimeInSecondsBetweenClaims, bytes32 merkleRoot, uint256 pricePerToken, address currency)
+```
+
+
+
+*The active conditions for claiming lazy minted tokens.*
+
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| startTimestamp | uint256 | undefined
+| maxClaimableSupply | uint256 | undefined
+| supplyClaimed | uint256 | undefined
+| quantityLimitPerTransaction | uint256 | undefined
+| waitTimeInSecondsBetweenClaims | uint256 | undefined
+| merkleRoot | bytes32 | undefined
+| pricePerToken | uint256 | undefined
+| currency | address | undefined
+
 ### contractType
 
 ```solidity
@@ -95,7 +138,7 @@ function contractType() external pure returns (bytes32)
 
 
 
-*Returns the module type of the contract.*
+*Returns the type of the contract.*
 
 
 #### Returns
@@ -138,6 +181,29 @@ function contractVersion() external pure returns (uint8)
 |---|---|---|
 | _0 | uint8 | undefined
 
+### encryptDecrypt
+
+```solidity
+function encryptDecrypt(bytes data, bytes key) external pure returns (bytes result)
+```
+
+
+
+*See: https://ethereum.stackexchange.com/questions/69825/decrypt-message-on-chain*
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| data | bytes | undefined
+| key | bytes | undefined
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| result | bytes | undefined
+
 ### getApproved
 
 ```solidity
@@ -168,7 +234,7 @@ function getDefaultRoyaltyInfo() external view returns (address, uint16)
 
 
 
-*Returns the platform fee bps and recipient.*
+*Returns the default royalty recipient and bps.*
 
 
 #### Returns
@@ -177,6 +243,23 @@ function getDefaultRoyaltyInfo() external view returns (address, uint16)
 |---|---|---|
 | _0 | address | undefined
 | _1 | uint16 | undefined
+
+### getNumOfTokenBatches
+
+```solidity
+function getNumOfTokenBatches() external view returns (uint256)
+```
+
+
+
+*Returns the number of batches of tokens having the same baseURI.*
+
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### getPlatformFeeInfo
 
@@ -186,7 +269,7 @@ function getPlatformFeeInfo() external view returns (address, uint16)
 
 
 
-*Returns the platform fee bps and recipient.*
+*Returns the platform fee recipient and bps.*
 
 
 #### Returns
@@ -195,6 +278,29 @@ function getPlatformFeeInfo() external view returns (address, uint16)
 |---|---|---|
 | _0 | address | undefined
 | _1 | uint16 | undefined
+
+### getRevealURI
+
+```solidity
+function getRevealURI(uint256 _batchId, bytes _key) external view returns (string revealedURI)
+```
+
+
+
+*Returns the decrypted i.e. revealed URI for a batch of tokens.*
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| _batchId | uint256 | undefined
+| _key | bytes | undefined
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| revealedURI | string | undefined
 
 ### getRoleAdmin
 
@@ -271,7 +377,7 @@ function getRoyaltyInfoForToken(uint256 _tokenId) external view returns (address
 
 
 
-*Returns the royalty recipient for a particular token Id.*
+*Returns the royalty recipient and bps for a particular token Id.*
 
 #### Parameters
 
@@ -396,28 +502,23 @@ function isTrustedForwarder(address forwarder) external view returns (bool)
 |---|---|---|
 | _0 | bool | undefined
 
-### mintTo
+### lazyMint
 
 ```solidity
-function mintTo(address _to, string _uri) external nonpayable returns (uint256)
+function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _data) external nonpayable
 ```
 
 
 
-*Lets an account with MINTER_ROLE mint an NFT.*
+*Lets an account with `MINTER_ROLE` lazy mint &#39;n&#39; NFTs.       The URIs for each token is the provided `_baseURIForTokens` + `{tokenId}`.*
 
 #### Parameters
 
 | Name | Type | Description |
 |---|---|---|
-| _to | address | undefined
-| _uri | string | undefined
-
-#### Returns
-
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| _amount | uint256 | undefined
+| _baseURIForTokens | string | undefined
+| _data | bytes | undefined
 
 ### mintWithSignature
 
@@ -427,7 +528,7 @@ function mintWithSignature(ISignatureMint.MintRequest _req, bytes _signature) ex
 
 
 
-*Mints an NFT according to the provided mint request.*
+*Claim lazy minted tokens via signature.*
 
 #### Parameters
 
@@ -475,6 +576,23 @@ function name() external view returns (string)
 |---|---|---|
 | _0 | string | undefined
 
+### nextTokenIdToClaim
+
+```solidity
+function nextTokenIdToClaim() external view returns (uint256)
+```
+
+
+
+*The tokenId of the next lazy minted NFT that will be claimed.*
+
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
+
 ### nextTokenIdToMint
 
 ```solidity
@@ -483,7 +601,7 @@ function nextTokenIdToMint() external view returns (uint256)
 
 
 
-*The token ID of the next token to mint.*
+*The tokenId of the next NFT that will be minted / lazy minted.*
 
 
 #### Returns
@@ -531,40 +649,6 @@ function ownerOf(uint256 tokenId) external view returns (address)
 |---|---|---|
 | _0 | address | undefined
 
-### platformFeeBps
-
-```solidity
-function platformFeeBps() external view returns (uint128)
-```
-
-
-
-*The % of primary sales collected by the contract as fees.*
-
-
-#### Returns
-
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint128 | undefined
-
-### platformFeeRecipient
-
-```solidity
-function platformFeeRecipient() external view returns (address)
-```
-
-
-
-*The adress that receives all primary sales value.*
-
-
-#### Returns
-
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
-
 ### primarySaleRecipient
 
 ```solidity
@@ -573,7 +657,7 @@ function primarySaleRecipient() external view returns (address)
 
 
 
-*The adress that receives all primary sales value.*
+*The address that receives all primary sales value.*
 
 
 #### Returns
@@ -598,6 +682,29 @@ function renounceRole(bytes32 role, address account) external nonpayable
 |---|---|---|
 | role | bytes32 | undefined
 | account | address | undefined
+
+### reveal
+
+```solidity
+function reveal(uint256 _index, bytes _key) external nonpayable returns (string revealedURI)
+```
+
+
+
+*Lets an account with `MINTER_ROLE` reveal the URI for a batch of &#39;delayed-reveal&#39; NFTs.*
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| _index | uint256 | undefined
+| _key | bytes | undefined
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| revealedURI | string | undefined
 
 ### revokeRole
 
@@ -624,7 +731,7 @@ function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (
 
 
 
-*See EIP-2981*
+*Returns the royalty recipient and amount, given a tokenId and sale price.*
 
 #### Parameters
 
@@ -676,6 +783,23 @@ function setApprovalForAll(address operator, bool approved) external nonpayable
 | operator | address | undefined
 | approved | bool | undefined
 
+### setClaimCondition
+
+```solidity
+function setClaimCondition(IDropClaimCondition.ClaimCondition _condition, bool _resetClaimEligibility) external nonpayable
+```
+
+
+
+
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| _condition | IDropClaimCondition.ClaimCondition | undefined
+| _resetClaimEligibility | bool | undefined
+
 ### setContractURI
 
 ```solidity
@@ -684,7 +808,7 @@ function setContractURI(string _uri) external nonpayable
 
 
 
-*Lets a module admin set the URI for contract-level metadata.*
+*Lets a contract admin set the URI for contract-level metadata.*
 
 #### Parameters
 
@@ -700,7 +824,7 @@ function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) e
 
 
 
-*Lets a module admin update the royalty bps and recipient.*
+*Lets a contract admin update the default royalty recipient and bps.*
 
 #### Parameters
 
@@ -717,7 +841,7 @@ function setOwner(address _newOwner) external nonpayable
 
 
 
-*Lets a module admin set a new owner for the contract. The new owner must be a module admin.*
+*Lets a contract admin set a new owner for the contract. The new owner must be a contract admin.*
 
 #### Parameters
 
@@ -733,7 +857,7 @@ function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeB
 
 
 
-*Lets a module admin update the fees on primary sales.*
+*Lets a contract admin update the platform fee recipient and bps*
 
 #### Parameters
 
@@ -750,7 +874,7 @@ function setPrimarySaleRecipient(address _saleRecipient) external nonpayable
 
 
 
-*Lets a module admin set the default recipient of all primary sales.*
+*Lets a contract admin set the recipient for all primary sales.*
 
 #### Parameters
 
@@ -766,7 +890,7 @@ function setRoyaltyInfoForToken(uint256 _tokenId, address _recipient, uint256 _b
 
 
 
-*Lets a module admin set the royalty recipient for a particular token Id.*
+*Lets a contract admin set the royalty recipient and bps for a particular token Id.*
 
 #### Parameters
 
@@ -784,7 +908,7 @@ function supportsInterface(bytes4 interfaceId) external view returns (bool)
 
 
 
-
+*See ERC 165*
 
 #### Parameters
 
@@ -880,12 +1004,12 @@ function tokenOfOwnerByIndex(address owner, uint256 index) external view returns
 ### tokenURI
 
 ```solidity
-function tokenURI(uint256 _tokenId) external view returns (string)
+function tokenURI(uint256 _tokenId) external view returns (string uriForToken)
 ```
 
 
 
-*Returns the URI for a tokenId*
+*Returns the URI for a given tokenId.*
 
 #### Parameters
 
@@ -897,7 +1021,7 @@ function tokenURI(uint256 _tokenId) external view returns (string)
 
 | Name | Type | Description |
 |---|---|---|
-| _0 | string | undefined
+| uriForToken | string | undefined
 
 ### totalSupply
 
@@ -997,6 +1121,23 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 | owner `indexed` | address | undefined |
 | operator `indexed` | address | undefined |
 | approved  | bool | undefined |
+
+### ClaimConditionUpdated
+
+```solidity
+event ClaimConditionUpdated(IDropClaimCondition.ClaimCondition condition, bool resetEligibility)
+```
+
+
+
+
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| condition  | IDropClaimCondition.ClaimCondition | undefined |
+| resetEligibility  | bool | undefined |
 
 ### DefaultRoyalty
 
@@ -1137,10 +1278,10 @@ event RoyaltyForToken(uint256 indexed tokenId, address royaltyRecipient, uint256
 | royaltyRecipient  | address | undefined |
 | royaltyBps  | uint256 | undefined |
 
-### TokensMinted
+### TokenLazyMinted
 
 ```solidity
-event TokensMinted(address indexed mintedTo, uint256 indexed tokenIdMinted, string uri)
+event TokenLazyMinted(uint256 indexed startId, uint256 amount, string indexed baseURI, bytes encryptedBaseURI)
 ```
 
 
@@ -1151,9 +1292,48 @@ event TokensMinted(address indexed mintedTo, uint256 indexed tokenIdMinted, stri
 
 | Name | Type | Description |
 |---|---|---|
-| mintedTo `indexed` | address | undefined |
-| tokenIdMinted `indexed` | uint256 | undefined |
-| uri  | string | undefined |
+| startId `indexed` | uint256 | undefined |
+| amount  | uint256 | undefined |
+| baseURI `indexed` | string | undefined |
+| encryptedBaseURI  | bytes | undefined |
+
+### TokenURIRevealed
+
+```solidity
+event TokenURIRevealed(uint256 index, string revealedURI)
+```
+
+
+
+
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| index  | uint256 | undefined |
+| revealedURI  | string | undefined |
+
+### TokensMinted
+
+```solidity
+event TokensMinted(address indexed minter, address receiver, uint256 indexed startTokenId, uint256 amountMinted, uint256 pricePerToken, address indexed currency)
+```
+
+
+
+
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| minter `indexed` | address | undefined |
+| receiver  | address | undefined |
+| startTokenId `indexed` | uint256 | undefined |
+| amountMinted  | uint256 | undefined |
+| pricePerToken  | uint256 | undefined |
+| currency `indexed` | address | undefined |
 
 ### TokensMintedWithSignature
 
