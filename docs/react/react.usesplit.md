@@ -30,9 +30,9 @@ Split \| undefined
 
 
 ```javascript
-import { useSplit } from '@thirdweb/react-hooks'
+import { useSplit } from '@thirdweb-dev/react'
 
-const App = () => {
+export default function Component() {
   const split = useSplit("<YOUR-CONTRACT-ADDRESS>")
 
   // Now you can use the split contract in the rest of the component
@@ -43,8 +43,6 @@ const App = () => {
     return recipients
   }
 
-  return (
-    ...
-  )
+  ...
 }
 ```
