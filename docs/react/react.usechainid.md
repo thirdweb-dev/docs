@@ -17,7 +17,7 @@ import { useChainId } from "@thirdweb-dev/react"
 **Signature:**
 
 ```typescript
-export declare function useChainId(): number | undefined;
+declare function useChainId(): number | undefined;
 ```
 **Returns:**
 

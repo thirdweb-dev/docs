@@ -13,7 +13,7 @@ Hook for getting an instance of a `Split` contract. This contract supports fund 
 **Signature:**
 
 ```typescript
-export declare function useSplit(contractAddress?: string): Split | undefined;
+declare function useSplit(contractAddress?: string): Split | undefined;
 ```
 
 ## Parameters

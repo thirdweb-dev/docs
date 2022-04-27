@@ -13,7 +13,7 @@ Hook for getting an instance of a `Pack` contract. This contract supports the cr
 **Signature:**
 
 ```typescript
-export declare function usePack(contractAddress?: string): Pack | undefined;
+declare function usePack(contractAddress?: string): Pack | undefined;
 ```
 
 ## Parameters

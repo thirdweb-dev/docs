@@ -17,7 +17,7 @@ import { useDisconnect } from "@thirdweb-dev/react"
 **Signature:**
 
 ```typescript
-export declare function useDisconnect(): () => void;
+declare function useDisconnect(): () => void;
 ```
 **Returns:**
 

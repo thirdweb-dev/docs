@@ -13,9 +13,9 @@ The props for the [ThirdwebNftMedia](./react.thirdwebnftmedia.md) component.
 **Signature:**
 
 ```typescript
-export interface ThirdwebNftMediaProps extends SharedMediaProps 
+interface ThirdwebNftMediaProps extends SharedMediaProps 
 ```
-**Extends:** [SharedMediaProps](./react.sharedmediaprops.md)
+**Extends:** SharedMediaProps
 
 ## Properties
 

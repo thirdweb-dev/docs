@@ -13,7 +13,7 @@ Hook for getting an instance of an `Edition` contract. This contract is used to 
 **Signature:**
 
 ```typescript
-export declare function useEdition(contractAddress?: string): Edition | undefined;
+declare function useEdition(contractAddress?: string): Edition | undefined;
 ```
 
 ## Parameters
