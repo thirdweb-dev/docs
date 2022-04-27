@@ -25,6 +25,34 @@ const sidebars = {
     },
     {
       type: "category",
+      label: "Design Docs",
+      collapsed: true,
+      link: {
+        type: "generated-index",
+        title: "Design Docs",
+        description: "In-depth breakdowns of thirdweb smart contract architecture.",
+        keywords: ["design", "docs"],
+      },
+      items: [
+        {
+          type: "doc",
+          label: "Drop",
+          id: "design/Drop",
+        },
+        {
+          type: "doc",
+          label: "Marketplace",
+          id: "design/Marketplace",
+        },
+        {
+          type: "doc",
+          label: "Signature Minting",
+          id: "design/SignatureMint",
+        },
+      ],
+    },
+    {
+      type: "category",
       label: "Contracts",
       collapsed: false,
       link: {
