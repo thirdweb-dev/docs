@@ -18,7 +18,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTCollection.mintBatchTo",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/nft-collection#mint_batch_to"
         }
       },
       {
@@ -31,7 +31,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTCollection.mintTo",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/nft-collection#mint_to"
         }
       },
       {
@@ -44,7 +44,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.balanceOf",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc721#balance_of"
         }
       },
       {
@@ -57,7 +57,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.get",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc721#get"
         }
       },
       {
@@ -70,7 +70,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.getAll",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc721#get_all"
         }
       },
       {
@@ -83,7 +83,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.getOwned",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc721#get_owned"
         }
       },
       {
@@ -96,7 +96,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.transfer",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc721#transfer"
         }
       }
     ],
@@ -151,7 +151,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Edition.mintBatchTo",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/edition#mint_batch_to"
         }
       },
       {
@@ -164,7 +164,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Edition.mintTo",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/edition#mint_to"
         }
       },
       {
@@ -190,7 +190,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.balanceOf",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc1155#balance_of"
         }
       },
       {
@@ -203,7 +203,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.get",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc1155#get"
         }
       },
       {
@@ -216,7 +216,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.getAll",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc1155#get_all"
         }
       },
       {
@@ -229,7 +229,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.getOwned",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc1155#get_owned"
         }
       },
       {
@@ -242,7 +242,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.transfer",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc1155#transfer"
         }
       }
     ],
@@ -297,7 +297,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Token.mintBatchTo",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/token#mint_batch_to"
         }
       },
       {
@@ -310,7 +310,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Token.mintTo",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/token#mint_to"
         }
       },
       {
@@ -323,7 +323,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.allowance",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc20#allowance"
         }
       },
       {
@@ -336,7 +336,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.allowanceOf",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc20#allowance_of"
         }
       },
       {
@@ -349,7 +349,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.balance",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc20#balance"
         }
       },
       {
@@ -362,7 +362,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.balanceOf",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc20#balance_of"
         }
       },
       {
@@ -375,7 +375,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.burn",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc20#burn"
         }
       },
       {
@@ -388,7 +388,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.burnFrom",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc20#burn_from"
         }
       },
       {
@@ -401,7 +401,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.get",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc20#get"
         }
       },
       {
@@ -414,7 +414,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.setAllowance",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc20#set_allowance"
         }
       },
       {
@@ -427,7 +427,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.transfer",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc20#transfer"
         }
       },
       {
@@ -440,7 +440,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.transferBatch",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc20#transfer_batch"
         }
       },
       {
@@ -453,7 +453,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.transferFrom",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc20#transfer_from"
         }
       }
     ],
@@ -495,7 +495,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.claimTo",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/nft-drop#claim_to"
         }
       },
       {
@@ -508,7 +508,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.createBatch",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/nft-drop#create_batch"
         }
       },
       {
@@ -521,7 +521,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.getAllClaimed",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/nft-drop#get_all_claimed"
         }
       },
       {
@@ -534,7 +534,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.getAllUnclaimed",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/nft-drop#get_all_unclaimed"
         }
       },
       {
@@ -547,7 +547,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.totalClaimedSupply",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/nft-drop#total_claimed_supply"
         }
       },
       {
@@ -560,7 +560,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.totalUnclaimedSupply",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/nft-drop#total_unclaimed_supply"
         }
       },
       {
@@ -573,7 +573,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.balanceOf",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc721#balance_of"
         }
       },
       {
@@ -586,7 +586,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.get",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc721#get"
         }
       },
       {
@@ -599,7 +599,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.getAll",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc721#get_all"
         }
       },
       {
@@ -612,7 +612,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.getOwned",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc721#get_owned"
         }
       },
       {
@@ -625,7 +625,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.transfer",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc721#transfer"
         }
       }
     ],
@@ -693,7 +693,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.EditionDrop.claimTo",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/edition-drop#claim_to"
         }
       },
       {
@@ -706,7 +706,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.EditionDrop.createBatch",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/edition-drop#create_batch"
         }
       },
       {
@@ -732,7 +732,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.balanceOf",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc1155#balance_of"
         }
       },
       {
@@ -745,7 +745,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.get",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc1155#get"
         }
       },
       {
@@ -758,7 +758,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.getAll",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc1155#get_all"
         }
       },
       {
@@ -771,7 +771,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.getOwned",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc1155#get_owned"
         }
       },
       {
@@ -784,7 +784,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.transfer",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/erc1155#transfer"
         }
       }
     ],
@@ -839,7 +839,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Marketplace.buyoutListing",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/marketplace#buyout_listing"
         }
       },
       {
@@ -852,7 +852,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Marketplace.getActiveListings",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/marketplace#get_active_listings"
         }
       },
       {
@@ -865,7 +865,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Marketplace.getAllListings",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/marketplace#get_all_listings"
         }
       },
       {
@@ -878,7 +878,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Marketplace.setBidBufferBps",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/marketplace#set_bid_buffer_bps"
         }
       },
       {
@@ -891,7 +891,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Marketplace.setTimeBufferInSeconds",
-          "python": ""
+          "python": "https://docs.thirdweb.com/python/marketplace#set_time_buffer_in_seconds"
         }
       }
     ],
