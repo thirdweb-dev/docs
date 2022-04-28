@@ -200,6 +200,11 @@ const sidebars = {
     },
     {
       type: "doc",
+      label: "IPFS Storage",
+      id: "ipfs-storage",
+    },
+    {
+      type: "doc",
       label: "Contract Events",
       id: "contract-events",
     },

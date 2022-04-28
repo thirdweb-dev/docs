@@ -17,7 +17,7 @@ import { useAddress } from "@thirdweb-dev/react"
 **Signature:**
 
 ```typescript
-export declare function useAddress(): string | undefined;
+declare function useAddress(): string | undefined;
 ```
 **Returns:**
 
