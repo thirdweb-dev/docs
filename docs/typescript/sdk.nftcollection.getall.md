@@ -8,7 +8,7 @@ hide_title: true
 
 ## NFTCollection.getAll() method
 
-Get All NFTs
+Get All Minted NFTs
 
 **Signature:**
 

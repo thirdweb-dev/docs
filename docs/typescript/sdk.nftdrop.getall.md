@@ -8,7 +8,7 @@ hide_title: true
 
 ## NFTDrop.getAll() method
 
-Get All NFTs
+Get All Minted NFTs
 
 **Signature:**
 

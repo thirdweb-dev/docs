@@ -8,7 +8,7 @@ hide_title: true
 
 ## Erc721Enumerable.all() method
 
-Get All NFTs
+Get All Minted NFTs
 
 **Signature:**
 
