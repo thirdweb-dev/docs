@@ -12,5 +12,5 @@ hide_title: true
 **Signature:**
 
 ```typescript
-getOwned: (_address?: string | undefined) => Promise<import("../schema").NFTMetadataOwner[]>;
+getOwned: (_address?: string | undefined) => Promise<NFTMetadataOwner[]>;
 ```

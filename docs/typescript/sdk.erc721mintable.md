@@ -11,7 +11,7 @@ hide_title: true
 **Signature:**
 
 ```typescript
-export declare class Erc721Mintable<TContract extends IMintableERC721> 
+export declare class Erc721Mintable 
 ```
 
 ## Constructors
@@ -20,10 +20,14 @@ export declare class Erc721Mintable<TContract extends IMintableERC721>
 |  --- | --- | --- |
 |  [(constructor)(erc721, contractWrapper, storage)](./sdk.erc721mintable._constructor_.md) |  | Constructs a new instance of the <code>Erc721Mintable</code> class |
 
+## Properties
+
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [batch](./sdk.erc721mintable.batch.md) |  | Erc721BatchMintable &#124; undefined |  |
+
 ## Methods
 
 |  Method | Modifiers | Description |
 |  --- | --- | --- |
-|  [batchToAddress(to, metadatas)](./sdk.erc721mintable.batchtoaddress.md) |  | Mint Many unique NFTs |
-|  [batchToSelf(metadatas)](./sdk.erc721mintable.batchtoself.md) |  | Mint Many NFTs to the connected wallet |
 |  [to(to, metadata)](./sdk.erc721mintable.to.md) |  | Mint a unique NFT |
