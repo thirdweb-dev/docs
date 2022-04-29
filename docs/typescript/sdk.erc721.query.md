@@ -11,5 +11,5 @@ hide_title: true
 **Signature:**
 
 ```typescript
-query: Erc721Enumerable<ERC721Metadata & ERC721Enumerable & ERC721> | undefined;
+query: Erc721Enumerable | undefined;
 ```
