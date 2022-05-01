@@ -27,10 +27,10 @@ import { useChainId } from "@thirdweb-dev/react"
 import { useCoinbaseWallet } from "@thirdweb-dev/react"
 ```
  |
+|  [useContract(contractAddress)](./react.usecontract.md) | **<i>(BETA)</i>** Use this resolve a contract address to a thirdweb (built-in / custom) contract instance. |
 |  [useContractMetadata(contractAddress)](./react.usecontractmetadata.md) | **<i>(BETA)</i>** Use this to get the contract metadata for a (built-in or custom) contract. |
 |  [useContractPublishMetadata(contractAddress)](./react.usecontractpublishmetadata.md) | **<i>(BETA)</i>** Use this to get the publish metadata for a deployed contract. |
 |  [useContractType(contractAddress)](./react.usecontracttype.md) | **<i>(BETA)</i>** Use this to get the contract type for a (built-in or custom) contract. |
-|  [useCustomContract(contractAddress)](./react.usecustomcontract.md) | **<i>(BETA)</i>** Use this resolve a contract address to a thirdweb (built-in / custom) contract instance. |
 |  [useDisconnect(options)](./react.usedisconnect.md) | Hook for disconnecting the currently connected wallet
 ```javascript
 import { useDisconnect } from "@thirdweb-dev/react"
