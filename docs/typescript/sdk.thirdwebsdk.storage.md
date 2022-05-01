@@ -8,6 +8,8 @@ hide_title: true
 
 ## ThirdwebSDK.storage property
 
+Upload and download files
+
 **Signature:**
 
 ```typescript
