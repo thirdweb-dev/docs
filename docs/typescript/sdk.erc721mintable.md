@@ -24,7 +24,7 @@ export declare class Erc721Mintable
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
-|  [batch](./sdk.erc721mintable.batch.md) |  | Erc721BatchMintable &#124; undefined |  |
+|  [batch](./sdk.erc721mintable.batch.md) |  | [Erc721BatchMintable](./sdk.erc721batchmintable.md) &#124; undefined |  |
 
 ## Methods
 

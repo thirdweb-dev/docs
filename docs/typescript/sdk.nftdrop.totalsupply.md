@@ -8,7 +8,6 @@ hide_title: true
 
 ## NFTDrop.totalSupply() method
 
-Get the number of NFTs minted
 
 **Signature:**
 
@@ -18,5 +17,3 @@ totalSupply(): Promise<BigNumber>;
 **Returns:**
 
 Promise&lt;BigNumber&gt;
-
-the total number of NFTs minted in this contract

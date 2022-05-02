@@ -8,6 +8,7 @@ hide_title: true
 
 ## NFTCollection.mintBatch() method
 
+Mint Many unique NFTs
 
 **Signature:**
 
@@ -24,3 +25,7 @@ mintBatch(metadata: NFTMetadataOrUri[]): Promise<TransactionResultWithId<NFTMeta
 **Returns:**
 
 Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;\[\]&gt;
+
+## Remarks
+
+Mint many unique NFTs at once to a specified wallet.
