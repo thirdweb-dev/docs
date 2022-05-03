@@ -36,15 +36,15 @@ const sidebars = {
     {
       type: "doc",
       label: "Custom Contracts",
-      id: "sdk.customcontract",
+      id: "sdk.smartcontract",
     },
     {
       type: "category",
-      label: "Contracts",
+      label: "Built-in Contracts",
       collapsed: false,
       link: {
         type: "generated-index",
-        title: "Contracts",
+        title: "Built-in Contracts",
         description: "Interfaces for on-chain contracts.",
         keywords: ["contracts"],
       },
