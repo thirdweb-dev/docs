@@ -14,5 +14,5 @@ hide_title: true
 **Signature:**
 
 ```typescript
-roles: ContractRoles<TContract & AccessControlEnumerable, "transfer" | "lister" | "minter" | "admin" | "pauser" | "editor" | "asset"> | undefined;
+roles: ContractRoles<AccessControlEnumerable, any> | undefined;
 ```

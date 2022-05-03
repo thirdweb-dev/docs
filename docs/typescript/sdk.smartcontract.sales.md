@@ -14,5 +14,5 @@ hide_title: true
 **Signature:**
 
 ```typescript
-sales: ContractPrimarySale<TContract & IThirdwebPrimarySale> | undefined;
+sales: ContractPrimarySale<IThirdwebPrimarySale> | undefined;
 ```
