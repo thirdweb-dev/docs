@@ -29,8 +29,7 @@ const sidebars = {
       link: {
         type: "generated-index",
         title: "Wallet Connection",
-        description:
-          "Hooks to let users connect and disconnect their wallets.",
+        description: "Hooks to let users connect and disconnect their wallets.",
         keywords: ["wallet", "connection"],
       },
       collapsed: true,
@@ -68,8 +67,7 @@ const sidebars = {
       link: {
         type: "generated-index",
         title: "Wallet Info",
-        description:
-          "Hooks to get information about the connected wallet.",
+        description: "Hooks to get information about the connected wallet.",
         keywords: ["wallet", "info"],
       },
       items: [
@@ -93,7 +91,7 @@ const sidebars = {
           label: "useNetworkMismatch",
           id: "react.usenetworkmismatch",
         },
-      ]
+      ],
     },
     {
       type: "category",
@@ -155,15 +153,26 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Components",
+      label: "NFT",
       collapsed: true,
       link: {
         type: "generated-index",
-        title: "Components",
-        description: "Convenient react components that give you out-of-the-box functionality",
-        keywords: ["general", "hooks"],
+        title: "NFT",
+        description:
+          "Convenient react components for NFT that give you out-of-the-box functionality",
+        keywords: ["nft", "hooks"],
       },
       items: [
+        {
+          type: "doc",
+          label: "useNFTList",
+          id: "react.usenftlist",
+        },
+        {
+          type: "doc",
+          label: "useNFTMint",
+          id: "react.usenftmint",
+        },
         {
           type: "doc",
           label: "Media Renderer",

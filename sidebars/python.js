@@ -137,8 +137,7 @@ const sidebars = {
       link: {
         type: "generated-index",
         title: "Signature Minting",
-        description:
-          "Signature based minting for contracts.",
+        description: "Signature based minting for contracts.",
         keywords: ["contracts", "signature-minting"],
       },
       items: [
@@ -166,8 +165,7 @@ const sidebars = {
       link: {
         type: "generated-index",
         title: "Contract Settings",
-        description:
-          "Interfaces to manage contract settings.",
+        description: "Interfaces to manage contract settings.",
         keywords: ["contracts", "settings"],
       },
       items: [
