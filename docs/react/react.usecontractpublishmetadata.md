@@ -16,14 +16,14 @@ Use this to get the publish metadata for a deployed contract.
 **Signature:**
 
 ```typescript
-declare function useContractPublishMetadata(contractAddress?: string): react_query.UseQueryResult<PublishedMetadata | undefined, unknown>;
+declare function useContractPublishMetadata(contractAddress: RequiredParam<string>): react_query.UseQueryResult<PublishedMetadata | undefined, unknown>;
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  contractAddress | string | <i>(Optional)</i> the address of the deployed contract |
+|  contractAddress | RequiredParam&lt;string&gt; | the address of the deployed contract |
 
 **Returns:**
 
