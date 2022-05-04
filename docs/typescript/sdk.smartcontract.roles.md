@@ -14,5 +14,5 @@ hide_title: true
 **Signature:**
 
 ```typescript
-roles: ContractRoles<AccessControlEnumerable, any> | undefined;
+roles: ContractRoles<IPermissionsEnumerable, any> | undefined;
 ```

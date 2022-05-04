@@ -13,7 +13,7 @@ Constructs a new instance of the `Erc721BatchMintable` class
 **Signature:**
 
 ```typescript
-constructor(erc721: Erc721<BaseERC721>, contractWrapper: ContractWrapper<IMintableERC721 & Multicall>, storage: IStorage);
+constructor(erc721: Erc721<BaseERC721>, contractWrapper: ContractWrapper<IMintableERC721 & IMulticall>, storage: IStorage);
 ```
 
 ## Parameters
@@ -21,5 +21,5 @@ constructor(erc721: Erc721<BaseERC721>, contractWrapper: ContractWrapper<IMintab
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  erc721 | [Erc721](./sdk.erc721.md)&lt;BaseERC721&gt; |  |
-|  contractWrapper | ContractWrapper&lt;IMintableERC721 &amp; Multicall&gt; |  |
+|  contractWrapper | ContractWrapper&lt;IMintableERC721 &amp; IMulticall&gt; |  |
 |  storage | [IStorage](./sdk.istorage.md) |  |

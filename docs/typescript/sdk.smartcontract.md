@@ -61,11 +61,11 @@ const tx = await contract.nft.mint.to("0x...", {
 |  [interceptor](./sdk.smartcontract.interceptor.md) |  | ContractInterceptor&lt;TContract&gt; | **<i>(BETA)</i>** |
 |  [metadata](./sdk.smartcontract.metadata.md) |  | [ContractMetadata](./sdk.contractmetadata.md)&lt;ThirdwebContract, any&gt; &#124; undefined | **<i>(BETA)</i>** |
 |  [nft](./sdk.smartcontract.nft.md) |  | [Erc721](./sdk.erc721.md)&lt;BaseERC721&gt; &#124; undefined | **<i>(BETA)</i>** Auto-detects ERC721 standard functions. |
-|  [platformFees](./sdk.smartcontract.platformfees.md) |  | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;IThirdwebPlatformFee&gt; &#124; undefined | **<i>(BETA)</i>** |
+|  [platformFees](./sdk.smartcontract.platformfees.md) |  | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;IPlatformFee&gt; &#124; undefined | **<i>(BETA)</i>** |
 |  [publishedMetadata](./sdk.smartcontract.publishedmetadata.md) |  | ContractPublishedMetadata&lt;TContract&gt; | **<i>(BETA)</i>** |
-|  [roles](./sdk.smartcontract.roles.md) |  | [ContractRoles](./sdk.contractroles.md)&lt;AccessControlEnumerable, any&gt; &#124; undefined | **<i>(BETA)</i>** |
-|  [royalties](./sdk.smartcontract.royalties.md) |  | [ContractRoyalty](./sdk.contractroyalty.md)&lt;IThirdwebRoyalty &amp; IThirdwebContract, any&gt; &#124; undefined | **<i>(BETA)</i>** |
-|  [sales](./sdk.smartcontract.sales.md) |  | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;IThirdwebPrimarySale&gt; &#124; undefined | **<i>(BETA)</i>** |
+|  [roles](./sdk.smartcontract.roles.md) |  | [ContractRoles](./sdk.contractroles.md)&lt;IPermissionsEnumerable, any&gt; &#124; undefined | **<i>(BETA)</i>** |
+|  [royalties](./sdk.smartcontract.royalties.md) |  | [ContractRoyalty](./sdk.contractroyalty.md)&lt;IRoyalty &amp; ThirdwebContract, any&gt; &#124; undefined | **<i>(BETA)</i>** |
+|  [sales](./sdk.smartcontract.sales.md) |  | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;IPrimarySale&gt; &#124; undefined | **<i>(BETA)</i>** |
 |  [token](./sdk.smartcontract.token.md) |  | [Erc20](./sdk.erc20.md)&lt;BaseERC20&gt; &#124; undefined | **<i>(BETA)</i>** Auto-detects ERC20 standard functions. |
 
 ## Methods

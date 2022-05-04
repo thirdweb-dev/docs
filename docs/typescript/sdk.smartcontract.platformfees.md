@@ -14,5 +14,5 @@ hide_title: true
 **Signature:**
 
 ```typescript
-platformFees: ContractPlatformFee<IThirdwebPlatformFee> | undefined;
+platformFees: ContractPlatformFee<IPlatformFee> | undefined;
 ```

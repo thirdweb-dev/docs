@@ -13,7 +13,7 @@ Constructs a new instance of the `Erc1155Enumerable` class
 **Signature:**
 
 ```typescript
-constructor(erc1155: Erc1155<BaseERC1155>, contractWrapper: ContractWrapper<BaseERC1155 & ERC1155Enumerable>);
+constructor(erc1155: Erc1155<BaseERC1155>, contractWrapper: ContractWrapper<BaseERC1155 & IERC1155Enumerable>);
 ```
 
 ## Parameters
@@ -21,4 +21,4 @@ constructor(erc1155: Erc1155<BaseERC1155>, contractWrapper: ContractWrapper<Base
 |  Parameter | Type | Description |
 |  --- | --- | --- |
 |  erc1155 | [Erc1155](./sdk.erc1155.md)&lt;BaseERC1155&gt; |  |
-|  contractWrapper | ContractWrapper&lt;BaseERC1155 &amp; ERC1155Enumerable&gt; |  |
+|  contractWrapper | ContractWrapper&lt;BaseERC1155 &amp; IERC1155Enumerable&gt; |  |
