@@ -1,9 +1,9 @@
 ---
-slug: /SignatureDrop
-title: SignatureDrop
+slug: /SignatureDropERC721
+title: SignatureDropERC721
 hide_title: true
 ---
-# SignatureDrop
+# SignatureDropERC721
 
 
 
@@ -90,7 +90,7 @@ function burn(uint256 tokenId) external nonpayable
 ### claim
 
 ```solidity
-function claim(address _receiver, uint256 _quantity, address _currency, uint256 _pricePerToken) external payable
+function claim(address _receiver, uint256 _quantity, address, uint256) external payable
 ```
 
 
@@ -103,8 +103,8 @@ function claim(address _receiver, uint256 _quantity, address _currency, uint256 
 |---|---|---|
 | _receiver | address | undefined
 | _quantity | uint256 | undefined
-| _currency | address | undefined
-| _pricePerToken | uint256 | undefined
+| _2 | address | undefined
+| _3 | uint256 | undefined
 
 ### claimCondition
 
@@ -155,7 +155,7 @@ function contractURI() external view returns (string)
 
 
 
-
+*Contract level metadata.*
 
 
 #### Returns
@@ -523,7 +523,7 @@ function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _data) extern
 ### mintWithSignature
 
 ```solidity
-function mintWithSignature(ISignatureMintERC721.MintRequest _req, bytes _signature) external payable
+function mintWithSignature(ISignatureMint.MintRequest _req, bytes _signature) external payable
 ```
 
 
@@ -534,7 +534,7 @@ function mintWithSignature(ISignatureMintERC721.MintRequest _req, bytes _signatu
 
 | Name | Type | Description |
 |---|---|---|
-| _req | ISignatureMintERC721.MintRequest | undefined
+| _req | ISignatureMint.MintRequest | undefined
 | _signature | bytes | undefined
 
 ### multicall
@@ -575,6 +575,23 @@ function name() external view returns (string)
 | Name | Type | Description |
 |---|---|---|
 | _0 | string | undefined
+
+### nextTokenIdToClaim
+
+```solidity
+function nextTokenIdToClaim() external view returns (uint256)
+```
+
+
+
+*The tokenId of the next lazy minted NFT that will be claimed.*
+
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### nextTokenIdToMint
 
@@ -640,7 +657,7 @@ function primarySaleRecipient() external view returns (address)
 
 
 
-*The adress that receives all primary sales value.*
+*The address that receives all primary sales value.*
 
 
 #### Returns
@@ -922,10 +939,27 @@ function symbol() external view returns (string)
 |---|---|---|
 | _0 | string | undefined
 
+### thirdwebFee
+
+```solidity
+function thirdwebFee() external view returns (contract ITWFee)
+```
+
+
+
+*The thirdweb contract with fee related information.*
+
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | contract ITWFee | undefined
+
 ### tokenURI
 
 ```solidity
-function tokenURI(uint256 _tokenId) external view returns (string)
+function tokenURI(uint256 _tokenId) external view returns (string uriForToken)
 ```
 
 
@@ -942,24 +976,7 @@ function tokenURI(uint256 _tokenId) external view returns (string)
 
 | Name | Type | Description |
 |---|---|---|
-| _0 | string | undefined
-
-### totalSupply
-
-```solidity
-function totalSupply() external view returns (uint256)
-```
-
-
-
-*Burned tokens are calculated here, use _totalMinted() if you want to count just minted tokens.*
-
-
-#### Returns
-
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| uriForToken | string | undefined
 
 ### transferFrom
 
@@ -982,7 +999,7 @@ function transferFrom(address from, address to, uint256 tokenId) external nonpay
 ### verify
 
 ```solidity
-function verify(ISignatureMintERC721.MintRequest _req, bytes _signature) external view returns (bool success, address signer)
+function verify(ISignatureMint.MintRequest _req, bytes _signature) external view returns (bool success, address signer)
 ```
 
 
@@ -993,7 +1010,7 @@ function verify(ISignatureMintERC721.MintRequest _req, bytes _signature) externa
 
 | Name | Type | Description |
 |---|---|---|
-| _req | ISignatureMintERC721.MintRequest | undefined
+| _req | ISignatureMint.MintRequest | undefined
 | _signature | bytes | undefined
 
 #### Returns
@@ -1259,7 +1276,7 @@ event TokensMinted(address indexed minter, address receiver, uint256 indexed sta
 ### TokensMintedWithSignature
 
 ```solidity
-event TokensMintedWithSignature(address indexed signer, address indexed mintedTo, ISignatureMintERC721.MintRequest mintRequest)
+event TokensMintedWithSignature(address indexed signer, address indexed mintedTo, uint256 indexed tokenIdMinted, ISignatureMint.MintRequest mintRequest)
 ```
 
 
@@ -1272,7 +1289,8 @@ event TokensMintedWithSignature(address indexed signer, address indexed mintedTo
 |---|---|---|
 | signer `indexed` | address | undefined |
 | mintedTo `indexed` | address | undefined |
-| mintRequest  | ISignatureMintERC721.MintRequest | undefined |
+| tokenIdMinted `indexed` | uint256 | undefined |
+| mintRequest  | ISignatureMint.MintRequest | undefined |
 
 ### Transfer
 
@@ -1291,151 +1309,5 @@ event Transfer(address indexed from, address indexed to, uint256 indexed tokenId
 | from `indexed` | address | undefined |
 | to `indexed` | address | undefined |
 | tokenId `indexed` | uint256 | undefined |
-
-
-
-## Errors
-
-### ApprovalCallerNotOwnerNorApproved
-
-```solidity
-error ApprovalCallerNotOwnerNorApproved()
-```
-
-The caller must own the token or be an approved operator.
-
-
-
-
-### ApprovalQueryForNonexistentToken
-
-```solidity
-error ApprovalQueryForNonexistentToken()
-```
-
-The token does not exist.
-
-
-
-
-### ApprovalToCurrentOwner
-
-```solidity
-error ApprovalToCurrentOwner()
-```
-
-The caller cannot approve to the current owner.
-
-
-
-
-### ApproveToCaller
-
-```solidity
-error ApproveToCaller()
-```
-
-The caller cannot approve to their own address.
-
-
-
-
-### BalanceQueryForZeroAddress
-
-```solidity
-error BalanceQueryForZeroAddress()
-```
-
-Cannot query the balance for the zero address.
-
-
-
-
-### MintToZeroAddress
-
-```solidity
-error MintToZeroAddress()
-```
-
-Cannot mint to the zero address.
-
-
-
-
-### MintZeroQuantity
-
-```solidity
-error MintZeroQuantity()
-```
-
-The quantity of tokens minted must be more than zero.
-
-
-
-
-### OwnerQueryForNonexistentToken
-
-```solidity
-error OwnerQueryForNonexistentToken()
-```
-
-The token does not exist.
-
-
-
-
-### TransferCallerNotOwnerNorApproved
-
-```solidity
-error TransferCallerNotOwnerNorApproved()
-```
-
-The caller must own the token or be an approved operator.
-
-
-
-
-### TransferFromIncorrectOwner
-
-```solidity
-error TransferFromIncorrectOwner()
-```
-
-The token must be owned by `from`.
-
-
-
-
-### TransferToNonERC721ReceiverImplementer
-
-```solidity
-error TransferToNonERC721ReceiverImplementer()
-```
-
-Cannot safely transfer to a contract that does not implement the ERC721Receiver interface.
-
-
-
-
-### TransferToZeroAddress
-
-```solidity
-error TransferToZeroAddress()
-```
-
-Cannot transfer to the zero address.
-
-
-
-
-### URIQueryForNonexistentToken
-
-```solidity
-error URIQueryForNonexistentToken()
-```
-
-The token does not exist.
-
-
 
 

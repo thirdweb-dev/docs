@@ -1,9 +1,9 @@
 ---
-slug: /SignatureDrop
-title: SignatureDrop
+slug: /SignatureDropEnumerable
+title: SignatureDropEnumerable
 hide_title: true
 ---
-# SignatureDrop
+# SignatureDropEnumerable
 
 
 
@@ -155,7 +155,7 @@ function contractURI() external view returns (string)
 
 
 
-
+*Contract level metadata.*
 
 
 #### Returns
@@ -576,6 +576,23 @@ function name() external view returns (string)
 |---|---|---|
 | _0 | string | undefined
 
+### nextTokenIdToClaim
+
+```solidity
+function nextTokenIdToClaim() external view returns (uint256)
+```
+
+
+
+*The tokenId of the next lazy minted NFT that will be claimed.*
+
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
+
 ### nextTokenIdToMint
 
 ```solidity
@@ -640,7 +657,7 @@ function primarySaleRecipient() external view returns (address)
 
 
 
-*The adress that receives all primary sales value.*
+*The address that receives all primary sales value.*
 
 
 #### Returns
@@ -922,10 +939,72 @@ function symbol() external view returns (string)
 |---|---|---|
 | _0 | string | undefined
 
+### thirdwebFee
+
+```solidity
+function thirdwebFee() external view returns (contract ITWFee)
+```
+
+
+
+*The thirdweb contract with fee related information.*
+
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | contract ITWFee | undefined
+
+### tokenByIndex
+
+```solidity
+function tokenByIndex(uint256 index) external view returns (uint256)
+```
+
+
+
+*See {IERC721Enumerable-tokenByIndex}.*
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| index | uint256 | undefined
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
+
+### tokenOfOwnerByIndex
+
+```solidity
+function tokenOfOwnerByIndex(address owner, uint256 index) external view returns (uint256)
+```
+
+
+
+*See {IERC721Enumerable-tokenOfOwnerByIndex}.*
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| owner | address | undefined
+| index | uint256 | undefined
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
+
 ### tokenURI
 
 ```solidity
-function tokenURI(uint256 _tokenId) external view returns (string)
+function tokenURI(uint256 _tokenId) external view returns (string uriForToken)
 ```
 
 
@@ -942,7 +1021,7 @@ function tokenURI(uint256 _tokenId) external view returns (string)
 
 | Name | Type | Description |
 |---|---|---|
-| _0 | string | undefined
+| uriForToken | string | undefined
 
 ### totalSupply
 
@@ -952,7 +1031,7 @@ function totalSupply() external view returns (uint256)
 
 
 
-*Burned tokens are calculated here, use _totalMinted() if you want to count just minted tokens.*
+*See {IERC721Enumerable-totalSupply}.*
 
 
 #### Returns
@@ -1291,151 +1370,5 @@ event Transfer(address indexed from, address indexed to, uint256 indexed tokenId
 | from `indexed` | address | undefined |
 | to `indexed` | address | undefined |
 | tokenId `indexed` | uint256 | undefined |
-
-
-
-## Errors
-
-### ApprovalCallerNotOwnerNorApproved
-
-```solidity
-error ApprovalCallerNotOwnerNorApproved()
-```
-
-The caller must own the token or be an approved operator.
-
-
-
-
-### ApprovalQueryForNonexistentToken
-
-```solidity
-error ApprovalQueryForNonexistentToken()
-```
-
-The token does not exist.
-
-
-
-
-### ApprovalToCurrentOwner
-
-```solidity
-error ApprovalToCurrentOwner()
-```
-
-The caller cannot approve to the current owner.
-
-
-
-
-### ApproveToCaller
-
-```solidity
-error ApproveToCaller()
-```
-
-The caller cannot approve to their own address.
-
-
-
-
-### BalanceQueryForZeroAddress
-
-```solidity
-error BalanceQueryForZeroAddress()
-```
-
-Cannot query the balance for the zero address.
-
-
-
-
-### MintToZeroAddress
-
-```solidity
-error MintToZeroAddress()
-```
-
-Cannot mint to the zero address.
-
-
-
-
-### MintZeroQuantity
-
-```solidity
-error MintZeroQuantity()
-```
-
-The quantity of tokens minted must be more than zero.
-
-
-
-
-### OwnerQueryForNonexistentToken
-
-```solidity
-error OwnerQueryForNonexistentToken()
-```
-
-The token does not exist.
-
-
-
-
-### TransferCallerNotOwnerNorApproved
-
-```solidity
-error TransferCallerNotOwnerNorApproved()
-```
-
-The caller must own the token or be an approved operator.
-
-
-
-
-### TransferFromIncorrectOwner
-
-```solidity
-error TransferFromIncorrectOwner()
-```
-
-The token must be owned by `from`.
-
-
-
-
-### TransferToNonERC721ReceiverImplementer
-
-```solidity
-error TransferToNonERC721ReceiverImplementer()
-```
-
-Cannot safely transfer to a contract that does not implement the ERC721Receiver interface.
-
-
-
-
-### TransferToZeroAddress
-
-```solidity
-error TransferToZeroAddress()
-```
-
-Cannot transfer to the zero address.
-
-
-
-
-### URIQueryForNonexistentToken
-
-```solidity
-error URIQueryForNonexistentToken()
-```
-
-The token does not exist.
-
-
 
 
