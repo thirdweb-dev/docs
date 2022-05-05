@@ -8,12 +8,29 @@ hide_title: true
 
 ## ContractPlatformFee class
 
-Handles primary sales recipients for a Contract
+Handle platform fees and recipients
 
 **Signature:**
 
 ```typescript
-export declare class ContractPlatformFee<TContract extends IPlatformFee> 
+export declare class ContractPlatformFee<TContract extends IPlatformFee> implements DetectableFeature 
+```
+**Implements:** DetectableFeature
+
+## Remarks
+
+Configure platform fees for a contract, which can be applied on certain paid transactions
+
+## Example
+
+
+```javascript
+const contract = sdk.getContract("{{contract_address}}");
+const feeInfo = await contract.platformFee.get();
+await contract.platformFee.set({
+  platform_fee_basis_points: 100, // 1% fee
+  platform_fee_recipient: "0x..." // the fee recipient
+})
 ```
 
 ## Constructors
@@ -21,6 +38,12 @@ export declare class ContractPlatformFee<TContract extends IPlatformFee>
 |  Constructor | Modifiers | Description |
 |  --- | --- | --- |
 |  [(constructor)(contractWrapper)](./sdk.contractplatformfee._constructor_.md) |  | Constructs a new instance of the <code>ContractPlatformFee</code> class |
+
+## Properties
+
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [featureName](./sdk.contractplatformfee.featurename.md) |  | "PlatformFee" |  |
 
 ## Methods
 

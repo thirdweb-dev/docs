@@ -8,12 +8,26 @@ hide_title: true
 
 ## ContractRoles class
 
-Handles Contract roles and permissions
+Handle contract permissions
 
 **Signature:**
 
 ```typescript
-export declare class ContractRoles<TContract extends IPermissionsEnumerable, TRole extends Role> 
+export declare class ContractRoles<TContract extends IPermissionsEnumerable, TRole extends Role> implements DetectableFeature 
+```
+**Implements:** DetectableFeature
+
+## Remarks
+
+Configure roles and permissions for a contract, to restrict certain actions.
+
+## Example
+
+
+```javascript
+const contract = sdk.getContract("{{contract_address}}");
+const rolesAndMembers = await contract.roles.getAll();
+await contract.roles.grantRole("admin", "0x...");
 ```
 
 ## Constructors
@@ -21,6 +35,12 @@ export declare class ContractRoles<TContract extends IPermissionsEnumerable, TRo
 |  Constructor | Modifiers | Description |
 |  --- | --- | --- |
 |  [(constructor)(contractWrapper, roles)](./sdk.contractroles._constructor_.md) |  | Constructs a new instance of the <code>ContractRoles</code> class |
+
+## Properties
+
+|  Property | Modifiers | Type | Description |
+|  --- | --- | --- | --- |
+|  [featureName](./sdk.contractroles.featurename.md) |  | "Permissions" |  |
 
 ## Methods
 

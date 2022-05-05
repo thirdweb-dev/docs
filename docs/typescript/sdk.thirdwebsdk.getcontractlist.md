@@ -15,7 +15,7 @@ Return all the contracts deployed by the specified address
 ```typescript
 getContractList(walletAddress: string): Promise<{
         address: string;
-        contractType: "custom" | "token" | "pack" | "split" | "edition" | "edition-drop" | "token-drop" | "vote" | "marketplace" | "nft-drop" | "nft-collection";
+        contractType: "custom" | "token" | "pack" | "edition" | "split" | "edition-drop" | "token-drop" | "vote" | "marketplace" | "nft-drop" | "nft-collection";
         metadata: () => Promise<any>;
     }[]>;
 ```
@@ -28,4 +28,4 @@ getContractList(walletAddress: string): Promise<{
 
 **Returns:**
 
-Promise&lt;{ address: string; contractType: "custom" \| "token" \| "pack" \| "split" \| "edition" \| "edition-drop" \| "token-drop" \| "vote" \| "marketplace" \| "nft-drop" \| "nft-collection"; metadata: () =&gt; Promise&lt;any&gt;; }\[\]&gt;
+Promise&lt;{ address: string; contractType: "custom" \| "token" \| "pack" \| "edition" \| "split" \| "edition-drop" \| "token-drop" \| "vote" \| "marketplace" \| "nft-drop" \| "nft-collection"; metadata: () =&gt; Promise&lt;any&gt;; }\[\]&gt;

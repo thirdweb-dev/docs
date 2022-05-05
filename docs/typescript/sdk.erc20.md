@@ -8,14 +8,26 @@ hide_title: true
 
 ## Erc20 class
 
-Standard ERC20 functions
+Standard ERC20 Token functions
 
 **Signature:**
 
 ```typescript
-export declare class Erc20<T extends TokenERC20 | DropERC20 | BaseERC20> implements UpdateableNetwork 
+export declare class Erc20<T extends TokenERC20 | DropERC20 | BaseERC20> implements UpdateableNetwork, DetectableFeature 
 ```
-**Implements:** UpdateableNetwork
+**Implements:** UpdateableNetwork, DetectableFeature
+
+## Remarks
+
+Basic functionality for a ERC20 contract that handles all unit transformation for you.
+
+## Example
+
+
+```javascript
+const contract = sdk.getContract("{{contract_address}}");
+await contract.token.transfer(walletAddress, amount);
+```
 
 ## Constructors
 
@@ -28,7 +40,8 @@ export declare class Erc20<T extends TokenERC20 | DropERC20 | BaseERC20> impleme
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
 |  [contractWrapper](./sdk.erc20.contractwrapper.md) |  | ContractWrapper&lt;T&gt; |  |
-|  [mint](./sdk.erc20.mint.md) |  | Erc20Mintable &#124; undefined | Mint tokens |
+|  [featureName](./sdk.erc20.featurename.md) |  | "ERC20" |  |
+|  [mint](./sdk.erc20.mint.md) |  | [Erc20Mintable](./sdk.erc20mintable.md) &#124; undefined | Mint tokens |
 |  [options](./sdk.erc20.options.md) |  | [SDKOptions](./sdk.sdkoptions.md) |  |
 |  [storage](./sdk.erc20.storage.md) |  | [IStorage](./sdk.istorage.md) |  |
 

@@ -8,14 +8,26 @@ hide_title: true
 
 ## Erc721 class
 
-Standard ERC721 functions
+Standard ERC721 NFT functions
 
 **Signature:**
 
 ```typescript
-export declare class Erc721<T extends DropERC721 | TokenERC721 | BaseERC721> implements UpdateableNetwork 
+export declare class Erc721<T extends DropERC721 | TokenERC721 | BaseERC721> implements UpdateableNetwork, DetectableFeature 
 ```
-**Implements:** UpdateableNetwork
+**Implements:** UpdateableNetwork, DetectableFeature
+
+## Remarks
+
+Basic functionality for a ERC721 contract that handles IPFS storage for you.
+
+## Example
+
+
+```javascript
+const contract = sdk.getContract("{{contract_address}}");
+await contract.nft.transfer(walletAddress, tokenId);
+```
 
 ## Constructors
 
@@ -28,6 +40,7 @@ export declare class Erc721<T extends DropERC721 | TokenERC721 | BaseERC721> imp
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
 |  [contractWrapper](./sdk.erc721.contractwrapper.md) |  | ContractWrapper&lt;T&gt; |  |
+|  [featureName](./sdk.erc721.featurename.md) |  | "ERC721" |  |
 |  [mint](./sdk.erc721.mint.md) |  | [Erc721Mintable](./sdk.erc721mintable.md) &#124; undefined |  |
 |  [options](./sdk.erc721.options.md) |  | [SDKOptions](./sdk.sdkoptions.md) |  |
 |  [query](./sdk.erc721.query.md) |  | [Erc721Supply](./sdk.erc721supply.md) &#124; undefined |  |

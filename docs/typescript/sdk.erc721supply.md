@@ -8,10 +8,25 @@ hide_title: true
 
 ## Erc721Supply class
 
+List ERC721 NFTs
+
 **Signature:**
 
 ```typescript
-export declare class Erc721Supply 
+export declare class Erc721Supply implements DetectableFeature 
+```
+**Implements:** DetectableFeature
+
+## Remarks
+
+Easily list all the NFTs in a ERC721 contract.
+
+## Example
+
+
+```javascript
+const contract = sdk.getContract("{{contract_address}}");
+const nfts = await contract.nft.query.all();
 ```
 
 ## Constructors
@@ -24,6 +39,7 @@ export declare class Erc721Supply
 
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
+|  [featureName](./sdk.erc721supply.featurename.md) |  | "ERC721Supply" |  |
 |  [owned](./sdk.erc721supply.owned.md) |  | [Erc721Enumerable](./sdk.erc721enumerable.md) &#124; undefined |  |
 
 ## Methods

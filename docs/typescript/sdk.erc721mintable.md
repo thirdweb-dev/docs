@@ -8,10 +8,25 @@ hide_title: true
 
 ## Erc721Mintable class
 
+Mint ERC721 NFTs
+
 **Signature:**
 
 ```typescript
-export declare class Erc721Mintable 
+export declare class Erc721Mintable implements DetectableFeature 
+```
+**Implements:** DetectableFeature
+
+## Remarks
+
+NFT minting functionality that handles IPFS storage for you.
+
+## Example
+
+
+```javascript
+const contract = sdk.getContract("{{contract_address}}");
+await contract.nft.mint.to(walletAddress, nftMetadata);
 ```
 
 ## Constructors
@@ -25,6 +40,7 @@ export declare class Erc721Mintable
 |  Property | Modifiers | Type | Description |
 |  --- | --- | --- | --- |
 |  [batch](./sdk.erc721mintable.batch.md) |  | [Erc721BatchMintable](./sdk.erc721batchmintable.md) &#124; undefined |  |
+|  [featureName](./sdk.erc721mintable.featurename.md) |  | "ERC721Mintable" |  |
 
 ## Methods
 
