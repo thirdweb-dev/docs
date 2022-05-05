@@ -13,13 +13,13 @@ Constructs a new instance of the `Erc1155BatchMintable` class
 **Signature:**
 
 ```typescript
-constructor(erc1155: Erc1155<BaseERC1155>, contractWrapper: ContractWrapper<IMintableERC1155 & IMulticall>, storage: IStorage);
+constructor(erc1155: Erc1155, contractWrapper: ContractWrapper<IMintableERC1155 & IMulticall>, storage: IStorage);
 ```
 
 ## Parameters
 
 |  Parameter | Type | Description |
 |  --- | --- | --- |
-|  erc1155 | [Erc1155](./sdk.erc1155.md)&lt;BaseERC1155&gt; |  |
+|  erc1155 | [Erc1155](./sdk.erc1155.md) |  |
 |  contractWrapper | ContractWrapper&lt;IMintableERC1155 &amp; IMulticall&gt; |  |
 |  storage | [IStorage](./sdk.istorage.md) |  |

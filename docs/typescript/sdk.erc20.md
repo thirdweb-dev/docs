@@ -13,7 +13,7 @@ Standard ERC20 Token functions
 **Signature:**
 
 ```typescript
-export declare class Erc20<T extends TokenERC20 | DropERC20 | BaseERC20> implements UpdateableNetwork, DetectableFeature 
+export declare class Erc20<T extends TokenERC20 | DropERC20 | BaseERC20 = BaseERC20> implements UpdateableNetwork, DetectableFeature 
 ```
 **Implements:** UpdateableNetwork, DetectableFeature
 
