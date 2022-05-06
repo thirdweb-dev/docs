@@ -23,9 +23,9 @@ You can grab a copy of the final project from our examples organization, [check 
 
 To create an NFT gated website, we will need either an [NFT Collection](/contracts/nft-collection), [NFT Drop](/contracts/nft-drop), [Edition](/contracts/edition), or an [Edition Drop](/contracts/edition-drop) contract already deployed on a blockchain. If you don’t have one created, you can create one using thirdweb’s [TypeScript SDK](https://docs.thirdweb.com/typescript/sdk.nftdrop) or thirdweb’s [dashboard](https://thirdweb.com/dashboard).
 
-<MdxAlert status="warning">
+:::warning
 If your NFTs are an NFT Drop or Edition Drop contract, set up claim phases before using the claiming functions mentioned later in the guide.
-</MdxAlert>
+:::
 
 For our example, I am using an NFT Drop contract called Cookie Club for members of the Cookie Club. 🤫
 
@@ -35,10 +35,10 @@ You can view the Cookie Club NFT Drop on the [thirdweb dashboard.](https://third
 
 To get started will use a `cra-javascript-template` which already includes a working SDK setup. This template will make it easy to learn and save time when getting started with our project.
 
-<MdxAlert status="info">
+:::tip
 If you’d prefer to use your own template, you can install the latest version of our SDK in your project with `npm install @thirdweb-dev/sdk react ethers` or`yarn add @thirdweb-dev/sdk react ethers`
 
-</MdxAlert>
+:::
 
 First, navigate to [this GitHub repository](https://github.com/thirdweb-example/cra-javascript-starter) and click on "Use this template" to create a copy.
 
