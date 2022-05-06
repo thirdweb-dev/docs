@@ -1,0 +1,168 @@
+---
+title: Create your own NFT marketplace with Python
+author: "Pratham Prasoon & Raza Zaidi"
+authorAvatar: "/assets/portal/authors/pratham-prasoon.jpg"
+authorAvatar2: "/assets/portal/authors/raza-zaidi.jpg"
+authorTwitter: "https://twitter.com/PrasoonPratham"
+authorTwitter2: "https://twitter.com/razacodes"
+draft: false
+tags: [python, sdk]
+summary: "Create your own marketplace to sell your own NFTs with Python"
+image: "/assets/portal/guides/create-a-marketplace-with-python-sdk/thumbnail.png"
+date: "2021-11-19"
+updated: ""
+---
+
+<br />
+<MdxAlert status="warning">
+Python SDK is not available on thirdweb v2. This guide is for thirdweb v1. We will be adding Python SDK support for v2 soon.
+</MdxAlert>
+
+## Intro
+
+In this guide we'll create our own marketplace with the Python SDK! In a marketplace you can list your tokens, like NFTs, for sale. [Opensea](https://opensea.io/) is an example of a marketplace.
+
+Did you know you can do both? After we create our marketplace, we will list the NFT we minted with our SDK in our previous guide. Check that guide out [over here](/guides/mint-nft-collection-with-python-sdk).
+
+By the way, we also need to connect a wallet. So if you don't have a wallet, make sure to sign up with MetaMask or CoinWallet. We are gonna use Metamask, if you don't have one, you can follow [this guide](/guides/create-a-metamask-wallet).
+
+Alright without further ado, let's create our marketplace!
+
+## Dashboard setup
+
+The first thing we need to do is head over to the [dashboard](https://v1.thirdweb.com/dashboard) and create a project and a **Bundle Collection** module. if you don't know how to do this, check out [this guide](/learn-thirdweb/projects-and-modules).
+
+Once your **Marketplace** module has been created, it's time to list our first NFT, but we don't need the dashboard for that! I mean we could, but why use GUI if we can use Python!?
+
+![](/assets/portal/guides/create-a-marketplace-with-python-sdk/Untitled%209.png)
+
+![](/assets/portal/guides/create-a-marketplace-with-python-sdk/Untitled%2010.png)
+
+## The code
+
+### 1. Create a Python file and fire up a virtual environment
+
+Go ahead and create a new Python file. Let's call it python_nft and open it in your favorite code editor. We'll use VS code.
+
+![](/assets/portal/guides/create-a-marketplace-with-python-sdk/terminal.png)
+
+Next up use the following code in your terminal to create a virtual environment and install the ThirdWeb SDK!
+
+```bash:virtual-env
+#create a virtual environment
+python3 -m venv ./myenv
+
+#activate virtual environment
+source ./myenv/bin/activate
+
+#install the thirdweb sdk
+pip install thirdweb-sdk
+```
+
+```bash:virtual-env
+#create a virtual environment
+conda create -n "thirdweb" python=3.9
+
+#activate virtual environment
+conda activate thirdweb
+
+#install the thirdweb sdk
+pip install thirdweb-sdk
+```
+
+### 2. Import the SDK
+
+Let's take the code step by step. At the end we'll include a full code snippet.
+
+Import the following classes from the sdk.
+
+We will use the `dotenv` library for our private key in a bit.
+
+```python:python_nft.py
+# Importing stuff
+from thirdweb import ThirdwebSdk, SdkOptions, MintArg, ListArg
+from dotenv import loadenv
+import os
+```
+
+In order to make use of our SDK, you need to establish a connection to a blockchain.
+Click [here](/learn/connect-to-blockchain) to learn how to connect to the blockchain and instantiate our SDK.
+
+For this guide, you will need to instantiate the SDK following [these](/learn/connect-to-blockchain#using-your-own-signer-with-thirdweb) steps, using your own signer with thirdweb.
+
+### 3. Define which module to use
+
+Now we need to define which module we want to use. This is the module we just created inside our project Minting NFTs with Python. We called the module '**Cool NFT marketplace**'. This module has an address. We need to pass the address here. You can find the address here, under '**Cool NFT marketplace**':
+
+![](/assets/portal/guides/create-a-marketplace-with-python-sdk/Untitled%209.png)
+
+In our `python_nft.py` file we include the following code. First we define a variable `market_module_address` and store our module address in here.
+
+Then we create an object that uses the market module inside the SDK with our address.
+
+We will also need the module address of the NFT we want to list. To get your NFT module address head over to the dashboard. Inside your project go to your `NFT Collection` module and copy the address of that module.
+
+If you want to sell your NFT in your own coins, you will also need the module address of your coins. Head over to the dasboard and inside your project go to your `Token` module and copy the address of that module and paste it below.
+
+You can also use the native currency of the chain, such as Ether on Ethereum and Matic on Polygon.
+You will need the token address of the coin you want to use and pass it to the variable `token_module`.
+
+
+```python:python_nft.py
+#pick your module and enter the module address
+market_module_address = "0x56c1F1f63dC507F24495E5fD56003D56FD12A7F9"
+market_module = sdk.get_market_module(market_module_address)
+
+#pick your module and enter the module address
+nft_collection_module_address = "0xdd25FAEE772FbB1bcB7ba0b2cEE6387A8F82f032"
+nft_collection_module = sdk.get_nft_module(nft_collection_module_address)
+
+#token
+token_module_address = "0x75b37A3EDB89bedF68D7866e4c539f914F7A985c"
+token_module = sdk.get_currency_module(token_module_address)
+```
+
+### 4. Time to list an NFT on the marketplace!
+
+We are using the NFT that we created in our previous guide. Each NFT has `token_id`. You can find this `token_id` in your dashboard. Go to your project and pick a NFT from your `NFT Collection` module. We will pass that the following parameters to the method list, via the class `ListArg`:
+
+- **token_id** - id of the NFT. You can find this ID in the NFT Collection module or by using the XXX method in the NFT Collection module
+- **currency_contract** - address of the **Token** module
+- **price_per_token** - quantity of tokens
+- **quantity** - amount of nft's you want to sell
+- **tokens_per_buyer** - how many tokens a buyer can buy at once (the total limit)
+- **seconds_until_start** - time in seconds until the method will execute and list the token
+- **seconds_until_end** - period in seconds that the NFT will remain listed
+
+```python:python_nft.py
+#list an asset in the marketplace
+#what arguments should be passed for the listarg
+market_module.list(ListArg(asset_contract=nft_collection_module_address,
+token_id=1,
+currency_contract=token_module,
+price_per_token=5000000000000000000,
+quantity=1,
+tokens_per_buyer=1,
+seconds_until_start=30,
+seconds_until_end=3600))
+```
+
+### 5. Results
+
+Use this method to get all the listings or head over to the dashboard.
+
+```python:python_nft.py
+#check out out all your listings!!
+print(market_module.get_all_listings())
+```
+
+So the only thing left is to run our code! Open a terminal and paste the following:
+
+```bash
+# Runs the python file
+python python_nft.py
+```
+
+## That's it!
+
+Now you have your own marketplace built with the Python SDK, without writing a single line of Solidity, isn't that nice?

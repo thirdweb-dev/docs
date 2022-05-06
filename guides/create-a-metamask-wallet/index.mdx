@@ -1,0 +1,86 @@
+---
+title: Create a MetaMask wallet and get testnet ETH
+author: "Raza Zaidi & Nacho Iacovino"
+authorAvatar: "/assets/portal/authors/raza-zaidi.jpg"
+authorAvatar2: "/assets/portal/authors/nacho-iacovino.jpg"
+authorTwitter: "https://twitter.com/razacodes"
+authorTwitter2: "https://twitter.com/nachoiacovino"
+draft: false
+tags: [metamask, wallet]
+summary: "Easily setup and create a Metamask wallet and how to get Testnet ETH on Rinkeby"
+image: "/assets/portal/guides/create-a-metamask-wallet/thumbnail.png"
+date: "2021-11-18"
+updated: "2022-03-14"
+---
+
+## Intro
+
+In this guide we'll create a wallet and export the private key. So if you don't have a wallet, make sure to sign up with **MetaMask** or **CoinWallet**.
+
+### Download MetaMask
+
+Head over to [MetaMask](https://metamask.io/download.html) and download the extension.
+
+![](/assets/portal/guides/create-a-metamask-wallet/Untitled.png)
+
+After downloading and installing MetaMask, the following screen should pop-up.
+
+![](/assets/portal/guides/create-a-metamask-wallet/Untitled%201.png)
+
+You can either log in to your existing wallet with your `Secret Recovery Phrase` or create a new wallet. We'll go ahead and create a new wallet.
+
+![](/assets/portal/guides/create-a-metamask-wallet/Untitled%202.png)
+
+Choose whether you want to share data with MetaMask or not. Up to you...
+
+![](/assets/portal/guides/create-a-metamask-wallet/Untitled%203.png)
+
+Create a password. The password should be minimal 8 characters. Make sure to add numbers, special signs and capital letters.
+
+![](/assets/portal/guides/create-a-metamask-wallet/Untitled%204.png)
+
+A `Secret Recovery Phrase` is the key to your wallet. Make sure you save your `Secret Recovery Phrase` properly.
+
+![](/assets/portal/guides/create-a-metamask-wallet/Untitled%205.png)
+
+Here is an example of a `Secret Recovery Phrase`. This is not the same as your `Private Key`. The `Secret Recovery Phrase` is used to login to your wallet from any device, and the Private Key is used to interact with your wallet when developing applications (think of it as admin access)
+
+![](/assets/portal/guides/create-a-metamask-wallet/Untitled%206.png)
+
+You will be asked to confirm your `Secret Recovery Phrase`. You need to pick the exact order as shown before.
+
+![](/assets/portal/guides/create-a-metamask-wallet/Untitled%207.png)
+
+Congratulations! You created a wallet!
+
+![](/assets/portal/guides/create-a-metamask-wallet/Untitled%208.png)
+
+## Export your private key
+
+You should be logged into MetaMask inside your browser. Head over to the top right corner and click on the three dots and then click on **Account details**
+
+![](/assets/portal/guides/create-a-metamask-wallet/Untitled%209.png)
+
+The following screen should pop-up. Click on **Export Private Key**.
+
+![](/assets/portal/guides/create-a-metamask-wallet/Untitled%2010.png)
+
+MetaMask will ask you for your password. Fill in your password and click **Confirm**.
+
+![](/assets/portal/guides/create-a-metamask-wallet/Untitled%2011.png)
+
+After filling in your password, your `Private Key` will be exposed. Be aware. Don't share your `Private Key` with anyone or else they can execute transactions from your wallet and access your funds.
+
+![](/assets/portal/guides/create-a-metamask-wallet/Untitled%2012.png)
+
+## Getting ETH on Rinkeby Testnet
+
+In order to execute transactions we need ETH to pay for gas, but paying for ETH on mainnet is quite expensive! Luckily we can make use of so called 'testnets'. Testnets are networks that operate and behave just like the mainnet. So we can deploy our smart contracts on the testnet and test it before we actually deploy our smart contract.
+
+We can switch between networks inside our wallet by clicking the current network located at the top:
+
+![](/assets/portal/guides/create-a-metamask-wallet/Untitled%2013.png)
+
+Head over to this [Rinkeby Faucet](https://faucets.chain.link/rinkeby) and paste your wallet in the input field.
+
+After a couple of minutes you'll receive some free ETH so you can start developing your applications!

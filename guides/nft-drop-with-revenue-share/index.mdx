@@ -1,0 +1,109 @@
+---
+title: Deploy an NFT Drop with revenue share without writing any code
+author: "Devin Rattray"
+authorAvatar: "/assets/portal/authors/devin-rattray.jpeg"
+authorTwitter: "https://twitter.com/dvnsctt"
+draft: false
+tags: [split, nft-drop, edition-drop, dashboard, no-code, v2]
+summary: "Learn how to setup a revenue share on your NFT drop with no-code."
+image: "/assets/portal/guides/nft-drop-with-revenue-share/thumbnail.png"
+date: "2022-03-22"
+updated: ""
+---
+
+## Intro
+
+Welcome to this **Split** contract guide! The split contract is a powerful tool that allows you to share revenue with a group of people, entirely on-chain.
+
+Whether you are part of a DAO, working with a large team, or just a handful of partners - all you need are the wallet addresses and percent allocation for your split contract. With that information, you are ready to begin.
+
+In this guide we will create our **Split**, deploy an NFT Drop with our primary and royalty sales set to our split contract (creating a revenue share), and distribute funds from our Split contract to our stakeholders - all from the dashboard without ANY code at all.
+
+Ready? Let’s get started.
+
+![Select Split contract on dashboard](/assets/portal/guides/nft-drop-with-revenue-share/select-split-from-dashboard.png)
+
+## Setup
+
+First, we need to create a contract on thirdweb, which can be done on [thirdweb dashboard](https://thirdweb.com/dashboard).
+
+### Create Split contract
+
+For this contract, we're going to be deploying on **Ethereum Testnet Rinkeby**, but you can use a mainnet for it (Ethereum, Polygon, Avalanche, etc).
+
+To create your split contract, click on "**Create new contract**", then "**Governance & Splits**", and select **"Split"**.
+
+Here is the **Split** contract information we need to provide:
+
+1. **Name**: this is the name of your split contract. 
+2. **Image** (optional): add a cover image for you split contract here.
+3. **Description** (optional): add a description for your split contract here.
+4. **Wallet Recipients**: these are the wallets included in the split. Add the wallets for your split, along with the % allocation. All of these wallets will be able to see their portion of the funds in the contract on the dashboard. All wallets can also distribute the funds.
+5. **Percentage**: the percent allocation for each wallet of the total revenue received. 
+
+![Input your Split contract information](/assets/portal/guides/nft-drop-with-revenue-share/deploy-new-split-contract.png)
+
+When you’re ready, click “Deploy now” and confirm the transaction. Note, once you confirm this transaction, you can no longer modify this split contract in any way. This information is permanently coded into this split contract.
+
+Your deployed split contract should look something like this:
+
+![Deployed Split contract on dashboard](/assets/portal/guides/nft-drop-with-revenue-share/deployed-split-contract.png)
+
+Before moving on, make sure to copy your split contract address to your clipboard! It’s located right underneath your split contract name.
+
+![Split contract address](/assets/portal/guides/nft-drop-with-revenue-share/split-contract-address.png)
+
+### Deploy to your drop
+
+Next up, we will deploy our NFT drop and connect our split contract.
+
+For this contract, we're going to deploy on the same network - **Rinkeby**.
+
+To create your NFT Drop contract, click on "**Create new contract**", then "**Release a drop**", and select **"NFT Drop"**.
+
+Here, we can input the settings of our drop, including Primary and Royalty recipient addresses!
+
+In our case, we want to split both primary sales (revenue from minting) and royalty sales (revenue from secondary sales). All we have to do is paste our split contract address - copied above - in both fields. 
+
+Here’s what it looks like when we are ready to deploy.
+
+![NFT drop with Split contract address as sales recipient](/assets/portal/guides/nft-drop-with-revenue-share/deploy-nft-drop.png)
+
+After clicking “Deploy now” and confirming the transaction, you successfully created an NFT drop with your split contract receiving the revenue!
+
+For the purposes of this guide, we’ll assume you know how to set up the rest of your NFT Drop. For more information on how to complete your NFT drop, check out [this](/guides/release-an-nft-drop-with-no-code) guide. 
+
+Next, will show you your split contract after you receive revenue.
+
+## Distribute funds
+
+Congrats! Your primary sales were a success. You sold out, and now all your funds are sitting in your split contract. Great. But you want the money in your wallet! 
+
+This step show you how to distribute ALL the funds in the split contract, and correctly allocate them to each wallet listed.
+
+First, connect your wallet to the thirdweb dashboard that is included in the split. Then, select your split contract.
+
+On the dashboard you will see the balance of funds owned by the signed-in wallet.
+
+![Split contract with your wallet balance](/assets/portal/guides/nft-drop-with-revenue-share/split-contract-with-funds.png)
+
+To send the funds to your wallet, all you need to do is click “Distribute Funds” in the top right, confirm the transaction, and voila - all funds are distributed from the split contract to the individual wallets!
+
+![Select 'Distribute Funds'](/assets/portal/guides/nft-drop-with-revenue-share/select-distribute-funds.png)
+
+Lastly, we can open our transaction on Rinkeby Etherscan to make sure our funds were distributed properly:
+
+![Etherscan confirmation](/assets/portal/guides/nft-drop-with-revenue-share/etherscan-confirmation.png)
+
+Look at that, just how we set it up.
+
+## That’s it!
+
+You are finished! You have done a lot, let's recap:
+
+- You have created your own split contract.
+- You have created your own NFT drop and set the primary sales and royalties to your split contract.
+- All transactions from your NFT drop will automatically be sent to your split contract and owned by the wallets based on your allocated percentages.
+- You have distributed the funds to all shareholders.
+
+I hope you have enjoyed this guide, see you on the next one!

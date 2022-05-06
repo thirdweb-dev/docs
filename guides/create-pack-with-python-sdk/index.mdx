@@ -1,0 +1,191 @@
+---
+title: Create a Pack with Python
+author: "Raza Zaidi"
+authorAvatar: "/assets/portal/authors/raza-zaidi.jpg"
+authorTwitter: "https://twitter.com/razacodes"
+draft: false
+tags: [pack, mint, python, sdk]
+summary: "Create your own Pack of NFTs using the thirdweb Python SDK"
+image: "/assets/portal/guides/create-pack-with-python-sdk/thumbnail.png"
+date: "2021-12-27"
+updated: ""
+---
+
+<br />
+<MdxAlert status="warning">
+Python SDK is not available on thirdweb v2. This guide is for thirdweb v1. We will be adding Python SDK support for v2 soon.
+</MdxAlert>
+
+## Intro
+
+This guide explains in 7 easy steps how to create a pack. We need to create a project in the dashboard and create a **Pack** module inside our project. We also need to connect a wallet. So if you don't have a wallet, make sure to sign up with **MetaMask** or **CoinWallet**. We are gonna use Metamask, if you don't have one, you can follow [this guide](/guides/create-a-metamask-wallet).
+
+## Dashboard setup
+
+The first thing we need to do is head over to the [dashboard](https://v1.thirdweb.com/dashboard) and create a project and a **Bundle Collection** module. if you don't know how to do this, check out [this guide](/learn-thirdweb/projects-and-modules).
+
+After you're done this is what you Pack module should look like in the dashboard. I called my pack module `random`.
+
+![A pack module](/assets/portal/guides/create-pack-with-python-sdk/module.png)
+
+## Create a Pack - The code
+
+### 1. Create a Python file and fire up a virtual environment
+
+Go ahead and create a new Python file. Let's call it `python_nft.py` and open it in your favorite code editor. We'll use Visual Studio.
+
+![Creating a python file inside the terminal](/assets/portal/guides/create-pack-with-python-sdk/terminal.png)
+
+Next up use the following code in your terminal to create a virtual environment and install the ThirdWeb SDK!
+
+### Virtual-env
+
+```python
+#create a virtual environment
+python3 -m venv ./myenv
+
+#activate virtual environment
+source ./myenv/bin/activate
+
+#install the thirdweb sdk
+pip install thirdweb-sdk
+```
+
+### Conda
+
+```python
+#create a virtual environment
+conda create -n "thirdweb" python=3.9
+
+#activate virtual environment
+conda activate thirdweb
+
+#install the thirdweb sdk
+pip install thirdweb-sdk
+```
+
+### 2. Import the SDK
+
+Let's take the code step by step. At the end we'll include a full code snippet.
+
+Import the following classes from the sdk.
+
+We will use the `dotenv` library for our private key in a bit.
+
+```python
+# Importing stuff
+from thirdweb import ThirdwebSdk, SdkOptions, CreatePackArg, AssetAmountPair
+from dotenv import loadenv
+import os
+```
+
+In order to make use of our SDK, you need to establish a connection to a blockchain.
+Click [here](/learn/connect-to-blockchain) to learn how to connect to the blockchain and instantiate our SDK.
+
+For this guide, you will need to instantiate the SDK following [these](/learn/connect-to-blockchain#using-your-own-signer-with-thirdweb) steps, using your own signer with thirdweb.
+
+### 3. Define which module to use
+
+Now we need to define which module we want to use. This is the module we created inside our project. This module has an address. We need to pass the address here. You can find the address inside the dashboard:
+
+In our `python_nft.py` we include the following code. First we define a variable **pack_contract** and store our module address in here.
+
+Then we create an object that uses the Pack module inside the sdk with our address.
+
+```python
+#pick your module and enter the smart contract address
+pack_contract = "0xEA9e245C4663AC7A82Df0329A1a480C4729adC52"
+pack_module = sdk.get_pack_module(pack_contract)
+```
+
+### 4. Time to create the pack!
+
+The arguments passed over here are the same as inside the dashboard. If you want to familiarize yourself with the process, check out the dashboard!
+
+Note, the Pack module only works with NFTs from the 'Drop' and 'Bundle' module, because these modules are based on ERC-1155. If this is new to you, in short a Pack holds multiple NFTs. 
+
+```python
+#Create the Pack
+    
+pack_module.create(CreatePackArg(
+		#asset_contract_address: The address of the asset being put in the pack
+		#Note, the Pack module only works with NFTs from the 'Drop' and 'Bundle' module
+    asset_contract_address= bundle_smart_contract_address,
+		#metadata: The metadata of the pack (name, description, image, etc)
+    metadata=('packme'),
+		#assets: The list of assets (pair of [id, amount]) to list in in the pack
+    assets= [AssetAmountPair(amount=1, token_id=1), AssetAmountPair(amount=1, token_id=0)],
+    #rewards_per_open: The number of tokens that will be awarded when opening the pack
+		rewards_per_open=1,
+		#seconds_until_open_start: The number of seconds the pack is allowed to be opened
+    seconds_until_open_start=0,
+))
+```
+
+### 5. Results
+
+Get the balance to check it out or head over to the dashboard.
+
+```python
+#check your balance to check if you minted an nft!
+print(pack_module.get_all())
+```
+
+## Full Code Snippet
+
+```python
+from thirdweb import ThirdwebSdk, SdkOptions, CreatePackArg, AssetAmountPair
+from dotenv import load_dotenv
+import os
+
+#network = "https://polygon-rpc.com"
+network = "https://rpc-mumbai.maticvigil.com"
+sdk = ThirdwebSdk(SdkOptions(), network)
+
+load_dotenv()
+PRIVATE_KEY = os.getenv('PRIVATE_KEY')
+
+sdk.set_private_key(PRIVATE_KEY)
+
+bundle_smart_contract_address = "0xC92702c53620DcA7B0d2898e361333957f547525"
+
+pack_contract = "0xEA9e245C4663AC7A82Df0329A1a480C4729adC52"
+pack_module = sdk.get_pack_module(pack_contract)
+
+pack_module.create(CreatePackArg(
+    asset_contract_address= bundle_smart_contract_address,
+    metadata=('packme'),
+    assets= [AssetAmountPair(amount=1, token_id=1), AssetAmountPair(amount=1, token_id=0)],
+    rewards_per_open=1,
+    seconds_until_open_start=0,
+))
+```
+
+## Open a Pack
+
+In order to open a Pack we can re-use most of the code. instead of the `create()` method we will call the `open_pack` method 👇
+
+You can find the ‘pack_id' inside your dashboard of fetch the data by using the `get_all` method we used in step 7.
+
+```python
+#pass the pack_id inside the method.
+pack_module.open_pack(1)
+```
+
+## Open a random Pack with Deposit Link
+
+To open a random pack we need to perform some additional steps. In order to create a random generated number, we need the help of ChainLink. 
+
+The following method, gets a random number from Chainlink and passes it on to our sdk. 
+
+The argument that we're passing to our method is the amount of Chainlink tokens we need to pay. To make use of Chainlink we need special tokens. For the `Rinkeby` network you can get them [here](https://faucets.chain.link/rinkeby).
+
+```python
+#Creating a deposit link
+pack_module.deposit_link(1)
+```
+
+## That's it!
+
+Congratulations! You have now created your own pack using only Python code. The next step is to open it!
+If you have any questions, drop by our [discord](https://discord.com/invite/thirdweb)!
