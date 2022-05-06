@@ -30,7 +30,12 @@ const config = {
           path: "docs/typescript",
           routeBasePath: "typescript",
         },
-        blog: false,
+        blog: {
+          path: "guides",
+          routeBasePath: "guides",
+          tagsBasePath: "tag",
+          showReadingTime: true,
+        },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
