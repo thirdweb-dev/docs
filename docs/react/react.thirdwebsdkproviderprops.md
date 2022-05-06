@@ -11,9 +11,9 @@ hide_title: true
 **Signature:**
 
 ```typescript
-interface ThirdwebSDKProviderProps extends Pick<ThirdwebProviderProps, "desiredChainId" | "sdkOptions" | "storageInterface"> 
+export interface ThirdwebSDKProviderProps extends Pick<ThirdwebProviderProps, "desiredChainId" | "sdkOptions" | "storageInterface"> 
 ```
-**Extends:** Pick&lt;ThirdwebProviderProps
+**Extends:** Pick&lt;[ThirdwebProviderProps](./react.thirdwebproviderprops.md)
 
 ## Properties
 

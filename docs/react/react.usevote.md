@@ -13,7 +13,7 @@ Hook for getting an instance of an `Vote` contract. This contract enables fully 
 **Signature:**
 
 ```typescript
-declare function useVote(contractAddress?: string): Vote | undefined;
+export declare function useVote(contractAddress?: string): Vote | undefined;
 ```
 
 ## Parameters

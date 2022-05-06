@@ -13,7 +13,7 @@ Hook for getting an instance of an `EditionDrop` contract. This conract is used 
 **Signature:**
 
 ```typescript
-declare function useEditionDrop(contractAddress?: string): EditionDrop | undefined;
+export declare function useEditionDrop(contractAddress?: string): EditionDrop | undefined;
 ```
 
 ## Parameters

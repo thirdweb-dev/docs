@@ -17,10 +17,10 @@ import { useDisconnect } from "@thirdweb-dev/react"
 **Signature:**
 
 ```typescript
-declare function useDisconnect(options?: {
+export declare function useDisconnect(options?: {
     reconnectAfterGnosis?: boolean;
 }): () => Promise<void | {
-    data?: wagmi.ConnectorData<any> | undefined;
+    data?: import("wagmi").ConnectorData<any> | undefined;
     error?: Error | undefined;
 }>;
 ```
@@ -33,7 +33,7 @@ declare function useDisconnect(options?: {
 
 **Returns:**
 
-() =&gt; Promise&lt;void \| { data?: wagmi.ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;
+() =&gt; Promise&lt;void \| { data?: import("wagmi").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;
 
 ## Example
 
