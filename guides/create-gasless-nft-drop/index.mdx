@@ -6,7 +6,7 @@ authors: avneesh
 draft: false
 tags: [edition-drop, react, claim, gas]
 description: "Learn how to create an NFT Drop in which you pay the gas for your users, using OpenZeppelin, Next.js and thirdweb"
-image: "/assets/portal/guides/create-gasless-nft-drop/thumbnail.png"
+image: "./thumbnail.png"
 date: "2022-04-04"
 
 ---
@@ -17,21 +17,21 @@ In some cases, you might want to pay the gas for NFT drops like early access dro
 
 Go to the [thirdweb](https://thirdweb.com/) dashboard and click on create a new contract. Select the chain you are going to build upon. I am going to use Mumbai for this guide. Select “Release a drop”
 
-![Release a drop](/assets/portal/guides/create-gasless-nft-drop/release-a-drop.png)
+![Release a drop](./release-a-drop.png)
 
 And select Edition drop. If you want to drop unique NFTs you can select a normal drop
 
 Fill out the details and hit deploy!
 
-![New Edition drop contract](/assets/portal/guides/create-gasless-nft-drop/new-edition-drop-contract.png)
+![New Edition drop contract](./new-edition-drop-contract.png)
 
 After the drop is created, create a new NFT inside of the drop like this-
 
-![New Edition drop](/assets/portal/guides/create-gasless-nft-drop/new-edition-drop.png)
+![New Edition drop](./new-edition-drop.png)
 
 Finally, let’s add a claim phase! Click on the settings button for the token, update the details based on what you need, and hit update. You will be asked to confirm a small transaction so confirm that.
 
-![Claim Phase](/assets/portal/guides/create-gasless-nft-drop/claim-phase.png)
+![Claim Phase](./claim-phase.png)
 
 ## Building the website
 
@@ -123,7 +123,7 @@ Now, if the user is authenticated then show their address otherwise the sign-in 
 
 Once, you sign in it should now show you your address! 🔥
 
-![Signed in as address](/assets/portal/guides/create-gasless-nft-drop/signed-in-address.png)
+![Signed in as address](./signed-in-address.png)
 
 ## Building the mint functionality
 
@@ -135,7 +135,7 @@ const editionDrop = useEditionDrop("EDITION_DROP_ADDRESS");
 
 Copy the edition drop address from the dashboard and replace it with `EDITION_ADDRESS`
 
-![Edition drop address](/assets/portal/guides/create-gasless-nft-drop/edition-drop-address.png)
+![Edition drop address](./edition-drop-address.png)
 
 Once again, import the hook-
 
@@ -175,7 +175,7 @@ thirdweb supports [Biconomy](https://www.biconomy.io/) and OpenZeppelin for rela
 
 Create a new relayer in OpenZeppelin:
 
-![Create new Relayer](/assets/portal/guides/create-gasless-nft-drop/create-new-relayer.png)
+![Create new Relayer](./create-new-relayer.png)
 
 Choose the network that you are building upon and give the relayer a name!
 
@@ -183,15 +183,15 @@ After the relayer has been created, copy the address and transfer some funds int
 
 You should be able to see the amount you transferred in your dashboard
 
-![Relayer Dashboard](/assets/portal/guides/create-gasless-nft-drop/relayer-dashboard.png)
+![Relayer Dashboard](./relayer-dashboard.png)
 
 Now go ahead and create a new autotask, you will be asked to fill some data-
 
-![Create Autotask](/assets/portal/guides/create-gasless-nft-drop/create-autotask.png)
+![Create Autotask](./create-autotask.png)
 
 You can get the code from [here](https://raw.githubusercontent.com/thirdweb-dev/ozdefender-autotask/main/src/forwarder_handler.js) and paste it into the code section of autotask. After you are done hit create. Once it is done creating, copy the webhook uri
 
-![Copy webhook uri](/assets/portal/guides/create-gasless-nft-drop/copy-webhook-uri.png)
+![Copy webhook uri](./copy-webhook-uri.png)
 
 Head back to the Next.js application, and create a new `.env.local` file in the root of the folder. We will use this to store our environment variables! Create a new variable `NEXT_PUBLIC_OPENZEPPELIN_URL` like this-
 

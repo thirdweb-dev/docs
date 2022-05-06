@@ -7,7 +7,7 @@ authors:
 draft: false
 tags: [pack, typescript, nextjs, react]
 description: "Easily setup and create a Metamask wallet and how to get Testnet ETH on Rinkeby"
-image: "/assets/portal/guides/create-a-pack-with-typescript-and-nextjs/thumbnail.png"
+image: "./thumbnail.png"
 date: "2022-02-01"
 
 ---
@@ -44,7 +44,7 @@ Lastly, create a Pack module. In this tutorial, we will refer to it as "thirdweb
 
 This is what your project should look like now:
 
-![thirdweb Packs Project](/assets/portal/guides/create-a-pack-with-typescript-and-nextjs/thirdweb-dashboard.png)
+![thirdweb Packs Project](./thirdweb-dashboard.png)
 
 Now we are done and can get into the code.
 
@@ -207,7 +207,7 @@ When you build something on your own, you could choose any of those, but as we a
 
 Go back to the thirdweb dashboard and open your "thirdweb Packs Bundle" module. Click on the button that is labeled "+ Create", and mint an NFT with an initial supply. Let's say 20 is enough for now.
 
-![Mint](/assets/portal/guides/create-a-pack-with-typescript-and-nextjs/mint-nfts.png)
+![Mint](./mint-nfts.png)
 
 Do this at least two times so the Pack module later has different NFTs to choose between. And when you are done with this, there is only one last thing to do before you can get back into coding: Get some LINK.
 
@@ -217,7 +217,7 @@ You can get LINK for the Mumbai Testnet [here](https://faucets.chain.link/mumbai
 
 When you have your LINK, go back to the thirdweb dashboard and open the "thirdweb Packs Pack." Go to "Settings" and add the LINK to the module. This way, when a user opens a pack later, the module can pay the required LINK for the random number.
 
-![Funding LINK](/assets/portal/guides/create-a-pack-with-typescript-and-nextjs/funding-link.png)
+![Funding LINK](./funding-link.png)
 
 When your Pack module is funded with LINK, you have finished the last preparation step necessary. It's time to go back into the code. We will begin with the backend API that handles the on-demand creation of a pack.
 

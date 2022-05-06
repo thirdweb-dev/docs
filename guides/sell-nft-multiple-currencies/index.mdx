@@ -6,7 +6,7 @@ authors: avneesh
 draft: false
 tags: [edition, react, signature, mint]
 description: "Learn how to make an ERC-1155 drop where users can pay with multiple currencies using signature minting, Next.js, and thirdweb"
-image: "/assets/portal/guides/sell-nft-multiple-currencies/thumbnail.png"
+image: "./thumbnail.png"
 date: "2022-04-19"
 
 ---
@@ -63,11 +63,11 @@ We also need to create an edition and an NFT inside of the edition to be able to
 
 Fill out the details and deploy the contract!
 
-![Deploy edition contract](/assets/portal/guides/sell-nft-multiple-currencies/deploy-edition-contract.png)
+![Deploy edition contract](./deploy-edition-contract.png)
 
 Now, let's create and mint a new NFT inside of it. Fill out the details and make sure to set the initial supply to 0.
 
-![Mint New NFT](/assets/portal/guides/sell-nft-multiple-currencies/mint-new-nft.png)
+![Mint New NFT](./mint-new-nft.png)
 
 ## Building the NFT card
 
@@ -159,7 +159,7 @@ import { nft } from "../nft";
 
 If you now go to [http://localhost:3000/](http://localhost:3000/) you will be able to see a card like this:
 
-![NFT Card](/assets/portal/guides/sell-nft-multiple-currencies/nft-card.png)
+![NFT Card](./nft-card.png)
 
 I haven't styled this so it doesn't look that beautiful but feel free to customize it for use and make it beautiful ;)!
 
@@ -206,7 +206,7 @@ export default generateMintSignature;
 
 This creates a basic api for us, if you now go to the [`api/generate-mint-sig`](http://localhost:3000/api/generate-mint-sig) endpoint you will get a response of `Gm wagmi`.
 
-![Api response](/assets/portal/guides/sell-nft-multiple-currencies/api-response.png)
+![Api response](./api-response.png)
 
 Let's now initialize the thirdweb sdk!
 
@@ -232,7 +232,7 @@ Let's see how to get these two variables.
 
 In your metamask wallet, click on the three dots, then click account details. You will see an option to export private key there. Export your private key and paste it into the `PRIVATE_KEY` variable.
 
-![Export private key](/assets/portal/guides/sell-nft-multiple-currencies/export-pvt-key.png)
+![Export private key](./export-pvt-key.png)
 
 This will give full access to your wallet to make sure to keep it secret!
 
@@ -240,7 +240,7 @@ This will give full access to your wallet to make sure to keep it secret!
 
 Go to [Alchemy](https://dashboard.alchemyapi.io/) and sign up for an account. You need to create a new app, so click on create app. Fill out the details, and hit submit. I am using Mumbai network for this demo but you need to use the network that you are using!
 
-![Create Alchemy app](/assets/portal/guides/sell-nft-multiple-currencies/create-alchemy-app.png)
+![Create Alchemy app](./create-alchemy-app.png)
 
 Finally, paste this in the `.env.local` file too. Since we have changed the env variables we need to restart the server. So, cut the terminal and run `yarn dev` again.
 
@@ -415,7 +415,7 @@ style={{position: "absolute", top: "0",left: "0", height: "100%", width: "100%"}
 
 On the dashboard too, you would be able to see the supply increase.
 
-![NFT supply](/assets/portal/guides/sell-nft-multiple-currencies/nft-supply.png)
+![NFT supply](./nft-supply.png)
 
 ## Conclusion
 

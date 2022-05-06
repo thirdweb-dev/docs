@@ -6,7 +6,7 @@ authors: raza
 draft: false
 tags: [nft-collection, python, django]
 description: "Integrate thirdweb's SDK in a Django app"
-image: "/assets/portal/guides/mint-nft-in-django/thumbnail.png"
+image: "./thumbnail.png"
 date: "2021-12-12"
 
 ---
@@ -22,7 +22,7 @@ The first thing we need to do is head over to the [dashboard](https://thirdweb.c
 
 Once your contract has been created, it's time to mint our first NFT, but we don't need the dashboard for that! I mean we could, but why use GUI if we can use Python!?
 
-![Finished setting up the module](/assets/portal/guides/mint-nft-in-django/module_done.png)
+![Finished setting up the module](./module_done.png)
 
 ## The code
 
@@ -60,7 +60,7 @@ pip install thirdweb-sdk
 
 The Django structure looks like this. All I did was create the basic Django project with a Django app inside. This project is called `create_nft_with_django` and the app is called `thirdweb_nft`. Navigate to your Django App and create a python file for the thirdweb SDK. I called mine `nft_collection.py`.
 
-![Django folder structure](/assets/portal/guides/mint-nft-in-django/django.png)
+![Django folder structure](./django.png)
 
 ### 2. Import the SDK
 
@@ -71,7 +71,7 @@ For this guide, you will need to instantiate the SDK following [these](/learn/co
 
 In order to interact with our smart contract, we need to tell the SDK what the address is of our smart contract.
 You can find the address here, under Python:
-![The NFT collection contract](/assets/portal/guides/mint-nft-in-django/module_done.png)
+![The NFT collection contract](./module_done.png)
 
 ```python:nft_collection.py
 #instantiate the sdk and pass the contract address

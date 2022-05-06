@@ -8,7 +8,7 @@ authors: [raza, devin]
 draft: false
 tags: [marketplace, typescript, v2]
 description: "Create your own marketplace to sell NFTs with TypeScript"
-image: "/assets/portal/guides/create-your-own-marketplace-with-thirdweb-typescript-sdk/thumbnail.png"
+image: "./thumbnail.png"
 date: "2021-11-25"
 
 ---
@@ -27,7 +27,7 @@ The first thing we need to do is head over to the [dashboard](https://thirdweb.c
 
 Once you've created the contract, it's time to list our first NFT, but we don't need the dashboard for that! I mean we could, but why use GUI if we can use TypeScript!?
 
-![New Marketplace contract viewed in the thirdweb dashboard](/assets/portal/guides/create-your-own-marketplace-with-thirdweb-typescript-sdk/marketplace-contract-dashboard-view.png)
+![New Marketplace contract viewed in the thirdweb dashboard](./marketplace-contract-dashboard-view.png)
 
 ## The code
 
@@ -35,7 +35,7 @@ Once you've created the contract, it's time to list our first NFT, but we don't 
 
 Go ahead and create a new TypeScript file. Let's call it `index.ts` and open it in your favorite code editor. We'll use Visual Studio code.
 
-![](/assets/portal/guides/create-your-own-marketplace-with-thirdweb-typescript-sdk/19-jsfile.png)
+![](./19-jsfile.png)
 
 Next up use we'll install the ThirdWeb SDK using npm!
 
@@ -63,7 +63,7 @@ For this guide, you will need to instantiate the SDK following [these](/learn-th
 
 Now we need to define which contract we want to use. We created the Marketplace contract and called it '**Cool NFT Marketplace**'. This contract has an address. We need to pass the address here. You can find the address here, under '**Cool NFT Marketplace**':
 
-![See Marketplace contract address under contract name](/assets/portal/guides/create-your-own-marketplace-with-thirdweb-typescript-sdk/marketplace-contract-dashboard-view.png)
+![See Marketplace contract address under contract name](./marketplace-contract-dashboard-view.png)
 
 In our `index.ts` file we include the following code. First we define a variable `marketplaceAddress` and store our contract address in here.
 

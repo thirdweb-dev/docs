@@ -8,7 +8,7 @@ authors: [raza, devin]
 draft: false
 tags: [token, currency, typescript, sdk, v2]
 description: "Creating tokens that can be used as your own currency with the thirdweb TypeScript SDK"
-image: "/assets/portal/guides/create-your-currency-with-typescript-sdk/thumbnail.png"
+image: "./thumbnail.png"
 date: "2021-11-21"
 
 ---
@@ -23,7 +23,7 @@ The first thing we need to do is head over to the [dashboard](https://thirdweb.c
 
 Once your **Token** contract has been created, it's time to mint our own currency, but we don't need the dashboard for that! For use cases where the interaction has a high frequency and requires conditions, using the SDK is more efficient.
 
-![New Token contract viewed in the thirdweb dashboard](/assets/portal/guides/create-your-currency-with-typescript-sdk/token-contract-dashboard-view.png)
+![New Token contract viewed in the thirdweb dashboard](./token-contract-dashboard-view.png)
 
 ## The code
 
@@ -52,7 +52,7 @@ Let's take the code step by step.
 
 Create a file called `currency.ts`
 
-![](/assets/portal/guides/create-your-currency-with-typescript-sdk/18_ts_file.png)
+![](./18_ts_file.png)
 
 In order to make use of our SDK, you need to establish a connection to a blockchain.
 Click [here](/learn-thirdweb/connect-to-blockchain) to learn how to connect to the blockchain and instantiate our SDK.
@@ -63,7 +63,7 @@ For this guide, you will need to instantiate the SDK following [these](/learn-th
 
 Now we need to define which contract we want to use. Here we created a Token contract and called it '**Future Coin**'. This contract has an address. We need to pass the address here. You can find the address on the dashboard under '**Future Coin**':
 
-![See Token contract address under contract name](/assets/portal/guides/create-your-currency-with-typescript-sdk/token-contract-dashboard-view.png)
+![See Token contract address under contract name](./token-contract-dashboard-view.png)
 
 In our `currency.ts` we include the following code.
 
@@ -104,7 +104,7 @@ npx ts-node index.ts
 
 Get the balance to check it out or head over to the dashboard.
 
-![Token contract with 1,000 minted tokens viewed on the thirdweb dashboard](/assets/portal/guides/create-your-currency-with-typescript-sdk/token-contract-dashboard-view-with-tokens.png)
+![Token contract with 1,000 minted tokens viewed on the thirdweb dashboard](./token-contract-dashboard-view-with-tokens.png)
 
 ## That's it!
 

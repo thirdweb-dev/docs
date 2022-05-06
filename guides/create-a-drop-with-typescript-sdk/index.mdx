@@ -8,7 +8,7 @@ authors: [raza, devin]
 draft: false
 tags: [nft-drop, claim, typescript, v2]
 description: "Create our own drop where we can create NFTs in TypeScript."
-image: "/assets/portal/guides/create-a-drop-with-typescript-sdk/thumbnail.png"
+image: "./thumbnail.png"
 date: "2021-12-06"
 
 featured: false
@@ -26,7 +26,7 @@ The first thing we need to do is head over to the [dashboard](https://thirdweb.c
 
 Once the contract is created, it's time to create our first NFT, but we don't need the dashboard for that! I mean we could, but why use GUI if we can use TypeScript!?
 
-![New NFT Drop contract viewed in the thirdweb dashboard](/assets/portal/guides/create-a-drop-with-typescript-sdk/nft-drop-contract-dashboard-view.png)
+![New NFT Drop contract viewed in the thirdweb dashboard](./nft-drop-contract-dashboard-view.png)
 
 ## The code
 
@@ -34,7 +34,7 @@ Once the contract is created, it's time to create our first NFT, but we don't ne
 
 Go ahead and create a new TypeScript file. Let's call it `index.ts` and open it in your favorite code editor. We'll use VS code.
 
-![](/assets/portal/guides/create-a-drop-with-typescript-sdk/terminal.png)
+![](./terminal.png)
 
 Next up use we'll install the ThirdWeb SDK using npm!
 
@@ -68,7 +68,7 @@ For this guide, you will need to instantiate the SDK following [these](/learn-th
 
 Now we need to define which contract we want to use. Here we created an NFT Drop contract and called it '**My Drop**'. This contract has an address. We need to pass the address here. You can find the address on the dashboard under **My Drop**:
 
-![See NFT Drop contract address under contract name](/assets/portal/guides/create-a-drop-with-typescript-sdk/nft-drop-contract-dashboard-view.png)
+![See NFT Drop contract address under contract name](./nft-drop-contract-dashboard-view.png)
 
 In our `index.ts` file we include the following code. First we define a variable `nftDrop` and store our contract in here.
 

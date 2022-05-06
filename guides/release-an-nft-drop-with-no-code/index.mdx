@@ -6,7 +6,7 @@ authors: nacho
 draft: false
 tags: [nft-drop, embed, no-code, bulk-upload]
 description: "Learn how to release a big NFT drop with no-code."
-image: "/assets/portal/guides/release-an-nft-drop-with-no-code/thumbnail.png"
+image: "./thumbnail.png"
 date: "2021-12-21"
 
 featuredOrder: 2
@@ -36,13 +36,13 @@ Drop uses ERC-721, which means every NFT will be unique.
 
 This is my **Drop** contract after I fill in the information:
 
-![Drop contract creation](/assets/portal/guides/release-an-nft-drop-with-no-code/drop-contract-creation.png)
+![Drop contract creation](./drop-contract-creation.png)
 
 The drop I'm going to be deploying is a Pokémon-themed one, so we're going to be uploading all the Pokémon from Gen 1 as NFTs, isn't that exciting?!
 
 So, what does every input do? Let's use [Bored Ape Yacht Club](https://opensea.io/collection/boredapeyachtclub), a popular collection, as an example:
 
-![BAYC as an example](/assets/portal/guides/release-an-nft-drop-with-no-code/bayc-example.png)
+![BAYC as an example](./bayc-example.png)
 
 - **Image**: Image of your collection (as a whole).
 - **Name**: Sets the name of your collection.
@@ -56,7 +56,7 @@ So, what does every input do? Let's use [Bored Ape Yacht Club](https://opensea.i
 
 Next thing we'll do, is configure the claim phases for the drop, these are my settings for this drop:
 
-![NFT drop claim phase settings](/assets/portal/guides/release-an-nft-drop-with-no-code/drop-claim-settings.png)
+![NFT drop claim phase settings](./drop-claim-settings.png)
 
 So let's explain what each of these do!
 
@@ -76,7 +76,7 @@ Now that our claim phases are set, we'll click "**Update Claim Phases**" and con
 
 The next screen will allow us to set permissions. Here you can give admin capabilities to other wallets, if you want to do so. I'm going to leave it exactly as is for the moment: 
 
-![All the permissions you can set](/assets/portal/guides/release-an-nft-drop-with-no-code/permissions.png)
+![All the permissions you can set](./permissions.png)
 
 ### Batch upload
 
@@ -86,7 +86,7 @@ I've prepared a folder with all the Gen 1 Pokémon and the metadata for you to t
 
 Click "**Batch Upload**" at the top of your NFT Drop Contract.
 
-![Batch Upload button](/assets/portal/guides/release-an-nft-drop-with-no-code/batch-upload-button.png)
+![Batch Upload button](./batch-upload-button.png)
 
 It asks us to upload our files.
 
@@ -101,7 +101,7 @@ Our pokemon folder already complies with all these requirements, so we can go ah
 
 After uploading, we'll see this preview of all our NFTs with their description and properties:
 
-![Preview before uploading](/assets/portal/guides/release-an-nft-drop-with-no-code/batch-upload-preview.png)
+![Preview before uploading](./batch-upload-preview.png)
 
 As you can see, I added a "Generation" property, and I set it to "1". If in the future I want to add more Pokémon, I can do it and set the "Generation" property differently, you can use this to add unique traits and rarity to your NFT drops - each column in the .csv represents a unique property. 
 
@@ -109,7 +109,7 @@ Go ahead and click "**Next**".
 
 Now we need to decide when to reveal our NFTs. There are two options here, "**Reveal upon mint**" and "**Delayed Reveal**".
 
-![Options for revealing NFTs](/assets/portal/guides/release-an-nft-drop-with-no-code/when-reveal.png)
+![Options for revealing NFTs](./when-reveal.png)
 
 Reveal upon mint will display the exact image and metadata after the NFT is minted by the user. Delayed reveal will display a cover photo and hide all metadata until you decide to reveal your the NFTs. 
 
@@ -117,7 +117,7 @@ For this guide we'll choose "**Reveal upon mint**". If you are intestered in del
 
 This is what I see on the dashboard after they finish uploading:
 
-![Our dashboard with all the Pokémon](/assets/portal/guides/release-an-nft-drop-with-no-code/dashboard-after-upload.png)
+![Our dashboard with all the Pokémon](./dashboard-after-upload.png)
 
 Important! Every single image that you just added, was also automatically **uploaded and pinned** to IPFS, which means your images now live in the blockchain, forever.
 
@@ -131,7 +131,7 @@ thirdweb offers an easy copy and paste embed that you can add on any website tha
 
 Click on the "**Embed**" tab on the NFT Drop contract. This is the configuration that thirdweb offers:
 
-![Embed tab](/assets/portal/guides/release-an-nft-drop-with-no-code/embed-the-drop.png)
+![Embed tab](./embed-the-drop.png)
 
 - **IPFS Gateway**: This is where the embed is hosted. For your own production deployments, we recommend getting your own.
 - **RPC Url**: The RPC Url that is used, you can use Alchemy or Infura here, recommended for production deployments.
@@ -140,9 +140,9 @@ Next, at the bottom of the page, you'll be able to see a preview of how it will 
 
 <ImageSideToSide>
 
-![Our own embed!](/assets/portal/guides/release-an-nft-drop-with-no-code/pokemon-embed.png)
+![Our own embed!](./pokemon-embed.png)
 
-![After claiming one NFT](/assets/portal/guides/release-an-nft-drop-with-no-code/pokemon-inventory.png)
+![After claiming one NFT](./pokemon-inventory.png)
 
 </ImageSideToSide>
 
@@ -156,17 +156,17 @@ I'm using this free template called [Random Product](https://340cb974f62203cb.de
 
 Click the "**+**" button, and click "**Embed**".
 
-![Click Embed on the + dropdown.](/assets/portal/guides/release-an-nft-drop-with-no-code/click-embed.png)
+![Click Embed on the + dropdown.](./click-embed.png)
 
 A drawer will open, you need to paste the embed code provided by thirdweb here:
 
-![Add embed code](/assets/portal/guides/release-an-nft-drop-with-no-code/add-embed-code.png)
+![Add embed code](./add-embed-code.png)
 
 Save the page on the top right and publish it.
 
 This is how mine looks:
 
-![My carrd site](/assets/portal/guides/release-an-nft-drop-with-no-code/pokemon-carrd-site.png)
+![My carrd site](./pokemon-carrd-site.png)
 
 ## That's it!
 

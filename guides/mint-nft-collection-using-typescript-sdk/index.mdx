@@ -8,7 +8,7 @@ authors: [raza, devin]
 draft: false
 tags: [nft-collection, mint, typescript, v2]
 description: "Mint your own NFT using thirdweb TypeScript SDK"
-image: "/assets/portal/guides/mint-nft-collection-using-typescript-sdk/thumbnail.png"
+image: "./thumbnail.png"
 date: "2021-11-19"
 
 ---
@@ -24,7 +24,7 @@ The first thing we need to do is head over to the [dashboard](https://thirdweb.c
 
 Once the contract is created, it's time to mint our first NFT, but we don't need the dashboard for that! I mean we could, but why use GUI if we can use TypeScript!?
 
-![New NFT Collection contract viewed in the thirdweb dashboard](/assets/portal/guides/mint-nft-collection-using-typescript-sdk/nft-collection-contract-dashboard-view.png)
+![New NFT Collection contract viewed in the thirdweb dashboard](./nft-collection-contract-dashboard-view.png)
 
 ## The code
 
@@ -32,7 +32,7 @@ Once the contract is created, it's time to mint our first NFT, but we don't need
 
 Go ahead and create a new TypeScript file. Let's call it `index.ts` and open it in your favorite code editor. We'll use Visual Studio Code.
 
-![](/assets/portal/guides/mint-nft-collection-using-typescript-sdk/Untitled%2018.png)
+![](./Untitled%2018.png)
 
 Next up use we'll install the ThirdWeb SDK using npm!
 
@@ -60,7 +60,7 @@ For this guide, you will need to instantiate the SDK following [these](/learn-th
 
 Now we need to define which contract we want to use. Here we created an NFT Collection contract and called it '**TypeScript**'. This contract has an address. We need to pass the address here. You can find the address here, under '**TypeScript**':
 
-![See NFT Collection contract address under contract name](/assets/portal/guides/mint-nft-collection-using-typescript-sdk/nft-collection-contract-dashboard-view.png)
+![See NFT Collection contract address under contract name](./nft-collection-contract-dashboard-view.png)
 
 In our `index.ts` we include the following code. First we define a variable `nftCollectionAddress` and store our contract address in here.
 
