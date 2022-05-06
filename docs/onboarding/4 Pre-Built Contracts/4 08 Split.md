@@ -48,10 +48,4 @@ Enter the address of the split contract under either the `Primary Sales`, `Royal
 Now after any sale, parties in the split contract will benefit from the primary sale. If you also entered the address of the split contract under `Royalty Recipient`, then the same goes for any secondary sales.
 ![Enter split contract address](./assets/7split.png)
 
-For a full guide on setting up your Split contract on your NFT Drop, check [this](/guides/nft-drop-with-revenue-share) out.
-
-## Code Guide
-
-1. You can find the official TypeScript documentation [here](https://docs.thirdweb.com/typescript/sdk.split).
-2. To check out guides for this contract click [here](/guides/split).
-3. To setup your local dev environment, click [here](/guides/sdk-guide).
+<!-- For a full guide on setting up your Split contract on your NFT Drop, check [this](/guides/nft-drop-with-revenue-share) out. -->

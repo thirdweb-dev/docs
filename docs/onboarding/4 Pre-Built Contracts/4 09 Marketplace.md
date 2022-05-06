@@ -8,7 +8,7 @@ slug: /pre-built-contracts/marketplace
 
 In a **`Marketplace`** you can sell or buy NFTs. Platforms like Opensea or Rarible are examples of marketplaces. thirdweb let's you create your own **`Marketplace`**, which allows you to sell NFTs both exclusively on your own marketplace or on multiple marketplaces. That is up to you!
 
-If you want to know more about creating contracts, click [here](/contracts).
+If you want to know more about creating contracts, click [here](/pre-built-contracts).
 
 ![Select Marketplace from dashboard options](./assets/select-marketplace-from-dashboard.png)
 
@@ -19,7 +19,7 @@ The **`Marketplace`** is used to **list** NFTs. Listing NFTs is the process of m
 1. Direct Listing: Sell it for a fixed price.
 2. Auction Listing: Let buyers bid on the NFT, under the constraints you set for your auction.
 
-In both choices, you are also given the option to list your NFT in the native currency, like `MATIC` on Polygon or your own tokens. If you're wondering how to create your own token, click [here](/contracts/token).
+In both choices, you are also given the option to list your NFT in the native currency, like `MATIC` on Polygon or your own tokens. If you're wondering how to create your own token, click [here](/pre-built-contracts/token).
 
 ### Direct Listing
 
@@ -45,11 +45,11 @@ You can choose to make your `Marketplace` available to either **Everyone** or ch
 
 To make use of the `Marketplace` yourself, you need to have NFTs! Make sure you have your NFTs minted and ready, so that you can list them on the `Marketplace`. If you want to mint NFTs, check out this page to learn about our `NFT Contract`.
 
-## Create a listing
+<!-- ## Create a listing
 
 You can use the `Marketplace` by using code or no-code. Head over to our dashboard to make use of the no-code solution. To use the code solution, you need to install our packages and instantiate our SDK first. Check out [this](/learn-thirdweb/connect-to-blockchain) page on how to do that. You'll also need the address of your `Marketplace` contract. You can find that on the dashboard in your `Marketplace` contract.
 
-![Contract address shown in Marketplace contract page](./assets/marketplace-contract-address.png)
+![Contract address shown in Marketplace contract page](./assets/marketplace-contract-address.png) -->
 
 ### Code example
 
@@ -120,9 +120,3 @@ thirdweb developed a UI component for selling your NFTs. All you need to do is i
 ## Further reading
 
 If you want to know more about the nitty gritty details, well you're in luck. Head over to to [this](https://github.com/thirdweb-dev/contracts/blob/main/contracts/marketplace/marketplace.md) page, where you can find out more on how things work under the hood.
-
-## Code Guide
-
-1. You can find the official TypeScript documentation [here](https://docs.thirdweb.com/typescript/sdk.marketplace).
-2. To check out guides for this contract click [here](/guides/marketplace).
-3. To setup your local dev environment, click [here](/guides/sdk-guide).

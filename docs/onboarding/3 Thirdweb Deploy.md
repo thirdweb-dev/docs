@@ -11,7 +11,7 @@ title: 🚀 Thirdweb Deploy
 - Publish contracts for your team or public use
 - See whats happening on-chain with analytics
 
-<div style={{position: "relative", paddingBottom: "64.86486486486486%", height: 0}}><iframe src="https://www.loom.com/embed/593fa3988dc24a188f7a1aa2cbbeb3cd" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}></iframe></div>
+<div style={{position: "relative", paddingBottom: "64.86486486486486%", height: 0}}><iframe src="https://www.loom.com/embed/593fa3988dc24a188f7a1aa2cbbeb3cd" frameBorder="0" allowFullScreen style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}></iframe></div>
 
 ## 🕸️ What is thirdweb deploy?
 

@@ -12,7 +12,7 @@ This can be combined with other contracts like `NFT Drop` , `Splits` , `Edition 
 
 The **`Token`** contract is a smart contract, which is compliant with the ERC20 standard. A thirdweb contract is actually more than _just_ a smart contract.
 
-Click [here](/contracts) to learn more about contracts and how to create them.
+Click [here](/pre-built-contracts) to learn more about contracts and how to create them.
 
 ![Select Token from dashboard options](./assets/select-token-from-dashboard.png)
 
@@ -32,7 +32,7 @@ The following use cases are suited for the **`Token`** contract:
 1. Offering the sale of a token or currency in your own marketplace or another exchange
 2. Enable users to buy and sell NFTs within your marketplace
 3. Give your community a share of voice using governance tokens
-4. Restricted transfer (check out this use case with Edition Drop [here](/guides/make-your-nft-non-transferable))
+<!-- 4. Restricted transfer (check out this use case with Edition Drop [here](/guides/make-your-nft-non-transferable)) -->
 
 ## How it works
 
@@ -60,15 +60,15 @@ To interact with your **`Token`** with code, you need to follow 3 steps:
 2. Instantiate the SDK
 3. Passing the address of the contract inside your code
 
-To install the necessary packages for TypeScript or Python on your (local) machine and instantiate the SDK in your code, check out [this](/guides/sdk-guide) guide to help you with that. Note, you can instantiate the SDK in multiple ways, so make sure to check out that guide.
+<!-- To install the necessary packages for TypeScript or Python on your (local) machine and instantiate the SDK in your code, check out [this](/guides/sdk-guide) guide to help you with that. Note, you can instantiate the SDK in multiple ways, so make sure to check out that guide. -->
 
 You can find the contract address in the thirdweb dashboard, inside your project or inside the `Token` itself.
 
 ![Contract address shown in Token contract page](./assets/token-contract-address.png)
 
-In order to make use of our SDK, you need to establish a connection to a blockchain. Click [here](learn/connect-to-blockchain) to learn how to connect to the blockchain and instantiate our SDK.
+<!-- In order to make use of our SDK, you need to establish a connection to a blockchain. Click [here](learn/connect-to-blockchain) to learn how to connect to the blockchain and instantiate our SDK. -->
 
-For this guide, you will need to instantiate the SDK following [these](/learn-thirdweb/connect-to-blockchain#using-your-own-signer-with-thirdweb) steps, using your own signer with thirdweb.
+<!-- For this guide, you will need to instantiate the SDK following [these](/learn-thirdweb/connect-to-blockchain#using-your-own-signer-with-thirdweb) steps, using your own signer with thirdweb. -->
 
 Here's an example of doing this in TypeScript👇
 
@@ -90,9 +90,3 @@ const amount = "1000";
 // Execute the function
 mintCurrency(amount);
 ```
-
-## Code Guide
-
-1. You can find the official TypeScript documentation [here](https://docs.thirdweb.com/typescript/sdk.token).
-2. To check out guides for this contract click [here](/guides/token).
-3. To setup your local dev environment, click [here](/guides/sdk-guide).

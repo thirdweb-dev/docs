@@ -73,9 +73,3 @@ Chainlink VRF is a random number generator that operates on a request ←→ res
 ![](./assets/pack-final-diagram.png)
 
 When a pack is opened, the protocol requests Chainlink VRF for a new random number, which then determined which item is distributed to the pack opener.
-
-## Code Guide
-
-1. You can find the official TypeScript documentation [here](https://docs.thirdweb.com/typescript/sdk.pack).
-2. To check out guides for this contract click [here](/guides/pack).
-3. To setup your local dev environment, click [here](/guides/sdk-guide).

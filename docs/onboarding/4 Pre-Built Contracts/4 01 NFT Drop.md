@@ -10,11 +10,11 @@ thirdweb's drop contracts lazy mints your NFT and makes it available to be claim
 
 ![Select 'Release a drop' on the dashboard](./assets/select-release-a-drop-on-dashboard.png)
 
-Click [here](/contracts) to learn more about contracts and how to create them.
+Click [here](/pre-built-contracts) to learn more about contracts and how to create them.
 
 ## How it works
 
-Make sure you choose the right contract. If you want your drop to include 1-of-1 NFTs, choose the **`NFT Drop`** contract. If you want to mint 1-of-many NFTs, choose the `Edition Drop` contract [here](/contracts/edition-drop).
+Make sure you choose the right contract. If you want your drop to include 1-of-1 NFTs, choose the **`NFT Drop`** contract. If you want to mint 1-of-many NFTs, choose the `Edition Drop` contract [here](/pre-built-contracts/edition-drop).
 
 To be clear, when you create a drop inside your `NFT Drop` contract, the NFT is not minted yet. We prepare everything for your audience, so that they can mint it. The user who claims an NFT, mints it and transfers it to their wallet. By default the user pays the gas fees.
 
@@ -48,9 +48,9 @@ The following use cases are suited for the **`NFT Drop`** contract:
 
 1. 10k pfp project to be minted by others
 2. Add an allowlist for wallet addresses allowed to claim your NFTs
-3. Hide your NFTs and metadata for minting (i.e. Delayed Reveal - check out this use case [here](/guides/nft-drop-with-delayed-reveal))
-4. Restricted transfer (check out this use case [here](/guides/make-your-nft-non-transferable))
-5. Once NFTs are claimed they can be listed for sale on a Marketplace (you would also need the `Marketplace` contract for this)
+   <!-- 3. Hide your NFTs and metadata for minting (i.e. Delayed Reveal - check out this use case [here](/guides/nft-drop-with-delayed-reveal)) -->
+   <!-- 4. Restricted transfer (check out this use case [here](/guides/make-your-nft-non-transferable)) -->
+3. Once NFTs are claimed they can be listed for sale on a Marketplace (you would also need the `Marketplace` contract for this)
 
 ### Our Embed feature
 
@@ -89,7 +89,7 @@ To interact with your NFT Drop contract with code, you need to follow 3 steps:
 2. Instantiate the SDK
 3. Passing the address of the Contract inside your code
 
-To install the necessary packages for TypeScript or Python on your (local) machine and instantiate the SDK in your code, check out [this](/learn-thirdweb/connect-to-blockchain) guide to help you with that. Note, you can instantiate the SDK in multiple ways, so make sure to check out that guide.
+<!-- To install the necessary packages for TypeScript or Python on your (local) machine and instantiate the SDK in your code, check out [this](/learn-thirdweb/connect-to-blockchain) guide to help you with that. Note, you can instantiate the SDK in multiple ways, so make sure to check out that guide. -->
 
 You can find the contract address in the thirdweb dashboardor inside the `NFT Drop` contract itself.
 
@@ -144,17 +144,3 @@ const setClaimConditions = async () => {
 }
 setClaimConditions();
 ```
-
-## Code Guide
-
-1. You can find the official TypeScript documentation [here](https://docs.thirdweb.com/typescript/sdk.nftdrop).
-2. To check out guides for this contract click [here](/guides/nft-drop).
-3. To setup your local dev environment, click [here](/guides/sdk-guide).
-
-<MdxNavigation>
-  <MdxNavigationItem
-    href="/contracts/edition"
-    title="Edition"
-  />
-  <MdxNavigationItem href="/contracts/edition-drop" title="Edition Drop" next />
-</MdxNavigation>

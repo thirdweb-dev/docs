@@ -15,7 +15,7 @@ A DAO has several components, but the most prominent component is the treasury, 
 
 In order to allow members to vote, they need to hold a so-called `governance token`. A `governance token` is an ERC-20 token.
 The **Vote** contract needs an ERC-20 contract to function. With thirdweb you can also deploy your very own ERC-20 contract, the **Token** contract.
-You can find more about the **Token** contract [here](/contracts/token).
+You can find more about the **Token** contract [here](/pre-built-contracts/token).
 
 ## What can you do with our contract?
 
@@ -38,7 +38,7 @@ The **Vote** contract can be found under Governance.
 
 A **Vote** contract allows you to configure the following settings:
 
-1. `Governance Token Address` is an ERC-20 contract to work with the **Vote** contract. This can be either our [Token](/contracts/token) or any other ERC-20 contract that implements IVotes interface.
+1. `Governance Token Address` is an ERC-20 contract to work with the **Vote** contract. This can be either our [Token](/pre-built-contracts/token) or any other ERC-20 contract that implements IVotes interface.
 2. `Proposal Token Threshold` is the minimum number of tokens a wallet needs to hold in order to make a proposal.
 3. `Voting Delay` is the time period after the proposal is created and before members can begin voting. This needs to be specified in numbers of blocks. For Ethereum, there are approximately 6570 blocks in a day - about one block every 14 seconds. Different blockchains have different block frequencies, so depending on the blockchain you choose this number will vary. When entering your voting delay, make sure you check block time on your chain of choice.
 4. `Voting Period` is the time period defining how long members can vote on a proposal. This is also defined in blocks and relative to block time on your chain of choice.
@@ -53,10 +53,4 @@ Next you need to delegate the tokens in the `Governance Token Address` to the **
 That's it! Now you can make proposals using the **Vote** contract.
 ![Create new contract](./assets/6_create_proposal.png)
 
-If you want to know more on setting up proposals, check out [this](/guides/build-treasury-and-governance-for-your-dao) guide.
-
-## Code Guide
-
-1. You can find the official TypeScript documentation [here](https://docs.thirdweb.com/typescript/sdk.vote).
-2. To check out guides for this contract click [here](/guides/vote).
-3. To setup your local dev environment, click [here](/guides/sdk-guide).
+<!-- If you want to know more on setting up proposals, check out [this](/guides/build-treasury-and-governance-for-your-dao) guide. -->
