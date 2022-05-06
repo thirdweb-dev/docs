@@ -10,6 +10,18 @@ nacho:
   url: https://twitter.com/nachoiacovino
   image_url: https://portal.thirdweb.com/assets/portal/authors/nacho-iacovino.jpg
 
+devin:
+  name: Devin Rattray
+  title: Head of Community
+  url: https://twitter.com/dvnsctt
+  image_url: https://portal.thirdweb.com/assets/portal/authors/devin-rattray.jpeg
+
+raza:
+  name: Raza Zaidi
+  title: Head of Developer Relations
+  url: https://twitter.com/razacodes
+  image_url: https://portal.thirdweb.com/assets/portal/authors/raza-zaidi.jpg
+
 avneesh:
   name: Avneesh Agarwal
   title: Technical Writer
