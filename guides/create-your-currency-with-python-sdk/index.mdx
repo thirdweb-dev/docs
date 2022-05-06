@@ -42,7 +42,7 @@ Next up use the following code in your terminal to create a virtual environment 
 
 ### Virtual-env
 
-```bash:virtual-env
+```bash title="virtual-env"
 #create a virtual environment
 python3 -m venv ./myenv
 
@@ -55,7 +55,7 @@ pip install thirdweb-sdk
 
 ### Conda
 
-```bash:virtual-env
+```bash title="virtual-env"
 #create a virtual environment
 conda create -n "thirdweb" python=3.9
 
@@ -74,7 +74,7 @@ Import the following classes from the SDK.
 
 We will use the **dotenv** library for our private key in a bit.
 
-```python:currency.py
+```python title="currency.py"
 # Importing stuff
 from thirdweb import ThirdwebSdk, SdkOptions, MintArg
 from dotenv import load_dotenv
@@ -96,7 +96,7 @@ Then we create an object that uses the token module inside the SDK with our addr
 
 ![](./16_module_done.png)
 
-```python:currency.py
+```python title="currency.py"
 #pick your module and enter the smart contract address
 currency_smart_contract_address = "0xdd25FAEE772FbB1bcB7ba0b2cEE6387A8F82f032"
 token_module = sdk.get_currency_module(currency_smart_contract_address)
@@ -106,7 +106,7 @@ token_module = sdk.get_currency_module(currency_smart_contract_address)
 
 The arguments passed over here are the same as minting the tokens inside the dashboard. If you want to familiarize yourself with the process, check out the dashboard! Ethereum deals with 18 decimals, so we need to adjust the input figure.
 
-```python:currency.py
+```python title="currency.py"
 #Mint tokens on your smart contract
 
 input_amount = 1000
@@ -118,7 +118,7 @@ token_module.mint(converted_amount)
 
 Get the balance to check it out or head over to the dashboard.
 
-```python:currency.py
+```python title="currency.py"
 #check your balance to check your coins!
 print(token_module.balance())
 ```

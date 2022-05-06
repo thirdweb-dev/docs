@@ -39,7 +39,7 @@ yarn install # yarn
 
 By default the network in `_app.tsx` is Mainnet, we need to change it to Mumbai
 
-```tsx:_app.tsx
+```tsx title="_app.tsx"
 import type { AppProps } from 'next/app';
 import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
 
@@ -191,7 +191,7 @@ Inside the `pages` folder, create a new folder `api` and `generate-mint-sig.ts` 
 
 Let's start by building a basic api.
 
-```ts:api/generate-mint-sig.ts
+```ts title="api/generate-mint-sig.ts"
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const generateMintSignature = async (

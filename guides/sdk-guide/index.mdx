@@ -34,7 +34,7 @@ In this example we will make use of the hook for Metamask, but we have hooks for
 
 Inside your components folder, create a file `ConnectWithMetamask.js` with the following code:
 
-```jsx:ConnectWithMetamask.js
+```jsx title="ConnectWithMetamask.js"
 import { useMetamask } from "@thirdweb-dev/react";
 
 export const ConnectWithMetamask = () => {
@@ -48,7 +48,7 @@ export const ConnectWithMetamask = () => {
 ```
 Inside your `Marketplace.js` we can import the hook `useMarketplace` to connect and interact with our marketplace contract.
 
-```js:Marketplace.js
+```js title="Marketplace.js"
 import { useState, useEffect } from 'react';
 import { useMarketplace } from '@thirdweb-dev/react';
 
@@ -77,7 +77,7 @@ export default function MarketPlace() {
 
 Now we can use both components in our app, by importing them into our `App.js`.
 
-```js:App.js
+```js title="App.js"
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 import React from "react";
 import "./App.css";
@@ -137,7 +137,7 @@ const sdk = new ThirdwebSDK(provider);
 
 To use the SDK at the server side, the object `sdk` is instantiated different. It makes use of the **private keys** of a wallet. You can import the private keys, using the **dotenv** library. In the same folder you would need a `.env` file to store the private keys.
 
-```bash:.env
+```bash title=".env"
 PRIVATE_KEY=<your-private-key-here>
 ```
 

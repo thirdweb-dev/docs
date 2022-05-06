@@ -73,7 +73,7 @@ In order to interact with our smart contract, we need to tell the SDK what the a
 You can find the address here, under Python:
 ![The NFT collection contract](./module_done.png)
 
-```python:nft_collection.py
+```python title="nft_collection.py"
 #instantiate the sdk and pass the contract address
 sdk = ThirdwebSDK(provider, signer)
 nft_collection = sdk.get_nft_collection("0x214997754cd8c83bD65f78f86a33AA27a19B59F8")
@@ -86,7 +86,7 @@ The arguments passed over here are the same as minting an nft inside the dashboa
 In our `views.py` file we first handle the request from our HTML form (taking the image) and then pass the image on to the **mint** function. 
 When the mint is successful you're redirected to another page.
 
-```python:views.py
+```python title="views.py"
 
 def home(request):
     if request.method == 'POST' and request.FILES['home']:

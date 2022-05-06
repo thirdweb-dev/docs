@@ -36,7 +36,7 @@ We'll use Visual Studio.
 
 Next up use the following code in your terminal to create a virtual environment and install the ThirdWeb SDK!
 
-```bash:virtual-env
+```bash title="virtual-env"
 # create a virtual environment
 python3 -m venv ./myenv
 
@@ -51,7 +51,7 @@ pip install thirdweb-sdk
 
 Now that we have our environment setup with the thirdweb python SDK, we can get started. In our `python_nft.py` file, we can use the following code:
 
-```python:python_nft.py
+```python title="python_nft.py"
 from thirdweb import ThirdwebSDK
 from thirdweb.types.nft import NFTMetadataInput
 from eth_account import Account
@@ -80,7 +80,7 @@ sdk = ThirdwebSDK(provider, signer)
 
 To use the setup above, we need to create a `.env` file and connect our wallet by private key. It's very important to make sure that you NEVER commit this file to any github repository and you never share your private key with anyone.
 
-```bash:.env
+```bash title=".env"
 PRIVATE_KEY=your-private-key-here
 ```
 
@@ -88,7 +88,7 @@ PRIVATE_KEY=your-private-key-here
 
 Now that we have an SDK instance setup, we can get the interface for our NFT Collection! Our NFT Collection that we deployed from the dashboard has its own unique **address** that can be used to identify it, which can be found next to your contract name on the thirdweb dashboard. We can now use this address to use our NFT Collection with the SDK with the following code:
 
-```python:python_nft.py
+```python title="python_nft.py"
 # Instantiate a new NFT Collection contract as described above.
 NFT_COLLECTION_ADDRESS = "0x.."
 nft_collection = sdk.get_nft_collection(NFT_COLLECTION_ADDRESS)
@@ -99,7 +99,7 @@ nft_collection = sdk.get_nft_collection(NFT_COLLECTION_ADDRESS)
 Now we can mint a new NFT with the sdk!
 The arguments passed over here are the same as minting an NFT inside the dashboard. If you want to familiarize yourself with the process, check out the dashboard!
 
-```python:python_nft.py
+```python title="python_nft.py"
 # Now you can use any of the SDK contract functions including write functions
 nft_collection.mint(NFTMetadataInput.from_json({ 
     "name": "Cool NFT", 
@@ -112,7 +112,7 @@ nft_collection.mint(NFTMetadataInput.from_json({
 
 Get the balance to check it out or head over to the dashboard.
 
-```python:python_nft.py
+```python title="python_nft.py"
 # check your balance to check if you minted an nft!
 print(nft_collection.balance())
 ```

@@ -44,7 +44,7 @@ Once you've installed the necessary package, you just need to setup the `Thirdwe
 
 Setting up this context is as easy as wrapping your app with the following setup:
 
-```tsx:pages/_app.tsx
+```tsx title="pages/_app.tsx"
 import type { AppProps } from 'next/app';
 import { ThirdwebProvider } from '@thirdweb-dev/react';
 
@@ -71,7 +71,7 @@ Currently, we provide you with hooks to easily integrate web3 into your app and 
 
 ### Using custom hooks
 
-```tsx:components/ConnectWallet.js
+```tsx title="components/ConnectWallet.js"
 import {
   useMetamask,
   useWalletConnect,
@@ -119,7 +119,7 @@ export const ConnectWallet = () => {
 
 Then, we need to import this component on our `index.tsx` file:
 
-```tsx:pages/index.tsx
+```tsx title="pages/index.tsx"
 import type { NextPage } from 'next'
 import { ConnectWallet } from '../components/ConnectWallet';
 

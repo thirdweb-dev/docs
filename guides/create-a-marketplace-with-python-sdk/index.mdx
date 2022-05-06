@@ -48,7 +48,7 @@ Go ahead and create a new Python file. Let's call it python_nft and open it in y
 
 Next up use the following code in your terminal to create a virtual environment and install the ThirdWeb SDK!
 
-```bash:virtual-env
+```bash title="virtual-env"
 #create a virtual environment
 python3 -m venv ./myenv
 
@@ -59,7 +59,7 @@ source ./myenv/bin/activate
 pip install thirdweb-sdk
 ```
 
-```bash:virtual-env
+```bash title="virtual-env"
 #create a virtual environment
 conda create -n "thirdweb" python=3.9
 
@@ -78,7 +78,7 @@ Import the following classes from the sdk.
 
 We will use the `dotenv` library for our private key in a bit.
 
-```python:python_nft.py
+```python title="python_nft.py"
 # Importing stuff
 from thirdweb import ThirdwebSdk, SdkOptions, MintArg, ListArg
 from dotenv import loadenv
@@ -108,7 +108,7 @@ You can also use the native currency of the chain, such as Ether on Ethereum and
 You will need the token address of the coin you want to use and pass it to the variable `token_module`.
 
 
-```python:python_nft.py
+```python title="python_nft.py"
 #pick your module and enter the module address
 market_module_address = "0x56c1F1f63dC507F24495E5fD56003D56FD12A7F9"
 market_module = sdk.get_market_module(market_module_address)
@@ -134,7 +134,7 @@ We are using the NFT that we created in our previous guide. Each NFT has `token_
 - **seconds_until_start** - time in seconds until the method will execute and list the token
 - **seconds_until_end** - period in seconds that the NFT will remain listed
 
-```python:python_nft.py
+```python title="python_nft.py"
 #list an asset in the marketplace
 #what arguments should be passed for the listarg
 market_module.list(ListArg(asset_contract=nft_collection_module_address,
@@ -151,7 +151,7 @@ seconds_until_end=3600))
 
 Use this method to get all the listings or head over to the dashboard.
 
-```python:python_nft.py
+```python title="python_nft.py"
 #check out out all your listings!!
 print(market_module.get_all_listings())
 ```

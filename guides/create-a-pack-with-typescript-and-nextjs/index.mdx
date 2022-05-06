@@ -108,7 +108,7 @@ Whenever you work with the blockchain and interact with tokens or contracts on a
 
 Open `pages/_app.tsx` and replace everything in this file with the following code:
 
-```TypeScript:pages/_app.tsx
+```TypeScript title="pages/_app.tsx"
 import '../styles/globals.css';
 import { ThirdwebProvider } from '@3rdweb/react';
 import type { AppProps } from 'next/app';
@@ -148,7 +148,7 @@ With the provider included, you can now go on to add a "Connect Your Wallet" but
 
 Create a new folder called `components` that will host all custom components of your app. After that, create a new file called `connect.tsx`. The component is very simple and only consists of the following code:
 
-```TypeScript:components/connect.tsx
+```TypeScript title="components/connect.tsx"
 import { ConnectWallet } from "@3rdweb/react";
 
 export const Connect = () => {
@@ -162,7 +162,7 @@ The ConnectWallet component contains all the logic necessary to let your users c
 
 It's now time to add the Connect component to your homepage. Open `index.tsx` and remove most content from the Next.js boilerplate. We will reuse the styles of the Next.s starter and leave the outer container and the Head. Other than that, remove everything else and place your Connect component below Head. Overall, the file should now look like this:
 
-```TypeScript:pages/index.tsx
+```TypeScript title="pages/index.tsx"
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';
@@ -229,7 +229,7 @@ Go to `pages/api` and create a new file `pack.ts`. This is where you implement a
 
 Let's start by adding some imports and the dotenv setup.
 
-```TypeScript:pages/api/pack.ts
+```TypeScript title="pages/api/pack.ts"
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { ThirdwebSDK } from "@3rdweb/sdk";
 import { BigNumber, ethers } from 'ethers';
@@ -243,7 +243,7 @@ Now, you need to define an interface for the request and the response.
 
 Add the following to `pack.ts`:
 
-```TypeScript:pages/api/pack.ts
+```TypeScript title="pages/api/pack.ts"
 interface RequestData {
   address: string;
 }
@@ -258,7 +258,7 @@ Each request should contain the blockchain address of the user. You need this to
 
 Before you implement the handler, add a few more lines of code below your interface definitions. The contract address of the pack module can be a constant, you will need it multiple times. After that follows the setup of the thirdweb SDK. Instantiating it each time a user makes a request makes no sense, so it can stay outside of the handler.
 
-```TypeScript:pages/api/pack.ts
+```TypeScript title="pages/api/pack.ts"
 const PACK_MODULE_ADDRESS = process.env.PACK_MODULE_ADDRESS as string;
 
 const WALLET = new ethers.Wallet(
@@ -273,7 +273,7 @@ This code is everything you need to set up our SDK. One word of advice though: Y
 
 However, let's continue by building your handler. Add a basic implementation that you can fill step by step. Append the following to the end of `pack.ts`:
 
-```TypeScript:pages/api/pack.ts
+```TypeScript title="pages/api/pack.ts"
 export const handler = async (
   req: NextApiRequest,
   res: NextApiResponse<ResponseData>
@@ -288,7 +288,7 @@ In the next step, we will add the logic to create a pack of NFTs, and the module
 
 Now, you can finally add the logic necessary to create a pack of NFTs:
 
-```TypeScript:pages/api/pack.ts
+```TypeScript title="pages/api/pack.ts"
 const requestData = req.body as RequestData;
 
 // Data to create the pack
@@ -342,7 +342,7 @@ Overall, it only takes a few lines of code to create and transfer the pack. This
 
 You can also add a few guard statements to the API to make it more secure. After all this, `pack.ts` should look similar to this:
 
-```TypeScript:pages/api/pack.ts
+```TypeScript title="pages/api/pack.ts"
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { ThirdwebSDK } from "@3rdweb/sdk";
 import { BigNumber, ethers } from 'ethers';
@@ -432,7 +432,7 @@ Your backend is now finished, and you can concentrate on implementing the missin
 
 Begin by creating a new component in `components` and call it `pack.tsx`. And then it's time to fill in some basic logic, like below:
 
-```TypeScript:components/pack.tsx
+```TypeScript title="components/pack.tsx"
 import styles from '../styles/Home.module.css';
 
 export const Pack = () => {
@@ -452,7 +452,7 @@ export const Pack = () => {
 
 Additionally add the following to `styles/Home.module.css`:
 
-```CSS:styles/Home.module.css
+```CSS title="styles/Home.module.css"
 .button {
   background-color: #D410A8;
   border: none;
@@ -471,7 +471,7 @@ What you need next is an onClick handler for the button. Whenever a user clicks 
 
 Let's alter the component a little and retrieve the data required to make the API call and to process the result after that. Our hooks library comes with a pre-made hook that allows you to quickly access the address and provider of a user as long as you use our ThirdwebProvider. Gladly, you already added it in the beginning, so it's easy to use the hook. Add the following to your component, above the return statement:
 
-```TypeScript:components/pack.tsx
+```TypeScript title="components/pack.tsx"
 const { address, provider } = useWeb3();
 const [collectedNfts, setCollectedNfts] = useState([] as NFTMetadata[]);
 ```
@@ -480,7 +480,7 @@ const [collectedNfts, setCollectedNfts] = useState([] as NFTMetadata[]);
 
 Next, add the following code to `components/pack.tsx`:
 
-```TypeScript:components/pack.tsx
+```TypeScript title="components/pack.tsx"
 const handleClick = async (
   address: string,
   provider: Web3Provider,
@@ -509,7 +509,7 @@ As the pack contract address can be dynamic, you instantiate the SDK each time a
 
 You can now adjust the button to trigger your new function whenever a user clicks the button, like this:
 
-```TypeScript:components/pack.tsx
+```TypeScript title="components/pack.tsx"
 <button
   className={styles.button}
   onClick={() =>
@@ -524,7 +524,7 @@ You can now adjust the button to trigger your new function whenever a user click
 
 Finally, you can make use of the state callback you passed to the function. When the API returns successful and the pack is opened, the user should see the NFTs they got. Add the following to the end of the return statement in the `Pack` component:
 
-```TypeScript:components/pack.tsx
+```TypeScript title="components/pack.tsx"
 {collectedNfts.length > 0 ? <p>Here is what you got!</p> : <p></p>}
 {collectedNfts.map((nft: NFTMetadata) => (
   <div key={nft.id}>
@@ -538,7 +538,7 @@ This is of course not the most beautiful page ever created, but we are pretty su
 
 Overall, `components/pack.tsx` should now look like this:
 
-```TypeScript:components/pack.tsx
+```TypeScript title="components/pack.tsx"
 import { useWeb3 } from '@3rdweb/hooks';
 import { NFTMetadata, ThirdwebSDK } from '@3rdweb/sdk';
 import { Web3Provider } from '@ethersproject/providers';
@@ -602,21 +602,21 @@ There is only one very last thing left to do: Integrating the component into you
 
 Open `index.tsx` again and add the following imports:
 
-```TypeScript:pages/index.tsx
+```TypeScript title="pages/index.tsx"
 import { Pack } from '../components/pack';
 import { useWeb3 } from '@3rdweb/hooks';
 ```
 
 Add the `useWeb3` hook to the top of your index component like so:
 
-```TypeScript:pages/index.tsx
+```TypeScript title="pages/index.tsx"
 const { address } = useWeb3();
 return (...);
 ```
 
 and integrate your component like this:
 
-```TypeScript:pages/index.tsx
+```TypeScript title="pages/index.tsx"
 <main className={styles.main}>
   {address ? <Pack /> : <p>Please connect your Wallet first.</p>}
 </main>
@@ -624,7 +624,7 @@ and integrate your component like this:
 
 `index.tsx` should now look like this:
 
-```TypeScript:pages/index.tsx
+```TypeScript title="pages/index.tsx"
 import type { NextPage } from 'next';
 import Head from 'next/head';
 import styles from '../styles/Home.module.css';

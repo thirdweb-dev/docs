@@ -72,7 +72,7 @@ In our `index.ts` file we include the following code. First we define a variable
 
 Then we create an object that access the marketplace contract inside the SDK with our address.
 
-```tsx:index.ts
+```tsx title="index.ts"
 // Declaring the Marketplace contract address
 const marketplaceAddress = "0xC06adC34097afa2085324D4192fbE9206059f8e0"
 
@@ -90,7 +90,7 @@ const tokenAddress = "0x0d5fb8942eEa62093944F3e91C6Ac4e584336741";
 
 We are using the NFT that we created in our previous guide. Each NFT has `token_id`. We will pass that the following parameters to the '.list' method:
 
-```tsx:index.ts
+```tsx title="index.ts"
 // Data of the auction you want to create
 const auction = {
   // address of the contract the asset you want to list is on
@@ -138,7 +138,7 @@ npx ts-node index.ts
 Now that you've placed your first auction on your marketplace, someone can make a bid on it!
 Check out the method below, that allows a user to make a bid!
 
-```tsx:index.ts
+```tsx title="index.ts"
 const makeBid = async (listingId, pricePerToken) => {
   try {
     await marketplace.auction.makeBid(listingId, pricePerToken);

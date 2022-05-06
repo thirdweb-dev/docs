@@ -50,7 +50,7 @@ Add the project’s name, description, and other settings, and then clone it loc
 
 Inside our `src` folder, we will open the `index.js` file. We will first change the chain id to the chain of our NFT Drop. For this project, we’ll be using `Rinkeby` since our NFT Drop contract is on the Rinkeby testnet.
 
-```jsx:index.js
+```jsx title="index.js"
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
@@ -79,7 +79,7 @@ reportWebVitals();
 
 In the same folder, there is the `app.js` file. In this one, we want to allow our user to connect to the app and then obtain our user’s wallet address. On the front end, we will create a button that lets users connect with MetaMask. When a wallet is connected, it will display the corresponding address.
 
-```jsx:App.js
+```jsx title="App.js"
 import { useAddress, useMetamask } from "@thirdweb-dev/react";
 import "./styles.css";
 
@@ -120,7 +120,7 @@ Let’s preview what our app looks like and ensure it’s working by running `np
 In the same `App.js` file, we will add conditionals that render specific pages based on the connection status of the user. We want the user to be able to mint an NFT from the drop if they don’t already hold an NFT. If the connected user does have one, we will display some congratulatory text.
 As an extra, I added a helper function to display our shortened wallet address called `truncateAddress`. Feel free to add or omit this as well in your app.
 
-```jsx:App.js
+```jsx title="App.js"
 import { useAddress, useMetamask, useNFTDrop } from '@thirdweb-dev/react';
 import { useState, useEffect } from 'react';
 import "./styles.css";
@@ -194,7 +194,7 @@ export default App;
 
 Lastly, we want to add a `useEffect` function to ensure we are up to date with the latest state of the app. This function triggers every time something in the dependency array changes. For example, if the user’s address or `nftDrop` disconnects or changes, we want to refresh and update it accordingly.
 
-```jsx:App.js
+```jsx title="App.js"
 import { useAddress, useMetamask, useNFTDrop } from "@thirdweb-dev/react";
 import { useState, useEffect } from "react";
 import "./styles.css";

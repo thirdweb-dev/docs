@@ -74,7 +74,7 @@ In our `index.ts` file we include the following code. First we define a variable
 
 Then we create an object that uses the drop contract inside the SDK with our address.
 
-```tsx:index.ts
+```tsx title="index.ts"
 // Initialize drop contract by passing in contract address
 const nftDrop = sdk.getNftDrop("0x727609B45c74e6a2c9EA2B82b3fa5BA7c63dBc37");
 ```
@@ -83,7 +83,7 @@ const nftDrop = sdk.getNftDrop("0x727609B45c74e6a2c9EA2B82b3fa5BA7c63dBc37");
 
 The arguments passed over here are the same as minting an NFT inside the dashboard. If you want to familiarize yourself with the process, check out the dashboard!
 
-```tsx:index.ts
+```tsx title="index.ts"
 // Minting the NFT asynchronously
 const lazyMintNft = async () => {
   try {
@@ -114,7 +114,7 @@ We are also adding `maxQuantity` so only 20 NFTs can be minted in this phase.
 
 The second phase does not add a snapshot so everyone is able to claim. 
 
-```tsx:index.ts
+```tsx title="index.ts"
 const presaleStartTime = new Date();
 const publicSaleStartTime = new Date(new Date() + 60 * 60 * 24 * 1000); // today's date + 24 hours
 const allowList = ['0x...', '0x...'] // modify this with your allow list
@@ -142,7 +142,7 @@ setClaimConditions();
 
 So the only thing left is to run our code! Open a terminal and paste the following:
 
-```bash:virtual-env
+```bash title="virtual-env"
 # Runs the TypeScript file
 npx ts-node index.ts
 ```
@@ -151,7 +151,7 @@ npx ts-node index.ts
 
 Congratulations! You have created your own drop. The NFTs are available to be claimed! You can use the code below to check all your drops!
 
-```tsx:index.ts
+```tsx title="index.ts"
 // Get all unclaimed NFTs
 const getAllNfts = () => {
   try {

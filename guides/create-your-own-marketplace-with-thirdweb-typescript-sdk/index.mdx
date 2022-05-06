@@ -76,7 +76,7 @@ If you want to sell your NFT in your own token, you will also need the token con
 You can also use the native currency of the chain, such as Ether on Ethereum and Matic on Polygon.
 You will need the token address of the token you want to use and pass it to the variable `tokenAddress`.
 
-```tsx:index.ts
+```tsx title="index.ts"
 // Initialize marketplace contract by passing in the contract address
 const marketplaceAddress = "0x51f90A2235D4D71f7A475532f8B1442a45B27530"
 const marketplace = sdk.getMarketplace(marketplaceAddress);
@@ -92,7 +92,7 @@ const tokenAddress = "0x43E0C32F2BC4A79e70421CF449e14EcADD3adbad";
 
 We are using the NFT that we created in our previous guide. Each NFT has `tokenId`. We will pass that the following parameters to the '.list' method:
 
-```tsx:index.ts
+```tsx title="index.ts"
 // the listingId of the listing you want to create a listing for
 const tokenId = "0";
 const listing = {
@@ -137,7 +137,7 @@ getAllListings();
 
 So the only thing left is to run our code! Open a terminal and paste the following:
 
-```bash:virtual-env
+```bash title="virtual-env"
 # Runs the TypeScript file
 npx ts-node index.ts
 ```

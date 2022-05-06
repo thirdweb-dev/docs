@@ -33,7 +33,7 @@ In your `App.jsx` file we can use the code from this guide for our `connect wall
 
 Inside our app we import our **component** for the `claim` button.
 
-```tsx:pages/_app.tsx
+```tsx title="pages/_app.tsx"
 import type { AppProps } from 'next/app';
 import { ThirdwebProvider } from '@thirdweb-dev/react';
 
@@ -59,7 +59,7 @@ export default MyApp;
 
 Let's create a components under `components/ClaimButton.tsx`. If you want to know more about the **NFT Drop** contract you can find guides [here](/guides/nft-drop).
 
-```tsx:components/ClaimButton.tsx
+```tsx title="components/ClaimButton.tsx"
 import { useAddress, useMetamask, useNFTDrop } from '@thirdweb-dev/react';
 
 export const ClaimButton = () => {
@@ -80,7 +80,7 @@ export const ClaimButton = () => {
 
 Then, we need to import this component on our `index.tsx` file:
 
-```tsx:pages/index.tsx
+```tsx title="pages/index.tsx"
 import type { NextPage } from 'next';
 import { ClaimButton } from '../components/ClaimButton';
 

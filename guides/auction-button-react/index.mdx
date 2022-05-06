@@ -33,7 +33,7 @@ In your `App.jsx` file we can use the code from [this](/guides/add-connectwallet
 
 Inside our app we import our **component** for the `claim` button.
 
-```js:App.jsx
+```js title="App.jsx"
 import { ThirdwebProvider } from '@thirdweb-dev/react';
 import './App.css';
 
@@ -60,7 +60,7 @@ You can learn more about the walletconnect options on their official docs [here]
 
 Create a new folder called components that will host all custom components of your app. After that, create a new file called connect.js. The component is very simple and only consists of the following code:
 
-```js:connect.js
+```js title="connect.js"
 import { useMetamask } from "@thirdweb-dev/react";
  
 export const Connect = () => {
@@ -78,7 +78,7 @@ Let's take it step by step, but feel free to scroll to the bottom to copy the fu
 First we import all the necessary dependencies.
 The hooks and sdk should be familiar :).
 
-```js:AuctionListing.jsx
+```js title="AuctionListing.jsx"
 import React from "react";
 import { useState } from "react";
 import {
@@ -96,7 +96,7 @@ Instead we will make use of the `Signer`, which we pull when a wallet is connect
 The cool thing about this **component**, is that it's using the `connect` component to authorise the transaction 😄.
 thirdweb provides you hooks to connect to your contract and interact with it. In this example we make use of the `useMarketplace`.
 
-```js:AuctionListing.jsx
+```js title="AuctionListing.jsx"
 
   // using a hook to connect to our contract
   const market = useMarketplace("0xf7bd818c15a0642893fDc256D5D2836b951F3804");
@@ -116,7 +116,7 @@ The `createAuctionListing` method takes two **prices** as input.
 `buyoutPricePerToken` is the variable that is used to define the **buy** now amount.
 `reservePricePerToken` is the variable that is used to define the **minimum bid**.
 
-```js:AuctionListing.jsx
+```js title="AuctionListing.jsx"
 
   function auctionListingTokenId(event) {
     setTokenId(event.target.value);
@@ -174,7 +174,7 @@ The `createAuctionListing` method takes two **prices** as input.
 
 Finally render out the forms :).
 
-```js:AuctionListing.jsx
+```js title="AuctionListing.jsx"
 
   return (
     <div>
@@ -226,7 +226,7 @@ export default AuctionComponent;
 
 The full piece of code that goes inside `AuctionListing.js`
 
-```js:AuctionListing.jsx
+```js title="AuctionListing.jsx"
 import React from "react";
 import { useState } from "react";
 import {

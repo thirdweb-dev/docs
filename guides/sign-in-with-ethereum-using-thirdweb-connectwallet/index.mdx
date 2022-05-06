@@ -27,7 +27,7 @@ To get started with the **Thirdweb React SDK**, you just need to setup the `Thir
 
 Setting up this context is as easy as wrapping your app with the following setup:
 
-```jsx:App.js
+```jsx title="App.js"
 import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
 
 const App = () => {
@@ -44,7 +44,7 @@ const App = () => {
 
 Using our hooks is the easiest way to integrate web3 into your app, complete with network switching, wallet connection, and everything else you need - including using thirdweb contracts. Adding our connect wallet button is as easy as the following:
 
-```jsx:components/Connect.js
+```jsx title="components/Connect.js"
 import { useAddress, useDisconnect, useMetamask } from "@thirdweb-dev/react";
 
 export const ConnectMetamaskButtonComponent = () => {
@@ -85,7 +85,7 @@ You can find the GitHub repo over [here](https://github.com/thirdweb-dev/example
 
 First lets create our homepage with the `Connect Wallet` component
 
-```jsx:pages/index.js
+```jsx title="pages/index.js"
 
 export default function Home() {
   const address = useAddress();
@@ -113,7 +113,7 @@ Create a folder called `db` and inside create a file `db.ts`.
 Below is the code that builds the database, a basic schema, a function to get the username and set the username:
 
 
-```jsx:db/db.ts
+```jsx title="db/db.ts"
 //Import the library
 import Redis, { Redis as RedisClient } from "ioredis";
 
@@ -144,7 +144,7 @@ export default class Database implements IDatabase {
 Let's execute the code and 'deploy' our database. Inside our `db` folder create a file `instance.ts` and add the following code.
 
 
-```jsx:db/instance.ts
+```jsx title="db/instance.ts"
 import Database from "./db";
 
 const database = new Database();
@@ -200,7 +200,7 @@ export default class Database implements IDatabase {
 
 Create a new folder called `api` and inside it a new file called `challenge.ts`. This is where we will handle the call to generate our message.
 
-```tsx:api/challenge.ts
+```tsx title="api/challenge.ts"
 import { NextApiResponse, NextApiRequest } from "next";
 import database from "../../db/instance";
 
@@ -222,7 +222,7 @@ export default async function challenge(
 
 Inside our folder `api` create a file `jws.ts`. Now we need to make sure our backend generates  a JWT after we the message has been signed and validated by our back-end. 
 
-```tsx:api/jws.ts
+```tsx title="api/jws.ts"
 import { ethers } from "ethers";
 import { NextApiResponse } from "next";
 import { NextApiRequest } from "next";
@@ -259,7 +259,7 @@ export default async function jwt(req: NextApiRequest, res: NextApiResponse) {
 
 Let's create a file called `user.ts` inside the `api` folder, where we will fetch the username from our database if the jwt is validated.
 
-```tsx:api/user.ts
+```tsx title="api/user.ts"
 import { NextApiRequest, NextApiResponse } from "next";
 
 import { verify } from "jsonwebtoken";
@@ -287,7 +287,7 @@ export default async function user(
 
 Next up we will create a function to verify the jwt and if it's valid, update the database with the new username inside a new file called `updateProfile.ts` also in the `api` folder.
 
-```tsx:api/updateProfile.ts
+```tsx title="api/updateProfile.ts"
 import { NextApiRequest, NextApiResponse } from "next";
 
 import { verify } from "jsonwebtoken";
@@ -319,7 +319,7 @@ Let's take it step by step. First we create a function to get the message:
 
  
 
-```tsx:components/Profile.jsx
+```tsx title="components/Profile.jsx"
 import { useAddress, useDisconnect, useMetamask, useProvider } from "@thirdweb-dev/react";
 import { Profiler, useCallback, useEffect, useState } from "react";
 import { Button, useToast, Spinner, Input } from "@chakra-ui/react";
@@ -366,7 +366,7 @@ export default function Profile() {
 Once the challenge is received, we will get the JWT.
  
 
-```tsx:components/Profile.jsx
+```tsx title="components/Profile.jsx"
 const getJwt = useCallback(async () => {
     const challenge = await getChallenge();
     const signer = provider.getSigner();
@@ -402,7 +402,7 @@ const getJwt = useCallback(async () => {
 
 Here is the function, if the JWT is valid and the user wants to update the username.
 
-```tsx:components/Profile.jsx
+```tsx title="components/Profile.jsx"
 const updateUsername = useCallback(async () => {
     try {
       const request = await fetch("/api/updateProfile", {
@@ -472,7 +472,7 @@ if (!jwt) {
 
 Finally lets add the html tags and include the calls to the functions to get and update the username.
 
-```tsx:components/Profile.jsx
+```tsx title="components/Profile.jsx"
 return (
     <div
       style={{

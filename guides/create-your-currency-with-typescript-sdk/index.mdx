@@ -69,7 +69,7 @@ In our `currency.ts` we include the following code.
 
 The token variable uses the token contract inside the sdk with our address for the token smart contract.
 
-```tsx:currency.ts
+```tsx title="currency.ts"
 // Instantiate Token contract
 const token = sdk.getToken("0x43E0C32F2BC4A79e70421CF449e14EcADD3adbad");
 ```
@@ -78,7 +78,7 @@ const token = sdk.getToken("0x43E0C32F2BC4A79e70421CF449e14EcADD3adbad");
 
 The arguments passed over here are the same as minting the tokens inside the dashboard. If you want to familiarize yourself with the process, check out the dashboard!
 
-```tsx:currency.ts
+```tsx title="currency.ts"
 const mintCurrency = async (amount) => {
   try {
     await token.mint(amount);

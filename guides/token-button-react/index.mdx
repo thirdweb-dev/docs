@@ -21,7 +21,7 @@ Quick heads up, in these examples, the thirdweb sdk is integrated with React **c
 
 Make sure to have the dependencies  installed 
 
-```jsx:App.js
+```jsx title="App.js"
 npm install @3rdweb/sdk ethers
 
 npm install @3rdweb/react @3rdweb/hooks
@@ -73,7 +73,7 @@ In your `tokencomponent.js` file we will write the code for the button and get b
 
 The cool thing about this component, is that it's using the `connect wallet` component to authorise the transaction 😄.
 
-```jsx:tokencomponent.js
+```jsx title="tokencomponent.js"
 import { useWeb3 } from "@3rdweb/hooks";
 import { useEffect, useMemo, useState, useCallback } from "react";
 import { ThirdwebSDK } from "@3rdweb/sdk";
