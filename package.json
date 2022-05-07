@@ -22,9 +22,10 @@
     "make-docs": "yarn make-docs:typescript && yarn make-docs:react && yarn make-docs:contracts && yarn make-docs:python"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-beta.15",
-    "@docusaurus/plugin-content-docs": "^2.0.0-beta.16",
-    "@docusaurus/preset-classic": "^2.0.0-beta.15",
+    "@docusaurus/core": "^2.0.0-beta.20",
+    "@docusaurus/plugin-content-docs": "^2.0.0-beta.20",
+    "@docusaurus/preset-classic": "^2.0.0-beta.20",
+    "@docusaurus/remark-plugin-npm2yarn": "^2.0.0-beta.20",
     "@mdx-js/react": "^1.6.21",
     "clsx": "^1.1.1",
     "posthog-docusaurus": "^1.0.3",
@@ -34,7 +35,7 @@
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.0-beta.15",
+    "@docusaurus/module-type-aliases": "^2.0.0-beta.20",
     "@tsconfig/docusaurus": "^1.0.4",
     "@types/fs-extra": "^9.0.13",
     "fs-extra": "^10.0.1",
