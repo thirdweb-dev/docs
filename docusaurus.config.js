@@ -34,7 +34,7 @@ const config = {
           path: "docs/onboarding",
           routeBasePath: "/",
           breadcrumbs: false,
-          remarkPlugins: [npm2yarn],
+          remarkPlugins: [[npm2yarn, { sync: true }]],
           sidebarCollapsed: false,
         },
         blog: false,
@@ -52,7 +52,7 @@ const config = {
         path: "docs/typescript",
         routeBasePath: "typescript",
         sidebarPath: require.resolve("./sidebars/typescript.js"),
-        remarkPlugins: [npm2yarn],
+        remarkPlugins: [[npm2yarn, { sync: true }]],
         // ... other options
       },
     ],
@@ -63,7 +63,7 @@ const config = {
         path: "docs/react",
         routeBasePath: "react",
         sidebarPath: require.resolve("./sidebars/react.js"),
-        remarkPlugins: [npm2yarn],
+        remarkPlugins: [[npm2yarn, { sync: true }]],
         // ... other options
       },
     ],
@@ -74,7 +74,7 @@ const config = {
         path: "docs/contracts",
         routeBasePath: "contracts",
         sidebarPath: require.resolve("./sidebars/contracts.js"),
-        remarkPlugins: [npm2yarn],
+        remarkPlugins: [[npm2yarn, { sync: true }]],
         // ... other options
       },
     ],
@@ -85,7 +85,7 @@ const config = {
         path: "docs/python",
         routeBasePath: "python",
         sidebarPath: require.resolve("./sidebars/python.js"),
-        remarkPlugins: [npm2yarn],
+        remarkPlugins: [[npm2yarn, { sync: true }]],
         // ... other options
       },
     ],
