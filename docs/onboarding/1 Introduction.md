@@ -5,8 +5,6 @@ slug: /
 
 # Welcome to thirdweb
 
-## What is thirdweb?
-
 thirdweb is a web3 application framework that enables you to easily build powerful, blockchain-based applications.
 
 With an intuitive dashboard, SDKs for the most popular languages, and audited pre-built contracts that you own and control, thirdweb offers a full suite of tools for teams to build and launch web3 apps to production with.
