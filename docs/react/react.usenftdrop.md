@@ -13,7 +13,7 @@ Hook for getting an instance of an `NFTDrop` contract. This contract is meant to
 **Signature:**
 
 ```typescript
-declare function useNFTDrop(contractAddress?: string): NFTDrop | undefined;
+export declare function useNFTDrop(contractAddress?: string): NFTDrop | undefined;
 ```
 
 ## Parameters

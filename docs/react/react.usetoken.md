@@ -13,7 +13,7 @@ Hook for getting an instance of an `Token` contract. This contract supports ERC2
 **Signature:**
 
 ```typescript
-declare function useToken(contractAddress?: string): Token | undefined;
+export declare function useToken(contractAddress?: string): Token | undefined;
 ```
 
 ## Parameters

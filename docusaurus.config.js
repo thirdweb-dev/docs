@@ -4,7 +4,11 @@
 const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
+const npm2yarn = require("@docusaurus/remark-plugin-npm2yarn");
+
 const baseUrl = process.env.BASE_URL || "/";
+
+//@ts-check
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
@@ -17,7 +21,7 @@ const config = {
   onBrokenMarkdownLinks: "warn",
   favicon: "img/favicon.ico",
   organizationName: "thidweb-dev", // Usually your GitHub org/user name.
-  projectName: "typescript-sdk", // Usually your repo name.
+  projectName: "docs", // Usually your repo name.
   trailingSlash: false,
   presets: [
     [
@@ -25,10 +29,13 @@ const config = {
       /** @type {import('@docusaurus/preset-classic').Options} */
       ({
         docs: {
-          sidebarPath: require.resolve("./sidebars/typescript.js"),
-          id: "typescript",
-          path: "docs/typescript",
-          routeBasePath: "typescript",
+          sidebarPath: require.resolve("./sidebars/onboarding.js"),
+          id: "onboarding",
+          path: "docs/onboarding",
+          routeBasePath: "/",
+          breadcrumbs: false,
+          remarkPlugins: [[npm2yarn, { sync: true }]],
+          sidebarCollapsed: false,
         },
         blog: {
           path: "guides",
@@ -46,10 +53,22 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
+        id: "typescript",
+        path: "docs/typescript",
+        routeBasePath: "typescript",
+        sidebarPath: require.resolve("./sidebars/typescript.js"),
+        remarkPlugins: [[npm2yarn, { sync: true }]],
+        // ... other options
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
         id: "react",
         path: "docs/react",
         routeBasePath: "react",
         sidebarPath: require.resolve("./sidebars/react.js"),
+        remarkPlugins: [[npm2yarn, { sync: true }]],
         // ... other options
       },
     ],
@@ -60,6 +79,7 @@ const config = {
         path: "docs/contracts",
         routeBasePath: "contracts",
         sidebarPath: require.resolve("./sidebars/contracts.js"),
+        remarkPlugins: [[npm2yarn, { sync: true }]],
         // ... other options
       },
     ],
@@ -70,6 +90,7 @@ const config = {
         path: "docs/python",
         routeBasePath: "python",
         sidebarPath: require.resolve("./sidebars/python.js"),
+        remarkPlugins: [[npm2yarn, { sync: true }]],
         // ... other options
       },
     ],

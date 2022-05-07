@@ -17,14 +17,14 @@ import { useGnosis } from "@thirdweb-dev/react"
 **Signature:**
 
 ```typescript
-declare function useGnosis(): (config: GnosisConnectorArguments) => Promise<{
-    data?: wagmi_core.ConnectorData<any> | undefined;
+export declare function useGnosis(): (config: GnosisConnectorArguments) => Promise<{
+    data?: import("wagmi-core").ConnectorData<any> | undefined;
     error?: Error | undefined;
 }>;
 ```
 **Returns:**
 
-(config: GnosisConnectorArguments) =&gt; Promise&lt;{ data?: wagmi\_core.ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;
+(config: GnosisConnectorArguments) =&gt; Promise&lt;{ data?: import("wagmi-core").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;
 
 ## Example
 

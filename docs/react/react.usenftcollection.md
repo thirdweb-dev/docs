@@ -13,7 +13,7 @@ Hook for getting an instance of an `NFTCollection` contract. This contract is me
 **Signature:**
 
 ```typescript
-declare function useNFTCollection(contractAddress?: string): NFTCollection | undefined;
+export declare function useNFTCollection(contractAddress?: string): NFTCollection | undefined;
 ```
 
 ## Parameters

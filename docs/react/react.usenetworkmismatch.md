@@ -17,7 +17,7 @@ import { useNetworkMistmatch } from "@thirdweb-dev/react"
 **Signature:**
 
 ```typescript
-declare function useNetworkMismatch(): boolean;
+export declare function useNetworkMismatch(): boolean;
 ```
 **Returns:**
 
