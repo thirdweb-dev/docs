@@ -13,6 +13,8 @@ thirdweb enables developers to effortlessly transition their skills into the web
 
 We offer tools to help you every step of the way, from creating your contracts on a test server to giving your users an optimized experience in production.
 
+![Thirdweb App Framework](./assets/app-framework.png)
+
 All of our tools aim to provide a seamless developer experience with built-in features including:
 
 - Audited pre-built smart contracts for you to deploy on all the top blockchains.
@@ -37,7 +39,7 @@ Whether you're building a completely new web3 application or integrating web3 me
 
 ## How does thirdweb fit into the tech stack?
 
-thirdweb has tools to enable and enhance your web3 application at every step in the development stack.
+thirdweb has tools to enable and enhance your web3 application at every step in the development stack. All of thirdweb’s tools are [open source](https://github.com/orgs/thirdweb-dev/) and completely server-less. This means we’re not using databases behind the scenes, or any centralization that relies solely on thirdweb for your applications to work.
 
 Let’s explore thirdweb’s three core offerings
 
@@ -47,7 +49,7 @@ Let’s explore thirdweb’s three core offerings
 
 ### Contracts
 
-[TODO diagram of bottom layer of the stack like the one in the product deck]
+![Thirdweb Contract Layer](./assets/contract-layer.png )
 
 Smart Contracts are the bottom layer of your tech stack, they’re responsible for storing your applications data on the blockchain.
 
@@ -55,13 +57,17 @@ You can deploy one of our pre-built smart contracts onto a blockchain of your ch
 
 Our pre-built contracts are audited by top-tier auditing firms such as Shipyard and 0xmacro to provide you with full confidence in their capabilities and safety. All of thirdweb’s contracts are open-source, meaning you can review these contracts yourself and explore the intricacies and details within them at any time.
 
-Any contract deployed on thirdweb is 100% owned by you. Meaning if thirdweb ever disappears, your smart contracts are still administered by you on the blockchain. Not only that, it's around **10 times cheaper to deploy smart contracts with thirdweb** compared to deploying them yourself, using our proxy contracts. You can learn more about that [TODO LINK] here.
+Any contract deployed on thirdweb is 100% owned by you. Meaning if thirdweb ever disappears, your smart contracts are still administered by you on the blockchain. Not only that, it's around **10 times cheaper to deploy smart contracts with thirdweb** compared to deploying them yourself, using our proxy contracts. You can learn more about that [here](/thirdweb-deploy).
 
 ### SDKs
 
-[TODO diagram of middle layer of the stack like the one in the product deck]
+![Thirdweb SDK Layer](./assets/sdk-layer.png )
 
-We provide SDKs to interact directly with your smart contracts in your favorite languages, including JavaScript, Python, Go, Unity, and C#.
+We provide SDKs to interact directly with your smart contracts in your favorite languages, including:
+- [JavaScript (TypeScript)](/typescript)
+- React
+- Python
+- Go
 
 thirdweb's SDKs connect your application to the blockchain, which allows you to easily read and write data to your smart contracts.
 
@@ -69,9 +75,11 @@ Within the SDK, we do all the heavy lifting, like connecting to the blockchain v
 
 In addition to the pre-built functionalities, we generate additional SDK capabilities dynamically if you're using a custom contract.
 
+Currently, we have SDKs for these languages:
+
 ### Dashboard
 
-[TODO diagram of top layer of the stack like the one in the product deck]
+![Thirdweb Dashboard Layer](./assets/dashboard-layer.png )
 
 thirdweb's dashboard is an easy-to-use admin tool where you can configure permissions, set platform and royalty fees, and share access to your contracts with your team members.
 

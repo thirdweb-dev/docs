@@ -42,8 +42,14 @@ When you’re happy with the configuration, you can deploy your smart contract w
 
 You’ll need to approve one transaction and pay a gas fee to deploy your NFT Collection smart contract onto the blockchain.
 
-You just deployed an NFT Collection smart contract onto the Mumbai Polygon Test Network!
+You just deployed an NFT Collection smart contract onto the Mumbai Polygon Test Network! 🎉
 
-// TODO mint an nft via the dashboard here
+Now you can easily view and mint new NFTs into your collection using the the dashboard too! Let's mint an NFT into your collection now.
+
+Click on the **Mint** button and enter the details such as the name, image, description, and properties of your new NFT.
+
+![Mint New NFT](../assets/mint-new-nft.png)
+
+Approve the transaction, and you have successfully minted your first NFT into your collection!
 
 Now let’s learn how to use this smart contract inside our application.

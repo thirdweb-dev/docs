@@ -25,7 +25,7 @@ For most applications though, you’ll need to connect your users wallets and pr
 
 ### Read-Only Connection
 
-A **provider** is an easy way to create a **read-only** connection to the block chain. When you just want to **read** data from the blockchain, initializing the thirdweb SDK with a provider is the best to do so. You can learn more about providers and what it means to use an RPC here [TODO LINK].
+A **provider** is an easy way to create a **read-only** connection to the block chain. When you just want to **read** data from the blockchain, initializing the thirdweb SDK with a provider is the best to do so.
 
 **Initializing a read-only Thirdweb SDK**
 

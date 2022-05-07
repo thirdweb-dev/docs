@@ -15,71 +15,17 @@ If you’re not sure what some of those things are, we recommend you start at ou
 
 If you have any questions about anything related to thirdweb, you’re always welcome to come ask our community in our [Discord](https://discord.com/invite/thirdweb).
 
-## thirdweb Overview
+In this section, we'll show you how to deploy an NFT Collection smart contract using thirdweb, and get you up and running with an application to view and mint new NFTs.
 
-thirdweb has tools that will help your web3 development journey no matter what you’re building.
+We'll show you how to use the core features of thirdweb, including:
+- Deploying your very own smart contract
+- Using the dashboard to view and configure your smart contract
+- Connecting to your smart contract using our SDKs
 
-At a high level, thirdweb consists of **three** distinct parts.
+We'll also explore some of the heavy lifting thirdweb does behind the scenes, like:
+- Connecting to the blockchain for you
+- Easily accessing user's wallets and signing transactions
+- Fetching data from IPFS
+- Caching results from the blockchain for faster access
 
-1. Smart contracts
-2. SDKs
-3. The Dashboard
-
-![Thirdweb App Framework](../assets/app-framework.png)
-
-All of thirdweb’s tools are [open source](https://github.com/orgs/thirdweb-dev/) and completely server-less. This means we’re not using databases behind the scenes, or any centralization that relies solely on thirdweb for your applications to work.
-
-We truly believe in empowering you to own everything you create using thirdweb.
-
-## thirdweb Contracts
-
-There are two kinds of thirdweb smart contracts.
-
-1. Pre-built contracts
-2. Thirdweb deploy custom contracts
-
-It’s important to note that **you** are the owner of any smart contract that you create using thirdweb. This means that any smart contract that you deploy either via the dashboard or SDK is 100% owned by you, and is completely functional without thirdweb.
-
-### Pre-built contracts
-
-thirdweb offers a range of pre-built contracts for the most common web3 use cases.
-
-Our pre-built contracts are fully audited, 100% open source, and come fully gas-optimized so your users have the best possible experience interacting with them.
-
-Currently, thirdweb has pre-built smart contracts for the following use cases:
-
-- **NFT Drops** - Claimable drop of one-of-one NFTs
-- **NFT Collection** - A collection of one-of-one NFTs
-- **Edition Drop** - Claimable drop of N-of-one NFTs
-- **Edition** - A collection of N-of-one NFTs
-- **Token Drop** - Claimable drop of ERC20 tokens
-- **Token** - Your own ERC20 token
-- **Vote** - ERC20 based voting
-- **Split** - Fee splitting for your revenue
-- **Marketplace** - Your very own NFT marketplace
-- **Pack** - Randomized rewards (loot boxes)
-
-### thirdweb Deploy & Custom Contracts
-
-thirdweb Deploy enables you to declare your contracts written in Solidity as Thirdweb contracts, and upload them to the dashboard using the thirdweb CLI.
-
-thirdweb Deploy enables you to access all of thirdweb features without using one of our pre-built contracts. By using thirdweb deploy, you gain the benefits of:
-
-- Accessing your contract through the thirdweb dashboard
-- Gaining a fully generated SDK to use all the functions of your smart contract
-- Easily deploying multiple copies of your contract to testnet and mainnet networks
-- Not needing to expose your private key at any point
-- _Coming soon: contract permissions, usage insights, config, and more!_
-
-## thirdweb SDKs
-
-thirdweb SDKs are the middle layer between your application and your smart contracts. They enable you to interact with the functions in your smart contract using languages and tools that you’re already familiar with.
-
-Currently, we have SDKs for these languages:
-
-- [JavaScript (TypeScript)](/typescript)
-- React
-- Python
-- Go
-
-Let’s see how you can create and deploy your first smart contract via the thirdweb dashboard, and connect to it using the language of your choice
+Let's get started!
