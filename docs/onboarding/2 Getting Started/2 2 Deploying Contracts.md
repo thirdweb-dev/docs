@@ -6,23 +6,25 @@ slug: /getting-started/deploying-contracts
 
 ## Deploying via the thirdweb Dashboard
 
-You can deploy smart contracts onto the blockchain using the thirdweb dashboard for free, onto one of our supported test networks. In order to do this, you’ll need to first get yourself some test funds from a faucet.
+You can deploy smart contracts onto the blockchain using the thirdweb dashboard for free. In order to do this, you’ll need to first get yourself some test funds from a faucet.
 
-:::tip
+:::tip Testnet Choice
 
-For your first project we recommend you use the Mumbai Test Network, and you can access free test MATIC from [the official faucet](https://faucet.polygon.technology/).
+For your first project we recommend you use the Mumbai Testnet. You can access free test MATIC from [the official faucet](https://faucet.polygon.technology/).
 
 :::
 
-Now you’ve loaded up on test funds, let’s deploy your first contract.
+### Contract Setup & Deployment
 
-Head over to the [**dashboard**](https://thirdweb.com/dashboard) and connect your wallet.
+Once you have loaded up on testnet MATIC, let’s deploy your first contract.
+
+Head over to the [**thirdweb dashboard**](https://thirdweb.com/dashboard) and connect your wallet.
 
 Click **Deploy New Contract** and you’ll be taken to our contract deployment page.
 
-Here is where you’ll find all of our available Built-in Contracts, and any of the contracts you’ve uploaded using thirdweb Deploy.
+This is where you’ll find all of our available [pre-built contracts](/pre-built-contracts).
 
-Under **Built-In Contracts**, click the **Deploy Now** button on the **NFT Collection** contract.
+Under **Pre-built Contracts**, click the `Deploy Now` button on the **NFT Collection** contract.
 
 From here, you’ll be prompted to configure your NFT Collection’s metadata:
 
@@ -36,13 +38,37 @@ You can also configure specific settings within your smart contract such as
 
 ![Payout Settings Setup](../assets/payout-settings.png)
 
+_For the sake of this guide you can also just leave the defaults in place._
+
 When you’re happy with the configuration, you can deploy your smart contract with one click!
 
 ![Network Selection](../assets/network-selection.png)
 
-You’ll need to approve one transaction and pay a gas fee to deploy your NFT Collection smart contract onto the blockchain.
+You’ll need to approve one transaction and pay the gas fee to deploy your NFT Collection smart contract to the blockchain.
 
-You just deployed an NFT Collection smart contract onto the Mumbai Polygon Test Network! 🎉
+Congratulations! You just deployed your first smart contract onto the Mumbai Polygon Testnet! 🎉
+
+:::info Deploying via SDK
+
+You can also deploy contracts directly via any of our SDKs, this allows you to deploy contracts dynamically based on what your application needs are. Below is an example to deploy the same NFT Collection we deployed via the thirdweb dashboard via sdk.
+
+```javascript title="deployNftCollection.js"
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+const signer = {
+  /* a valid Signer */
+};
+
+const sdk = new ThirdwebSDK(signer);
+
+await sdk.deployer.deployNFTCollection({ name: "Your NFT Collection Name", {/* other contract metadata */} });
+```
+
+[Learn More](/typescript/sdk.contractdeployer)
+
+:::
+
+### Mint your first NFT
 
 Now you can easily view and mint new NFTs into your collection using the the dashboard too! Let's mint an NFT into your collection now.
 
@@ -52,4 +78,8 @@ Click on the **Mint** button and enter the details such as the name, image, desc
 
 Approve the transaction, and you have successfully minted your first NFT into your collection!
 
-Now let’s learn how to use this smart contract inside our application.
+---
+
+**Next Up: Integrating the SDK**
+
+In the next step you'll learn how to use this smart contract inside your application.

@@ -51,7 +51,7 @@ const NftList = ({ nftCollection }) => {
 };
 ```
 
-## **Writing data to your smart contract**
+## Writing data to your smart contract
 
 **Mint a new NFT into your collection:**
 
