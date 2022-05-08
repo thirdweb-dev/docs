@@ -3,15 +3,8 @@ slug: /CurrencyTransferLib
 title: CurrencyTransferLib
 hide_title: true
 ---
+
 # CurrencyTransferLib
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -21,16 +14,10 @@ hide_title: true
 function NATIVE_TOKEN() external view returns (address)
 ```
 
-
-
-*The address interpreted as native token of the chain.*
-
+_The address interpreted as native token of the chain._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
-
-
-
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |

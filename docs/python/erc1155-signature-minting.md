@@ -3,9 +3,10 @@ slug: /erc1155-signature-minting
 title: ERC1155SignatureMinting Objects
 hide_title: true
 ---
+
 <a id="core.classes.erc_1155_signature_minting"></a>
 
-# core.classes.erc\_1155\_signature\_minting
+# core.classes.erc_1155_signature_minting
 
 <a id="core.classes.erc_1155_signature_minting.ERC1155SignatureMinting"></a>
 
@@ -35,7 +36,7 @@ transaction result with the token ID of the minted token
 
 <a id="core.classes.erc_1155_signature_minting.ERC1155SignatureMinting.mint_batch"></a>
 
-#### mint\_batch
+#### mint_batch
 
 ```python
 def mint_batch(
@@ -90,7 +91,7 @@ Signed payload
 
 <a id="core.classes.erc_1155_signature_minting.ERC1155SignatureMinting.generate_batch"></a>
 
-#### generate\_batch
+#### generate_batch
 
 ```python
 def generate_batch(

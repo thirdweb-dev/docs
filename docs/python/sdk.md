@@ -3,6 +3,7 @@ slug: /sdk
 title: ThirdwebSDK Objects
 hide_title: true
 ---
+
 <a id="core.sdk"></a>
 
 # core.sdk
@@ -39,7 +40,7 @@ Initialize the thirdweb SDK.
 
 <a id="core.sdk.ThirdwebSDK.get_nft_collection"></a>
 
-#### get\_nft\_collection
+#### get_nft_collection
 
 ```python
 def get_nft_collection(address: str) -> NFTCollection
@@ -57,7 +58,7 @@ NFT Collection contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.get_edition"></a>
 
-#### get\_edition
+#### get_edition
 
 ```python
 def get_edition(address: str) -> Edition
@@ -75,7 +76,7 @@ Edition contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.get_token"></a>
 
-#### get\_token
+#### get_token
 
 ```python
 def get_token(address: str) -> Token
@@ -93,7 +94,7 @@ Token contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.get_marketplace"></a>
 
-#### get\_marketplace
+#### get_marketplace
 
 ```python
 def get_marketplace(address: str) -> Marketplace
@@ -111,7 +112,7 @@ Marketplace contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.get_nft_drop"></a>
 
-#### get\_nft\_drop
+#### get_nft_drop
 
 ```python
 def get_nft_drop(address: str) -> NFTDrop
@@ -129,7 +130,7 @@ NFT Drop contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.get_edition_drop"></a>
 
-#### get\_edition\_drop
+#### get_edition_drop
 
 ```python
 def get_edition_drop(address: str) -> EditionDrop
@@ -147,7 +148,7 @@ Edition Drop contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.get_custom_contract"></a>
 
-#### get\_custom\_contract
+#### get_custom_contract
 
 ```python
 def get_custom_contract(address: str, abi: str = "")
@@ -169,7 +170,7 @@ Custom contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.update_provider"></a>
 
-#### update\_provider
+#### update_provider
 
 ```python
 def update_provider(provider: Web3)
@@ -183,7 +184,7 @@ Update the provider instance used by the SDK.
 
 <a id="core.sdk.ThirdwebSDK.update_signer"></a>
 
-#### update\_signer
+#### update_signer
 
 ```python
 def update_signer(signer: Optional[LocalAccount] = None)

@@ -1,0 +1,138 @@
+---
+authors: nacho
+tags: [ui, connect-wallet, react, v2]
+image: "./thumbnail.png"
+date: "2021-11-18"
+---
+
+# Connecting a wallet
+
+Learn how to easily add a connect wallet button to your website or app using the [React.JS SDK](/react).
+
+<!--truncate-->
+
+## Introduction
+
+Setting up web3 on your website and letting your users connect their wallet is essential for any web3 web app, and yet the process of integrating these features is often complex and nuanced.
+
+Instead of spending time trying to configure a complex web3 setup, you can use the **Thirdweb React library** to easily add web3 to your applications.
+
+thirdweb's connect wallet button makes it easy to connect Metamask, WalletConnect, Coinbase Wallet, Gnosis Safe, Rainbow Wallet, Ledger, Tally Wallet, and many other crypto wallets to your site or app. This means that your users can connect their favorite wallet and start interacting with your web3 experience almost immediately.
+
+Plus, our connect wallet button is completely free to use. What are you waiting for? Add web3 functionality to your app or site with the thirdweb connect wallet button & React library.
+
+If you're looking to add support for a specific type of wallet not currently supported by thirdweb, please reach out to us at [support@thirdweb.com](mailto:support@thirdweb.com) - we're always open to adding functionality into our connect wallet components.
+
+You can check the full code for this guide in this [GitHub repository](https://github.com/thirdweb-dev/examples/tree/main/typescript/add-connect-wallet).
+
+Check out the full docs for our React package [here](/react).
+
+## Get Started
+
+To get started with the Thirdweb Component Library, you can run the following to install our packages:
+
+```bash
+# Run this to install with npm
+npm install @thirdweb-dev/react @thirdweb-dev/sdk ethers
+
+# Or run this to install with yarn
+yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers
+```
+
+Once you've installed the necessary package, you just need to setup the `ThirdwebProvider` that provides all the context consumed by your app. With this context, you will have a standard web3 provider that you can use throughout your app.
+
+Setting up this context is as easy as wrapping your app with the following setup:
+
+```tsx title="pages/_app.tsx"
+import type { AppProps } from "next/app";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+function MyApp({ Component, pageProps }: AppProps) {
+  const desiredChainId = 80001;
+
+  /**
+   * Make sure that your app is wrapped with these contexts.
+   * If you're using React, you'll have to replace the Component setup with {children}
+   */
+  return (
+    <ThirdwebProvider desiredChainId={desiredChainId}>
+      <Component {...pageProps} />
+    </ThirdwebProvider>
+  );
+}
+
+export default MyApp;
+```
+
+## Connect Wallet & Web3 Setup
+
+Currently, we provide you with hooks to easily integrate web3 into your app and setup an app wide context without having to deal with the complexity of lower level web3 configuration.
+
+### Using custom hooks
+
+```tsx title="components/ConnectWallet.js"
+import {
+  useMetamask,
+  useWalletConnect,
+  useCoinbaseWallet,
+  useNetwork,
+  useAddress,
+  useDisconnect,
+} from "@thirdweb-dev/react";
+
+export const ConnectWallet = () => {
+  const connectWithCoinbaseWallet = useCoinbaseWallet();
+  const connectWithMetamask = useMetamask();
+  const connectWithWalletConnect = useWalletConnect();
+  const disconnectWallet = useDisconnect();
+  const address = useAddress();
+  const network = useNetwork();
+
+  // If a wallet is connected, show address, chainId and disconnect button
+  if (address) {
+    return (
+      <div>
+        Address: {address}
+        <br />
+        Chain ID: {network[0].data.chain && network[0].data.chain.id}
+        <br />
+        <button onClick={disconnectWallet}>Disconnect</button>
+      </div>
+    );
+  }
+
+  // If no wallet is connected, show connect wallet options
+  return (
+    <div>
+      <button onClick={() => connectWithCoinbaseWallet()}>
+        Connect Coinbase Wallet
+      </button>
+      <button onClick={() => connectWithMetamask()}>Connect MetaMask</button>
+      <button onClick={() => connectWithWalletConnect()}>
+        Connect WalletConnect
+      </button>
+    </div>
+  );
+};
+```
+
+Then, we need to import this component on our `index.tsx` file:
+
+```tsx title="pages/index.tsx"
+import type { NextPage } from "next";
+import { ConnectWallet } from "../components/ConnectWallet";
+
+const Home: NextPage = () => {
+  return (
+    <div>
+      <ConnectWallet />
+    </div>
+  );
+};
+
+export default Home;
+```
+
+### The code
+
+Remember, you can check the full code for this example in this [GitHub repository](https://github.com/thirdweb-dev/examples/tree/main/typescript/add-connect-wallet).

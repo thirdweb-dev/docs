@@ -3,15 +3,8 @@ slug: /DelayedReveal
 title: DelayedReveal
 hide_title: true
 ---
+
 # DelayedReveal
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -21,22 +14,20 @@ hide_title: true
 function encryptDecrypt(bytes data, bytes key) external pure returns (bytes result)
 ```
 
-
-
-*See: https://ethereum.stackexchange.com/questions/69825/decrypt-message-on-chain*
+_See: https://ethereum.stackexchange.com/questions/69825/decrypt-message-on-chain_
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| data | bytes | undefined
-| key | bytes | undefined
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| data | bytes | undefined   |
+| key  | bytes | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| result | bytes | undefined
+| Name   | Type  | Description |
+| ------ | ----- | ----------- |
+| result | bytes | undefined   |
 
 ### getRevealURI
 
@@ -44,22 +35,20 @@ function encryptDecrypt(bytes data, bytes key) external pure returns (bytes resu
 function getRevealURI(uint256 _batchId, bytes _key) external view returns (string revealedURI)
 ```
 
-
-
-*Returns the decrypted i.e. revealed URI for a batch of tokens.*
+_Returns the decrypted i.e. revealed URI for a batch of tokens._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _batchId | uint256 | undefined
-| _key | bytes | undefined
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| \_batchId | uint256 | undefined   |
+| \_key     | bytes   | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| revealedURI | string | undefined
+| Name        | Type   | Description |
+| ----------- | ------ | ----------- |
+| revealedURI | string | undefined   |
 
 ### reveal
 
@@ -67,22 +56,15 @@ function getRevealURI(uint256 _batchId, bytes _key) external view returns (strin
 function reveal(uint256 identifier, bytes key) external nonpayable returns (string revealedURI)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| identifier | uint256 | undefined
-| key | bytes | undefined
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| identifier | uint256 | undefined   |
+| key        | bytes   | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| revealedURI | string | undefined
-
-
-
+| Name        | Type   | Description |
+| ----------- | ------ | ----------- |
+| revealedURI | string | undefined   |

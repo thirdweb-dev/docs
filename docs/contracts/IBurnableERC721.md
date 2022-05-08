@@ -3,15 +3,8 @@ slug: /IBurnableERC721
 title: IBurnableERC721
 hide_title: true
 ---
+
 # IBurnableERC721
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -21,15 +14,10 @@ hide_title: true
 function burn(uint256 tokenId) external nonpayable
 ```
 
-
-
-*Burns `tokenId`. See {ERC721-_burn}. Requirements: - The caller must own `tokenId` or be an approved operator.*
+_Burns `tokenId`. See {ERC721-\_burn}. Requirements: - The caller must own `tokenId` or be an approved operator._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined
-
-
-
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |

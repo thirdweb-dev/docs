@@ -1,0 +1,60 @@
+---
+authors: nacho
+tags: [magic, wallet, sdk, v2]
+image: "./thumbnail.png"
+date: "2021-09-16"
+---
+
+# Create a wallet with SMS/Email login
+
+Use the thirdweb SDK with magic.link
+
+<!-- truncate -->
+
+:::tip
+
+If you are using react you can simply use our built-in [`useMagic`](/react/react.usemagic) hook to accomplish the same result as this guide.
+
+:::
+
+[magic.link](https://magic.link/) provides wallet for users that login through SMS, Email or Social.
+
+> Magic is a developer SDK that integrates with your application to enable passwordless authentication using magic links (similar to Slack and Medium). Magic enables blazing-fast, hardware-secured, passwordless login with a few lines of code — even if you have an existing auth solution.
+
+To learn more about how to set up magic.link in your project, look at:
+
+[Magic for Web](https://magic.link/docs/login-methods/email/integration/web)
+
+## How to use our SDK with magic.link
+
+### 1. Install our SDK and Magic SDK
+
+```bash
+npm install @thirdweb-dev/sdk ethers magic-sdk
+```
+
+### 2. Setting up our SDK
+
+```ts
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { ethers } from "ethers"
+import { Magic } from "magic-sdk";
+
+// Dependent on your setup!
+const magic = new Magic(...)
+
+// The magic.link wallet that will be making the sdk contract calls
+const provider = new ethers.providers.Web3Provider(magic.rpcProvider);
+const signer = provider.getSigner();
+
+// Initialize SDK instance with the magic.link signer.
+const sdk = new ThirdwebSDK(signer);
+
+// Access any contracts using our the SDK.
+sdk.getNFTCollection("0x...");
+```
+
+### Resources for using magic.link on the blockchains
+
+- [How to Integrate with the Ethereum Blockchain with Magic in Javascript](https://magic.link/docs/advanced/blockchains/ethereum/javascript)
+- [How to Integrate with the Polygon Blockchain with Magic](https://magic.link/docs/advanced/blockchains/polygon)

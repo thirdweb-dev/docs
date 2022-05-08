@@ -19,7 +19,8 @@
     "make-docs:react": "node scripts/make-react-docs.mjs",
     "make-docs:contracts": "node scripts/make-contracts-docs.mjs",
     "make-docs:python": "node scripts/make-python-docs.mjs",
-    "make-docs": "yarn make-docs:typescript && yarn make-docs:react && yarn make-docs:contracts && yarn make-docs:python"
+    "make-docs": "yarn make-docs:typescript && yarn make-docs:react && yarn make-docs:contracts && yarn make-docs:python",
+    "prettier": "prettier --write '(docs|guides|blog)/**/*.{js,jsx,ts,tsx,md,mdx}'"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-beta.20",

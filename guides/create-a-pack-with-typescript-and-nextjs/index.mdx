@@ -1,0 +1,667 @@
+---
+authors:
+  name: Oliver Jumpertz
+  title: Contributor
+  url: https://twitter.com/oliverjumpertz
+  image_url: /assets/authors/oliver-jumpertz.jpg
+tags: [pack, typescript, nextjs, react]
+image: "./thumbnail.png"
+date: "2022-02-01"
+---
+
+# Create a Pack with TypeScript and Next.js
+
+In this guide, you will learn how to work with the Pack module and create a small app that lets users get packs of random NFTs within them. Just imagine a trading card game or baseball cards where booster packs are sold that contain a random collection of individual cards.
+
+<!-- truncate -->
+
+:::warning Pack is not available on thirdweb v2. This guide is for thirdweb v1. We
+will be adding Pack support for v2 soon. :::
+
+## Introduction
+
+There are a few requirements for this guide that we list for you below:
+
+- Node.js Version >= 16 (LTS)
+- A MetaMask wallet or another web wallet installed
+- Some MATIC (You can get MATIC on the Mumbai Testnet of Polygon [here](/guides/get-matic-on-polygon-mumbai-testnet-faucet/)
+- Some basic experience with JavaScript and Node.js
+
+Just in case you become unsure about your progress at some point, [take a look at the full source code here](https://github.com/thirdweb-dev/examples/tree/main/typescript/create-a-pack-with-typescript-and-nextjs) and see whether this helps you to catch up again!
+
+And now without further ado, let's get into building this app!
+
+## Set up
+
+The Pack module needs either an **NFT Collection**, a **Bundle Drop**, or a **Bundle Collection** to work. This is why you first need to create two modules to get this project going. The easiest NFT module to use with your new Pack module is the Bundle Collection, though. This is why we will go down this route in the tutorial; to give you the most straightforward experience and your new app up and running as quickly and frictionless as possible.
+
+Go to the [thirdweb dashboard](https://v1.thirdweb.com/dashboard) and create a new project. Give it any name you like. In this tutorial, we will refer to the project as "thirdweb Packs."
+
+As soon as you have set up your project, create a Bundle Collection module. Once again, give it any name you like. In this tutorial, we will refer to it as "thirdweb Packs Bundle."
+
+Lastly, create a Pack module. In this tutorial, we will refer to it as "thirdweb Packs Pack," but you can, of course, choose any name you like.
+
+This is what your project should look like now:
+
+![thirdweb Packs Project](./thirdweb-dashboard.png)
+
+Now we are done and can get into the code.
+
+## Into The Code
+
+### Project Setup
+
+First of all, you need a Next.js project to get started. This is because not all logic should live in the frontend of an app.
+
+In this particular case, the Pack module is owned by you. You are the only one that can create new packs, and to do this, you need access to the contract on the blockchain. When you created the module, we transferred the access to this module over to your address. And as you might already know, you need a private key to sign transactions that do state changes. It would thus not be a good idea to put your private key into the source code of your frontend app that can be viewed by anyone.
+
+This is the reason that we use Next.js in this tutorial. It comes with its own server that can also contain backend logic. That's a perfect place to put logic that deals with secrets no one except you should know.
+
+Now that we got this clear, run the following command to get a basic Next.js project with TypeScript:
+
+```bash
+npx create-next-app@latest --ts
+# OR
+yarn create next-app --typescript
+```
+
+You have now created a pretty basic Next.js project that acts as the base for everything we will do from now on. Start your editor and open your newly created folder. It's time to install a few more dependencies.
+
+### Install Dependencies
+
+You should be in your newly created folder now. Time to install the thirdweb dependencies you are here for.
+
+Run the following command:
+
+```bash
+npm install @3rdweb/react @3rdweb/hooks @3rdweb/sdk ethers dotenv
+# OR
+yarn add @3rdweb/react @3rdweb/hooks @3rdweb/sdk ethers dotenv
+```
+
+This installs a few dependencies for you:
+
+**@3rdweb/react**
+
+This is our React library. It comes with a few pre-made components that make your life easier.
+
+**@3rdweb/hooks**
+
+This library comes with a few handy React hooks. As functional components are the norm nowadays, it's always good when you don't have to create custom hooks.
+
+**@3rdweb/sdk**
+
+This is our main SDK. It comes with all the logic you need to interact with thirdweb as a service.
+
+**ethers**
+
+ethers.js is a client library for Ethereum-like blockchains. You need it to interact with the blockchain, but it also comes with useful logic to interact with web wallets.
+
+**dotenv**
+
+dotenv is a library that makes it very easy to work with environment variables. As you use Next.js in this tutorial and will have to work with at least one secret (your wallet's private keys), you will need it to keep it secure and safe.
+
+### Add The thirdweb React Provider To Your App
+
+Whenever you work with the blockchain and interact with tokens or contracts on a website, you need to use a web wallet. The thirdweb React provider makes it straightforward to let your users connect their wallets to your website, and it abstracts away all the boilerplate you would usually have to write.
+
+Open `pages/_app.tsx` and replace everything in this file with the following code:
+
+```TypeScript title="pages/_app.tsx"
+import '../styles/globals.css';
+import { ThirdwebProvider } from '@3rdweb/react';
+import type { AppProps } from 'next/app';
+
+const MyApp = ({ Component, pageProps }: AppProps) => {
+  const supportedChainIds = [80001];
+  const connectors = {
+    injected: {},
+    walletconnect: {},
+    walletlink: {
+      appName: 'thirdweb - demo',
+      url: 'https://thirdweb.com',
+      darkMode: false,
+    },
+  };
+
+  return (
+    <ThirdwebProvider
+      connectors={connectors}
+      supportedChainIds={supportedChainIds}
+    >
+      <Component {...pageProps} />
+    </ThirdwebProvider>
+  );
+};
+
+export default MyApp;
+```
+
+The chain id 80001 stands for the Polygon Mumbai Testnet. You can add another chain id if you wish to, but for the sake of this tutorial, we will stay on the testnet so you can safely play around, and mistakes don't cost you real money.
+
+If you want to learn more about the thirdweb provider, [you can take a look at another tutorial here](/guides/add-connectwallet-to-your-website) that goes a little more in-depth about this component.
+
+With the provider included, you can now go on to add a "Connect Your Wallet" button from our ready-made components to your app.
+
+### Add The thirdweb Connect Component
+
+Create a new folder called `components` that will host all custom components of your app. After that, create a new file called `connect.tsx`. The component is very simple and only consists of the following code:
+
+```TypeScript title="components/connect.tsx"
+import { ConnectWallet } from "@3rdweb/react";
+
+export const Connect = () => {
+  return <ConnectWallet />;
+};
+```
+
+The ConnectWallet component contains all the logic necessary to let your users connect their wallets to your app, change their networks, and react to network changes.
+
+### Build The Home Page
+
+It's now time to add the Connect component to your homepage. Open `index.tsx` and remove most content from the Next.js boilerplate. We will reuse the styles of the Next.s starter and leave the outer container and the Head. Other than that, remove everything else and place your Connect component below Head. Overall, the file should now look like this:
+
+```TypeScript title="pages/index.tsx"
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
+import { Connect } from '../components/connect';
+
+const Home: NextPage = () => {
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>thirdweb packs</title>
+        <meta name="description" content="Sell and open packs of NFTs" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <Connect />
+    </div>
+  );
+};
+
+export default Home;
+```
+
+That's a basic homepage already. It doesn't let a user do much besides connecting their wallet, but it's a good base for any other project you might have in mind. Before we continue, we need to have another word, though.
+
+### Attention
+
+Usually, you would have to do a little more than only let your users connect their wallets. Whenever your users make API calls, it is better to first verify that they really own a specific wallet and are who they state they are.
+
+Unfortunately, implementing the whole logic to sign in users takes a little more time than we have here. You can, however, [follow our guide on letting your users sign in with their wallet](/guides/sign-in-with-ethereum-using-thirdweb-connectwallet) to also implement this logic.
+
+For now, we will just assume that everything we do is safe. But **be warned** that this is **not safe** to put into production without a proper sign-in process. We can, however, now do some more preparation.
+
+### Create NFTs And Fund Your Module
+
+The Pack module is not a standalone module like many of the other modules we offer. It requires an NFT module to get its NFTs from. You can imagine a pack like a wrapper around existing NFTs. Like booster packs for trading cards only pack cards from an existing collection, and we offer three types of these modules:
+
+1. The **NFT Collection** Module
+2. The **Bundle Drop** Module
+3. The **Bundle Collection** Module
+
+When you build something on your own, you could choose any of those, but as we already decided to go with a bundle collection for this tutorial, consider this choice set for now.
+
+Go back to the thirdweb dashboard and open your "thirdweb Packs Bundle" module. Click on the button that is labeled "+ Create", and mint an NFT with an initial supply. Let's say 20 is enough for now.
+
+![Mint](./mint-nfts.png)
+
+Do this at least two times so the Pack module later has different NFTs to choose between. And when you are done with this, there is only one last thing to do before you can get back into coding: Get some LINK.
+
+LINK is the currency of Chainlink. You need Chainlink so that your Pack module can choose an NFT randomly. Blockchains themselves aren't very good at random numbers, which is why the module uses an Oracle in the background. That Oracle runs on Chainlink and requires some LINK.
+
+You can get LINK for the Mumbai Testnet [here](https://faucets.chain.link/mumbai).
+
+When you have your LINK, go back to the thirdweb dashboard and open the "thirdweb Packs Pack." Go to "Settings" and add the LINK to the module. This way, when a user opens a pack later, the module can pay the required LINK for the random number.
+
+![Funding LINK](./funding-link.png)
+
+When your Pack module is funded with LINK, you have finished the last preparation step necessary. It's time to go back into the code. We will begin with the backend API that handles the on-demand creation of a pack.
+
+### Implement The API Route
+
+Handling the on-demand creation of packs when a user wants to get a new one is best handled in the backend. As you already learned, the contract has access control and not everyone should be able to create packs whenever they feel like it. Your account's private keys however are golden. They are nothing you should share with the world because everyone with that key can also access everything within it. Gladly, Next.js has API route support that allows you to build backend logic into your Next app. And all your secrets live a secure life on the server, without ever being exposed to the public.
+
+Go to `pages/api` and create a new file `pack.ts`. This is where you implement all logic necessary to create a new pack on demand.
+
+Let's start by adding some imports and the dotenv setup.
+
+```TypeScript title="pages/api/pack.ts"
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { ThirdwebSDK } from "@3rdweb/sdk";
+import { BigNumber, ethers } from 'ethers';
+import { readFileSync } from 'fs';
+import dotenv from 'dotenv';
+
+dotenv.config();
+```
+
+Now, you need to define an interface for the request and the response.
+
+Add the following to `pack.ts`:
+
+```TypeScript title="pages/api/pack.ts"
+interface RequestData {
+  address: string;
+}
+
+interface ResponseData {
+  packId: string;
+  packAddress: string;
+}
+```
+
+Each request should contain the blockchain address of the user. You need this to later transfer the pack to the user. As a response, the API returns the id of the pack created and the address of the pack contract on the blockchain. You later need this information in the frontend, so your users can open their packs with the help of the thirdweb SDK.
+
+Before you implement the handler, add a few more lines of code below your interface definitions. The contract address of the pack module can be a constant, you will need it multiple times. After that follows the setup of the thirdweb SDK. Instantiating it each time a user makes a request makes no sense, so it can stay outside of the handler.
+
+```TypeScript title="pages/api/pack.ts"
+const PACK_MODULE_ADDRESS = process.env.PACK_MODULE_ADDRESS as string;
+
+const WALLET = new ethers.Wallet(
+  process.env.PRIVATE_KEY as string,
+  ethers.getDefaultProvider('https://rpc-mumbai.maticvigil.com')
+);
+const SDK = new ThirdwebSDK(WALLET);
+const MODULE = SDK.getPackModule(PACK_MODULE_ADDRESS);
+```
+
+This code is everything you need to set up our SDK. One word of advice though: You should never replace the environment variable with your real private key; not even for testing purposes. If that code ever lands on GitHub, and even worse in a public repository, you can be sure that everything within that wallet is probably gone in minutes.
+
+However, let's continue by building your handler. Add a basic implementation that you can fill step by step. Append the following to the end of `pack.ts`:
+
+```TypeScript title="pages/api/pack.ts"
+export const handler = async (
+  req: NextApiRequest,
+  res: NextApiResponse<ResponseData>
+) => {
+  res.status(200).end();
+};
+```
+
+This is a basic Next.js API route handler. If you already know Express, the signature of this function will probably look familiar to you.
+
+In the next step, we will add the logic to create a pack of NFTs, and the module gives you the opportunity to add a logo to it. In our case, we do of course use our own logo, located at `public/thirdweb_logo.png`, but you can add any other image you like. If you currently don't have a suitable image, don't worry, you have permission to use our logo here, of course. Just download it and place it inside your project.
+
+Now, you can finally add the logic necessary to create a pack of NFTs:
+
+```TypeScript title="pages/api/pack.ts"
+const requestData = req.body as RequestData;
+
+// Data to create the pack
+const pack = {
+  // The address of the contract that holds the rewards you want to include
+  assetContract: process.env.ASSET_CONTRACT_ADDRESS as string,
+  // The metadata of the pack
+  metadata: {
+    name: 'Cool Pack',
+    description: 'This is a cool pack',
+    // This can be an image url or image file
+    image: readFileSync('public/thirdweb_logo.png'),
+  },
+  // The NFTs you want to include in the pack
+  assets: [
+    {
+      tokenId: 0, // The token ID of the asset you want to add
+      amount: 1, // The amount of the asset you want to add
+    }, {
+      tokenId: 1,
+      amount: 1,
+    }
+  ],
+};
+
+try {
+  const createResult = await MODULE.create(pack);
+  const { id } = createResult;
+
+  // transfer the pack over to the user so they can open it themselves
+  await MODULE.transfer(requestData.address, id, BigNumber.from(1));
+
+  res.status(200).json({
+    packId: id,
+    packAddress: PACK_MODULE_ADDRESS
+  });
+} catch (error: any) {
+  res.status(500).end();
+}
+```
+
+After reading the request data, the code creates an option object for the pack module. The property `assetsContract` contains the contract address of a bundle or drop module. In this case, it is the address of the module "thirdweb Packs Bundle".
+
+The object also has a `metadata` block, which assigns a name and a description to the pack, as well as an image. If you were to create a trading card game, this could be your booster pack cover. Once again: If you don't have an image, just use our logo. We actually like to see it so often!
+
+`assets` is the most important property of the options object. Here you define all NFTs from the `assetsContract` that can potentially land inside a pack. Add in at least the ids of the NFTs you created within your bundle module.
+
+The API creates that pack on demand. And when that is successful, it transfers the pack over to the address the caller sent with their request. After that, the id of the pack and the contract address of the pack module are returned to the user.
+
+Overall, it only takes a few lines of code to create and transfer the pack. This is the power of the thirdweb SDK.
+
+You can also add a few guard statements to the API to make it more secure. After all this, `pack.ts` should look similar to this:
+
+```TypeScript title="pages/api/pack.ts"
+import type { NextApiRequest, NextApiResponse } from 'next';
+import { ThirdwebSDK } from "@3rdweb/sdk";
+import { BigNumber, ethers } from 'ethers';
+import { readFileSync } from 'fs';
+import dotenv from 'dotenv';
+
+dotenv.config();
+
+interface RequestData {
+  address: string;
+}
+
+interface ResponseData {
+  packId: string;
+  packAddress: string;
+}
+
+const PACK_MODULE_ADDRESS = process.env.PACK_MODULE_ADDRESS as string;
+
+const WALLET = new ethers.Wallet(
+  process.env.PRIVATE_KEY as string,
+  ethers.getDefaultProvider('https://rpc-mumbai.maticvigil.com')
+);
+const SDK = new ThirdwebSDK(WALLET);
+const MODULE = SDK.getPackModule(PACK_MODULE_ADDRESS);
+
+export const handler = async (
+  req: NextApiRequest,
+  res: NextApiResponse<ResponseData>
+) => {
+  if (req.method !== 'POST') {
+    res.status(405).end();
+  }
+
+  if (!req.body) {
+    res.status(400).end();
+  }
+
+  const requestData = req.body as RequestData;
+
+  // Data to create the pack
+  const pack = {
+    // The address of the contract that holds the rewards you want to include
+    assetContract: process.env.ASSET_CONTRACT_ADDRESS as string,
+    // The metadata of the pack
+    metadata: {
+      name: 'Cool Pack',
+      description: 'This is a cool pack',
+      // This can be an image url or image file
+      image: readFileSync('public/thirdweb_logo.png'),
+    },
+    // The NFTs you want to include in the pack
+    assets: [
+      {
+        tokenId: 2, // The token ID of the asset you want to add
+        amount: 1, // The amount of the asset you want to add
+      }, {
+        tokenId: 3,
+        amount: 1,
+      }
+    ],
+  };
+
+  try {
+    const createResult = await MODULE.create(pack);
+    const { id } = createResult;
+
+    // transfer the pack over to the user so they can open it themselves
+    await MODULE.transfer(requestData.address, id, BigNumber.from(1));
+
+    res.status(200).json({
+      packId: id,
+      packAddress: PACK_MODULE_ADDRESS
+    });
+
+  } catch (error: any) {
+    res.status(500).end();
+  }
+};
+
+export default handler;
+```
+
+Your backend is now finished, and you can concentrate on implementing the missing logic in the frontend.
+
+### Implement The Frontend
+
+Begin by creating a new component in `components` and call it `pack.tsx`. And then it's time to fill in some basic logic, like below:
+
+```TypeScript title="components/pack.tsx"
+import styles from '../styles/Home.module.css';
+
+export const Pack = () => {
+  return (
+    <div>
+      <p>Mint a pack and see what luck you have today!</p>
+      <div>
+        <button
+          className={styles.button}>
+          Mint
+        </button>
+      </div>
+    </div>
+  );
+};
+```
+
+Additionally add the following to `styles/Home.module.css`:
+
+```CSS title="styles/Home.module.css"
+.button {
+  background-color: #D410A8;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+```
+
+These lines of CSS style the button just enough to give it a neat touch.
+
+What you need next is an onClick handler for the button. Whenever a user clicks that button, you want to invoke your API endpoint and provide them with a pack they can open. After the call returns successfully, the app should show the user what they got. As this is pretty dynamic, you'll need to work with state.
+
+Let's alter the component a little and retrieve the data required to make the API call and to process the result after that. Our hooks library comes with a pre-made hook that allows you to quickly access the address and provider of a user as long as you use our ThirdwebProvider. Gladly, you already added it in the beginning, so it's easy to use the hook. Add the following to your component, above the return statement:
+
+```TypeScript title="components/pack.tsx"
+const { address, provider } = useWeb3();
+const [collectedNfts, setCollectedNfts] = useState([] as NFTMetadata[]);
+```
+
+`address` is the blockchain address of the account your user currently has activated in their web wallet. The `provider` is the API object to interact with the blockchain. You'll need it later when you want to open the pack. Lastly, a state hook allows you to store the NFTs of the pack a user opens, so you can show them what they got within your app.
+
+Next, add the following code to `components/pack.tsx`:
+
+```TypeScript title="components/pack.tsx"
+const handleClick = async (
+  address: string,
+  provider: Web3Provider,
+  setCollectedNfts: Dispatch<SetStateAction<NFTMetadata[]>>,
+) => {
+  const response = await fetch('/api/pack', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      address,
+    }),
+  });
+  const body = await response.json();
+  const sdk = new ThirdwebSDK(provider.getSigner());
+  const module = sdk.getPackModule(body.packAddress);
+  const openResult = await module.open(body.packId);
+  setCollectedNfts(openResult);
+};
+```
+
+This is the function that handles the API call. It first calls your API with `fetch` and passes the blockchain address of your user to your API. After that call is successful, you need to extract the response. It contains the id of the pack your user got issued and the contract address of the Pack module. Even if your user is not the owner of the Pack module, they can still interact with the pack they now own.
+
+As the pack contract address can be dynamic, you instantiate the SDK each time a user clicks the button. It might be that the backend changes between two calls and also changes that address. This is why it is not static like in the API route.
+
+You can now adjust the button to trigger your new function whenever a user clicks the button, like this:
+
+```TypeScript title="components/pack.tsx"
+<button
+  className={styles.button}
+  onClick={() =>
+    handleClick(
+      address as string,
+      provider as Web3Provider,
+      setCollectedNfts,
+    )
+  }
+>
+```
+
+Finally, you can make use of the state callback you passed to the function. When the API returns successful and the pack is opened, the user should see the NFTs they got. Add the following to the end of the return statement in the `Pack` component:
+
+```TypeScript title="components/pack.tsx"
+{collectedNfts.length > 0 ? <p>Here is what you got!</p> : <p></p>}
+{collectedNfts.map((nft: NFTMetadata) => (
+  <div key={nft.id}>
+    <p>NFT id: {nft.id}</p>
+    <img src={nft.image} alt="NFT Image" height={256} width={256} />
+  </div>
+))}
+```
+
+This is of course not the most beautiful page ever created, but we are pretty sure that you can make something beautiful out of it!
+
+Overall, `components/pack.tsx` should now look like this:
+
+```TypeScript title="components/pack.tsx"
+import { useWeb3 } from '@3rdweb/hooks';
+import { NFTMetadata, ThirdwebSDK } from '@3rdweb/sdk';
+import { Web3Provider } from '@ethersproject/providers';
+import { Dispatch, SetStateAction, useState } from 'react';
+import styles from '../styles/Home.module.css';
+
+const handleClick = async (
+  address: string,
+  provider: Web3Provider,
+  setCollectedNfts: Dispatch<SetStateAction<NFTMetadata[]>>,
+) => {
+  const response = await fetch('/api/pack', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      address,
+    }),
+  });
+  const body = await response.json();
+  const sdk = new ThirdwebSDK(provider.getSigner());
+  const module = sdk.getPackModule(body.packAddress);
+  const openResult = await module.open(body.packId);
+  setCollectedNfts(openResult);
+};
+
+export const Pack = () => {
+  const { address, provider } = useWeb3();
+  const [collectedNfts, setCollectedNfts] = useState([] as NFTMetadata[]);
+  return (
+    <div>
+      <p>Mint a pack and see what luck you have today!</p>
+      <div>
+        <button
+          className={styles.button}
+          onClick={() =>
+            handleClick(
+              address as string,
+              provider as Web3Provider,
+              setCollectedNfts,
+            )
+          }
+        >
+          Mint
+        </button>
+      </div>
+      {collectedNfts.length > 0 ? <p>Here is what you got!</p> : <p></p>}
+      {collectedNfts.map((nft: NFTMetadata) => (
+        <div key={nft.id}>
+          <p>NFT id: {nft.id}</p>
+          <img src={nft.image} alt="NFT Image" height={256} width={256} />
+        </div>
+      ))}
+    </div>
+  );
+};
+```
+
+There is only one very last thing left to do: Integrating the component into your app.
+
+Open `index.tsx` again and add the following imports:
+
+```TypeScript title="pages/index.tsx"
+import { Pack } from '../components/pack';
+import { useWeb3 } from '@3rdweb/hooks';
+```
+
+Add the `useWeb3` hook to the top of your index component like so:
+
+```TypeScript title="pages/index.tsx"
+const { address } = useWeb3();
+return (...);
+```
+
+and integrate your component like this:
+
+```TypeScript title="pages/index.tsx"
+<main className={styles.main}>
+  {address ? <Pack /> : <p>Please connect your Wallet first.</p>}
+</main>
+```
+
+`index.tsx` should now look like this:
+
+```TypeScript title="pages/index.tsx"
+import type { NextPage } from 'next';
+import Head from 'next/head';
+import styles from '../styles/Home.module.css';
+import { Connect } from '../components/connect';
+import { Pack } from '../components/pack';
+import { useWeb3 } from '@3rdweb/hooks';
+
+const Home: NextPage = () => {
+  const { address } = useWeb3();
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>thirdweb packs</title>
+        <meta name="description" content="Sell and open packs of NFTs" />
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <Connect />
+
+      <main className={styles.main}>
+        {address ? <Pack /> : <p>Please connect your Wallet first.</p>}
+      </main>
+    </div>
+  );
+};
+
+export default Home;
+```
+
+And that's it! Start your new app and try it out.
+
+Notice that the API calls usually take some time. You might want to signal that to the user.
+
+## Just In Case You Couldn't Follow Along
+
+If by any chance, you couldn't follow along well, we've stored the code to this guide in our very special
+examples repository. [Take a look there](https://github.com/thirdweb-dev/examples/tree/main/typescript/create-a-pack-with-typescript-and-nextjs) and see whether this helps you to catch up again!
+
+## That's It
+
+Congratulations! You are at the end of this tutorial. You created an app that lets users retrieve a pack with random NFTs using the thirdweb SDK. From here on, you can look at our other guides or improve the app yourself. You could, for example, also add a way to charge users for such a pack. That's all up to you!

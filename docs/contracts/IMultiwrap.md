@@ -3,15 +3,8 @@ slug: /IMultiwrap
 title: IMultiwrap
 hide_title: true
 ---
+
 # IMultiwrap
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -21,16 +14,13 @@ hide_title: true
 function contractType() external pure returns (bytes32)
 ```
 
-
-
-*Returns the module type of the contract.*
-
+_Returns the module type of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
 ### contractURI
 
@@ -38,16 +28,13 @@ function contractType() external pure returns (bytes32)
 function contractURI() external view returns (string)
 ```
 
-
-
-*Returns the metadata URI of the contract.*
-
+_Returns the metadata URI of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### contractVersion
 
@@ -55,16 +42,13 @@ function contractURI() external view returns (string)
 function contractVersion() external pure returns (uint8)
 ```
 
-
-
-*Returns the version of the contract.*
-
+_Returns the version of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint8 | undefined
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| \_0  | uint8 | undefined   |
 
 ### getDefaultRoyaltyInfo
 
@@ -72,17 +56,14 @@ function contractVersion() external pure returns (uint8)
 function getDefaultRoyaltyInfo() external view returns (address, uint16)
 ```
 
-
-
-*Returns the royalty recipient and fee bps.*
-
+_Returns the royalty recipient and fee bps._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
-| _1 | uint16 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | uint16  | undefined   |
 
 ### getRoyaltyInfoForToken
 
@@ -90,22 +71,20 @@ function getDefaultRoyaltyInfo() external view returns (address, uint16)
 function getRoyaltyInfoForToken(uint256 tokenId) external view returns (address, uint16)
 ```
 
-
-
-*Returns the royalty recipient for a particular token Id.*
+_Returns the royalty recipient for a particular token Id._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
-| _1 | uint16 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | uint16  | undefined   |
 
 ### owner
 
@@ -113,16 +92,13 @@ function getRoyaltyInfoForToken(uint256 tokenId) external view returns (address,
 function owner() external view returns (address)
 ```
 
-
-
-*Returns the owner of the contract.*
-
+_Returns the owner of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### royaltyInfo
 
@@ -130,23 +106,21 @@ function owner() external view returns (address)
 function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (address receiver, uint256 royaltyAmount)
 ```
 
-
-
-*Returns how much royalty is owed and to whom, based on a sale price that may be denominated in any unit of exchange. The royalty amount is denominated and should be payed in that same unit of exchange.*
+_Returns how much royalty is owed and to whom, based on a sale price that may be denominated in any unit of exchange. The royalty amount is denominated and should be payed in that same unit of exchange._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined
-| salePrice | uint256 | undefined
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| tokenId   | uint256 | undefined   |
+| salePrice | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| receiver | address | undefined
-| royaltyAmount | uint256 | undefined
+| Name          | Type    | Description |
+| ------------- | ------- | ----------- |
+| receiver      | address | undefined   |
+| royaltyAmount | uint256 | undefined   |
 
 ### setContractURI
 
@@ -154,15 +128,13 @@ function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (
 function setContractURI(string _uri) external nonpayable
 ```
 
-
-
-*Sets contract URI for the storefront-level metadata of the contract.       Only module admin can call this function.*
+_Sets contract URI for the storefront-level metadata of the contract. Only module admin can call this function._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _uri | string | undefined
+| Name  | Type   | Description |
+| ----- | ------ | ----------- |
+| \_uri | string | undefined   |
 
 ### setDefaultRoyaltyInfo
 
@@ -170,16 +142,14 @@ function setContractURI(string _uri) external nonpayable
 function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
 ```
 
-
-
-*Lets a module admin update the royalty bps and recipient.*
+_Lets a module admin update the royalty bps and recipient._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _royaltyRecipient | address | undefined
-| _royaltyBps | uint256 | undefined
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| \_royaltyRecipient | address | undefined   |
+| \_royaltyBps       | uint256 | undefined   |
 
 ### setOwner
 
@@ -187,15 +157,13 @@ function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) e
 function setOwner(address _newOwner) external nonpayable
 ```
 
-
-
-*Lets a module admin set a new owner for the contract. The new owner must be a module admin.*
+_Lets a module admin set a new owner for the contract. The new owner must be a module admin._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _newOwner | address | undefined
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_newOwner | address | undefined   |
 
 ### setRoyaltyInfoForToken
 
@@ -203,17 +171,15 @@ function setOwner(address _newOwner) external nonpayable
 function setRoyaltyInfoForToken(uint256 tokenId, address recipient, uint256 bps) external nonpayable
 ```
 
-
-
-*Lets a module admin set the royalty recipient for a particular token Id.*
+_Lets a module admin set the royalty recipient for a particular token Id._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined
-| recipient | address | undefined
-| bps | uint256 | undefined
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| tokenId   | uint256 | undefined   |
+| recipient | address | undefined   |
+| bps       | uint256 | undefined   |
 
 ### unwrap
 
@@ -223,15 +189,13 @@ function unwrap(uint256 tokenId, uint256 amountToRedeem, address _sendTo) extern
 
 Unwrap shares to retrieve underlying ERC1155, ERC721, ERC20 tokens.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | The token Id of the tokens to unwrap.
-| amountToRedeem | uint256 | The amount of shares to unwrap
-| _sendTo | address | undefined
+| Name           | Type    | Description                           |
+| -------------- | ------- | ------------------------------------- |
+| tokenId        | uint256 | The token Id of the tokens to unwrap. |
+| amountToRedeem | uint256 | The amount of shares to unwrap        |
+| \_sendTo       | address | undefined                             |
 
 ### wrap
 
@@ -241,23 +205,19 @@ function wrap(MultiTokenTransferLib.MultiToken wrappedContents, uint256 shares, 
 
 Wrap multiple ERC1155, ERC721, ERC20 tokens into &#39;n&#39; shares (i.e. variable supply of 1 ERC 1155 token)
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| wrappedContents | MultiTokenTransferLib.MultiToken | The tokens to wrap.
-| shares | uint256 | The number of shares to issue for the wrapped contents.
-| uriForShares | string | The URI for the shares i.e. wrapped token.
+| Name            | Type                             | Description                                             |
+| --------------- | -------------------------------- | ------------------------------------------------------- |
+| wrappedContents | MultiTokenTransferLib.MultiToken | The tokens to wrap.                                     |
+| shares          | uint256                          | The number of shares to issue for the wrapped contents. |
+| uriForShares    | string                           | The URI for the shares i.e. wrapped token.              |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined
-
-
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |
 
 ## Events
 
@@ -267,16 +227,12 @@ Wrap multiple ERC1155, ERC721, ERC20 tokens into &#39;n&#39; shares (i.e. variab
 event DefaultRoyalty(address newRoyaltyRecipient, uint256 newRoyaltyBps)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| newRoyaltyRecipient  | address | undefined |
-| newRoyaltyBps  | uint256 | undefined |
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| newRoyaltyRecipient | address | undefined   |
+| newRoyaltyBps       | uint256 | undefined   |
 
 ### OwnerUpdated
 
@@ -284,16 +240,12 @@ event DefaultRoyalty(address newRoyaltyRecipient, uint256 newRoyaltyBps)
 event OwnerUpdated(address prevOwner, address newOwner)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| prevOwner  | address | undefined |
-| newOwner  | address | undefined |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| prevOwner | address | undefined   |
+| newOwner  | address | undefined   |
 
 ### RoyaltyForToken
 
@@ -301,17 +253,13 @@ event OwnerUpdated(address prevOwner, address newOwner)
 event RoyaltyForToken(uint256 indexed tokenId, address royaltyRecipient, uint256 royaltyBps)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId `indexed` | uint256 | undefined |
-| royaltyRecipient  | address | undefined |
-| royaltyBps  | uint256 | undefined |
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| tokenId `indexed` | uint256 | undefined   |
+| royaltyRecipient  | address | undefined   |
+| royaltyBps        | uint256 | undefined   |
 
 ### TokensUnwrapped
 
@@ -319,19 +267,17 @@ event RoyaltyForToken(uint256 indexed tokenId, address royaltyRecipient, uint256
 event TokensUnwrapped(address indexed wrapper, address sentTo, uint256 indexed tokenIdOfShares, uint256 sharesUnwrapped, MultiTokenTransferLib.MultiToken wrappedContents)
 ```
 
-
-
-*Emitted when tokens are unwrapped.*
+_Emitted when tokens are unwrapped._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| wrapper `indexed` | address | undefined |
-| sentTo  | address | undefined |
-| tokenIdOfShares `indexed` | uint256 | undefined |
-| sharesUnwrapped  | uint256 | undefined |
-| wrappedContents  | MultiTokenTransferLib.MultiToken | undefined |
+| Name                      | Type                             | Description |
+| ------------------------- | -------------------------------- | ----------- |
+| wrapper `indexed`         | address                          | undefined   |
+| sentTo                    | address                          | undefined   |
+| tokenIdOfShares `indexed` | uint256                          | undefined   |
+| sharesUnwrapped           | uint256                          | undefined   |
+| wrappedContents           | MultiTokenTransferLib.MultiToken | undefined   |
 
 ### TokensWrapped
 
@@ -339,16 +285,12 @@ event TokensUnwrapped(address indexed wrapper, address sentTo, uint256 indexed t
 event TokensWrapped(address indexed wrapper, uint256 indexed tokenIdOfShares, MultiTokenTransferLib.MultiToken wrappedContents)
 ```
 
-
-
-*Emitted when tokens are wrapped.*
+_Emitted when tokens are wrapped._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| wrapper `indexed` | address | undefined |
-| tokenIdOfShares `indexed` | uint256 | undefined |
-| wrappedContents  | MultiTokenTransferLib.MultiToken | undefined |
-
-
+| Name                      | Type                             | Description |
+| ------------------------- | -------------------------------- | ----------- |
+| wrapper `indexed`         | address                          | undefined   |
+| tokenIdOfShares `indexed` | uint256                          | undefined   |
+| wrappedContents           | MultiTokenTransferLib.MultiToken | undefined   |

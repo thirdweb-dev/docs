@@ -1,0 +1,342 @@
+---
+authors: raza
+tags: [react, marketplace, auction, front-end]
+image: "./thumbnail.png"
+date: "2022-01-06"
+---
+
+# Build a simple auction component
+
+Learn how to build a simple React **component** to create an `auction` and a **component** for a `connect wallet` button.
+
+<!-- truncate -->
+
+Check out our repository with the finished code for this guide at GitHub [here](https://github.com/thirdweb-dev/examples/tree/main/typescript/auction-button-react).
+
+![](./button.png)
+
+## Dependencies
+
+Quick heads up, in these examples, the thirdweb sdk is integrated with React **components**.
+
+Make sure to have the dependencies installed
+
+```bash
+npm install @thirdweb-dev/react @thirdweb-dev/sdk ethers
+```
+
+## The App.js - Connect your wallet
+
+In your `App.jsx` file we can use the code from [this](/guides/add-connectwallet-to-your-website) guide for our `connect wallet` button. thirdweb created a **component** for the `connect wallet` button so we don't have to code it ourself. This is great so we don't have to mess around with private keys later.
+
+Inside our app we import our **component** for the `claim` button.
+
+```js title="App.jsx"
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import "./App.css";
+
+//import component for claim button
+import AuctionComponent from "../components/AuctionListing";
+import Connect from "../components/Connect";
+
+const supportedChainIds = [1, 4, 137, 250, 43114, 80001];
+
+function exampleApp() {
+  return (
+    <ThirdwebProvider desiredChainId={supportedChainIds}>
+      <Connect />
+      <AuctionComponent />
+    </ThirdwebProvider>
+  );
+}
+export default exampleApp;
+```
+
+You can learn more about the walletconnect options on their official docs [here](https://docs.walletconnect.com/quick-start/dapps/web3-provider#provider-options) and wallet link [here](https://github.com/walletlink/walletlink/blob/cb476f778faac0755d33df2b6865991c2f5311bc/js/src/WalletLink.ts#L22-L42)
+
+## Add The thirdweb Connect Component
+
+Create a new folder called components that will host all custom components of your app. After that, create a new file called connect.js. The component is very simple and only consists of the following code:
+
+```js title="connect.js"
+import { useMetamask } from "@thirdweb-dev/react";
+
+export const Connect = () => {
+  const connectWithMetamask = useMetamask();
+  return <button onClick={connectWithMetamask}>Connect Metamask Wallet</button>;
+};
+```
+
+## The AuctionListing.js - The Buy button
+
+Create a file called `AuctionListing.js` inside your components folder.
+In your `AuctionListing.js` file we will write the code for the button.
+
+Let's take it step by step, but feel free to scroll to the bottom to copy the full piece of code.
+
+First we import all the necessary dependencies.
+The hooks and sdk should be familiar :).
+
+```js title="AuctionListing.jsx"
+import React from "react";
+import { useState } from "react";
+import {
+  ThirdwebProvider,
+  ChainId,
+  useAddress,
+  useMetamask,
+  useMarketplace,
+} from "@thirdweb-dev/react";
+```
+
+In this guide we will **not** be passing the private keys manually. This is not considered best practice and is actually a security issue when applied on the client side.
+Instead we will make use of the `Signer`, which we pull when a wallet is connected via the `Connect` component.
+
+The cool thing about this **component**, is that it's using the `connect` component to authorise the transaction 😄.
+thirdweb provides you hooks to connect to your contract and interact with it. In this example we make use of the `useMarketplace`.
+
+```js title="AuctionListing.jsx"
+// using a hook to connect to our contract
+const market = useMarketplace("0xf7bd818c15a0642893fDc256D5D2836b951F3804");
+
+// Declaring the nft smart contract address
+const nftSmartContractAddress = "0x95c78aca2c99df3E7469769C56565ECc0e8eCe95";
+const tokenSmartContractAddress = "0x0d5fb8942eEa62093944F3e91C6Ac4e584336741";
+```
+
+This part is a bit big, but it doesn't make sense to split it up.
+First we declare some variables that will be passed through a form such as, token Id's, listings Id's and the amounts.
+Then we use the variables in our function.
+
+A couple of notes.
+The `createAuctionListing` method takes two **prices** as input.
+`buyoutPricePerToken` is the variable that is used to define the **buy** now amount.
+`reservePricePerToken` is the variable that is used to define the **minimum bid**.
+
+```js title="AuctionListing.jsx"
+function auctionListingTokenId(event) {
+  setTokenId(event.target.value);
+}
+function auctionListingTokenIdOffer(event) {
+  setTokenIdOffer(event.target.value);
+}
+function submitAuctionListing(event) {
+  event.preventDefault();
+  createAuctionListing();
+}
+
+const [listId, setListId] = React.useState("");
+const [listIdBid, setListIdOffer] = React.useState("");
+
+function auctionListingListId(event) {
+  setListId(event.target.value);
+}
+function auctionListingListIdQuantity(event) {
+  setListIdOffer(event.target.value);
+}
+function submitAuctionListingOffer(event) {
+  event.preventDefault();
+  makeBid();
+}
+
+//setting the minimum bid as 100th of the buyout price
+const tokenIdReserve = tokenIdOffer.div(100);
+const tokenIdReservePrice = tokenIdReserve.toString();
+
+// We should use the `useCallback` to ensure that the `buy`
+// function is always initiated with the latest `market` variable
+
+const createAuctionListing = async () => {
+  await market.auction.createListing({
+    assetContractAddress: nftSmartContractAddress,
+    buyoutPricePerToken: tokenIdOffer,
+    currencyContractAddress: currencySmartContractAddress,
+    startTimeInSeconds: Math.floor(Date.now() / 1000),
+    listingDurationInSeconds: 60 * 2,
+    tokenId: tokenId,
+    quantity: 1,
+    reservePricePerToken: tokenIdReservePrice,
+  });
+};
+
+const makeBid = async () => {
+  await market.auction.makeBid({
+    listingId: listId,
+    pricePerToken: listIdBid,
+  });
+};
+```
+
+Finally render out the forms :).
+
+```js title="AuctionListing.jsx"
+
+  return (
+    <div>
+      <form onSubmit={submitAuctionListing}>
+        <input
+          type="text"
+          placeholder="enter token ID to list AUCTION"
+          onChange={auctionListingTokenId}
+        />
+        <input
+          type="text"
+          placeholder="enter offer for the listing AUCTION"
+          onChange={auctionListingTokenIdOffer}
+        />
+        <button>Submit Token ID for Auction Listing</button>
+      </form>
+      <form onSubmit={submitAuctionListingOffer}>
+        <input
+          type="text"
+          placeholder="enter AUCTION listing ID"
+          onChange={auctionListingListId}
+        />
+        <input
+          type="text"
+          placeholder="enter bid for AUCTION"
+          onChange={auctionListingListIdQuantity}
+        />
+        <button>Make a Bid</button>
+      </form>
+      <button
+        style={{
+          padding: "10px 20px",
+          textAlign: "center",
+          backgroundColor: "#44014C",
+          color: "white",
+        }}
+        class="btn"
+        onClick={createAuctionListing}
+      >
+        Create auction listing!
+      </button>
+      <br />
+    </div>
+  );
+};
+export default AuctionComponent;
+
+```
+
+The full piece of code that goes inside `AuctionListing.js`
+
+```js title="AuctionListing.jsx"
+import React from "react";
+import { useState } from "react";
+import {
+  ThirdwebProvider,
+  ChainId,
+  useAddress,
+  useMetamask,
+  useMarketplace,
+} from "@thirdweb-dev/react";
+
+function AuctionComponent() {
+  const market = useMarketplace("0xf7bd818c15a0642893fDc256D5D2836b951F3804");
+  const nftSmartContractAddress = "0x1AF863CCa75201A619bE1Ba69797309ebb82c8b0";
+  const currencySmartContractAddress =
+    "0xf457dEFDC6F9db81E86B4769A265E4b10D454A7c";
+  const [tokenId, setTokenId] = useState("");
+  const [tokenIdOffer, setTokenIdOffer] = useState("");
+
+  function auctionListingTokenId(event) {
+    setTokenId(event.target.value);
+  }
+  function auctionListingTokenIdOffer(event) {
+    setTokenIdOffer(event.target.value);
+  }
+  function submitAuctionListing(event) {
+    event.preventDefault();
+    createAuctionListing();
+  }
+
+  const [listId, setListId] = useState("");
+  const [listIdBid, setListIdOffer] = useState("");
+
+  function auctionListingListId(event) {
+    setListId(event.target.value);
+  }
+  function auctionListingListIdQuantity(event) {
+    setListIdOffer(event.target.value);
+  }
+  function submitAuctionListingOffer(event) {
+    event.preventDefault();
+    makeBid();
+  }
+
+  //setting the minimum bid as 100th of the buyout price
+  const tokenIdReserve = tokenIdOffer / 100;
+  const tokenIdReservePrice = tokenIdReserve.toString();
+
+  const createAuctionListing = async () => {
+    await market.auction.createListing({
+      assetContractAddress: nftSmartContractAddress,
+      buyoutPricePerToken: tokenIdOffer,
+      currencyContractAddress: currencySmartContractAddress,
+      startTimeInSeconds: Math.floor(Date.now() / 1000),
+      listingDurationInSeconds: 60 * 2,
+      tokenId: tokenId,
+      quantity: 1,
+      reservePricePerToken: tokenIdReservePrice,
+    });
+  };
+
+  const makeBid = async () => {
+    await market.auction.makeBid({
+      listingId: listId,
+      pricePerToken: listIdBid,
+    });
+  };
+  return (
+    <div>
+      <form onSubmit={submitAuctionListing}>
+        <input
+          type="text"
+          placeholder="enter token ID to list AUCTION"
+          onChange={auctionListingTokenId}
+        />
+        <input
+          type="text"
+          placeholder="enter offer for the listing AUCTION"
+          onChange={auctionListingTokenIdOffer}
+        />
+        <button>Submit Token ID for Auction Listing</button>
+      </form>
+      <form onSubmit={submitAuctionListingOffer}>
+        <input
+          type="text"
+          placeholder="enter AUCTION listing ID"
+          onChange={auctionListingListId}
+        />
+        <input
+          type="text"
+          placeholder="enter bid for AUCTION"
+          onChange={auctionListingListIdQuantity}
+        />
+        <button>Make a Bid</button>
+      </form>
+      <button
+        style={{
+          padding: "10px 20px",
+          textAlign: "center",
+          backgroundColor: "#44014C",
+          color: "white",
+        }}
+        className="btn"
+        onClick={createAuctionListing}
+      >
+        Create auction listing!
+      </button>
+      <br />
+    </div>
+  );
+}
+export default AuctionComponent;
+```
+
+## That's it!
+
+It's really **that** easy. If you have any questions, drop by our [discord](https://discord.gg/thirdweb)!
+
+And remember you can check the full code for this guide in [this GitHub repository](https://github.com/thirdweb-dev/examples/tree/main/typescript/auction-button-react).

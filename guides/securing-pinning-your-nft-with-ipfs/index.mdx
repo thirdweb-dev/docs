@@ -1,0 +1,62 @@
+---
+authors: raza
+tags: [ui, ipfs, nft, v2]
+image: "./thumbnail.png"
+date: "2022-03-01"
+---
+
+# Using IPFS to secure your NFT
+
+This guide explains what pinning is and how thirdweb uses it
+
+<!-- truncate -->
+
+## What is IPFS
+
+When you create an NFT, you need to provide a link to an asset, like an image. That image can be stored on your computer or some server. If the image is gone the NFT is useless. IPFS(inter planetary file system) solves this by saving your images on a network of different nodes. It’s not on the blockchain, but it’s different decentralised network. The image also gains an unique footprint.
+
+## What is pinning
+
+Pinning an image, or any file for that matter, tells an IPFS network that this image is not allowed to be deleted. IPFS networks clean their storages over time. If you do not pin your image, the image will be lost and the NFT will become useless. There are different service providers that let you pin your image.
+
+## How do I pin my image
+
+You don’t. We do that for you. When you mint an NFT with thirdweb, we make use of the highest standards. We don’t use local storages or API’s. You own the smart contract, you own the NFT and we save the image in the best possible way.
+
+## How does pinning work
+
+In order to pin an image, you need control over the network. This where pinning services come in. A pinning service, like Pinata, has a decentralised storage solution. Anyone can use Pinata to upload an image and pin it using IPFS, on their network. When you mint with thirdweb, we do this for you.
+
+## How do I access my image
+
+When an image is pinned you get the unique footprint of the image. IPFS retrieves that image, based on that unique hash. This is an example👇
+
+```bash
+QmfM2r8seH2GiRaC4esTjeraXEachRt8ZsSeGaWTPLyMoG
+```
+
+The canonical link to that image looks like this 👇
+
+```bash
+ipfs://QmfM2r8seH2GiRaC4esTjeraXEachRt8ZsSeGaWTPLyMoG
+```
+
+If you pass that link in your browser, it won’t work, because your browser does not know how to get there. Technically speaking your browser doesn’t have the tools to do so, but let’s not get into that.
+
+To access that link you need an IPFS gateway. An IPFS gateway is like a bridge between traditional web browsers and IPFS. There are public gateways and private gateways. Private gateways are used when your IPFS network is private, ie not available to outsiders.
+
+## Public
+
+The easiest way to access your image is by using a public gateway. Simply speaking that means converting that link from this:
+
+```bash
+ipfs://QmfM2r8seH2GiRaC4esTjeraXEachRt8ZsSeGaWTPLyMoG
+```
+
+to this
+
+```bash
+https://ipfs.io/ipfs/QmfM2r8seH2GiRaC4esTjeraXEachRt8ZsSeGaWTPLyMoG
+```
+
+There are other public gateways that you can use. Check it out over [here](https://ipfs.github.io/public-gateway-checker/).

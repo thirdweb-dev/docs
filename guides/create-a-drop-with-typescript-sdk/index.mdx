@@ -1,0 +1,158 @@
+---
+authors: [raza, devin]
+tags: [nft-drop, claim, typescript, v2]
+image: "./thumbnail.png"
+date: "2021-12-06"
+---
+
+# Create an NFT drop with TypeScript
+
+In this guide, we'll create our own **NFT Drop** with the TypeScript SDK! First we will create an **NFT Drop** on the dashboard, then create NFTs, and finally set claim conditions from the SDK. In these drop conditions, you can set the mint price, upload allowlists for claiming, and more!
+
+We also need to connect a wallet. So if you don't have a wallet, make sure to sign up with **MetaMask** or **CoinWallet**. If don't have a wallet, [you can follow this guide to create one](/guides/create-a-metamask-wallet).
+
+<!-- truncate -->
+
+## Dashboard setup
+
+The first thing we need to do is head over to the [dashboard](https://thirdweb.com/dashboard) and create an **NFT Drop** contract.
+
+Once the contract is created, it's time to create our first NFT, but we don't need the dashboard for that! I mean we could, but why use GUI if we can use TypeScript!?
+
+![New NFT Drop contract viewed in the thirdweb dashboard](./nft-drop-contract-dashboard-view.png)
+
+## The code
+
+### 1. Create a TypeScript file
+
+Go ahead and create a new TypeScript file. Let's call it `index.ts` and open it in your favorite code editor. We'll use VS code.
+
+![](./terminal.png)
+
+Next up use we'll install the ThirdWeb SDK using npm!
+
+### 2. SDK installation and setup with TypeScript
+
+- **@thirdweb-dev/sdk** - thirdweb TypeScript SDK.
+- **ethers** - will give us very useful utils.
+- **dotenv** - to hide our private key.
+- **typescript** - since this is a TypeScript project
+- **@types/node** - typing for node as a dev dependency.
+- **tslib** - utility package
+
+```bash
+npm init -y
+npm install @thirdweb-dev/sdk ethers dotenv
+npm install --save-dev typescript @types/node ts-node tslib
+```
+
+### 3. Import the SDK
+
+Let's take the code step by step. At the end we'll include a full code snippet.
+
+Import the following classes from the sdk.
+
+In order to make use of our SDK, you need to establish a connection to a blockchain.
+
+For this guide, you will need to instantiate the SDK using your own signer with thirdweb.
+
+### 4. Define which contract to use
+
+Now we need to define which contract we want to use. Here we created an NFT Drop contract and called it '**My Drop**'. This contract has an address. We need to pass the address here. You can find the address on the dashboard under **My Drop**:
+
+![See NFT Drop contract address under contract name](./nft-drop-contract-dashboard-view.png)
+
+In our `index.ts` file we include the following code. First we define a variable `nftDrop` and store our contract in here.
+
+Then we create an object that uses the drop contract inside the SDK with our address.
+
+```tsx title="index.ts"
+// Initialize drop contract by passing in contract address
+const nftDrop = sdk.getNftDrop("0x727609B45c74e6a2c9EA2B82b3fa5BA7c63dBc37");
+```
+
+### 5. Create the NFT in our Drop contract!
+
+The arguments passed over here are the same as minting an NFT inside the dashboard. If you want to familiarize yourself with the process, check out the dashboard!
+
+```tsx title="index.ts"
+// Minting the NFT asynchronously
+const lazyMintNft = async () => {
+  try {
+    await nftDrop.createBatch([
+      {
+        name: "thirdweb",
+        description:
+          "Smart contracts you control. Tools that accelerate your workflow. Intuitive SDKs and widgets for developers.",
+        image: "ipfs://<YOUR_IPFS_FOLDER_CID>/1.png",
+        attributes: {},
+      },
+    ]);
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+// Running the entire thing
+lazyMintNft();
+```
+
+### 6. Set up claim phases
+
+Once your **NFT Drop** contract is created and has some NFTs, it's time to set the **Claim Phases**. These phases are some of the rules we'll apply when someone wants to claim an NFT, such as price, max amount of tokens claimed, wallets allowed to claim, etc.
+
+Below we will set two claim phases - you can set more or less depending on your needs.
+
+The first claim phase will be a presale with an added snapshot. Only the addresses listed will be able to claim NFTs from the drop.
+We are also adding `maxQuantity` so only 20 NFTs can be minted in this phase.
+
+The second phase does not add a snapshot so everyone is able to claim.
+
+```tsx title="index.ts"
+const presaleStartTime = new Date();
+const publicSaleStartTime = new Date(new Date() + 60 * 60 * 24 * 1000); // today's date + 24 hours
+const allowList = ['0x...', '0x...'] // modify this with your allow list
+const claimConditions = [
+  {
+    startTime: presaleStartTime, // start the presale now
+    maxQuantity: 20, // limit how many mints for this presale
+    price: 0.01, // presale price
+    snapshot: allowList, // limit minting to only certain wallet addresses
+  },
+  {
+    startTime: publicSaleStartTime, // 24h after presale, start public sale
+    price: 0.08, // public sale price
+  }
+]);
+const setClaimConditions = async () => {
+  try {
+    await nftDrop.claimConditions.set(claimConditions);
+  } catch (err) {
+    console.log(err)
+  }
+}
+setClaimConditions();
+```
+
+So the only thing left is to run our code! Open a terminal and paste the following:
+
+```bash title="virtual-env"
+# Runs the TypeScript file
+npx ts-node index.ts
+```
+
+### 7. That's it!
+
+Congratulations! You have created your own drop. The NFTs are available to be claimed! You can use the code below to check all your drops!
+
+```tsx title="index.ts"
+// Get all unclaimed NFTs
+const getAllNfts = () => {
+  try {
+    await nftDrop.getAllUnclaimed();
+  } catch (err) {
+    console.log(err);
+  }
+};
+getAllNfts();
+```

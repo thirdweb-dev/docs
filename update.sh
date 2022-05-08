@@ -5,3 +5,4 @@ git submodule foreach git pull origin main
 yarn install
 yarn make-docs
 yarn generate-snippets
+yarn prettier

@@ -3,6 +3,7 @@ slug: /marketplace
 title: Marketplace Objects
 hide_title: true
 ---
+
 <a id="contracts.marketplace"></a>
 
 # contracts.marketplace
@@ -35,7 +36,7 @@ contract = sdk.get_marketplace("{{contract_address}}")
 
 <a id="contracts.marketplace.Marketplace.get_listing"></a>
 
-#### get\_listing
+#### get_listing
 
 ```python
 def get_listing(listing_id: int) -> Union[DirectListing, AuctionListing]
@@ -53,7 +54,7 @@ Listing object
 
 <a id="contracts.marketplace.Marketplace.get_active_listings"></a>
 
-#### get\_active\_listings
+#### get_active_listings
 
 ```python
 def get_active_listings() -> List[Union[DirectListing, AuctionListing]]
@@ -72,7 +73,7 @@ List of listings
 
 <a id="contracts.marketplace.Marketplace.get_all_listings"></a>
 
-#### get\_all\_listings
+#### get_all_listings
 
 ```python
 def get_all_listings(
@@ -97,7 +98,7 @@ List of listings
 
 <a id="contracts.marketplace.Marketplace.get_total_count"></a>
 
-#### get\_total\_count
+#### get_total_count
 
 ```python
 def get_total_count() -> int
@@ -111,7 +112,7 @@ Total number of listings
 
 <a id="contracts.marketplace.Marketplace.is_restricted_to_lister_role_only"></a>
 
-#### is\_restricted\_to\_lister\_role\_only
+#### is_restricted_to_lister_role_only
 
 ```python
 def is_restricted_to_lister_role_only() -> bool
@@ -125,7 +126,7 @@ True if only lister wallets can make listings
 
 <a id="contracts.marketplace.Marketplace.get_bid_buffer_bps"></a>
 
-#### get\_bid\_buffer\_bps
+#### get_bid_buffer_bps
 
 ```python
 def get_bid_buffer_bps() -> int
@@ -139,7 +140,7 @@ Bid buffer basis points
 
 <a id="contracts.marketplace.Marketplace.get_time_buffer_in_seconds"></a>
 
-#### get\_time\_buffer\_in\_seconds
+#### get_time_buffer_in_seconds
 
 ```python
 def get_time_buffer_in_seconds() -> int
@@ -153,7 +154,7 @@ Time buffer in seconds
 
 <a id="contracts.marketplace.Marketplace.buyout_listing"></a>
 
-#### buyout\_listing
+#### buyout_listing
 
 ```python
 def buyout_listing(listing_id: int,
@@ -182,7 +183,7 @@ Transaction receipt of buyout
 
 <a id="contracts.marketplace.Marketplace.set_bid_buffer_bps"></a>
 
-#### set\_bid\_buffer\_bps
+#### set_bid_buffer_bps
 
 ```python
 def set_bid_buffer_bps(buffer_bps: int) -> TxReceipt
@@ -205,7 +206,7 @@ Transaction receipt
 
 <a id="contracts.marketplace.Marketplace.set_time_buffer_in_seconds"></a>
 
-#### set\_time\_buffer\_in\_seconds
+#### set_time_buffer_in_seconds
 
 ```python
 def set_time_buffer_in_seconds(buffer_in_seconds: int) -> TxReceipt
@@ -228,7 +229,7 @@ Transaction receipt
 
 <a id="contracts.marketplace.Marketplace.allow_listing_from_specific_asset_only"></a>
 
-#### allow\_listing\_from\_specific\_asset\_only
+#### allow_listing_from_specific_asset_only
 
 ```python
 def allow_listing_from_specific_asset_only(contract_address: str) -> TxReceipt
@@ -242,7 +243,7 @@ Restrict marketplace so only specific asset can be listed.
 
 <a id="contracts.marketplace.Marketplace.allow_listing_from_any_asset"></a>
 
-#### allow\_listing\_from\_any\_asset
+#### allow_listing_from_any_asset
 
 ```python
 def allow_listing_from_any_asset() -> TxReceipt

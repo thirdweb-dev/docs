@@ -1,0 +1,51 @@
+---
+authors: nacho
+tags: [gas, mint, access, v2]
+image: "./thumbnail.png"
+date: "2021-09-16"
+---
+
+# Gasless Transactions
+
+Learn how to setup gas-less transactions with thirdweb.
+
+<!-- truncate -->
+
+Learn more about Gassless User Experience [here](https://thirdweb.gitbook.io/thirdweb/protocol/gasless-user-experience).
+
+Gasless Transactions require a Relayer to forward the transactions to the blockchain and pay the gas costs.
+
+Relayer can be self-managed or through various service providers:
+
+- [OpenZeppelin Defender](https://openzeppelin.com/defender/)
+- [Biconomy Gasless](https://www.biconomy.io/gasless-page)
+- [OpenGSN](https://opengsn.org/)
+
+## Using OpenZeppelin Defender
+
+To setup gasless transaction using OpenZeppelin Defender we would need to setup [Autotask](https://docs.openzeppelin.com/defender/autotasks) and [Relay](https://docs.openzeppelin.com/defender/relay).
+
+1. Sign up for [OpenZeppelin Defender](https://defender.openzeppelin.com/)
+2. Create a Relayer in the Dashboard under Relay.
+   - Name: your desire name for the relayer
+   - Network: the network that you want the relayer to operates in
+3. Deposit gas funds into the Relayer. Transferring ETH / MATIC into the Relayer address.
+4. Create an Autotask in the Dashboard under `Autotask`.
+   - Name: your desire name for the autotask.
+   - Trigger: set to `Webhook`
+   - Connect to a relayer: Select the Relayer you just created.
+   - Code: Copy the [code from our GitHub](https://raw.githubusercontent.com/thirdweb-dev/ozdefender-autotask/main/src/forwarder_handler.js) and paste it in the Code box.
+5. Copy the Webhook URI from the Autotask dashboard.
+6. Paste the Webhook URI into the SDK constructor options. For example:
+
+```ts
+new ThirdwebSDK(signerOrProvider, {
+  gasless: {
+    openzeppelin: {
+      relayerUrl: "https://api.defender.openzeppelin.com/autotasks/...",
+    },
+  },
+});
+```
+
+[Check the code on GitHub](https://github.com/thirdweb-dev/ozdefender-autotask).

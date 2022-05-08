@@ -1,0 +1,143 @@
+---
+authors: [raza, devin]
+tags: [marketplace, typescript, v2]
+image: "./thumbnail.png"
+date: "2021-11-25"
+---
+
+# Create your own NFT marketplace with TypeScript
+
+Create your own marketplace to sell NFTs with TypeScript
+
+<!-- truncate -->
+
+## Intro
+
+In this guide we'll create our own **marketplace** with the TypeScript SDK! In a **marketplace** you can list your tokens, like NFT's, for sale. Opensea is an example of a **marketplace**. Did you know you can do both! After we create our **marketplace**, we will list the NFT we minted with our SDK in our previous guide. Check that guide out over [here](/guides/mint-nft-collection-using-typescript-sdk).
+
+By the way we also need to connect a wallet. So if you don't have a wallet, make sure to sign up with MetaMask or CoinWallet. If don't have a wallet, [you can follow this guide to create one](/guides/create-a-metamask-wallet).
+
+Alright without further ado, let's create our **marketplace**!
+
+## Dashboard setup
+
+The first thing we need to do is head over to the [dashboard](https://thirdweb.com/dashboard) and create a **Marketplace** contract.
+
+Once you've created the contract, it's time to list our first NFT, but we don't need the dashboard for that! I mean we could, but why use GUI if we can use TypeScript!?
+
+![New Marketplace contract viewed in the thirdweb dashboard](./marketplace-contract-dashboard-view.png)
+
+## The code
+
+### 1. Create a TypeScript file
+
+Go ahead and create a new TypeScript file. Let's call it `index.ts` and open it in your favorite code editor. We'll use Visual Studio code.
+
+![](./19-jsfile.png)
+
+Next up use we'll install the ThirdWeb SDK using npm!
+
+### 2. SDK installation and setup with TypeScript
+
+- **@thirdweb-dev/sdk** - thirdweb TypeScript SDK.
+- **ethers** - will give us very useful utils.
+- **dotenv** - to hide our private key.
+- **typescript** - since this is a TypeScript project
+- **@types/node** - typing for node as a dev dependency.
+- **tslib** - utility package
+
+```bash
+npm init -y
+npm install @thirdweb-dev/sdk ethers dotenv
+npm install --save-dev typescript @types/node ts-node tslib
+```
+
+In order to make use of our SDK, you need to establish a connection to a blockchain.
+
+For this guide, you will need to instantiate the SDK using your own signer with thirdweb.
+
+### 3. Define which contract to use
+
+Now we need to define which contract we want to use. We created the Marketplace contract and called it '**Cool NFT Marketplace**'. This contract has an address. We need to pass the address here. You can find the address here, under '**Cool NFT Marketplace**':
+
+![See Marketplace contract address under contract name](./marketplace-contract-dashboard-view.png)
+
+In our `index.ts` file we include the following code. First we define a variable `marketplaceAddress` and store our contract address in here.
+
+Then we create an object that uses the market contract inside the SDK with our address.
+
+We will also need the contract address of the NFT we want to list. To get your NFT contract address head over to the dashboard. Inside your project go to your `NFT Collection` contract and copy the address of that contract.
+
+If you want to sell your NFT in your own token, you will also need the token contract address. Head over to the dashboard and inside your project go to your `Token` contract and copy the address of that contract and paste it below.
+
+You can also use the native currency of the chain, such as Ether on Ethereum and Matic on Polygon.
+You will need the token address of the token you want to use and pass it to the variable `tokenAddress`.
+
+```tsx title="index.ts"
+// Initialize marketplace contract by passing in the contract address
+const marketplaceAddress = "0x51f90A2235D4D71f7A475532f8B1442a45B27530";
+const marketplace = sdk.getMarketplace(marketplaceAddress);
+
+// Declaring the NFT Collection contract address
+const nftCollectionAddress = "0x8CeCAe3548f3844f68c07428E9Bbac50Ba887035";
+
+// Declaring the token contract address if you want to use your own tokens
+const tokenAddress = "0x43E0C32F2BC4A79e70421CF449e14EcADD3adbad";
+```
+
+### 4. Time to list the NFT on the marketplace!
+
+We are using the NFT that we created in our previous guide. Each NFT has `tokenId`. We will pass that the following parameters to the '.list' method:
+
+```tsx title="index.ts"
+// the listingId of the listing you want to create a listing for
+const tokenId = "0";
+const listing = {
+  // address of the contract the asset you want to list is on
+  assetContractAddress: nftCollectionAddress,
+  // token ID of the asset you want to list
+  tokenId: tokenId,
+  // in how many seconds with the listing open up
+  startTimeInSeconds: 0,
+  // how long the listing will be open for
+  listingDurationInSeconds: 86400,
+  // how many of the asset you want to list
+  // For ERC721s, this value should always be 1
+  // (and will be forced internally regardless of what is passed here).
+  quantity: 1,
+  // address of the currency contract that will be used to pay for the listing
+  currencyContractAddress: tokenAddress,
+  // how much the asset will be sold for
+  buyoutPricePerToken: "1.5",
+};
+
+const createListing = async () => {
+  try {
+    await marketplace.direct.createListing(listing);
+  } catch (err) {
+    console.log(err);
+  }
+};
+createListing();
+
+// Get all the listings
+const getAllListings = async () => {
+  try {
+    await marketplace.getAllListings();
+  } catch (err) {
+    console.log(err);
+  }
+};
+getAllListings();
+```
+
+So the only thing left is to run our code! Open a terminal and paste the following:
+
+```bash title="virtual-env"
+# Runs the TypeScript file
+npx ts-node index.ts
+```
+
+### 5. That's it!
+
+Congratulations! You have created a listing on your own marketplace using the thirdweb TypeScript SDK.

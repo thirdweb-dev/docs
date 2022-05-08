@@ -1,0 +1,288 @@
+---
+authors: [samina, nacho]
+tags: [nft-drop, gated, mint, access]
+image: "./thumbnail.png"
+date: "2021-09-16"
+---
+
+# How to create an NFT-gated website
+
+In this guide, we will create a website that restricts content based on owning an NFT using React.
+
+<!-- truncate -->
+
+One of the more dynamic use cases for NFTs is using them as a membership pass to the NFT holders. Let’s assume you want to create a website for your community that is gated by having access to a specific NFT from a collection. You can keep downloadable content or hidden pages by access to the NFT.
+
+In this guide, we will create a website that restricts content based on owning an NFT using React.
+
+You can grab a copy of the final project from our examples organization, [check it out here](https://github.com/thirdweb-example/NFT-Gated-Website).
+
+## Mint an NFT Drop
+
+To create an NFT gated website, we will need either an NFT Collection, NFT Drop, Edition, or an Edition Drop contract already deployed on a blockchain. If you don’t have one created, you can create one using thirdweb’s [TypeScript SDK](/typescript/sdk.nftdrop) or thirdweb’s [dashboard](https://thirdweb.com/dashboard).
+
+:::warning
+If your NFTs are an NFT Drop or Edition Drop contract, set up claim phases before using the claiming functions mentioned later in the guide.
+:::
+
+For our example, I am using an NFT Drop contract called Cookie Club for members of the Cookie Club. 🤫
+
+You can view the Cookie Club NFT Drop on the [thirdweb dashboard.](https://thirdweb.com/dashboard/rinkeby/nft-drop/0x66463b3C1EBf08b9dE889BCc0A5cbf29dc0e2B7a?tabIndex=0)
+
+## Clone the template repository
+
+To get started will use a `cra-javascript-template` which already includes a working SDK setup. This template will make it easy to learn and save time when getting started with our project.
+
+:::tip
+If you’d prefer to use your own template, you can install the latest version of our SDK in your project with `npm install @thirdweb-dev/sdk react ethers` or`yarn add @thirdweb-dev/sdk react ethers`
+
+:::
+
+First, navigate to [this GitHub repository](https://github.com/thirdweb-example/cra-javascript-starter) and click on "Use this template" to create a copy.
+
+![thirdweb Create React App starter template on GitHub](./cra-javascript-starter.png)
+
+Add the project’s name, description, and other settings, and then clone it locally on your device. Open the directory and run `npm install` in your terminal to install all the dependencies.
+
+## Setup the blockchain
+
+Inside our `src` folder, we will open the `index.js` file. We will first change the chain id to the chain of our NFT Drop. For this project, we’ll be using `Rinkeby` since our NFT Drop contract is on the Rinkeby testnet.
+
+```jsx title="index.js"
+import React from "react";
+import ReactDOM from "react-dom";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+
+// This is the chainId your dApp will work on.
+const activeChainId = ChainId.Rinkeby;
+
+ReactDOM.render(
+  <React.StrictMode>
+    <ThirdwebProvider desiredChainId={activeChainId}>
+      <App />
+    </ThirdwebProvider>
+  </React.StrictMode>,
+  document.getElementById("root"),
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+```
+
+## Setup the connect wallet button
+
+In the same folder, there is the `app.js` file. In this one, we want to allow our user to connect to the app and then obtain our user’s wallet address. On the front end, we will create a button that lets users connect with MetaMask. When a wallet is connected, it will display the corresponding address.
+
+```jsx title="App.js"
+import { useAddress, useMetamask } from "@thirdweb-dev/react";
+import "./styles.css";
+
+const App = () => {
+  // get address of user & allow them to connect with metamask
+  const address = useAddress();
+  const connectWithMetamask = useMetamask();
+
+  //if there isn't a wallet connected, display our connect MetaMask button
+  if (!address) {
+    return (
+      <>
+        <h1>Welcome to the Cookie Club</h1>
+        <button className="btn" onClick={connectWithMetamask}>
+          Connect MetaMask
+        </button>
+      </>
+    );
+  }
+
+  // if an address is connected, display address
+  return (
+    <div>
+      <p>Your address: {address}</p>
+    </div>
+  );
+};
+
+export default App;
+```
+
+Let’s preview what our app looks like and ensure it’s working by running `npm start` in the terminal.
+
+![Welcome screen for application with Connect Wallet button](./welcome-screen.png)
+
+## Conditionally render content & add an NFT minting button
+
+In the same `App.js` file, we will add conditionals that render specific pages based on the connection status of the user. We want the user to be able to mint an NFT from the drop if they don’t already hold an NFT. If the connected user does have one, we will display some congratulatory text.
+As an extra, I added a helper function to display our shortened wallet address called `truncateAddress`. Feel free to add or omit this as well in your app.
+
+```jsx title="App.js"
+import { useAddress, useMetamask, useNFTDrop } from "@thirdweb-dev/react";
+import { useState, useEffect } from "react";
+import "./styles.css";
+
+const App = () => {
+  // get address of user & allow them to connect with metamask
+  const address = useAddress();
+  const connectWithMetamask = useMetamask();
+
+  // add nft Drop contract
+  const nftDrop = useNFTDrop("0x66463b3C1EBf08b9dE889BCc0A5cbf29dc0e2B7a");
+  const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
+  const [isClaiming, setIsClaiming] = useState(false);
+
+  // function to claim NFT
+  const mintNft = async () => {
+    try {
+      setIsClaiming(true);
+      await nftDrop.claim(1);
+      setHasClaimedNFT(true);
+    } catch (error) {
+      setHasClaimedNFT(false);
+      console.error("Failed to mint NFT", error);
+    } finally {
+      setIsClaiming(false);
+    }
+  };
+
+  //if there isn't a wallet connected, display our connect MetaMask button
+  if (!address) {
+    return (
+      <>
+        <h1>Welcome to the Cookie Club</h1>
+        <button className="btn" onClick={connectWithMetamask}>
+          Connect MetaMask
+        </button>
+      </>
+    );
+  }
+
+  // if the user is connected and has an NFT from the drop, display text
+  if (hasClaimedNFT) {
+    return <h2>Congratulations! You have a Cookie NFT! 🍪</h2>;
+  }
+
+  // helper function to truncate the address so it displays in a nice format
+  function truncateAddress(address) {
+    return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  }
+
+  //if the user does not have an NFT, show their address and mint an NFT button
+  return (
+    <>
+      <p className="address">
+        There are no Cookie NFTs held by:{" "}
+        <span className="value">{truncateAddress(address)}</span>
+      </p>
+      <button className="btn mint" disabled={isClaiming} onClick={mintNft}>
+        Mint NFT
+      </button>
+    </>
+  );
+};
+
+export default App;
+```
+
+![No NFTs are currently owned screen](./none-held-screen.png)
+
+## Add useEffect to check for state changes
+
+Lastly, we want to add a `useEffect` function to ensure we are up to date with the latest state of the app. This function triggers every time something in the dependency array changes. For example, if the user’s address or `nftDrop` disconnects or changes, we want to refresh and update it accordingly.
+
+```jsx title="App.js"
+import { useAddress, useMetamask, useNFTDrop } from "@thirdweb-dev/react";
+import { useState, useEffect } from "react";
+import "./styles.css";
+
+export default function App() {
+  // allow user to connect to app with metamask, and obtain address
+  const address = useAddress();
+  const connectWithMetamask = useMetamask();
+
+  //
+  const nftDrop = useNFTDrop("0x66463b3C1EBf08b9dE889BCc0A5cbf29dc0e2B7a");
+  const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
+  const [isClaiming, setIsClaiming] = useState(false);
+
+  useEffect(() => {
+    // If they don't have an connected wallet, exit!
+    if (!address) {
+      return;
+    }
+
+    const checkBalance = async () => {
+      try {
+        const nfts = await nftDrop.getOwned(address);
+        setHasClaimedNFT(nfts?.length > 0);
+      } catch (error) {
+        setHasClaimedNFT(false);
+        console.error("Failed to get NFTs", error);
+      }
+    };
+    checkBalance();
+  }, [address, nftDrop]);
+
+  const mintNft = async () => {
+    try {
+      setIsClaiming(true);
+      await nftDrop.claim(1);
+      setHasClaimedNFT(true);
+    } catch (error) {
+      setHasClaimedNFT(false);
+      console.error("Failed to mint NFT", error);
+    } finally {
+      setIsClaiming(false);
+    }
+  };
+
+	//if there isn't a wallet connected, display our connect MetaMask button
+  if (!address) {
+    return (
+      <>
+        <h1>Welcome to the Cookie Club</h1>
+        <button className="btn" onClick={connectWithMetamask}>
+          Connect MetaMask
+        </button>
+      </>
+    );
+  }
+
+  // if the user is connected and has an NFT from the drop, display text
+  if (hasClaimedNFT) {
+    return <h2>Congratulations! You have a Cookie NFT! 🍪</h2>;
+  }
+
+  // truncates the address so it displays in a nice format
+  function truncateAddress(address) {
+    return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  }
+
+  // if there are no NFTs from collection in wallet, display button to mint
+  return (
+    <>
+      <p className="address">
+        There are no Cookie NFTs held by:{" "}
+        <span className="value">{truncateAddress(address)}</span>
+      </p>
+      <button className="btn" disabled={isClaiming} onClick={mintNft}>
+        Mint NFT
+      </button>
+    </>
+  );
+}
+
+export default function app;
+```
+
+## Link to Project
+
+You can create a copy of this project from the our [example repository.](https://github.com/thirdweb-example/NFT-Gated-Website)
+
+## Congratulations!
+
+Let’s go! You created an NFT gated membership website using React. Feel free to add some downloadable content or secret updates behind this new page for your NFT community members!
+
+!["Congratulations! You own a Cookie NFT" screen](./congratulations-screen.png)

@@ -3,15 +3,8 @@ slug: /ThirdwebContract
 title: ThirdwebContract
 hide_title: true
 ---
+
 # ThirdwebContract
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -21,16 +14,13 @@ hide_title: true
 function contractURI() external view returns (string)
 ```
 
-
-
-*The metadata for this contract.*
-
+_The metadata for this contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### getPublishMetadataUri
 
@@ -38,16 +28,13 @@ function contractURI() external view returns (string)
 function getPublishMetadataUri() external view returns (string)
 ```
 
-
-
-*Returns the publish metadata for this contract.*
-
+_Returns the publish metadata for this contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### setThirdwebInfo
 
@@ -55,15 +42,10 @@ function getPublishMetadataUri() external view returns (string)
 function setThirdwebInfo(ThirdwebContract.ThirdwebInfo _thirdwebInfo) external nonpayable
 ```
 
-
-
-*Initializes the publish metadata and contract metadata at deploy time.*
+_Initializes the publish metadata and contract metadata at deploy time._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _thirdwebInfo | ThirdwebContract.ThirdwebInfo | undefined
-
-
-
+| Name           | Type                          | Description |
+| -------------- | ----------------------------- | ----------- |
+| \_thirdwebInfo | ThirdwebContract.ThirdwebInfo | undefined   |

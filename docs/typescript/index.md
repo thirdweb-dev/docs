@@ -2,6 +2,7 @@
 title: Thirdweb Typescript SDK
 hide_title: true
 ---
+
 <p align="center">
 <br />
 <a href="https://thirdweb.com"><img src="https://github.com/thirdweb-dev/typescript-sdk/blob/main/logo.svg?raw=true" width="200" alt=""/></a>
@@ -24,7 +25,9 @@ Install the latest version of the SDK with `npm`:
 ```shell
 npm install @thirdweb-dev/sdk ethers
 ```
+
 or with `yarn`:
+
 ```shell
 yarn add @thirdweb-dev/sdk ethers
 ```
@@ -60,6 +63,7 @@ const listings = await marketplace.getActiveListings();
 ```
 
 You can execute this code as a node script by executing:
+
 ```shell
 npx ts-node my_script.ts
 ```
@@ -86,16 +90,13 @@ const rpcUrl = "https://polygon-rpc.com/";
 const privateKey = process.env.PRIVATE_KEY as string;
 // instantiate the SDK with your own wallet (or any valid Signer)
 const sdk = new ThirdwebSDK(
-    new Wallet(
-        privateKey,
-        ethers.getDefaultProvider(rpcUrl)
-    )
+  new Wallet(privateKey, ethers.getDefaultProvider(rpcUrl)),
 );
 
 // deploy contracts
 const deployedAddress = sdk.deployer.deployNFTCollection({
-    name: "My NFT Collection",
-})
+  name: "My NFT Collection",
+});
 
 // access your deployed contracts
 const nftCollection = sdk.getNFTCollection(deployedAddress);
@@ -103,9 +104,9 @@ const nftCollection = sdk.getNFTCollection(deployedAddress);
 // Execute transactions on your contracts from the connected wallet
 const walletAddress = "0x...";
 await nftCollection.mintTo(walletAddress, {
-    name: "Cool NFT",
-    description: "Minted NFT from code!",
-    image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
+  name: "Cool NFT",
+  description: "Minted NFT from code!",
+  image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
 });
 ```
 

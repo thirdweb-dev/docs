@@ -1,0 +1,125 @@
+---
+authors: raza
+tags: [mint, python, sdk]
+image: "./thumbnail.png"
+date: "2021-11-18"
+---
+
+# Mint an NFT Collection with Python
+
+In this guide, you'll learn how to mint your own NFT using Python! We'll be using the thirdweb dashboard and python SDK to complete this project.
+
+<!-- truncate -->
+
+Let's get started!
+
+## Dashboard setup
+
+The first thing we'll need to do is head to the [thirdweb dashboard](https://thirdweb.com/dashboard). You'll need to connect your wallet, so if you don't have a wallet, make sure to sign up with **MetaMask** or **Coinbase Wallet**. We are gonna use Metamask, if you don't have one, you can follow [this guide](/guides/create-a-metamask-wallet).
+
+Once you get to the dashboard and connect your wallet, you'll want to click on "Create new contract" in the top right corner, select a network, select "Create NFTs and Tokens" and then select the "NFT Collection." From here you can fill out a name for your collection and hit deploy!
+
+Once you finish seting this up, we can mint our first NFT using Python!
+
+## The code
+
+### 1. Create a Python file and fire up a virtual environment
+
+Go ahead and create a new Python file. Let's call it `python_nft.py` and open it in your favorite code editor.
+We'll use Visual Studio.
+
+![](./terminal.png)
+
+Next up use the following code in your terminal to create a virtual environment and install the ThirdWeb SDK!
+
+```bash title="virtual-env"
+# create a virtual environment
+python3 -m venv ./myenv
+
+# activate virtual environment
+source ./myenv/bin/activate
+
+# install the thirdweb sdk
+pip install thirdweb-sdk
+```
+
+### 2. Setup the SDK
+
+Now that we have our environment setup with the thirdweb python SDK, we can get started. In our `python_nft.py` file, we can use the following code:
+
+```python title="python_nft.py"
+from thirdweb import ThirdwebSDK
+from thirdweb.types.nft import NFTMetadataInput
+from eth_account import Account
+from dotenv import load_dotenv
+from web3 import Web3
+import os
+
+# Load environment variables into this file
+load_dotenv()
+
+# This PRIVATE KEY is coming from your environment variables. Make sure to never put it in a tracked file or share it with anyone.
+PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
+
+# Add your own RPC URL here or use a public one
+RPC_URL = "https://rpc-mumbai.maticvigil.com"
+
+# Instantiate a new provider to pass into the SDK
+provider = Web3(Web3.HTTPProvider(RPC_URL))
+
+# Optionally, instantiate a new signer to pass into the SDK
+signer = Account.from_key(PRIVATE_KEY)
+
+# Finally, you can create a new instance of the SDK to use
+sdk = ThirdwebSDK(provider, signer)
+```
+
+To use the setup above, we need to create a `.env` file and connect our wallet by private key. It's very important to make sure that you NEVER commit this file to any github repository and you never share your private key with anyone.
+
+```bash title=".env"
+PRIVATE_KEY=your-private-key-here
+```
+
+### 3. Define the NFT Collection contract
+
+Now that we have an SDK instance setup, we can get the interface for our NFT Collection! Our NFT Collection that we deployed from the dashboard has its own unique **address** that can be used to identify it, which can be found next to your contract name on the thirdweb dashboard. We can now use this address to use our NFT Collection with the SDK with the following code:
+
+```python title="python_nft.py"
+# Instantiate a new NFT Collection contract as described above.
+NFT_COLLECTION_ADDRESS = "0x.."
+nft_collection = sdk.get_nft_collection(NFT_COLLECTION_ADDRESS)
+```
+
+### 4. Time to mint the NFT!
+
+Now we can mint a new NFT with the sdk!
+The arguments passed over here are the same as minting an NFT inside the dashboard. If you want to familiarize yourself with the process, check out the dashboard!
+
+```python title="python_nft.py"
+# Now you can use any of the SDK contract functions including write functions
+nft_collection.mint(NFTMetadataInput.from_json({
+    "name": "Cool NFT",
+    "description": "Minted with the Python SDK!",
+    "image": "ipfs://QmdFeKxt6FJUNvaGgzYuYNRbpNWyHxP2PFzjsgPf1eD2Jf"
+}))
+```
+
+### 5. Results
+
+Get the balance to check it out or head over to the dashboard.
+
+```python title="python_nft.py"
+# check your balance to check if you minted an nft!
+print(nft_collection.balance())
+```
+
+So the only thing left is to run our code! Open a terminal and paste the following:
+
+```bash
+# Runs the python file
+python python_nft.py
+```
+
+## That's it!
+
+You have minted your own NFT using thirdweb and the Python SDK, you should be proud!

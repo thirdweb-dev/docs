@@ -1,0 +1,135 @@
+---
+authors: raza
+tags: [react, token, button, front-end]
+image: "./thumbnail.png"
+date: "2022-01-05"
+---
+
+# Check token balance & mint some tokens
+
+Learn how to create a button in your app that allows users to create some tokens
+
+<!-- truncate -->
+
+## What you get
+
+This guide gives you a simple React **component** to get the balance and a button to mint some tokens. Also [here](https://github.com/razacodespython/tokenapp) is a link to the GitHub page.
+
+## Dependencies
+
+Quick heads up, in these examples, the thirdweb sdk is integrated with React **components**, but we're ‘just' using javascript. You can do the same magic with another framework!
+
+Make sure to have the dependencies installed
+
+```jsx title="App.js"
+npm install @3rdweb/sdk ethers
+
+npm install @3rdweb/react @3rdweb/hooks
+```
+
+## The App.js - Connect your wallet
+
+In your `App.js` file we can use the code from this guide for our connect wallet button. Thirdweb created a component for the connect wallet button so we don't have to code it ourself. This is great so we don't have to mess around with private keys later.
+
+```jsx
+import { ThirdwebProvider, ConnectWallet } from "@3rdweb/react";
+
+import "./App.css";
+import TokenComponent from "./tokencomponent";
+
+const supportedChainIds = [1, 4, 137, 250, 43114, 80001];
+
+const connectors = {
+  injected: {},
+  magic: {},
+  walletconnect: {},
+  walletlink: {
+    appName: "thirdweb - demo",
+    url: "https://thirdweb.com",
+    darkMode: false,
+  },
+};
+
+function ExampleApp() {
+  return (
+    <ThirdwebProvider
+      connectors={connectors}
+      supportedChainIds={supportedChainIds}
+    >
+      <ConnectWallet />
+      <TokenComponent />
+    </ThirdwebProvider>
+  );
+}
+export default ExampleApp;
+```
+
+## The tokencomponent.js - The mint token button
+
+In your `tokencomponent.js` file we will write the code for the button and get balance. If you want to know more about the token module you can find a guide [here](/guides/create-your-currency-with-typescript-sdk).
+
+The cool thing about this component, is that it's using the `connect wallet` component to authorise the transaction 😄.
+
+```jsx title="tokencomponent.js"
+import { useWeb3 } from "@3rdweb/hooks";
+import { useEffect, useMemo, useState, useCallback } from "react";
+import { ThirdwebSDK } from "@3rdweb/sdk";
+import { ethers } from "ethers";
+
+//use the wallet instead of private keys
+const TokenComponent = () => {
+  const { provider } = useWeb3();
+  const [balance, setBalance] = useState(0);
+
+  const sdk = useMemo(() => {
+    if (provider) {
+      return new ThirdwebSDK(provider.getSigner());
+    }
+
+    return undefined;
+  }, [provider]);
+
+  //instantiate the sdk
+  const tokenModule = useMemo(() => {
+    if (sdk) {
+      return sdk.getTokenModule("0x0d5fb8942eEa62093944F3e91C6Ac4e584336741");
+    }
+
+    return undefined;
+  }, [sdk]);
+
+  //get the balance from our token module
+  useEffect(() => {
+    const getBalance = async () => {
+      const tokenBalance = await tokenModule.balance();
+      setBalance(tokenBalance.displayValue);
+    };
+
+    if (tokenModule) {
+      getBalance();
+    }
+  }, [tokenModule]);
+
+  //mint our token. remember, ethereum deals different with numbers.
+  // that's why we need to convert our amount
+  const amount = ethers.utils.parseUnits("1000", 18);
+  const onClick = useCallback(() => {
+    tokenModule.mint(amount);
+  }, [amount, tokenModule]);
+
+  return (
+    <div>
+      Balance: {balance}
+      <br />
+      <button class="big-button" onClick={onClick}>
+        Get me a 1000 Coins!
+      </button>
+    </div>
+  );
+};
+export default TokenComponent;
+```
+
+### That's it!
+
+It's really **that** easy. If you have any questions, drop by our discord!
