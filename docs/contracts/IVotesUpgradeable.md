@@ -3,15 +3,10 @@ slug: /IVotesUpgradeable
 title: IVotesUpgradeable
 hide_title: true
 ---
+
 # IVotesUpgradeable
 
-
-
-
-
-
-
-*Common interface for {ERC20Votes}, {ERC721Votes}, and other {Votes}-enabled contracts. _Available since v4.5._*
+_Common interface for {ERC20Votes}, {ERC721Votes}, and other {Votes}-enabled contracts. *Available since v4.5.*_
 
 ## Methods
 
@@ -21,15 +16,13 @@ hide_title: true
 function delegate(address delegatee) external nonpayable
 ```
 
-
-
-*Delegates votes from the sender to `delegatee`.*
+_Delegates votes from the sender to `delegatee`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| delegatee | address | undefined
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| delegatee | address | undefined   |
 
 ### delegateBySig
 
@@ -37,20 +30,18 @@ function delegate(address delegatee) external nonpayable
 function delegateBySig(address delegatee, uint256 nonce, uint256 expiry, uint8 v, bytes32 r, bytes32 s) external nonpayable
 ```
 
-
-
-*Delegates votes from signer to `delegatee`.*
+_Delegates votes from signer to `delegatee`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| delegatee | address | undefined
-| nonce | uint256 | undefined
-| expiry | uint256 | undefined
-| v | uint8 | undefined
-| r | bytes32 | undefined
-| s | bytes32 | undefined
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| delegatee | address | undefined   |
+| nonce     | uint256 | undefined   |
+| expiry    | uint256 | undefined   |
+| v         | uint8   | undefined   |
+| r         | bytes32 | undefined   |
+| s         | bytes32 | undefined   |
 
 ### delegates
 
@@ -58,21 +49,19 @@ function delegateBySig(address delegatee, uint256 nonce, uint256 expiry, uint8 v
 function delegates(address account) external view returns (address)
 ```
 
-
-
-*Returns the delegate that `account` has chosen.*
+_Returns the delegate that `account` has chosen._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account | address | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| account | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### getPastTotalSupply
 
@@ -80,21 +69,19 @@ function delegates(address account) external view returns (address)
 function getPastTotalSupply(uint256 blockNumber) external view returns (uint256)
 ```
 
-
-
-*Returns the total supply of votes available at the end of a past block (`blockNumber`). NOTE: This value is the sum of all available votes, which is not necessarily the sum of all delegated votes. Votes that have not been delegated are still part of total supply, even though they would not participate in a vote.*
+_Returns the total supply of votes available at the end of a past block (`blockNumber`). NOTE: This value is the sum of all available votes, which is not necessarily the sum of all delegated votes. Votes that have not been delegated are still part of total supply, even though they would not participate in a vote._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| blockNumber | uint256 | undefined
+| Name        | Type    | Description |
+| ----------- | ------- | ----------- |
+| blockNumber | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### getPastVotes
 
@@ -102,22 +89,20 @@ function getPastTotalSupply(uint256 blockNumber) external view returns (uint256)
 function getPastVotes(address account, uint256 blockNumber) external view returns (uint256)
 ```
 
-
-
-*Returns the amount of votes that `account` had at the end of a past block (`blockNumber`).*
+_Returns the amount of votes that `account` had at the end of a past block (`blockNumber`)._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account | address | undefined
-| blockNumber | uint256 | undefined
+| Name        | Type    | Description |
+| ----------- | ------- | ----------- |
+| account     | address | undefined   |
+| blockNumber | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### getVotes
 
@@ -125,23 +110,19 @@ function getPastVotes(address account, uint256 blockNumber) external view return
 function getVotes(address account) external view returns (uint256)
 ```
 
-
-
-*Returns the current amount of votes that `account` has.*
+_Returns the current amount of votes that `account` has._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account | address | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| account | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
-
-
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ## Events
 
@@ -151,17 +132,15 @@ function getVotes(address account) external view returns (uint256)
 event DelegateChanged(address indexed delegator, address indexed fromDelegate, address indexed toDelegate)
 ```
 
-
-
-*Emitted when an account changes their delegate.*
+_Emitted when an account changes their delegate._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| delegator `indexed` | address | undefined |
-| fromDelegate `indexed` | address | undefined |
-| toDelegate `indexed` | address | undefined |
+| Name                   | Type    | Description |
+| ---------------------- | ------- | ----------- |
+| delegator `indexed`    | address | undefined   |
+| fromDelegate `indexed` | address | undefined   |
+| toDelegate `indexed`   | address | undefined   |
 
 ### DelegateVotesChanged
 
@@ -169,16 +148,12 @@ event DelegateChanged(address indexed delegator, address indexed fromDelegate, a
 event DelegateVotesChanged(address indexed delegate, uint256 previousBalance, uint256 newBalance)
 ```
 
-
-
-*Emitted when a token transfer or delegate change results in changes to a delegate&#39;s number of votes.*
+_Emitted when a token transfer or delegate change results in changes to a delegate&#39;s number of votes._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| delegate `indexed` | address | undefined |
-| previousBalance  | uint256 | undefined |
-| newBalance  | uint256 | undefined |
-
-
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| delegate `indexed` | address | undefined   |
+| previousBalance    | uint256 | undefined   |
+| newBalance         | uint256 | undefined   |

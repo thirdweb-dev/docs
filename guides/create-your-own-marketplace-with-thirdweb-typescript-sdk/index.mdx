@@ -2,15 +2,10 @@
 title: Create your own NFT marketplace with TypeScript
 authors: [raza, devin]
 
-
-
-
-draft: false
 tags: [marketplace, typescript, v2]
 description: "Create your own marketplace to sell NFTs with TypeScript"
 image: "./thumbnail.png"
 date: "2021-11-25"
-
 ---
 
 ## Intro
@@ -23,7 +18,7 @@ Alright without further ado, let's create our **marketplace**!
 
 ## Dashboard setup
 
-The first thing we need to do is head over to the [dashboard](https://thirdweb.com/dashboard) and create a **Marketplace** contract. 
+The first thing we need to do is head over to the [dashboard](https://thirdweb.com/dashboard) and create a **Marketplace** contract.
 
 Once you've created the contract, it's time to list our first NFT, but we don't need the dashboard for that! I mean we could, but why use GUI if we can use TypeScript!?
 
@@ -56,7 +51,6 @@ npm install --save-dev typescript @types/node ts-node tslib
 
 In order to make use of our SDK, you need to establish a connection to a blockchain.
 
-
 For this guide, you will need to instantiate the SDK using your own signer with thirdweb.
 
 ### 3. Define which contract to use
@@ -78,11 +72,11 @@ You will need the token address of the token you want to use and pass it to the 
 
 ```tsx title="index.ts"
 // Initialize marketplace contract by passing in the contract address
-const marketplaceAddress = "0x51f90A2235D4D71f7A475532f8B1442a45B27530"
+const marketplaceAddress = "0x51f90A2235D4D71f7A475532f8B1442a45B27530";
 const marketplace = sdk.getMarketplace(marketplaceAddress);
 
 // Declaring the NFT Collection contract address
-const nftCollectionAddress = "0x8CeCAe3548f3844f68c07428E9Bbac50Ba887035"
+const nftCollectionAddress = "0x8CeCAe3548f3844f68c07428E9Bbac50Ba887035";
 
 // Declaring the token contract address if you want to use your own tokens
 const tokenAddress = "0x43E0C32F2BC4A79e70421CF449e14EcADD3adbad";
@@ -105,14 +99,14 @@ const listing = {
   // how long the listing will be open for
   listingDurationInSeconds: 86400,
   // how many of the asset you want to list
-  // For ERC721s, this value should always be 1 
+  // For ERC721s, this value should always be 1
   // (and will be forced internally regardless of what is passed here).
   quantity: 1,
   // address of the currency contract that will be used to pay for the listing
   currencyContractAddress: tokenAddress,
   // how much the asset will be sold for
   buyoutPricePerToken: "1.5",
-}
+};
 
 const createListing = async () => {
   try {
@@ -120,7 +114,7 @@ const createListing = async () => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 createListing();
 
 // Get all the listings
@@ -130,9 +124,8 @@ const getAllListings = async () => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 getAllListings();
-
 ```
 
 So the only thing left is to run our code! Open a terminal and paste the following:

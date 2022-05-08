@@ -1,17 +1,15 @@
 ---
-title: Build an NFT claim button in React for your dApp with TypeScript
 authors: [nacho, raza]
-
-
-
-
-draft: false
 tags: [nft-drop, react, claim, frontend, v2]
-description: "Create a claim button in your website that allows users to claim a single drop"
 image: "./thumbnail.png"
 date: "2022-01-05"
-
 ---
+
+# Build a simple claim button
+
+Learn how to create a claim button in your website that allows users to claim a single drop.
+
+<!-- truncate -->
 
 ## What you get
 
@@ -29,13 +27,13 @@ npm install @thirdweb-dev/react @thirdweb-dev/sdk ethers
 
 ## The App.js - Connect your wallet
 
-In your `App.jsx` file we can use the code from this guide for our `connect wallet` button. thirdweb created a **component** for the `connect wallet` button so we don't have to code it ourself. This is great so we don't have to mess around with private keys later. 
+In your `App.jsx` file we can use the code from this guide for our `connect wallet` button. thirdweb created a **component** for the `connect wallet` button so we don't have to code it ourself. This is great so we don't have to mess around with private keys later.
 
 Inside our app we import our **component** for the `claim` button.
 
 ```tsx title="pages/_app.tsx"
-import type { AppProps } from 'next/app';
-import { ThirdwebProvider } from '@thirdweb-dev/react';
+import type { AppProps } from "next/app";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   // We'll use 4 for Rinkeby
@@ -60,11 +58,11 @@ export default MyApp;
 Let's create a components under `components/ClaimButton.tsx`. If you want to know more about the **NFT Drop** contract.
 
 ```tsx title="components/ClaimButton.tsx"
-import { useAddress, useMetamask, useNFTDrop } from '@thirdweb-dev/react';
+import { useAddress, useMetamask, useNFTDrop } from "@thirdweb-dev/react";
 
 export const ClaimButton = () => {
   const connectWithMetamask = useMetamask();
-  const nftDrop = useNFTDrop('0xA9F8815255E2fDC1CB2E164dE1bEedfD815D421B');
+  const nftDrop = useNFTDrop("0xA9F8815255E2fDC1CB2E164dE1bEedfD815D421B");
   const address = useAddress();
   return (
     <div>
@@ -81,8 +79,8 @@ export const ClaimButton = () => {
 Then, we need to import this component on our `index.tsx` file:
 
 ```tsx title="pages/index.tsx"
-import type { NextPage } from 'next';
-import { ClaimButton } from '../components/ClaimButton';
+import type { NextPage } from "next";
+import { ClaimButton } from "../components/ClaimButton";
 
 const Home: NextPage = () => {
   return (

@@ -2,13 +2,11 @@
 title: Check token balance & mint some tokens
 authors: raza
 
-
 draft: true
 tags: [react, token, button, front-end]
 description: "Create a button in your app that allows users to create some tokens"
 image: "./thumbnail.png"
 date: "2022-01-05"
-
 ---
 
 ## What you get
@@ -19,7 +17,7 @@ This guide gives you a simple React **component** to get the balance and a butto
 
 Quick heads up, in these examples, the thirdweb sdk is integrated with React **components**, but we're ‘just' using javascript. You can do the same magic with another framework!
 
-Make sure to have the dependencies  installed 
+Make sure to have the dependencies installed
 
 ```jsx title="App.js"
 npm install @3rdweb/sdk ethers
@@ -29,21 +27,19 @@ npm install @3rdweb/react @3rdweb/hooks
 
 ## The App.js - Connect your wallet
 
-In your `App.js` file we can use the code from this guide for our connect wallet button. Thirdweb created a component for the connect wallet button so we don't have to code it ourself. This is great so we don't have to mess around with private keys later. 
+In your `App.js` file we can use the code from this guide for our connect wallet button. Thirdweb created a component for the connect wallet button so we don't have to code it ourself. This is great so we don't have to mess around with private keys later.
 
 ```jsx
-import { ThirdwebProvider, ConnectWallet } from '@3rdweb/react';
+import { ThirdwebProvider, ConnectWallet } from "@3rdweb/react";
 
-import './App.css';
-import TokenComponent from './tokencomponent';
+import "./App.css";
+import TokenComponent from "./tokencomponent";
 
 const supportedChainIds = [1, 4, 137, 250, 43114, 80001];
 
 const connectors = {
   injected: {},
-  magic: {
-
-  },
+  magic: {},
   walletconnect: {},
   walletlink: {
     appName: "thirdweb - demo",
@@ -53,7 +49,6 @@ const connectors = {
 };
 
 function ExampleApp() {
-
   return (
     <ThirdwebProvider
       connectors={connectors}
@@ -86,49 +81,47 @@ const TokenComponent = () => {
 
   const sdk = useMemo(() => {
     if (provider) {
-      return new ThirdwebSDK(provider.getSigner())
+      return new ThirdwebSDK(provider.getSigner());
     }
 
     return undefined;
   }, [provider]);
 
-//instantiate the sdk
+  //instantiate the sdk
   const tokenModule = useMemo(() => {
     if (sdk) {
-      return sdk.getTokenModule("0x0d5fb8942eEa62093944F3e91C6Ac4e584336741")
+      return sdk.getTokenModule("0x0d5fb8942eEa62093944F3e91C6Ac4e584336741");
     }
 
     return undefined;
   }, [sdk]);
 
-//get the balance from our token module
+  //get the balance from our token module
   useEffect(() => {
     const getBalance = async () => {
-      const tokenBalance = await tokenModule.balance()
-      setBalance(tokenBalance.displayValue); 
-    }
+      const tokenBalance = await tokenModule.balance();
+      setBalance(tokenBalance.displayValue);
+    };
 
     if (tokenModule) {
-      getBalance()
-    };
+      getBalance();
+    }
   }, [tokenModule]);
 
-//mint our token. remember, ethereum deals different with numbers.
-// that's why we need to convert our amount
+  //mint our token. remember, ethereum deals different with numbers.
+  // that's why we need to convert our amount
   const amount = ethers.utils.parseUnits("1000", 18);
   const onClick = useCallback(() => {
-    
-
     tokenModule.mint(amount);
-
   }, [amount, tokenModule]);
 
   return (
     <div>
       Balance: {balance}
       <br />
-        <button class="big-button" onClick={onClick}>Get me a 1000 Coins!</button>
-
+      <button class="big-button" onClick={onClick}>
+        Get me a 1000 Coins!
+      </button>
     </div>
   );
 };

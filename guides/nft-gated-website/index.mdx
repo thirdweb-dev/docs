@@ -2,15 +2,10 @@
 title: How to create an NFT-gated website
 authors: [samina, nacho]
 
-
-
-
-draft: false
 tags: [nft-drop, gated, mint, access]
 description: "In this guide, we will create a website that restricts content based on owning an NFT using React."
 image: "./thumbnail.png"
 date: "2021-09-16"
-
 ---
 
 One of the more dynamic use cases for NFTs is using them as a membership pass to the NFT holders. Let’s assume you want to create a website for your community that is gated by having access to a specific NFT from a collection. You can keep downloadable content or hidden pages by access to the NFT.
@@ -66,7 +61,7 @@ ReactDOM.render(
       <App />
     </ThirdwebProvider>
   </React.StrictMode>,
-  document.getElementById("root")
+  document.getElementById("root"),
 );
 
 // If you want to start measuring performance in your app, pass a function
@@ -121,36 +116,36 @@ In the same `App.js` file, we will add conditionals that render specific pages b
 As an extra, I added a helper function to display our shortened wallet address called `truncateAddress`. Feel free to add or omit this as well in your app.
 
 ```jsx title="App.js"
-import { useAddress, useMetamask, useNFTDrop } from '@thirdweb-dev/react';
-import { useState, useEffect } from 'react';
+import { useAddress, useMetamask, useNFTDrop } from "@thirdweb-dev/react";
+import { useState, useEffect } from "react";
 import "./styles.css";
 
 const App = () => {
-	// get address of user & allow them to connect with metamask
-	const address = useAddress();
-	const connectWithMetamask = useMetamask();
+  // get address of user & allow them to connect with metamask
+  const address = useAddress();
+  const connectWithMetamask = useMetamask();
 
-	// add nft Drop contract
-	const nftDrop = useNFTDrop("0x66463b3C1EBf08b9dE889BCc0A5cbf29dc0e2B7a");
-	const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
-	const [isClaiming, setIsClaiming] = useState(false);
+  // add nft Drop contract
+  const nftDrop = useNFTDrop("0x66463b3C1EBf08b9dE889BCc0A5cbf29dc0e2B7a");
+  const [hasClaimedNFT, setHasClaimedNFT] = useState(false);
+  const [isClaiming, setIsClaiming] = useState(false);
 
-	// function to claim NFT
-	const mintNft = async () => {
-		try {
-			setIsClaiming(true);
-			await nftDrop.claim(1);
-			setHasClaimedNFT(true);
-		}catch (error) {
-			setHasClaimedNFT(false);
-			console.error("Failed to mint NFT", error);
-		} finally {
-			setIsClaiming(false);
-		}
-	};
+  // function to claim NFT
+  const mintNft = async () => {
+    try {
+      setIsClaiming(true);
+      await nftDrop.claim(1);
+      setHasClaimedNFT(true);
+    } catch (error) {
+      setHasClaimedNFT(false);
+      console.error("Failed to mint NFT", error);
+    } finally {
+      setIsClaiming(false);
+    }
+  };
 
-	//if there isn't a wallet connected, display our connect MetaMask button
-	if (!address) {
+  //if there isn't a wallet connected, display our connect MetaMask button
+  if (!address) {
     return (
       <>
         <h1>Welcome to the Cookie Club</h1>
@@ -161,8 +156,8 @@ const App = () => {
     );
   }
 
-	// if the user is connected and has an NFT from the drop, display text
-	if (hasClaimedNFT) {
+  // if the user is connected and has an NFT from the drop, display text
+  if (hasClaimedNFT) {
     return <h2>Congratulations! You have a Cookie NFT! 🍪</h2>;
   }
 
@@ -171,8 +166,8 @@ const App = () => {
     return `${address.slice(0, 6)}...${address.slice(-4)}`;
   }
 
-	//if the user does not have an NFT, show their address and mint an NFT button
-	return (
+  //if the user does not have an NFT, show their address and mint an NFT button
+  return (
     <>
       <p className="address">
         There are no Cookie NFTs held by:{" "}
@@ -183,7 +178,7 @@ const App = () => {
       </button>
     </>
   );
-}
+};
 
 export default App;
 ```
@@ -288,4 +283,3 @@ You can create a copy of this project from the our [example repository.](https:/
 Let’s go! You created an NFT gated membership website using React. Feel free to add some downloadable content or secret updates behind this new page for your NFT community members!
 
 !["Congratulations! You own a Cookie NFT" screen](./congratulations-screen.png)
-

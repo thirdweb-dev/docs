@@ -3,14 +3,7 @@ slug: /TimersUpgradeable
 title: TimersUpgradeable
 hide_title: true
 ---
+
 # TimersUpgradeable
 
-
-
-
-
-
-
-*Tooling for timepoints, timers and delays*
-
-
+_Tooling for timepoints, timers and delays_

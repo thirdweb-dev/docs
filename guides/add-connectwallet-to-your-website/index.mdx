@@ -1,20 +1,19 @@
 ---
-title: Add a connect wallet button to your website
 authors: nacho
-
-
-
-
-draft: false
 tags: [ui, connect-wallet, react, v2]
-description: "Add a connect wallet button to your website using thirdweb’s React library. Allow users to easily connect their wallet to your web3 site or app"
 image: "./thumbnail.png"
 date: "2021-11-18"
 ---
 
+# Connecting a wallet
+
+Learn how to easily add a connect wallet button to your website or app using the [React.JS SDK](/react).
+
+<!--truncate-->
+
 ## Introduction
 
-Setting up web3 on your website and letting your users connect their wallet is essential for any web3 web app, and yet the process of integrating these features is often complex and nuanced. 
+Setting up web3 on your website and letting your users connect their wallet is essential for any web3 web app, and yet the process of integrating these features is often complex and nuanced.
 
 Instead of spending time trying to configure a complex web3 setup, you can use the **Thirdweb React library** to easily add web3 to your applications.
 
@@ -26,7 +25,7 @@ If you're looking to add support for a specific type of wallet not currently sup
 
 You can check the full code for this guide in this [GitHub repository](https://github.com/thirdweb-dev/examples/tree/main/typescript/add-connect-wallet).
 
-Check out the full docs for our React package [here](https://docs.thirdweb.com/react).
+Check out the full docs for our React package [here](/react).
 
 ## Get Started
 
@@ -45,8 +44,8 @@ Once you've installed the necessary package, you just need to setup the `Thirdwe
 Setting up this context is as easy as wrapping your app with the following setup:
 
 ```tsx title="pages/_app.tsx"
-import type { AppProps } from 'next/app';
-import { ThirdwebProvider } from '@thirdweb-dev/react';
+import type { AppProps } from "next/app";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   const desiredChainId = 80001;
@@ -79,7 +78,7 @@ import {
   useNetwork,
   useAddress,
   useDisconnect,
-} from '@thirdweb-dev/react';
+} from "@thirdweb-dev/react";
 
 export const ConnectWallet = () => {
   const connectWithCoinbaseWallet = useCoinbaseWallet();
@@ -120,8 +119,8 @@ export const ConnectWallet = () => {
 Then, we need to import this component on our `index.tsx` file:
 
 ```tsx title="pages/index.tsx"
-import type { NextPage } from 'next'
-import { ConnectWallet } from '../components/ConnectWallet';
+import type { NextPage } from "next";
+import { ConnectWallet } from "../components/ConnectWallet";
 
 const Home: NextPage = () => {
   return (
@@ -131,7 +130,7 @@ const Home: NextPage = () => {
   );
 };
 
-export default Home
+export default Home;
 ```
 
 ### The code

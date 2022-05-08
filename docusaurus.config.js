@@ -12,9 +12,8 @@ const baseUrl = process.env.BASE_URL || "/";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "thirdweb docs",
-  tagline:
-    "Typescript SDK for deploying and interacting with thirdweb contracts",
+  title: "thirdweb portal",
+  tagline: "Get started with thirdweb by diving into our developer portal.",
   url: "https://docs.thirdweb.com",
   baseUrl,
   onBrokenLinks: "throw",
@@ -36,12 +35,19 @@ const config = {
           breadcrumbs: false,
           remarkPlugins: [[npm2yarn, { sync: true }]],
           sidebarCollapsed: false,
+          editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
         },
         blog: {
           path: "guides",
           routeBasePath: "guides",
           tagsBasePath: "tag",
           showReadingTime: true,
+          remarkPlugins: [[npm2yarn, { sync: true }]],
+          blogDescription: "Guides for thirdweb developers",
+          blogTitle: "Guides",
+          postsPerPage: 10,
+          blogSidebarTitle: "Recently added",
+          editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
         },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
@@ -58,7 +64,6 @@ const config = {
         routeBasePath: "typescript",
         sidebarPath: require.resolve("./sidebars/typescript.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
-        // ... other options
       },
     ],
     [
@@ -91,6 +96,7 @@ const config = {
         routeBasePath: "python",
         sidebarPath: require.resolve("./sidebars/python.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
+        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
         // ... other options
       },
     ],
@@ -117,20 +123,14 @@ const config = {
       navbar: {
         hideOnScroll: true,
         logo: {
-          alt: "thirdweb SDK",
+          alt: "thirdweb docs",
           src: "img/thirdweb.png",
           href: "/",
           srcDark: "img/thirdweb-white.png",
         },
         items: [
-          // {
-          //   type: "doc",
-          //   docId: "sdk",
-          //   position: "left",
-          //   label: "Documentation",
-          // },
           {
-            href: "https://portal.thirdweb.com",
+            href: "/guides",
             label: "Guides",
             position: "left",
           },
@@ -179,7 +179,7 @@ const config = {
               },
               {
                 label: "GitHub",
-                href: "https://github.com/thirdweb-dev/typescript-sdk",
+                href: "https://github.com/thirdweb-dev",
               },
             ],
           },
@@ -196,7 +196,7 @@ const config = {
               },
               {
                 label: "Guides",
-                href: "https://portal.thirdweb.com",
+                href: "/guides",
               },
             ],
           },

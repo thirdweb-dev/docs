@@ -2,13 +2,10 @@
 title: Create your own auction with TypeScript
 authors: raza
 
-
-draft: false
 tags: [marketplace, typescript, v2]
 description: "Create your own marketplace to sell your own NFTs with TypeScript"
 image: "./thumbnail.png"
 date: "2022-01-06"
-
 ---
 
 ## Intro
@@ -23,12 +20,11 @@ Alright without further ado, let's create our **marketplace**!
 
 ## Dashboard setup
 
-The first thing we need to do is head over to the [dashboard](https://thirdweb.com/dashboard) and create a **Marketplace** contract. 
+The first thing we need to do is head over to the [dashboard](https://thirdweb.com/dashboard) and create a **Marketplace** contract.
 
 Once you've created the contract, it's time to list our first NFT, but we don't need the dashboard for that! I mean we could, but why use GUI if we can use TypeScript!?
 
 ![](./17-marketplace.png)
-
 
 ## The code
 
@@ -57,7 +53,6 @@ npm install --save-dev typescript @types/node ts-node tslib
 
 In order to make use of our SDK, you need to establish a connection to a blockchain.
 
-
 For this guide, you will need to instantiate the SDK using your own signer with thirdweb.
 
 ### 3. Define which contract to use
@@ -74,13 +69,13 @@ Then we create an object that access the marketplace contract inside the SDK wit
 
 ```tsx title="index.ts"
 // Declaring the Marketplace contract address
-const marketplaceAddress = "0xC06adC34097afa2085324D4192fbE9206059f8e0"
+const marketplaceAddress = "0xC06adC34097afa2085324D4192fbE9206059f8e0";
 
 // Initialize Marketplace contract by passing in contract address
 const marketplace = sdk.getMarketplace(marketplaceAddress);
 
 // Declaring the NFT Collection contract address
-const nftCollectionAddress = "0xdd25FAEE772FbB1bcB7ba0b2cEE6387A8F82f032"
+const nftCollectionAddress = "0xdd25FAEE772FbB1bcB7ba0b2cEE6387A8F82f032";
 
 // Declaring the Token contract if you want to use your own tokens
 const tokenAddress = "0x0d5fb8942eEa62093944F3e91C6Ac4e584336741";
@@ -111,7 +106,7 @@ const auction = {
   buyoutPricePerToken: "10",
   // the minimum bid that will be accepted for the token
   reservePricePerToken: "1.5",
-}
+};
 
 const createListing = async () => {
   try {
@@ -121,7 +116,7 @@ const createListing = async () => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 createListing();
 ```
@@ -145,7 +140,7 @@ const makeBid = async (listingId, pricePerToken) => {
   } catch (err) {
     console.log(err);
   }
-}
+};
 
 const listingId = "0";
 const pricePerToken = 2.6;

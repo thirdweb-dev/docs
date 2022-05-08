@@ -3,15 +3,8 @@ slug: /IThirdwebOwnable
 title: IThirdwebOwnable
 hide_title: true
 ---
+
 # IThirdwebOwnable
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -21,16 +14,13 @@ hide_title: true
 function owner() external view returns (address)
 ```
 
-
-
-*Returns the owner of the contract.*
-
+_Returns the owner of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### setOwner
 
@@ -38,17 +28,13 @@ function owner() external view returns (address)
 function setOwner(address _newOwner) external nonpayable
 ```
 
-
-
-*Lets a module admin set a new owner for the contract. The new owner must be a module admin.*
+_Lets a module admin set a new owner for the contract. The new owner must be a module admin._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _newOwner | address | undefined
-
-
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_newOwner | address | undefined   |
 
 ## Events
 
@@ -58,15 +44,11 @@ function setOwner(address _newOwner) external nonpayable
 event OwnerUpdated(address prevOwner, address newOwner)
 ```
 
-
-
-*Emitted when a new Owner is set.*
+_Emitted when a new Owner is set._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| prevOwner  | address | undefined |
-| newOwner  | address | undefined |
-
-
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| prevOwner | address | undefined   |
+| newOwner  | address | undefined   |

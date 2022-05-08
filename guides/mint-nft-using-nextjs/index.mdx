@@ -2,25 +2,20 @@
 title: Mint an NFT using Next.js
 authors: raza
 
-
-
-
-draft: false
 tags: [nft-collection, mint, sdk, admin sdk, v2]
 description: "An example that uses Next.js along with thirdweb to fetch a list of NFTs and mint new ones"
 image: "./thumbnail.png"
 date: "2021-09-16"
-
 ---
 
 ## Get started by creating NFT contract
 
 1. Go to [https://thirdweb.com/dashboard](https://thirdweb.com/dashboard), connect your wallet and click on the **Create new contract** button.
 2. Select the chain you want to create the contract on: elect the network you want to deploy to: Mainnet, Polygon, Fantom, Avalanche, Rinkeby or Mumbai.
-2. Add a NFT Collection module. `NFT Collection (ERC 721)`.
-3. Enter a name and description for your **NFT Collection** - this will be displayed when users view the collection page on OpenSea.
-4. Click Deploy → confirm both steps in your wallet.
-5. Click to copy the **Contract Address** at the top left of the page.
+3. Add a NFT Collection module. `NFT Collection (ERC 721)`.
+4. Enter a name and description for your **NFT Collection** - this will be displayed when users view the collection page on OpenSea.
+5. Click Deploy → confirm both steps in your wallet.
+6. Click to copy the **Contract Address** at the top left of the page.
 
 ## Time to make the magic happen
 
@@ -41,67 +36,64 @@ import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-      <ThirdwebProvider
-        desiredChainId={ChainId.Rinkeby}
-      >
-        <Component {...pageProps} />
-      </ThirdwebProvider>
+    <ThirdwebProvider desiredChainId={ChainId.Rinkeby}>
+      <Component {...pageProps} />
+    </ThirdwebProvider>
   );
 }
 ```
-
-
 
 ```jsx
 import { useEffect, useState } from "react";
 import { useAddress, useMetamask, useNFTCollection } from "@thirdweb-dev/react";
 
 // A React component to render all nfts from the nft collection.
-  const RenderAllNFTComponent = () => {
-    // React state for a list of nfts in the nft collection
-    const [nfts, setNFTs] = useState([]);
+const RenderAllNFTComponent = () => {
+  // React state for a list of nfts in the nft collection
+  const [nfts, setNFTs] = useState([]);
 
-    // initialize the SDK and get the NFT Collection module
-    // get the contract address (0x...) from your dashboard!
-    const nftCollectionAddress = "0xc134230F2e67a96B41DABFF7063530178d668601";
-    const nftCollection = useNFTCollection(nftCollectionAddress);
-    useEffect(() => {
-      // get all the NFTs including the owner from the nft collection.
-      // Note: you can use async/await too!
-      nftCollection.getAll().then((allNFTs) => setNFTs(allNFTs));
-    }, []);
+  // initialize the SDK and get the NFT Collection module
+  // get the contract address (0x...) from your dashboard!
+  const nftCollectionAddress = "0xc134230F2e67a96B41DABFF7063530178d668601";
+  const nftCollection = useNFTCollection(nftCollectionAddress);
+  useEffect(() => {
+    // get all the NFTs including the owner from the nft collection.
+    // Note: you can use async/await too!
+    nftCollection.getAll().then((allNFTs) => setNFTs(allNFTs));
+  }, []);
 
-    // render the list of nfts
-    console.log(nfts);
-    return nfts.map((nft) => <p key={nft.metadata.id.toString()}>Token Id: {nft.metadata.id.toString()}</p>);
+  // render the list of nfts
+  console.log(nfts);
+  return nfts.map((nft) => (
+    <p key={nft.metadata.id.toString()}>
+      Token Id: {nft.metadata.id.toString()}
+    </p>
+  ));
+};
+const MintButton = () => {
+  const connectWithMetamask = useMetamask();
+  const address = useAddress();
+  const onMintHandler = async () => {
+    // make a backend server api request to mint an NFT
+    await fetch("/api/mint_sword", {
+      method: "POST",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify({ address }),
+    });
   };
-  const MintButton = () => {
-    const connectWithMetamask = useMetamask();
-    const address = useAddress();
-    const onMintHandler = async () => {
-      // make a backend server api request to mint an NFT
-      await fetch("/api/mint_sword", {
-        method: "POST",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify({ address }),
-      });
-    };
 
-    const ConnectWallet = () => {
-      return (
-        <button onClick={connectWithMetamask}>Connect with Metamask</button>
-      );
-    };
-    // render the button to mint a sword NFT
-    return address ? (
-      <button onClick={onMintHandler}>Mint Sword NFT</button>
-    ) : (
-      <ConnectWallet />
-    );
-  }
-
+  const ConnectWallet = () => {
+    return <button onClick={connectWithMetamask}>Connect with Metamask</button>;
+  };
+  // render the button to mint a sword NFT
+  return address ? (
+    <button onClick={onMintHandler}>Mint Sword NFT</button>
+  ) : (
+    <ConnectWallet />
+  );
+};
 ```
 
 ### 4. (Server side) A HTTP Server to mint NFT using Admin SDK.

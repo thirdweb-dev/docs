@@ -3,15 +3,12 @@ slug: /ERC20Metadata
 title: ERC20Metadata
 hide_title: true
 ---
+
 # ERC20Metadata
-
-
 
 > ERC20Metadata interface
 
-
-
-*see https://github.com/ethereum/EIPs/issues/20*
+_see https://github.com/ethereum/EIPs/issues/20_
 
 ## Methods
 
@@ -21,16 +18,11 @@ hide_title: true
 function decimals() external view returns (uint8)
 ```
 
-
-
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint8 | undefined
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| \_0  | uint8 | undefined   |
 
 ### name
 
@@ -38,16 +30,11 @@ function decimals() external view returns (uint8)
 function name() external view returns (string)
 ```
 
-
-
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### symbol
 
@@ -55,16 +42,8 @@ function name() external view returns (string)
 function symbol() external view returns (string)
 ```
 
-
-
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
-
-
-
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |

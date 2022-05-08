@@ -2,13 +2,10 @@
 title: Sign-in with Ethereum using thirdweb connect wallet
 authors: raza
 
-
-draft: false
 tags: [ui, connect-wallet, react, v2]
 description: "Add a connect wallet button to your website including a signing functionality"
 image: "./thumbnail.png"
 date: "2021-12-09"
-
 ---
 
 ## Introduction
@@ -38,7 +35,6 @@ const App = () => {
   );
 };
 ```
-
 
 ### Use Connect Wallet
 
@@ -75,7 +71,7 @@ We will build our own custom component that will allow you to authorise any acti
 
 We will generate a message to be signed by the user. After the message is signed, this will create an encrypted message that the server can validate. Once validated the server will create a JWT, allowing the user to make any change to his/her profile in the database.
 
-In this example we will authorise the adjustment of a username in our database by **signing** using our wallet. In this example we will use a MetaMask wallet. 
+In this example we will authorise the adjustment of a username in our database by **signing** using our wallet. In this example we will use a MetaMask wallet.
 
 Check out this diagram for a visual representation of what we will do
 
@@ -86,7 +82,6 @@ You can find the GitHub repo over [here](https://github.com/thirdweb-dev/example
 First lets create our homepage with the `Connect Wallet` component
 
 ```jsx title="pages/index.js"
-
 export default function Home() {
   const address = useAddress();
 
@@ -101,17 +96,15 @@ export default function Home() {
 
 Next up lets create our backend that will simulate our database on a server. For this im going to use a docker image which builds a Redis database. Here is the docker command to run a Redis database locally:
 
-
 ```bash
 docker run --name redis -d -p 6379:6379 redis:6.0
 ```
 
 Let's write the code for our database.
 
-Create a folder called `db` and inside create a file `db.ts`. 
+Create a folder called `db` and inside create a file `db.ts`.
 
 Below is the code that builds the database, a basic schema, a function to get the username and set the username:
-
 
 ```jsx title="db/db.ts"
 //Import the library
@@ -142,7 +135,6 @@ export default class Database implements IDatabase {
 ```
 
 Let's execute the code and 'deploy' our database. Inside our `db` folder create a file `instance.ts` and add the following code.
-
 
 ```jsx title="db/instance.ts"
 import Database from "./db";
@@ -183,16 +175,16 @@ export default class Database implements IDatabase {
     await this.db.set(address, user);
   }
 
-// define the message, we will call it 'generateChallenge here'.
-// this will create a random string of characters to be verified by the users.
-// this can be anything. It can also be a standard message.
+  // define the message, we will call it 'generateChallenge here'.
+  // this will create a random string of characters to be verified by the users.
+  // this can be anything. It can also be a standard message.
   public async generateChallenge(address: string): Promise<string> {
     const challenge = Math.random().toString(36).substring(2, 15);
     await this.db.set(`${address}:challenge`, challenge);
     return challenge;
   }
-//this function will returned the stored challenge
-	public async getChallenge(address: string): Promise<string | null> {
+  //this function will returned the stored challenge
+  public async getChallenge(address: string): Promise<string | null> {
     return this.db.get(`${address}:challenge`);
   }
 }
@@ -220,7 +212,7 @@ export default async function challenge(
   return res.status(200).json({ challenge });
 ```
 
-Inside our folder `api` create a file `jws.ts`. Now we need to make sure our backend generates  a JWT after we the message has been signed and validated by our back-end. 
+Inside our folder `api` create a file `jws.ts`. Now we need to make sure our backend generates a JWT after we the message has been signed and validated by our back-end.
 
 ```tsx title="api/jws.ts"
 import { ethers } from "ethers";
@@ -243,7 +235,7 @@ export default async function jwt(req: NextApiRequest, res: NextApiResponse) {
 
   const verifiedAddress = ethers.utils.verifyMessage(
     expectedChallenge,
-    signedChallenge
+    signedChallenge,
   );
 
   if (verifiedAddress.toLowerCase() !== address.toLowerCase()) {
@@ -272,7 +264,7 @@ import database from "../../db/instance";
  */
 export default async function user(
   req: NextApiRequest,
-  response: NextApiResponse
+  response: NextApiResponse,
 ) {
   const jwt = (req["headers"] as any)["authorization"].split(" ")[1];
 
@@ -296,7 +288,7 @@ import database from "../../db/instance";
 
 export default async function updateProfile(
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) {
   // Token is formatted as `Bearer <token>`
   const jwt = (req["headers"] as any)["authorization"].split(" ")[1];
@@ -316,8 +308,6 @@ export default async function updateProfile(
 Finally it's time to build our component `Profile.jsx`. Create the `Profile.jsx` inside a new folder called `components`.
 
 Let's take it step by step. First we create a function to get the message:
-
- 
 
 ```tsx title="components/Profile.jsx"
 import { useAddress, useDisconnect, useMetamask, useProvider } from "@thirdweb-dev/react";
@@ -364,151 +354,149 @@ export default function Profile() {
 ```
 
 Once the challenge is received, we will get the JWT.
- 
 
 ```tsx title="components/Profile.jsx"
 const getJwt = useCallback(async () => {
-    const challenge = await getChallenge();
-    const signer = provider.getSigner();
-    console.log("Signer = ", signer);
+  const challenge = await getChallenge();
+  const signer = provider.getSigner();
+  console.log("Signer = ", signer);
 
-    const signedChallenge = await signer.signMessage(challenge);
+  const signedChallenge = await signer.signMessage(challenge);
 
-    try {
-      const request = await fetch("/api/jwt", {
-        method: "POST",
-        body: JSON.stringify({
-          address,
-          signedChallenge: signedChallenge,
-        }),
-      });
+  try {
+    const request = await fetch("/api/jwt", {
+      method: "POST",
+      body: JSON.stringify({
+        address,
+        signedChallenge: signedChallenge,
+      }),
+    });
 
-      if (request.status !== 200) {
-        throw new Error(`Failed to fetch jwt, status code = ${request.status}`);
-      }
-
-      const { token } = await request.json();
-      console.log("Got token = ", token);
-
-      setJwt(token);
-    } catch (err) {
-      toast({
-        status: "error",
-        title: "Failed to fetch the JWT",
-      });
+    if (request.status !== 200) {
+      throw new Error(`Failed to fetch jwt, status code = ${request.status}`);
     }
-  }, [getChallenge, provider, address]);
+
+    const { token } = await request.json();
+    console.log("Got token = ", token);
+
+    setJwt(token);
+  } catch (err) {
+    toast({
+      status: "error",
+      title: "Failed to fetch the JWT",
+    });
+  }
+}, [getChallenge, provider, address]);
 ```
 
 Here is the function, if the JWT is valid and the user wants to update the username.
 
 ```tsx title="components/Profile.jsx"
 const updateUsername = useCallback(async () => {
-    try {
-      const request = await fetch("/api/updateProfile", {
-        method: "POST",
-        body: JSON.stringify({
-          username,
-        }),
-        headers: {
-          Authorization: `Bearer ${jwt}`,
-        },
-      });
+  try {
+    const request = await fetch("/api/updateProfile", {
+      method: "POST",
+      body: JSON.stringify({
+        username,
+      }),
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    });
 
-      if (request.status !== 200) {
-        throw new Error(
-          `Failed to update profile, status code = ${request.status}`
-        );
-      }
-
-	  toast({
-		  status: 'success',
-		  title: 'Updated profile'
-	  })
-    } catch (err) {
-      toast({
-        status: "error",
-        title: "Failed to update profile",
-        description: err.message,
-      });
+    if (request.status !== 200) {
+      throw new Error(
+        `Failed to update profile, status code = ${request.status}`,
+      );
     }
-  }, [username, jwt]);
+
+    toast({
+      status: "success",
+      title: "Updated profile",
+    });
+  } catch (err) {
+    toast({
+      status: "error",
+      title: "Failed to update profile",
+      description: err.message,
+    });
+  }
+}, [username, jwt]);
 ```
 
 ```tsx
 useEffect(() => {
-    if (jwt !== null) {
-      return;
+  if (jwt !== null) {
+    return;
+  }
+
+  (async () => {
+    await getJwt();
+  })();
+}, [jwt]);
+
+useEffect(() => {
+  if (username !== null || jwt === null) {
+    return;
+  }
+
+  (async () => {
+    const request = await fetch("/api/user", {
+      headers: {
+        Authorization: `Bearer ${jwt}`,
+      },
+    });
+
+    if (request.status === 200) {
+      const { username: newUsername } = await request.json();
+      setUsername(newUsername ? newUsername : "");
     }
-
-    (async () => {
-      await getJwt();
-    })();
-  }, [jwt]);
-
-  useEffect(() => {
-    if (username !== null || jwt === null) {
-      return;
-    }
-
-    (async () => {
-      const request = await fetch("/api/user", {
-        headers: {
-          Authorization: `Bearer ${jwt}`,
-        },
-      });
-
-      if (request.status === 200) {
-        const { username: newUsername } = await request.json();
-        setUsername(newUsername ? newUsername : "");
-      }
-    })();
-  }, [username, jwt]);
+  })();
+}, [username, jwt]);
 
 if (!jwt) {
-    return <Spinner size="lg" color="black"></Spinner>;
-  }
+  return <Spinner size="lg" color="black"></Spinner>;
+}
 ```
 
 Finally lets add the html tags and include the calls to the functions to get and update the username.
 
 ```tsx title="components/Profile.jsx"
 return (
+  <div
+    style={{
+      padding: "20px",
+    }}
+  >
+    <h1>Your address = {address}</h1>
+
     <div
       style={{
-        padding: "20px",
+        marginTop: "20px",
       }}
     >
-      <h1>Your address = {address}</h1>
-
-      <div
-        style={{
-          marginTop: "20px",
-        }}
-      >
-        <span>Username = </span>
-        <Input
-          value={username}
-          onChange={(ev) => setUsername(ev.target.value)}
-        ></Input>
-      </div>
-
-      <Button
-        onClick={async () => {
-          await updateUsername();
-        }}
-      >
-        Click ME!
-      </Button>
+      <span>Username = </span>
+      <Input
+        value={username}
+        onChange={(ev) => setUsername(ev.target.value)}
+      ></Input>
     </div>
-  );
+
+    <Button
+      onClick={async () => {
+        await updateUsername();
+      }}
+    >
+      Click ME!
+    </Button>
+  </div>
+);
 ```
 
 Check out the for the full code of the [Profile.jsx](https://github.com/thirdweb-dev/examples/blob/main/typescript/sign-in-with-ethereum/components/Profile.jsx) in the complete repository.
 
 ## Final thoughts
 
-That's it! Now your app can authorise a change to your backend by signing with your wallet. 
+That's it! Now your app can authorise a change to your backend by signing with your wallet.
 
 Remember you can check all the code for this guide on [this GitHub repository](https://github.com/thirdweb-dev/examples/tree/main/typescript/sign-in-with-ethereum).
-

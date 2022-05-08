@@ -2,19 +2,15 @@
 title: Create a Pack with Python
 authors: raza
 
-
-draft: false
 tags: [pack, mint, python, sdk]
 description: "Create your own Pack of NFTs using the thirdweb Python SDK"
 image: "./thumbnail.png"
 date: "2021-12-27"
-
 ---
 
 <br />
-:::warning
-Python SDK is not available on thirdweb v2. This guide is for thirdweb v1. We will be adding Python SDK support for v2 soon.
-:::
+:::warning Python SDK is not available on thirdweb v2. This guide is for thirdweb
+v1. We will be adding Python SDK support for v2 soon. :::
 
 ## Intro
 
@@ -22,7 +18,7 @@ This guide explains in 7 easy steps how to create a pack. We need to create a pr
 
 ## Dashboard setup
 
-The first thing we need to do is head over to the [dashboard](https://v1.thirdweb.com/dashboard) and create a project and a **Bundle Collection** module. 
+The first thing we need to do is head over to the [dashboard](https://v1.thirdweb.com/dashboard) and create a project and a **Bundle Collection** module.
 
 After you're done this is what you Pack module should look like in the dashboard. I called my pack module `random`.
 
@@ -81,7 +77,6 @@ import os
 
 In order to make use of our SDK, you need to establish a connection to a blockchain.
 
-
 For this guide, you will need to instantiate the SDK following using your own signer with thirdweb.
 
 ### 3. Define which module to use
@@ -102,11 +97,11 @@ pack_module = sdk.get_pack_module(pack_contract)
 
 The arguments passed over here are the same as inside the dashboard. If you want to familiarize yourself with the process, check out the dashboard!
 
-Note, the Pack module only works with NFTs from the 'Drop' and 'Bundle' module, because these modules are based on ERC-1155. If this is new to you, in short a Pack holds multiple NFTs. 
+Note, the Pack module only works with NFTs from the 'Drop' and 'Bundle' module, because these modules are based on ERC-1155. If this is new to you, in short a Pack holds multiple NFTs.
 
 ```python
 #Create the Pack
-    
+
 pack_module.create(CreatePackArg(
 		#asset_contract_address: The address of the asset being put in the pack
 		#Note, the Pack module only works with NFTs from the 'Drop' and 'Bundle' module
@@ -174,9 +169,9 @@ pack_module.open_pack(1)
 
 ## Open a random Pack with Deposit Link
 
-To open a random pack we need to perform some additional steps. In order to create a random generated number, we need the help of ChainLink. 
+To open a random pack we need to perform some additional steps. In order to create a random generated number, we need the help of ChainLink.
 
-The following method, gets a random number from Chainlink and passes it on to our sdk. 
+The following method, gets a random number from Chainlink and passes it on to our sdk.
 
 The argument that we're passing to our method is the amount of Chainlink tokens we need to pay. To make use of Chainlink we need special tokens. For the `Rinkeby` network you can get them [here](https://faucets.chain.link/rinkeby).
 

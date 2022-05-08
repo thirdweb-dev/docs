@@ -2,13 +2,10 @@
 title: Sell your NFT in multiple currencies at the same time
 authors: avneesh
 
-
-draft: false
 tags: [edition, react, signature, mint]
 description: "Learn how to make an ERC-1155 drop where users can pay with multiple currencies using signature minting, Next.js, and thirdweb"
 image: "./thumbnail.png"
 date: "2022-04-19"
-
 ---
 
 ## Introduction
@@ -40,8 +37,8 @@ yarn install # yarn
 By default the network in `_app.tsx` is Mainnet, we need to change it to Mumbai
 
 ```tsx title="_app.tsx"
-import type { AppProps } from 'next/app';
-import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
+import type { AppProps } from "next/app";
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
 // This is the chainId your dApp will work on.
 const activeChainId = ChainId.Mumbai;
@@ -196,7 +193,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 const generateMintSignature = async (
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) => {
   res.send("Gm wagmi");
 };
@@ -212,11 +209,11 @@ Let's now initialize the thirdweb sdk!
 
 ```ts
 const sdk = new ThirdwebSDK(
-    new ethers.Wallet(
-      process.env.PRIVATE_KEY as string,
-      ethers.getDefaultProvider(process.env.ALCHEMY_API_URL)
-    )
-  );
+  new ethers.Wallet(
+    process.env.PRIVATE_KEY as string,
+    ethers.getDefaultProvider(process.env.ALCHEMY_API_URL),
+  ),
+);
 ```
 
 as you can see we are using 2 environment variables to initialize the sdk. The first is the `PRIVATE_KEY` which is the private key of the wallet. The second is the `ALCHEMY_API_URL` which is the url of the Alchemy api. Create a new file `.env.local` and add the two variables.
@@ -262,33 +259,31 @@ const { tokenId, address, tokenName } = JSON.parse(req.body);
 We also need access to the edition functions, so get the edition like this:
 
 ```ts
-  const edition = sdk.getEdition(
-    "YOUR_EDITION_ADDRESS"
-  );
+const edition = sdk.getEdition("YOUR_EDITION_ADDRESS");
 ```
 
 We can now use this to generate a mint signature. So, add in this try/catch block:
 
 ```ts
- try {
-    const signedPayload = await edition.signature.generate({
-      tokenId: tokenId,
-      quantity: "1",
-      metadata: "",
-      to: address,
-      currencyAddress: token?.address,
-      price: token?.price,
-    });
+try {
+  const signedPayload = await edition.signature.generate({
+    tokenId: tokenId,
+    quantity: "1",
+    metadata: "",
+    to: address,
+    currencyAddress: token?.address,
+    price: token?.price,
+  });
 
-    res.status(200).json({
-      signedPayload: signedPayload,
-    });
-  } catch (err) {
-    console.log(err);
-    res.status(500).json({
-      error: err,
-    });
-  }
+  res.status(200).json({
+    signedPayload: signedPayload,
+  });
+} catch (err) {
+  console.log(err);
+  res.status(500).json({
+    error: err,
+  });
+}
 ```
 
 In this block we are using the `edition.signature.generate` function provided by thirdweb to create a custom signature for all the user's transactions. We are passing in the `tokenId`, `quantity`, `metadata`, `to`, `currencyAddress`, and `price` of the NFT. If it was successful we will return the `signedPayload` to the frontend otherwise the `error` will be returned.
@@ -298,11 +293,11 @@ You also need to remove the res.send("Gm wagmi") code block 🥺.
 Right now you would be getting an error because we haven't yet added the token so we will create a new variable for getting the token the user is going to use to pay with:
 
 ```ts
-    const getToken = (tokenName: string) => {
-    return nft.tokens.find((t) => t.name === tokenName);
-  };
+const getToken = (tokenName: string) => {
+  return nft.tokens.find((t) => t.name === tokenName);
+};
 
-  const token = getToken(tokenName) ? getToken(tokenName) : getToken("MATIC");
+const token = getToken(tokenName) ? getToken(tokenName) : getToken("MATIC");
 ```
 
 In this variable, we are getting the token from the `nft.tokens` array. If someone passes a token that is not on the list we will use the `MATIC` token.
@@ -323,20 +318,20 @@ import { nft } from "../../nft";
 
 const generateMintSignature = async (
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) => {
   const { tokenId, address, tokenName } = JSON.parse(req.body);
 
   const sdk = new ThirdwebSDK(
     new ethers.Wallet(
       process.env.PRIVATE_KEY as string,
-      ethers.getDefaultProvider(process.env.ALCHEMY_API_URL)
-    )
+      ethers.getDefaultProvider(process.env.ALCHEMY_API_URL),
+    ),
   );
 
   const edition = sdk.getEdition("0x4ebCf39BCeEA3C9790605BF292B4a2b8811C93eD");
 
-   const getToken = (tokenName: string) => {
+  const getToken = (tokenName: string) => {
     return nft.tokens.find((t) => t.name === tokenName);
   };
 
@@ -370,22 +365,22 @@ export default generateMintSignature;
 Let's now use the api in our frontend! Create a new function in `index.tsx` like this:
 
 ```tsx
-  const mintWithSignature = async (tokenId: string) => {
-    const signedPayloadReq = await fetch(`/api/generate-mint-sig`, {
-      method: "POST",
-      body: JSON.stringify({ tokenName, tokenId, address }),
-    });
+const mintWithSignature = async (tokenId: string) => {
+  const signedPayloadReq = await fetch(`/api/generate-mint-sig`, {
+    method: "POST",
+    body: JSON.stringify({ tokenName, tokenId, address }),
+  });
 
-    const signedPayload = (await signedPayloadReq.json()).signedPayload;
+  const signedPayload = (await signedPayloadReq.json()).signedPayload;
 
-    try {
-      const nft = await edition?.signature.mint(signedPayload);
-      return nft;
-    } catch (e) {
-      console.error(e);
-      return null;
-    }
-  };
+  try {
+    const nft = await edition?.signature.mint(signedPayload);
+    return nft;
+  } catch (e) {
+    console.error(e);
+    return null;
+  }
+};
 ```
 
 We need to use the `useEdition` hook to access the edition contract here like this:
@@ -408,10 +403,22 @@ Now, attach this function to the mint button-
 
 If you try to mint the NFT now it works! 🎉
 
-
-<div style={{position: "relative", paddingBottom: "56.25%", height: 0}}><iframe src="https://www.loom.com/embed/7d2e59f8556847f8aa7f79e6edb100cb" frameBorder="0" webkitallowfullscreen="true" mozallowfullscreen="true" allowFullScreen
-style={{position: "absolute", top: "0",left: "0", height: "100%", width: "100%"}}
-></iframe></div>
+<div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+  <iframe
+    src="https://www.loom.com/embed/7d2e59f8556847f8aa7f79e6edb100cb"
+    frameBorder="0"
+    webkitallowfullscreen="true"
+    mozallowfullscreen="true"
+    allowFullScreen
+    style={{
+      position: "absolute",
+      top: "0",
+      left: "0",
+      height: "100%",
+      width: "100%",
+    }}
+  ></iframe>
+</div>
 
 On the dashboard too, you would be able to see the supply increase.
 

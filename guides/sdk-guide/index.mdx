@@ -2,13 +2,10 @@
 title: "Some guidance on using our SDK: Frontend vs Backend"
 authors: raza
 
-
-draft: false
 tags: [sdk, client, server, v2]
 description: "This guide shows how to use our SDK effectively and where your code should live - Front End vs Back End"
 image: "./thumbnail.png"
 date: "2022-01-11"
-
 ---
 
 ## I want to use thirdweb in my app
@@ -39,20 +36,19 @@ export const ConnectWithMetamask = () => {
   // get a function to connect to a particular wallet
   // options: useMetamask() - useCoinbaseWallet() - useWalletConnect()
   const connectWithMetamask = useMetamask();
-  return (
-    <button onClick={connectWithMetamask}>Connect Metamask Wallet</button>
-  );
+  return <button onClick={connectWithMetamask}>Connect Metamask Wallet</button>;
 };
 ```
+
 Inside your `Marketplace.js` we can import the hook `useMarketplace` to connect and interact with our marketplace contract.
 
 ```js title="Marketplace.js"
-import { useState, useEffect } from 'react';
-import { useMarketplace } from '@thirdweb-dev/react';
+import { useState, useEffect } from "react";
+import { useMarketplace } from "@thirdweb-dev/react";
 
 export default function MarketPlace() {
   const marketplace = useMarketplace(
-    '0xf4e8C436d87Bd4cB1416E474948105FdF80BB6A0',
+    "0xf4e8C436d87Bd4cB1416E474948105FdF80BB6A0",
   );
   const [listings, setListings] = useState([]);
 

@@ -3,9 +3,10 @@ slug: /edition-drop-claim-conditions
 title: DropERC1155ClaimConditions Objects
 hide_title: true
 ---
+
 <a id="core.classes.drop_erc1155_claim_conditions"></a>
 
-# core.classes.drop\_erc1155\_claim\_conditions
+# core.classes.drop_erc1155_claim_conditions
 
 <a id="core.classes.drop_erc1155_claim_conditions.DropERC1155ClaimConditions"></a>
 
@@ -17,7 +18,7 @@ class DropERC1155ClaimConditions()
 
 <a id="core.classes.drop_erc1155_claim_conditions.DropERC1155ClaimConditions.get_active"></a>
 
-#### get\_active
+#### get_active
 
 ```python
 def get_active(token_id: int) -> ClaimCondition
@@ -35,7 +36,7 @@ The currently active claim condition
 
 <a id="core.classes.drop_erc1155_claim_conditions.DropERC1155ClaimConditions.get_all"></a>
 
-#### get\_all
+#### get_all
 
 ```python
 def get_all(token_id: int) -> List[ClaimCondition]

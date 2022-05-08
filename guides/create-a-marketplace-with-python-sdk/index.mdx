@@ -2,21 +2,15 @@
 title: Create your own NFT marketplace with Python
 authors: raza
 
-
-
-
-draft: false
 tags: [python, sdk]
 description: "Create your own marketplace to sell your own NFTs with Python"
 image: "./thumbnail.png"
 date: "2021-11-19"
-
 ---
 
 <br />
-:::warning
-Python SDK is not available on thirdweb v2. This guide is for thirdweb v1. We will be adding Python SDK support for v2 soon.
-:::
+:::warning Python SDK is not available on thirdweb v2. This guide is for thirdweb
+v1. We will be adding Python SDK support for v2 soon. :::
 
 ## Intro
 
@@ -30,7 +24,7 @@ Alright without further ado, let's create our marketplace!
 
 ## Dashboard setup
 
-The first thing we need to do is head over to the [dashboard](https://v1.thirdweb.com/dashboard) and create a project and a **Bundle Collection** module. 
+The first thing we need to do is head over to the [dashboard](https://v1.thirdweb.com/dashboard) and create a project and a **Bundle Collection** module.
 
 Once your **Marketplace** module has been created, it's time to list our first NFT, but we don't need the dashboard for that! I mean we could, but why use GUI if we can use Python!?
 
@@ -87,7 +81,6 @@ import os
 
 In order to make use of our SDK, you need to establish a connection to a blockchain.
 
-
 For this guide, you will need to instantiate the SDK using your own signer with thirdweb.
 
 ### 3. Define which module to use
@@ -106,7 +99,6 @@ If you want to sell your NFT in your own coins, you will also need the module ad
 
 You can also use the native currency of the chain, such as Ether on Ethereum and Matic on Polygon.
 You will need the token address of the coin you want to use and pass it to the variable `token_module`.
-
 
 ```python title="python_nft.py"
 #pick your module and enter the module address

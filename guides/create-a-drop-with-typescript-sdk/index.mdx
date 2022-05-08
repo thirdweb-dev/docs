@@ -2,10 +2,6 @@
 title: Create an NFT drop with TypeScript
 authors: [raza, devin]
 
-
-
-
-draft: false
 tags: [nft-drop, claim, typescript, v2]
 description: "Create our own drop where we can create NFTs in TypeScript."
 image: "./thumbnail.png"
@@ -18,11 +14,11 @@ featured: false
 
 In this guide, we'll create our own **NFT Drop** with the TypeScript SDK! First we will create an **NFT Drop** on the dashboard, then create NFTs, and finally set claim conditions from the SDK. In these drop conditions, you can set the mint price, upload allowlists for claiming, and more!
 
-We also need to connect a wallet. So if you don't have a wallet, make sure to sign up with **MetaMask** or **CoinWallet**. If don't have a wallet, [you can follow this guide to create one](/guides/create-a-metamask-wallet). 
+We also need to connect a wallet. So if you don't have a wallet, make sure to sign up with **MetaMask** or **CoinWallet**. If don't have a wallet, [you can follow this guide to create one](/guides/create-a-metamask-wallet).
 
 ## Dashboard setup
 
-The first thing we need to do is head over to the [dashboard](https://thirdweb.com/dashboard) and create an **NFT Drop** contract. 
+The first thing we need to do is head over to the [dashboard](https://thirdweb.com/dashboard) and create an **NFT Drop** contract.
 
 Once the contract is created, it's time to create our first NFT, but we don't need the dashboard for that! I mean we could, but why use GUI if we can use TypeScript!?
 
@@ -49,7 +45,7 @@ Next up use we'll install the ThirdWeb SDK using npm!
 
 ```bash
 npm init -y
-npm install @thirdweb-dev/sdk ethers dotenv 
+npm install @thirdweb-dev/sdk ethers dotenv
 npm install --save-dev typescript @types/node ts-node tslib
 ```
 
@@ -60,7 +56,6 @@ Let's take the code step by step. At the end we'll include a full code snippet.
 Import the following classes from the sdk.
 
 In order to make use of our SDK, you need to establish a connection to a blockchain.
-
 
 For this guide, you will need to instantiate the SDK using your own signer with thirdweb.
 
@@ -87,12 +82,15 @@ The arguments passed over here are the same as minting an NFT inside the dashboa
 // Minting the NFT asynchronously
 const lazyMintNft = async () => {
   try {
-    await nftDrop.createBatch([{
-      name: "thirdweb",
-      description: "Smart contracts you control. Tools that accelerate your workflow. Intuitive SDKs and widgets for developers.",
-      image: "ipfs://<YOUR_IPFS_FOLDER_CID>/1.png",
-      attributes: {},
-    }]);
+    await nftDrop.createBatch([
+      {
+        name: "thirdweb",
+        description:
+          "Smart contracts you control. Tools that accelerate your workflow. Intuitive SDKs and widgets for developers.",
+        image: "ipfs://<YOUR_IPFS_FOLDER_CID>/1.png",
+        attributes: {},
+      },
+    ]);
   } catch (err) {
     console.log(err);
   }
@@ -102,17 +100,16 @@ const lazyMintNft = async () => {
 lazyMintNft();
 ```
 
-
 ### 6. Set up claim phases
 
-Once your **NFT Drop** contract is created and has some NFTs, it's time to set the **Claim Phases**. These phases are some of the rules we'll apply when someone wants to claim an NFT, such as price, max amount of tokens claimed, wallets allowed to claim, etc. 
+Once your **NFT Drop** contract is created and has some NFTs, it's time to set the **Claim Phases**. These phases are some of the rules we'll apply when someone wants to claim an NFT, such as price, max amount of tokens claimed, wallets allowed to claim, etc.
 
-Below we will set two claim phases - you can set more or less depending on your needs. 
+Below we will set two claim phases - you can set more or less depending on your needs.
 
-The first claim phase will be a presale with an added snapshot. Only the addresses listed will be able to claim NFTs from the drop. 
+The first claim phase will be a presale with an added snapshot. Only the addresses listed will be able to claim NFTs from the drop.
 We are also adding `maxQuantity` so only 20 NFTs can be minted in this phase.
 
-The second phase does not add a snapshot so everyone is able to claim. 
+The second phase does not add a snapshot so everyone is able to claim.
 
 ```tsx title="index.ts"
 const presaleStartTime = new Date();
@@ -157,8 +154,8 @@ const getAllNfts = () => {
   try {
     await nftDrop.getAllUnclaimed();
   } catch (err) {
-    console.log(err)
+    console.log(err);
   }
-}
+};
 getAllNfts();
 ```

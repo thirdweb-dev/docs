@@ -2,15 +2,10 @@
 title: "Minting NFTs on demand using signatures"
 authors: raza
 
-
-
-
-draft: false
 tags: [nft-collection, signature, mint]
 description: "This guide shows how to create a signature and allow anyone holding that signature to mint an NFT!"
 image: "./thumbnail.png"
 date: "2022-03-14"
-
 ---
 
 ## Intro
@@ -21,7 +16,7 @@ Sidenote: in this tutorial we will allow an user, who has a unique signature, to
 
 ## Why use On Demand Minting
 
-With on demand minting you can create an NFT collection which is exclusive to the audience you want. It's similar to giving someone a gift card with a specific purpose. 
+With on demand minting you can create an NFT collection which is exclusive to the audience you want. It's similar to giving someone a gift card with a specific purpose.
 The unique signature functions in a similar way, ensuring that only the users you want are able to mint your NFTs.
 
 ## Requirements
@@ -29,10 +24,11 @@ The unique signature functions in a similar way, ensuring that only the users yo
 Before we start make sure you have the dependencies installed and understand how we instantiate the sdk. If you want to understand how to do that, click here! Also we're going to show you how to set this up in a basic **next** app. Click [here](https://nextjs.org/docs/api-reference/create-next-app) if you want to know how to set that up.
 
 ## What we're going to do
+
 We're going to build an app that allows users, who have access to this app, to create an unique signature. The signature contains the information of a specific NFT collection that we will pre-define.
 Then with that signature they will be able to mint an NFT from an NFT collection that recognises that signature.
 
-In  order to build our app we're going through the following steps:
+In order to build our app we're going through the following steps:
 
 1. Setup the navigation to guide our user to the correct page. This page will check if the wallet is connected. If not it will prompt the user to connect their wallet.
 2. Wrap our app in the `ThirdwebProvider`. This is necessary to make sure we can use the thirdweb hooks anywhere in our app.
@@ -40,7 +36,6 @@ In  order to build our app we're going through the following steps:
 4. Create the homepage. Once the wallet of the user is connected, they can go ahead and get a 'signature' or go and use their 'signature' to mint an NFT.
 5. Create a unique signature that the owner of the NFT can sell or gift to someone
 6. Allow anyone, holding that unique signature, to claim a NFT
-
 
 ### 1. Setup the Navigation
 
@@ -67,7 +62,7 @@ export default function useProtectedPage() {
 
 ### 2. Use the thirdweb and chakra providers
 
-We need to use the thirdweb and chakra providers. Chakra is a React library that gives styled building blocks inside a component. 
+We need to use the thirdweb and chakra providers. Chakra is a React library that gives styled building blocks inside a component.
 You can use the [thirdweb nextjs starter](https://github.com/thirdweb-example/next-typescript-starter) to kickstart this. Here we are using the Mumbai chain.
 
 ```tsx title="_app.tsx"
@@ -88,7 +83,6 @@ function MyApp({ Component, pageProps }: AppProps) {
 }
 
 export default MyApp;
-
 ```
 
 ### 3. Create the connect wallet component
@@ -169,7 +163,6 @@ export default function Home() {
     </Flex>
   );
 }
-
 ```
 
 Don't forget to connect the homepage to the `index.ts`
@@ -198,7 +191,6 @@ export default function LandingPage() {
     </div>
   );
 }
-
 ```
 
 ### 5. The ‘Creator' page
@@ -232,7 +224,7 @@ export default function Creator() {
   const toast = useToast();
 
   const contract = useNFTCollection(
-    process.env.NEXT_PUBLIC_NFT_COLLECTION as string
+    process.env.NEXT_PUBLIC_NFT_COLLECTION as string,
   );
 
   const [payload, setPayload] = useState<any>();
@@ -315,7 +307,6 @@ export default function Creator() {
     </Flex>
   );
 }
-
 ```
 
 ### 6. Claimer page
@@ -343,7 +334,7 @@ export default function Claimer() {
   const toast = useToast();
 
   const contract = useNFTCollection(
-    process.env.NEXT_PUBLIC_NFT_COLLECTION as string
+    process.env.NEXT_PUBLIC_NFT_COLLECTION as string,
   );
 
   const [payloadValid, setPayloadValid] = useState(true);
@@ -417,7 +408,6 @@ export default function Claimer() {
     </Flex>
   );
 }
-
 ```
 
 ## That's it!

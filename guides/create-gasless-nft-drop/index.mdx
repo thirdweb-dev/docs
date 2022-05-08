@@ -2,13 +2,10 @@
 title: Create a gasless NFT drop with Next.js and OpenZeppelin
 authors: avneesh
 
-
-draft: false
 tags: [edition-drop, react, claim, gas]
 description: "Learn how to create an NFT Drop in which you pay the gas for your users, using OpenZeppelin, Next.js and thirdweb"
 image: "./thumbnail.png"
 date: "2022-04-04"
-
 ---
 
 In some cases, you might want to pay the gas for NFT drops like early access drops or when you are accepting payments in some other forms. So in this guide, we are going to see how to create a gasless NFT drop that everyone can claim. I am going to use an ERC-1155 so multiple people can hold the same NFT but you can do it any way you like! If you want to directly jump into the code, here is the finished [code](https://github.com/thirdweb-dev/examples/tree/main/javascript/gasless-nft-drop).
@@ -64,7 +61,6 @@ import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
 import "../styles/globals.css";
 
 function MyApp({ Component, pageProps }) {
-
   return (
     <ThirdwebProvider desiredChainId={ChainId.Mumbai}>
       <Component {...pageProps} />
@@ -163,9 +159,22 @@ The edition drop has a method called `claimTo` that we can use to claim the NFT 
 
 Let’s now try minting the NFT!
 
-<div style={{position: "relative", paddingBottom: "56.25%", height: 0}}><iframe src="https://www.loom.com/embed/7a1d9a37c90e4829abe7887b490ab006" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen
-style={{position: "absolute", top: "0",left: "0", height: "100%", width: "100%"}}
-></iframe></div>
+<div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+  <iframe
+    src="https://www.loom.com/embed/7a1d9a37c90e4829abe7887b490ab006"
+    frameborder="0"
+    webkitallowfullscreen
+    mozallowfullscreen
+    allowfullscreen
+    style={{
+      position: "absolute",
+      top: "0",
+      left: "0",
+      height: "100%",
+      width: "100%",
+    }}
+  ></iframe>
+</div>
 
 And the minting works! But we have to pay for the gas in the transaction, so let’s relay the gas so that we pay the gas and user can mint their NFTs for free!
 
@@ -218,8 +227,21 @@ Finally, add the OpenZeppelin Uri in the `ThirdwebProvider`:
 
 Now the gas fees is being relayed and the users don’t have to pay any gas!
 
-<div style={{position: "relative", paddingBottom: "56.25%", height: 0}}><iframe src="https://www.loom.com/embed/0b1a961b538146678c29a1fa26f17799" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen
-style={{position: "absolute", top: "0",left: "0", height: "100%", width: "100%"}}
-></iframe></div>
+<div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
+  <iframe
+    src="https://www.loom.com/embed/0b1a961b538146678c29a1fa26f17799"
+    frameborder="0"
+    webkitallowfullscreen
+    mozallowfullscreen
+    allowfullscreen
+    style={{
+      position: "absolute",
+      top: "0",
+      left: "0",
+      height: "100%",
+      width: "100%",
+    }}
+  ></iframe>
+</div>
 
 Want to have a look at the code? [We got you!](https://github.com/thirdweb-dev/examples/tree/main/javascript/gasless-nft-drop)

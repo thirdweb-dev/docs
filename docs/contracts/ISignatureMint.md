@@ -3,15 +3,10 @@ slug: /ISignatureMint
 title: ISignatureMint
 hide_title: true
 ---
+
 # ISignatureMint
 
-
-
-
-
-The &#39;signature minting&#39; mechanism used in thirdweb Token smart contracts is a way for a contract admin to authorize an external party&#39;s  request to mint tokens on the admin&#39;s contract.  At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be  minted by that external party.
-
-
+The &#39;signature minting&#39; mechanism used in thirdweb Token smart contracts is a way for a contract admin to authorize an external party&#39;s request to mint tokens on the admin&#39;s contract. At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
 
 ## Methods
 
@@ -23,14 +18,12 @@ function mintWithSignature(ISignatureMint.MintRequest req, bytes signature) exte
 
 Mints tokens according to the provided mint request.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| req | ISignatureMint.MintRequest | The payload / mint request.
-| signature | bytes | The signature produced by an account signing the mint request.
+| Name      | Type                       | Description                                                    |
+| --------- | -------------------------- | -------------------------------------------------------------- |
+| req       | ISignatureMint.MintRequest | The payload / mint request.                                    |
+| signature | bytes                      | The signature produced by an account signing the mint request. |
 
 ### verify
 
@@ -38,25 +31,21 @@ Mints tokens according to the provided mint request.
 function verify(ISignatureMint.MintRequest req, bytes signature) external view returns (bool success, address signer)
 ```
 
-Verifies that a mint request is signed by an account holding          MINTER_ROLE (at the time of the function call).
-
-
+Verifies that a mint request is signed by an account holding MINTER_ROLE (at the time of the function call).
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| req | ISignatureMint.MintRequest | The payload / mint request.
-| signature | bytes | The signature produced by an account signing the mint request.  returns (success, signer) Result of verification and the recovered address.
+| Name      | Type                       | Description                                                                                                                                |
+| --------- | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
+| req       | ISignatureMint.MintRequest | The payload / mint request.                                                                                                                |
+| signature | bytes                      | The signature produced by an account signing the mint request. returns (success, signer) Result of verification and the recovered address. |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| success | bool | undefined
-| signer | address | undefined
-
-
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| success | bool    | undefined   |
+| signer  | address | undefined   |
 
 ## Events
 
@@ -66,17 +55,13 @@ Verifies that a mint request is signed by an account holding          MINTER_ROL
 event TokensMintedWithSignature(address indexed signer, address indexed mintedTo, uint256 indexed tokenIdMinted, ISignatureMint.MintRequest mintRequest)
 ```
 
-
-
-*Emitted when tokens are minted.*
+_Emitted when tokens are minted._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| signer `indexed` | address | undefined |
-| mintedTo `indexed` | address | undefined |
-| tokenIdMinted `indexed` | uint256 | undefined |
-| mintRequest  | ISignatureMint.MintRequest | undefined |
-
-
+| Name                    | Type                       | Description |
+| ----------------------- | -------------------------- | ----------- |
+| signer `indexed`        | address                    | undefined   |
+| mintedTo `indexed`      | address                    | undefined   |
+| tokenIdMinted `indexed` | uint256                    | undefined   |
+| mintRequest             | ISignatureMint.MintRequest | undefined   |

@@ -2,15 +2,10 @@
 title: Mint an NFT Collection with Python
 authors: raza
 
-
-
-
-draft: false
 tags: [mint, python, sdk]
 description: "Mint your own NFT using the thirdweb Python SDK"
 image: "./thumbnail.png"
 date: "2021-11-18"
-
 ---
 
 ## Introduction
@@ -101,10 +96,10 @@ The arguments passed over here are the same as minting an NFT inside the dashboa
 
 ```python title="python_nft.py"
 # Now you can use any of the SDK contract functions including write functions
-nft_collection.mint(NFTMetadataInput.from_json({ 
-    "name": "Cool NFT", 
-    "description": "Minted with the Python SDK!", 
-    "image": "ipfs://QmdFeKxt6FJUNvaGgzYuYNRbpNWyHxP2PFzjsgPf1eD2Jf" 
+nft_collection.mint(NFTMetadataInput.from_json({
+    "name": "Cool NFT",
+    "description": "Minted with the Python SDK!",
+    "image": "ipfs://QmdFeKxt6FJUNvaGgzYuYNRbpNWyHxP2PFzjsgPf1eD2Jf"
 }))
 ```
 

@@ -2,8 +2,6 @@
 title: Release an NFT drop on your own site without writing any code
 authors: nacho
 
-
-draft: false
 tags: [nft-drop, embed, no-code, bulk-upload]
 description: "Learn how to release a big NFT drop with no-code."
 image: "./thumbnail.png"
@@ -30,7 +28,7 @@ First, we need to create a contract on thirdweb, which can be done on [thirdweb 
 
 For this contract, we're going to be deploying on **Polygon Testnet Mumbai**, but you can use a mainnet for it (Ethereum, Polygon, Avalanche, etc).
 
-To create your drop contract, click on "**Create new contract**", then "**Release a drop**", and select **"NFT Drop"**. 
+To create your drop contract, click on "**Create new contract**", then "**Release a drop**", and select **"NFT Drop"**.
 
 Drop uses ERC-721, which means every NFT will be unique.
 
@@ -65,16 +63,16 @@ So let's explain what each of these do!
 - **Price per token**: How much it's going to cost to claim an NFT (0 is free).
 - **Currency**: The currency your price is set in to mint the NFT. You can use any token available on the chain, even your own custom tokens!
 - **Who can claim**: Wallet addresses that are able to claim an NFT from your drop. This is set to "**Any wallet**" by default, but you can change to "**Only specific wallets**" and upload a snapshot for allowlist minting.
-- **Claim limit per transaction**: The maximum number of NFTs you want them to be able to claim in one transaction (helps saving money on gas). 
+- **Claim limit per transaction**: The maximum number of NFTs you want them to be able to claim in one transaction (helps saving money on gas).
 - **Waittime (seconds)**: The amount of time people need to wait until they can mint again after they have minted once. (Click "**Unlimited**" if you only want them to mint once).
 
-All of these claim settings are set per phase, so you can add as many phases as you need to configure your NFT drop. 
+All of these claim settings are set per phase, so you can add as many phases as you need to configure your NFT drop.
 
 Now that our claim phases are set, we'll click "**Update Claim Phases**" and confirm the transaction in our wallet.
 
 ### Set permissions
 
-The next screen will allow us to set permissions. Here you can give admin capabilities to other wallets, if you want to do so. I'm going to leave it exactly as is for the moment: 
+The next screen will allow us to set permissions. Here you can give admin capabilities to other wallets, if you want to do so. I'm going to leave it exactly as is for the moment:
 
 ![All the permissions you can set](./permissions.png)
 
@@ -103,7 +101,7 @@ After uploading, we'll see this preview of all our NFTs with their description a
 
 ![Preview before uploading](./batch-upload-preview.png)
 
-As you can see, I added a "Generation" property, and I set it to "1". If in the future I want to add more Pokémon, I can do it and set the "Generation" property differently, you can use this to add unique traits and rarity to your NFT drops - each column in the .csv represents a unique property. 
+As you can see, I added a "Generation" property, and I set it to "1". If in the future I want to add more Pokémon, I can do it and set the "Generation" property differently, you can use this to add unique traits and rarity to your NFT drops - each column in the .csv represents a unique property.
 
 Go ahead and click "**Next**".
 
@@ -111,7 +109,7 @@ Now we need to decide when to reveal our NFTs. There are two options here, "**Re
 
 ![Options for revealing NFTs](./when-reveal.png)
 
-Reveal upon mint will display the exact image and metadata after the NFT is minted by the user. Delayed reveal will display a cover photo and hide all metadata until you decide to reveal your the NFTs. 
+Reveal upon mint will display the exact image and metadata after the NFT is minted by the user. Delayed reveal will display a cover photo and hide all metadata until you decide to reveal your the NFTs.
 
 For this guide we'll choose "**Reveal upon mint**". If you are intestered in delayed reveal, check out this guide [here](/guides/nft-drop-with-delayed-reveal).
 
@@ -123,7 +121,7 @@ Important! Every single image that you just added, was also automatically **uplo
 
 The metadata for the NFT also gets uploaded to IPFS.
 
-So... now we have created our drop, wasn't that easy? The next step will enable people to mint the NFTs. 
+So... now we have created our drop, wasn't that easy? The next step will enable people to mint the NFTs.
 
 ## Embed the drop
 
@@ -138,13 +136,9 @@ Click on the "**Embed**" tab on the NFT Drop contract. This is the configuration
 
 Next, at the bottom of the page, you'll be able to see a preview of how it will appear. Once you claim an NFT, it will show on the inventory tab of the embed!
 
-
-
 ![Our own embed!](./pokemon-embed.png)
 
 ![After claiming one NFT](./pokemon-inventory.png)
-
-
 
 ### Add the embed to your website
 
@@ -176,7 +170,7 @@ You are finished! You have done a lot, let's recap:
 - All the images have been uploaded to IPFS, so they'll live on the blockchain forever.
 - You have created your own website.
 - You have added an embed so people can mint your drop!
-  
+
 You're now a blockchain expert! If you want to go ahead and mint some Pokémon from my site, here's [the link](https://pokemongen1.carrd.co/). Remember there's only 151 available!
 
 Also, if you want to check this collection on OpenSea, you can do it [here](https://testnets.opensea.io/collection/pokmon-gen-1).

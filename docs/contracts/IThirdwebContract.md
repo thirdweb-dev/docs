@@ -3,15 +3,8 @@ slug: /IThirdwebContract
 title: IThirdwebContract
 hide_title: true
 ---
+
 # IThirdwebContract
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -21,16 +14,13 @@ hide_title: true
 function contractType() external pure returns (bytes32)
 ```
 
-
-
-*Returns the module type of the contract.*
-
+_Returns the module type of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
 ### contractURI
 
@@ -38,16 +28,13 @@ function contractType() external pure returns (bytes32)
 function contractURI() external view returns (string)
 ```
 
-
-
-*Returns the metadata URI of the contract.*
-
+_Returns the metadata URI of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### contractVersion
 
@@ -55,16 +42,13 @@ function contractURI() external view returns (string)
 function contractVersion() external pure returns (uint8)
 ```
 
-
-
-*Returns the version of the contract.*
-
+_Returns the version of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint8 | undefined
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| \_0  | uint8 | undefined   |
 
 ### setContractURI
 
@@ -72,15 +56,10 @@ function contractVersion() external pure returns (uint8)
 function setContractURI(string _uri) external nonpayable
 ```
 
-
-
-*Sets contract URI for the storefront-level metadata of the contract.       Only module admin can call this function.*
+_Sets contract URI for the storefront-level metadata of the contract. Only module admin can call this function._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _uri | string | undefined
-
-
-
+| Name  | Type   | Description |
+| ----- | ------ | ----------- |
+| \_uri | string | undefined   |

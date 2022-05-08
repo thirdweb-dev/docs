@@ -3,9 +3,10 @@ slug: /contract-royalty
 title: ContractRoyalty Objects
 hide_title: true
 ---
+
 <a id="core.classes.contract_royalty"></a>
 
-# core.classes.contract\_royalty
+# core.classes.contract_royalty
 
 <a id="core.classes.contract_royalty.ContractRoyalty"></a>
 
@@ -17,7 +18,7 @@ class ContractRoyalty(Generic[TRoyaltyABI])
 
 <a id="core.classes.contract_royalty.ContractRoyalty.get_default_royalty_info"></a>
 
-#### get\_default\_royalty\_info
+#### get_default_royalty_info
 
 ```python
 def get_default_royalty_info() -> ContractRoyaltySchema
@@ -31,7 +32,7 @@ the default royalty information.
 
 <a id="core.classes.contract_royalty.ContractRoyalty.get_token_royalty_info"></a>
 
-#### get\_token\_royalty\_info
+#### get_token_royalty_info
 
 ```python
 def get_token_royalty_info(token_id: int) -> ContractRoyaltySchema
@@ -49,7 +50,7 @@ the royalty information for the token.
 
 <a id="core.classes.contract_royalty.ContractRoyalty.set_default_royalty_info"></a>
 
-#### set\_default\_royalty\_info
+#### set_default_royalty_info
 
 ```python
 def set_default_royalty_info(royalty_data: ContractRoyaltySchema) -> TxReceipt
@@ -67,7 +68,7 @@ the transaction receipt of setting the royalty.
 
 <a id="core.classes.contract_royalty.ContractRoyalty.set_token_royalty_info"></a>
 
-#### set\_token\_royalty\_info
+#### set_token_royalty_info
 
 ```python
 def set_token_royalty_info(token_id: int,
