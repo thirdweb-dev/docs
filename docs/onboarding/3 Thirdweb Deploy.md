@@ -114,7 +114,7 @@ const tx = await contract.nft.mint.to("0x...", {
 });
 ```
 
-Find out more in our [documentation](https://docs.thirdweb.com/typescript).
+Find out more in our [documentation](/typescript).
 
 ### 💻 React SDK
 

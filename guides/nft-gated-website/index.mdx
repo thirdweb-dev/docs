@@ -1,12 +1,15 @@
 ---
-title: How to create an NFT-gated website
 authors: [samina, nacho]
-
 tags: [nft-drop, gated, mint, access]
-description: "In this guide, we will create a website that restricts content based on owning an NFT using React."
 image: "./thumbnail.png"
 date: "2021-09-16"
 ---
+
+# How to create an NFT-gated website
+
+In this guide, we will create a website that restricts content based on owning an NFT using React.
+
+<!-- truncate -->
 
 One of the more dynamic use cases for NFTs is using them as a membership pass to the NFT holders. Let’s assume you want to create a website for your community that is gated by having access to a specific NFT from a collection. You can keep downloadable content or hidden pages by access to the NFT.
 
@@ -16,7 +19,7 @@ You can grab a copy of the final project from our examples organization, [check 
 
 ## Mint an NFT Drop
 
-To create an NFT gated website, we will need either an NFT Collection, NFT Drop, Edition, or an Edition Drop contract already deployed on a blockchain. If you don’t have one created, you can create one using thirdweb’s [TypeScript SDK](https://docs.thirdweb.com/typescript/sdk.nftdrop) or thirdweb’s [dashboard](https://thirdweb.com/dashboard).
+To create an NFT gated website, we will need either an NFT Collection, NFT Drop, Edition, or an Edition Drop contract already deployed on a blockchain. If you don’t have one created, you can create one using thirdweb’s [TypeScript SDK](/typescript/sdk.nftdrop) or thirdweb’s [dashboard](https://thirdweb.com/dashboard).
 
 :::warning
 If your NFTs are an NFT Drop or Edition Drop contract, set up claim phases before using the claiming functions mentioned later in the guide.
