@@ -12,7 +12,7 @@ const baseUrl = process.env.BASE_URL || "/";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "thirdweb portal",
+  title: "thirdweb devloper portal",
   tagline: "Get started with thirdweb by diving into our developer portal.",
   url: "https://docs.thirdweb.com",
   baseUrl,
@@ -207,6 +207,7 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} thirdweb, Inc.`,
       },
       prism: {
+        additionalLanguages: ["solidity"],
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },
