@@ -75,6 +75,7 @@ async function main() {
         `slug: /${id}`,
         `title: ${title}`,
         `hide_title: true`,
+        `displayed_sidebar: python`,
         "---",
       ];
 
@@ -91,6 +92,7 @@ async function copyReadMe() {
     "---",
     `title: Thirdweb Python SDK`,
     `hide_title: true`,
+    `displayed_sidebar: python`,
     "---",
   ];
   const fileContents = await readFile(readmePath, "utf8");

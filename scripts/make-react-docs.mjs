@@ -78,6 +78,7 @@ async function main() {
         `slug: /${id}`,
         `title: ${title}`,
         `hide_title: true`,
+        `displayed_sidebar: react`,
         "---",
       ];
 
@@ -94,6 +95,7 @@ async function copyReadMe() {
     "---",
     `title: Thirdweb React SDK`,
     `hide_title: true`,
+    `displayed_sidebar: react`,
     "---",
   ];
   const fileContents = await readFile(readmePath, "utf8");
