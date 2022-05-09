@@ -39,7 +39,7 @@ yarn install # yarn
 
 By default the network in `_app.tsx` is Mainnet, we need to change it to Mumbai
 
-```tsx:_app.tsx
+```tsx title="_app.tsx"
 import type { AppProps } from 'next/app';
 import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
 
@@ -140,7 +140,7 @@ If the user is logged in we will show them this nft instead of there address, so
 
 You will now get an error because we are using the next `<Image />` component but haven't whitelisted the domain, so go to `next.config.js` and add the following:
 
-```ts:next.config.js
+```ts title="next.config.js"
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
@@ -164,7 +164,7 @@ Create a new folder `api` in the pages folder and `generate-mint-sig.ts` inside 
 
 We will now build a basic api that will output "gm wagmi"
 
-```ts:api/generate-mint-sig.ts
+```ts title="api/generate-mint-sig.ts"
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const generateMintSignature = async (
@@ -194,7 +194,7 @@ const sdk = new ThirdwebSDK(
 
 as you can see we are using 2 environment variables to initialize the sdk. The first is the `PRIVATE_KEY` which is the private key of the wallet. The second is the `ALCHEMY_API_URL` which is the url of the Alchemy api. Create a new file `.env.local` and add the two variables.
 
-```bash:.env.local
+```bash title=".env.local"
 PRIVATE_KEY=<private_key>
 ALCHEMY_API_URL=<alchemy_api_url>
 ```
@@ -302,7 +302,7 @@ Now to get the base id go to the [Airtable API](https://airtable.com/api) and cl
 
 Inside `.env.local` add three new variables:
 
-```bash:.env.local
+```bash title=".env.local"
 AIRTABLE_API_KEY=
 AIRTABLE_BASE_ID=
 AIRTABLE_TABLE_NAME=
@@ -356,7 +356,7 @@ Now, we need to update the api to first check if the wallet is present in the ta
 
 So, this queries the airtable to get the records of the address present in the addresses column and we are checking if the length record is 0. If it is 0, then we are not allowing the user to mint and send an error. We will also wrap the part where we send the response in an else block. The api should now look similar to this:
 
-```ts:api/generate-mint-sig.ts
+```ts title="api/generate-mint-sig.ts"
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 import { ethers } from "ethers";
@@ -443,7 +443,7 @@ Now if you try minting you should now see an error that you are not in the allow
 
 We will create another api to not expose the api keys, so in the `api` folder create a new file `set-minted.ts` and add the following:
 
-```ts:set-minted.ts
+```ts title="set-minted.ts"
 import type { NextApiRequest, NextApiResponse } from "next";
 import { table } from "../../utils/Airtable";
 
@@ -500,7 +500,7 @@ I am going to add a simple button for adding users to allowlist. You can even cr
 
 Now, let's create an api to add the wallet to the allowlist. So, create a new file `add-to-allowlist.ts` and add the following:
 
-```ts:add-to-allowlist.ts
+```ts title="add-to-allowlist.ts"
 import type { NextApiRequest, NextApiResponse } from "next";
 import { table } from "../../utils/Airtable";
 
@@ -582,7 +582,7 @@ Let's just add some minor improvements to our app!
 
 Currently the site looks pretty boring, so let's add some simple styling. Create a new file `globals.css` in the `styles` folder and add the following to reset the styles:
 
-```css:globals.css
+```css title="globals.css"
 html,
 body {
   padding: 0;
@@ -609,7 +609,7 @@ import "../styles/globals.css";
 
 Now, create a new file `Home.module.css` in the `styles` folder and add these simple stylings:
 
-```css:Home.module.css
+```css title="Home.module.css"
 .container {
   display: flex;
   flex-direction: column;
@@ -653,7 +653,7 @@ Now, create a new file `Home.module.css` in the `styles` folder and add these si
 
 Now let's implement these stylings in `index.tsx` by adding the classNames:
 
-```tsx:index.tsx
+```tsx title="index.tsx"
  <div className={styles.container}>
       {address ? (
         <div className={styles.NFT}>
@@ -695,7 +695,7 @@ Our website now looks much better!
 
 Currently if you click the mint button or add to allowlist button nothing happens for a while, so let's add a loading text to tell the user that something is happening. So, create 2 states in the `Home.tsx` file:
 
-```tsx:Home.tsx
+```tsx title="Home.tsx"
 const [addWalletLoading, setAddWalletLoading] = useState(false);
 const [mintLoading, setMintLoading] = useState(false);
 ```
