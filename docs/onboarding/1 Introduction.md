@@ -4,7 +4,7 @@ slug: /
 ---
 
 <head>
-  <title>thirdweb developer portal</title>
+  <meta name="title" content="thirdweb developer portal" />  
 </head>
 
 # Welcome to thirdweb
