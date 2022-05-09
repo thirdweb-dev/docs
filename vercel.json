@@ -23,17 +23,17 @@
     },
     {
       "source": "/guides/bundle-collection",
-      "destination": "/guides/edition",
+      "destination": "/guides/tag/edition",
       "permanent": true
     },
     {
       "source": "/guides/bundle-drop",
-      "destination": "/guides/edition-drop",
+      "destination": "/guides/tag/edition-drop",
       "permanent": true
     },
     {
       "source": "/guides/splits",
-      "destination": "/guides/split",
+      "destination": "/guides/tag/split",
       "permanent": true
     },
     {
@@ -63,7 +63,122 @@
     },
     {
       "source": "/learn",
-      "destination": "/learn-thirdweb",
+      "destination": "/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/learn-thirdweb",
+      "destination": "/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/learn-web3",
+      "destination": "/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/learn-thirdweb/connect-to-blockchain",
+      "destination": "/getting-started/integrate-sdks",
+      "permanent": true
+    },
+    {
+      "source": "/learn-thirdweb/quick-start-dev",
+      "destination": "/getting-started/your-first-app",
+      "permanent": true
+    },
+    {
+      "source": "/guides/nft-drop",
+      "destination": "/guides/tag/nft-drop",
+      "permanent": true
+    },
+    {
+      "source": "/guides/nft-collection",
+      "destination": "/guides/tag/nft-collection",
+      "permanent": true
+    },
+    {
+      "source": "/guides/edition-drop",
+      "destination": "/guides/tag/edition-drop",
+      "permanent": true
+    },
+    {
+      "source": "/guides/edition",
+      "destination": "/guides/tag/edition",
+      "permanent": true
+    },
+    {
+      "source": "/guides/token",
+      "destination": "/guides/tag/token",
+      "permanent": true
+    },
+    {
+      "source": "/guides/vote",
+      "destination": "/guides/tag/vote",
+      "permanent": true
+    },
+    {
+      "source": "/guides/split",
+      "destination": "/guides/tag/split",
+      "permanent": true
+    },
+    {
+      "source": "/guides/marketplace",
+      "destination": "/guides/tag/marketplace",
+      "permanent": true
+    },
+    {
+      "source": "/guides/pack",
+      "destination": "/guides/tag/pack",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/nft-drop",
+      "destination": "/pre-built-contracts/nft-drop",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/nft-collection",
+      "destination": "/pre-built-contracts/nft-collection",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/edition-drop",
+      "destination": "/pre-built-contracts/edition-drop",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/edition",
+      "destination": "/pre-built-contracts/edition",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/token",
+      "destination": "/pre-built-contracts/token",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/vote",
+      "destination": "/pre-built-contracts/vote",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/split",
+      "destination": "/pre-built-contracts/split",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/marketplace",
+      "destination": "/pre-built-contracts/marketplace",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/pack",
+      "destination": "/pre-built-contracts/pack",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/:match*",
+      "destination": "/contracts/:match*",
       "permanent": true
     }
   ]
