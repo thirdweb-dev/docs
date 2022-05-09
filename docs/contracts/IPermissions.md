@@ -1,24 +1,14 @@
 ---
-slug: /Permissions
-title: Permissions
+slug: /IPermissions
+title: IPermissions
 hide_title: true
 ---
 
-# Permissions
+# IPermissions
+
+_External interface of AccessControl declared to support ERC165 detection._
 
 ## Methods
-
-### DEFAULT_ADMIN_ROLE
-
-```solidity
-function DEFAULT_ADMIN_ROLE() external view returns (bytes32)
-```
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
 
 ### getRoleAdmin
 
@@ -114,6 +104,8 @@ _Revokes `role` from `account`. If `account` had been granted `role`, emits a {R
 event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
 ```
 
+_Emitted when `newAdminRole` is set as `role`&#39;s admin role, replacing `previousAdminRole` `DEFAULT_ADMIN_ROLE` is the starting admin for all roles, despite {RoleAdminChanged} not being emitted signaling this. *Available since v3.1.*_
+
 #### Parameters
 
 | Name                        | Type    | Description |
@@ -128,6 +120,8 @@ event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, 
 event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
 ```
 
+_Emitted when `account` is granted `role`. `sender` is the account that originated the contract call, an admin role bearer except when using {AccessControl-\_setupRole}._
+
 #### Parameters
 
 | Name              | Type    | Description |
@@ -141,6 +135,8 @@ event RoleGranted(bytes32 indexed role, address indexed account, address indexed
 ```solidity
 event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
 ```
+
+_Emitted when `account` is revoked `role`. `sender` is the account that originated the contract call: - if using `revokeRole`, it is the admin role bearer - if using `renounceRole`, it is the role bearer (i.e. `account`)_
 
 #### Parameters
 

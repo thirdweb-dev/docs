@@ -1,10 +1,10 @@
 ---
-slug: /ContractMetadata
-title: ContractMetadata
+slug: /IContractMetadata
+title: IContractMetadata
 hide_title: true
 ---
 
-# ContractMetadata
+# IContractMetadata
 
 ## Methods
 
@@ -14,7 +14,7 @@ hide_title: true
 function contractURI() external view returns (string)
 ```
 
-_Contract level metadata._
+_Returns the metadata URI of the contract._
 
 #### Returns
 
@@ -28,7 +28,7 @@ _Contract level metadata._
 function setContractURI(string _uri) external nonpayable
 ```
 
-_Lets a contract admin set the URI for contract-level metadata._
+_Sets contract URI for the storefront-level metadata of the contract. Only module admin can call this function._
 
 #### Parameters
 
