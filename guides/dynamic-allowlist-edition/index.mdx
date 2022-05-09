@@ -40,8 +40,8 @@ yarn install # yarn
 By default the network in `_app.tsx` is Mainnet, we need to change it to Mumbai
 
 ```tsx title="_app.tsx"
-import type { AppProps } from 'next/app';
-import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
+import type { AppProps } from "next/app";
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
 // This is the chainId your dApp will work on.
 const activeChainId = ChainId.Mumbai;
@@ -88,9 +88,8 @@ import { useEdition } from "@thirdweb-dev/react";
 Now, we are going to create a new state to hold the nft data:
 
 ```jsx
-  const [nftData, setNftData] = useState<EditionMetadata["metadata"] | null>(
-    null
-  );
+const [nftData, setNftData] =
+  (useState < EditionMetadata["metadata"]) | (null > null);
 ```
 
 We also need to import EditionMetadata and useState:
@@ -103,11 +102,11 @@ import { useState } from "react";
 Finally, create a useEffect to get the data from the contract and update the variable:
 
 ```tsx
- useEffect(() => {
-    edition?.get("0").then((nft) => {
-      setNftData(nft.metadata);
-    });
-  }, [edition]);
+useEffect(() => {
+  edition?.get("0").then((nft) => {
+    setNftData(nft.metadata);
+  });
+}, [edition]);
 ```
 
 If you console log the nft metadata you will get something like this:
@@ -169,7 +168,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 
 const generateMintSignature = async (
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) => {
   res.send("gm wagmi");
 };
@@ -185,11 +184,11 @@ Let's now initialize the thirdweb sdk!
 
 ```ts
 const sdk = new ThirdwebSDK(
-    new ethers.Wallet(
-      process.env.PRIVATE_KEY as string,
-      ethers.getDefaultProvider(process.env.ALCHEMY_API_URL)
-    )
-  );
+  new ethers.Wallet(
+    process.env.PRIVATE_KEY as string,
+    ethers.getDefaultProvider(process.env.ALCHEMY_API_URL),
+  ),
+);
 ```
 
 as you can see we are using 2 environment variables to initialize the sdk. The first is the `PRIVATE_KEY` which is the private key of the wallet. The second is the `ALCHEMY_API_URL` which is the url of the Alchemy api. Create a new file `.env.local` and add the two variables.
@@ -229,22 +228,22 @@ import { ethers } from "ethers";
 In the api we are going to use the sdk to get access to the edition contract and generate a mint signature:
 
 ```ts
- const edition = sdk.getEdition("EDITION_CONTRACT_ADDRESS");
-  try {
-    const signedPayload = await edition.signature.generate({
-      tokenId: 0,
-      quantity: "1",
-      to: address,
-    });
+const edition = sdk.getEdition("EDITION_CONTRACT_ADDRESS");
+try {
+  const signedPayload = await edition.signature.generate({
+    tokenId: 0,
+    quantity: "1",
+    to: address,
+  });
 
-    res.status(200).json({
-      signedPayload: signedPayload,
-    });
-  } catch (err) {
-    res.status(500).json({
-      error: err,
-    });
-  }
+  res.status(200).json({
+    signedPayload: signedPayload,
+  });
+} catch (err) {
+  res.status(500).json({
+    error: err,
+  });
+}
 ```
 
 We will get the address from the frontend so, add this:
@@ -256,22 +255,22 @@ const { address } = JSON.parse(req.body);
 Let's now mint the api on the frontend by calling this api:
 
 ```tsx
-  const mintWithSignature = async () => {
-    const signedPayloadReq = await fetch(`/api/generate-mint-sig`, {
-      method: "POST",
-      body: JSON.stringify({ address }),
-    });
+const mintWithSignature = async () => {
+  const signedPayloadReq = await fetch(`/api/generate-mint-sig`, {
+    method: "POST",
+    body: JSON.stringify({ address }),
+  });
 
-    const signedPayload = await signedPayloadReq.json();
+  const signedPayload = await signedPayloadReq.json();
 
-    try {
-      const nft = await edition?.signature.mint(signedPayload.signedPayload);
-      return nft;
-    } catch (err) {
-      console.error(err);
-      return null;
-    }
-  };
+  try {
+    const nft = await edition?.signature.mint(signedPayload.signedPayload);
+    return nft;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+};
 ```
 
 This function will request the api that we just built with the address. It will give us a signed payload that we can use to mint the nft via our edition contract. So, let's attach it to the button:
@@ -340,18 +339,18 @@ yarn add airtable # yarn
 Now, we need to update the api to first check if the wallet is present in the table. So, in `api/generate-mint-sig.ts` add the following:
 
 ```ts
-  const record = await table
-    .select({
-      fields: ["Addresses", "minted"],
-      filterByFormula: `NOT({Addresses} != '${address}')`,
-    })
-    .all();
+const record = await table
+  .select({
+    fields: ["Addresses", "minted"],
+    filterByFormula: `NOT({Addresses} != '${address}')`,
+  })
+  .all();
 
-  if (record.length === 0) {
-    res.status(404).json({
-      error: "User isn't in allowlist",
-    });
-  }
+if (record.length === 0) {
+  res.status(404).json({
+    error: "User isn't in allowlist",
+  });
+}
 ```
 
 So, this queries the airtable to get the records of the address present in the addresses column and we are checking if the length record is 0. If it is 0, then we are not allowing the user to mint and send an error. We will also wrap the part where we send the response in an else block. The api should now look similar to this:
@@ -364,7 +363,7 @@ import { table } from "../../utils/Airtable";
 
 const generateMintSignature = async (
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) => {
   const { address } = JSON.parse(req.body);
 
@@ -383,12 +382,12 @@ const generateMintSignature = async (
     const sdk = new ThirdwebSDK(
       new ethers.Wallet(
         process.env.PRIVATE_KEY as string,
-        ethers.getDefaultProvider(process.env.ALCHEMY_API_URL)
-      )
+        ethers.getDefaultProvider(process.env.ALCHEMY_API_URL),
+      ),
     );
 
     const edition = sdk.getEdition(
-      "0x62C84CC051544c43d05a5Ff0E8Da596fBdB15032"
+      "0x62C84CC051544c43d05a5Ff0E8Da596fBdB15032",
     );
     try {
       const signedPayload = await edition.signature.generate({
@@ -414,27 +413,27 @@ export default generateMintSignature;
 In the mintWithSignature function we will now add a simple alert to show the error if the user is not in the allowlist.
 
 ```tsx
- const mintWithSignature = async () => {
-    const signedPayloadReq = await fetch(`/api/generate-mint-sig`, {
-      method: "POST",
-      body: JSON.stringify({ address }),
-    });
+const mintWithSignature = async () => {
+  const signedPayloadReq = await fetch(`/api/generate-mint-sig`, {
+    method: "POST",
+    body: JSON.stringify({ address }),
+  });
 
-    const signedPayload = await signedPayloadReq.json();
+  const signedPayload = await signedPayloadReq.json();
 
-    if (signedPayload.error) {
-      alert(signedPayload.error);
-      return;
-    }
+  if (signedPayload.error) {
+    alert(signedPayload.error);
+    return;
+  }
 
-    try {
-      const nft = await edition?.signature.mint(signedPayload.signedPayload);
-      return nft;
-    } catch (err) {
-      console.error(err);
-      return null;
-    }
-  };
+  try {
+    const nft = await edition?.signature.mint(signedPayload.signedPayload);
+    return nft;
+  } catch (err) {
+    console.error(err);
+    return null;
+  }
+};
 ```
 
 Now if you try minting you should now see an error that you are not in the allowlist. But if you add the address you are using to mint to the address column, it would allow you to mint!
@@ -449,7 +448,7 @@ import { table } from "../../utils/Airtable";
 
 const generateMintSignature = async (
   req: NextApiRequest,
-  res: NextApiResponse
+  res: NextApiResponse,
 ) => {
   const { address } = JSON.parse(req.body);
 
@@ -549,21 +548,21 @@ export default addToAllowlist;
 Here, we are first checking if the user already exists and if it exists we will return an error saying that the user is already in the allowlist. If the user doesn't exist we will create the user in the allowlist. Now, let's head back to the frontend code and create a function to call this api:
 
 ```tsx
-  const addWallet = async () => {
-    const payload = await fetch(`/api/add-to-allowlist`, {
-      method: "POST",
-      body: JSON.stringify({ address }),
-    });
+const addWallet = async () => {
+  const payload = await fetch(`/api/add-to-allowlist`, {
+    method: "POST",
+    body: JSON.stringify({ address }),
+  });
 
-    const payloadJson = await payload.json();
-    console.log(payloadJson);
+  const payloadJson = await payload.json();
+  console.log(payloadJson);
 
-    if (payloadJson.success) {
-      alert(payloadJson.message);
-    } else {
-      alert(payloadJson.error);
-    }
-  };
+  if (payloadJson.success) {
+    alert(payloadJson.message);
+  } else {
+    alert(payloadJson.error);
+  }
+};
 ```
 
 Finally, add an onClick event to the button:
@@ -587,8 +586,8 @@ html,
 body {
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
 a {
@@ -654,37 +653,37 @@ Now, create a new file `Home.module.css` in the `styles` folder and add these si
 Now let's implement these stylings in `index.tsx` by adding the classNames:
 
 ```tsx title="index.tsx"
- <div className={styles.container}>
-      {address ? (
-        <div className={styles.NFT}>
-          {nftData?.image && (
-            <Image
-              src={nftData?.image}
-              alt={nftData?.name}
-              width="280"
-              height="210"
-              objectFit="contain"
-            />
-          )}
-          <p className={styles.nftDesc}>
-            <span>Name:</span> {nftData?.name}
-          </p>
-          <p className={styles.nftDesc}>
-            <span> Description:</span> {nftData?.description}
-          </p>
-
-          <button className={styles.btn} onClick={addWallet}>
-            Add wallet to allowlist
-          </button>
-
-          <button className={styles.btn} onClick={() => mintWithSignature()}>
-            Mint
-          </button>
-        </div>
-      ) : (
-        <button onClick={connectWithMetamask}>Connect with Metamask</button>
+<div className={styles.container}>
+  {address ? (
+    <div className={styles.NFT}>
+      {nftData?.image && (
+        <Image
+          src={nftData?.image}
+          alt={nftData?.name}
+          width="280"
+          height="210"
+          objectFit="contain"
+        />
       )}
+      <p className={styles.nftDesc}>
+        <span>Name:</span> {nftData?.name}
+      </p>
+      <p className={styles.nftDesc}>
+        <span> Description:</span> {nftData?.description}
+      </p>
+
+      <button className={styles.btn} onClick={addWallet}>
+        Add wallet to allowlist
+      </button>
+
+      <button className={styles.btn} onClick={() => mintWithSignature()}>
+        Mint
+      </button>
     </div>
+  ) : (
+    <button onClick={connectWithMetamask}>Connect with Metamask</button>
+  )}
+</div>
 ```
 
 Our website now looks much better!
@@ -723,53 +722,53 @@ Add this ternary operator for changing the text of the buttons and disable the b
 Nothing happens yet because we aren't changing the states so, in the functions we need to change the loading states:
 
 ```tsx
-  const mintWithSignature = async () => {
-    setMintLoading(true);
-    const signedPayloadReq = await fetch(`/api/generate-mint-sig`, {
-      method: "POST",
-      body: JSON.stringify({ address }),
-    });
+const mintWithSignature = async () => {
+  setMintLoading(true);
+  const signedPayloadReq = await fetch(`/api/generate-mint-sig`, {
+    method: "POST",
+    body: JSON.stringify({ address }),
+  });
 
-    const signedPayload = await signedPayloadReq.json();
+  const signedPayload = await signedPayloadReq.json();
 
-    if (signedPayload.error) {
-      alert(signedPayload.error);
-      return;
+  if (signedPayload.error) {
+    alert(signedPayload.error);
+    return;
+  }
+
+  try {
+    const nft = await edition?.signature.mint(signedPayload.signedPayload);
+    if (nft) {
+      await fetch(`/api/set-minted`, {
+        method: "POST",
+        body: JSON.stringify({ address }),
+      });
     }
+    return nft;
+  } catch (err) {
+    console.error(err);
+    return null;
+  } finally {
+    setMintLoading(false);
+  }
+};
 
-    try {
-      const nft = await edition?.signature.mint(signedPayload.signedPayload);
-      if (nft) {
-        await fetch(`/api/set-minted`, {
-          method: "POST",
-          body: JSON.stringify({ address }),
-        });
-      }
-      return nft;
-    } catch (err) {
-      console.error(err);
-      return null;
-    } finally {
-      setMintLoading(false);
-    }
-  };
+const addWallet = async () => {
+  setAddWalletLoading(true);
+  const payload = await fetch(`/api/add-to-allowlist`, {
+    method: "POST",
+    body: JSON.stringify({ address }),
+  });
 
-  const addWallet = async () => {
-    setAddWalletLoading(true);
-    const payload = await fetch(`/api/add-to-allowlist`, {
-      method: "POST",
-      body: JSON.stringify({ address }),
-    });
+  const payloadJson = await payload.json();
+  setAddWalletLoading(false);
 
-    const payloadJson = await payload.json();
-    setAddWalletLoading(false);
-
-    if (payloadJson.success) {
-      alert(payloadJson.message);
-    } else {
-      alert(payloadJson.error);
-    }
-  };
+  if (payloadJson.success) {
+    alert(payloadJson.message);
+  } else {
+    alert(payloadJson.error);
+  }
+};
 ```
 
 If you now try to click any of the buttons you would see the loading text for a second.
@@ -812,7 +811,6 @@ Now, in the mint button add the checks-
 ```
 
 I built this Dapp on the Mumbai network so I am checking for the Mumbai network but you need to do this for the network you built upon.
-
 
 ## Conclusion
 
