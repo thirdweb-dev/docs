@@ -1,10 +1,10 @@
 ---
-slug: /Multiwrap
-title: Multiwrap
+slug: /TempMultiwrap
+title: TempMultiwrap
 hide_title: true
 ---
 
-# Multiwrap
+# TempMultiwrap
 
 ## Methods
 
@@ -214,10 +214,65 @@ _Returns the royalty recipient for a particular token Id._
 | \_0  | address | undefined   |
 | \_1  | uint16  | undefined   |
 
+### getToken
+
+```solidity
+function getToken(uint256 _bundleId, uint256 index) external view returns (struct ITokenBundle.Token)
+```
+
+#### Parameters
+
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_bundleId | uint256 | undefined   |
+| index      | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type               | Description |
+| ---- | ------------------ | ----------- |
+| \_0  | ITokenBundle.Token | undefined   |
+
+### getTokenCount
+
+```solidity
+function getTokenCount(uint256 _bundleId) external view returns (uint256)
+```
+
+#### Parameters
+
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_bundleId | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### getUri
+
+```solidity
+function getUri(uint256 _bundleId) external view returns (string)
+```
+
+#### Parameters
+
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_bundleId | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
+
 ### getWrappedContents
 
 ```solidity
-function getWrappedContents(uint256 _tokenId) external view returns (struct IMultiwrap.Token[] contents)
+function getWrappedContents(uint256 _tokenId) external view returns (struct ITokenBundle.Token[] contents)
 ```
 
 _Returns the underlygin contents of a wrapped NFT._
@@ -230,9 +285,9 @@ _Returns the underlygin contents of a wrapped NFT._
 
 #### Returns
 
-| Name     | Type               | Description |
-| -------- | ------------------ | ----------- |
-| contents | IMultiwrap.Token[] | undefined   |
+| Name     | Type                 | Description |
+| -------- | -------------------- | ----------- |
+| contents | ITokenBundle.Token[] | undefined   |
 
 ### grantRole
 
@@ -709,18 +764,18 @@ _Unwrap a wrapped NFT to retrieve underlying ERC1155, ERC721, ERC20 tokens._
 ### wrap
 
 ```solidity
-function wrap(IMultiwrap.Token[] _wrappedContents, string _uriForWrappedToken, address _recipient) external payable returns (uint256 tokenId)
+function wrap(ITokenBundle.Token[] _wrappedContents, string _uriForWrappedToken, address _recipient) external payable returns (uint256 tokenId)
 ```
 
 _Wrap multiple ERC1155, ERC721, ERC20 tokens into a single wrapped NFT._
 
 #### Parameters
 
-| Name                 | Type               | Description |
-| -------------------- | ------------------ | ----------- |
-| \_wrappedContents    | IMultiwrap.Token[] | undefined   |
-| \_uriForWrappedToken | string             | undefined   |
-| \_recipient          | address            | undefined   |
+| Name                 | Type                 | Description |
+| -------------------- | -------------------- | ----------- |
+| \_wrappedContents    | ITokenBundle.Token[] | undefined   |
+| \_uriForWrappedToken | string               | undefined   |
+| \_recipient          | address              | undefined   |
 
 #### Returns
 
@@ -843,32 +898,32 @@ event RoyaltyForToken(uint256 indexed tokenId, address royaltyRecipient, uint256
 ### TokensUnwrapped
 
 ```solidity
-event TokensUnwrapped(address indexed unwrapper, address indexed recipientOfWrappedContents, uint256 indexed tokenIdOfWrappedToken, IMultiwrap.Token[] wrappedContents)
+event TokensUnwrapped(address indexed unwrapper, address indexed recipientOfWrappedContents, uint256 indexed tokenIdOfWrappedToken, ITokenBundle.Token[] wrappedContents)
 ```
 
 #### Parameters
 
-| Name                                 | Type               | Description |
-| ------------------------------------ | ------------------ | ----------- |
-| unwrapper `indexed`                  | address            | undefined   |
-| recipientOfWrappedContents `indexed` | address            | undefined   |
-| tokenIdOfWrappedToken `indexed`      | uint256            | undefined   |
-| wrappedContents                      | IMultiwrap.Token[] | undefined   |
+| Name                                 | Type                 | Description |
+| ------------------------------------ | -------------------- | ----------- |
+| unwrapper `indexed`                  | address              | undefined   |
+| recipientOfWrappedContents `indexed` | address              | undefined   |
+| tokenIdOfWrappedToken `indexed`      | uint256              | undefined   |
+| wrappedContents                      | ITokenBundle.Token[] | undefined   |
 
 ### TokensWrapped
 
 ```solidity
-event TokensWrapped(address indexed wrapper, address indexed recipientOfWrappedToken, uint256 indexed tokenIdOfWrappedToken, IMultiwrap.Token[] wrappedContents)
+event TokensWrapped(address indexed wrapper, address indexed recipientOfWrappedToken, uint256 indexed tokenIdOfWrappedToken, ITokenBundle.Token[] wrappedContents)
 ```
 
 #### Parameters
 
-| Name                              | Type               | Description |
-| --------------------------------- | ------------------ | ----------- |
-| wrapper `indexed`                 | address            | undefined   |
-| recipientOfWrappedToken `indexed` | address            | undefined   |
-| tokenIdOfWrappedToken `indexed`   | uint256            | undefined   |
-| wrappedContents                   | IMultiwrap.Token[] | undefined   |
+| Name                              | Type                 | Description |
+| --------------------------------- | -------------------- | ----------- |
+| wrapper `indexed`                 | address              | undefined   |
+| recipientOfWrappedToken `indexed` | address              | undefined   |
+| tokenIdOfWrappedToken `indexed`   | uint256              | undefined   |
+| wrappedContents                   | ITokenBundle.Token[] | undefined   |
 
 ### Transfer
 

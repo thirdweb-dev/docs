@@ -6,212 +6,40 @@ hide_title: true
 
 # IMultiwrap
 
+Thirdweb&#39;s Multiwrap contract lets you wrap arbitrary ERC20, ERC721 and ERC1155 tokens you own into a single wrapped token / NFT. A wrapped NFT can be unwrapped i.e. burned in exchange for its underlying contents.
+
 ## Methods
-
-### contractType
-
-```solidity
-function contractType() external pure returns (bytes32)
-```
-
-_Returns the module type of the contract._
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
-
-### contractURI
-
-```solidity
-function contractURI() external view returns (string)
-```
-
-_Returns the metadata URI of the contract._
-
-#### Returns
-
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
-
-### contractVersion
-
-```solidity
-function contractVersion() external pure returns (uint8)
-```
-
-_Returns the version of the contract._
-
-#### Returns
-
-| Name | Type  | Description |
-| ---- | ----- | ----------- |
-| \_0  | uint8 | undefined   |
-
-### getDefaultRoyaltyInfo
-
-```solidity
-function getDefaultRoyaltyInfo() external view returns (address, uint16)
-```
-
-_Returns the royalty recipient and fee bps._
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint16  | undefined   |
-
-### getRoyaltyInfoForToken
-
-```solidity
-function getRoyaltyInfoForToken(uint256 tokenId) external view returns (address, uint16)
-```
-
-_Returns the royalty recipient for a particular token Id._
-
-#### Parameters
-
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| tokenId | uint256 | undefined   |
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint16  | undefined   |
-
-### owner
-
-```solidity
-function owner() external view returns (address)
-```
-
-_Returns the owner of the contract._
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-
-### royaltyInfo
-
-```solidity
-function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (address receiver, uint256 royaltyAmount)
-```
-
-_Returns how much royalty is owed and to whom, based on a sale price that may be denominated in any unit of exchange. The royalty amount is denominated and should be payed in that same unit of exchange._
-
-#### Parameters
-
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| tokenId   | uint256 | undefined   |
-| salePrice | uint256 | undefined   |
-
-#### Returns
-
-| Name          | Type    | Description |
-| ------------- | ------- | ----------- |
-| receiver      | address | undefined   |
-| royaltyAmount | uint256 | undefined   |
-
-### setContractURI
-
-```solidity
-function setContractURI(string _uri) external nonpayable
-```
-
-_Sets contract URI for the storefront-level metadata of the contract. Only module admin can call this function._
-
-#### Parameters
-
-| Name  | Type   | Description |
-| ----- | ------ | ----------- |
-| \_uri | string | undefined   |
-
-### setDefaultRoyaltyInfo
-
-```solidity
-function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
-```
-
-_Lets a module admin update the royalty bps and recipient._
-
-#### Parameters
-
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| \_royaltyRecipient | address | undefined   |
-| \_royaltyBps       | uint256 | undefined   |
-
-### setOwner
-
-```solidity
-function setOwner(address _newOwner) external nonpayable
-```
-
-_Lets a module admin set a new owner for the contract. The new owner must be a module admin._
-
-#### Parameters
-
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_newOwner | address | undefined   |
-
-### setRoyaltyInfoForToken
-
-```solidity
-function setRoyaltyInfoForToken(uint256 tokenId, address recipient, uint256 bps) external nonpayable
-```
-
-_Lets a module admin set the royalty recipient for a particular token Id._
-
-#### Parameters
-
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| tokenId   | uint256 | undefined   |
-| recipient | address | undefined   |
-| bps       | uint256 | undefined   |
 
 ### unwrap
 
 ```solidity
-function unwrap(uint256 tokenId, uint256 amountToRedeem, address _sendTo) external nonpayable
+function unwrap(uint256 tokenId, address recipient) external nonpayable
 ```
 
-Unwrap shares to retrieve underlying ERC1155, ERC721, ERC20 tokens.
+Unwrap a wrapped NFT to retrieve underlying ERC1155, ERC721, ERC20 tokens.
 
 #### Parameters
 
-| Name           | Type    | Description                           |
-| -------------- | ------- | ------------------------------------- |
-| tokenId        | uint256 | The token Id of the tokens to unwrap. |
-| amountToRedeem | uint256 | The amount of shares to unwrap        |
-| \_sendTo       | address | undefined                             |
+| Name      | Type    | Description                                                                       |
+| --------- | ------- | --------------------------------------------------------------------------------- |
+| tokenId   | uint256 | The token Id of the wrapped NFT to unwrap.                                        |
+| recipient | address | The recipient of the underlying ERC1155, ERC721, ERC20 tokens of the wrapped NFT. |
 
 ### wrap
 
 ```solidity
-function wrap(MultiTokenTransferLib.MultiToken wrappedContents, uint256 shares, string uriForShares) external payable returns (uint256 tokenId)
+function wrap(IMultiwrap.Token[] wrappedContents, string uriForWrappedToken, address recipient) external payable returns (uint256 tokenId)
 ```
 
-Wrap multiple ERC1155, ERC721, ERC20 tokens into &#39;n&#39; shares (i.e. variable supply of 1 ERC 1155 token)
+Wrap multiple ERC1155, ERC721, ERC20 tokens into a single wrapped NFT.
 
 #### Parameters
 
-| Name            | Type                             | Description                                             |
-| --------------- | -------------------------------- | ------------------------------------------------------- |
-| wrappedContents | MultiTokenTransferLib.MultiToken | The tokens to wrap.                                     |
-| shares          | uint256                          | The number of shares to issue for the wrapped contents. |
-| uriForShares    | string                           | The URI for the shares i.e. wrapped token.              |
+| Name               | Type               | Description                           |
+| ------------------ | ------------------ | ------------------------------------- |
+| wrappedContents    | IMultiwrap.Token[] | The tokens to wrap.                   |
+| uriForWrappedToken | string             | The metadata URI for the wrapped NFT. |
+| recipient          | address            | The recipient of the wrapped NFT.     |
 
 #### Returns
 
@@ -221,76 +49,36 @@ Wrap multiple ERC1155, ERC721, ERC20 tokens into &#39;n&#39; shares (i.e. variab
 
 ## Events
 
-### DefaultRoyalty
-
-```solidity
-event DefaultRoyalty(address newRoyaltyRecipient, uint256 newRoyaltyBps)
-```
-
-#### Parameters
-
-| Name                | Type    | Description |
-| ------------------- | ------- | ----------- |
-| newRoyaltyRecipient | address | undefined   |
-| newRoyaltyBps       | uint256 | undefined   |
-
-### OwnerUpdated
-
-```solidity
-event OwnerUpdated(address prevOwner, address newOwner)
-```
-
-#### Parameters
-
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| prevOwner | address | undefined   |
-| newOwner  | address | undefined   |
-
-### RoyaltyForToken
-
-```solidity
-event RoyaltyForToken(uint256 indexed tokenId, address royaltyRecipient, uint256 royaltyBps)
-```
-
-#### Parameters
-
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| tokenId `indexed` | uint256 | undefined   |
-| royaltyRecipient  | address | undefined   |
-| royaltyBps        | uint256 | undefined   |
-
 ### TokensUnwrapped
 
 ```solidity
-event TokensUnwrapped(address indexed wrapper, address sentTo, uint256 indexed tokenIdOfShares, uint256 sharesUnwrapped, MultiTokenTransferLib.MultiToken wrappedContents)
+event TokensUnwrapped(address indexed unwrapper, address indexed recipientOfWrappedContents, uint256 indexed tokenIdOfWrappedToken, IMultiwrap.Token[] wrappedContents)
 ```
 
 _Emitted when tokens are unwrapped._
 
 #### Parameters
 
-| Name                      | Type                             | Description |
-| ------------------------- | -------------------------------- | ----------- |
-| wrapper `indexed`         | address                          | undefined   |
-| sentTo                    | address                          | undefined   |
-| tokenIdOfShares `indexed` | uint256                          | undefined   |
-| sharesUnwrapped           | uint256                          | undefined   |
-| wrappedContents           | MultiTokenTransferLib.MultiToken | undefined   |
+| Name                                 | Type               | Description |
+| ------------------------------------ | ------------------ | ----------- |
+| unwrapper `indexed`                  | address            | undefined   |
+| recipientOfWrappedContents `indexed` | address            | undefined   |
+| tokenIdOfWrappedToken `indexed`      | uint256            | undefined   |
+| wrappedContents                      | IMultiwrap.Token[] | undefined   |
 
 ### TokensWrapped
 
 ```solidity
-event TokensWrapped(address indexed wrapper, uint256 indexed tokenIdOfShares, MultiTokenTransferLib.MultiToken wrappedContents)
+event TokensWrapped(address indexed wrapper, address indexed recipientOfWrappedToken, uint256 indexed tokenIdOfWrappedToken, IMultiwrap.Token[] wrappedContents)
 ```
 
 _Emitted when tokens are wrapped._
 
 #### Parameters
 
-| Name                      | Type                             | Description |
-| ------------------------- | -------------------------------- | ----------- |
-| wrapper `indexed`         | address                          | undefined   |
-| tokenIdOfShares `indexed` | uint256                          | undefined   |
-| wrappedContents           | MultiTokenTransferLib.MultiToken | undefined   |
+| Name                              | Type               | Description |
+| --------------------------------- | ------------------ | ----------- |
+| wrapper `indexed`                 | address            | undefined   |
+| recipientOfWrappedToken `indexed` | address            | undefined   |
+| tokenIdOfWrappedToken `indexed`   | uint256            | undefined   |
+| wrappedContents                   | IMultiwrap.Token[] | undefined   |

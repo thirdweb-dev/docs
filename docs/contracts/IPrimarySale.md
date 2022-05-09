@@ -1,10 +1,10 @@
 ---
-slug: /PrimarySale
-title: PrimarySale
+slug: /IPrimarySale
+title: IPrimarySale
 hide_title: true
 ---
 
-# PrimarySale
+# IPrimarySale
 
 ## Methods
 
@@ -28,7 +28,7 @@ _The adress that receives all primary sales value._
 function setPrimarySaleRecipient(address _saleRecipient) external nonpayable
 ```
 
-_Lets a contract admin set the recipient for all primary sales._
+_Lets a module admin set the default recipient of all primary sales._
 
 #### Parameters
 
@@ -43,6 +43,8 @@ _Lets a contract admin set the recipient for all primary sales._
 ```solidity
 event PrimarySaleRecipientUpdated(address indexed recipient)
 ```
+
+_Emitted when a new sale recipient is set._
 
 #### Parameters
 

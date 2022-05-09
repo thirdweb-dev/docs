@@ -1,10 +1,10 @@
 ---
-slug: /PlatformFee
-title: PlatformFee
+slug: /IPlatformFee
+title: IPlatformFee
 hide_title: true
 ---
 
-# PlatformFee
+# IPlatformFee
 
 ## Methods
 
@@ -14,7 +14,7 @@ hide_title: true
 function getPlatformFeeInfo() external view returns (address, uint16)
 ```
 
-_Returns the platform fee recipient and bps._
+_Returns the platform fee bps and recipient._
 
 #### Returns
 
@@ -29,7 +29,7 @@ _Returns the platform fee recipient and bps._
 function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeBps) external nonpayable
 ```
 
-_Lets a contract admin update the platform fee recipient and bps_
+_Lets a module admin update the fees on primary sales._
 
 #### Parameters
 
@@ -45,6 +45,8 @@ _Lets a contract admin update the platform fee recipient and bps_
 ```solidity
 event PlatformFeeInfoUpdated(address platformFeeRecipient, uint256 platformFeeBps)
 ```
+
+_Emitted when fee on primary sales is updated._
 
 #### Parameters
 

@@ -72,27 +72,27 @@ _Burns `tokenId`. See {ERC721-\_burn}._
 ### claim
 
 ```solidity
-function claim(address _receiver, uint256 _quantity, address _currency, uint256 _pricePerToken) external payable
+function claim(address _receiver, uint256 _quantity, address _currency, uint256 _pricePerToken, IDropSinglePhase.AllowlistProof _allowlistProof, bytes _data) external payable
 ```
 
-_Lets an account claim NFTs._
+_Lets an account claim tokens._
 
 #### Parameters
 
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| \_receiver      | address | undefined   |
-| \_quantity      | uint256 | undefined   |
-| \_currency      | address | undefined   |
-| \_pricePerToken | uint256 | undefined   |
+| Name             | Type                            | Description |
+| ---------------- | ------------------------------- | ----------- |
+| \_receiver       | address                         | undefined   |
+| \_quantity       | uint256                         | undefined   |
+| \_currency       | address                         | undefined   |
+| \_pricePerToken  | uint256                         | undefined   |
+| \_allowlistProof | IDropSinglePhase.AllowlistProof | undefined   |
+| \_data           | bytes                           | undefined   |
 
 ### claimCondition
 
 ```solidity
 function claimCondition() external view returns (uint256 startTimestamp, uint256 maxClaimableSupply, uint256 supplyClaimed, uint256 quantityLimitPerTransaction, uint256 waitTimeInSecondsBetweenClaims, bytes32 merkleRoot, uint256 pricePerToken, address currency)
 ```
-
-_The active conditions for claiming lazy minted tokens._
 
 #### Returns
 
@@ -259,7 +259,7 @@ _Returns the decrypted i.e. revealed URI for a batch of tokens._
 function getRoleAdmin(bytes32 role) external view returns (bytes32)
 ```
 
-_Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {\_setRoleAdmin}._
+_Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {AccessControl-\_setRoleAdmin}._
 
 #### Parameters
 
@@ -276,7 +276,7 @@ _Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. 
 ### getRoleMember
 
 ```solidity
-function getRoleMember(bytes32 role, uint256 index) external view returns (address)
+function getRoleMember(bytes32 role, uint256 index) external view returns (address member)
 ```
 
 _Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information._
@@ -290,14 +290,14 @@ _Returns one of the accounts that have `role`. `index` must be a value between 0
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name   | Type    | Description |
+| ------ | ------- | ----------- |
+| member | address | undefined   |
 
 ### getRoleMemberCount
 
 ```solidity
-function getRoleMemberCount(bytes32 role) external view returns (uint256)
+function getRoleMemberCount(bytes32 role) external view returns (uint256 count)
 ```
 
 _Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role._
@@ -310,9 +310,9 @@ _Returns the number of accounts that have `role`. Can be used together with {get
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| count | uint256 | undefined   |
 
 ### getRoyaltyInfoForToken
 
@@ -340,8 +340,6 @@ _Returns the royalty recipient and bps for a particular token Id._
 ```solidity
 function grantRole(bytes32 role, address account) external nonpayable
 ```
-
-_Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have `role`&#39;s admin role._
 
 #### Parameters
 
@@ -518,8 +516,6 @@ _The tokenId of the next NFT that will be minted / lazy minted._
 function owner() external view returns (address)
 ```
 
-_Returns the address of the current owner._
-
 #### Returns
 
 | Name | Type    | Description |
@@ -566,8 +562,6 @@ _The adress that receives all primary sales value._
 function renounceRole(bytes32 role, address account) external nonpayable
 ```
 
-_Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function&#39;s purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`._
-
 #### Parameters
 
 | Name    | Type    | Description |
@@ -601,8 +595,6 @@ _Lets an account with `MINTER_ROLE` reveal the URI for a batch of &#39;delayed-r
 ```solidity
 function revokeRole(bytes32 role, address account) external nonpayable
 ```
-
-_Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have `role`&#39;s admin role._
 
 #### Parameters
 
@@ -665,18 +657,21 @@ _See {IERC721-setApprovalForAll}._
 | operator | address | undefined   |
 | approved | bool    | undefined   |
 
-### setClaimCondition
+### setClaimConditions
 
 ```solidity
-function setClaimCondition(IDropClaimCondition.ClaimCondition _condition, bool _resetClaimEligibility) external nonpayable
+function setClaimConditions(IClaimCondition.ClaimCondition _condition, bool _resetClaimEligibility, bytes) external nonpayable
 ```
+
+_Lets a contract admin set claim conditions._
 
 #### Parameters
 
-| Name                    | Type                               | Description |
-| ----------------------- | ---------------------------------- | ----------- |
-| \_condition             | IDropClaimCondition.ClaimCondition | undefined   |
-| \_resetClaimEligibility | bool                               | undefined   |
+| Name                    | Type                           | Description |
+| ----------------------- | ------------------------------ | ----------- |
+| \_condition             | IClaimCondition.ClaimCondition | undefined   |
+| \_resetClaimEligibility | bool                           | undefined   |
+| \_2                     | bytes                          | undefined   |
 
 ### setContractURI
 
@@ -872,6 +867,47 @@ _Verifies that a mint request is signed by an account holding MINTER_ROLE (at th
 | success | bool    | undefined   |
 | signer  | address | undefined   |
 
+### verifyClaim
+
+```solidity
+function verifyClaim(address _claimer, uint256 _quantity, address _currency, uint256 _pricePerToken, bool verifyMaxQuantityPerTransaction) external view
+```
+
+_Checks a request to claim NFTs against the active claim condition&#39;s criteria._
+
+#### Parameters
+
+| Name                            | Type    | Description |
+| ------------------------------- | ------- | ----------- |
+| \_claimer                       | address | undefined   |
+| \_quantity                      | uint256 | undefined   |
+| \_currency                      | address | undefined   |
+| \_pricePerToken                 | uint256 | undefined   |
+| verifyMaxQuantityPerTransaction | bool    | undefined   |
+
+### verifyClaimMerkleProof
+
+```solidity
+function verifyClaimMerkleProof(address _claimer, uint256 _quantity, IDropSinglePhase.AllowlistProof _allowlistProof) external view returns (bool validMerkleProof, uint256 merkleProofIndex)
+```
+
+_Checks whether a claimer meets the claim condition&#39;s allowlist criteria._
+
+#### Parameters
+
+| Name             | Type                            | Description |
+| ---------------- | ------------------------------- | ----------- |
+| \_claimer        | address                         | undefined   |
+| \_quantity       | uint256                         | undefined   |
+| \_allowlistProof | IDropSinglePhase.AllowlistProof | undefined   |
+
+#### Returns
+
+| Name             | Type    | Description |
+| ---------------- | ------- | ----------- |
+| validMerkleProof | bool    | undefined   |
+| merkleProofIndex | uint256 | undefined   |
+
 ## Events
 
 ### Approval
@@ -905,15 +941,15 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 ### ClaimConditionUpdated
 
 ```solidity
-event ClaimConditionUpdated(IDropClaimCondition.ClaimCondition condition, bool resetEligibility)
+event ClaimConditionUpdated(IClaimCondition.ClaimCondition condition, bool resetEligibility)
 ```
 
 #### Parameters
 
-| Name             | Type                               | Description |
-| ---------------- | ---------------------------------- | ----------- |
-| condition        | IDropClaimCondition.ClaimCondition | undefined   |
-| resetEligibility | bool                               | undefined   |
+| Name             | Type                           | Description |
+| ---------------- | ------------------------------ | ----------- |
+| condition        | IClaimCondition.ClaimCondition | undefined   |
+| resetEligibility | bool                           | undefined   |
 
 ### DefaultRoyalty
 
@@ -1049,6 +1085,22 @@ event TokenURIRevealed(uint256 index, string revealedURI)
 | ----------- | ------- | ----------- |
 | index       | uint256 | undefined   |
 | revealedURI | string  | undefined   |
+
+### TokensClaimed
+
+```solidity
+event TokensClaimed(IClaimCondition.ClaimCondition condition, address indexed claimer, address indexed receiver, uint256 quantityClaimed, uint256 indexed aux)
+```
+
+#### Parameters
+
+| Name               | Type                           | Description |
+| ------------------ | ------------------------------ | ----------- |
+| condition          | IClaimCondition.ClaimCondition | undefined   |
+| claimer `indexed`  | address                        | undefined   |
+| receiver `indexed` | address                        | undefined   |
+| quantityClaimed    | uint256                        | undefined   |
+| aux `indexed`      | uint256                        | undefined   |
 
 ### TokensMinted
 

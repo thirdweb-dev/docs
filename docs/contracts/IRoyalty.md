@@ -1,10 +1,10 @@
 ---
-slug: /Royalty
-title: Royalty
+slug: /IRoyalty
+title: IRoyalty
 hide_title: true
 ---
 
-# Royalty
+# IRoyalty
 
 ## Methods
 
@@ -14,7 +14,7 @@ hide_title: true
 function getDefaultRoyaltyInfo() external view returns (address, uint16)
 ```
 
-_Returns the default royalty recipient and bps._
+_Returns the royalty recipient and fee bps._
 
 #### Returns
 
@@ -26,16 +26,16 @@ _Returns the default royalty recipient and bps._
 ### getRoyaltyInfoForToken
 
 ```solidity
-function getRoyaltyInfoForToken(uint256 _tokenId) external view returns (address, uint16)
+function getRoyaltyInfoForToken(uint256 tokenId) external view returns (address, uint16)
 ```
 
-_Returns the royalty recipient and bps for a particular token Id._
+_Returns the royalty recipient for a particular token Id._
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| \_tokenId | uint256 | undefined   |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |
 
 #### Returns
 
@@ -50,7 +50,7 @@ _Returns the royalty recipient and bps for a particular token Id._
 function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (address receiver, uint256 royaltyAmount)
 ```
 
-_Returns the royalty recipient and amount, given a tokenId and sale price._
+_Returns how much royalty is owed and to whom, based on a sale price that may be denominated in any unit of exchange. The royalty amount is denominated and should be payed in that same unit of exchange._
 
 #### Parameters
 
@@ -72,7 +72,7 @@ _Returns the royalty recipient and amount, given a tokenId and sale price._
 function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
 ```
 
-_Lets a contract admin update the default royalty recipient and bps._
+_Lets a module admin update the royalty bps and recipient._
 
 #### Parameters
 
@@ -84,18 +84,18 @@ _Lets a contract admin update the default royalty recipient and bps._
 ### setRoyaltyInfoForToken
 
 ```solidity
-function setRoyaltyInfoForToken(uint256 _tokenId, address _recipient, uint256 _bps) external nonpayable
+function setRoyaltyInfoForToken(uint256 tokenId, address recipient, uint256 bps) external nonpayable
 ```
 
-_Lets a contract admin set the royalty recipient and bps for a particular token Id._
+_Lets a module admin set the royalty recipient for a particular token Id._
 
 #### Parameters
 
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| \_tokenId   | uint256 | undefined   |
-| \_recipient | address | undefined   |
-| \_bps       | uint256 | undefined   |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| tokenId   | uint256 | undefined   |
+| recipient | address | undefined   |
+| bps       | uint256 | undefined   |
 
 ## Events
 
@@ -104,6 +104,8 @@ _Lets a contract admin set the royalty recipient and bps for a particular token 
 ```solidity
 event DefaultRoyalty(address newRoyaltyRecipient, uint256 newRoyaltyBps)
 ```
+
+_Emitted when royalty info is updated._
 
 #### Parameters
 
@@ -117,6 +119,8 @@ event DefaultRoyalty(address newRoyaltyRecipient, uint256 newRoyaltyBps)
 ```solidity
 event RoyaltyForToken(uint256 indexed tokenId, address royaltyRecipient, uint256 royaltyBps)
 ```
+
+_Emitted when royalty recipient for tokenId is set_
 
 #### Parameters
 

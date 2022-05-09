@@ -1,10 +1,10 @@
 ---
-slug: /Permissions
-title: Permissions
+slug: /PermissionsEnumerable
+title: PermissionsEnumerable
 hide_title: true
 ---
 
-# Permissions
+# PermissionsEnumerable
 
 ## Methods
 
@@ -40,13 +40,52 @@ _Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. 
 | ---- | ------- | ----------- |
 | \_0  | bytes32 | undefined   |
 
+### getRoleMember
+
+```solidity
+function getRoleMember(bytes32 role, uint256 index) external view returns (address member)
+```
+
+_Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information._
+
+#### Parameters
+
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| role  | bytes32 | undefined   |
+| index | uint256 | undefined   |
+
+#### Returns
+
+| Name   | Type    | Description |
+| ------ | ------- | ----------- |
+| member | address | undefined   |
+
+### getRoleMemberCount
+
+```solidity
+function getRoleMemberCount(bytes32 role) external view returns (uint256 count)
+```
+
+_Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role._
+
+#### Parameters
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| role | bytes32 | undefined   |
+
+#### Returns
+
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| count | uint256 | undefined   |
+
 ### grantRole
 
 ```solidity
 function grantRole(bytes32 role, address account) external nonpayable
 ```
-
-_Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have `role`&#39;s admin role._
 
 #### Parameters
 
@@ -82,8 +121,6 @@ _Returns `true` if `account` has been granted `role`._
 function renounceRole(bytes32 role, address account) external nonpayable
 ```
 
-_Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function&#39;s purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`._
-
 #### Parameters
 
 | Name    | Type    | Description |
@@ -96,8 +133,6 @@ _Revokes `role` from the calling account. Roles are often managed via {grantRole
 ```solidity
 function revokeRole(bytes32 role, address account) external nonpayable
 ```
-
-_Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have `role`&#39;s admin role._
 
 #### Parameters
 

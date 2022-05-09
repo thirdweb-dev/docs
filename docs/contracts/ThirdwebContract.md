@@ -14,8 +14,6 @@ hide_title: true
 function contractURI() external view returns (string)
 ```
 
-_The metadata for this contract._
-
 #### Returns
 
 | Name | Type   | Description |
@@ -36,6 +34,46 @@ _Returns the publish metadata for this contract._
 | ---- | ------ | ----------- |
 | \_0  | string | undefined   |
 
+### owner
+
+```solidity
+function owner() external view returns (address)
+```
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+
+### setContractURI
+
+```solidity
+function setContractURI(string _uri) external nonpayable
+```
+
+_Lets a contract admin set the URI for contract-level metadata._
+
+#### Parameters
+
+| Name  | Type   | Description |
+| ----- | ------ | ----------- |
+| \_uri | string | undefined   |
+
+### setOwner
+
+```solidity
+function setOwner(address _newOwner) external nonpayable
+```
+
+_Lets a contract admin set a new owner for the contract. The new owner must be a contract admin._
+
+#### Parameters
+
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_newOwner | address | undefined   |
+
 ### setThirdwebInfo
 
 ```solidity
@@ -49,3 +87,18 @@ _Initializes the publish metadata and contract metadata at deploy time._
 | Name           | Type                          | Description |
 | -------------- | ----------------------------- | ----------- |
 | \_thirdwebInfo | ThirdwebContract.ThirdwebInfo | undefined   |
+
+## Events
+
+### OwnerUpdated
+
+```solidity
+event OwnerUpdated(address prevOwner, address newOwner)
+```
+
+#### Parameters
+
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| prevOwner | address | undefined   |
+| newOwner  | address | undefined   |

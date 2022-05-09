@@ -1,10 +1,10 @@
 ---
-slug: /Ownable
-title: Ownable
+slug: /IOwnable
+title: IOwnable
 hide_title: true
 ---
 
-# Ownable
+# IOwnable
 
 ## Methods
 
@@ -14,7 +14,7 @@ hide_title: true
 function owner() external view returns (address)
 ```
 
-_Owner of the contract (purpose: OpenSea compatibility)_
+_Returns the owner of the contract._
 
 #### Returns
 
@@ -28,7 +28,7 @@ _Owner of the contract (purpose: OpenSea compatibility)_
 function setOwner(address _newOwner) external nonpayable
 ```
 
-_Lets a contract admin set a new owner for the contract. The new owner must be a contract admin._
+_Lets a module admin set a new owner for the contract. The new owner must be a module admin._
 
 #### Parameters
 
@@ -43,6 +43,8 @@ _Lets a contract admin set a new owner for the contract. The new owner must be a
 ```solidity
 event OwnerUpdated(address prevOwner, address newOwner)
 ```
+
+_Emitted when a new Owner is set._
 
 #### Parameters
 
