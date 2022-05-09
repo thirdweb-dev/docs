@@ -1,3 +1,70 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/learn/modules/:match*",
+      "destination": "/contracts/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/learn/recipes/:match*",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/guides/tag/bundle-collection",
+      "destination": "/guides/tag/edition",
+      "permanent": true
+    },
+    {
+      "source": "/guides/tag/bundle-drop",
+      "destination": "/guides/tag/edition-drop",
+      "permanent": true
+    },
+    {
+      "source": "/guides/bundle-collection",
+      "destination": "/guides/edition",
+      "permanent": true
+    },
+    {
+      "source": "/guides/bundle-drop",
+      "destination": "/guides/edition-drop",
+      "permanent": true
+    },
+    {
+      "source": "/guides/splits",
+      "destination": "/guides/split",
+      "permanent": true
+    },
+    {
+      "source": "/guides/connect-wallet",
+      "destination": "/guides/add-connectwallet-to-your-website",
+      "permanent": true
+    },
+    {
+      "source": "/guides/create-a-drop-with-thirdweb-dashboard",
+      "destination": "/guides/release-an-nft-drop-with-no-code",
+      "permanent": true
+    },
+    {
+      "source": "/guides/minting-with-signature",
+      "destination": "/guides/on-demand-minting",
+      "permanent": true
+    },
+    {
+      "source": "/learn/connect-to-blockchain",
+      "destination": "/learn-thirdweb/connect-to-blockchain",
+      "permanent": true
+    },
+    {
+      "source": "/learn/projects",
+      "destination": "/learn-thirdweb/projects",
+      "permanent": true
+    },
+    {
+      "source": "/learn",
+      "destination": "/learn-thirdweb",
+      "permanent": true
+    }
+  ]
 }
