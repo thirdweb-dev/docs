@@ -49,6 +49,9 @@ const config = {
           blogSidebarTitle: "Recently added",
           editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
         },
+        sitemap: {
+          changefreq: "daily",
+        },
         theme: {
           customCss: require.resolve("./src/css/custom.css"),
         },
