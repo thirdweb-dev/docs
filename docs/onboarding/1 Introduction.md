@@ -3,6 +3,10 @@ title: 👩‍💻 Introduction
 slug: /
 ---
 
+<head>
+  <title>thirdweb developer portal</title>
+</head>
+
 # Welcome to thirdweb
 
 thirdweb is a web3 application framework that enables you to easily build powerful, blockchain-based applications.
