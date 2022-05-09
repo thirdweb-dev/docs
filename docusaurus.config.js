@@ -12,7 +12,7 @@ const baseUrl = process.env.BASE_URL || "/";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "thirdweb devloper portal",
+  title: "thirdweb developer portal",
   tagline: "Get started with thirdweb by diving into our developer portal.",
   url: "https://docs.thirdweb.com",
   baseUrl,
@@ -109,6 +109,7 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      image: "img/portal.png",
       algolia: {
         appId: "IAIE3FU2AD",
         apiKey: "1d9ebc991c049c913bedcf3d50916922",

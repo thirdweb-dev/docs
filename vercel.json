@@ -1,3 +1,195 @@
 {
-  "cleanUrls": true
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/learn/modules/:match*",
+      "destination": "/contracts/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/learn/recipes/:match*",
+      "destination": "/guides",
+      "permanent": true
+    },
+    {
+      "source": "/guides/tag/bundle-collection",
+      "destination": "/guides/tag/edition",
+      "permanent": true
+    },
+    {
+      "source": "/guides/tag/bundle-drop",
+      "destination": "/guides/tag/edition-drop",
+      "permanent": true
+    },
+    {
+      "source": "/guides/bundle-collection",
+      "destination": "/guides/tag/edition",
+      "permanent": true
+    },
+    {
+      "source": "/guides/bundle-drop",
+      "destination": "/guides/tag/edition-drop",
+      "permanent": true
+    },
+    {
+      "source": "/guides/splits",
+      "destination": "/guides/tag/split",
+      "permanent": true
+    },
+    {
+      "source": "/guides/connect-wallet",
+      "destination": "/guides/add-connectwallet-to-your-website",
+      "permanent": true
+    },
+    {
+      "source": "/guides/create-a-drop-with-thirdweb-dashboard",
+      "destination": "/guides/release-an-nft-drop-with-no-code",
+      "permanent": true
+    },
+    {
+      "source": "/guides/minting-with-signature",
+      "destination": "/guides/on-demand-minting",
+      "permanent": true
+    },
+    {
+      "source": "/learn/connect-to-blockchain",
+      "destination": "/learn-thirdweb/connect-to-blockchain",
+      "permanent": true
+    },
+    {
+      "source": "/learn/projects",
+      "destination": "/learn-thirdweb/projects",
+      "permanent": true
+    },
+    {
+      "source": "/learn",
+      "destination": "/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/learn-thirdweb",
+      "destination": "/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/learn-web3",
+      "destination": "/getting-started",
+      "permanent": true
+    },
+    {
+      "source": "/learn-thirdweb/connect-to-blockchain",
+      "destination": "/getting-started/integrate-sdks",
+      "permanent": true
+    },
+    {
+      "source": "/learn-thirdweb/quick-start-dev",
+      "destination": "/getting-started/your-first-app",
+      "permanent": true
+    },
+    {
+      "source": "/guides/nft-drop",
+      "destination": "/guides/tag/nft-drop",
+      "permanent": true
+    },
+    {
+      "source": "/guides/nft-collection",
+      "destination": "/guides/tag/nft-collection",
+      "permanent": true
+    },
+    {
+      "source": "/guides/edition-drop",
+      "destination": "/guides/tag/edition-drop",
+      "permanent": true
+    },
+    {
+      "source": "/guides/edition",
+      "destination": "/guides/tag/edition",
+      "permanent": true
+    },
+    {
+      "source": "/guides/token",
+      "destination": "/guides/tag/token",
+      "permanent": true
+    },
+    {
+      "source": "/guides/vote",
+      "destination": "/guides/tag/vote",
+      "permanent": true
+    },
+    {
+      "source": "/guides/split",
+      "destination": "/guides/tag/split",
+      "permanent": true
+    },
+    {
+      "source": "/guides/marketplace",
+      "destination": "/guides/tag/marketplace",
+      "permanent": true
+    },
+    {
+      "source": "/guides/pack",
+      "destination": "/guides/tag/pack",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/nft-drop",
+      "destination": "/pre-built-contracts/nft-drop",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/nft-collection",
+      "destination": "/pre-built-contracts/nft-collection",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/edition-drop",
+      "destination": "/pre-built-contracts/edition-drop",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/edition",
+      "destination": "/pre-built-contracts/edition",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/token",
+      "destination": "/pre-built-contracts/token",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/vote",
+      "destination": "/pre-built-contracts/vote",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/split",
+      "destination": "/pre-built-contracts/split",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/marketplace",
+      "destination": "/pre-built-contracts/marketplace",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/pack",
+      "destination": "/pre-built-contracts/pack",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/nfts-and-tokens",
+      "destination": "/pre-built-contracts",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/drops",
+      "destination": "/pre-built-contracts",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/governance",
+      "destination": "/pre-built-contracts",
+      "permanent": true
+    }
+  ]
 }
