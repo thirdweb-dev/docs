@@ -177,8 +177,18 @@
       "permanent": true
     },
     {
-      "source": "/contracts/:match*",
-      "destination": "/contracts/:match*",
+      "source": "/contracts/nfts-and-tokens",
+      "destination": "/pre-built-contracts",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/drops",
+      "destination": "/pre-built-contracts",
+      "permanent": true
+    },
+    {
+      "source": "/contracts/governance",
+      "destination": "/pre-built-contracts",
       "permanent": true
     }
   ]
