@@ -101,6 +101,7 @@ async function main() {
         `slug: /${id}`,
         `title: ${title}`,
         `hide_title: true`,
+        `displayed_sidebar: contracts`,
         "---",
       ];
 
@@ -119,6 +120,7 @@ async function copyReadMe() {
     "---",
     `title: Thirdweb Contracts`,
     `hide_title: true`,
+    `displayed_sidebar: contracts`,
     "---",
   ];
   const fileContents = await readFile(readmePath, "utf8");

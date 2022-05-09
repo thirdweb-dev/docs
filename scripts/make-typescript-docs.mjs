@@ -75,6 +75,7 @@ async function main() {
         `slug: /${id}`,
         `title: ${title}`,
         `hide_title: true`,
+        `displayed_sidebar: typescript`,
         "---",
       ];
 
@@ -91,6 +92,7 @@ async function copyReadMe() {
     "---",
     `title: Thirdweb Typescript SDK`,
     `hide_title: true`,
+    `displayed_sidebar: typescript`,
     "---",
   ];
   const fileContents = await readFile(readmePath, "utf8");
