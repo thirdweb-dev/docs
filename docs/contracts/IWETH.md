@@ -2,6 +2,7 @@
 slug: /IWETH
 title: IWETH
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IWETH

@@ -2,6 +2,7 @@
 slug: /EnumerableSet
 title: EnumerableSet
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # EnumerableSet

@@ -2,6 +2,7 @@
 slug: /IERC1155Enumerable
 title: IERC1155Enumerable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC1155Enumerable

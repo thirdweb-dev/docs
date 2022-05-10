@@ -2,6 +2,7 @@
 slug: /IAccessControlEnumerable
 title: IAccessControlEnumerable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IAccessControlEnumerable

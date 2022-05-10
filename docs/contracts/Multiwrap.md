@@ -2,6 +2,7 @@
 slug: /Multiwrap
 title: Multiwrap
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # Multiwrap

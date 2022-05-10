@@ -2,6 +2,7 @@
 slug: /IDropERC1155
 title: IDropERC1155
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IDropERC1155

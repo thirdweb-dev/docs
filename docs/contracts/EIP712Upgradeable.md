@@ -2,6 +2,7 @@
 slug: /EIP712Upgradeable
 title: EIP712Upgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # EIP712Upgradeable

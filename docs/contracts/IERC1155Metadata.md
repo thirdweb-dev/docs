@@ -2,6 +2,7 @@
 slug: /IERC1155Metadata
 title: IERC1155Metadata
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC1155Metadata

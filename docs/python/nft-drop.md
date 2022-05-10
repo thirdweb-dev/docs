@@ -2,6 +2,7 @@
 slug: /nft-drop
 title: NFTDrop Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="contracts.nft_drop"></a>

@@ -2,6 +2,7 @@
 slug: /IContractMetadata
 title: IContractMetadata
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IContractMetadata

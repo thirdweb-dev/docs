@@ -2,6 +2,7 @@
 slug: /PaymentSplitterUpgradeable
 title: PaymentSplitterUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # PaymentSplitterUpgradeable

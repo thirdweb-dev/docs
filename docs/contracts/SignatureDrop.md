@@ -2,6 +2,7 @@
 slug: /SignatureDrop
 title: SignatureDrop
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # SignatureDrop

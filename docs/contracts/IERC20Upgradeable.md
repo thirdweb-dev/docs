@@ -2,6 +2,7 @@
 slug: /IERC20Upgradeable
 title: IERC20Upgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC20Upgradeable

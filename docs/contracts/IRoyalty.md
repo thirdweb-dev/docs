@@ -2,6 +2,7 @@
 slug: /IRoyalty
 title: IRoyalty
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IRoyalty

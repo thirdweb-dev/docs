@@ -2,6 +2,7 @@
 slug: /ThirdwebContract
 title: ThirdwebContract
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ThirdwebContract

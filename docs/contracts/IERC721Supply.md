@@ -2,6 +2,7 @@
 slug: /IERC721Supply
 title: IERC721Supply
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC721Supply

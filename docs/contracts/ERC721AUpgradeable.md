@@ -2,6 +2,7 @@
 slug: /ERC721AUpgradeable
 title: ERC721AUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC721AUpgradeable

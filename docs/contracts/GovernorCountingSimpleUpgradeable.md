@@ -2,6 +2,7 @@
 slug: /GovernorCountingSimpleUpgradeable
 title: GovernorCountingSimpleUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # GovernorCountingSimpleUpgradeable

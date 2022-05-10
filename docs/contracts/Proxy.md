@@ -2,6 +2,7 @@
 slug: /Proxy
 title: Proxy
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # Proxy

@@ -2,6 +2,7 @@
 slug: /IERC20Metadata
 title: IERC20Metadata
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC20Metadata

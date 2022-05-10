@@ -2,6 +2,7 @@
 slug: /BitMapsUpgradeable
 title: BitMapsUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # BitMapsUpgradeable

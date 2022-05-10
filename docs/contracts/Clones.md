@@ -2,6 +2,7 @@
 slug: /Clones
 title: Clones
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # Clones

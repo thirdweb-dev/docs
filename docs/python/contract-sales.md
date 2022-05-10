@@ -2,6 +2,7 @@
 slug: /contract-sales
 title: ContractPrimarySale Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="core.classes.contract_sales"></a>

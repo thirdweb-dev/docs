@@ -2,6 +2,7 @@
 slug: /contract-deployer
 title: ContractDeployer Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="core.classes.contract_deployer"></a>

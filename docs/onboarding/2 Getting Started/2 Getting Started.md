@@ -12,10 +12,8 @@ _This section shouldn't take much longer than 5 minutes to set up and will guide
 :::info Pre-requisites
 
 - [React.JS](https://reactjs.org)
-- basic web3-related terms ("Smart Contract", "dApp", "IPFS")
-- You have a ethereum wallet (such as [MetaMask](https://metamask.io))
-
-_If you’re not sure what some of those things are, we recommend you start at our [learn web3](https://portal.thirdweb.com/learn-web3) page and return to this section whenever you feel comfortable._
+- Basic web3-related terms ("Smart Contract", "dApp", "IPFS")
+- You have an Ethereum wallet (such as [MetaMask](https://metamask.io))
 
 :::
 

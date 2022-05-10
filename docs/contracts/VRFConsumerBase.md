@@ -2,6 +2,7 @@
 slug: /VRFConsumerBase
 title: VRFConsumerBase
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # VRFConsumerBase

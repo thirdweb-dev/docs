@@ -2,6 +2,7 @@
 slug: /SignatureMintERC721
 title: SignatureMintERC721
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # SignatureMintERC721

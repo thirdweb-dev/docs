@@ -2,6 +2,7 @@
 slug: /contract-metadata
 title: ContractMetadata Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="core.classes.contract_metadata"></a>

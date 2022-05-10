@@ -2,6 +2,7 @@
 slug: /MerkleProof
 title: MerkleProof
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # MerkleProof

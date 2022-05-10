@@ -2,6 +2,7 @@
 slug: /ECDSA
 title: ECDSA
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ECDSA

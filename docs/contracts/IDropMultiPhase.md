@@ -2,6 +2,7 @@
 slug: /IDropMultiPhase
 title: IDropMultiPhase
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IDropMultiPhase

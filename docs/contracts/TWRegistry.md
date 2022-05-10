@@ -2,6 +2,7 @@
 slug: /TWRegistry
 title: TWRegistry
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # TWRegistry

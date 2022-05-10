@@ -2,6 +2,7 @@
 slug: /VoteERC20
 title: VoteERC20
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # VoteERC20

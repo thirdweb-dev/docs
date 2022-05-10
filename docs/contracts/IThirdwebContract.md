@@ -2,6 +2,7 @@
 slug: /IThirdwebContract
 title: IThirdwebContract
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IThirdwebContract

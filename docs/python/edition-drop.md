@@ -2,6 +2,7 @@
 slug: /edition-drop
 title: EditionDrop Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="contracts.edition_drop"></a>

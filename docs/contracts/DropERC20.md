@@ -2,6 +2,7 @@
 slug: /DropERC20
 title: DropERC20
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # DropERC20

@@ -2,6 +2,7 @@
 slug: /TokenERC1155
 title: TokenERC1155
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # TokenERC1155

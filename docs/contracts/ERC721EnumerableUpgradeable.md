@@ -2,6 +2,7 @@
 slug: /ERC721EnumerableUpgradeable
 title: ERC721EnumerableUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC721EnumerableUpgradeable

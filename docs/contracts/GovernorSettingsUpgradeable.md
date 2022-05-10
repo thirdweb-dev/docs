@@ -2,6 +2,7 @@
 slug: /GovernorSettingsUpgradeable
 title: GovernorSettingsUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # GovernorSettingsUpgradeable

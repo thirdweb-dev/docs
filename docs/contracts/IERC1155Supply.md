@@ -2,6 +2,7 @@
 slug: /IERC1155Supply
 title: IERC1155Supply
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC1155Supply

@@ -2,6 +2,7 @@
 slug: /IERC721Receiver
 title: IERC721Receiver
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC721Receiver

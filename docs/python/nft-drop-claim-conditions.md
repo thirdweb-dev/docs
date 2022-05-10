@@ -2,6 +2,7 @@
 slug: /nft-drop-claim-conditions
 title: DropClaimConditions Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="core.classes.drop_claim_conditions"></a>

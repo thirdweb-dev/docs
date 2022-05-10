@@ -2,6 +2,7 @@
 slug: /DelayedReveal
 title: DelayedReveal
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # DelayedReveal

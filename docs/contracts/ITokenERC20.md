@@ -2,6 +2,7 @@
 slug: /ITokenERC20
 title: ITokenERC20
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ITokenERC20

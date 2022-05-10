@@ -2,6 +2,7 @@
 slug: /erc1155-signature-minting
 title: ERC1155SignatureMinting Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="core.classes.erc_1155_signature_minting"></a>

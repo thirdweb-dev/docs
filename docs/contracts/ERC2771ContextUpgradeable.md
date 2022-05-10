@@ -2,6 +2,7 @@
 slug: /ERC2771ContextUpgradeable
 title: ERC2771ContextUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC2771ContextUpgradeable

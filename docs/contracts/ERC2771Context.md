@@ -2,6 +2,7 @@
 slug: /ERC2771Context
 title: ERC2771Context
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC2771Context

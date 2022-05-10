@@ -2,6 +2,7 @@
 slug: /GovernorVotesUpgradeable
 title: GovernorVotesUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # GovernorVotesUpgradeable

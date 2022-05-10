@@ -2,6 +2,7 @@
 slug: /IERC20MetadataUpgradeable
 title: IERC20MetadataUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC20MetadataUpgradeable

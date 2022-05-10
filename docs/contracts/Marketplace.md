@@ -2,6 +2,7 @@
 slug: /Marketplace
 title: Marketplace
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # Marketplace

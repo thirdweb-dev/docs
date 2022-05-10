@@ -6,7 +6,7 @@ slug: /getting-started/your-first-app
 
 ## Installation
 
-Install the latest version of the sdk and the react skd-wrapper, as well as the `ethers` peer-dependency.
+Install the latest version of the SDK, the React SDK-wrapper, as well as the `ethers` peer-dependency.
 
 ```bash npm2yarn
 npm install @thirdweb-dev/react @thirdweb-dev/sdk ethers
@@ -21,7 +21,7 @@ The thirdweb SDK can be initialized in two different ways:
 
 As a general rule of thumb, if you only need to view and display data from the blockchain, a **read-only connection** will suffice for your application.
 
-For most applications though, you’ll need to connect your users wallets and prompt them to accept transactions so they can write data to the blockchain. In this case, you’ll need to pass a **Signer** to the SDK.
+For most applications though, you’ll need to connect your user's' wallets and prompt them to accept transactions so they can write data to the blockchain. In this case, you’ll need to pass a **Signer** to the SDK.
 
 :::info
 
@@ -38,11 +38,11 @@ import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
 
 // the chainId our app wants to be running on
 // for our example we're goingt o be using the Polygon Mumbai Testnet
-const desirecdChainId = ChainId.Mumbai;
+const desiredChainId = ChainId.Mumbai;
 
 export const MyApp = () => {
   return (
-    <ThirdwebProvider desirecdChainId={desirecdChainId}>
+    <ThirdwebProvider desiredChainId={desiredChainId}>
       {/*
           Your App Goes Here
       */}
@@ -59,7 +59,7 @@ There are additional SDK options for advanced use-cases, you can learn more abou
 
 ## Connecting Wallets
 
-thirdweb has custom hooks for most popular wallets, including:
+thirdweb has custom hooks for the most popular wallets, including:
 
 - [MetaMask](/react/react.usemetamask)
 - [Wallet Connect](/react/react.usewalletconnect)

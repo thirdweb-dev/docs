@@ -2,6 +2,7 @@
 slug: /IAccessControl
 title: IAccessControl
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IAccessControl

@@ -2,6 +2,7 @@
 slug: /erc20
 title: ERC20 Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="core.classes.erc_20"></a>

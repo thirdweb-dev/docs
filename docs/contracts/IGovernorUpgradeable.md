@@ -2,6 +2,7 @@
 slug: /IGovernorUpgradeable
 title: IGovernorUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IGovernorUpgradeable

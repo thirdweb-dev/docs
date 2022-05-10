@@ -2,6 +2,7 @@
 slug: /GovernorVotesQuorumFractionUpgradeable
 title: GovernorVotesQuorumFractionUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # GovernorVotesQuorumFractionUpgradeable

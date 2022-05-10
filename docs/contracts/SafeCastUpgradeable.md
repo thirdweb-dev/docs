@@ -2,6 +2,7 @@
 slug: /SafeCastUpgradeable
 title: SafeCastUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # SafeCastUpgradeable

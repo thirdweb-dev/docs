@@ -2,6 +2,7 @@
 slug: /ERC20Upgradeable
 title: ERC20Upgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC20Upgradeable

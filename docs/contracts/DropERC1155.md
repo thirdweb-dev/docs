@@ -2,6 +2,7 @@
 slug: /DropERC1155
 title: DropERC1155
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # DropERC1155

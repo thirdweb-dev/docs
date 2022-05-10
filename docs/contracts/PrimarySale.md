@@ -2,6 +2,7 @@
 slug: /PrimarySale
 title: PrimarySale
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # PrimarySale

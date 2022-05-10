@@ -50,7 +50,7 @@ Congratulations! You just deployed your first smart contract onto the Mumbai Pol
 
 :::info Deploying via SDK
 
-You can also deploy contracts directly via any of our SDKs, this allows you to deploy contracts dynamically based on what your application needs are. Below is an example to deploy the same NFT Collection we deployed via the thirdweb dashboard via sdk.
+You can also deploy contracts directly via any of our SDKs, this allows you to deploy contracts dynamically based on what your application needs are. Below is an example to deploy the same NFT Collection we deployed via the thirdweb dashboard with the sdk.
 
 ```javascript title="deployNftCollection.js"
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";

@@ -2,6 +2,7 @@
 slug: /contract-royalty
 title: ContractRoyalty Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="core.classes.contract_royalty"></a>

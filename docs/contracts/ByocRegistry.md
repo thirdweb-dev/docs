@@ -2,6 +2,7 @@
 slug: /ByocRegistry
 title: ByocRegistry
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ByocRegistry

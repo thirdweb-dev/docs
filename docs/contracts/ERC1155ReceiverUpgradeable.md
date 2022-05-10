@@ -2,6 +2,7 @@
 slug: /ERC1155ReceiverUpgradeable
 title: ERC1155ReceiverUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC1155ReceiverUpgradeable

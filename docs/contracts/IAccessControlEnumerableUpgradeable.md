@@ -2,6 +2,7 @@
 slug: /IAccessControlEnumerableUpgradeable
 title: IAccessControlEnumerableUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IAccessControlEnumerableUpgradeable

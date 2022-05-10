@@ -2,6 +2,7 @@
 slug: /IERC721EnumerableUpgradeable
 title: IERC721EnumerableUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC721EnumerableUpgradeable

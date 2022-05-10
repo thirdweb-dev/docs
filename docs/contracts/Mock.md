@@ -2,6 +2,7 @@
 slug: /Mock
 title: Mock
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # Mock

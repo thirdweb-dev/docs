@@ -2,6 +2,7 @@
 slug: /ERC1155BurnableUpgradeable
 title: ERC1155BurnableUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC1155BurnableUpgradeable

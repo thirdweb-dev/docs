@@ -2,6 +2,7 @@
 slug: /token
 title: Token Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="contracts.token"></a>

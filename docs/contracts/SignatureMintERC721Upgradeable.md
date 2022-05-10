@@ -2,6 +2,7 @@
 slug: /SignatureMintERC721Upgradeable
 title: SignatureMintERC721Upgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # SignatureMintERC721Upgradeable

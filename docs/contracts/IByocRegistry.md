@@ -2,6 +2,7 @@
 slug: /IByocRegistry
 title: IByocRegistry
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IByocRegistry

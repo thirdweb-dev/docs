@@ -2,6 +2,7 @@
 slug: /ISignatureMintERC20
 title: ISignatureMintERC20
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ISignatureMintERC20

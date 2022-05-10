@@ -2,6 +2,7 @@
 slug: /Permissions
 title: Permissions
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # Permissions
