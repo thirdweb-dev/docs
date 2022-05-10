@@ -11,19 +11,19 @@ With an intuitive dashboard, SDKs for the most popular languages, and audited pr
 
 thirdweb lowers the bar for developers to transition their existing skills into the web3 development space by reducing the complexities of interacting with smart contracts with familiar concepts and by providing intuitive, easy-to-use SDKs.
 
-We offer tools to help you every step of the way, from creating ad deploying your contracts on a testnet to giving your users an optimized experience in production.
+We offer tools to help you every step of the way, from creating and deploying your contracts on a testnet to giving your users an optimized experience in production.
 
 ![Thirdweb App Framework](./assets/app-framework.png)
 
 All of our tools aim to provide a seamless developer experience with built-in features including:
 
 - **Audited, pre-built smart contracts** for you to deploy on all the top blockchains.
-- **Intuitive, multi-language SDKs** that reduce the learning-curve of becoming productive in web3
-- **Easy to use UI components** to solve common problems like letting users connect their wallet or send transactions
+- **Intuitive, multi-language SDKs** that reduce the learning-curve of becoming productive in web3.
+- **Easy to use UI components** to solve common problems like letting users connect their wallet or send transactions.
 
-thirdweb is actively used by tens of thousands of active builders and trusted by some of the world's top organizations in production. Additionally we give you direct access to talk to our engineers and get detailed answers about all the quirks and nuances of your project in our [Discord](https://discord.com/invite/thirdweb)!
+thirdweb is used by tens of thousands of active builders and trusted by some of the world's top organizations in production. Additionally, we give you direct access to talk to our engineers and get detailed answers about all the quirks and nuances of your project in our [Discord](https://discord.com/invite/thirdweb)!
 
-## How thirdweb Simplifies Web3 Development
+## How thirdweb simplifies Web3 development
 
 Building web3 apps is hard, and the cost of mistakes can be extremely high.
 
@@ -40,7 +40,7 @@ Whether you're building a completely new web3 application or integrating web3 me
 
 thirdweb has tools to enable and enhance your web3 application at every step in the development stack. All of thirdweb’s tools are [open source](https://github.com/orgs/thirdweb-dev) and completely server-less. This means we’re not using databases behind the scenes, or any centralization that relies solely on thirdweb for your applications to work.
 
-Let’s explore thirdweb’s three core pillars
+Let’s explore thirdweb’s three core pillars:
 
 1. Contracts
 2. SDKs
@@ -50,7 +50,7 @@ Let’s explore thirdweb’s three core pillars
 
 ![Thirdweb Contract Layer](./assets/contract-layer.png)
 
-Smart Contracts are the fundamental layer of any web3 tech stack.They’re responsible for storing your applications data on the blockchain.
+Smart Contracts are the fundamental layer of any web3 tech stack. They’re responsible for storing your applications data on the blockchain.
 
 You can deploy one of our [pre-built contracts](/pre-built-contracts) onto a blockchain of your choice, or you could extend your custom-built contracts using [thirdweb deploy](/thirdweb-deploy) to give you all of thirdweb's capabilities in your own contract.
 
@@ -76,7 +76,7 @@ We provide SDKs to interact directly with your smart contracts in your favorite 
 - [Python](/python)
 - _Go (coming soon)_
 
-thirdweb's SDKs connect your application to the your smart contracts, which allows you to easily read and write data to your smart contracts.
+thirdweb's SDKs connect your application to your smart contracts, which allows you to easily read and write data to them.
 
 Within the SDK, we do all the heavy lifting, like connecting to the blockchain via RPC, configuring which networks you want to support, fetching data from IPFS, caching results from the blockchain for faster responses, and much more.
 
