@@ -78,3 +78,17 @@ article {
   color: var(--ifm-link-color);
   text-decoration: underline;
 }
+
+/* hide categories */
+
+.hidden-category a {
+  color: var(--ifm-menu-color) !important;
+}
+
+.hidden-category button {
+  display: none;
+}
+
+.hidden-category > .menu__list {
+  display: none !important;
+}
