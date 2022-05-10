@@ -5,6 +5,7 @@ const lightCodeTheme = require("prism-react-renderer/themes/github");
 const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 const npm2yarn = require("@docusaurus/remark-plugin-npm2yarn");
+const disableCachePlugin = require("./plugins/disable-cache-plugin");
 
 const baseUrl = process.env.BASE_URL || "/";
 
@@ -76,6 +77,7 @@ const config = {
     ],
   ],
   plugins: [
+    disableCachePlugin,
     [
       "@docusaurus/plugin-content-docs",
       {
