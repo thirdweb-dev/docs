@@ -2,6 +2,7 @@
 slug: /IERC2981Upgradeable
 title: IERC2981Upgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC2981Upgradeable

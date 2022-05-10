@@ -2,6 +2,7 @@
 slug: /IDropClaimCondition
 title: IDropClaimCondition
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IDropClaimCondition

@@ -2,6 +2,7 @@
 slug: /PlatformFee
 title: PlatformFee
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # PlatformFee

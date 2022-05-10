@@ -2,6 +2,7 @@
 slug: /IERC20
 title: IERC20
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC20

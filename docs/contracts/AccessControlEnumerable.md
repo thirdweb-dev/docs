@@ -2,6 +2,7 @@
 slug: /AccessControlEnumerable
 title: AccessControlEnumerable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # AccessControlEnumerable

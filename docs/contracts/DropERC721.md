@@ -2,6 +2,7 @@
 slug: /DropERC721
 title: DropERC721
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # DropERC721

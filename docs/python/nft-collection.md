@@ -2,6 +2,7 @@
 slug: /nft-collection
 title: NFTCollection Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="contracts.nft_collection"></a>

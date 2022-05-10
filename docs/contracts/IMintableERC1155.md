@@ -2,6 +2,7 @@
 slug: /IMintableERC1155
 title: IMintableERC1155
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IMintableERC1155

@@ -2,6 +2,7 @@
 slug: /LinkTokenInterface
 title: LinkTokenInterface
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # LinkTokenInterface

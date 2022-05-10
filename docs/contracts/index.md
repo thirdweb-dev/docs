@@ -1,6 +1,7 @@
 ---
 title: Thirdweb Contracts
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 <p align="center">

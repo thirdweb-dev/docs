@@ -2,6 +2,7 @@
 slug: /IERC1155ReceiverUpgradeable
 title: IERC1155ReceiverUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC1155ReceiverUpgradeable

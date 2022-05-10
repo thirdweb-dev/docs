@@ -2,6 +2,7 @@
 slug: /ContractMetadata
 title: ContractMetadata
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ContractMetadata

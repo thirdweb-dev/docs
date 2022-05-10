@@ -2,6 +2,7 @@
 slug: /IERC1155Upgradeable
 title: IERC1155Upgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC1155Upgradeable

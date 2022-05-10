@@ -2,6 +2,7 @@
 slug: /edition-drop-claim-conditions
 title: DropERC1155ClaimConditions Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="core.classes.drop_erc1155_claim_conditions"></a>

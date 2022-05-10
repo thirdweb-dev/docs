@@ -2,6 +2,7 @@
 slug: /sdk
 title: ThirdwebSDK Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="core.sdk"></a>

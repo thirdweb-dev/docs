@@ -2,6 +2,7 @@
 slug: /IClaimCondition
 title: IClaimCondition
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IClaimCondition

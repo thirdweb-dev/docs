@@ -2,6 +2,7 @@
 slug: /ContextUpgradeable
 title: ContextUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ContextUpgradeable

@@ -2,6 +2,7 @@
 slug: /StorageSlot
 title: StorageSlot
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # StorageSlot

@@ -2,6 +2,7 @@
 slug: /ipfs-storage
 title: IpfsStorage Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="core.classes.ipfs_storage"></a>

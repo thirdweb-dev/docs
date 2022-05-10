@@ -2,6 +2,7 @@
 slug: /marketplace
 title: Marketplace Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="contracts.marketplace"></a>

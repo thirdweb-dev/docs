@@ -2,6 +2,7 @@
 slug: /IERC165
 title: IERC165
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC165

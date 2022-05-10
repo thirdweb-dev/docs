@@ -2,6 +2,7 @@
 slug: /IERC1155MetadataURIUpgradeable
 title: IERC1155MetadataURIUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC1155MetadataURIUpgradeable

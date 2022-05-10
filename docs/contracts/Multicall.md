@@ -2,6 +2,7 @@
 slug: /Multicall
 title: Multicall
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # Multicall

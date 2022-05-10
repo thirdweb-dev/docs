@@ -2,6 +2,7 @@
 slug: /SignatureMintERC20Upgradeable
 title: SignatureMintERC20Upgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # SignatureMintERC20Upgradeable

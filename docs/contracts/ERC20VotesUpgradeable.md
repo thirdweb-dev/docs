@@ -2,6 +2,7 @@
 slug: /ERC20VotesUpgradeable
 title: ERC20VotesUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC20VotesUpgradeable

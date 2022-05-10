@@ -2,6 +2,7 @@
 slug: /marketplace-auction
 title: MarketplaceAuction Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="core.classes.marketplace_auction"></a>

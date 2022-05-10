@@ -2,6 +2,7 @@
 slug: /IMarketplace
 title: IMarketplace
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IMarketplace

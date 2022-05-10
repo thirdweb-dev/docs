@@ -2,6 +2,7 @@
 slug: /IERC721A
 title: IERC721A
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC721A

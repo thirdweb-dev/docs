@@ -2,6 +2,7 @@
 slug: /Forwarder
 title: Forwarder
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # Forwarder

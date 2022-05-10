@@ -2,6 +2,7 @@
 slug: /ERC1155Upgradeable
 title: ERC1155Upgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC1155Upgradeable

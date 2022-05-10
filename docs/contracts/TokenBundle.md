@@ -2,6 +2,7 @@
 slug: /TokenBundle
 title: TokenBundle
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # TokenBundle

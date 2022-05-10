@@ -1,6 +1,7 @@
 ---
 title: Thirdweb React SDK
 hide_title: true
+displayed_sidebar: react
 ---
 
 <p align="center">

@@ -2,6 +2,7 @@
 slug: /Create2
 title: Create2
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # Create2

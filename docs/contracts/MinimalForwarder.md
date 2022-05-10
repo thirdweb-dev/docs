@@ -2,6 +2,7 @@
 slug: /MinimalForwarder
 title: MinimalForwarder
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # MinimalForwarder

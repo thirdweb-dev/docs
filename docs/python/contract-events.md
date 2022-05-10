@@ -2,6 +2,7 @@
 slug: /contract-events
 title: ContractEvents Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="core.classes.contract_events"></a>

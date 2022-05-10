@@ -2,6 +2,7 @@
 slug: /ILazyMint
 title: ILazyMint
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ILazyMint

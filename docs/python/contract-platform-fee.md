@@ -2,6 +2,7 @@
 slug: /contract-platform-fee
 title: ContractPlatformFee Objects
 hide_title: true
+displayed_sidebar: python
 ---
 
 <a id="core.classes.contract_platform_fee"></a>

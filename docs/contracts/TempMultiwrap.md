@@ -2,6 +2,7 @@
 slug: /TempMultiwrap
 title: TempMultiwrap
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # TempMultiwrap

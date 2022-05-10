@@ -2,6 +2,7 @@
 slug: /Royalty
 title: Royalty
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # Royalty

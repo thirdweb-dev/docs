@@ -2,6 +2,7 @@
 slug: /Split
 title: Split
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # Split

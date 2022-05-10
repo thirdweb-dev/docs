@@ -2,6 +2,7 @@
 slug: /custom
 title: Getting a Custom Contract Instance
 hide_title: true
+displayed_sidebar: python
 ---
 
 # Using Custom Contracts

@@ -2,6 +2,7 @@
 slug: /ERC1155HolderUpgradeable
 title: ERC1155HolderUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC1155HolderUpgradeable

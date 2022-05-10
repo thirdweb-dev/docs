@@ -2,6 +2,7 @@
 slug: /ITWFee
 title: ITWFee
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ITWFee

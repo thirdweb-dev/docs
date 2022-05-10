@@ -2,6 +2,7 @@
 slug: /CurrencyTransferLib
 title: CurrencyTransferLib
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # CurrencyTransferLib

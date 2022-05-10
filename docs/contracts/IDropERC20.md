@@ -2,6 +2,7 @@
 slug: /IDropERC20
 title: IDropERC20
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IDropERC20

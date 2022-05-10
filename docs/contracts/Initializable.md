@@ -2,6 +2,7 @@
 slug: /Initializable
 title: Initializable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # Initializable

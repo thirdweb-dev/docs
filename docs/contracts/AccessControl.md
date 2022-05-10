@@ -2,6 +2,7 @@
 slug: /AccessControl
 title: AccessControl
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # AccessControl

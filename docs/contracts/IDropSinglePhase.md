@@ -2,6 +2,7 @@
 slug: /IDropSinglePhase
 title: IDropSinglePhase
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IDropSinglePhase

@@ -2,6 +2,7 @@
 slug: /Pack
 title: Pack
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # Pack

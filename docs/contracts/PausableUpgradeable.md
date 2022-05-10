@@ -2,6 +2,7 @@
 slug: /PausableUpgradeable
 title: PausableUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # PausableUpgradeable

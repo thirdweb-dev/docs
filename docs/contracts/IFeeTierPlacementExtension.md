@@ -2,6 +2,7 @@
 slug: /IFeeTierPlacementExtension
 title: IFeeTierPlacementExtension
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IFeeTierPlacementExtension

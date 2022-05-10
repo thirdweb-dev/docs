@@ -2,6 +2,7 @@
 slug: /IBurnableERC20
 title: IBurnableERC20
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IBurnableERC20

@@ -2,6 +2,7 @@
 slug: /PermissionsEnumerable
 title: PermissionsEnumerable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # PermissionsEnumerable

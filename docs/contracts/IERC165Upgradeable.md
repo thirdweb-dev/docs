@@ -2,6 +2,7 @@
 slug: /IERC165Upgradeable
 title: IERC165Upgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC165Upgradeable

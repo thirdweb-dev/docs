@@ -1,6 +1,7 @@
 ---
 title: Thirdweb Python SDK
 hide_title: true
+displayed_sidebar: python
 ---
 
 <p align="center">

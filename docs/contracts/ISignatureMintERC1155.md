@@ -2,6 +2,7 @@
 slug: /ISignatureMintERC1155
 title: ISignatureMintERC1155
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ISignatureMintERC1155

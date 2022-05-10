@@ -2,6 +2,7 @@
 slug: /TokenERC721
 title: TokenERC721
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # TokenERC721

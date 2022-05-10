@@ -2,6 +2,7 @@
 slug: /ECDSAUpgradeable
 title: ECDSAUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ECDSAUpgradeable

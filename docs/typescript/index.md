@@ -1,6 +1,7 @@
 ---
 title: Thirdweb Typescript SDK
 hide_title: true
+displayed_sidebar: typescript
 ---
 
 <p align="center">

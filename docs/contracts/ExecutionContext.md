@@ -2,6 +2,7 @@
 slug: /ExecutionContext
 title: ExecutionContext
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ExecutionContext

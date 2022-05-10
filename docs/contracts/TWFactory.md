@@ -2,6 +2,7 @@
 slug: /TWFactory
 title: TWFactory
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # TWFactory

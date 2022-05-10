@@ -2,6 +2,7 @@
 slug: /ERC20BurnableUpgradeable
 title: ERC20BurnableUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC20BurnableUpgradeable

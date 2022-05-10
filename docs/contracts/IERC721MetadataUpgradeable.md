@@ -2,6 +2,7 @@
 slug: /IERC721MetadataUpgradeable
 title: IERC721MetadataUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC721MetadataUpgradeable

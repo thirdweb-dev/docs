@@ -2,6 +2,7 @@
 slug: /TokenERC20
 title: TokenERC20
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # TokenERC20

@@ -2,6 +2,7 @@
 slug: /IMulticall
 title: IMulticall
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IMulticall

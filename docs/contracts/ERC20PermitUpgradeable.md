@@ -2,6 +2,7 @@
 slug: /ERC20PermitUpgradeable
 title: ERC20PermitUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC20PermitUpgradeable

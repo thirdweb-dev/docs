@@ -2,6 +2,7 @@
 slug: /ERC721HolderUpgradeable
 title: ERC721HolderUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC721HolderUpgradeable

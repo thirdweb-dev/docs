@@ -2,6 +2,7 @@
 slug: /IERC721Metadata
 title: IERC721Metadata
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IERC721Metadata

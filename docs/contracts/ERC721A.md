@@ -2,6 +2,7 @@
 slug: /ERC721A
 title: ERC721A
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC721A

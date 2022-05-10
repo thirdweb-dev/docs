@@ -2,6 +2,7 @@
 slug: /IPack
 title: IPack
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IPack

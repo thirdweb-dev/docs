@@ -2,6 +2,7 @@
 slug: /IOwnable
 title: IOwnable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # IOwnable

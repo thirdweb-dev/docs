@@ -2,6 +2,7 @@
 slug: /CountersUpgradeable
 title: CountersUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # CountersUpgradeable

@@ -2,6 +2,7 @@
 slug: /ERC20PausableUpgradeable
 title: ERC20PausableUpgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC20PausableUpgradeable

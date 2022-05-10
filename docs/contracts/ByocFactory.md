@@ -2,6 +2,7 @@
 slug: /ByocFactory
 title: ByocFactory
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ByocFactory

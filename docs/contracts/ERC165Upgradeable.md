@@ -2,6 +2,7 @@
 slug: /ERC165Upgradeable
 title: ERC165Upgradeable
 hide_title: true
+displayed_sidebar: contracts
 ---
 
 # ERC165Upgradeable
