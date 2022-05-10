@@ -12,6 +12,7 @@ const packageRoot = "./submodules/typescript";
 const inDir = packageRoot + "/docs";
 const readmePath = packageRoot + "/README.md";
 
+pkg.rmdirSync(outDir, { recursive: true, force: true });
 pkg.ensureDirSync(outDir);
 
 async function main() {

@@ -12,6 +12,8 @@ const packageRoot = "./submodules/python";
 const inDir = packageRoot + "/docs/docs";
 const readmePath = packageRoot + "/README.md";
 
+pkg.rmdirSync(outDir, { recursive: true, force: true });
+
 pkg.ensureDirSync(outDir);
 
 async function main() {

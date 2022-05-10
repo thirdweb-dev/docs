@@ -123,7 +123,7 @@ const ethers = require("ethers");
 // Your rpc URL here
 // RPC stands for Remote Procedure Call and is a simple form of API interaction
 // Every chain has a rpc url, this is Rinkeby's public one
-const rpcUrl = "https://rinkeby-light.eth.linkpool.io/";
+const rpcUrl = "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161;
 
 const provider = ethers.getDefaultProvider(rpcUrl);
 
@@ -151,13 +151,13 @@ import dotenv from "dotenv";
 // getting the private key
 dotenv.config();
 
-// Instantiate 3rdweb SDK
+// Instantiate thirdweb SDK
 const sdk = new ThirdwebSDK(
   new ethers.Wallet(
     // Your wallet private key
     process.env.PRIVATE_KEY as string,
     // This is the RPC URL for Rinkeby
-    ethers.getDefaultProvider("https://rinkeby-light.eth.linkpool.io/"),
+    ethers.getDefaultProvider("https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161),
   ),
 );
 ```
