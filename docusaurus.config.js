@@ -32,7 +32,6 @@ const config = {
           id: "onboarding",
           path: "docs/onboarding",
           routeBasePath: "/",
-          breadcrumbs: false,
           remarkPlugins: [[npm2yarn, { sync: true }]],
           sidebarCollapsed: false,
           editUrl: "https://github.com/thirdweb-dev/docs/edit/main",

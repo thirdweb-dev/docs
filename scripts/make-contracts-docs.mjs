@@ -16,6 +16,8 @@ const readmePath = packageRoot + "/README.md";
 const designInDir = packageRoot + "/contracts";
 const designOutDir = outDir + "/design";
 
+pkg.rmdirSync(outDir, { recursive: true, force: true });
+
 pkg.ensureDirSync(outDir);
 pkg.ensureDirSync(designOutDir);
 
