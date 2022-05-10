@@ -5,6 +5,11 @@ async function disableCachePlugin(context, opts) {
   return {
     name: "docusaurus-disable-cache-plugin",
 
+    async postBuild(props) {
+      //kill the process once we're done to avoid swc getting stuck like an idiot
+      process.exit(0);
+    },
+
     configureWebpack(config, isServer, utils, content) {
       // Modify internal webpack config. If returned value is an Object, it
       // will be merged into the final config using webpack-merge;
