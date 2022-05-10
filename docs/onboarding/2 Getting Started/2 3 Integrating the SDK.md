@@ -91,8 +91,8 @@ If you’ve ever used a web3 application before, this might be a familiar flow t
 
 1. User is prompted to confirm the transaction
 2. User confirms the transaction
-3. User waits for the transaction to be written to the blockchain.
-4. User is notified when the transaction has successfully processed.
+3. User waits for the transaction to be written to the blockchain
+4. User is notified when the transaction has successfully processed
 
 All of our write operations in the SDK await the result of the transaction to be processed, (after step 4), so that you can use and display any of the details of the transaction you want.
 
