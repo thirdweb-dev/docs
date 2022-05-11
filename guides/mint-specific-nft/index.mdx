@@ -13,7 +13,7 @@ date: "2022-05-10"
 # Mint a Specific NFT
 
 Use signature-based minting to allow users to select which 1-of-1 NFT to mint
-
+<!-- truncate -->
 ## Introduction
 
 In this guide, we are going to use Next.js to allow users to pick which 1 of 1 NFT they want to mint! To do this, we will create an NFT collection, build the frontend for users to view the collection, and allow users to select an NFT for minting. We will use the thirdweb [NFT Collection contract](https://portal.thirdweb.com/contracts/nft-collection) which allows you to mint 1 of 1 NFTs. You can find a version of this project [deployed with Vercel here](https://mint-specific-oknzdg4eo-mgoldstein18.vercel.app) and all the source code here.
@@ -40,33 +40,27 @@ The easiest way to set up a Next.js app is to use the thirdweb template which ca
 
 Install the required dependencies:
 
-```bash
+```bash npm2yarn
 npm install
-# or
-yarn install
 ```
 
 Then, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
+```bash npm2yarn
+npm install
 ```
 
 Open [http://localhost:3000](http://localhost:3000/) with your browser to see the result. At the moment, all that your app allows is for you to connect your wallet.
 
 For this project, we will use Chakra to style our components. You can install these dependencies:
 
-```bash
-npm i @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
-# or
-yarn add @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
+```bash npm2yarn
+npm install @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
 ```
 
 Don’t forget to add the `ChakraProvider`, afterwhich, your `_app.tsx` (in the `pages` folder) should look like this:
 
-```tsx
+```tsx title="App.tsx"
 import type { AppProps } from 'next/app';
 import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
 import { ChakraProvider } from '@chakra-ui/react';
