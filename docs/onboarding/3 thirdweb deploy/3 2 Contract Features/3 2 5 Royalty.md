@@ -1,6 +1,6 @@
 ---
-slug: /thirdweb-deploy/contract-features/royalties
-title: Royalties
+slug: /thirdweb-deploy/contract-features/royalty
+title: Royalty
 ---
 
 import FeatureCodeSnippets from "../../../../src/components/FeatureCodeSnippets";
