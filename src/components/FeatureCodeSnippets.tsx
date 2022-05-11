@@ -4,6 +4,7 @@ import jsonData from "../../docs/feature_snippets.json";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import Heading from "@theme/Heading";
 
 export default function FeatureCodeSnippets({ 
   featureName
@@ -24,6 +25,13 @@ export default function FeatureCodeSnippets({
   return (
     <>
       <CodeSnippet examples={examples} references={references} />
+      {methods.map((method, index) => (
+        <>
+          <Heading as="h4">{method.name}</Heading>
+          <p>{method.summary}</p>
+          <CodeSnippet examples={method.examples} references={method.reference} />
+        </>
+      ))}
     </>
   );
 }
