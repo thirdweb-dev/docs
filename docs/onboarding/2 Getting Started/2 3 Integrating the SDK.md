@@ -8,7 +8,7 @@ After you’ve deployed a contract using either the thirdweb dashboard or a thir
 
 **Getting your contract using the thirdweb SDK**
 
-```tsx
+```javascript
 const nftCollection = useNFTCollection("your-contract-address-here");
 ```
 
