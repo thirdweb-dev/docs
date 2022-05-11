@@ -110,11 +110,17 @@ const uploadFile = () => {
 
 Finally we'll create a button to mint an NFT. However we will bind the actual function after coding our backend
 
-```jsx
+<<<<<<< HEAD
+
+````jsx
 <a className="{styles.mainButton}" onClick="{mintWithSignature}">
   Mint NFT
 </a>
-```
+=======
+```html
+<a className="{styles.mainButton}" onClick="{mintWithSignature}">Mint NFT</a>
+>>>>>>> 91e46bc (prepare folder structure for thirdweb deploy contract features)
+````
 
 ### Build an internal API request
 
@@ -151,8 +157,13 @@ Once the unique code is validated, we take the info passed from the front end an
 const signedPayload = await nftCollection.signature.generate({
   to: authorAddress,
   metadata: {
+<<<<<<< HEAD
     name: nftName,
     image: imagePath,
+=======
+    name: nftName as string,
+    image: imagePath as string,
+>>>>>>> 91e46bc (prepare folder structure for thirdweb deploy contract features)
     description: "An awesome animal NFT",
     properties: {
       // Add any properties you want to store on the NFT
@@ -181,4 +192,9 @@ The code above is shown without the checks build inside the app. Check like to m
 
 ## That's it!
 
+<<<<<<< HEAD
 That's how you use unique codes to mint NFTs. This guide is just an example of how to do it. You can decide what settings you want to apply in your application. Bear in mind how you deal with your logic and Private Keys. Using logic and Private Keys at the front end exposes you to risk. Never share your Private Keys, and be aware of how you code your logic.
+=======
+That’s how you use unique codes to mint NFTs. This guide is just an example of how to do it. You can decide what settings you want to apply in your application. Bear in mind how you deal with your logic and Private Keys. Using logic and Private Keys at the front end exposes you to risk. Never share your Private Keys, and be aware of how you code your logic.
+
+> > > > > > > 91e46bc (prepare folder structure for thirdweb deploy contract features)
