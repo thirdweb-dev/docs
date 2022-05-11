@@ -110,17 +110,11 @@ const uploadFile = () => {
 
 Finally we'll create a button to mint an NFT. However we will bind the actual function after coding our backend
 
-<<<<<<< HEAD
-
-````jsx
+```jsx
 <a className="{styles.mainButton}" onClick="{mintWithSignature}">
   Mint NFT
 </a>
-=======
-```html
-<a className="{styles.mainButton}" onClick="{mintWithSignature}">Mint NFT</a>
->>>>>>> 91e46bc (prepare folder structure for thirdweb deploy contract features)
-````
+```
 
 ### Build an internal API request
 
@@ -157,13 +151,8 @@ Once the unique code is validated, we take the info passed from the front end an
 const signedPayload = await nftCollection.signature.generate({
   to: authorAddress,
   metadata: {
-<<<<<<< HEAD
     name: nftName,
     image: imagePath,
-=======
-    name: nftName as string,
-    image: imagePath as string,
->>>>>>> 91e46bc (prepare folder structure for thirdweb deploy contract features)
     description: "An awesome animal NFT",
     properties: {
       // Add any properties you want to store on the NFT
