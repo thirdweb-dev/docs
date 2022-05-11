@@ -26,7 +26,7 @@ contract MyCustomContract is ThirdwebContract, IPermissionsEnumerable {
 }
 ```
 
-Alternatively, you can use our [PermissionsEnumerable](/thirdweb-dev/contracts/feature/permissions/PermissionsEnumerable.sol) implementation of the IPermissionsEnumerable interface to get permissions functionality for your contract out-of-the-box as follows:
+Alternatively, you can use our [PermissionsEnumerable](https://github.com/thirdweb-dev/contracts/feature/permissions/PermissionsEnumerable.sol) implementation of the IPermissionsEnumerable interface to get permissions functionality for your contract out-of-the-box as follows:
 
 ```solidity
 // SPDX-License-Identifier: MIT
