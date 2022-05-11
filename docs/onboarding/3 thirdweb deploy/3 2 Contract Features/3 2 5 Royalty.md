@@ -26,7 +26,6 @@ contract MyCustomContract is ThirdwebContract, IRoyalty {
 }
 ```
 
-
 Alternatively, you can use our [Royalty](https://github.com/thirdweb-dev/contracts/feature/permissions/Royalty.sol) implementation of the IRoyalty interface to get royalty functionality for your contract out-of-the-box as follows:
 
 ```solidity

@@ -30,7 +30,6 @@ contract MyCustomContract is ThirdwebContract, IPrimarySale {
 }
 ```
 
-
 Alternatively, you can use our [PrimarySale](https://github.com/thirdweb-dev/contracts/feature/permissions/PrimarySale.sol) implementation of the IPrimarySale interface to get primary sale functionality for your contract out-of-the-box as follows:
 
 ```solidity
@@ -72,7 +71,6 @@ contract MyCustomContract is ThirdwebContract, IPlatformFee {
 
 }
 ```
-
 
 Alternatively, you can use our [PlatformFee](https://github.com/thirdweb-dev/contracts/feature/permissions/PlatformFee.sol) implementation of the IPlatformFee interface to get platform fee functionality for your contract out-of-the-box as follows:
 

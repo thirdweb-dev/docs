@@ -9,18 +9,18 @@ thirdweb offers pre-built contracts for all the most common use cases in modern 
 
 Currently, thirdweb has pre-built smart contracts for the following use cases:
 
-| Contract       | Description                       | EIP Standard   |
-| -------------- | --------------------------------- | -------------- |
-| NFT Drop       | Claimable drop of one-of-one NFTs | `ERC721`       |
-| NFT Collection | A collection of one-of-one NFTs   | `ERC721`       |
-| Edition Drop   | Claimable drop of N-of-one NFTs   | `ERC1155`      |
-| Edition        | A collection of N-of-one NFTs     | `ERC1155`      |
-| Token Drop     | Claimable drop of ERC20 tokens    | `ERC20`        |
-| Token          | Your own token                    | `ERC20`        |
-| Vote           | Token based voting                | Not Applicable |
-| Split          | Fee splitting for your revenue    | Not Applicable |
-| Marketplace    | Your very own NFT marketplace     | Not Applicable |
-| Pack           | Randomized rewards                | Not Applicable |
+| Contract       | Description                       | EIP Standard                                         | Features                                                                                                                                                                            |
+| -------------- | --------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| NFT Drop       | Claimable drop of one-of-one NFTs | [`ERC721`](https://eips.ethereum.org/EIPS/eip-721)   | [`ERC721`](/thirdweb-deploy/contract-features/erc721), [`Permissions`](/thirdweb-deploy/contract-features/permissions), [`Royalty`](/thirdweb-deploy/contract-features/royalties)   |
+| NFT Collection | A collection of one-of-one NFTs   | [`ERC721`](https://eips.ethereum.org/EIPS/eip-721)   | [`ERC721`](/thirdweb-deploy/contract-features/erc721), [`Permissions`](/thirdweb-deploy/contract-features/permissions), [`Royalty`](/thirdweb-deploy/contract-features/royalties)   |
+| Edition Drop   | Claimable drop of N-of-one NFTs   | [`ERC1155`](https://eips.ethereum.org/EIPS/eip-1155) | [`ERC1155`](/thirdweb-deploy/contract-features/erc1155), [`Permissions`](/thirdweb-deploy/contract-features/permissions), [`Royalty`](/thirdweb-deploy/contract-features/royalties) |
+| Edition        | A collection of N-of-one NFTs     | [`ERC1155`](https://eips.ethereum.org/EIPS/eip-721)  | [`ERC1155`](/thirdweb-deploy/contract-features/erc1155), [`Permissions`](/thirdweb-deploy/contract-features/permissions), [`Royalty`](/thirdweb-deploy/contract-features/royalties) |
+| Token Drop     | Claimable drop of ERC20 tokens    | [`ERC20`](https://eips.ethereum.org/EIPS/eip-20)     | [`ERC20`](/thirdweb-deploy/contract-features/erc20), [`Permissions`](/thirdweb-deploy/contract-features/permissions), [`Royalty`](/thirdweb-deploy/contract-features/royalties)     |
+| Token          | Your own token                    | [`ERC20`](https://eips.ethereum.org/EIPS/eip-20)     | [`ERC20`](/thirdweb-deploy/contract-features/erc20), [`Permissions`](/thirdweb-deploy/contract-features/permissions), [`Royalty`](/thirdweb-deploy/contract-features/royalties)     |
+| Vote           | Token based voting                | N/A                                                  | N/A                                                                                                                                                                                 |
+| Split          | Fee splitting for your revenue    | N/A                                                  | N/A                                                                                                                                                                                 |
+| Marketplace    | Your very own NFT marketplace     | N/A                                                  | N/A                                                                                                                                                                                 |
+| Pack           | Randomized rewards                | N/A                                                  | N/A                                                                                                                                                                                 |
 
 ## How thirdweb pre-built contracts work
 
