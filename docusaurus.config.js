@@ -147,9 +147,9 @@ const config = {
         hideOnScroll: true,
         logo: {
           alt: "thirdweb docs",
-          src: "img/thirdweb.png",
+          src: "img/thirdweb-logo-transparent-black.svg",
           href: "/",
-          srcDark: "img/thirdweb-white.png",
+          srcDark: "img/thirdweb-logo-transparent-white.svg",
         },
         items: [
           {
