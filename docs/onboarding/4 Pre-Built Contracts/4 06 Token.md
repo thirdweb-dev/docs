@@ -81,7 +81,7 @@ const mintCurrency = async (amount) => {
   try {
     await token.mint(amount);
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 

@@ -14,11 +14,11 @@ Constructs a new instance of the `DropErc1155History` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<DropERC1155>);
+constructor(analytics: ContractAnalytics<DropERC1155>);
 ```
 
 ## Parameters
 
-| Parameter       | Type                               | Description |
-| --------------- | ---------------------------------- | ----------- |
-| contractWrapper | ContractWrapper&lt;DropERC1155&gt; |             |
+| Parameter | Type                                 | Description |
+| --------- | ------------------------------------ | ----------- |
+| analytics | ContractAnalytics&lt;DropERC1155&gt; |             |
