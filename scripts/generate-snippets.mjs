@@ -93,3 +93,8 @@ fs.writeFileSync(
   `${process.cwd()}/docs/snippets.json`,
   JSON.stringify(snippets, null, 2),
 );
+
+fs.writeFileSync(
+  `${process.cwd()}/docs/feature_snippets.json`,
+  fs.readFileSync(`${process.cwd()}/submodules/typescript/docs/feature_snippets.json`, "utf8"),
+)
