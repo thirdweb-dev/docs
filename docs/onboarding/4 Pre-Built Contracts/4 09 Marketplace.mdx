@@ -6,26 +6,97 @@ import ThirdwebCodeSnippet from "../../../src/components/ThirdwebCodeSnippet";
 
 # Marketplace
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+The Marketplace is a contract where you can buy and sell NFTs, such as to OpenSea or Rarible.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+The Marketplace contract allows you to list your NFTs for direct listing or for auction.
+Other users can come and place offers/bids or buy the NFTs for the amount that you specified in your listing.
+If you choose to, other users can also list _their_ NFTs for sale on the marketplace too!
 
-## Dashboard View
+You could use the Marketplace contract to:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+- Sell your NFTs on your own marketplace
+- Create auctions where the highest bidder after a certain period of time wins the NFT
+- Create an open marketplace where any user can list NFTs for sale, like OpenSea.
+
+:::tip Learn more
+
+[How thirdweb pre-built contracts work and how to create one](/pre-built-contracts)
+
+:::
 
 ## Create a Marketplace Contract
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+Learn how to create any of thirdweb's pre-built contracts in the [Deploying Contracts page](/getting-started/deploying-contracts).
 
 ## Getting the contract in your application
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+To start using your Marketplace contract inside your application, you'll need to use it's contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <ThirdwebCodeSnippet contract={"Marketplace"} name={"base"} isGetContractCode />
+
+## Creating Listings
+
+There are two types of listings in marketplaces.
+
+1. **Direct Listings**:
+
+- You list your NFT for direct sale.
+- The NFT remains in your wallet.
+- If a user pays the asking price, they will be transferred your NFT.
+- Users can make offers below the asking price, and the listing can have multiple offers at once, you can choose to accept an offer at any time.
+- Users can cancel their bids at any time.
+
+2. **Auction Listings**
+
+- The NFT is transferred to escrow in the marketplace contract until the auction is cancelled or finished.
+- You set the minimum asking price and users can place bids until the auction is finished.
+- Users can make a bid if it is higher than the current highest bid. A bid cannot be cancelled, and the funds are held in escrow by the auction contract.
+- At the end of the auction, no more bids can be placed.
+- At the end of the auction, both the **buyer** and the **seller** call the `closeAuction` function, where the **buyer** is transferred the funds from the highest bid, and the **seller** is transferred the NFT.
+
+### Using the dashboard
+
+Create a new listing by clicking the **New Listing** button in the dashboard.
+
+![Create A Listing via Marketplace Dashboard](./assets/new-listing.png)
+
+### Using the SDK
+
+#### Creating a new Direct Listing
+
+<ThirdwebCodeSnippet contract={"Marketplace"} name={"direct"} />
+
+#### Creating a new Auction Listing
+
+<ThirdwebCodeSnippet contract={"Marketplace"} name={"auction"} />
+
+## Viewing Listings
+
+### All Listings
+
+<ThirdwebCodeSnippet contract={"Marketplace"} name={"getAllListings"} />
+
+### Active Listings
+
+This filters out listings that have finished, been cancelled, or have already been bought out.
+
+<ThirdwebCodeSnippet contract={"Marketplace"} name={"getActiveListings"} />
+
+## Buying an NFT from a Listing
+
+<ThirdwebCodeSnippet contract={"Marketplace"} name={"buyoutListing"} />
+
+## Auction Bid Buffers
+
+We made a few important considerations with the auctions in our smart contract.
+
+- When someone makes a bid in an auction, the time until the auction is finished is extended by a set amount you can configure. This is to avoid users not bidding until the last possible second and win the auction.
+- The user must bid a certain percentage higher than the current highest bid. This is to avoid users bidding miniscule amounts above the previous bid.
+
+### Set Time Buffer
+
+<ThirdwebCodeSnippet contract={"Marketplace"} name={"setTimeBufferInSeconds"} />
+
+### Set Bid Buffer
+
+<ThirdwebCodeSnippet contract={"Marketplace"} name={"setBidBufferBps"} />
