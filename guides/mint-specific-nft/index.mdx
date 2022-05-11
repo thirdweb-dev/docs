@@ -60,7 +60,7 @@ npm install @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motio
 
 Don’t forget to add the `ChakraProvider`, afterwhich, your `_app.tsx` (in the `pages` folder) should look like this:
 
-```tsx title="App.tsx"
+```tsx title="_app.tsx"
 import type { AppProps } from 'next/app';
 import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
 import { ChakraProvider } from '@chakra-ui/react';
@@ -83,14 +83,14 @@ export default MyApp;
 
 **NB:** If you open `_app.tsx`, you’ll see that you can set the chain on which you want your app to work. In this tutorial, we are working on the Rinkeby testnet so we have changed it from this:
 
-```tsx
+```tsx title="_app.tsx"
 // This is the chainId your dApp will work on.
 const activeChainId = ChainId.Mainnet;
 ```
 
 to this:
 
-```tsx
+```tsx title="_app.tsx"
 // This is the chainId your dApp will work on.
 const activeChainId = ChainId.Rinkeby;
 ```
@@ -101,7 +101,7 @@ const activeChainId = ChainId.Rinkeby;
 
 We can use the thirdweb `useAddress` and `useMetamask` to easily create a connect button. Check for a connected address, add the connect button and style with Chakra. Here is what your `pages/index.tsx` should look like:
 
-```tsx
+```tsx title="index.tsx"
 import { Flex, Heading, Button } from '@chakra-ui/react';
 import { useAddress, useMetamask } from '@thirdweb-dev/react';
 import type { NextPage } from 'next';
@@ -139,7 +139,7 @@ Start by creating a function called `handler` and **add an array of NFT metadata
 
 Add a `switch` statement that can return the NFTs if the api receives a `GET` request. The `get-nfts.ts` file should now look like this:
 
-```tsx
+```tsx title="get-nfts.ts"
 import type { NextApiRequest, NextApiResponse } from 'next';
 
 export default async function handler(
@@ -182,7 +182,7 @@ Don’t forget that to interact with the collection contract, we must import the
 
 The comments in the code below should help if you get stuck. After implementing everything above, `get-nfts.ts` should look like this:
 
-```tsx
+```tsx title="get-nfts.ts"
 import type { NextApiRequest, NextApiResponse } from 'next';
 import { ThirdwebSDK, NFTMetadataOwner } from '@thirdweb-dev/sdk';
 import { ethers } from 'ethers';
@@ -268,7 +268,7 @@ We will add a `case` to our `switch` statement to handle `POST` requests and we 
 
 Please follow along in the comments below to see how this is implemented:
 
-```tsx
+```tsx title="get-nfts.ts"
 switch (req.method) {
     case 'GET':
       try {
@@ -345,7 +345,7 @@ Our frontend will have one component and it will call our backend to fetch the N
 
 The first step is to create a new folder, called `components`, at the root of your project. In that folder, you can create a new file called `Nfts.tsx`. Add the following imports and skeleton function and then get started with the first part of our frontend.
 
-```tsx
+```tsx title="Nfts.tsx"
 import {
   Box,
   SimpleGrid,
@@ -374,7 +374,7 @@ export default Nfts;
 
 To fetch the NFTs from the backend we can use the `useEffect` hook. We add some state variables to track when we are loading, store the NFTs and confirm that the NFTs have been fetched. Then add the function to fetch the NFTs and call it in the `useEffect` hook.
 
-```tsx
+```tsx title="Nfts.tsx"
 const Nfts = () => {
   // State to set when we are loading
   const [loading, setLoading] = useState(false);
@@ -412,7 +412,7 @@ const Nfts = () => {
 
 Once we have the NFTs, we can display them using the components we imported from Chakra. Notice that we are checking if the NFTs have been fetched using our state variable and display a `Loading...` message if they haven’t been fetched. The `return` statement uses a `map` method to iterate through the array of NFT metadata that was returned from the backend and it now looks like this:
 
-```tsx
+```tsx title="Nfts.tsx"
 if (fetchedNfts) {
     return (
       <SimpleGrid m='2rem' justifyItems='center' columns={3} spacing={10}>
@@ -474,7 +474,7 @@ if (fetchedNfts) {
 
 One final feature to add before we implement our `mintNft` function is a check to ensure that the user is connected to the correct network. Just above the `return` statement, we can use thirdweb hooks to easily confirm the chain to which the user is connected.
 
-```tsx
+```tsx title="Nfts.tsx"
 // Use address and connect with metamask
   const address = useAddress();
   const connectWithMetamask = useMetamask();
@@ -504,7 +504,7 @@ Well done! You’ve made it this far and we have one final step to complete this
 
 Once this has been implemented, `Nfts.tsx` should look like this:
 
-```tsx
+```tsx title="Nfts.tsx"
 import {
   Box,
   SimpleGrid,
@@ -666,7 +666,7 @@ export default Nfts;
 
 Before you deploy to Vercel or share this project, don’t forget to import the `Nfts.tsx` component to `index.tsx` so that `index.tsx` now looks like this:
 
-```tsx
+```tsx title="index.tsx"
 import { Flex, Heading, Button } from '@chakra-ui/react';
 import { useAddress, useMetamask } from '@thirdweb-dev/react';
 import type { NextPage } from 'next';
