@@ -14,11 +14,12 @@ Constructs a new instance of the `TokenERC20History` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<TokenERC20>);
+constructor(contractWrapper: ContractWrapper<TokenERC20>, analytics: ContractAnalytics<TokenERC20>);
 ```
 
 ## Parameters
 
-| Parameter       | Type                              | Description |
-| --------------- | --------------------------------- | ----------- |
-| contractWrapper | ContractWrapper&lt;TokenERC20&gt; |             |
+| Parameter       | Type                                | Description |
+| --------------- | ----------------------------------- | ----------- |
+| contractWrapper | ContractWrapper&lt;TokenERC20&gt;   |             |
+| analytics       | ContractAnalytics&lt;TokenERC20&gt; |             |
