@@ -6,17 +6,23 @@ import ThirdwebCodeSnippet from "../../../src/components/ThirdwebCodeSnippet";
 
 # NFT Drop
 
-thirdweb's drop contracts **lazy mint** your NFT and makes it available to be claimed by your users.
+thirdweb's drop contracts **lazy mint** your NFTs and makes them available to be claimed by your users.
 
-The NFT Drop contract is best used when you want to release a **1-of-1** or **1-of-many** NFT collection, such as a PFP (profile picture) collection, and uses the [ERC721 Standard](https://eips.ethereum.org/EIPS/eip-721). The NFT Drop contract allows you to define the conditions for when and how your users can mint an NFT, including whitelists, release dates, claim limits and delayed reveals.
+The NFT Drop contract is best used when you want to release a **1-of-1** or **1-of-many** NFT collection,
+such as a PFP (profile picture) collection, and uses the [ERC721 Standard](https://eips.ethereum.org/EIPS/eip-721).
+The NFT Drop contract allows you to define the conditions for when and how your users can mint an NFT,
+including whitelists, release dates, claim limits and delayed reveals.
 
-When you add NFTs to your drop contract, they are **not** minted at this point. You prepare everything for your users so that _they_ can mint the NFT(s). This means the user who claims the NFT is the one who mints it, and it is minted into their wallet. By default, the user is the one who pays the gas fees.
+When you add NFTs to your drop contract, they are **not** minted at this point.
+You prepare everything for your users so that _they_ can mint the NFT(s).
+This means the user who claims the NFT is the one who mints it,
+and it is minted into their wallet. By default, the user is the one who pays the gas fees.
 
 You could use the NFT Drop contract to:
 
-- Release a PFP Collection where each NFT has different combinations of traits
-- Release NFTs of your artwork for a price you want to sell to your users
-- Create a restricted-access NFT where only a certain group of users can claim it
+- Release a PFP Collection where each NFT has a different combination of traits
+- Release NFTs of your artwork, and have your community mint them for a price
+- Create a restricted-access NFT drop, where only a certain list of wallets can claim it
 
 :::tip Learn more
 
@@ -24,7 +30,7 @@ You could use the NFT Drop contract to:
 
 :::
 
-## Create a Drop Contract
+## Create an NFT Drop Contract
 
 Learn how to create any of thirdweb's pre-built contracts in the [Deploying Contracts page](/getting-started/deploying-contracts).
 

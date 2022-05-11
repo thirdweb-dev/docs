@@ -6,26 +6,71 @@ import ThirdwebCodeSnippet from "../../../src/components/ThirdwebCodeSnippet";
 
 # Vote
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+The Vote contract is designed for groups such as DAO's to vote on proposals.
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+In order to use the Vote contract, you also need to have an existing ERC-20 token,
+such as our [Token Contract](/pre-built-contracts/token) to act as the `governance token`.
 
-## Dashboard View
+You could use the Vote contract to:
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+- Vote to decide on organizational changes
+- Vote on managing and distributing funds in a treasury
+- Vote on any other proposal in an organization, such as a DAO
+
+:::tip Learn more
+
+[How thirdweb pre-built contracts work and how to create one](/pre-built-contracts)
+
+:::
 
 ## Create a Vote Contract
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+### Using the dashboard
+
+Learn how to create any of thirdweb's pre-built contracts in the [Deploying Contracts page](/getting-started/deploying-contracts).
 
 ## Getting the contract in your application
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+To start using your Vote contract inside your application, you'll need to use it's contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <ThirdwebCodeSnippet contract={"Vote"} name={"base"} isGetContractCode />
+
+## Creating A Proposal
+
+### Using the dashboard
+
+![Create New Proposal](./assets/create-new-proposal.png)
+
+### Using the SDK
+
+<ThirdwebCodeSnippet contract={"Vote"} name={"propose"} />
+
+## Viewing Proposals
+
+View all of the proposals that have been created in this Vote smart contract.
+
+<ThirdwebCodeSnippet contract={"Vote"} name={"getAll"} />
+
+### Check if a wallet has voted
+
+Check if a wallet address has voted in a specific proposal.
+
+<ThirdwebCodeSnippet contract={"Vote"} name={"hasVoted"} />
+
+## Execute A Proposal
+
+### Check if a proposal can be executed
+
+Check to see if the amount of votes required for the proposal to be executed has been met
+
+<ThirdwebCodeSnippet contract={"Vote"} name={"canExecute"} />
+
+### Execute a proposal
+
+Execute a proposal that has a sufficient amount of votes.
+
+<ThirdwebCodeSnippet contract={"Vote"} name={"execute"} />
+
+## Vote on a Proposal
+
+<ThirdwebCodeSnippet contract={"Vote"} name={"vote"} />

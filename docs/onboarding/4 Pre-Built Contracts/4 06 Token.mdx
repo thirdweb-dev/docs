@@ -13,8 +13,8 @@ The Token contract is compliant with the [ERC20](https://eips.ethereum.org/EIPS/
 You could use the Token contract to:
 
 - Create your own cryptocurrency
-- Sell your NFTs on the [Marketplace](/pre-built-contracts/marketplace) in your custom token.
-- Reward users with tokens for some action they take.
+- Sell your NFTs on the [Marketplace](/pre-built-contracts/marketplace) in your custom token
+- Reward users with tokens for some action they take
 
 :::tip Learn more
 
@@ -52,6 +52,8 @@ You can mint new tokens on the [dashboard](https://thirdweb.com/dashboard) by cl
 
 ## Token Metadata
 
+Get the metadata about the token itself, such as the name, symbol, and decimals.
+
 <ThirdwebCodeSnippet contract={"Token"} name={"get"} />
 
 ## Token Balance
@@ -68,7 +70,7 @@ You can mint new tokens on the [dashboard](https://thirdweb.com/dashboard) by cl
 
 Allowance refers to how many tokens another address is allowed to spend from your wallet.
 
-For example, a smart contract may ask you permission to **increase your allowance** when you make a bid on a marketplace auction listing.
+For example, our [Marketplace](/pre-built-contracts/marketplace) contract asks you permission to **increase your allowance** when you make a bid on an auction listing.
 
 ### Get allowance for the connected wallet
 
@@ -90,6 +92,8 @@ Specify how many tokens another wallet is allowed to spend on behalf of the conn
 
 ## Transfer Tokens
 
+You can transfer tokens from one wallet to another, or send tokens to a smart contract address.
+
 ### Transfer from the connected wallet
 
 <ThirdwebCodeSnippet contract={"Token"} name={"transfer"} />
@@ -103,6 +107,8 @@ Specify how many tokens another wallet is allowed to spend on behalf of the conn
 <ThirdwebCodeSnippet contract={"Token"} name={"transferFrom"} />
 
 ## Burning Tokens
+
+Burning tokens takes a specified amount of tokens out of the circulating supply.
 
 ### Burn from the connected wallet
 
