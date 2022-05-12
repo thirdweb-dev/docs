@@ -18,7 +18,7 @@ In order to publish a contract and get all the benefits of the thirdweb platform
 From your project, add the [thirdweb contracts](https://github.com/thirdweb-dev/contracts) dependency:
 
 ```bash npm2yarn
-npm install @thirdweb-dev/contracts 
+npm install @thirdweb-dev/contracts
 ```
 
 Once installed, in your Solidity contract you want to publish, import and extend `ThirdwebContract`. Here's an example:
