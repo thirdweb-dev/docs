@@ -56,8 +56,13 @@ const [nftName, setNftName] = useState<string>("");
 ```
 
 ```jsx
-<input type="text" placeholder="Name of your NFT" className={styles.textInput}
-maxLength={26} onChange={(e) => setNftName(e.target.value)} />
+<input
+  type="text"
+  placeholder="Name of your NFT"
+  className={styles.textInput}
+  maxLength={26}
+  onChange={(e) => setNftName(e.target.value)}
+/>
 ```
 
 To upload the image we want a couple of things. This app allows the user to drag and drop an image **and** upload one by clicking in the area. Next to that, we want to show the image, just to make sure the user has the right image.

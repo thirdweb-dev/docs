@@ -21,17 +21,17 @@ export declare function useEditions(
   queryParams?: QueryAllParams,
 ): import("react-query").UseQueryResult<
   {
+    supply: import("ethers").BigNumber;
     metadata: {
       [x: string]: import("@thirdweb-dev/sdk").Json;
       name?: string | undefined;
+      uri: string;
+      id: import("ethers").BigNumber;
       description?: string | undefined;
       image?: string | undefined;
       external_url?: string | undefined;
       animation_url?: string | undefined;
-      uri: string;
-      id: import("ethers").BigNumber;
     };
-    supply: import("ethers").BigNumber;
   }[],
   unknown
 >;
@@ -46,7 +46,7 @@ export declare function useEditions(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;{ metadata: { \[x: string\]: import("@thirdweb-dev/sdk").Json; name?: string \| undefined; description?: string \| undefined; image?: string \| undefined; external_url?: string \| undefined; animation_url?: string \| undefined; uri: string; id: import("ethers").BigNumber; }; supply: import("ethers").BigNumber; }\[\], unknown&gt;
+import("react-query").UseQueryResult&lt;{ supply: import("ethers").BigNumber; metadata: { \[x: string\]: import("@thirdweb-dev/sdk").Json; name?: string \| undefined; uri: string; id: import("ethers").BigNumber; description?: string \| undefined; image?: string \| undefined; external_url?: string \| undefined; animation_url?: string \| undefined; }; }\[\], unknown&gt;
 
 a response object that includes an array of NFTs
 

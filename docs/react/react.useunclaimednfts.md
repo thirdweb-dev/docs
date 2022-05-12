@@ -23,12 +23,12 @@ export declare function useUnclaimedNFTs(
   {
     [x: string]: import("@thirdweb-dev/sdk").Json;
     name?: string | undefined;
+    uri: string;
+    id: import("ethers").BigNumber;
     description?: string | undefined;
     image?: string | undefined;
     external_url?: string | undefined;
     animation_url?: string | undefined;
-    uri: string;
-    id: import("ethers").BigNumber;
   }[],
   unknown
 >;
@@ -43,7 +43,7 @@ export declare function useUnclaimedNFTs(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk").Json; name?: string \| undefined; description?: string \| undefined; image?: string \| undefined; external_url?: string \| undefined; animation_url?: string \| undefined; uri: string; id: import("ethers").BigNumber; }\[\], unknown&gt;
+import("react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk").Json; name?: string \| undefined; uri: string; id: import("ethers").BigNumber; description?: string \| undefined; image?: string \| undefined; external_url?: string \| undefined; animation_url?: string \| undefined; }\[\], unknown&gt;
 
 a response object that includes an array of NFTs that are unclaimed
 
