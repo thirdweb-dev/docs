@@ -26,7 +26,7 @@ Configure royalties for an entire contract or a particular token.
 ## Example
 
 ```javascript
-const contract = sdk.getContract("{{contract_address}}");
+const contract = await sdk.getContract("{{contract_address}}");
 const royaltyInfo = await contract.royalties.getDefaultRoyaltyInfo();
 await contract.roles.setTokenRoyaltyInfo(tokenId, {
   seller_fee_basis_points: 100, // 1% royalty fee

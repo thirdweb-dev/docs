@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const lightCodeTheme = require("prism-react-renderer/themes/vsLight");
+const darkCodeTheme = require("prism-react-renderer/themes/oceanicNext");
 
 const npm2yarn = require("@docusaurus/remark-plugin-npm2yarn");
 const disableCachePlugin = require("./plugins/disable-cache-plugin");
@@ -147,9 +147,10 @@ const config = {
         hideOnScroll: true,
         logo: {
           alt: "thirdweb docs",
-          src: "img/thirdweb.png",
+          src: "img/thirdweb-logo-transparent-black.svg",
           href: "/",
-          srcDark: "img/thirdweb-white.png",
+          width: "175px",
+          srcDark: "img/thirdweb-logo-transparent-white.svg",
         },
         items: [
           {

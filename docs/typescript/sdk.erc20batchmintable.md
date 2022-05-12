@@ -26,7 +26,7 @@ Token batch minting functionality that handles unit parsing for you.
 ## Example
 
 ```javascript
-const contract = sdk.getContract("{{contract_address}}");
+const contract = await sdk.getContract("{{contract_address}}");
 await contract.token.mint.batch.to(walletAddress, [nftMetadata1, nftMetadata2, ...]);
 ```
 
