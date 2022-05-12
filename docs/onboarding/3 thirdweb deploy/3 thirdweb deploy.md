@@ -1,6 +1,6 @@
 ---
 slug: /thirdweb-deploy
-title: 🚀 thirdweb deploy
+title: thirdweb deploy
 ---
 
 # thirdweb deploy
