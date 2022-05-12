@@ -92,14 +92,17 @@ export default function ExamplesContainer() {
         {examples
           .filter((e) => e.is_template === true)
           .map((repo) => (
-            <div className="col col--6" style={{ marginBottom: 24 }}>
-              <div
-                className="card-demo"
-                style={{ cursor: "pointer" }}
-                onClick={() => {
-                  window.open(repo.html_url, "_blank");
-                }}
-              >
+            <a
+              href={repo.html_url}
+              target="_blank"
+              className="col col--6"
+              style={{
+                marginBottom: 24,
+                color: "inherit",
+                textDecoration: "none",
+              }}
+            >
+              <div className="card-demo" style={{ cursor: "pointer" }}>
                 <div className="card">
                   <div
                     className="card__header"
@@ -119,7 +122,7 @@ export default function ExamplesContainer() {
                   </div>
                 </div>
               </div>
-            </div>
+            </a>
           ))}
       </div>
 
