@@ -1,8 +1,8 @@
 // @ts-check
 // Note: type annotations allow type checking and IDEs autocompletion
 
-const lightCodeTheme = require("prism-react-renderer/themes/github");
-const darkCodeTheme = require("prism-react-renderer/themes/dracula");
+const lightCodeTheme = require("prism-react-renderer/themes/vsLight");
+const darkCodeTheme = require("prism-react-renderer/themes/oceanicNext");
 
 const npm2yarn = require("@docusaurus/remark-plugin-npm2yarn");
 const disableCachePlugin = require("./plugins/disable-cache-plugin");
