@@ -39,5 +39,5 @@ Transfer tokens from the connected wallet to another wallet.
 const toAddress = "0x...";
 // The amount of tokens you want to send
 const amount = 0.1;
-await contract.transfer(toAddress, amount);
+await contract.token.transfer(toAddress, amount);
 ```

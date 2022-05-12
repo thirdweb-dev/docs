@@ -26,5 +26,5 @@ The token metadata
 ## Example
 
 ```javascript
-const token = await contract.get();
+const token = await contract.token.get();
 ```
