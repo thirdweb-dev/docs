@@ -149,6 +149,7 @@ const config = {
           alt: "thirdweb docs",
           src: "img/thirdweb-logo-transparent-black.svg",
           href: "/",
+          width: "175px",
           srcDark: "img/thirdweb-logo-transparent-white.svg",
         },
         items: [

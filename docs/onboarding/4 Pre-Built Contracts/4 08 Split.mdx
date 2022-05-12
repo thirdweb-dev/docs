@@ -1,0 +1,89 @@
+---
+slug: /pre-built-contracts/split
+---
+
+import ThirdwebCodeSnippet from "../../../src/components/ThirdwebCodeSnippet";
+
+# Split
+
+The Split contract lets you specify multiple wallet addresses who are recipients of any revenue or royalty split.
+You define what percentage of funds that get sent to this address go to each recipient you specify.
+
+For example, you could define 0x1 and 0x2 and configure them both to receive 50% of the funds that go to this wallet.
+The split contract will store the funds, and will split the funds between the two recipients when either user
+
+This contract also has the ability to hold native currencies (ETH and MATIC) and any ERC-20 tokens.
+
+The Split contract is a way to easily create a royalty split to securely hold and distribute funds.
+You can use it to store any funds by sending funds directly to the contract,
+using it's address as the recipient address of other contracts,
+or any other way that you can send funds to a standard wallet.
+
+You could use the Split contract to:
+
+- Use as a "team wallet", where funds are distributed between the members of your team with set percentages.
+- Share revenue from your primary minting in an NFT drop
+- Share revenue from our royalty sales with members of your team such as an artist
+- Any programmatic split of revenue
+
+:::tip Learn more
+
+[How thirdweb pre-built contracts work and how to create one](/pre-built-contracts)
+
+:::
+
+## Create a Split Contract
+
+Learn how to create any of thirdweb's pre-built contracts in the [Deploying Contracts page](/getting-started/deploying-contracts).
+
+## Getting the contract in your application
+
+To start using your Split contract inside your application, you'll need to use it's contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+
+<ThirdwebCodeSnippet contract={"Split"} name={"base"} isGetContractCode />
+
+## View Recipients
+
+### Using the dashboard
+
+You can view the recipients of your Split contract in the **Overview** button on the dashboard.
+
+![View Split Recipients](./assets/view-split-recipients.png)
+
+### Using the SDK
+
+<ThirdwebCodeSnippet contract={"Split"} name={"getAllRecipients"} />
+
+## View Balance
+
+In the **Overview** tab of your split in the dashboard, you can see **your** (the wallet you're currently connected with)'s split of the funds in this contract.
+
+![View Your Balance In Split](./assets/split-balances.png)
+
+### Native Token Balance
+
+Use this if you have been tokens native to the network (e.g. `Ether` on the Ethereum network).
+
+<ThirdwebCodeSnippet contract={"Split"} name={"balanceOf"} />
+
+### Non-Native Token Balance
+
+Use this if you have been sent custom tokens to the address.
+
+<ThirdwebCodeSnippet contract={"Split"} name={"balanceOfToken"} />
+
+## Distribute funds
+
+This distributes funds held by the contract to **all recipeients**.
+
+### Native Token
+
+<ThirdwebCodeSnippet contract={"Split"} name={"distribute"} />
+
+### Non-Native Token
+
+<ThirdwebCodeSnippet contract={"Split"} name={"distributeToken"} />
+
+## Withdraw Funds
+
+<ThirdwebCodeSnippet contract={"Split"} name={"withdraw"} />
