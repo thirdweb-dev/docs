@@ -55,7 +55,7 @@ To simplify things, we'll use the unique code as the name of our NFT. So the inp
 const [nftName, setNftName] = useState<string>("");
 ```
 
-```html
+```jsx
 <input type="text" placeholder="Name of your NFT" className={styles.textInput}
 maxLength={26} onChange={(e) => setNftName(e.target.value)} />
 ```
