@@ -37,7 +37,7 @@ In order to use all of thirdweb’s helpful hooks and detect connected wallets, 
 import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
 
 // the chainId our app wants to be running on
-// for our example we're goingt o be using the Polygon Mumbai Testnet
+// for our example we're going to be using the Polygon Mumbai Testnet
 const desiredChainId = ChainId.Mumbai;
 
 export const MyApp = () => {
