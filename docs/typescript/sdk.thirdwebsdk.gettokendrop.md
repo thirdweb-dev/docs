@@ -25,6 +25,6 @@ getTokenDrop(address: string): TokenDrop;
 
 **Returns:**
 
-TokenDrop
+[TokenDrop](./sdk.tokendrop.md)
 
 the contract

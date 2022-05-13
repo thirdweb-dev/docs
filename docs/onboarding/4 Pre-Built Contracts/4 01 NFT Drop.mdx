@@ -11,7 +11,7 @@ thirdweb's drop contracts **lazy mint** your NFTs and makes them available to be
 The NFT Drop contract is best used when you want to release a **1-of-1** or **1-of-many** NFT collection,
 such as a PFP (profile picture) collection, and uses the [ERC721 Standard](https://eips.ethereum.org/EIPS/eip-721).
 The NFT Drop contract allows you to define the conditions for when and how your users can mint an NFT,
-including whitelists, release dates, claim limits and delayed reveals.
+including allowlists, release dates, claim limits and delayed reveals.
 
 When you add NFTs to your drop contract, they are **not** minted at this point.
 You prepare everything for your users so that _they_ can mint the NFT(s).
@@ -75,7 +75,7 @@ For each claim phase, you can define:
 - How many NFTs you want to drop
 - How much you want to charge per NFT
 - What currency you want to use
-- Which wallet addreses are allowed to mint (whitelist/allowlist)
+- Which wallet addreses are allowed to mint (allowlist)
 - How many NFTs can be claimed per transaction
 - How many seconds wallets have to wait between claims
 

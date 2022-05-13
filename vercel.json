@@ -152,6 +152,11 @@
       "permanent": true
     },
     {
+      "source": "/contracts/token-drop",
+      "destination": "/pre-built-contracts/token-drop",
+      "permanent": true
+    },
+    {
       "source": "/contracts/token",
       "destination": "/pre-built-contracts/token",
       "permanent": true

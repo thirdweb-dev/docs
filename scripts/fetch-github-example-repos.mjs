@@ -5,33 +5,36 @@ const apiUrl = "https://api.github.com/users/thirdweb-example/repos";
 const ghRes = await fetch(apiUrl);
 const ghData = await ghRes.json();
 
-const dataWeWant = ghData.map((repo) => {
-  const {
-    name,
-    html_url,
-    description,
-    created_at,
-    updated_at,
-    clone_url,
-    topics,
-    language,
-    stargazers_count,
-    is_template,
-  } = repo;
+const dataWeWant = ghData
+  .map((repo) => {
+    const {
+      name,
+      html_url,
+      description,
+      created_at,
+      updated_at,
+      clone_url,
+      topics,
+      language,
+      stargazers_count,
+      is_template,
+    } = repo;
 
-  return {
-    name,
-    html_url,
-    description,
-    created_at,
-    updated_at,
-    clone_url,
-    topics,
-    language,
-    stargazers_count,
-    is_template,
-  };
-});
+    return {
+      name,
+      html_url,
+      description,
+      created_at,
+      updated_at,
+      clone_url,
+      topics,
+      language,
+      stargazers_count,
+      is_template,
+    };
+  })
+  // filter out the .github repo lol
+  .filter((repo) => repo.name !== ".github");
 
 fs.writeFileSync(
   "./docs/example-repos.json",
