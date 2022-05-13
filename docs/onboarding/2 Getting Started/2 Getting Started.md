@@ -1,5 +1,5 @@
 ---
-title: 🏃‍♂️ Getting Started
+title: Getting Started
 slug: /getting-started
 ---
 
