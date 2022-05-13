@@ -28,5 +28,5 @@ Get how much supply has been minted
 ## Example
 
 ```javascript
-const balance = await contract.token.balanceOf(walletAddress);
+const balance = await contract.token.totalSupply();
 ```
