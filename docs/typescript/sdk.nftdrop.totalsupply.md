@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 ## NFTDrop.totalSupply() method
 
-Get the number of NFTs minted
+Get the total count NFTs in this drop contract, both claimed and unclaimed
 
 **Signature:**
 
@@ -20,5 +20,3 @@ totalSupply(): Promise<BigNumber>;
 **Returns:**
 
 Promise&lt;BigNumber&gt;
-
-the total number of NFTs minted in this contract
