@@ -1,6 +1,6 @@
 ---
 slug: /thirdweb-deploy
-title: 🚀 thirdweb deploy
+title: thirdweb deploy
 ---
 
 # thirdweb deploy
@@ -192,7 +192,7 @@ We support any contract that you’ll write and you can use the SDK to call raw 
 pragma solidity ^0.8.4;
 
 import "@thirdweb-dev/contracts/ThirdwebContract.sol";
-****import "@thirdweb-dev/contracts/feature/interface/IMintableERC721.sol";
+import "@thirdweb-dev/contracts/feature/interface/IMintableERC721.sol";
 
 // Adding IMintableERC721 and implementing it gives you
 // SDK -> contract.nft.mint with auto upload to IPFS

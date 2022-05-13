@@ -1,5 +1,5 @@
 ---
-title: 🏗 Pre-built Contracts
+title: Pre-built Contracts
 slug: /pre-built-contracts
 ---
 
