@@ -10,6 +10,13 @@ export default function ThirdwebCodeSnippet({
   name,
   isGetContractCode,
 }) {
+  const languagesToShow = {
+    javascript: true,
+    react: false,
+    python: true,
+    go: true,
+  };
+
   if (!contract || !name) {
     return <></>;
   }
@@ -57,17 +64,47 @@ export default function ThirdwebCodeSnippet({
       groupId="thirdweb-code-snippet"
       defaultValue={Object.keys(examples)[0]}
     >
-      {Object.keys(examples).map((language) => {
+      {Object.entries(languagesToShow).map(([language, alwaysShow]) => {
         const example = examples[language];
         const reference = references[language];
+
         // Capitalize first letter for language name
         const languageName =
           language.charAt(0).toUpperCase() + language.slice(1);
 
         // If the example is empty, return null
         if (!example) {
-          // @ts-ignore
-          return <TabItem value={""}></TabItem>;
+          if (!alwaysShow) {
+            return (
+              <TabItem
+                attributes={{
+                  style: { display: "none" },
+                }}
+                hidden={true}
+                value={language}
+                label={languageName}
+              >
+                <div />
+              </TabItem>
+            );
+          }
+
+          return (
+            <TabItem value={language} label={languageName}>
+              <CodeBlock language={languageToHighlightMapping[language]}>
+                <p>
+                  <b>{languageName} SDK</b> support for <b>{name}</b> is coming
+                  soon.{" "}
+                </p>
+                <p>
+                  Want this feature sooner?{" "}
+                  <a href="https://discord.com/invite/thirdweb">
+                    Let us know in Discord!
+                  </a>
+                </p>
+              </CodeBlock>
+            </TabItem>
+          );
         }
 
         return (
