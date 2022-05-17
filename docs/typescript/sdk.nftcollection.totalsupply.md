@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 ## NFTCollection.totalSupply() method
 
-Get the number of NFTs minted
+Get the total count NFTs minted in this contract
 
 **Signature:**
 
@@ -20,5 +20,3 @@ totalSupply(): Promise<BigNumber>;
 **Returns:**
 
 Promise&lt;BigNumber&gt;
-
-the total number of NFTs minted in this contract

@@ -10,7 +10,7 @@ thirdweb's drop contracts **lazy mint** your NFT and makes it available to be cl
 
 The **Edition Drop** contract is best used when you want to release many NFTs based on the same asset, and uses the [ERC1155 Standard](https://eips.ethereum.org/EIPS/eip-1155), also known as "Semi-Fungible Tokens".
 
-The Edition Drop contract allows you to define the conditions for when and how your users can mint an NFT, including allowlists, release dates, claim limits and delayed reveals.
+The Edition Drop contract allows you to define the conditions for when and how your users can mint an NFT, including allowlists, release dates, and claim limits.
 
 You could use the Edition Drop contract to:
 
@@ -32,7 +32,11 @@ Learn how to create any of thirdweb's pre-built contracts in the [Deploying Cont
 
 To start using your Edition Drop contract inside your application, you'll need to use it's contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
-<ThirdwebCodeSnippet contract={"EditionDrop"} name={"base"} isGetContractCode />
+<ThirdwebCodeSnippet
+  contract={"EditionDrop"}
+  name={"initializing the SDK"}
+  isGetContractCode
+/>
 
 ## Lazy Minting Your NFTs
 
