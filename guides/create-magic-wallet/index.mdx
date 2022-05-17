@@ -36,23 +36,18 @@ Go ahead and clone [the starter template repo](https://github.com/thirdweb-examp
 
 ### Build the connector
 
-In the `_app.tsx` file we need to include a connection for Magic link. To do this we use the `WalletConnector` provided by thirdweb’s `React` sdk. Note you also need to pass your api key from your Magic link account. 
-
+In the root of our application we need to include the options for the Magic Link connector. The only required option for the magic link connector is your magic link `api key` which you will be able to find in your magic link dashboard.
 ```tsx
-const magicLinkWalletConnector: WalletConnector = {
+const magicLinkConnectorOptions = {
   name: "magic",
   options: {
     // Replace this with your own magic link api key
-    apiKey: "pk_live_3B2498906537FF2A",
-    rpcUrls: {
-      [ChainId.Mumbai]: "https://mumbai.magic.io/rpc",
-    },
+    apiKey: "pk_live_xxxxxxxx"
   },
 };
 ```
 
-Inside your wrapper make sure to include a reference to the connector.
-
+Make sure to pass the magic link connector option to the `<ThirdwebProvider />` `walletConnectors` prop.
 ```tsx
 return (
     <ThirdwebProvider
@@ -65,7 +60,7 @@ return (
 }
 ```
 
-Check out the full file [here](https://github.com/thirdweb-example/magic-link-next-ts/blob/main/pages/_app.tsx).
+Check out the [full file](https://github.com/thirdweb-example/magic-link-next-ts/blob/main/pages/_app.tsx).
 
 ### Create our UI
 
@@ -81,14 +76,13 @@ const Home: NextPage = () => {
 ```
 
 Next we’ll setup a way for the user to input their email address
-
 ```tsx
 //inside your app
 const Home: NextPage = () => {
 	const [email, setEmail] = useState<string>("");
 ```
 
-```html
+```tsx
 <input
       type="email"
       placeholder="Your Email Address"
@@ -99,7 +93,7 @@ const Home: NextPage = () => {
 
 Finally we’ll pass the email address to our `useMagic` hook to create the wallet and allow the user to start the authentication process.
 
-```html
+```tsx
 <a className={styles.mainButton} onClick={() => connectWithMagic({ email }) Login </a>
 ```
 
