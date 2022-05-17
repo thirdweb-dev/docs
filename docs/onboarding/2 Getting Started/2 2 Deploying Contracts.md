@@ -61,7 +61,10 @@ const signer = {
 
 const sdk = new ThirdwebSDK(signer);
 
-await sdk.deployer.deployNFTCollection({ name: "Your NFT Collection Name", {/* other contract metadata */} });
+await sdk.deployer.deployNFTCollection({
+  name: "Your NFT Collection Name",
+  primary_sale_recipient: "your-address-here",
+});
 ```
 
 [Learn More](/typescript/sdk.contractdeployer)
