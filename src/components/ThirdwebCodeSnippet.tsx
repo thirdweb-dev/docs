@@ -12,7 +12,7 @@ export default function ThirdwebCodeSnippet({
 }) {
   const languagesToShow = {
     javascript: true,
-    react: false,
+    react: true,
     python: true,
     go: true,
   };
