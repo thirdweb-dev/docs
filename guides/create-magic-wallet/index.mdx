@@ -37,7 +37,7 @@ Go ahead and clone [the starter template repo](https://github.com/thirdweb-examp
 ### Build the connector
 
 In the root of our application we need to include the options for the Magic Link connector. The only required option for the magic link connector is your magic link `api key` which you will be able to find in your magic link dashboard.
-```tsx
+```jsx
 const magicLinkConnectorOptions = {
   name: "magic",
   options: {
@@ -50,7 +50,7 @@ const connectors = [magicLinkConnectorOptions];
 ```
 
 Make sure to pass the magic link connector option to the `<ThirdwebProvider />` `walletConnectors` prop.
-```tsx
+```jsx
 return (
     <ThirdwebProvider
       desiredChainId={activeChainId}
@@ -68,23 +68,23 @@ Check out the [full file](https://github.com/thirdweb-example/magic-link-next-ts
 
 thirdweb’s sdk has a simple hook to get the connect wallet functionality for Magic link. First we import that and set it up.
 
-```tsx
+```jsx
 import { useAddress, useDisconnect, useMagic } from "@thirdweb-dev/react";
 
 //inside your app
-const Home: NextPage = () => {
+const Home = () => {
 	const connectWithMagic = useMagic(); // Hook to connect with Magic Link.
 ...
 ```
 
 Next we’ll setup a way for the user to input their email address
-```tsx
+```jsx
 //inside your app
 const Home: NextPage = () => {
-	const [email, setEmail] = useState<string>("");
+	const [email, setEmail] = useState("");
 ```
 
-```tsx
+```jsx
 <input
       type="email"
       placeholder="Your Email Address"
@@ -95,10 +95,10 @@ const Home: NextPage = () => {
 
 Finally we’ll pass the email address to our `useMagic` hook to create the wallet and allow the user to start the authentication process.
 
-```tsx
+```jsx
 <a className={styles.mainButton} onClick={() => connectWithMagic({ email }) Login </a>
 ```
 
 ## That’s it!
 
-That’s how you build a functionality that lets the user login with their email address. Again we went over the core logic of the app. Feel free to go to the repo to get a full copy and start using the Magic Link wallet.
+That’s how you build a functionality that lets the user login with their email address. Again we went over the core logic of the app. Feel free to go to the repo on [Github](https://github.com/thirdweb-example/magic-link-next-ts) to get a full copy and start using the Magic Link wallet.
