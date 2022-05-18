@@ -37,12 +37,13 @@ Go ahead and clone [the starter template repo](https://github.com/thirdweb-examp
 ### Build the connector
 
 In the root of our application we need to include the options for the Magic Link connector. The only required option for the magic link connector is your magic link `api key` which you will be able to find in your magic link dashboard.
+
 ```jsx
 const magicLinkConnectorOptions = {
   name: "magic",
   options: {
     // Replace this with your own magic link api key
-    apiKey: "pk_live_xxxxxxxx"
+    apiKey: "pk_live_xxxxxxxx",
   },
 };
 // Array of wallet connectors you want to use for your dApp.
@@ -50,12 +51,13 @@ const connectors = [magicLinkConnectorOptions];
 ```
 
 Make sure to pass the magic link connector option to the `<ThirdwebProvider />` `walletConnectors` prop.
+
 ```jsx
 return (
     <ThirdwebProvider
       desiredChainId={activeChainId}
       walletConnectors={connectors}
-    >   
+    >
       <Component {...pageProps} />
     </ThirdwebProvider>
   );
@@ -78,6 +80,7 @@ const Home = () => {
 ```
 
 Next we’ll setup a way for the user to input their email address
+
 ```jsx
 //inside your app
 const Home: NextPage = () => {
@@ -86,11 +89,11 @@ const Home: NextPage = () => {
 
 ```jsx
 <input
-      type="email"
-      placeholder="Your Email Address"
-      className={styles.textInput}
-      onChange={(e) => setEmail(e.target.value)}
-      />
+  type="email"
+  placeholder="Your Email Address"
+  className={styles.textInput}
+  onChange={(e) => setEmail(e.target.value)}
+/>
 ```
 
 Finally we’ll pass the email address to our `useMagic` hook to create the wallet and allow the user to start the authentication process.
