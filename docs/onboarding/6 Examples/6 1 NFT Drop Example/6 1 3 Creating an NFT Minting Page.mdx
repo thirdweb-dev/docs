@@ -1,0 +1,94 @@
+---
+slug: /examples/nft-drop/creating-an-nft-minting-page
+---
+
+# Creating an NFT Minting Page
+
+We have created a template for you to simply plug in your NFT Drop contract address and have your NFT minting page created for you!
+
+The information such as image, name, description, and supply are all automatically loaded from your NFT Drop contract.
+
+For the best experience, we recommend setting the **image** of your NFT Drop contract as a `.gif` file
+that cycles through some of the images in your collection, using a tool such as [ezgif.com](https://ezgif.com/maker).
+
+:::info
+
+In this section, we assume you have some knowledge of how to `clone` a git repository,
+and have Node JS installed on your machine.
+:::
+
+## 1. Clone the NFT Minting Page Template
+
+You can create your own copy of this [template repository](https://github.com/thirdweb-example/custom-minting-page)
+by using `git clone`, or downloading the repository as a `.zip` file and unzipping it from the GitHub url.
+
+```bash
+git clone https://github.com/thirdweb-example/custom-minting-page
+```
+
+Once you have the code on your computer, you'll need to install the dependencies:
+
+```bash npm2yarn
+npm install
+```
+
+To start running the code locally, run the command below, and head to [http://localhost:3000](http://localhost:3000) in your browser:
+
+```bash npm2yarn
+npm run dev
+```
+
+## 2. Configure the NFT Drop Contract Address
+
+Replace the value of the `myNftDropContractAddress` inside the `index.tsx`
+with your NFT Drop contract address you can find in the dashboard.
+
+```jsx
+// Put Your NFT Drop Contract address from the dashboard here
+const myNftDropContractAddress = "<your-address-here>";
+```
+
+## 3. Configure the Network your NFT Drop Contract is deployed on
+
+In our example repository, we enforce users to be on the `Matic Mumbai` test network.
+
+If you are on a different network, you'll need to configure this value in two places.
+
+1. Inside the `_app.tsx` page, replace the value of `activeChainId` to the chain ID of your network.
+
+```jsx
+// This is the chainId your dApp will work on.
+const activeChainId = ChainId.Mumbai; // This is the chainId your dApp will work on.
+```
+
+2. Inside the `_index.tsx` page, inside the `mint` function, replace the value inside the `switchNetwork` function to match the chain ID of your network.
+
+```jsx
+// Function to mint/claim an NFT
+async function mint() {
+  // ...
+
+  if (isOnWrongNetwork) {
+    // Change this value (ChainId.Mumbai) to match your chain.
+    switchNetwork && switchNetwork(ChainId.Mumbai);
+    return;
+  }
+```
+
+## 3. Configure the Styles to Match Your brand
+
+You can fully customize the colors and style of this template by editing the values in the `globals.css` file.
+
+You can configure:
+
+- The color of the background with `--background-color`.
+- The color of the text with `--text-color`.
+- The color of the button with `--color-primary` and `--color-secondary`.
+- The font with `--font`.
+- The border colors with `--border-color`.
+
+## 4. Deploy Your application!
+
+That's it! You're ready to ship your NFT minting page to your community.
+
+For any questions or suggestions, join our discord at https://discord.gg/thirdweb.
