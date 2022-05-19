@@ -97,7 +97,7 @@ Attributes of a bid:
 
 - Bids cannot be cancelled once they are placed.
 - Bids are held by the smart contract in escrow.
-- The bid must be a certain amount higher than the current highest bid if there is one. There is zero or one bid on an auction listing at any given time. Bids that get out-bid are automatically refunded.
+- The bid must be a certain amount higher than the current highest bid if there is one. There is either zero or one bids on an auction listing at any given time. Bids that get out-bid are automatically refunded.
 
 To create a bid on a listing:
 
@@ -111,8 +111,8 @@ await marketplace?.auction.makeBid(listingId, bidAmount);
 
 Attributes of an offer:
 
-- Can be cancelled at any time
-- Offeror grants the marketplace smart contract **permission** to transfer the certain amount of funds from their wallet, the funds are not held in escrow.
+- Offers can be cancelled at any time.
+- The offeror grants the marketplace smart contract **permission** to transfer the certain amount of funds from their wallet, the funds are not held in escrow.
 - They can be higher or lower than other offers on the listing, and in different currencies.
 
 To create an offer on a listing:
