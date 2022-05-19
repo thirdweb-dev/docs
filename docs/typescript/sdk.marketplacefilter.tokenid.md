@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-tokenId?: number;
+tokenId?: BigNumberish;
 ```
