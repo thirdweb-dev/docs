@@ -23,6 +23,7 @@ const sidebars = {
     {
       type: "category",
       label: "SDK References",
+      collapsible: false,
       items: [
         {
           type: "link",

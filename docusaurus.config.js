@@ -153,15 +153,36 @@ const config = {
           srcDark: "img/thirdweb-logo-transparent-white.svg",
         },
         items: [
+          // JS, React, Python , Go? , Solidity,
           {
-            href: "/guides",
-            label: "Guides",
+            to: "typescript",
+            label: "JavaScript",
             position: "left",
+          },
+          {
+            to: "react",
+            label: "React",
+            position: "left",
+          },
+          {
+            to: "python",
+            label: "Python",
+            position: "left",
+          },
+          {
+            to: "contracts",
+            label: "Solidity",
+            position: "left",
+          },
+          {
+            to: "guides",
+            label: "Guides",
+            position: "right",
           },
           {
             href: "https://blog.thirdweb.com",
             label: "Blog",
-            position: "left",
+            position: "right",
           },
           {
             href: "https://github.com/thirdweb-dev",

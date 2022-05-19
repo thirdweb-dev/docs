@@ -60,77 +60,86 @@ export default function ThirdwebCodeSnippet({
   };
 
   return (
-    <Tabs
-      groupId="thirdweb-code-snippet"
-      defaultValue={Object.keys(examples)[0]}
-    >
-      {Object.entries(languagesToShow).map(([language, alwaysShow]) => {
-        const example = examples[language];
-        const reference = references[language];
+    <>
+      <Tabs
+        groupId="thirdweb-code-snippet"
+        defaultValue={Object.keys(examples)[0]}
+      >
+        {Object.entries(languagesToShow).map(([language, alwaysShow]) => {
+          const example = examples[language];
+          const reference = references[language];
 
-        // Capitalize first letter for language name
-        const languageName =
-          language.charAt(0).toUpperCase() + language.slice(1);
+          // Capitalize first letter for language name
+          const languageName =
+            language.charAt(0).toUpperCase() + language.slice(1);
 
-        // If the example is empty, return null
-        if (!example) {
-          if (!alwaysShow) {
+          // If the example is empty, return null
+          if (!example) {
+            if (!alwaysShow) {
+              return (
+                <TabItem
+                  attributes={{
+                    style: { display: "none" },
+                  }}
+                  hidden={true}
+                  value={language}
+                  label={languageName}
+                >
+                  <div />
+                </TabItem>
+              );
+            }
+
             return (
-              <TabItem
-                attributes={{
-                  style: { display: "none" },
-                }}
-                hidden={true}
-                value={language}
-                label={languageName}
-              >
-                <div />
+              <TabItem value={language} label={languageName}>
+                <CodeBlock language={languageToHighlightMapping[language]}>
+                  <p>
+                    <b>{languageName} SDK</b> support for <b>{name}</b> is
+                    coming soon.{" "}
+                  </p>
+                  <p>
+                    Want this feature sooner?{" "}
+                    <a href="https://discord.com/invite/thirdweb">
+                      Let us know in Discord!
+                    </a>
+                  </p>
+                </CodeBlock>
               </TabItem>
             );
           }
 
           return (
-            <TabItem value={language} label={languageName}>
+            <TabItem key={language} value={language} label={languageName}>
+              {/* <b>{summary}</b> */}
               <CodeBlock language={languageToHighlightMapping[language]}>
-                <p>
-                  <b>{languageName} SDK</b> support for <b>{name}</b> is coming
-                  soon.{" "}
-                </p>
-                <p>
-                  Want this feature sooner?{" "}
-                  <a href="https://discord.com/invite/thirdweb">
-                    Let us know in Discord!
-                  </a>
-                </p>
+                {example}
               </CodeBlock>
+
+              {reference && (
+                <a
+                  href={reference}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "block",
+                    marginTop: "1rem",
+                    textDecoration: "none",
+                  }}
+                >
+                  View in {languageName} SDK Documentation
+                </a>
+              )}
             </TabItem>
           );
-        }
+        })}
+      </Tabs>
 
-        return (
-          <TabItem key={language} value={language} label={languageName}>
-            {/* <b>{summary}</b> */}
-            <CodeBlock language={languageToHighlightMapping[language]}>
-              {example}
-            </CodeBlock>
-
-            {reference && (
-              <a
-                href={reference}
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "block",
-                  marginTop: "1rem",
-                  textDecoration: "none",
-                }}
-              >
-                View in {languageName} SDK Documentation
-              </a>
-            )}
-          </TabItem>
-        );
-      })}
-    </Tabs>
+      <hr
+        style={{
+          marginTop: 32,
+          backgroundColor: "var(--ifm-toc-border-color)",
+        }}
+      />
+    </>
   );
 }
