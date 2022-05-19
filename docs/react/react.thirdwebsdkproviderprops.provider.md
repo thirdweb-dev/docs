@@ -12,5 +12,5 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-provider: NetworkOrSignerOrProvider;
+provider: ChainOrRpc | SignerOrProvider;
 ```
