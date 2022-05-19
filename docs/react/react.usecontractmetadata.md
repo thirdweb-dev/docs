@@ -21,10 +21,10 @@ export declare function useContractMetadata(
 ): import("react-query").UseQueryResult<
   {
     [x: string]: import("@thirdweb-dev/sdk").Json;
-    name: string;
     description?: string | undefined;
     image?: any;
     external_link?: string | undefined;
+    name: string;
   } | null,
   unknown
 >;
@@ -38,7 +38,7 @@ export declare function useContractMetadata(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk").Json; name: string; description?: string \| undefined; image?: any; external_link?: string \| undefined; } \| null, unknown&gt;
+import("react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk").Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; } \| null, unknown&gt;
 
 a response object that includes the contract metadata of the deployed contract
 
