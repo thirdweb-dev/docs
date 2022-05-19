@@ -14,5 +14,5 @@ The media poster image uri. (if applicable)
 **Signature:**
 
 ```typescript
-poster?: string;
+poster?: string | null;
 ```

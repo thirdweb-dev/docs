@@ -14,5 +14,5 @@ The media source uri.
 **Signature:**
 
 ```typescript
-src?: string;
+src?: string | null;
 ```
