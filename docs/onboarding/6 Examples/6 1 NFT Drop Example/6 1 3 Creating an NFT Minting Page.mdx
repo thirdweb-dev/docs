@@ -8,9 +8,6 @@ We have created a template for you to simply plug in your NFT Drop contract addr
 
 The information such as image, name, description, and supply are all automatically loaded from your NFT Drop contract.
 
-For the best experience, we recommend setting the **image** of your NFT Drop contract as a `.gif` file
-that cycles through some of the images in your collection, using a tool such as [ezgif.com](https://ezgif.com/maker).
-
 :::info
 
 In this section, we assume you have some knowledge of how to `clone` a git repository,
@@ -32,7 +29,7 @@ Once you have the code on your computer, you'll need to install the dependencies
 npm install
 ```
 
-To start running the code locally, run the command below, and head to [http://localhost:3000](http://localhost:3000) in your browser:
+To start running the code locally, run the command below.
 
 ```bash npm2yarn
 npm run dev
@@ -75,19 +72,9 @@ async function mint() {
   }
 ```
 
-## 3. Configure the Styles to Match Your brand
+## 4. Configure the Styles to Match Your brand
 
-You can fully customize the colors and style of this template by editing the values in the `globals.css` file.
-
-You can configure:
-
-- The color of the background with `--background-color`.
-- The color of the text with `--text-color`.
-- The color of the button with `--color-primary` and `--color-secondary`.
-- The font with `--font`.
-- The border colors with `--border-color`.
-
-## 4. Deploy Your application!
+You can fully customize the colors and style of this template by editing the `.css` files inside the `/styles` directory.
 
 That's it! You're ready to ship your NFT minting page to your community.
 
