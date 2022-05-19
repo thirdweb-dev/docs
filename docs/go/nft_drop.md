@@ -16,7 +16,7 @@ type NFTDrop struct {
 }
 ```
 
-### func \(\*NFTDrop\) [Claim](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/nft_drop.go#L128>)
+### func \(\*NFTDrop\) [Claim](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/nft_drop.go#L141>)
 
 ```go
 func (drop *NFTDrop) Claim(quantity int) (*types.Transaction, error)
@@ -30,7 +30,7 @@ quantity: the number of NFTs to claim
 
 returns: the transaction receipt of the claim
 
-### func \(\*NFTDrop\) [ClaimTo](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/nft_drop.go#L142>)
+### func \(\*NFTDrop\) [ClaimTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/nft_drop.go#L155>)
 
 ```go
 func (drop *NFTDrop) ClaimTo(destinationAddress string, quantity int) (*types.Transaction, error)
@@ -46,7 +46,7 @@ quantity: the number of NFTs to claim
 
 returns: the transaction receipt of the claim
 
-### func \(\*NFTDrop\) [CreateBatch](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/nft_drop.go#L94>)
+### func \(\*NFTDrop\) [CreateBatch](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/nft_drop.go#L100>)
 
 ```go
 func (drop *NFTDrop) CreateBatch(metadatas []*NFTMetadataInput) (*types.Transaction, error)
@@ -60,7 +60,7 @@ metadatas: a list of the metadatas of the NFTs to create
 
 returns: the transaction receipt of the batch creation
 
-### func \(\*NFTDrop\) [GetAllClaimed](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/nft_drop.go#L46>)
+### func \(\*NFTDrop\) [GetAllClaimed](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/nft_drop.go#L52>)
 
 ```go
 func (drop *NFTDrop) GetAllClaimed() ([]*NFTMetadataOwner, error)
@@ -72,7 +72,7 @@ Get a list of all the NFTs that have been claimed from this contract
 
 returns: a list of the metadatas of the claimed NFTs
 
-### func \(\*NFTDrop\) [GetAllUnclaimed](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/nft_drop.go#L67>)
+### func \(\*NFTDrop\) [GetAllUnclaimed](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/nft_drop.go#L73>)
 
 ```go
 func (drop *NFTDrop) GetAllUnclaimed() ([]*NFTMetadata, error)
@@ -84,7 +84,7 @@ Get a list of all the NFTs on this contract that have not yet been claimed
 
 returns: a list of the metadatas of the unclaimed NFTs
 
-## type [NFTMetadata](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/types.go#L17-L27>)
+## type [NFTMetadata](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/types.go#L17-L27>)
 
 ```go
 type NFTMetadata struct {
@@ -92,7 +92,7 @@ type NFTMetadata struct {
     Uri             string      `json:"uri"`
     Name            string      `json:"name"`
     Description     string      `json:"description"`
-    Image           string      `json:"image"`
+    Image           interface{} `json:"image"`
     ExternalUrl     string      `json:"external_url"`
     AnimationUrl    string      `json:"animation_url"`
     BackgroundColor string      `json:"background_color"`
@@ -100,13 +100,13 @@ type NFTMetadata struct {
 }
 ```
 
-## type [NFTMetadataInput](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/types.go#L29-L37>)
+## type [NFTMetadataInput](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/types.go#L29-L37>)
 
 ```go
 type NFTMetadataInput struct {
     Name            string      `json:"name"`
     Description     string      `json:"description"`
-    Image           string      `json:"image"`
+    Image           interface{} `json:"image"`
     ExternalUrl     string      `json:"external_url"`
     AnimationUrl    string      `json:"animation_url"`
     BackgroundColor string      `json:"background_color"`
@@ -114,7 +114,7 @@ type NFTMetadataInput struct {
 }
 ```
 
-## type [NFTMetadataOwner](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/types.go#L39-L42>)
+## type [NFTMetadataOwner](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/types.go#L39-L42>)
 
 ```go
 type NFTMetadataOwner struct {
@@ -123,7 +123,7 @@ type NFTMetadataOwner struct {
 }
 ```
 
-## type [NFTResult](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/erc721.go#L20-L23>)
+## type [NFTResult](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/erc721.go#L21-L24>)
 
 ```go
 type NFTResult struct {
@@ -131,7 +131,7 @@ type NFTResult struct {
 }
 ```
 
-## type [NativeToken](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/types.go#L108-L113>)
+## type [NativeToken](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/types.go#L108-L113>)
 
 ```go
 type NativeToken struct {

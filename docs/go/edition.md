@@ -12,10 +12,11 @@ You can access this interface through the SDK with `sdk.GetEdition(address)`.
 ```go
 type Edition struct {
     *ERC1155
+    // contains filtered or unexported fields
 }
 ```
 
-### func \(\*Edition\) [Mint](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/edition.go#L39>)
+### func \(\*Edition\) [Mint](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/edition.go#L45>)
 
 ```go
 func (edition *Edition) Mint(metadataWithSupply *EditionMetadataInput) (*types.Transaction, error)
@@ -29,7 +30,7 @@ metadataWithSupply: nft metadata with supply of the NFT to mint
 
 returns: the transaction receipt of the mint
 
-### func \(\*Edition\) [MintAdditionalSupply](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/edition.go#L83>)
+### func \(\*Edition\) [MintAdditionalSupply](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/edition.go#L89>)
 
 ```go
 func (edition *Edition) MintAdditionalSupply(tokenId int, additionalSupply int) (*types.Transaction, error)
@@ -45,7 +46,7 @@ additionalSupply: additional supply to mint
 
 returns: the transaction receipt of the mint
 
-### func \(\*Edition\) [MintAdditionalSupplyTo](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/edition.go#L97>)
+### func \(\*Edition\) [MintAdditionalSupplyTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/edition.go#L103>)
 
 ```go
 func (edition *Edition) MintAdditionalSupplyTo(to string, tokenId int, additionalSupply int) (*types.Transaction, error)
@@ -61,7 +62,7 @@ additionalySupply: additional supply to mint
 
 returns: the transaction receipt of the mint
 
-### func \(\*Edition\) [MintBatchTo](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/edition.go#L124>)
+### func \(\*Edition\) [MintBatchTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/edition.go#L130>)
 
 ```go
 func (edition *Edition) MintBatchTo(to string, metadatasWithSupply []*EditionMetadataInput) (*types.Transaction, error)
@@ -75,7 +76,7 @@ metadatasWithSupply: list of NFT metadatas with supplies to mint
 
 returns: the transaction receipt of the mint
 
-### func \(\*Edition\) [MintTo](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/edition.go#L53>)
+### func \(\*Edition\) [MintTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/edition.go#L59>)
 
 ```go
 func (edition *Edition) MintTo(address string, metadataWithSupply *EditionMetadataInput) (*types.Transaction, error)
@@ -91,7 +92,7 @@ metadataWithSupply: nft metadata with supply of the NFT to mint
 
 returns: the transaction receipt of the mint
 
-## type [EditionMetadata](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/types.go#L44-L47>)
+## type [EditionMetadata](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/types.go#L44-L47>)
 
 ```go
 type EditionMetadata struct {
@@ -100,7 +101,7 @@ type EditionMetadata struct {
 }
 ```
 
-## type [EditionMetadataInput](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/types.go#L56-L59>)
+## type [EditionMetadataInput](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/types.go#L56-L59>)
 
 ```go
 type EditionMetadataInput struct {
@@ -109,7 +110,7 @@ type EditionMetadataInput struct {
 }
 ```
 
-## type [EditionMetadataOwner](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/types.go#L49-L54>)
+## type [EditionMetadataOwner](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/types.go#L49-L54>)
 
 ```go
 type EditionMetadataOwner struct {
@@ -120,7 +121,7 @@ type EditionMetadataOwner struct {
 }
 ```
 
-## type [EditionResult](<https://github.com/thirdweb-dev/go-sdk/blob/master/pkg/thirdweb/erc1155.go#L19-L22>)
+## type [EditionResult](<https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/erc1155.go#L21-L24>)
 
 ```go
 type EditionResult struct {

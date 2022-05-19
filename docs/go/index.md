@@ -28,6 +28,8 @@ To start using this SDK, you just need to pass in a provider configuration.
 Once you have all the necessary dependencies, you can follow the following setup steps to get started with SDK read-only functions:
 
 ```go
+package main
+
 import (
 	"github.com/thirdweb-dev/go-sdk/pkg/thirdweb"
 )
@@ -39,8 +41,6 @@ func main() {
 	// - your own rpc URL
 	sdk, _ := thirdweb.NewThirdwebSDK("polygon", nil)
 }
-
-main()
 ```
 
 ### Working With Contracts
@@ -48,6 +48,8 @@ main()
 Once you instantiate the SDK, you can use it to access your thirdweb contracts. You can use SDK's contract getter functions like `GetNFTCollection`, `GetEdition`, and `GetNFTDrop`, to get the respective SDK contract instances. To use an NFT Collection contract for example, you can do the following.
 
 ```go
+package main
+
 import (
 	"fmt"
 
@@ -62,11 +64,9 @@ func main() {
 	nft, _ := sdk.GetNFTCollection(address)
 
 	// Now you can use any of the read-only SDK contract functions
-	nfts, _ = nft.GetAll()
+	nfts, _ := nft.GetAll()
 	fmt.Println(len(nfts))
 }
-
-main()
 ```
 
 ### Signing Transactions
@@ -78,6 +78,8 @@ In order to execute transactions on your contract, the SDK needs to know the wal
 To connect your wallet to the SDK, you can use the following setup:
 
 ```go
+package main
+
 import (
 	"github.com/thirdweb-dev/go-sdk/pkg/thirdweb"
 )
@@ -99,6 +101,4 @@ func main() {
 		}
 	)
 }
-
-main()
 ```
