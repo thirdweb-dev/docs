@@ -14,3 +14,6 @@
 	path = submodules/python
 	url = https://github.com/thirdweb-dev/python-sdk.git
 	branch = main
+[submodule "submodules/go"]
+	path = submodules/go
+	url = https://github.com/thirdweb-dev/go-sdk.git
