@@ -11,32 +11,30 @@ displayed_sidebar: react
 
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-Use this to mint a new NFT on your ERC721 contract
+Use this to mint a new NFT on your [NFTContract](./react.nftcontract.md)
 
 **Signature:**
 
 ```typescript
-export declare function useMintNFT(
-  contract: RequiredParam<Erc721>,
+export declare function useMintNFT<TContract extends NFTContract>(
+  contract: RequiredParam<TContract>,
 ): import("react-query").UseMutationResult<
-  import("@thirdweb-dev/sdk").TransactionResultWithId<
-    import("@thirdweb-dev/sdk").NFTMetadataOwner
-  >,
+  MintNFTReturnType<TContract>,
   unknown,
-  NFTMintParams,
+  MintNFTParams<TContract>,
   unknown
 >;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                    | Description                                                                                                                    |
-| --------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc721&gt; | an instace of a contract that extends the Erc721 spec (nft collection, nft drop, custom contract that follows the Erc721 spec) |
+| Parameter | Type                                                       | Description                                           |
+| --------- | ---------------------------------------------------------- | ----------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instace of a [NFTContract](./react.nftcontract.md) |
 
 **Returns:**
 
-import("react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;import("@thirdweb-dev/sdk").NFTMetadataOwner&gt;, unknown, [NFTMintParams](./react.nftmintparams.md), unknown&gt;
+import("react-query").UseMutationResult&lt;[MintNFTReturnType](./react.mintnftreturntype.md)&lt;TContract&gt;, unknown, [MintNFTParams](./react.mintnftparams.md)&lt;TContract&gt;, unknown&gt;
 
 a mutation object that can be used to mint a new NFT token to the connected wallet
 
@@ -44,11 +42,7 @@ a mutation object that can be used to mint a new NFT token to the connected wall
 
 ```jsx
 const Component = () => {
-  const {
-    mutate: mintNft,
-    isLoading,
-    error,
-  } = useMintNFT(">>YourERC721ContractInstance<<");
+  const { mutate: mintNft, isLoading, error } = useMintNFT(NFTContract);
 
   if (error) {
     console.error("failed to mint nft", error);

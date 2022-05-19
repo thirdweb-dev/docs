@@ -37,5 +37,5 @@ Transfer an NFT from the connected wallet to another wallet.
 ```javascript
 const walletAddress = "{{wallet_address}}";
 const tokenId = 0;
-await contract.transfer(walletAddress, tokenId);
+await contract.nft.transfer(walletAddress, tokenId);
 ```

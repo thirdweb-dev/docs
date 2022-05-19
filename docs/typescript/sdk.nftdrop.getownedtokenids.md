@@ -9,6 +9,8 @@ displayed_sidebar: typescript
 
 ## NFTDrop.getOwnedTokenIds() method
 
+Get all token ids of NFTs owned by a specific wallet.
+
 **Signature:**
 
 ```typescript
@@ -17,9 +19,9 @@ getOwnedTokenIds(walletAddress?: string): Promise<BigNumber[]>;
 
 ## Parameters
 
-| Parameter     | Type   | Description       |
-| ------------- | ------ | ----------------- |
-| walletAddress | string | <i>(Optional)</i> |
+| Parameter     | Type   | Description                                                                     |
+| ------------- | ------ | ------------------------------------------------------------------------------- |
+| walletAddress | string | <i>(Optional)</i> the wallet address to query, defaults to the connected wallet |
 
 **Returns:**
 

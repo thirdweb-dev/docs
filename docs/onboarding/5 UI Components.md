@@ -1,6 +1,6 @@
 ---
 slug: /ui-kit
-title: 👩‍🎨 UI Kit
+title: UI Kit
 ---
 
 # UI Kit

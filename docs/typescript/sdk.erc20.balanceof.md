@@ -38,5 +38,5 @@ Get a wallets token balance.
 ```javascript
 // Address of the wallet to check token balance
 const walletAddress = "{{wallet_address}}";
-const balance = await contract.balanceOf(walletAddress);
+const balance = await contract.token.balanceOf(walletAddress);
 ```
