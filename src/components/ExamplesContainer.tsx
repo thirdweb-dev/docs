@@ -51,6 +51,11 @@ const starterKitToDisplayNameMapping = {
   "vite-typescript-starter": "Vite + TypeScript",
 };
 
+const repoToExampleGuideMapping = {
+  "marketplace-next-ts": "/examples/marketplace",
+  "custom-minting-page": "/examples/nft-drop",
+};
+
 export default function ExamplesContainer() {
   const examples = exampleRepos as ExampleRepo[];
 
@@ -197,8 +202,10 @@ export default function ExamplesContainer() {
           )
           .map((repo) => (
             <a
-              href={repo.html_url}
-              target="_blank"
+              // Prefer to show internal guide but fallback to github url
+              href={repoToExampleGuideMapping[repo.name] || repo.html_url}
+              // Open in new tab if its a github url, same if internal guide
+              target={repoToExampleGuideMapping[repo.name] ? "" : "_blank"}
               className="col col--6"
               style={{
                 marginBottom: 24,
