@@ -74,9 +74,10 @@ displayed_sidebar: typescript
 
 ## Functions
 
-| Function                                                             | Description                                |
-| -------------------------------------------------------------------- | ------------------------------------------ |
-| [getNativeTokenByChainId(chainId)](./sdk.getnativetokenbychainid.md) | Returns the native token for a given chain |
+| Function                                                              | Description                                |
+| --------------------------------------------------------------------- | ------------------------------------------ |
+| [getNativeTokenByChainId(chainId)](./sdk.getnativetokenbychainid.md)  | Returns the native token for a given chain |
+| [getReadOnlyProvider(network, chainId)](./sdk.getreadonlyprovider.md) |                                            |
 
 ## Interfaces
 
