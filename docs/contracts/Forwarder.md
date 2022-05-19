@@ -4,8 +4,15 @@ title: Forwarder
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # Forwarder
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,19 +22,23 @@ displayed_sidebar: contracts
 function execute(MinimalForwarder.ForwardRequest req, bytes signature) external payable returns (bool, bytes)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name      | Type                            | Description |
-| --------- | ------------------------------- | ----------- |
-| req       | MinimalForwarder.ForwardRequest | undefined   |
-| signature | bytes                           | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| req | MinimalForwarder.ForwardRequest | undefined
+| signature | bytes | undefined
 
 #### Returns
 
-| Name | Type  | Description |
-| ---- | ----- | ----------- |
-| \_0  | bool  | undefined   |
-| \_1  | bytes | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bool | undefined
+| _1 | bytes | undefined
 
 ### getNonce
 
@@ -35,17 +46,21 @@ function execute(MinimalForwarder.ForwardRequest req, bytes signature) external 
 function getNonce(address from) external view returns (uint256)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| from | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| from | address | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### verify
 
@@ -53,15 +68,22 @@ function getNonce(address from) external view returns (uint256)
 function verify(MinimalForwarder.ForwardRequest req, bytes signature) external view returns (bool)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name      | Type                            | Description |
-| --------- | ------------------------------- | ----------- |
-| req       | MinimalForwarder.ForwardRequest | undefined   |
-| signature | bytes                           | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| req | MinimalForwarder.ForwardRequest | undefined
+| signature | bytes | undefined
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined
+
+
+

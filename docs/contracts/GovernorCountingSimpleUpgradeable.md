@@ -4,10 +4,15 @@ title: GovernorCountingSimpleUpgradeable
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # GovernorCountingSimpleUpgradeable
 
-_Extension of {Governor} for simple, 3 options, vote counting. *Available since v4.3.*_
+
+
+
+
+
+
+*Extension of {Governor} for simple, 3 options, vote counting. _Available since v4.3._*
 
 ## Methods
 
@@ -17,11 +22,16 @@ _Extension of {Governor} for simple, 3 options, vote counting. *Available since 
 function BALLOT_TYPEHASH() external view returns (bytes32)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes32 | undefined
 
 ### COUNTING_MODE
 
@@ -29,13 +39,16 @@ function BALLOT_TYPEHASH() external view returns (bytes32)
 function COUNTING_MODE() external pure returns (string)
 ```
 
-_See {IGovernor-COUNTING_MODE}._
+
+
+*See {IGovernor-COUNTING_MODE}.*
+
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
 
 ### castVote
 
@@ -43,20 +56,22 @@ _See {IGovernor-COUNTING_MODE}._
 function castVote(uint256 proposalId, uint8 support) external nonpayable returns (uint256)
 ```
 
-_See {IGovernor-castVote}._
+
+
+*See {IGovernor-castVote}.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
-| support    | uint8   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined
+| support | uint8 | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### castVoteBySig
 
@@ -64,23 +79,25 @@ _See {IGovernor-castVote}._
 function castVoteBySig(uint256 proposalId, uint8 support, uint8 v, bytes32 r, bytes32 s) external nonpayable returns (uint256)
 ```
 
-_See {IGovernor-castVoteBySig}._
+
+
+*See {IGovernor-castVoteBySig}.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
-| support    | uint8   | undefined   |
-| v          | uint8   | undefined   |
-| r          | bytes32 | undefined   |
-| s          | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined
+| support | uint8 | undefined
+| v | uint8 | undefined
+| r | bytes32 | undefined
+| s | bytes32 | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### castVoteWithReason
 
@@ -88,21 +105,23 @@ _See {IGovernor-castVoteBySig}._
 function castVoteWithReason(uint256 proposalId, uint8 support, string reason) external nonpayable returns (uint256)
 ```
 
-_See {IGovernor-castVoteWithReason}._
+
+
+*See {IGovernor-castVoteWithReason}.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
-| support    | uint8   | undefined   |
-| reason     | string  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined
+| support | uint8 | undefined
+| reason | string | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### execute
 
@@ -110,22 +129,24 @@ _See {IGovernor-castVoteWithReason}._
 function execute(address[] targets, uint256[] values, bytes[] calldatas, bytes32 descriptionHash) external payable returns (uint256)
 ```
 
-_See {IGovernor-execute}._
+
+
+*See {IGovernor-execute}.*
 
 #### Parameters
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| targets         | address[] | undefined   |
-| values          | uint256[] | undefined   |
-| calldatas       | bytes[]   | undefined   |
-| descriptionHash | bytes32   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| targets | address[] | undefined
+| values | uint256[] | undefined
+| calldatas | bytes[] | undefined
+| descriptionHash | bytes32 | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### getVotes
 
@@ -135,20 +156,20 @@ function getVotes(address account, uint256 blockNumber) external view returns (u
 
 module:reputation
 
-_Voting power of an `account` at a specific `blockNumber`. Note: this can be implemented in a number of ways, for example by reading the delegated balance from one (or multiple), {ERC20Votes} tokens._
+*Voting power of an `account` at a specific `blockNumber`. Note: this can be implemented in a number of ways, for example by reading the delegated balance from one (or multiple), {ERC20Votes} tokens.*
 
 #### Parameters
 
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| account     | address | undefined   |
-| blockNumber | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| account | address | undefined
+| blockNumber | uint256 | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### hasVoted
 
@@ -156,20 +177,22 @@ _Voting power of an `account` at a specific `blockNumber`. Note: this can be imp
 function hasVoted(uint256 proposalId, address account) external view returns (bool)
 ```
 
-_See {IGovernor-hasVoted}._
+
+
+*See {IGovernor-hasVoted}.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
-| account    | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined
+| account | address | undefined
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined
 
 ### hashProposal
 
@@ -177,22 +200,24 @@ _See {IGovernor-hasVoted}._
 function hashProposal(address[] targets, uint256[] values, bytes[] calldatas, bytes32 descriptionHash) external pure returns (uint256)
 ```
 
-_See {IGovernor-hashProposal}. The proposal id is produced by hashing the RLC encoded `targets` array, the `values` array, the `calldatas` array and the descriptionHash (bytes32 which itself is the keccak256 hash of the description string). This proposal id can be produced from the proposal data which is part of the {ProposalCreated} event. It can even be computed in advance, before the proposal is submitted. Note that the chainId and the governor address are not part of the proposal id computation. Consequently, the same proposal (with same operation and same description) will have the same id if submitted on multiple governors accross multiple networks. This also means that in order to execute the same operation twice (on the same governor) the proposer will have to change the description in order to avoid proposal id conflicts._
+
+
+*See {IGovernor-hashProposal}. The proposal id is produced by hashing the RLC encoded `targets` array, the `values` array, the `calldatas` array and the descriptionHash (bytes32 which itself is the keccak256 hash of the description string). This proposal id can be produced from the proposal data which is part of the {ProposalCreated} event. It can even be computed in advance, before the proposal is submitted. Note that the chainId and the governor address are not part of the proposal id computation. Consequently, the same proposal (with same operation and same description) will have the same id if submitted on multiple governors accross multiple networks. This also means that in order to execute the same operation twice (on the same governor) the proposer will have to change the description in order to avoid proposal id conflicts.*
 
 #### Parameters
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| targets         | address[] | undefined   |
-| values          | uint256[] | undefined   |
-| calldatas       | bytes[]   | undefined   |
-| descriptionHash | bytes32   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| targets | address[] | undefined
+| values | uint256[] | undefined
+| calldatas | bytes[] | undefined
+| descriptionHash | bytes32 | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### name
 
@@ -200,13 +225,16 @@ _See {IGovernor-hashProposal}. The proposal id is produced by hashing the RLC en
 function name() external view returns (string)
 ```
 
-_See {IGovernor-name}._
+
+
+*See {IGovernor-name}.*
+
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
 
 ### proposalDeadline
 
@@ -214,19 +242,21 @@ _See {IGovernor-name}._
 function proposalDeadline(uint256 proposalId) external view returns (uint256)
 ```
 
-_See {IGovernor-proposalDeadline}._
+
+
+*See {IGovernor-proposalDeadline}.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### proposalSnapshot
 
@@ -234,19 +264,21 @@ _See {IGovernor-proposalDeadline}._
 function proposalSnapshot(uint256 proposalId) external view returns (uint256)
 ```
 
-_See {IGovernor-proposalSnapshot}._
+
+
+*See {IGovernor-proposalSnapshot}.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### proposalThreshold
 
@@ -254,13 +286,16 @@ _See {IGovernor-proposalSnapshot}._
 function proposalThreshold() external view returns (uint256)
 ```
 
-_Part of the Governor Bravo&#39;s interface: *&quot;The number of votes required in order for a voter to become a proposer&quot;*._
+
+
+*Part of the Governor Bravo&#39;s interface: _&quot;The number of votes required in order for a voter to become a proposer&quot;_.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### proposalVotes
 
@@ -268,21 +303,23 @@ _Part of the Governor Bravo&#39;s interface: *&quot;The number of votes required
 function proposalVotes(uint256 proposalId) external view returns (uint256 againstVotes, uint256 forVotes, uint256 abstainVotes)
 ```
 
-_Accessor to the internal vote counts._
+
+
+*Accessor to the internal vote counts.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined
 
 #### Returns
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| againstVotes | uint256 | undefined   |
-| forVotes     | uint256 | undefined   |
-| abstainVotes | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| againstVotes | uint256 | undefined
+| forVotes | uint256 | undefined
+| abstainVotes | uint256 | undefined
 
 ### propose
 
@@ -290,22 +327,24 @@ _Accessor to the internal vote counts._
 function propose(address[] targets, uint256[] values, bytes[] calldatas, string description) external nonpayable returns (uint256)
 ```
 
-_See {IGovernor-propose}._
+
+
+*See {IGovernor-propose}.*
 
 #### Parameters
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| targets     | address[] | undefined   |
-| values      | uint256[] | undefined   |
-| calldatas   | bytes[]   | undefined   |
-| description | string    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| targets | address[] | undefined
+| values | uint256[] | undefined
+| calldatas | bytes[] | undefined
+| description | string | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### quorum
 
@@ -315,19 +354,19 @@ function quorum(uint256 blockNumber) external view returns (uint256)
 
 module:user-config
 
-_Minimum number of cast voted required for a proposal to be successful. Note: The `blockNumber` parameter corresponds to the snaphot used for counting vote. This allows to scale the quroum depending on values such as the totalSupply of a token at this block (see {ERC20Votes})._
+*Minimum number of cast voted required for a proposal to be successful. Note: The `blockNumber` parameter corresponds to the snaphot used for counting vote. This allows to scale the quroum depending on values such as the totalSupply of a token at this block (see {ERC20Votes}).*
 
 #### Parameters
 
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| blockNumber | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| blockNumber | uint256 | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### relay
 
@@ -335,15 +374,17 @@ _Minimum number of cast voted required for a proposal to be successful. Note: Th
 function relay(address target, uint256 value, bytes data) external nonpayable
 ```
 
-_Relays a transaction or function call to an arbitrary target. In cases where the governance executor is some contract other than the governor itself, like when using a timelock, this function can be invoked in a governance proposal to recover tokens or Ether that was sent to the governor contract by mistake. Note that if the executor is simply the governor itself, use of `relay` is redundant._
+
+
+*Relays a transaction or function call to an arbitrary target. In cases where the governance executor is some contract other than the governor itself, like when using a timelock, this function can be invoked in a governance proposal to recover tokens or Ether that was sent to the governor contract by mistake. Note that if the executor is simply the governor itself, use of `relay` is redundant.*
 
 #### Parameters
 
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| target | address | undefined   |
-| value  | uint256 | undefined   |
-| data   | bytes   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| target | address | undefined
+| value | uint256 | undefined
+| data | bytes | undefined
 
 ### state
 
@@ -351,19 +392,21 @@ _Relays a transaction or function call to an arbitrary target. In cases where th
 function state(uint256 proposalId) external view returns (enum IGovernorUpgradeable.ProposalState)
 ```
 
-_See {IGovernor-state}._
+
+
+*See {IGovernor-state}.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined
 
 #### Returns
 
-| Name | Type                                    | Description |
-| ---- | --------------------------------------- | ----------- |
-| \_0  | enum IGovernorUpgradeable.ProposalState | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | enum IGovernorUpgradeable.ProposalState | undefined
 
 ### supportsInterface
 
@@ -371,19 +414,21 @@ _See {IGovernor-state}._
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
-_See {IERC165-supportsInterface}._
+
+
+*See {IERC165-supportsInterface}.*
 
 #### Parameters
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| interfaceId | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| interfaceId | bytes4 | undefined
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined
 
 ### version
 
@@ -391,13 +436,16 @@ _See {IERC165-supportsInterface}._
 function version() external view returns (string)
 ```
 
-_See {IGovernor-version}._
+
+
+*See {IGovernor-version}.*
+
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
 
 ### votingDelay
 
@@ -407,13 +455,14 @@ function votingDelay() external view returns (uint256)
 
 module:user-config
 
-_Delay, in number of block, between the proposal is created and the vote starts. This can be increassed to leave time for users to buy voting power, of delegate it, before the voting of a proposal starts._
+*Delay, in number of block, between the proposal is created and the vote starts. This can be increassed to leave time for users to buy voting power, of delegate it, before the voting of a proposal starts.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### votingPeriod
 
@@ -423,13 +472,16 @@ function votingPeriod() external view returns (uint256)
 
 module:user-config
 
-_Delay, in number of blocks, between the vote start and vote ends. NOTE: The {votingDelay} can delay the start of the vote. This must be considered when setting the voting duration compared to the voting delay._
+*Delay, in number of blocks, between the vote start and vote ends. NOTE: The {votingDelay} can delay the start of the vote. This must be considered when setting the voting duration compared to the voting delay.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
+
+
 
 ## Events
 
@@ -439,11 +491,15 @@ _Delay, in number of blocks, between the vote start and vote ends. NOTE: The {vo
 event ProposalCanceled(uint256 proposalId)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId  | uint256 | undefined |
 
 ### ProposalCreated
 
@@ -451,19 +507,23 @@ event ProposalCanceled(uint256 proposalId)
 event ProposalCreated(uint256 proposalId, address proposer, address[] targets, uint256[] values, string[] signatures, bytes[] calldatas, uint256 startBlock, uint256 endBlock, string description)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| proposalId  | uint256   | undefined   |
-| proposer    | address   | undefined   |
-| targets     | address[] | undefined   |
-| values      | uint256[] | undefined   |
-| signatures  | string[]  | undefined   |
-| calldatas   | bytes[]   | undefined   |
-| startBlock  | uint256   | undefined   |
-| endBlock    | uint256   | undefined   |
-| description | string    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId  | uint256 | undefined |
+| proposer  | address | undefined |
+| targets  | address[] | undefined |
+| values  | uint256[] | undefined |
+| signatures  | string[] | undefined |
+| calldatas  | bytes[] | undefined |
+| startBlock  | uint256 | undefined |
+| endBlock  | uint256 | undefined |
+| description  | string | undefined |
 
 ### ProposalExecuted
 
@@ -471,11 +531,15 @@ event ProposalCreated(uint256 proposalId, address proposer, address[] targets, u
 event ProposalExecuted(uint256 proposalId)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId  | uint256 | undefined |
 
 ### VoteCast
 
@@ -483,12 +547,18 @@ event ProposalExecuted(uint256 proposalId)
 event VoteCast(address indexed voter, uint256 proposalId, uint8 support, uint256 weight, string reason)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| voter `indexed` | address | undefined   |
-| proposalId      | uint256 | undefined   |
-| support         | uint8   | undefined   |
-| weight          | uint256 | undefined   |
-| reason          | string  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| voter `indexed` | address | undefined |
+| proposalId  | uint256 | undefined |
+| support  | uint8 | undefined |
+| weight  | uint256 | undefined |
+| reason  | string | undefined |
+
+

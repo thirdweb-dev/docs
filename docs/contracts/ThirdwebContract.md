@@ -4,8 +4,15 @@ title: ThirdwebContract
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # ThirdwebContract
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,11 +22,16 @@ displayed_sidebar: contracts
 function contractURI() external view returns (string)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
 
 ### getPublishMetadataUri
 
@@ -27,13 +39,16 @@ function contractURI() external view returns (string)
 function getPublishMetadataUri() external view returns (string)
 ```
 
-_Returns the publish metadata for this contract._
+
+
+*Returns the publish metadata for this contract.*
+
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
 
 ### owner
 
@@ -41,11 +56,16 @@ _Returns the publish metadata for this contract._
 function owner() external view returns (address)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined
 
 ### setContractURI
 
@@ -53,13 +73,15 @@ function owner() external view returns (address)
 function setContractURI(string _uri) external nonpayable
 ```
 
-_Lets a contract admin set the URI for contract-level metadata._
+
+
+*Lets a contract admin set the URI for contract-level metadata.*
 
 #### Parameters
 
-| Name  | Type   | Description |
-| ----- | ------ | ----------- |
-| \_uri | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _uri | string | undefined
 
 ### setOwner
 
@@ -67,13 +89,15 @@ _Lets a contract admin set the URI for contract-level metadata._
 function setOwner(address _newOwner) external nonpayable
 ```
 
-_Lets a contract admin set a new owner for the contract. The new owner must be a contract admin._
+
+
+*Lets a contract admin set a new owner for the contract. The new owner must be a contract admin.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_newOwner | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _newOwner | address | undefined
 
 ### setThirdwebInfo
 
@@ -81,13 +105,17 @@ _Lets a contract admin set a new owner for the contract. The new owner must be a
 function setThirdwebInfo(ThirdwebContract.ThirdwebInfo _thirdwebInfo) external nonpayable
 ```
 
-_Initializes the publish metadata and contract metadata at deploy time._
+
+
+*Initializes the publish metadata and contract metadata at deploy time.*
 
 #### Parameters
 
-| Name           | Type                          | Description |
-| -------------- | ----------------------------- | ----------- |
-| \_thirdwebInfo | ThirdwebContract.ThirdwebInfo | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _thirdwebInfo | ThirdwebContract.ThirdwebInfo | undefined
+
+
 
 ## Events
 
@@ -97,9 +125,15 @@ _Initializes the publish metadata and contract metadata at deploy time._
 event OwnerUpdated(address prevOwner, address newOwner)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| prevOwner | address | undefined   |
-| newOwner  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| prevOwner  | address | undefined |
+| newOwner  | address | undefined |
+
+

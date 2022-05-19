@@ -4,8 +4,15 @@ title: IDropSinglePhase
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # IDropSinglePhase
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -17,16 +24,18 @@ function claim(address receiver, uint256 quantity, address currency, uint256 pri
 
 Lets an account claim a given quantity of NFTs.
 
+
+
 #### Parameters
 
-| Name           | Type                            | Description                                                                                               |
-| -------------- | ------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| receiver       | address                         | The receiver of the NFTs to claim.                                                                        |
-| quantity       | uint256                         | The quantity of NFTs to claim.                                                                            |
-| currency       | address                         | The currency in which to pay for the claim.                                                               |
-| pricePerToken  | uint256                         | The price per token to pay for the claim.                                                                 |
-| allowlistProof | IDropSinglePhase.AllowlistProof | The proof of the claimer&#39;s inclusion in the merkle root allowlist of the claim conditions that apply. |
-| data           | bytes                           | Arbitrary bytes data that can be leveraged in the implementation of this interface.                       |
+| Name | Type | Description |
+|---|---|---|
+| receiver | address | The receiver of the NFTs to claim.
+| quantity | uint256 | The quantity of NFTs to claim.
+| currency | address | The currency in which to pay for the claim.
+| pricePerToken | uint256 | The price per token to pay for the claim.
+| allowlistProof | IDropSinglePhase.AllowlistProof | The proof of the claimer&#39;s inclusion in the merkle root allowlist                                        of the claim conditions that apply.
+| data | bytes | Arbitrary bytes data that can be leveraged in the implementation of this interface.
 
 ### setClaimConditions
 
@@ -36,13 +45,17 @@ function setClaimConditions(IClaimCondition.ClaimCondition phase, bool resetClai
 
 Lets a contract admin (account with `DEFAULT_ADMIN_ROLE`) set claim conditions.
 
+
+
 #### Parameters
 
-| Name                  | Type                           | Description                                                                                                      |
-| --------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| phase                 | IClaimCondition.ClaimCondition | Claim condition to set.                                                                                          |
-| resetClaimEligibility | bool                           | Whether to reset `limitLastClaimTimestamp` and `limitMerkleProofClaim` values when setting new claim conditions. |
-| data                  | bytes                          | Arbitrary bytes data that can be leveraged in the implementation of this interface.                              |
+| Name | Type | Description |
+|---|---|---|
+| phase | IClaimCondition.ClaimCondition | Claim condition to set.
+| resetClaimEligibility | bool | Whether to reset `limitLastClaimTimestamp` and `limitMerkleProofClaim` values when setting new                                  claim conditions.
+| data | bytes | Arbitrary bytes data that can be leveraged in the implementation of this interface.
+
+
 
 ## Events
 
@@ -52,12 +65,16 @@ Lets a contract admin (account with `DEFAULT_ADMIN_ROLE`) set claim conditions.
 event ClaimConditionUpdated(IClaimCondition.ClaimCondition condition, bool resetEligibility)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name             | Type                           | Description |
-| ---------------- | ------------------------------ | ----------- |
-| condition        | IClaimCondition.ClaimCondition | undefined   |
-| resetEligibility | bool                           | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| condition  | IClaimCondition.ClaimCondition | undefined |
+| resetEligibility  | bool | undefined |
 
 ### TokensClaimed
 
@@ -65,12 +82,18 @@ event ClaimConditionUpdated(IClaimCondition.ClaimCondition condition, bool reset
 event TokensClaimed(IClaimCondition.ClaimCondition condition, address indexed claimer, address indexed receiver, uint256 quantityClaimed, uint256 indexed aux)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name               | Type                           | Description |
-| ------------------ | ------------------------------ | ----------- |
-| condition          | IClaimCondition.ClaimCondition | undefined   |
-| claimer `indexed`  | address                        | undefined   |
-| receiver `indexed` | address                        | undefined   |
-| quantityClaimed    | uint256                        | undefined   |
-| aux `indexed`      | uint256                        | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| condition  | IClaimCondition.ClaimCondition | undefined |
+| claimer `indexed` | address | undefined |
+| receiver `indexed` | address | undefined |
+| quantityClaimed  | uint256 | undefined |
+| aux `indexed` | uint256 | undefined |
+
+

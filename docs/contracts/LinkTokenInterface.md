@@ -4,8 +4,15 @@ title: LinkTokenInterface
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # LinkTokenInterface
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,18 +22,22 @@ displayed_sidebar: contracts
 function allowance(address owner, address spender) external view returns (uint256 remaining)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| owner   | address | undefined   |
-| spender | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| owner | address | undefined
+| spender | address | undefined
 
 #### Returns
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| remaining | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| remaining | uint256 | undefined
 
 ### approve
 
@@ -34,18 +45,22 @@ function allowance(address owner, address spender) external view returns (uint25
 function approve(address spender, uint256 value) external nonpayable returns (bool success)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| spender | address | undefined   |
-| value   | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| spender | address | undefined
+| value | uint256 | undefined
 
 #### Returns
 
-| Name    | Type | Description |
-| ------- | ---- | ----------- |
-| success | bool | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| success | bool | undefined
 
 ### balanceOf
 
@@ -53,17 +68,21 @@ function approve(address spender, uint256 value) external nonpayable returns (bo
 function balanceOf(address owner) external view returns (uint256 balance)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| owner | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| owner | address | undefined
 
 #### Returns
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| balance | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| balance | uint256 | undefined
 
 ### decimals
 
@@ -71,11 +90,16 @@ function balanceOf(address owner) external view returns (uint256 balance)
 function decimals() external view returns (uint8 decimalPlaces)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name          | Type  | Description |
-| ------------- | ----- | ----------- |
-| decimalPlaces | uint8 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| decimalPlaces | uint8 | undefined
 
 ### decreaseApproval
 
@@ -83,18 +107,22 @@ function decimals() external view returns (uint8 decimalPlaces)
 function decreaseApproval(address spender, uint256 addedValue) external nonpayable returns (bool success)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| spender    | address | undefined   |
-| addedValue | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| spender | address | undefined
+| addedValue | uint256 | undefined
 
 #### Returns
 
-| Name    | Type | Description |
-| ------- | ---- | ----------- |
-| success | bool | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| success | bool | undefined
 
 ### increaseApproval
 
@@ -102,12 +130,16 @@ function decreaseApproval(address spender, uint256 addedValue) external nonpayab
 function increaseApproval(address spender, uint256 subtractedValue) external nonpayable
 ```
 
+
+
+
+
 #### Parameters
 
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| spender         | address | undefined   |
-| subtractedValue | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| spender | address | undefined
+| subtractedValue | uint256 | undefined
 
 ### name
 
@@ -115,11 +147,16 @@ function increaseApproval(address spender, uint256 subtractedValue) external non
 function name() external view returns (string tokenName)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name      | Type   | Description |
-| --------- | ------ | ----------- |
-| tokenName | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| tokenName | string | undefined
 
 ### symbol
 
@@ -127,11 +164,16 @@ function name() external view returns (string tokenName)
 function symbol() external view returns (string tokenSymbol)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| tokenSymbol | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| tokenSymbol | string | undefined
 
 ### totalSupply
 
@@ -139,11 +181,16 @@ function symbol() external view returns (string tokenSymbol)
 function totalSupply() external view returns (uint256 totalTokensIssued)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| totalTokensIssued | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| totalTokensIssued | uint256 | undefined
 
 ### transfer
 
@@ -151,18 +198,22 @@ function totalSupply() external view returns (uint256 totalTokensIssued)
 function transfer(address to, uint256 value) external nonpayable returns (bool success)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| to    | address | undefined   |
-| value | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| to | address | undefined
+| value | uint256 | undefined
 
 #### Returns
 
-| Name    | Type | Description |
-| ------- | ---- | ----------- |
-| success | bool | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| success | bool | undefined
 
 ### transferAndCall
 
@@ -170,19 +221,23 @@ function transfer(address to, uint256 value) external nonpayable returns (bool s
 function transferAndCall(address to, uint256 value, bytes data) external nonpayable returns (bool success)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| to    | address | undefined   |
-| value | uint256 | undefined   |
-| data  | bytes   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| to | address | undefined
+| value | uint256 | undefined
+| data | bytes | undefined
 
 #### Returns
 
-| Name    | Type | Description |
-| ------- | ---- | ----------- |
-| success | bool | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| success | bool | undefined
 
 ### transferFrom
 
@@ -190,16 +245,23 @@ function transferAndCall(address to, uint256 value, bytes data) external nonpaya
 function transferFrom(address from, address to, uint256 value) external nonpayable returns (bool success)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| from  | address | undefined   |
-| to    | address | undefined   |
-| value | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| from | address | undefined
+| to | address | undefined
+| value | uint256 | undefined
 
 #### Returns
 
-| Name    | Type | Description |
-| ------- | ---- | ----------- |
-| success | bool | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| success | bool | undefined
+
+
+

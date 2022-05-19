@@ -4,8 +4,15 @@ title: Royalty
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # Royalty
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,14 +22,17 @@ displayed_sidebar: contracts
 function getDefaultRoyaltyInfo() external view returns (address, uint16)
 ```
 
-_Returns the default royalty recipient and bps._
+
+
+*Returns the default royalty recipient and bps.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint16  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined
+| _1 | uint16 | undefined
 
 ### getRoyaltyInfoForToken
 
@@ -30,20 +40,22 @@ _Returns the default royalty recipient and bps._
 function getRoyaltyInfoForToken(uint256 _tokenId) external view returns (address, uint16)
 ```
 
-_Returns the royalty recipient and bps for a particular token Id._
+
+
+*Returns the royalty recipient and bps for a particular token Id.*
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| \_tokenId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _tokenId | uint256 | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint16  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined
+| _1 | uint16 | undefined
 
 ### royaltyInfo
 
@@ -51,21 +63,23 @@ _Returns the royalty recipient and bps for a particular token Id._
 function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (address receiver, uint256 royaltyAmount)
 ```
 
-_Returns the royalty recipient and amount, given a tokenId and sale price._
+
+
+*Returns the royalty recipient and amount, given a tokenId and sale price.*
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| tokenId   | uint256 | undefined   |
-| salePrice | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| tokenId | uint256 | undefined
+| salePrice | uint256 | undefined
 
 #### Returns
 
-| Name          | Type    | Description |
-| ------------- | ------- | ----------- |
-| receiver      | address | undefined   |
-| royaltyAmount | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| receiver | address | undefined
+| royaltyAmount | uint256 | undefined
 
 ### setDefaultRoyaltyInfo
 
@@ -73,14 +87,16 @@ _Returns the royalty recipient and amount, given a tokenId and sale price._
 function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
 ```
 
-_Lets a contract admin update the default royalty recipient and bps._
+
+
+*Lets a contract admin update the default royalty recipient and bps.*
 
 #### Parameters
 
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| \_royaltyRecipient | address | undefined   |
-| \_royaltyBps       | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _royaltyRecipient | address | undefined
+| _royaltyBps | uint256 | undefined
 
 ### setRoyaltyInfoForToken
 
@@ -88,15 +104,19 @@ _Lets a contract admin update the default royalty recipient and bps._
 function setRoyaltyInfoForToken(uint256 _tokenId, address _recipient, uint256 _bps) external nonpayable
 ```
 
-_Lets a contract admin set the royalty recipient and bps for a particular token Id._
+
+
+*Lets a contract admin set the royalty recipient and bps for a particular token Id.*
 
 #### Parameters
 
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| \_tokenId   | uint256 | undefined   |
-| \_recipient | address | undefined   |
-| \_bps       | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _tokenId | uint256 | undefined
+| _recipient | address | undefined
+| _bps | uint256 | undefined
+
+
 
 ## Events
 
@@ -106,12 +126,16 @@ _Lets a contract admin set the royalty recipient and bps for a particular token 
 event DefaultRoyalty(address newRoyaltyRecipient, uint256 newRoyaltyBps)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                | Type    | Description |
-| ------------------- | ------- | ----------- |
-| newRoyaltyRecipient | address | undefined   |
-| newRoyaltyBps       | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| newRoyaltyRecipient  | address | undefined |
+| newRoyaltyBps  | uint256 | undefined |
 
 ### RoyaltyForToken
 
@@ -119,10 +143,16 @@ event DefaultRoyalty(address newRoyaltyRecipient, uint256 newRoyaltyBps)
 event RoyaltyForToken(uint256 indexed tokenId, address royaltyRecipient, uint256 royaltyBps)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| tokenId `indexed` | uint256 | undefined   |
-| royaltyRecipient  | address | undefined   |
-| royaltyBps        | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| tokenId `indexed` | uint256 | undefined |
+| royaltyRecipient  | address | undefined |
+| royaltyBps  | uint256 | undefined |
+
+

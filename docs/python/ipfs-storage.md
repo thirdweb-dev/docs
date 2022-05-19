@@ -4,10 +4,9 @@ title: IpfsStorage Objects
 hide_title: true
 displayed_sidebar: python
 ---
-
 <a id="core.classes.ipfs_storage"></a>
 
-# core.classes.ipfs_storage
+# core.classes.ipfs\_storage
 
 <a id="core.classes.ipfs_storage.IpfsStorage"></a>
 
@@ -55,7 +54,7 @@ dictionary of the data.
 
 <a id="core.classes.ipfs_storage.IpfsStorage.get_upload_token"></a>
 
-#### get_upload_token
+#### get\_upload\_token
 
 ```python
 def get_upload_token(contract_address: str) -> str
@@ -95,7 +94,7 @@ hash of the data.
 
 <a id="core.classes.ipfs_storage.IpfsStorage.upload_batch"></a>
 
-#### upload_batch
+#### upload\_batch
 
 ```python
 def upload_batch(files: Sequence[Union[TextIO, BinaryIO, str, Dict[str, Any]]],
@@ -119,7 +118,7 @@ hash of the data.
 
 <a id="core.classes.ipfs_storage.IpfsStorage.upload_metadata"></a>
 
-#### upload_metadata
+#### upload\_metadata
 
 ```python
 def upload_metadata(metadata: Dict[str, Any],
@@ -141,7 +140,7 @@ hash of the metadata.
 
 <a id="core.classes.ipfs_storage.IpfsStorage.upload_metadata_batch"></a>
 
-#### upload_metadata_batch
+#### upload\_metadata\_batch
 
 ```python
 def upload_metadata_batch(metadatas: Sequence[Dict[str, Any]],
