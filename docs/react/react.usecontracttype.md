@@ -17,7 +17,7 @@ Use this to get the contract type for a (built-in or custom) contract.
 
 ```typescript
 export declare function useContractType(
-  contractAddress: RequiredParam<string>,
+  contractAddress: RequiredParam<ContractAddress>,
 ): import("react-query").UseQueryResult<
   | "split"
   | "custom"
@@ -37,9 +37,9 @@ export declare function useContractType(
 
 ## Parameters
 
-| Parameter       | Type                                                    | Description                          |
-| --------------- | ------------------------------------------------------- | ------------------------------------ |
-| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | the address of the deployed contract |
+| Parameter       | Type                                                                                           | Description                          |
+| --------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------ |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;[ContractAddress](./react.contractaddress.md)&gt; | the address of the deployed contract |
 
 **Returns:**
 
