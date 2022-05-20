@@ -257,7 +257,7 @@ Then, initialise the SDK using the helper functions provided. The code should lo
 ```python
 # Conncect to the SDK
 # The polygon-rpc.com is the official Polygon Mainnet RPC
-sdk = ThirdwebSdk(SdkOptions(), "https://polygon-rpc.com")
+sdk = ThirdwebSdk(SdkOptions(), "polygon")
 
 # You'll need wallet's private key here, you can find them in your wallet.
 # WARNING: Never share this with anyone, it gives permission to use your wallet in your behalf
@@ -292,7 +292,7 @@ Putting everything together, this is how your minting code should look -
 ```python
 from thirdweb import ThirdwebSdk, SdkOptions, MintArg
 
-sdk = ThirdwebSdk(SdkOptions(), "https://polygon-rpc.com")
+sdk = ThirdwebSdk(SdkOptions(), "polygon")
 
 sdk.set_private_key("your private key")
 
@@ -432,7 +432,7 @@ def mint(item: Item):
     blob.make_public()
     print("your file url", blob.public_url)
 
-    sdk = ThirdwebSdk(SdkOptions(), "https://polygon-rpc.com")
+    sdk = ThirdwebSdk(SdkOptions(), "polygon")
 
     sdk.set_private_key("your private key")
 

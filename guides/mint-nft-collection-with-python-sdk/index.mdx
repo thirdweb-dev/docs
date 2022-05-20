@@ -61,11 +61,11 @@ load_dotenv()
 # This PRIVATE KEY is coming from your environment variables. Make sure to never put it in a tracked file or share it with anyone.
 PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
 
-# Add your own RPC URL here or use a public one
-RPC_URL = "https://rpc-mumbai.maticvigil.com"
+# Set the network you want to operate on, or add your own RPC URL here
+NETWORK = "mumbai"
 
 # Instantiate a new provider to pass into the SDK
-provider = Web3(Web3.HTTPProvider(RPC_URL))
+provider = Web3(Web3.HTTPProvider(NETWORK))
 
 # Optionally, instantiate a new signer to pass into the SDK
 signer = Account.from_key(PRIVATE_KEY)
