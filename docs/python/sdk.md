@@ -24,7 +24,7 @@ The main entry point for the Thirdweb SDK.
 #### \_\_init\_\_
 
 ```python
-def __init__(provider: Web3,
+def __init__(network: str,
              signer: Optional[LocalAccount] = None,
              options: SDKOptions = SDKOptions(),
              storage: IpfsStorage = IpfsStorage())

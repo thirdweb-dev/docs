@@ -1,11 +1,11 @@
 ---
-slug: /ByocFactory
-title: ByocFactory
+slug: /ContractMetadataRegistry
+title: ContractMetadataRegistry
 hide_title: true
 displayed_sidebar: contracts
 ---
 
-# ByocFactory
+# ContractMetadataRegistry
 
 ## Methods
 
@@ -21,75 +21,33 @@ function DEFAULT_ADMIN_ROLE() external view returns (bytes32)
 | ---- | ------- | ----------- |
 | \_0  | bytes32 | undefined   |
 
-### contractURI
+### OPERATOR_ROLE
 
 ```solidity
-function contractURI() external view returns (string)
+function OPERATOR_ROLE() external view returns (bytes32)
 ```
+
+_Only accounts with OPERATOR_ROLE can register metadata for contracts._
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
-### deployInstance
+### getMetadataUri
 
 ```solidity
-function deployInstance(address _publisher, bytes _contractBytecode, bytes _constructorArgs, bytes32 _salt, uint256 _value, ThirdwebContract.ThirdwebInfo _thirdwebInfo) external nonpayable returns (address deployedAddress)
+function getMetadataUri(address) external view returns (string)
 ```
 
-Deploys an instance of a published contract directly.
+_contract address deployed =&gt; metadata uri_
 
 #### Parameters
 
-| Name               | Type                          | Description |
-| ------------------ | ----------------------------- | ----------- |
-| \_publisher        | address                       | undefined   |
-| \_contractBytecode | bytes                         | undefined   |
-| \_constructorArgs  | bytes                         | undefined   |
-| \_salt             | bytes32                       | undefined   |
-| \_value            | uint256                       | undefined   |
-| \_thirdwebInfo     | ThirdwebContract.ThirdwebInfo | undefined   |
-
-#### Returns
-
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| deployedAddress | address | undefined   |
-
-### deployInstanceProxy
-
-```solidity
-function deployInstanceProxy(address _publisher, address _implementation, bytes _initializeData, bytes32 _salt, uint256 _value, ThirdwebContract.ThirdwebInfo _thirdwebInfo) external nonpayable returns (address deployedAddress)
-```
-
-Deploys a clone pointing to an implementation of a published contract.
-
-#### Parameters
-
-| Name             | Type                          | Description |
-| ---------------- | ----------------------------- | ----------- |
-| \_publisher      | address                       | undefined   |
-| \_implementation | address                       | undefined   |
-| \_initializeData | bytes                         | undefined   |
-| \_salt           | bytes32                       | undefined   |
-| \_value          | uint256                       | undefined   |
-| \_thirdwebInfo   | ThirdwebContract.ThirdwebInfo | undefined   |
-
-#### Returns
-
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| deployedAddress | address | undefined   |
-
-### getPublishMetadataUri
-
-```solidity
-function getPublishMetadataUri() external view returns (string)
-```
-
-_Returns the publish metadata for this contract._
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 #### Returns
 
@@ -194,20 +152,6 @@ _Returns `true` if `account` has been granted `role`._
 | ---- | ---- | ----------- |
 | \_0  | bool | undefined   |
 
-### isPaused
-
-```solidity
-function isPaused() external view returns (bool)
-```
-
-_Whether the registry is paused._
-
-#### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
-
 ### isTrustedForwarder
 
 ```solidity
@@ -226,17 +170,40 @@ function isTrustedForwarder(address forwarder) external view returns (bool)
 | ---- | ---- | ----------- |
 | \_0  | bool | undefined   |
 
-### owner
+### multicall
 
 ```solidity
-function owner() external view returns (address)
+function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 ```
 
-#### Returns
+_Receives and executes a batch of function calls on this contract._
+
+#### Parameters
 
 | Name | Type    | Description |
 | ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| data | bytes[] | undefined   |
+
+#### Returns
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| results | bytes[] | undefined   |
+
+### registerMetadata
+
+```solidity
+function registerMetadata(address contractAddress, string metadataUri) external nonpayable
+```
+
+_Records `metadataUri` as metadata for the contract at `contractAddress`._
+
+#### Parameters
+
+| Name            | Type    | Description |
+| --------------- | ------- | ----------- |
+| contractAddress | address | undefined   |
+| metadataUri     | string  | undefined   |
 
 ### renounceRole
 
@@ -268,62 +235,6 @@ _Revokes `role` from `account`. If `account` had been granted `role`, emits a {R
 | role    | bytes32 | undefined   |
 | account | address | undefined   |
 
-### setContractURI
-
-```solidity
-function setContractURI(string _uri) external nonpayable
-```
-
-_Lets a contract admin set the URI for contract-level metadata._
-
-#### Parameters
-
-| Name  | Type   | Description |
-| ----- | ------ | ----------- |
-| \_uri | string | undefined   |
-
-### setOwner
-
-```solidity
-function setOwner(address _newOwner) external nonpayable
-```
-
-_Lets a contract admin set a new owner for the contract. The new owner must be a contract admin._
-
-#### Parameters
-
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_newOwner | address | undefined   |
-
-### setPause
-
-```solidity
-function setPause(bool _pause) external nonpayable
-```
-
-_Lets a contract admin pause the registry._
-
-#### Parameters
-
-| Name    | Type | Description |
-| ------- | ---- | ----------- |
-| \_pause | bool | undefined   |
-
-### setThirdwebInfo
-
-```solidity
-function setThirdwebInfo(ThirdwebContract.ThirdwebInfo _thirdwebInfo) external nonpayable
-```
-
-_Initializes the publish metadata and contract metadata at deploy time._
-
-#### Parameters
-
-| Name           | Type                          | Description |
-| -------------- | ----------------------------- | ----------- |
-| \_thirdwebInfo | ThirdwebContract.ThirdwebInfo | undefined   |
-
 ### supportsInterface
 
 ```solidity
@@ -346,57 +257,18 @@ _See {IERC165-supportsInterface}._
 
 ## Events
 
-### ContractDeployed
+### MetadataRegistered
 
 ```solidity
-event ContractDeployed(address indexed deployer, address indexed publisher, address deployedContract)
+event MetadataRegistered(address indexed contractAddress, string metadataUri)
 ```
 
 #### Parameters
 
-| Name                | Type    | Description |
-| ------------------- | ------- | ----------- |
-| deployer `indexed`  | address | undefined   |
-| publisher `indexed` | address | undefined   |
-| deployedContract    | address | undefined   |
-
-### ContractURIUpdated
-
-```solidity
-event ContractURIUpdated(string prevURI, string newURI)
-```
-
-#### Parameters
-
-| Name    | Type   | Description |
-| ------- | ------ | ----------- |
-| prevURI | string | undefined   |
-| newURI  | string | undefined   |
-
-### OwnerUpdated
-
-```solidity
-event OwnerUpdated(address prevOwner, address newOwner)
-```
-
-#### Parameters
-
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| prevOwner | address | undefined   |
-| newOwner  | address | undefined   |
-
-### Paused
-
-```solidity
-event Paused(bool isPaused)
-```
-
-#### Parameters
-
-| Name     | Type | Description |
-| -------- | ---- | ----------- |
-| isPaused | bool | undefined   |
+| Name                      | Type    | Description |
+| ------------------------- | ------- | ----------- |
+| contractAddress `indexed` | address | undefined   |
+| metadataUri               | string  | undefined   |
 
 ### RoleAdminChanged
 

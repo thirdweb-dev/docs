@@ -59,6 +59,11 @@ const sidebars = {
           label: "NFT Drop",
           id: "nft_drop",
         },
+        {
+          type: "doc",
+          label: "Edition Drop",
+          id: "edition_drop",
+        },
       ],
     },
     {
