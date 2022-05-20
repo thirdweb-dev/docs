@@ -48,7 +48,7 @@ const provider = new ethers.providers.Web3Provider(magic.rpcProvider);
 const signer = provider.getSigner();
 
 // Initialize SDK instance with the magic.link signer.
-const sdk = new ThirdwebSDK(signer);
+const sdk = ThirdwebSDK.fromSigner(signer, "mumbai"); // configure your network here
 
 // Access any contracts using our the SDK.
 sdk.getNFTCollection("0x...");

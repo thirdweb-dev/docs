@@ -8,10 +8,8 @@ export default function ThirdwebCodeSnippet() {
     javascript: `// my_script.ts
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-// The RPC url determines which blockchain you want to connect to
-const rpcUrl = "https://polygon-rpc.com/";
-// instantiate the SDK as read only on a given blockchain
-const sdk = new ThirdwebSDK(rpcUrl);
+// Create a read-only instance of the ThirdwebSDK on the Mumbai network
+const sdk = new ThirdwebSDK("mumbai"); // configure this to your network
 `,
 
     react: `import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";

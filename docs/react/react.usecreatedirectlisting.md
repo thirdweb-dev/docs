@@ -30,6 +30,7 @@ export declare function useCreateDirectListing(contract: RequiredParam<Marketpla
 
 import("react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;never&gt;, unknown, NewDirectListing, unknown&gt;
 
+a mutation object that can be used to create a new direct listing
 
 ## Example
 
@@ -49,7 +50,7 @@ const Component = () => {
   return (
     <button
       disabled={isLoading}
-      onClick={() => createDirectListing(directListingdata)}
+      onClick={() => createDirectListing(directListingData)}
     >
       Create Direct Listing!
     </button>
