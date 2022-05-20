@@ -350,7 +350,6 @@ So, this queries the airtable to get the records of the address present in the a
 ```ts title="api/generate-mint-sig.ts"
 import type { NextApiRequest, NextApiResponse } from "next";
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { ethers } from "ethers";
 import { table } from "../../utils/Airtable";
 
 const generateMintSignature = async (

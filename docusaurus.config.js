@@ -154,6 +154,7 @@ const config = {
       },
       colorMode: {
         respectPrefersColorScheme: true,
+        defaultMode: "dark",
       },
       navbar: {
         hideOnScroll: true,
@@ -229,7 +230,7 @@ const config = {
               {
                 label: "Go",
                 to: "/go",
-              }
+              },
             ],
           },
           {
