@@ -52,7 +52,6 @@ from thirdweb import ThirdwebSDK
 from thirdweb.types.nft import NFTMetadataInput
 from eth_account import Account
 from dotenv import load_dotenv
-from web3 import Web3
 import os
 
 # Load environment variables into this file
@@ -64,14 +63,8 @@ PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
 # Set the network you want to operate on, or add your own RPC URL here
 NETWORK = "mumbai"
 
-# Instantiate a new provider to pass into the SDK
-provider = Web3(Web3.HTTPProvider(NETWORK))
-
-# Optionally, instantiate a new signer to pass into the SDK
-signer = Account.from_key(PRIVATE_KEY)
-
 # Finally, you can create a new instance of the SDK to use
-sdk = ThirdwebSDK(provider, signer)
+sdk = ThirdwebSDK(NETWORK, signer)
 ```
 
 To use the setup above, we need to create a `.env` file and connect our wallet by private key. It's very important to make sure that you NEVER commit this file to any github repository and you never share your private key with anyone.

@@ -74,7 +74,7 @@ We provide SDKs to interact directly with your smart contracts in your favorite 
 - [JavaScript (TypeScript)](/typescript)
 - [React.JS](/react)
 - [Python](/python)
-- _Go (coming soon)_
+- [Go](/go)
 
 thirdweb's SDKs connect your application to your smart contracts, which allows you to easily read and write data to them.
 
