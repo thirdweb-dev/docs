@@ -4,7 +4,6 @@ title: Edition Objects
 hide_title: true
 displayed_sidebar: python
 ---
-
 <a id="contracts.edition"></a>
 
 # contracts.edition
@@ -57,7 +56,7 @@ receipt, id, and metadata of the mint
 
 <a id="contracts.edition.Edition.mint_to"></a>
 
-#### mint_to
+#### mint\_to
 
 ```python
 def mint_to(
@@ -98,7 +97,7 @@ receipt, id, and metadata of the mint
 
 <a id="contracts.edition.Edition.mint_additional_supply"></a>
 
-#### mint_additional_supply
+#### mint\_additional\_supply
 
 ```python
 def mint_additional_supply(
@@ -119,7 +118,7 @@ receipt, id, and metadata of the mint
 
 <a id="contracts.edition.Edition.mint_additional_supply_to"></a>
 
-#### mint_additional_supply_to
+#### mint\_additional\_supply\_to
 
 ```python
 def mint_additional_supply_to(
@@ -141,7 +140,7 @@ receipt, id, and metadata of the mint
 
 <a id="contracts.edition.Edition.mint_batch"></a>
 
-#### mint_batch
+#### mint\_batch
 
 ```python
 def mint_batch(
@@ -161,7 +160,7 @@ receipts, ids, and metadatas of the mint
 
 <a id="contracts.edition.Edition.mint_batch_to"></a>
 
-#### mint_batch_to
+#### mint\_batch\_to
 
 ```python
 def mint_batch_to(

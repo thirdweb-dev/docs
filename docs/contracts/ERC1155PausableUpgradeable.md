@@ -4,10 +4,15 @@ title: ERC1155PausableUpgradeable
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # ERC1155PausableUpgradeable
 
-_ERC1155 token with pausable token transfers, minting and burning. Useful for scenarios such as preventing trades until the end of an evaluation period, or having an emergency switch for freezing all token transfers in the event of a large bug. *Available since v3.1.*_
+
+
+
+
+
+
+*ERC1155 token with pausable token transfers, minting and burning. Useful for scenarios such as preventing trades until the end of an evaluation period, or having an emergency switch for freezing all token transfers in the event of a large bug. _Available since v3.1._*
 
 ## Methods
 
@@ -17,20 +22,22 @@ _ERC1155 token with pausable token transfers, minting and burning. Useful for sc
 function balanceOf(address account, uint256 id) external view returns (uint256)
 ```
 
-_See {IERC1155-balanceOf}. Requirements: - `account` cannot be the zero address._
+
+
+*See {IERC1155-balanceOf}. Requirements: - `account` cannot be the zero address.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| account | address | undefined   |
-| id      | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| account | address | undefined
+| id | uint256 | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### balanceOfBatch
 
@@ -38,20 +45,22 @@ _See {IERC1155-balanceOf}. Requirements: - `account` cannot be the zero address.
 function balanceOfBatch(address[] accounts, uint256[] ids) external view returns (uint256[])
 ```
 
-_See {IERC1155-balanceOfBatch}. Requirements: - `accounts` and `ids` must have the same length._
+
+
+*See {IERC1155-balanceOfBatch}. Requirements: - `accounts` and `ids` must have the same length.*
 
 #### Parameters
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| accounts | address[] | undefined   |
-| ids      | uint256[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| accounts | address[] | undefined
+| ids | uint256[] | undefined
 
 #### Returns
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| \_0  | uint256[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256[] | undefined
 
 ### isApprovedForAll
 
@@ -59,20 +68,22 @@ _See {IERC1155-balanceOfBatch}. Requirements: - `accounts` and `ids` must have t
 function isApprovedForAll(address account, address operator) external view returns (bool)
 ```
 
-_See {IERC1155-isApprovedForAll}._
+
+
+*See {IERC1155-isApprovedForAll}.*
 
 #### Parameters
 
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| account  | address | undefined   |
-| operator | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| account | address | undefined
+| operator | address | undefined
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined
 
 ### paused
 
@@ -80,13 +91,16 @@ _See {IERC1155-isApprovedForAll}._
 function paused() external view returns (bool)
 ```
 
-_Returns true if the contract is paused, and false otherwise._
+
+
+*Returns true if the contract is paused, and false otherwise.*
+
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined
 
 ### safeBatchTransferFrom
 
@@ -94,17 +108,19 @@ _Returns true if the contract is paused, and false otherwise._
 function safeBatchTransferFrom(address from, address to, uint256[] ids, uint256[] amounts, bytes data) external nonpayable
 ```
 
-_See {IERC1155-safeBatchTransferFrom}._
+
+
+*See {IERC1155-safeBatchTransferFrom}.*
 
 #### Parameters
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| from    | address   | undefined   |
-| to      | address   | undefined   |
-| ids     | uint256[] | undefined   |
-| amounts | uint256[] | undefined   |
-| data    | bytes     | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| from | address | undefined
+| to | address | undefined
+| ids | uint256[] | undefined
+| amounts | uint256[] | undefined
+| data | bytes | undefined
 
 ### safeTransferFrom
 
@@ -112,17 +128,19 @@ _See {IERC1155-safeBatchTransferFrom}._
 function safeTransferFrom(address from, address to, uint256 id, uint256 amount, bytes data) external nonpayable
 ```
 
-_See {IERC1155-safeTransferFrom}._
+
+
+*See {IERC1155-safeTransferFrom}.*
 
 #### Parameters
 
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| from   | address | undefined   |
-| to     | address | undefined   |
-| id     | uint256 | undefined   |
-| amount | uint256 | undefined   |
-| data   | bytes   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| from | address | undefined
+| to | address | undefined
+| id | uint256 | undefined
+| amount | uint256 | undefined
+| data | bytes | undefined
 
 ### setApprovalForAll
 
@@ -130,14 +148,16 @@ _See {IERC1155-safeTransferFrom}._
 function setApprovalForAll(address operator, bool approved) external nonpayable
 ```
 
-_See {IERC1155-setApprovalForAll}._
+
+
+*See {IERC1155-setApprovalForAll}.*
 
 #### Parameters
 
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| operator | address | undefined   |
-| approved | bool    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| operator | address | undefined
+| approved | bool | undefined
 
 ### supportsInterface
 
@@ -145,19 +165,21 @@ _See {IERC1155-setApprovalForAll}._
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
-_See {IERC165-supportsInterface}._
+
+
+*See {IERC165-supportsInterface}.*
 
 #### Parameters
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| interfaceId | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| interfaceId | bytes4 | undefined
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined
 
 ### uri
 
@@ -165,19 +187,23 @@ _See {IERC165-supportsInterface}._
 function uri(uint256) external view returns (string)
 ```
 
+
+
 *See {IERC1155MetadataURI-uri}. This implementation returns the same URI for *all* token types. It relies on the token type ID substitution mechanism https://eips.ethereum.org/EIPS/eip-1155#metadata[defined in the EIP]. Clients calling this function must replace the `\{id\}` substring with the actual token type ID.*
 
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
+
+
 
 ## Events
 
@@ -187,13 +213,17 @@ function uri(uint256) external view returns (string)
 event ApprovalForAll(address indexed account, address indexed operator, bool approved)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| account `indexed`  | address | undefined   |
-| operator `indexed` | address | undefined   |
-| approved           | bool    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| account `indexed` | address | undefined |
+| operator `indexed` | address | undefined |
+| approved  | bool | undefined |
 
 ### Paused
 
@@ -201,11 +231,15 @@ event ApprovalForAll(address indexed account, address indexed operator, bool app
 event Paused(address account)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| account | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| account  | address | undefined |
 
 ### TransferBatch
 
@@ -213,15 +247,19 @@ event Paused(address account)
 event TransferBatch(address indexed operator, address indexed from, address indexed to, uint256[] ids, uint256[] values)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name               | Type      | Description |
-| ------------------ | --------- | ----------- |
-| operator `indexed` | address   | undefined   |
-| from `indexed`     | address   | undefined   |
-| to `indexed`       | address   | undefined   |
-| ids                | uint256[] | undefined   |
-| values             | uint256[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| operator `indexed` | address | undefined |
+| from `indexed` | address | undefined |
+| to `indexed` | address | undefined |
+| ids  | uint256[] | undefined |
+| values  | uint256[] | undefined |
 
 ### TransferSingle
 
@@ -229,15 +267,19 @@ event TransferBatch(address indexed operator, address indexed from, address inde
 event TransferSingle(address indexed operator, address indexed from, address indexed to, uint256 id, uint256 value)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| operator `indexed` | address | undefined   |
-| from `indexed`     | address | undefined   |
-| to `indexed`       | address | undefined   |
-| id                 | uint256 | undefined   |
-| value              | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| operator `indexed` | address | undefined |
+| from `indexed` | address | undefined |
+| to `indexed` | address | undefined |
+| id  | uint256 | undefined |
+| value  | uint256 | undefined |
 
 ### URI
 
@@ -245,12 +287,16 @@ event TransferSingle(address indexed operator, address indexed from, address ind
 event URI(string value, uint256 indexed id)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| value        | string  | undefined   |
-| id `indexed` | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| value  | string | undefined |
+| id `indexed` | uint256 | undefined |
 
 ### Unpaused
 
@@ -258,8 +304,14 @@ event URI(string value, uint256 indexed id)
 event Unpaused(address account)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| account | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| account  | address | undefined |
+
+

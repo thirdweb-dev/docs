@@ -4,8 +4,15 @@ title: Ownable
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # Ownable
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,13 +22,16 @@ displayed_sidebar: contracts
 function owner() external view returns (address)
 ```
 
-_Owner of the contract (purpose: OpenSea compatibility)_
+
+
+*Owner of the contract (purpose: OpenSea compatibility)*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined
 
 ### setOwner
 
@@ -29,13 +39,17 @@ _Owner of the contract (purpose: OpenSea compatibility)_
 function setOwner(address _newOwner) external nonpayable
 ```
 
-_Lets a contract admin set a new owner for the contract. The new owner must be a contract admin._
+
+
+*Lets a contract admin set a new owner for the contract. The new owner must be a contract admin.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_newOwner | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _newOwner | address | undefined
+
+
 
 ## Events
 
@@ -45,9 +59,15 @@ _Lets a contract admin set a new owner for the contract. The new owner must be a
 event OwnerUpdated(address prevOwner, address newOwner)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| prevOwner | address | undefined   |
-| newOwner  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| prevOwner  | address | undefined |
+| newOwner  | address | undefined |
+
+

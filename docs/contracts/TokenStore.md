@@ -4,8 +4,15 @@ title: TokenStore
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # TokenStore
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,19 +22,21 @@ displayed_sidebar: contracts
 function getTokenCountOfBundle(uint256 _bundleId) external view returns (uint256)
 ```
 
-_Returns the total number of assets in a particular bundle._
+
+
+*Returns the total number of assets in a particular bundle.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_bundleId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _bundleId | uint256 | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### getTokenOfBundle
 
@@ -35,20 +44,22 @@ _Returns the total number of assets in a particular bundle._
 function getTokenOfBundle(uint256 _bundleId, uint256 index) external view returns (struct ITokenBundle.Token)
 ```
 
-_Returns an asset contained in a particular bundle, at a particular index._
+
+
+*Returns an asset contained in a particular bundle, at a particular index.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_bundleId | uint256 | undefined   |
-| index      | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _bundleId | uint256 | undefined
+| index | uint256 | undefined
 
 #### Returns
 
-| Name | Type               | Description |
-| ---- | ------------------ | ----------- |
-| \_0  | ITokenBundle.Token | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | ITokenBundle.Token | undefined
 
 ### getUriOfBundle
 
@@ -56,19 +67,21 @@ _Returns an asset contained in a particular bundle, at a particular index._
 function getUriOfBundle(uint256 _bundleId) external view returns (string)
 ```
 
-_Returns the uri of a particular bundle._
+
+
+*Returns the uri of a particular bundle.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_bundleId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _bundleId | uint256 | undefined
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
 
 ### onERC1155BatchReceived
 
@@ -76,21 +89,25 @@ _Returns the uri of a particular bundle._
 function onERC1155BatchReceived(address, address, uint256[], uint256[], bytes) external nonpayable returns (bytes4)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| \_0  | address   | undefined   |
-| \_1  | address   | undefined   |
-| \_2  | uint256[] | undefined   |
-| \_3  | uint256[] | undefined   |
-| \_4  | bytes     | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined
+| _1 | address | undefined
+| _2 | uint256[] | undefined
+| _3 | uint256[] | undefined
+| _4 | bytes | undefined
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes4 | undefined
 
 ### onERC1155Received
 
@@ -98,21 +115,25 @@ function onERC1155BatchReceived(address, address, uint256[], uint256[], bytes) e
 function onERC1155Received(address, address, uint256, uint256, bytes) external nonpayable returns (bytes4)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | address | undefined   |
-| \_2  | uint256 | undefined   |
-| \_3  | uint256 | undefined   |
-| \_4  | bytes   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined
+| _1 | address | undefined
+| _2 | uint256 | undefined
+| _3 | uint256 | undefined
+| _4 | bytes | undefined
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes4 | undefined
 
 ### onERC721Received
 
@@ -120,22 +141,24 @@ function onERC1155Received(address, address, uint256, uint256, bytes) external n
 function onERC721Received(address, address, uint256, bytes) external nonpayable returns (bytes4)
 ```
 
-_See {IERC721Receiver-onERC721Received}. Always returns `IERC721Receiver.onERC721Received.selector`._
+
+
+*See {IERC721Receiver-onERC721Received}. Always returns `IERC721Receiver.onERC721Received.selector`.*
 
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | address | undefined   |
-| \_2  | uint256 | undefined   |
-| \_3  | bytes   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined
+| _1 | address | undefined
+| _2 | uint256 | undefined
+| _3 | bytes | undefined
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes4 | undefined
 
 ### supportsInterface
 
@@ -143,16 +166,21 @@ _See {IERC721Receiver-onERC721Received}. Always returns `IERC721Receiver.onERC72
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
-_See {IERC165-supportsInterface}._
+
+
+*See {IERC165-supportsInterface}.*
 
 #### Parameters
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| interfaceId | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| interfaceId | bytes4 | undefined
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined
+
+
+

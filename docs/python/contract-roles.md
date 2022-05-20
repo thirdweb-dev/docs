@@ -4,10 +4,9 @@ title: ContractRoles Objects
 hide_title: true
 displayed_sidebar: python
 ---
-
 <a id="core.classes.contract_roles"></a>
 
-# core.classes.contract_roles
+# core.classes.contract\_roles
 
 <a id="core.classes.contract_roles.ContractRoles"></a>
 
@@ -19,7 +18,7 @@ class ContractRoles()
 
 <a id="core.classes.contract_roles.ContractRoles.get_all"></a>
 
-#### get_all
+#### get\_all
 
 ```python
 def get_all() -> Dict[Role, List[str]]
