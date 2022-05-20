@@ -10,10 +10,10 @@ const languageToImageMapping = {
 };
 
 const languageToUrlMapping = {
-  JavaScript: `https://javascript.info`,
-  React: `https://reactjs.org`,
-  Python: `https://www.python.org`,
-  Go: `https://golang.org`,
+  JavaScript: `/typescript`,
+  React: `/react`,
+  Python: `/python`,
+  Go: `/go`,
 };
 
 export default function SupportedLanguagesSection({}: Props) {
