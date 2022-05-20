@@ -76,8 +76,6 @@ _Returns the type of the contract._
 function contractURI() external view returns (string)
 ```
 
-_Contract level metadata._
-
 #### Returns
 
 | Name | Type   | Description |
@@ -124,7 +122,7 @@ _See {IERC721-getApproved}._
 function getDefaultRoyaltyInfo() external view returns (address, uint16)
 ```
 
-_Returns the platform fee bps and recipient._
+_Returns the default royalty recipient and bps._
 
 #### Returns
 
@@ -139,7 +137,7 @@ _Returns the platform fee bps and recipient._
 function getRoleAdmin(bytes32 role) external view returns (bytes32)
 ```
 
-_Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {\_setRoleAdmin}._
+_Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {AccessControl-\_setRoleAdmin}._
 
 #### Parameters
 
@@ -156,7 +154,7 @@ _Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. 
 ### getRoleMember
 
 ```solidity
-function getRoleMember(bytes32 role, uint256 index) external view returns (address)
+function getRoleMember(bytes32 role, uint256 index) external view returns (address member)
 ```
 
 _Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information._
@@ -170,14 +168,14 @@ _Returns one of the accounts that have `role`. `index` must be a value between 0
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name   | Type    | Description |
+| ------ | ------- | ----------- |
+| member | address | undefined   |
 
 ### getRoleMemberCount
 
 ```solidity
-function getRoleMemberCount(bytes32 role) external view returns (uint256)
+function getRoleMemberCount(bytes32 role) external view returns (uint256 count)
 ```
 
 _Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role._
@@ -190,9 +188,9 @@ _Returns the number of accounts that have `role`. Can be used together with {get
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| count | uint256 | undefined   |
 
 ### getRoyaltyInfoForToken
 
@@ -200,7 +198,7 @@ _Returns the number of accounts that have `role`. Can be used together with {get
 function getRoyaltyInfoForToken(uint256 _tokenId) external view returns (address, uint16)
 ```
 
-_Returns the royalty recipient for a particular token Id._
+_Returns the royalty recipient and bps for a particular token Id._
 
 #### Parameters
 
@@ -215,13 +213,74 @@ _Returns the royalty recipient for a particular token Id._
 | \_0  | address | undefined   |
 | \_1  | uint16  | undefined   |
 
+### getTokenCountOfBundle
+
+```solidity
+function getTokenCountOfBundle(uint256 _bundleId) external view returns (uint256)
+```
+
+_Returns the total number of assets in a particular bundle._
+
+#### Parameters
+
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_bundleId | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### getTokenOfBundle
+
+```solidity
+function getTokenOfBundle(uint256 _bundleId, uint256 index) external view returns (struct ITokenBundle.Token)
+```
+
+_Returns an asset contained in a particular bundle, at a particular index._
+
+#### Parameters
+
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_bundleId | uint256 | undefined   |
+| index      | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type               | Description |
+| ---- | ------------------ | ----------- |
+| \_0  | ITokenBundle.Token | undefined   |
+
+### getUriOfBundle
+
+```solidity
+function getUriOfBundle(uint256 _bundleId) external view returns (string)
+```
+
+_Returns the uri of a particular bundle._
+
+#### Parameters
+
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_bundleId | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
+
 ### getWrappedContents
 
 ```solidity
-function getWrappedContents(uint256 _tokenId) external view returns (struct IMultiwrap.Token[] contents)
+function getWrappedContents(uint256 _tokenId) external view returns (struct ITokenBundle.Token[] contents)
 ```
 
-_Returns the underlygin contents of a wrapped NFT._
+_Returns the underlying contents of a wrapped NFT._
 
 #### Parameters
 
@@ -231,17 +290,15 @@ _Returns the underlygin contents of a wrapped NFT._
 
 #### Returns
 
-| Name     | Type               | Description |
-| -------- | ------------------ | ----------- |
-| contents | IMultiwrap.Token[] | undefined   |
+| Name     | Type                 | Description |
+| -------- | -------------------- | ----------- |
+| contents | ITokenBundle.Token[] | undefined   |
 
 ### grantRole
 
 ```solidity
 function grantRole(bytes32 role, address account) external nonpayable
 ```
-
-_Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have `role`&#39;s admin role._
 
 #### Parameters
 
@@ -257,6 +314,25 @@ function hasRole(bytes32 role, address account) external view returns (bool)
 ```
 
 _Returns `true` if `account` has been granted `role`._
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| role    | bytes32 | undefined   |
+| account | address | undefined   |
+
+#### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
+
+### hasRoleWithSwitch
+
+```solidity
+function hasRoleWithSwitch(bytes32 role, address account) external view returns (bool)
+```
 
 #### Parameters
 
@@ -451,8 +527,6 @@ _See {IERC721Receiver-onERC721Received}. Always returns `IERC721Receiver.onERC72
 function owner() external view returns (address)
 ```
 
-_Returns the address of the current owner._
-
 #### Returns
 
 | Name | Type    | Description |
@@ -485,8 +559,6 @@ _See {IERC721-ownerOf}._
 function renounceRole(bytes32 role, address account) external nonpayable
 ```
 
-_Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function&#39;s purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`._
-
 #### Parameters
 
 | Name    | Type    | Description |
@@ -499,8 +571,6 @@ _Revokes `role` from the calling account. Roles are often managed via {grantRole
 ```solidity
 function revokeRole(bytes32 role, address account) external nonpayable
 ```
-
-_Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have `role`&#39;s admin role._
 
 #### Parameters
 
@@ -569,7 +639,7 @@ _See {IERC721-setApprovalForAll}._
 function setContractURI(string _uri) external nonpayable
 ```
 
-_Lets a module admin set the URI for contract-level metadata._
+_Lets a contract admin set the URI for contract-level metadata._
 
 #### Parameters
 
@@ -583,7 +653,7 @@ _Lets a module admin set the URI for contract-level metadata._
 function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
 ```
 
-_Lets a module admin update the royalty bps and recipient._
+_Lets a contract admin update the default royalty recipient and bps._
 
 #### Parameters
 
@@ -598,7 +668,7 @@ _Lets a module admin update the royalty bps and recipient._
 function setOwner(address _newOwner) external nonpayable
 ```
 
-_Lets a module admin set a new owner for the contract. The new owner must be a module admin._
+_Lets a contract admin set a new owner for the contract. The new owner must be a contract admin._
 
 #### Parameters
 
@@ -612,7 +682,7 @@ _Lets a module admin set a new owner for the contract. The new owner must be a m
 function setRoyaltyInfoForToken(uint256 _tokenId, address _recipient, uint256 _bps) external nonpayable
 ```
 
-_Lets a module admin set the royalty recipient for a particular token Id._
+_Lets a contract admin set the royalty recipient and bps for a particular token Id._
 
 #### Parameters
 
@@ -710,18 +780,18 @@ _Unwrap a wrapped NFT to retrieve underlying ERC1155, ERC721, ERC20 tokens._
 ### wrap
 
 ```solidity
-function wrap(IMultiwrap.Token[] _wrappedContents, string _uriForWrappedToken, address _recipient) external payable returns (uint256 tokenId)
+function wrap(ITokenBundle.Token[] _tokensToWrap, string _uriForWrappedToken, address _recipient) external payable returns (uint256 tokenId)
 ```
 
 _Wrap multiple ERC1155, ERC721, ERC20 tokens into a single wrapped NFT._
 
 #### Parameters
 
-| Name                 | Type               | Description |
-| -------------------- | ------------------ | ----------- |
-| \_wrappedContents    | IMultiwrap.Token[] | undefined   |
-| \_uriForWrappedToken | string             | undefined   |
-| \_recipient          | address            | undefined   |
+| Name                 | Type                 | Description |
+| -------------------- | -------------------- | ----------- |
+| \_tokensToWrap       | ITokenBundle.Token[] | undefined   |
+| \_uriForWrappedToken | string               | undefined   |
+| \_recipient          | address              | undefined   |
 
 #### Returns
 
@@ -758,6 +828,19 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 | owner `indexed`    | address | undefined   |
 | operator `indexed` | address | undefined   |
 | approved           | bool    | undefined   |
+
+### ContractURIUpdated
+
+```solidity
+event ContractURIUpdated(string prevURI, string newURI)
+```
+
+#### Parameters
+
+| Name    | Type   | Description |
+| ------- | ------ | ----------- |
+| prevURI | string | undefined   |
+| newURI  | string | undefined   |
 
 ### DefaultRoyalty
 
@@ -844,32 +927,31 @@ event RoyaltyForToken(uint256 indexed tokenId, address royaltyRecipient, uint256
 ### TokensUnwrapped
 
 ```solidity
-event TokensUnwrapped(address indexed unwrapper, address indexed recipientOfWrappedContents, uint256 indexed tokenIdOfWrappedToken, IMultiwrap.Token[] wrappedContents)
+event TokensUnwrapped(address indexed unwrapper, address indexed recipientOfWrappedContents, uint256 indexed tokenIdOfWrappedToken)
 ```
 
 #### Parameters
 
-| Name                                 | Type               | Description |
-| ------------------------------------ | ------------------ | ----------- |
-| unwrapper `indexed`                  | address            | undefined   |
-| recipientOfWrappedContents `indexed` | address            | undefined   |
-| tokenIdOfWrappedToken `indexed`      | uint256            | undefined   |
-| wrappedContents                      | IMultiwrap.Token[] | undefined   |
+| Name                                 | Type    | Description |
+| ------------------------------------ | ------- | ----------- |
+| unwrapper `indexed`                  | address | undefined   |
+| recipientOfWrappedContents `indexed` | address | undefined   |
+| tokenIdOfWrappedToken `indexed`      | uint256 | undefined   |
 
 ### TokensWrapped
 
 ```solidity
-event TokensWrapped(address indexed wrapper, address indexed recipientOfWrappedToken, uint256 indexed tokenIdOfWrappedToken, IMultiwrap.Token[] wrappedContents)
+event TokensWrapped(address indexed wrapper, address indexed recipientOfWrappedToken, uint256 indexed tokenIdOfWrappedToken, ITokenBundle.Token[] wrappedContents)
 ```
 
 #### Parameters
 
-| Name                              | Type               | Description |
-| --------------------------------- | ------------------ | ----------- |
-| wrapper `indexed`                 | address            | undefined   |
-| recipientOfWrappedToken `indexed` | address            | undefined   |
-| tokenIdOfWrappedToken `indexed`   | uint256            | undefined   |
-| wrappedContents                   | IMultiwrap.Token[] | undefined   |
+| Name                              | Type                 | Description |
+| --------------------------------- | -------------------- | ----------- |
+| wrapper `indexed`                 | address              | undefined   |
+| recipientOfWrappedToken `indexed` | address              | undefined   |
+| tokenIdOfWrappedToken `indexed`   | uint256              | undefined   |
+| wrappedContents                   | ITokenBundle.Token[] | undefined   |
 
 ### Transfer
 
