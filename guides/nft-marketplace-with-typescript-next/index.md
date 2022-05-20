@@ -1,4 +1,15 @@
-# Marketplace With Next.JS
+---
+authors: jarrod
+tags: [marketplace, typescript, nextjs, v2]
+image: "../create-your-own-marketplace-with-thirdweb-typescript-sdk/thumbnail.png"
+date: "2022-05-20"
+---
+
+# Create Your Own NFT Marketplace with TypeScript and Next.js
+
+Create your own NFT Marketplace where users can buy, sell, and make offers on NFTs!
+
+<!-- truncate -->
 
 ## Introduction
 
