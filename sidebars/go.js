@@ -56,6 +56,11 @@ const sidebars = {
         },
         {
           type: "doc",
+          label: "Token",
+          id: "token",
+        },
+        {
+          type: "doc",
           label: "NFT Drop",
           id: "nft_drop",
         },
@@ -78,6 +83,11 @@ const sidebars = {
         keywords: ["contracts", "shared-interfaces"],
       },
       items: [
+        {
+          type: "doc",
+          label: "ERC 20",
+          id: "erc20",
+        },
         {
           type: "doc",
           label: "ERC 721",

@@ -19,7 +19,7 @@ displayed_sidebar: go
 To install the SDK with the `go get` command, run the following:
 
 ```bash
-go get github.com/thirdweb-dev/go-sdk/pkg/thirdweb
+go get github.com/thirdweb-dev/go-sdk
 ```
 
 ## Getting Started
@@ -34,9 +34,9 @@ Once you have all the necessary dependencies, you can follow the following setup
 package main
 
 import (
-  "fmt"
+	"fmt"
 
-	"github.com/thirdweb-dev/go-sdk/pkg/thirdweb"
+	thirdweb "github.com/thirdweb-dev/go-sdk"
 )
 
 func main() {
@@ -68,7 +68,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/thirdweb-dev/go-sdk/pkg/thirdweb"
+	thirdweb "github.com/thirdweb-dev/go-sdk"
 )
 
 func main() {
@@ -109,7 +109,7 @@ import (
 	"fmt"
 	"encoding/json"
 
-	"github.com/thirdweb-dev/go-sdk/pkg/thirdweb"
+	thirdweb "github.com/thirdweb-dev/go-sdk"
 )
 
 func main() {
