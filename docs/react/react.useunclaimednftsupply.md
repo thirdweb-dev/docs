@@ -14,7 +14,7 @@ displayed_sidebar: react
 ```typescript
 export declare function useUnclaimedNFTSupply(
   contract: RequiredParam<NFTDrop>,
-): import("react-query").UseQueryResult<BigNumber, unknown>;
+): import("react-query").UseQueryResult<import("ethers").BigNumber, unknown>;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ export declare function useUnclaimedNFTSupply(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;BigNumber, unknown&gt;
+import("react-query").UseQueryResult&lt;import("ethers").BigNumber, unknown&gt;
 
 a response object that includes the number of NFTs that are unclaimed
