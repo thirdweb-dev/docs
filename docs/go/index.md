@@ -15,8 +15,10 @@ displayed_sidebar: go
 
 # Installation
 
+To install the SDK with the `go get` command, run the following:
+
 ```bash
-go get -u github.com/thirdweb-dev/go-sdk && go mod tidy
+go get github.com/thirdweb-dev/go-sdk/pkg/thirdweb
 ```
 
 ## Getting Started
@@ -46,12 +48,12 @@ func main() {
 	}
 
 	// Now we can interact with the SDK, like displaying the connected chain ID
-  chainId, err := sdk.GetChainID()
-  if err != nil {
-    panic(err)
-  }
+	chainId, err := sdk.GetChainID()
+	if err != nil {
+		panic(err)
+	}
 
-  fmt.Println("New SDK instance create on chain", chainId)
+	fmt.Println("New SDK instance create on chain", chainId)
 }
 ```
 
