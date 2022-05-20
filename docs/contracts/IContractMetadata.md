@@ -36,3 +36,18 @@ _Sets contract URI for the storefront-level metadata of the contract. Only modul
 | Name  | Type   | Description |
 | ----- | ------ | ----------- |
 | \_uri | string | undefined   |
+
+## Events
+
+### ContractURIUpdated
+
+```solidity
+event ContractURIUpdated(string prevURI, string newURI)
+```
+
+#### Parameters
+
+| Name    | Type   | Description |
+| ------- | ------ | ----------- |
+| prevURI | string | undefined   |
+| newURI  | string | undefined   |

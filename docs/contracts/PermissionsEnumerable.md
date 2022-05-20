@@ -116,6 +116,25 @@ _Returns `true` if `account` has been granted `role`._
 | ---- | ---- | ----------- |
 | \_0  | bool | undefined   |
 
+### hasRoleWithSwitch
+
+```solidity
+function hasRoleWithSwitch(bytes32 role, address account) external view returns (bool)
+```
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| role    | bytes32 | undefined   |
+| account | address | undefined   |
+
+#### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
+
 ### renounceRole
 
 ```solidity

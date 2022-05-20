@@ -29,18 +29,18 @@ Unwrap a wrapped NFT to retrieve underlying ERC1155, ERC721, ERC20 tokens.
 ### wrap
 
 ```solidity
-function wrap(IMultiwrap.Token[] wrappedContents, string uriForWrappedToken, address recipient) external payable returns (uint256 tokenId)
+function wrap(ITokenBundle.Token[] wrappedContents, string uriForWrappedToken, address recipient) external payable returns (uint256 tokenId)
 ```
 
 Wrap multiple ERC1155, ERC721, ERC20 tokens into a single wrapped NFT.
 
 #### Parameters
 
-| Name               | Type               | Description                           |
-| ------------------ | ------------------ | ------------------------------------- |
-| wrappedContents    | IMultiwrap.Token[] | The tokens to wrap.                   |
-| uriForWrappedToken | string             | The metadata URI for the wrapped NFT. |
-| recipient          | address            | The recipient of the wrapped NFT.     |
+| Name               | Type                 | Description                           |
+| ------------------ | -------------------- | ------------------------------------- |
+| wrappedContents    | ITokenBundle.Token[] | The tokens to wrap.                   |
+| uriForWrappedToken | string               | The metadata URI for the wrapped NFT. |
+| recipient          | address              | The recipient of the wrapped NFT.     |
 
 #### Returns
 
@@ -53,33 +53,32 @@ Wrap multiple ERC1155, ERC721, ERC20 tokens into a single wrapped NFT.
 ### TokensUnwrapped
 
 ```solidity
-event TokensUnwrapped(address indexed unwrapper, address indexed recipientOfWrappedContents, uint256 indexed tokenIdOfWrappedToken, IMultiwrap.Token[] wrappedContents)
+event TokensUnwrapped(address indexed unwrapper, address indexed recipientOfWrappedContents, uint256 indexed tokenIdOfWrappedToken)
 ```
 
 _Emitted when tokens are unwrapped._
 
 #### Parameters
 
-| Name                                 | Type               | Description |
-| ------------------------------------ | ------------------ | ----------- |
-| unwrapper `indexed`                  | address            | undefined   |
-| recipientOfWrappedContents `indexed` | address            | undefined   |
-| tokenIdOfWrappedToken `indexed`      | uint256            | undefined   |
-| wrappedContents                      | IMultiwrap.Token[] | undefined   |
+| Name                                 | Type    | Description |
+| ------------------------------------ | ------- | ----------- |
+| unwrapper `indexed`                  | address | undefined   |
+| recipientOfWrappedContents `indexed` | address | undefined   |
+| tokenIdOfWrappedToken `indexed`      | uint256 | undefined   |
 
 ### TokensWrapped
 
 ```solidity
-event TokensWrapped(address indexed wrapper, address indexed recipientOfWrappedToken, uint256 indexed tokenIdOfWrappedToken, IMultiwrap.Token[] wrappedContents)
+event TokensWrapped(address indexed wrapper, address indexed recipientOfWrappedToken, uint256 indexed tokenIdOfWrappedToken, ITokenBundle.Token[] wrappedContents)
 ```
 
 _Emitted when tokens are wrapped._
 
 #### Parameters
 
-| Name                              | Type               | Description |
-| --------------------------------- | ------------------ | ----------- |
-| wrapper `indexed`                 | address            | undefined   |
-| recipientOfWrappedToken `indexed` | address            | undefined   |
-| tokenIdOfWrappedToken `indexed`   | uint256            | undefined   |
-| wrappedContents                   | IMultiwrap.Token[] | undefined   |
+| Name                              | Type                 | Description |
+| --------------------------------- | -------------------- | ----------- |
+| wrapper `indexed`                 | address              | undefined   |
+| recipientOfWrappedToken `indexed` | address              | undefined   |
+| tokenIdOfWrappedToken `indexed`   | uint256              | undefined   |
+| wrappedContents                   | ITokenBundle.Token[] | undefined   |

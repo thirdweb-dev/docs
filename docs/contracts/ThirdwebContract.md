@@ -91,6 +91,19 @@ _Initializes the publish metadata and contract metadata at deploy time._
 
 ## Events
 
+### ContractURIUpdated
+
+```solidity
+event ContractURIUpdated(string prevURI, string newURI)
+```
+
+#### Parameters
+
+| Name    | Type   | Description |
+| ------- | ------ | ----------- |
+| prevURI | string | undefined   |
+| newURI  | string | undefined   |
+
 ### OwnerUpdated
 
 ```solidity
