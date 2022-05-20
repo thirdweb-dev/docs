@@ -4,15 +4,8 @@ title: DropSinglePhase
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # DropSinglePhase
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,20 +15,18 @@ displayed_sidebar: contracts
 function claim(address _receiver, uint256 _quantity, address _currency, uint256 _pricePerToken, IDropSinglePhase.AllowlistProof _allowlistProof, bytes _data) external payable
 ```
 
-
-
-*Lets an account claim tokens.*
+_Lets an account claim tokens._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _receiver | address | undefined
-| _quantity | uint256 | undefined
-| _currency | address | undefined
-| _pricePerToken | uint256 | undefined
-| _allowlistProof | IDropSinglePhase.AllowlistProof | undefined
-| _data | bytes | undefined
+| Name             | Type                            | Description |
+| ---------------- | ------------------------------- | ----------- |
+| \_receiver       | address                         | undefined   |
+| \_quantity       | uint256                         | undefined   |
+| \_currency       | address                         | undefined   |
+| \_pricePerToken  | uint256                         | undefined   |
+| \_allowlistProof | IDropSinglePhase.AllowlistProof | undefined   |
+| \_data           | bytes                           | undefined   |
 
 ### claimCondition
 
@@ -43,23 +34,20 @@ function claim(address _receiver, uint256 _quantity, address _currency, uint256 
 function claimCondition() external view returns (uint256 startTimestamp, uint256 maxClaimableSupply, uint256 supplyClaimed, uint256 quantityLimitPerTransaction, uint256 waitTimeInSecondsBetweenClaims, bytes32 merkleRoot, uint256 pricePerToken, address currency)
 ```
 
-
-
-*The active conditions for claiming tokens.*
-
+_The active conditions for claiming tokens._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| startTimestamp | uint256 | undefined
-| maxClaimableSupply | uint256 | undefined
-| supplyClaimed | uint256 | undefined
-| quantityLimitPerTransaction | uint256 | undefined
-| waitTimeInSecondsBetweenClaims | uint256 | undefined
-| merkleRoot | bytes32 | undefined
-| pricePerToken | uint256 | undefined
-| currency | address | undefined
+| Name                           | Type    | Description |
+| ------------------------------ | ------- | ----------- |
+| startTimestamp                 | uint256 | undefined   |
+| maxClaimableSupply             | uint256 | undefined   |
+| supplyClaimed                  | uint256 | undefined   |
+| quantityLimitPerTransaction    | uint256 | undefined   |
+| waitTimeInSecondsBetweenClaims | uint256 | undefined   |
+| merkleRoot                     | bytes32 | undefined   |
+| pricePerToken                  | uint256 | undefined   |
+| currency                       | address | undefined   |
 
 ### setClaimConditions
 
@@ -67,17 +55,15 @@ function claimCondition() external view returns (uint256 startTimestamp, uint256
 function setClaimConditions(IClaimCondition.ClaimCondition _condition, bool _resetClaimEligibility, bytes) external nonpayable
 ```
 
-
-
-*Lets a contract admin set claim conditions.*
+_Lets a contract admin set claim conditions._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _condition | IClaimCondition.ClaimCondition | undefined
-| _resetClaimEligibility | bool | undefined
-| _2 | bytes | undefined
+| Name                    | Type                           | Description |
+| ----------------------- | ------------------------------ | ----------- |
+| \_condition             | IClaimCondition.ClaimCondition | undefined   |
+| \_resetClaimEligibility | bool                           | undefined   |
+| \_2                     | bytes                          | undefined   |
 
 ### verifyClaim
 
@@ -85,19 +71,17 @@ function setClaimConditions(IClaimCondition.ClaimCondition _condition, bool _res
 function verifyClaim(address _claimer, uint256 _quantity, address _currency, uint256 _pricePerToken, bool verifyMaxQuantityPerTransaction) external view
 ```
 
-
-
-*Checks a request to claim NFTs against the active claim condition&#39;s criteria.*
+_Checks a request to claim NFTs against the active claim condition&#39;s criteria._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _claimer | address | undefined
-| _quantity | uint256 | undefined
-| _currency | address | undefined
-| _pricePerToken | uint256 | undefined
-| verifyMaxQuantityPerTransaction | bool | undefined
+| Name                            | Type    | Description |
+| ------------------------------- | ------- | ----------- |
+| \_claimer                       | address | undefined   |
+| \_quantity                      | uint256 | undefined   |
+| \_currency                      | address | undefined   |
+| \_pricePerToken                 | uint256 | undefined   |
+| verifyMaxQuantityPerTransaction | bool    | undefined   |
 
 ### verifyClaimMerkleProof
 
@@ -105,26 +89,22 @@ function verifyClaim(address _claimer, uint256 _quantity, address _currency, uin
 function verifyClaimMerkleProof(address _claimer, uint256 _quantity, IDropSinglePhase.AllowlistProof _allowlistProof) external view returns (bool validMerkleProof, uint256 merkleProofIndex)
 ```
 
-
-
-*Checks whether a claimer meets the claim condition&#39;s allowlist criteria.*
+_Checks whether a claimer meets the claim condition&#39;s allowlist criteria._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _claimer | address | undefined
-| _quantity | uint256 | undefined
-| _allowlistProof | IDropSinglePhase.AllowlistProof | undefined
+| Name             | Type                            | Description |
+| ---------------- | ------------------------------- | ----------- |
+| \_claimer        | address                         | undefined   |
+| \_quantity       | uint256                         | undefined   |
+| \_allowlistProof | IDropSinglePhase.AllowlistProof | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| validMerkleProof | bool | undefined
-| merkleProofIndex | uint256 | undefined
-
-
+| Name             | Type    | Description |
+| ---------------- | ------- | ----------- |
+| validMerkleProof | bool    | undefined   |
+| merkleProofIndex | uint256 | undefined   |
 
 ## Events
 
@@ -134,16 +114,12 @@ function verifyClaimMerkleProof(address _claimer, uint256 _quantity, IDropSingle
 event ClaimConditionUpdated(IClaimCondition.ClaimCondition condition, bool resetEligibility)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| condition  | IClaimCondition.ClaimCondition | undefined |
-| resetEligibility  | bool | undefined |
+| Name             | Type                           | Description |
+| ---------------- | ------------------------------ | ----------- |
+| condition        | IClaimCondition.ClaimCondition | undefined   |
+| resetEligibility | bool                           | undefined   |
 
 ### TokensClaimed
 
@@ -151,18 +127,12 @@ event ClaimConditionUpdated(IClaimCondition.ClaimCondition condition, bool reset
 event TokensClaimed(IClaimCondition.ClaimCondition condition, address indexed claimer, address indexed receiver, uint256 quantityClaimed, uint256 indexed aux)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| condition  | IClaimCondition.ClaimCondition | undefined |
-| claimer `indexed` | address | undefined |
-| receiver `indexed` | address | undefined |
-| quantityClaimed  | uint256 | undefined |
-| aux `indexed` | uint256 | undefined |
-
-
+| Name               | Type                           | Description |
+| ------------------ | ------------------------------ | ----------- |
+| condition          | IClaimCondition.ClaimCondition | undefined   |
+| claimer `indexed`  | address                        | undefined   |
+| receiver `indexed` | address                        | undefined   |
+| quantityClaimed    | uint256                        | undefined   |
+| aux `indexed`      | uint256                        | undefined   |

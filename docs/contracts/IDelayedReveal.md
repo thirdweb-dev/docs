@@ -4,15 +4,8 @@ title: IDelayedReveal
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # IDelayedReveal
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,22 +15,18 @@ displayed_sidebar: contracts
 function encryptDecrypt(bytes data, bytes key) external pure returns (bytes result)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| data | bytes | undefined
-| key | bytes | undefined
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| data | bytes | undefined   |
+| key  | bytes | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| result | bytes | undefined
+| Name   | Type  | Description |
+| ------ | ----- | ----------- |
+| result | bytes | undefined   |
 
 ### reveal
 
@@ -45,22 +34,15 @@ function encryptDecrypt(bytes data, bytes key) external pure returns (bytes resu
 function reveal(uint256 identifier, bytes key) external nonpayable returns (string revealedURI)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| identifier | uint256 | undefined
-| key | bytes | undefined
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| identifier | uint256 | undefined   |
+| key        | bytes   | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| revealedURI | string | undefined
-
-
-
+| Name        | Type   | Description |
+| ----------- | ------ | ----------- |
+| revealedURI | string | undefined   |

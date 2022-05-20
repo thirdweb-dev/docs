@@ -4,9 +4,10 @@ title: ContractMetadata Objects
 hide_title: true
 displayed_sidebar: python
 ---
+
 <a id="core.classes.contract_metadata"></a>
 
-# core.classes.contract\_metadata
+# core.classes.contract_metadata
 
 <a id="core.classes.contract_metadata.ContractMetadata"></a>
 

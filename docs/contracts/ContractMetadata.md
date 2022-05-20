@@ -4,15 +4,8 @@ title: ContractMetadata
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # ContractMetadata
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,16 +15,13 @@ displayed_sidebar: contracts
 function contractURI() external view returns (string)
 ```
 
-
-
-*Contract level metadata.*
-
+_Contract level metadata._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### setContractURI
 
@@ -39,17 +29,13 @@ function contractURI() external view returns (string)
 function setContractURI(string _uri) external nonpayable
 ```
 
-
-
-*Lets a contract admin set the URI for contract-level metadata.*
+_Lets a contract admin set the URI for contract-level metadata._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _uri | string | undefined
-
-
+| Name  | Type   | Description |
+| ----- | ------ | ----------- |
+| \_uri | string | undefined   |
 
 ## Events
 
@@ -59,15 +45,9 @@ function setContractURI(string _uri) external nonpayable
 event ContractURIUpdated(string prevURI, string newURI)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| prevURI  | string | undefined |
-| newURI  | string | undefined |
-
-
+| Name    | Type   | Description |
+| ------- | ------ | ----------- |
+| prevURI | string | undefined   |
+| newURI  | string | undefined   |

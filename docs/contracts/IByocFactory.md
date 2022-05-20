@@ -4,15 +4,8 @@ title: IByocFactory
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # IByocFactory
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -24,24 +17,22 @@ function deployInstance(address publisher, bytes contractBytecode, bytes constru
 
 Deploys an instance of a published contract directly.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| publisher | address | The address of the publisher.
-| contractBytecode | bytes | The bytecode of the contract to deploy.
-| constructorArgs | bytes | The encoded constructor args to deploy the contract with.
-| salt | bytes32 | The salt to use in the CREATE2 contract deployment.
-| value | uint256 | The native token value to pass to the contract on deployment.
-| thirdwebInfo | ThirdwebContract.ThirdwebInfo | The publish metadata URI and contract URI for the contract to deploy.
+| Name             | Type                          | Description                                                           |
+| ---------------- | ----------------------------- | --------------------------------------------------------------------- |
+| publisher        | address                       | The address of the publisher.                                         |
+| contractBytecode | bytes                         | The bytecode of the contract to deploy.                               |
+| constructorArgs  | bytes                         | The encoded constructor args to deploy the contract with.             |
+| salt             | bytes32                       | The salt to use in the CREATE2 contract deployment.                   |
+| value            | uint256                       | The native token value to pass to the contract on deployment.         |
+| thirdwebInfo     | ThirdwebContract.ThirdwebInfo | The publish metadata URI and contract URI for the contract to deploy. |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| deployedAddress | address | The address of the contract deployed.
+| Name            | Type    | Description                           |
+| --------------- | ------- | ------------------------------------- |
+| deployedAddress | address | The address of the contract deployed. |
 
 ### deployInstanceProxy
 
@@ -51,26 +42,22 @@ function deployInstanceProxy(address publisher, address implementation, bytes in
 
 Deploys a clone pointing to an implementation of a published contract.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| publisher | address | The address of the publisher.
-| implementation | address | The contract implementation for the clone to point to.
-| initializeData | bytes | The encoded function call to initialize the contract with.
-| salt | bytes32 | The salt to use in the CREATE2 contract deployment.
-| value | uint256 | The native token value to pass to the contract on deployment.
-| thirdwebInfo | ThirdwebContract.ThirdwebInfo | The publish metadata URI and contract URI for the contract to deploy.
+| Name           | Type                          | Description                                                           |
+| -------------- | ----------------------------- | --------------------------------------------------------------------- |
+| publisher      | address                       | The address of the publisher.                                         |
+| implementation | address                       | The contract implementation for the clone to point to.                |
+| initializeData | bytes                         | The encoded function call to initialize the contract with.            |
+| salt           | bytes32                       | The salt to use in the CREATE2 contract deployment.                   |
+| value          | uint256                       | The native token value to pass to the contract on deployment.         |
+| thirdwebInfo   | ThirdwebContract.ThirdwebInfo | The publish metadata URI and contract URI for the contract to deploy. |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| deployedAddress | address | The address of the contract deployed.
-
-
+| Name            | Type    | Description                           |
+| --------------- | ------- | ------------------------------------- |
+| deployedAddress | address | The address of the contract deployed. |
 
 ## Events
 
@@ -80,17 +67,15 @@ Deploys a clone pointing to an implementation of a published contract.
 event ContractDeployed(address indexed deployer, address indexed publisher, address deployedContract)
 ```
 
-
-
-*Emitted when a contract is deployed.*
+_Emitted when a contract is deployed._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| deployer `indexed` | address | undefined |
-| publisher `indexed` | address | undefined |
-| deployedContract  | address | undefined |
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| deployer `indexed`  | address | undefined   |
+| publisher `indexed` | address | undefined   |
+| deployedContract    | address | undefined   |
 
 ### Paused
 
@@ -98,14 +83,10 @@ event ContractDeployed(address indexed deployer, address indexed publisher, addr
 event Paused(bool isPaused)
 ```
 
-
-
-*Emitted when the registry is paused.*
+_Emitted when the registry is paused._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| isPaused  | bool | undefined |
-
-
+| Name     | Type | Description |
+| -------- | ---- | ----------- |
+| isPaused | bool | undefined   |

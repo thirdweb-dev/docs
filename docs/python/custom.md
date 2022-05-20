@@ -4,9 +4,10 @@ title: Getting a Custom Contract Instance
 hide_title: true
 displayed_sidebar: python
 ---
+
 # Using Custom Contracts
 
-With the thirdweb SDK, you can get an SDK interface for **any** contract. That's right - the thirdweb SDK doesn't *only* support thirdweb contracts, it supports any contract that you want to use with it and gives you all the convenience of using the thirdweb SDK without the pain of dealing with low level libraries or managing your own ABIs.
+With the thirdweb SDK, you can get an SDK interface for **any** contract. That's right - the thirdweb SDK doesn't _only_ support thirdweb contracts, it supports any contract that you want to use with it and gives you all the convenience of using the thirdweb SDK without the pain of dealing with low level libraries or managing your own ABIs.
 
 Let's take a look at how we can use this functionality!
 
@@ -16,7 +17,7 @@ If you've published and deployed your contracts with the Thirdweb CLI, the proce
 
 ```python
 # Just pass in the address of your contract and your ready
-custom = sdk.get_custom_contract(<CUSTOM_CONTRACT_ADDRESS>) 
+custom = sdk.get_custom_contract(<CUSTOM_CONTRACT_ADDRESS>)
 ```
 
 That's it! Now you have a custom contract instance which has the full functionality of your contract (we'll go over how to use this functionality soon).
@@ -26,13 +27,13 @@ You've just completely eliminated the need to use ABIs or anything of the sort -
 Alternatively, if you didn't publish your contract with the thirdweb CLI, you can manually pass in your contract ABI to get an interface.
 
 ```python
-abi = ... # Add or import your contract abi 
+abi = ... # Add or import your contract abi
 custom = sdk.get_custom_contract(<CUSTOM_CONTRACT_ADDRESS>, abi)
 ```
 
 ### Using Contract Functions
 
-Every custom contract gives you direct access to every function on your contract through the `functions` scope. 
+Every custom contract gives you direct access to every function on your contract through the `functions` scope.
 
 I can easily call any read-only function (functions that only read data from the blockchain) with this `functions` scope.
 
@@ -64,12 +65,12 @@ custom.nft.balance()
 
 Below is a list of all the currently supported contract interfaces and their corresponding namespaces:
 
-| Interface      | Namespace |
-| ----------- | ----------- |
-| ContractMetadata     | `custom.metadata` |
-| ContractRoles   | `custom.roles` |
-| ContractRoyalties   | `custom.royalties` |
-| ContractPrimarySales   | `custom.platform_fee` |
-| ERC20   | `custom.token` |
-| ERC721   | `custom.nft` |
-| ERC1155   | `custom.edition` |
+| Interface            | Namespace             |
+| -------------------- | --------------------- |
+| ContractMetadata     | `custom.metadata`     |
+| ContractRoles        | `custom.roles`        |
+| ContractRoyalties    | `custom.royalties`    |
+| ContractPrimarySales | `custom.platform_fee` |
+| ERC20                | `custom.token`        |
+| ERC721               | `custom.nft`          |
+| ERC1155              | `custom.edition`      |

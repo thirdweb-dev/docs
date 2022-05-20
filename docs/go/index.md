@@ -3,6 +3,7 @@ title: Thirdweb Go SDK
 hide_title: true
 displayed_sidebar: go
 ---
+
 <p align="center">
 <br />
 <a href="https://thirdweb.com"><img src="https://github.com/thirdweb-dev/typescript-sdk/blob/main/logo.svg?raw=true" width="200" alt=""/></a>
@@ -34,7 +35,7 @@ package main
 
 import (
   "fmt"
-  
+
 	"github.com/thirdweb-dev/go-sdk/pkg/thirdweb"
 )
 

@@ -4,15 +4,8 @@ title: IPlatformFee
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # IPlatformFee
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,17 +15,14 @@ displayed_sidebar: contracts
 function getPlatformFeeInfo() external view returns (address, uint16)
 ```
 
-
-
-*Returns the platform fee bps and recipient.*
-
+_Returns the platform fee bps and recipient._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
-| _1 | uint16 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | uint16  | undefined   |
 
 ### setPlatformFeeInfo
 
@@ -40,18 +30,14 @@ function getPlatformFeeInfo() external view returns (address, uint16)
 function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeBps) external nonpayable
 ```
 
-
-
-*Lets a module admin update the fees on primary sales.*
+_Lets a module admin update the fees on primary sales._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _platformFeeRecipient | address | undefined
-| _platformFeeBps | uint256 | undefined
-
-
+| Name                   | Type    | Description |
+| ---------------------- | ------- | ----------- |
+| \_platformFeeRecipient | address | undefined   |
+| \_platformFeeBps       | uint256 | undefined   |
 
 ## Events
 
@@ -61,15 +47,11 @@ function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeB
 event PlatformFeeInfoUpdated(address platformFeeRecipient, uint256 platformFeeBps)
 ```
 
-
-
-*Emitted when fee on primary sales is updated.*
+_Emitted when fee on primary sales is updated._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| platformFeeRecipient  | address | undefined |
-| platformFeeBps  | uint256 | undefined |
-
-
+| Name                 | Type    | Description |
+| -------------------- | ------- | ----------- |
+| platformFeeRecipient | address | undefined   |
+| platformFeeBps       | uint256 | undefined   |
