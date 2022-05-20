@@ -103,30 +103,17 @@ const MintButton = () => {
 
 ```jsx title="pages/api/mint-sword.ts"
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { ethers } from "ethers";
 import { NextApiRequest, NextApiResponse } from "next";
 
 // This depend on your HTTP Server setup. In this example, we're using next.js
 // api handlers.
 export default function mint(req: NextApiRequest, res: NextApiResponse): Promise<any> {
-  // the RPC URL to the blockchain that the NFT contract is deployed on.
-  // "rinkeby" = rinkeby testnet,
-  // "https://rpc-mumbai.maticvigil.com" = mumbai testnet.
-  const rpcUrl = "rinkeby";
-
-  // setup a wallet using private key for the SDK.
-  // the wallet must have MINTER role to mint the NFT.
-  // you can assign MINTER role to the wallet through the NFT collection dashboard.
-  const wallet = new ethers.Wallet(
-    "<private key (DONT SHARE WITH ANYONE!!)>",
-    ethers.getDefaultProvider(rpcUrl)
-  );
-
   // initialize the SDK and get the NFT Collection module
   // get the contract address (0x...) from your dashboard!
-  const nft = new ThirdwebSDK(wallet).getNFTCollection(
-    "0xc134230F2e67a96B41DABFF7063530178d668601"
-  );
+  const nft = ThirdwebSDK.fromPrivateKey(
+    "<private key (DONT SHARE WITH ANYONE!!)>",
+    "rinkeby"
+  ).getNFTCollection("0xc134230F2e67a96B41DABFF7063530178d668601");
 
   // returning the HTTP response. This depends on the HTTP server framework.
   return new Promise<void>((resolve) => {
