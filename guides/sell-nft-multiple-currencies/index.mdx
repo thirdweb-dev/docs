@@ -211,22 +211,21 @@ This creates a basic api for us, if you now go to the [`api/generate-mint-sig`](
 Let's now initialize the thirdweb sdk!
 
 ```ts
-const sdk = new ThirdwebSDK(
-  new ethers.Wallet(
-    process.env.PRIVATE_KEY as string,
-    ethers.getDefaultProvider(process.env.ALCHEMY_API_URL),
-  ),
+const sdk = ThirdwebSDK.fromPrivateKey(
+  process.env.PRIVATE_KEY as string,
+  "mumbai",
 );
 ```
 
-as you can see we are using 2 environment variables to initialize the sdk. The first is the `PRIVATE_KEY` which is the private key of the wallet. The second is the `ALCHEMY_API_URL` which is the url of the Alchemy api. Create a new file `.env.local` and add the two variables.
+As you can see, we are using an environment variable to initialize the sdk.
+The variable is called `PRIVATE_KEY` which is the private key of the wallet.
+Create a new file `.env.local` and add your private key in.
 
-```
+```bash title=".env.local"
 PRIVATE_KEY=<private_key>
-ALCHEMY_API_URL=<alchemy_api_url>
 ```
 
-Let's see how to get these two variables.
+Let's see how to get this private key value.
 
 **Getting the wallet private key**
 
@@ -236,19 +235,12 @@ In your metamask wallet, click on the three dots, then click account details. Yo
 
 This will give full access to your wallet to make sure to keep it secret!
 
-**Getting the alchemy api key**
+Finally, paste this in the `.env.local` file. Since we have changed the env variables we need to restart the server. So, cut the terminal and run `yarn dev` again.
 
-Go to [Alchemy](https://dashboard.alchemyapi.io/) and sign up for an account. You need to create a new app, so click on create app. Fill out the details, and hit submit. I am using Mumbai network for this demo but you need to use the network that you are using!
-
-![Create Alchemy app](./create-alchemy-app.png)
-
-Finally, paste this in the `.env.local` file too. Since we have changed the env variables we need to restart the server. So, cut the terminal and run `yarn dev` again.
-
-We also need to import `ethers` and `ThirdwebSDK`:
+We also need to import `ThirdwebSDK`:
 
 ```ts
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { ethers } from "ethers";
 ```
 
 ### Generating the signature for mint
@@ -315,7 +307,6 @@ The final `api/generate-mint-sig.ts` should look like this:
 
 ```ts
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { ethers } from "ethers";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { nft } from "../../nft";
 
@@ -325,11 +316,9 @@ const generateMintSignature = async (
 ) => {
   const { tokenId, address, tokenName } = JSON.parse(req.body);
 
-  const sdk = new ThirdwebSDK(
-    new ethers.Wallet(
-      process.env.PRIVATE_KEY as string,
-      ethers.getDefaultProvider(process.env.ALCHEMY_API_URL),
-    ),
+  const sdk = ThirdwebSDK.fromPrivateKey(
+    process.env.PRIVATE_KEY as string,
+    "mumbai",
   );
 
   const edition = sdk.getEdition("0x4ebCf39BCeEA3C9790605BF292B4a2b8811C93eD");

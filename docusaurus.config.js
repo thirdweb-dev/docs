@@ -122,6 +122,18 @@ const config = {
         // ... other options
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "go",
+        path: "docs/go",
+        routeBasePath: "go",
+        sidebarPath: require.resolve("./sidebars/go.js"),
+        remarkPlugins: [[npm2yarn, { sync: true }]],
+        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
+        // ... other options
+      },
+    ],
     "posthog-docusaurus",
   ],
 
@@ -170,6 +182,11 @@ const config = {
             position: "left",
           },
           {
+            to: "go",
+            label: "Go",
+            position: "left",
+          },
+          {
             to: "contracts",
             label: "Solidity",
             position: "left",
@@ -209,6 +226,10 @@ const config = {
                 label: "Contracts",
                 to: "/contracts",
               },
+              {
+                label: "Go",
+                to: "/go",
+              }
             ],
           },
           {

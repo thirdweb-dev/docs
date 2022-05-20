@@ -36,3 +36,18 @@ _Lets a contract admin set the URI for contract-level metadata._
 | Name  | Type   | Description |
 | ----- | ------ | ----------- |
 | \_uri | string | undefined   |
+
+## Events
+
+### ContractURIUpdated
+
+```solidity
+event ContractURIUpdated(string prevURI, string newURI)
+```
+
+#### Parameters
+
+| Name    | Type   | Description |
+| ------- | ------ | ----------- |
+| prevURI | string | undefined   |
+| newURI  | string | undefined   |

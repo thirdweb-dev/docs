@@ -42,6 +42,11 @@ const sidebars = {
         },
         {
           type: "link",
+          label: "Go",
+          href: "/go",
+        },
+        {
+          type: "link",
           label: "Solidity",
           href: "/contracts",
         },

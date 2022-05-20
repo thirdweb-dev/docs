@@ -23,7 +23,9 @@ import { useAddress } from "@thirdweb-dev/react";
 ```
 
 |
-| [useAllListings(contract, filter)](./react.usealllistings.md) | **<i>(BETA)</i>** Use this to get a list all listings from your marketplace contract. |
+| [useAuctionWinner(contract, listingId)](./react.useauctionwinner.md) | **<i>(BETA)</i>** Use this to get the winner of an auction listing from your marketplace contract. |
+| [useBidBuffer(contract)](./react.usebidbuffer.md) | **<i>(BETA)</i>** Use this to get the buffer in basis points between offers from your marketplace contract. |
+| [useBuyoutListing(contract)](./react.usebuyoutlisting.md) | **<i>(BETA)</i>** Use this to buy out an auction listing from your marketplace contract. |
 | [useChainId()](./react.usechainid.md) | Hook for accessing the chain ID of the network the current wallet is connected to
 
 ```javascript
@@ -35,6 +37,7 @@ import { useChainId } from "@thirdweb-dev/react";
 | [useClaimedNFTs(contract, queryParams)](./react.useclaimednfts.md) | **<i>(BETA)</i>** Use this to get a list of \*claimed\* (minted) NFT tokens of your ERC721 Drop contract. |
 | [useClaimedNFTSupply(contract)](./react.useclaimednftsupply.md) | |
 | [useClaimIneligibilityReasons(\[contract, params, tokenId\])](./react.useclaimineligibilityreasons.md) | **<i>(BETA)</i>** Use this to check for reasons that prevent claiming for either ERC20, ERC721 or ERC1155 based contracts. They need to extend the <code>claimCondition</code> extension for this hook to work. |
+| [useClaimNFT(contract)](./react.useclaimnft.md) | **<i>(BETA)</i>** Use this to mint a new NFT on your [DropContract](./react.dropcontract.md) |
 | [useCoinbaseWallet()](./react.usecoinbasewallet.md) | Hook for connecting to a Coinbase wallet.
 
 ```javascript
@@ -64,6 +67,8 @@ import { useGnosis } from "@thirdweb-dev/react";
 ```
 
 |
+| [useListing(contract, listingId)](./react.uselisting.md) | **<i>(BETA)</i>** Use this to get a specific listing from the marketplace. |
+| [useListings(contract, filter)](./react.uselistings.md) | **<i>(BETA)</i>** Use this to get a list all listings from your marketplace contract. |
 | [useMagic()](./react.usemagic.md) | Hook for connecting to an email wallet using magic link. This enables users without their own wallets to connect to your application and sign transactions securely using their email.
 
 ```javascript
@@ -71,6 +76,7 @@ import { useMagic } from "@thirdweb-dev/react";
 ```
 
 |
+| [useMakeBid(contract)](./react.usemakebid.md) | **<i>(BETA)</i>** Use this to place a bid on an auction listing from your marketplace contract. |
 | [useMarketplace(contractAddress)](./react.usemarketplace.md) | Hook for getting an instance of a <code>Marketplace</code> contract. This contract is used to support marketplace for purchase and sale of on-chain assets. |
 | [useMetamask()](./react.usemetamask.md) | Hook for connecting to a Metamask wallet.
 
@@ -118,6 +124,7 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 ```
 
 |
+| [useWinningBid(contract, listingId)](./react.usewinningbid.md) | **<i>(BETA)</i>** Use this to get a the winning bid for an auction listing from your marketplace contract. |
 
 ## Interfaces
 
@@ -145,7 +152,11 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 | Type Alias                                                              | Description                                                                                                               |
 | ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | [ClaimIneligibilityParameters](./react.claimineligibilityparameters.md) | **<i>(BETA)</i>** The options to be passed as the second parameter to the <code>useClaimIneligibilityReasons</code> hook. |
+| [ClaimNFTParams](./react.claimnftparams.md)                             | **<i>(BETA)</i>** The params for the [useClaimNFT()](./react.useclaimnft.md) hook mutation.                               |
+| [ClaimNFTReturnType](./react.claimnftreturntype.md)                     | **<i>(BETA)</i>** The return type of the [useClaimNFT()](./react.useclaimnft.md) hook.                                    |
 | [ContractAddress](./react.contractaddress.md)                           | **<i>(BETA)</i>** A contract address.                                                                                     |
+| [DropContract](./react.dropcontract.md)                                 | **<i>(BETA)</i>** The possible DROP contract types.                                                                       |
+| [MakeBidParams](./react.makebidparams.md)                               |                                                                                                                           |
 | [MintNFTParams](./react.mintnftparams.md)                               | **<i>(BETA)</i>** The params for the [useMintNFT()](./react.usemintnft.md) hook mutation.                                 |
 | [MintNFTReturnType](./react.mintnftreturntype.md)                       | **<i>(BETA)</i>** The return type of the [useMintNFT()](./react.usemintnft.md) hook.                                      |
 | [NFT](./react.nft.md)                                                   | **<i>(BETA)</i>** A single NFT token                                                                                      |

@@ -119,15 +119,7 @@ If we just want to read out some data, we don't need to pass our **private keys*
 This is how to instantiate the `sdk`, when all you want is to read data.
 
 ```tsx
-const ethers = require("ethers");
-// Your rpc URL here
-// RPC stands for Remote Procedure Call and is a simple form of API interaction
-// Every chain has a rpc url, this is Rinkeby's public one
-const rpcUrl = "https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161;
-
-const provider = ethers.getDefaultProvider(rpcUrl);
-
-const sdk = new ThirdwebSDK(provider);
+const sdk = ThirdwebSDK("rinkeby");
 ```
 
 ### Writing: Code to instantiate the SDK at the server-side (backend)
@@ -145,19 +137,15 @@ Your `index.ts` looks like this, when you instantiate the `sdk` with **private k
 ```tsx
 // Importing libraries
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { ethers } from "ethers";
 import dotenv from "dotenv";
 
 // getting the private key
 dotenv.config();
 
 // Instantiate thirdweb SDK
-const sdk = new ThirdwebSDK(
-  new ethers.Wallet(
-    // Your wallet private key
-    process.env.PRIVATE_KEY as string,
-    // This is the RPC URL for Rinkeby
-    ethers.getDefaultProvider("https://rinkeby.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161),
-  ),
+const sdk = ThirdwebSDK.fromPrivateKey(
+  // Your wallet private key
+  process.env.PRIVATE_KEY as string,
+  "rinkeby",
 );
 ```
