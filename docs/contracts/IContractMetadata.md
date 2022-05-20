@@ -4,15 +4,8 @@ title: IContractMetadata
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # IContractMetadata
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,16 +15,13 @@ displayed_sidebar: contracts
 function contractURI() external view returns (string)
 ```
 
-
-
-*Returns the metadata URI of the contract.*
-
+_Returns the metadata URI of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### setContractURI
 
@@ -39,15 +29,10 @@ function contractURI() external view returns (string)
 function setContractURI(string _uri) external nonpayable
 ```
 
-
-
-*Sets contract URI for the storefront-level metadata of the contract.       Only module admin can call this function.*
+_Sets contract URI for the storefront-level metadata of the contract. Only module admin can call this function._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _uri | string | undefined
-
-
-
+| Name  | Type   | Description |
+| ----- | ------ | ----------- |
+| \_uri | string | undefined   |

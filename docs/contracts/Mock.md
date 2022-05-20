@@ -4,15 +4,8 @@ title: Mock
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # Mock
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,16 +15,11 @@ displayed_sidebar: contracts
 function erc1155() external view returns (contract IERC1155)
 ```
 
-
-
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | contract IERC1155 | undefined
+| Name | Type              | Description |
+| ---- | ----------------- | ----------- |
+| \_0  | contract IERC1155 | undefined   |
 
 ### erc20
 
@@ -39,16 +27,11 @@ function erc1155() external view returns (contract IERC1155)
 function erc20() external view returns (contract IERC20)
 ```
 
-
-
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | contract IERC20 | undefined
+| Name | Type            | Description |
+| ---- | --------------- | ----------- |
+| \_0  | contract IERC20 | undefined   |
 
 ### erc721
 
@@ -56,16 +39,8 @@ function erc20() external view returns (contract IERC20)
 function erc721() external view returns (contract IERC721)
 ```
 
-
-
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | contract IERC721 | undefined
-
-
-
+| Name | Type             | Description |
+| ---- | ---------------- | ----------- |
+| \_0  | contract IERC721 | undefined   |

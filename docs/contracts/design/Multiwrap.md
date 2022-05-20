@@ -18,7 +18,7 @@ generate royalties just like any other NFTs.
 
 ### Why we’re building `Multiwrap`
 
-We're building `Multiwrap` for cases where an application wishes to bundle up / distribute / transact over *n* independent tokens all at once, as a single asset. This opens
+We're building `Multiwrap` for cases where an application wishes to bundle up / distribute / transact over _n_ independent tokens all at once, as a single asset. This opens
 up several novel NFT use cases.
 
 For example, consider a lending service where people can take out a loan while putting up an NFT as a collateral. Using `Multiwrap`, a borrower can wrap their NFT with
@@ -46,12 +46,12 @@ struct Token {
 }
 ```
 
-| Parameters | Type | Description |
-| --- | --- | --- |
-| assetContract | address | The contract address of the asset to wrap. |
-| tokenType | TokenType | The token type (ERC20 / ERC721 / ERC1155) of the asset to wrap. |
-| tokenId | uint256 | The token Id of the asset to wrap, if the asset is an ERC721 / ERC1155 NFT. |
-| amount | uint256 | The amount of the asset to wrap, if the asset is an ERC20 / ERC1155 fungible token. |
+| Parameters    | Type      | Description                                                                         |
+| ------------- | --------- | ----------------------------------------------------------------------------------- |
+| assetContract | address   | The contract address of the asset to wrap.                                          |
+| tokenType     | TokenType | The token type (ERC20 / ERC721 / ERC1155) of the asset to wrap.                     |
+| tokenId       | uint256   | The token Id of the asset to wrap, if the asset is an ERC721 / ERC1155 NFT.         |
+| amount        | uint256   | The amount of the asset to wrap, if the asset is an ERC20 / ERC1155 fungible token. |
 
 Each token in the bundle of tokens to be wrapped as a single wrapped NFT must be specified to the `Multiwrap` contract in the form of the `Token` struct. The contract handles the respective token based on the value of `tokenType` provided. Any incorrect values passed (e.g. the `amount` specified to be wrapped exceeds the token owner's token balance) will cause the wrapping transaction to revert.
 
@@ -65,11 +65,11 @@ function wrap(
 ) external payable returns (uint256 tokenId);
 ```
 
-| Parameters | Type | Description |
-| --- | --- | --- |
-| wrappedContents | Token[] | The tokens to wrap. |
-| uriForWrappedToken | string | The metadata URI for the wrapped NFT. |
-| recipient | address | The recipient of the wrapped NFT. |
+| Parameters         | Type    | Description                           |
+| ------------------ | ------- | ------------------------------------- |
+| wrappedContents    | Token[] | The tokens to wrap.                   |
+| uriForWrappedToken | string  | The metadata URI for the wrapped NFT. |
+| recipient          | address | The recipient of the wrapped NFT.     |
 
 When wrapping multiple assets into a single wrapped NFT, the assets are escrowed in the `Multiwrap` contract until the wrapped NFT is unwrapped.
 
@@ -84,10 +84,10 @@ function unwrap(
 ) external;
 ```
 
-| Parameters | Type | Description |
-| --- | --- | --- |
-| tokenId | Token[] | The token Id of the wrapped NFT to unwrap.. |
-| recipient | address | The recipient of the underlying ERC1155, ERC721, ERC20 tokens of the wrapped NFT. |
+| Parameters | Type    | Description                                                                       |
+| ---------- | ------- | --------------------------------------------------------------------------------- |
+| tokenId    | Token[] | The token Id of the wrapped NFT to unwrap..                                       |
+| recipient  | address | The recipient of the underlying ERC1155, ERC721, ERC20 tokens of the wrapped NFT. |
 
 When unwrapping the single wrapped NFT, the wrapped NFT is burned.
 
@@ -97,11 +97,11 @@ The `Multiwrap` contract itself is an ERC721 contract i.e. it implements the [ER
 
 The contract also implements the [ERC2981](https://eips.ethereum.org/EIPS/eip-2981) royalty standard. That means the single wrapped token received on bundling up multiple assets can generate royalties just like any other NFTs.
 
-
 ## Limitations
 
 Given the same interface for `wrap` and `unwrap`, the contract needs to be optimized for gas i.e. consume as much less gas as possible.
 
 ## Authors
+
 - [nkrishang](https://github.com/nkrishang)
 - [thirdweb team](https://github.com/thirdweb-dev)

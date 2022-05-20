@@ -4,15 +4,8 @@ title: TokenERC721
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # TokenERC721
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,16 +15,11 @@ displayed_sidebar: contracts
 function DEFAULT_ADMIN_ROLE() external view returns (bytes32)
 ```
 
-
-
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
 ### approve
 
@@ -39,16 +27,14 @@ function DEFAULT_ADMIN_ROLE() external view returns (bytes32)
 function approve(address to, uint256 tokenId) external nonpayable
 ```
 
-
-
-*See {IERC721-approve}.*
+_See {IERC721-approve}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| to | address | undefined
-| tokenId | uint256 | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
 
 ### balanceOf
 
@@ -56,21 +42,19 @@ function approve(address to, uint256 tokenId) external nonpayable
 function balanceOf(address owner) external view returns (uint256)
 ```
 
-
-
-*See {IERC721-balanceOf}.*
+_See {IERC721-balanceOf}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner | address | undefined
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| owner | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### burn
 
@@ -78,15 +62,13 @@ function balanceOf(address owner) external view returns (uint256)
 function burn(uint256 tokenId) external nonpayable
 ```
 
-
-
-*Burns `tokenId`. See {ERC721-_burn}.*
+_Burns `tokenId`. See {ERC721-\_burn}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |
 
 ### contractType
 
@@ -94,16 +76,13 @@ function burn(uint256 tokenId) external nonpayable
 function contractType() external pure returns (bytes32)
 ```
 
-
-
-*Returns the module type of the contract.*
-
+_Returns the module type of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
 ### contractURI
 
@@ -111,16 +90,13 @@ function contractType() external pure returns (bytes32)
 function contractURI() external view returns (string)
 ```
 
-
-
-*Contract level metadata.*
-
+_Contract level metadata._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### contractVersion
 
@@ -128,16 +104,13 @@ function contractURI() external view returns (string)
 function contractVersion() external pure returns (uint8)
 ```
 
-
-
-*Returns the version of the contract.*
-
+_Returns the version of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint8 | undefined
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| \_0  | uint8 | undefined   |
 
 ### getApproved
 
@@ -145,21 +118,19 @@ function contractVersion() external pure returns (uint8)
 function getApproved(uint256 tokenId) external view returns (address)
 ```
 
-
-
-*See {IERC721-getApproved}.*
+_See {IERC721-getApproved}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### getDefaultRoyaltyInfo
 
@@ -167,17 +138,14 @@ function getApproved(uint256 tokenId) external view returns (address)
 function getDefaultRoyaltyInfo() external view returns (address, uint16)
 ```
 
-
-
-*Returns the platform fee bps and recipient.*
-
+_Returns the platform fee bps and recipient._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
-| _1 | uint16 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | uint16  | undefined   |
 
 ### getPlatformFeeInfo
 
@@ -185,17 +153,14 @@ function getDefaultRoyaltyInfo() external view returns (address, uint16)
 function getPlatformFeeInfo() external view returns (address, uint16)
 ```
 
-
-
-*Returns the platform fee bps and recipient.*
-
+_Returns the platform fee bps and recipient._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
-| _1 | uint16 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | uint16  | undefined   |
 
 ### getRoleAdmin
 
@@ -203,21 +168,19 @@ function getPlatformFeeInfo() external view returns (address, uint16)
 function getRoleAdmin(bytes32 role) external view returns (bytes32)
 ```
 
-
-
-*Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {_setRoleAdmin}.*
+_Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {\_setRoleAdmin}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| role | bytes32 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
 ### getRoleMember
 
@@ -225,22 +188,20 @@ function getRoleAdmin(bytes32 role) external view returns (bytes32)
 function getRoleMember(bytes32 role, uint256 index) external view returns (address)
 ```
 
-
-
-*Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information.*
+_Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | undefined
-| index | uint256 | undefined
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| role  | bytes32 | undefined   |
+| index | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### getRoleMemberCount
 
@@ -248,21 +209,19 @@ function getRoleMember(bytes32 role, uint256 index) external view returns (addre
 function getRoleMemberCount(bytes32 role) external view returns (uint256)
 ```
 
-
-
-*Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role.*
+_Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| role | bytes32 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### getRoyaltyInfoForToken
 
@@ -270,22 +229,20 @@ function getRoleMemberCount(bytes32 role) external view returns (uint256)
 function getRoyaltyInfoForToken(uint256 _tokenId) external view returns (address, uint16)
 ```
 
-
-
-*Returns the royalty recipient for a particular token Id.*
+_Returns the royalty recipient for a particular token Id._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _tokenId | uint256 | undefined
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| \_tokenId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
-| _1 | uint16 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | uint16  | undefined   |
 
 ### grantRole
 
@@ -293,16 +250,14 @@ function getRoyaltyInfoForToken(uint256 _tokenId) external view returns (address
 function grantRole(bytes32 role, address account) external nonpayable
 ```
 
-
-
-*Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have ``role``&#39;s admin role.*
+_Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have `role`&#39;s admin role._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | undefined
-| account | address | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| role    | bytes32 | undefined   |
+| account | address | undefined   |
 
 ### hasRole
 
@@ -310,22 +265,20 @@ function grantRole(bytes32 role, address account) external nonpayable
 function hasRole(bytes32 role, address account) external view returns (bool)
 ```
 
-
-
-*Returns `true` if `account` has been granted `role`.*
+_Returns `true` if `account` has been granted `role`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | undefined
-| account | address | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| role    | bytes32 | undefined   |
+| account | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### initialize
 
@@ -333,24 +286,22 @@ function hasRole(bytes32 role, address account) external view returns (bool)
 function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _saleRecipient, address _royaltyRecipient, uint128 _royaltyBps, uint128 _platformFeeBps, address _platformFeeRecipient) external nonpayable
 ```
 
-
-
-*Initiliazes the contract, like a constructor.*
+_Initiliazes the contract, like a constructor._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _defaultAdmin | address | undefined
-| _name | string | undefined
-| _symbol | string | undefined
-| _contractURI | string | undefined
-| _trustedForwarders | address[] | undefined
-| _saleRecipient | address | undefined
-| _royaltyRecipient | address | undefined
-| _royaltyBps | uint128 | undefined
-| _platformFeeBps | uint128 | undefined
-| _platformFeeRecipient | address | undefined
+| Name                   | Type      | Description |
+| ---------------------- | --------- | ----------- |
+| \_defaultAdmin         | address   | undefined   |
+| \_name                 | string    | undefined   |
+| \_symbol               | string    | undefined   |
+| \_contractURI          | string    | undefined   |
+| \_trustedForwarders    | address[] | undefined   |
+| \_saleRecipient        | address   | undefined   |
+| \_royaltyRecipient     | address   | undefined   |
+| \_royaltyBps           | uint128   | undefined   |
+| \_platformFeeBps       | uint128   | undefined   |
+| \_platformFeeRecipient | address   | undefined   |
 
 ### isApprovedForAll
 
@@ -358,22 +309,20 @@ function initialize(address _defaultAdmin, string _name, string _symbol, string 
 function isApprovedForAll(address owner, address operator) external view returns (bool)
 ```
 
-
-
-*See {IERC721-isApprovedForAll}.*
+_See {IERC721-isApprovedForAll}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner | address | undefined
-| operator | address | undefined
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| owner    | address | undefined   |
+| operator | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### isTrustedForwarder
 
@@ -381,21 +330,17 @@ function isApprovedForAll(address owner, address operator) external view returns
 function isTrustedForwarder(address forwarder) external view returns (bool)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| forwarder | address | undefined
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| forwarder | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### mintTo
 
@@ -403,22 +348,20 @@ function isTrustedForwarder(address forwarder) external view returns (bool)
 function mintTo(address _to, string _uri) external nonpayable returns (uint256)
 ```
 
-
-
-*Lets an account with MINTER_ROLE mint an NFT.*
+_Lets an account with MINTER_ROLE mint an NFT._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _to | address | undefined
-| _uri | string | undefined
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| \_to  | address | undefined   |
+| \_uri | string  | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### mintWithSignature
 
@@ -426,22 +369,20 @@ function mintTo(address _to, string _uri) external nonpayable returns (uint256)
 function mintWithSignature(ITokenERC721.MintRequest _req, bytes _signature) external payable returns (uint256 tokenIdMinted)
 ```
 
-
-
-*Mints an NFT according to the provided mint request.*
+_Mints an NFT according to the provided mint request._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _req | ITokenERC721.MintRequest | undefined
-| _signature | bytes | undefined
+| Name        | Type                     | Description |
+| ----------- | ------------------------ | ----------- |
+| \_req       | ITokenERC721.MintRequest | undefined   |
+| \_signature | bytes                    | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| tokenIdMinted | uint256 | undefined
+| Name          | Type    | Description |
+| ------------- | ------- | ----------- |
+| tokenIdMinted | uint256 | undefined   |
 
 ### multicall
 
@@ -449,21 +390,19 @@ function mintWithSignature(ITokenERC721.MintRequest _req, bytes _signature) exte
 function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 ```
 
-
-
-*Receives and executes a batch of function calls on this contract.*
+_Receives and executes a batch of function calls on this contract._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| data | bytes[] | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| data | bytes[] | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| results | bytes[] | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| results | bytes[] | undefined   |
 
 ### name
 
@@ -471,16 +410,13 @@ function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 function name() external view returns (string)
 ```
 
-
-
-*See {IERC721Metadata-name}.*
-
+_See {IERC721Metadata-name}._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### nextTokenIdToMint
 
@@ -488,16 +424,13 @@ function name() external view returns (string)
 function nextTokenIdToMint() external view returns (uint256)
 ```
 
-
-
-*The token ID of the next token to mint.*
-
+_The token ID of the next token to mint._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### owner
 
@@ -505,16 +438,13 @@ function nextTokenIdToMint() external view returns (uint256)
 function owner() external view returns (address)
 ```
 
-
-
-*Returns the address of the current owner.*
-
+_Returns the address of the current owner._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### ownerOf
 
@@ -522,21 +452,19 @@ function owner() external view returns (address)
 function ownerOf(uint256 tokenId) external view returns (address)
 ```
 
-
-
-*See {IERC721-ownerOf}.*
+_See {IERC721-ownerOf}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### platformFeeBps
 
@@ -544,16 +472,13 @@ function ownerOf(uint256 tokenId) external view returns (address)
 function platformFeeBps() external view returns (uint128)
 ```
 
-
-
-*The % of primary sales collected by the contract as fees.*
-
+_The % of primary sales collected by the contract as fees._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint128 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint128 | undefined   |
 
 ### platformFeeRecipient
 
@@ -561,16 +486,13 @@ function platformFeeBps() external view returns (uint128)
 function platformFeeRecipient() external view returns (address)
 ```
 
-
-
-*The adress that receives all primary sales value.*
-
+_The adress that receives all primary sales value._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### primarySaleRecipient
 
@@ -578,16 +500,13 @@ function platformFeeRecipient() external view returns (address)
 function primarySaleRecipient() external view returns (address)
 ```
 
-
-
-*The adress that receives all primary sales value.*
-
+_The adress that receives all primary sales value._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### renounceRole
 
@@ -595,16 +514,14 @@ function primarySaleRecipient() external view returns (address)
 function renounceRole(bytes32 role, address account) external nonpayable
 ```
 
-
-
-*Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function&#39;s purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`.*
+_Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function&#39;s purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | undefined
-| account | address | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| role    | bytes32 | undefined   |
+| account | address | undefined   |
 
 ### revokeRole
 
@@ -612,16 +529,14 @@ function renounceRole(bytes32 role, address account) external nonpayable
 function revokeRole(bytes32 role, address account) external nonpayable
 ```
 
-
-
-*Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have ``role``&#39;s admin role.*
+_Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have `role`&#39;s admin role._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | undefined
-| account | address | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| role    | bytes32 | undefined   |
+| account | address | undefined   |
 
 ### royaltyInfo
 
@@ -629,23 +544,21 @@ function revokeRole(bytes32 role, address account) external nonpayable
 function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (address receiver, uint256 royaltyAmount)
 ```
 
-
-
-*See EIP-2981*
+_See EIP-2981_
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined
-| salePrice | uint256 | undefined
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| tokenId   | uint256 | undefined   |
+| salePrice | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| receiver | address | undefined
-| royaltyAmount | uint256 | undefined
+| Name          | Type    | Description |
+| ------------- | ------- | ----------- |
+| receiver      | address | undefined   |
+| royaltyAmount | uint256 | undefined   |
 
 ### safeTransferFrom
 
@@ -653,18 +566,16 @@ function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (
 function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data) external nonpayable
 ```
 
-
-
-*See {IERC721-safeTransferFrom}.*
+_See {IERC721-safeTransferFrom}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from | address | undefined
-| to | address | undefined
-| tokenId | uint256 | undefined
-| _data | bytes | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
+| \_data  | bytes   | undefined   |
 
 ### setApprovalForAll
 
@@ -672,16 +583,14 @@ function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data
 function setApprovalForAll(address operator, bool approved) external nonpayable
 ```
 
-
-
-*See {IERC721-setApprovalForAll}.*
+_See {IERC721-setApprovalForAll}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| operator | address | undefined
-| approved | bool | undefined
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| operator | address | undefined   |
+| approved | bool    | undefined   |
 
 ### setContractURI
 
@@ -689,15 +598,13 @@ function setApprovalForAll(address operator, bool approved) external nonpayable
 function setContractURI(string _uri) external nonpayable
 ```
 
-
-
-*Lets a module admin set the URI for contract-level metadata.*
+_Lets a module admin set the URI for contract-level metadata._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _uri | string | undefined
+| Name  | Type   | Description |
+| ----- | ------ | ----------- |
+| \_uri | string | undefined   |
 
 ### setDefaultRoyaltyInfo
 
@@ -705,16 +612,14 @@ function setContractURI(string _uri) external nonpayable
 function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
 ```
 
-
-
-*Lets a module admin update the royalty bps and recipient.*
+_Lets a module admin update the royalty bps and recipient._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _royaltyRecipient | address | undefined
-| _royaltyBps | uint256 | undefined
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| \_royaltyRecipient | address | undefined   |
+| \_royaltyBps       | uint256 | undefined   |
 
 ### setOwner
 
@@ -722,15 +627,13 @@ function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) e
 function setOwner(address _newOwner) external nonpayable
 ```
 
-
-
-*Lets a module admin set a new owner for the contract. The new owner must be a module admin.*
+_Lets a module admin set a new owner for the contract. The new owner must be a module admin._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _newOwner | address | undefined
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_newOwner | address | undefined   |
 
 ### setPlatformFeeInfo
 
@@ -738,16 +641,14 @@ function setOwner(address _newOwner) external nonpayable
 function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeBps) external nonpayable
 ```
 
-
-
-*Lets a module admin update the fees on primary sales.*
+_Lets a module admin update the fees on primary sales._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _platformFeeRecipient | address | undefined
-| _platformFeeBps | uint256 | undefined
+| Name                   | Type    | Description |
+| ---------------------- | ------- | ----------- |
+| \_platformFeeRecipient | address | undefined   |
+| \_platformFeeBps       | uint256 | undefined   |
 
 ### setPrimarySaleRecipient
 
@@ -755,15 +656,13 @@ function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeB
 function setPrimarySaleRecipient(address _saleRecipient) external nonpayable
 ```
 
-
-
-*Lets a module admin set the default recipient of all primary sales.*
+_Lets a module admin set the default recipient of all primary sales._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _saleRecipient | address | undefined
+| Name            | Type    | Description |
+| --------------- | ------- | ----------- |
+| \_saleRecipient | address | undefined   |
 
 ### setRoyaltyInfoForToken
 
@@ -771,17 +670,15 @@ function setPrimarySaleRecipient(address _saleRecipient) external nonpayable
 function setRoyaltyInfoForToken(uint256 _tokenId, address _recipient, uint256 _bps) external nonpayable
 ```
 
-
-
-*Lets a module admin set the royalty recipient for a particular token Id.*
+_Lets a module admin set the royalty recipient for a particular token Id._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _tokenId | uint256 | undefined
-| _recipient | address | undefined
-| _bps | uint256 | undefined
+| Name        | Type    | Description |
+| ----------- | ------- | ----------- |
+| \_tokenId   | uint256 | undefined   |
+| \_recipient | address | undefined   |
+| \_bps       | uint256 | undefined   |
 
 ### supportsInterface
 
@@ -789,21 +686,17 @@ function setRoyaltyInfoForToken(uint256 _tokenId, address _recipient, uint256 _b
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| interfaceId | bytes4 | undefined
+| Name        | Type   | Description |
+| ----------- | ------ | ----------- |
+| interfaceId | bytes4 | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### symbol
 
@@ -811,16 +704,13 @@ function supportsInterface(bytes4 interfaceId) external view returns (bool)
 function symbol() external view returns (string)
 ```
 
-
-
-*See {IERC721Metadata-symbol}.*
-
+_See {IERC721Metadata-symbol}._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### thirdwebFee
 
@@ -828,16 +718,13 @@ function symbol() external view returns (string)
 function thirdwebFee() external view returns (contract ITWFee)
 ```
 
-
-
-*The thirdweb contract with fee related information.*
-
+_The thirdweb contract with fee related information._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | contract ITWFee | undefined
+| Name | Type            | Description |
+| ---- | --------------- | ----------- |
+| \_0  | contract ITWFee | undefined   |
 
 ### tokenByIndex
 
@@ -845,21 +732,19 @@ function thirdwebFee() external view returns (contract ITWFee)
 function tokenByIndex(uint256 index) external view returns (uint256)
 ```
 
-
-
-*See {IERC721Enumerable-tokenByIndex}.*
+_See {IERC721Enumerable-tokenByIndex}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| index | uint256 | undefined
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| index | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### tokenOfOwnerByIndex
 
@@ -867,22 +752,20 @@ function tokenByIndex(uint256 index) external view returns (uint256)
 function tokenOfOwnerByIndex(address owner, uint256 index) external view returns (uint256)
 ```
 
-
-
-*See {IERC721Enumerable-tokenOfOwnerByIndex}.*
+_See {IERC721Enumerable-tokenOfOwnerByIndex}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner | address | undefined
-| index | uint256 | undefined
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| owner | address | undefined   |
+| index | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### tokenURI
 
@@ -890,21 +773,19 @@ function tokenOfOwnerByIndex(address owner, uint256 index) external view returns
 function tokenURI(uint256 _tokenId) external view returns (string)
 ```
 
-
-
-*Returns the URI for a tokenId*
+_Returns the URI for a tokenId_
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _tokenId | uint256 | undefined
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| \_tokenId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### totalSupply
 
@@ -912,16 +793,13 @@ function tokenURI(uint256 _tokenId) external view returns (string)
 function totalSupply() external view returns (uint256)
 ```
 
-
-
-*See {IERC721Enumerable-totalSupply}.*
-
+_See {IERC721Enumerable-totalSupply}._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### transferFrom
 
@@ -929,17 +807,15 @@ function totalSupply() external view returns (uint256)
 function transferFrom(address from, address to, uint256 tokenId) external nonpayable
 ```
 
-
-
-*See {IERC721-transferFrom}.*
+_See {IERC721-transferFrom}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from | address | undefined
-| to | address | undefined
-| tokenId | uint256 | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
 
 ### verify
 
@@ -947,25 +823,21 @@ function transferFrom(address from, address to, uint256 tokenId) external nonpay
 function verify(ITokenERC721.MintRequest _req, bytes _signature) external view returns (bool, address)
 ```
 
-
-
-*Verifies that a mint request is signed by an account holding MINTER_ROLE (at the time of the function call).*
+_Verifies that a mint request is signed by an account holding MINTER_ROLE (at the time of the function call)._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _req | ITokenERC721.MintRequest | undefined
-| _signature | bytes | undefined
+| Name        | Type                     | Description |
+| ----------- | ------------------------ | ----------- |
+| \_req       | ITokenERC721.MintRequest | undefined   |
+| \_signature | bytes                    | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined
-| _1 | address | undefined
-
-
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bool    | undefined   |
+| \_1  | address | undefined   |
 
 ## Events
 
@@ -975,17 +847,13 @@ function verify(ITokenERC721.MintRequest _req, bytes _signature) external view r
 event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner `indexed` | address | undefined |
-| approved `indexed` | address | undefined |
-| tokenId `indexed` | uint256 | undefined |
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| owner `indexed`    | address | undefined   |
+| approved `indexed` | address | undefined   |
+| tokenId `indexed`  | uint256 | undefined   |
 
 ### ApprovalForAll
 
@@ -993,17 +861,13 @@ event Approval(address indexed owner, address indexed approved, uint256 indexed 
 event ApprovalForAll(address indexed owner, address indexed operator, bool approved)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner `indexed` | address | undefined |
-| operator `indexed` | address | undefined |
-| approved  | bool | undefined |
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| owner `indexed`    | address | undefined   |
+| operator `indexed` | address | undefined   |
+| approved           | bool    | undefined   |
 
 ### DefaultRoyalty
 
@@ -1011,16 +875,12 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 event DefaultRoyalty(address newRoyaltyRecipient, uint256 newRoyaltyBps)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| newRoyaltyRecipient  | address | undefined |
-| newRoyaltyBps  | uint256 | undefined |
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| newRoyaltyRecipient | address | undefined   |
+| newRoyaltyBps       | uint256 | undefined   |
 
 ### OwnerUpdated
 
@@ -1028,16 +888,12 @@ event DefaultRoyalty(address newRoyaltyRecipient, uint256 newRoyaltyBps)
 event OwnerUpdated(address prevOwner, address newOwner)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| prevOwner  | address | undefined |
-| newOwner  | address | undefined |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| prevOwner | address | undefined   |
+| newOwner  | address | undefined   |
 
 ### PlatformFeeInfoUpdated
 
@@ -1045,16 +901,12 @@ event OwnerUpdated(address prevOwner, address newOwner)
 event PlatformFeeInfoUpdated(address platformFeeRecipient, uint256 platformFeeBps)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| platformFeeRecipient  | address | undefined |
-| platformFeeBps  | uint256 | undefined |
+| Name                 | Type    | Description |
+| -------------------- | ------- | ----------- |
+| platformFeeRecipient | address | undefined   |
+| platformFeeBps       | uint256 | undefined   |
 
 ### PrimarySaleRecipientUpdated
 
@@ -1062,15 +914,11 @@ event PlatformFeeInfoUpdated(address platformFeeRecipient, uint256 platformFeeBp
 event PrimarySaleRecipientUpdated(address indexed recipient)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| recipient `indexed` | address | undefined |
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| recipient `indexed` | address | undefined   |
 
 ### RoleAdminChanged
 
@@ -1078,17 +926,13 @@ event PrimarySaleRecipientUpdated(address indexed recipient)
 event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role `indexed` | bytes32 | undefined |
-| previousAdminRole `indexed` | bytes32 | undefined |
-| newAdminRole `indexed` | bytes32 | undefined |
+| Name                        | Type    | Description |
+| --------------------------- | ------- | ----------- |
+| role `indexed`              | bytes32 | undefined   |
+| previousAdminRole `indexed` | bytes32 | undefined   |
+| newAdminRole `indexed`      | bytes32 | undefined   |
 
 ### RoleGranted
 
@@ -1096,17 +940,13 @@ event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, 
 event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role `indexed` | bytes32 | undefined |
-| account `indexed` | address | undefined |
-| sender `indexed` | address | undefined |
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| role `indexed`    | bytes32 | undefined   |
+| account `indexed` | address | undefined   |
+| sender `indexed`  | address | undefined   |
 
 ### RoleRevoked
 
@@ -1114,17 +954,13 @@ event RoleGranted(bytes32 indexed role, address indexed account, address indexed
 event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role `indexed` | bytes32 | undefined |
-| account `indexed` | address | undefined |
-| sender `indexed` | address | undefined |
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| role `indexed`    | bytes32 | undefined   |
+| account `indexed` | address | undefined   |
+| sender `indexed`  | address | undefined   |
 
 ### RoyaltyForToken
 
@@ -1132,17 +968,13 @@ event RoleRevoked(bytes32 indexed role, address indexed account, address indexed
 event RoyaltyForToken(uint256 indexed tokenId, address royaltyRecipient, uint256 royaltyBps)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId `indexed` | uint256 | undefined |
-| royaltyRecipient  | address | undefined |
-| royaltyBps  | uint256 | undefined |
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| tokenId `indexed` | uint256 | undefined   |
+| royaltyRecipient  | address | undefined   |
+| royaltyBps        | uint256 | undefined   |
 
 ### TokensMinted
 
@@ -1150,17 +982,13 @@ event RoyaltyForToken(uint256 indexed tokenId, address royaltyRecipient, uint256
 event TokensMinted(address indexed mintedTo, uint256 indexed tokenIdMinted, string uri)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| mintedTo `indexed` | address | undefined |
-| tokenIdMinted `indexed` | uint256 | undefined |
-| uri  | string | undefined |
+| Name                    | Type    | Description |
+| ----------------------- | ------- | ----------- |
+| mintedTo `indexed`      | address | undefined   |
+| tokenIdMinted `indexed` | uint256 | undefined   |
+| uri                     | string  | undefined   |
 
 ### TokensMintedWithSignature
 
@@ -1168,18 +996,14 @@ event TokensMinted(address indexed mintedTo, uint256 indexed tokenIdMinted, stri
 event TokensMintedWithSignature(address indexed signer, address indexed mintedTo, uint256 indexed tokenIdMinted, ITokenERC721.MintRequest mintRequest)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| signer `indexed` | address | undefined |
-| mintedTo `indexed` | address | undefined |
-| tokenIdMinted `indexed` | uint256 | undefined |
-| mintRequest  | ITokenERC721.MintRequest | undefined |
+| Name                    | Type                     | Description |
+| ----------------------- | ------------------------ | ----------- |
+| signer `indexed`        | address                  | undefined   |
+| mintedTo `indexed`      | address                  | undefined   |
+| tokenIdMinted `indexed` | uint256                  | undefined   |
+| mintRequest             | ITokenERC721.MintRequest | undefined   |
 
 ### Transfer
 
@@ -1187,16 +1011,10 @@ event TokensMintedWithSignature(address indexed signer, address indexed mintedTo
 event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from `indexed` | address | undefined |
-| to `indexed` | address | undefined |
-| tokenId `indexed` | uint256 | undefined |
-
-
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| from `indexed`    | address | undefined   |
+| to `indexed`      | address | undefined   |
+| tokenId `indexed` | uint256 | undefined   |

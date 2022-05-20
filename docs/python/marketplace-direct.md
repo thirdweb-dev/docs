@@ -4,9 +4,10 @@ title: MarketplaceDirect Objects
 hide_title: true
 displayed_sidebar: python
 ---
+
 <a id="core.classes.marketplace_direct"></a>
 
-# core.classes.marketplace\_direct
+# core.classes.marketplace_direct
 
 <a id="core.classes.marketplace_direct.MarketplaceDirect"></a>
 
@@ -18,7 +19,7 @@ class MarketplaceDirect(BaseContract[Marketplace])
 
 <a id="core.classes.marketplace_direct.MarketplaceDirect.get_listing"></a>
 
-#### get\_listing
+#### get_listing
 
 ```python
 def get_listing(listing_id: int) -> DirectListing
@@ -36,7 +37,7 @@ The listing
 
 <a id="core.classes.marketplace_direct.MarketplaceDirect.get_active_offer"></a>
 
-#### get\_active\_offer
+#### get_active_offer
 
 ```python
 def get_active_offer(listing_id: int, address: str) -> Optional[Offer]
@@ -55,7 +56,7 @@ The offer
 
 <a id="core.classes.marketplace_direct.MarketplaceDirect.create_listing"></a>
 
-#### create\_listing
+#### create_listing
 
 ```python
 def create_listing(listing: NewDirectListing) -> int
@@ -73,7 +74,7 @@ The ID of the listing
 
 <a id="core.classes.marketplace_direct.MarketplaceDirect.make_offer"></a>
 
-#### make\_offer
+#### make_offer
 
 ```python
 def make_offer(
@@ -99,7 +100,7 @@ The transaction receipt
 
 <a id="core.classes.marketplace_direct.MarketplaceDirect.accept_offer"></a>
 
-#### accept\_offer
+#### accept_offer
 
 ```python
 def accept_offer(listing_id: int, address_or_offerror: str) -> TxReceipt
@@ -118,7 +119,7 @@ The transaction receipt
 
 <a id="core.classes.marketplace_direct.MarketplaceDirect.buyout_listing"></a>
 
-#### buyout\_listing
+#### buyout_listing
 
 ```python
 def buyout_listing(listing_id: int,
@@ -140,7 +141,7 @@ The transaction receipt
 
 <a id="core.classes.marketplace_direct.MarketplaceDirect.update_listing"></a>
 
-#### update\_listing
+#### update_listing
 
 ```python
 def update_listing(listing: DirectListing) -> TxReceipt
@@ -158,7 +159,7 @@ The transaction receipt
 
 <a id="core.classes.marketplace_direct.MarketplaceDirect.cancel_listing"></a>
 
-#### cancel\_listing
+#### cancel_listing
 
 ```python
 def cancel_listing(listing_id: int) -> TxReceipt

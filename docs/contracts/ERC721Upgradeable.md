@@ -4,15 +4,10 @@ title: ERC721Upgradeable
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # ERC721Upgradeable
 
-
-
-
-
-
-
-*Implementation of https://eips.ethereum.org/EIPS/eip-721[ERC721] Non-Fungible Token Standard, including the Metadata extension, but not including the Enumerable extension, which is available separately as {ERC721Enumerable}.*
+_Implementation of https://eips.ethereum.org/EIPS/eip-721[ERC721] Non-Fungible Token Standard, including the Metadata extension, but not including the Enumerable extension, which is available separately as {ERC721Enumerable}._
 
 ## Methods
 
@@ -22,16 +17,14 @@ displayed_sidebar: contracts
 function approve(address to, uint256 tokenId) external nonpayable
 ```
 
-
-
-*See {IERC721-approve}.*
+_See {IERC721-approve}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| to | address | undefined
-| tokenId | uint256 | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
 
 ### balanceOf
 
@@ -39,21 +32,19 @@ function approve(address to, uint256 tokenId) external nonpayable
 function balanceOf(address owner) external view returns (uint256)
 ```
 
-
-
-*See {IERC721-balanceOf}.*
+_See {IERC721-balanceOf}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner | address | undefined
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| owner | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### getApproved
 
@@ -61,21 +52,19 @@ function balanceOf(address owner) external view returns (uint256)
 function getApproved(uint256 tokenId) external view returns (address)
 ```
 
-
-
-*See {IERC721-getApproved}.*
+_See {IERC721-getApproved}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### isApprovedForAll
 
@@ -83,22 +72,20 @@ function getApproved(uint256 tokenId) external view returns (address)
 function isApprovedForAll(address owner, address operator) external view returns (bool)
 ```
 
-
-
-*See {IERC721-isApprovedForAll}.*
+_See {IERC721-isApprovedForAll}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner | address | undefined
-| operator | address | undefined
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| owner    | address | undefined   |
+| operator | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### name
 
@@ -106,16 +93,13 @@ function isApprovedForAll(address owner, address operator) external view returns
 function name() external view returns (string)
 ```
 
-
-
-*See {IERC721Metadata-name}.*
-
+_See {IERC721Metadata-name}._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### ownerOf
 
@@ -123,21 +107,19 @@ function name() external view returns (string)
 function ownerOf(uint256 tokenId) external view returns (address)
 ```
 
-
-
-*See {IERC721-ownerOf}.*
+_See {IERC721-ownerOf}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### safeTransferFrom
 
@@ -145,18 +127,16 @@ function ownerOf(uint256 tokenId) external view returns (address)
 function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data) external nonpayable
 ```
 
-
-
-*See {IERC721-safeTransferFrom}.*
+_See {IERC721-safeTransferFrom}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from | address | undefined
-| to | address | undefined
-| tokenId | uint256 | undefined
-| _data | bytes | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
+| \_data  | bytes   | undefined   |
 
 ### setApprovalForAll
 
@@ -164,16 +144,14 @@ function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data
 function setApprovalForAll(address operator, bool approved) external nonpayable
 ```
 
-
-
-*See {IERC721-setApprovalForAll}.*
+_See {IERC721-setApprovalForAll}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| operator | address | undefined
-| approved | bool | undefined
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| operator | address | undefined   |
+| approved | bool    | undefined   |
 
 ### supportsInterface
 
@@ -181,21 +159,19 @@ function setApprovalForAll(address operator, bool approved) external nonpayable
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
-
-
-*See {IERC165-supportsInterface}.*
+_See {IERC165-supportsInterface}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| interfaceId | bytes4 | undefined
+| Name        | Type   | Description |
+| ----------- | ------ | ----------- |
+| interfaceId | bytes4 | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### symbol
 
@@ -203,16 +179,13 @@ function supportsInterface(bytes4 interfaceId) external view returns (bool)
 function symbol() external view returns (string)
 ```
 
-
-
-*See {IERC721Metadata-symbol}.*
-
+_See {IERC721Metadata-symbol}._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### tokenURI
 
@@ -220,21 +193,19 @@ function symbol() external view returns (string)
 function tokenURI(uint256 tokenId) external view returns (string)
 ```
 
-
-
-*See {IERC721Metadata-tokenURI}.*
+_See {IERC721Metadata-tokenURI}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### transferFrom
 
@@ -242,19 +213,15 @@ function tokenURI(uint256 tokenId) external view returns (string)
 function transferFrom(address from, address to, uint256 tokenId) external nonpayable
 ```
 
-
-
-*See {IERC721-transferFrom}.*
+_See {IERC721-transferFrom}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from | address | undefined
-| to | address | undefined
-| tokenId | uint256 | undefined
-
-
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
 
 ## Events
 
@@ -264,17 +231,13 @@ function transferFrom(address from, address to, uint256 tokenId) external nonpay
 event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner `indexed` | address | undefined |
-| approved `indexed` | address | undefined |
-| tokenId `indexed` | uint256 | undefined |
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| owner `indexed`    | address | undefined   |
+| approved `indexed` | address | undefined   |
+| tokenId `indexed`  | uint256 | undefined   |
 
 ### ApprovalForAll
 
@@ -282,17 +245,13 @@ event Approval(address indexed owner, address indexed approved, uint256 indexed 
 event ApprovalForAll(address indexed owner, address indexed operator, bool approved)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner `indexed` | address | undefined |
-| operator `indexed` | address | undefined |
-| approved  | bool | undefined |
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| owner `indexed`    | address | undefined   |
+| operator `indexed` | address | undefined   |
+| approved           | bool    | undefined   |
 
 ### Transfer
 
@@ -300,16 +259,10 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from `indexed` | address | undefined |
-| to `indexed` | address | undefined |
-| tokenId `indexed` | uint256 | undefined |
-
-
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| from `indexed`    | address | undefined   |
+| to `indexed`      | address | undefined   |
+| tokenId `indexed` | uint256 | undefined   |

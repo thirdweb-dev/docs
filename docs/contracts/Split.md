@@ -4,15 +4,8 @@ title: Split
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # Split
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,16 +15,11 @@ displayed_sidebar: contracts
 function DEFAULT_ADMIN_ROLE() external view returns (bytes32)
 ```
 
-
-
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
 ### contractType
 
@@ -39,16 +27,13 @@ function DEFAULT_ADMIN_ROLE() external view returns (bytes32)
 function contractType() external pure returns (bytes32)
 ```
 
-
-
-*Returns the module type of the contract.*
-
+_Returns the module type of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
 ### contractURI
 
@@ -56,16 +41,13 @@ function contractType() external pure returns (bytes32)
 function contractURI() external view returns (string)
 ```
 
-
-
-*Contract level metadata.*
-
+_Contract level metadata._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### contractVersion
 
@@ -73,16 +55,13 @@ function contractURI() external view returns (string)
 function contractVersion() external pure returns (uint8)
 ```
 
-
-
-*Returns the version of the contract.*
-
+_Returns the version of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint8 | undefined
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| \_0  | uint8 | undefined   |
 
 ### distribute
 
@@ -90,10 +69,7 @@ function contractVersion() external pure returns (uint8)
 function distribute() external nonpayable
 ```
 
-
-
-*Release owed amount of the `token` to all of the payees.*
-
+_Release owed amount of the `token` to all of the payees._
 
 ### getRoleAdmin
 
@@ -101,21 +77,19 @@ function distribute() external nonpayable
 function getRoleAdmin(bytes32 role) external view returns (bytes32)
 ```
 
-
-
-*Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {_setRoleAdmin}.*
+_Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {\_setRoleAdmin}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| role | bytes32 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
 ### getRoleMember
 
@@ -123,22 +97,20 @@ function getRoleAdmin(bytes32 role) external view returns (bytes32)
 function getRoleMember(bytes32 role, uint256 index) external view returns (address)
 ```
 
-
-
-*Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information.*
+_Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | undefined
-| index | uint256 | undefined
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| role  | bytes32 | undefined   |
+| index | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### getRoleMemberCount
 
@@ -146,21 +118,19 @@ function getRoleMember(bytes32 role, uint256 index) external view returns (addre
 function getRoleMemberCount(bytes32 role) external view returns (uint256)
 ```
 
-
-
-*Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role.*
+_Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| role | bytes32 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### grantRole
 
@@ -168,16 +138,14 @@ function getRoleMemberCount(bytes32 role) external view returns (uint256)
 function grantRole(bytes32 role, address account) external nonpayable
 ```
 
-
-
-*Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have ``role``&#39;s admin role.*
+_Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have `role`&#39;s admin role._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | undefined
-| account | address | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| role    | bytes32 | undefined   |
+| account | address | undefined   |
 
 ### hasRole
 
@@ -185,22 +153,20 @@ function grantRole(bytes32 role, address account) external nonpayable
 function hasRole(bytes32 role, address account) external view returns (bool)
 ```
 
-
-
-*Returns `true` if `account` has been granted `role`.*
+_Returns `true` if `account` has been granted `role`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | undefined
-| account | address | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| role    | bytes32 | undefined   |
+| account | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### initialize
 
@@ -208,19 +174,17 @@ function hasRole(bytes32 role, address account) external view returns (bool)
 function initialize(address _defaultAdmin, string _contractURI, address[] _trustedForwarders, address[] _payees, uint256[] _shares) external nonpayable
 ```
 
-
-
-*Performs the job of the constructor.shares_ are scaled by 10,000 to prevent precision loss when including fees*
+_Performs the job of the constructor.shares\_ are scaled by 10,000 to prevent precision loss when including fees_
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _defaultAdmin | address | undefined
-| _contractURI | string | undefined
-| _trustedForwarders | address[] | undefined
-| _payees | address[] | undefined
-| _shares | uint256[] | undefined
+| Name                | Type      | Description |
+| ------------------- | --------- | ----------- |
+| \_defaultAdmin      | address   | undefined   |
+| \_contractURI       | string    | undefined   |
+| \_trustedForwarders | address[] | undefined   |
+| \_payees            | address[] | undefined   |
+| \_shares            | uint256[] | undefined   |
 
 ### isTrustedForwarder
 
@@ -228,21 +192,17 @@ function initialize(address _defaultAdmin, string _contractURI, address[] _trust
 function isTrustedForwarder(address forwarder) external view returns (bool)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| forwarder | address | undefined
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| forwarder | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### multicall
 
@@ -250,21 +210,19 @@ function isTrustedForwarder(address forwarder) external view returns (bool)
 function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 ```
 
-
-
-*Receives and executes a batch of function calls on this contract.*
+_Receives and executes a batch of function calls on this contract._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| data | bytes[] | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| data | bytes[] | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| results | bytes[] | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| results | bytes[] | undefined   |
 
 ### payee
 
@@ -272,21 +230,19 @@ function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 function payee(uint256 index) external view returns (address)
 ```
 
-
-
-*Getter for the address of the payee number `index`.*
+_Getter for the address of the payee number `index`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| index | uint256 | undefined
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| index | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### payeeCount
 
@@ -294,16 +250,13 @@ function payee(uint256 index) external view returns (address)
 function payeeCount() external view returns (uint256)
 ```
 
-
-
-*Get the number of payees*
-
+_Get the number of payees_
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### release
 
@@ -311,16 +264,14 @@ function payeeCount() external view returns (uint256)
 function release(contract IERC20Upgradeable token, address account) external nonpayable
 ```
 
-
-
-*Triggers a transfer to `account` of the amount of `token` tokens they are owed, according to their percentage of the total shares and their previous withdrawals. `token` must be the address of an IERC20 contract.*
+_Triggers a transfer to `account` of the amount of `token` tokens they are owed, according to their percentage of the total shares and their previous withdrawals. `token` must be the address of an IERC20 contract._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| token | contract IERC20Upgradeable | undefined
-| account | address | undefined
+| Name    | Type                       | Description |
+| ------- | -------------------------- | ----------- |
+| token   | contract IERC20Upgradeable | undefined   |
+| account | address                    | undefined   |
 
 ### released
 
@@ -328,21 +279,19 @@ function release(contract IERC20Upgradeable token, address account) external non
 function released(address account) external view returns (uint256)
 ```
 
-
-
-*Getter for the amount of `token` tokens already released to a payee. `token` should be the address of an IERC20 contract.*
+_Getter for the amount of `token` tokens already released to a payee. `token` should be the address of an IERC20 contract._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account | address | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| account | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### renounceRole
 
@@ -350,16 +299,14 @@ function released(address account) external view returns (uint256)
 function renounceRole(bytes32 role, address account) external nonpayable
 ```
 
-
-
-*Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function&#39;s purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`.*
+_Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function&#39;s purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | undefined
-| account | address | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| role    | bytes32 | undefined   |
+| account | address | undefined   |
 
 ### revokeRole
 
@@ -367,16 +314,14 @@ function renounceRole(bytes32 role, address account) external nonpayable
 function revokeRole(bytes32 role, address account) external nonpayable
 ```
 
-
-
-*Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have ``role``&#39;s admin role.*
+_Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have `role`&#39;s admin role._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | undefined
-| account | address | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| role    | bytes32 | undefined   |
+| account | address | undefined   |
 
 ### setContractURI
 
@@ -384,15 +329,13 @@ function revokeRole(bytes32 role, address account) external nonpayable
 function setContractURI(string _uri) external nonpayable
 ```
 
-
-
-*Sets contract URI for the contract-level metadata of the contract.*
+_Sets contract URI for the contract-level metadata of the contract._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _uri | string | undefined
+| Name  | Type   | Description |
+| ----- | ------ | ----------- |
+| \_uri | string | undefined   |
 
 ### shares
 
@@ -400,21 +343,19 @@ function setContractURI(string _uri) external nonpayable
 function shares(address account) external view returns (uint256)
 ```
 
-
-
-*Getter for the amount of shares held by an account.*
+_Getter for the amount of shares held by an account._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account | address | undefined
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| account | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### supportsInterface
 
@@ -422,21 +363,19 @@ function shares(address account) external view returns (uint256)
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
-
-
-*See {IERC165-supportsInterface}.*
+_See {IERC165-supportsInterface}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| interfaceId | bytes4 | undefined
+| Name        | Type   | Description |
+| ----------- | ------ | ----------- |
+| interfaceId | bytes4 | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### thirdwebFee
 
@@ -444,16 +383,13 @@ function supportsInterface(bytes4 interfaceId) external view returns (bool)
 function thirdwebFee() external view returns (contract ITWFee)
 ```
 
-
-
-*The thirdweb contract with fee related information.*
-
+_The thirdweb contract with fee related information._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | contract ITWFee | undefined
+| Name | Type            | Description |
+| ---- | --------------- | ----------- |
+| \_0  | contract ITWFee | undefined   |
 
 ### totalReleased
 
@@ -461,16 +397,13 @@ function thirdwebFee() external view returns (contract ITWFee)
 function totalReleased() external view returns (uint256)
 ```
 
-
-
-*Getter for the total amount of `token` already released. `token` should be the address of an IERC20 contract.*
-
+_Getter for the total amount of `token` already released. `token` should be the address of an IERC20 contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### totalShares
 
@@ -478,18 +411,13 @@ function totalReleased() external view returns (uint256)
 function totalShares() external view returns (uint256)
 ```
 
-
-
-*Getter for the total shares held by payees.*
-
+_Getter for the total shares held by payees._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined
-
-
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ## Events
 
@@ -499,17 +427,13 @@ function totalShares() external view returns (uint256)
 event ERC20PaymentReleased(contract IERC20Upgradeable indexed token, address to, uint256 amount)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| token `indexed` | contract IERC20Upgradeable | undefined |
-| to  | address | undefined |
-| amount  | uint256 | undefined |
+| Name            | Type                       | Description |
+| --------------- | -------------------------- | ----------- |
+| token `indexed` | contract IERC20Upgradeable | undefined   |
+| to              | address                    | undefined   |
+| amount          | uint256                    | undefined   |
 
 ### PayeeAdded
 
@@ -517,16 +441,12 @@ event ERC20PaymentReleased(contract IERC20Upgradeable indexed token, address to,
 event PayeeAdded(address account, uint256 shares)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account  | address | undefined |
-| shares  | uint256 | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| account | address | undefined   |
+| shares  | uint256 | undefined   |
 
 ### PaymentReceived
 
@@ -534,16 +454,12 @@ event PayeeAdded(address account, uint256 shares)
 event PaymentReceived(address from, uint256 amount)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from  | address | undefined |
-| amount  | uint256 | undefined |
+| Name   | Type    | Description |
+| ------ | ------- | ----------- |
+| from   | address | undefined   |
+| amount | uint256 | undefined   |
 
 ### PaymentReleased
 
@@ -551,16 +467,12 @@ event PaymentReceived(address from, uint256 amount)
 event PaymentReleased(address to, uint256 amount)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| to  | address | undefined |
-| amount  | uint256 | undefined |
+| Name   | Type    | Description |
+| ------ | ------- | ----------- |
+| to     | address | undefined   |
+| amount | uint256 | undefined   |
 
 ### RoleAdminChanged
 
@@ -568,17 +480,13 @@ event PaymentReleased(address to, uint256 amount)
 event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role `indexed` | bytes32 | undefined |
-| previousAdminRole `indexed` | bytes32 | undefined |
-| newAdminRole `indexed` | bytes32 | undefined |
+| Name                        | Type    | Description |
+| --------------------------- | ------- | ----------- |
+| role `indexed`              | bytes32 | undefined   |
+| previousAdminRole `indexed` | bytes32 | undefined   |
+| newAdminRole `indexed`      | bytes32 | undefined   |
 
 ### RoleGranted
 
@@ -586,17 +494,13 @@ event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, 
 event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role `indexed` | bytes32 | undefined |
-| account `indexed` | address | undefined |
-| sender `indexed` | address | undefined |
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| role `indexed`    | bytes32 | undefined   |
+| account `indexed` | address | undefined   |
+| sender `indexed`  | address | undefined   |
 
 ### RoleRevoked
 
@@ -604,16 +508,10 @@ event RoleGranted(bytes32 indexed role, address indexed account, address indexed
 event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role `indexed` | bytes32 | undefined |
-| account `indexed` | address | undefined |
-| sender `indexed` | address | undefined |
-
-
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| role `indexed`    | bytes32 | undefined   |
+| account `indexed` | address | undefined   |
+| sender `indexed`  | address | undefined   |

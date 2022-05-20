@@ -4,9 +4,10 @@ title: DropClaimConditions Objects
 hide_title: true
 displayed_sidebar: python
 ---
+
 <a id="core.classes.drop_claim_conditions"></a>
 
-# core.classes.drop\_claim\_conditions
+# core.classes.drop_claim_conditions
 
 <a id="core.classes.drop_claim_conditions.DropClaimConditions"></a>
 
@@ -18,7 +19,7 @@ class DropClaimConditions()
 
 <a id="core.classes.drop_claim_conditions.DropClaimConditions.get_active"></a>
 
-#### get\_active
+#### get_active
 
 ```python
 def get_active() -> ClaimCondition
@@ -32,7 +33,7 @@ The currently active claim condition
 
 <a id="core.classes.drop_claim_conditions.DropClaimConditions.get_all"></a>
 
-#### get\_all
+#### get_all
 
 ```python
 def get_all() -> List[ClaimCondition]

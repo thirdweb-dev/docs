@@ -4,15 +4,8 @@ title: SignatureMintERC721
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # SignatureMintERC721
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -24,14 +17,12 @@ function mintWithSignature(ISignatureMintERC721.MintRequest req, bytes signature
 
 Mints tokens according to the provided mint request.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| req | ISignatureMintERC721.MintRequest | The payload / mint request.
-| signature | bytes | The signature produced by an account signing the mint request.
+| Name      | Type                             | Description                                                    |
+| --------- | -------------------------------- | -------------------------------------------------------------- |
+| req       | ISignatureMintERC721.MintRequest | The payload / mint request.                                    |
+| signature | bytes                            | The signature produced by an account signing the mint request. |
 
 ### verify
 
@@ -39,25 +30,21 @@ Mints tokens according to the provided mint request.
 function verify(ISignatureMintERC721.MintRequest _req, bytes _signature) external view returns (bool success, address signer)
 ```
 
-
-
-*Verifies that a mint request is signed by an account holding MINTER_ROLE (at the time of the function call).*
+_Verifies that a mint request is signed by an account holding MINTER_ROLE (at the time of the function call)._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _req | ISignatureMintERC721.MintRequest | undefined
-| _signature | bytes | undefined
+| Name        | Type                             | Description |
+| ----------- | -------------------------------- | ----------- |
+| \_req       | ISignatureMintERC721.MintRequest | undefined   |
+| \_signature | bytes                            | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| success | bool | undefined
-| signer | address | undefined
-
-
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| success | bool    | undefined   |
+| signer  | address | undefined   |
 
 ## Events
 
@@ -67,16 +54,10 @@ function verify(ISignatureMintERC721.MintRequest _req, bytes _signature) externa
 event TokensMintedWithSignature(address indexed signer, address indexed mintedTo, ISignatureMintERC721.MintRequest mintRequest)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| signer `indexed` | address | undefined |
-| mintedTo `indexed` | address | undefined |
-| mintRequest  | ISignatureMintERC721.MintRequest | undefined |
-
-
+| Name               | Type                             | Description |
+| ------------------ | -------------------------------- | ----------- |
+| signer `indexed`   | address                          | undefined   |
+| mintedTo `indexed` | address                          | undefined   |
+| mintRequest        | ISignatureMintERC721.MintRequest | undefined   |

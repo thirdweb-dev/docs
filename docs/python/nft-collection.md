@@ -4,9 +4,10 @@ title: NFTCollection Objects
 hide_title: true
 displayed_sidebar: python
 ---
+
 <a id="contracts.nft_collection"></a>
 
-# contracts.nft\_collection
+# contracts.nft_collection
 
 Interface for interacting with an nft collection contract
 
@@ -56,7 +57,7 @@ receipt, id, and metadata for the mint
 
 <a id="contracts.nft_collection.NFTCollection.mint_to"></a>
 
-#### mint\_to
+#### mint_to
 
 ```python
 def mint_to(
@@ -94,7 +95,7 @@ receipt, id, and metadata for the mint
 
 <a id="contracts.nft_collection.NFTCollection.mint_batch"></a>
 
-#### mint\_batch
+#### mint_batch
 
 ```python
 def mint_batch(
@@ -114,7 +115,7 @@ receipts, ids, and metadatas for each mint
 
 <a id="contracts.nft_collection.NFTCollection.mint_batch_to"></a>
 
-#### mint\_batch\_to
+#### mint_batch_to
 
 ```python
 def mint_batch_to(
