@@ -4,10 +4,15 @@ title: IERC721A
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # IERC721A
 
-_Interface of an ERC721A compliant contract._
+
+
+
+
+
+
+*Interface of an ERC721A compliant contract.*
 
 ## Methods
 
@@ -17,14 +22,16 @@ _Interface of an ERC721A compliant contract._
 function approve(address to, uint256 tokenId) external nonpayable
 ```
 
-_Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event._
+
+
+*Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| to      | address | undefined   |
-| tokenId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| to | address | undefined
+| tokenId | uint256 | undefined
 
 ### balanceOf
 
@@ -32,19 +39,21 @@ _Gives permission to `to` to transfer `tokenId` token to another account. The ap
 function balanceOf(address owner) external view returns (uint256 balance)
 ```
 
-_Returns the number of tokens in `owner`&#39;s account._
+
+
+*Returns the number of tokens in ``owner``&#39;s account.*
 
 #### Parameters
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| owner | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| owner | address | undefined
 
 #### Returns
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| balance | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| balance | uint256 | undefined
 
 ### getApproved
 
@@ -52,19 +61,21 @@ _Returns the number of tokens in `owner`&#39;s account._
 function getApproved(uint256 tokenId) external view returns (address operator)
 ```
 
-_Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist._
+
+
+*Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| tokenId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| tokenId | uint256 | undefined
 
 #### Returns
 
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| operator | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| operator | address | undefined
 
 ### isApprovedForAll
 
@@ -72,20 +83,22 @@ _Returns the account approved for `tokenId` token. Requirements: - `tokenId` mus
 function isApprovedForAll(address owner, address operator) external view returns (bool)
 ```
 
-_Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}_
+
+
+*Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}*
 
 #### Parameters
 
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| owner    | address | undefined   |
-| operator | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| owner | address | undefined
+| operator | address | undefined
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined
 
 ### name
 
@@ -93,13 +106,16 @@ _Returns if the `operator` is allowed to manage all of the assets of `owner`. Se
 function name() external view returns (string)
 ```
 
-_Returns the token collection name._
+
+
+*Returns the token collection name.*
+
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
 
 ### ownerOf
 
@@ -107,19 +123,21 @@ _Returns the token collection name._
 function ownerOf(uint256 tokenId) external view returns (address owner)
 ```
 
-_Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist._
+
+
+*Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| tokenId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| tokenId | uint256 | undefined
 
 #### Returns
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| owner | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| owner | address | undefined
 
 ### safeTransferFrom
 
@@ -127,16 +145,18 @@ _Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist.
 function safeTransferFrom(address from, address to, uint256 tokenId, bytes data) external nonpayable
 ```
 
-_Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event._
+
+
+*Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| from    | address | undefined   |
-| to      | address | undefined   |
-| tokenId | uint256 | undefined   |
-| data    | bytes   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| from | address | undefined
+| to | address | undefined
+| tokenId | uint256 | undefined
+| data | bytes | undefined
 
 ### setApprovalForAll
 
@@ -144,14 +164,16 @@ _Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` ca
 function setApprovalForAll(address operator, bool _approved) external nonpayable
 ```
 
-_Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event._
+
+
+*Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| operator   | address | undefined   |
-| \_approved | bool    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| operator | address | undefined
+| _approved | bool | undefined
 
 ### supportsInterface
 
@@ -159,19 +181,21 @@ _Approve or remove `operator` as an operator for the caller. Operators can call 
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
-_Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas._
+
+
+*Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas.*
 
 #### Parameters
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| interfaceId | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| interfaceId | bytes4 | undefined
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined
 
 ### symbol
 
@@ -179,13 +203,16 @@ _Returns true if this contract implements the interface defined by `interfaceId`
 function symbol() external view returns (string)
 ```
 
-_Returns the token collection symbol._
+
+
+*Returns the token collection symbol.*
+
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
 
 ### tokenURI
 
@@ -193,19 +220,21 @@ _Returns the token collection symbol._
 function tokenURI(uint256 tokenId) external view returns (string)
 ```
 
-_Returns the Uniform Resource Identifier (URI) for `tokenId` token._
+
+
+*Returns the Uniform Resource Identifier (URI) for `tokenId` token.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| tokenId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| tokenId | uint256 | undefined
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
 
 ### totalSupply
 
@@ -213,13 +242,16 @@ _Returns the Uniform Resource Identifier (URI) for `tokenId` token._
 function totalSupply() external view returns (uint256)
 ```
 
-_Returns the total amount of tokens stored by the contract.Burned tokens are calculated here, use \_totalMinted() if you want to count just minted tokens._
+
+
+*Returns the total amount of tokens stored by the contract.Burned tokens are calculated here, use _totalMinted() if you want to count just minted tokens.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined
 
 ### transferFrom
 
@@ -227,15 +259,19 @@ _Returns the total amount of tokens stored by the contract.Burned tokens are cal
 function transferFrom(address from, address to, uint256 tokenId) external nonpayable
 ```
 
-_Transfers `tokenId` token from `from` to `to`. WARNING: Usage of this method is discouraged, use {safeTransferFrom} whenever possible. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event._
+
+
+*Transfers `tokenId` token from `from` to `to`. WARNING: Usage of this method is discouraged, use {safeTransferFrom} whenever possible. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| from    | address | undefined   |
-| to      | address | undefined   |
-| tokenId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| from | address | undefined
+| to | address | undefined
+| tokenId | uint256 | undefined
+
+
 
 ## Events
 
@@ -245,13 +281,17 @@ _Transfers `tokenId` token from `from` to `to`. WARNING: Usage of this method is
 event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| owner `indexed`    | address | undefined   |
-| approved `indexed` | address | undefined   |
-| tokenId `indexed`  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| owner `indexed` | address | undefined |
+| approved `indexed` | address | undefined |
+| tokenId `indexed` | uint256 | undefined |
 
 ### ApprovalForAll
 
@@ -259,13 +299,17 @@ event Approval(address indexed owner, address indexed approved, uint256 indexed 
 event ApprovalForAll(address indexed owner, address indexed operator, bool approved)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| owner `indexed`    | address | undefined   |
-| operator `indexed` | address | undefined   |
-| approved           | bool    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| owner `indexed` | address | undefined |
+| operator `indexed` | address | undefined |
+| approved  | bool | undefined |
 
 ### Transfer
 
@@ -273,13 +317,19 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| from `indexed`    | address | undefined   |
-| to `indexed`      | address | undefined   |
-| tokenId `indexed` | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| from `indexed` | address | undefined |
+| to `indexed` | address | undefined |
+| tokenId `indexed` | uint256 | undefined |
+
+
 
 ## Errors
 
@@ -291,6 +341,9 @@ error ApprovalCallerNotOwnerNorApproved()
 
 The caller must own the token or be an approved operator.
 
+
+
+
 ### ApprovalQueryForNonexistentToken
 
 ```solidity
@@ -298,6 +351,9 @@ error ApprovalQueryForNonexistentToken()
 ```
 
 The token does not exist.
+
+
+
 
 ### ApprovalToCurrentOwner
 
@@ -307,6 +363,9 @@ error ApprovalToCurrentOwner()
 
 The caller cannot approve to the current owner.
 
+
+
+
 ### ApproveToCaller
 
 ```solidity
@@ -314,6 +373,9 @@ error ApproveToCaller()
 ```
 
 The caller cannot approve to their own address.
+
+
+
 
 ### BalanceQueryForZeroAddress
 
@@ -323,6 +385,9 @@ error BalanceQueryForZeroAddress()
 
 Cannot query the balance for the zero address.
 
+
+
+
 ### MintToZeroAddress
 
 ```solidity
@@ -330,6 +395,9 @@ error MintToZeroAddress()
 ```
 
 Cannot mint to the zero address.
+
+
+
 
 ### MintZeroQuantity
 
@@ -339,6 +407,9 @@ error MintZeroQuantity()
 
 The quantity of tokens minted must be more than zero.
 
+
+
+
 ### OwnerQueryForNonexistentToken
 
 ```solidity
@@ -346,6 +417,9 @@ error OwnerQueryForNonexistentToken()
 ```
 
 The token does not exist.
+
+
+
 
 ### TransferCallerNotOwnerNorApproved
 
@@ -355,6 +429,9 @@ error TransferCallerNotOwnerNorApproved()
 
 The caller must own the token or be an approved operator.
 
+
+
+
 ### TransferFromIncorrectOwner
 
 ```solidity
@@ -362,6 +439,9 @@ error TransferFromIncorrectOwner()
 ```
 
 The token must be owned by `from`.
+
+
+
 
 ### TransferToNonERC721ReceiverImplementer
 
@@ -371,6 +451,9 @@ error TransferToNonERC721ReceiverImplementer()
 
 Cannot safely transfer to a contract that does not implement the ERC721Receiver interface.
 
+
+
+
 ### TransferToZeroAddress
 
 ```solidity
@@ -379,6 +462,9 @@ error TransferToZeroAddress()
 
 Cannot transfer to the zero address.
 
+
+
+
 ### URIQueryForNonexistentToken
 
 ```solidity
@@ -386,3 +472,7 @@ error URIQueryForNonexistentToken()
 ```
 
 The token does not exist.
+
+
+
+

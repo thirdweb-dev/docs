@@ -3,7 +3,6 @@ title: Thirdweb Python SDK
 hide_title: true
 displayed_sidebar: python
 ---
-
 <p align="center">
 <br />
 <a href="https://thirdweb.com"><img src="https://github.com/thirdweb-dev/typescript-sdk/blob/main/logo.svg?raw=true" width="200" alt=""/></a>
@@ -28,7 +27,6 @@ pip install thirdweb-sdk
 ## Getting Started
 
 To start using this SDK, you just need to pass in a provider configuration.
-
 ### Instantiating the SDK
 
 Once you have all the necessary dependencies, you can follow the following setup steps to get started with the SDK read-only functions:
@@ -134,7 +132,7 @@ $ bash scripts/env/setup.sh
 
 ### Running Tests
 
-Before running tests, make sure you've already run `poetry shell` and are in the poetry virutal environment with all dependencies installed.
+Before running tests, make sure you've already run `poetry shell` and are in the poetry virutal environment with all dependencies installed. 
 
 Once you have checked that this you have all the dependencies, you can run the following:
 
@@ -156,7 +154,6 @@ If you're working in VSCode, there a few steps to get everything working with th
 
 1. To setup poetry virtual environment inside your VSCode so it gets recognized as part of your project (import for linters), you can take the following steps from this [stack overflow answer](https://stackoverflow.com/questions/59882884/vscode-doesnt-show-poetry-virtualenvs-in-select-interpreter-option). You need to run `poetry config virtualenvs.in-project true` and then make sure you delete/create a new poetry env.
 2. In `.vscode/settings.json`, you should have the following:
-
 ```json
 {
   "python.linting.mypyEnabled": true,
@@ -164,8 +161,8 @@ If you're working in VSCode, there a few steps to get everything working with th
   "python.linting.pylintEnabled": false
 }
 ```
-
 3. Make sure to set your VSCode `Python: Interpreter` setting to the Python version inside your poetry virtual environment.
+
 
 ### Generate Python ABI Wrappers
 

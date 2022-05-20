@@ -4,8 +4,15 @@ title: MockContract
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # MockContract
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,13 +22,16 @@ displayed_sidebar: contracts
 function contractType() external view returns (bytes32)
 ```
 
-_Returns the module type of the contract._
+
+
+*Returns the module type of the contract.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes32 | undefined
 
 ### contractVersion
 
@@ -29,10 +39,16 @@ _Returns the module type of the contract._
 function contractVersion() external view returns (uint8)
 ```
 
-_Returns the version of the contract._
+
+
+*Returns the version of the contract.*
+
 
 #### Returns
 
-| Name | Type  | Description |
-| ---- | ----- | ----------- |
-| \_0  | uint8 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint8 | undefined
+
+
+

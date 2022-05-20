@@ -4,8 +4,15 @@ title: IPack
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # IPack
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,13 +22,16 @@ displayed_sidebar: contracts
 function contractType() external pure returns (bytes32)
 ```
 
-_Returns the module type of the contract._
+
+
+*Returns the module type of the contract.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes32 | undefined
 
 ### contractURI
 
@@ -29,13 +39,16 @@ _Returns the module type of the contract._
 function contractURI() external view returns (string)
 ```
 
-_Returns the metadata URI of the contract._
+
+
+*Returns the metadata URI of the contract.*
+
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
 
 ### contractVersion
 
@@ -43,13 +56,16 @@ _Returns the metadata URI of the contract._
 function contractVersion() external pure returns (uint8)
 ```
 
-_Returns the version of the contract._
+
+
+*Returns the version of the contract.*
+
 
 #### Returns
 
-| Name | Type  | Description |
-| ---- | ----- | ----------- |
-| \_0  | uint8 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint8 | undefined
 
 ### createPack
 
@@ -59,14 +75,16 @@ function createPack(IPack.PackContents contents, string uri, uint128 openStartTi
 
 Creates a pack with the stated contents.
 
+
+
 #### Parameters
 
-| Name               | Type               | Description                                       |
-| ------------------ | ------------------ | ------------------------------------------------- |
-| contents           | IPack.PackContents | The contents of the packs to be created.          |
-| uri                | string             | The (metadata) URI assigned to the packs created. |
-| openStartTimestamp | uint128            | The timestamp after which a pack is opened.       |
-| nftsPerOpen        | uint128            | The number of NFTs received on opening one pack.  |
+| Name | Type | Description |
+|---|---|---|
+| contents | IPack.PackContents | The contents of the packs to be created.
+| uri | string | The (metadata) URI assigned to the packs created.
+| openStartTimestamp | uint128 | The timestamp after which a pack is opened.
+| nftsPerOpen | uint128 | The number of NFTs received on opening one pack.
 
 ### getDefaultRoyaltyInfo
 
@@ -74,14 +92,17 @@ Creates a pack with the stated contents.
 function getDefaultRoyaltyInfo() external view returns (address, uint16)
 ```
 
-_Returns the royalty recipient and fee bps._
+
+
+*Returns the royalty recipient and fee bps.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint16  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined
+| _1 | uint16 | undefined
 
 ### getRoyaltyInfoForToken
 
@@ -89,20 +110,22 @@ _Returns the royalty recipient and fee bps._
 function getRoyaltyInfoForToken(uint256 tokenId) external view returns (address, uint16)
 ```
 
-_Returns the royalty recipient for a particular token Id._
+
+
+*Returns the royalty recipient for a particular token Id.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| tokenId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| tokenId | uint256 | undefined
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint16  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined
+| _1 | uint16 | undefined
 
 ### openPack
 
@@ -112,12 +135,14 @@ function openPack(uint256 packId, uint256 amountToOpen) external nonpayable
 
 Lets a pack owner open a pack and receive the pack&#39;s NFTs.
 
+
+
 #### Parameters
 
-| Name         | Type    | Description                          |
-| ------------ | ------- | ------------------------------------ |
-| packId       | uint256 | The identifier of the pack to open.  |
-| amountToOpen | uint256 | The number of packs to open at once. |
+| Name | Type | Description |
+|---|---|---|
+| packId | uint256 | The identifier of the pack to open.
+| amountToOpen | uint256 | The number of packs to open at once.
 
 ### owner
 
@@ -125,13 +150,16 @@ Lets a pack owner open a pack and receive the pack&#39;s NFTs.
 function owner() external view returns (address)
 ```
 
-_Returns the owner of the contract._
+
+
+*Returns the owner of the contract.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined
 
 ### royaltyInfo
 
@@ -139,21 +167,23 @@ _Returns the owner of the contract._
 function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (address receiver, uint256 royaltyAmount)
 ```
 
-_Returns how much royalty is owed and to whom, based on a sale price that may be denominated in any unit of exchange. The royalty amount is denominated and should be payed in that same unit of exchange._
+
+
+*Returns how much royalty is owed and to whom, based on a sale price that may be denominated in any unit of exchange. The royalty amount is denominated and should be payed in that same unit of exchange.*
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| tokenId   | uint256 | undefined   |
-| salePrice | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| tokenId | uint256 | undefined
+| salePrice | uint256 | undefined
 
 #### Returns
 
-| Name          | Type    | Description |
-| ------------- | ------- | ----------- |
-| receiver      | address | undefined   |
-| royaltyAmount | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| receiver | address | undefined
+| royaltyAmount | uint256 | undefined
 
 ### setContractURI
 
@@ -161,13 +191,15 @@ _Returns how much royalty is owed and to whom, based on a sale price that may be
 function setContractURI(string _uri) external nonpayable
 ```
 
-_Sets contract URI for the storefront-level metadata of the contract. Only module admin can call this function._
+
+
+*Sets contract URI for the storefront-level metadata of the contract.       Only module admin can call this function.*
 
 #### Parameters
 
-| Name  | Type   | Description |
-| ----- | ------ | ----------- |
-| \_uri | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _uri | string | undefined
 
 ### setDefaultRoyaltyInfo
 
@@ -175,14 +207,16 @@ _Sets contract URI for the storefront-level metadata of the contract. Only modul
 function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
 ```
 
-_Lets a module admin update the royalty bps and recipient._
+
+
+*Lets a module admin update the royalty bps and recipient.*
 
 #### Parameters
 
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| \_royaltyRecipient | address | undefined   |
-| \_royaltyBps       | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _royaltyRecipient | address | undefined
+| _royaltyBps | uint256 | undefined
 
 ### setOwner
 
@@ -190,13 +224,15 @@ _Lets a module admin update the royalty bps and recipient._
 function setOwner(address _newOwner) external nonpayable
 ```
 
-_Lets a module admin set a new owner for the contract. The new owner must be a module admin._
+
+
+*Lets a module admin set a new owner for the contract. The new owner must be a module admin.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_newOwner | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _newOwner | address | undefined
 
 ### setRoyaltyInfoForToken
 
@@ -204,15 +240,19 @@ _Lets a module admin set a new owner for the contract. The new owner must be a m
 function setRoyaltyInfoForToken(uint256 tokenId, address recipient, uint256 bps) external nonpayable
 ```
 
-_Lets a module admin set the royalty recipient for a particular token Id._
+
+
+*Lets a module admin set the royalty recipient for a particular token Id.*
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| tokenId   | uint256 | undefined   |
-| recipient | address | undefined   |
-| bps       | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| tokenId | uint256 | undefined
+| recipient | address | undefined
+| bps | uint256 | undefined
+
+
 
 ## Events
 
@@ -222,12 +262,16 @@ _Lets a module admin set the royalty recipient for a particular token Id._
 event DefaultRoyalty(address newRoyaltyRecipient, uint256 newRoyaltyBps)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                | Type    | Description |
-| ------------------- | ------- | ----------- |
-| newRoyaltyRecipient | address | undefined   |
-| newRoyaltyBps       | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| newRoyaltyRecipient  | address | undefined |
+| newRoyaltyBps  | uint256 | undefined |
 
 ### OwnerUpdated
 
@@ -235,12 +279,16 @@ event DefaultRoyalty(address newRoyaltyRecipient, uint256 newRoyaltyBps)
 event OwnerUpdated(address prevOwner, address newOwner)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| prevOwner | address | undefined   |
-| newOwner  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| prevOwner  | address | undefined |
+| newOwner  | address | undefined |
 
 ### RoyaltyForToken
 
@@ -248,10 +296,16 @@ event OwnerUpdated(address prevOwner, address newOwner)
 event RoyaltyForToken(uint256 indexed tokenId, address royaltyRecipient, uint256 royaltyBps)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| tokenId `indexed` | uint256 | undefined   |
-| royaltyRecipient  | address | undefined   |
-| royaltyBps        | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| tokenId `indexed` | uint256 | undefined |
+| royaltyRecipient  | address | undefined |
+| royaltyBps  | uint256 | undefined |
+
+

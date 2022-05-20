@@ -4,12 +4,15 @@ title: IERC20Metadata
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # IERC20Metadata
+
+
 
 > ERC20Metadata interface
 
-_see https://github.com/ethereum/EIPs/issues/20_
+
+
+*see https://github.com/ethereum/EIPs/issues/20*
 
 ## Methods
 
@@ -19,11 +22,16 @@ _see https://github.com/ethereum/EIPs/issues/20_
 function decimals() external view returns (uint8)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type  | Description |
-| ---- | ----- | ----------- |
-| \_0  | uint8 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint8 | undefined
 
 ### name
 
@@ -31,11 +39,16 @@ function decimals() external view returns (uint8)
 function name() external view returns (string)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
 
 ### symbol
 
@@ -43,8 +56,16 @@ function name() external view returns (string)
 function symbol() external view returns (string)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined
+
+
+

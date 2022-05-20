@@ -4,10 +4,9 @@ title: ERC20SignatureMinting Objects
 hide_title: true
 displayed_sidebar: python
 ---
-
 <a id="core.classes.erc_20_signature_minting"></a>
 
-# core.classes.erc_20_signature_minting
+# core.classes.erc\_20\_signature\_minting
 
 <a id="core.classes.erc_20_signature_minting.ERC20SignatureMinting"></a>
 
@@ -37,7 +36,7 @@ transaction result with the token ID of the minted token
 
 <a id="core.classes.erc_20_signature_minting.ERC20SignatureMinting.mint_batch"></a>
 
-#### mint_batch
+#### mint\_batch
 
 ```python
 def mint_batch(signed_payloads: List[SignedPayload20]) -> TxReceipt
@@ -91,7 +90,7 @@ Signed payload
 
 <a id="core.classes.erc_20_signature_minting.ERC20SignatureMinting.generate_batch"></a>
 
-#### generate_batch
+#### generate\_batch
 
 ```python
 def generate_batch(

@@ -4,10 +4,9 @@ title: EditionDrop Objects
 hide_title: true
 displayed_sidebar: python
 ---
-
 <a id="contracts.edition_drop"></a>
 
-# contracts.edition_drop
+# contracts.edition\_drop
 
 <a id="contracts.edition_drop.EditionDrop"></a>
 
@@ -35,7 +34,7 @@ contract = sdk.get_edition_drop("{{contract_address}}")
 
 <a id="contracts.edition_drop.EditionDrop.create_batch"></a>
 
-#### create_batch
+#### create\_batch
 
 ```python
 def create_batch(
@@ -83,7 +82,7 @@ List of tx results with ids for created NFTs.
 
 <a id="contracts.edition_drop.EditionDrop.claim_to"></a>
 
-#### claim_to
+#### claim\_to
 
 ```python
 def claim_to(destination_address: str,

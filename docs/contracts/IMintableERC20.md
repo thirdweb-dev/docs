@@ -4,8 +4,15 @@ title: IMintableERC20
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # IMintableERC20
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,14 +22,18 @@ displayed_sidebar: contracts
 function mintTo(address to, uint256 amount) external nonpayable
 ```
 
-_Creates `amount` new tokens for `to`. See {ERC20-\_mint}. Requirements: - the caller must have the `MINTER_ROLE`._
+
+
+*Creates `amount` new tokens for `to`. See {ERC20-_mint}. Requirements: - the caller must have the `MINTER_ROLE`.*
 
 #### Parameters
 
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| to     | address | undefined   |
-| amount | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| to | address | undefined
+| amount | uint256 | undefined
+
+
 
 ## Events
 
@@ -32,11 +43,15 @@ _Creates `amount` new tokens for `to`. See {ERC20-\_mint}. Requirements: - the c
 event TokensMinted(address indexed mintedTo, uint256 quantityMinted)
 ```
 
-_Emitted when tokens are minted with `mintTo`_
+
+
+*Emitted when tokens are minted with `mintTo`*
 
 #### Parameters
 
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| mintedTo `indexed` | address | undefined   |
-| quantityMinted     | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| mintedTo `indexed` | address | undefined |
+| quantityMinted  | uint256 | undefined |
+
+
