@@ -182,6 +182,11 @@ const config = {
             position: "left",
           },
           {
+            to: "go",
+            label: "Go",
+            position: "left",
+          },
+          {
             to: "contracts",
             label: "Solidity",
             position: "left",
