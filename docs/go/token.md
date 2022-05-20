@@ -1,11 +1,11 @@
 ---
 slug: /token
-title: Tokenn
+title: Token
 hide_title: true
 displayed_sidebar: go
 ---
 
-## Tokenn
+## Token
 
 You can access this interface through the SDK with `sdk.GetToken(address)`.
 
