@@ -30,16 +30,9 @@ export const MyApp = () => {
 `,
 
     python: `from thirdweb import ThirdwebSDK
-from web3 import Web3
 
-# Add your own RPC URL here or use a public one
-RPC_URL = "https://rpc-mumbai.maticvigil.com"
-
-# Instantiate a new provider to pass into the SDK
-provider = Web3(Web3.HTTPProvider(RPC_URL))
-
-# Finally, you can create a new instance of the SDK to use
-sdk = ThirdwebSDK(provider)`,
+# You can create a new instance of the SDK to use by just passing in a network name
+sdk = ThirdwebSDK("mumbai")`,
 
     solidity: `// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
