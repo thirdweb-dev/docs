@@ -1,0 +1,74 @@
+---
+slug: /examples/token-gated-membership/using-the-example-repo
+title: Using the Example Repo
+---
+
+# Creating a Restricted Application based on NFTs
+
+We have created a template for you to use your [Edition Drop](/pre-built-contracts/edition-drop) to restrict access to
+the application to only holders of an NFT in your collection.
+
+In the example, we also provide a page for users to claim one of your NFTs to then access the website too.
+
+:::info
+
+In this section, we assume you have some knowledge of how to `clone` a git repository,
+and have Node JS installed on your machine.
+:::
+
+## Cloning the Marketplace Example Repository
+
+You can create your own copy of this [template repository](https://github.com/thirdweb-example/marketplace-next-ts)
+by using `git clone`, or downloading the repository as a `.zip` file and unzipping it from the GitHub url.
+
+```bash
+git clone https://github.com/thirdweb-example/NFT-Gated-Website.git
+```
+
+Once you have the code on your computer, you'll need to install the dependencies:
+
+```bash npm2yarn
+npm install
+```
+
+To start running the code locally, run the command below.
+
+```bash npm2yarn
+npm run dev
+```
+
+## Configure your Edition Drop Contract Address
+
+Replace the value of the contract address inside the of the `useEditionDrop` hook on `App.js`
+with your Edition Drop contract address; you can find this address in the dashboard.
+
+## Configure the Network
+
+In our example repository, we enforce users to be on the `Mumbai` test network when they try to claim an NFT.
+
+If you are on a different network, you'll need to configure this value inside the `index.js` file.
+
+```jsx
+// This is the chainId your dApp will work on.
+const activeChainId = ChainId.Mumbai;
+```
+
+We also ensure users are on the correct network when they click the mint button, so you'll need to configure this here too:
+
+```jsx
+// App.js
+const mintNft = async () => {
+  // ...
+
+  // Ensure they're on the right network (mumbai)
+  if (networkMismatched) {
+    switchNetwork(ChainId.Mumbai); // Configure this to your network
+    return;
+  }
+};
+```
+
+## Configure the Styles
+
+You can configure any of the styles inside the `/styles` directory to change the look and feel of the
+application to match your brand.

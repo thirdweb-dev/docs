@@ -6,11 +6,11 @@ slug: /examples/marketplace/exploring-the-example-repo
 
 In this section, we'll explain the key elements of the example repository.
 
-We'll explore how thirdweb:
+We'll explore how we use the thirdweb SDKs to:
 
-- Fetches all active listings from the smart contract
-- Allows users to create their own listings on the `create` page
-- How users can make offers, bids and buyout listings.
+- Fetch all active listings from the smart contract
+- Allow users to create their own listings on the `create` page
+- Enable users to make offers, bids and buyout listings.
 
 ## Fetching Active Listings
 
