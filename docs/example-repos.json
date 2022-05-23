@@ -53,6 +53,18 @@
     "is_template": true
   },
   {
+    "name": "custom-dashboard",
+    "html_url": "https://github.com/thirdweb-example/custom-dashboard",
+    "description": null,
+    "created_at": "2022-05-11T05:41:53Z",
+    "updated_at": "2022-05-23T10:09:26Z",
+    "clone_url": "https://github.com/thirdweb-example/custom-dashboard.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false
+  },
+  {
     "name": "custom-minting-page",
     "html_url": "https://github.com/thirdweb-example/custom-minting-page",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
@@ -200,7 +212,7 @@
     "html_url": "https://github.com/thirdweb-example/NFT-Gated-Website",
     "description": "An example of an NFT Gated Website for thirdweb's NFT Gated Website Guide",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-05-20T23:13:11Z",
+    "updated_at": "2022-05-23T07:31:34Z",
     "clone_url": "https://github.com/thirdweb-example/NFT-Gated-Website.git",
     "topics": [
       "edition",
@@ -211,7 +223,7 @@
       "react"
     ],
     "language": "JavaScript",
-    "stargazers_count": 9,
+    "stargazers_count": 10,
     "is_template": false
   },
   {
@@ -266,7 +278,7 @@
     "html_url": "https://github.com/thirdweb-example/vite-typescript-starter",
     "description": "thirdweb starter project with Vite & TypeScript",
     "created_at": "2022-03-18T00:47:03Z",
-    "updated_at": "2022-05-12T02:39:53Z",
+    "updated_at": "2022-05-23T09:30:36Z",
     "clone_url": "https://github.com/thirdweb-example/vite-typescript-starter.git",
     "topics": [
       "react",
@@ -276,7 +288,7 @@
       "vite"
     ],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": true
   }
 ]
