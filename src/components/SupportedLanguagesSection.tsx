@@ -45,7 +45,6 @@ export default function SupportedLanguagesSection({}: Props) {
                     height: 32,
                     width: 32,
                     marginRight: 12,
-                    borderRadius: "50%",
                   }}
                 />
                 <h3 style={{ fontSize: "1rem", fontWeight: 700 }}>{lang}</h3>
