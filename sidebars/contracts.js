@@ -50,6 +50,11 @@ const sidebars = {
           label: "Signature Minting",
           id: "design/SignatureMint",
         },
+        {
+          type: "doc",
+          label: "Multiwrap",
+          id: "design/Multiwrap",
+        },
       ],
     },
     {
