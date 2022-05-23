@@ -11,7 +11,7 @@ You can access the NFT Drop interface from the SDK as follows:
 
 ```
 import (
-	thirdweb "github.com/thirdweb-dev/go-sdk/thirdweb"
+	"github.com/thirdweb-dev/go-sdk/thirdweb"
 )
 
 privateKey = "..."
@@ -29,7 +29,7 @@ type NFTDrop struct {
 }
 ```
 
-### func \(\*NFTDrop\) [Claim](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/nft_drop.go#L179)
+### func \(\*NFTDrop\) [Claim](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop.go#L179)
 
 ```go
 func (drop *NFTDrop) Claim(quantity int) (*types.Transaction, error)
@@ -41,7 +41,7 @@ quantity: the number of NFTs to claim
 
 returns: the transaction receipt of the claim
 
-### func \(\*NFTDrop\) [ClaimTo](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/nft_drop.go#L198)
+### func \(\*NFTDrop\) [ClaimTo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop.go#L198)
 
 ```go
 func (drop *NFTDrop) ClaimTo(destinationAddress string, quantity int) (*types.Transaction, error)
@@ -64,7 +64,7 @@ quantity = 1
 tx, err := contract.ClaimTo(address, quantity)
 ```
 
-### func \(\*NFTDrop\) [CreateBatch](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/nft_drop.go#L140)
+### func \(\*NFTDrop\) [CreateBatch](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop.go#L140)
 
 ```go
 func (drop *NFTDrop) CreateBatch(metadatas []*NFTMetadataInput) (*types.Transaction, error)
@@ -101,7 +101,7 @@ metadatas := []*thirdweb.NFTMetadataInput{
 tx, err := contract.CreateBatch(metadatas)
 ```
 
-### func \(\*NFTDrop\) [GetAllClaimed](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/nft_drop.go#L68)
+### func \(\*NFTDrop\) [GetAllClaimed](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop.go#L68)
 
 ```go
 func (drop *NFTDrop) GetAllClaimed() ([]*NFTMetadataOwner, error)
@@ -118,7 +118,7 @@ claimedNfts, err := contract.GetAllClaimed()
 firstOwner := claimedNfts[0].Owner
 ```
 
-### func \(\*NFTDrop\) [GetAllUnclaimed](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/nft_drop.go#L92)
+### func \(\*NFTDrop\) [GetAllUnclaimed](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop.go#L92)
 
 ```go
 func (drop *NFTDrop) GetAllUnclaimed() ([]*NFTMetadata, error)
@@ -135,7 +135,7 @@ unclaimedNfts, err := contract.GetAllUnclaimed()
 firstNftName := unclaimedNfts[0].Name
 ```
 
-## type [NFTMetadata](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/types.go#L17-L27)
+## type [NFTMetadata](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L17-L27)
 
 ```go
 type NFTMetadata struct {
@@ -151,7 +151,7 @@ type NFTMetadata struct {
 }
 ```
 
-## type [NFTMetadataInput](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/types.go#L29-L37)
+## type [NFTMetadataInput](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L29-L37)
 
 ```go
 type NFTMetadataInput struct {
@@ -165,7 +165,7 @@ type NFTMetadataInput struct {
 }
 ```
 
-## type [NFTMetadataOwner](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/types.go#L39-L42)
+## type [NFTMetadataOwner](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L39-L42)
 
 ```go
 type NFTMetadataOwner struct {
@@ -174,7 +174,7 @@ type NFTMetadataOwner struct {
 }
 ```
 
-## type [NFTResult](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/erc721.go#L23-L26)
+## type [NFTResult](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc721.go#L23-L26)
 
 ```go
 type NFTResult struct {
@@ -182,7 +182,7 @@ type NFTResult struct {
 }
 ```
 
-## type [NativeToken](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/types.go#L113-L118)
+## type [NativeToken](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L113-L118)
 
 ```go
 type NativeToken struct {

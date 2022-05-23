@@ -11,7 +11,7 @@ You can access the NFT Collection interface from the SDK as follows:
 
 ```
 import (
-	thirdweb "github.com/thirdweb-dev/go-sdk/thirdweb"
+	"github.com/thirdweb-dev/go-sdk/thirdweb"
 )
 
 privateKey = "..."
@@ -29,7 +29,7 @@ type NFTCollection struct {
 }
 ```
 
-### func \(\*NFTCollection\) [Mint](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/nft_collection.go#L55)
+### func \(\*NFTCollection\) [Mint](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_collection.go#L55)
 
 ```go
 func (nft *NFTCollection) Mint(metadata *NFTMetadataInput) (*types.Transaction, error)
@@ -41,7 +41,7 @@ metadata: metadata of the NFT to mint
 
 returns: the transaction receipt of the mint
 
-### func \(\*NFTCollection\) [MintBatch](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/nft_collection.go#L103)
+### func \(\*NFTCollection\) [MintBatch](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_collection.go#L103)
 
 ```go
 func (nft *NFTCollection) MintBatch(metadatas []*NFTMetadataInput) (*types.Transaction, error)
@@ -53,7 +53,7 @@ metadatas: list of metadata of the NFTs to mint
 
 returns: the transaction receipt of the mint
 
-### func \(\*NFTCollection\) [MintBatchTo](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/nft_collection.go#L130)
+### func \(\*NFTCollection\) [MintBatchTo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_collection.go#L130)
 
 ```go
 func (nft *NFTCollection) MintBatchTo(address string, metadatas []*NFTMetadataInput) (*types.Transaction, error)
@@ -84,7 +84,7 @@ metadatas := []*thirdweb.NFTMetadataInput{
 tx, err := contract.MintBatchTo("{{wallet_address}}", metadatas)
 ```
 
-### func \(\*NFTCollection\) [MintTo](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/nft_collection.go#L80)
+### func \(\*NFTCollection\) [MintTo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_collection.go#L80)
 
 ```go
 func (nft *NFTCollection) MintTo(address string, metadata *NFTMetadataInput) (*types.Transaction, error)

@@ -11,7 +11,7 @@ You can access the Edition Drop interface from the SDK as follows:
 
 ```
 import (
-	thirdweb "github.com/thirdweb-dev/go-sdk/thirdweb"
+	"github.com/thirdweb-dev/go-sdk/thirdweb"
 )
 
 privateKey = "..."
@@ -29,7 +29,7 @@ type EditionDrop struct {
 }
 ```
 
-### func \(\*EditionDrop\) [Claim](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/edition_drop.go#L134)
+### func \(\*EditionDrop\) [Claim](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition_drop.go#L134)
 
 ```go
 func (drop *EditionDrop) Claim(tokenId int, quantity int) (*types.Transaction, error)
@@ -43,7 +43,7 @@ quantity: the number of NFTs to claim
 
 returns: the transaction receipt of the claim
 
-### func \(\*EditionDrop\) [ClaimTo](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/edition_drop.go#L156)
+### func \(\*EditionDrop\) [ClaimTo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition_drop.go#L156)
 
 ```go
 func (drop *EditionDrop) ClaimTo(destinationAddress string, tokenId int, quantity int) (*types.Transaction, error)
@@ -69,7 +69,7 @@ quantity = 1
 tx, err := contract.ClaimTo(address, tokenId, quantity)
 ```
 
-### func \(\*EditionDrop\) [CreateBatch](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/edition_drop.go#L94)
+### func \(\*EditionDrop\) [CreateBatch](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition_drop.go#L94)
 
 ```go
 func (drop *EditionDrop) CreateBatch(metadatas []*NFTMetadataInput) (*types.Transaction, error)
@@ -112,7 +112,7 @@ metadatasWithSupply := []*thirdweb.EditionMetadataInput{
 tx, err := contract.MintBatchTo("{{wallet_address}}", metadatasWithSupply)
 ```
 
-## type [EditionMetadata](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/types.go#L44-L47)
+## type [EditionMetadata](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L44-L47)
 
 ```go
 type EditionMetadata struct {
@@ -121,7 +121,7 @@ type EditionMetadata struct {
 }
 ```
 
-## type [EditionMetadataInput](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/types.go#L56-L59)
+## type [EditionMetadataInput](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L56-L59)
 
 ```go
 type EditionMetadataInput struct {
@@ -130,7 +130,7 @@ type EditionMetadataInput struct {
 }
 ```
 
-## type [EditionMetadataOwner](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/types.go#L49-L54)
+## type [EditionMetadataOwner](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L49-L54)
 
 ```go
 type EditionMetadataOwner struct {
@@ -141,7 +141,7 @@ type EditionMetadataOwner struct {
 }
 ```
 
-## type [EditionResult](https://github.com/thirdweb-dev/go-sdk/blob/main/pkg/thirdweb/erc1155.go#L23-L26)
+## type [EditionResult](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155.go#L23-L26)
 
 ```go
 type EditionResult struct {
