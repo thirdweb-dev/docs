@@ -7,8 +7,6 @@ displayed_sidebar: go
 
 ## IPFS Storage
 
-You can access this interface through the SDK with `sdk.Storage`.
-
 ```go
 type IpfsStorage struct {
     Url string

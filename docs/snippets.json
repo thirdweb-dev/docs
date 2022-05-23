@@ -5,7 +5,8 @@
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"rinkeby\");\nconst contract = sdk.getNFTCollection(\"{{contract_address}}\");",
       "react": "import { useNFTCollection } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const nftCollection = useNFTCollection(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the nftCollection contract in the rest of the component\n}",
-      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_nft_collection(\"{{contract_address}}\")"
+      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_nft_collection(\"{{contract_address}}\")",
+      "go": "\nimport (\n\tthirdweb \"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetNFTCollection(\"{{contract_address}}\")\n"
     },
     "methods": [
       {
@@ -14,11 +15,13 @@
         "remarks": null,
         "examples": {
           "javascript": "const result = await contract.burn(tokenId);",
-          "python": ""
+          "python": "",
+          "go": "tokenId := 0\ntx, err := contract.Burn(tokenId)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTCollection.burn",
-          "python": ""
+          "python": "",
+          "go": "https://docs.thirdweb.com/go/nft_collection#func-nftcollection-burn"
         }
       },
       {
@@ -27,11 +30,13 @@
         "remarks": "\n\nGet all the data associated with every NFT in this contract.\n\nBy default, returns the first 100 NFTs, use queryParams to fetch more.\n\n",
         "examples": {
           "javascript": "const nfts = await contract.getAll();\nconsole.log(nfts);",
-          "python": "nfts = contract.get_all()\nprint(nfts)"
+          "python": "nfts = contract.get_all()\nprint(nfts)",
+          "go": "nfts, err := contract.GetAll()\nownerOne := nfts[0].Owner\nnameOne := nfts[0].Metadata.Name\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTCollection.getAll",
-          "python": "https://docs.thirdweb.com/python/erc721#get_all"
+          "python": "https://docs.thirdweb.com/python/erc721#get_all",
+          "go": "https://docs.thirdweb.com/go/nft_collection#func-nftcollection-getall"
         }
       },
       {
@@ -40,11 +45,13 @@
         "remarks": "\n\nGet all the data associated with the NFTs owned by a specific wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
-          "python": "nfts = contract.get_owned(\"{{wallet_address}}\")\nprint(nfts)"
+          "python": "nfts = contract.get_owned(\"{{wallet_address}}\")\nprint(nfts)",
+          "go": "owner := \"{{wallet_address}}\"\nnfts, err := contract.GetOwned(owner)\nname := nfts[0].Metadata.Name\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTCollection.getOwned",
-          "python": "https://docs.thirdweb.com/python/erc721#get_owned"
+          "python": "https://docs.thirdweb.com/python/erc721#get_owned",
+          "go": "https://docs.thirdweb.com/go/nft_collection#func-nftcollection-getowned"
         }
       },
       {
@@ -53,11 +60,13 @@
         "remarks": "\n\nMint many unique NFTs at once to a specified wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFTs you want to mint.\nconst metadatas = [{\n  name: \"Cool NFT #1\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT #2\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/other/image.png\"),\n}];\n\nconst tx = await contract.mintBatchTo(walletAddress, metadatas);\nconst receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nconst firstTokenId = tx[0].id; // token id of the first minted NFT\nconst firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT",
-          "python": "from thirdweb.types.nft import NFTMetadataInput\n\n# You can customize this metadata however you like\nmetadatas = [\n    NFTMetadataInput.from_json({\n        \"name\": \"Cool NFT\",\n        \"description\": \"This is a cool NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n    NFTMetadataInput.from_json({\n        \"name\": \"Cooler NFT\",\n        \"description\": \"This is a cooler NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n]\n\n# You can pass in any address here to mint the NFT to\ntxs = contract.mint_batch_to(\"{{wallet_address}}\", metadatas)\nreceipt = txs[0].receipt\nfirst_token_id = txs[0].id\nfirst_nft = txs[0].data()"
+          "python": "from thirdweb.types.nft import NFTMetadataInput\n\n# You can customize this metadata however you like\nmetadatas = [\n    NFTMetadataInput.from_json({\n        \"name\": \"Cool NFT\",\n        \"description\": \"This is a cool NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n    NFTMetadataInput.from_json({\n        \"name\": \"Cooler NFT\",\n        \"description\": \"This is a cooler NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n]\n\n# You can pass in any address here to mint the NFT to\ntxs = contract.mint_batch_to(\"{{wallet_address}}\", metadatas)\nreceipt = txs[0].receipt\nfirst_token_id = txs[0].id\nfirst_nft = txs[0].data()",
+          "go": "metadatas := []*thirdweb.NFTMetadataInput{\n\t&thirdweb.NFTMetadataInput{\n\t\tName: \"Cool NFT\",\n\t\tDescription: \"This is a cool NFT\",\n\t}\n\t&thirdweb.NFTMetadataInput{\n\t\tName: \"Cool NFT 2\",\n\t\tDescription: \"This is also a cool NFT\",\n\t}\n}\n\ntx, err := contract.MintBatchTo(\"{{wallet_address}}\", metadatas)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTCollection.mintBatchTo",
-          "python": "https://docs.thirdweb.com/python/nft-collection#mint_batch_to"
+          "python": "https://docs.thirdweb.com/python/nft-collection#mint_batch_to",
+          "go": "https://docs.thirdweb.com/go/nft_collection#func-nftcollection-mintbatchto"
         }
       },
       {
@@ -66,11 +75,13 @@
         "remarks": "\n\nMint a unique NFT to a specified wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nconst metadata = {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n};\n\nconst tx = await contract.mintTo(walletAddress, metadata);\nconst receipt = tx.receipt; // the transaction receipt\nconst tokenId = tx.id; // the id of the NFT minted\nconst nft = await tx.data(); // (optional) fetch details of minted NFT",
-          "python": "from thirdweb.types.nft import NFTMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadata = NFTMetadataInput.from_json({\n    \"name\": \"Cool NFT\",\n    \"description\": \"This is a cool NFT\",\n    \"image\": open(\"path/to/file.jpg\", \"rb\"),\n})\n\n# You can pass in any address here to mint the NFT to\ntx = contract.mint_to(\"{{wallet_address}}\", metadata)\nreceipt = tx.receipt\ntoken_id = tx.id\nnft = tx.data()"
+          "python": "from thirdweb.types.nft import NFTMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadata = NFTMetadataInput.from_json({\n    \"name\": \"Cool NFT\",\n    \"description\": \"This is a cool NFT\",\n    \"image\": open(\"path/to/file.jpg\", \"rb\"),\n})\n\n# You can pass in any address here to mint the NFT to\ntx = contract.mint_to(\"{{wallet_address}}\", metadata)\nreceipt = tx.receipt\ntoken_id = tx.id\nnft = tx.data()",
+          "go": "image, err := os.Open(\"path/to/image.jpg\")\ndefer image.Close()\n\nmetadata := &thirdweb.NFTMetadataInput{\n\tName: \"Cool NFT\",\n\tDescription: \"This is a cool NFT\",\n\tImage: image,\n}\n\ntx, err := contract.MintTo(\"{{wallet_address}}\", metadata)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTCollection.mintTo",
-          "python": "https://docs.thirdweb.com/python/nft-collection#mint_to"
+          "python": "https://docs.thirdweb.com/python/nft-collection#mint_to",
+          "go": "https://docs.thirdweb.com/go/nft_collection#func-nftcollection-mintto"
         }
       },
       {
@@ -79,11 +90,13 @@
         "remarks": "\n\nGet a wallets NFT balance (number of NFTs in this contract owned by the wallet).\n\n",
         "examples": {
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.nft.balanceOf(walletAddress);\nconsole.log(balance);",
-          "python": "balance = contract.balance_of(\"{{wallet_address}}\")\nprint(balance)"
+          "python": "balance = contract.balance_of(\"{{wallet_address}}\")\nprint(balance)",
+          "go": "address := \"{{wallet_address}}\"\nbalance, err := contract.BalanceOf(address)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.balanceOf",
-          "python": "https://docs.thirdweb.com/python/erc721#balance_of"
+          "python": "https://docs.thirdweb.com/python/erc721#balance_of",
+          "go": "https://docs.thirdweb.com/go/nft_collection#func-nftcollection-balanceof"
         }
       },
       {
@@ -92,11 +105,13 @@
         "remarks": null,
         "examples": {
           "javascript": "const tokenId = 0;\nconst nft = await contract.nft.get(tokenId);",
-          "python": "nft = contract.get(0)\nprint(nft)"
+          "python": "nft = contract.get(0)\nprint(nft)",
+          "go": "nft, err := contract.Get(0)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.get",
-          "python": "https://docs.thirdweb.com/python/erc721#get"
+          "python": "https://docs.thirdweb.com/python/erc721#get",
+          "go": "https://docs.thirdweb.com/go/nft_collection#func-nftcollection-get"
         }
       },
       {
@@ -105,11 +120,13 @@
         "remarks": "\n\nTransfer an NFT from the connected wallet to another wallet.\n\n",
         "examples": {
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.nft.transfer(walletAddress, tokenId);",
-          "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\n\nreceipt = contract.transfer(to, token_id)"
+          "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\n\nreceipt = contract.transfer(to, token_id)",
+          "go": "to := \"0x...\"\ntokenId := 0\n\ntx, err := contract.Transfer(to, tokenId)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.transfer",
-          "python": "https://docs.thirdweb.com/python/erc721#transfer"
+          "python": "https://docs.thirdweb.com/python/erc721#transfer",
+          "go": "https://docs.thirdweb.com/go/nft_collection#func-nftcollection-transfer"
         }
       }
     ],
@@ -120,11 +137,13 @@
         "remarks": "\n\nSet your own royalties for the entire contract or per token\n\n",
         "examples": {
           "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalty.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -133,16 +152,20 @@
         "remarks": "\n\nGenerate dynamic NFTs with your own signature, and let others mint them using that signature.\n\n",
         "examples": {
           "javascript": "// see how to craft a payload to sign in the `contract.signature.generate()` documentation\nconst signedPayload = contract.signature.generate(payload);\n\n// now anyone can mint the NFT\nconst tx = contract.signature.mint(signedPayload);\nconst receipt = tx.receipt; // the mint transaction receipt\nconst mintedId = tx.id; // the id of the NFT minted",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.erc721signatureminting",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       }
     ],
     "reference": {
-      "typescript": "https://docs.thirdweb.com/typescript/sdk.NFTCollection"
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.NFTCollection",
+      "python": "https://docs.thirdweb.com/python/nft-collection",
+      "go": "https://docs.thirdweb.com/go/nft_collection"
     }
   },
   "Edition": {
@@ -151,7 +174,8 @@
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"rinkeby\");\nconst contract = sdk.getEdition(\"{{contract_address}}\");",
       "react": "import { useEdition } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const edition = useEdition(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the edition contract in the rest of the component\n}",
-      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_edition(\"{{contract_address}}\")"
+      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_edition(\"{{contract_address}}\")",
+      "go": "\nimport (\n\tthirdweb \"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetEditionDrop(\"{{contract_address}}\")\n"
     },
     "methods": [
       {
@@ -160,11 +184,13 @@
         "remarks": null,
         "examples": {
           "javascript": "const result = await contract.burn(tokenId, amount);",
-          "python": ""
+          "python": "",
+          "go": "tokenId := 0\namount := 1\ntx, err := contract.Burn(tokenId, amount)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Edition.burn",
-          "python": ""
+          "python": "",
+          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-burn"
         }
       },
       {
@@ -173,11 +199,13 @@
         "remarks": "\n\nGet all the data associated with every NFT in this contract.\n\nBy default, returns the first 100 NFTs, use queryParams to fetch more.\n\n",
         "examples": {
           "javascript": "const nfts = await contract.getAll();",
-          "python": "metadatas = contract.get_all()\nprint(metadatas)"
+          "python": "metadatas = contract.get_all()\nprint(metadatas)",
+          "go": "nfts, err := contract.GetAll()\nsupplyOne := nfts[0].Supply\nnameOne := nfts[0].Metadata.Name\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Edition.getAll",
-          "python": "https://docs.thirdweb.com/python/erc1155#get_all"
+          "python": "https://docs.thirdweb.com/python/erc1155#get_all",
+          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-getall"
         }
       },
       {
@@ -186,11 +214,13 @@
         "remarks": "\n\nGet all the data associated with the NFTs owned by a specific wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);",
-          "python": "address = \"{{wallet_address}}\"\nowned = contract.get_owned(address)\nprint(owned)"
+          "python": "address = \"{{wallet_address}}\"\nowned = contract.get_owned(address)\nprint(owned)",
+          "go": "owner := \"{{wallet_address}}\"\nnfts, err := contract.GetOwned(owner)\nname := nfts[0].Metadata.Name\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Edition.getOwned",
-          "python": "https://docs.thirdweb.com/python/erc1155#get_owned"
+          "python": "https://docs.thirdweb.com/python/erc1155#get_owned",
+          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-getowned"
         }
       },
       {
@@ -199,11 +229,13 @@
         "remarks": "\n\nMint many different NFTs with limited supplies to a specified wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet you want to mint the NFT to\nconst toAddress = \"{{wallet_address}}\"\n\n// Custom metadata and supplies of your NFTs\nconst metadataWithSupply = [{\n  supply: 50, // The number of this NFT you want to mint\n  metadata: {\n    name: \"Cool NFT #1\",\n    description: \"This is a cool NFT\",\n    image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n  },\n}, {\n  supply: 100,\n  metadata: {\n    name: \"Cool NFT #2\",\n    description: \"This is a cool NFT\",\n    image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n  },\n}];\n\nconst tx = await contract.mintBatchTo(toAddress, metadataWithSupply);\nconst receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nconst firstTokenId = tx[0].id; // token id of the first minted NFT\nconst firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT",
-          "python": "from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadatas_with_supply = [\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cool NFT\",\n            \"description\": \"This is a cool NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    ),\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cooler NFT\",\n            \"description\": \"This is a cooler NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    )\n]\n\n# You can pass in any address here to mint the NFT to\ntxs = contract.mint_to(\"{{wallet_address}}\", metadata_with_supply)\nreceipt = txs[0].receipt\ntoken_id = txs[0].id\nnft = txs[0].data()"
+          "python": "from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadatas_with_supply = [\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cool NFT\",\n            \"description\": \"This is a cool NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    ),\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cooler NFT\",\n            \"description\": \"This is a cooler NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    )\n]\n\n# You can pass in any address here to mint the NFT to\ntxs = contract.mint_to(\"{{wallet_address}}\", metadata_with_supply)\nreceipt = txs[0].receipt\ntoken_id = txs[0].id\nnft = txs[0].data()",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Edition.mintBatchTo",
-          "python": "https://docs.thirdweb.com/python/edition#mint_batch_to"
+          "python": "https://docs.thirdweb.com/python/edition#mint_batch_to",
+          "go": ""
         }
       },
       {
@@ -212,11 +244,13 @@
         "remarks": "\n\nMint an NFT with a limited supply to a specified wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet you want to mint the NFT to\nconst toAddress = \"{{wallet_address}}\"\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nconst metadata = {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}\n\nconst metadataWithSupply = {\n  metadata,\n  supply: 1000, // The number of this NFT you want to mint\n}\n\nconst tx = await contract.mintTo(toAddress, metadataWithSupply);\nconst receipt = tx.receipt; // the transaction receipt\nconst tokenId = tx.id; // the id of the NFT minted\nconst nft = await tx.data(); // (optional) fetch details of minted NFT",
-          "python": "from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadata_with_supply = EditionMetadataInput(\n    NFTMetadataInput.from_json({\n        \"name\": \"Cool NFT\",\n        \"description\": \"This is a cool NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n    100\n)\n\n# You can pass in any address here to mint the NFT to\ntx = contract.mint_to(\"{{wallet_address}}\", metadata_with_supply)\nreceipt = tx.receipt\ntoken_id = tx.id\nnft = tx.data()"
+          "python": "from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadata_with_supply = EditionMetadataInput(\n    NFTMetadataInput.from_json({\n        \"name\": \"Cool NFT\",\n        \"description\": \"This is a cool NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n    100\n)\n\n# You can pass in any address here to mint the NFT to\ntx = contract.mint_to(\"{{wallet_address}}\", metadata_with_supply)\nreceipt = tx.receipt\ntoken_id = tx.id\nnft = tx.data()",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Edition.mintTo",
-          "python": "https://docs.thirdweb.com/python/edition#mint_to"
+          "python": "https://docs.thirdweb.com/python/edition#mint_to",
+          "go": ""
         }
       },
       {
@@ -225,11 +259,13 @@
         "remarks": "\n\nAirdrop one or multiple NFTs to the provided wallet addresses.\n\n",
         "examples": {
           "javascript": "// Array of objects of addresses and quantities to airdrop NFTs to\nconst addresses = [\n {\n   address: \"0x...\",\n   quantity: 2,\n },\n {\n  address: \"0x...\",\n   quantity: 3,\n },\n];\nconst tokenId = \"0\";\nawait contract.airdrop(addresses, tokenId);\n\n// You can also pass an array of addresses, it will airdrop 1 NFT per address\nconst addresses = [\n \"0x...\", \"0x...\", \"0x...\",\n]\nconst tokenId = \"0\";\nawait contract.airdrop(addresses, tokenId);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.airdrop",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -238,11 +274,13 @@
         "remarks": "\n\nGet a wallets NFT balance (number of NFTs in this contract owned by the wallet).\n\n",
         "examples": {
           "javascript": "// Address of the wallet to check NFT balance\nconst walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0; // Id of the NFT to check\nconst balance = await contract.balanceOf(walletAddress, tokenId);",
-          "python": "address = \"{{wallet_address}}\"\ntoken_id = 0\n\nbalance = contract.balance_of(address, token_id)"
+          "python": "address = \"{{wallet_address}}\"\ntoken_id = 0\n\nbalance = contract.balance_of(address, token_id)",
+          "go": "address := \"{{wallet_address}}\"\ntokenId := 0\nbalance, err := contract.BalanceOf(address, tokenId)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.balanceOf",
-          "python": "https://docs.thirdweb.com/python/erc1155#balance_of"
+          "python": "https://docs.thirdweb.com/python/erc1155#balance_of",
+          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-balanceof"
         }
       },
       {
@@ -251,11 +289,13 @@
         "remarks": null,
         "examples": {
           "javascript": "const nft = await contract.get(\"0\");",
-          "python": "nft = contract.get(0)\nprint(nft)"
+          "python": "nft = contract.get(0)\nprint(nft)",
+          "go": "nft, err := contract.Get(0)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.get",
-          "python": "https://docs.thirdweb.com/python/erc1155#get"
+          "python": "https://docs.thirdweb.com/python/erc1155#get",
+          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-get"
         }
       },
       {
@@ -264,11 +304,13 @@
         "remarks": "\n\nTransfer an NFT from the connected wallet to another wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet you want to send the NFT to\nconst toAddress = \"{{wallet_address}}\";\nconst tokenId = \"0\"; // The token ID of the NFT you want to send\nconst amount = 3; // How many copies of the NFTs to transfer\nawait contract.transfer(toAddress, tokenId, amount);",
-          "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\namount = 1\n\nreceipt = contract.transfer(to, token_id, amount)"
+          "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\namount = 1\n\nreceipt = contract.transfer(to, token_id, amount)",
+          "go": "to := \"0x...\"\ntokenId := 0\namount := 1\n\ntx, err := contract.Transfer(to, tokenId, amount)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.transfer",
-          "python": "https://docs.thirdweb.com/python/erc1155#transfer"
+          "python": "https://docs.thirdweb.com/python/erc1155#transfer",
+          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-transfer"
         }
       }
     ],
@@ -279,11 +321,13 @@
         "remarks": "\n\nSet your own royalties for the entire contract or per token\n\n",
         "examples": {
           "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalty.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -292,16 +336,20 @@
         "remarks": "\n\nGenerate dynamic NFTs with your own signature, and let others mint them using that signature.\n\n",
         "examples": {
           "javascript": "// see how to craft a payload to sign in the `contract.signature.generate()` documentation\nconst signedPayload = contract.signature.generate(payload);\n\n// now anyone can mint the NFT\nconst tx = contract.signature.mint(signedPayload);\nconst receipt = tx.receipt; // the mint transaction receipt\nconst mintedId = tx.id; // the id of the NFT minted",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.erc1155signatureminting",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       }
     ],
     "reference": {
-      "typescript": "https://docs.thirdweb.com/typescript/sdk.Edition"
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.Edition",
+      "python": "https://docs.thirdweb.com/python/edition",
+      "go": "https://docs.thirdweb.com/go/edition_drop"
     }
   },
   "TokenDrop": {
@@ -317,11 +365,13 @@
         "remarks": "\n\nBurn tokens held by the connected wallet\n\n",
         "examples": {
           "javascript": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burn(amount);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.TokenDrop.burn",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -330,11 +380,13 @@
         "remarks": "\n\nBurn tokens held by the specified wallet\n\n",
         "examples": {
           "javascript": "// Address of the wallet sending the tokens\nconst holderAddress = \"{{wallet_address}}\";\n\n// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnFrom(holderAddress, amount);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.TokenDrop.burnFrom",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -343,11 +395,13 @@
         "remarks": "\n\nLet the specified wallet claim Tokens.\n\n",
         "examples": {
           "javascript": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 42.69; // how many tokens you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx.receipt; // the transaction receipt",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.TokenDrop.claimTo",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -356,11 +410,13 @@
         "remarks": "\n\nGet the allowance of a 'spender' wallet over the connected wallet's funds - the allowance of a different address for a token is the amount of tokens that the `spender` wallet is allowed to spend on behalf of the connected wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet to check token allowance\nconst spenderAddress = \"0x...\";\nconst allowance = await contract.token.allowance(spenderAddress);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.allowance",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -369,11 +425,13 @@
         "remarks": "\n\nGet the allowance of one wallet over another wallet's funds - the allowance of a different address for a token is the amount of tokens that the wallet is allowed to spend on behalf of the specified wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet who owns the funds\nconst owner = \"{{wallet_address}}\";\n// Address of the wallet to check token allowance\nconst spender = \"0x...\";\nconst allowance = await contract.token.allowanceOf(owner, spender);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.allowanceOf",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -382,11 +440,13 @@
         "remarks": "\n\nGet a wallets token balance.\n\n",
         "examples": {
           "javascript": "const balance = await contract.token.balance();",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.balance",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -395,11 +455,13 @@
         "remarks": "\n\nGet a wallets token balance.\n\n",
         "examples": {
           "javascript": "// Address of the wallet to check token balance\nconst walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.token.balanceOf(walletAddress);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.balanceOf",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -408,11 +470,13 @@
         "remarks": null,
         "examples": {
           "javascript": "const token = await contract.token.get();",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.get",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -421,11 +485,13 @@
         "remarks": null,
         "examples": {
           "javascript": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100\nawait contract.token.setAllowance(spenderAddress, amount);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.setAllowance",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -434,11 +500,13 @@
         "remarks": "\n\nGet how much supply has been minted\n\n",
         "examples": {
           "javascript": "const balance = await contract.token.totalSupply();",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.totalSupply",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -447,11 +515,13 @@
         "remarks": "\n\nTransfer tokens from the connected wallet to another wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The amount of tokens you want to send\nconst amount = 0.1;\nawait contract.token.transfer(toAddress, amount);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.transfer",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -460,11 +530,13 @@
         "remarks": "\n\nMint tokens from the connected wallet to many wallets\n\n",
         "examples": {
           "javascript": "// Data of the tokens you want to mint\nconst data = [\n  {\n    toAddress: \"{{wallet_address}}\", // Address to mint tokens to\n    amount: 100, // How many tokens to mint to specified address\n  },\n {\n   toAddress: \"0x...\",\n   amount: 100,\n }\n]\n\nawait contract.token.transferBatch(data);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.transferBatch",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -473,11 +545,13 @@
         "remarks": "\n\nTransfer tokens from one wallet to another\n\n",
         "examples": {
           "javascript": "// Address of the wallet sending the tokens\nconst fromAddress = \"{{wallet_address}}\";\n// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The number of tokens you want to send\nconst amount = 1.2\n// Note that the connected wallet must have approval to transfer the tokens of the fromAddress\nawait contract.token.transferFrom(fromAddress, toAddress, amount);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.transferFrom",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       }
     ],
@@ -488,11 +562,13 @@
         "remarks": "\n\nDefine who can claim Tokens, when and how many.\n\n",
         "examples": {
           "javascript": "const presaleStartTime = new Date();\nconst publicSaleStartTime = new Date(Date.now() + 60 * 60 * 24 * 1000);\nconst claimConditions = [\n  {\n    startTime: presaleStartTime, // start the presale now\n    maxQuantity: 3117.42, // limit how many tokens are released in this presale\n    price: 0.001, // presale price per token\n    snapshot: ['0x...', '0x...'], // limit claiming to only certain addresses\n  },\n  {\n    startTime: publicSaleStartTime, // 24h after presale, start public sale\n    price: 0.008, // public sale price per token\n  }\n]);\nawait contract.claimConditions.set(claimConditions);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.dropclaimconditions",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       }
     ],
@@ -506,7 +582,8 @@
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"rinkeby\");\nconst contract = sdk.getToken(\"{{contract_address}}\");",
       "react": "import { useToken } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const token = useToken(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the token contract in the rest of the component\n}",
-      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_token(\"{{contract_address}}\")"
+      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_token(\"{{contract_address}}\")",
+      "go": "\nimport (\n\tthirdweb \"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetToken(\"{{contract_address}}\")\n"
     },
     "methods": [
       {
@@ -515,11 +592,13 @@
         "remarks": "\n\nBurn tokens held by the connected wallet\n\n",
         "examples": {
           "javascript": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burn(amount);",
-          "python": "amount = 0.1\ncontract.burn(amount)"
+          "python": "amount = 0.1\ncontract.burn(amount)",
+          "go": "amount := 1\ntx, err := contract.Burn(amount)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Token.burn",
-          "python": "https://docs.thirdweb.com/python/erc20#burn"
+          "python": "https://docs.thirdweb.com/python/erc20#burn",
+          "go": "https://docs.thirdweb.com/go/token#func-token-burn"
         }
       },
       {
@@ -528,11 +607,13 @@
         "remarks": "\n\nBurn tokens held by the specified wallet\n\n",
         "examples": {
           "javascript": "// Address of the wallet sending the tokens\nconst holderAddress = \"{{wallet_address}}\";\n\n// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnFrom(holderAddress, amount);",
-          "python": "holder = \"{{wallet_address}}\"\namount = 0.1\ncontract.burn_from(holder, amount)"
+          "python": "holder = \"{{wallet_address}}\"\namount = 0.1\ncontract.burn_from(holder, amount)",
+          "go": "holder := \"0x...\"\namount := 1\n\ntx, err := contract.BurnFrom(holder, amount)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Token.burnFrom",
-          "python": "https://docs.thirdweb.com/python/erc20#burn_from"
+          "python": "https://docs.thirdweb.com/python/erc20#burn_from",
+          "go": "https://docs.thirdweb.com/go/token#func-token-burnfrom"
         }
       },
       {
@@ -541,11 +622,13 @@
         "remarks": "\n\nMint tokens to many wallets in one transaction.\n\n",
         "examples": {
           "javascript": "// Data of the tokens you want to mint\nconst data = [\n  {\n    toAddress: \"{{wallet_address}}\", // Address to mint tokens to\n    amount: 0.2, // How many tokens to mint to specified address\n  },\n {\n   toAddress: \"0x...\",\n   amount: 1.4,\n }\n]\n\nawait contract.mintBatchTo(data);",
-          "python": "from thirdweb.types.currency import TokenAmount\n\nargs = [\n    TokenAmount(\"{{wallet_address}}\", 1),\n    TokenAmount(\"{{wallet_address}}\", 2),\n]\n\ncontract.mint_batch_to(args)"
+          "python": "from thirdweb.types.currency import TokenAmount\n\nargs = [\n    TokenAmount(\"{{wallet_address}}\", 1),\n    TokenAmount(\"{{wallet_address}}\", 2),\n]\n\ncontract.mint_batch_to(args)",
+          "go": "args = []*thirdweb.TokenAmount{\n\t&thirdweb.TokenAmount{\n\t\tToAddress: \"{{wallet_address}}\",\n\t\tAmount:    1\n\t}\n\t&thirdweb.TokenAmount{\n\t\tToAddress: \"{{wallet_address}}\",\n\t\tAmount:    2\n\t}\n}\n\ntx, err := contract.MintBatchTo(args)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Token.mintBatchTo",
-          "python": "https://docs.thirdweb.com/python/token#mint_batch_to"
+          "python": "https://docs.thirdweb.com/python/token#mint_batch_to",
+          "go": "https://docs.thirdweb.com/go/token#func-token-mintbatchto"
         }
       },
       {
@@ -554,11 +637,13 @@
         "remarks": "\n\nMint tokens to a specified address.\n\n",
         "examples": {
           "javascript": "const toAddress = \"{{wallet_address}}\"; // Address of the wallet you want to mint the tokens to\nconst amount = \"1.5\"; // The amount of this token you want to mint\n\nawait contract.mintTo(toAddress, amount);",
-          "python": "contract.mint_to(\"{{wallet_address}}\", 1)"
+          "python": "contract.mint_to(\"{{wallet_address}}\", 1)",
+          "go": "tx, err := contract.MintTo(\"{{wallet_address}}\", 1)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Token.mintTo",
-          "python": "https://docs.thirdweb.com/python/token#mint_to"
+          "python": "https://docs.thirdweb.com/python/token#mint_to",
+          "go": "https://docs.thirdweb.com/go/token#func-token-mintto"
         }
       },
       {
@@ -567,11 +652,13 @@
         "remarks": "\n\nGet the allowance of a 'spender' wallet over the connected wallet's funds - the allowance of a different address for a token is the amount of tokens that the `spender` wallet is allowed to spend on behalf of the connected wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet to check token allowance\nconst spenderAddress = \"0x...\";\nconst allowance = await contract.token.allowance(spenderAddress);",
-          "python": "spender = \"{{wallet_address}}\"\nallowance = contract.allowance(spender)"
+          "python": "spender = \"{{wallet_address}}\"\nallowance = contract.allowance(spender)",
+          "go": "spender := \"0x...\"\n\nallowance, err := contract.Allowance(spender)\nallowanceValue := allowance.DisplayValue\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.allowance",
-          "python": "https://docs.thirdweb.com/python/erc20#allowance"
+          "python": "https://docs.thirdweb.com/python/erc20#allowance",
+          "go": "https://docs.thirdweb.com/go/token#func-token-allowance"
         }
       },
       {
@@ -580,11 +667,13 @@
         "remarks": "\n\nGet the allowance of one wallet over another wallet's funds - the allowance of a different address for a token is the amount of tokens that the wallet is allowed to spend on behalf of the specified wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet who owns the funds\nconst owner = \"{{wallet_address}}\";\n// Address of the wallet to check token allowance\nconst spender = \"0x...\";\nconst allowance = await contract.token.allowanceOf(owner, spender);",
-          "python": "# Address of the wallet who owns the funds\naddress = \"{{wallet_address}}\"\n\n# Address of the wallet to check the token allowance\nspender = \"0x...\"\n\nallowance = contract.allowance_of(address, spender)\nprint(allowance)"
+          "python": "# Address of the wallet who owns the funds\naddress = \"{{wallet_address}}\"\n\n# Address of the wallet to check the token allowance\nspender = \"0x...\"\n\nallowance = contract.allowance_of(address, spender)\nprint(allowance)",
+          "go": "address := \"{{wallet_address}}\"\nspender := \"0x...\"\n\nallowance, err := contract.AllowanceOf(address, spender)\nallowanceValue := allowance.DisplayValue\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.allowanceOf",
-          "python": "https://docs.thirdweb.com/python/erc20#allowance_of"
+          "python": "https://docs.thirdweb.com/python/erc20#allowance_of",
+          "go": "https://docs.thirdweb.com/go/token#func-token-allowanceof"
         }
       },
       {
@@ -593,11 +682,13 @@
         "remarks": "\n\nGet a wallets token balance.\n\n",
         "examples": {
           "javascript": "const balance = await contract.token.balance();",
-          "python": "balance = contract.balance()\nprint(balance)"
+          "python": "balance = contract.balance()\nprint(balance)",
+          "go": "balance, err := contract.Balance()\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.balance",
-          "python": "https://docs.thirdweb.com/python/erc20#balance"
+          "python": "https://docs.thirdweb.com/python/erc20#balance",
+          "go": "https://docs.thirdweb.com/go/token#func-token-balance"
         }
       },
       {
@@ -606,11 +697,13 @@
         "remarks": "\n\nGet a wallets token balance.\n\n",
         "examples": {
           "javascript": "// Address of the wallet to check token balance\nconst walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.token.balanceOf(walletAddress);",
-          "python": "address = \"{{wallet_address}}\"\nbalance = contract.balance_of(address)\nprint(balance)"
+          "python": "address = \"{{wallet_address}}\"\nbalance = contract.balance_of(address)\nprint(balance)",
+          "go": "address := \"{{wallet_address}}\"\nbalance, err := contract.BalanceOf()\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.balanceOf",
-          "python": "https://docs.thirdweb.com/python/erc20#balance_of"
+          "python": "https://docs.thirdweb.com/python/erc20#balance_of",
+          "go": "https://docs.thirdweb.com/go/token#func-token-balanceof"
         }
       },
       {
@@ -619,11 +712,13 @@
         "remarks": null,
         "examples": {
           "javascript": "const token = await contract.token.get();",
-          "python": "token = contract.get()\nprint(token)"
+          "python": "token = contract.get()\nprint(token)",
+          "go": "currency, err := contract.Get()\nsymbol := currency.Symbol\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.get",
-          "python": "https://docs.thirdweb.com/python/erc20#get"
+          "python": "https://docs.thirdweb.com/python/erc20#get",
+          "go": "https://docs.thirdweb.com/go/token#func-token-get"
         }
       },
       {
@@ -632,11 +727,13 @@
         "remarks": null,
         "examples": {
           "javascript": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100\nawait contract.token.setAllowance(spenderAddress, amount);",
-          "python": "spender = \"0x...\"\namount = 100\ncontract.set_allowance(spender, amount)"
+          "python": "spender = \"0x...\"\namount = 100\ncontract.set_allowance(spender, amount)",
+          "go": "spender := \"0x...\"\namount := 1\n\ntx, err := contract.SetAllowance(spender, amount)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.setAllowance",
-          "python": "https://docs.thirdweb.com/python/erc20#set_allowance"
+          "python": "https://docs.thirdweb.com/python/erc20#set_allowance",
+          "go": "https://docs.thirdweb.com/go/token#func-token-setallowance"
         }
       },
       {
@@ -645,11 +742,13 @@
         "remarks": "\n\nGet how much supply has been minted\n\n",
         "examples": {
           "javascript": "const balance = await contract.token.totalSupply();",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.totalSupply",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -658,11 +757,13 @@
         "remarks": "\n\nTransfer tokens from the connected wallet to another wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The amount of tokens you want to send\nconst amount = 0.1;\nawait contract.token.transfer(toAddress, amount);",
-          "python": "# Address to send tokens to\nto = \"0x...\n\n# Amount of tokens to transfer\namount = 0.1\n\ncontract.transfer(to, amount)"
+          "python": "# Address to send tokens to\nto = \"0x...\n\n# Amount of tokens to transfer\namount = 0.1\n\ncontract.transfer(to, amount)",
+          "go": "to := \"0x...\"\namount := 1\n\ntx, err := contract.Transfer(to, amount)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.transfer",
-          "python": "https://docs.thirdweb.com/python/erc20#transfer"
+          "python": "https://docs.thirdweb.com/python/erc20#transfer",
+          "go": "https://docs.thirdweb.com/go/token#func-token-transfer"
         }
       },
       {
@@ -671,11 +772,13 @@
         "remarks": "\n\nMint tokens from the connected wallet to many wallets\n\n",
         "examples": {
           "javascript": "// Data of the tokens you want to mint\nconst data = [\n  {\n    toAddress: \"{{wallet_address}}\", // Address to mint tokens to\n    amount: 100, // How many tokens to mint to specified address\n  },\n {\n   toAddress: \"0x...\",\n   amount: 100,\n }\n]\n\nawait contract.token.transferBatch(data);",
-          "python": "from thirdweb.types.currency import TokenAmount\n\ndata = [\n    TokenAmount(\"{{wallet_address}}\", 0.1),\n    TokenAmount(\"0x...\", 0.2),\n]\n\ncontract.transfer_batch(data)"
+          "python": "from thirdweb.types.currency import TokenAmount\n\ndata = [\n    TokenAmount(\"{{wallet_address}}\", 0.1),\n    TokenAmount(\"0x...\", 0.2),\n]\n\ncontract.transfer_batch(data)",
+          "go": "args = []*thirdweb.TokenAmount{\n\t&thirdweb.TokenAmount{\n\t\tToAddress: \"0x...\",\n\t\tAmount:    1\n\t}\n\t&thirdweb.TokenAmount{\n\t\tToAddress: \"0x...\",\n\t\tAmount:    2\n\t}\n}\n\ntx, err := contract.TransferBatch(args)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.transferBatch",
-          "python": "https://docs.thirdweb.com/python/erc20#transfer_batch"
+          "python": "https://docs.thirdweb.com/python/erc20#transfer_batch",
+          "go": "https://docs.thirdweb.com/go/token#func-token-transferbatch"
         }
       },
       {
@@ -684,11 +787,13 @@
         "remarks": "\n\nTransfer tokens from one wallet to another\n\n",
         "examples": {
           "javascript": "// Address of the wallet sending the tokens\nconst fromAddress = \"{{wallet_address}}\";\n// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The number of tokens you want to send\nconst amount = 1.2\n// Note that the connected wallet must have approval to transfer the tokens of the fromAddress\nawait contract.token.transferFrom(fromAddress, toAddress, amount);",
-          "python": "# Address to send tokens from\nfr = \"{{wallet_address}}\"\n\n# Address to send tokens to\nto = \"0x...\"\n\n# Amount of tokens to transfer\namount = 0.1\n\ncontract.transfer_from(fr, to, amount)"
+          "python": "# Address to send tokens from\nfr = \"{{wallet_address}}\"\n\n# Address to send tokens to\nto = \"0x...\"\n\n# Amount of tokens to transfer\namount = 0.1\n\ncontract.transfer_from(fr, to, amount)",
+          "go": "from := \"{{wallet_address}}\"\nto := \"0x...\"\namount := 1\n\ntx, err := contract.TransferFrom(from, to, amount)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc20.transferFrom",
-          "python": "https://docs.thirdweb.com/python/erc20#transfer_from"
+          "python": "https://docs.thirdweb.com/python/erc20#transfer_from",
+          "go": "https://docs.thirdweb.com/go/token#func-token-transferfrom"
         }
       }
     ],
@@ -699,16 +804,20 @@
         "remarks": "\n\nGenerate tokens that can be minted only with your own signature, attaching your own set of mint conditions.\n\n",
         "examples": {
           "javascript": "// see how to craft a payload to sign in the `contract.signature.generate()` documentation\nconst signedPayload = contract.signature.generate(payload);\n\n// now anyone can mint the tokens\nconst tx = contract.signature.mint(signedPayload);\nconst receipt = tx.receipt; // the mint transaction receipt",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.erc20signatureminting",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       }
     ],
     "reference": {
-      "typescript": "https://docs.thirdweb.com/typescript/sdk.Token"
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.Token",
+      "python": "https://docs.thirdweb.com/python/token",
+      "go": "https://docs.thirdweb.com/go/token"
     }
   },
   "NFTDrop": {
@@ -717,7 +826,8 @@
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"rinkeby\");\nconst contract = sdk.getNFTDrop(\"{{contract_address}}\");",
       "react": "import { useNFTDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const nftDrop = useNFTDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the nft drop contract in the rest of the component\n}",
-      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_nft_drop(\"{{contract_address}}\")"
+      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_nft_drop(\"{{contract_address}}\")",
+      "go": "\nimport (\n\tthirdweb \"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetNFTDrop(\"{{contract_address}}\")\n"
     },
     "methods": [
       {
@@ -726,11 +836,13 @@
         "remarks": null,
         "examples": {
           "javascript": "const result = await contract.burn(tokenId);",
-          "python": ""
+          "python": "",
+          "go": "tokenId := 0\ntx, err := contract.Burn(tokenId)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.burn",
-          "python": ""
+          "python": "",
+          "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-burn"
         }
       },
       {
@@ -739,11 +851,13 @@
         "remarks": "\n\nLet the specified wallet claim NFTs.\n\n",
         "examples": {
           "javascript": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 1; // how many unique NFTs you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx.receipt; // the transaction receipt\nconst claimedTokenId = tx.id; // the id of the NFT claimed\nconst claimedNFT = await tx.data(); // (optional) get the claimed NFT metadata",
-          "python": "address = {{wallet_address}}\nquantity = 1\n\ntx = contract.claim_to(address, quantity)\nreceipt = tx.receipt\nclaimed_token_id = tx.id\nclaimed_nft = tx.data()"
+          "python": "address = {{wallet_address}}\nquantity = 1\n\ntx = contract.claim_to(address, quantity)\nreceipt = tx.receipt\nclaimed_token_id = tx.id\nclaimed_nft = tx.data()",
+          "go": "address := \"{{wallet_address}}\"\nquantity = 1\n\ntx, err := contract.ClaimTo(address, quantity)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.claimTo",
-          "python": "https://docs.thirdweb.com/python/nft-drop#claim_to"
+          "python": "https://docs.thirdweb.com/python/nft-drop#claim_to",
+          "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-claimto"
         }
       },
       {
@@ -752,11 +866,13 @@
         "remarks": "\n\nCreate batch allows you to create a batch of many unique NFTs in one transaction.\n\n",
         "examples": {
           "javascript": "// Custom metadata of the NFTs to create\nconst metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nconst results = await contract.createBatch(metadatas); // uploads and creates the NFTs on chain\nconst firstTokenId = results[0].id; // token id of the first created NFT\nconst firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT",
-          "python": "from thirdweb.types.nft import NFTMetadataInput\n\n# You can customize this metadata however you like\nmetadatas = [\n    NFTMetadataInput.from_json({\n        \"name\": \"Cool NFT\",\n        \"description\": \"This is a cool NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n    NFTMetadataInput.from_json({\n        \"name\": \"Cooler NFT\",\n        \"description\": \"This is a cooler NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n]\n\ntxs = contract.create_batch(metadatas)\nfirst_token_id = txs[0].id\nfirst_nft = txs[0].data()"
+          "python": "from thirdweb.types.nft import NFTMetadataInput\n\n# You can customize this metadata however you like\nmetadatas = [\n    NFTMetadataInput.from_json({\n        \"name\": \"Cool NFT\",\n        \"description\": \"This is a cool NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n    NFTMetadataInput.from_json({\n        \"name\": \"Cooler NFT\",\n        \"description\": \"This is a cooler NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n]\n\ntxs = contract.create_batch(metadatas)\nfirst_token_id = txs[0].id\nfirst_nft = txs[0].data()",
+          "go": "image0, err := os.Open(\"path/to/image/0.jpg\")\ndefer image0.Close()\n\nimage1, err := os.Open(\"path/to/image/1.jpg\")\ndefer image1.Close()\n\nmetadatas := []*thirdweb.NFTMetadataInput{\n\t&thirdweb.NFTMetadataInput{\n\t\tName: \"Cool NFT\",\n\t\tDescription: \"This is a cool NFT\",\n\t\tImage: image1\n\t}\n\t&thirdweb.NFTMetadataInput{\n\t\tName: \"Cool NFT 2\",\n\t\tDescription: \"This is also a cool NFT\",\n\t\tImage: image2\n\t}\n}\n\ntx, err := contract.CreateBatch(metadatas)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.createBatch",
-          "python": "https://docs.thirdweb.com/python/nft-drop#create_batch"
+          "python": "https://docs.thirdweb.com/python/nft-drop#create_batch",
+          "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-createbatch"
         }
       },
       {
@@ -765,11 +881,13 @@
         "remarks": "\n\nGet all the data associated with every NFT in this contract.\n\nBy default, returns the first 100 NFTs, use queryParams to fetch more.\n\n",
         "examples": {
           "javascript": "const nfts = await contract.getAll();\nconsole.log(nfts);",
-          "python": "nfts = contract.get_all()\nprint(nfts)"
+          "python": "nfts = contract.get_all()\nprint(nfts)",
+          "go": "nfts, err := contract.GetAll()\nownerOne := nfts[0].Owner\nnameOne := nfts[0].Metadata.Name\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.getAll",
-          "python": "https://docs.thirdweb.com/python/erc721#get_all"
+          "python": "https://docs.thirdweb.com/python/erc721#get_all",
+          "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-getall"
         }
       },
       {
@@ -778,11 +896,13 @@
         "remarks": "\n\nFetch all the NFTs (and their owners) that have been claimed in this Drop.\n\n*\n\n",
         "examples": {
           "javascript": "const claimedNFTs = await contract.getAllClaimed();\nconst firstOwner = claimedNFTs[0].owner;",
-          "python": "claimed_nfts = contract.get_all_claimed()\nfirst_owner = claimed_nfts[0].owner"
+          "python": "claimed_nfts = contract.get_all_claimed()\nfirst_owner = claimed_nfts[0].owner",
+          "go": "claimedNfts, err := contract.GetAllClaimed()\nfirstOwner := claimedNfts[0].Owner\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.getAllClaimed",
-          "python": "https://docs.thirdweb.com/python/nft-drop#get_all_claimed"
+          "python": "https://docs.thirdweb.com/python/nft-drop#get_all_claimed",
+          "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-getallclaimed"
         }
       },
       {
@@ -791,11 +911,13 @@
         "remarks": "\n\nFetch all the NFTs that have been not been claimed yet in this Drop.\n\n*\n\n",
         "examples": {
           "javascript": "const unclaimedNFTs = await contract.getAllUnclaimed();\nconst firstUnclaimedNFT = unclaimedNFTs[0].name;",
-          "python": "unclaimed_nfts = contract.get_all_unclaimed()\nfirst_nft_name = unclaimed_nfts[0].name"
+          "python": "unclaimed_nfts = contract.get_all_unclaimed()\nfirst_nft_name = unclaimed_nfts[0].name",
+          "go": "unclaimedNfts, err := contract.GetAllUnclaimed()\nfirstNftName := unclaimedNfts[0].Name\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.getAllUnclaimed",
-          "python": "https://docs.thirdweb.com/python/nft-drop#get_all_unclaimed"
+          "python": "https://docs.thirdweb.com/python/nft-drop#get_all_unclaimed",
+          "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-getallunclaimed"
         }
       },
       {
@@ -804,11 +926,13 @@
         "remarks": "\n\nGet all the data associated with the NFTs owned by a specific wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
-          "python": "nfts = contract.get_owned(\"{{wallet_address}}\")\nprint(nfts)"
+          "python": "nfts = contract.get_owned(\"{{wallet_address}}\")\nprint(nfts)",
+          "go": "owner := \"{{wallet_address}}\"\nnfts, err := contract.GetOwned(owner)\nname := nfts[0].Metadata.Name\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.getOwned",
-          "python": "https://docs.thirdweb.com/python/erc721#get_owned"
+          "python": "https://docs.thirdweb.com/python/erc721#get_owned",
+          "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-getowned"
         }
       },
       {
@@ -817,11 +941,13 @@
         "remarks": "\n\nGet the number of claimed NFTs in this Drop.\n\n*\n\n",
         "examples": {
           "javascript": "const claimedNFTCount = await contract.totalClaimedSupply();\nconsole.log(`NFTs claimed so far: ${claimedNFTCount}`);",
-          "python": "total_claimed = contract.total_claimed_supply()"
+          "python": "total_claimed = contract.total_claimed_supply()",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.totalClaimedSupply",
-          "python": "https://docs.thirdweb.com/python/nft-drop#total_claimed_supply"
+          "python": "https://docs.thirdweb.com/python/nft-drop#total_claimed_supply",
+          "go": ""
         }
       },
       {
@@ -830,11 +956,13 @@
         "remarks": "\n\nGet the number of unclaimed NFTs in this Drop.\n\n*\n\n",
         "examples": {
           "javascript": "const unclaimedNFTCount = await contract.totalUnclaimedSupply();\nconsole.log(`NFTs left to claim: ${unclaimedNFTCount}`);",
-          "python": "total_unclaimed = contract.total_unclaimed_supply()"
+          "python": "total_unclaimed = contract.total_unclaimed_supply()",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.totalUnclaimedSupply",
-          "python": "https://docs.thirdweb.com/python/nft-drop#total_unclaimed_supply"
+          "python": "https://docs.thirdweb.com/python/nft-drop#total_unclaimed_supply",
+          "go": ""
         }
       },
       {
@@ -843,11 +971,13 @@
         "remarks": "\n\nGet a wallets NFT balance (number of NFTs in this contract owned by the wallet).\n\n",
         "examples": {
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.nft.balanceOf(walletAddress);\nconsole.log(balance);",
-          "python": "balance = contract.balance_of(\"{{wallet_address}}\")\nprint(balance)"
+          "python": "balance = contract.balance_of(\"{{wallet_address}}\")\nprint(balance)",
+          "go": "address := \"{{wallet_address}}\"\nbalance, err := contract.BalanceOf(address)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.balanceOf",
-          "python": "https://docs.thirdweb.com/python/erc721#balance_of"
+          "python": "https://docs.thirdweb.com/python/erc721#balance_of",
+          "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-balanceof"
         }
       },
       {
@@ -856,11 +986,13 @@
         "remarks": null,
         "examples": {
           "javascript": "const tokenId = 0;\nconst nft = await contract.nft.get(tokenId);",
-          "python": "nft = contract.get(0)\nprint(nft)"
+          "python": "nft = contract.get(0)\nprint(nft)",
+          "go": "nft, err := contract.Get(0)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.get",
-          "python": "https://docs.thirdweb.com/python/erc721#get"
+          "python": "https://docs.thirdweb.com/python/erc721#get",
+          "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-get"
         }
       },
       {
@@ -869,11 +1001,13 @@
         "remarks": "\n\nTransfer an NFT from the connected wallet to another wallet.\n\n",
         "examples": {
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.nft.transfer(walletAddress, tokenId);",
-          "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\n\nreceipt = contract.transfer(to, token_id)"
+          "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\n\nreceipt = contract.transfer(to, token_id)",
+          "go": "to := \"0x...\"\ntokenId := 0\n\ntx, err := contract.Transfer(to, tokenId)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.transfer",
-          "python": "https://docs.thirdweb.com/python/erc721#transfer"
+          "python": "https://docs.thirdweb.com/python/erc721#transfer",
+          "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-transfer"
         }
       }
     ],
@@ -884,11 +1018,13 @@
         "remarks": "\n\nDefine who can claim NFTs in the collection, when and how many.\n\n",
         "examples": {
           "javascript": "const presaleStartTime = new Date();\nconst publicSaleStartTime = new Date(Date.now() + 60 * 60 * 24 * 1000);\nconst claimConditions = [\n  {\n    startTime: presaleStartTime, // start the presale now\n    maxQuantity: 2, // limit how many mints for this presale\n    price: 0.01, // presale price\n    snapshot: ['0x...', '0x...'], // limit minting to only certain addresses\n  },\n  {\n    startTime: publicSaleStartTime, // 24h after presale, start public sale\n    price: 0.08, // public sale price\n  }\n]);\nawait contract.claimConditions.set(claimConditions);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.dropclaimconditions",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -897,11 +1033,13 @@
         "remarks": "\n\nCreate a batch of encrypted NFTs that can be revealed at a later time.\n\n",
         "examples": {
           "javascript": "// the real NFTs, these will be encrypted until you reveal them\nconst realNFTs = [{\n  name: \"Common NFT #1\",\n  description: \"Common NFT, one of many.\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}, {\n  name: \"Super Rare NFT #2\",\n  description: \"You got a Super Rare NFT!\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n// A placeholder NFT that people will get immediately in their wallet, and will be converted to the real NFT at reveal time\nconst placeholderNFT = {\n  name: \"Hidden NFT\",\n  description: \"Will be revealed next week!\"\n};\n// Create and encrypt the NFTs\nawait contract.revealer.createDelayedRevealBatch(\n  placeholderNFT,\n  realNFTs,\n  \"my secret password\",\n);\n// Whenever you're ready, reveal your NFTs at any time\nconst batchId = 0; // the batch to reveal\nawait contract.revealer.reveal(batchId, \"my secret password\");",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.delayedreveal",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -910,16 +1048,20 @@
         "remarks": "\n\nSet your own royalties for the entire contract or per token\n\n",
         "examples": {
           "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalty.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       }
     ],
     "reference": {
-      "typescript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop"
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop",
+      "python": "https://docs.thirdweb.com/python/nft-drop",
+      "go": "https://docs.thirdweb.com/go/nft_drop"
     }
   },
   "EditionDrop": {
@@ -928,7 +1070,8 @@
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"rinkeby\");\nconst contract = sdk.getEditionDrop(\"{{contract_address}}\");",
       "react": "import { useEditionDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const editionDrop = useEditionDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the edition drop contract in the rest of the component\n}",
-      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_edition_drop(\"{{contract_address}}\")"
+      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_edition_drop(\"{{contract_address}}\")",
+      "go": "\nimport (\n\tthirdweb \"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetEditionDrop(\"{{contract_address}}\")\n"
     },
     "methods": [
       {
@@ -937,11 +1080,13 @@
         "remarks": null,
         "examples": {
           "javascript": "const result = await contract.burn(tokenId, amount);",
-          "python": ""
+          "python": "",
+          "go": "tokenId := 0\namount := 1\ntx, err := contract.Burn(tokenId, amount)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.EditionDrop.burn",
-          "python": ""
+          "python": "",
+          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-burn"
         }
       },
       {
@@ -950,11 +1095,13 @@
         "remarks": "\n\nLet the specified wallet claim NFTs.\n\n",
         "examples": {
           "javascript": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst tokenId = 0; // the id of the NFT you want to claim\nconst quantity = 1; // how many NFTs you want to claim\n\nconst tx = await contract.claimTo(address, tokenId, quantity);\nconst receipt = tx.receipt; // the transaction receipt\nconst claimedTokenId = tx.id; // the id of the NFT claimed\nconst claimedNFT = await tx.data(); // (optional) get the claimed NFT metadata",
-          "python": "address = {{wallet_address}}\ntoken_id = 0\nquantity = 1\n\ntx = contract.claim_to(address, token_id, quantity)\nreceipt = tx.receipt\nclaimed_token_id = tx.id\nclaimed_nft = tx.data()"
+          "python": "address = {{wallet_address}}\ntoken_id = 0\nquantity = 1\n\ntx = contract.claim_to(address, token_id, quantity)\nreceipt = tx.receipt\nclaimed_token_id = tx.id\nclaimed_nft = tx.data()",
+          "go": "address = \"{{wallet_address}}\"\ntokenId = 0\nquantity = 1\n\ntx, err := contract.ClaimTo(address, tokenId, quantity)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.EditionDrop.claimTo",
-          "python": "https://docs.thirdweb.com/python/edition-drop#claim_to"
+          "python": "https://docs.thirdweb.com/python/edition-drop#claim_to",
+          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-claimto"
         }
       },
       {
@@ -963,11 +1110,13 @@
         "remarks": "\n\nCreate batch allows you to create a batch of many NFTs in one transaction.\n\n",
         "examples": {
           "javascript": "// Custom metadata of the NFTs to create\nconst metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nconst results = await contract.createBatch(metadatas); // uploads and creates the NFTs on chain\nconst firstTokenId = results[0].id; // token id of the first created NFT\nconst firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT",
-          "python": "from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadatas_with_supply = [\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cool NFT\",\n            \"description\": \"This is a cool NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    ),\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cooler NFT\",\n            \"description\": \"This is a cooler NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    )\n]\n\ntxs = contract.create_batch(metadata_with_supply)\nfirst_token_id = txs[0].id\nfirst_nft = txs[0].data()"
+          "python": "from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadatas_with_supply = [\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cool NFT\",\n            \"description\": \"This is a cool NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    ),\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cooler NFT\",\n            \"description\": \"This is a cooler NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    )\n]\n\ntxs = contract.create_batch(metadata_with_supply)\nfirst_token_id = txs[0].id\nfirst_nft = txs[0].data()",
+          "go": "image0, err := os.Open(\"path/to/image/0.jpg\")\ndefer image0.Close()\n\nimage1, err := os.Open(\"path/to/image/1.jpg\")\ndefer image1.Close()\n\nmetadatasWithSupply := []*thirdweb.EditionMetadataInput{\n\t&thirdweb.EditionMetadataInput{\n\t\tMetadata: &thirdweb.NFTMetadataInput{\n\t\t\tName: \"Cool NFT\",\n\t\t\tDescription: \"This is a cool NFT\",\n\t\t\tImage: image0,\n\t\t},\n\t\tSupply: 100,\n\t},\n\t&thirdweb.EditionMetadataInput{\n\t\tMetadata: &thirdweb.NFTMetadataInput{\n\t\t\tName: \"Cool NFT\",\n\t\t\tDescription: \"This is a cool NFT\",\n\t\t\tImage: image1,\n\t\t},\n\t\tSupply: 100,\n\t},\n}\n\ntx, err := contract.MintBatchTo(\"{{wallet_address}}\", metadatasWithSupply)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.EditionDrop.createBatch",
-          "python": "https://docs.thirdweb.com/python/edition-drop#create_batch"
+          "python": "https://docs.thirdweb.com/python/edition-drop#create_batch",
+          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-createbatch"
         }
       },
       {
@@ -976,11 +1125,13 @@
         "remarks": "\n\nGet all the data associated with every NFT in this contract.\n\nBy default, returns the first 100 NFTs, use queryParams to fetch more.\n\n",
         "examples": {
           "javascript": "const nfts = await contract.getAll();",
-          "python": "metadatas = contract.get_all()\nprint(metadatas)"
+          "python": "metadatas = contract.get_all()\nprint(metadatas)",
+          "go": "nfts, err := contract.GetAll()\nsupplyOne := nfts[0].Supply\nnameOne := nfts[0].Metadata.Name\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.EditionDrop.getAll",
-          "python": "https://docs.thirdweb.com/python/erc1155#get_all"
+          "python": "https://docs.thirdweb.com/python/erc1155#get_all",
+          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-getall"
         }
       },
       {
@@ -989,11 +1140,13 @@
         "remarks": "\n\nGet all the data associated with the NFTs owned by a specific wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);",
-          "python": "address = \"{{wallet_address}}\"\nowned = contract.get_owned(address)\nprint(owned)"
+          "python": "address = \"{{wallet_address}}\"\nowned = contract.get_owned(address)\nprint(owned)",
+          "go": "owner := \"{{wallet_address}}\"\nnfts, err := contract.GetOwned(owner)\nname := nfts[0].Metadata.Name\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.EditionDrop.getOwned",
-          "python": "https://docs.thirdweb.com/python/erc1155#get_owned"
+          "python": "https://docs.thirdweb.com/python/erc1155#get_owned",
+          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-getowned"
         }
       },
       {
@@ -1002,11 +1155,13 @@
         "remarks": "\n\nAirdrop one or multiple NFTs to the provided wallet addresses.\n\n",
         "examples": {
           "javascript": "// Array of objects of addresses and quantities to airdrop NFTs to\nconst addresses = [\n {\n   address: \"0x...\",\n   quantity: 2,\n },\n {\n  address: \"0x...\",\n   quantity: 3,\n },\n];\nconst tokenId = \"0\";\nawait contract.airdrop(addresses, tokenId);\n\n// You can also pass an array of addresses, it will airdrop 1 NFT per address\nconst addresses = [\n \"0x...\", \"0x...\", \"0x...\",\n]\nconst tokenId = \"0\";\nawait contract.airdrop(addresses, tokenId);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.airdrop",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1015,11 +1170,13 @@
         "remarks": "\n\nGet a wallets NFT balance (number of NFTs in this contract owned by the wallet).\n\n",
         "examples": {
           "javascript": "// Address of the wallet to check NFT balance\nconst walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0; // Id of the NFT to check\nconst balance = await contract.balanceOf(walletAddress, tokenId);",
-          "python": "address = \"{{wallet_address}}\"\ntoken_id = 0\n\nbalance = contract.balance_of(address, token_id)"
+          "python": "address = \"{{wallet_address}}\"\ntoken_id = 0\n\nbalance = contract.balance_of(address, token_id)",
+          "go": "address := \"{{wallet_address}}\"\ntokenId := 0\nbalance, err := contract.BalanceOf(address, tokenId)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.balanceOf",
-          "python": "https://docs.thirdweb.com/python/erc1155#balance_of"
+          "python": "https://docs.thirdweb.com/python/erc1155#balance_of",
+          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-balanceof"
         }
       },
       {
@@ -1028,11 +1185,13 @@
         "remarks": null,
         "examples": {
           "javascript": "const nft = await contract.get(\"0\");",
-          "python": "nft = contract.get(0)\nprint(nft)"
+          "python": "nft = contract.get(0)\nprint(nft)",
+          "go": "nft, err := contract.Get(0)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.get",
-          "python": "https://docs.thirdweb.com/python/erc1155#get"
+          "python": "https://docs.thirdweb.com/python/erc1155#get",
+          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-get"
         }
       },
       {
@@ -1041,11 +1200,13 @@
         "remarks": "\n\nTransfer an NFT from the connected wallet to another wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet you want to send the NFT to\nconst toAddress = \"{{wallet_address}}\";\nconst tokenId = \"0\"; // The token ID of the NFT you want to send\nconst amount = 3; // How many copies of the NFTs to transfer\nawait contract.transfer(toAddress, tokenId, amount);",
-          "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\namount = 1\n\nreceipt = contract.transfer(to, token_id, amount)"
+          "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\namount = 1\n\nreceipt = contract.transfer(to, token_id, amount)",
+          "go": "to := \"0x...\"\ntokenId := 0\namount := 1\n\ntx, err := contract.Transfer(to, tokenId, amount)\n"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155.transfer",
-          "python": "https://docs.thirdweb.com/python/erc1155#transfer"
+          "python": "https://docs.thirdweb.com/python/erc1155#transfer",
+          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-transfer"
         }
       }
     ],
@@ -1056,11 +1217,13 @@
         "remarks": "\n\nDefine who can claim each NFT in the edition, when and how many.\n\n",
         "examples": {
           "javascript": "const presaleStartTime = new Date();\nconst publicSaleStartTime = new Date(Date.now() + 60 * 60 * 24 * 1000);\nconst claimConditions = [\n  {\n    startTime: presaleStartTime, // start the presale now\n    maxQuantity: 2, // limit how many mints for this presale\n    price: 0.01, // presale price\n    snapshot: ['0x...', '0x...'], // limit minting to only certain addresses\n  },\n  {\n    startTime: publicSaleStartTime, // 24h after presale, start public sale\n    price: 0.08, // public sale price\n  }\n]);\n\nconst tokenId = 0; // the id of the NFT to set claim conditions on\nawait contract.claimConditions.set(tokenId, claimConditions);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.droperc1155claimconditions",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1069,16 +1232,20 @@
         "remarks": "\n\nSet your own royalties for the entire contract or per token\n\n",
         "examples": {
           "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalty.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       }
     ],
     "reference": {
-      "typescript": "https://docs.thirdweb.com/typescript/sdk.EditionDrop"
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.EditionDrop",
+      "python": "https://docs.thirdweb.com/python/edition-drop",
+      "go": "https://docs.thirdweb.com/go/edition_drop"
     }
   },
   "Marketplace": {
@@ -1096,11 +1263,13 @@
         "remarks": "\n\nBuy a Direct or Auction listing on your marketplace.\n\n",
         "examples": {
           "javascript": "// The listing ID of the asset you want to buy\nconst listingId = 0;\n// Quantity of the asset you want to buy\nconst quantityDesired = 1;\n\nawait contract.buyoutListing(listingId, quantityDesired);",
-          "python": "listing_id = 0\nquantity_desired = 1\n\ncontract.buyout_listing(listing_id, quantity_desired)"
+          "python": "listing_id = 0\nquantity_desired = 1\n\ncontract.buyout_listing(listing_id, quantity_desired)",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Marketplace.buyoutListing",
-          "python": "https://docs.thirdweb.com/python/marketplace#buyout_listing"
+          "python": "https://docs.thirdweb.com/python/marketplace#buyout_listing",
+          "go": ""
         }
       },
       {
@@ -1109,11 +1278,13 @@
         "remarks": "\n\nFetch all the active listings from this marketplace contract. An active listing means it can be bought or bid on.\n\n",
         "examples": {
           "javascript": "const listings = await contract.getActiveListings();\nconst priceOfFirstActiveListing = listings[0].price;",
-          "python": "listings = contract.get_active_listings()\nprice_of_first = listings[0].price"
+          "python": "listings = contract.get_active_listings()\nprice_of_first = listings[0].price",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Marketplace.getActiveListings",
-          "python": "https://docs.thirdweb.com/python/marketplace#get_active_listings"
+          "python": "https://docs.thirdweb.com/python/marketplace#get_active_listings",
+          "go": ""
         }
       },
       {
@@ -1122,11 +1293,13 @@
         "remarks": "\n\nFetch all the listings from this marketplace contract, including sold ones.\n\n",
         "examples": {
           "javascript": "const listings = await contract.getAllListings();\nconst priceOfFirstListing = listings[0].price;",
-          "python": "listings = contract.get_all_listings()\nprice_of_first = listings[0].price"
+          "python": "listings = contract.get_all_listings()\nprice_of_first = listings[0].price",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Marketplace.getAllListings",
-          "python": "https://docs.thirdweb.com/python/marketplace#get_all_listings"
+          "python": "https://docs.thirdweb.com/python/marketplace#get_all_listings",
+          "go": ""
         }
       },
       {
@@ -1135,11 +1308,13 @@
         "remarks": "\n\nA percentage (e.g. 5%) in basis points (5% = 500, 100% = 10000). A new bid is considered to be a winning bid only if its bid amount is at least the bid buffer (e.g. 5%) greater than the previous winning bid. This prevents buyers from making very slightly higher bids to win the auctioned items.\n\n",
         "examples": {
           "javascript": "// the bid buffer in basis points\nconst bufferBps = 500;\nawait contract.setBidBufferBps(bufferBps);",
-          "python": "buffer_bps = 500\ncontract.set_bid_buffer_bps(buffer_bps)"
+          "python": "buffer_bps = 500\ncontract.set_bid_buffer_bps(buffer_bps)",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Marketplace.setBidBufferBps",
-          "python": "https://docs.thirdweb.com/python/marketplace#set_bid_buffer_bps"
+          "python": "https://docs.thirdweb.com/python/marketplace#set_bid_buffer_bps",
+          "go": ""
         }
       },
       {
@@ -1148,11 +1323,13 @@
         "remarks": "\n\nMeasured in seconds (e.g. 15 minutes or 900 seconds). If a winning bid is made within the buffer of the auction closing (e.g. 15 minutes within the auction closing), the auction's closing time is increased by the buffer to prevent buyers from making last minute winning bids, and to give time to other buyers to make a higher bid if they wish to.\n\n",
         "examples": {
           "javascript": "// the time buffer in seconds\nconst bufferInSeconds = 60;\nawait contract.setTimeBufferInSeconds(bufferInSeconds);",
-          "python": "buffer_in_seconds = 60\ncontract.set_time_buffer_in_seconds(buffer_in_seconds)"
+          "python": "buffer_in_seconds = 60\ncontract.set_time_buffer_in_seconds(buffer_in_seconds)",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Marketplace.setTimeBufferInSeconds",
-          "python": "https://docs.thirdweb.com/python/marketplace#set_time_buffer_in_seconds"
+          "python": "https://docs.thirdweb.com/python/marketplace#set_time_buffer_in_seconds",
+          "go": ""
         }
       }
     ],
@@ -1163,11 +1340,13 @@
         "remarks": "\n\nCreate and manage auctions in your marketplace.\n\n",
         "examples": {
           "javascript": "// Data of the auction you want to create\nconst auction = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to list\n  tokenId: \"0\",\n // when should the listing open up for offers\n  startTimestamp: new Date(),\n  // how long the listing will be open for\n  listingDurationInSeconds: 86400,\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // how much people would have to bid to instantly buy the asset\n  buyoutPricePerToken: \"10\",\n  // the minimum bid that will be accepted for the token\n  reservePricePerToken: \"1.5\",\n}\n\nconst tx = await contract.auction.createListing(auction);\nconst receipt = tx.receipt; // the transaction receipt\nconst listingId = tx.id; // the id of the newly created listing\n\n// And on the buyers side:\n// The price you are willing to bid for a single token of the listing\nconst pricePerToken = 2.6;\nawait contract.auction.makeBid(listingId, pricePerToken);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplaceauction",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1176,16 +1355,19 @@
         "remarks": "\n\nCreate and manage direct listings in your marketplace.\n\n",
         "examples": {
           "javascript": "// Data of the listing you want to create\nconst listing = {\n  // address of the NFT contract the asset you want to list is on\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to list\n  tokenId: \"0\",\n // when should the listing open up for offers\n  startTimestamp: new Date(),\n  // how long the listing will be open for\n  listingDurationInSeconds: 86400,\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // how much the asset will be sold for\n  buyoutPricePerToken: \"1.5\",\n}\n\nconst tx = await contract.direct.createListing(listing);\nconst receipt = tx.receipt; // the transaction receipt\nconst listingId = tx.id; // the id of the newly created listing\n\n// And on the buyers side:\n// Quantity of the asset you want to buy\nconst quantityDesired = 1;\nawait contract.direct.buyoutListing(listingId, quantityDesired);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacedirect",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       }
     ],
     "reference": {
-      "typescript": "https://docs.thirdweb.com/typescript/sdk.Marketplace"
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.Marketplace",
+      "python": "https://docs.thirdweb.com/python/marketplace"
     }
   },
   "Split": {
@@ -1202,11 +1384,13 @@
         "remarks": "\n\nGet the amount of funds in the native currency held by the contract that is owed to a specific recipient.\n\n",
         "examples": {
           "javascript": "// The address to check the funds of\nconst address = \"{{wallet_address}}\";\nconst funds = await contract.balanceOf(address);\nconsole.log(funds);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Split.balanceOf",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1215,11 +1399,13 @@
         "remarks": "\n\nGet the amount of funds in the non-native tokens held by the contract that is owed to a specific recipient.\n\n",
         "examples": {
           "javascript": "// The address to check the funds of\nconst address = \"{{wallet_address}}\";\n// The address of the currency to check the contracts funds of\nconst tokenAddress = \"0x...\"\nconst funds = await contract.balanceOfToken(address, tokenAddress);\nconsole.log(funds);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Split.balanceOfToken",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1228,11 +1414,13 @@
         "remarks": "\n\nDistribute funds held by the contract in the native currency to all recipients.\n\n",
         "examples": {
           "javascript": "await contract.distribute();",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Split.distribute",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1241,11 +1429,13 @@
         "remarks": "\n\nDistribute funds held by the contract in the native currency to all recipients.\n\n",
         "examples": {
           "javascript": "// The address of the currency to distribute funds\nconst tokenAddress = \"0x...\"\nawait contract.distributeToken(tokenAddress);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Split.distributeToken",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1254,11 +1444,13 @@
         "remarks": "\n\nGet the data about the shares of every split recipient on the contract\n\n",
         "examples": {
           "javascript": "const recipients = await contract.getAllRecipients();\nconsole.log(recipients);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Split.getAllRecipients",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1267,11 +1459,13 @@
         "remarks": "\n\nTriggers a transfer to account of the amount of native currency they are owed.\n\n",
         "examples": {
           "javascript": "// the wallet address that wants to withdraw their funds\nconst walletAddress = \"{{wallet_address}}\"\nawait contract.withdraw(walletAddress);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Split.withdraw",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       }
     ],
@@ -1294,11 +1488,13 @@
         "remarks": "\n\nGet a wallets pack balance (number of a specific packs in this contract owned by the wallet).\n\n",
         "examples": {
           "javascript": "// Address of the wallet to check pack balance\nconst address = \"{{wallet_address}}\";\n// The token ID of the pack you want to check the wallets balance of\nconst tokenId = \"0\"\n\nconst balance = await contract.balanceOf(address, tokenId);\nconsole.log(balance);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Pack.balanceOf",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1307,11 +1503,13 @@
         "remarks": "\n\nCreate a new pack with its own rewards.\n\n",
         "examples": {
           "javascript": "// Data to create the pack\nconst pack = {\n  // The address of the contract that holds the rewards you want to include\n  assetContract: \"0x...\",\n  // The metadata of the pack\n  metadata: {\n    name: \"Cool Pack\",\n    description: \"This is a cool pack\",\n    // This can be an image url or image file\n    image: readFileSync(\"path/to/image.png\"),\n  },\n  // The NFTs you want to include in the pack\n  assets: [\n    {\n      tokenId: 0, // The token ID of the asset you want to add\n      amount: 1, // The amount of the asset you want to add\n    }, {\n      tokenId: 1,\n      amount: 1,\n    }\n  ],\n};\n\nawait contract.create(pack);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Pack.create",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1320,11 +1518,13 @@
         "remarks": "\n\nGet data associated with every pack in this contract.\n\n",
         "examples": {
           "javascript": "const packs = await contract.getAll();\nconsole.log(packs);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Pack.getAll",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1333,11 +1533,13 @@
         "remarks": "\n\nGet data associated with the rewards inside a specified pack\n\n",
         "examples": {
           "javascript": "// The pack ID of the pack whos rewards you want to get\nconst packId = 0;\n\nconst nfts = await contract.getNFTs(packId);\nconsole.log(nfts);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Pack.getNFTs",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1346,11 +1548,13 @@
         "remarks": "\n\nOpen a pack to burn it and obtain the reward asset inside.\n\n",
         "examples": {
           "javascript": "// The pack ID of the asset you want to buy\nconst packId = \"0\";\nconst tx = await contract.open(packId);\nconst receipt = tx.receipt; // the transaction receipt\nconst packId = tx.id; // the id of the pack that was opened\nconst rewards = tx.data(); // the contents of the opened pack",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Pack.open",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1359,11 +1563,13 @@
         "remarks": "\n\nTransfer a pack from the connected wallet to another wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet you want to send the pack to\nconst toAddress = \"0x...\";\n\n// The token ID of the pack you want to send\nconst tokenId = \"0\";\n\n// The number of packs you want to send\nconst amount = 1;\n\nawait contract.transfer(toAddress, tokenId, amount);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Pack.transfer",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       }
     ],
@@ -1374,11 +1580,13 @@
         "remarks": "\n\nSet your own royalties for the entire contract or per pack\n\n",
         "examples": {
           "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular pack\ncontract.royalty.setTokenRoyaltyInfo(packId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       }
     ],
@@ -1400,11 +1608,13 @@
         "remarks": "\n\nCheck if a proposal can be executed (if the proposal has succeeded).\n\n",
         "examples": {
           "javascript": "// The proposal ID of the proposal you want to check\nconst proposalId = \"0\";\nconst canExecute = await contract.canExecute(proposalId);\nconsole.log(canExecute);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Vote.canExecute",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1413,11 +1623,13 @@
         "remarks": "\n\nExecute the related transactions for a proposal if the proposal succeeded.\n\n",
         "examples": {
           "javascript": "// The proposal ID ofthe proposal you want to execute\nconst proposalId = \"0\"\nawait contract.execute(proposalId);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Vote.execute",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1426,11 +1638,13 @@
         "remarks": "\n\nGet all the proposals in this contract.\n\n",
         "examples": {
           "javascript": "const proposals = await contract.getAll();\nconsole.log(proposals);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Vote.getAll",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1439,11 +1653,13 @@
         "remarks": "\n\nCheck if a specified wallet has voted a specific proposal\n\n",
         "examples": {
           "javascript": "// The proposal ID of the proposal you want to check\nconst proposalId = \"0\";\n// The address of the wallet you want to check to see if they voted\nconst address = \"{{wallet_address}}\";\n\nawait contract.hasVoted(proposalId, address);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Vote.hasVoted",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1452,11 +1668,13 @@
         "remarks": "\n\nCreate a new proposal for token holders to vote on.\n\n",
         "examples": {
           "javascript": "// The description of the proposal you want to pass\nconst description = \"This is a great proposal - vote for it!\"\n// You can (optionally) pass in contract calls that will get executed when the proposal is executed.\nconst executions = [\n  {\n    // The contract you want to make a call to\n    toAddress: \"0x...\",\n    // The amount of the native currency to send in this transaction\n    nativeTokenValue: 0,\n    // Transaction data that will be executed when the proposal is executed\n    // This is an example transfer transaction with a token contract (which you would need to setup in code)\n    transactionData: tokenContract.encoder.encode(\n      \"transfer\", [\n        fromAddress,\n        amount,\n      ]\n    ),\n  }\n]\n\nconst proposal = await contract.propose(description, executions);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Vote.propose",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       },
       {
@@ -1465,11 +1683,13 @@
         "remarks": "\n\nVote on an active proposal\n\n",
         "examples": {
           "javascript": "// The proposal ID of the proposal you want to vote on\nconst proposalId = \"0\";\n// The vote type you want to cast, can be VoteType.Against, VoteType.For, or VoteType.Abstain\nconst voteType = VoteType.For;\n// The (optional) reason for the vote\nconst reason = \"I like this proposal!\";\n\nawait contract.vote(proposalId, voteType, reason);",
-          "python": ""
+          "python": "",
+          "go": ""
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Vote.vote",
-          "python": ""
+          "python": "",
+          "go": ""
         }
       }
     ],
