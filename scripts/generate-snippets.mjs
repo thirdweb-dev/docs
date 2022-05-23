@@ -34,6 +34,13 @@ const python = JSON.parse(
   ),
 );
 
+const go = JSON.parse(
+  fs.readFileSync(
+    `${process.cwd()}/submodules/go/docs/snippets.json`,
+    "utf8",
+  ),
+);
+
 const snippets = CONTRACTS.reduce((acc, contractName) => {
   const data = {
     name: contractName,
@@ -54,6 +61,9 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
   const pythonExample = Object.values(python).find((snippet) =>
     snippet.name.toLowerCase().includes(contractName.toLowerCase()),
   );
+  const goExample = Object.values(go).find((snippet) =>
+  snippet.name.toLowerCase().includes(contractName.toLowerCase()),
+);
 
   // Get contract summary from typescript docs
   data.summary = tsExample?.summary || "";
@@ -75,6 +85,10 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
               m.name.replaceAll("_", "").toLowerCase() ===
               method.name.toLowerCase(),
           )?.example || "",
+        go: 
+          goExample?.methods?.find(
+            (m) => m.name.toLowerCase() === method.name.toLowerCase(),
+          )?.example || ""
       },
       reference: {
         javascript:
@@ -87,6 +101,10 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
               m.name.replaceAll("_", "").toLowerCase() ===
               method.name.toLowerCase(),
           )?.reference || "",
+        go:
+          goExample?.methods?.find(
+            (m) => m.name.toLowerCase() === method.name.toLowerCase(),
+          )?.reference || ""
       },
     })) || [];
 
@@ -107,6 +125,9 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
               p.name.replaceAll("_", "").toLowerCase() ===
               property.name.toLowerCase(),
           )?.example || "",
+        go: goExample?.properties?.find(
+            (m) => p.name.toLowerCase() === property.name.toLowerCase(),
+          )?.example || ""
       },
       reference: {
         javascript:
@@ -119,12 +140,25 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
               p.name.replaceALl("_", "").toLowerCase() ===
               property.name.toLowerCase(),
           )?.reference || "",
+        go: goExample?.properties?.find(
+            (m) => p.name.toLowerCase() === property.name.toLowerCase(),
+          )?.reference || ""
       },
     })) || [];
 
   // Add reference for typescript contract interface
-  if (tsExample.reference) {
+  if (tsExample?.reference) {
     data.reference.typescript = tsExample.reference;
+  }
+
+  // Add reference for python contract interface
+  if (pythonExample?.reference) {
+    data.reference.python = pythonExample.reference;
+  }
+
+  // Add reference for go contract interface
+  if (goExample?.reference) {
+    data.reference.go = goExample.reference;
   }
 
   // Add setup examples for each SDK
@@ -134,6 +168,7 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
       ? { react: reactExample.examples.javascript }
       : {}),
     ...(pythonExample?.example ? { python: pythonExample.example } : {}),
+    ...(goExample?.example ? { go: goExample.example } : {}),
   };
 
   acc[contractName] = data;
