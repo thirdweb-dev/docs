@@ -1,0 +1,90 @@
+---
+slug: /pre-built-contracts/which-contract-to-use
+---
+
+import ThirdwebCodeSnippet from "../../../src/components/ThirdwebCodeSnippet";
+
+# Which contract is right for you?
+
+This page is designed to help you decide which contract suits your needs.
+
+thirdweb pre-built contracts can be categorized into four groups:
+
+1. **NFTs** (Non-Fungible Tokens)
+2. **Tokens** (Fungible Tokens)
+3. **Marketplace**
+4. **Other** (such as DAO tools)
+
+### What does "drop" mean?
+
+**Drop** refers to the tokens in a contract being "dropped" or **released** under a certain set of conditions.
+Whenever you see the word "drop" in thirdweb, it means the tokens in this smart contract can be made available to be **claimed** by others.
+
+:::info
+
+Learn more about [claim phases](/pre-built-contracts/nft-drop#setting-claim-phases) used in drop contracts.
+
+:::
+
+## NFTs
+
+NFTs are a type of token that follow the
+[ERC-721](https://eips.ethereum.org/EIPS/eip-721) "non-fungible" standard, where each token is unique,
+or the
+[ERC-1155](https://eips.ethereum.org/EIPS/eip-1155) "semi-fungible" standard, where there can be multiple owners per NFT. i.e.
+there can be multiple copies of the same NFT.
+
+thirdweb currently has **four** types of NFT contracts:
+
+1. NFT Drop
+2. NFT Collection
+3. Edition Drop
+4. Edition Collection
+
+Below is a helpful table to demonstrate the differences between them:
+
+<div style={{textAlign:'center'}}>
+
+| Contract       | Type     | Multiple copies of NFT | Claimable by other people |
+| -------------- | -------- | ---------------------- | ------------------------- |
+| NFT Drop       | ERC-721  | ❌                     | ✔️                        |
+| NFT Collection | ERC-721  | ❌                     | ❌                        |
+| Edition Drop   | ERC-1155 | ✔️                     | ✔️                        |
+| Edition        | ERC-1155 | ✔️                     | ❌                        |
+
+</div>
+
+## Tokens
+
+Tokens follow the [ERC-20](https://eips.ethereum.org/EIPS/eip-20) "fungible token" standard.
+
+thirdweb currently has **two** types of Token contracts:
+
+1. Token
+2. Token Drop
+
+If you want to release your tokens for a price or with [claim phases](/pre-built-contracts/nft-drop#setting-claim-phases),
+the Token Drop contract is best suited for you.
+
+<div style={{textAlign:'center'}}>
+
+| Contract   | Type   | Claimable by other people |
+| ---------- | ------ | ------------------------- |
+| Token      | ERC-20 | ❌                        |
+| Token Drop | ERC-20 | ✔️                        |
+
+</div>
+
+## Marketplace
+
+The marketplace is a smart contract that facilitates the buying and selling of NFTs.
+
+Learn more about the marketplace here: [Marketplace](/pre-built-contracts/marketplace).
+
+## Other
+
+thirdweb offers many other pre-built contracts for you to use, including:
+
+- [Vote](/pre-built-contracts/vote): Vote on proposals in a DAO
+- [Split](/pre-built-contracts/split): Splitting for your revenue
+- [Pack](/pre-built-contracts/pack): Randomized NFT rewards
