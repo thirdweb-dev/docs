@@ -57,6 +57,7 @@ export default function ThirdwebCodeSnippet({
     javascript: "typescript",
     python: "python",
     react: "jsx",
+    go: "go",
   };
 
   return (

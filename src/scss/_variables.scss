@@ -1,0 +1,125 @@
+:root {
+  --thirdweb-primary-color: #f212a4;
+  --thirdweb-secondary-color: #5204bf;
+  --thirdweb-tertiary-color: #55c0f9;
+
+  --thirdweb-text-color: #41423d;
+  --thirdweb-text-secondary-color: #82857c;
+
+  --thirdweb-background-color: #ffffff;
+  --thirdweb-border-color: #e2e3dc;
+  --thirdweb-border-radius: 10px;
+  --ifm-line-height-base: 1.6;
+
+  //
+
+  --ifm-color-primary: var(--thirdweb-primary-color);
+  --ifm-font-family-base: Inter, system-ui, -apple-system, Segoe UI, Roboto,
+    Ubuntu, Cantarell, Noto Sans, sans-serif, BlinkMacSystemFont, "Segoe UI",
+    Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+    "Segoe UI Symbol";
+  --ifm-font-family-monospace: "Fira Sans", SFMono-Regular, Menlo, Monaco,
+    Consolas, "Liberation Mono", "Courier New", monospace;
+  --ifm-global-shadow-lw: none;
+  --ifm-global-shadow-md: none;
+  --ifm-global-shadow-tl: none;
+  --ifm-menu-link-padding-horizontal: 1.5rem;
+  --ifm-menu-link-padding-vertical: 0.5rem;
+  --ifm-background-color: var(--thirdweb-background-color);
+  --ifm-pre-padding: 1rem;
+  --ifm-paragraph-margin-bottom: 1rem;
+  --ifm-toc-border-color: var(--thirdweb-border-color);
+  --ifm-footer-background-color: white;
+  --ifm-global-radius: 10px;
+  --ifm-spacing-horizontal: 3rem;
+  --ifm-hr-border-color: var(--thirdweb-border-color);
+  --ifm-footer-padding-vertical: 5rem;
+  --ifm-navbar-padding-horizontal: 1.5rem;
+  --ifm-navbar-background-color: var(--thirdweb-background-color);
+
+  --ifm-menu-color-background-active: rgba(242, 18, 164, 0.4);
+
+  --ifm-hover-overlay: rgba(242, 18, 164, 0.1);
+
+  --ifm-toc-link-color: var(--thirdweb-text-color);
+
+  --ifm-alert-padding-horizontal: 1.5rem;
+  --ifm-color-secondary-contrast-background: #f8f9fb;
+
+  --docusaurus-btt-background: var(--thirdweb-primary-color);
+  --docusaurus-btt-color: var(--thirdweb-background-color);
+
+  --ifm-menu-color: var(--thirdweb-text-color);
+
+  --docusaurus-tag-list-border: var(--thirdweb-border-color);
+
+  --ifm-background-surface-color: #1c2128;
+}
+
+/// ---
+
+:root {
+  --thirdweb-primary-color: #5204bf;
+}
+
+/* For readability concerns, you should choose a lighter palette in dark mode. */
+[data-theme="dark"] {
+  --thirdweb-primary-color: #a855f7;
+}
+
+/// asdasd
+
+.markdown {
+  --ifm-h2-vertical-rhythm-top: 3;
+  --ifm-h3-vertical-rhythm-top: 3;
+}
+
+/* DARK */
+
+html[data-theme="dark"] {
+  --thirdweb-secondary-color: #5204bf;
+  --thirdweb-tertiary-color: #55c0f9;
+
+  --thirdweb-text-color: #ffffff;
+  --thirdweb-text-secondary-color: #979993;
+
+  --thirdweb-background-color: #0f1318;
+  --thirdweb-surface-color: #1b2129;
+  --thirdweb-border-color: #242424;
+  --ifm-code-background: #1d1d1d;
+
+  --ifm-menu-color-background-active: rgba(242, 18, 164, 0.05);
+  --ifm-hover-overlay: rgba(242, 18, 164, 0.05);
+  --ifm-background-color: var(--thirdweb-background-color);
+
+  --ifm-color-success-contrast-background: rgba(242, 18, 164, 0.05);
+  --ifm-color-info-contrast-background: rgba(0, 178, 255, 0.1);
+  --ifm-color-secondary-contrast-background: rgba(255, 255, 255, 0.05);
+  --ifm-color-success-dark: var(--thirdweb-primary-color);
+  --ifm-color-info-dark: rgba(122, 217, 252, 1);
+
+  --docusaurus-btt-background: var(--thirdweb-primary-color);
+  --docusaurus-btt-color: var(--thirdweb-background-color);
+
+  --ifm-menu-color: var(--thirdweb-text-color);
+
+  --ifm-background-surface-color: #1c2128;
+}
+
+@media (max-width: 996px) {
+  :root {
+    --ifm-spacing-horizontal: 1rem;
+    --ifm-navbar-padding-horizontal: 1rem;
+  }
+
+  .searchBox_node_modules-\@docusaurus-theme-classic-lib-next-theme-Navbar-Search-styles-module {
+    position: inherit !important;
+    margin-top: 24px !important;
+  }
+}
+
+@media (min-width: 961px) {
+  :root {
+    --ifm-navbar-height: 100px;
+  }
+}

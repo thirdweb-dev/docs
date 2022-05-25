@@ -39,7 +39,7 @@ const categories = {
   token: "Token",
   pack: "Pack",
   split: "Split",
-  "wallet-connection": "Wallet Connection",
+  "wallet-connection": "Wallets",
 };
 
 const starterKitToDisplayNameMapping = {
@@ -93,7 +93,7 @@ export default function ExamplesContainer() {
       {/* Starter Kits */}
       <h2>Starter Kits</h2>
 
-      <div className="row">
+      <div className="row" style={{ margin: 0 }}>
         {examples
           .filter((e) => e.is_template === true)
           .map((repo) => (
@@ -105,6 +105,9 @@ export default function ExamplesContainer() {
                 marginBottom: 24,
                 color: "inherit",
                 textDecoration: "none",
+                padding: 0,
+                paddingLeft: 8,
+                paddingRight: 8,
               }}
             >
               <div className="card-demo" style={{ cursor: "pointer" }}>
@@ -211,6 +214,9 @@ export default function ExamplesContainer() {
                 marginBottom: 24,
                 color: "inherit",
                 textDecoration: "none",
+                padding: 0,
+                paddingLeft: 16,
+                paddingRight: 16,
               }}
             >
               <div

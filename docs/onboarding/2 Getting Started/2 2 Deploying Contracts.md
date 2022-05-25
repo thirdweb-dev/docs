@@ -80,9 +80,3 @@ Click on the **Mint** button and enter the details such as the name, image, desc
 ![Mint New NFT](../assets/mint-new-nft.png)
 
 Approve the transaction, and you have successfully minted your first NFT into your collection!
-
----
-
-**Next Up: Integrating the SDK**
-
-In the next step you'll learn how to use this smart contract inside your application.
