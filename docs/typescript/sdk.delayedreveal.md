@@ -14,7 +14,7 @@ Handles delayed reveal logic
 **Signature:**
 
 ```typescript
-export declare class DelayedReveal<T extends DropERC721>
+export declare class DelayedReveal<T extends SignatureDrop | DropERC721>
 ```
 
 ## Constructors
