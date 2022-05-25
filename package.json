@@ -6,7 +6,7 @@
     "docusaurus": "docusaurus",
     "dev": "yarn start",
     "start": "docusaurus start",
-    "build": "docusaurus build",
+    "build": "yarn sass && docusaurus build",
     "swizzle": "docusaurus swizzle",
     "deploy": "docusaurus deploy",
     "clear": "docusaurus clear",
@@ -22,7 +22,8 @@
     "make-docs:python": "node scripts/make-python-docs.mjs",
     "make-docs:go": "node scripts/make-go-docs.mjs",
     "make-docs": "yarn make-docs:typescript && yarn make-docs:react && yarn make-docs:contracts && yarn make-docs:python && yarn make-docs:go",
-    "prettier": "prettier --write '(docs|guides|blog)/**/*.{js,jsx,ts,tsx,md,mdx}'"
+    "prettier": "prettier --write '(docs|guides|blog)/**/*.{js,jsx,ts,tsx,md,mdx}'",
+    "sass": "sass ./src/scss/custom.scss ./src/css/custom.css"
   },
   "dependencies": {
     "@docusaurus/core": "^2.0.0-beta.20",
