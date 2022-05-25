@@ -1,5 +1,5 @@
 ---
-slug: /thirdweb-deploy/contract-features/permissions
+slug: /thirdweb-deploy/contract-extensions/permissions
 title: Permissions
 ---
 

@@ -1,5 +1,5 @@
 ---
-slug: /thirdweb-deploy/contract-features
+slug: /thirdweb-deploy/contract-extensions
 title: Contract Features
 ---
 

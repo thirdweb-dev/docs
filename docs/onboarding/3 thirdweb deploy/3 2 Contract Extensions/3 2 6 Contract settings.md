@@ -1,11 +1,11 @@
 ---
-slug: /thirdweb-deploy/contract-features/other-settings
-title: Other settings
+slug: /thirdweb-deploy/contract-extensions/other-settings
+title: Contract settings
 ---
 
 import FeatureCodeSnippets from "../../../../src/components/FeatureCodeSnippets";
 
-# Other Contract Settings
+# Contract Settings
 
 Additionally, you can add the following settings interfaces to your contracts as shown below.
 

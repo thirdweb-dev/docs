@@ -1,5 +1,5 @@
 ---
-slug: /thirdweb-deploy/contract-features/royalty
+slug: /thirdweb-deploy/contract-extensions/royalty
 title: Royalty
 ---
 
