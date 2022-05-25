@@ -44,17 +44,31 @@ contract HellowWorldContract is ThirdwebContract {
 }
 `,
 
-    go: `import ("github.com/thirdweb-dev/go-sdk/pkg/thirdweb")
+    go: `package main
+
+import (
+	"fmt"
+  
+	"github.com/thirdweb-dev/go-sdk/thirdweb"
+)
 
 func main() {
-	// Creates a new read only SDK instance to read data from your contracts
-	// you can pass either
-	// - a chain name (rinkeby, mumbai, mainnet, polygon, etc)
-	// - your own rpc URL
-	sdk, _ := thirdweb.NewThirdwebSDK("polygon", nil)
-}
+	// Creates a new SDK instance to get read-only data for your contracts, you can pass:
+	// - a chain name (mainnet, rinkeby, goerli, polygon, mumbai, avalanche, fantom)
+	// - a custom RPC URL
+	sdk, err := thirdweb.NewThirdwebSDK("mumbai", nil)
+	if err != nil {
+		panic(err)
+	}
 
-main()`,
+	// Now we can interact with the SDK, like displaying the connected chain ID
+	chainId, err := sdk.GetChainID()
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println("New SDK instance create on chain", chainId)
+}`,
   };
 
   // TODO import this from const or smthn
