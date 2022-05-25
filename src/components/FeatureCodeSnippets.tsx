@@ -41,6 +41,7 @@ function CodeSnippet({ examples, references }) {
     javascript: "typescript",
     python: "python",
     react: "jsx",
+    go: "go",
   };
 
   return (
