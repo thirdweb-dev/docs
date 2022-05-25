@@ -93,7 +93,7 @@ export default function ExamplesContainer() {
       {/* Starter Kits */}
       <h2>Starter Kits</h2>
 
-      <div className="row" style={{ margin: 0 }}>
+      <div className="row">
         {examples
           .filter((e) => e.is_template === true)
           .map((repo) => (
@@ -105,9 +105,6 @@ export default function ExamplesContainer() {
                 marginBottom: 24,
                 color: "inherit",
                 textDecoration: "none",
-                padding: 0,
-                paddingLeft: 8,
-                paddingRight: 8,
               }}
             >
               <div className="card-demo" style={{ cursor: "pointer" }}>
@@ -124,7 +121,7 @@ export default function ExamplesContainer() {
                       src={iconMapping["getting-started"]}
                       style={{ marginRight: 16 }}
                     />
-                    <h3 style={{ fontWeight: 500, fontSize: "1.1rem" }}>
+                    <h3 style={{ fontWeight: 600, fontSize: "1.1rem" }}>
                       {starterKitToDisplayNameMapping[repo.name]}
                     </h3>
                   </div>
@@ -214,9 +211,6 @@ export default function ExamplesContainer() {
                 marginBottom: 24,
                 color: "inherit",
                 textDecoration: "none",
-                padding: 0,
-                paddingLeft: 16,
-                paddingRight: 16,
               }}
             >
               <div
@@ -230,15 +224,16 @@ export default function ExamplesContainer() {
                       display: "flex",
                       flexDirection: "row",
                       alignItems: "center",
+                      height: "100%",
                     }}
                   >
                     <img src={decideIcon(repo)} style={{ marginRight: 16 }} />
-                    <h3 style={{ fontWeight: 500, fontSize: "1.1rem" }}>
-                      {repo.name}
-                    </h3>
-                  </div>
-                  <div className="card__body">
-                    <p style={{ opacity: 0.9 }}>{repo.description}</p>
+                    <div className="card__body">
+                      <h3 style={{ fontWeight: 600, fontSize: "1.1rem" }}>
+                        {repo.name}
+                      </h3>
+                      <p style={{ opacity: 0.9 }}>{repo.description}</p>
+                    </div>
                   </div>
                 </div>
               </div>

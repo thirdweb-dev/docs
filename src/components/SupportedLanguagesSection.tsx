@@ -4,7 +4,7 @@ const languageToImageMapping = {
   JavaScript: `/assets/languages/javascript.png`,
   React: `/assets/languages/react.png`,
   Python: `/assets/languages/python.png`,
-  Go: `/assets/languages/go.svg`,
+  Go: `/assets/languages/go.png`,
 };
 
 const languageToUrlMapping = {
