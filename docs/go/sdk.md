@@ -8,15 +8,6 @@ displayed_sidebar: go
 ## ThirdwebSDK
 
 ```go
-type SDKOptions struct {
-    PrivateKey string
-    GatewayUrl string
-}
-```
-
-## type [ThirdwebSDK](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/sdk.go#L11-L14)
-
-```go
 type ThirdwebSDK struct {
     *ProviderHandler
     Storage IpfsStorage
