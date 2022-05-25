@@ -1,7 +1,5 @@
 import React from "react";
 
-type Props = {};
-
 const languageToImageMapping = {
   JavaScript: `/assets/languages/javascript.png`,
   React: `/assets/languages/react.png`,
@@ -16,12 +14,12 @@ const languageToUrlMapping = {
   Go: `/go`,
 };
 
-export default function SupportedLanguagesSection({}: Props) {
+export default function SupportedLanguagesSection() {
   return (
-    <div className="row" style={{ paddingBottom: 12 }}>
+    <div className="row" style={{ paddingTop: 16 }}>
       {["JavaScript", "React", "Python", "Go"].map((lang) => (
         <a
-          className="col col--6"
+          className="col col--12"
           key={lang}
           style={{ marginBottom: 16, color: "inherit" }}
           onClick={() => window.open(languageToUrlMapping[lang], "_blank")}

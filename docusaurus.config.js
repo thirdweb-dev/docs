@@ -71,7 +71,7 @@ const config = {
           changefreq: "daily",
         },
         theme: {
-          customCss: require.resolve("./src/css/custom.css"),
+          customCss: [require.resolve("./src/scss/custom.scss")],
         },
       }),
     ],
@@ -135,6 +135,7 @@ const config = {
       },
     ],
     "posthog-docusaurus",
+    "docusaurus-plugin-sass",
   ],
 
   themeConfig:
@@ -155,59 +156,16 @@ const config = {
       colorMode: {
         respectPrefersColorScheme: true,
         defaultMode: "dark",
+        // This removes light mode
+        disableSwitch: true,
       },
       navbar: {
-        hideOnScroll: true,
         logo: {
           alt: "thirdweb docs",
           src: "img/thirdweb-logo-transparent-black.svg",
           href: "/",
-          width: "175px",
           srcDark: "img/thirdweb-logo-transparent-white.svg",
         },
-        items: [
-          // JS, React, Python , Go? , Solidity,
-          {
-            to: "typescript",
-            label: "JavaScript",
-            position: "left",
-          },
-          {
-            to: "react",
-            label: "React",
-            position: "left",
-          },
-          {
-            to: "python",
-            label: "Python",
-            position: "left",
-          },
-          {
-            to: "go",
-            label: "Go",
-            position: "left",
-          },
-          {
-            to: "contracts",
-            label: "Solidity",
-            position: "left",
-          },
-          {
-            to: "guides",
-            label: "Guides",
-            position: "right",
-          },
-          {
-            href: "https://blog.thirdweb.com",
-            label: "Blog",
-            position: "right",
-          },
-          {
-            href: "https://github.com/thirdweb-dev",
-            label: "GitHub",
-            position: "right",
-          },
-        ],
       },
       footer: {
         style: "light",
