@@ -157,7 +157,7 @@ const config = {
         respectPrefersColorScheme: true,
         defaultMode: "dark",
         // This removes light mode
-        disableSwitch: true,
+        disableSwitch: false,
       },
       navbar: {
         logo: {

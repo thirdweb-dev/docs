@@ -31,15 +31,13 @@
   --ifm-toc-border-color: var(--thirdweb-border-color);
   --ifm-footer-background-color: white;
   --ifm-global-radius: 10px;
-  --ifm-spacing-horizontal: 3rem;
+  // --ifm-spacing-horizontal: 0.5rem;
   --ifm-hr-border-color: var(--thirdweb-border-color);
   --ifm-footer-padding-vertical: 5rem;
   --ifm-navbar-padding-horizontal: 1.5rem;
   --ifm-navbar-background-color: var(--thirdweb-background-color);
 
-  --ifm-menu-color-background-active: rgba(242, 18, 164, 0.4);
-
-  --ifm-hover-overlay: rgba(242, 18, 164, 0.1);
+  --ifm-hover-overlay: rgba(82, 4, 191, 0.05);
 
   --ifm-toc-link-color: var(--thirdweb-text-color);
 
@@ -53,13 +51,13 @@
 
   --docusaurus-tag-list-border: var(--thirdweb-border-color);
 
-  --ifm-background-surface-color: #1c2128;
+  --ifm-background-surface-color: #f5f6f8;
 }
 
 /// ---
 
 :root {
-  --thirdweb-primary-color: #5204bf;
+  --thirdweb-primary-color: rgb(82, 4, 191);
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
@@ -88,11 +86,11 @@ html[data-theme="dark"] {
   --thirdweb-border-color: #242424;
   --ifm-code-background: #1d1d1d;
 
-  --ifm-menu-color-background-active: rgba(242, 18, 164, 0.05);
-  --ifm-hover-overlay: rgba(242, 18, 164, 0.05);
+  --ifm-menu-color-background-active: rgba(168, 85, 247, 0.05);
+  --ifm-hover-overlay: rgba(168, 85, 247, 0.05);
   --ifm-background-color: var(--thirdweb-background-color);
 
-  --ifm-color-success-contrast-background: rgba(242, 18, 164, 0.05);
+  --ifm-color-success-contrast-background: rgba(168, 85, 247, 0.05);
   --ifm-color-info-contrast-background: rgba(0, 178, 255, 0.1);
   --ifm-color-secondary-contrast-background: rgba(255, 255, 255, 0.05);
   --ifm-color-success-dark: var(--thirdweb-primary-color);
