@@ -100,6 +100,29 @@ const sidebars = {
         },
       ],
     },
+    {
+      type: "category",
+      label: "Signature Minting",
+      collapsed: true,
+      link: {
+        type: "generated-index",
+        title: "Signature Minting",
+        description: "Signature based minting for contracts.",
+        keywords: ["contracts", "signature-minting"],
+      },
+      items: [
+        {
+          type: "doc",
+          label: "ERC 721 Signature Minting",
+          id: "erc721_signature_minting",
+        },
+        {
+          type: "doc",
+          label: "ERC 1155 Signature Minting",
+          id: "erc1155_signature_minting",
+        },
+      ],
+    },
   ],
 };
 
