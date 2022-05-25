@@ -71,7 +71,7 @@ const config = {
           changefreq: "daily",
         },
         theme: {
-          customCss: [require.resolve("./src/css/custom.css")],
+          customCss: [require.resolve("./src/scss/custom.scss")],
         },
       }),
     ],

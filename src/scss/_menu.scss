@@ -48,13 +48,6 @@
   }
 }
 
-.divisor {
-  content: "";
-  flex: 1;
-  opacity: 0;
-  visibility: hidden;
-}
-
 .olvy-unread-indicator.olvy-organisation-codesandbox.top-right {
   right: auto;
   left: 114px;
@@ -164,10 +157,11 @@
   display: none !important;
 }
 
-// spacer
-.divisor {
-  content: "";
-  flex: 1;
-  opacity: 0;
-  visibility: hidden;
+// On non-mobile, sdks should be at bottom
+@media (min-width: 996px) {
+  .bottom-menu-group {
+    // Margin top with the remaining avialble space
+    padding-top: calc(100%);
+    // Margin bottom with the remaining avialble space
+  }
 }
