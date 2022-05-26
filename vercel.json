@@ -195,6 +195,11 @@
       "source": "/contracts/governance",
       "destination": "/pre-built-contracts",
       "permanent": true
+    },
+    {
+      "source": "/thirdweb-deploy/contract-features/:match*",
+      "destination": "/thirdweb-deploy/contract-extensions/:match*",
+      "permanent": true
     }
   ]
 }
