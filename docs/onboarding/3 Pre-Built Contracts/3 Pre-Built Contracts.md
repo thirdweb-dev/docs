@@ -50,11 +50,11 @@ When thirdweb v2 was released, we realized our user’s were spending full price
 
 Let’s look at an example WITHOUT thirdweb’s proxy contracts.
 
-**User A** deploys their own **\*\***NFT Collection called “digital dogs”**_._** They configure the name and royalty fees, and deploy the entire contract, including all of the code for the mint function, burn function, transfer function, etc.
+**User A** deploys their own **NFT Collection** called “digital dogs”. They configure the name and royalty fees, and deploy the entire contract, including all of the code for the mint function, burn function, transfer function, etc.
 
 **User B** also deploys the exact same NFT Collection, except theirs is called _cool cats._ The name and the owner of this contract is different, but this user ALSO deploys the entire contract, including all of the code for minting, burning and transferring.
 
-![non-proxied contracts.png](../assets/non-proxied_contracts.png)
+![non-proxied contracts.png](./assets/non-proxied-contracts.png)
 
 Hypothetically, let’s say the contract costs **1000 total gas** to deploy. Only a very small portion of that comes from the unique attributes, such as the **name** and **owner**. The rest of the gas fee, let’s say 90% (or 900 gas) comes from deploying all of these functions.
 
@@ -64,7 +64,7 @@ What if these users could avoid deploying the same code, and only pay for deploy
 
 **Enter, thirdweb’s proxy contracts.** We’ve paid the gas to deploy all of the common “base” functionality on our contracts, meaning you pay a small fraction of the fee to deploy your smart contracts, with your unique differences like name, royalty fees, and description.
 
-![proxied contracts.png](../assets/proxied_contracts.png)
+![proxied contracts.png](./assets/proxied-contracts.png)
 
 When you deploy a contract with thirdweb, what you’re actually deploying is a **proxy contract**. Your contract stores information unique to your smart contract, and delegates the function calls to our base contracts to handle them.
 
@@ -74,4 +74,4 @@ In our NFT Collection example, a user might try call the `mint` function on your
 
 Our base contract handles the logic of minting the NFT, and sends the resulting information back to your contract to store it. Your proxy smart contract would then manage the information it received from the base contract, since that is unique to your NFT collection. For example, after the `mint` function comes back from the base contract, your contract will store the information of this NFT so it can remember it for later.
 
-![Proxy Contract Flow](../assets/proxy-contract-flow.png)
+![Proxy Contract Flow](./assets/delegating-calls.png)
