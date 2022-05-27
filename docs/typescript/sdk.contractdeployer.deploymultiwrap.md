@@ -9,7 +9,9 @@ displayed_sidebar: typescript
 
 ## ContractDeployer.deployMultiwrap() method
 
-Deploys a new SignatureDrop contract
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+Deploys a new Multiwrap contract
 
 **Signature:**
 
@@ -19,10 +21,24 @@ deployMultiwrap(metadata: MultiwrapContractDeployMetadata): Promise<string>;
 
 ## Parameters
 
-| Parameter | Type                                                                        | Description |
-| --------- | --------------------------------------------------------------------------- | ----------- |
-| metadata  | [MultiwrapContractDeployMetadata](./sdk.multiwrapcontractdeploymetadata.md) |             |
+| Parameter | Type                                                                        | Description           |
+| --------- | --------------------------------------------------------------------------- | --------------------- |
+| metadata  | [MultiwrapContractDeployMetadata](./sdk.multiwrapcontractdeploymetadata.md) | the contract metadata |
 
 **Returns:**
 
 Promise&lt;string&gt;
+
+the address of the deployed contract
+
+## Remarks
+
+Deploys a Multiwrap contract and returns the address of the deployed contract
+
+## Example
+
+```javascript
+const contractAddress = await sdk.deployer.deployMultiwrap({
+  name: "My Multiwrap",
+});
+```
