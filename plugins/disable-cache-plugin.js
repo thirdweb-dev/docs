@@ -6,8 +6,10 @@ async function disableCachePlugin(context, opts) {
     name: "docusaurus-disable-cache-plugin",
 
     async postBuild(props) {
-      //kill the process once we're done to avoid swc getting stuck like an idiot
-      process.exit(0);
+      setTimeout(() => {
+        //kill the process once we're done to avoid swc getting stuck like an idiot
+        process.exit(0);
+      }, 1000);
     },
 
     configureWebpack(config, isServer, utils, content) {

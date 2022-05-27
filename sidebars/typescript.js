@@ -94,6 +94,11 @@ const sidebars = {
           label: "Vote",
           id: "sdk.vote",
         },
+        {
+          type: "doc",
+          label: "Multiwrap",
+          id: "sdk.multiwrap"
+        }
       ],
     },
     {

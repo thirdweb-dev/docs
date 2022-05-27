@@ -45,10 +45,10 @@ export declare class ThirdwebSDK extends RPCConnectionHandler
 | [getEdition(address)](./sdk.thirdwebsdk.getedition.md)                              |                     | Get an instance of an Edition contract                                                   |
 | [getEditionDrop(address)](./sdk.thirdwebsdk.geteditiondrop.md)                      |                     | Get an instance of a Edition Drop contract                                               |
 | [getMarketplace(address)](./sdk.thirdwebsdk.getmarketplace.md)                      |                     | Get an instance of a Marketplace contract                                                |
+| [getMultiwrap(address)](./sdk.thirdwebsdk.getmultiwrap.md)                          |                     | **<i>(BETA)</i>** Get an instance of a Multiwrap contract                                |
 | [getNFTCollection(address)](./sdk.thirdwebsdk.getnftcollection.md)                  |                     | Get an instance of a NFT Collection contract                                             |
 | [getNFTDrop(contractAddress)](./sdk.thirdwebsdk.getnftdrop.md)                      |                     | Get an instance of a Drop contract                                                       |
 | [getPack(address)](./sdk.thirdwebsdk.getpack.md)                                    |                     | Get an instance of a Pack contract                                                       |
-| [getSignatureDrop(contractAddress)](./sdk.thirdwebsdk.getsignaturedrop.md)          |                     | Get an instance of a SignatureDrop contract                                              |
 | [getSplit(address)](./sdk.thirdwebsdk.getsplit.md)                                  |                     | Get an instance of a Splits contract                                                     |
 | [getToken(address)](./sdk.thirdwebsdk.gettoken.md)                                  |                     | Get an instance of a Token contract                                                      |
 | [getTokenDrop(address)](./sdk.thirdwebsdk.gettokendrop.md)                          |                     | Get an instance of a Token Drop contract                                                 |
