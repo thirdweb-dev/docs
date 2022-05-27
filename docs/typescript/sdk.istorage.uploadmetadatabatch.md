@@ -14,18 +14,21 @@ Uploads JSON metadata to IPFS
 **Signature:**
 
 ```typescript
-uploadMetadataBatch(metadatas: JsonObject[], fileStartNumber?: number, contractAddress?: string, signerAddress?: string): Promise<UploadMetadataBatchResult>;
+uploadMetadataBatch(metadatas: JsonObject[], fileStartNumber?: number, contractAddress?: string, signerAddress?: string, options?: {
+        onProgress: (event: UploadProgressEvent) => void;
+    }): Promise<UploadResult>;
 ```
 
 ## Parameters
 
-| Parameter       | Type                                  | Description                                                           |
-| --------------- | ------------------------------------- | --------------------------------------------------------------------- |
-| metadatas       | [JsonObject](./sdk.jsonobject.md)\[\] |                                                                       |
-| fileStartNumber | number                                | <i>(Optional)</i> Optional. The first file file name begins with.     |
-| contractAddress | string                                | <i>(Optional)</i> Optional. The contract address the data belongs to. |
-| signerAddress   | string                                | <i>(Optional)</i> Optional. The address of the signer.                |
+| Parameter       | Type                                                                                     | Description                                                           |
+| --------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| metadatas       | [JsonObject](./sdk.jsonobject.md)\[\]                                                    |                                                                       |
+| fileStartNumber | number                                                                                   | <i>(Optional)</i> Optional. The first file file name begins with.     |
+| contractAddress | string                                                                                   | <i>(Optional)</i> Optional. The contract address the data belongs to. |
+| signerAddress   | string                                                                                   | <i>(Optional)</i> Optional. The address of the signer.                |
+| options         | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | <i>(Optional)</i>                                                     |
 
 **Returns:**
 
-Promise&lt;UploadMetadataBatchResult&gt;
+Promise&lt;[UploadResult](./sdk.uploadresult.md)&gt;

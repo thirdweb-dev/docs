@@ -14,16 +14,19 @@ Uploads a file to the storage.
 **Signature:**
 
 ```typescript
-upload(data: string | FileOrBuffer, contractAddress?: string, signerAddress?: string): Promise<string>;
+upload(data: string | FileOrBuffer, contractAddress?: string, signerAddress?: string, options?: {
+        onProgress: (event: UploadProgressEvent) => void;
+    }): Promise<string>;
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                | Description                                                                        |
-| --------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| data            | string &#124; [FileOrBuffer](./sdk.fileorbuffer.md) | The data to be uploaded. Can be a file/buffer (which will be loaded), or a string. |
-| contractAddress | string                                              | <i>(Optional)</i> Optional. The contract address the data belongs to.              |
-| signerAddress   | string                                              | <i>(Optional)</i> Optional. The address of the signer.                             |
+| Parameter       | Type                                                                                     | Description                                                                        |
+| --------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| data            | string &#124; [FileOrBuffer](./sdk.fileorbuffer.md)                                      | The data to be uploaded. Can be a file/buffer (which will be loaded), or a string. |
+| contractAddress | string                                                                                   | <i>(Optional)</i> Optional. The contract address the data belongs to.              |
+| signerAddress   | string                                                                                   | <i>(Optional)</i> Optional. The address of the signer.                             |
+| options         | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | <i>(Optional)</i> Optional. Upload progress callback.                              |
 
 **Returns:**
 
