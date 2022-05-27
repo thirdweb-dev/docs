@@ -30,7 +30,7 @@ const iconMapping = {
 };
 
 const categories = {
-  "thirdweb-deploy": "thirdweb Deploy",
+  "thirdweb-deploy": "thirdweb deploy",
   "nft-drop": "NFT Drop",
   "nft-collection": "NFT Collection",
   "edition-drop": "Edition Drop",
