@@ -82,20 +82,22 @@ func main() {
 
   return (
     <Tabs groupId="thirdweb-code-snippet" defaultValue={"javascript"}>
-      {Object.keys(installationSnippets).map((language) => (
-        <TabItem
-          key={language}
-          value={language}
-          label={
-            // capitalize first letter
-            language.charAt(0).toUpperCase() + language.slice(1)
-          }
-        >
-          <CodeBlock language={languageToHighlightMapping[language]}>
-            {installationSnippets[language]}
-          </CodeBlock>
-        </TabItem>
-      ))}
+      {Object.keys(installationSnippets)
+        .filter((language) => language !== "solidity")
+        .map((language) => (
+          <TabItem
+            key={language}
+            value={language}
+            label={
+              // capitalize first letter
+              language.charAt(0).toUpperCase() + language.slice(1)
+            }
+          >
+            <CodeBlock language={languageToHighlightMapping[language]}>
+              {installationSnippets[language]}
+            </CodeBlock>
+          </TabItem>
+        ))}
     </Tabs>
   );
 }

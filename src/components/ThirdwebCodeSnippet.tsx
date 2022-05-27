@@ -9,6 +9,7 @@ export default function ThirdwebCodeSnippet({
   contract,
   name,
   isGetContractCode,
+  showHr = true,
 }) {
   const languagesToShow = {
     javascript: true,
@@ -135,12 +136,14 @@ export default function ThirdwebCodeSnippet({
         })}
       </Tabs>
 
-      <hr
-        style={{
-          marginTop: 32,
-          backgroundColor: "var(--ifm-toc-border-color)",
-        }}
-      />
+      {showHr && (
+        <hr
+          style={{
+            marginTop: 32,
+            backgroundColor: "var(--ifm-toc-border-color)",
+          }}
+        />
+      )}
     </>
   );
 }
