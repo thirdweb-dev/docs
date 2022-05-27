@@ -44,28 +44,6 @@ func main() {
     if err != nil {
         panic(err)
     }
-
-    // Replace your contract address here
-    address := "0x..."
-    nft, err := sdk.GetNFTCollection(address)
-    if err != nil {
-        panic(err)
-    }
-
-    // Now you can execute transactions using the SDK contract functions
-    tx, err := nft.Mint(
-        &thirdweb.NFTMetadataInput{
-            Name:        "Test NFT",
-            Description: "Minted with the thirdweb Go SDK",
-            Image: "ipfs://QmcCJC4T37rykDjR6oorM8hpB9GQWHKWbAi2YR1uTabUZu/0",
-        },
-    )
-    if err != nil {
-        panic(err)
-    }
-
-    result, _ := json.Marshal(&tx)
-    fmt.Println(string(result))
 }`,
   };
 

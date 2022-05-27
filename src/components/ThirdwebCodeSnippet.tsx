@@ -8,7 +8,7 @@ import CodeBlock from "@theme/CodeBlock";
 export default function ThirdwebCodeSnippet({
   contract,
   name,
-  isGetContractCode,
+  isGetContractCode = false,
   showHr = true,
 }) {
   const languagesToShow = {

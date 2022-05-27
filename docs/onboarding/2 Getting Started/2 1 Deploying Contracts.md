@@ -9,7 +9,7 @@ You can deploy a smart contract onto the blockchain using either:
 1. The [**dashboard**](https://thirdweb.com/dashboard)
 2. The **SDK**
 
-## Dashboard Deployments
+## Deploying on the Dashboard
 
 The easiest way to deploy a contract is to use the [**dashboard**](https://thirdweb.com/dashboard).
 

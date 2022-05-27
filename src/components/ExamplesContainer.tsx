@@ -56,6 +56,21 @@ const repoToExampleGuideMapping = {
   "custom-minting-page": "/examples/nft-drop",
 };
 
+function transformName(name: string) {
+  const capitalizeWords = ["nft", "ts", "dao"];
+
+  return name
+    .split("-")
+    .map((word) => {
+      if (capitalizeWords.includes(word)) {
+        return word.toUpperCase();
+      } else {
+        return word[0].toUpperCase() + word.slice(1);
+      }
+    })
+    .join(" ");
+}
+
 export default function ExamplesContainer() {
   const examples = exampleRepos as ExampleRepo[];
 
@@ -200,6 +215,10 @@ export default function ExamplesContainer() {
               : // otherwise, check if the selected category is in the topics
                 e.topics.includes(selectedCategory),
           )
+          .sort(
+            (a, b) =>
+              parseInt(b.stargazers_count) - parseInt(a.stargazers_count),
+          )
           .map((repo) => (
             <a
               // Prefer to show internal guide but fallback to github url
@@ -230,7 +249,7 @@ export default function ExamplesContainer() {
                     <img src={decideIcon(repo)} style={{ marginRight: 16 }} />
                     <div className="card__body">
                       <h3 style={{ fontWeight: 600, fontSize: "1.1rem" }}>
-                        {repo.name}
+                        {transformName(repo.name)}
                       </h3>
                       <p style={{ opacity: 0.9 }}>{repo.description}</p>
                     </div>

@@ -1,0 +1,37 @@
+---
+slug: /pre-built-contracts/nfts
+---
+
+# NFTs
+
+NFTs are tokens that follow either the
+[ERC-721](https://eips.ethereum.org/EIPS/eip-721) "non-fungible" or
+or
+[ERC-1155](https://eips.ethereum.org/EIPS/eip-1155) "semi-fungible" standard.
+
+- ERC-721: Each NFT is unique and owned by a single address.
+- ERC-1155: There can be multiple owners of each NFT.
+
+thirdweb currently has five types of NFT contracts:
+
+1. [NFT Drop](/pre-built-contracts/nft-drop)
+2. [NFT Collection](/pre-built-contracts/nft-collection)
+3. [Edition Drop](/pre-built-contracts/edition)
+4. [Edition](/pre-built-contracts/edition-drop)
+5. [Pack](/pre-built-contracts/pack) _(coming soon)_
+
+## Which NFT contract should I use?
+
+Below is a helpful table to demonstrate the differences between the contracts.
+
+<div style={{textAlign:'center'}}>
+
+| Contract       | Type     | Multiple copies of NFT | Claimable by other people |
+| -------------- | -------- | ---------------------- | ------------------------- |
+| NFT Drop       | ERC-721  | ❌                     | ✅                        |
+| NFT Collection | ERC-721  | ❌                     | ❌                        |
+| Edition Drop   | ERC-1155 | ✅                     | ✅                        |
+| Edition        | ERC-1155 | ✅                     | ❌                        |
+| Pack           | ERC-721  | N/A                    | N/A                       |
+
+</div>
