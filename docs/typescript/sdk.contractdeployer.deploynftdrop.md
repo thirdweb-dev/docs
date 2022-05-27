@@ -28,3 +28,16 @@ deployNFTDrop(metadata: NFTContractDeployMetadata): Promise<string>;
 Promise&lt;string&gt;
 
 the address of the deployed contract
+
+## Remarks
+
+Deploys an NFT Drop contract and returns the address of the deployed contract
+
+## Example
+
+```javascript
+const contractAddress = await sdk.deployer.deployNFTDrop({
+  name: "My Drop",
+  primary_sale_recipient: "your-address",
+});
+```

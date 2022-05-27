@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 ## ContractDeployer.deployNFTCollection() method
 
-Deploys a new NFTCollection contract
+Deploys an NFT Collection contract
 
 **Signature:**
 
@@ -28,3 +28,16 @@ deployNFTCollection(metadata: NFTContractDeployMetadata): Promise<string>;
 Promise&lt;string&gt;
 
 the address of the deployed contract
+
+## Remarks
+
+Deploys an NFT Collection contract and returns the address of the deployed contract
+
+## Example
+
+```javascript
+const contractAddress = await sdk.deployer.deployNFTCollection({
+  name: "My Collection",
+  primary_sale_recipient: "your-address",
+});
+```
