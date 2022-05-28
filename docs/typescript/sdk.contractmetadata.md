@@ -14,7 +14,24 @@ Handles metadata for a Contract
 **Signature:**
 
 ```typescript
-export declare class ContractMetadata<TContract extends IThirdwebContract | ThirdwebContract, TSchema extends IGenericSchemaType>
+export declare class ContractMetadata<TContract extends IThirdwebContract | ThirdwebContract, TSchema extends IGenericSchemaType> implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+Read and update metadata for this contract
+
+## Example
+
+```javascript
+const contract = await sdk.getContract("{{contract_address}}");
+const metadata = await contract.metadata.get();
+await contract.metadata.set({
+  name: "My Contract",
+  description: "My contract description",
+});
 ```
 
 ## Constructors
@@ -22,6 +39,12 @@ export declare class ContractMetadata<TContract extends IThirdwebContract | Thir
 | Constructor                                                                                | Modifiers | Description                                                          |
 | ------------------------------------------------------------------------------------------ | --------- | -------------------------------------------------------------------- |
 | [(constructor)(contractWrapper, schema, storage)](./sdk.contractmetadata._constructor_.md) |           | Constructs a new instance of the <code>ContractMetadata</code> class |
+
+## Properties
+
+| Property                                             | Modifiers | Type               | Description |
+| ---------------------------------------------------- | --------- | ------------------ | ----------- |
+| [featureName](./sdk.contractmetadata.featurename.md) |           | "ContractMetadata" |             |
 
 ## Methods
 
