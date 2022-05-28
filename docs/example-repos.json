@@ -19,7 +19,7 @@
     "html_url": "https://github.com/thirdweb-example/contract-hub",
     "description": "Demonstration of all thirdweb's pre-built contracts with TypeScript + Getting started snippets",
     "created_at": "2022-05-03T10:20:11Z",
-    "updated_at": "2022-05-16T13:51:57Z",
+    "updated_at": "2022-05-28T14:34:49Z",
     "clone_url": "https://github.com/thirdweb-example/contract-hub.git",
     "topics": [
       "edition",
@@ -32,7 +32,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false
   },
   {
