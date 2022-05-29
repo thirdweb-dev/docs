@@ -30,10 +30,30 @@ _See: https://ethereum.stackexchange.com/questions/69825/decrypt-message-on-chai
 | ------ | ----- | ----------- |
 | result | bytes | undefined   |
 
+### encryptedBaseURI
+
+```solidity
+function encryptedBaseURI(uint256) external view returns (bytes)
+```
+
+_Mapping from id of a batch of tokens =&gt; to encrypted base URI for the respective batch of tokens._
+
+#### Parameters
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| \_0  | bytes | undefined   |
+
 ### getRevealURI
 
 ```solidity
-function getRevealURI(uint256 _batchId, bytes _key) external view returns (string revealedURI)
+function getRevealURI(uint256 _batchId, bytes _key) external nonpayable returns (string revealedURI)
 ```
 
 _Returns the decrypted i.e. revealed URI for a batch of tokens._
@@ -50,6 +70,26 @@ _Returns the decrypted i.e. revealed URI for a batch of tokens._
 | Name        | Type   | Description |
 | ----------- | ------ | ----------- |
 | revealedURI | string | undefined   |
+
+### isEncryptedBatch
+
+```solidity
+function isEncryptedBatch(uint256 _batchId) external view returns (bool)
+```
+
+_Returns whether the relvant batch of NFTs is subject to a delayed reveal._
+
+#### Parameters
+
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| \_batchId | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### reveal
 

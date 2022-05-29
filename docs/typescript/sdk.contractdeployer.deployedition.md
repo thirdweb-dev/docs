@@ -28,3 +28,16 @@ deployEdition(metadata: NFTContractDeployMetadata): Promise<string>;
 Promise&lt;string&gt;
 
 the address of the deployed contract
+
+## Remarks
+
+Deploys an Edition contract and returns the address of the deployed contract
+
+## Example
+
+```javascript
+const contractAddress = await sdk.deployer.deployEdition({
+  name: "My Edition",
+  primary_sale_recipient: "your-address",
+});
+```
