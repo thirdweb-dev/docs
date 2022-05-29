@@ -1,6 +1,6 @@
 ---
 slug: /thirdweb-deploy/contract-extensions
-title: Contract Features
+title: Overview
 ---
 
 # How To Unlock SDK and Dashboard Features

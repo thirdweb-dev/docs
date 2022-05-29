@@ -1,5 +1,6 @@
 ---
 slug: /pre-built-contracts/other
+title: Overview
 ---
 
 # Other Contracts
