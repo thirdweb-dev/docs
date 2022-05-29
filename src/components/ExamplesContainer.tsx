@@ -248,7 +248,7 @@ export default function ExamplesContainer() {
                   >
                     <img src={decideIcon(repo)} style={{ marginRight: 16 }} />
                     <div className="card__body">
-                      <h3 style={{ fontWeight: 600, fontSize: "1.1rem" }}>
+                      <h3 style={{ fontWeight: 600 }}>
                         {transformName(repo.name)}
                       </h3>
                       <p style={{ opacity: 0.9 }}>{repo.description}</p>
