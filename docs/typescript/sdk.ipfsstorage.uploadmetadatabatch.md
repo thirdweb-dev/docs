@@ -14,21 +14,24 @@ Uploads JSON metadata to IPFS
 **Signature:**
 
 ```typescript
-uploadMetadataBatch(metadatas: JsonObject[], fileStartNumber?: number, contractAddress?: string, signerAddress?: string): Promise<{
+uploadMetadataBatch(metadatas: JsonObject[], fileStartNumber?: number, contractAddress?: string, signerAddress?: string, options?: {
+        onProgress: (event: UploadProgressEvent) => void;
+    }): Promise<{
         baseUri: string;
-        metadataUris: string[];
+        uris: string[];
     }>;
 ```
 
 ## Parameters
 
-| Parameter       | Type                                  | Description                                                           |
-| --------------- | ------------------------------------- | --------------------------------------------------------------------- |
-| metadatas       | [JsonObject](./sdk.jsonobject.md)\[\] |                                                                       |
-| fileStartNumber | number                                | <i>(Optional)</i> Optional. The first file file name begins with.     |
-| contractAddress | string                                | <i>(Optional)</i> Optional. The contract address the data belongs to. |
-| signerAddress   | string                                | <i>(Optional)</i> Optional. The address of the signer.                |
+| Parameter       | Type                                                                                     | Description                                                           |
+| --------------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
+| metadatas       | [JsonObject](./sdk.jsonobject.md)\[\]                                                    |                                                                       |
+| fileStartNumber | number                                                                                   | <i>(Optional)</i> Optional. The first file file name begins with.     |
+| contractAddress | string                                                                                   | <i>(Optional)</i> Optional. The contract address the data belongs to. |
+| signerAddress   | string                                                                                   | <i>(Optional)</i> Optional. The address of the signer.                |
+| options         | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | <i>(Optional)</i>                                                     |
 
 **Returns:**
 
-Promise&lt;{ baseUri: string; metadataUris: string\[\]; }&gt;
+Promise&lt;{ baseUri: string; uris: string\[\]; }&gt;

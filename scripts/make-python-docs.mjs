@@ -10,7 +10,9 @@ const { readdir, createReadStream, writeFile, readFile } = pkg;
 const outDir = "./docs/python";
 const packageRoot = "./submodules/python";
 const inDir = packageRoot + "/docs/docs";
-const readmePath = packageRoot + "/README.md";
+// This is intentionally not the path to the README, because the actual README has 
+// development environment instructions that we don't want.
+const readmePath = inDir + "/index.md";
 
 pkg.rmdirSync(outDir, { recursive: true, force: true });
 

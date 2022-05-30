@@ -5,7 +5,7 @@
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"rinkeby\");\nconst contract = sdk.getNFTCollection(\"{{contract_address}}\");",
       "react": "import { useNFTCollection } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const nftCollection = useNFTCollection(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the nftCollection contract in the rest of the component\n}",
-      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_nft_collection(\"{{contract_address}}\")",
+      "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_nft_collection(\"{{contract_address}}\")",
       "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetNFTCollection(\"{{contract_address}}\")\n"
     },
     "methods": [
@@ -174,7 +174,7 @@
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"rinkeby\");\nconst contract = sdk.getEdition(\"{{contract_address}}\");",
       "react": "import { useEdition } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const edition = useEdition(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the edition contract in the rest of the component\n}",
-      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_edition(\"{{contract_address}}\")",
+      "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_edition(\"{{contract_address}}\")",
       "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetEditionDrop(\"{{contract_address}}\")\n"
     },
     "methods": [
@@ -229,7 +229,7 @@
         "remarks": "\n\nMint many different NFTs with limited supplies to a specified wallet.\n\n",
         "examples": {
           "javascript": "// Address of the wallet you want to mint the NFT to\nconst toAddress = \"{{wallet_address}}\"\n\n// Custom metadata and supplies of your NFTs\nconst metadataWithSupply = [{\n  supply: 50, // The number of this NFT you want to mint\n  metadata: {\n    name: \"Cool NFT #1\",\n    description: \"This is a cool NFT\",\n    image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n  },\n}, {\n  supply: 100,\n  metadata: {\n    name: \"Cool NFT #2\",\n    description: \"This is a cool NFT\",\n    image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n  },\n}];\n\nconst tx = await contract.mintBatchTo(toAddress, metadataWithSupply);\nconst receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nconst firstTokenId = tx[0].id; // token id of the first minted NFT\nconst firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT",
-          "python": "from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadatas_with_supply = [\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cool NFT\",\n            \"description\": \"This is a cool NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    ),\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cooler NFT\",\n            \"description\": \"This is a cooler NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    )\n]\n\n# You can pass in any address here to mint the NFT to\ntxs = contract.mint_to(\"{{wallet_address}}\", metadata_with_supply)\nreceipt = txs[0].receipt\ntoken_id = txs[0].id\nnft = txs[0].data()",
+          "python": "from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadatas_with_supply = [\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cool NFT\",\n            \"description\": \"This is a cool NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    ),\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cooler NFT\",\n            \"description\": \"This is a cooler NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    )\n]\n\n# You can pass in any address here to mint the NFT to\ntxs = contract.mint_batch_to(\"{{wallet_address}}\", metadatas_with_supply)\nreceipt = txs[0].receipt\ntoken_id = txs[0].id\nnft = txs[0].data()",
           "go": ""
         },
         "reference": {
@@ -582,7 +582,7 @@
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"rinkeby\");\nconst contract = sdk.getToken(\"{{contract_address}}\");",
       "react": "import { useToken } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const token = useToken(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the token contract in the rest of the component\n}",
-      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_token(\"{{contract_address}}\")",
+      "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_token(\"{{contract_address}}\")",
       "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetToken(\"{{contract_address}}\")\n"
     },
     "methods": [
@@ -826,7 +826,7 @@
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"rinkeby\");\nconst contract = sdk.getNFTDrop(\"{{contract_address}}\");",
       "react": "import { useNFTDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const nftDrop = useNFTDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the nft drop contract in the rest of the component\n}",
-      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_nft_drop(\"{{contract_address}}\")",
+      "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_nft_drop(\"{{contract_address}}\")",
       "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetNFTDrop(\"{{contract_address}}\")\n"
     },
     "methods": [
@@ -1070,7 +1070,7 @@
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"rinkeby\");\nconst contract = sdk.getEditionDrop(\"{{contract_address}}\");",
       "react": "import { useEditionDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const editionDrop = useEditionDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the edition drop contract in the rest of the component\n}",
-      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_edition_drop(\"{{contract_address}}\")",
+      "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_edition_drop(\"{{contract_address}}\")",
       "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetEditionDrop(\"{{contract_address}}\")\n"
     },
     "methods": [
@@ -1254,7 +1254,7 @@
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"rinkeby\");\nconst contract = sdk.getMarketplace(\"{{contract_address}}\");",
       "react": "import { useMarketplace } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const marketplace = useMarketplace(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the marketplace contract in the rest of the component\n}",
-      "python": "from thirdweb import ThirdwebSDK\nfrom eth_account import Account\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# This will create a random account to use for signing transactions\nsigner = Account.create()\n\nsdk = ThirdwebSDK(network, signer)\ncontract = sdk.get_marketplace(\"{{contract_address}}\")"
+      "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_marketplace(\"{{contract_address}}\")"
     },
     "methods": [
       {

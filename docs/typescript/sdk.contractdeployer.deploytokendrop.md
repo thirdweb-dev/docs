@@ -28,3 +28,16 @@ deployTokenDrop(metadata: TokenContractDeployMetadata): Promise<string>;
 Promise&lt;string&gt;
 
 the address of the deployed contract
+
+## Remarks
+
+Deploys a Token Drop contract and returns the address of the deployed contract
+
+## Example
+
+```javascript
+const contractAddress = await sdk.deployer.deployTokenDrop({
+  name: "My Token Drop",
+  primary_sale_recipient: "your-address",
+});
+```

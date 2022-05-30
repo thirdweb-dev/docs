@@ -9,10 +9,10 @@ displayed_sidebar: typescript
 
 ## ThirdwebSDK.storage property
 
-Upload and download files
+Upload and download files from IPFS or from your own storage service
 
 **Signature:**
 
 ```typescript
-storage: IStorage;
+storage: RemoteStorage;
 ```

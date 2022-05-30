@@ -9,6 +9,8 @@ displayed_sidebar: typescript
 
 ## IStorage interface
 
+Interface for any storage provider
+
 **Signature:**
 
 ```typescript
@@ -17,12 +19,11 @@ export interface IStorage
 
 ## Methods
 
-| Method                                                                                                                   | Description                                                                                       |
-| ------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------- |
-| [get(hash)](./sdk.istorage.get.md)                                                                                       | Fetches data from storage. This method expects to fetch JSON formatted data                       |
-| [getRaw(hash)](./sdk.istorage.getraw.md)                                                                                 | Fetches data from storage. This method does not make any assumptions on the retrieved data format |
-| [getUploadToken(contractAddress)](./sdk.istorage.getuploadtoken.md)                                                      | Fetches a one-time-use upload token that can used to upload a file to storage.                    |
-| [upload(data, contractAddress, signerAddress)](./sdk.istorage.upload.md)                                                 | Uploads a file to the storage.                                                                    |
-| [uploadBatch(files, fileStartNumber, contractAddress, signerAddress)](./sdk.istorage.uploadbatch.md)                     | Uploads a folder to storage.                                                                      |
-| [uploadMetadata(metadata, contractAddress, signerAddress)](./sdk.istorage.uploadmetadata.md)                             | Uploads JSON metadata to IPFS                                                                     |
-| [uploadMetadataBatch(metadatas, fileStartNumber, contractAddress, signerAddress)](./sdk.istorage.uploadmetadatabatch.md) | Uploads JSON metadata to IPFS                                                                     |
+| Method                                                                                                                            | Description                                                                                       |
+| --------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| [get(hash)](./sdk.istorage.get.md)                                                                                                | Fetches data from storage. This method expects to fetch JSON formatted data                       |
+| [getRaw(hash)](./sdk.istorage.getraw.md)                                                                                          | Fetches data from storage. This method does not make any assumptions on the retrieved data format |
+| [upload(data, contractAddress, signerAddress, options)](./sdk.istorage.upload.md)                                                 | Uploads a file to the storage.                                                                    |
+| [uploadBatch(files, fileStartNumber, contractAddress, signerAddress, options)](./sdk.istorage.uploadbatch.md)                     | Uploads a folder to storage.                                                                      |
+| [uploadMetadata(metadata, contractAddress, signerAddress, options)](./sdk.istorage.uploadmetadata.md)                             | Uploads JSON metadata to IPFS                                                                     |
+| [uploadMetadataBatch(metadatas, fileStartNumber, contractAddress, signerAddress, options)](./sdk.istorage.uploadmetadatabatch.md) | Uploads JSON metadata to IPFS                                                                     |

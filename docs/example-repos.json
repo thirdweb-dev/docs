@@ -19,7 +19,7 @@
     "html_url": "https://github.com/thirdweb-example/contract-hub",
     "description": "Demonstration of all thirdweb's pre-built contracts with TypeScript + Getting started snippets",
     "created_at": "2022-05-03T10:20:11Z",
-    "updated_at": "2022-05-16T13:51:57Z",
+    "updated_at": "2022-05-28T14:34:49Z",
     "clone_url": "https://github.com/thirdweb-example/contract-hub.git",
     "topics": [
       "edition",
@@ -32,7 +32,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false
   },
   {
@@ -40,7 +40,7 @@
     "html_url": "https://github.com/thirdweb-example/cra-javascript-starter",
     "description": "thirdweb starter project with Create React App & JavaScript",
     "created_at": "2022-03-18T00:31:36Z",
-    "updated_at": "2022-05-13T22:04:20Z",
+    "updated_at": "2022-05-25T15:53:25Z",
     "clone_url": "https://github.com/thirdweb-example/cra-javascript-starter.git",
     "topics": [
       "javascript",
@@ -48,7 +48,7 @@
       "starter-kit"
     ],
     "language": "JavaScript",
-    "stargazers_count": 6,
+    "stargazers_count": 7,
     "is_template": true
   },
   {
@@ -84,13 +84,13 @@
     "html_url": "https://github.com/thirdweb-example/custom-minting-page",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2022-05-24T14:54:58Z",
+    "updated_at": "2022-05-27T23:21:04Z",
     "clone_url": "https://github.com/thirdweb-example/custom-minting-page.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 4,
     "is_template": false
   },
   {
@@ -171,7 +171,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2022-05-24T05:09:06Z",
+    "updated_at": "2022-05-28T03:45:28Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -184,7 +184,7 @@
       "web3js"
     ],
     "language": "TypeScript",
-    "stargazers_count": 8,
+    "stargazers_count": 10,
     "is_template": true
   },
   {
@@ -223,12 +223,12 @@
     "is_template": false
   },
   {
-    "name": "NFT-Gated-Website",
-    "html_url": "https://github.com/thirdweb-example/NFT-Gated-Website",
+    "name": "nft-gated-website",
+    "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "An example of an NFT Gated Website for thirdweb's NFT Gated Website Guide",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-05-24T23:48:40Z",
-    "clone_url": "https://github.com/thirdweb-example/NFT-Gated-Website.git",
+    "updated_at": "2022-05-27T12:52:09Z",
+    "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "edition",
       "edition-drop",
@@ -238,16 +238,16 @@
       "react"
     ],
     "language": "JavaScript",
-    "stargazers_count": 11,
+    "stargazers_count": 14,
     "is_template": false
   },
   {
-    "name": "signature-based-minting-next-ts",
-    "html_url": "https://github.com/thirdweb-example/signature-based-minting-next-ts",
+    "name": "signature-based-minting",
+    "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2022-05-24T16:18:49Z",
-    "clone_url": "https://github.com/thirdweb-example/signature-based-minting-next-ts.git",
+    "updated_at": "2022-05-29T01:11:26Z",
+    "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
       "nft-collection",
