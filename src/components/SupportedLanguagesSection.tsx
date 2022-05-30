@@ -25,9 +25,11 @@ export default function SupportedLanguagesSection() {
           key={lang}
           href={languageToUrlMapping[lang]}
           target="_blank"
+          aria-label={`${lang} SDK`}
         >
           <div className="card__body">
             <img
+              alt={lang}
               className={`supported-language-section__icon supported-language-section__icon__${lang}`}
               src={languageToImageMapping[lang]}
             />

@@ -79,13 +79,16 @@ const config = {
   plugins: [
     disableCachePlugin,
     [
-      "@docusaurus/plugin-ideal-image",
-      {
-        max: 1920,
+      "ideal-image",
+      /** @type {import('@docusaurus/plugin-ideal-image').PluginOptions} */
+      ({
+        quality: 70,
+        max: 1030,
         min: 640,
-        steps: 4,
-        disableInDev: false,
-      },
+        steps: 2,
+        // Use false to debug, but it incurs huge perf costs
+        disableInDev: true,
+      }),
     ],
     [
       "@docusaurus/plugin-content-docs",
@@ -187,7 +190,7 @@ const config = {
                 to: "/typescript",
               },
               {
-                label: "React.JS",
+                label: "React",
                 to: "/react",
               },
               {
