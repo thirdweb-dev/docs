@@ -14,20 +14,23 @@ Uploads a folder to storage.
 **Signature:**
 
 ```typescript
-uploadBatch(files: (string | FileOrBuffer)[], fileStartNumber?: number, contractAddress?: string, signerAddress?: string): Promise<string>;
+uploadBatch(files: (string | FileOrBuffer)[], fileStartNumber?: number, contractAddress?: string, signerAddress?: string, options?: {
+        onProgress: (event: UploadProgressEvent) => void;
+    }): Promise<UploadResult>;
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                      | Description                                                                                                            |
-| --------------- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| files           | (string &#124; [FileOrBuffer](./sdk.fileorbuffer.md))\[\] | An array of the data to be uploaded. Can be a files or buffers (which will be loaded), or strings. (can be mixed, too) |
-| fileStartNumber | number                                                    | <i>(Optional)</i> Optional. The first file file name begins with.                                                      |
-| contractAddress | string                                                    | <i>(Optional)</i> Optional. The contract address the data belongs to.                                                  |
-| signerAddress   | string                                                    | <i>(Optional)</i> Optional. The address of the signer.                                                                 |
+| Parameter       | Type                                                                                     | Description                                                                                                            |
+| --------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| files           | (string &#124; [FileOrBuffer](./sdk.fileorbuffer.md))\[\]                                | An array of the data to be uploaded. Can be a files or buffers (which will be loaded), or strings. (can be mixed, too) |
+| fileStartNumber | number                                                                                   | <i>(Optional)</i> Optional. The first file file name begins with.                                                      |
+| contractAddress | string                                                                                   | <i>(Optional)</i> Optional. The contract address the data belongs to.                                                  |
+| signerAddress   | string                                                                                   | <i>(Optional)</i> Optional. The address of the signer.                                                                 |
+| options         | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | <i>(Optional)</i> Optional. Upload progress callback.                                                                  |
 
 **Returns:**
 
-Promise&lt;string&gt;
+Promise&lt;[UploadResult](./sdk.uploadresult.md)&gt;
 
 - The CID of the uploaded folder.

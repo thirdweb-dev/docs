@@ -23,15 +23,16 @@ Create a collection of NFTs that lets you mint multiple copies of each NFT.
 
 ```python
 from thirdweb import ThirdwebSDK
-from eth_account import Account
 
 # You can customize this to a supported network or your own RPC URL
 network = "mumbai"
 
-# This will create a random account to use for signing transactions
-signer = Account.create()
+# Now we can create a new instance of the SDK
+sdk = ThirdwebSDK(network)
 
-sdk = ThirdwebSDK(network, signer)
+# If you want to send transactions, you can instantiate the SDK with a private key instead:
+#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)
+
 contract = sdk.get_edition("{{contract_address}}")
 ```
 
@@ -195,7 +196,7 @@ metadatas_with_supply = [
 ]
 
 # You can pass in any address here to mint the NFT to
-txs = contract.mint_to("{{wallet_address}}", metadata_with_supply)
+txs = contract.mint_batch_to("{{wallet_address}}", metadatas_with_supply)
 receipt = txs[0].receipt
 token_id = txs[0].id
 nft = txs[0].data()

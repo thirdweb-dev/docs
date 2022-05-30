@@ -19,7 +19,7 @@
     "html_url": "https://github.com/thirdweb-example/contract-hub",
     "description": "Demonstration of all thirdweb's pre-built contracts with TypeScript + Getting started snippets",
     "created_at": "2022-05-03T10:20:11Z",
-    "updated_at": "2022-05-16T13:51:57Z",
+    "updated_at": "2022-05-30T07:55:40Z",
     "clone_url": "https://github.com/thirdweb-example/contract-hub.git",
     "topics": [
       "edition",
@@ -32,7 +32,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 3,
     "is_template": false
   },
   {
@@ -84,13 +84,13 @@
     "html_url": "https://github.com/thirdweb-example/custom-minting-page",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2022-05-25T16:05:52Z",
+    "updated_at": "2022-05-27T23:21:04Z",
     "clone_url": "https://github.com/thirdweb-example/custom-minting-page.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false
   },
   {
@@ -106,12 +106,12 @@
     "is_template": false
   },
   {
-    "name": "magic-link-next-ts",
-    "html_url": "https://github.com/thirdweb-example/magic-link-next-ts",
+    "name": "magic-link",
+    "html_url": "https://github.com/thirdweb-example/magic-link",
     "description": "Connect users to your dApp using just their email using thirdweb's useMagic hook!",
     "created_at": "2022-04-27T07:03:18Z",
-    "updated_at": "2022-05-12T09:58:25Z",
-    "clone_url": "https://github.com/thirdweb-example/magic-link-next-ts.git",
+    "updated_at": "2022-05-30T05:16:56Z",
+    "clone_url": "https://github.com/thirdweb-example/magic-link.git",
     "topics": [
       "nextjs",
       "typescript",
@@ -138,18 +138,6 @@
     "is_template": false
   },
   {
-    "name": "network-mismatch",
-    "html_url": "https://github.com/thirdweb-example/network-mismatch",
-    "description": "Request a user to change to your desired network when they connect their wallet using the useNetworkMismatch hook",
-    "created_at": "2022-04-29T04:26:10Z",
-    "updated_at": "2022-05-12T02:42:43Z",
-    "clone_url": "https://github.com/thirdweb-example/network-mismatch.git",
-    "topics": [],
-    "language": "JavaScript",
-    "stargazers_count": 0,
-    "is_template": false
-  },
-  {
     "name": "next-javascript-starter",
     "html_url": "https://github.com/thirdweb-example/next-javascript-starter",
     "description": "thirdweb starter project with Next.js & JavaScript",
@@ -171,7 +159,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2022-05-25T21:49:35Z",
+    "updated_at": "2022-05-28T03:45:28Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -184,7 +172,7 @@
       "web3js"
     ],
     "language": "TypeScript",
-    "stargazers_count": 9,
+    "stargazers_count": 10,
     "is_template": true
   },
   {
@@ -242,12 +230,12 @@
     "is_template": false
   },
   {
-    "name": "signature-based-minting-next-ts",
-    "html_url": "https://github.com/thirdweb-example/signature-based-minting-next-ts",
+    "name": "signature-based-minting",
+    "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2022-05-24T16:18:49Z",
-    "clone_url": "https://github.com/thirdweb-example/signature-based-minting-next-ts.git",
+    "updated_at": "2022-05-29T01:11:26Z",
+    "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
       "nft-collection",
@@ -268,6 +256,20 @@
     "topics": [],
     "language": "TypeScript",
     "stargazers_count": 1,
+    "is_template": false
+  },
+  {
+    "name": "token-drop",
+    "html_url": "https://github.com/thirdweb-example/token-drop",
+    "description": "Release your token with claim conditions for a price using thirdweb's Token Drop contract",
+    "created_at": "2022-05-25T04:05:25Z",
+    "updated_at": "2022-05-30T05:20:52Z",
+    "clone_url": "https://github.com/thirdweb-example/token-drop.git",
+    "topics": [
+      "token-drop"
+    ],
+    "language": "JavaScript",
+    "stargazers_count": 0,
     "is_template": false
   },
   {

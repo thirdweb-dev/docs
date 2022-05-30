@@ -14,16 +14,19 @@ Create a batch of encrypted NFTs that can be revealed at a later time.
 **Signature:**
 
 ```typescript
-createDelayedRevealBatch(placeholder: NFTMetadataInput, metadatas: NFTMetadataInput[], password: string): Promise<TransactionResultWithId[]>;
+createDelayedRevealBatch(placeholder: NFTMetadataInput, metadatas: NFTMetadataInput[], password: string, options?: {
+        onProgress: (event: UploadProgressEvent) => void;
+    }): Promise<TransactionResultWithId[]>;
 ```
 
 ## Parameters
 
-| Parameter   | Type                                              | Description                                         |
-| ----------- | ------------------------------------------------- | --------------------------------------------------- |
-| placeholder | [NFTMetadataInput](./sdk.nftmetadatainput.md)     | the placeholder NFT to show before the reveal       |
-| metadatas   | [NFTMetadataInput](./sdk.nftmetadatainput.md)\[\] | the final NFTs that will be hidden                  |
-| password    | string                                            | the password that will be used to reveal these NFTs |
+| Parameter   | Type                                                                                     | Description                                         |
+| ----------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| placeholder | [NFTMetadataInput](./sdk.nftmetadatainput.md)                                            | the placeholder NFT to show before the reveal       |
+| metadatas   | [NFTMetadataInput](./sdk.nftmetadatainput.md)\[\]                                        | the final NFTs that will be hidden                  |
+| password    | string                                                                                   | the password that will be used to reveal these NFTs |
+| options     | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | <i>(Optional)</i>                                   |
 
 **Returns:**
 
