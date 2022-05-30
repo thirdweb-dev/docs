@@ -11,30 +11,7 @@ The thirdweb CLI is your one-stop-shop for publishing custom contracts for your 
 
 This brings all the capabilities of thirdweb to your own custom contracts.
 
-## 1. Extending ThirdwebContract
-
-In order to publish a contract and get all the benefits of the thirdweb platform, your contract needs to extend `ThirdwebContract`.
-
-From your project, add the [thirdweb contracts](https://github.com/thirdweb-dev/contracts) dependency:
-
-```bash npm2yarn
-npm install @thirdweb-dev/contracts
-```
-
-Once installed, in your Solidity contract you want to publish, import and extend `ThirdwebContract`. Here's an example:
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
-
-import "@thirdweb-dev/contracts/ThirdwebContract.sol";
-
-contract HellowWorldContract is ThirdwebContract {
-    // your contract code
-}
-```
-
-## 2. Deploying your contract
+## Deploying your contract
 
 Once your contract code is setup like above, you can now publish it by running:
 
@@ -51,7 +28,7 @@ thirdweb deploy
 
 This command will:
 
-- auto-detect any contract that extends `ThirdwebContract` in your project
+- auto-detect any contracts in your project
 - compile your project
 - Upload ABIs to IPFS
 - Open the deploy flow in your thirdweb dashboard in a browser
