@@ -1,0 +1,41 @@
+---
+slug: /getting-started/writing-data-to-smart-contracts
+---
+
+import SignerConnectionCodeTabs from "../../../src/components/SignerConnectionCodeTabs";
+
+# Writing Data to Smart Contracts
+
+To execute transactions on your contract, initialize the SDK
+
+This can be done two ways:
+
+1. By connecting to a user's wallet (typically used in the frontend)
+2. Using your own private key (typically used in the backend or scripts)
+
+## Connecting to a user's wallet
+
+Use the [Quick Start Guide](/react) on our React SDK to learn how to connect to a user's wallet and execute transactions.
+
+Or use `Create thirdweb App` to create a new project with wallet connection set-up.
+
+```bash
+npx create-tw-app
+```
+
+## Private key connection
+
+:::warning
+
+Ensure you store and access your private key securely.
+
+- Check if you actually need to use a private key for your application.
+- **Never** directly expose your private key in your source code.
+- **Never** commit any file that may contain your private key to your source control.
+- **Never** use a private key for a frontend (website/dapp) application.
+
+If you are unsure on how to securely store and access your private key please do not proceed.
+
+:::
+
+<SignerConnectionCodeTabs />

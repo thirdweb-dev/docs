@@ -4,10 +4,11 @@ slug: /
 ---
 
 import SupportedLanguagesSection from "../../src/components/SupportedLanguagesSection";
+import Image from "@theme/IdealImage";
 
 # Welcome to thirdweb
 
-<div class="heroGrid">
+<div className="heroGrid">
 
 <div>
 <p>thirdweb is a web3 application framework that enables you to easily build powerful, blockchain-based applications.</p>
@@ -20,10 +21,10 @@ import SupportedLanguagesSection from "../../src/components/SupportedLanguagesSe
 
 </div>
 
-<div class="heroGridImageContainer">
-  <img
-    src={`/assets/portal_imgs_1-01.png`}
-    class="heroGridImage"
+<div className="heroGridImageContainer">
+  <Image
+    img={require(`/assets/portal_imgs_1-01.png`)}
+    className="heroGridImage"
     alt="thirdweb Core Pillars"
   />
 </div>
@@ -32,8 +33,7 @@ import SupportedLanguagesSection from "../../src/components/SupportedLanguagesSe
 
 :::info
 
-Want to just get started?
-**[Here's the link to the installation page.](/installation)**
+Just want to get started? Check out the **[Installation](/installation)** page.
 
 :::
 
@@ -46,7 +46,7 @@ Want to just get started?
 
 ## Contracts
 
-<div class="heroGrid">
+<div className="heroGrid">
 
 <div>
   <p>Smart Contracts are the fundamental layer of any web3 project.</p>
@@ -68,8 +68,11 @@ in your own contract.
 
 </div>
 
-<div class="heroGridImageContainer">
-  <img src={`/assets/portal_imgs_1-04.png`} />
+<div className="heroGridImageContainer">
+  <Image
+    alt="thirdweb contracts"
+    img={require(`/assets/portal_imgs_1-04.png`)}
+  />
 </div>
 
 </div>
@@ -83,7 +86,7 @@ in your own contract.
 
 ## SDKs
 
-<div class="heroGrid">
+<div className="heroGrid">
   <div>
     <p>
       We provide SDKs to interact directly with your smart contracts in your
@@ -93,8 +96,8 @@ in your own contract.
 <SupportedLanguagesSection />
 
   </div>
-  <div class="heroGridImageContainer">
-    <img src={`/assets/portal_imgs_1-03.png`} alt="thirdweb SDKs" />
+  <div className="heroGridImageContainer">
+    <Image img={require(`/assets/portal_imgs_1-03.png`)} alt="thirdweb SDKs" />
   </div>
 </div>
 
@@ -116,7 +119,7 @@ Our SDKs are designed to do the heavy lifting, including:
 
 ## Dashboard
 
-<div class="heroGrid">
+<div className="heroGrid">
   
   <div>
     <p>
@@ -133,10 +136,10 @@ your projects without any code, such as:
 
 </div>
 
-<div class="heroGridImageContainer">
-  <img
-    src={`/assets/portal_imgs_1-02.png`}
-    class="heroGridImage"
+<div className="heroGridImageContainer">
+  <Image
+    img={require(`/assets/portal_imgs_1-02.png`)}
+    className="heroGridImage"
     alt="thirdweb Dashboard"
   />
 </div>

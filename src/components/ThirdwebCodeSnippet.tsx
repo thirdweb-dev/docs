@@ -1,5 +1,4 @@
 import React from "react";
-// @ts-ignore
 import jsonData from "../../docs/snippets.json";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
@@ -8,7 +7,8 @@ import CodeBlock from "@theme/CodeBlock";
 export default function ThirdwebCodeSnippet({
   contract,
   name,
-  isGetContractCode,
+  isGetContractCode = false,
+  showHr = true,
 }) {
   const languagesToShow = {
     javascript: true,
@@ -18,20 +18,20 @@ export default function ThirdwebCodeSnippet({
   };
 
   if (!contract || !name) {
-    return <></>;
+    return null;
   }
 
   const contractObject = jsonData[contract];
 
   if (!contractObject) {
-    return <></>;
+    return null;
   }
 
   const methods = contractObject.methods;
   const properties = contractObject.properties;
 
   if (!methods && !properties) {
-    return <></>;
+    return null;
   }
 
   let codeObjectToUse;
@@ -45,13 +45,13 @@ export default function ThirdwebCodeSnippet({
       method === undefined ? properties.find((p) => p.name === name) : method;
 
     if (!propertyOrMethodFallback) {
-      return <></>;
+      return null;
     }
 
     codeObjectToUse = propertyOrMethodFallback;
   }
 
-  const { summary, examples, reference: references } = codeObjectToUse;
+  const { examples, reference: references } = codeObjectToUse;
 
   const languageToHighlightMapping = {
     javascript: "typescript",
@@ -79,6 +79,7 @@ export default function ThirdwebCodeSnippet({
             if (!alwaysShow) {
               return (
                 <TabItem
+                  key={language}
                   attributes={{
                     style: { display: "none" },
                   }}
@@ -86,13 +87,13 @@ export default function ThirdwebCodeSnippet({
                   value={language}
                   label={languageName}
                 >
-                  <div />
+                  {null}
                 </TabItem>
               );
             }
 
             return (
-              <TabItem value={language} label={languageName}>
+              <TabItem key={language} value={language} label={languageName}>
                 <CodeBlock language={languageToHighlightMapping[language]}>
                   <p>
                     <b>{languageName} SDK</b> support for <b>{name}</b> is
@@ -111,7 +112,6 @@ export default function ThirdwebCodeSnippet({
 
           return (
             <TabItem key={language} value={language} label={languageName}>
-              {/* <b>{summary}</b> */}
               <CodeBlock language={languageToHighlightMapping[language]}>
                 {example}
               </CodeBlock>
@@ -135,12 +135,14 @@ export default function ThirdwebCodeSnippet({
         })}
       </Tabs>
 
-      <hr
-        style={{
-          marginTop: 32,
-          backgroundColor: "var(--ifm-toc-border-color)",
-        }}
-      />
+      {showHr && (
+        <hr
+          style={{
+            marginTop: 32,
+            backgroundColor: "var(--ifm-toc-border-color)",
+          }}
+        />
+      )}
     </>
   );
 }

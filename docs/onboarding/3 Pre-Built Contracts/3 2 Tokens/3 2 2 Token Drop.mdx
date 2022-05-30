@@ -1,0 +1,144 @@
+---
+slug: /pre-built-contracts/token-drop
+---
+
+import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet";
+
+# Token Drop
+
+thirdweb's Token Drop contract is a way of releasing your [ERC20](https://eips.ethereum.org/EIPS/eip-20) tokens for a set price.
+
+The Token Drop contract allows you to define the conditions for when and how your users can claim your tokens;
+including allowlists, release dates, and claim limits.
+
+In the Token Drop, you define the price for your tokens in each claim phase, and can set a limit on how many tokens you want to release.
+
+You could use the Token Drop contract to:
+
+- Release your new cryptocurrency for a set price such as 1 MATIC per token.
+- Allow a specific set of wallets to claim your ERC-20 tokens before releasing it to the public.
+- Allow users to claim your tokens up until a certain date.
+
+:::tip Learn more
+
+[How thirdweb pre-built contracts work and how to create one](/pre-built-contracts)
+
+:::
+
+## Create a Token Drop Contract
+
+Learn how to create any of thirdweb's pre-built contracts in the [Deploying Contracts page](/getting-started/deploying-contracts).
+
+## Getting the contract in your application
+
+To start using your Token Drop contract inside your application, you'll need to use it's contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+
+<ThirdwebCodeSnippet
+  contract={"TokenDrop"}
+  name={"initializing the SDK"}
+  isGetContractCode
+/>
+
+## Setting Claim Phases
+
+A claim phase is a set of conditions that define when and how your users can mint your tokens.
+
+You can have multiple claim phases that occur in sequence.
+
+For each claim phase, you can define:
+
+- When the claim phase will start
+- How many tokens you want to drop
+- How much you want to charge per token
+- What currency you want to charge in
+- Which wallet addreses are allowed to claim tokens (allowlist)
+- How many tokens can be claimed per transaction
+- How many seconds wallets have to wait between claims
+
+### Using the dashboard
+
+You can configure the claim phases from the **Claim Phases** tab in the dashboard.
+
+![Token Drop Claim Phases via Dashboard](../assets/token-drop-claim-phases.png)
+
+### Using the thirdweb SDK
+
+<ThirdwebCodeSnippet contract={"TokenDrop"} name={"claimConditions"} />
+
+## Claiming Tokens
+
+Your users can claim tokens if their wallet address meets the criteria to be included in the current claim phase.
+
+<ThirdwebCodeSnippet contract={"TokenDrop"} name={"claimTo"} />
+
+## Token Metadata
+
+Get the metadata about the token itself, such as the name, symbol, and decimals.
+
+<ThirdwebCodeSnippet contract={"TokenDrop"} name={"get"} />
+
+You can get the total supply of the token too.
+
+<ThirdwebCodeSnippet contract={"TokenDrop"} name={"totalSupply"} />
+
+## Token Balance
+
+### Balance of the connected wallet
+
+<ThirdwebCodeSnippet contract={"TokenDrop"} name={"balance"} />
+
+### Balance of a specified wallet
+
+<ThirdwebCodeSnippet contract={"TokenDrop"} name={"balanceOf"} />
+
+## Token Allowance
+
+Allowance refers to how many tokens another address is allowed to spend from your wallet.
+
+For example, our [Marketplace](/pre-built-contracts/marketplace) contract asks you permission to **increase your allowance** when you make a bid on an auction listing.
+
+### Get allowance for the connected wallet
+
+Get the amount of tokens that another wallet is allowed to spend on behalf of the connected wallet.
+
+<ThirdwebCodeSnippet contract={"TokenDrop"} name={"allowance"} />
+
+### Get allowance for a specified wallet
+
+Get the amount of tokens that another wallet is allowed to spend on behalf of the specified wallet.
+
+<ThirdwebCodeSnippet contract={"TokenDrop"} name={"allowanceOf"} />
+
+### Set Allowance
+
+Specify how many tokens another wallet is allowed to spend on behalf of the connected wallet.
+
+<ThirdwebCodeSnippet contract={"TokenDrop"} name={"setAllowance"} />
+
+## Transfer Tokens
+
+You can transfer tokens from one wallet to another, or send tokens to a smart contract address.
+
+### Transfer from the connected wallet
+
+<ThirdwebCodeSnippet contract={"TokenDrop"} name={"transfer"} />
+
+### Transfer from the connected wallet in batch
+
+<ThirdwebCodeSnippet contract={"TokenDrop"} name={"transferBatch"} />
+
+### Transfer from a specified wallet
+
+<ThirdwebCodeSnippet contract={"TokenDrop"} name={"transferFrom"} />
+
+## Burning Tokens
+
+Burning tokens takes a specified amount of tokens out of the circulating supply.
+
+### Burn from the connected wallet
+
+<ThirdwebCodeSnippet contract={"TokenDrop"} name={"burn"} />
+
+### Burn from a specified wallet
+
+<ThirdwebCodeSnippet contract={"TokenDrop"} name={"burnFrom"} />

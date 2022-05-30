@@ -11,7 +11,7 @@
 }
 
 .menu__list {
-  padding-bottom: 0.5rem;
+  padding-bottom: 0rem;
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -19,8 +19,8 @@
   .menu__link {
     border-radius: 0;
     height: auto !important;
-    font-size: 16px;
-    line-height: 1.1;
+    font-size: 1.125rem;
+    line-height: 1.25;
 
     &:hover {
       background: transparent;
@@ -131,11 +131,11 @@
 }
 
 .theme-doc-sidebar-item-category-level-1 {
-  padding-bottom: 1rem;
+  padding-bottom: 0.5rem;
 }
 
 .theme-doc-sidebar-item-link-level-1 {
-  padding-bottom: 1rem;
+  padding-bottom: 0.25rem;
 }
 
 .tocCollapsibleContent__-_-node_modules-\@docusaurus-theme-classic-lib-next-theme-TOCCollapsible-styles-module

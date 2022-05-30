@@ -1,0 +1,143 @@
+---
+slug: /pre-built-contracts/edition
+---
+
+import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet";
+
+# Edition
+
+thirdweb's Edition contract is a **n-of-1** or **n-of-many** NFT Collection, that follows the [ERC1155 Standard](https://eips.ethereum.org/EIPS/eip-1155) also known as "Semi-Fungible Tokens".
+
+The **Edition** contract is best used when you want to release many NFTs based on the same asset, but you **don't** want to "drop" or "release" them for your community to claim.
+
+Unlike the [Edition Drop](/pre-built-contracts/edition-drop) contract, the Edition contract does not **lazy mint** your NFTs. Instead, NFTs are minted immediately when they are added to the collection.
+
+This means you can still transfer the NFTs or sell them on a [Marketplace](/pre-built-contracts/marketplace), and perform any other actions you would expect to do with a NFT.
+
+You could use the Edition contract to:
+
+- Create an NFT Collection where each NFT has 100 copies
+- Airdrop a list of wallet addresses an NFT that all use the same asset and metadata
+- Create 10 "copies" of your artwork and sell them on a [Marketplace](/pre-built-contracts/marketplace)
+
+:::tip Learn more
+
+[How thirdweb pre-built contracts work and how to create one](/pre-built-contracts)
+
+:::
+
+## Create an Edition Contract
+
+Learn how to create any of thirdweb's pre-built contracts in the [Deploying Contracts page](/getting-started/deploying-contracts).
+
+## Getting the contract in your application
+
+To start using your Edition contract inside your application, you'll need to use it's contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+
+<ThirdwebCodeSnippet
+  contract={"Edition"}
+  name={"initializing the SDK"}
+  isGetContractCode
+/>
+
+## Setting Royalty Fees
+
+Royalty fees are fees you earn on secondary sales of your NFTs. For example, if you sell an NFT on the marketplace, and it is then sold again to another user, you will earn a royalty fee.
+
+### Using the dashboard
+
+From the dashboard, in the **Settings** tab you can set the royalty **percentage** and the **address** that should receive the revenue from royalties earned from secondary sales of the assets.
+
+![Configuring Royalties on the Dashboard](../assets/royalties.png)
+
+### Using the thirdweb SDK
+
+<ThirdwebCodeSnippet contract={"Edition"} name={"royalty"} />
+
+## Minting NFTs
+
+With an Edition contract, you choose which wallet addresses are able to mint NFTs into your collection.
+
+By default, only you (the smart contract owner) are able to mint NFTs into the collection.
+
+You can specify which wallets can mint in the **Permissions** tab of your NFT Collection, under the **Creator** section.
+
+![Configuring Royalties on the Dashboard](../assets/creator-section.png)
+
+For more advanced use-cases, such as creating a **community-made collection**, you can use [signature-based minting](/typescript/sdk.erc1155signatureminting).
+
+### Using the dashboard
+
+For a more in-depth guide on how to create an NFT Collection, check out our guide here [Creating an Edition](guides/sell-nft-multiple-currencies#creating-an-edition-and-nft).
+
+### Using the thirdweb SDK
+
+#### Mint One NFT
+
+<ThirdwebCodeSnippet contract={"Edition"} name={"mintTo"} />
+
+#### Mint Many NFTs (Batch Mint)
+
+<ThirdwebCodeSnippet contract={"Edition"} name={"mintBatchTo"} />
+
+#### Mint One NFT
+
+<ThirdwebCodeSnippet contract={"Edition"} name={"mintTo"} />
+
+#### Mint Many NFTs (Batch Mint)
+
+<ThirdwebCodeSnippet contract={"Edition"} name={"mintBatchTo"} />
+
+## Airdrop NFTs
+
+Airdropping means you send a wallet or a list of wallets a configurable quantity of your NFT.
+
+### Using the dashboard
+
+Using the thirdweb dashboard, you can upload a `.csv` file containing a list of addresses you want to airdrop NFTs to.
+
+You can download our example `.csv` file for airdrops [here](https://thirdweb.com/airdrop.csv).
+
+In the `csv` file you must specify an `address` column and a `quantity` column; representing the address you want to send the NFTs to, and how many you wish to send.
+
+### Using the thirdweb SDK
+
+<ThirdwebCodeSnippet contract={"Edition"} name={"airdrop"} />
+
+## Viewing NFTs
+
+Our SDKs provide helpful ways to view the NFTs in your collection.
+
+### One NFT
+
+<ThirdwebCodeSnippet contract={"Edition"} name={"get"} />
+
+### All NFTs
+
+<ThirdwebCodeSnippet contract={"Edition"} name={"getAll"} />
+
+### NFTs owned by a specific wallet
+
+<ThirdwebCodeSnippet contract={"Edition"} name={"getOwned"} />
+
+### Amount of tokens owned by a specific wallet
+
+<ThirdwebCodeSnippet contract={"Edition"} name={"balanceOf"} />
+
+## Transferring NFTs
+
+Transferring NFTs means you can send this NFT to another wallet. You must be the owner of the NFT you're trying to transfer in order for this to be successful.
+
+<ThirdwebCodeSnippet contract={"Edition"} name={"transfer"} />
+
+## Burning NFTs
+
+Burning is the process of removing the token from circulation by sending it to an inaccessible address. It does **not** delete the token from the blockchain.
+
+### Using the dashboard
+
+![Burning Claimed NFTs on Dashboard](../assets/burn.png)
+
+### Using the SDK
+
+<ThirdwebCodeSnippet contract={"Edition"} name={"burn"} />

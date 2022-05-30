@@ -34,7 +34,7 @@ const sidebars = {
         },
         {
           type: "link",
-          label: "React.JS",
+          label: "React",
           href: "/react",
         },
         {

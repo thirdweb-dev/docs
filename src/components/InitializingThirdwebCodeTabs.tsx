@@ -5,8 +5,7 @@ import CodeBlock from "@theme/CodeBlock";
 
 export default function ThirdwebCodeSnippet() {
   const installationSnippets = {
-    javascript: `// my_script.ts
-import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+    javascript: `import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 // Create a read-only instance of the ThirdwebSDK on the Mumbai network
 const sdk = new ThirdwebSDK("mumbai"); // configure this to your network
@@ -82,20 +81,22 @@ func main() {
 
   return (
     <Tabs groupId="thirdweb-code-snippet" defaultValue={"javascript"}>
-      {Object.keys(installationSnippets).map((language) => (
-        <TabItem
-          key={language}
-          value={language}
-          label={
-            // capitalize first letter
-            language.charAt(0).toUpperCase() + language.slice(1)
-          }
-        >
-          <CodeBlock language={languageToHighlightMapping[language]}>
-            {installationSnippets[language]}
-          </CodeBlock>
-        </TabItem>
-      ))}
+      {Object.keys(installationSnippets)
+        .filter((language) => language !== "solidity")
+        .map((language) => (
+          <TabItem
+            key={language}
+            value={language}
+            label={
+              // capitalize first letter
+              language.charAt(0).toUpperCase() + language.slice(1)
+            }
+          >
+            <CodeBlock language={languageToHighlightMapping[language]}>
+              {installationSnippets[language]}
+            </CodeBlock>
+          </TabItem>
+        ))}
     </Tabs>
   );
 }
