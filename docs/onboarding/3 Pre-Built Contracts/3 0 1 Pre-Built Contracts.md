@@ -9,7 +9,7 @@ thirdweb offers pre-built contracts for all the most common use cases in modern 
 
 Currently, thirdweb has pre-built smart contracts for the following use cases:
 
-| Contract       | Description                       | EIP Standard                                         | Features                                                                                                                                                                                |
+| Contract       | Description                       | EIP Standard                                         | Extensions                                                                                                                                                                              |
 | -------------- | --------------------------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | NFT Drop       | Claimable drop of one-of-one NFTs | [`ERC721`](https://eips.ethereum.org/EIPS/eip-721)   | [`ERC721`](/thirdweb-deploy/contract-extensions/erc721), [`Permissions`](/thirdweb-deploy/contract-extensions/permissions), [`Royalty`](/thirdweb-deploy/contract-extensions/royalty)   |
 | NFT Collection | A collection of one-of-one NFTs   | [`ERC721`](https://eips.ethereum.org/EIPS/eip-721)   | [`ERC721`](/thirdweb-deploy/contract-extensions/erc721), [`Permissions`](/thirdweb-deploy/contract-extensions/permissions), [`Royalty`](/thirdweb-deploy/contract-extensions/royalty)   |

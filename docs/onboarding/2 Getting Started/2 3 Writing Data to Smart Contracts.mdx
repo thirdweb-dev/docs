@@ -25,11 +25,16 @@ npx create-tw-app
 
 ## Private key connection
 
-:::warning Warning
+:::warning
 
-Always load your private key in a secure manner like environment variables. Never commit it to Git.
+Ensure you store and access your private key securely.
 
-Do not ever use your private key on a client-side application.
+- Check if you actually need to use a private key for your application.
+- **Never** directly expose your private key in your source code.
+- **Never** commit any file that may contain your private key to your source control.
+- **Never** use a private key for a frontend (website/dapp) application.
+
+If you are unsure on how to securely store and access your private key please do not proceed.
 
 :::
 

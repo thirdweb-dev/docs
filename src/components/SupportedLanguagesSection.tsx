@@ -18,38 +18,20 @@ const languageToUrlMapping = {
 
 export default function SupportedLanguagesSection() {
   return (
-    <div className="row" style={{ paddingTop: 16 }}>
+    <div className="row supported-language-section">
       {["JavaScript", "React", "Python", "Go", "Solidity"].map((lang) => (
         <a
-          className="col col--12"
+          className="col col--12 card"
           key={lang}
-          style={{ marginBottom: 16, color: "inherit" }}
-          onClick={() => window.open(languageToUrlMapping[lang], "_blank")}
+          href={languageToUrlMapping[lang]}
+          target="_blank"
         >
-          <div
-            className="card-demo"
-            style={{ cursor: "pointer", height: "100%" }}
-          >
-            <div className="card" style={{ height: "100%" }}>
-              <div
-                className="card__header"
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  alignItems: "center",
-                }}
-              >
-                <img
-                  src={languageToImageMapping[lang]}
-                  style={{
-                    height: 32,
-                    width: 32,
-                    marginRight: 12,
-                  }}
-                />
-                <h3 style={{ fontSize: "1rem", fontWeight: 700 }}>{lang}</h3>
-              </div>
-            </div>
+          <div className="card__body">
+            <img
+              className={`supported-language-section__icon supported-language-section__icon__${lang}`}
+              src={languageToImageMapping[lang]}
+            />
+            <h3>{lang}</h3>
           </div>
         </a>
       ))}

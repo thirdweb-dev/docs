@@ -51,6 +51,7 @@ aside {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
   gap: 2%;
   margin-bottom: 32px;
 }
@@ -58,27 +59,19 @@ aside {
 .heroGridImageContainer {
   width: 50%;
   flex-shrink: 0;
-
-  img {
-    margin-top: -32px;
-  }
 }
 
-@media (max-width: 1500px) {
+@media (max-width: 996px) {
   .heroGrid {
     flex-direction: column;
   }
 
   .heroGridImageContainer {
-    margin-top: 24px;
     display: flex;
     align-items: center;
     justify-content: center;
     width: 100%;
     flex-shrink: 0;
-    img {
-      max-height: 500px;
-    }
   }
 }
 

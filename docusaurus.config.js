@@ -79,6 +79,15 @@ const config = {
   plugins: [
     disableCachePlugin,
     [
+      "@docusaurus/plugin-ideal-image",
+      {
+        max: 1920,
+        min: 640,
+        steps: 4,
+        disableInDev: false,
+      },
+    ],
+    [
       "@docusaurus/plugin-content-docs",
       {
         id: "typescript",

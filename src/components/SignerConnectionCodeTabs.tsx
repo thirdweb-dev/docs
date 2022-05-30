@@ -5,8 +5,7 @@ import CodeBlock from "@theme/CodeBlock";
 
 export default function ThirdwebCodeSnippet() {
   const installationSnippets = {
-    javascript: `// my_script.ts
-import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+    javascript: `import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = ThirdwebSDK.fromPrivateKey(
   process.env.PRIVATE_KEY, // Your wallet private key

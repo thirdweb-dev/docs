@@ -5,8 +5,7 @@ import CodeBlock from "@theme/CodeBlock";
 
 export default function ThirdwebCodeSnippet() {
   const installationSnippets = {
-    javascript: `// my_script.ts
-import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+    javascript: `import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 // Create a read-only instance of the ThirdwebSDK on the Mumbai network
 const sdk = new ThirdwebSDK("mumbai"); // configure this to your network

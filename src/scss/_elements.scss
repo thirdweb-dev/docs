@@ -1,0 +1,27 @@
+.supported-language-section {
+  padding-top: 16px;
+  gap: 16px;
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .card__body {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+  }
+  &__icon {
+    height: 32px;
+    width: 32px;
+    border-radius: 0 !important;
+  }
+}
+
+html[data-theme="dark"] .supported-language-section {
+  &__icon {
+    &__Solidity {
+      filter: invert(1);
+    }
+  }
+}
