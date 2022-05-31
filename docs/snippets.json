@@ -50,7 +50,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTCollection.getOwned",
-          "python": "https://docs.thirdweb.com/python/erc721#get_owned",
+          "python": "https://docs.thirdweb.com/python/nft-collection#get_owned",
           "go": "https://docs.thirdweb.com/go/nft_collection#func-nftcollection-getowned"
         }
       },
@@ -931,7 +931,7 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.NFTDrop.getOwned",
-          "python": "https://docs.thirdweb.com/python/erc721#get_owned",
+          "python": "https://docs.thirdweb.com/python/nft-drop#get_owned",
           "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-getowned"
         }
       },

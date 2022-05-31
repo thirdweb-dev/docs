@@ -147,6 +147,24 @@ Returns an Edition Drop contract SDK instance
 
 Edition Drop contract SDK instance
 
+<a id="core.sdk.ThirdwebSDK.get_multiwrap"></a>
+
+#### get_multiwrap
+
+```python
+def get_multiwrap(address: str) -> Multiwrap
+```
+
+Returns a multiwrap contract SDK instance
+
+**Arguments**:
+
+- `address`: address of the multiwrap contract
+
+**Returns**:
+
+multiwrap contract SDK instance
+
 <a id="core.sdk.ThirdwebSDK.get_contract"></a>
 
 #### get_contract
