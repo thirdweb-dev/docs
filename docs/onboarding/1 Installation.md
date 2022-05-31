@@ -9,10 +9,10 @@ import SupportedLanguagesSection from "../../src/components/SupportedLanguagesSe
 
 # Automatic Setup
 
-The easiest way to create **web applications** is by using `create-tw-app`.
+The easiest way to create **web applications** is by using `create-thirdweb-dapp`.
 
 ```bash
-npx create-tw-app
+npx @thirdweb-dev/create-thirdweb-dapp
 ```
 
 This interactive CLI creates a new app with the language & framework of your choice, and thirdweb pre-configured.
@@ -21,7 +21,7 @@ You can also start off with one of our [example projects](/examples) by passing 
 
 ```bash
 # This clones our NFT minting page example project.
-npx create-tw-app --example custom-minting-page
+npx @thirdweb-dev/create-thirdweb-dapp --example custom-minting-page
 ```
 
 Our most popular examples are:
