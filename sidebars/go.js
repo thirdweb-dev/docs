@@ -69,6 +69,11 @@ const sidebars = {
           label: "Edition Drop",
           id: "edition_drop",
         },
+        {
+          type: "doc",
+          label: "Multiwrap",
+          id: "multiwrap",
+        },
       ],
     },
     {
