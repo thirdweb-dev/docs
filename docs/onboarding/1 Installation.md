@@ -1,6 +1,6 @@
 ---
 title: Installation
-slug: /insallation
+slug: /installation
 ---
 
 import InstallingThirdwebCodeTabs from "../../src/components/InstallingThirdwebCodeTabs.tsx";
