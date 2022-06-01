@@ -22,6 +22,7 @@ export declare function useContractType(
   | "split"
   | "custom"
   | "nft-drop"
+  | "signature-drop"
   | "nft-collection"
   | "edition-drop"
   | "edition"
@@ -30,6 +31,7 @@ export declare function useContractType(
   | "vote"
   | "marketplace"
   | "pack"
+  | "multiwrap"
   | undefined,
   unknown
 >;
@@ -43,7 +45,7 @@ export declare function useContractType(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;"split" \| "custom" \| "nft-drop" \| "nft-collection" \| "edition-drop" \| "edition" \| "token-drop" \| "token" \| "vote" \| "marketplace" \| "pack" \| undefined, unknown&gt;
+import("react-query").UseQueryResult&lt;"split" \| "custom" \| "nft-drop" \| "signature-drop" \| "nft-collection" \| "edition-drop" \| "edition" \| "token-drop" \| "token" \| "vote" \| "marketplace" \| "pack" \| "multiwrap" \| undefined, unknown&gt;
 
 a response object that includes the contract type of the contract
 
