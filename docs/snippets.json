@@ -132,11 +132,11 @@
     ],
     "properties": [
       {
-        "name": "royalty",
+        "name": "royalties",
         "summary": "Configure royalties\n\n",
         "remarks": "\n\nSet your own royalties for the entire contract or per token\n\n",
         "examples": {
-          "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalty.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
+          "javascript": "// royalties on the whole contract\ncontract.royalties.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalties.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
           "python": "",
           "go": ""
         },
@@ -316,11 +316,11 @@
     ],
     "properties": [
       {
-        "name": "royalty",
+        "name": "royalties",
         "summary": "Configure royalties\n\n",
         "remarks": "\n\nSet your own royalties for the entire contract or per token\n\n",
         "examples": {
-          "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalty.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
+          "javascript": "// royalties on the whole contract\ncontract.royalties.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalties.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
           "python": "",
           "go": ""
         },
@@ -1043,11 +1043,11 @@
         }
       },
       {
-        "name": "royalty",
+        "name": "royalties",
         "summary": "Configure royalties\n\n",
         "remarks": "\n\nSet your own royalties for the entire contract or per token\n\n",
         "examples": {
-          "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalty.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
+          "javascript": "// royalties on the whole contract\ncontract.royalties.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalties.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
           "python": "",
           "go": ""
         },
@@ -1227,11 +1227,11 @@
         }
       },
       {
-        "name": "royalty",
+        "name": "royalties",
         "summary": "Configure royalties\n\n",
         "remarks": "\n\nSet your own royalties for the entire contract or per token\n\n",
         "examples": {
-          "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalty.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
+          "javascript": "// royalties on the whole contract\ncontract.royalties.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalties.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
           "python": "",
           "go": ""
         },
@@ -1590,11 +1590,11 @@
     ],
     "properties": [
       {
-        "name": "royalty",
+        "name": "royalties",
         "summary": "Configure royalties\n\n",
         "remarks": "\n\nSet your own royalties for the entire contract or per pack\n\n",
         "examples": {
-          "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular pack\ncontract.royalty.setTokenRoyaltyInfo(packId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
+          "javascript": "// royalties on the whole contract\ncontract.royalties.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular pack\ncontract.royalties.setTokenRoyaltyInfo(packId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
           "python": "",
           "go": ""
         },
