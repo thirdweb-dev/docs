@@ -12,6 +12,8 @@ const CONTRACTS = [
   "Pack",
   "Vote",
   "ContractDeployer",
+  "MarketplaceDirect",
+  "MarketplaceAuction",
 ];
 
 const typescript = JSON.parse(
