@@ -200,6 +200,10 @@
       "source": "/thirdweb-deploy/contract-features/:match*",
       "destination": "/thirdweb-deploy/contract-extensions/:match*",
       "permanent": true
+    },
+    {
+      "source": "/getting-started",
+      "destination": "/getting-started/deploying-contracts"
     }
   ]
 }

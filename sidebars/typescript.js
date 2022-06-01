@@ -218,8 +218,8 @@ const sidebars = {
     },
     {
       type: "doc",
-      label: "IPFS Storage",
-      id: "sdk.ipfsstorage",
+      label: "Remote Storage",
+      id: "sdk.remotestorage",
     },
     {
       type: "doc",
