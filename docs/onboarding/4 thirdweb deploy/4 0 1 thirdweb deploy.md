@@ -203,4 +203,3 @@ Since this is an early preview, be prepared for your published contracts to not 
 ---
 
 Join our [Discord](http://discord.gg/thirdweb) to tell us about your experience and what you'd want us to build next!
-
