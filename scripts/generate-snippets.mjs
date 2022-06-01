@@ -11,6 +11,7 @@ const CONTRACTS = [
   "Split",
   "Pack",
   "Vote",
+  "ContractDeployer",
 ];
 
 const typescript = JSON.parse(
@@ -35,10 +36,7 @@ const python = JSON.parse(
 );
 
 const go = JSON.parse(
-  fs.readFileSync(
-    `${process.cwd()}/submodules/go/docs/snippets.json`,
-    "utf8",
-  ),
+  fs.readFileSync(`${process.cwd()}/submodules/go/docs/snippets.json`, "utf8"),
 );
 
 const snippets = CONTRACTS.reduce((acc, contractName) => {
@@ -62,8 +60,8 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
     snippet.name.toLowerCase().includes(contractName.toLowerCase()),
   );
   const goExample = Object.values(go).find((snippet) =>
-  snippet.name.toLowerCase().includes(contractName.toLowerCase()),
-);
+    snippet.name.toLowerCase().includes(contractName.toLowerCase()),
+  );
 
   // Get contract summary from typescript docs
   data.summary = tsExample?.summary || "";
@@ -85,10 +83,10 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
               m.name.replaceAll("_", "").toLowerCase() ===
               method.name.toLowerCase(),
           )?.example || "",
-        go: 
+        go:
           goExample?.methods?.find(
             (m) => m.name.toLowerCase() === method.name.toLowerCase(),
-          )?.example || ""
+          )?.example || "",
       },
       reference: {
         javascript:
@@ -104,7 +102,7 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
         go:
           goExample?.methods?.find(
             (m) => m.name.toLowerCase() === method.name.toLowerCase(),
-          )?.reference || ""
+          )?.reference || "",
       },
     })) || [];
 
@@ -125,9 +123,10 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
               p.name.replaceAll("_", "").toLowerCase() ===
               property.name.toLowerCase(),
           )?.example || "",
-        go: goExample?.properties?.find(
+        go:
+          goExample?.properties?.find(
             (m) => p.name.toLowerCase() === property.name.toLowerCase(),
-          )?.example || ""
+          )?.example || "",
       },
       reference: {
         javascript:
@@ -140,9 +139,10 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
               p.name.replaceALl("_", "").toLowerCase() ===
               property.name.toLowerCase(),
           )?.reference || "",
-        go: goExample?.properties?.find(
+        go:
+          goExample?.properties?.find(
             (m) => p.name.toLowerCase() === property.name.toLowerCase(),
-          )?.reference || ""
+          )?.reference || "",
       },
     })) || [];
 
