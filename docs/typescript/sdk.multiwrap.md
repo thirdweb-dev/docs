@@ -48,7 +48,7 @@ const contract = sdk.getMultiwrap("{{contract_address}}");
 | [events](./sdk.multiwrap.events.md)               |                     | [ContractEvents](./sdk.contractevents.md)&lt;MultiwrapContract&gt;                                                                             | **<i>(BETA)</i>**                     |
 | [metadata](./sdk.multiwrap.metadata.md)           |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;MultiwrapContract, typeof Multiwrap.schema&gt;                                                | **<i>(BETA)</i>**                     |
 | [roles](./sdk.multiwrap.roles.md)                 |                     | [ContractRoles](./sdk.contractroles.md)&lt;MultiwrapContract, typeof [Multiwrap.contractRoles](./sdk.multiwrap.contractroles.md)\[number\]&gt; | **<i>(BETA)</i>**                     |
-| [royalty](./sdk.multiwrap.royalty.md)             |                     | [ContractRoyalty](./sdk.contractroyalty.md)&lt;MultiwrapContract, typeof Multiwrap.schema&gt;                                                  | **<i>(BETA)</i>** Configure royalties |
+| [royalties](./sdk.multiwrap.royalties.md)         |                     | [ContractRoyalty](./sdk.contractroyalty.md)&lt;MultiwrapContract, typeof Multiwrap.schema&gt;                                                  | **<i>(BETA)</i>** Configure royalties |
 
 ## Methods
 
