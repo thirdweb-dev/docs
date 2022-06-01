@@ -3,60 +3,28 @@ slug: /thirdweb-deploy
 title: Overview
 ---
 
-# thirdweb deploy
-
-- Deploy your smart contracts without dealing with private keys or scripts
-- Automatic SDKs for your contracts - javascript, python, node (go/unity/ios/android soon)
-- Manage contracts with an intuitive dashboard
-- Publish contracts for your team or public use
-- See whats happening on-chain with analytics
-
-<div style={{position: "relative", paddingBottom: "64.86486486486486%", height: 0}}><iframe src="https://www.loom.com/embed/593fa3988dc24a188f7a1aa2cbbeb3cd" frameBorder="0" allowFullScreen style={{position: "absolute", top: 0, left: 0, width: "100%", height: "100%"}}></iframe></div>
-
 ## 🕸️ What is thirdweb deploy?
 
 ---
 
-Our mission is to make it easy to develop web3 apps & games. Currently our platform offers a variety of pre-built smart contracts (NFT Drops, Marketplaces, Voting, Splits, etc) that you can integrate into your application by using our SDKs and Dashboard.
-
-**We are extending thirdweb to support any smart contracts you develop!**
-
-You can now deploy your own smart contracts and get all the benefits of the thirdweb platform: SDKs, Dashboards and Analytics for **free**.
+Deploy your own smart contracts and get all the benefits of the thirdweb platform: SDKs, Dashboards and Analytics for **free**.
 
 If you have a smart contract (_ERC721A, Staking, Yield Farming, your own, etc)_ and want to build apps with it, this feature is for you!
 
-Write your solidity smart contract, deploy through thirdweb and enjoy the benefits for free:
+Write your solidity smart contract, deploy through thirdweb and enjoy the benefits of the platform:
 
-- Automatic SDK - interact with your contracts easily
-- Manage your contracts using our dashboard
-- See activity of your contracts in our dashboard
+- Deploy your smart contracts without dealing with private keys or scripts
+- Automatic SDKs for your contracts - javascript, python, node (go/unity/ios/android soon)
+- High level API for common contract extensions
+- Manage contracts with an intuitive dashboard
+- Publish contracts for your team or public use
+- See whats happening on-chain with analytics
 
 ## 🚀 Getting started
 
 ---
 
-Once you have a solidity contract (your own or from Github) you can enable thirdweb with a few steps:
-
-**Install the contracts package**
-
-```bash npm2yarn
-npm install @thirdweb-dev/contracts
-```
-
-**Extend ThirdwebContract in your Solidity code**
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
-
-import "@thirdweb-dev/contracts/ThirdwebContract.sol";
-
-contract MyCustomContract is ThirdwebContract {
-    // ... your contract code
-}
-```
-
-**Deploy it**
+**Deploy any contract - no previous setup necessary**
 
 ```bash
 npx thirdweb deploy
@@ -64,7 +32,7 @@ npx thirdweb deploy
 
 This command will:
 
-- auto-detect any contract that extends `ThirdwebContract` in your project
+- auto-detect any deployable contract in your project
 - compile your project
 - Upload ABI and bytecode to IPFS
 - Generate a deploy link
@@ -102,7 +70,7 @@ npm install @thirdweb-dev/sdk
 const contract = await sdk.getContract("0x...");
 
 // call any contract function (see dashboard for list of function signatures)
-await contract.functions.someCustomFunction();
+await contract.call("someCustomFunction");
 
 // if your contract follows the ERC721 standard, contract.nft will be present
 const allNFTs = await constract.nft.query.all();
@@ -159,7 +127,7 @@ pip install thirdweb-sdk
 
 ```python
 # interact with your contract without dealing with ABIs
-contract = sdk.get_custom_contract("0x...")
+contract = sdk.get_contract("0x...")
 
 # read data from your contract
 contract.functions.balance().call()
@@ -197,7 +165,7 @@ import "@thirdweb-dev/contracts/feature/interface/IMintableERC721.sol";
 // Adding IMintableERC721 and implementing it gives you
 // SDK -> contract.nft.mint with auto upload to IPFS
 // Dashboard -> Mint button on admin dashboard
-contract MyCustomContract is ThirdwebContract, IMintableERC721 {
+contract MyCustomContract is IMintableERC721 {
 
 	function mintTo(address to, string calldata uri) external returns (uint256) {
 		// implement your mint function
@@ -234,12 +202,5 @@ Since this is an early preview, be prepared for your published contracts to not 
 
 ---
 
-Join our [Discord](http://discord.gg/thirdweb). Head to the [#general](https://discord.com/channels/834227967404146718/834227967404146721) channel and say: “i’m a builder. here for the alpha.”
+Join our [Discord](http://discord.gg/thirdweb) to tell us about your experience and what you'd want us to build next!
 
-We’ll grant you a role to access to the [builders alpha channel](https://discord.com/channels/834227967404146718/967114171118387272) where you can share your _feedbacks_ and _bug reports_ to our engineering team.
-
-3 things we want to know from you (share them in the alpha channel):
-
-- What were your first impressions using the flow?
-- What’s your favorite thing about the tool / workflow?
-- What features would you like us to add next?
