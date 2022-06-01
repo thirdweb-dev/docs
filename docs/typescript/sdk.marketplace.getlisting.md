@@ -28,3 +28,14 @@ getListing(listingId: BigNumberish): Promise<AuctionListing | DirectListing>;
 Promise&lt;[AuctionListing](./sdk.auctionlisting.md) \| [DirectListing](./sdk.directlisting.md)&gt;
 
 either a direct or auction listing
+
+## Remarks
+
+Create and manage auctions in your marketplace.
+
+## Example
+
+```javascript
+const listingId = "1";
+const listing = await contract.getListing(listingId);
+```
