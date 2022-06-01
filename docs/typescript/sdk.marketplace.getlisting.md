@@ -31,11 +31,11 @@ either a direct or auction listing
 
 ## Remarks
 
-Create and manage auctions in your marketplace.
+Get a listing by its listing id
 
 ## Example
 
 ```javascript
-const listingId = "1";
+const listingId = 0;
 const listing = await contract.getListing(listingId);
 ```

@@ -38,6 +38,8 @@ Make an offer on a direct listing
 ## Example
 
 ```javascript
+import { ChainId, NATIVE_TOKENS } from "@thirdweb-dev/sdk";
+
 // The listing ID of the asset you want to offer on
 const listingId = 0;
 // The price you are willing to offer per token
@@ -51,6 +53,6 @@ await contract.direct.makeOffer(
   listingId,
   quantity,
   currencyContractAddress,
-  bidAmount,
+  pricePerToken,
 );
 ```
