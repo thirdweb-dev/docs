@@ -130,10 +130,10 @@ pip install thirdweb-sdk
 contract = sdk.get_contract("0x...")
 
 # read data from your contract
-contract.functions.balance().call()
+uri = contract.call("tokenURI", 0)
 
 # send transactions
-contract.send_transaction("mintTo", ["0x...", "ipfs://..."])
+contract.call("mintTo", "0x...", "ipfs://...")
 
 # if your contract follows the ERC721 standard, get convenience APIs
 contract.nft.balance()
@@ -203,4 +203,3 @@ Since this is an early preview, be prepared for your published contracts to not 
 ---
 
 Join our [Discord](http://discord.gg/thirdweb) to tell us about your experience and what you'd want us to build next!
-
