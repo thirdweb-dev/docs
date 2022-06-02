@@ -132,11 +132,11 @@
     ],
     "properties": [
       {
-        "name": "royalties",
+        "name": "royalty",
         "summary": "Configure royalties\n\n",
         "remarks": "\n\nSet your own royalties for the entire contract or per token\n\n",
         "examples": {
-          "javascript": "// royalties on the whole contract\ncontract.royalties.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalties.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
+          "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalty.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
           "python": "",
           "go": ""
         },
@@ -316,11 +316,11 @@
     ],
     "properties": [
       {
-        "name": "royalties",
+        "name": "royalty",
         "summary": "Configure royalties\n\n",
         "remarks": "\n\nSet your own royalties for the entire contract or per token\n\n",
         "examples": {
-          "javascript": "// royalties on the whole contract\ncontract.royalties.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalties.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
+          "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalty.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
           "python": "",
           "go": ""
         },
@@ -1043,11 +1043,11 @@
         }
       },
       {
-        "name": "royalties",
+        "name": "royalty",
         "summary": "Configure royalties\n\n",
         "remarks": "\n\nSet your own royalties for the entire contract or per token\n\n",
         "examples": {
-          "javascript": "// royalties on the whole contract\ncontract.royalties.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalties.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
+          "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalty.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
           "python": "",
           "go": ""
         },
@@ -1227,11 +1227,11 @@
         }
       },
       {
-        "name": "royalties",
+        "name": "royalty",
         "summary": "Configure royalties\n\n",
         "remarks": "\n\nSet your own royalties for the entire contract or per token\n\n",
         "examples": {
-          "javascript": "// royalties on the whole contract\ncontract.royalties.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalties.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
+          "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalty.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
           "python": "",
           "go": ""
         },
@@ -1383,6 +1383,208 @@
     "reference": {
       "typescript": "https://docs.thirdweb.com/typescript/sdk.Marketplace",
       "python": "https://docs.thirdweb.com/python/marketplace"
+    }
+  },
+  "MarketplaceDirect": {
+    "name": "MarketplaceDirect",
+    "summary": "Handles direct listings\n\n\n",
+    "examples": {},
+    "methods": [
+      {
+        "name": "acceptOffer",
+        "summary": "Accept an offer on a direct listing\n\n",
+        "remarks": "\n\nAccept an offer on a direct listing\n\n",
+        "examples": {
+          "javascript": "// The listing ID of the asset you want to bid on\nconst listingId = 0;\n// The price you are willing to bid for a single token of the listing\nconst offeror = \"0x...\";\n\nawait contract.direct.acceptOffer(listingId, offeror);",
+          "python": "",
+          "go": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceDirect.acceptOffer",
+          "python": "",
+          "go": ""
+        }
+      },
+      {
+        "name": "buyoutListing",
+        "summary": "Buy a Listing\n\n",
+        "remarks": "\n\nBuy a specific direct listing from the marketplace.\n\n",
+        "examples": {
+          "javascript": "// The listing ID of the asset you want to buy\nconst listingId = 0;\n// Quantity of the asset you want to buy\nconst quantityDesired = 1;\n\nawait contract.direct.buyoutListing(listingId, quantityDesired);",
+          "python": "",
+          "go": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceDirect.buyoutListing",
+          "python": "",
+          "go": ""
+        }
+      },
+      {
+        "name": "cancelListing",
+        "summary": "Cancel Direct Listing\n\n",
+        "remarks": "\n\nCancel a direct listing on the marketplace\n\n",
+        "examples": {
+          "javascript": "// The listing ID of the direct listing you want to cancel\nconst listingId = \"0\";\n\nawait contract.direct.cancelListing(listingId);",
+          "python": "",
+          "go": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceDirect.cancelListing",
+          "python": "",
+          "go": ""
+        }
+      },
+      {
+        "name": "createListing",
+        "summary": "Create Direct Listing\n\n",
+        "remarks": "\n\nCreate a new listing on the marketplace where people can buy an asset directly.\n\n",
+        "examples": {
+          "javascript": "// Data of the listing you want to create\nconst listing = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to list\n  tokenId: \"0\",\n  // when should the listing open up for offers\n  startTimestamp: new Date(),\n  // how long the listing will be open for\n  listingDurationInSeconds: 86400,\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // how much the asset will be sold for\n  buyoutPricePerToken: \"1.5\",\n}\n\nconst tx = await contract.direct.createListing(listing);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing",
+          "python": "",
+          "go": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceDirect.createListing",
+          "python": "",
+          "go": ""
+        }
+      },
+      {
+        "name": "makeOffer",
+        "summary": "Make an offer for a Direct Listing\n\n",
+        "remarks": "\n\nMake an offer on a direct listing\n\n",
+        "examples": {
+          "javascript": "import { ChainId, NATIVE_TOKENS } from \"@thirdweb-dev/sdk\";\n\n// The listing ID of the asset you want to offer on\nconst listingId = 0;\n// The price you are willing to offer per token\nconst pricePerToken = 1;\n// The quantity of tokens you want to receive for this offer\nconst quantity = 1;\n// The address of the currency you are making the offer in (must be ERC-20)\nconst currencyContractAddress = NATIVE_TOKENS[ChainId.Rinkeby].wrapped.address\n\nawait contract.direct.makeOffer(\n  listingId,\n  quantity,\n  currencyContractAddress,\n  pricePerToken\n);",
+          "python": "",
+          "go": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceDirect.makeOffer",
+          "python": "",
+          "go": ""
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceDirect"
+    }
+  },
+  "MarketplaceAuction": {
+    "name": "MarketplaceAuction",
+    "summary": "Handles auction listings\n\n\n",
+    "examples": {},
+    "methods": [
+      {
+        "name": "buyoutListing",
+        "summary": "Buyout Auction\n\n",
+        "remarks": "\n\nBuy a specific direct listing from the marketplace.\n\n",
+        "examples": {
+          "javascript": "// The listing ID of the asset you want to buy\nconst listingId = 0;\n\nawait contract.auction.buyoutListing(listingId);",
+          "python": "",
+          "go": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction.buyoutListing",
+          "python": "",
+          "go": ""
+        }
+      },
+      {
+        "name": "cancelListing",
+        "summary": "Cancel Auction Listing\n\n",
+        "remarks": "\n\nCancel an auction listing on the marketplace\n\n",
+        "examples": {
+          "javascript": "// The listing ID of the auction listing you want to cancel\nconst listingId = \"0\";\n\nawait contract.auction.cancelListing(listingId);",
+          "python": "",
+          "go": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction.cancelListing",
+          "python": "",
+          "go": ""
+        }
+      },
+      {
+        "name": "closeListing",
+        "summary": "Close the Auction\n\n",
+        "remarks": "\n\nCloses the Auction and executes the sale.\n\n",
+        "examples": {
+          "javascript": "// The listing ID of the auction listing you want to close\nconst listingId = \"0\";\nawait contract.auction.closeListing(listingId);",
+          "python": "",
+          "go": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction.closeListing",
+          "python": "",
+          "go": ""
+        }
+      },
+      {
+        "name": "createListing",
+        "summary": "Create Auction\n\n",
+        "remarks": "\n\nCreate a new auction where people can bid on an asset.\n\n",
+        "examples": {
+          "javascript": "// Data of the auction you want to create\nconst auction = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to list\n  tokenId: \"0\",\n // when should the listing open up for offers\n  startTimestamp: new Date(),\n  // how long the listing will be open for\n  listingDurationInSeconds: 86400,\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // how much people would have to bid to instantly buy the asset\n  buyoutPricePerToken: \"10\",\n  // the minimum bid that will be accepted for the token\n  reservePricePerToken: \"1.5\",\n}\n\nconst tx = await contract.auction.createListing(auction);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing",
+          "python": "",
+          "go": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction.createListing",
+          "python": "",
+          "go": ""
+        }
+      },
+      {
+        "name": "getWinner",
+        "summary": "Get Auction Winner\n\n",
+        "remarks": "\n\nGet the winner of the auction after an auction ends.\n\n",
+        "examples": {
+          "javascript": "// The listing ID of the auction that closed\nconst listingId = 0;\n\ncontract.auction.\n  .getWinner(listingId)\n  .then((auctionWinner) => console.log(auctionWinner))\n  .catch((err) => console.error(err));",
+          "python": "",
+          "go": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction.getWinner",
+          "python": "",
+          "go": ""
+        }
+      },
+      {
+        "name": "getWinningBid",
+        "summary": "Get Highest Bid\n\n",
+        "remarks": "\n\nGet the current highest bid of an active auction.\n\n",
+        "examples": {
+          "javascript": "// The listing ID of the auction that closed\nconst listingId = 0;\n\ncontract.auction.\n  .getWinningBid(listingId)\n  .then((offer) => console.log(offer))\n  .catch((err) => console.error(err));",
+          "python": "",
+          "go": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction.getWinningBid",
+          "python": "",
+          "go": ""
+        }
+      },
+      {
+        "name": "makeBid",
+        "summary": "Bid On Auction\n\n",
+        "remarks": "\n\nMake a bid on an auction listing\n\n",
+        "examples": {
+          "javascript": "// The listing ID of the asset you want to bid on\nconst listingId = 0;\n// The price you are willing to bid for a single token of the listing\nconst pricePerToken = 1;\n\nawait contract.auction.makeBid(listingId, pricePerToken);",
+          "python": "",
+          "go": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction.makeBid",
+          "python": "",
+          "go": ""
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction"
     }
   },
   "Split": {
@@ -1590,11 +1792,11 @@
     ],
     "properties": [
       {
-        "name": "royalties",
+        "name": "royalty",
         "summary": "Configure royalties\n\n",
         "remarks": "\n\nSet your own royalties for the entire contract or per pack\n\n",
         "examples": {
-          "javascript": "// royalties on the whole contract\ncontract.royalties.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular pack\ncontract.royalties.setTokenRoyaltyInfo(packId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
+          "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular pack\ncontract.royalty.setTokenRoyaltyInfo(packId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
           "python": "",
           "go": ""
         },
@@ -1711,6 +1913,144 @@
     "properties": [],
     "reference": {
       "typescript": "https://docs.thirdweb.com/typescript/sdk.Vote"
+    }
+  },
+  "Multiwrap": {
+    "name": "Multiwrap",
+    "summary": "Multiwrap lets you wrap any number of ERC20, ERC721 and ERC1155 tokens you own into a single wrapped token bundle.\n\n",
+    "examples": {
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"rinkeby\");\nconst contract = sdk.getMultiwrap(\"{{contract_address}}\");",
+      "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_multiwrap(\"{{contract_address}}\")",
+      "go": "go\ntype Multiwrap struct {\n    *ERC721\n}\n"
+    },
+    "methods": [
+      {
+        "name": "getAll",
+        "summary": "Get All Wrapped Token Bundles\n\n",
+        "remarks": "\n\nGet all the data associated with every token bundle in this contract.\n\nBy default, returns the first 100 NFTs, use queryParams to fetch more.\n\n",
+        "examples": {
+          "javascript": "const wrappedBundles = await contract.getAll();\nconsole.log(wrappedBundles);",
+          "python": "nfts = contract.get_all()\nprint(nfts)",
+          "go": "nfts, err := contract.GetAll()\nownerOne := nfts[0].Owner\nnameOne := nfts[0].Metadata.Name\n"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.Multiwrap.getAll",
+          "python": "https://docs.thirdweb.com/python/erc721#get_all",
+          "go": "https://docs.thirdweb.com/go/multiwrap#func-multiwrap-getall"
+        }
+      },
+      {
+        "name": "getWrappedContents",
+        "summary": "Get the contents of a wrapped token bundle\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const contents = await contract.getWrappedContents(wrappedTokenId);\nconsole.log(contents.erc20Tokens);\nconsole.log(contents.erc721Tokens);\nconsole.log(contents.erc1155Tokens);",
+          "python": "token_id = 0\ncontents = contract.get_wrapped_contents(token_id)\nprint(contents.erc20_tokens)\nprint(contents.erc721_tokens)\nprint(contents.erc1155_tokens)",
+          "go": "tokenId := 0\ncontents, err := contract.GetWrappedContents(tokenId)\nerc20Tokens := contents.Erc20Tokens\nerc721Tokens := contents.Erc721Tokens\nerc1155Tokens := contents.Erc1155Tokens\n"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.Multiwrap.getWrappedContents",
+          "python": "https://docs.thirdweb.com/python/multiwrap#get_wrapped_contents",
+          "go": "https://docs.thirdweb.com/go/multiwrap#func-multiwrap-getwrappedcontents"
+        }
+      },
+      {
+        "name": "unwrap",
+        "summary": "Unwrap a wrapped token bundle, and retrieve its contents\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "await contract.unwrap(wrappedTokenId);",
+          "python": "tx = contract.unwrap(wrapped_token_id, receipientAddress)",
+          "go": "tokenId := 0\ntx, err := contract.Unwrap(tokenId, \"\")\n"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.Multiwrap.unwrap",
+          "python": "https://docs.thirdweb.com/python/multiwrap#unwrap",
+          "go": "https://docs.thirdweb.com/go/multiwrap#func-multiwrap-unwrap"
+        }
+      },
+      {
+        "name": "wrap",
+        "summary": "Wrap any number of ERC20/ERC721/ERC1155 tokens into a single wrapped token\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const tx = await contract.wrap({\n  erc20Tokens: [{\n    contractAddress: \"0x...\",\n    quantity: \"0.8\"\n  }],\n  erc721Tokens: [{\n    contractAddress: \"0x...\",\n    tokenId: \"0\"\n  }],\n  erc1155Tokens: [{\n    contractAddress: \"0x...\",\n    tokenId: \"1\",\n    quantity: \"2\"\n  }]\n}, {\n    name: \"Wrapped bundle\",\n    description: \"This is a wrapped bundle of tokens and NFTs\",\n    image: \"ipfs://...\",\n});\nconst receipt = tx.receipt(); // the transaction receipt\nconst wrappedTokenId = tx.id; // the id of the wrapped token bundle",
+          "python": "from thirdweb.types import (\n    TokensToWrap,\n    ERC20Wrappable,\n    ERC721Wrappable,\n    ERC1155Wrappable,\n    NFTMetadataInput,\n)\n\n# Contract setup goes here...\n\ntx = contract.wrap(\n    TokensToWrap(\n        erc20_tokens=[\n            ERC20Wrappable(contract_address=\"0x...\", quantity=0.8),\n        ],\n        erc721_tokens=[\n            ERC721Wrappable(contract_address=\"0x...\", token_id=0),\n        ],\n        erc1155_tokens=[\n            ERC1155Wrappable(contract_address=\"0x...\", token_id=0, quantity=1),\n        ]\n    ),\n    NFTMetadataInput(\n        name=\"Wrapped NFT\",\n        description=\"This is a wrapped bundle of tokens and NFTs\",\n        image=\"ipfs://...\",\n    )\n)\n\nprint(tx.receipt, tx.id)",
+          "go": "contents := &thirdweb.MultiwrapBundle{\n\tERC20Tokens: []*thirdweb.MultiwrapERC20{\n\t\t&thirdweb.MultiwrapERC20{\n\t\t\tContractAddress: \"0x...\",\n\t\t\tQuantity:        1,\n\t\t},\n\t},\n\tERC721Tokens: []*thirdweb.MultiwrapERC721{\n\t\t&thirdweb.MultiwrapERC721{\n\t\t\tContractAddress: \"0x...\",\n\t\t\tTokenId:         1,\n\t\t},\n\t},\n\tERC1155Tokens: []*thirdweb.MultiwrapERC1155{\n\t\t&thirdweb.MultiwrapERC1155{\n\t\t\tContractAddress: \"0x...\",\n\t\t\tTokenId:         1,\n\t\t\tQuantity:        1,\n\t\t},\n\t},\n}\n\nwrappedTokenMetadata := &thirdweb.NFTMetadataInput{\n\tName: \"Wrapped Token\"\n}\n\n// This will mint the wrapped token to the connected wallet\ntx, err := contract.Wrap(contents, wrappedTokenMetadata, \"\")\n"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.Multiwrap.wrap",
+          "python": "https://docs.thirdweb.com/python/multiwrap#wrap",
+          "go": "https://docs.thirdweb.com/go/multiwrap#func-multiwrap-wrap"
+        }
+      },
+      {
+        "name": "balanceOf",
+        "summary": "Get NFT Balance\n\n",
+        "remarks": "\n\nGet a wallets NFT balance (number of NFTs in this contract owned by the wallet).\n\n",
+        "examples": {
+          "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.nft.balanceOf(walletAddress);\nconsole.log(balance);",
+          "python": "balance = contract.balance_of(\"{{wallet_address}}\")\nprint(balance)",
+          "go": "address := \"{{wallet_address}}\"\nbalance, err := contract.BalanceOf(address)\n"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.balanceOf",
+          "python": "https://docs.thirdweb.com/python/erc721#balance_of",
+          "go": "https://docs.thirdweb.com/go/multiwrap#func-multiwrap-balanceof"
+        }
+      },
+      {
+        "name": "get",
+        "summary": "Get a single NFT Metadata\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const tokenId = 0;\nconst nft = await contract.nft.get(tokenId);",
+          "python": "nft = contract.get(0)\nprint(nft)",
+          "go": "nft, err := contract.Get(0)\n"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.get",
+          "python": "https://docs.thirdweb.com/python/erc721#get",
+          "go": "https://docs.thirdweb.com/go/multiwrap#func-multiwrap-get"
+        }
+      },
+      {
+        "name": "transfer",
+        "summary": "Transfer a single NFT\n\n",
+        "remarks": "\n\nTransfer an NFT from the connected wallet to another wallet.\n\n",
+        "examples": {
+          "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.nft.transfer(walletAddress, tokenId);",
+          "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\n\nreceipt = contract.transfer(to, token_id)",
+          "go": "to := \"0x...\"\ntokenId := 0\n\ntx, err := contract.Transfer(to, tokenId)\n"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721.transfer",
+          "python": "https://docs.thirdweb.com/python/erc721#transfer",
+          "go": "https://docs.thirdweb.com/go/multiwrap#func-multiwrap-transfer"
+        }
+      }
+    ],
+    "properties": [
+      {
+        "name": "royalty",
+        "summary": "Configure royalties\n\n",
+        "remarks": "\n\nSet your own royalties for the entire contract or per token\n\n",
+        "examples": {
+          "javascript": "// royalties on the whole contract\ncontract.royalty.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1%\n  fee_recipient: \"0x...\"\n});\n// override royalty for a particular token\ncontract.royalty.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 500, // 5%\n  fee_recipient: \"0x...\"\n});",
+          "python": "",
+          "go": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty",
+          "python": "",
+          "go": ""
+        }
+      }
+    ],
+    "reference": {
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.Multiwrap",
+      "python": "https://docs.thirdweb.com/python/multiwrap",
+      "go": "https://docs.thirdweb.com/go/multiwrap"
     }
   },
   "ContractDeployer": {
@@ -1887,208 +2227,6 @@
     "properties": [],
     "reference": {
       "typescript": "https://docs.thirdweb.com/typescript/sdk.ContractDeployer"
-    }
-  },
-  "MarketplaceDirect": {
-    "name": "MarketplaceDirect",
-    "summary": "Handles direct listings\n\n\n",
-    "examples": {},
-    "methods": [
-      {
-        "name": "acceptOffer",
-        "summary": "Accept an offer on a direct listing\n\n",
-        "remarks": "\n\nAccept an offer on a direct listing\n\n",
-        "examples": {
-          "javascript": "// The listing ID of the asset you want to bid on\nconst listingId = 0;\n// The price you are willing to bid for a single token of the listing\nconst offeror = \"0x...\";\n\nawait contract.direct.acceptOffer(listingId, offeror);",
-          "python": "",
-          "go": ""
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceDirect.acceptOffer",
-          "python": "",
-          "go": ""
-        }
-      },
-      {
-        "name": "buyoutListing",
-        "summary": "Buy a Listing\n\n",
-        "remarks": "\n\nBuy a specific direct listing from the marketplace.\n\n",
-        "examples": {
-          "javascript": "// The listing ID of the asset you want to buy\nconst listingId = 0;\n// Quantity of the asset you want to buy\nconst quantityDesired = 1;\n\nawait contract.direct.buyoutListing(listingId, quantityDesired);",
-          "python": "",
-          "go": ""
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceDirect.buyoutListing",
-          "python": "",
-          "go": ""
-        }
-      },
-      {
-        "name": "cancelListing",
-        "summary": "Cancel Direct Listing\n\n",
-        "remarks": "\n\nCancel a direct listing on the marketplace\n\n",
-        "examples": {
-          "javascript": "// The listing ID of the direct listing you want to cancel\nconst listingId = \"0\";\n\nawait contract.direct.cancelListing(listingId);",
-          "python": "",
-          "go": ""
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceDirect.cancelListing",
-          "python": "",
-          "go": ""
-        }
-      },
-      {
-        "name": "createListing",
-        "summary": "Create Direct Listing\n\n",
-        "remarks": "\n\nCreate a new listing on the marketplace where people can buy an asset directly.\n\n",
-        "examples": {
-          "javascript": "// Data of the listing you want to create\nconst listing = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to list\n  tokenId: \"0\",\n  // when should the listing open up for offers\n  startTimestamp: new Date(),\n  // how long the listing will be open for\n  listingDurationInSeconds: 86400,\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // how much the asset will be sold for\n  buyoutPricePerToken: \"1.5\",\n}\n\nconst tx = await contract.direct.createListing(listing);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing",
-          "python": "",
-          "go": ""
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceDirect.createListing",
-          "python": "",
-          "go": ""
-        }
-      },
-      {
-        "name": "makeOffer",
-        "summary": "Make an offer for a Direct Listing\n\n",
-        "remarks": "\n\nMake an offer on a direct listing\n\n",
-        "examples": {
-          "javascript": "import { ChainId, NATIVE_TOKENS } from \"@thirdweb-dev/sdk\";\n\n// The listing ID of the asset you want to offer on\nconst listingId = 0;\n// The price you are willing to offer per token\nconst pricePerToken = 1;\n// The quantity of tokens you want to receive for this offer\nconst quantity = 1;\n// The address of the currency you are making the offer in (must be ERC-20)\nconst currencyContractAddress = NATIVE_TOKENS[ChainId.Rinkeby].wrapped.address\n\nawait contract.direct.makeOffer(\n  listingId,\n  quantity,\n  currencyContractAddress,\n  pricePerToken\n);",
-          "python": "",
-          "go": ""
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceDirect.makeOffer",
-          "python": "",
-          "go": ""
-        }
-      }
-    ],
-    "properties": [],
-    "reference": {
-      "typescript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceDirect"
-    }
-  },
-  "MarketplaceAuction": {
-    "name": "MarketplaceAuction",
-    "summary": "Handles auction listings\n\n\n",
-    "examples": {},
-    "methods": [
-      {
-        "name": "buyoutListing",
-        "summary": "Buyout Auction\n\n",
-        "remarks": "\n\nBuy a specific direct listing from the marketplace.\n\n",
-        "examples": {
-          "javascript": "// The listing ID of the asset you want to buy\nconst listingId = 0;\n\nawait contract.auction.buyoutListing(listingId);",
-          "python": "",
-          "go": ""
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction.buyoutListing",
-          "python": "",
-          "go": ""
-        }
-      },
-      {
-        "name": "cancelListing",
-        "summary": "Cancel Auction Listing\n\n",
-        "remarks": "\n\nCancel an auction listing on the marketplace\n\n",
-        "examples": {
-          "javascript": "// The listing ID of the auction listing you want to cancel\nconst listingId = \"0\";\n\nawait contract.auction.cancelListing(listingId);",
-          "python": "",
-          "go": ""
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction.cancelListing",
-          "python": "",
-          "go": ""
-        }
-      },
-      {
-        "name": "closeListing",
-        "summary": "Close the Auction\n\n",
-        "remarks": "\n\nCloses the Auction and executes the sale.\n\n",
-        "examples": {
-          "javascript": "// The listing ID of the auction listing you want to close\nconst listingId = \"0\";\nawait contract.auction.closeListing(listingId);",
-          "python": "",
-          "go": ""
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction.closeListing",
-          "python": "",
-          "go": ""
-        }
-      },
-      {
-        "name": "createListing",
-        "summary": "Create Auction\n\n",
-        "remarks": "\n\nCreate a new auction where people can bid on an asset.\n\n",
-        "examples": {
-          "javascript": "// Data of the auction you want to create\nconst auction = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to list\n  tokenId: \"0\",\n // when should the listing open up for offers\n  startTimestamp: new Date(),\n  // how long the listing will be open for\n  listingDurationInSeconds: 86400,\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // how much people would have to bid to instantly buy the asset\n  buyoutPricePerToken: \"10\",\n  // the minimum bid that will be accepted for the token\n  reservePricePerToken: \"1.5\",\n}\n\nconst tx = await contract.auction.createListing(auction);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing",
-          "python": "",
-          "go": ""
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction.createListing",
-          "python": "",
-          "go": ""
-        }
-      },
-      {
-        "name": "getWinner",
-        "summary": "Get Auction Winner\n\n",
-        "remarks": "\n\nGet the winner of the auction after an auction ends.\n\n",
-        "examples": {
-          "javascript": "// The listing ID of the auction that closed\nconst listingId = 0;\n\ncontract.auction.\n  .getWinner(listingId)\n  .then((auctionWinner) => console.log(auctionWinner))\n  .catch((err) => console.error(err));",
-          "python": "",
-          "go": ""
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction.getWinner",
-          "python": "",
-          "go": ""
-        }
-      },
-      {
-        "name": "getWinningBid",
-        "summary": "Get Highest Bid\n\n",
-        "remarks": "\n\nGet the current highest bid of an active auction.\n\n",
-        "examples": {
-          "javascript": "// The listing ID of the auction that closed\nconst listingId = 0;\n\ncontract.auction.\n  .getWinningBid(listingId)\n  .then((offer) => console.log(offer))\n  .catch((err) => console.error(err));",
-          "python": "",
-          "go": ""
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction.getWinningBid",
-          "python": "",
-          "go": ""
-        }
-      },
-      {
-        "name": "makeBid",
-        "summary": "Bid On Auction\n\n",
-        "remarks": "\n\nMake a bid on an auction listing\n\n",
-        "examples": {
-          "javascript": "// The listing ID of the asset you want to bid on\nconst listingId = 0;\n// The price you are willing to bid for a single token of the listing\nconst pricePerToken = 1;\n\nawait contract.auction.makeBid(listingId, pricePerToken);",
-          "python": "",
-          "go": ""
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction.makeBid",
-          "python": "",
-          "go": ""
-        }
-      }
-    ],
-    "properties": [],
-    "reference": {
-      "typescript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction"
     }
   }
 }
