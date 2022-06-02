@@ -34,6 +34,11 @@ const sidebars = {
       id: "storage",
     },
     {
+      type: "doc",
+      label: "Custom Contracts",
+      id: "custom",
+    },
+    {
       type: "category",
       label: "Contracts",
       collapsed: false,
