@@ -172,7 +172,7 @@ payload := &thirdweb.Signature1155PayloadInputWithTokenId{
 	Quantity:             1,
 ```
 
-TokenId: 0\, // now we need to specify the token ID to mint supply to \}
+TokenId: 0, // now we need to specify the token ID to mint supply to \}
 
 ```
 signedPayload, err := contract.Signature.GenerateFromTokenId(payload)
@@ -228,7 +228,7 @@ func (signature *ERC1155SignatureMinting) Verify(signedPayload *SignedPayload115
 
 signedPayload: the payload to verify
 
-returns: true if the payload is valid\, otherwise false\.
+returns: true if the payload is valid, otherwise false\.
 
 #### Example
 
