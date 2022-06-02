@@ -44,8 +44,9 @@ const nfts = await contract.edition.query.all();
 
 ## Methods
 
-| Method                                                      | Modifiers | Description                   |
-| ----------------------------------------------------------- | --------- | ----------------------------- |
-| [all(queryParams)](./sdk.erc1155enumerable.all.md)          |           | Get All NFTs                  |
-| [getTotalCount()](./sdk.erc1155enumerable.gettotalcount.md) |           | Get the number of NFTs minted |
-| [owned(walletAddress)](./sdk.erc1155enumerable.owned.md)    |           | Get Owned NFTs                |
+| Method                                                                               | Modifiers | Description                                  |
+| ------------------------------------------------------------------------------------ | --------- | -------------------------------------------- |
+| [all(queryParams)](./sdk.erc1155enumerable.all.md)                                   |           | Get All NFTs                                 |
+| [owned(walletAddress)](./sdk.erc1155enumerable.owned.md)                             |           | Get Owned NFTs                               |
+| [totalCirculatingSupply(tokenId)](./sdk.erc1155enumerable.totalcirculatingsupply.md) |           | Get the supply of token for a given tokenId. |
+| [totalCount()](./sdk.erc1155enumerable.totalcount.md)                                |           | Get the number of NFTs minted                |
