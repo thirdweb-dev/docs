@@ -8,12 +8,13 @@ const CONTRACTS = [
   "NFTDrop",
   "EditionDrop",
   "Marketplace",
+  "MarketplaceDirect",
+  "MarketplaceAuction",
   "Split",
   "Pack",
   "Vote",
+  "Multiwrap",
   "ContractDeployer",
-  "MarketplaceDirect",
-  "MarketplaceAuction",
 ];
 
 const typescript = JSON.parse(
