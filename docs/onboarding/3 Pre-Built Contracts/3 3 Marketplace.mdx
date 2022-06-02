@@ -8,9 +8,10 @@ import ThirdwebCodeSnippet from "../../../src/components/ThirdwebCodeSnippet";
 
 The Marketplace is a contract where you can buy and sell NFTs, such as to OpenSea or Rarible.
 
-The Marketplace contract allows you to list your NFTs for direct listing or for auction.
+The Marketplace contract allows you to list your NFTs for direct sale or for auction.
+
 Other users can come and place offers/bids, or buy the NFTs for the amount that you specified in your listing.
-If you choose to, other users can also list _their_ NFTs for sale on the marketplace too!
+If you choose to, other users can also list _their_ NFTs for sale on the marketplace.
 
 You could use the Marketplace contract to:
 
@@ -59,7 +60,8 @@ There are two types of listings in marketplaces.
 - Other users can place bids until the auction is finished.
 - Users can only make a bid if it is higher than the current highest bid (or asking price if there are no bids). A bid cannot be cancelled, and the funds are held in escrow by the auction contract.
 - At the end of the auction, no more bids can be placed.
-- At the end of the auction, both the **buyer** and the **seller** call the `closeAuction` function. When the **buyer** calls it, they are transferred the funds from the highest bid, when the **seller** calls it, they are transferred the NFT.
+- At the end of the auction, the `closeAuction` function needs to be called twice; once for the **buyer** and
+  once for the **seller**.
 
 ### Using the dashboard
 
@@ -71,13 +73,17 @@ Create a new listing by clicking the **New Listing** button in the dashboard.
 
 #### Creating a new Direct Listing
 
-<ThirdwebCodeSnippet contract={"Marketplace"} name={"direct"} />
+<ThirdwebCodeSnippet contract={"MarketplaceDirect"} name={"createListing"} />
 
 #### Creating a new Auction Listing
 
-<ThirdwebCodeSnippet contract={"Marketplace"} name={"auction"} />
+<ThirdwebCodeSnippet contract={"MarketplaceAuction"} name={"createListing"} />
 
 ## Viewing Listings
+
+### One Listing
+
+<ThirdwebCodeSnippet contract={"Marketplace"} name={"getListing"} />
 
 ### All Listings
 
@@ -89,9 +95,62 @@ This filters out listings that have finished, been cancelled, or have already be
 
 <ThirdwebCodeSnippet contract={"Marketplace"} name={"getActiveListings"} />
 
+## Creating Offers / Bids
+
+### Direct Listings
+
+**Offers** are made on direct listings.
+
+<ThirdwebCodeSnippet contract={"MarketplaceDirect"} name={"makeOffer"} />
+
+### Auction Listings
+
+**Bids** are made on auction listings.
+
+- Once a bid is made, it cannot be cancelled.
+- Bids must be higher than either the **reserve price**, OR if there is an existing bid, it must be higher than the current bid by a certain percentage -
+  (see [Auction Bid Buffers](#auction-bid-buffers)).
+- The bid that was previously highest is refunded automatically when a higher bid is made.
+
+<ThirdwebCodeSnippet contract={"MarketplaceAuction"} name={"makeBid"} />
+
 ## Buying an NFT from a Listing
 
+Buying a listing is the same for both direct listings and auction listings.
+
+When a `buyout` is made, the NFT is transferred to the buyer and the seller receives the funds immediately.
+
 <ThirdwebCodeSnippet contract={"Marketplace"} name={"buyoutListing"} />
+
+## Accept Offers (Direct Only)
+
+Offers can only be accepted on direct listings.
+
+<ThirdwebCodeSnippet contract={"MarketplaceDirect"} name={"acceptOffer"} />
+
+## Cancel a Listing
+
+### Direct Listing
+
+<ThirdwebCodeSnippet contract={"MarketplaceDirect"} name={"cancelListing"} />
+
+### Auction Listing
+
+Auction listings **cannot** be cancelled if there has been a bid placed.
+
+<ThirdwebCodeSnippet contract={"MarketplaceAuction"} name={"cancelListing"} />
+
+## Close a Listing (Auction Only)
+
+When an auction is finished, the `closeAuction` needs to be called for both the **buyer** and the **seller**.
+
+This is why the `closeAuction` function takes in a `closeFor` parameter.
+
+- When the `closeFor` value is the address of the **buyer**, they are transferred the funds from the highest bid.
+
+- When the `closeFor` value is the address of the **seller**, they are transferred the NFT.
+
+<ThirdwebCodeSnippet contract={"MarketplaceAuction"} name={"closeListing"} />
 
 ## Auction Bid Buffers
 
