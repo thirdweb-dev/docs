@@ -18,7 +18,7 @@ On the `index.tsx` page, we are using the [useActiveListings](https://portal.thi
 
 :::info
 
-"**Active**" is defined as any listing which has not been sold, cancelled, or has finished (i.e. current date is after the end date of the listing.)
+"**Active**" is defined as any listing which has not been sold, canceled, or has finished (i.e. current date is after the end date of the listing.)
 
 :::
 
@@ -37,7 +37,7 @@ const { data: listings, isLoading: loadingListings } =
 
 Behind the scenes, the thirdweb React SDK is **caching** these results, so we don't have to perform these lengthy requests every time we want to fetch the active listings.
 
-In the UI, we `map` over the `listings` array, and transform each listing into `div`, containing
+In the UI, we `map` over the `listings` array, and transform each listing into a `div`, containing
 the listings price and the NFT that is listed's metadata; such as name and image.
 
 ## Creating a Listing
@@ -51,7 +51,7 @@ runs either `createAuctionListing` or `createDirectListing`, depending on the va
 There are only slight differences between the two functions.
 
 In **Auction Listings**, the `reservePricePerToken` parameter is required, which refers to what
-the **minimum** bid price is for the listing. Whereas in **Direct Listings**, this paramter is
+the **minimum** bid price is for the listing. Whereas in **Direct Listings**, this parameter is
 not required, since users can _offer_ any price they wish.
 
 ### Creating Auction Listings
@@ -85,7 +85,7 @@ await marketplace?.direct.createListing({
 
 ## Offers, Bids, and Buyouts
 
-Making offers/bids on marketplace listings are also slightly different from eachother.
+Making offers/bids on marketplace listings are also slightly different from each other.
 
 Buyouts occur when the user pays the `buyoutPricePerToken` on a listing; at this point, the listing is closed, the funds are transferred to the seller, and the NFT(s) are transferred to the buyer.
 
@@ -95,9 +95,9 @@ Buyouts occur when the user pays the `buyoutPricePerToken` on a listing; at this
 
 Attributes of a bid:
 
-- Bids cannot be cancelled once they are placed.
+- Bids cannot be canceled once they are placed.
 - Bids are held by the smart contract in escrow.
-- The bid must be a certain amount higher than the current highest bid if there is one. There is either zero or one bids on an auction listing at any given time. Bids that get out-bid are automatically refunded.
+- The bid must be a certain amount higher than the current highest bid if there is one. There is either zero or one bid on an auction listing at any given time. Bids that get out-bid are automatically refunded.
 
 To create a bid on a listing:
 
@@ -111,9 +111,9 @@ await marketplace?.auction.makeBid(listingId, bidAmount);
 
 Attributes of an offer:
 
-- Offers can be cancelled at any time.
-- The offeror grants the marketplace smart contract **permission** to transfer the certain amount of funds from their wallet, the funds are not held in escrow.
-- They can be higher or lower than other offers on the listing, and in different currencies.
+- Offers can be canceled at any time.
+- The offeror grants the marketplace smart contract **permission** to transfer a certain amount of funds from their wallet, the funds are not held in escrow.
+- They can be higher or lower than other offers on the listing and in different currencies.
 
 To create an offer on a listing:
 

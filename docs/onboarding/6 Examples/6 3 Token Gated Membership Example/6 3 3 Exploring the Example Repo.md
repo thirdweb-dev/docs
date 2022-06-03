@@ -25,7 +25,7 @@ const address = useAddress();
 const connectWithMetamask = useMetamask();
 ```
 
-We first return a page for users to connect their wallet if they haven't already.
+We first return a page for users to connect their wallets if they haven't already.
 
 ```jsx
 //if there isn't a wallet connected, display our connect MetaMask button
@@ -43,7 +43,7 @@ if (!address) {
 
 ## Checking if the user has an NFT
 
-On the [`App.js`](https://github.com/thirdweb-example/NFT-Gated-Website/blob/main/src/App.js) page we are running a function called `checkBalance` inside a `useEffect` function, to check if the user has any NFTs from our smart contract.
+On the [`App.js`](https://github.com/thirdweb-example/NFT-Gated-Website/blob/main/src/App.js) page, we are running a function called `checkBalance` inside a `useEffect` function, to check if the user has any NFTs from our smart contract.
 
 ```jsx
 const checkBalance = async () => {
