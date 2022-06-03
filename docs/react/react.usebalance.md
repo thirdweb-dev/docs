@@ -11,6 +11,8 @@ displayed_sidebar: react
 
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
+A hook to get the native or (optional) ERC20 token balance of the connected wallet.
+
 **Signature:**
 
 ```typescript
@@ -38,3 +40,5 @@ export declare function useBalance(
 **Returns:**
 
 import("react-query").UseQueryResult&lt;{ symbol: string; name: string; value: import("ethers").BigNumber; decimals: number; displayValue: string; } \| undefined, unknown&gt;
+
+the balance of the connected wallet (native or ERC20)

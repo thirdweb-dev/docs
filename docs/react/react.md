@@ -24,7 +24,7 @@ import { useAddress } from "@thirdweb-dev/react";
 |
 | [useAllRoleMembers(contract)](./react.useallrolemembers.md) | **<i>(BETA)</i>** Use this to get the roles of a |
 | [useAuctionWinner(contract, listingId)](./react.useauctionwinner.md) | **<i>(BETA)</i>** Use this to get the winner of an auction listing from your marketplace contract. |
-| [useBalance(tokenAddress)](./react.usebalance.md) | **<i>(BETA)</i>** |
+| [useBalance(tokenAddress)](./react.usebalance.md) | **<i>(BETA)</i>** A hook to get the native or (optional) ERC20 token balance of the connected wallet. |
 | [useBidBuffer(contract)](./react.usebidbuffer.md) | **<i>(BETA)</i>** Use this to get the buffer in basis points between offers from your marketplace contract. |
 | [useBuyNow(contract)](./react.usebuynow.md) | **<i>(BETA)</i>** Use this to buy out an auction listing from your marketplace contract. |
 | [useChainId()](./react.usechainid.md) | Hook for accessing the chain ID of the network the current wallet is connected to
