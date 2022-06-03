@@ -215,7 +215,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "An example of an NFT Gated Website for thirdweb's NFT Gated Website Guide",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-05-27T12:52:09Z",
+    "updated_at": "2022-06-03T01:30:04Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "edition",
@@ -226,7 +226,7 @@
       "react"
     ],
     "language": "JavaScript",
-    "stargazers_count": 14,
+    "stargazers_count": 15,
     "is_template": false
   },
   {
@@ -251,10 +251,10 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-deploy-hello-world",
     "description": "A starter project for using thirdweb deploy with the thirdweb SDKs",
     "created_at": "2022-06-03T00:54:26Z",
-    "updated_at": "2022-06-03T00:54:26Z",
+    "updated_at": "2022-06-03T01:29:27Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-deploy-hello-world.git",
     "topics": [],
-    "language": null,
+    "language": "JavaScript",
     "stargazers_count": 0,
     "is_template": false
   },
