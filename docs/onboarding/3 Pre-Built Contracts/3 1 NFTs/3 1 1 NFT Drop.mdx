@@ -11,7 +11,7 @@ thirdweb's drop contracts **lazy mint** your NFTs and make them available to be 
 The NFT Drop contract is best used when you want to release a **1-of-1** or **1-of-many** NFT collection,
 such as a PFP (profile picture) collection, and uses the [ERC721 Standard](https://eips.ethereum.org/EIPS/eip-721).
 The NFT Drop contract allows you to define the conditions for when and how your users can mint an NFT,
-including allowlists, release dates, claim limits and delayed reveals.
+including allowlists, release dates, claim limits, and delayed reveals.
 
 When you add NFTs to your drop contract, they are **not** minted at this point.
 You prepare everything for your users so that _they_ can mint the NFT(s).
@@ -41,7 +41,7 @@ Learn how to create any of thirdweb's pre-built contracts via the [Deploying Con
 
 ## Getting the contract in your application
 
-To start using your NFT Drop contract inside your application, you'll need to use it's contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+To start using your NFT Drop contract inside your application, you'll need to use its contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <ThirdwebCodeSnippet
   contract={"NFTDrop"}
@@ -53,7 +53,7 @@ To start using your NFT Drop contract inside your application, you'll need to us
 
 ### Using the dashboard
 
-You can batch upload NFTs through the dashboard by uploading a `.csv` file or a `.json` file that contains the metadata of all your NFTs, alongside the assets (images, videos, etc).
+You can batch upload NFTs through the dashboard by uploading a `.csv` file or a `.json` file that contains the metadata of all your NFTs, alongside the assets (images, videos, etc.).
 
 - You must include a `name` column for each NFT in the `.csv` or `json` file
 - Asset file names must be sequential. E.g. `0.png`, `1.png`, `2.png`.
@@ -63,7 +63,7 @@ You can use our examples to get started:
 - [Example CSV File](https://thirdweb.com/example.csv)
 - [Example JSON File](https://nightly.thirdweb.com/example.json)
 
-For a more in-depth guide on how to create your NFTs in the NFT Drop contract, check out our guide [How to Release an NFT Drop](https://portal.thirdweb.com/guides/release-an-nft-drop-with-no-code).
+For a more in-depth guide on creating your NFTs in the NFT Drop contract, check out [How to Release an NFT Drop](https://portal.thirdweb.com/guides/release-an-nft-drop-with-no-code).
 
 ### Using the thirdweb SDK
 
@@ -87,7 +87,7 @@ For each claim phase, you can define:
 
 ### Using the dashboard
 
-For a more in-depth guide on how to set up your NFT Drop with multiple claim phases and an allowlist, check out our guide [Release an NFT Drop with an allowlist and multiple claim phases](https://portal.thirdweb.com/guides/create-nft-drop-with-claim-phases).
+For a more in-depth guide on setting up your NFT Drop with multiple claim phases and an allowlist, check out our guide [Release an NFT Drop with an allowlist and multiple claim phases](https://portal.thirdweb.com/guides/create-nft-drop-with-claim-phases).
 
 ### Using the thirdweb SDK
 
@@ -95,7 +95,7 @@ For a more in-depth guide on how to set up your NFT Drop with multiple claim pha
 
 ## Delayed Reveals
 
-Delayed reveals allow you to reveal the contents of the NFT to the user later at a specific date, and show a placeholder asset in the meantime.
+Delayed reveals enable you to reveal the contents of the NFT to the user later at a specific date and show a placeholder asset in the meantime.
 
 ### Using the dashboard
 
@@ -104,7 +104,7 @@ Delayed reveals allow you to reveal the contents of the NFT to the user later at
 
 ![Select Delayed Reveal](../assets/select-delayed-reveal.png)
 
-For a more in-depth guide on how to set up your NFT Drop with delayed reveal, check out our guide [Release an NFT drop with delayed reveal](https://portal.thirdweb.com/guides/nft-drop-with-delayed-reveal).
+For a more in-depth guide on setting up your NFT Drop with delayed reveal, check out our guide [Release an NFT drop with delayed reveal](https://portal.thirdweb.com/guides/nft-drop-with-delayed-reveal).
 
 ### Using the thirdweb SDK
 

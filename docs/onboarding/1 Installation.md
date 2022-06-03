@@ -15,9 +15,9 @@ The easiest way to create **web applications** is by using `create-thirdweb-dapp
 npx @thirdweb-dev/create-thirdweb-dapp
 ```
 
-This interactive CLI creates a new app with the language & framework of your choice, and thirdweb pre-configured.
+This interactive CLI creates a new app with the language & framework of your choice and thirdweb pre-configured.
 
-You can also start off with one of our [example projects](/examples) by passing the `--example` flag.
+You can also start with one of our [example projects](/examples) by passing the `--example` flag.
 
 ```bash
 # This clones our NFT minting page example project.
@@ -32,7 +32,7 @@ Our most popular examples are:
 
 ## Manual Setup
 
-Alternatively, install thirdweb in your project by adding the required dependencies.
+Alternatively, install the thirdweb CLI in your project by adding the required dependencies.
 
 This is recommended for existing projects or projects not running on web clients.
 

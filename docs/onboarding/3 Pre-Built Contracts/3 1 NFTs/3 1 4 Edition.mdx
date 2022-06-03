@@ -12,7 +12,7 @@ The **Edition** contract is best used when you want to release many NFTs based o
 
 Unlike the [Edition Drop](/pre-built-contracts/edition-drop) contract, the Edition contract does not **lazy mint** your NFTs. Instead, NFTs are minted immediately when they are added to the collection.
 
-This means you can still transfer the NFTs or sell them on a [Marketplace](/pre-built-contracts/marketplace), and perform any other actions you would expect to do with an NFT.
+This means you can still transfer the NFTs or sell them on a [Marketplace](/pre-built-contracts/marketplace) and perform any other actions you would expect to do with an NFT.
 
 You could use the Edition contract to:
 
@@ -60,9 +60,9 @@ From the dashboard, in the **Settings** tab, you can set the royalty **percentag
 
 With an Edition contract, you choose which wallet addresses can mint NFTs into your collection.
 
-By default, only you (the smart contract owner) can mint NFTs into the collection.
+Only you (the smart contract owner) can mint NFTs into the collection by default.
 
-You can specify which wallets can mint in the **Permissions** tab of your NFT Collection, under the **Creator** section.
+You can specify which wallets can mint in the **Permissions** tab of your NFT Collection under the **Creator** section.
 
 ![Configuring Royalties on the Dashboard](../assets/creator-section.png)
 
@@ -92,7 +92,7 @@ For a more in-depth guide on how to create an NFT Collection, check out our guid
 
 ## Airdrop NFTs
 
-Airdropping means you send a wallet or a list of wallets a configurable quantity of your NFT.
+Airdropping means you send a wallet or a list of wallets with a configurable quantity of your NFT.
 
 ### Using the dashboard
 
@@ -100,7 +100,7 @@ Using the thirdweb dashboard, you can upload a `.csv` file containing a list of 
 
 You can download our example `.csv` file for airdrops [here](https://thirdweb.com/airdrop.csv).
 
-In the `.csv` file you must specify an `address` column and a `quantity` column; representing the address you want to send the NFTs to, and how many you wish to send.
+In the `.csv` file, you must specify an `address` column and a `quantity` column, representing the address you want to send the NFTs and how many you wish to send.
 
 ### Using the thirdweb SDK
 

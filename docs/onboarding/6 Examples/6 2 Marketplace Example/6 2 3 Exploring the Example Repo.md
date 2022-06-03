@@ -10,7 +10,7 @@ We'll explore how we use the thirdweb SDKs to:
 
 - Fetch all active listings from the smart contract
 - Allow users to create their own listings on the `create` page
-- Enable users to make offers, bids and buyout listings.
+- Enable users to make offers, bids, and buyout listings.
 
 ## Fetching Active Listings
 
@@ -18,11 +18,11 @@ On the `index.tsx` page, we are using the [useActiveListings](https://portal.thi
 
 :::info
 
-"**Active**" is defined as any listing which has not been sold, canceled, or has finished (i.e. current date is after the end date of the listing.)
+"**Active**" is defined as any listing which has not been sold, canceled, or has finished (i.e., the current date is after the end date of the listing.)
 
 :::
 
-You can see we are initializing the **marketplace contract** using the [useMarketplace](https://portal.thirdweb.com/react/react.usemarketplace) hook, and passing the contract as a parameter to the `useActiveListings`.
+You can see we are initializing the **marketplace contract** using the [useMarketplace](https://portal.thirdweb.com/react/react.usemarketplace) hook and passing the contract as a parameter to the `useActiveListings`.
 
 ```jsx
 // Connect your marketplace smart contract here (replace this address)
@@ -37,22 +37,18 @@ const { data: listings, isLoading: loadingListings } =
 
 Behind the scenes, the thirdweb React SDK is **caching** these results, so we don't have to perform these lengthy requests every time we want to fetch the active listings.
 
-In the UI, we `map` over the `listings` array, and transform each listing into a `div`, containing
-the listings price and the NFT that is listed's metadata; such as name and image.
+In the UI, we `map` over the `listings` array and transform each listing into a `div` containing
+the listings price and the NFT that is listed's metadata, such as name and image.
 
 ## Creating a Listing
 
 On the `create.tsx` page, we have created a form for the user to input the `contractAddress` and
 `tokenId` of the NFT they wish to list, as well as the price they wish to list it for.
 
-When the form is submitted, we run a function called `handleCreateListing` which
-runs either `createAuctionListing` or `createDirectListing`, depending on the values submitted in the form.
+When the form is submitted, we run a function called `handleCreateListing`, which runs either `createAuctionListing` or `createDirectListing`, depending on the values submitted in the form.
 
 There are only slight differences between the two functions.
-
-In **Auction Listings**, the `reservePricePerToken` parameter is required, which refers to what
-the **minimum** bid price is for the listing. Whereas in **Direct Listings**, this parameter is
-not required, since users can _offer_ any price they wish.
+In **Auction Listings**, the `reservePricePerToken` parameter is required. This parameter refers to the **minimum** bid price for the listing. Whereas in **Direct Listings**, this parameter is unnecessary since users can _offer_ any price they wish.
 
 ### Creating Auction Listings
 
@@ -91,7 +87,7 @@ Buyouts occur when the user pays the `buyoutPricePerToken` on a listing; at this
 
 ### Bids
 
-**Bids** are placed on **Auction listings**, and are "high-commitment".
+**Bids** are placed on **Auction listings** and are "high-commitment."
 
 Attributes of a bid:
 
@@ -107,12 +103,12 @@ await marketplace?.auction.makeBid(listingId, bidAmount);
 
 ### Offers
 
-**Offers** are placed on **Direct Listings**, and are "low-commitment".
+**Offers** are placed on **Direct Listings** and are "low-commitment."
 
 Attributes of an offer:
 
 - Offers can be canceled at any time.
-- The offeror grants the marketplace smart contract **permission** to transfer a certain amount of funds from their wallet, the funds are not held in escrow.
+- The offeror grants the marketplace smart contract **permission** to transfer a certain amount of funds from their wallet; the funds are not held in escrow.
 - They can be higher or lower than other offers on the listing and in different currencies.
 
 To create an offer on a listing:

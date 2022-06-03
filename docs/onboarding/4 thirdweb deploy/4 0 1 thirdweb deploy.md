@@ -7,9 +7,9 @@ title: Overview
 
 ---
 
-Deploy your own smart contracts and get all the benefits of the thirdweb platform: SDKs, Dashboards and Analytics for **free**.
+Deploy your smart contracts and get all the benefits of the thirdweb platform: SDKs, Dashboards, and Analytics for **free**.
 
-If you have a smart contract (_ERC721A, Staking, Yield Farming, your own, etc)_ and want to build apps with it, this feature is for you!
+If you have a smart contract (_ERC721A, Staking, Yield Farming, your own, etc._) and want to build apps with it, this feature is for you!
 
 Write your solidity smart contract, deploy through thirdweb and enjoy the benefits of the platform:
 
@@ -37,13 +37,13 @@ This command will:
 - Upload ABI and bytecode to IPFS
 - Generate a deploy link
 
-Follow the link to the dashboard where you can connect a wallet (or a multi-sig like gnosis) to deploy your code to blockchains from your browser-connected wallet. **No copy/pasting of private keys or complex scripting required!**
+Follow the link to the dashboard where you can connect a wallet (or a multi-sig like gnosis) to deploy your code to blockchains from your browser-connected wallet. **No copy/pasting of private keys or complex scripting is required!**
 
 ![Deploy your contracts from the browser](./assets/Screen_Shot_2022-04-29_at_3.19.00_PM.png)
 
 We currently support hardhat, forge, truffle, brownie projects, and even raw solc compilation! For more information on the thirdweb CLI, head over to our [thirdweb CLI GitHub repository](https://github.com/thirdweb-dev/thirdweb-cli).
 
-You can deploy a specific instance of the contract directly from your dashboard, specifying basic contract metadata and parameters.
+You can deploy a specific contract instance directly from your dashboard, specifying basic contract metadata and parameters.
 
 ![Fill in contract metadata and parameters](./assets/Screen_Shot_2022-04-26_at_11.50.03_AM.png)
 
@@ -51,7 +51,7 @@ Once deployed, you can immediately **start interacting with your deployed contra
 
 ![Code snippets to interact with your contract from your app](./assets/Screen_Shot_2022-04-26_at_12.01.01_PM.png)
 
-If your contract implements any common EIP specification - like ERC20, ERC721, ERC1155 and more - we auto-detect this in the SDK and our dashboard. This means you get the **same intuitive APIs in React, Typescript and Python** and a **convenient web dashboard** that you would get with our built-in contracts.
+If your contract implements any common EIP specification - like ERC20, ERC721, ERC1155, and more - we auto-detect this in the SDK and our dashboard. This means you get the **same intuitive APIs in React, Typescript, and Python** and a **convenient web dashboard** that you would get with our built-in contracts.
 
 ### 💻 Javascript / Typescript SDK
 
@@ -153,7 +153,7 @@ Your contract dashboard page also auto-detects standard functionality like ERC72
 
 ---
 
-We support any contract that you’ll write and you can use the SDK to call raw functions on it. But to get the full thirdweb convenience, APIs and dashboard functionality, you can extend your dashboard with our contract interfaces to enable specific features in the SDK and dashboard.
+We support any contract that you’ll write, and you can use the SDK to call raw functions on it. But to get the full thirdweb convenience, APIs, and dashboard functionality, you can extend your dashboard with our contract interfaces to enable specific features in the SDK and dashboard.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -194,7 +194,7 @@ This an early preview that comes with some limitations for this alpha release
 - Requires Solidity > 0.8.0
 - Only supports publishing and deploying on testnets
 
-Since this is an early preview, be prepared for your published contracts to not be accessible anymore once we launch this product fully.
+Since this is an early preview, be prepared for your published contracts not to be accessible anymore once we launch this product fully.
 
 :::
 
