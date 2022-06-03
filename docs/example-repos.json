@@ -84,13 +84,13 @@
     "html_url": "https://github.com/thirdweb-example/custom-minting-page",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2022-05-27T23:21:04Z",
+    "updated_at": "2022-06-03T00:45:42Z",
     "clone_url": "https://github.com/thirdweb-example/custom-minting-page.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 4,
+    "stargazers_count": 5,
     "is_template": false
   },
   {
@@ -126,7 +126,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-next-ts",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2022-06-01T14:21:44Z",
+    "updated_at": "2022-06-02T22:35:24Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-next-ts.git",
     "topics": [
       "marketplace",
@@ -134,7 +134,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 4,
+    "stargazers_count": 5,
     "is_template": false
   },
   {
@@ -244,6 +244,18 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 3,
+    "is_template": false
+  },
+  {
+    "name": "thirdweb-deploy-hello-world",
+    "html_url": "https://github.com/thirdweb-example/thirdweb-deploy-hello-world",
+    "description": "A starter project for using thirdweb deploy with the thirdweb SDKs",
+    "created_at": "2022-06-03T00:54:26Z",
+    "updated_at": "2022-06-03T00:54:26Z",
+    "clone_url": "https://github.com/thirdweb-example/thirdweb-deploy-hello-world.git",
+    "topics": [],
+    "language": null,
+    "stargazers_count": 0,
     "is_template": false
   },
   {

@@ -32,9 +32,9 @@ Our most popular examples are:
 
 ## Manual Setup
 
-Alternatively, install thirdweb in your project by adding the required depdenencies.
+Alternatively, install thirdweb in your project by adding the required dependencies.
 
-This is recommended for existing projects, or projects not running on web clients.
+This is recommended for existing projects or projects not running on web clients.
 
 <InstallingThirdwebCodeTabs />
 

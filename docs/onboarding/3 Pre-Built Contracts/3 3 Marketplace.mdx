@@ -6,7 +6,7 @@ import ThirdwebCodeSnippet from "../../../src/components/ThirdwebCodeSnippet";
 
 # Marketplace
 
-The Marketplace is a contract where you can buy and sell NFTs, such as to OpenSea or Rarible.
+A Marketplace is a contract where you can buy and sell NFTs, such as to OpenSea or Rarible.
 
 The Marketplace contract allows you to list your NFTs for direct sale or for auction.
 
@@ -33,7 +33,7 @@ Learn how to create any of thirdweb's pre-built contracts via the [Deploying Con
 
 ## Getting the contract in your application
 
-To start using your Marketplace contract inside your application, you'll need to use it's contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+To start using your Marketplace contract inside your application, you'll need to use its contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <ThirdwebCodeSnippet
   contract={"Marketplace"}
@@ -47,9 +47,9 @@ There are two types of listings in marketplaces.
 
 1. **Direct Listings**:
 
-- Sellers list their NFT for direct sale, with a price users can buy it for.
+- Sellers list their NFT for direct sale with the price users can buy it for.
 - The NFT remains in your wallet, but you provide permission for the marketplace contract to move the NFT.
-- If a user pays the asking price, they will be transferred your NFT and the seller will receive the funds.
+- If a user pays the asking price, they will be transferred the NFT and the seller will receive the funds.
 - Users can make offers below the asking price, and the listing can have multiple offers at once, the seller can choose to accept an offer at any time.
 - Users can cancel their bids at any time.
 
@@ -167,7 +167,7 @@ This is why the `closeAuction` function takes in a `closeFor` parameter.
 We made a few important considerations when it comes to auctions in our smart contract.
 
 - When someone makes a bid in an auction, the time until the auction is finished is extended by a set amount you can configure. This is to avoid users not bidding at the last possible second to win the auction.
-- The user must bid a certain percentage higher than the current highest bid. This is to avoid users bidding miniscule amounts above the previous bid.
+- The user must bid a certain percentage higher than the current highest bid. This is to avoid users bidding minuscule amounts above the previous bid.
 
 ### Set Time Buffer
 

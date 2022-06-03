@@ -15,16 +15,16 @@ Write your solidity smart contract, deploy through thirdweb and enjoy the benefi
 
 - Deploy your smart contracts without dealing with private keys or scripts
 - Automatic SDKs for your contracts - javascript, python, node (go/unity/ios/android soon)
-- High level API for common contract extensions
+- High-level API for common contract extensions
 - Manage contracts with an intuitive dashboard
-- Publish contracts for your team or public use
+- Publish contracts for your team or for public use
 - See whats happening on-chain with analytics
 
 ## 🚀 Getting started
 
 ---
 
-**Deploy any contract - no previous setup necessary**
+**Deploy any contract - no previous setup is required**
 
 ```bash
 npx thirdweb deploy
@@ -37,11 +37,11 @@ This command will:
 - Upload ABI and bytecode to IPFS
 - Generate a deploy link
 
-Follow the link to the dashboard where you can connect a wallet (or a multi-sig like gnosis) to deploy your code to blockchains from your browser connected wallet. **No copy/pasting private keys or complex scripting required!**
+Follow the link to the dashboard where you can connect a wallet (or a multi-sig like gnosis) to deploy your code to blockchains from your browser-connected wallet. **No copy/pasting of private keys or complex scripting required!**
 
 ![Deploy your contracts from the browser](./assets/Screen_Shot_2022-04-29_at_3.19.00_PM.png)
 
-We currently support hardhat,forge, truffle, brownie projects, and even raw solc compilation! For more information on the thirdweb CLI, head over to our [thirdweb CLI github repository](https://github.com/thirdweb-dev/thirdweb-cli).
+We currently support hardhat, forge, truffle, brownie projects, and even raw solc compilation! For more information on the thirdweb CLI, head over to our [thirdweb CLI GitHub repository](https://github.com/thirdweb-dev/thirdweb-cli).
 
 You can deploy a specific instance of the contract directly from your dashboard, specifying basic contract metadata and parameters.
 
@@ -51,7 +51,7 @@ Once deployed, you can immediately **start interacting with your deployed contra
 
 ![Code snippets to interact with your contract from your app](./assets/Screen_Shot_2022-04-26_at_12.01.01_PM.png)
 
-If your contract implements any common EIP specification - like ERC20, ERC721, ERC1155 and more - we auto detect this in the SDK and in our dashboard. This means you get the **same intuitive APIs in React, Typescript and Python** and **convenient web dashboard** that you would get with our built-in contracts.
+If your contract implements any common EIP specification - like ERC20, ERC721, ERC1155 and more - we auto-detect this in the SDK and our dashboard. This means you get the **same intuitive APIs in React, Typescript and Python** and a **convenient web dashboard** that you would get with our built-in contracts.
 
 ### 💻 Javascript / Typescript SDK
 
@@ -145,7 +145,7 @@ Find out more in our [documentation](https://docs.thirdweb.com/python/custom).
 
 ---
 
-Your contract dashboard page also auto detects standard functionality like ERC721 to lists your contract tokens, and even mint functionality.
+Your contract dashboard page also auto-detects standard functionality like ERC721 to list your contract tokens and even mint functionality.
 
 ![Automatic ERC721 detection generates a UI for minting and listing NFTs](./assets/mint_contract.png)
 
