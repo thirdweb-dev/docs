@@ -6,9 +6,9 @@ import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet"
 
 # Vote
 
-The Vote contract is designed for groups such as DAO's to vote on proposals.
+The Vote contract is designed for groups such as DAOs to vote on proposals.
 
-In order to use the Vote contract, you also need to have an existing ERC-20 token,
+To use the Vote contract, you also need to have an existing ERC-20 token,
 such as our [Token Contract](/pre-built-contracts/token) to act as the `governance token`.
 
 You could use the Vote contract to:
@@ -31,7 +31,7 @@ Learn how to create any of thirdweb's pre-built contracts via the [Deploying Con
 
 ## Getting the contract in your application
 
-To start using your Vote contract inside your application, you'll need to use it's contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+To start using your Vote contract inside your application, you'll need to use its contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <ThirdwebCodeSnippet
   contract={"Vote"}
@@ -57,7 +57,7 @@ View all of the proposals that have been created in this Vote smart contract.
 
 ### Check if a wallet has voted
 
-Check if a wallet address has voted in a specific proposal.
+Check if a wallet address has voted on a specific proposal.
 
 <ThirdwebCodeSnippet contract={"Vote"} name={"hasVoted"} />
 
@@ -65,7 +65,7 @@ Check if a wallet address has voted in a specific proposal.
 
 ### Check if a proposal can be executed
 
-Check to see if the amount of votes required for the proposal to be executed has been met
+Check to see if the amount of votes required for the proposal to be executed has been met.
 
 <ThirdwebCodeSnippet contract={"Vote"} name={"canExecute"} />
 
