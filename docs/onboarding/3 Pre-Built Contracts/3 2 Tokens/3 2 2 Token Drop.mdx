@@ -11,13 +11,13 @@ thirdweb's Token Drop contract is a way of releasing your [ERC20](https://eips.e
 The Token Drop contract allows you to define the conditions for when and how your users can claim your tokens;
 including allowlists, release dates, and claim limits.
 
-In the Token Drop, you define the price for your tokens in each claim phase, and can set a limit on how many tokens you want to release.
+In the Token Drop, you define the price for your tokens in each claim phase and can set a limit on how many tokens you want to release.
 
 You could use the Token Drop contract to:
 
 - Release your new cryptocurrency for a set price such as 1 MATIC per token.
-- Allow a specific set of wallets to claim your ERC-20 tokens before releasing it to the public.
-- Allow users to claim your tokens up until a certain date.
+- Allow a specific set of wallets to claim your ERC-20 tokens before releasing them to the public.
+- Allow users to claim your tokens up until a specific date.
 
 :::tip Learn more
 
@@ -33,7 +33,7 @@ Learn how to create any of thirdweb's pre-built contracts via the [Deploying Con
 
 ## Getting the contract in your application
 
-To start using your Token Drop contract inside your application, you'll need to use it's contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+To start using your Token Drop contract inside your application, you need to use its contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <ThirdwebCodeSnippet
   contract={"TokenDrop"}
@@ -50,16 +50,16 @@ You can have multiple claim phases that occur in sequence.
 For each claim phase, you can define:
 
 - When the claim phase will start
-- How many tokens you want to drop
-- How much you want to charge per token
-- What currency you want to charge in
-- Which wallet addreses are allowed to claim tokens (allowlist)
+- How many tokens do you want to drop
+- How much do you want to charge per token
+- What currency do you want to charge in
+- Which wallet addresses are allowed to claim tokens (allowlist)
 - How many tokens can be claimed per transaction
-- How many seconds wallets have to wait between claims
+- How many seconds do wallets have to wait between claims
 
 ### Using the dashboard
 
-You can configure the claim phases from the **Claim Phases** tab in the dashboard.
+You can configure the claim phases from the dashboard's **Claim Phases** tab.
 
 ![Token Drop Claim Phases via Dashboard](../assets/token-drop-claim-phases.png)
 
@@ -69,7 +69,7 @@ You can configure the claim phases from the **Claim Phases** tab in the dashboar
 
 ## Claiming Tokens
 
-Your users can claim tokens if their wallet address meets the criteria to be included in the current claim phase.
+Your users can claim tokens if their wallet address meets the criteria included in the current claim phase.
 
 <ThirdwebCodeSnippet contract={"TokenDrop"} name={"claimTo"} />
 
@@ -101,13 +101,13 @@ For example, our [Marketplace](/pre-built-contracts/marketplace) contract asks y
 
 ### Get allowance for the connected wallet
 
-Get the amount of tokens that another wallet is allowed to spend on behalf of the connected wallet.
+Get the number of tokens that another wallet can spend on behalf of the connected wallet.
 
 <ThirdwebCodeSnippet contract={"TokenDrop"} name={"allowance"} />
 
 ### Get allowance for a specified wallet
 
-Get the amount of tokens that another wallet is allowed to spend on behalf of the specified wallet.
+Get the number of tokens that another wallet can spend on behalf of the specified wallet.
 
 <ThirdwebCodeSnippet contract={"TokenDrop"} name={"allowanceOf"} />
 
@@ -119,7 +119,7 @@ Specify how many tokens another wallet is allowed to spend on behalf of the conn
 
 ## Transfer Tokens
 
-You can transfer tokens from one wallet to another, or send tokens to a smart contract address.
+You can transfer tokens from one wallet to another or send tokens to a smart contract address.
 
 ### Transfer from the connected wallet
 
