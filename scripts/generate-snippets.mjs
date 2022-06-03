@@ -90,6 +90,10 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
           goExample?.methods?.find(
             (m) => m.name.toLowerCase() === method.name.toLowerCase(),
           )?.example || "",
+        react:
+          reactExample?.subhooks?.find(
+            (m) => m.name.toLowerCase() === `$use${contractName.toLowerCase()}${method.name.toLowerCase()}`,
+          )?.example || "",
       },
       reference: {
         javascript:
