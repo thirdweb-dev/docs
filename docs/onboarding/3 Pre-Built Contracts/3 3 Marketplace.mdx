@@ -6,17 +6,17 @@ import ThirdwebCodeSnippet from "../../../src/components/ThirdwebCodeSnippet";
 
 # Marketplace
 
-The Marketplace is a contract where you can buy and sell NFTs, such as to OpenSea or Rarible.
+A Marketplace is a contract where you can buy and sell NFTs, such as OpenSea or Rarible.
 
-The Marketplace contract allows you to list your NFTs for direct sale or for auction.
+The Marketplace contract allows you to list your NFTs for direct sale or auction.
 
-Other users can come and place offers/bids, or buy the NFTs for the amount that you specified in your listing.
-If you choose to, other users can also list _their_ NFTs for sale on the marketplace.
+Other users can come and place offers/bids or buy the NFTs for the specified amount in your listing.
+Other users can also list _their_ NFTs for sale on the marketplace if you allow them to.
 
 You could use the Marketplace contract to:
 
-- Sell your NFTs on your own marketplace
-- Create auctions where the highest bidder after a certain period of time wins the NFT
+- Sell your NFTs on your marketplace
+- Create auctions where the highest bidder, after a certain period, wins the NFT
 - Create an open marketplace where any user can list NFTs for sale, like OpenSea.
 
 :::tip Learn more
@@ -33,7 +33,7 @@ Learn how to create any of thirdweb's pre-built contracts via the [Deploying Con
 
 ## Getting the contract in your application
 
-To start using your Marketplace contract inside your application, you'll need to use it's contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+To start using your Marketplace contract inside your application, you'll need to use its contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <ThirdwebCodeSnippet
   contract={"Marketplace"}
@@ -47,18 +47,18 @@ There are two types of listings in marketplaces.
 
 1. **Direct Listings**:
 
-- Sellers list their NFT for direct sale, with a price users can buy it for.
+- Sellers list their NFT for direct sale with the price users can buy it for.
 - The NFT remains in your wallet, but you provide permission for the marketplace contract to move the NFT.
-- If a user pays the asking price, they will be transferred your NFT and the seller will receive the funds.
-- Users can make offers below the asking price, and the listing can have multiple offers at once, the seller can choose to accept an offer at any time.
+- If a user pays the asking price, the NFT will be transferred to them, and the seller will receive the funds.
+- Users can make offers below the asking price, and the listing can have multiple offers. The seller can choose to accept an offer at any time.
 - Users can cancel their bids at any time.
 
 2. **Auction Listings**
 
-- Sellers list their NFT for auction, with a minimum asking price.
-- The NFT is transferred to escrow in the marketplace contract until the auction is cancelled or finished.
-- Other users can place bids until the auction is finished.
-- Users can only make a bid if it is higher than the current highest bid (or asking price if there are no bids). A bid cannot be cancelled, and the funds are held in escrow by the auction contract.
+- Sellers list their NFT for auction with a minimum asking price.
+- The NFT is transferred to escrow in the marketplace contract until the auction is canceled or finished.
+- Other users can place bids until the auction is closed.
+- Users can only make a bid if it is higher than the current highest bid (or asking price if there are no bids). Once made, bids cannot be withdrawn, and the auction contract holds the funds in escrow.
 - At the end of the auction, no more bids can be placed.
 - At the end of the auction, the `closeAuction` function needs to be called twice; once for the **buyer** and
   once for the **seller**.
@@ -91,7 +91,7 @@ Create a new listing by clicking the **New Listing** button in the dashboard.
 
 ### Active Listings
 
-This filters out listings that have finished, been cancelled, or have already been bought out.
+This method filters out listings that have finished, canceled, or already bought out.
 
 <ThirdwebCodeSnippet contract={"Marketplace"} name={"getActiveListings"} />
 
@@ -107,10 +107,10 @@ This filters out listings that have finished, been cancelled, or have already be
 
 **Bids** are made on auction listings.
 
-- Once a bid is made, it cannot be cancelled.
+- Once a bid is made, it cannot be withdrawn.
 - Bids must be higher than either the **reserve price**, OR if there is an existing bid, it must be higher than the current bid by a certain percentage -
   (see [Auction Bid Buffers](#auction-bid-buffers)).
-- The bid that was previously highest is refunded automatically when a higher bid is made.
+- The previous highest bid is refunded automatically when a higher bid is made.
 
 <ThirdwebCodeSnippet contract={"MarketplaceAuction"} name={"makeBid"} />
 
@@ -118,7 +118,7 @@ This filters out listings that have finished, been cancelled, or have already be
 
 Buying a listing is the same for both direct listings and auction listings.
 
-When a `buyout` is made, the NFT is transferred to the buyer and the seller receives the funds immediately.
+When a `buyout` is made, the NFT is transferred to the buyer, and the seller receives the funds immediately.
 
 <ThirdwebCodeSnippet contract={"Marketplace"} name={"buyoutListing"} />
 
@@ -136,7 +136,7 @@ Offers can only be accepted on direct listings.
 
 ### Auction Listing
 
-Auction listings **cannot** be cancelled if there has been a bid placed.
+Auction listings **cannot** be canceled after a bid has been made.
 
 <ThirdwebCodeSnippet contract={"MarketplaceAuction"} name={"cancelListing"} />
 
@@ -144,20 +144,30 @@ Auction listings **cannot** be cancelled if there has been a bid placed.
 
 When an auction is finished, the `closeAuction` needs to be called for both the **buyer** and the **seller**.
 
-This is why the `closeAuction` function takes in a `closeFor` parameter.
+The `closeAuction` function takes in a `closeFor` parameter.
 
 - When the `closeFor` value is the address of the **buyer**, they are transferred the funds from the highest bid.
 
-- When the `closeFor` value is the address of the **seller**, they are transferred the NFT.
+- When the `closeFor` value is the address of the **seller**, the NFT is transferred to them.
 
 <ThirdwebCodeSnippet contract={"MarketplaceAuction"} name={"closeListing"} />
 
+## View Auction Bidding Info
+
+### Winning Bid
+
+<ThirdwebCodeSnippet contract={"MarketplaceAuction"} name={"getWinningBid"} />
+
+### Auction Winner
+
+<ThirdwebCodeSnippet contract={"MarketplaceAuction"} name={"getWinner"} />
+
 ## Auction Bid Buffers
 
-We made a few important considerations when it comes to auctions in our smart contract.
+We made a few important considerations for auctions in our smart contract.
 
-- When someone makes a bid in an auction, the time until the auction is finished is extended by a set amount you can configure. This is to avoid users not bidding at the last possible second to win the auction.
-- The user must bid a certain percentage higher than the current highest bid. This is to avoid users bidding miniscule amounts above the previous bid.
+- When someone makes a bid in an auction, the time until the auction is finished is extended by a set amount you can configure to avoid users not bidding at the last possible second to win the auction.
+- The user must bid a certain percentage higher than the current highest bid to prevent users from bidding minuscule amounts above the previous bid.
 
 ### Set Time Buffer
 

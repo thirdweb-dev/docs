@@ -9,29 +9,36 @@ displayed_sidebar: react
 
 ## useBalance() function
 
+> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+
+A hook to get the native or (optional) ERC20 token balance of the connected wallet.
+
 **Signature:**
 
 ```typescript
 export declare function useBalance(
   tokenAddress?: ContractAddress,
 ): import("react-query").UseQueryResult<
-  {
-    symbol: string;
-    name: string;
-    value: import("ethers").BigNumber;
-    decimals: number;
-    displayValue: string;
-  },
+  | {
+      symbol: string;
+      name: string;
+      value: import("ethers").BigNumber;
+      decimals: number;
+      displayValue: string;
+    }
+  | undefined,
   unknown
 >;
 ```
 
 ## Parameters
 
-| Parameter    | Type                                          | Description       |
-| ------------ | --------------------------------------------- | ----------------- |
-| tokenAddress | [ContractAddress](./react.contractaddress.md) | <i>(Optional)</i> |
+| Parameter    | Type                                          | Description                                                                                     |
+| ------------ | --------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| tokenAddress | [ContractAddress](./react.contractaddress.md) | <i>(Optional)</i> the address of the token contract, if empty will use the chain's native token |
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;{ symbol: string; name: string; value: import("ethers").BigNumber; decimals: number; displayValue: string; }, unknown&gt;
+import("react-query").UseQueryResult&lt;{ symbol: string; name: string; value: import("ethers").BigNumber; decimals: number; displayValue: string; } \| undefined, unknown&gt;
+
+the balance of the connected wallet (native or ERC20)

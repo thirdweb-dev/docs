@@ -8,12 +8,13 @@ const CONTRACTS = [
   "NFTDrop",
   "EditionDrop",
   "Marketplace",
+  "MarketplaceDirect",
+  "MarketplaceAuction",
   "Split",
   "Pack",
   "Vote",
+  "Multiwrap",
   "ContractDeployer",
-  "MarketplaceDirect",
-  "MarketplaceAuction",
 ];
 
 const typescript = JSON.parse(
@@ -89,6 +90,10 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
           goExample?.methods?.find(
             (m) => m.name.toLowerCase() === method.name.toLowerCase(),
           )?.example || "",
+        react:
+          reactExample?.subhooks?.find(
+            (m) => m.name.toLowerCase() === `use${contractName.toLowerCase()}${method.name.toLowerCase()}`,
+          )?.example || "",
       },
       reference: {
         javascript:
@@ -104,6 +109,10 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
         go:
           goExample?.methods?.find(
             (m) => m.name.toLowerCase() === method.name.toLowerCase(),
+          )?.reference || "",
+        react:
+          reactExample?.subhooks?.find(
+            (m) => m.name.toLowerCase() === `$use${contractName.toLowerCase()}${method.name.toLowerCase()}`,
           )?.reference || "",
       },
     })) || [];

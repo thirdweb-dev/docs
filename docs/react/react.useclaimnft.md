@@ -11,7 +11,7 @@ displayed_sidebar: react
 
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-Use this to mint a new NFT on your [DropContract](./react.dropcontract.md)
+Use this to claim a NFT on your [DropContract](./react.dropcontract.md)
 
 **Signature:**
 
@@ -36,7 +36,7 @@ export declare function useClaimNFT<TContract extends DropContract>(
 
 import("react-query").UseMutationResult&lt;[ClaimNFTReturnType](./react.claimnftreturntype.md)&lt;TContract&gt;, unknown, [ClaimNFTParams](./react.claimnftparams.md)&lt;TContract&gt;, unknown&gt;
 
-a mutation object that can be used to mint a new NFT token to the connected wallet
+a mutation object that can be used to claim a NFT to the wallet specificed in the params
 
 ## Example
 
@@ -45,7 +45,7 @@ const Component = () => {
   const { mutate: claimNft, isLoading, error } = useClaimNFT(DropContract);
 
   if (error) {
-    console.error("failed to mint nft", error);
+    console.error("failed to claim nft", error);
   }
 
   return (
@@ -53,7 +53,7 @@ const Component = () => {
       disabled={isLoading}
       onClick={() => claimNft({ to: "0x...", quantity: 1 })}
     >
-      Mint!
+      Claim NFT!
     </button>
   );
 };

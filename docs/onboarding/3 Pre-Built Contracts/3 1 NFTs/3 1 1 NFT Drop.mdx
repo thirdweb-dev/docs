@@ -6,12 +6,12 @@ import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet"
 
 # NFT Drop
 
-thirdweb's drop contracts **lazy mint** your NFTs and makes them available to be claimed by your users.
+thirdweb's drop contracts **lazy mint** your NFTs and make them available to be claimed by your users.
 
 The NFT Drop contract is best used when you want to release a **1-of-1** or **1-of-many** NFT collection,
 such as a PFP (profile picture) collection, and uses the [ERC721 Standard](https://eips.ethereum.org/EIPS/eip-721).
 The NFT Drop contract allows you to define the conditions for when and how your users can mint an NFT,
-including allowlists, release dates, claim limits and delayed reveals.
+including allowlists, release dates, claim limits, and delayed reveals.
 
 When you add NFTs to your drop contract, they are **not** minted at this point.
 You prepare everything for your users so that _they_ can mint the NFT(s).
@@ -41,7 +41,7 @@ Learn how to create any of thirdweb's pre-built contracts via the [Deploying Con
 
 ## Getting the contract in your application
 
-To start using your NFT Drop contract inside your application, you'll need to use it's contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+To start using your NFT Drop contract inside your application, you'll need to use its contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <ThirdwebCodeSnippet
   contract={"NFTDrop"}
@@ -53,7 +53,7 @@ To start using your NFT Drop contract inside your application, you'll need to us
 
 ### Using the dashboard
 
-You can batch upload NFTs through the dashboard by uploading a `.csv` file or a `.json` file that contains the metadata of all your NFTs, alongside the assets (images, videos, etc).
+You can batch upload NFTs through the dashboard by uploading a `.csv` file or a `.json` file that contains the metadata of all your NFTs, alongside the assets (images, videos, etc.).
 
 - You must include a `name` column for each NFT in the `.csv` or `json` file
 - Asset file names must be sequential. E.g. `0.png`, `1.png`, `2.png`.
@@ -63,7 +63,7 @@ You can use our examples to get started:
 - [Example CSV File](https://thirdweb.com/example.csv)
 - [Example JSON File](https://nightly.thirdweb.com/example.json)
 
-For a more in-depth guide on how to create your NFTs in the NFT Drop contract, check out our guide [How to Release an NFT Drop](https://portal.thirdweb.com/guides/release-an-nft-drop-with-no-code).
+For a more in-depth guide on creating your NFTs in the NFT Drop contract, check out [How to Release an NFT Drop](https://portal.thirdweb.com/guides/release-an-nft-drop-with-no-code).
 
 ### Using the thirdweb SDK
 
@@ -78,16 +78,16 @@ You can have multiple claim phases that occur in sequence.
 For each claim phase, you can define:
 
 - When the claim phase will start
-- How many NFTs you want to drop
-- How much you want to charge per NFT
-- What currency you want to use
-- Which wallet addreses are allowed to mint (allowlist)
+- How many NFTs do you want to drop
+- How much do you want to charge per NFT
+- What currency do you want to use
+- Which wallet addresses are allowed to mint (allowlist)
 - How many NFTs can be claimed per transaction
-- How many seconds wallets have to wait between claims
+- How many seconds do wallets have to wait between claims
 
 ### Using the dashboard
 
-For a more in-depth guide on how to set-up your NFT Drop with multiple claim phases and an allowlist, check out our guide [Release an NFT Drop with an allowlist and multiple claim phases](https://portal.thirdweb.com/guides/create-nft-drop-with-claim-phases).
+For a more in-depth guide on setting up your NFT Drop with multiple claim phases and an allowlist, check out our guide [Release an NFT Drop with an allowlist and multiple claim phases](https://portal.thirdweb.com/guides/create-nft-drop-with-claim-phases).
 
 ### Using the thirdweb SDK
 
@@ -95,16 +95,16 @@ For a more in-depth guide on how to set-up your NFT Drop with multiple claim pha
 
 ## Delayed Reveals
 
-Delayed reveals allow you to reveal the contents of the NFT to the user later at a specific date, and show a placeholder asset in the meantime.
+Delayed reveals enable you to reveal the contents of the NFT to the user later at a specific date and show a placeholder asset in the meantime.
 
 ### Using the dashboard
 
 - **Reveal upon mint**: Collectors will immediately see the final NFT when they complete the minting.
-- **Delayed Reveal**: Collectors will mint your placeholder image, then you reveal at a later time.
+- **Delayed Reveal**: Collectors will mint your placeholder image, then you reveal it at a later time.
 
 ![Select Delayed Reveal](../assets/select-delayed-reveal.png)
 
-For a more in-depth guide on how to set-up your NFT Drop with delayed reveal, check out our guide [Release an NFT drop with delayed reveal](https://portal.thirdweb.com/guides/nft-drop-with-delayed-reveal).
+For a more in-depth guide on setting up your NFT Drop with delayed reveal, check out our guide [Release an NFT drop with delayed reveal](https://portal.thirdweb.com/guides/nft-drop-with-delayed-reveal).
 
 ### Using the thirdweb SDK
 
@@ -116,7 +116,7 @@ Royalty fees are fees you earn on secondary sales of your NFTs. For example, if 
 
 ### Using the dashboard
 
-From the dashboard, in the **Settings** tab you can set the royalty **percentage** and the **address** that should receive the revenue from royalties earned from secondary sales of the assets.
+From the dashboard, in the **Settings** tab, you can set the royalty **percentage** and the **address** that should receive the revenue from royalties earned from secondary sales of the assets.
 
 ![Configuring Royalties on the Dashboard](../assets/royalties.png)
 
@@ -126,7 +126,7 @@ From the dashboard, in the **Settings** tab you can set the royalty **percentage
 
 ## Minting / Claiming NFTs
 
-With an NFT Drop contract, users claim NFTs by minting them into their wallet.
+With an NFT Drop contract, users claim NFTs by minting them into their wallets.
 Typically you will have a "mint" button that your users can click, which mints this user the next unclaimed NFT in your collection.
 
 ### Using the embed
