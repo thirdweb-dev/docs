@@ -15,11 +15,13 @@ Let's get started!
 
 ## Dashboard setup
 
-The first thing we'll need to do is head to the [thirdweb dashboard](https://thirdweb.com/dashboard). You'll need to connect your wallet, so if you don't have a wallet, make sure to sign up with **MetaMask** or **Coinbase Wallet**. We are gonna use Metamask, if you don't have one, you can follow [this guide](/guides/create-a-metamask-wallet).
+The first thing we'll need to do is head to the [thirdweb dashboard](https://thirdweb.com/dashboard).
 
-Once you get to the dashboard and connect your wallet, you'll want to click on "Create new contract" in the top right corner, select a network, select "Create NFTs and Tokens" and then select the "NFT Collection." From here you can fill out a name for your collection and hit deploy!
+You'll need to connect your wallet, so if you don't have a wallet, check out our guide on how to [Create a MetaMask wallet](/guides/create-a-metamask-wallet)
 
-Once you finish seting this up, we can mint our first NFT using Python!
+Click "Deploy new contract" in the top right corner, then "Deploy Now" on the **NFT Collection** contract.
+
+Set up your NFT Collection with some metadata, including image, name, description, and royalty settings.
 
 ## The code
 
@@ -30,17 +32,14 @@ We'll use Visual Studio.
 
 ![](./terminal.png)
 
-Next up use the following code in your terminal to create a virtual environment and install the ThirdWeb SDK!
+Next up use the following code in your terminal to install the ThirdWeb SDK!
 
-```bash title="virtual-env"
-# create a virtual environment
-python3 -m venv ./myenv
-
-# activate virtual environment
-source ./myenv/bin/activate
-
-# install the thirdweb sdk
+```bash
+# thirdweb-sdk
 pip install thirdweb-sdk
+
+# dotenv to load environment variables
+pip install python-dotenv
 ```
 
 ### 2. Setup the SDK
@@ -64,7 +63,7 @@ PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
 NETWORK = "mumbai"
 
 # Finally, you can create a new instance of the SDK to use
-sdk = ThirdwebSDK(NETWORK, signer)
+sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, NETWORK)
 ```
 
 To use the setup above, we need to create a `.env` file and connect our wallet by private key. It's very important to make sure that you NEVER commit this file to any github repository and you never share your private key with anyone.
