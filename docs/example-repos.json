@@ -248,7 +248,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "An example of an NFT Gated Website for thirdweb's NFT Gated Website Guide",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-06-06T18:48:10Z",
+    "updated_at": "2022-06-07T02:23:06Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "edition",
@@ -259,7 +259,7 @@
       "react"
     ],
     "language": "JavaScript",
-    "stargazers_count": 18,
+    "stargazers_count": 19,
     "is_template": false
   },
   {
@@ -267,13 +267,25 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-06-05T01:04:19Z",
+    "updated_at": "2022-06-07T10:48:35Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "nft-drop",
       "thirdweb-deploy",
       "token"
     ],
+    "language": "TypeScript",
+    "stargazers_count": 1,
+    "is_template": false
+  },
+  {
+    "name": "sign-in-with-ethereum",
+    "html_url": "https://github.com/thirdweb-example/sign-in-with-ethereum",
+    "description": "Authenticate to a backend using a wallet",
+    "created_at": "2022-06-03T16:04:25Z",
+    "updated_at": "2022-06-07T00:11:59Z",
+    "clone_url": "https://github.com/thirdweb-example/sign-in-with-ethereum.git",
+    "topics": [],
     "language": "TypeScript",
     "stargazers_count": 0,
     "is_template": false
