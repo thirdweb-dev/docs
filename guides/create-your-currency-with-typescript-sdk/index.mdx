@@ -7,102 +7,88 @@ date: "2021-11-21"
 
 # Create your own token with TypeScript
 
-Creating tokens that can be used as your own currency with the thirdweb TypeScript SDK
+Create ERC-20 tokens that can be used as your own currency with the thirdweb TypeScript SDK.
 
 <!-- truncate -->
 
 ## Intro
 
-This guide explains how to create your own currency. We will create a **Token** contract on the dashboard and mint some tokens from the SDK. We also need to connect a wallet. So if you don't have a wallet, make sure to sign up with **MetaMask** or **CoinWallet**. If don't have a wallet, [you can follow this guide to create one](/guides/create-a-metamask-wallet).
+You can deploy a [Token](/pre-built-contracts/tokens) via the [dashboard](https://thirdweb.com/dashboard), but in this guide, we'll demonstrate how to do it using TypeScript!
 
-## Dashboard setup
+Create a new folder on your computer called `my-token`, and within this folder, create a file called `mint-token.ts`.
 
-The first thing we need to do is head over to the [dashboard](https://thirdweb.com/dashboard) and create a **Token** contract.
+## Installing TypeScript SDK
 
-Once your **Token** contract has been created, it's time to mint our own currency, but we don't need the dashboard for that! For use cases where the interaction has a high frequency and requires conditions, using the SDK is more efficient.
-
-![New Token contract viewed in the thirdweb dashboard](./token-contract-dashboard-view.png)
-
-## The code
-
-### 1. Install the SDK
-
-Next up use we'll install the ThirdWeb SDK using npm!
-
-SDK installation and setup with TypeScript
-
-- **@thirdweb-dev/sdk** - thirdweb TypeScript SDK.
-- **ethers** - will give us very useful utils.
-- **dotenv** - to hide our private key.
-- **typescript** - since this is a TypeScript project
-- **@types/node** - typing for node as a dev dependency.
-- **tslib** - utility package
+Install the required dependencies to get started with thirdweb, by running the following command inside your `my-token` folder.:
 
 ```bash
-npm init -y
-npm install @thirdweb-dev/sdk ethers dotenv
-npm install --save-dev typescript @types/node ts-node tslib
+npm install @thirdweb-dev/sdk dotenv
 ```
 
-### 2. Import the SDK
+## Deploying a Token Contract
 
-Let's take the code step by step.
+To deploy a Token using the SDK, we can make use of the [sdk.deployer](/typescript/sdk.thirdwebsdk.deployer),
+which can create any of thirdweb's [pre-built contracts](/pre-built-contracts)!
 
-Create a file called `currency.ts`
+To deploy from your wallet, you'll first need to export your wallet's private key and add it to an environment variable in this project.
 
-![](./18_ts_file.png)
+:::info How to export your private key
 
-In order to make use of our SDK, you need to establish a connection to a blockchain.
+Learn how to [export your private key](/guides/create-a-metamask-wallet#export-your-private-key) from your wallet.
 
-For this guide, you will need to instantiate the SDK using your own signer with thirdweb.
+:::
 
-### 3. Define which contract to use
+To do this, create a file called `.env` in the same folder as your `mint-nft-collection.ts` file, and add the following to it:
 
-Now we need to define which contract we want to use. Here we created a Token contract and called it '**Future Coin**'. This contract has an address. We need to pass the address here. You can find the address on the dashboard under '**Future Coin**':
-
-![See Token contract address under contract name](./token-contract-dashboard-view.png)
-
-In our `currency.ts` we include the following code.
-
-The token variable uses the token contract inside the sdk with our address for the token smart contract.
-
-```tsx title="currency.ts"
-// Instantiate Token contract
-const token = sdk.getToken("0x43E0C32F2BC4A79e70421CF449e14EcADD3adbad");
+```
+PRIVATE_KEY=your-private-key-here
 ```
 
-### 4. Time to mint the coins (tokens)!
+:::warning
 
-The arguments passed over here are the same as minting the tokens inside the dashboard. If you want to familiarize yourself with the process, check out the dashboard!
+Ensure you store and access your private key securely.
 
-```tsx title="currency.ts"
-const mintCurrency = async (amount) => {
-  try {
-    await token.mint(amount);
-  } catch (err) {
-    console.log(err);
-  }
-};
+- **Never** commit any file that may contain your private key to your source control.
 
-// Set the amount of currency you want to mint
-const amount = "1000";
-// Execute the function
-mintCurrency(amount);
+:::
+
+Now we're ready to deploy the Token!
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import "dotenv/config";
+
+async function main() {
+  const NETWORK = "mumbai";
+  const sdk = ThirdwebSDK.fromPrivateKey(
+    process.env.PRIVATE_KEY as string,
+    NETWORK,
+  );
+
+  const deployedAddress = await sdk.deployer.deployToken({
+    name: "My Token",
+    primary_sale_recipient: "0x-your-public-wallet-address-here",
+  });
+  console.log(deployedAddress);
+}
+
+main();
 ```
 
-So the only thing left is to run our code! Open a terminal and paste the following:
+Now we are ready to deploy our Token, but before we do, let's add some code to mint tokens in our script.
 
-```bash
-# Runs the TypeScript file
-npx ts-node index.ts
+## Minting Tokens
+
+The parameters used here are the same as minting tokens inside the dashboard.
+If you want to familiarize yourself with the process, check out the dashboard!
+
+```typescript
+const tokenContract = sdk.getToken(deployedAddress);
+
+const toAddress = "0x-your-public-wallet-address-here"; // Address of the wallet you want to mint the tokens to
+const amount = "1.5"; // The amount of this token you want to mint
+
+const transaction = await tokenContract.mintTo(toAddress, amount);
+
+console.log(transaction);
 ```
-
-### 5. Results
-
-Get the balance to check it out or head over to the dashboard.
-
-![Token contract with 1,000 minted tokens viewed on the thirdweb dashboard](./token-contract-dashboard-view-with-tokens.png)
-
-## That's it!
-
-Congratulations! You have now created your own currency using only TypeScript code! The next step is spending it!
