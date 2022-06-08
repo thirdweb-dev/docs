@@ -102,7 +102,7 @@ _Returns the timestamp for when a claimer is eligible for claiming NFTs again._
 ### setClaimConditions
 
 ```solidity
-function setClaimConditions(IClaimCondition.ClaimCondition[] _conditions, bool _resetClaimEligibility, bytes) external nonpayable
+function setClaimConditions(IClaimCondition.ClaimCondition[] _conditions, bool _resetClaimEligibility) external nonpayable
 ```
 
 _Lets a contract admin set claim conditions._
@@ -113,7 +113,6 @@ _Lets a contract admin set claim conditions._
 | ----------------------- | -------------------------------- | ----------- |
 | \_conditions            | IClaimCondition.ClaimCondition[] | undefined   |
 | \_resetClaimEligibility | bool                             | undefined   |
-| \_2                     | bytes                            | undefined   |
 
 ### verifyClaim
 

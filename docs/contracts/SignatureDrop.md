@@ -801,7 +801,7 @@ _See {IERC721-setApprovalForAll}._
 ### setClaimConditions
 
 ```solidity
-function setClaimConditions(IClaimCondition.ClaimCondition[] _conditions, bool _resetClaimEligibility, bytes) external nonpayable
+function setClaimConditions(IClaimCondition.ClaimCondition[] _conditions, bool _resetClaimEligibility) external nonpayable
 ```
 
 _Lets a contract admin set claim conditions._
@@ -812,7 +812,6 @@ _Lets a contract admin set claim conditions._
 | ----------------------- | -------------------------------- | ----------- |
 | \_conditions            | IClaimCondition.ClaimCondition[] | undefined   |
 | \_resetClaimEligibility | bool                             | undefined   |
-| \_2                     | bytes                            | undefined   |
 
 ### setContractURI
 

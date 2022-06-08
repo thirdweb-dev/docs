@@ -46,7 +46,7 @@ _Returns the id for the batch of tokens the given tokenId belongs to._
 ### lazyMint
 
 ```solidity
-function lazyMint(uint256 amount, string baseURIForTokens, bytes encryptedBaseURI) external nonpayable returns (uint256 batchId)
+function lazyMint(uint256 amount, string baseURIForTokens, bytes extraData) external nonpayable returns (uint256 batchId)
 ```
 
 #### Parameters
@@ -55,7 +55,7 @@ function lazyMint(uint256 amount, string baseURIForTokens, bytes encryptedBaseUR
 | ---------------- | ------- | ----------- |
 | amount           | uint256 | undefined   |
 | baseURIForTokens | string  | undefined   |
-| encryptedBaseURI | bytes   | undefined   |
+| extraData        | bytes   | undefined   |
 
 #### Returns
 
