@@ -42,6 +42,7 @@ await contract.nft.transfer(walletAddress, tokenId);
 | -------------------------------------------------- | --------- | ---------------------------------------------------------- | ----------- |
 | [contractWrapper](./sdk.erc721.contractwrapper.md) |           | ContractWrapper&lt;T&gt;                                   |             |
 | [featureName](./sdk.erc721.featurename.md)         |           | "ERC721"                                                   |             |
+| [lazy](./sdk.erc721.lazy.md)                       |           | Erc721LazyMintable &#124; undefined                        |             |
 | [mint](./sdk.erc721.mint.md)                       |           | [Erc721Mintable](./sdk.erc721mintable.md) &#124; undefined |             |
 | [options](./sdk.erc721.options.md)                 |           | [SDKOptions](./sdk.sdkoptions.md)                          |             |
 | [query](./sdk.erc721.query.md)                     |           | [Erc721Supply](./sdk.erc721supply.md) &#124; undefined     |             |
