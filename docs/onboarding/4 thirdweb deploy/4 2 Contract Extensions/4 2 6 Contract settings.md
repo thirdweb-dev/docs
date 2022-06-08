@@ -60,7 +60,6 @@ contract MyCustomContract is PrimarySale {
 }
 ```
 
-
 If your contract implements all the functions in this standard, you will get support for the following SDK interface.
 
 <FeatureCodeSnippets featureName="PrimarySale" />

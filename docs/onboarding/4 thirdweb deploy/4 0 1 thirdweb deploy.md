@@ -172,21 +172,20 @@ contract MyCustomContract is IMintableERC721 {
 }
 ```
 
-| Contract interface   | SDK                   | Dashboard                   |
-| -------------------- | --------------------- | --------------------------- |
-| ERC20                | contract.token        | Token information / balance |
-| IMintableERC20       | contract.token.mint   | Mint tokens button          |
-| ERC721               | contract.nft          | List of NFTs                |
-| IMintableERC721      | contract.nft.mint     | Mint NFT button             |
-| ERC1155              | contract.edition      | List of NFTs                |
-| IMintableERC1155     | contract.edition.mint | Mint NFT button             |
-| Royalty              | contract.royalties    | Royalties admin UI          |
-| PrimarySale          | contrat.sales         | Sales admin UI              |
-| PlatformFee          | contract.platformFee  | Platform fees admin UI      |
-| Permissions          | contract.roles        | Roles and permissions.      |
+| Contract interface | SDK                   | Dashboard                   |
+| ------------------ | --------------------- | --------------------------- |
+| ERC20              | contract.token        | Token information / balance |
+| IMintableERC20     | contract.token.mint   | Mint tokens button          |
+| ERC721             | contract.nft          | List of NFTs                |
+| IMintableERC721    | contract.nft.mint     | Mint NFT button             |
+| ERC1155            | contract.edition      | List of NFTs                |
+| IMintableERC1155   | contract.edition.mint | Mint NFT button             |
+| Royalty            | contract.royalties    | Royalties admin UI          |
+| PrimarySale        | contrat.sales         | Sales admin UI              |
+| PlatformFee        | contract.platformFee  | Platform fees admin UI      |
+| Permissions        | contract.roles        | Roles and permissions.      |
 
 Find out more in our [documentation](https://docs.thirdweb.com/contracts).
-
 
 ## 🛠️ We want to hear from you
 

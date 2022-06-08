@@ -21,7 +21,7 @@ import "@thirdweb-dev/contracts/feature/Royalty.sol";
 contract MyCustomContract is Royalty {
 
     // Now this contract will have access to royalty functionality
-    
+
     // To control who can update royalties, make sure to implement the access control method below
     function _canSetRoyaltyInfo() internal override returns (bool) {
        // example implementation:
