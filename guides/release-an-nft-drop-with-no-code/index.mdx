@@ -11,11 +11,19 @@ Learn how to create your own NFT drop without having to write a single line of c
 
 <!-- truncate -->
 
-In this example, we'll create an NFT drop where people can claim a unique Pokémon NFT. The same process can be followed for other types of NFTs (audio, video) as well as "one of many" NFTs (e.g multiple copies of the same trading card).
+In this example, we'll create an NFT drop where people can claim a unique Pokémon NFT.
+The same process can be followed for other types of NFTs (audio, video) as well as "one of many" NFTs (e.g multiple copies of the same trading card).
 
-No matter what your use case is, this web3 guide will explain everything step-by-step, no programming knowledge required.
+No matter what your use case is, this guide will explain everything step-by-step, no programming knowledge is required!
 
-You will notice as you perform many of the steps in this walkthrough, your wallet will prompt you to accept transactions. **thirdweb is not charging you anything**, it's the gas costs of deploying the contracts **from your own address**, so you can own the contracts.
+You will notice as you perform many of the steps in this walkthrough, your wallet will prompt you to accept transactions.
+**thirdweb is not charging you anything**, it's the gas costs of deploying the contracts **from your own address**, so you can own the contracts.
+
+:::tip Blockchains, networks, and gas costs
+
+Learn more about how to use test networks to create contracts on test networks for free in our [Which Blockchain & Network Should I Use Guide](/guides/which-network-should-you-use).
+
+:::
 
 ## Set up the drop
 
@@ -23,13 +31,13 @@ First, we need to create a contract on thirdweb, which can be done on [thirdweb 
 
 ### Create a drop contract
 
-For this contract, we're going to be deploying on **Polygon Testnet Mumbai**, but you can use a mainnet for it (Ethereum, Polygon, Avalanche, etc).
+For this contract, we're going to be deploying on **Polygon Mumbai Testnet**, but you can use a mainnet for it (Ethereum, Polygon, Avalanche, etc).
 
-To create your drop contract, click on "**Create new contract**", then "**Release a drop**", and select **"NFT Drop"**.
+To create your drop contract, click on "**Deploy new contract**", then click "**Deploy Now**" on the **NFT Drop** contract.
 
-Drop uses ERC-721, which means every NFT will be unique.
+The [NFT Drop](/pre-built-contracts/nft-drop) contract uses [ERC-721](https://eips.ethereum.org/EIPS/eip-721), which means every NFT will be unique.
 
-This is my **Drop** contract after I fill in the information:
+This is my NFT Drop contract after I fill in the information:
 
 ![Drop contract creation](./drop-contract-creation.png)
 
@@ -49,7 +57,7 @@ So, what does every input do? Let's use [Bored Ape Yacht Club](https://opensea.i
 
 ### Configure the drop
 
-Next thing we'll do, is configure the claim phases for the drop, these are my settings for this drop:
+The next thing we'll do is configure the claim phases for the drop, these are my settings for this drop:
 
 ![NFT drop claim phase settings](./drop-claim-settings.png)
 
