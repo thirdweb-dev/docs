@@ -47,7 +47,9 @@ Inside the `_app.js` file, we wrap our application in the `ThirdwebProvider`:
 
 This comes pre-configured when you use our `create-tw-app` CLI.
 
-```jsx
+Be sure to change the `activeChainId` to the chain you deployed to.
+
+```jsx title="_app.js"
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
 // This is the chainId your dApp will work on.
@@ -72,7 +74,9 @@ We can use the [useNFTCollection](https://portal.thirdweb.com/react/react.usenft
 - Get the NFT Collection smart contract in our application
 - View all the NFTs and their metadata
 
-```jsx
+Use this code in your `index.js` file:
+
+```jsx title="index.js"
 import {
   ThirdwebNftMedia,
   useNFTCollection,
@@ -116,27 +120,50 @@ NFT media is an image, or a `<video>` tag if it's a video.
 
 ## Minting new NFTs
 
-For a wallet to mint NFTs, they need to have the `minter` role on the contract.
+For a wallet to mint NFTs in an NFT Collection contract, they need to have the `minter` role on the contract.
 
 You can configure this via the [dashboard](https://thirdweb.com/dashboard), in the **Permissions** tab of your contract, by adding a wallet address in the `Creator` section.
 
 We can use the [useMintNFT](https://portal.thirdweb.com/react/react.usemintnft) hook from the React SDK to mint new NFTs from the connected wallet address.
 
 ```jsx
-const { mutate: mintNft, isLoading, error } = useMintNFT(NFTContract);
+import { useMintNFT } from "@thirdweb-dev/react";
 
-if (error) {
-  console.error("failed to mint nft", error);
-}
+const { mutate: mintNft, isLoading, error } = useMintNFT(nftCollection);
 ```
 
 Then, beneath our previous `div`, we can add a button that calls this function with some NFT metadata:
 
+To call the `mintNft` function, we'll need a **signer** to sign the mint transaction, so we can show the user a "Connect Wallet" button if they are not connected.
+
+To do that, we can use the `useAddress` hook to view the connected address, and the `useMetamask` hook to connect the wallet:
+
 ```jsx
-<button
-  disabled={isLoading}
-  onClick={() => mintNft({ name: "My awesome NFT!" })}
->
-  Mint!
-</button>
+import { useAddress, useMetamask } from "@thirdweb-dev/react";
+
+const address = useAddress();
+const connectWithMetamask = useMetamask();
+```
+
+Then show a different button depending on the value of `address`:
+
+```jsx
+{
+  address ? (
+    <button
+      onClick={() =>
+        mintNft({
+          metadata: {
+            name: "My awesome NFT",
+          },
+          to: address,
+        })
+      }
+    >
+      Mint!
+    </button>
+  ) : (
+    <button onClick={() => connectWithMetamask()}>Connect Wallet</button>
+  );
+}
 ```
