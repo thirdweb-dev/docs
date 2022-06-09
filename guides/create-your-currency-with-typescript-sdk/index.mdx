@@ -38,7 +38,7 @@ Learn how to [export your private key](/guides/create-a-metamask-wallet#export-y
 
 :::
 
-To do this, create a file called `.env` in the same folder as your `mint-nft-collection.ts` file, and add the following to it:
+To do this, create a file called `.env` in the same folder as your `mint-token.ts` file, and add the following to it:
 
 ```
 PRIVATE_KEY=your-private-key-here
@@ -70,17 +70,23 @@ async function main() {
     primary_sale_recipient: "0x-your-public-wallet-address-here",
   });
   console.log(deployedAddress);
+
+  // Add the next code snippet here
 }
 
 main();
 ```
 
-Now we are ready to deploy our Token, but before we do, let's add some code to mint tokens in our script.
+Before we run this script, let's add some code to some tokens immediately after we create the smart contract!
 
 ## Minting Tokens
 
-The parameters used here are the same as minting tokens inside the dashboard.
-If you want to familiarize yourself with the process, check out the dashboard!
+To mint tokens, we:
+
+- Get the token contract using its contract address
+- Call the `mintTo` function with our address and desired quantity
+
+Be sure to replace the `primary_sale_recipient` and `toAddress` with a valid wallet address.
 
 ```typescript
 const tokenContract = sdk.getToken(deployedAddress);
@@ -91,6 +97,12 @@ const amount = "1.5"; // The amount of this token you want to mint
 const transaction = await tokenContract.mintTo(toAddress, amount);
 
 console.log(transaction);
+```
+
+To run the script, run:
+
+```bash
+npx ts-node mint-token.ts
 ```
 
 ## That's it!
