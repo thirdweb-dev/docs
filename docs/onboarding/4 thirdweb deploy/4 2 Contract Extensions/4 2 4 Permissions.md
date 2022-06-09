@@ -15,7 +15,7 @@ You can use our [PermissionsEnumerable](https://github.com/thirdweb-dev/contract
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "@thirdweb-dev/contracts/feature/interface/PermissionsEnumerable.sol";
+import "@thirdweb-dev/contracts/feature/PermissionsEnumerable.sol";
 
 // We add the interface to the contract
 contract MyCustomContract is PermissionsEnumerable {
