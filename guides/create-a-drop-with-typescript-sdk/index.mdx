@@ -7,7 +7,7 @@ date: "2021-12-06"
 
 # Create an NFT drop with TypeScript
 
-In this guide, we'll create our own **NFT Drop** with the TypeScript SDK!
+In this guide, we'll create our own NFT Drop with the TypeScript SDK!
 
 <!-- truncate -->
 
@@ -36,7 +36,7 @@ Learn how to [export your private key](/guides/create-a-metamask-wallet#export-y
 
 :::
 
-To do this, create a file called `.env` in the same folder as your `mint-nft-collection.ts` file, and add the following to it:
+To do this, create a file called `.env` in the same folder as your `mint-nft-drop.ts` file, and add the following to it:
 
 ```
 PRIVATE_KEY=your-private-key-here
@@ -51,6 +51,8 @@ Ensure you store and access your private key securely.
 :::
 
 Now we're ready to deploy the NFT Drop!
+
+Be sure to replace the `primary_sale_recipient` with your wallet's address.
 
 ```typescript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
@@ -69,6 +71,8 @@ async function main() {
     primary_sale_recipient: "0x-your-public-wallet-address-here",
   });
   console.log(deployedAddress);
+
+  // Put the next snippet here
 }
 
 main();
@@ -76,7 +80,11 @@ main();
 
 ## Lazy Minting NFTs
 
-We can lazy-mint NFTs in batch using an array of metadata objects:
+We can lazy-mint NFTs in batch using an array of metadata objects.
+
+Lazy minting means we prepare the metadata for other people to mint the NFTs into their wallets.
+
+Be sure to replace the `image` fields with file paths or URLs to images for your NFTs!
 
 ```typescript
 const contract = sdk.getNFTDrop(deployedAddress);
@@ -95,19 +103,24 @@ const metadatas = [
 ];
 
 const results = await contract.createBatch(metadatas); // uploads and creates the NFTs on chain
+
+// Put the next snippet here
 ```
 
 ## Set up claim phases
 
 Once your **NFT Drop** contract is created and has some NFTs, it's time to set the **Claim Phases**.
-These phases are some of the rules we'll apply when someone wants to claim an NFT, such as price, max amount of tokens claimed, wallets allowed to claim, etc.
 
-Below we will set two claim phases - you can set more or less depending on your needs.
+These phases are rules we'll apply when someone wants to claim an NFT, such as price, max amount of tokens claimed, wallets allowed to claim, etc.
+
+In this guide, we will set two claim phases - you can set more or less depending on your needs.
 
 The first claim phase will be a presale with an added snapshot. Only the addresses listed will be able to claim NFTs from the drop.
 We are also adding `maxQuantity` so only 20 NFTs can be minted in this phase.
 
 The second phase does not add a snapshot so everyone can claim.
+
+Be sure to replace the addresses in the `allowList` with valid wallet addresses!
 
 ```typescript
 const presaleStartTime = new Date();
@@ -133,7 +146,7 @@ console.log("Done!");
 So the only thing left is to run our code! Open a terminal and paste the following:
 
 ```bash
-npx ts-node mint-nft-collection.ts
+npx ts-node create-nft-drop.ts
 ```
 
 ## That's it!
