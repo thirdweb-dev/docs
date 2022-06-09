@@ -11,7 +11,8 @@ This guide explains how to mint an NFT Collection using the [TypeScript SDK](/ty
 
 <!-- truncate -->
 
-You can deploy an NFT Collection via the [dashboard](https://thirdweb.com/dashboard), but in this guide, we'll demonstrate how to do it using TypeScript!
+You can deploy an [NFT Collection](/pre-built-contracts/nft-collection) via the [dashboard](https://thirdweb.com/dashboard),
+but in this guide, we'll demonstrate how to do it using TypeScript!
 
 Create a new directory called `my-nft-collection`, and within this folder, create a file called `mint-nft-collection.ts`.
 
@@ -68,6 +69,8 @@ async function main() {
     primary_sale_recipient: "0x-your-public-wallet-address-here",
   });
   console.log(deployedAddress);
+
+  // here, we'll add minting of NFTs in the next step.
 }
 
 main();
