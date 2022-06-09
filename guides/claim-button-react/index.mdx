@@ -7,17 +7,18 @@ date: "2022-01-05"
 
 # Build a simple claim button
 
-Learn how to create a claim button in your website that allows users to claim a single drop.
+Learn how to create a claim button on your website that allows users to claim a single drop.
 
 <!-- truncate -->
 
 ## What you get
 
-This guide gives you a simple React **component** to claim a single `drop` and a **component** for a `connect wallet` button. Check the code at GitHub over [here](https://github.com/thirdweb-dev/examples/tree/main/typescript/claim-button-react).
+This guide gives you a simple React **component** to claim a single `drop` and a **component** for a `connect wallet` button.
+Check the code at GitHub over [here](https://github.com/thirdweb-dev/examples/tree/main/typescript/claim-button-react).
 
 ## Dependencies
 
-Quick heads up, in these examples, the thirdweb sdk is integrated with React **components**, but we're ‘just' using javascript. You can do the same magic with another framework!
+Quick heads up, in these examples, the thirdweb SDK is integrated with React **components**, but we're just using javascript. You can do the same magic with another framework!
 
 Let's start by installing the required dependencies:
 
@@ -27,17 +28,14 @@ npm install @thirdweb-dev/react @thirdweb-dev/sdk ethers
 
 ## The App.js - Connect your wallet
 
-In your `App.jsx` file we can use the code from this guide for our `connect wallet` button. thirdweb created a **component** for the `connect wallet` button so we don't have to code it ourself. This is great so we don't have to mess around with private keys later.
-
-Inside our app we import our **component** for the `claim` button.
+In your `App.jsx` file we can use the code from this guide for our `connect wallet` button.
 
 ```tsx title="pages/_app.tsx"
 import type { AppProps } from "next/app";
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
 
 function MyApp({ Component, pageProps }: AppProps) {
-  // We'll use 4 for Rinkeby
-  const desiredChainId = 4;
+  const desiredChainId = ChainId.Rinkeby;
 
   /**
    * Make sure that your app is wrapped with these contexts.
@@ -55,7 +53,7 @@ export default MyApp;
 
 ## The Claim button
 
-Let's create a components under `components/ClaimButton.tsx`. If you want to know more about the **NFT Drop** contract.
+Let's create a components under `components/ClaimButton.tsx`.
 
 ```tsx title="components/ClaimButton.tsx"
 import { useAddress, useMetamask, useNFTDrop } from "@thirdweb-dev/react";
@@ -95,6 +93,6 @@ export default Home;
 
 ## That's it!
 
-It's really **that** easy. You can see the finished code in this GitHub repo over [here](https://github.com/thirdweb-dev/examples/tree/main/typescript/claim-button-react).
+It's **that** easy. You can see the finished code in this GitHub repo over [here](https://github.com/thirdweb-dev/examples/tree/main/typescript/claim-button-react).
 
 If you have any questions, drop by our [discord](https://discord.gg/thirdweb)!
