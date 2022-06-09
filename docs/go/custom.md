@@ -15,7 +15,7 @@ With the thirdweb SDK, you can get a contract instance for any contract\. Additi
 
 Let's take a look at how you can get a custom contract instance for one of your contracts deployed using the thirdweb deploy flow:
 
-```
+```go
 import (
 	"github.com/thirdweb-dev/go-sdk/thirdweb"
 )
@@ -35,7 +35,7 @@ contract, err := sdk.GetContract(contractAddress)
 
 Alternatively, if you didn't deploy your contract with thirdweb deploy, you can still get a contract instance for any contract using your contracts ABI:
 
-```
+```go
 import (
 	"github.com/thirdweb-dev/go-sdk/thirdweb"
 )
@@ -60,7 +60,7 @@ contract, err := sdk.GetContractFromAbi(contractAddress, abi)
 
 Now that you have an SDK instance for your contract, you can easily call any function on your contract with the contract "call" method as follows:
 
-```
+```go
 // The first parameter to the call function is the method name
 // All other parameters to the call function get passed as arguments to your contract
 balance, err := contract.Call("balanceOf", "{{wallet_address}}")
