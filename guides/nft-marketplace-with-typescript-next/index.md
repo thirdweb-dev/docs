@@ -18,16 +18,10 @@ In this guide, you will learn how to create a marketplace similar to [OpenSea](h
 We'll implement the following features:
 
 - A marketplace where we can sell our NFTs!
-- List NFTs for **direct sale** or for **auction** onto the marketplace.
+- List NFTs for **direct sale** or for **auction** on to the marketplace.
 - Allow users to **make bids** and **buy** our NFTs.
 
-## Tools
-
-- [**thirdweb Marketplace**](https://portal.thirdweb.com/contracts/marketplace): to facilitate the listing of NFTs and enable users to offer, buy, and sell NFTs on the marketplace.
-- [**thirdweb React SDK**](https://docs.thirdweb.com/react): to enable users to connect and disconnect their wallets with our website, and prompt them to approve transactions with MetaMask.
-- [**thirdweb TypeScript SDK**](https://docs.thirdweb.com/typescript): to connect to our NFT Collection Smart contract via TypeScript & React hooks, mint new NFTs, create new listings, and view all of the listings for sale!
-- [**Next JS Dynamic Routes**](https://nextjs.org/docs/routing/dynamic-routes): so we can have a dynamic route for each listing. eg. `listing/1` will show listing 1.
-- [**thirdweb NFT Collection**](https://portal.thirdweb.com/contracts/nft-collection): to create test ERC721 NFTs that we can list onto the marketplace.
+Let's get started!
 
 ## Creating A Marketplace
 
@@ -43,121 +37,33 @@ Here, you can define the configuration of your marketplace contract, including t
 
 ![deploy new marektpalce contract](./assets/configure-nft-contract-metadata.png)
 
-### About the Marketplace Module
+### About the Marketplace Contract
 
-The Thirdweb marketplace module supports any [ERC 1155](https://eips.ethereum.org/EIPS/eip-1155) and [ERC 721](https://eips.ethereum.org/EIPS/eip-721) token. If you don't know what those are, you can just think of them as two different types of NFTs.
+The Thirdweb marketplace contract supports any [ERC 1155](https://eips.ethereum.org/EIPS/eip-1155) and [ERC 721](https://eips.ethereum.org/EIPS/eip-721) token.
+If you don't know what those are, you can learn more on our [Pre-built Contracts page](/pre-built-contracts/nfts)
 
 This is important because it means the marketplace can list any NFT, from any NFT collection. For example, this [NFT of our CEO's face](https://opensea.io/assets/0xc1d4b2e088084beac62a55ac4f956601e0a60dbf/2) could go onto the marketplace.
 
-There are a few conditions that need to be met in order for someone to list an NFT onto the marketplace:
+There are a few conditions that need to be met for someone to list an NFT on to the marketplace:
 
 - They must **own** the NFT they're trying to list.
-- They must have **permission** to list onto the marketplace (you control this).
+- They must have **permission** to list on to the marketplace (you control this).
 
 Alright, enough talking! Let's write some code!
 
 ## Initializing the project
 
-To create your marketplace project, lets head to the command line and run:
+To create your marketplace project let's head to the command line and run:
 
 ```bash
-git clone https://github.com/thirdweb-example/next-typescript-starter my-marketplace
+npx create-tw-app --next --ts
 ```
-
-Next, (no pun intended), change directory into your newly created Next App.
-
-```bash
-cd .\my-marketplace\
-```
-
-### Dependencies
-
-Thirdweb comes jam-packed with features and libraries that help you build in the languages you know and love.
-
-Let's install them by running:
-
-```
-npm install
-```
-
-Cool! Now, lets jump into the code by running:
-
-```bash
-code .
-```
-
-This will open your project up in **Visual Studio Code**.
-
-To get your local environment setup, run:
-
-```bash
-npm run dev
-```
-
-And visit http://localhost:3000/
-
-## The Thirdweb Provider
-
-The thirdweb React provider makes it straightforward to let your users connect their wallets to your website, and it abstracts away all the boilerplate you would usually have to write.
-
-Open `pages/_app.tsx` and you can notice this is already setup for you:
-
-```jsx
-import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
-
-// This is the chainId your dApp will work on.
-const activeChainId = ChainId.Mainnet;
-
-function MyApp({ Component, pageProps }) {
-  return (
-    <ThirdwebProvider desiredChainId={activeChainId}>
-      <Component {...pageProps} />
-    </ThirdwebProvider>
-  );
-}
-
-export default MyApp;
-```
-
-We'll need to change our `activeChainId` to match the network we deployed on, which for us was **Rinkeby**:
-
-```jsx
-const activeChainId = ChainId.Rinkeby;
-```
-
-If you are curious about the ThirdwebProvider and how its magic works behind the scenes, [we have another great tutorial here](https://portal.thirdweb.com/guides/add-connectwallet-to-your-website) that goes into more depth.
-
-## Signing Users In With Their Wallets
-
-The other thing this starter kit provides is a way for users to sign in with their wallets.
-
-You can see this code on the `pages/index.tsx` file:
-
-```jsx
-const address = useAddress();
-const connectWithMetamask = useMetamask();
-const disconnectWallet = useDisconnect();
-return (
-  <div>
-    {address ? (
-      <>
-        <button onClick={disconnectWallet}>Disconnect Wallet</button>
-        <p>Your address: {address}</p>
-      </>
-    ) : (
-      <button onClick={connectWithMetamask}>Connect with Metamask</button>
-    )}
-  </div>
-);
-```
-
-That's a basic homepage already. It doesn't let a user do much besides connecting their wallet, but it's a good base for any other project you might have in mind.
 
 ## Displaying Listings On The Marketplace
 
 Now we can sign users in, let's show them what we have for sale.
 
-To do that, we'll use another hook, called `useMarketplace` to grab our marketplace smart contract.
+To do that, we'll use a hook, called `useMarketplace` to grab our marketplace smart contract.
 
 Then, we'll use the `useActiveListings` hook, which grabs all of the listings on the smart contract that haven't expired or already sold.
 
@@ -189,7 +95,7 @@ const Home = () => {
 export default Home;
 ```
 
-Cool, now that we have all of the active listings, let show them in the UI:
+Cool, now that we have all of the active listings, let's show them in the UI:
 
 **Displaying listings:**
 
@@ -230,7 +136,7 @@ return (
 
 ## Creating Listings
 
-Now we are done with the home page, lets create some listings to display!
+Now we are done with the home page, let's create some listings to display!
 
 In this guide, we'll also quickly go through the process of creating an NFT Collection, so that we can play around with some NFTs on the marketplace!
 
@@ -258,7 +164,7 @@ Great work, now let's head back to the marketplace guide.
 
 Head back to your code and create a page in the `pages` folder called `create.tsx`.
 
-There's a few bits of code to unpack here that we'll go through step by step.
+There are a few bits of code to unpack here that we'll go through step by step.
 
 Firstly, let's import all of the stuff we'll need to use on this page:
 
@@ -279,13 +185,13 @@ Before we dive into the code for that, it's important to know that there are two
 1. Auction Listings
 2. Direct Listings
 
-**Auction Listings**: listings that have a set time period that users can bid. At the end of the time period, the auction will end, and the winning bid will win the auction.
+**Auction Listings** have a set period that users can bid. At the end of the period, the auction will end, and the winning bid will win the auction.
 
-**Direct Listings**: listings that only finish if the seller decides to accept an offer, or if somebody pays the full price of the listing, or if the listing end date is reached.
+**Direct Listings** only finish if the seller decides to accept an offer, if somebody pays the full price of the listing, or if the listing end date is reached.
 
-Both listing types allow potential buyers to place bids or buyout the listing by paying the full asking price (AKA Buyout Price).
+Both listing types allow potential buyers to place bids or buyout the listing; by paying the full asking price (AKA Buyout Price).
 
-Alright, with that background information, lets create some functions to list an item onto the marketplace, plus a little extra within the `create.tsx` page.
+Alright, with that background information, let's create some functions to list an item on to the marketplace, plus a little extra within the `create.tsx` page.
 
 **Declaring our page and adding some useful hooks**
 
@@ -296,7 +202,7 @@ const Create = () => {
 
   // Connect to our marketplace contract via the useMarketplace hook
   const marketplace = useMarketplace(
-    "0x0000000000000000000000000000", // Your address here
+    "0x0000000000000000000000000000", // Your marketplace contract address here
   );
   const networkMismatch = useNetworkMismatch();
   const [, switchNetwork] = useNetwork();
@@ -463,9 +369,9 @@ return (
 );
 ```
 
-Now, let's go ahead and list our NFT that we created inside our NFT Collection.
+Now, let's go ahead and list the NFT that we created inside our NFT Collection.
 
-First, let's copy the NFT's contract address via the thirdweb dashboard and also note it's tokenId (which should be `0` assuming its the first one you made in the collection).
+First, let's copy the NFT's contract address via the thirdweb dashboard and also note its `tokenId` (which should be `0` assuming it's the first one you made in the collection).
 
 Let's fill out our form with the NFT information, like so:
 
@@ -526,9 +432,9 @@ const ListingPage: NextPage = () => {
 export default ListingPage;
 ```
 
-Alright now lets add some code to fetch the listing, and some basic UI to show the listing in detail!
+Now let's add some code to fetch the listing, and some basic UI to show the listing in detail!
 
-There's a few parts to it, so let's break it down again. Here's the source code.
+There are a few parts to it, so let's break it down again.
 
 **Fetching The Listing**
 
@@ -615,13 +521,13 @@ return (
 
 ## Making Bids / Making Offers
 
-In thirdweb, making offers below the asking price of a listing has different behaviour, depending on whether the listing is an **auction **or a **direct **listing.
+In thirdweb, making offers below the asking price of a listing has different behavior, depending on whether the listing is an **auction **or a **direct **listing.
 
 ### Bids
 
-**Bids** are made on **Auction Listings**. Bids have a few unique characteristics, they:
+**Bids** are made on **Auction Listings**. Bids have a few unique characteristics:
 
-- Bids cannot be cancelled once they've been made.
+- Bids cannot be canceled once they've been made.
 - Automatically get refunded when somebody makes a higher bid on the same listing.
 - Bids must be made in the currency that the listing was created with. On ETH marketplaces, bids are placed in wETH. (Wrapped ETH)
 
@@ -631,9 +537,7 @@ In thirdweb, making offers below the asking price of a listing has different beh
 
 - Offers can be made in any currency.
 - Multiple offers can exist at the same time on one listing, unlike bids.
-- Offers can be cancelled at any time
-
-Hopefully that clarifies the difference between the two.
+- Offers can be canceled at any time
 
 Now let's start writing some code to enable users to make bids and make offers!
 
@@ -731,7 +635,7 @@ If you check out the NFT Module you created (if you created one), you can see th
 
 ## Conclusion
 
-The thirdweb marketplace takes the heavy lifting out of your full stack development process.
+The thirdweb marketplace takes the heavy lifting out of your full-stack development process.
 Our engineering experts have designed the smart contracts with security and safety in mind, enabling you to focus on shipping 🚢!
 
 In this guide, we've successfully:
@@ -739,7 +643,3 @@ In this guide, we've successfully:
 - Built a full-stack NFT marketplace project.
 - Created direct and auction listings with NFTs we minted.
 - Received bids and sold our NFTs via the marketplace!
-
-## Join our Discord!
-
-For any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).
