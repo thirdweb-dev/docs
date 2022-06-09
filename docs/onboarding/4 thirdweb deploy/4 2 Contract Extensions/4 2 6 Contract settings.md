@@ -9,40 +9,53 @@ import FeatureCodeSnippets from "../../../../src/components/FeatureCodeSnippets"
 
 Additionally, you can add the following settings interfaces to your contracts as shown below.
 
-## Contract Primary Sale
+## Contract Metadata
 
-Using the Contract Primary Sale features on your contract allows you to control the primary sales for your contract.
+Using the Contract Metadata extension on your contract allows you to add information about your contract (image, description, etc). This information is stored in IPFS and linked to your contract using the standard `contractURI` accessor. This is compatible with marketplaces like Opensea.
 
-You can add this interface to your contract by implementing all of the functions in the [IPrimarySale](https://portal.thirdweb.com/contracts/IPrimarySale) interface as shown below:
+You can use our [ContractMetadata](https://portal.thirdweb.com/contracts/ContractMetadata) implementation as shown below:
 
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "@thirdweb-dev/contracts/ThirdwebContract.sol";
-import "@thirdweb-dev/contracts/feature/interface/IPrimarySale.sol";
+import "@thirdweb-dev/contracts/feature/ContractMetadata.sol";
 
 // We add the interface to the contract
-contract MyCustomContract is ThirdwebContract, IPrimarySale {
+contract MyCustomContract is ContractMetadata {
 
-    // Implement the permissions functions below
+    // you now have contract metadata functionality in your contract
 
+    // Remember to implement the access control function
+    function _canSetContractURI() internal view override returns (bool) {
+        // example implementation:
+        return msg.sender == owner;
+    }
 }
 ```
 
-Alternatively, you can use our [PrimarySale](https://github.com/thirdweb-dev/contracts/feature/permissions/PrimarySale.sol) implementation of the IPrimarySale interface to get primary sale functionality for your contract out-of-the-box as follows:
+## Contract Primary Sale
+
+Using the Contract Primary Sale features on your contract allows you to control the primary sales recipients for your contract.
+
+You can use our [PrimarySale](https://portal.thirdweb.com/contracts/PrimarySale) implementation as shown below:
 
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "@thirdweb-dev/contracts/ThirdwebContract.sol";
-import "@thirdweb-dev/contracts/feature/interface/PrimarySale.sol";
+import "@thirdweb-dev/contracts/feature/PrimarySale.sol";
 
 // We add the interface to the contract
-contract MyCustomContract is ThirdwebContract, PrimarySale {
+contract MyCustomContract is PrimarySale {
 
-    // Now this contract will have primary sales out of the box
+    // you now have primary sale recipients getters and setters in your contract
+
+    // Remember to implement the access control function
+    function _canSetPrimarySaleRecipient() internal view override returns (bool) {
+        // example implementation:
+        return msg.sender == owner;
+    }
 
 }
 ```
@@ -55,36 +68,24 @@ If your contract implements all the functions in this standard, you will get sup
 
 Using the Contract Platform Fee features on your contract allows you to control the platform fees for your contract.
 
-You can add this interface to your contract by implementing all of the functions in the [IPlatformFee](https://portal.thirdweb.com/contracts/IPlatformFee) interface as shown below:
+You can use our [PlatformFee](https://portal.thirdweb.com/contracts/PlatformFee) implementation as follows:
 
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "@thirdweb-dev/contracts/ThirdwebContract.sol";
-import "@thirdweb-dev/contracts/feature/interface/IPlatformFee.sol";
+import "@thirdweb-dev/contracts/feature/PlatformFee.sol";
 
 // We add the interface to the contract
-contract MyCustomContract is ThirdwebContract, IPlatformFee {
+contract MyCustomContract is PlatformFee {
 
-    // Implement the permissions functions below
+    // you now have platform fee getters and setters in your contract
 
-}
-```
-
-Alternatively, you can use our [PlatformFee](https://github.com/thirdweb-dev/contracts/feature/permissions/PlatformFee.sol) implementation of the IPlatformFee interface to get platform fee functionality for your contract out-of-the-box as follows:
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
-
-import "@thirdweb-dev/contracts/ThirdwebContract.sol";
-import "@thirdweb-dev/contracts/feature/interface/PlatformFee.sol";
-
-// We add the interface to the contract
-contract MyCustomContract is ThirdwebContract, PlatformFee {
-
-    // Now this contract will have platform fees out of the box
+    // Remember to implement the access control function
+    function _canSetPlatformFeeInfo() internal view override returns (bool) {
+        // example implementation:
+        return msg.sender == owner;
+    }
 
 }
 ```

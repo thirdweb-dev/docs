@@ -21,8 +21,8 @@ export declare function useListings(
   filter?: MarketplaceFilter,
 ): import("react-query").UseQueryResult<
   (
-    | import("@thirdweb-dev/sdk").AuctionListing
-    | import("@thirdweb-dev/sdk").DirectListing
+    | import("@thirdweb-dev/sdk/dist/browser").AuctionListing
+    | import("@thirdweb-dev/sdk/dist/browser").DirectListing
   )[],
   unknown
 >;
@@ -37,7 +37,7 @@ export declare function useListings(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;(import("@thirdweb-dev/sdk").AuctionListing \| import("@thirdweb-dev/sdk").DirectListing)\[\], unknown&gt;
+import("react-query").UseQueryResult&lt;(import("@thirdweb-dev/sdk/dist/browser").AuctionListing \| import("@thirdweb-dev/sdk/dist/browser").DirectListing)\[\], unknown&gt;
 
 a response object that includes an array of listings
 
