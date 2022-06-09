@@ -248,7 +248,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "An example of an NFT Gated Website for thirdweb's NFT Gated Website Guide",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-06-08T06:16:15Z",
+    "updated_at": "2022-06-09T21:58:47Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "edition",
@@ -259,7 +259,7 @@
       "react"
     ],
     "language": "JavaScript",
-    "stargazers_count": 21,
+    "stargazers_count": 22,
     "is_template": false
   },
   {
