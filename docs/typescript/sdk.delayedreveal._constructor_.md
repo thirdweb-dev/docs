@@ -14,12 +14,13 @@ Constructs a new instance of the `DelayedReveal` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<T>, storage: IStorage);
+constructor(erc721: Erc721, contractWrapper: ContractWrapper<T>, storage: IStorage);
 ```
 
 ## Parameters
 
 | Parameter       | Type                          | Description |
 | --------------- | ----------------------------- | ----------- |
+| erc721          | [Erc721](./sdk.erc721.md)     |             |
 | contractWrapper | ContractWrapper&lt;T&gt;      |             |
 | storage         | [IStorage](./sdk.istorage.md) |             |
