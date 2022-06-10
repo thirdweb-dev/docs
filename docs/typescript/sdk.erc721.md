@@ -38,14 +38,16 @@ await contract.nft.transfer(walletAddress, tokenId);
 
 ## Properties
 
-| Property                                           | Modifiers | Type                                                       | Description |
-| -------------------------------------------------- | --------- | ---------------------------------------------------------- | ----------- |
-| [contractWrapper](./sdk.erc721.contractwrapper.md) |           | ContractWrapper&lt;T&gt;                                   |             |
-| [featureName](./sdk.erc721.featurename.md)         |           | "ERC721"                                                   |             |
-| [mint](./sdk.erc721.mint.md)                       |           | [Erc721Mintable](./sdk.erc721mintable.md) &#124; undefined |             |
-| [options](./sdk.erc721.options.md)                 |           | [SDKOptions](./sdk.sdkoptions.md)                          |             |
-| [query](./sdk.erc721.query.md)                     |           | [Erc721Supply](./sdk.erc721supply.md) &#124; undefined     |             |
-| [storage](./sdk.erc721.storage.md)                 |           | [IStorage](./sdk.istorage.md)                              |             |
+| Property                                           | Modifiers | Type                                                                                                      | Description |
+| -------------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------- | ----------- |
+| [contractWrapper](./sdk.erc721.contractwrapper.md) |           | ContractWrapper&lt;T&gt;                                                                                  |             |
+| [featureName](./sdk.erc721.featurename.md)         |           | "ERC721"                                                                                                  |             |
+| [lazy](./sdk.erc721.lazy.md)                       |           | Erc721LazyMintable &#124; undefined                                                                       |             |
+| [mint](./sdk.erc721.mint.md)                       |           | [Erc721Mintable](./sdk.erc721mintable.md) &#124; undefined                                                |             |
+| [options](./sdk.erc721.options.md)                 |           | [SDKOptions](./sdk.sdkoptions.md)                                                                         |             |
+| [query](./sdk.erc721.query.md)                     |           | [Erc721Supply](./sdk.erc721supply.md) &#124; undefined                                                    |             |
+| [revealer](./sdk.erc721.revealer.md)               |           | [DelayedReveal](./sdk.delayedreveal.md)&lt;BaseDelayedRevealERC721 &#124; DropERC721&gt; &#124; undefined |             |
+| [storage](./sdk.erc721.storage.md)                 |           | [IStorage](./sdk.istorage.md)                                                                             |             |
 
 ## Methods
 

@@ -20,7 +20,7 @@ export declare function useWinningBid(
   contract: RequiredParam<Marketplace>,
   listingId: RequiredParam<BigNumberish>,
 ): import("react-query").UseQueryResult<
-  import("@thirdweb-dev/sdk").Offer | undefined,
+  import("@thirdweb-dev/sdk/dist/browser").Offer | undefined,
   unknown
 >;
 ```
@@ -34,7 +34,7 @@ export declare function useWinningBid(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk").Offer \| undefined, unknown&gt;
+import("react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk/dist/browser").Offer \| undefined, unknown&gt;
 
 a response object that includes the that is winning the auction
 

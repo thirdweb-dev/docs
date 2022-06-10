@@ -14,7 +14,7 @@ Handles delayed reveal logic
 **Signature:**
 
 ```typescript
-export declare class DelayedReveal<T extends SignatureDrop | DropERC721>
+export declare class DelayedReveal<T extends DropERC721 | BaseDelayedRevealERC721>
 ```
 
 ## Constructors
@@ -22,6 +22,12 @@ export declare class DelayedReveal<T extends SignatureDrop | DropERC721>
 | Constructor                                                                     | Modifiers | Description                                                       |
 | ------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------- |
 | [(constructor)(contractWrapper, storage)](./sdk.delayedreveal._constructor_.md) |           | Constructs a new instance of the <code>DelayedReveal</code> class |
+
+## Properties
+
+| Property                                          | Modifiers | Type               | Description |
+| ------------------------------------------------- | --------- | ------------------ | ----------- |
+| [featureName](./sdk.delayedreveal.featurename.md) |           | "ERC721Revealable" |             |
 
 ## Methods
 
