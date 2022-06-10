@@ -13,17 +13,23 @@ Learn how to randomize your NFT drop with no-code.
 
 ## Intro
 
-Let’s say you are ready to launch your first NFT project but you want it to be randomized for your community to mint. This is possible without writing any code by just using the thirdweb dashboard.
+Let’s say you are ready to launch your first NFT project, but you want it to be randomized for your community to mint.
+
+This is possible without writing any code by just using the thirdweb dashboard.
 
 In this guide, we’ll [deploy a collection using the NFT drop contract](https://portal.thirdweb.com/guides/release-an-nft-drop-with-no-code), then we’ll shuffle the metadata arrangement and **batch upload** it to the dashboard to make the order completely random.
 
-Keep in mind that we are shuffling the arrangement of the metadata only not the token ID of your NFT. So your NFT number would be different from your token ID when we upload it to the dashboard. If that’s good with you let’s start the hack!
+Keep in mind that we are shuffling the arrangement of the metadata only, not the order of token IDs that get minted; those are always sequential.
 
 ## Setup
 
 ### Create a contract
 
-Let’s assume you’ve already a MetaMask wallet, if not please follow our [create a MetaMask wallet tutorial](https://portal.thirdweb.com/guides/create-a-metamask-wallet). We’re going to use Polygon Testnet Mumbai for this guide instead of using Mainnets (Ethereum, Polygon, Fantom, Avalanche, etc...). We’ll be needing some test balance for the Mumbai Testnet, please follow our tutorial on [how to get Matic on Polygon Mumbai Testnets](https://portal.thirdweb.com/guides/get-matic-on-polygon-mumbai-testnet-faucet). Lastly, the image assets to use! Feel free to use the same images I use for this guide, you can [download the image assets here](./random_eyes_assets.zip).
+Let’s assume you’ve already a MetaMask wallet, if not please follow our [create a MetaMask wallet tutorial](https://portal.thirdweb.com/guides/create-a-metamask-wallet).
+
+We’re going to use Polygon Mumbai Testnet for this guide, so if you need to, grab some test MATIC for the Mumbai Testnet using our tutorial on [how to get Matic on the Polygon Mumbai Testnet](https://portal.thirdweb.com/guides/get-matic-on-polygon-mumbai-testnet-faucet).
+
+Lastly, you can use the same images I use for this guide: [download the image assets here](./random_eyes_assets.zip).
 
 Now, let’s head over to the [thirdweb dashboard](https://thirdweb.com/dashboard) and click **deploy new contract**.
 
@@ -33,7 +39,9 @@ After that, scroll down to **Built-in Contracts** section and look for **NFT dro
 
 ![Choose 'NFT Drop contract to deploy'](./choose-nft-drop-contract.png)
 
-A contract form will show, here’s my **NFT drop contract** information, fill it up with your own information. For this guide, I’ll keep the percentage **as is** but you can put whatever you want value. The ideal for me would be 5% but still, it’s up to you. After that, click **Deploy Now** and **confirm the transaction**.
+Fill in the metadata for your NFT Drop contract.
+
+Once you're happy, click **Deploy Now** and **confirm the transaction**.
 
 ![Fill up the contract form](./fill-up-the-contract-form.png)
 
@@ -51,19 +59,27 @@ You will need to set up your contract’s claim phases before we proceed to the 
 
 ## Randomize the Metadata
 
-Here’s the exciting part of this guide, we will learn how to shuffle the NFT’s order in the metadata file to make it random before we upload it to the thirdweb dashboard. The thirdweb’s **batch upload** for drops contract supports two file formats for NFT metadata which are **CSV** and **JSON**.
+Here’s the exciting part of this guide, we will learn how to shuffle the NFT’s order in the metadata file to make it random before we upload it to the thirdweb dashboard.
 
-We’ll cover both file formats in this guide, feel free to skip to the file format you have right now, for now, let’s start with the easiest format which is the **CSV** file. After this, we can go to the **JSON** file.
+**Batch upload** for drop contracts support two file formats for NFT metadata; **CSV** and **JSON**.
+
+We’ll cover both file formats in this guide, feel free to skip to the file format you have right now, for now, let’s start with the easiest format which is the **CSV** file.
+
+After this, we'll cover the **JSON** format.
 
 ### Randomize CSV file
 
-Randomizing NFT data in a **CSV** file is pretty easy and straightforward. We are going to use Google Sheets for this guide for the reason it is easy for me to share it and we are going to use some of the features from Google Sheets that might not be present in other spreadsheet programs.
+Randomizing NFT data in a **CSV** file is pretty easy.
+
+We are going to use Google Sheets for this guide.
 
 You can get my [sample NFT data here](https://docs.google.com/spreadsheets/d/1ulejwwTQDcpmG01QD8x6IEhoyMU_VTd3dUzDCvcqioA/edit?usp=sharing), download it, or copy-paste it to your own sheet.
 
 ![Sample metadata](./sample-metadata.png)
 
-As you can see we are using typical metadata for our NFT drop, nothing special. Until we shuffle it, but before we shuffle it, how about the images associated with each NFT data? We’re gonna add them to each row using the `image` column.
+As you can see we are using typical metadata for our NFT drop, nothing special. Until we shuffle it! Before we do so, how about the images associated with each NFT data?
+
+Let's add them to each row using the `image` column.
 
 First, create a new column and name it `image`, next add a few numbers below it. Match the number with your NFT number, for example below.
 
@@ -73,7 +89,9 @@ Let’s use the **fill handle** to auto-fill the empty cells.
 
 ![Use auto fill](./use-auto-fill.gif)
 
-The `image` column is for the actual file name of your image assets. For example, if your image file asset named as `0.png` or `1.jpg` then that would you need to input as value under `image` column.
+The `image` column is for the actual file name of your image assets.
+
+For example, if your image file asset is named `0.png` or `1.jpg` then you need to input it as a value under `image` column.
 
 :::tip The Idea!
 
@@ -117,13 +135,15 @@ You can now [download it](https://docs.google.com/spreadsheets/d/1ulejwwTQDcpmG0
 
 ### Randomize JSON file
 
-When it comes to randomizing the NFT data in a JSON file, it should be easy. Before we shuffle the metadata make sure to update your image base URI using your art generator. There should be a setting or a way to update your generated metadata.
+Before we shuffle the metadata make sure to update your image base URI using your art generator. There should be a setting or a way to update your generated metadata.
 
-For example, if you’re using Hashlips Art Engine, open the config.js and look for baseURI and update it with just a dot only.
+For example, if you’re using Hashlips Art Engine, open the `config.js` and look for `baseURI`; and update it with just a dot only.
 
 ![Update the IPFS base URI](./update-the-ipfs-base-uri.png)
 
-then do `yarn update_info` in the command line and the script will run and update your metadata. Your output file would be like this (red outline). Make sure the number of NFTs should match the number of your assets (green arrows).
+Then, do `yarn update_info` in the command line and the script will run and update your metadata.
+
+Your output file would be like this (red outline). Make sure the number of NFTs should match the number of your assets (green arrows).
 
 ![Match the details](./match-the-details.png)
 
