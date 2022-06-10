@@ -7,7 +7,7 @@ date: "2022-01-06"
 
 # Build a simple auction component
 
-Learn how to build a simple React **component** to create an `auction` and a **component** for a `connect wallet` button.
+Learn how to build a simple React component to create a react component to list NFTs for auction.
 
 <!-- truncate -->
 
@@ -26,29 +26,23 @@ install the required dependencies to get started with thirdweb, by running the f
 npm install @thirdweb-dev/sdk @thirdweb-dev/sdk ethers
 ```
 
-## The App.js - Connect your wallet
+## Setting up the project
 
 In your `App.jsx`, we import the two components we're going to create in this guide:
 
-- `Connect`
-- `Auction`
+- `Connect` component
+- `Auction` component
 
 ```js title="App.jsx"
-import { ChainId } from "@thirdweb-dev/sdk";
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-
-//import component for claim button
 import AuctionComponent from "./components/Auction";
 import Connect from "./components/Connect";
 
-const supportedChainIds = ChainId.Mumbai;
-
 function ExampleApp() {
   return (
-    <ThirdwebProvider desiredChainId={supportedChainIds}>
+    <>
       <Connect />
       <AuctionComponent />
-    </ThirdwebProvider>
+    </>
   );
 }
 export default ExampleApp;
@@ -56,7 +50,7 @@ export default ExampleApp;
 
 ## Connect Wallet button
 
-Create a new folder called `components` that will host all custom components of your app.
+Create a new folder called `components` inside the `src` directory, that will host all custom components of your app.
 
 After that, create a new file called `Connect.js`.
 
@@ -85,7 +79,7 @@ export default Connect;
 
 ## The Auction button
 
-Create a file called `Auction.js` inside your components folder.
+Create another file called `Auction.js` inside your `components` folder.
 
 In this component, we'll create a form that allows a user to create an auction listing.
 
@@ -95,6 +89,8 @@ First, we import all the necessary dependencies.
 import { useMarketplace } from "@thirdweb-dev/react";
 import { NATIVE_TOKEN_ADDRESS } from "@thirdweb-dev/sdk";
 ```
+
+Then fetch our marketplace using the `useMarketplace` hook:
 
 ```js title="Auction.jsx"
 export default function Auction() {
@@ -107,12 +103,19 @@ export default function Auction() {
 }
 ```
 
-Here is the function that gets run when the form is submitted, to create an auction listing:
+Here is the function that we'll run when the form is submitted, to create an auction listing:
 
 ```jsx
 async function createAuctionListing(e) {
+  // prevent page from refreshing
+  e.preventDefault();
+
   // De-construct data from form submission
-  const { contractAddress, tokenId, price } = e.target.elements;
+  let { contractAddress, tokenId, price } = e.target.elements;
+
+  contractAddress = contractAddress.value;
+  tokenId = tokenId.value;
+  price = price.value;
 
   try {
     const transaction = await marketplace?.auction.createListing({
