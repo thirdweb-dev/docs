@@ -57,6 +57,40 @@ _At any given moment, returns the uid for the active claim condition._
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
 
+### getBaseURICount
+
+```solidity
+function getBaseURICount() external view returns (uint256)
+```
+
+_Returns the number of batches of tokens having the same baseURI._
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### getBatchIdAtIndex
+
+```solidity
+function getBatchIdAtIndex(uint256 _index) external view returns (uint256)
+```
+
+_Returns the id for the batch of tokens the given tokenId belongs to._
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| \_index | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
 ### getClaimConditionById
 
 ```solidity
@@ -98,6 +132,26 @@ _Returns the timestamp for when a claimer is eligible for claiming NFTs again._
 | ----------------------- | ------- | ----------- |
 | lastClaimTimestamp      | uint256 | undefined   |
 | nextValidClaimTimestamp | uint256 | undefined   |
+
+### lazyMint
+
+```solidity
+function lazyMint(uint256 amount, string baseURIForTokens, bytes extraData) external nonpayable returns (uint256 batchId)
+```
+
+#### Parameters
+
+| Name             | Type    | Description |
+| ---------------- | ------- | ----------- |
+| amount           | uint256 | undefined   |
+| baseURIForTokens | string  | undefined   |
+| extraData        | bytes   | undefined   |
+
+#### Returns
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| batchId | uint256 | undefined   |
 
 ### setClaimConditions
 

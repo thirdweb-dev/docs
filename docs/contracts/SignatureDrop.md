@@ -73,21 +73,21 @@ _Burns `tokenId`. See {ERC721-\_burn}._
 ### claim
 
 ```solidity
-function claim(address _receiver, uint256 _quantity, address _currency, uint256 _pricePerToken, IDropSinglePhase.AllowlistProof _allowlistProof, bytes _data) external payable
+function claim(address _receiver, uint256 _quantity, address _currency, uint256 _pricePerToken, IDrop.AllowlistProof _allowlistProof, bytes _data) external payable
 ```
 
 _Lets an account claim tokens._
 
 #### Parameters
 
-| Name             | Type                            | Description |
-| ---------------- | ------------------------------- | ----------- |
-| \_receiver       | address                         | undefined   |
-| \_quantity       | uint256                         | undefined   |
-| \_currency       | address                         | undefined   |
-| \_pricePerToken  | uint256                         | undefined   |
-| \_allowlistProof | IDropSinglePhase.AllowlistProof | undefined   |
-| \_data           | bytes                           | undefined   |
+| Name             | Type                 | Description |
+| ---------------- | -------------------- | ----------- |
+| \_receiver       | address              | undefined   |
+| \_quantity       | uint256              | undefined   |
+| \_currency       | address              | undefined   |
+| \_pricePerToken  | uint256              | undefined   |
+| \_allowlistProof | IDrop.AllowlistProof | undefined   |
+| \_data           | bytes                | undefined   |
 
 ### claimCondition
 
@@ -998,18 +998,18 @@ _Checks a request to claim NFTs against the active claim condition&#39;s criteri
 ### verifyClaimMerkleProof
 
 ```solidity
-function verifyClaimMerkleProof(address _claimer, uint256 _quantity, IDropSinglePhase.AllowlistProof _allowlistProof) external view returns (bool validMerkleProof, uint256 merkleProofIndex)
+function verifyClaimMerkleProof(address _claimer, uint256 _quantity, IDrop.AllowlistProof _allowlistProof) external view returns (bool validMerkleProof, uint256 merkleProofIndex)
 ```
 
 _Checks whether a claimer meets the claim condition&#39;s allowlist criteria._
 
 #### Parameters
 
-| Name             | Type                            | Description |
-| ---------------- | ------------------------------- | ----------- |
-| \_claimer        | address                         | undefined   |
-| \_quantity       | uint256                         | undefined   |
-| \_allowlistProof | IDropSinglePhase.AllowlistProof | undefined   |
+| Name             | Type                 | Description |
+| ---------------- | -------------------- | ----------- |
+| \_claimer        | address              | undefined   |
+| \_quantity       | uint256              | undefined   |
+| \_allowlistProof | IDrop.AllowlistProof | undefined   |
 
 #### Returns
 
@@ -1051,15 +1051,15 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 ### ClaimConditionUpdated
 
 ```solidity
-event ClaimConditionUpdated(IClaimCondition.ClaimCondition condition, bool resetEligibility)
+event ClaimConditionUpdated(IClaimCondition.ClaimCondition claimConditions, bool resetClaimEligibility)
 ```
 
 #### Parameters
 
-| Name             | Type                           | Description |
-| ---------------- | ------------------------------ | ----------- |
-| condition        | IClaimCondition.ClaimCondition | undefined   |
-| resetEligibility | bool                           | undefined   |
+| Name                  | Type                           | Description |
+| --------------------- | ------------------------------ | ----------- |
+| claimConditions       | IClaimCondition.ClaimCondition | undefined   |
+| resetClaimEligibility | bool                           | undefined   |
 
 ### ContractURIUpdated
 
@@ -1197,17 +1197,18 @@ event TokenURIRevealed(uint256 index, string revealedURI)
 ### TokensClaimed
 
 ```solidity
-event TokensClaimed(address indexed claimer, address indexed receiver, uint256 startTokenId, uint256 quantityClaimed)
+event TokensClaimed(uint256 indexed claimConditionIndex, address indexed claimer, address indexed receiver, uint256 startTokenId, uint256 quantityClaimed)
 ```
 
 #### Parameters
 
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| claimer `indexed`  | address | undefined   |
-| receiver `indexed` | address | undefined   |
-| startTokenId       | uint256 | undefined   |
-| quantityClaimed    | uint256 | undefined   |
+| Name                          | Type    | Description |
+| ----------------------------- | ------- | ----------- |
+| claimConditionIndex `indexed` | uint256 | undefined   |
+| claimer `indexed`             | address | undefined   |
+| receiver `indexed`            | address | undefined   |
+| startTokenId                  | uint256 | undefined   |
+| quantityClaimed               | uint256 | undefined   |
 
 ### TokensLazyMinted
 

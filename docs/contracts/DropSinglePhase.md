@@ -12,21 +12,21 @@ displayed_sidebar: contracts
 ### claim
 
 ```solidity
-function claim(address _receiver, uint256 _quantity, address _currency, uint256 _pricePerToken, IDropSinglePhase.AllowlistProof _allowlistProof, bytes _data) external payable
+function claim(address _receiver, uint256 _quantity, address _currency, uint256 _pricePerToken, IDrop.AllowlistProof _allowlistProof, bytes _data) external payable
 ```
 
 _Lets an account claim tokens._
 
 #### Parameters
 
-| Name             | Type                            | Description |
-| ---------------- | ------------------------------- | ----------- |
-| \_receiver       | address                         | undefined   |
-| \_quantity       | uint256                         | undefined   |
-| \_currency       | address                         | undefined   |
-| \_pricePerToken  | uint256                         | undefined   |
-| \_allowlistProof | IDropSinglePhase.AllowlistProof | undefined   |
-| \_data           | bytes                           | undefined   |
+| Name             | Type                 | Description |
+| ---------------- | -------------------- | ----------- |
+| \_receiver       | address              | undefined   |
+| \_quantity       | uint256              | undefined   |
+| \_currency       | address              | undefined   |
+| \_pricePerToken  | uint256              | undefined   |
+| \_allowlistProof | IDrop.AllowlistProof | undefined   |
+| \_data           | bytes                | undefined   |
 
 ### claimCondition
 
@@ -49,6 +49,40 @@ _The active conditions for claiming tokens._
 | pricePerToken                  | uint256 | undefined   |
 | currency                       | address | undefined   |
 
+### getBaseURICount
+
+```solidity
+function getBaseURICount() external view returns (uint256)
+```
+
+_Returns the number of batches of tokens having the same baseURI._
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### getBatchIdAtIndex
+
+```solidity
+function getBatchIdAtIndex(uint256 _index) external view returns (uint256)
+```
+
+_Returns the id for the batch of tokens the given tokenId belongs to._
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| \_index | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
 ### getClaimTimestamp
 
 ```solidity
@@ -69,6 +103,26 @@ _Returns the timestamp for when a claimer is eligible for claiming NFTs again._
 | ----------------------- | ------- | ----------- |
 | lastClaimedAt           | uint256 | undefined   |
 | nextValidClaimTimestamp | uint256 | undefined   |
+
+### lazyMint
+
+```solidity
+function lazyMint(uint256 amount, string baseURIForTokens, bytes extraData) external nonpayable returns (uint256 batchId)
+```
+
+#### Parameters
+
+| Name             | Type    | Description |
+| ---------------- | ------- | ----------- |
+| amount           | uint256 | undefined   |
+| baseURIForTokens | string  | undefined   |
+| extraData        | bytes   | undefined   |
+
+#### Returns
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| batchId | uint256 | undefined   |
 
 ### setClaimConditions
 
@@ -106,18 +160,18 @@ _Checks a request to claim NFTs against the active claim condition&#39;s criteri
 ### verifyClaimMerkleProof
 
 ```solidity
-function verifyClaimMerkleProof(address _claimer, uint256 _quantity, IDropSinglePhase.AllowlistProof _allowlistProof) external view returns (bool validMerkleProof, uint256 merkleProofIndex)
+function verifyClaimMerkleProof(address _claimer, uint256 _quantity, IDrop.AllowlistProof _allowlistProof) external view returns (bool validMerkleProof, uint256 merkleProofIndex)
 ```
 
 _Checks whether a claimer meets the claim condition&#39;s allowlist criteria._
 
 #### Parameters
 
-| Name             | Type                            | Description |
-| ---------------- | ------------------------------- | ----------- |
-| \_claimer        | address                         | undefined   |
-| \_quantity       | uint256                         | undefined   |
-| \_allowlistProof | IDropSinglePhase.AllowlistProof | undefined   |
+| Name             | Type                 | Description |
+| ---------------- | -------------------- | ----------- |
+| \_claimer        | address              | undefined   |
+| \_quantity       | uint256              | undefined   |
+| \_allowlistProof | IDrop.AllowlistProof | undefined   |
 
 #### Returns
 
@@ -131,27 +185,28 @@ _Checks whether a claimer meets the claim condition&#39;s allowlist criteria._
 ### ClaimConditionUpdated
 
 ```solidity
-event ClaimConditionUpdated(IClaimCondition.ClaimCondition condition, bool resetEligibility)
+event ClaimConditionUpdated(IClaimCondition.ClaimCondition claimConditions, bool resetClaimEligibility)
 ```
 
 #### Parameters
 
-| Name             | Type                           | Description |
-| ---------------- | ------------------------------ | ----------- |
-| condition        | IClaimCondition.ClaimCondition | undefined   |
-| resetEligibility | bool                           | undefined   |
+| Name                  | Type                           | Description |
+| --------------------- | ------------------------------ | ----------- |
+| claimConditions       | IClaimCondition.ClaimCondition | undefined   |
+| resetClaimEligibility | bool                           | undefined   |
 
 ### TokensClaimed
 
 ```solidity
-event TokensClaimed(address indexed claimer, address indexed receiver, uint256 startTokenId, uint256 quantityClaimed)
+event TokensClaimed(uint256 indexed claimConditionIndex, address indexed claimer, address indexed receiver, uint256 startTokenId, uint256 quantityClaimed)
 ```
 
 #### Parameters
 
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| claimer `indexed`  | address | undefined   |
-| receiver `indexed` | address | undefined   |
-| startTokenId       | uint256 | undefined   |
-| quantityClaimed    | uint256 | undefined   |
+| Name                          | Type    | Description |
+| ----------------------------- | ------- | ----------- |
+| claimConditionIndex `indexed` | uint256 | undefined   |
+| claimer `indexed`             | address | undefined   |
+| receiver `indexed`            | address | undefined   |
+| startTokenId                  | uint256 | undefined   |
+| quantityClaimed               | uint256 | undefined   |
