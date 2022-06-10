@@ -7,19 +7,23 @@ date: "2022-04-04"
 
 # Create a gasless NFT drop with Next.js and OpenZeppelin
 
-Learn how to create an NFT Drop in which you pay the gas for your users, using OpenZeppelin, Next.js and thirdweb
+Learn how to create an NFT Drop in which you pay the gas for your users, using OpenZeppelin, Next.js and thirdweb.
 
 <!-- truncate -->
 
-In some cases, you might want to pay the gas for NFT drops like early access drops or when you are accepting payments in some other forms. So in this guide, we are going to see how to create a gasless NFT drop that everyone can claim. I am going to use an ERC-1155 so multiple people can hold the same NFT but you can do it any way you like! If you want to directly jump into the code, here is the finished [code](https://github.com/thirdweb-dev/examples/tree/main/javascript/gasless-nft-drop).
+In some cases, you might want to pay the gas for NFT drops like early access drops or when you are accepting payments in some other forms.
+
+In this guide, we are going to see how to create a gasless NFT drop that everyone can claim.
+
+I am going to use an ERC-1155 so multiple people can hold the same NFT but you can do it any way you like! [Check out our NFT contracts](https://portal.thirdweb.com/pre-built-contracts/nfts).
+
+If you want to directly jump into the code, here is the finished [code](https://github.com/thirdweb-dev/examples/tree/main/javascript/gasless-nft-drop).
 
 ## Creating an NFT drop
 
-Go to the [thirdweb](https://thirdweb.com/) dashboard and click on create a new contract. Select the chain you are going to build upon. I am going to use Mumbai for this guide. Select “Release a drop”
+Go to the [thirdweb dashboard](https://thirdweb.com/dashboard) and click on "Deploy new contract".
 
-![Release a drop](./release-a-drop.png)
-
-And select Edition drop. If you want to drop unique NFTs you can select a normal drop
+From the pre-built contracts, hit **Deploy Now** on the **Edition Drop** contract.
 
 Fill out the details and hit deploy!
 
@@ -29,7 +33,9 @@ After the drop is created, create a new NFT inside of the drop like this-
 
 ![New Edition drop](./new-edition-drop.png)
 
-Finally, let’s add a claim phase! Click on the settings button for the token, update the details based on what you need, and hit update. You will be asked to confirm a small transaction so confirm that.
+Finally, let’s add a claim phase! Click on the **Claim Phases** tab, update the details based on what you need, and hit update.
+
+You will be asked to confirm a small transaction to cover the gas fees.
 
 ![Claim Phase](./claim-phase.png)
 
@@ -39,13 +45,13 @@ We will now build a website where users will be able to come and claim the NFT!
 
 ### Setup
 
-Create a new Next.js app-
+Create a new Next.js app by running:
 
 ```bash
 npx create-next-app gasless-drop
 ```
 
-Install the dependencies we need-
+Install the dependencies we need to integrate thirdweb:
 
 ```bash
 npm i @thirdweb-dev/react @thirdweb-dev/sdk ethers # npm
@@ -53,9 +59,9 @@ npm i @thirdweb-dev/react @thirdweb-dev/sdk ethers # npm
 yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers # yarn
 ```
 
-### Adding metamask auth
+### Connect Wallets with MetaMask
 
-We are also going to need authentication in the app because users will need to sign a message as well!
+For users to be able to sign transactions, they'll need to have their wallet connected!
 
 Wrap the whole app in the `ThirdwebProvider` like the following:
 
@@ -74,41 +80,44 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 ```
 
-The desiredChainId is the chain id that you want to build upon. You can use the `ChainId` object provided by the sdk to pass it in the provider, in this case, Mumbai.
+The desiredChainId is the chain id that you want to build upon. You can use the `ChainId` object provided by the SDK to pass it to the `ThirdwebProvider`,
+in this case, we are using the Polygon `Mumbai` testnet.
 
-To add authentication, we are going to use the `useMetamask` hook that thirdweb provides, so add the hook like the following-
+To add wallet connection, we are going to use the `useMetamask` hook that thirdweb provides, so add the following to your `index.js` page:
+
+Then
 
 ```jsx
 const connectWithMetamask = useMetamask();
 ```
 
-Import it from the package we installed-
+Import it from the package we installed:
 
 ```jsx
 import { useMetamask } from "@thirdweb-dev/react";
 ```
 
-Finally, let’s create a button and use it-
+Finally, let’s create a button and use it:
 
 ```jsx
-<button onClick={connectWithMetamask}>Sign in with metamask</button>
+<button onClick={connectWithMetamask}>Sign in with MetaMask</button>
 ```
 
-Now that we can authenticate users on our site, let’s check if the user is authenticated and show a mint button if a user is there-
+Now that we can authenticate users on our site, let’s check if the user is authenticated and show a mint button if a user is there.
 
-thirdweb provides another hook to get the user’s wallet address, so get the address from the hook-
+thirdweb provides another hook to get the user’s wallet address, so get the address from the hook:
 
 ```jsx
 const address = useAddress();
 ```
 
-The `useAddress` hook will be imported from “@thirdweb-dev/react” as well-
+The `useAddress` hook will be imported from `@thirdweb-dev/react` as well-
 
 ```jsx
 import { useMetamask, useAddress } from "@thirdweb-dev/react";
 ```
 
-Now, if the user is authenticated then show their address otherwise the sign-in button like this-
+Now, if the user is authenticated then show their address otherwise the sign-in button:
 
 ```jsx
 <div className={styles.container}>
@@ -142,7 +151,7 @@ Once again, import the hook-
 import { useMetamask, useAddress, useEditionDrop } from "@thirdweb-dev/react";
 ```
 
-We will create a new function to claim the NFT-
+We will create a new function to claim the NFT:
 
 ```jsx
 const tokenId = 0;
@@ -158,7 +167,9 @@ const claimNFT = async () => {
 };
 ```
 
-The edition drop has a method called `claimTo` that we can use to claim the NFT to a specific wallet address. I have created two variables for the tokenId and quantity for better readability of code. The second arg is tokenId and the third is quantity as it can be seen.
+The edition drop has a method called `claimTo` that we can use to claim the NFT to a specific wallet address.
+
+I have created two variables for the `tokenId` and `quantity` for better readability of code. The second argument is `tokenId` and the third is `quantity` as seen below:
 
 Let’s now try minting the NFT!
 
@@ -183,7 +194,9 @@ And the minting works! But we have to pay for the gas in the transaction, so let
 
 ## Making transactions gasless
 
-thirdweb supports [Biconomy](https://www.biconomy.io/) and OpenZeppelin for relaying the gas. For this demo we are going to use [OpenZeppelin](https://defender.openzeppelin.com/) to relay the gas, so head over to OpenZeppelin and sign up for an account if you haven’t already.
+thirdweb supports [Biconomy](https://www.biconomy.io/) and OpenZeppelin for relaying the gas.
+
+For this demo we are going to use [OpenZeppelin](https://defender.openzeppelin.com/) to relay the gas, so head over to OpenZeppelin and sign up for an account if you haven’t already.
 
 Create a new relayer in OpenZeppelin:
 
@@ -193,7 +206,7 @@ Choose the network that you are building upon and give the relayer a name!
 
 After the relayer has been created, copy the address and transfer some funds into it in the network you created the relayer.
 
-You should be able to see the amount you transferred in your dashboard
+You should be able to see the amount you transferred on your dashboard
 
 ![Relayer Dashboard](./relayer-dashboard.png)
 
@@ -228,7 +241,7 @@ Finally, add the OpenZeppelin Uri in the `ThirdwebProvider`:
 >
 ```
 
-Now the gas fees is being relayed and the users don’t have to pay any gas!
+Now the gas fees are being relayed and the users don’t have to pay any gas!
 
 <div style={{ position: "relative", paddingBottom: "56.25%", height: 0 }}>
   <iframe

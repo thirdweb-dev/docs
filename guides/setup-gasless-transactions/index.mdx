@@ -7,15 +7,13 @@ date: "2021-09-16"
 
 # Learn how to set up gasless transactions
 
-Learn how to setup gas-less transactions with thirdweb.
+Learn how to set up gas-less transactions with thirdweb.
 
 <!-- truncate -->
 
-Learn more about Gassless User Experience [here](https://thirdweb.gitbook.io/thirdweb/protocol/gasless-user-experience).
+Gasless Transactions use a relayer to forward transactions, allowing you to cover the gas costs of transactions for your users.
 
-Gasless Transactions require a Relayer to forward the transactions to the blockchain and pay the gas costs.
-
-Relayer can be self-managed or through various service providers:
+Relayers can be self-managed or run using various service providers:
 
 - [OpenZeppelin Defender](https://openzeppelin.com/defender/)
 - [Biconomy Gasless](https://www.biconomy.io/gasless-page)
@@ -23,22 +21,49 @@ Relayer can be self-managed or through various service providers:
 
 ## Using OpenZeppelin Defender
 
-To setup gasless transaction using OpenZeppelin Defender we would need to setup [Autotask](https://docs.openzeppelin.com/defender/autotasks) and [Relay](https://docs.openzeppelin.com/defender/relay).
+To set up gasless transactions using OpenZeppelin Defender, we need to set up an
+[Autotask](https://docs.openzeppelin.com/defender/autotasks) and a
+[Relay](https://docs.openzeppelin.com/defender/relay).
 
 1. Sign up for [OpenZeppelin Defender](https://defender.openzeppelin.com/)
-2. Create a Relayer in the Dashboard under Relay.
-   - Name: your desire name for the relayer
-   - Network: the network that you want the relayer to operates in
-3. Deposit gas funds into the Relayer. Transferring ETH / MATIC into the Relayer address.
+2. Create a Relayer in the Dashboard by clicking "Add first Relayer" while in the `Relay` tab.
+   - Name: your desired name for the Relayer
+   - Network: the network that you want the relayer to operate in, [learn more about networks](https://portal.thirdweb.com/guides/which-network-should-you-use)
+3. Deposit funds into the Relayer by copying the relayer address, and transferring the funds native to the network to this address. e.g. MATIC if you chose the Polygon network.
 4. Create an Autotask in the Dashboard under `Autotask`.
-   - Name: your desire name for the autotask.
-   - Trigger: set to `Webhook`
-   - Connect to a relayer: Select the Relayer you just created.
-   - Code: Copy the [code from our GitHub](https://raw.githubusercontent.com/thirdweb-dev/ozdefender-autotask/main/src/forwarder_handler.js) and paste it in the Code box.
+   - **Name**: your desired name for the Autotask.
+   - **Trigger**: set to `Webhook`
+   - **Connect to a relayer**: Select the Relayer you just created.
+   - **Code**: Copy the [code from our GitHub](https://raw.githubusercontent.com/thirdweb-dev/ozdefender-autotask/main/src/forwarder_handler.js) and paste it in the Code box.
 5. Copy the Webhook URI from the Autotask dashboard.
-6. Paste the Webhook URI into the SDK constructor options. For example:
+6. Paste the Webhook URI into the SDK constructor options.
 
-```ts
+For example:
+
+**React SDK:**
+
+```jsx
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+
+<ThirdwebProvider
+  desiredChainId={ChainId.Mumbai}
+  sdkOptions={{
+    gasless: {
+      openzeppelin: {
+        relayerUrl: "https://api.defender.openzeppelin.com/autotasks/...",
+      },
+    },
+  }}
+>
+  {/* Your App Here */}
+</ThirdwebProvider>;
+```
+
+or, **TypeScript SDK**:
+
+```jsx
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
 new ThirdwebSDK(signerOrProvider, {
   gasless: {
     openzeppelin: {

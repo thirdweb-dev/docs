@@ -7,35 +7,30 @@ date: "2022-04-28"
 
 # Create a dynamic allowlist with Airtable and Next.js
 
-Learn how to create a dynamic allowlist where specific wallets can mint your ERC-1155 NFT and we will also see how to allow them to limit them to only 1 NFT!
+Learn how to create a dynamic allowlist where specific wallets can mint 1 token from your ERC-1155 NFT collection!
 
 <!-- truncate -->
 
 ## Introduction
 
-In this guide, we are going to create an [Edition](/pre-built-contracts/edition) where people will be able to sign up their wallets to an allowlist and those wallets can later mint the NFT!
-
-Sounds cool, right!? Let's get started.
+In this guide, we are going to create an [Edition](/pre-built-contracts/edition) where users
+will be able to connect their wallets to an allowlist and those wallets can later mint the NFT!
 
 ## Setup
 
-I am going to use the [Next typescript starter template of thirdweb](https://github.com/thirdweb-example/next-typescript-starter) for this guide. If you already have a Next.js app you can simply follow these steps to get started:
+I am going to use the [Next typescript starter template](https://github.com/thirdweb-example/next-typescript-starter) for this guide.
 
-- Install `@thirdweb-dev/react` and `@thirdweb-dev/sdk`
-- Add metamask authentication to the site. You can follow this [guide](/guides/add-connectwallet-to-your-website)
-- You all are set to go now!
-
-If you are also going to use the [Next TypeScript template](https://github.com/thirdweb-example/next-typescript-starter) then follow these steps
-
-- Click on the use template button in the repo
-- Clone the repo
-- Install the dependencies:
+If you are following along with the guide, you can create a project with the [Next TypeScript template](https://github.com/thirdweb-example/next-typescript-starter) using the `create-tw-app` CLI:
 
 ```bash
-npm install # npm
-
-yarn install # yarn
+npx create-tw-app --next --ts
 ```
+
+If you already have a Next.js app you can simply follow these steps to get started:
+
+- Install `@thirdweb-dev/react` and `@thirdweb-dev/sdk`
+- Add MetaMask authentication to the site. You can follow this [guide](/guides/add-connectwallet-to-your-website) to do this
+- You all are set to go now!
 
 By default the network in `_app.tsx` is Mainnet, we need to change it to Mumbai
 
@@ -85,83 +80,60 @@ We need to import it from the thirdweb sdk:
 import { useEdition } from "@thirdweb-dev/react";
 ```
 
-Now, we are going to create a new state to hold the nft data:
+We'll use the `useNFT` hook to get the metadata of the NFT we just minted:
+
+Firstly, import it:
 
 ```jsx
-const [nftData, setNftData] =
-  (useState < EditionMetadata["metadata"]) | (null > null);
+import { useNFT } from "@thirdweb-dev/react";
 ```
 
-We also need to import EditionMetadata and useState:
+Then grab tokenId `0`'s metadata:
 
-```tsx
-import { EditionMetadata } from "@thirdweb-dev/sdk";
-import { useState } from "react";
+```jsx
+const { data: nft } = useNFT(edition, "0");
 ```
 
-Finally, create a useEffect to get the data from the contract and update the variable:
-
-```tsx
-useEffect(() => {
-  edition?.get("0").then((nft) => {
-    setNftData(nft.metadata);
-  });
-}, [edition]);
-```
-
-If you console log the nft metadata you will get something like this:
+If you `console.log` the NFT metadata you will get something like this:
 
 ![NFT Metadata](./nft-metadata.png)
 
-If the user is logged in we will show them this nft instead of there address, so replace the fragment `(<>)` with this:
+Now let's render this NFT.
+
+Import the `ThirdwebNftMedia` component to render the media asset of our NFT:
+
+```jsx
+import { ThirdwebNftMedia } from "@thirdweb-dev/react";
+```
+
+If the user is logged in we will show them this NFT instead of their address, so replace the fragment `(<>)` with this:
 
 ```tsx
 <div>
-  {nftData?.image && (
-    <Image
-      src={nftData?.image}
-      alt={nftData?.name}
-      width="280"
-      height="210"
-      objectFit="contain"
-    />
+  {nft && (
+    <>
+      <ThirdwebNftMedia metadata={nft.metadata} style={{ maxWidth: 240 }} />
+      <p>
+        <span>Name:</span> {nft?.metadata.name}
+      </p>
+      <p>
+        <span> Description:</span> {nft?.metadata.description}
+      </p>
+    </>
   )}
-  <p>
-    <span>Name:</span> {nftData?.name}
-  </p>
-  <p>
-    <span> Description:</span> {nftData?.description}
-  </p>
-
   <button>Mint</button>
 </div>
 ```
 
-You will now get an error because we are using the next `<Image />` component but haven't allowlisted the domain, so go to `next.config.js` and add the following:
-
-```ts title="next.config.js"
-/** @type {import('next').NextConfig} */
-const nextConfig = {
-  reactStrictMode: true,
-  images: {
-    domains: ["gateway.ipfscdn.io"],
-  },
-};
-
-module.exports = nextConfig;
-```
-
-Since we are changing the next.js config we need to restart the server. Once you restart the server you will see something like this
-
 ![NFT Card display](./nft-card-display.png)
 
-### Creating the mint api
+### Creating the mint API
 
-We are going to use the signature minting on our backend to ensure that the address is present in the airtable, but first let's get the signature minting working.
+We are going to use the signature minting on our backend to ensure that the address is present in the airtable, but first, let's get the signature minting working.
 
 Create a new folder `api` in the pages folder and `generate-mint-sig.ts` inside it.
 
-We will now build a basic api that will output "gm wagmi"
+We will now build a basic API that will output "gm wagmi"
 
 ```ts title="api/generate-mint-sig.ts"
 import type { NextApiRequest, NextApiResponse } from "next";
@@ -191,7 +163,7 @@ const sdk = ThirdwebSDK.fromPrivateKey(
 
 As you can see, we are using an environment variable to initialize the sdk.
 The variable is called `PRIVATE_KEY` which is the private key of the wallet.
-Create a new file `.env.local` and add your private key in.
+Create a new file `.env.local` and add your private key.
 
 ```bash title=".env.local"
 PRIVATE_KEY=<private_key>
@@ -283,7 +255,7 @@ After you create a new base, give a name to your base and add two columns: `Addr
 
 **Getting airtable api keys and id**
 
-We now need to get some api key's and id's to interact with the base. So, go to [your Airtable account](https://airtable.com/account) and generate an api key
+We now need to get some API keys and ids to interact with the base. So, go to [your Airtable account](https://airtable.com/account) and generate an api key
 
 ![Generate api key](./generate-api-key-airtable.png)
 
@@ -399,7 +371,7 @@ const generateMintSignature = async (
 export default generateMintSignature;
 ```
 
-In the mintWithSignature function we will now add a simple alert to show the error if the user is not in the allowlist.
+In the `mintWithSignature` function, we will now add a simple alert to show the error if the user is not in the allowlist.
 
 ```tsx
 const mintWithSignature = async () => {
@@ -560,7 +532,7 @@ Finally, add an onClick event to the button:
 <button onClick={addWallet}>Add wallet to allowlist</button>
 ```
 
-If you try switching the connected wallet or remove the wallet from the database you will see that the user's wallet address is being added to the base!
+If you try switching the connected wallet or removing the wallet from the database you will see that the user's wallet address is being added to the base!
 
 ## Minor improvements (Optional)
 

@@ -17,9 +17,21 @@ Use signature-based minting to allow users to select which 1-of-1 NFT to mint
 
 ## Introduction
 
-In this guide, we are going to use Next.js to allow users to pick which 1 of 1 NFT they want to mint! To do this, we will create an NFT collection, build the frontend for users to view the collection, and allow users to select an NFT for minting. We will use the thirdweb [NFT Collection contract](https://portal.thirdweb.com/contracts/nft-collection) which allows you to mint 1 of 1 NFTs. You can find a version of this project [deployed with Vercel here](https://mint-specific-oknzdg4eo-mgoldstein18.vercel.app) and all the source code here.
+In this guide, we are going to use Next.js to allow users to pick which 1 of 1 NFT they want to mint!
 
-We will use signature-based minting, which can be used to create unique signatures or IDs that can be given out or sold. Only users with a unique signature will be able to mint or claim the NFT. This means that we can display un-minted NFTs to the user and, when they select which 1-of-1 NFT to mint, we can generate a signature and mint the specific NFT for them. Minting specific NFTs from a 1-of-1 collection is awesome! Let’s go 🚀
+To do this, we will create an [NFT collection](https://portal.thirdweb.com/pre-built-contracts/nft-collection), build the frontend for users to view the collection,
+and allow users to select an NFT for minting.
+
+You can find a version of this project [deployed with Vercel here](https://mint-specific-oknzdg4eo-mgoldstein18.vercel.app) and all the source code here.
+
+We will use [signature-based minting](https://portal.thirdweb.com/advanced-features/signature-based-minting),
+which can be used to create unique signatures or IDs that can be given out or sold.
+
+Only users with a unique signature will be able to mint or claim the NFT.
+This means that we can display un-minted NFTs to the user and when they select which 1-of-1 NFT to mint, we can generate a signature and mint the specific NFT for them.
+Minting specific NFTs from a 1-of-1 collection is awesome!
+
+Let’s go 🚀
 
 ## Overview
 
@@ -37,26 +49,16 @@ Here is the plan:
 
 ## 1. Set up
 
-The easiest way to set up a Next.js app is to use the thirdweb template which can be [found here.](https://github.com/thirdweb-example/next-typescript-starter) You can “Use this template” and create your own repo, which can be cloned and opened in your code editor.
+The easiest way to set up a Next.js app is to use the `create-tw-app` CLI.
 
-Install the required dependencies:
-
-```bash npm2yarn
-npm install
+```bash
+npx create-tw-app --next --ts
 ```
 
-Then, run the development server:
+For this project, we will use Chakra to style our components and dotenv for environment variables. You can install these dependencies:
 
 ```bash npm2yarn
-npm run dev
-```
-
-Open [http://localhost:3000](http://localhost:3000/) with your browser to see the result. At the moment, all that your app allows is for you to connect your wallet.
-
-For this project, we will use Chakra to style our components. You can install these dependencies:
-
-```bash npm2yarn
-npm install @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
+npm install @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6 dotenv
 ```
 
 Don’t forget to add the `ChakraProvider`, afterwhich, your `_app.tsx` (in the `pages` folder) should look like this:
@@ -134,11 +136,17 @@ export default Home;
 
 ## 3. Backend
 
-Create an `api` folder inside of your `pages` folder and, in it, create a new file called `get-nfts.ts`. This file will be the backend where the NFT data can be stored and the signature generation can happen.
+Create an `api` folder inside of your `pages` folder and, in it, create a new file called `get-nfts.ts`.
+
+This file will be the backend where the NFT data can be stored and the signature generation can happen.
 
 ### Handle `GET` requests and return the NFTs
 
-Start by creating a function called `handler` and **add an array of NFT metadata**. This array of NFT metadata is for all NFTs that you want to be available for users to mint (they are currently un-minted NFTs). You can have as many or as few as you want and the structure should follow the example below.
+Start by creating a function called `handler` and **add an array of NFT metadata**.
+
+This array of NFT metadata is for all NFTs that you want to be available for users to mint (they are currently "un-minted" NFTs).
+
+You can have as many or as few as you want and the structure should follow the example below.
 
 Add a `switch` statement that can return the NFTs if the api receives a `GET` request. The `get-nfts.ts` file should now look like this:
 
@@ -173,12 +181,14 @@ export default async function handler(
 
 ### Check for NFTs which have already been minted so that they can be displayed as unavailable
 
-The NFTs we are displaying are not minted yet but as users mint NFTs we want to **mark each minted NFT as unavailable** so that so nobody else can mint it. This is a little complicated but very important because this is a 1-of-1 collection. Let’s break it down.
+The NFTs we are displaying are not minted yet, but as users mint NFTs we want to **mark each minted NFT as unavailable**; so that so nobody else can mint it.
+
+This is a little complicated, but very important because this is a 1-of-1 collection. Let’s break it down.
 
 - You probably noticed that in the array of NFT metadata we created above, there is a boolean variable called `minted` for each NFT which indicates whether or not that NFT has been minted. Okay. We have a way of indicating which NFTs have been minted but **how can we keep this indicator up to date with which NFTs have been minted?**
 - When we receive a `GET` request, instead of simply returning the array of NFT metadata, we will first **call our collection contract and get a list of all the NFTs that have been minted**. Then, we can compare that list to our array of NFT metadata and mark each NFT that appears in the list from the contract as unavailable in the array of NFT metadata (ie: change the `minted` variable from `false` to `true`).
 - The obvious question is **how will we compare the NFTs in the list from the contract with the NFTs in the metadata array?**
-- When we mint NFTs we are able to add custom attributes to them. This means that for each NFT that we mint, we can add a **custom attribute called `id`** and set that attribute equal to t**he position of that NFT in the metadata array** (we will point this out when we mint the NFTs)**.**
+- When we mint NFTs we can add custom attributes to them. This means that for each NFT that we mint, we can add a **custom attribute called `id`** and set that attribute equal to **the position of that NFT in the metadata array** (we will point this out when we mint the NFTs).
 - Our final step is to look at the `id` custom attributes for each NFT in the list returned from our contract and set the `minted` variable of the NFT at the position of `id` in the NFT metadata array to `true`.
 
 Don’t forget that to interact with the collection contract, we must import the thirdweb SDK and initialize it.
@@ -187,7 +197,11 @@ The comments in the code below should help if you get stuck. After implementing 
 
 ```tsx title="get-nfts.ts"
 import type { NextApiRequest, NextApiResponse } from "next";
-import { ThirdwebSDK, NFTMetadataOwner } from "@thirdweb-dev/sdk";
+import {
+  ThirdwebSDK,
+  NFTMetadataOwner,
+  PayloadToSign721,
+} from "@thirdweb-dev/sdk";
 // We use dotenv to securely manage our private key.
 // If you deploy this project to Vercel, use their environment variable management instead
 import dotenv from "dotenv";
@@ -255,11 +269,14 @@ export default async function handler(
 
 ### Handle `POST` requests and generate a signature so that an NFT can be minted
 
-The final step we need to take to complete our backend is to generate a unique signature for minting an NFT. Allocating a specific NFT to a user is a 2 step process - signature generation and minting. The signature generation happens in the backend and the minting happens in the frontend.
+The final step we need to take to complete our backend is to generate a unique signature for minting an NFT.
 
-The signature generation has to happen in the backend because only the wallet which owns the contract can generate a signature.
+Allocating a specific NFT to a user is a 2 step process - signature generation and minting. The signature generation happens in the backend and the minting happens in the frontend.
 
-We will add a `case` to our `switch` statement to handle `POST` requests and we will use the `id` of the NFT to mint and the `address` of the user, both of which must be provided in the request.
+The signature generation has to happen in the backend because only the wallet that **owns** the contract can generate a signature.
+
+We will add a `case` to our `switch` statement to handle `POST` requests and we will use the `id` of the NFT to mint and the `address` of the user,
+both of which must be provided in the request.
 
 Please follow along in the comments below to see how this is implemented:
 
@@ -332,7 +349,9 @@ switch (req.method) {
 }
 ```
 
-**Awesome!** Our backend is complete! We can accept `GET` and `POST` requests to return the un-minted NFTs which need to be displayed in the frontend. We can mark the NFTs that have already minted as minted and generate a unique signature to allow for signature-based minting🎉  Let’s jump into the frontend!
+**Awesome!** Our backend is complete! We can accept `GET` and `POST` requests to return the un-minted NFTs which need to be displayed in the frontend.
+
+We can mark the NFTs that have already minted as minted and generate a unique signature to allow for signature-based minting🎉  Let’s jump into the frontend!
 
 ## 4. Frontend
 
@@ -367,7 +386,11 @@ export default Nfts;
 
 ### Call the backend to fetch the NFTs and then display them
 
-To fetch the NFTs from the backend we can use the `useEffect` hook. We add some state variables to track when we are loading, store the NFTs and confirm that the NFTs have been fetched. Then add the function to fetch the NFTs and call it in the `useEffect` hook.
+To fetch the NFTs from the backend we can use the `useEffect` hook.
+
+We add some state variables to track when we are loading, store the NFTs and confirm that the NFTs have been fetched.
+
+Then add the function to fetch the NFTs and call it in the `useEffect` hook.
 
 ```tsx title="Nfts.tsx"
 const Nfts = () => {
@@ -405,7 +428,11 @@ const Nfts = () => {
 };
 ```
 
-Once we have the NFTs, we can display them using the components we imported from Chakra. Notice that we are checking if the NFTs have been fetched using our state variable and display a `Loading...` message if they haven’t been fetched. The `return` statement uses a `map` method to iterate through the array of NFT metadata that was returned from the backend and it now looks like this:
+Once we have the NFTs, we can display them using the components we imported from Chakra.
+
+Notice that we are checking if the NFTs have been fetched using our state variable and display a `Loading...` message if they haven’t been fetched.
+
+The `return` statement uses a `map` method to iterate through the array of NFT metadata that was returned from the backend and it now looks like this:
 
 ```tsx title="Nfts.tsx"
 if (fetchedNfts) {
@@ -484,7 +511,9 @@ if (chainId !== ChainId.Rinkeby) {
 
 ### Mint an NFT
 
-Well done! You’ve made it this far and we have one final step to complete this project. Our backend gives us the ability to generate a unique signature that can be used for minting. We can use this in the frontend to mint an NFT. Our `mintNft` function is simple. We must:
+Well done! You’ve made it this far and we have one final step to complete this project.
+
+Our backend gives us the ability to generate a unique signature that can be used for minting. We can use this in the frontend to mint an NFT. Our `mintNft` function is simple. We must:
 
 - Connect to the contract
 - Use a `POST` request with the `id` of the NFT to be minted and the `address` of the user to get the signature from the backend

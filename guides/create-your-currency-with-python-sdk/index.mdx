@@ -7,126 +7,92 @@ date: "2021-11-20"
 
 # Create your own token with Python
 
-In this guide we will create tokens that can be used as your own currency with the thirdweb Python SDK
+In this guide, we will create tokens that can be used as a currency with the thirdweb Python SDK.
 
 <!-- truncate -->
 
-:::info Deprecated
-This guide uses Python v1 SDK, which is deprecated.
-We'll be updating this guide soon to use Python v2 SDK.
-:::
-
 ## Intro
 
-This guide explains how to create your own currency. We need to create a project in the dashboard and create a **Token** module inside our project. We also need to connect a wallet. So if you don't have a wallet, make sure to sign up with **MetaMask** or **CoinWallet**. If you don't have a MetaMask wallet, you can follow [our guide](/guides/create-a-metamask-wallet).
+The first thing we need to do is head over to the [dashboard](https://thirdweb.com/dashboard) and deploy a new **Token** contract.
 
-## Dashboard setup
+- Click **Deploy New contract**
+- Click Deploy Now on the **Token** contract
+- Configure your metadata, and deploy the contract to the Mumbai (MATIC) test network.
 
-The first thing we need to do is head over to the [dashboard](https://v1.thirdweb.com/dashboard) and create a project and a **Bundle Collection** module.
+## Minting Tokens
 
-Once your **Token** module has been created, it's time to mint our own currency, but we don't need the dashboard for that! For use cases where the interaction has a high frequency and requires conditions, using the sdk is more efficient.
+You can easily mint tokens on the thirdweb dashboard by clicking on the **Mint** button.
 
-![](./16_module_done.png)
+But in this guide, we'll mint tokens using Python!
 
-## The code
+Go ahead and create a new Python file. Let's call it `currency.py` and open it in your favorite code editor.
 
-### 1. Create a Python file and fire up a virtual environment
+Use the following code in your terminal to install the thirdweb SDK in the project!
 
-Go ahead and create a new Python file. Let's call it `currency.py` and open it in your favourite code editor. We'll use Visual Studio Code.
-
-![](./17_python_file.png)
-
-Next up use the following code in your terminal to create a virtual environment and install the ThirdWeb SDK!
-
-### Virtual-env
-
-```bash title="virtual-env"
-#create a virtual environment
-python3 -m venv ./myenv
-
-#activate virtual environment
-source ./myenv/bin/activate
-
+```bash
 #install the thirdweb sdk
 pip install thirdweb-sdk
 ```
-
-### Conda
-
-```bash title="virtual-env"
-#create a virtual environment
-conda create -n "thirdweb" python=3.9
-
-#activate virtual environment
-conda activate thirdweb
-
-#install the thirdweb sdk
-pip install thirdweb-sdk
-```
-
-### 2. Import the SDK
-
-Let's take the code step by step. At the end we'll include a full code snippet.
-
-Import the following classes from the SDK.
-
-We will use the **dotenv** library for our private key in a bit.
 
 ```python title="currency.py"
-# Importing stuff
-from thirdweb import ThirdwebSdk, SdkOptions, MintArg
+from thirdweb import ThirdwebSDK
 from dotenv import load_dotenv
 import os
 ```
 
-In order to make use of our SDK, you need to establish a connection to a blockchain.
+To sign transactions from your wallet, we need to create a `.env` file and connect our wallet using its private key.
 
-For this guide, you will need to instantiate the SDK following using your own signer with thirdweb.
+:::info How to export your private key
 
-### 3. Define which module to use
+Learn how to [export your private key](/guides/create-a-metamask-wallet#export-your-private-key) from your wallet.
 
-Now we need to define which module we want to use. This is the module we just created inside our project **Making your own currency**. We called the module **Raza Coin**. This module has an address. We need to pass the address here. You can find the address here, under **Raza Coin**:
+:::
 
-In our `currency.py` we include the following code. First we define a variable **currency_smart_contract_address** and store our module address in here.
+To do this, create a file called `.env` in the same folder as your `currency.py` file, and add the following to it:
 
-Then we create an object that uses the token module inside the SDK with our address.
-
-![](./16_module_done.png)
-
-```python title="currency.py"
-#pick your module and enter the smart contract address
-currency_smart_contract_address = "0xdd25FAEE772FbB1bcB7ba0b2cEE6387A8F82f032"
-token_module = sdk.get_currency_module(currency_smart_contract_address)
+```bash title=".env"
+PRIVATE_KEY=your-private-key-here
 ```
 
-### 4. Time to mint the coins (tokens)!
+:::warning
 
-The arguments passed over here are the same as minting the tokens inside the dashboard. If you want to familiarize yourself with the process, check out the dashboard! Ethereum deals with 18 decimals, so we need to adjust the input figure.
+Ensure you store and access your private key securely.
 
-```python title="currency.py"
-#Mint tokens on your smart contract
+- **Never** commit any file that may contain your private key to your source control.
 
-input_amount = 1000
-converted_amount = amount* (10**18)
-token_module.mint(converted_amount)
+:::
+
+Now we can initialize our SDK:
+
+```python
+# Load environment variables into this file
+load_dotenv()
+
+# Now you can create a new instance of the SDK with your private key
+sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, "mumbai")
 ```
 
-### 5. Results
+## Minting Tokens
 
-Get the balance to check it out or head over to the dashboard.
+Now let's connect to our token smart contract in our Python code.
 
-```python title="currency.py"
-#check your balance to check your coins!
-print(token_module.balance())
+To do that, grab your contract address from the dashboard, and use it to get the contract instance.
+
+```python
+TOKEN_CONTRACT_ADDRESS = "0x..." # Replace with your contract address
+token = sdk.get_token(TOKEN_CONTRACT_ADDRESS)
 ```
 
-So the only thing left is to run our code! Open a terminal and paste the following:
+And finally, mint some tokens!
 
-```bash
-# Runs the python file
-python python_nft.py
+```python
+token.mint(10)
 ```
 
-## That's it!
+To run the code: `python currency.py`
 
-Congratulations! You have now created your own currency using only Python code! The next step is spending it!
+## Conclusion
+
+That's it! You've successfully created your own ERC-20 token and minted supply using Python!
+
+Check out what else you can do with the token contract on the [thirdweb portal](https://portal.thirdweb.com/pre-built-contracts/token).

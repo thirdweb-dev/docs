@@ -13,31 +13,21 @@ Learn how to make an ERC-1155 drop where users can pay with multiple currencies 
 
 ## Introduction
 
-In this guide, we are going to create an edition collection that will allow users to buy an NFT in multiple currencies. All this is going to happen with Next.js and thirdweb. We are going to use the signature-based mint feature of thirdweb.
+In this guide, we are going to create an edition collection that will allow users to buy an NFT in multiple currencies. All this is going to happen with Next.js and thirdweb. We are going to use the signature-based minting feature of thirdweb.
 
 Sounds cool, right!? Let's get started.
 
 ## Setup
 
-I am going to use the [Next typescript starter template of thirdweb](https://github.com/thirdweb-example/next-typescript-starter) for this guide. If you already have a Next.js app you can simply follow these steps to get started:
+I am going to use the [Next typescript starter template of thirdweb](https://github.com/thirdweb-example/next-typescript-starter) for this guide.
 
-- Install `@thirdweb-dev/react` and `@thirdweb-dev/sdk`
-- Add metamask authentication to the site. You can follow this [guide](/guides/add-connectwallet-to-your-website)
-- You all are set to go now!
-
-If you are also going to use the [Next TypeScript template](https://github.com/thirdweb-example/next-typescript-starter) then follow these steps
-
-- Click on the use template button in the repo
-- Clone the repo
-- Install the dependencies:
+You can get started with the `create-tw-app` CLI:
 
 ```bash
-npm install # npm
-
-yarn install # yarn
+npx create-tw-app --next --ts
 ```
 
-By default the network in `_app.tsx` is Mainnet, we need to change it to Mumbai
+By default the network in `_app.tsx` is Mainnet, we need to change it to Mumbai:
 
 ```tsx title="_app.tsx"
 import type { AppProps } from "next/app";
@@ -59,7 +49,9 @@ export default MyApp;
 
 ## Creating an edition and NFT
 
-We also need to create an edition and an NFT inside of the edition to be able to mint them to the users. So, go to the [thirdweb dashboard](https://thirdweb.com/dashboard) and create an edition.
+We also need to create an edition and an NFT inside of the edition to be able to mint them to the users.
+
+So, go to the [thirdweb dashboard](https://thirdweb.com/dashboard) and create an edition contract on the Mumbai (MATIC) network.
 
 Fill out the details and deploy the contract!
 
@@ -124,7 +116,9 @@ Instead of showing the disconnect Wallet button and wallet address, we will now 
 </div>
 ```
 
-You might be wondering where are we getting the NFT object, we are going to create a new file and store the NFT object there to keep our code clean. So, create a new file `nft.ts` and add this:
+You might be wondering where are we getting the NFT object, we are going to create a new file and store the NFT object there to keep our code clean.
+
+So, create a new file `nft.ts` and add this:
 
 ```ts
 import { NATIVE_TOKEN_ADDRESS } from "@thirdweb-dev/sdk";
@@ -149,7 +143,11 @@ export const nft = {
 };
 ```
 
-Here, we are creating and exporting a new `nft` object with some properties like name, description, image, etc. The tokens array will contain the different currencies using which we can mint the NFTs. You need to specify a name, address, and price for the token here. We are getting the `NATIVE_TOKEN_ADDRESS` from the thirdweb package.
+Here, we are creating and exporting a new `nft` object with some properties like name, description, image, etc.
+
+The tokens array will contain the different currencies using which we can mint the NFTs.
+
+You need to specify a name, address, and price for the token here. We are getting the `NATIVE_TOKEN_ADDRESS` from the thirdweb package.
 
 Finally, import nft from this file in `index.tsx`:
 

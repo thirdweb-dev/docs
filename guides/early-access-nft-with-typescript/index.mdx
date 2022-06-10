@@ -18,77 +18,103 @@ Easily create an early access NFT and a frontend for users to claim the NFT
 
 ## Introduction
 
-In this guide, we are going to make our own early access NFTs using TypeScript. We are going to create an NFT using an Edition Drop and then we are going to set the price and the number of claimable NFTs. The edition drop allows us to create ERC1155 tokens which means that you can set up a collection of NFTs with a customizable number of each NFT. Once we create the NFT and the claim condition, we will display the NFT with connect wallet and claim buttons in a React project.
+In this guide, we are going to make our own early access NFTs using TypeScript.
 
-All the code for this guide is gonna be available on [this GitHub repository](https://github.com/thirdweb-dev/examples/tree/main/typescript/early-access-nft).
+We are going to create an NFT using an [Edition Drop](https://portal.thirdweb.com/pre-built-contracts/edition-drop) and also set the price and the number of claimable NFTs.
 
-## Let's begin
+The edition drop allows us to create [ERC1155](https://eips.ethereum.org/EIPS/eip-1155) tokens, which means that each NFT in the collection can have more than one owner or more than one "copy".
 
-### 1. Create Edition Drop
+Once we create the NFT and set up the claim condition, we will display the NFT alongside a "Connect Wallet" and a "Claim" buttons using React.
 
-Our first step is to create an edition drop. This can be done in the [dashboard](https://thirdweb.com/dashboard) and if you aren't sure how to create the contract please check [this guide.](/contracts)
+All the code for this guide is available on [this GitHub repository](https://github.com/thirdweb-dev/examples/tree/main/typescript/early-access-nft).
 
-### 2. Project Set-Up
+## Create Edition Drop
 
-Create a new React project with TypeScript and then install the dependencies:
+Our first step is to create an Edition Drop contract.
 
-- **@thirdweb-dev/sdk** - thirdweb TypeScript SDK.
-- **ethers** - will give us very useful utils.
-- **dotenv** - to hide our private key.
-- **tslib** - utility package
+This can be done in the [dashboard](https://thirdweb.com/dashboard).
+
+- Head to the thirdweb dashboard,
+- Click "Deploy New Contract"
+- Click "Deploy Now" on the Edition Drop pre-built contract.
+- Configure the metadata for the contract, and deploy to the Rinkeby test network.
+
+## Project Set-Up
+
+Create a new TypeScript + React project using the `create-tw-app` CLI, by running:
 
 ```bash
-npx create-react-app my-app --template typescript
-npm install @thirdweb-dev/sdk ethers dotenv
-npm install --save-dev ts-node tslib
+npx create-tw-app --cra --ts
 ```
 
-### 3. Instantiate the SDK
+## Instantiate the SDK
 
-To create, configure and interact with our NFTs we will need to use the thirdweb SDK. Instead of initializing it each time we use it, let's make a function that initializes it and then can be called as needed.
+To create, configure and interact with our NFTs we will need to use the thirdweb SDK.
 
-Start by making a new folder called `scripts` in the root of your project and then make a file in that folder called `getContract.ts`.
+Instead of initializing it each time we use it, let's make a function that initializes it and then can be called as needed.
 
-In `getContract.ts` , follow these steps:
+Start by making a new folder called `scripts` at the root of your project and then make a file in that folder called `getContract.mjs`.
+
+In `getContract.mjs`, follow these steps:
 
 Import the libraries we'll need:
 
-```tsx
+```jsx
 // Importing libraries
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import dotenv from "dotenv";
-
-//Importing private key
-dotenv.config();
+import {} from "dotenv/config";
 ```
 
 Instantiate and connect to the contract using the contract address found in the dashboard. Then export the contract.
 
-```tsx
-const sdk = ThirdwebSDK.fromPrivateKey(
-  // Your wallet private key
-  process.env.PRIVATE_KEY as string,
-  "rinkeby",
-);
+```jsx
+// load your private key in a secure way (env variable, never commited to git)
+const privateKey = process.env.PRIVATE_KEY;
+// instantiate the SDK based on your private key, with the desired chain to connect to
+const sdk = ThirdwebSDK.fromPrivateKey(privateKey, "rinkeby");
 
 // Set variable for the edition drop contract address which can be found after creating an edition drop in the dashboard
-const editionDropAddress = "<CONTRACT_ADDRESS>";
+const editionDropAddress = "your-edition-drop-contract-address";
 // Initialize the edition drop module with the contract address
 const editionDrop = sdk.getEditionDrop(editionDropAddress);
 
 export default editionDrop;
 ```
 
-(PS: We're using the Rinkeby testnet in this guide)
+You'll notice we are using the `process.env.PRIVATE_KEY` method to get the private key.
 
-### 4. Create the NFT
+To sign transactions from your wallet, you'll first need to export your wallet's private key and add it to an environment variable in this project.
 
-Now that we can connect to the SDK, we can move to the exciting step of creating our NFT! Make a new file in the `scripts` folder and call it `createNft.ts`. In this file we can follow these steps:
+:::info How to export your private key
 
-Import our module and the necessary library:
+Learn how to [export your private key](/guides/create-a-metamask-wallet#export-your-private-key) from your wallet.
+
+:::
+
+To do this, create a file called `.env` file at the root of your project, and add the following to it:
+
+```
+PRIVATE_KEY=your-private-key-here
+```
+
+:::warning
+
+Ensure you store and access your private key securely.
+
+- **Never** commit any file that may contain your private key to your source control.
+
+:::
+
+## Create the NFT
+
+Now that we can connect to the SDK, we can move to the exciting step of creating our NFT!
+
+Make a new file in the `scripts` folder and call it `createNft.mjs`. In this file we can follow these steps:
+
+Import our edition from our previous script:
 
 ```tsx
-import editionDrop from "./getContract";
+import editionDrop from "./getContractmjs";
 ```
 
 Use the `createBatch` method to create our NFT. This method allows for the creation of multiple NFTs but we are only going to create one for now.
@@ -113,29 +139,29 @@ const createNFT = async () => {
 createNFT();
 ```
 
-In your root directory, run the code with this command in your console: `npx ts-node scripts/createNft.ts`
+In your root directory, run the code with this command in your console:
+
+```bash
+node ./scripts/createNft.mjs
+```
 
 And you should see the success message in your console:
 
 ![](./1-early-access-nft.png)
 
-Awesome! We have our early access NFT☺️
+Awesome! We have our early access NFT ☺️
 
-PS: This is a TypeScript project. Don't forget that you will need a `tsconfig.json` file - [here is documentation where you can find examples](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html).
+## Set NFT Price and Supply
 
-### 5. Set NFT Price and Supply
+Now that we have our NFT, we need to set the start time, price, and supply. We can also set the number of NFTs that can be claimed in one transaction, create an allowlist and adjust other settings.
 
-Now that we have our NFT, we need to set the start time, price, and supply. We can also set the number of NFTs that can be claimed in one transaction, create a white-list and adjust other settings.
+For our project, we are only going to set the start time, price, and supply. We can do this in a new file called `nftConfig.mjs`.
 
-For our project, we are only going to set the start time, price, and supply. We can do this in a new file called `nftConfig.ts`. Start by importing our module and the necessary library.
-
-```tsx
-import editionDrop from "./getModule";
-```
-
-Then we create a function called `nftConfig` and add the code to adjust the config of our NFT.
+We create a function called `nftConfig` and add the code to adjust the config of our NFT.
 
 ```tsx
+import editionDrop from "./getContract.mjs";
+
 const nftConfig = async () => {
   const claimConditions = [
     {
@@ -145,7 +171,7 @@ const nftConfig = async () => {
     },
   ];
   try {
-    await editionDrop.claimConditions.set("1", claimConditions); // 1 refers to token ID - the ID of our NFT
+    await editionDrop.claimConditions.set("0", claimConditions); // 0 refers to token ID - the ID of our NFT
     console.log("🎉 Successfully added the claim condition!");
   } catch (error) {
     console.log("Failed to set claim condition. Error: ", error);
@@ -155,7 +181,11 @@ const nftConfig = async () => {
 nftConfig();
 ```
 
-In your root directory, run the code with this command in your console: `npx ts-node scripts/nftConfig.ts`
+In your root directory, run the code with this command in your console:
+
+```bash
+node scripts/nftConfig.mjs
+```
 
 And you should see the success message in your console:
 
@@ -163,7 +193,7 @@ And you should see the success message in your console:
 
 Amazing! We now have 1000 claimable NFTs! We just need a frontend for our users to interact with. Let's do it☺️
 
-### 6. Display the NFT
+## Display the NFT
 
 We are going to display our NFT using the `get` method from the SDK with the token id as the param.
 
@@ -184,40 +214,23 @@ import { useEffect, useState } from "react";
 import { useEditionDrop } from "@thirdweb-dev/react";
 ```
 
-Create the `Nft` function and with a `useEffect` hook:
+Create the `Nft` component:
 
 ```tsx
+import { ThirdwebNftMedia, useEditionDrop, useNFT } from "@thirdweb-dev/react";
+
 const Nft = () => {
   const editionDrop = useEditionDrop("<CONTRACT_ADDRESS>");
-  const [nft, setNft] = useState("");
 
-  async function fetchNft() {
-    try {
-      const nft = await editionDrop?.get("0");
-      if (nft?.metadata.image) {
-        setNft(nft?.metadata.image);
-      }
-    } catch (error) {
-      console.log("Failed to get NFT. Error: ", error);
-    }
-  }
-
-  useEffect(() => {
-    fetchNft();
-  }, []);
+  const { data: nft } = useNFT(editionDrop, 0); // 0 is the token id
 
   return (
     <div style={{ margin: "10vh" }}>
       <h1 style={{ fontSize: "28px", marginBottom: "10vh" }}>
         Claim your early access NFT!
       </h1>
-      <img
-        alt="early access nft"
-        src={nft}
-        width="250px"
-        height="250px"
-        style={{ marginBottom: "5vh" }}
-      />
+
+      {nft && <ThirdwebNftMedia metadata={nft?.metadata} />}
     </div>
   );
 };
@@ -225,7 +238,7 @@ const Nft = () => {
 export default Nft;
 ```
 
-### 7. Claim Button
+## Claim Button
 
 Okay. We have our NFT displayed and all we need is a button for users to claim NFTs. Let's create a new component in a file called `ClaimButton.tsx`.
 
@@ -288,9 +301,9 @@ const ClaimButton = () => {
 export default ClaimButton;
 ```
 
-### 8. Wrap Up
+## Wrap Up
 
-We have created and configured our NFT. We are displaying it and we have a connect/claim button. All that is left to do is to display the NFT and button by add the button to our NFT component and then adding the NFT component to our `App.tsx`.
+We have created and configured our NFT. We are displaying it and we have a connect/claim button. All that is left to do is to display the NFT and button by adding the button to our NFT component and then adding the NFT component to our `App.tsx`.
 
 After adding the button, `Nft.tsx` should look like this:
 
@@ -338,24 +351,41 @@ const Nft = () => {
 export default Nft;
 ```
 
-In `App.tsx` we need to start by importing the thirdweb provider and setting out desired chain. It should look like this:
+In `index.tsx` we need to start by importing the thirdweb provider and setting out desired chain. It should look like this:
 
 ```tsx
-import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
-import Nft from "./components/Nft";
+import React from "react";
+import { createRoot } from "react-dom/client";
+import reportWebVitals from "./reportWebVitals";
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+import Nft from "./Nft";
 
-function App() {
-  return (
-    <ThirdwebProvider desiredChainId={ChainId.Rinkeby}>
+// This is the chainId your dApp will work on.
+const activeChainId = ChainId.Rinkeby;
+
+const container = document.getElementById("root");
+const root = createRoot(container!);
+root.render(
+  <React.StrictMode>
+    <ThirdwebProvider desiredChainId={activeChainId}>
       <Nft />
     </ThirdwebProvider>
-  );
-}
+  </React.StrictMode>,
+);
 
-export default App;
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
 ```
 
 ## Next Steps
+
+To preview your application, run:
+
+```bash
+npm run start
+```
 
 Congrats🥳 You've got a claimable early access NFT! Yours could like something like this:
 
