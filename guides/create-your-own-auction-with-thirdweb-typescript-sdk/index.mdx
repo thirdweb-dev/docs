@@ -37,7 +37,7 @@ Once you've created the contract, it's time to list our first NFT, but we don't 
 
 ## Create a TypeScript file
 
-Go ahead and create a new TypeScript file. Create a new folder called `my-auction`, and within it,
+Create a new folder called `my-auction` and within it,
 create a file called `index.ts`.
 
 Install the required dependencies to get started with thirdweb, by running the following command inside
@@ -48,8 +48,6 @@ npm install @thirdweb-dev/sdk dotenv
 ```
 
 ## Listing an NFT
-
-First, we define a variable `marketplaceAddress` and store our marketplace contract address.
 
 To create a listing from your wallet, you'll first need to export your wallet's private key and add it to an environment variable in this project.
 
@@ -79,22 +77,32 @@ First, let's initialize the SDK and connect to our marketplace contract.
 
 ```tsx title="index.ts"
 import { NATIVE_TOKEN_ADDRESS, ThirdwebSDK } from "@thirdweb-dev/sdk";
-// Declaring the Marketplace contract address
-const marketplaceAddress = "0xC06adC34097afa2085324D4192fbE9206059f8e0"; // your contract address here
+import "dotenv/config";
 
-const sdk = ThirdwebSDK.fromPrivateKey(
-  process.env.PRIVATE_KEY, // Your wallet private key
-  "mumbai", // configure this to your network
-);
+async function main() {
+  // Declaring the Marketplace contract address
+  const marketplaceAddress = "0xC06adC34097afa2085324D4192fbE9206059f8e0"; // your contract address here
 
-// Initialize Marketplace contract by passing in contract address
-const marketplace = sdk.getMarketplace(marketplaceAddress);
+  const sdk = ThirdwebSDK.fromPrivateKey(
+    process.env.PRIVATE_KEY, // Your wallet private key
+    "mumbai", // configure this to your network
+  );
+
+  // Initialize Marketplace contract by passing in contract address
+  const marketplace = sdk.getMarketplace(marketplaceAddress);
+
+  // Put the next snippet here
+}
+
+main();
 ```
 
 Each NFT has a unique combination of `tokenId` and `contractAddress`
 that we can use to specify the NFT we want to list.
 
 We'll call the `.auction.createListing` to create an auction-type listing on the marketplace.
+
+Be sure to replace the `assetContractAddress` and `tokenId` with the NFT you want to list.
 
 ```tsx title="index.ts"
 // Data of the auction you want to create
@@ -117,7 +125,7 @@ const auction = {
   reservePricePerToken: "1.5",
 };
 
-const tx = await contract.auction.createListing(auction);
+const tx = await marketplace.auction.createListing(auction);
 ```
 
 So the only thing left is to run our code! Open a terminal and paste the following:
