@@ -18,9 +18,13 @@ Check the code at GitHub over [here](https://github.com/thirdweb-dev/examples/tr
 
 ## Dependencies
 
-Quick heads up, in these examples, the thirdweb SDK is integrated with React **components**, but we're just using javascript. You can do the same magic with another framework!
+If you're starting from scratch, you can create a new thirdweb project by running:
 
-Let's start by installing the required dependencies:
+```bash
+npx create-tw-app
+```
+
+Or integrate into an existing project by installing the required dependencies:
 
 ```bash
 npm install @thirdweb-dev/react @thirdweb-dev/sdk ethers
@@ -28,13 +32,12 @@ npm install @thirdweb-dev/react @thirdweb-dev/sdk ethers
 
 ## The App.js - Connect your wallet
 
-In your `App.jsx` file we can use the code from this guide for our `connect wallet` button.
+In your `index.js` (or `_app.js` if you're using Next.js) file, we wrap our application in the `ThirdwebProvider` component.
 
-```tsx title="pages/_app.tsx"
-import type { AppProps } from "next/app";
+```jsx title="pages/_app.js"
 import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }) {
   const desiredChainId = ChainId.Rinkeby;
 
   /**
@@ -53,13 +56,14 @@ export default MyApp;
 
 ## The Claim button
 
-Let's create a components under `components/ClaimButton.tsx`.
+Now let's create a components under `components/ClaimButton.jsx`.
 
-```tsx title="components/ClaimButton.tsx"
+```jsx title="components/ClaimButton.tsx"
 import { useAddress, useMetamask, useNFTDrop } from "@thirdweb-dev/react";
 
 export const ClaimButton = () => {
   const connectWithMetamask = useMetamask();
+  // replace this with your NFT Drop contract address
   const nftDrop = useNFTDrop("0xA9F8815255E2fDC1CB2E164dE1bEedfD815D421B");
   const address = useAddress();
   return (
@@ -74,13 +78,12 @@ export const ClaimButton = () => {
 };
 ```
 
-Then, we need to import this component on our `index.tsx` file:
+Then, we need to import this component on our homepage `App.js` (or `index.js` for Next.js) file:
 
-```tsx title="pages/index.tsx"
-import type { NextPage } from "next";
+```jsx title="pages/App.js"
 import { ClaimButton } from "../components/ClaimButton";
 
-const Home: NextPage = () => {
+const Home = () => {
   return (
     <div>
       <ClaimButton />
