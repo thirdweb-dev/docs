@@ -80,9 +80,12 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 ```
 
-The desiredChainId is the chain id that you want to build upon. You can use the `ChainId` object provided by the sdk to pass it in the provider, in this case, Mumbai.
+The desiredChainId is the chain id that you want to build upon. You can use the `ChainId` object provided by the SDK to pass it to the `ThirdwebProvider`,
+in this case, we are using the Polygon `Mumbai` testnet.
 
-To add wallet connection, we are going to use the `useMetamask` hook that thirdweb provides, so add the hook like the following:
+To add wallet connection, we are going to use the `useMetamask` hook that thirdweb provides, so add the following to your `index.js` page:
+
+Then
 
 ```jsx
 const connectWithMetamask = useMetamask();
@@ -97,7 +100,7 @@ import { useMetamask } from "@thirdweb-dev/react";
 Finally, let’s create a button and use it:
 
 ```jsx
-<button onClick={connectWithMetamask}>Sign in with metamask</button>
+<button onClick={connectWithMetamask}>Sign in with MetaMask</button>
 ```
 
 Now that we can authenticate users on our site, let’s check if the user is authenticated and show a mint button if a user is there.
