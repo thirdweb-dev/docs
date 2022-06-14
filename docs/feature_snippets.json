@@ -25,7 +25,7 @@
         "summary": "Create a batch of encrypted NFTs that can be revealed at a later time.\n\n",
         "remarks": "\n\nSee {@link DelayedReveal.reveal} to get get a list of addresses for all supported roles on the contract.\n\n",
         "examples": {
-          "javascript": "// the real NFTs, these will be encrypted until your reveal them!\nconst realNFTs = [\n  {\n    name: \"Common NFT #1\",\n    description: \"Common NFT, one of many.\",\n    image: fs.readFileSync(\"path/to/image.png\"),\n  },\n  {\n    name: \"Super Rare NFT #2\",\n    description: \"You got a Super Rare NFT!\",\n    image: fs.readFileSync(\"path/to/image.png\"),\n  },\n];\n// A placeholder NFT that people will get immediately in their wallet, until the reveal happens!\nconst placeholderNFT = {\n  name: \"Hidden NFT\",\n  description: \"Will be revealed next week!\",\n};\n// Create and encrypt the NFTs\nawait contract.revealer.createDelayedRevealBatch(\n  placeholderNFT,\n  realNFTs,\n  \"my secret password\",\n);\n// Whenever you're ready, reveal your NFTs at any time!\nconst batchId = 0; // the batch to reveal\nawait contract.revealer.reveal(batchId, \"my secret password\");"
+          "javascript": "// the real NFTs, these will be encrypted until your reveal them!\nconst realNFTs = [\n  {\n    name: \"Common NFT #1\",\n    description: \"Common NFT, one of many.\",\n    image: fs.readFileSync(\"path/to/image.png\"),\n  },\n  {\n    name: \"Super Rare NFT #2\",\n    description: \"You got a Super Rare NFT!\",\n    image: fs.readFileSync(\"path/to/image.png\"),\n  },\n];\n// A placeholder NFT that people will get immediately in their wallet, until the reveal happens!\nconst placeholderNFT = {\n  name: \"Hidden NFT\",\n  description: \"Will be revealed next week!\",\n};\n// Create and encrypt the NFTs\nawait contract.revealer.createDelayedRevealBatch(\n  placeholderNFT,\n  realNFTs,\n  \"my secret password\",\n);"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.delayedreveal.createdelayedrevealbatch#delayedrevealcreatedelayedrevealbatch-method"
@@ -59,31 +59,88 @@
       "javascript": "https://portal.thirdweb.com/typescript/sdk.delayedreveal"
     }
   },
-  "Claim": {
+  "ClaimSinglePhase": {
+    "name": "ClaimSinglePhase",
+    "summary": "Handle claim conditions\n\n",
+    "remarks": "\n\nConfigure claim conditions for a Drop Contract.\n\n",
+    "examples": {
+      "javascript": "export class DropSingleClaimConditions<TContract extends SignatureDrop>\n"
+    },
+    "methods": [
+      {
+        "name": "get",
+        "summary": "Get the currently active claim condition\n\n",
+        "remarks": "\n\nSee {@link ContractRoles.getAll} to get get a list of addresses for all supported roles on the contract.\n\n",
+        "examples": {
+          "javascript": "const claimCondition = await contract.claimConditions.get();"
+        },
+        "reference": {
+        }
+      },
+      {
+        "name": "set",
+        "summary": "Sets the public mint conditions that need to be fullfiled by users to claim NFTs.\n\n",
+        "remarks": "",
+        "examples": {
+          "javascript": "const presaleStartTime = new Date();\nconst publicSaleStartTime = new Date(Date.now() + 60 * 60 * 24 * 1000);\nconst claimConditions = [\n  {\n    startTime: presaleStartTime, // start the presale now\n    maxQuantity: 2, // limit how many mints for this presale\n    price: 0.01, // presale price\n    snapshot: ['0x...', '0x...'], // limit minting to only certain addresses\n  }\n]);\nawait contract.claimConditions.set(claimConditions);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/contracts/DropSinglePhase#set"
+        }
+      },
+      {
+        "name": "canClaim",
+        "summary": "Check if the drop can currently be claimed.\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const claimConditions: = await contract.claimCondition.canClaim(quantity, address);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.dropclaimconditions.canclaim"
+        }
+      },
+      {
+        "name": "getClaimIneligibilityReasons",
+        "summary": "For any claim conditions that a particular wallet is violating, this function returns human readable information about the breaks in the condition that can be used to inform the user.\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const claimIneligibilityReasons: = await contract.claimCondition.getClaimIneligibilityReasons(address);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.dropclaimconditions.getclaimineligibilityreasons"
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "javascript": "https://portal.thirdweb.com/contracts/DropSinglePhase"
+    }
+  },
+  "ClaimMultiPhase": {
     "name": "Claim",
     "summary": "Handle contract royalties\n\n",
     "remarks": "\n\nConfigure royalties for an entire contract or a particular token.\n\n",
     "examples": {
-      "javascript": "export declare class DropClaimConditions<TContract extends DropERC721 | DropERC20 | BaseClaimConditionERC721>\n\n\n"
+      "javascript": "export class DropClaimConditions<TContract extends DropERC721 | DropERC20 | BaseClaimConditionERC721>"
     },
     "methods": [
       {
         "name": "set",
-        "summary": "Returns the decrypted URI i.e. revealed URI for a batch of tokens.\n\n",
-        "remarks": "\n\nSee {@link ContractRoles.getAll} to get get a list of addresses for all supported roles on the contract.\n\n",
+        "summary": "Sets the public mint conditions that need to be fullfiled by users to claim NFTs.\n\n",
+        "remarks": null,
         "examples": {
-          "javascript": "const presaleStartTime = new Date();\nconst publicSaleStartTime = new Date(Date.now() + 60 * 60 * 24 * 1000);\nconst claimConditions = [\n  {\n    startTime: presaleStartTime, // start the presale now\n    maxQuantity: 2, // limit how many mints for this presale\n    price: 0.01, // presale price\n    snapshot: ['0x...', '0x...'], // limit minting to only certain addresses\n  },\n  {\n    startTime: publicSaleStartTime, // 24h after presale, start public sale\n    price: 0.08, // public sale price\n  }\n]);\nawait contract.claimConditions.set(claimConditions);"
+          "javascript": "const presaleStartTime = new Date();\nconst publicSaleStartTime = new Date(Date.now() + 60 * 60 * 24 * 1000);\nconst claimConditions = [\n  {\n    startTime: presaleStartTime, // start the presale now\n    maxQuantity: 2, // limit how many mints for this presale\n    price: 0.01, // presale price\n    snapshot: ['0x...', '0x...'], // limit minting to only certain addresses\n  }\n]);\nawait contract.claimConditions.set(claimConditions);"
         },
         "reference": {
-          "javascript": "https://portal.thirdweb.com/typescript/sdk.dropclaimconditions.set"
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.dropclaimconditions.update"
         }
       },
       {
-        "name": "getActive",
+        "name": "getActive()",
         "summary": "Get the currently active claim condition\n\n",
-        "remarks": "\n\nSee {@link ContractRoles.getAll} to get get a list of addresses for all supported roles on the contract.\n\n",
+        "remarks": "",
         "examples": {
-          "javascript": "const activeClaimCondition = await contract.claimCondition.getActive();"
+          "javascript": "const claimCondition = await contract.claimConditions.getActive();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.dropclaimconditions.getactive"
@@ -100,17 +157,7 @@
           "javascript": "https://portal.thirdweb.com/typescript/sdk.dropclaimconditions.getall"
         }
       },
-      {
-        "name": "update",
-        "summary": "Update a single claim condition with new data.\n\n",
-        "remarks": null,
-        "examples": {
-          "javascript": "const claimConditions: = await contract.claimCondition.update(index, claimConditionInput);"
-        },
-        "reference": {
-          "javascript": "https://portal.thirdweb.com/typescript/sdk.dropclaimconditions.update"
-        }
-      },
+
       {
         "name": "canClaim",
         "summary": "Update a single claim condition with new data.\n\n",
@@ -121,41 +168,63 @@
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.dropclaimconditions.update"
         }
+      },
+      {
+        "name": "getClaimIneligibilityReasons",
+        "summary": "For any claim conditions that a particular wallet is violating, this function returns human readable information about the breaks in the condition that can be used to inform the user.\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const claimIneligibilityReasons: = await contract.claimCondition.getClaimIneligibilityReasons(address);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.dropclaimconditions#methods"
+        }
+      },
+      {
+        "name": "update",
+        "summary": "Update a single claim condition with new data.\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const claimConditions: = await contract.claimCondition.update(index, claimConditionInput);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.dropclaimconditions.update"
+        }
       }
     ],
     "properties": [],
     "reference": {
-      "javascript": "https://portal.thirdweb.com/typescript/sdk.dropclaimconditions"
+      "javascript": "https://portal.thirdweb.com/contracts/IClaimConditionsMultiPhase"
     }
   },
   "LazyMint": {
     "name": "LazyMint",
     "summary": "Handle contract royalties\n\n",
-    "remarks": "\n\nConfigure royalties for an entire contract or a particular token.\n\n",
+    "remarks": "\n\nAdd Lazy minting abilities\n\n",
     "examples": {
-      "javascript": "function lazyMint(uint256 amount, string baseURIForTokens, bytes extraData) external nonpayable returns (uint256 batchId)\n"
+      "javascript": "export interface LazyMintInterface extends utils.Interface \n"
     },
     "methods": [
       {
         "name": "getBaseURICount",
         "summary": "Returns the number of batches of tokens having the same baseURI.\n\n",
-        "remarks": "\n\nSee {@link ContractRoles.getAll} to get get a list of addresses for all supported roles on the contract.\n\n",
+        "remarks": "",
         "examples": {
-          "javascript": "const minterAddresses: string[] = await contract.getRoleMemberList(\"minter\");"
+          "javascript": "getBaseURICount(overrides?: CallOverrides): Promise<[BigNumber]>;"
         },
         "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.ContractRoles.get"
+          "javascript": "https://portal.thirdweb.com/contracts/LazyMint#getbaseuricount"
         }
       },
       {
         "name": "getBatchIdAtIndex",
         "summary": "Returns the id for the batch of tokens the given tokenId belongs to.\n\n\n\n",
-        "remarks": "\n\nSee {@link ContractRoles.getAll} to get get a list of addresses for all supported roles on the contract.\n\n",
+        "remarks": "",
         "examples": {
-          "javascript": "const minterAddresses: string[] = await contract.getRoleMemberList(\"minter\");"
+          "javascript": "getBatchIdAtIndex(_index: BigNumberish, overrides?: CallOverrides): Promise<[BigNumber]>;"
         },
         "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.ContractRoles.get"
+          "javascript": "https://portal.thirdweb.com/contracts/LazyMint#getbatchidatindex"
         }
       },
       {
@@ -163,16 +232,16 @@
         "summary": "",
         "remarks": null,
         "examples": {
-          "javascript": "const minterAddresses: string[] = await contract.getRoleMemberList(\"minter\");\nawait contract.setAll({\n minter: []\n});\nconsole.log(await contract.getRoleMemberList(\"minter\")); // No matter what members had the role before, the new list will be set to []"
+          "javascript": "lazyMint(amount: BigNumberish, baseURIForTokens: string, extraData: BytesLike, overrides?: Overrides & { from?: string | Promise<string> } ): Promise<ContractTransaction>;"
         },
         "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.ContractRoles.setAll"
+          "javascript": "https://portal.thirdweb.com/contracts/LazyMint#lazymint-1"
         }
       }
     ],
     "properties": [],
     "reference": {
-      "javascript": "https://docs.thirdweb.com/typescript/sdk.ContractRoyalty"
+      "javascript": "https://portal.thirdweb.com/contracts/LazyMint"
     }
   },
   "PlatformFee": {
