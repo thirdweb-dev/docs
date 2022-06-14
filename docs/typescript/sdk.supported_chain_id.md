@@ -21,7 +21,11 @@ export declare type SUPPORTED_CHAIN_ID =
   | ChainId.Fantom
   | ChainId.FantomTestnet
   | ChainId.Avalanche
-  | ChainId.AvalancheFujiTestnet;
+  | ChainId.AvalancheFujiTestnet
+  | ChainId.Optimism
+  | ChainId.OptimismTestnet
+  | ChainId.Arbitrum
+  | ChainId.ArbitrumTestnet;
 ```
 
-**References:** [ChainId.Mainnet](./sdk.chainid.md), [ChainId.Rinkeby](./sdk.chainid.md), [ChainId.Goerli](./sdk.chainid.md), [ChainId.Mumbai](./sdk.chainid.md), [ChainId.Polygon](./sdk.chainid.md), [ChainId.Fantom](./sdk.chainid.md), [ChainId.FantomTestnet](./sdk.chainid.md), [ChainId.Avalanche](./sdk.chainid.md), [ChainId.AvalancheFujiTestnet](./sdk.chainid.md)
+**References:** [ChainId.Mainnet](./sdk.chainid.md), [ChainId.Rinkeby](./sdk.chainid.md), [ChainId.Goerli](./sdk.chainid.md), [ChainId.Mumbai](./sdk.chainid.md), [ChainId.Polygon](./sdk.chainid.md), [ChainId.Fantom](./sdk.chainid.md), [ChainId.FantomTestnet](./sdk.chainid.md), [ChainId.Avalanche](./sdk.chainid.md), [ChainId.AvalancheFujiTestnet](./sdk.chainid.md), [ChainId.Optimism](./sdk.chainid.md), [ChainId.OptimismTestnet](./sdk.chainid.md), [ChainId.Arbitrum](./sdk.chainid.md), [ChainId.ArbitrumTestnet](./sdk.chainid.md)
