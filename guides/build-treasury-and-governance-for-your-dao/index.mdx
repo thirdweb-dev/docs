@@ -7,33 +7,76 @@ date: "2022-02-03"
 
 # Build treasury and governance for your DAO
 
-Learn how to use the [vote contract](/pre-built-contracts/vote), how to set up governance and create proposals.
+Learn how to use the [vote contract](/pre-built-contracts/vote) to set up governance and create proposals.
 
 <!-- truncate -->
 
-Everything we do in this tutorial has been taken from our project **"Build your own DAO with just JavaScript"**, check it out [here](https://buildspace.so/daos).
+Everything we do in this tutorial has been taken from our project [Build your own DAO with just JavaScript](https://buildspace.so/daos) on Buildspace.
 
 ## Let's build our DAO
 
-So you want to build a DAO, but... what is a DAO? A DAO is a community of people with a shared bank account. Decisions around how that bank account is used are made by voting on different proposals that members create. When a proposal gets enough votes, it is executed on-chain!
+So you want to build a DAO, but... what is a DAO? A DAO is a community of people with a shared bank account.
 
-We need a governance token so users can vote on proposals. If you haven't deployed a token yet, you can follow [this guide](/guides/create-your-currency-with-typescript-sdk).
+Decisions around how that bank account is used are made by voting on different proposals that members create. When a proposal gets enough votes, it is executed on-chain!
+
+As a pre-requisite, we need a **governance token** so users can vote on proposals. If you haven't deployed a token yet, you can follow [this guide](/guides/create-your-currency-with-typescript-sdk).
 
 Once we do, we can start working with our **Vote** contract.
 
-## Set up local environment
+## Setting up our local environment
 
-First, we'll need to setup our local environment and instantiate the SDK.
+First, we'll need to set up our local environment and install the SDK.
+
+Create a new folder called `my-dao`, and run the following command from this directory:
+
+```bash
+npm install @thirdweb-dev/sdk dotenv
+```
 
 ## Deploy a governance contract
 
-We want let people vote on stuff, automatically count the votes, and let any member execute the proposal on-chain.
+We want to let people vote on proposals, automatically count the votes, and let any member execute the proposal on-chain.
 
-Create a `vote.js` file, make sure you initialize the SDK before you copy and paste the code.
+Create a `vote.js` file, and make sure you [initialize the SDK](/getting-started/writing-data-to-smart-contracts) before you copy and paste the code.
+
+To deploy a vote contract using the SDK, we can make use of the [sdk.deployer](/typescript/sdk.thirdwebsdk.deployer),
+which can create any of thirdweb's [pre-built contracts](/pre-built-contracts)!
+
+To deploy from your wallet, you'll first need to export your wallet's private key and add it to an environment variable in this project.
+
+:::info How to export your private key
+
+Learn how to [export your private key](/guides/create-a-metamask-wallet#export-your-private-key) from your wallet.
+
+:::
+
+To do this, create a file called `.env` in the same folder as your `vote.mjs` file, and add the following to it:
+
+```
+PRIVATE_KEY=your-private-key-here
+```
+
+:::warning
+
+Ensure you store and access your private key securely.
+
+- **Never** commit any file that may contain your private key to your source control.
+
+:::
+
+```javascript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import "dotenv/config";
+
+const NETWORK = "mumbai";
+const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, NETWORK);
+```
+
+Now we're ready to deploy the Vote!
 
 Replace `<TOKEN_ADDRESS>` with the address of the token you just created.
 
-```js title="vote.js"
+```js title="vote.mjs"
 // SDK initialization here
 
 (async () => {
@@ -79,7 +122,7 @@ Replace `<TOKEN_ADDRESS>` with the address of the token you just created.
 We can go ahead and execute this file to deploy our **Vote** contract!
 
 ```bash
-node vote.js
+node vote.mjs
 ```
 
 This will give this log the following to our terminal:
@@ -88,20 +131,18 @@ This will give this log the following to our terminal:
 ✅ Successfully deployed vote contract, address: <VOTE_CONTRACT_ADDRESS>
 ```
 
-Copy that **Vote** contract address, we are gonna need it! If you lose it, you can always get it from your [thirdweb dashboard](https://thirdweb.com/dashboard).
+Copy that **Vote** contract address, we are going to need it! If you lose it, you can always get it from your [thirdweb dashboard](https://thirdweb.com/dashboard).
 
 ## Setup the treasury
 
-Install `ethers`:
+Then, create a `treasury.mjs` file, and make sure the SDK is initialized before you try to use it.
 
-```bash
-npm i ethers
-```
+```js title="treasury.mjs"
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import "dotenv/config";
 
-Then, create a `treasury.js` file, make sure the SDK is initialized before you try to use it.
-
-```js title="treasury.js"
-// SDK initialization here
+const NETWORK = "mumbai";
+const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, NETWORK);
 
 // This is our governance contract.
 const vote = sdk.getVote("INSERT_VOTE_ADDRESS");
@@ -127,7 +168,7 @@ const token = sdk.getToken("INSERT_TOKEN_ADDRESS");
 
   try {
     // Grab our wallet's token balance, remember -- we hold basically the entire supply right now!
-    const ownedTokenBalance = await token.balanceOf(process.env.WALLET_ADDRESS);
+    const ownedTokenBalance = await token.balanceOf("your-wallet-address-here");
 
     // Grab 90% of the supply that we hold.
     const ownedAmount = ownedTokenBalance.displayValue;
@@ -145,14 +186,16 @@ const token = sdk.getToken("INSERT_TOKEN_ADDRESS");
 })();
 ```
 
-What's going on here? We're moving 90% of the total tokens we hold to the **Vote** contract, basically giving up our dictatorship and let the DAO decide how those tokens get spent.
+What's going on here? We're moving 90% of the total tokens we hold to the **Vote** contract, basically giving up our dictatorship and letting the DAO decide how those tokens get spent.
 
-Before doing this, we could've done an airdrop to our NFT holders, or distribute tokens in another way, it's up to you how you want to do it!
+Before doing this, we could've done an airdrop to our NFT holders, or distributed tokens in another way, it's up to you how you want to do it!
 
 Let's execute this!
 
+Remember to populate the vote address, token address, and wallet address before running the script.
+
 ```bash
-node treasury.js
+node treasury.mjs
 ```
 
 This will give this log the following to our terminal:
@@ -166,12 +209,15 @@ This will give this log the following to our terminal:
 
 This is the fun part.
 
-Create a `proposals.js` file, make sure the SDK is initialized before you try to use it.
+Create a `proposals.mjs` file, and make sure the SDK is initialized before you try to use it.
 
-```js title="proposals.js"
+```js title="proposals.mjs"
 import { ethers } from "ethers";
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import "dotenv/config";
 
-// SDK initialization here
+const NETWORK = "mumbai";
+const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, NETWORK);
 
 // This is our governance contract.
 const vote = sdk.getVote("INSERT_VOTE_ADDRESS");
@@ -252,17 +298,19 @@ const token = sdk.getToken("INSERT_TOKEN_ADDRESS");
 
 We're actually creating two new proposals for members to vote on:
 
-1. We're creating a proposal that allows the treasury to mint 420,000 new token. You can see we do a "mint" in the code. Maybe the treasury is running low and we want more tokens to award members. Remember, earlier we gave our voting contract the ability to mint new token — so this works! It's a democratic treasury. If you members think this is proposal is stupid and vote “NO”, this simply won't pass!
+1. We're creating a proposal that allows the treasury to mint 420,000 new tokens. You can see we do a "mint" in the code. Maybe the treasury is running low and we want more tokens to award members. Remember, earlier we gave our voting contract the ability to mint new tokens — so this works! It's a democratic treasury. If your members think this proposal is stupid and vote “NO”, this simply won't pass!
 2. We're creating a proposal that transfer 6,900 token to our wallet from the treasury. You can see we do a "transfer" in the code.
 
-Maybe we did something good and want to be rewarded for it! In the real world, you'd usually create proposals to send other people token. For example, maybe someone helped code up a new website for the DAO and wants to be rewarded for it. You can transfer them tokens!
+Maybe we did something good and want to be rewarded for it! In the real world, you'd usually create proposals to send other people tokens. For example, maybe someone helped code up a new website for the DAO and wants to be rewarded for it. You can transfer them tokens!
 
-I want to make note on `nativeTokenValue`. Lets say we wanted to have our proposal say, “We'd like to reward this person for helping us with marketing with 2500 governance token and 0.1 ETH”. This is really cool! It means you can reward people with both ETH and governance token — best of both worlds. _Note: That 0.1 ETH would need to be in our treasury if we wanted to send it!_
+I want to make a note on `nativeTokenValue`. Let's say we wanted to have our proposal say, “We'd like to reward this person for helping us with marketing with 2500 governance token and 0.1 ETH”. This is really cool! It means you can reward people with both ETH and governance token — best of both worlds. _Note: That 0.1 ETH would need to be in our treasury if we wanted to send it!_
 
 Let's execute this!
 
+Remember to replace the values of `<WALLET_TO_TRANSFER_TOKENS_TO>`, as well as the vote and token contract addresses.
+
 ```bash
-node proposals.js
+node proposals.mjs
 ```
 
 This will give this log the following to our terminal:
@@ -278,4 +326,4 @@ And that's it! Now your proposals have been created, then you would need to crea
 
 You can see more info on how to do it in [this link](https://github.com/buildspace/buildspace-dao-final/blob/d94cadc73703c09561fda946a338237eee7f9bee/src/App.jsx#L194), in which we built an entire frontend so people could vote on proposals.
 
-If you want lengthier explanations about everything we did on this tutorial, you can check **"Build your own DAO with just JavaScript"**, our collaboration with buildspace, [in this link](https://buildspace.so/daos).
+If you want lengthier explanations about everything we did on this tutorial, you can check **"Build your own DAO with just JavaScript"**, our collaboration with Buildspace, [in this link](https://buildspace.so/daos).

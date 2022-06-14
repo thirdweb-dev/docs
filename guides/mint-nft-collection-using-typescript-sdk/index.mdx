@@ -7,95 +7,99 @@ date: "2021-11-19"
 
 # Mint an NFT Collection with TypeScript
 
-This guide explains how to mint your own NFT. We will create an **NFT Collection** contract on the dashboard and mint an NFT from the SDK. We also need to connect a wallet. So if you don't have a wallet, make sure to sign up with MetaMask or CoinWallet. [Here's our guide on how to create a Metamask Wallet](/guides/create-a-metamask-wallet).
+This guide explains how to mint an NFT Collection using the [TypeScript SDK](/typescript).
 
 <!-- truncate -->
 
-Alright without further ado, let's mint an NFT.
+You can deploy an [NFT Collection](/pre-built-contracts/nft-collection) via the [dashboard](https://thirdweb.com/dashboard),
+but in this guide, we'll demonstrate how to do it using TypeScript!
 
-## Dashboard setup
+Create a new directory called `my-nft-collection`, and within this folder, create a file called `mint-nft-collection.ts`.
 
-The first thing we need to do is head over to the [dashboard](https://thirdweb.com/dashboard) and create an **NFT Collection** contract.
+## Installing TypeScript SDK
 
-Once the contract is created, it's time to mint our first NFT, but we don't need the dashboard for that! I mean we could, but why use GUI if we can use TypeScript!?
-
-![New NFT Collection contract viewed in the thirdweb dashboard](./nft-collection-contract-dashboard-view.png)
-
-## The code
-
-### 1. Create a TypeScript file
-
-Go ahead and create a new TypeScript file. Let's call it `index.ts` and open it in your favorite code editor. We'll use Visual Studio Code.
-
-![](./Untitled%2018.png)
-
-Next up use we'll install the ThirdWeb SDK using npm!
-
-### 2. SDK installation and setup with TypeScript
-
-- **@thirdweb-dev/sdk** - thirdweb TypeScript SDK.
-- **ethers** - will give us very useful utils.
-- **dotenv** - to hide our private key.
-- **typescript** - since this is a TypeScript project
-- **@types/node** - typing for node as a dev dependency.
-- **tslib** - utility package
+Install the required dependencies to get started with thirdweb, by running the following command inside your `my-nft-collection` folder.:
 
 ```bash
-npm init -y
-npm install @thirdweb-dev/sdk ethers dotenv
-npm install --save-dev typescript @types/node ts-node tslib
+npm install @thirdweb-dev/sdk dotenv
 ```
 
-In order to make use of our SDK, you need to establish a connection to a blockchain.
+## Deploying an NFT Collection
 
-For this guide, you will need to instantiate the SDK using your own signer with thirdweb.
+To deploy an NFT Collection using the SDK, we can make use of the [sdk.deployer](/typescript/sdk.thirdwebsdk.deployer),
+which can create any of thirdweb's [pre-built contracts](/pre-built-contracts)!
 
-### 3. Define which contract to use
+To deploy from your wallet, you'll first need to export your wallet's private key and add it to an environment variable in this project.
 
-Now we need to define which contract we want to use. Here we created an NFT Collection contract and called it '**TypeScript**'. This contract has an address. We need to pass the address here. You can find the address here, under '**TypeScript**':
+:::info How to export your private key
 
-![See NFT Collection contract address under contract name](./nft-collection-contract-dashboard-view.png)
+Learn how to [export your private key](/guides/create-a-metamask-wallet#export-your-private-key) from your wallet.
 
-In our `index.ts` we include the following code. First we define a variable `nftCollectionAddress` and store our contract address in here.
+:::
 
-Then we create an object that uses the **NFT Collection** contract inside the sdk with our address.
+To do this, create a file called `.env` in the same folder as your `mint-nft-collection.ts` file, and add the following to it:
 
-```tsx
-// assign the NFT Collection address
-const nftCollectionAddress = "0x8CeCAe3548f3844f68c07428E9Bbac50Ba887035";
-
-// Instantiate NFT Collection contract
-const nftCollection = sdk.getNftCollection(nftCollectionAddress);
+```
+PRIVATE_KEY=your-private-key-here
 ```
 
-### 4. Time to mint the NFT!
+:::warning
 
-The arguments passed over here are the same as minting an NFT inside the dashboard. If you want to familiarize yourself with the process, check out the dashboard!
+Ensure you store and access your private key securely.
 
-```tsx
-// Minting the NFT asynchronously
-async function mint() {
-  console.log(
-    await nftCollection.mint({
-      name: "Hi 👋",
-      description: "If you are interested in...follow me✅",
-      image: "ipfs://QmbGpe6dJQA9awBbTKEULufp9TTjXw1esVUbZNQrLM57nK",
-      attributes: {},
-    }),
+- **Never** commit any file that may contain your private key to your source control.
+
+:::
+
+Now we're ready to deploy the NFT Collection!
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import "dotenv/config";
+
+async function main() {
+  const NETWORK = "mumbai";
+  const sdk = ThirdwebSDK.fromPrivateKey(
+    process.env.PRIVATE_KEY as string,
+    NETWORK,
   );
+
+  const deployedAddress = await sdk.deployer.deployNFTCollection({
+    name: "My NFT Collection",
+    primary_sale_recipient: "0x-your-public-wallet-address-here",
+  });
+  console.log(deployedAddress);
+
+  // here, we'll add minting of NFTs in the next step.
 }
 
-// Running the entire thing
-mint();
+main();
+```
+
+Now we are ready to deploy our NFT Collection, but before we do, let's mint some NFTs in our script.
+
+## Minting NFTs
+
+The parameters used here are the same as minting an NFT inside the dashboard.
+If you want to familiarize yourself with the process, check out the dashboard!
+
+```tsx
+const nftCollection = sdk.getNFTCollection(deployedAddress);
+
+const nft = await nftCollection.mintTo("0x-your-public-wallet-address-here", {
+  name: "My NFT",
+});
+
+console.log(nft);
 ```
 
 So the only thing left is to run our code! Open a terminal and paste the following:
 
 ```bash
 # Runs the TypeScript file
-npx ts-node index.ts
+npx ts-node mint-nft-collection.ts
 ```
 
 ## That's it!
 
-You have minted your own NFT using thirdweb and the TypeScript SDK, you should be proud!
+You have minted your own NFT Collection using thirdweb and the TypeScript SDK, you should be proud!

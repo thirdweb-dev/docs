@@ -92,15 +92,21 @@ _Lets an account claim tokens._
 ### claimCondition
 
 ```solidity
-function claimCondition() external view returns (uint256 currentStartId, uint256 count)
+function claimCondition() external view returns (uint256 startTimestamp, uint256 maxClaimableSupply, uint256 supplyClaimed, uint256 quantityLimitPerTransaction, uint256 waitTimeInSecondsBetweenClaims, bytes32 merkleRoot, uint256 pricePerToken, address currency)
 ```
 
 #### Returns
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| currentStartId | uint256 | undefined   |
-| count          | uint256 | undefined   |
+| Name                           | Type    | Description |
+| ------------------------------ | ------- | ----------- |
+| startTimestamp                 | uint256 | undefined   |
+| maxClaimableSupply             | uint256 | undefined   |
+| supplyClaimed                  | uint256 | undefined   |
+| quantityLimitPerTransaction    | uint256 | undefined   |
+| waitTimeInSecondsBetweenClaims | uint256 | undefined   |
+| merkleRoot                     | bytes32 | undefined   |
+| pricePerToken                  | uint256 | undefined   |
+| currency                       | address | undefined   |
 
 ### contractType
 
@@ -181,20 +187,6 @@ function encryptedBaseURI(uint256) external view returns (bytes)
 | ---- | ----- | ----------- |
 | \_0  | bytes | undefined   |
 
-### getActiveClaimConditionId
-
-```solidity
-function getActiveClaimConditionId() external view returns (uint256)
-```
-
-_At any given moment, returns the uid for the active claim condition._
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
-
 ### getApproved
 
 ```solidity
@@ -249,46 +241,25 @@ _Returns the id for the batch of tokens the given tokenId belongs to._
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
 
-### getClaimConditionById
-
-```solidity
-function getClaimConditionById(uint256 _conditionId) external view returns (struct IClaimCondition.ClaimCondition condition)
-```
-
-_Returns the claim condition at the given uid._
-
-#### Parameters
-
-| Name          | Type    | Description |
-| ------------- | ------- | ----------- |
-| \_conditionId | uint256 | undefined   |
-
-#### Returns
-
-| Name      | Type                           | Description |
-| --------- | ------------------------------ | ----------- |
-| condition | IClaimCondition.ClaimCondition | undefined   |
-
 ### getClaimTimestamp
 
 ```solidity
-function getClaimTimestamp(uint256 _conditionId, address _claimer) external view returns (uint256 lastClaimTimestamp, uint256 nextValidClaimTimestamp)
+function getClaimTimestamp(address _claimer) external view returns (uint256 lastClaimedAt, uint256 nextValidClaimTimestamp)
 ```
 
 _Returns the timestamp for when a claimer is eligible for claiming NFTs again._
 
 #### Parameters
 
-| Name          | Type    | Description |
-| ------------- | ------- | ----------- |
-| \_conditionId | uint256 | undefined   |
-| \_claimer     | address | undefined   |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| \_claimer | address | undefined   |
 
 #### Returns
 
 | Name                    | Type    | Description |
 | ----------------------- | ------- | ----------- |
-| lastClaimTimestamp      | uint256 | undefined   |
+| lastClaimedAt           | uint256 | undefined   |
 | nextValidClaimTimestamp | uint256 | undefined   |
 
 ### getDefaultRoyaltyInfo
@@ -480,7 +451,7 @@ function hasRoleWithSwitch(bytes32 role, address account) external view returns 
 ### initialize
 
 ```solidity
-function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _saleRecipient, address _royaltyRecipient, uint128 _royaltyBps, uint128 _platformFeeBps, address _platformFeeRecipient, address _signatureMintLogic) external nonpayable
+function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _saleRecipient, address _royaltyRecipient, uint128 _royaltyBps, uint128 _platformFeeBps, address _platformFeeRecipient) external nonpayable
 ```
 
 _Initiliazes the contract, like a constructor._
@@ -499,7 +470,6 @@ _Initiliazes the contract, like a constructor._
 | \_royaltyBps           | uint128   | undefined   |
 | \_platformFeeBps       | uint128   | undefined   |
 | \_platformFeeRecipient | address   | undefined   |
-| \_signatureMintLogic   | address   | undefined   |
 
 ### isApprovedForAll
 
@@ -801,18 +771,17 @@ _See {IERC721-setApprovalForAll}._
 ### setClaimConditions
 
 ```solidity
-function setClaimConditions(IClaimCondition.ClaimCondition[] _conditions, bool _resetClaimEligibility, bytes) external nonpayable
+function setClaimConditions(IClaimCondition.ClaimCondition _condition, bool _resetClaimEligibility) external nonpayable
 ```
 
 _Lets a contract admin set claim conditions._
 
 #### Parameters
 
-| Name                    | Type                             | Description |
-| ----------------------- | -------------------------------- | ----------- |
-| \_conditions            | IClaimCondition.ClaimCondition[] | undefined   |
-| \_resetClaimEligibility | bool                             | undefined   |
-| \_2                     | bytes                            | undefined   |
+| Name                    | Type                           | Description |
+| ----------------------- | ------------------------------ | ----------- |
+| \_condition             | IClaimCondition.ClaimCondition | undefined   |
+| \_resetClaimEligibility | bool                           | undefined   |
 
 ### setContractURI
 
@@ -901,20 +870,6 @@ _Lets a contract admin set the royalty recipient and bps for a particular token 
 | \_tokenId   | uint256 | undefined   |
 | \_recipient | address | undefined   |
 | \_bps       | uint256 | undefined   |
-
-### sigMint
-
-```solidity
-function sigMint() external view returns (address)
-```
-
-_The address of the contract with signature minting logic._
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
 
 ### supportsInterface
 
@@ -1025,7 +980,7 @@ _Verifies that a mint request is signed by an account holding MINTER_ROLE (at th
 ### verifyClaim
 
 ```solidity
-function verifyClaim(uint256 _conditionId, address _claimer, uint256 _quantity, address _currency, uint256 _pricePerToken, bool verifyMaxQuantityPerTransaction) external view
+function verifyClaim(address _claimer, uint256 _quantity, address _currency, uint256 _pricePerToken, bool verifyMaxQuantityPerTransaction) external view
 ```
 
 _Checks a request to claim NFTs against the active claim condition&#39;s criteria._
@@ -1034,7 +989,6 @@ _Checks a request to claim NFTs against the active claim condition&#39;s criteri
 
 | Name                            | Type    | Description |
 | ------------------------------- | ------- | ----------- |
-| \_conditionId                   | uint256 | undefined   |
 | \_claimer                       | address | undefined   |
 | \_quantity                      | uint256 | undefined   |
 | \_currency                      | address | undefined   |
@@ -1044,7 +998,7 @@ _Checks a request to claim NFTs against the active claim condition&#39;s criteri
 ### verifyClaimMerkleProof
 
 ```solidity
-function verifyClaimMerkleProof(uint256 _conditionId, address _claimer, uint256 _quantity, IDrop.AllowlistProof _allowlistProof) external view returns (bool validMerkleProof, uint256 merkleProofIndex)
+function verifyClaimMerkleProof(address _claimer, uint256 _quantity, IDrop.AllowlistProof _allowlistProof) external view returns (bool validMerkleProof, uint256 merkleProofIndex)
 ```
 
 _Checks whether a claimer meets the claim condition&#39;s allowlist criteria._
@@ -1053,7 +1007,6 @@ _Checks whether a claimer meets the claim condition&#39;s allowlist criteria._
 
 | Name             | Type                 | Description |
 | ---------------- | -------------------- | ----------- |
-| \_conditionId    | uint256              | undefined   |
 | \_claimer        | address              | undefined   |
 | \_quantity       | uint256              | undefined   |
 | \_allowlistProof | IDrop.AllowlistProof | undefined   |
@@ -1095,17 +1048,18 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 | operator `indexed` | address | undefined   |
 | approved           | bool    | undefined   |
 
-### ClaimConditionsUpdated
+### ClaimConditionUpdated
 
 ```solidity
-event ClaimConditionsUpdated(IClaimCondition.ClaimCondition[] claimConditions)
+event ClaimConditionUpdated(IClaimCondition.ClaimCondition claimConditions, bool resetClaimEligibility)
 ```
 
 #### Parameters
 
-| Name            | Type                             | Description |
-| --------------- | -------------------------------- | ----------- |
-| claimConditions | IClaimCondition.ClaimCondition[] | undefined   |
+| Name                  | Type                           | Description |
+| --------------------- | ------------------------------ | ----------- |
+| claimConditions       | IClaimCondition.ClaimCondition | undefined   |
+| resetClaimEligibility | bool                           | undefined   |
 
 ### ContractURIUpdated
 

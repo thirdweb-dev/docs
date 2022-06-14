@@ -38,6 +38,7 @@ displayed_sidebar: typescript
 | [Erc20SignatureMinting](./sdk.erc20signatureminting.md)           | Enables generating ERC20 Tokens with rules and an associated signature, which can then be minted by anyone securely                  |
 | [Erc721](./sdk.erc721.md)                                         | Standard ERC721 NFT functions                                                                                                        |
 | [Erc721BatchMintable](./sdk.erc721batchmintable.md)               | Mint Many ERC721 NFTs at once                                                                                                        |
+| [Erc721Dropable](./sdk.erc721dropable.md)                         | Lazily mint and claim ERC721 NFTs                                                                                                    |
 | [Erc721Enumerable](./sdk.erc721enumerable.md)                     | List owned ERC721 NFTs                                                                                                               |
 | [Erc721Mintable](./sdk.erc721mintable.md)                         | Mint ERC721 NFTs                                                                                                                     |
 | [Erc721SignatureMinting](./sdk.erc721signatureminting.md)         | Enables generating dynamic ERC721 NFTs with rules and an associated signature, which can then be minted by anyone securely           |
@@ -139,6 +140,7 @@ displayed_sidebar: typescript
 | [ClaimCondition](./sdk.claimcondition.md)                                               | Represents a claim condition fetched from the SDK                                                          |
 | [ClaimConditionInput](./sdk.claimconditioninput.md)                                     | Input model to create a claim condition with optional snapshot of wallets                                  |
 | [ClaimVerification](./sdk.claimverification.md)                                         |                                                                                                            |
+| [ContractEvent](./sdk.contractevent.md)                                                 |                                                                                                            |
 | [ContractForContractType](./sdk.contractforcontracttype.md)                             |                                                                                                            |
 | [ContractType](./sdk.contracttype.md)                                                   |                                                                                                            |
 | [Currency](./sdk.currency.md)                                                           |                                                                                                            |
@@ -154,6 +156,7 @@ displayed_sidebar: typescript
 | [FilledConditionInput](./sdk.filledconditioninput.md)                                   |                                                                                                            |
 | [FilledSignature721WithQuantity](./sdk.filledsignature721withquantity.md)               |                                                                                                            |
 | [FilledSignaturePayload1155](./sdk.filledsignaturepayload1155.md)                       |                                                                                                            |
+| [FilledSignaturePayload1155WithTokenId](./sdk.filledsignaturepayload1155withtokenid.md) |                                                                                                            |
 | [FilledSignaturePayload20](./sdk.filledsignaturepayload20.md)                           |                                                                                                            |
 | [FilledSignaturePayload721](./sdk.filledsignaturepayload721.md)                         |                                                                                                            |
 | [ForwardRequestMessage](./sdk.forwardrequestmessage.md)                                 | Forward Request Message that's used for gasless transaction                                                |
@@ -164,6 +167,7 @@ displayed_sidebar: typescript
 | [NFTMetadataInput](./sdk.nftmetadatainput.md)                                           |                                                                                                            |
 | [NFTMetadataOwner](./sdk.nftmetadataowner.md)                                           |                                                                                                            |
 | [PayloadToSign1155](./sdk.payloadtosign1155.md)                                         |                                                                                                            |
+| [PayloadToSign1155WithTokenId](./sdk.payloadtosign1155withtokenid.md)                   |                                                                                                            |
 | [PayloadToSign20](./sdk.payloadtosign20.md)                                             |                                                                                                            |
 | [PayloadToSign721](./sdk.payloadtosign721.md)                                           |                                                                                                            |
 | [PayloadToSign721withQuantity](./sdk.payloadtosign721withquantity.md)                   |                                                                                                            |

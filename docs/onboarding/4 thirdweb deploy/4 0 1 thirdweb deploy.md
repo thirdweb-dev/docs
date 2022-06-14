@@ -159,7 +159,6 @@ We support any contract that you’ll write, and you can use the SDK to call raw
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "@thirdweb-dev/contracts/ThirdwebContract.sol";
 import "@thirdweb-dev/contracts/feature/interface/IMintableERC721.sol";
 
 // Adding IMintableERC721 and implementing it gives you
@@ -173,30 +172,20 @@ contract MyCustomContract is IMintableERC721 {
 }
 ```
 
-| Contract interface   | SDK                   | Dashboard                   |
-| -------------------- | --------------------- | --------------------------- |
-| ERC20                | contract.token        | Token information / balance |
-| IMintableERC20       | contract.token.mint   | Mint tokens button          |
-| ERC721               | contract.nft          | List of NFTs                |
-| IMintableERC721      | contract.nft.mint     | Mint NFT button             |
-| ERC1155              | contract.edition      | List of NFTs                |
-| IMintableERC1155     | contract.edition.mint | Mint NFT button             |
-| IThirdwebRoyalty     | contract.royalties    | Royalties admin UI          |
-| IThirdwebPrimarySale | contrat.sales         | Sales admin UI              |
-| IThirdwebPlatformFee | contract.platformFee  | Platform fees admin UI      |
+| Contract interface | SDK                   | Dashboard                   |
+| ------------------ | --------------------- | --------------------------- |
+| ERC20              | contract.token        | Token information / balance |
+| IMintableERC20     | contract.token.mint   | Mint tokens button          |
+| ERC721             | contract.nft          | List of NFTs                |
+| IMintableERC721    | contract.nft.mint     | Mint NFT button             |
+| ERC1155            | contract.edition      | List of NFTs                |
+| IMintableERC1155   | contract.edition.mint | Mint NFT button             |
+| Royalty            | contract.royalties    | Royalties admin UI          |
+| PrimarySale        | contrat.sales         | Sales admin UI              |
+| PlatformFee        | contract.platformFee  | Platform fees admin UI      |
+| Permissions        | contract.roles        | Roles and permissions.      |
 
 Find out more in our [documentation](https://docs.thirdweb.com/contracts).
-
-:::info Early access disclaimers
-
-This an early preview that comes with some limitations for this alpha release
-
-- Requires Solidity > 0.8.0
-- Only supports publishing and deploying on testnets
-
-Since this is an early preview, be prepared for your published contracts not to be accessible anymore once we launch this product fully.
-
-:::
 
 ## 🛠️ We want to hear from you
 

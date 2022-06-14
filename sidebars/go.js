@@ -35,6 +35,11 @@ const sidebars = {
     },
     {
       type: "doc",
+      label: "Deploying Contracts",
+      id: "contract_deployer"
+    },
+    {
+      type: "doc",
       label: "Custom Contracts",
       id: "custom",
     },
