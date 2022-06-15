@@ -124,13 +124,13 @@ function lazyMint(uint256 amount, string baseURIForTokens, bytes extraData) exte
 | ------- | ------- | ----------- |
 | batchId | uint256 | undefined   |
 
-### set
+### setClaimConditions
 
 ```solidity
-function set(IClaimCondition.ClaimCondition _condition, bool _resetClaimEligibility) external nonpayable
+function setClaimConditions(IClaimCondition.ClaimCondition _condition, bool _resetClaimEligibility) external nonpayable
 ```
 
-_Lets a contract admin set a claim condition._
+_Lets a contract admin set claim conditions._
 
 #### Parameters
 
