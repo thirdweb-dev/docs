@@ -21,8 +21,8 @@ export declare function useTokenSupply(
 ): import("react-query").UseQueryResult<
   {
     symbol: string;
-    name: string;
     value: import("ethers").BigNumber;
+    name: string;
     decimals: number;
     displayValue: string;
   },
@@ -38,7 +38,7 @@ export declare function useTokenSupply(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;{ symbol: string; name: string; value: import("ethers").BigNumber; decimals: number; displayValue: string; }, unknown&gt;
+import("react-query").UseQueryResult&lt;{ symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }, unknown&gt;
 
 a response object that incudes the total minted supply
 
