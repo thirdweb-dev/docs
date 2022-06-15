@@ -19,6 +19,7 @@ export interface NativeToken extends Currency
 
 ## Properties
 
-| Property                                | Type                                               | Description |
-| --------------------------------------- | -------------------------------------------------- | ----------- |
-| [wrapped](./sdk.nativetoken.wrapped.md) | { address: string; name: string; symbol: string; } |             |
+| Property                                  | Type                                               | Description |
+| ----------------------------------------- | -------------------------------------------------- | ----------- |
+| [decimals](./sdk.nativetoken.decimals.md) | 18                                                 |             |
+| [wrapped](./sdk.nativetoken.wrapped.md)   | { address: string; name: string; symbol: string; } |             |

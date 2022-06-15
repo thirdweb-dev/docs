@@ -16,15 +16,15 @@ Call any function on this contract
 **Signature:**
 
 ```typescript
-call(functionName: string, ...args: any[]): Promise<any>;
+call(functionName: string, ...args: unknown[] | [...unknown[], CallOverrides]): Promise<any>;
 ```
 
 ## Parameters
 
-| Parameter    | Type    | Description                      |
-| ------------ | ------- | -------------------------------- |
-| functionName | string  | the name of the function to call |
-| args         | any\[\] | the arguments of the function    |
+| Parameter    | Type                                                 | Description                      |
+| ------------ | ---------------------------------------------------- | -------------------------------- |
+| functionName | string                                               | the name of the function to call |
+| args         | unknown\[\] &#124; \[...unknown\[\], CallOverrides\] | the arguments of the function    |
 
 **Returns:**
 
@@ -38,6 +38,12 @@ const myValue = await contract.call("myReadFunction");
 console.log(myValue);
 
 // write functions will return the transaction receipt
-const tx = await contract.call("myWriteFunction", [arg1, arg2]);
+const tx = await contract.call("myWriteFunction", arg1, arg2);
 const receipt = tx.receipt;
+
+// Optionally override transaction options
+await contract.call("myWriteFunction", arg1, arg2, {
+ gasLimit: 1000000, // override default gas limit
+ value: ethers.utils.parseEther("0.1"), // send 0.1 ether with the contract call
+};
 ```

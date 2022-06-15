@@ -22,8 +22,8 @@ export declare function useTokenBalance(
 ): import("react-query").UseQueryResult<
   {
     symbol: string;
-    name: string;
     value: import("ethers").BigNumber;
+    name: string;
     decimals: number;
     displayValue: string;
   },
@@ -40,7 +40,7 @@ export declare function useTokenBalance(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;{ symbol: string; name: string; value: import("ethers").BigNumber; decimals: number; displayValue: string; }, unknown&gt;
+import("react-query").UseQueryResult&lt;{ symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }, unknown&gt;
 
 a response object that includes the balance of the address
 
