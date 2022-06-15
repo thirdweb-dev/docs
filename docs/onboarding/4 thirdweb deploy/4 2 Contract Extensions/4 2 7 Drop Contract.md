@@ -4,9 +4,10 @@ title: Drop Extensions
 ---
 import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet";
 
-thirdweb's drop contracts lazy mint your NFTs and make them available to be claimed by your users.
 
 ## Setting up the contract
+
+thirdweb's drop contracts lazy mint your NFTs and make them available to be claimed by your users.
 
 ### Smart Contract Feature Extensions
 
@@ -24,7 +25,6 @@ You will need your contract to inherit the following classes in order to get the
 
 [DelayReveal](https://github.com/thirdweb-dev/contracts/blob/main/contracts/feature/DelayedReveal.sol)
 
-
 ```solidity
 contract MyDropContract is Drop, DelayReveal, DropERC721 {
     // ...
@@ -34,8 +34,6 @@ contract MyDropContract is Drop, DelayReveal, DropERC721 {
 Drop Contract will give you access to [Lazy Mint](https://github.com/thirdweb-dev/contracts/blob/main/contracts/feature/LazyMint.sol) + [Claim](https://portal.thirdweb.com/contracts/IClaimConditionsMultiPhase) functionalities.
 
 DelayReveal Contract will give you access to delayed reveal functionality.
-
-
 
 ## Getting the contract in your application
 
@@ -70,7 +68,7 @@ const firstTokenId = results[0].id; // token id of the first created NFT
 const firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT
 ```
 
-## Claiming Your NFTs
+## Claim
 
 ### Claim unique NFTs to a specific Wallet
 
@@ -134,9 +132,6 @@ await contract.nft.claimConditions.set(claimConditions);
 ## Delayed Reveals
 
 Delayed reveals enable you to reveal the contents of the NFT to the user later at a specific date and show a placeholder asset in the meantime.
-
-- **Reveal upon mint**: Collectors will immediately see the final NFT when they complete the minting.
-- **Delayed Reveal**: Collectors will mint your placeholder image, then you reveal it at a later time.
 
 ### Create a Delayed Reveal Collection
 
