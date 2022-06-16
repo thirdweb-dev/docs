@@ -9,7 +9,7 @@ import FeatureCodeSnippets from "../../../../src/components/FeatureCodeSnippets"
 
 Using the Permissions and Roles features on your contract allows you to add a fine-tuned permission control system to control who is allowed to interact with different parts of your contract functionality.
 
-You can use our [PermissionsEnumerable](https://github.com/thirdweb-dev/contracts/feature/permissions/PermissionsEnumerable.sol) implementation to get permissions functionality for your contract out-of-the-box as follows:
+You can use our [PermissionsEnumerable](https://github.com/thirdweb-dev/contracts/blob/main/contracts/feature/PermissionsEnumerable.sol) implementation to get permissions functionality for your contract out-of-the-box as follows:
 
 ```solidity
 // SPDX-License-Identifier: MIT
