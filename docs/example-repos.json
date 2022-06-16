@@ -139,6 +139,18 @@
     "is_template": false
   },
   {
+    "name": "hardhat-thirdweb-deploy-contract-extensions",
+    "html_url": "https://github.com/thirdweb-example/hardhat-thirdweb-deploy-contract-extensions",
+    "description": "Build your own NFT Collection with Solidity using thirdweb deploy and the thirdweb SDK",
+    "created_at": "2022-06-16T01:35:06Z",
+    "updated_at": "2022-06-16T01:39:58Z",
+    "clone_url": "https://github.com/thirdweb-example/hardhat-thirdweb-deploy-contract-extensions.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "is_template": false
+  },
+  {
     "name": "hardhat-thirdweb-deploy-greeter",
     "html_url": "https://github.com/thirdweb-example/hardhat-thirdweb-deploy-greeter",
     "description": null,
