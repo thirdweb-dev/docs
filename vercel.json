@@ -207,18 +207,15 @@
     },
     {
       "source": "/guides/on-demand-minting",
-      "destination": "/guides/mint-nft-unique-code",
-      "permanent": true
+      "destination": "/guides/mint-nft-unique-code"
     },
     {
       "source": "/guides/create-your-own-marketplace-with-thirdweb-typescript-sdk",
-      "destination": "/guides/nft-marketplace-with-typescript-next",
-      "permanent": true
+      "destination": "/guides/nft-marketplace-with-typescript-next"
     },
     {
       "source": "/guides/switch-between-networks",
-      "destination": "/react/react.usenetwork",
-      "permanent": true
+      "destination": "/react/react.usenetwork"
     }
   ]
 }
