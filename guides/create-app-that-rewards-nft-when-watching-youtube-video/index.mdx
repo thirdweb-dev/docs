@@ -11,18 +11,14 @@ date: "2021-11-23"
 
 # Reward an NFT for watching a YouTube video
 
-Learn how to build a web-app that gives you NFTs upon successfully watching educational youtube videos.
+Learn how to build a web app that gives you NFTs upon successfully watching YouTube videos.
 
 <!-- truncate -->
 
-:::info Deprecated
-This guide uses Python v1 SDK, which is deprecated.
-We'll be updating this guide soon to use Python v2 SDK.
-:::
+Most of us learn on the internet. We spend hours watching youtube videos and reading long articles to learn about new skills.
+Unlike educational institutions, we don't get certificates for learning on the internet.
 
-Most of us learn on the internet. We spend hours watching youtube videos and reading long articles to learn about new skills. Unlike educational institutions, we don't get certificates for learning on the internet. Eg: I've learnt how to write **Solidity** on YouTube, but _there's no way_ I can prove I've watched a **Solidity** course on YouTube to someone else.
-
-This application will create '**Proof of viewership**' NFTs which are rewarded for completing YouTube videos, and can therefore be used to represent completion of educational video courses.
+This application will create '**Proof of viewership**' NFTs which are rewarded for completing YouTube videos, and can therefore be used to represent the completion of educational video courses.
 
 ![](./video-end.png)
 
@@ -32,30 +28,28 @@ Let's get started!
 
 ## Dashboard setup
 
-The first thing we need to do is head over to the [dashboard](https://v1.thirdweb.com/dashboard) and create a project and a **Bundle Collection** module.
+The first thing we need to do is head over to the [dashboard](https://thirdweb.com/dashboard)
+and create a project and a **Edition** contract.
 
 I'm naming my collection - SuperNFT and its symbol is $SUPR.
 
-Once you created your module, you'll reach the following page:
+Once you have created your contract, you'll reach the following page:
 
 ![](./dashboard.png)
 
 You won't need to add any NFTs at this stage as we'll be minting the NFTs programmatically.
 
-## #3 Set up your React Frontend
+## Set up your React Frontend
 
-I'll be using React for the frontend of our app, you can use anything you're comfortable with.
+I'll be using React for the front of our app, you can use anything you're comfortable with.
 
-The objective of the frontend is to help the user watch a youtube video, verify if they've seen it fully and then issue a command to the backend to mint a NFT for the user.
+The objective of the front-end is to help the user watch a YouTube video,
+verify if they've seen it fully and then issue a command to the backend to mint an NFT for the user.
 
-<aside>
-🗒️ Note - Thirdweb also has a Typescript SDK which you can directly use to mint NFTs on the frontend itself. I'm just going to use a different Python backend because it makes the app modular and you can use the Python code to mint NFTs in any other app you make as well!
+I have written down all the code for the frontend to run a YouTube video,
+prevent the user from skipping forward beyond 10 seconds and take a wallet address as input.
 
-</aside>
-
-I have written down all the code for the frontend to run a YouTube video, prevent the user from skipping forward beyond 10 seconds and take a wallet address as input.
-
-The wallet address + video url + video title are sent to the backend as well! Here's the [Replit](https://replit.com/@aryxns/thirdweb) link to the code, feel free to clone and build on top of this. Won't explain much about this because it's simple React code and additional details about how I'm controlling the YouTube video are in these [docs](https://developers.google.com/youtube/iframe_api_reference).
+The wallet address + video URL + video title are sent to the backend as well!
 
 ```jsx
 import React from "react";
@@ -232,7 +226,7 @@ export default MyApp;
 
 The only line you'd want to change in this code is the URL space on line 32 where it says `"your backend api URL"`.
 
-## #4 Backend in Python with the Thirdweb SDK
+## Backend in Python
 
 Now we come to creating programmable NFTs.
 
@@ -241,30 +235,54 @@ I'm going to be using FastAPI to make the backend, you can use whatever works be
 First off, download FastAPI, the thirdweb Python SDK and a few more dependencies.
 
 ```bash
-pip install fastapi uvicorn thirdweb-sdk firebase-admin textwrap Pillow
+pip install fastapi uvicorn thirdweb-sdk firebase-admin textwrap Pillow python-dotenv
 ```
 
-Let's first write the code for minting a NFT, then we'll wrap it up in a simple API. You can go through the thirdweb Python SDK docs [here](https://python-docs.thirdweb.com/).
+Let's first write the code for minting a NFT, then we'll wrap it up in a simple API.
+
+You can go through the thirdweb Python SDK docs [here](https://portal.thirdweb.com/python).
 
 First, we need to get the imports out of our way -
 
 ```python
-from thirdweb import ThirdwebSdk, SdkOptions, MintArg
+from thirdweb import ThirdwebSDK, SdkOptions, MintArg
 ```
 
-Then, initialise the SDK using the helper functions provided. The code should look something like this -
+To sign transactions from your wallet, we need to create a `.env` file and connect our wallet using its private key.
+
+:::info How to export your private key
+
+Learn how to [export your private key](/guides/create-a-metamask-wallet#export-your-private-key) from your wallet.
+
+:::
+
+To do this, create a file called `.env` in the same folder as your `currency.py` file, and add the following to it:
+
+```bash title=".env"
+PRIVATE_KEY=your-private-key-here
+```
+
+:::warning
+
+Ensure you store and access your private key securely.
+
+- **Never** commit any file that may contain your private key to your source control.
+
+:::
 
 ```python
-# Conncect to the SDK
-# The polygon-rpc.com is the official Polygon Mainnet RPC
-sdk = ThirdwebSdk(SdkOptions(), "polygon")
+# Load environment variables into this file
+load_dotenv()
 
-# You'll need wallet's private key here, you can find them in your wallet.
-# WARNING: Never share this with anyone, it gives permission to use your wallet in your behalf
-sdk.set_private_key("your private key")
+# This PRIVATE KEY is coming from your environment variables. Make sure to never put it in a tracked file or share it with anyone.
+PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
+
+# Set the network you want to operate on, or add your own RPC URL here
+NETWORK = "mumbai"
+
+# Finally, you can create a new instance of the SDK to use
+sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, NETWORK)
 ```
-
-Note - If you're using the Ethereum testnet, your RPC will be different. A simple Google search will give you a list of acceptable RPCs. Also, your private key here will be used to pay gas fees for minting all the NFTs. If you want the user to pay gas fees for each NFT they mint, the setup will be slightly different, but this is simpler to understand and hence we'll follow this for now!
 
 Now, we'll need the address that is found on your **NFT Collection** Module dashboard -
 
@@ -273,18 +291,23 @@ Now, we'll need the address that is found on your **NFT Collection** Module dash
 Copy the address and connect to our project's NFT Module. We do this by using the following function -
 
 ```python
-nft_module = sdk.get_nft_module("Your NFT Module address")
+# Instantiate a new NFT Collection contract as described above.
+NFT_COLLECTION_ADDRESS = "0x.."
+nft_collection = sdk.get_nft_collection(NFT_COLLECTION_ADDRESS)
 ```
 
 Great! You're almost done. Now we need to figure out a way to mint an NFT to our user's URL with some data. The python SDK provides a single-line function to all of this.
 
-```python
-mint = nft_module.mint_to("receiver's address",
-                          MintArg(name="Name of NFT", description="Description of NFT",
-                                  image_uri="URL of content to be served via the NFT",
-                                  properties={}))
+````python
+# Note that you can customize this metadata however you like
+metadata = NFTMetadataInput.from_json({
+    "name": "Cool NFT",
+    "description": "This is a cool NFT",
+    "image": open("path/to/file.jpg", "rb"),
+})
 
-# the properties dictionary gives you the freedom to put any other metadata on the NFT.
+# You can pass in any address here to mint the NFT to
+tx = contract.mint_to("{{wallet_address}}", metadata)
 ```
 
 Putting everything together, this is how your minting code should look -
@@ -292,29 +315,21 @@ Putting everything together, this is how your minting code should look -
 ```python
 from thirdweb import ThirdwebSdk, SdkOptions, MintArg
 
-sdk = ThirdwebSdk(SdkOptions(), "polygon")
-
-sdk.set_private_key("your private key")
-
 nft_module = sdk.get_nft_module("your NFT module's address")
 
 mint = nft_module.mint_to("receiver's address",
                           MintArg(name="Name of NFT", description="Description of NFT",
                                   image_uri="URL of content to be served via the NFT",
                                   properties={}))
-```
+````
 
-That's it! It's just 5 lines of code. With this, you can connect to your smart contract (which thirdweb makes for you in the background), connect your wallet, mint an NFT and put some data on it. Told you thirdweb is awesome 😜
+One thing you'll notice here is that we need a URL for our content that needs to go behind the NFT.
+We have one more challenge here, we need to create an image based on the information we're getting
+from the front-end, store it somewhere, get the URL and then pass it to the NFT.
 
-If you try running this code, you might get an error like this -
-
-![](./terminal.png)
-
-Please note - Your NFT will get minted and you'll be able to see a reduction in your wallet balance after paying gas fees. This error will be fixed soon, it doesn't affect your NFT though 🙂
-
-One thing you'll notice here is that we need a URL for our content that needs to go behind the NFT. We have one more challenge here, we need to create an image based on the information we're getting from the frontend, store it somewhere, get the URL and then pass it to the NFT.
-
-I'm going to be using pillow and textwrap to create an image based on the information I'm getting from the frontend. And I'll be using firebase to store the image and get a URL to access it -
+I'm going to be using pillow and textwrap to create an image based on the information
+I'm getting from the frontend.
+And I'll be using firebase to store the image and get a URL to access it -
 
 ```python
 from PIL import Image, ImageDraw
@@ -350,7 +365,16 @@ blob.make_public()
 print("your file url", blob.public_url)
 ```
 
-Again, I've done most of the heavy-lifting here to write all the code. The above code snippet writes `text` and `text2` on top of `img.png` which is a simple grey background image I found on the internet. It also takes the datestamp of the time you run this code and adds that to the text written on the image. That way, you know when the image and subsequently the NFT was created. It then puts the edited image on Firebase and gets back a URL to access the image. You'll have to setup a Firebase project and get your JSON keys + bucket name from there for this to work. Checkout these [docs](https://firebase.google.com/docs/reference/admin/python) for more information.
+The above code snippet writes `text` and `text2` on top of `img.png`
+which is a simple grey background image I found on the internet.
+
+It also takes the datestamp of the time you run this code and adds that to the text written on the image.
+
+That way, you know when the image and subsequently the NFT was created.
+
+It then puts the edited image on Firebase and gets back a URL to access the image.
+
+You'll have to setup a Firebase project and get your JSON keys + bucket name from there for this to work. Checkout these [docs](https://firebase.google.com/docs/reference/admin/python) for more information.
 
 Now let's make a quick [FastAPI](https://fastapi.tiangolo.com/) wrapper that takes all data from frontend, uses all the code we wrote above and mints a NFT.
 
