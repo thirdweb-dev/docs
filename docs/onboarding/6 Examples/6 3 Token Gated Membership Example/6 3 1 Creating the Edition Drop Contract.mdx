@@ -2,6 +2,8 @@
 slug: /examples/token-gated-membership/creating-the-nft-drop-contract
 ---
 
+import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet";
+
 # Creating an Edition Drop Contract
 
 In this section, we'll show how to:
@@ -83,3 +85,23 @@ I will change the `How many NFTs can be claimed per transaction?` to be `1` and 
 Once you're happy with your claim phase(s), click **Update Claim Phases** and approve the transaction!
 
 Now you're ready for users to claim the NFT!
+
+## Bonus Tip: SDK Deployments
+
+You can do everything we just did in code using the SDK too!
+
+**Deploy the NFT Drop contract:**
+
+<ThirdwebCodeSnippet
+  contract={"ContractDeployer"}
+  name={"deployEditionDrop"}
+  showHr={false}
+/>
+
+**Set Claim Conditions:**
+
+<ThirdwebCodeSnippet
+  contract={"EditionDrop"}
+  name={"claimConditions"}
+  showHr={false}
+/>
