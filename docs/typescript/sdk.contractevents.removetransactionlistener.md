@@ -26,3 +26,15 @@ removeTransactionListener(listener: ListenerFn): void;
 **Returns:**
 
 void
+
+## Remarks
+
+Remove a listener that was added with addTransactionListener
+
+## Example
+
+```javascript
+contract.events.removeTransactionListener((event) => {
+ console.log(event);
+}
+```
