@@ -16,6 +16,7 @@ displayed_sidebar: typescript
 | [ContractDeployer](./sdk.contractdeployer.md)                     | Handles deploying new contracts                                                                                                      |
 | [ContractEncoder](./sdk.contractencoder.md)                       | Encodes and decodes Contract functions                                                                                               |
 | [ContractEvents](./sdk.contractevents.md)                         | Listen to Contract events in real time                                                                                               |
+| [ContractInterceptor](./sdk.contractinterceptor.md)               | Allows overriding transaction behavior for this contract                                                                             |
 | [ContractMetadata](./sdk.contractmetadata.md)                     | Handles metadata for a Contract                                                                                                      |
 | [ContractPlatformFee](./sdk.contractplatformfee.md)               | Handle platform fees and recipients                                                                                                  |
 | [ContractPrimarySale](./sdk.contractprimarysale.md)               | Handle primary sales recipients                                                                                                      |
@@ -62,6 +63,7 @@ displayed_sidebar: typescript
 | [TransactionError](./sdk.transactionerror.md)                     |                                                                                                                                      |
 | [UserWallet](./sdk.userwallet.md)                                 | Connect and Interact with a user wallet                                                                                              |
 | [Vote](./sdk.vote.md)                                             | Create a decentralized organization for token holders to vote on proposals.                                                          |
+| [WalletAuthenticator](./sdk.walletauthenticator.md)               | **<i>(BETA)</i>** Wallet Authenticator                                                                                               |
 
 ## Enumerations
 
@@ -72,7 +74,6 @@ displayed_sidebar: typescript
 | [EventType](./sdk.eventtype.md)               |             |
 | [ListingType](./sdk.listingtype.md)           |             |
 | [ProposalState](./sdk.proposalstate.md)       |             |
-| [UnderlyingType](./sdk.underlyingtype.md)     |             |
 | [VoteType](./sdk.votetype.md)                 |             |
 
 ## Functions
@@ -90,8 +91,6 @@ displayed_sidebar: typescript
 | [BatchToReveal](./sdk.batchtoreveal.md)                                         |                                                                                                      |
 | [DirectListing](./sdk.directlisting.md)                                         | Represents a marketplace direct listing.                                                             |
 | [GaslessTransaction](./sdk.gaslesstransaction.md)                               | transaction message contains information that's needed to execute a gasless transaction              |
-| [IPackBatchArgs](./sdk.ipackbatchargs.md)                                       | **<i>(BETA)</i>**                                                                                    |
-| [IPackCreateArgs](./sdk.ipackcreateargs.md)                                     |                                                                                                      |
 | [IStorage](./sdk.istorage.md)                                                   | Interface for any storage provider                                                                   |
 | [MarketplaceContractDeployMetadata](./sdk.marketplacecontractdeploymetadata.md) | Options for deploying a Marketplace contract                                                         |
 | [MarketplaceFilter](./sdk.marketplacefilter.md)                                 |                                                                                                      |
@@ -101,9 +100,6 @@ displayed_sidebar: typescript
 | [NewDirectListing](./sdk.newdirectlisting.md)                                   | Represents a new marketplace direct listing.                                                         |
 | [NFTContractDeployMetadata](./sdk.nftcontractdeploymetadata.md)                 | Options for deploying an NFT contract                                                                |
 | [Offer](./sdk.offer.md)                                                         |                                                                                                      |
-| [PackMetadata](./sdk.packmetadata.md)                                           |                                                                                                      |
-| [PackMetadataWithBalance](./sdk.packmetadatawithbalance.md)                     |                                                                                                      |
-| [PackNFTMetadata](./sdk.packnftmetadata.md)                                     |                                                                                                      |
 | [Proposal](./sdk.proposal.md)                                                   |                                                                                                      |
 | [ProposalExecutable](./sdk.proposalexecutable.md)                               |                                                                                                      |
 | [ProposalVote](./sdk.proposalvote.md)                                           |                                                                                                      |

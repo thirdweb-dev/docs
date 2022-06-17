@@ -27,31 +27,32 @@ export declare class ThirdwebSDK extends RPCConnectionHandler
 
 ## Properties
 
-| Property                                  | Modifiers | Type                                          | Description                                                          |
-| ----------------------------------------- | --------- | --------------------------------------------- | -------------------------------------------------------------------- |
-| [deployer](./sdk.thirdwebsdk.deployer.md) |           | [ContractDeployer](./sdk.contractdeployer.md) | New contract deployer                                                |
-| [storage](./sdk.thirdwebsdk.storage.md)   |           | [RemoteStorage](./sdk.remotestorage.md)       | Upload and download files from IPFS or from your own storage service |
-| [wallet](./sdk.thirdwebsdk.wallet.md)     |           | [UserWallet](./sdk.userwallet.md)             | Interact with the connected wallet                                   |
+| Property                                  | Modifiers | Type                                                | Description                                                          |
+| ----------------------------------------- | --------- | --------------------------------------------------- | -------------------------------------------------------------------- |
+| [auth](./sdk.thirdwebsdk.auth.md)         |           | [WalletAuthenticator](./sdk.walletauthenticator.md) | Enable authentication with the connected wallet                      |
+| [deployer](./sdk.thirdwebsdk.deployer.md) |           | [ContractDeployer](./sdk.contractdeployer.md)       | New contract deployer                                                |
+| [storage](./sdk.thirdwebsdk.storage.md)   |           | [RemoteStorage](./sdk.remotestorage.md)             | Upload and download files from IPFS or from your own storage service |
+| [wallet](./sdk.thirdwebsdk.wallet.md)     |           | [UserWallet](./sdk.userwallet.md)                   | Interact with the connected wallet                                   |
 
 ## Methods
 
-| Method                                                                              | Modifiers           | Description                                                                              |
-| ----------------------------------------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------- |
-| [fromPrivateKey(privateKey, network, options)](./sdk.thirdwebsdk.fromprivatekey.md) | <code>static</code> | **<i>(BETA)</i>** Get an instance of the thirdweb SDK based on a private key.            |
-| [fromSigner(signer, network, options)](./sdk.thirdwebsdk.fromsigner.md)             | <code>static</code> | **<i>(BETA)</i>** Get an instance of the thirdweb SDK based on an existing ethers signer |
-| [getContract(address)](./sdk.thirdwebsdk.getcontract.md)                            |                     | **<i>(BETA)</i>** Get an instance of a Custom ThirdwebContract                           |
-| [getContractFromAbi(address, abi)](./sdk.thirdwebsdk.getcontractfromabi.md)         |                     | **<i>(BETA)</i>** Get an instance of a Custom contract from a json ABI                   |
-| [getContractList(walletAddress)](./sdk.thirdwebsdk.getcontractlist.md)              |                     | Return all the contracts deployed by the specified address                               |
-| [getEdition(address)](./sdk.thirdwebsdk.getedition.md)                              |                     | Get an instance of an Edition contract                                                   |
-| [getEditionDrop(address)](./sdk.thirdwebsdk.geteditiondrop.md)                      |                     | Get an instance of a Edition Drop contract                                               |
-| [getMarketplace(address)](./sdk.thirdwebsdk.getmarketplace.md)                      |                     | Get an instance of a Marketplace contract                                                |
-| [getMultiwrap(address)](./sdk.thirdwebsdk.getmultiwrap.md)                          |                     | **<i>(BETA)</i>** Get an instance of a Multiwrap contract                                |
-| [getNFTCollection(address)](./sdk.thirdwebsdk.getnftcollection.md)                  |                     | Get an instance of a NFT Collection contract                                             |
-| [getNFTDrop(contractAddress)](./sdk.thirdwebsdk.getnftdrop.md)                      |                     | Get an instance of a Drop contract                                                       |
-| [getPack(address)](./sdk.thirdwebsdk.getpack.md)                                    |                     | Get an instance of a Pack contract                                                       |
-| [getSplit(address)](./sdk.thirdwebsdk.getsplit.md)                                  |                     | Get an instance of a Splits contract                                                     |
-| [getToken(address)](./sdk.thirdwebsdk.gettoken.md)                                  |                     | Get an instance of a Token contract                                                      |
-| [getTokenDrop(address)](./sdk.thirdwebsdk.gettokendrop.md)                          |                     | Get an instance of a Token Drop contract                                                 |
-| [getVote(address)](./sdk.thirdwebsdk.getvote.md)                                    |                     | Get an instance of a Vote contract                                                       |
-| [resolveContractType(contractAddress)](./sdk.thirdwebsdk.resolvecontracttype.md)    |                     |                                                                                          |
-| [updateSignerOrProvider(network)](./sdk.thirdwebsdk.updatesignerorprovider.md)      |                     | Update the active signer or provider for all contracts                                   |
+| Method                                                                                       | Modifiers           | Description                                                                              |
+| -------------------------------------------------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------- |
+| [fromPrivateKey(privateKey, network, options, storage)](./sdk.thirdwebsdk.fromprivatekey.md) | <code>static</code> | **<i>(BETA)</i>** Get an instance of the thirdweb SDK based on a private key.            |
+| [fromSigner(signer, network, options, storage)](./sdk.thirdwebsdk.fromsigner.md)             | <code>static</code> | **<i>(BETA)</i>** Get an instance of the thirdweb SDK based on an existing ethers signer |
+| [getContract(address)](./sdk.thirdwebsdk.getcontract.md)                                     |                     | **<i>(BETA)</i>** Get an instance of a Custom ThirdwebContract                           |
+| [getContractFromAbi(address, abi)](./sdk.thirdwebsdk.getcontractfromabi.md)                  |                     | **<i>(BETA)</i>** Get an instance of a Custom contract from a json ABI                   |
+| [getContractList(walletAddress)](./sdk.thirdwebsdk.getcontractlist.md)                       |                     | Return all the contracts deployed by the specified address                               |
+| [getEdition(address)](./sdk.thirdwebsdk.getedition.md)                                       |                     | Get an instance of an Edition contract                                                   |
+| [getEditionDrop(address)](./sdk.thirdwebsdk.geteditiondrop.md)                               |                     | Get an instance of a Edition Drop contract                                               |
+| [getMarketplace(address)](./sdk.thirdwebsdk.getmarketplace.md)                               |                     | Get an instance of a Marketplace contract                                                |
+| [getMultiwrap(address)](./sdk.thirdwebsdk.getmultiwrap.md)                                   |                     | **<i>(BETA)</i>** Get an instance of a Multiwrap contract                                |
+| [getNFTCollection(address)](./sdk.thirdwebsdk.getnftcollection.md)                           |                     | Get an instance of a NFT Collection contract                                             |
+| [getNFTDrop(contractAddress)](./sdk.thirdwebsdk.getnftdrop.md)                               |                     | Get an instance of a Drop contract                                                       |
+| [getPack(address)](./sdk.thirdwebsdk.getpack.md)                                             |                     | Get an instance of a Pack contract                                                       |
+| [getSplit(address)](./sdk.thirdwebsdk.getsplit.md)                                           |                     | Get an instance of a Splits contract                                                     |
+| [getToken(address)](./sdk.thirdwebsdk.gettoken.md)                                           |                     | Get an instance of a Token contract                                                      |
+| [getTokenDrop(address)](./sdk.thirdwebsdk.gettokendrop.md)                                   |                     | Get an instance of a Token Drop contract                                                 |
+| [getVote(address)](./sdk.thirdwebsdk.getvote.md)                                             |                     | Get an instance of a Vote contract                                                       |
+| [resolveContractType(contractAddress)](./sdk.thirdwebsdk.resolvecontracttype.md)             |                     |                                                                                          |
+| [updateSignerOrProvider(network)](./sdk.thirdwebsdk.updatesignerorprovider.md)               |                     | Update the active signer or provider for all contracts                                   |

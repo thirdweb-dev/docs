@@ -48,8 +48,8 @@ await contract.metadata.set({
 
 ## Methods
 
-| Method                                               | Modifiers | Description |
-| ---------------------------------------------------- | --------- | ----------- |
-| [get()](./sdk.contractmetadata.get.md)               |           |             |
-| [set(metadata)](./sdk.contractmetadata.set.md)       |           |             |
-| [update(metadata)](./sdk.contractmetadata.update.md) |           |             |
+| Method                                               | Modifiers | Description                       |
+| ---------------------------------------------------- | --------- | --------------------------------- |
+| [get()](./sdk.contractmetadata.get.md)               |           | Get the metadata of a contract    |
+| [set(metadata)](./sdk.contractmetadata.set.md)       |           | Set the metadata of a contract    |
+| [update(metadata)](./sdk.contractmetadata.update.md) |           | Update the metadata of a contract |

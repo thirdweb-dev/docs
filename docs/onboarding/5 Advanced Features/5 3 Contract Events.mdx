@@ -1,0 +1,59 @@
+---
+slug: /advanced-features/contract-events
+---
+
+import ThirdwebCodeSnippet from "../../../src/components/ThirdwebCodeSnippet";
+
+# Contract Events
+
+You can listen to events that are emitted by a contract.
+
+This is useful when you want real-time updates of events happening on the blockchain.
+
+The names of the events are the same as the events emitted from the smart contract.
+
+For [pre-built contracts](/pre-built-contracts), you can inspect the [source code](https://github.com/thirdweb-dev/contracts/tree/main/contracts) to see the events that are emitted in each function call.
+
+Below are some examples:
+
+| Event Name    | Description                                          | Source Code                                                                                                                                               |
+| ------------- | ---------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| TokensClaimed | Token claimed by a wallet from a Drop contract       | [Smart Contract Code](https://github.com/thirdweb-dev/contracts/blob/079789c384307c2f9d09ee6ec61fa011a10a4028/contracts/drop/DropERC721.sol#L381)         |
+| TokensMinted  | Token minted by a wallet into a NFT / Token contract | [Smart Contract Code](https://github.com/thirdweb-dev/contracts/blob/079789c384307c2f9d09ee6ec61fa011a10a4028/contracts/token/TokenERC20.sol#L244)        |
+| ListingAdded  | New listing created in a marketplace contract        | [Smart Contract Code](https://github.com/thirdweb-dev/contracts/blob/feea9148b15b8bdb09cf8c91b212cef9b29e6d44/contracts/marketplace/Marketplace.sol#L265) |
+
+### Listen to All Events
+
+Listen to all events emitted by the contract.
+
+<ThirdwebCodeSnippet contract={"ContractEvents"} name={"listenToAllEvents"} />
+
+### Listen to a Specific Event
+
+Listen to all occurrences of a specific event.
+
+<ThirdwebCodeSnippet contract={"ContractEvents"} name={"addEventListener"} />
+
+### Listen to Transactions
+
+Listen to all transactions in their raw form.
+
+<ThirdwebCodeSnippet
+  contract={"ContractEvents"}
+  name={"addTransactionListener"}
+/>
+
+### Remove All Listeners
+
+<ThirdwebCodeSnippet contract={"ContractEvents"} name={"removeAllListeners"} />
+
+### Remove an Event Listener
+
+<ThirdwebCodeSnippet contract={"ContractEvents"} name={"removeEventListener"} />
+
+### Remove a Transaction Listener
+
+<ThirdwebCodeSnippet
+  contract={"ContractEvents"}
+  name={"removeTransactionListener"}
+/>

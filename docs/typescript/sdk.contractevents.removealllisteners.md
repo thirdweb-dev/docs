@@ -20,3 +20,13 @@ removeAllListeners(): void;
 **Returns:**
 
 void
+
+## Remarks
+
+Remove all listeners from a contract
+
+## Example
+
+```javascript
+contract.events.removeAllListeners();
+```
