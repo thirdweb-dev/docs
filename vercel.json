@@ -208,7 +208,7 @@
     {
       "source": "/advanced-features/signature-based-minting",
       "destination": "/advanced-features/on-demand-minting"
-    }.
+    },
     {
       "source": "/guides/on-demand-minting",
       "destination": "/guides/mint-nft-unique-code",
