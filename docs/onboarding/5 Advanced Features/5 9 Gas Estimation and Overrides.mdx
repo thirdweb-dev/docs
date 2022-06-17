@@ -10,7 +10,7 @@ The thirdweb SDK allows you to:
 
 - View the current gas cost in gwei
 - Estimate the gas cost of a transaction at the current point in time
-- Override parts of a transaction (e.g. gas price, gas limit, data)
+- Override parts of a transaction (e.g. gas limit, gas price, nonce, from, value, etc...)
 
 ### Current Gas Price
 
@@ -26,6 +26,6 @@ The thirdweb SDK allows you to:
 ### Override Transaction Data
 
 <ThirdwebCodeSnippet
-  contract={"GasCostEstimator"}
-  name={"getBatchesToReveal"}
+  contract={"ContractInterceptor"}
+  name={"overrideNextTransaction"}
 />

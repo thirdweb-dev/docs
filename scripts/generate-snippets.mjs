@@ -19,6 +19,7 @@ const CONTRACTS = [
   "DelayedReveal",
   "GasCostEstimator",
   "RemoteStorage",
+  "ContractInterceptor",
 ];
 
 const typescript = JSON.parse(

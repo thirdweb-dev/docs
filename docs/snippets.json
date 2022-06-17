@@ -2782,5 +2782,33 @@
     "reference": {
       "typescript": "https://docs.thirdweb.com/typescript/sdk.RemoteStorage"
     }
+  },
+  "ContractInterceptor": {
+    "name": "ContractInterceptor",
+    "summary": "Allows overriding transaction behavior for this contract\n\n\n",
+    "examples": {},
+    "methods": [
+      {
+        "name": "overrideNextTransaction",
+        "summary": "The next transaction executed will add/replace any overrides passed via the passed in hook.\n\n",
+        "remarks": "\n\nOverridden values will be applied to the next transaction executed.\n\n",
+        "examples": {
+          "javascript": "contract.interceptor.overrideNextTransaction(() => ({\n  gasLimit: 3000000,\n}));",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.ContractInterceptor.overrideNextTransaction",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.ContractInterceptor"
+    }
   }
 }
