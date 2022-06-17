@@ -1,5 +1,8 @@
 {
   "cleanUrls": true,
+  "github": {
+    "autoJobCancelation": true
+  },
   "redirects": [
     {
       "source": "/learn/modules/:match*",
