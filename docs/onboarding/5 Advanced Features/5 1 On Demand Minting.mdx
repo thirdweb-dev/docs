@@ -6,27 +6,27 @@ import ThirdwebCodeSnippet from "../../../src/components/ThirdwebCodeSnippet";
 
 # On Demand Minting
 
-On-demand minting (or "signature-based minting") allows you to specify exactly what tokens can be minted into your smart contract.
+On-demand minting (or "signature-based minting") allows you to specify which tokens can be minted into your smart contract.
 
-**How it works**:
+## How it works:
 
-1. One wallet generates a signature for a token (specifying name, image, description, properties, and minter address).
-2. Another wallet can use the signature to mint the NFT.
+1. **Wallet A** generates a signature for a token (specifying name, image, description, properties, and minter address).
+2. **Wallet B** can use the signature provided by **Wallet A** to mint the NFT.
 
-This allows you to grant signatures for specific wallets to mint tokens that have properties that you specify in your contract.
+You can grant signatures for specific wallets to mint tokens with properties you specify in your contract.
 
 For example, you could grant a signature for a wallet to mint an NFT that contains their Discord profile picture,
 and only grant a signature if that person is a member of your Discord server,
-like we do in our [signature-based minting example](https://github.com/thirdweb-example/community-rewards).
+like we do in our [on-demand minting example](https://github.com/thirdweb-example/community-rewards).
 
 ## Smart Contract Design
 
 Our [Signature Minting Design Doc](https://portal.thirdweb.com/contracts/design/SignatureMint)
 has a detailed explanation of how signature-based minting works and includes details of each parameter that can be configured.
 
-In essence, on-demand minting is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract.
+On-demand minting is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract.
 
-At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
+You can authorize some external party to mint tokens on your contract and specify what will be minted by that party.
 
 ## NFT Collection
 
