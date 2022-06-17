@@ -1,5 +1,6 @@
 import React from "react";
 import jsonData from "../../docs/snippets.json";
+import featureJsonData from "../../docs/feature_snippets.json";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
@@ -7,6 +8,7 @@ import CodeBlock from "@theme/CodeBlock";
 export default function ThirdwebCodeSnippet({
   contract,
   name,
+  isFeatureSnippet = false,
   isGetContractCode = false,
   showHr = true,
 }) {
@@ -21,7 +23,9 @@ export default function ThirdwebCodeSnippet({
     return null;
   }
 
-  const contractObject = jsonData[contract];
+  const contractObject = isFeatureSnippet
+    ? featureJsonData[contract]
+    : jsonData[contract];
 
   if (!contractObject) {
     return null;
