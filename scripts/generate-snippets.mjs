@@ -15,6 +15,10 @@ const CONTRACTS = [
   "Vote",
   "Multiwrap",
   "ContractDeployer",
+  "ContractEvents",
+  "DelayedReveal",
+  "GasCostEstimator",
+  "RemoteStorage",
 ];
 
 const typescript = JSON.parse(
@@ -92,7 +96,9 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
           )?.example || "",
         react:
           reactExample?.subhooks?.find(
-            (m) => m.name.toLowerCase() === `use${contractName.toLowerCase()}${method.name.toLowerCase()}`,
+            (m) =>
+              m.name.toLowerCase() ===
+              `use${contractName.toLowerCase()}${method.name.toLowerCase()}`,
           )?.example || "",
       },
       reference: {
@@ -112,7 +118,9 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
           )?.reference || "",
         react:
           reactExample?.subhooks?.find(
-            (m) => m.name.toLowerCase() === `$use${contractName.toLowerCase()}${method.name.toLowerCase()}`,
+            (m) =>
+              m.name.toLowerCase() ===
+              `$use${contractName.toLowerCase()}${method.name.toLowerCase()}`,
           )?.reference || "",
       },
     })) || [];

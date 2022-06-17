@@ -77,3 +77,20 @@ Only proceed if you know what you are doing.
   name={"setAll"}
   isFeatureSnippet={true}
 />
+
+### Update Roles
+
+1. Read the current roles from the `get` function.
+2. Modify the array for the role you want to update.
+3. Call the `setAll` function with the modified array.
+
+```javascript
+const rolesAndMembers = await contract.roles.getAll();
+
+const updatedRoles = {
+  ...rolesAndMembers,
+  admin: [...rolesAndMembers.admin, "0x-new-address-here"],
+};
+
+await contract.roles.setAll(updatedRoles);
+```
