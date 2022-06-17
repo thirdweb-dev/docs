@@ -1,0 +1,28 @@
+---
+slug: /advanced-features/delayed-reveal
+---
+
+import ThirdwebCodeSnippet from "../../../src/components/ThirdwebCodeSnippet";
+
+# Delayed Reveals
+
+Delayed reveals are a way to show placeholder metadata for NFTs, and use a password to reveal the metadata at a later time.
+
+Currently, delayed reveal is only supported on the [NFT Drop](/pre-built-contracts/nft-drop) contract.
+
+For a step-by-step tutorial on how to set up an NFT Drop with delayed reveal, check out our guide: [Release an NFT drop with delayed reveal without writing any code](/guides/nft-drop-with-delayed-reveal).
+
+### Create a delayed reveal
+
+<ThirdwebCodeSnippet
+  contract={"DelayedReveal"}
+  name={"createDelayedRevealBatch"}
+/>
+
+### View Unrevealed Batches
+
+<ThirdwebCodeSnippet contract={"DelayedReveal"} name={"getBatchesToReveal"} />
+
+### Reveal Hidden NFTs
+
+<ThirdwebCodeSnippet contract={"DelayedReveal"} name={"reveal"} />

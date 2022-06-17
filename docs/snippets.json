@@ -2517,5 +2517,298 @@
     "reference": {
       "typescript": "https://docs.thirdweb.com/typescript/sdk.ContractDeployer"
     }
+  },
+  "ContractEvents": {
+    "name": "ContractEvents",
+    "summary": "Listen to Contract events in real time\n\n\n",
+    "examples": {},
+    "methods": [
+      {
+        "name": "addEventListener",
+        "summary": "Subscribe to contract events\n\n",
+        "remarks": "\n\nYou can add a listener for any contract event to run a function when the event is emitted. For example, if you wanted to listen for a \"TokensMinted\" event, you could do the following:\n\n",
+        "examples": {
+          "javascript": "contract.events.addEventListener(\"TokensMinted\", (event) => {\n  console.log(event);\n});",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.ContractEvents.addEventListener",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "addTransactionListener",
+        "summary": "Subscribe to transactions in this contract.\n\n",
+        "remarks": "\n\nWill emit an \"event\" object containing the transaction status ('submitted' and 'completed') and hash\n\n",
+        "examples": {
+          "javascript": "contract.events.addTransactionListener((event) => {\n  console.log(event);\n}",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.ContractEvents.addTransactionListener",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "listenToAllEvents",
+        "summary": "Listen to all events emitted from this contract\n\n",
+        "remarks": "\n\nRemove a listener that was added with addEventListener\n\n",
+        "examples": {
+          "javascript": "contract.events.listenToAllEvents((event) => {\n  console.log(event.eventName) // the name of the emitted event\n  console.log(event.data) // event payload\n}",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.ContractEvents.listenToAllEvents",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "removeAllListeners",
+        "summary": "Remove all listeners on this contract\n\n",
+        "remarks": "\n\nRemove all listeners from a contract\n\n",
+        "examples": {
+          "javascript": "contract.events.removeAllListeners();",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.ContractEvents.removeAllListeners",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "removeEventListener",
+        "summary": "Remove an event listener from this contract\n\n",
+        "remarks": "\n\nRemove a listener that was added with addEventListener\n\n",
+        "examples": {
+          "javascript": "contract.events.removeEventListener(\"TokensMinted\", (event) => {\n  console.log(event);\n});",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.ContractEvents.removeEventListener",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "removeTransactionListener",
+        "summary": "Remove a transaction listener\n\n",
+        "remarks": "\n\nRemove a listener that was added with addTransactionListener\n\n",
+        "examples": {
+          "javascript": "contract.events.removeTransactionListener((event) => {\n console.log(event);\n}",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.ContractEvents.removeTransactionListener",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.ContractEvents"
+    }
+  },
+  "DelayedReveal": {
+    "name": "DelayedReveal",
+    "summary": "Handles delayed reveal logic\n\n\n",
+    "examples": {},
+    "methods": [
+      {
+        "name": "createDelayedRevealBatch",
+        "summary": "Create a batch of encrypted NFTs that can be revealed at a later time.\n\n",
+        "remarks": "\n\nCreate a batch of encrypted NFTs that can be revealed at a later time.\n\n",
+        "examples": {
+          "javascript": "// the real NFTs, these will be encrypted until your reveal them!\nconst realNFTs = [{\n  name: \"Common NFT #1\",\n  description: \"Common NFT, one of many.\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}, {\n  name: \"Super Rare NFT #2\",\n  description: \"You got a Super Rare NFT!\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n// A placeholder NFT that people will get immediately in their wallet, until the reveal happens!\nconst placeholderNFT = {\n  name: \"Hidden NFT\",\n  description: \"Will be revealed next week!\"\n};\n// Create and encrypt the NFTs\nawait contract.revealer.createDelayedRevealBatch(\n  placeholderNFT,\n  realNFTs,\n  \"my secret password\",\n);\n// Whenever you're ready, reveal your NFTs at any time!\nconst batchId = 0; // the batch to reveal\nawait contract.revealer.reveal(batchId, \"my secret password\");",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.DelayedReveal.createDelayedRevealBatch",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "getBatchesToReveal",
+        "summary": "Gets the list of unrevealed NFT batches.\n\n",
+        "remarks": "\n\nGets the list of unrevealed NFT batches.\n\n",
+        "examples": {
+          "javascript": "const batches = await contract.revealer.getBatchesToReveal();",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.DelayedReveal.getBatchesToReveal",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "reveal",
+        "summary": "Reveal a batch of hidden NFTs\n\n",
+        "remarks": "\n\nReveal the NFTs of a batch using the password.\n\n",
+        "examples": {
+          "javascript": "// the batch to reveal\nconst batchId = 0;\n// reveal the batch\nawait contract.revealer.reveal(batchId, \"my secret password\");",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.DelayedReveal.reveal",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.DelayedReveal"
+    }
+  },
+  "GasCostEstimator": {
+    "name": "GasCostEstimator",
+    "summary": "Estimates the gas cost of Contract calls\n\n\n",
+    "examples": {},
+    "methods": [
+      {
+        "name": "currentGasPriceInGwei",
+        "summary": "Returns the current gas price in gwei\n\n",
+        "remarks": "\n\nGet the current gas price in gwei\n\n",
+        "examples": {
+          "javascript": "const gasCostInGwei = await contract.estimator.currentGasPriceInGwei();",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.GasCostEstimator.currentGasPriceInGwei",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "gasCostOf",
+        "summary": "Estimates the cost of gas in native token of the current chain\n\n",
+        "remarks": "\n\nEstimate the cost of gas in native token of the current chain\n\n",
+        "examples": {
+          "javascript": "const costOfBurn = await contract?.estimator.gasCostOf(\"burn\", [0]);",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.GasCostEstimator.gasCostOf",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.GasCostEstimator"
+    }
+  },
+  "RemoteStorage": {
+    "name": "RemoteStorage",
+    "summary": "Fetch and upload files to IPFS or any other storage.\n\n\n",
+    "examples": {},
+    "methods": [
+      {
+        "name": "fetch",
+        "summary": "Fetch data from any IPFS hash without worrying about gateways, data types, etc. Simply pass in an IPFS url and we'll handle fetching for you and try every public gateway to get the fastest response.\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// Your IPFS hash here\nconst hash = \"ipfs://...\"\nconst data = await sdk.storage.fetch(hash);",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.RemoteStorage.fetch",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "upload",
+        "summary": "Upload any data to an IPFS directory. We'll handle all the details for you, including pinning your files and making sure that you get the fastest upload speeds.\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// File upload\nconst files = [\n  fs.readFileSync(\"file1.png\"),\n  fs.readFileSync(\"file2.png\"),\n]\nconst result = await sdk.storage.upload(files);\n// uri for each uploaded file will look like something like: ipfs://<hash>/0\n\n// JSON metadata upload\nconst jsonMetadata = {\n  name: \"Name\",\n  description: \"Description\",\n}\nconst result = await sdk.storage.upload(jsonMetadata);\n\n// Upload progress (browser only)\nconst result = await sdk.storage.upload(files, {\n  onProgress: (event: UploadProgressEvent) => {\n    console.log(`Downloaded ${event.progress} / ${event.total}`);\n  },\n});",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.RemoteStorage.upload",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.RemoteStorage"
+    }
+  },
+  "ContractInterceptor": {
+    "name": "ContractInterceptor",
+    "summary": "Allows overriding transaction behavior for this contract\n\n\n",
+    "examples": {},
+    "methods": [
+      {
+        "name": "overrideNextTransaction",
+        "summary": "The next transaction executed will add/replace any overrides passed via the passed in hook.\n\n",
+        "remarks": "\n\nOverridden values will be applied to the next transaction executed.\n\n",
+        "examples": {
+          "javascript": "contract.interceptor.overrideNextTransaction(() => ({\n  gasLimit: 3000000,\n}));",
+          "python": "",
+          "go": "",
+          "react": ""
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.ContractInterceptor.overrideNextTransaction",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.ContractInterceptor"
+    }
   }
 }
