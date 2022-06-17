@@ -9,6 +9,8 @@ displayed_sidebar: typescript
 
 ## ContractMetadata.set() method
 
+Set the metadata of a contract
+
 **Signature:**
 
 ```typescript
@@ -30,3 +32,16 @@ set(metadata: z.input<TSchema["input"]>): Promise<((<A>() => A extends never ? 1
 **Returns:**
 
 Promise&lt;((&lt;A&gt;() =&gt; A extends never ? 1 : 0) extends &lt;A_1&gt;() =&gt; A_1 extends z.output&lt;TSchema\["output"\]&gt; ? 1 : 0 ? 1 : 0) extends infer T ? T extends ((&lt;A&gt;() =&gt; A extends never ? 1 : 0) extends &lt;A_1&gt;() =&gt; A_1 extends z.output&lt;TSchema\["output"\]&gt; ? 1 : 0 ? 1 : 0) ? T extends 1 ? Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt; : { receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;z.output&lt;TSchema\["output"\]&gt;&gt;; } : never : never&gt;
+
+## Remarks
+
+OVERWRITE the metadata of a contract
+
+## Example
+
+```javascript
+await contract.metadata.set({
+  name: "My Contract",
+  description: "My contract description",
+});
+```
