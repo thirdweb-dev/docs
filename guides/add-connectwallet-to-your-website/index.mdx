@@ -71,25 +71,60 @@ export default MyApp;
 
 Now you're ready to use one of our [Wallet Connection](https://portal.thirdweb.com/react/category/wallet-connection) hooks to connect users' wallets to your site.
 
-```tsx title="components/ConnectWallet.js"
-import { useAddress, useMetamask, useDisconnect } from "@thirdweb-dev/react";
-
+```jsx
+import {
+  useMetamask,
+  useWalletConnect,
+  useCoinbaseWallet,
+  useNetwork,
+  useAddress,
+  useDisconnect,
+} from "@thirdweb-dev/react";
 export const ConnectWallet = () => {
-  const address = useAddress();
+  const connectWithCoinbaseWallet = useCoinbaseWallet();
   const connectWithMetamask = useMetamask();
+  const connectWithWalletConnect = useWalletConnect();
   const disconnectWallet = useDisconnect();
-
+  const address = useAddress();
+  const network = useNetwork();
   // If a wallet is connected, show address, chainId and disconnect button
   if (address) {
     return (
       <div>
         Address: {address}
+        <br />
+        Chain ID: {network[0].data.chain && network[0].data.chain.id}
+        <br />
         <button onClick={disconnectWallet}>Disconnect</button>
       </div>
     );
   }
-
-  // If no wallet is connected, show connect wallet button
-  return <button onClick={() => connectWithMetamask()}>Connect Wallet</button>;
+  // If no wallet is connected, show connect wallet options
+  return (
+    <div>
+      <button onClick={() => connectWithCoinbaseWallet()}>
+        Connect Coinbase Wallet
+      </button>
+      <button onClick={() => connectWithMetamask()}>Connect MetaMask</button>
+      <button onClick={() => connectWithWalletConnect()}>
+        Connect WalletConnect
+      </button>
+    </div>
+  );
 };
+```
+
+Then, we need to import this component on our `index.tsx` file:
+
+```tsx title="pages/index.tsx"
+import type { NextPage } from "next";
+import { ConnectWallet } from "../components/ConnectWallet";
+const Home: NextPage = () => {
+  return (
+    <div>
+      <ConnectWallet />
+    </div>
+  );
+};
+export default Home;
 ```

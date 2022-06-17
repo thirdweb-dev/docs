@@ -1,0 +1,53 @@
+---
+slug: /getting-started/setting-up
+title: Setting Up + Deploying Contracts
+---
+
+import DeployingContractsCodeTabs from "../../../src/components/DeployingContractsCodeTabs";
+import InstallingThirdwebCodeTabs from "../../../src/components/InstallingThirdwebCodeTabs.tsx";
+import InitializingThirdwebCodeTabs from "../../../src/components/InitializingThirdwebCodeTabs.tsx";
+
+Install thirdweb into your project by running the following command:
+
+<InstallingThirdwebCodeTabs />
+
+- Set-up a [read-only SDK Instance](/getting-started/reading-data-from-smart-contracts).
+- Set-up a [signer SDK Instance](/getting-started/writing-data-to-smart-contracts) (sign transactions).
+
+## Deploying Contracts
+
+You can deploy contracts using the [dashboard](https://thirdweb.com/dashboard), or programmatically using the SDK.
+
+The SDK enables more complex use-cases such as allowing the connected wallet to deploy contracts.
+
+### Dashboard
+
+The [dashboard](https://thirdweb.com/dashboard) is the easiest way to deploy a [pre-built contract](/pre-built-contracts).
+
+- Navigate to [https://thirdweb.com/dashboard](https://thirdweb.com/dashboard).
+- Click "Deploy New Contract".
+- Select the contract you want to use.
+- Configure the metadata, fees, and network.
+- Deploy!
+
+:::info Gas & Test Networks
+
+Deploying smart contracts is free, but blockchain transactions require **gas**.
+
+Learn more about test-nets and [which network you should use](/guides/which-network-should-you-use).
+
+:::
+
+### SDK
+
+The SDK is also capable of deploying all of our pre-built contracts.
+
+_For example, to create an NFT Drop contract:_
+
+<DeployingContractsCodeTabs />
+
+:::tip ContractDeployer Class
+
+Learn how to deploy all of our pre-built contracts from the [SDK's Contract Deployer](/typescript/sdk.contractdeployer)
+
+:::
