@@ -27,6 +27,10 @@ listenToAllEvents(listener: (event: ContractEvent) => void): void;
 
 void
 
+## Remarks
+
+Remove a listener that was added with addEventListener
+
 ## Example
 
 ```javascript
