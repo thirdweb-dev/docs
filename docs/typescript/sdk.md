@@ -63,6 +63,7 @@ displayed_sidebar: typescript
 | [TransactionError](./sdk.transactionerror.md)                     |                                                                                                                                      |
 | [UserWallet](./sdk.userwallet.md)                                 | Connect and Interact with a user wallet                                                                                              |
 | [Vote](./sdk.vote.md)                                             | Create a decentralized organization for token holders to vote on proposals.                                                          |
+| [WalletAuthenticator](./sdk.walletauthenticator.md)               | **<i>(BETA)</i>** Wallet Authenticator                                                                                               |
 
 ## Enumerations
 
