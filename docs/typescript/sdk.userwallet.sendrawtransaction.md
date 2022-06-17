@@ -19,9 +19,9 @@ sendRawTransaction(transactionRequest: providers.TransactionRequest): Promise<Tr
 
 ## Parameters
 
-| Parameter          | Type                         | Description |
-| ------------------ | ---------------------------- | ----------- |
-| transactionRequest | providers.TransactionRequest |             |
+| Parameter          | Type                         | Description                                    |
+| ------------------ | ---------------------------- | ---------------------------------------------- |
+| transactionRequest | providers.TransactionRequest | raw transaction data to send to the blockchain |
 
 **Returns:**
 
