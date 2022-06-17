@@ -99,12 +99,6 @@ export default function ExamplesContainer() {
 
   return (
     <>
-      {/* Description */}
-      <p style={{ fontSize: "1.1rem" }}>
-        Use our pre-built examples to kickstart your projects, or to learn more
-        about using thirdweb's features.
-      </p>
-
       {/* Starter Kits */}
       <h2>Starter Kits</h2>
 
