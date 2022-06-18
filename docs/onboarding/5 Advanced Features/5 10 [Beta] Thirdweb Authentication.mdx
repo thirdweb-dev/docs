@@ -2,7 +2,6 @@
 slug: /advanced-features/thirdweb-authentication
 ---
 
-
 # [Beta] Thirdweb Authentication
 
 > This feature is in beta and is still susceptible to API changes. We are still working on it and are open to any feedback you may have. Please refrain from using it in production environments until we have a stable version.
@@ -15,7 +14,7 @@ However, because most traditional/web2 applications rely on a client-server mode
 
 Furthermore, web3 now presents a unique opportunity where the first time, private keys used for security no longer need to lie hidden away in a backend or database, but are actually in the hands of users themselves via wallets. This technology opens the possibilities for a new form of self-custodied authentication in which users and applications are able to provide a new wallet based authentication that doesn’t rely on any external services or databases.
 
-*The following is a technical document outlining our solutions to the two considerations detailed above, specifically (1) a new method to securely transfer users wallet identities between clients and servers and (2) the creation of a new fully self-custodied wallet based authentication method*
+_The following is a technical document outlining our solutions to the two considerations detailed above, specifically (1) a new method to securely transfer users wallet identities between clients and servers and (2) the creation of a new fully self-custodied wallet based authentication method_
 
 # Goal
 
@@ -24,7 +23,7 @@ Furthermore, web3 now presents a unique opportunity where the first time, privat
 
 # Overview
 
-*The thirdweb authentication flow enables backends to identify and authenticate users wallets*
+_The thirdweb authentication flow enables backends to identify and authenticate users wallets_
 
 ![auth.png](./assets/auth.png)
 
@@ -36,30 +35,29 @@ The identification flow lets backends securely verify the wallet address of a cl
 
 ### **Interface**
 
-`**sdk.auth.login(domain: string, options?: LoginOptions): LoginPayload`**  
+`**sdk.auth.login(domain: string, options?: LoginOptions): LoginPayload`\*\*
 
 - Generates a payload signed by the connected wallet that can be used to provide a verifiable wallet address to a backend
 
 ```tsx
-
 type LoginOptions = {
   expirationTime?: Date; // Defaults to 5 minutes from now
-	nonce?: string; // Defaults to UUIDv4
-  chainId?: number // Defaults to empty
+  nonce?: string; // Defaults to UUIDv4
+  chainId?: number; // Defaults to empty
 };
 
 type LoginPayload = {
   payload: {
-		address: string;
-		nonce: string;
-		issuedAt: Date;
-	  expirationTime: Date;
-	  chainId?: number;
+    address: string;
+    nonce: string;
+    issuedAt: Date;
+    expirationTime: Date;
+    chainId?: number;
   };
-	signature: string;
+  signature: string;
 };
 
-const payload = await sdk.auth.login("thirdweb.com")
+const payload = await sdk.auth.login("thirdweb.com");
 ```
 
 The message to sign should be of the following EIP-4361 compliant format, of which the rationale is described below:
@@ -86,7 +84,6 @@ Expiration Time: ${expirationTime}
 - Returns the address of the login payload, or throws an error if payload is invalid
 
 ```tsx
-
 // Generate a payload from the connected wallet on the client side
 const payload = await sdk.auth.login("thirdweb.com");
 
@@ -109,31 +106,30 @@ If any of these conditions are not met, this method will throw an error.
 **Considerations:**
 
 - Phishing attacks are the main security concern for this flow. Signed messages should make it clear what users are signing so that attackers can’t prompt users to sign an ambiguous message and use it to authenticate with the users address.
-    - The EIP-4361 specifies a message structure that provides sufficient information to mitigate phishing attacks
+  - The EIP-4361 specifies a message structure that provides sufficient information to mitigate phishing attacks
 - This flow is similar to JWT in that it uses an access token (payload) to authenticate. It’s important to note that if this access token is ever stolen, the users account will be hacked.
-    - Thus, it’s important that the access token is securely stored on the client side for later use.
-    - Typical JWT providers mitigate this issue by issuing JWT access tokens with very short validity times, along with refresh tokens which allow authenticated users to get a new payload when an old one expires. This flow is currently not implemented with our basic authentication flow, but it can be implemented as elaborated below in the “Using Auth Providers” section.
+  - Thus, it’s important that the access token is securely stored on the client side for later use.
+  - Typical JWT providers mitigate this issue by issuing JWT access tokens with very short validity times, along with refresh tokens which allow authenticated users to get a new payload when an old one expires. This flow is currently not implemented with our basic authentication flow, but it can be implemented as elaborated below in the “Using Auth Providers” section.
 
 ### Interface
 
-`**sdk.auth.generateAuthToken(domain: string, payload: LoginPayload, options?: AuthenticationOptions): string**` 
+`**sdk.auth.generateAuthToken(domain: string, payload: LoginPayload, options?: AuthenticationOptions): string**`
 
 - Generate a JWT token that can be used to send authenticated requests to the specified backend service
 
 ```tsx
-
 type AuthenticationOptions = {
-	expirationTime?: Date | number; // Defaults to 5 hours
-	invalidBefore?: Date | number; // Defaults to current time
-}
+  expirationTime?: Date | number; // Defaults to 5 hours
+  invalidBefore?: Date | number; // Defaults to current time
+};
 
 // Generate a payload from the connected wallet on the client side
 const loginPayload = await sdk.auth.login("thirdweb.com");
 
 // Generate an authentication payload with the login payload
 const authToken = await sdk.auth.generateAuthToken(
-	"thirdweb.com",
-  loginPayload, 
+  "thirdweb.com",
+  loginPayload,
 );
 ```
 
@@ -145,15 +141,14 @@ The authenticate function takes the following steps
 The JWT payload to be signed will take the following structure
 
 ```json
-
 {
-	iss: "0x...", // address of the admin wallet generating the payload
-	sub: "0x...", // Address of the user wallet logging in
-	aud: "thirdweb.com", // Domain that the payload was intended for
-	iat: 1653884584, // Unix time (epoch seconds) when payload was issued
-	exp: 1653884613, // Unix time (epoch seconds) when payload expires
-	nbf: 1653884584, // Time before which payload is invalid, should default to iat
-	jti: "82da3d83-9b7b-4cdd-a890-f4d9b25415be" // uuidv4
+  "iss": "0x...", // address of the admin wallet generating the payload
+  "sub": "0x...", // Address of the user wallet logging in
+  "aud": "thirdweb.com", // Domain that the payload was intended for
+  "iat": 1653884584, // Unix time (epoch seconds) when payload was issued
+  "exp": 1653884613, // Unix time (epoch seconds) when payload expires
+  "nbf": 1653884584, // Time before which payload is invalid, should default to iat
+  "jti": "82da3d83-9b7b-4cdd-a890-f4d9b25415be" // uuidv4
 }
 ```
 
@@ -170,17 +165,15 @@ The JWT payload to be signed will take the following structure
 ```
 
 - Construct an actual JWT token from the payload and signature with the following steps, using the following process:
-    - First we `JSON.stringify` both the header and the payload
-    - Next, we base64 encode the stringified header, the stringified payload, and the raw signature.
-    - Finally, we can construct the JWT token by creating the following `.` separated structure:
+  - First we `JSON.stringify` both the header and the payload
+  - Next, we base64 encode the stringified header, the stringified payload, and the raw signature.
+  - Finally, we can construct the JWT token by creating the following `.` separated structure:
     `{encodedHeader}.{encodedPayload}.{encodedSignature}` (without the curly brackets)
-    - The following is an example JWT token generated with this method:
-    
-    ```
-    eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIweDllMWI4QTg2ZkZFRTRhNzE3NURBRTRiREIxY0MxMmQxMTFEY2IzRDYiLCJzdWIiOiIweDllMWI4QTg2ZkZFRTRhNzE3NURBRTRiREIxY0MxMmQxMTFEY2IzRDYiLCJhdWQiOiJ0aGlyZHdlYi5jb20iLCJleHAiOjE2NTU1MTcwNjYsIm5iZiI6MTY1NTQ5OTA2NiwiaWF0IjoxNjU1NDk5MDY2LCJqdGkiOiI1M2I1M2JlOC0zMWVmLTQzZjAtYjE4OS0zYTFiMWZjOTU4MjUifQ.MHg5ZTlkZTkxYmVmZTlmZGRjOWQzYWQxY2M5ODNjOWIzNzFhMmUwNGU2OTM1OGVkNjg1MWU5ZDM2ZTEzMWJmNjU4NDUwNDYxOTM1ZDlkMjcxODgwYTRkMTE1ZGVlNjk0OTkwNzMwN2ViZWM4ZmRkZTI3NTgxMDczNjllMTFkNWU5ZTFi
-    ```
-    
-    - You can verify that the above token has a format compliant with the JWT standard by plugging it in to the JWT token debugger on the official JWT website [https://jwt.io](https://jwt.io)
+  - The following is an example JWT token generated with this method:
+  ```
+  eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIweDllMWI4QTg2ZkZFRTRhNzE3NURBRTRiREIxY0MxMmQxMTFEY2IzRDYiLCJzdWIiOiIweDllMWI4QTg2ZkZFRTRhNzE3NURBRTRiREIxY0MxMmQxMTFEY2IzRDYiLCJhdWQiOiJ0aGlyZHdlYi5jb20iLCJleHAiOjE2NTU1MTcwNjYsIm5iZiI6MTY1NTQ5OTA2NiwiaWF0IjoxNjU1NDk5MDY2LCJqdGkiOiI1M2I1M2JlOC0zMWVmLTQzZjAtYjE4OS0zYTFiMWZjOTU4MjUifQ.MHg5ZTlkZTkxYmVmZTlmZGRjOWQzYWQxY2M5ODNjOWIzNzFhMmUwNGU2OTM1OGVkNjg1MWU5ZDM2ZTEzMWJmNjU4NDUwNDYxOTM1ZDlkMjcxODgwYTRkMTE1ZGVlNjk0OTkwNzMwN2ViZWM4ZmRkZTI3NTgxMDczNjllMTFkNWU5ZTFi
+  ```
+  - You can verify that the above token has a format compliant with the JWT standard by plugging it in to the JWT token debugger on the official JWT website [https://jwt.io](https://jwt.io)
 
 **`sdk.auth.authenticate(domain: string, token: string): string`**
 
@@ -207,7 +200,7 @@ The verification step should verify all of the following:
 
 **1. Secure Client-Side Token Storage**
 
-Just like the standard JWT flow, the authentication token is generated by the backend service and can be sent to the client-side user. The client-side user can then use it for authentication for as long as the payload is valid. 
+Just like the standard JWT flow, the authentication token is generated by the backend service and can be sent to the client-side user. The client-side user can then use it for authentication for as long as the payload is valid.
 
 This means that if anyone obtains the auth token through any means, they can also authenticate with the token, which is why it’s crucial that the auth token is stored securely on the client-side.
 
