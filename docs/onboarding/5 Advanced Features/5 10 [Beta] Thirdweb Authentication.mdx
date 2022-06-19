@@ -4,9 +4,26 @@ slug: /advanced-features/thirdweb-authentication
 
 # [Beta] Thirdweb Authentication
 
-> This feature is in beta and is still susceptible to API changes. We are still working on it and are open to any feedback you may have. Please refrain from using it in production environments until we have a stable version.
+> This feature is in beta and is still susceptible to API changes. Please refrain from using it in production environments until we have a stable version.
 
-# Background
+## Overview
+_The following is a technical document outling thirdwebs new `thirdweb authentication` flows which enable users to verify and authenticate to backends using just their connect client-side wallet._
+
+This functionality opens the door to a new realm of possibilities regarding the integration of web3 into all applications, including the following potential use cases:
+
+- Fully self-custodied authentication to any website backend with just a wallet (no third party dependencies or database requirements)
+- Securely verify existing users wallet addresses to use for reading associated on-chain data
+- Connect user accounts to wallet addresses to allow users to receive and trasfer digital assets
+- Integration of any web2 infrastructure into web3 applications including payments, databases, and other services
+
+The following resources can be referenced in relation to this document:
+
+- [Thirdweb Authentication TypeScript Docs](https://portal.thirdweb.com/typescript/sdk.walletauthenticator)
+- [Thirdweb Authentication Example Repository](https://github.com/thirdweb-example/sign-in-with-ethereum)
+
+As this feature is in beta, we appreciate any feedback or questions you may have while reading through this document, and encourage you to raise any concerns in our [community discord](https://discord.com/invite/thirdweb)
+
+## Background
 
 The web3 technology stack enables a variety of offerings like verifiable ownership and decentralized public data that would stand to benefit many applications.
 
@@ -16,24 +33,24 @@ Furthermore, web3 now presents a unique opportunity where the first time, privat
 
 _The following is a technical document outlining our solutions to the two considerations detailed above, specifically (1) a new method to securely transfer users wallet identities between clients and servers and (2) the creation of a new fully self-custodied wallet based authentication method_
 
-# Goal
+## Goal
 
 - **Identification:** Enable services to securely verify a users on-chain identity
 - **Authentication:** Enable users to authenticate to any service using just their wallet
 
-# Overview
+## Implementation
 
 _The thirdweb authentication flow enables backends to identify and authenticate users wallets_
 
 ![auth.png](./assets/auth.png)
 
-## Secure Identification
+### Secure Identification
 
 The identification flow lets backends securely verify the wallet address of a client-side user. The flow takes advantage of the sign-in with ethereum flow ([EIP-4361](https://eips.ethereum.org/EIPS/eip-4361)) to verify the users wallet.
 
 ![Screen Shot 2022-06-14 at 10.24.12 PM.png](./assets/Screen_Shot_2022-06-14_at_10.24.12_PM.png)
 
-### **Interface**
+**Interface**
 
 `**sdk.auth.login(domain: string, options?: LoginOptions): LoginPayload`\*\*
 
@@ -99,7 +116,7 @@ The verification makes a few key checks to ensure the validity of the payload:
 
 If any of these conditions are not met, this method will throw an error.
 
-## Basic Authentication
+### Basic Authentication
 
 ![Screen Shot 2022-06-14 at 10.25.32 PM.png](./assets/Screen_Shot_2022-06-14_at_10.25.32_PM.png)
 
@@ -111,7 +128,7 @@ If any of these conditions are not met, this method will throw an error.
   - Thus, it’s important that the access token is securely stored on the client side for later use.
   - Typical JWT providers mitigate this issue by issuing JWT access tokens with very short validity times, along with refresh tokens which allow authenticated users to get a new payload when an old one expires. This flow is currently not implemented with our basic authentication flow, but it can be implemented as elaborated below in the “Using Auth Providers” section.
 
-### Interface
+**Interface:**
 
 `**sdk.auth.generateAuthToken(domain: string, payload: LoginPayload, options?: AuthenticationOptions): string**`
 
@@ -196,7 +213,7 @@ The verification step should verify all of the following:
 - Check that the current time is after `nbf` and before `exp`
 - Check that the provided domain matches the `aud` field
 
-### Security **Considerations**
+### Security Considerations
 
 **1. Secure Client-Side Token Storage**
 
