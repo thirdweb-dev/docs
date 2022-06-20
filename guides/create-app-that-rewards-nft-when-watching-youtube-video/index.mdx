@@ -20,28 +20,28 @@ Unlike educational institutions, we don't get certificates for learning on the i
 
 This application will create '**Proof of viewership**' NFTs which are rewarded for completing YouTube videos, and can therefore be used to represent the completion of educational video courses.
 
-![](./video-end.png)
+![Video Ended Preview](./video-end.png)
 
-![](./nft-minted.png)
+![NFT minted Preview](./nft-minted.png)
 
 Let's get started!
 
 ## Dashboard setup
 
 The first thing we need to do is head over to the [dashboard](https://thirdweb.com/dashboard)
-and create a project and a **Edition** contract.
+and create an **Edition** contract.
 
-I'm naming my collection - SuperNFT and its symbol is $SUPR.
+I'm naming this Edition "SuperNFT", and its symbol is `$SUPR`.
 
 Once you have created your contract, you'll reach the following page:
 
-![](./dashboard.png)
+![thirdweb dashboard](./dashboard.png)
 
 You won't need to add any NFTs at this stage as we'll be minting the NFTs programmatically.
 
 ## Set up your React Frontend
 
-I'll be using React for the front of our app, you can use anything you're comfortable with.
+I'll be using React for the front-end of our app, you can use anything you're comfortable with.
 
 The objective of the front-end is to help the user watch a YouTube video,
 verify if they've seen it fully and then issue a command to the backend to mint an NFT for the user.
@@ -232,20 +232,22 @@ Now we come to creating programmable NFTs.
 
 I'm going to be using FastAPI to make the backend, you can use whatever works best for you. The Python code to mint NFTs remains the same.
 
-First off, download FastAPI, the thirdweb Python SDK and a few more dependencies.
+First off, we'll install FastAPI, the thirdweb Python SDK and a few more dependencies.
 
 ```bash
-pip install fastapi uvicorn thirdweb-sdk firebase-admin textwrap Pillow python-dotenv
+pip install fastapi uvicorn thirdweb-sdk firebase-admin Pillow python-dotenv
 ```
 
-Let's first write the code for minting a NFT, then we'll wrap it up in a simple API.
+Let's first write the code for minting an NFT, then we'll wrap it up in a simple API.
 
 You can go through the thirdweb Python SDK docs [here](https://portal.thirdweb.com/python).
 
-First, we need to get the imports out of our way -
+First, let's import the thirdweb SDK and a way to read the environment variables.
 
 ```python
-from thirdweb import ThirdwebSDK, SdkOptions, MintArg
+from thirdweb import ThirdwebSDK
+from thirdweb.types import NFTMetadataInput
+from dotenv import load_dotenv
 ```
 
 To sign transactions from your wallet, we need to create a `.env` file and connect our wallet using its private key.
@@ -256,7 +258,7 @@ Learn how to [export your private key](/guides/create-a-metamask-wallet#export-y
 
 :::
 
-To do this, create a file called `.env` in the same folder as your `currency.py` file, and add the following to it:
+To do this, create a file called `.env`, and add the following to it:
 
 ```bash title=".env"
 PRIVATE_KEY=your-private-key-here
@@ -296,9 +298,11 @@ NFT_COLLECTION_ADDRESS = "0x.."
 nft_collection = sdk.get_nft_collection(NFT_COLLECTION_ADDRESS)
 ```
 
-Great! You're almost done. Now we need to figure out a way to mint an NFT to our user's URL with some data. The python SDK provides a single-line function to all of this.
+Great! You're almost done. Now we need to figure out a way to mint an NFT to our user's URL with some data.
 
-````python
+The Python SDK provides a single-line function for all of this.
+
+```python
 # Note that you can customize this metadata however you like
 metadata = NFTMetadataInput.from_json({
     "name": "Cool NFT",
@@ -307,21 +311,10 @@ metadata = NFTMetadataInput.from_json({
 })
 
 # You can pass in any address here to mint the NFT to
-tx = contract.mint_to("{{wallet_address}}", metadata)
+wallet_address = "<your-wallet-address-here>"
+
+tx = nft_collection.mint_to(wallet_address, metadata)
 ```
-
-Putting everything together, this is how your minting code should look -
-
-```python
-from thirdweb import ThirdwebSdk, SdkOptions, MintArg
-
-nft_module = sdk.get_nft_module("your NFT module's address")
-
-mint = nft_module.mint_to("receiver's address",
-                          MintArg(name="Name of NFT", description="Description of NFT",
-                                  image_uri="URL of content to be served via the NFT",
-                                  properties={}))
-````
 
 One thing you'll notice here is that we need a URL for our content that needs to go behind the NFT.
 We have one more challenge here, we need to create an image based on the information we're getting
@@ -370,16 +363,21 @@ which is a simple grey background image I found on the internet.
 
 It also takes the datestamp of the time you run this code and adds that to the text written on the image.
 
-That way, you know when the image and subsequently the NFT was created.
+That way, you know when the image and subsequently the NFT were created.
 
 It then puts the edited image on Firebase and gets back a URL to access the image.
 
-You'll have to setup a Firebase project and get your JSON keys + bucket name from there for this to work. Checkout these [docs](https://firebase.google.com/docs/reference/admin/python) for more information.
+You'll have to set up a Firebase project and get your JSON keys + bucket name from there for this to work.
 
-Now let's make a quick [FastAPI](https://fastapi.tiangolo.com/) wrapper that takes all data from frontend, uses all the code we wrote above and mints a NFT.
+Check out these [docs](https://firebase.google.com/docs/reference/admin/python) for more information.
+
+Now let's make a quick [FastAPI](https://fastapi.tiangolo.com/) wrapper that takes all data from front-end, uses all the code we wrote above and mints an NFT.
 
 ```python
-from thirdweb import ThirdwebSdk, SdkOptions, MintArg
+from thirdweb import ThirdwebSDK
+from thirdweb.types import NFTMetadataInput
+from dotenv import load_dotenv
+import os
 from fastapi import FastAPI, File, UploadFile, Response
 from pydantic import BaseModel
 import base64
@@ -456,16 +454,29 @@ def mint(item: Item):
     blob.make_public()
     print("your file url", blob.public_url)
 
-    sdk = ThirdwebSdk(SdkOptions(), "polygon")
+    # Load environment variables into this file
+    load_dotenv()
 
-    sdk.set_private_key("your private key")
+    # This PRIVATE KEY is coming from your environment variables. Make sure to never put it in a tracked file or share it with anyone.
+    PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
 
-    nft_module = sdk.get_nft_module("your NFT Collection module address")
+    # Set the network you want to operate on, or add your own RPC URL here
+    NETWORK = "mumbai"
 
-    print(nft_module.mint_to(item.address, MintArg(name=item.name, description="The owner of this NFT has watched a youtube video in its entirety",
-          image_uri=blob.public_url, properties={"name": item.name, "url": item.url})))
+    # Finally, you can create a new instance of the SDK to use
+    sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, NETWORK)
+
+    # Instantiate a new NFT Collection contract as described above.
+    NFT_COLLECTION_ADDRESS = "0x.."
+    nft_collection = sdk.get_nft_collection(NFT_COLLECTION_ADDRESS)
+
+    print(nft_collection.mint_to(item.address, NFTMetadataInput.from_json({
+      "name":item.name,
+      "description": "The owner of this NFT has watched a youtube video in its entirety",
+      "image":blob.public_url,
+      })))
+
     return JSONResponse(my_data)
-
 
 if __name__ == "__main__":
     uvicorn.run(app, host="0.0.0.0", port=8000)

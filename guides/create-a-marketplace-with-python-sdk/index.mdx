@@ -45,8 +45,9 @@ pip install python-dotenv
 
 Now we can import the SDK, along with the other libraries we're going to use.
 
-```python title="currency.py"
+```python title="marketplace.py"
 from thirdweb import ThirdwebSDK
+from thirdweb.types import NewDirectListing
 from dotenv import load_dotenv
 import os
 ```
@@ -59,7 +60,7 @@ Learn how to [export your private key](/guides/create-a-metamask-wallet#export-y
 
 :::
 
-To do this, create a file called `.env` in the same folder as your `currency.py` file, and add the following to it:
+To do this, create a file called `.env` in the same folder as your `marketplace.py` file, and add the following to it:
 
 ```bash title=".env"
 PRIVATE_KEY=your-private-key-here
@@ -100,14 +101,18 @@ marketplace = sdk.get_marketplace(MARKETPLACE_CONTRACT_ADDRESS)
 
 Then use the `marketplace` to create a new listing!
 
+Here, we define the `asset_contract_address` and `token_id`, which identify an NFT that we want to list for sale.
+
+If you don't have any NFTs to list, check out our guide "[Mint an NFT Collection with Python](/guides/mint-nft-collection-with-python-sdk)" to mint some!
+
 ```python
 marketplace.direct.create_listing(NewDirectListing(
-    asset_contract_address= '0xa16F3A5557ACe7d2bA521090A241872aaA79A830',
-    token_id= 2,
+    asset_contract_address= '<your-nft-contract-address-here>', # Replace with your NFT Collection contract address
+    token_id= 0, # change this to the token ID of the NFT you want to list
     start_time_in_seconds= 30000000000,
     listing_duration_in_seconds= 10000,
     quantity= 1,
-    currency_contract_address= '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889',
+    currency_contract_address= '0x9c3C9283D3e44854697Cd22D3Faa240Cfb032889', # This is the Wrapped Matic contract address
     buyout_price_per_token= 1
 ))
 ```
@@ -117,7 +122,7 @@ So the only thing left is to run our code!
 Open a terminal and run your `marketplace.py` file.
 
 ```bash
-python marketplace.py
+python3 marketplace.py
 ```
 
 ## That's it!
