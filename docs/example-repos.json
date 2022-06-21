@@ -406,6 +406,18 @@
     "is_template": false
   },
   {
+    "name": "thirdweb-stripe",
+    "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
+    "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
+    "created_at": "2022-06-19T02:19:09Z",
+    "updated_at": "2022-06-21T21:45:49Z",
+    "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false
+  },
+  {
     "name": "token-drop",
     "html_url": "https://github.com/thirdweb-example/token-drop",
     "description": "Release your token with claim conditions for a price using thirdweb's Token Drop contract",
@@ -418,23 +430,5 @@
     "language": "JavaScript",
     "stargazers_count": 1,
     "is_template": false
-  },
-  {
-    "name": "vite-javascript-starter",
-    "html_url": "https://github.com/thirdweb-example/vite-javascript-starter",
-    "description": "thirdweb starter project with Vite & JavaScript",
-    "created_at": "2022-03-18T17:33:24Z",
-    "updated_at": "2022-06-05T23:46:05Z",
-    "clone_url": "https://github.com/thirdweb-example/vite-javascript-starter.git",
-    "topics": [
-      "javascript",
-      "react",
-      "reactjs",
-      "starter-kit",
-      "vite"
-    ],
-    "language": "JavaScript",
-    "stargazers_count": 0,
-    "is_template": true
   }
 ]
