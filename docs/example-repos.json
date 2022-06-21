@@ -127,6 +127,30 @@
     "is_template": false
   },
   {
+    "name": "erc721a-thirdweb-deploy",
+    "html_url": "https://github.com/thirdweb-example/erc721a-thirdweb-deploy",
+    "description": "Build an NFT Collection using the ERC721A (Azuki) standard, with thirdweb deploy and Hardhat",
+    "created_at": "2022-05-18T02:28:32Z",
+    "updated_at": "2022-06-21T08:41:55Z",
+    "clone_url": "https://github.com/thirdweb-example/erc721a-thirdweb-deploy.git",
+    "topics": [],
+    "language": "Solidity",
+    "stargazers_count": 0,
+    "is_template": false
+  },
+  {
+    "name": "filebase-metadata",
+    "html_url": "https://github.com/thirdweb-example/filebase-metadata",
+    "description": "Use Filebase to upload your metadata and thirdweb to mint NFTs with that metadata!",
+    "created_at": "2022-06-20T23:31:31Z",
+    "updated_at": "2022-06-21T08:39:25Z",
+    "clone_url": "https://github.com/thirdweb-example/filebase-metadata.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "is_template": false
+  },
+  {
     "name": "hardhat-thirdweb-deploy-app",
     "html_url": "https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app",
     "description": null,
@@ -167,7 +191,7 @@
     "html_url": "https://github.com/thirdweb-example/magic-link",
     "description": "Connect users to your dApp using just their email using thirdweb's useMagic hook!",
     "created_at": "2022-04-27T07:03:18Z",
-    "updated_at": "2022-06-05T23:47:08Z",
+    "updated_at": "2022-06-20T12:08:46Z",
     "clone_url": "https://github.com/thirdweb-example/magic-link.git",
     "topics": [
       "nextjs",
@@ -175,7 +199,7 @@
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false
   },
   {
@@ -183,7 +207,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-next-ts",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2022-06-11T02:41:49Z",
+    "updated_at": "2022-06-21T07:09:10Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-next-ts.git",
     "topics": [
       "marketplace",
@@ -191,7 +215,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 11,
+    "stargazers_count": 12,
     "is_template": false
   },
   {
@@ -284,7 +308,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "An example of an NFT Gated Website for thirdweb's NFT Gated Website Guide",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-06-17T07:13:30Z",
+    "updated_at": "2022-06-21T10:11:13Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "edition",
@@ -295,7 +319,7 @@
       "react"
     ],
     "language": "JavaScript",
-    "stargazers_count": 24,
+    "stargazers_count": 26,
     "is_template": false
   },
   {
@@ -312,6 +336,18 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 8,
+    "is_template": false
+  },
+  {
+    "name": "packs",
+    "html_url": "https://github.com/thirdweb-example/packs",
+    "description": "Bundle NFTs and Tokens together in Packs that users can open and receive randomly selected tokens from those that were bundled!",
+    "created_at": "2022-06-21T07:50:46Z",
+    "updated_at": "2022-06-21T08:29:16Z",
+    "clone_url": "https://github.com/thirdweb-example/packs.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 1,
     "is_template": false
   },
   {
@@ -399,24 +435,6 @@
     ],
     "language": "JavaScript",
     "stargazers_count": 0,
-    "is_template": true
-  },
-  {
-    "name": "vite-typescript-starter",
-    "html_url": "https://github.com/thirdweb-example/vite-typescript-starter",
-    "description": "thirdweb starter project with Vite & TypeScript",
-    "created_at": "2022-03-18T00:47:03Z",
-    "updated_at": "2022-06-05T23:46:45Z",
-    "clone_url": "https://github.com/thirdweb-example/vite-typescript-starter.git",
-    "topics": [
-      "react",
-      "reactjs",
-      "starter-kit",
-      "typescript",
-      "vite"
-    ],
-    "language": "TypeScript",
-    "stargazers_count": 1,
     "is_template": true
   }
 ]
