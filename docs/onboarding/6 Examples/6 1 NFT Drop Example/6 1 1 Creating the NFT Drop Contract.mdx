@@ -2,6 +2,8 @@
 slug: /examples/nft-drop/creating-the-nft-drop-contract
 ---
 
+import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet";
+
 # Creating an NFT Drop Contract
 
 In this section, we'll show how to:
@@ -73,3 +75,23 @@ Once you're happy with your claim phase(s), click **Update Claim Phases**
 ![Configure Claim Phases](../assets/configure-claim-phases.png)
 
 Now we're ready to upload our NFTs to our NFT Drop contract.
+
+## Bonus Tip: SDK Deployments
+
+You can do everything we just did in code using the SDK too!
+
+**Deploy the NFT Drop contract:**
+
+<ThirdwebCodeSnippet
+  contract={"ContractDeployer"}
+  name={"deployNFTDrop"}
+  showHr={false}
+/>
+
+**Set Claim Conditions:**
+
+<ThirdwebCodeSnippet
+  contract={"NFTDrop"}
+  name={"claimConditions"}
+  showHr={false}
+/>

@@ -1,5 +1,8 @@
 {
   "cleanUrls": true,
+  "github": {
+    "autoJobCancelation": true
+  },
   "redirects": [
     {
       "source": "/learn/modules/:match*",
@@ -204,6 +207,24 @@
     {
       "source": "/getting-started",
       "destination": "/getting-started/deploying-contracts"
+    },
+    {
+      "source": "/advanced-features/signature-based-minting",
+      "destination": "/advanced-features/on-demand-minting"
+    },
+    {
+      "source": "/guides/on-demand-minting",
+      "destination": "/guides/mint-nft-unique-code",
+      "permanent": true
+    },
+    {
+      "source": "/guides/create-your-own-marketplace-with-thirdweb-typescript-sdk",
+      "destination": "/guides/nft-marketplace-with-typescript-next",
+      "permanent": true
+    },
+    {
+      "source": "/guides/switch-between-networks",
+      "destination": "/react/react.usenetwork"
     }
   ]
 }

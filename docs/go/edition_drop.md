@@ -112,7 +112,7 @@ metadatasWithSupply := []*thirdweb.EditionMetadataInput{
 tx, err := contract.MintBatchTo("{{wallet_address}}", metadatasWithSupply)
 ```
 
-## type [EditionMetadata](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L44-L47)
+## type [EditionMetadata](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L45-L48)
 
 ```go
 type EditionMetadata struct {
@@ -121,7 +121,7 @@ type EditionMetadata struct {
 }
 ```
 
-## type [EditionMetadataInput](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L56-L59)
+## type [EditionMetadataInput](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L57-L60)
 
 ```go
 type EditionMetadataInput struct {
@@ -130,7 +130,7 @@ type EditionMetadataInput struct {
 }
 ```
 
-## type [EditionMetadataOwner](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L49-L54)
+## type [EditionMetadataOwner](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L50-L55)
 
 ```go
 type EditionMetadataOwner struct {
