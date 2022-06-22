@@ -327,7 +327,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-06-17T07:14:11Z",
+    "updated_at": "2022-06-22T14:45:30Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "nft-drop",
@@ -335,7 +335,7 @@
       "token"
     ],
     "language": "TypeScript",
-    "stargazers_count": 8,
+    "stargazers_count": 9,
     "is_template": false
   },
   {
@@ -348,6 +348,18 @@
     "topics": [],
     "language": "TypeScript",
     "stargazers_count": 1,
+    "is_template": false
+  },
+  {
+    "name": "play-to-earn-game",
+    "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
+    "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
+    "created_at": "2022-06-22T11:24:30Z",
+    "updated_at": "2022-06-22T11:27:13Z",
+    "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
     "is_template": false
   },
   {
@@ -367,7 +379,7 @@
     "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2022-06-05T23:47:31Z",
+    "updated_at": "2022-06-22T14:14:52Z",
     "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
@@ -376,7 +388,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false
   },
   {
@@ -406,35 +418,15 @@
     "is_template": false
   },
   {
-    "name": "token-drop",
-    "html_url": "https://github.com/thirdweb-example/token-drop",
-    "description": "Release your token with claim conditions for a price using thirdweb's Token Drop contract",
-    "created_at": "2022-05-25T04:05:25Z",
-    "updated_at": "2022-06-05T23:48:45Z",
-    "clone_url": "https://github.com/thirdweb-example/token-drop.git",
-    "topics": [
-      "token-drop"
-    ],
-    "language": "JavaScript",
-    "stargazers_count": 1,
-    "is_template": false
-  },
-  {
-    "name": "vite-javascript-starter",
-    "html_url": "https://github.com/thirdweb-example/vite-javascript-starter",
-    "description": "thirdweb starter project with Vite & JavaScript",
-    "created_at": "2022-03-18T17:33:24Z",
-    "updated_at": "2022-06-05T23:46:05Z",
-    "clone_url": "https://github.com/thirdweb-example/vite-javascript-starter.git",
-    "topics": [
-      "javascript",
-      "react",
-      "reactjs",
-      "starter-kit",
-      "vite"
-    ],
-    "language": "JavaScript",
+    "name": "thirdweb-stripe",
+    "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
+    "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
+    "created_at": "2022-06-19T02:19:09Z",
+    "updated_at": "2022-06-21T21:45:49Z",
+    "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
+    "topics": [],
+    "language": "TypeScript",
     "stargazers_count": 0,
-    "is_template": true
+    "is_template": false
   }
 ]
