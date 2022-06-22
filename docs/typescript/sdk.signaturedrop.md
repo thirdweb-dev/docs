@@ -56,18 +56,18 @@ const contract = sdk.getSignatureDrop("{{contract_address}}");
 
 ## Methods
 
-| Method                                                                          | Modifiers | Description                                                                |
-| ------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------- |
-| [burn(tokenId)](./sdk.signaturedrop.burn.md)                                    |           | Burn a single NFT                                                          |
-| [claim(quantity, proofs)](./sdk.signaturedrop.claim.md)                         |           | Claim NFTs to the connected wallet.                                        |
-| [claimTo(destinationAddress, quantity, proofs)](./sdk.signaturedrop.claimto.md) |           | Claim unique NFTs to a specific Wallet                                     |
-| [createBatch(metadatas)](./sdk.signaturedrop.createbatch.md)                    |           | Create a batch of unique NFTs to be claimed in the future                  |
-| [getAll(queryParams)](./sdk.signaturedrop.getall.md)                            |           | Get All Minted NFTs                                                        |
-| [getAllClaimed(queryParams)](./sdk.signaturedrop.getallclaimed.md)              |           | Get All Claimed NFTs                                                       |
-| [getAllUnclaimed(queryParams)](./sdk.signaturedrop.getallunclaimed.md)          |           | Get All Unclaimed NFTs                                                     |
-| [getOwned(walletAddress)](./sdk.signaturedrop.getowned.md)                      |           | Get Owned NFTs                                                             |
-| [getOwnedTokenIds(walletAddress)](./sdk.signaturedrop.getownedtokenids.md)      |           |                                                                            |
-| [isTransferRestricted()](./sdk.signaturedrop.istransferrestricted.md)           |           | Get whether users can transfer NFTs from this contract                     |
-| [totalClaimedSupply()](./sdk.signaturedrop.totalclaimedsupply.md)               |           | Get the claimed supply                                                     |
-| [totalSupply()](./sdk.signaturedrop.totalsupply.md)                             |           | Get the total count NFTs in this drop contract, both claimed and unclaimed |
-| [totalUnclaimedSupply()](./sdk.signaturedrop.totalunclaimedsupply.md)           |           | Get the unclaimed supply                                                   |
+| Method                                                                                               | Modifiers | Description                                                                |
+| ---------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------- |
+| [burn(tokenId)](./sdk.signaturedrop.burn.md)                                                         |           | Burn a single NFT                                                          |
+| [claim(quantity, checkERC20Allowance, proofs)](./sdk.signaturedrop.claim.md)                         |           | Claim NFTs to the connected wallet.                                        |
+| [claimTo(destinationAddress, quantity, checkERC20Allowance, proofs)](./sdk.signaturedrop.claimto.md) |           | Claim unique NFTs to a specific Wallet                                     |
+| [createBatch(metadatas)](./sdk.signaturedrop.createbatch.md)                                         |           | Create a batch of unique NFTs to be claimed in the future                  |
+| [getAll(queryParams)](./sdk.signaturedrop.getall.md)                                                 |           | Get All Minted NFTs                                                        |
+| [getAllClaimed(queryParams)](./sdk.signaturedrop.getallclaimed.md)                                   |           | Get All Claimed NFTs                                                       |
+| [getAllUnclaimed(queryParams)](./sdk.signaturedrop.getallunclaimed.md)                               |           | Get All Unclaimed NFTs                                                     |
+| [getOwned(walletAddress)](./sdk.signaturedrop.getowned.md)                                           |           | Get Owned NFTs                                                             |
+| [getOwnedTokenIds(walletAddress)](./sdk.signaturedrop.getownedtokenids.md)                           |           |                                                                            |
+| [isTransferRestricted()](./sdk.signaturedrop.istransferrestricted.md)                                |           | Get whether users can transfer NFTs from this contract                     |
+| [totalClaimedSupply()](./sdk.signaturedrop.totalclaimedsupply.md)                                    |           | Get the claimed supply                                                     |
+| [totalSupply()](./sdk.signaturedrop.totalsupply.md)                                                  |           | Get the total count NFTs in this drop contract, both claimed and unclaimed |
+| [totalUnclaimedSupply()](./sdk.signaturedrop.totalunclaimedsupply.md)                                |           | Get the unclaimed supply                                                   |
