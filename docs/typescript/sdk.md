@@ -136,6 +136,7 @@ displayed_sidebar: typescript
 | [BufferOrStringWithName](./sdk.bufferorstringwithname.md)                               |                                                                                                            |
 | [ClaimCondition](./sdk.claimcondition.md)                                               | Represents a claim condition fetched from the SDK                                                          |
 | [ClaimConditionInput](./sdk.claimconditioninput.md)                                     | Input model to create a claim condition with optional snapshot of wallets                                  |
+| [ClaimConditionsForToken](./sdk.claimconditionsfortoken.md)                             |                                                                                                            |
 | [ClaimVerification](./sdk.claimverification.md)                                         |                                                                                                            |
 | [ContractEvent](./sdk.contractevent.md)                                                 |                                                                                                            |
 | [ContractForContractType](./sdk.contractforcontracttype.md)                             |                                                                                                            |
