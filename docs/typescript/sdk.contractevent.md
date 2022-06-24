@@ -9,6 +9,8 @@ displayed_sidebar: typescript
 
 ## ContractEvent type
 
+Standardized return type for contract events that returns event arguments
+
 **Signature:**
 
 ```typescript
