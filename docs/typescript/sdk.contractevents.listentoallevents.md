@@ -14,22 +14,20 @@ Listen to all events emitted from this contract
 **Signature:**
 
 ```typescript
-listenToAllEvents(listener: (event: ContractEvent) => void): void;
+listenToAllEvents(listener: (event: ContractEvent) => void): () => void;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                        | Description                                         |
-| --------- | ----------------------------------------------------------- | --------------------------------------------------- |
-| listener  | (event: [ContractEvent](./sdk.contractevent.md)) =&gt; void | the receiver that will be called on every new event |
+| Parameter | Type                                                        | Description                                                  |
+| --------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
+| listener  | (event: [ContractEvent](./sdk.contractevent.md)) =&gt; void | the callback function that will be called on every new event |
 
 **Returns:**
 
-void
+() =&gt; void
 
-## Remarks
-
-Remove a listener that was added with addEventListener
+A function that can be called to stop listening to events
 
 ## Example
 
