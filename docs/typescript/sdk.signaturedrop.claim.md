@@ -14,16 +14,15 @@ Claim NFTs to the connected wallet.
 **Signature:**
 
 ```typescript
-claim(quantity: BigNumberish, checkERC20Allowance?: boolean, proofs?: BytesLike[]): Promise<TransactionResultWithId<NFTMetadataOwner>[]>;
+claim(quantity: BigNumberish, checkERC20Allowance?: boolean): Promise<TransactionResultWithId<NFTMetadataOwner>[]>;
 ```
 
 ## Parameters
 
-| Parameter           | Type          | Description       |
-| ------------------- | ------------- | ----------------- |
-| quantity            | BigNumberish  |                   |
-| checkERC20Allowance | boolean       | <i>(Optional)</i> |
-| proofs              | BytesLike\[\] | <i>(Optional)</i> |
+| Parameter           | Type         | Description       |
+| ------------------- | ------------ | ----------------- |
+| quantity            | BigNumberish |                   |
+| checkERC20Allowance | boolean      | <i>(Optional)</i> |
 
 **Returns:**
 
