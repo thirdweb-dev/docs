@@ -9,11 +9,24 @@ displayed_sidebar: typescript
 
 ## ContractEvent type
 
+Standardized return type for contract events that returns event arguments
+
 **Signature:**
 
 ```typescript
 export declare type ContractEvent = {
   eventName: string;
-  data: Record<string, any>;
+  data: Record<string, unknown>;
+  transaction: {
+    blockNumber: number;
+    blockHash: string;
+    transactionIndex: number;
+    removed: boolean;
+    address: string;
+    data: string;
+    topics: Array<string>;
+    transactionHash: string;
+    logIndex: number;
+  };
 };
 ```

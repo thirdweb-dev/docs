@@ -19,9 +19,9 @@ addTransactionListener(listener: ListenerFn): void;
 
 ## Parameters
 
-| Parameter | Type       | Description                                           |
-| --------- | ---------- | ----------------------------------------------------- |
-| listener  | ListenerFn | the receiver that will be called on every transaction |
+| Parameter | Type       | Description                                                    |
+| --------- | ---------- | -------------------------------------------------------------- |
+| listener  | ListenerFn | the callback function that will be called on every transaction |
 
 **Returns:**
 

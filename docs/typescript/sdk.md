@@ -91,6 +91,7 @@ displayed_sidebar: typescript
 | [AuctionListing](./sdk.auctionlisting.md)                                       | Represents a new marketplace auction listing.                                                        |
 | [BatchToReveal](./sdk.batchtoreveal.md)                                         |                                                                                                      |
 | [DirectListing](./sdk.directlisting.md)                                         | Represents a marketplace direct listing.                                                             |
+| [EventQueryFilter](./sdk.eventqueryfilter.md)                                   | Filters for querying past events                                                                     |
 | [GaslessTransaction](./sdk.gaslesstransaction.md)                               | transaction message contains information that's needed to execute a gasless transaction              |
 | [IStorage](./sdk.istorage.md)                                                   | Interface for any storage provider                                                                   |
 | [MarketplaceContractDeployMetadata](./sdk.marketplacecontractdeploymetadata.md) | Options for deploying a Marketplace contract                                                         |
@@ -138,7 +139,7 @@ displayed_sidebar: typescript
 | [ClaimConditionInput](./sdk.claimconditioninput.md)                                     | Input model to create a claim condition with optional snapshot of wallets                                  |
 | [ClaimConditionsForToken](./sdk.claimconditionsfortoken.md)                             |                                                                                                            |
 | [ClaimVerification](./sdk.claimverification.md)                                         |                                                                                                            |
-| [ContractEvent](./sdk.contractevent.md)                                                 |                                                                                                            |
+| [ContractEvent](./sdk.contractevent.md)                                                 | Standardized return type for contract events that returns event arguments                                  |
 | [ContractForContractType](./sdk.contractforcontracttype.md)                             |                                                                                                            |
 | [ContractType](./sdk.contracttype.md)                                                   |                                                                                                            |
 | [Currency](./sdk.currency.md)                                                           |                                                                                                            |
