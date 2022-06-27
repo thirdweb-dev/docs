@@ -5,4 +5,110 @@ title: Building a Web3 App
 
 Now that we've deployed an NFT Drop contract from the dashboard, we can build a frontend application using the thirdweb [React](/react) SDK to enable our users to connect their wallets and claim NFTs.
 
-# 
+## Creating a New App
+
+The easiest way to get started is by using our `create-tw-app` CLI.
+
+This interactive tool creates a new project with thirdweb pre-configured with a framework and language of your choice.
+
+```bash
+npx create-tw-app
+```
+
+That's it! You're project is ready to start [interacting with your contract](/getting-started/interact-with-your-contract).
+
+:::tip Starter Kits & Templates
+
+You can start with one of our [example projects](/examples) by passing the `--example` flag and the name of the example repo.
+
+:::
+
+## Getting Your Smart Contract
+
+Now that we have a new web3 app ready to go, we need to get our smart contract into the app so we can start interacting with it. 
+
+You can do this by getting your smart contract address from the dashboard by clicking the copy address button below the contract name.
+
+![Copy Contract Address from dashboard](./assets/copy-contract-address.png)
+
+Copy this contract address, and use it to get an instance of your smart contract in code.
+
+For example, we can get our NFT Drop contract using the code below:
+
+```jsx
+import { useNFTDrop } from '@thirdweb-dev/react'
+
+export default function Component() {
+  const contract = useNFTDrop("<contract-address>")
+
+  // Now you can use the nft drop contract in the rest of the component
+}
+```
+
+## Using Your Smart Contract
+
+Now you're ready to use the functions of your smart contract.
+
+### Read Data
+
+You can read data from the contract like so:
+
+```jsx
+import { useNFTDrop, ThirdwebNftMedia } from '@thirdweb-dev/react'
+
+export default function Component() {
+  const contract = useNFTDrop("<contract-address>");
+
+  // Read data about all NFTs from this contract
+  const { data: nfts, isLoading } = useNFTs(contract);
+
+  return (
+    <div>
+      {isLoading ? (
+        <div>Loading...</div>
+      ) : (
+        <div>
+          {nfts.map((nft, id) => (
+            <>
+              <ThirdwebNftMedia 
+                key={id} 
+                metadata={nft.metadata} 
+              />
+              <h3>{nft.metadata.name}</h3>
+            </>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+### Write Data (Create Transaction)
+
+You can write data to the contract if there is a connected wallet, or instantiated the SDK with a signer/private key.
+
+```jsx
+import { useNFTDrop } from '@thirdweb-dev/react'
+
+export default function Component() {
+  const contract = useNFTDrop("<contract-address>");
+
+  // Get the function to claim NFTs
+  const { mutate: claim, isLoading } = useClaimNFT(contract);
+
+  // And add a button to claim NFTs
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() => claim({ to: "0x...", quantity: 1 })}
+    >
+      Claim NFT!
+    </button>
+  );
+}
+```
+
+:::See it action!
+If you want to checkout a demo for this example and others, checkout the [thirdweb contract hub](https://contract-hub.thirdweb-example.com/).
+:::
