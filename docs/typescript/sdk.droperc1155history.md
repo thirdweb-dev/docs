@@ -19,9 +19,9 @@ export declare class DropErc1155History
 
 ## Constructors
 
-| Constructor                                                           | Modifiers | Description                                                            |
-| --------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------- |
-| [(constructor)(analytics)](./sdk.droperc1155history._constructor_.md) |           | Constructs a new instance of the <code>DropErc1155History</code> class |
+| Constructor                                                        | Modifiers | Description                                                            |
+| ------------------------------------------------------------------ | --------- | ---------------------------------------------------------------------- |
+| [(constructor)(events)](./sdk.droperc1155history._constructor_.md) |           | Constructs a new instance of the <code>DropErc1155History</code> class |
 
 ## Methods
 

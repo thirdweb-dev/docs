@@ -14,16 +14,16 @@ Claim a token to the connected wallet
 **Signature:**
 
 ```typescript
-claim(tokenId: BigNumberish, quantity: BigNumberish, proofs?: BytesLike[]): Promise<TransactionResult>;
+claim(tokenId: BigNumberish, quantity: BigNumberish, checkERC20Allowance?: boolean): Promise<TransactionResult>;
 ```
 
 ## Parameters
 
-| Parameter | Type          | Description                              |
-| --------- | ------------- | ---------------------------------------- |
-| tokenId   | BigNumberish  | Id of the token you want to claim        |
-| quantity  | BigNumberish  | Quantity of the tokens you want to claim |
-| proofs    | BytesLike\[\] | <i>(Optional)</i> Array of proofs        |
+| Parameter           | Type         | Description                                                                                                                      |
+| ------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| tokenId             | BigNumberish | Id of the token you want to claim                                                                                                |
+| quantity            | BigNumberish | Quantity of the tokens you want to claim                                                                                         |
+| checkERC20Allowance | boolean      | <i>(Optional)</i> Optional, check if the wallet has enough ERC20 allowance to claim the tokens, and if not, approve the transfer |
 
 **Returns:**
 

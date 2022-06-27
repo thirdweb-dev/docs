@@ -14,14 +14,17 @@ Create a batch of NFTs to be claimed in the future
 **Signature:**
 
 ```typescript
-createBatch(metadatas: NFTMetadataInput[]): Promise<TransactionResultWithId<NFTMetadata>[]>;
+createBatch(metadatas: NFTMetadataOrUri[], options?: {
+        onProgress: (event: UploadProgressEvent) => void;
+    }): Promise<TransactionResultWithId<NFTMetadata>[]>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                              | Description |
-| --------- | ------------------------------------------------- | ----------- |
-| metadatas | [NFTMetadataInput](./sdk.nftmetadatainput.md)\[\] |             |
+| Parameter | Type                                                                                     | Description                                         |
+| --------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| metadatas | NFTMetadataOrUri\[\]                                                                     | The metadata to include in the batch.               |
+| options   | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | <i>(Optional)</i> optional upload progress callback |
 
 **Returns:**
 

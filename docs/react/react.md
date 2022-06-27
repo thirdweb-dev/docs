@@ -22,6 +22,7 @@ import { useAddress } from "@thirdweb-dev/react";
 ```
 
 |
+| [useAllContractEvents(contract, options)](./react.useallcontractevents.md) | **<i>(BETA)</i>** Use this to query (and subscribe) to all events on a contract. |
 | [useAllRoleMembers(contract)](./react.useallrolemembers.md) | **<i>(BETA)</i>** Use this to get the roles of a |
 | [useAuctionWinner(contract, listingId)](./react.useauctionwinner.md) | **<i>(BETA)</i>** Use this to get the winner of an auction listing from your marketplace contract. |
 | [useBalance(tokenAddress)](./react.usebalance.md) | **<i>(BETA)</i>** A hook to get the native or (optional) ERC20 token balance of the connected wallet. |
@@ -48,6 +49,9 @@ import { useCoinbaseWallet } from "@thirdweb-dev/react";
 
 |
 | [useContract(contractAddress)](./react.usecontract.md) | **<i>(BETA)</i>** Use this resolve a contract address to a thirdweb (built-in / custom) contract instance. |
+| [useContractCall(contract, functionName)](./react.usecontractcall.md) | **<i>(BETA)</i>** Use this to get a function to make a write call to your contract |
+| [useContractData(contract, functionName, args)](./react.usecontractdata.md) | **<i>(BETA)</i>** Use this to get data from a contract read-function call. |
+| [useContractEvents(contract, eventName, options)](./react.usecontractevents.md) | **<i>(BETA)</i>** Use this to query (and subscribe) to a specific event on a contract. |
 | [useContractMetadata(contractAddress)](./react.usecontractmetadata.md) | **<i>(BETA)</i>** Use this to get the contract metadata for a (built-in or custom) contract. |
 | [useContractPublishMetadata(contractAddress)](./react.usecontractpublishmetadata.md) | **<i>(BETA)</i>** Use this to get the publish metadata for a deployed contract. |
 | [useContractType(contractAddress)](./react.usecontracttype.md) | **<i>(BETA)</i>** Use this to get the contract type for a (built-in or custom) contract. |

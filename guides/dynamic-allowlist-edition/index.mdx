@@ -194,7 +194,7 @@ In the api we are going to use the sdk to get access to the edition contract and
 ```ts
 const edition = sdk.getEdition("EDITION_CONTRACT_ADDRESS");
 try {
-  const signedPayload = await edition.signature.generate({
+  const signedPayload = await edition.signature.generateFromTokenId({
     tokenId: 0,
     quantity: "1",
     to: address,
@@ -351,7 +351,7 @@ const generateMintSignature = async (
       "0x62C84CC051544c43d05a5Ff0E8Da596fBdB15032",
     );
     try {
-      const signedPayload = await edition.signature.generate({
+      const signedPayload = await edition.signature.generateFromTokenId({
         tokenId: 0,
         quantity: "1",
         to: address,

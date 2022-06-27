@@ -14,17 +14,17 @@ Claim NFTs to a specific Wallet
 **Signature:**
 
 ```typescript
-claimTo(destinationAddress: string, tokenId: BigNumberish, quantity: BigNumberish, proofs?: BytesLike[]): Promise<TransactionResult>;
+claimTo(destinationAddress: string, tokenId: BigNumberish, quantity: BigNumberish, checkERC20Allowance?: boolean): Promise<TransactionResult>;
 ```
 
 ## Parameters
 
-| Parameter          | Type          | Description                              |
-| ------------------ | ------------- | ---------------------------------------- |
-| destinationAddress | string        | Address you want to send the token to    |
-| tokenId            | BigNumberish  | Id of the token you want to claim        |
-| quantity           | BigNumberish  | Quantity of the tokens you want to claim |
-| proofs             | BytesLike\[\] | <i>(Optional)</i> Array of proofs        |
+| Parameter           | Type         | Description                                                                                                                      |
+| ------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| destinationAddress  | string       | Address you want to send the token to                                                                                            |
+| tokenId             | BigNumberish | Id of the token you want to claim                                                                                                |
+| quantity            | BigNumberish | Quantity of the tokens you want to claim                                                                                         |
+| checkERC20Allowance | boolean      | <i>(Optional)</i> Optional, check if the wallet has enough ERC20 allowance to claim the tokens, and if not, approve the transfer |
 
 **Returns:**
 
@@ -45,6 +45,4 @@ const quantity = 1; // how many NFTs you want to claim
 
 const tx = await contract.claimTo(address, tokenId, quantity);
 const receipt = tx.receipt; // the transaction receipt
-const claimedTokenId = tx.id; // the id of the NFT claimed
-const claimedNFT = await tx.data(); // (optional) get the claimed NFT metadata
 ```

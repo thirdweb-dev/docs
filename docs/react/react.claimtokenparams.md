@@ -15,7 +15,7 @@ displayed_sidebar: react
 export declare type ClaimTokenParams = {
   to: WalletAddress;
   amount: Amount;
-  proofs?: BytesLike[];
+  checkERC20Allowance?: boolean;
 };
 ```
 

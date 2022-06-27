@@ -22,12 +22,12 @@ export declare type ClaimNFTParams<TContract extends DropContract> =
         to: WalletAddress;
         tokenId: BigNumberish;
         quantity: BigNumberish;
-        proofs?: BytesLike[];
+        checkERC20Allowance?: boolean;
       }
     : {
         to: WalletAddress;
         quantity: BigNumberish;
-        proofs?: BytesLike[];
+        checkERC20Allowance?: boolean;
       };
 ```
 

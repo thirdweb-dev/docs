@@ -18,7 +18,7 @@ This can be done in two ways:
 The recommended way to connect to a user's wallet is to use the [React SDK](/react) to:
 
 1. Wrap your application in the [ThirdwebProvider](/react/react.thirdwebprovider).
-2. Use a [Wallet connection](react/category/wallet-connection) hook.
+2. Use a [Wallet connection](/react/category/wallet-connection) hook.
 
 :::tip Starter Templates
 Head to our [examples page](/examples) to clone a template with the ThirdwebProvider and wallet connection set-up.
@@ -33,7 +33,7 @@ import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
 const App = () => {
   return (
-    <ThirdwebProvider desiredChainId={ChainId.Mainnet}>
+    <ThirdwebProvider desiredChainId={ChainId.Polygon}>
       <YourApp />
     </ThirdwebProvider>
   );
@@ -84,7 +84,7 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 // You could use this, or another library such as Ethers to create a signer object if you are not using the React SDK.
 const signer = useSigner();
 
-const sdk = ThirdwebSDK.fromSigner(signer);
+const sdk = ThirdwebSDK.fromSigner(signer, "polygon");
 
 // The SDK is now in signer mode.
 const nftCollection = sdk.getNFTCollection("0x...");
