@@ -7,30 +7,13 @@ export default function ThirdwebCodeSnippet() {
   const installationSnippets = {
     javascript: `import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-// Create a read-only instance of the ThirdwebSDK on the Mumbai network
+// Create a READ-ONLY instance of the ThirdwebSDK on the Mumbai network
 const sdk = new ThirdwebSDK("mumbai"); // configure this to your network
-`,
-
-    react: `import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
-
-// the chainId our app wants to be running on
-// for our example the Polygon Mumbai Testnet
-const desiredChainId = ChainId.Mumbai;
-
-export const MyApp = () => {
-  return (
-    <ThirdwebProvider desiredChainId={desiredChainId}>
-      {/*
-          Your App Goes Here
-      */}
-    </ThirdwebProvider>
-  );
-};
 `,
 
     python: `from thirdweb import ThirdwebSDK
 
-# You can create a new instance of the SDK to use by just passing in a network name
+# You can create new READ-ONLY instance of the SDK to use by just passing in a network name
 sdk = ThirdwebSDK("mumbai")`,
 
     solidity: `// SPDX-License-Identifier: MIT
@@ -52,7 +35,7 @@ import (
 )
 
 func main() {
-	// Creates a new SDK instance to get read-only data for your contracts, you can pass:
+	// Creates a new READ-ONLY instance of the SDK to get read-only data for your contracts, you can pass:
 	// - a chain name (mainnet, rinkeby, goerli, polygon, mumbai, avalanche, fantom)
 	// - a custom RPC URL
 	sdk, err := thirdweb.NewThirdwebSDK("mumbai", nil)
