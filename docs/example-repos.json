@@ -143,11 +143,11 @@
     "html_url": "https://github.com/thirdweb-example/filebase-metadata",
     "description": "Use Filebase to upload your metadata and thirdweb to mint NFTs with that metadata!",
     "created_at": "2022-06-20T23:31:31Z",
-    "updated_at": "2022-06-21T08:39:25Z",
+    "updated_at": "2022-06-25T04:29:10Z",
     "clone_url": "https://github.com/thirdweb-example/filebase-metadata.git",
     "topics": [],
     "language": "JavaScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false
   },
   {
@@ -252,7 +252,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2022-06-21T18:53:41Z",
+    "updated_at": "2022-06-26T00:50:17Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -265,7 +265,7 @@
       "web3js"
     ],
     "language": "TypeScript",
-    "stargazers_count": 11,
+    "stargazers_count": 12,
     "is_template": true
   },
   {
@@ -308,7 +308,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "An example of an NFT Gated Website for thirdweb's NFT Gated Website Guide",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-06-22T18:49:24Z",
+    "updated_at": "2022-06-27T14:15:45Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "edition",
@@ -319,7 +319,7 @@
       "react"
     ],
     "language": "JavaScript",
-    "stargazers_count": 27,
+    "stargazers_count": 28,
     "is_template": false
   },
   {
@@ -355,11 +355,11 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2022-06-22T11:27:13Z",
+    "updated_at": "2022-06-26T00:52:03Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 2,
     "is_template": false
   },
   {
@@ -367,11 +367,11 @@
     "html_url": "https://github.com/thirdweb-example/sign-in-with-ethereum",
     "description": "Authenticate to a backend using a wallet",
     "created_at": "2022-06-03T16:04:25Z",
-    "updated_at": "2022-06-21T21:11:57Z",
+    "updated_at": "2022-06-26T00:51:06Z",
     "clone_url": "https://github.com/thirdweb-example/sign-in-with-ethereum.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 5,
+    "stargazers_count": 7,
     "is_template": false
   },
   {
@@ -379,7 +379,7 @@
     "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2022-06-22T14:14:52Z",
+    "updated_at": "2022-06-25T23:45:40Z",
     "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
@@ -388,7 +388,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 4,
+    "stargazers_count": 5,
     "is_template": false
   },
   {
@@ -422,11 +422,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2022-06-22T20:40:43Z",
+    "updated_at": "2022-06-26T00:51:53Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false
   }
 ]
