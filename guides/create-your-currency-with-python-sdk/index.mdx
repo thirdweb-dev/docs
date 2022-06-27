@@ -30,9 +30,16 @@ Go ahead and create a new Python file. Let's call it `currency.py` and open it i
 Use the following code in your terminal to install the thirdweb SDK in the project!
 
 ```bash
-#install the thirdweb sdk
 pip install thirdweb-sdk
 ```
+
+We'll also use environment variables, so install the `python-dotenv` package too:
+
+```bash
+pip install python-dotenv
+```
+
+Now we can import the SDK, along with the other libraries we're going to use.
 
 ```python title="currency.py"
 from thirdweb import ThirdwebSDK
@@ -68,8 +75,14 @@ Now we can initialize our SDK:
 # Load environment variables into this file
 load_dotenv()
 
-# Now you can create a new instance of the SDK with your private key
-sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, "mumbai")
+# This PRIVATE KEY is coming from your environment variables. Make sure to never put it in a tracked file or share it with anyone.
+PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
+
+# Set the network you want to operate on, or add your own RPC URL here
+NETWORK = "mumbai"
+
+# Finally, you can create a new instance of the SDK to use
+sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, NETWORK)
 ```
 
 ## Minting Tokens
@@ -89,7 +102,7 @@ And finally, mint some tokens!
 token.mint(10)
 ```
 
-To run the code: `python currency.py`
+To run the code: `python3 currency.py`
 
 ## Conclusion
 
