@@ -3,7 +3,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-export default function ThirdwebCodeSnippet() {
+export default function FromPrivateKeyCodeTabs() {
   const installationSnippets = {
     javascript: `import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
