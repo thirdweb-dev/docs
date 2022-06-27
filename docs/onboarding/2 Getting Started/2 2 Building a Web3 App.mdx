@@ -23,6 +23,13 @@ You can start with one of our [example projects](/examples) by passing the `--ex
 
 :::
 
+## Understanding the Code
+
+<!-- ThirdwebProvider (Code Snippet) -->
+
+<!-- Connect Wallet (SS) -->
+
+
 ## Getting Your Smart Contract
 
 Now that we have a new web3 app ready to go, we need to get our smart contract into the app so we can start interacting with it. 
@@ -51,7 +58,9 @@ Now you're ready to use the functions of your smart contract.
 
 ### Read Data
 
-You can read data from the contract like so:
+You can now read data from your contract with any of our [React](/react) hooks.
+
+In the example below, we'll read and display all the NFTs on your drop contract.
 
 ```jsx
 import { useNFTDrop, ThirdwebNftMedia } from '@thirdweb-dev/react'
@@ -86,7 +95,9 @@ export default function Component() {
 
 ### Write Data (Create Transaction)
 
-You can write data to the contract if there is a connected wallet, or instantiated the SDK with a signer/private key.
+You can make transactions to your contract from your frontend with the connected wallet.
+
+In the below example, we'll setup a simple claiming page so that users can connect to your website and claim NFTs from your drop.
 
 ```jsx
 import { useNFTDrop } from '@thirdweb-dev/react'
@@ -109,6 +120,6 @@ export default function Component() {
 }
 ```
 
-:::See it action!
+:::See it in action!
 If you want to checkout a demo for this example and others, checkout the [thirdweb contract hub](https://contract-hub.thirdweb-example.com/).
 :::
