@@ -25,10 +25,52 @@ You can start with one of our [example projects](/examples) by passing the `--ex
 
 ## Understanding the Code
 
-<!-- ThirdwebProvider (Code Snippet) -->
+Let's quickly take a look at the generated code to understand what's going on in our app.
 
-<!-- Connect Wallet (SS) -->
+First, we can look at the `pages/_app.js` file.
 
+This file has our `ThirdwebProvider` configured, which allows us to use simple wallet connection features and interact with the blockchain.
+
+```jsx
+import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
+
+// Here we can specify the chainId our app should run on
+// In this example, we'll use the Polygon Mumbai Testnet
+const desiredChainId = ChainId.Mumbai;
+
+export const MyApp = () => {
+  return (
+    <ThirdwebProvider desiredChainId={desiredChainId}>
+      {/* Your App Goes Here */}
+    </ThirdwebProvider>
+  );
+};
+```
+
+Additionally, you can take a look at the `pages/index.js` file.
+
+This file contains a basic setup for users to connect their wallets to our page.
+
+```jsx
+const Home: NextPage = () => {
+  const address = useAddress();
+  // This function will allow the user to connect their metamask wallet to our page
+  const connectWithMetamask = useMetamask();
+  const disconnectWallet = useDisconnect();
+  return (
+    <div>
+      {address ? (
+        <>
+          <button onClick={disconnectWallet}>Disconnect Wallet</button>
+          <p>Your address: {address}</p>
+        </>
+      ) : (
+        <button onClick={connectWithMetamask}>Connect with Metamask</button>
+      )}
+    </div>
+  );
+};
+```
 
 ## Getting Your Smart Contract
 
@@ -97,7 +139,8 @@ export default function Component() {
 
 You can make transactions to your contract from your frontend with the connected wallet.
 
-In the below example, we'll setup a simple claiming page so that users can connect to your website and claim NFTs from your drop.
+In the below example, we'll setup a simple claiming page so that users can connect to your website and claim NFTs from your drop. You may want to place this code
+in the same component as the MetaMask connection so that users can connect their wallets and then claim.
 
 ```jsx
 import { useNFTDrop } from '@thirdweb-dev/react'
