@@ -1,0 +1,32 @@
+---
+slug: /smart-contracts/contract-extensions
+title: The thirdweb Solidity SDK
+---
+
+# Solidity SDK
+
+The Solidity SDK offers contract extensions that allows you to:
+
+- Build smart contracts more easily by implementing features from our contracts.
+- Enable the thirdweb SDK and dashboard to work with your contracts.
+
+To install it into your Solidity project, run the following command:
+
+```bash
+npm install @thirdweb-dev/contracts
+```
+
+@adam TODO: Explain how thirdweb helps at all parts of contract development, speed up building, analysis, deployment, versioning, etc.
+
+## Using Contract Extensions
+
+The typical flow of using Contract Extensions is:
+
+1. Import the contract extension you want to use.
+2. Make your contract implement that extension (usually "`Contract is TheExtensionName`").
+3. Implement any required functions to satisfy the interface.
+
+That's it! You will then be able to use the feature in the SDK and in the dashboard.
+
+TODO: @adam we should add some of the stuff you said on the Stripe guide here. Like the "cards" on how to do common stuff.
+Like maybe 1. Create your own NFT Collection? 2. Do stuff, etc.
