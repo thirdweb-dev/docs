@@ -422,10 +422,24 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2022-06-22T20:40:43Z",
+    "updated_at": "2022-06-21T21:45:49Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
     "topics": [],
     "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false
+  },
+  {
+    "name": "token-drop",
+    "html_url": "https://github.com/thirdweb-example/token-drop",
+    "description": "Release your token with claim conditions for a price using thirdweb's Token Drop contract",
+    "created_at": "2022-05-25T04:05:25Z",
+    "updated_at": "2022-06-05T23:48:45Z",
+    "clone_url": "https://github.com/thirdweb-example/token-drop.git",
+    "topics": [
+      "token-drop"
+    ],
+    "language": "JavaScript",
     "stargazers_count": 1,
     "is_template": false
   }
