@@ -55,6 +55,11 @@ const sidebars = {
           label: "Multiwrap",
           id: "design/Multiwrap",
         },
+        {
+          type: "doc",
+          label: "Signature Drop",
+          id: "design/SignatureDrop",
+        }
       ],
     },
     {
