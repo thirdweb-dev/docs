@@ -9,6 +9,20 @@ displayed_sidebar: contracts
 
 ## Methods
 
+### NATIVE_TOKEN
+
+```solidity
+function NATIVE_TOKEN() external view returns (address)
+```
+
+_The address interpreted as native token of the chain._
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+
 ### getTokenCountOfBundle
 
 ```solidity
