@@ -15,7 +15,9 @@ This interactive tool creates a new project with thirdweb pre-configured with a 
 npx create-tw-app
 ```
 
-:::tip Starter Kits & Templates
+# <<<<<<< HEAD
+
+That's it! You're ready to start building your project, and all the setup gets auto generated for you, including the wallet connection functionality.
 
 You can start with one of our [example projects](/examples) by passing the `--example` flag and the name of the example repo.
 
@@ -27,7 +29,7 @@ Let's quickly take a look at the generated code to understand what's going on in
 
 First, we can look at the `pages/_app.js` file.
 
-This file has our `ThirdwebProvider` configured, which allows us to use simple wallet connection features and interact with the blockchain.
+This file has our `ThirdwebProvider` configured, which allows us to use wallet connection features and interact with the desired blockchain.
 
 ```jsx
 import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
@@ -47,7 +49,7 @@ export const MyApp = () => {
 
 Additionally, you can take a look at the `pages/index.js` file.
 
-This file contains a basic setup for users to connect their wallets to our page.
+This file contains a basic setup for users to connect their wallets to our page. It uses the `useMetamask()` to let a user connect their wallet to your app. For other ways to connect wallets, check out the [documentation](/react/category/wallet-connection).
 
 ```jsx
 const Home: NextPage = () => {
@@ -70,9 +72,9 @@ const Home: NextPage = () => {
 };
 ```
 
-## Getting Your Smart Contract
+## Interacting with your Smart Contract
 
-Now that we have a new web3 app ready to go, we need to get our smart contract into the app so we can start interacting with it. 
+Now that we have a new web3 app ready to go, we need to get our smart contract into the app so we can start interacting with it.
 
 You can do this by getting your smart contract address from the dashboard by clicking the copy address button below the contract name.
 
@@ -83,34 +85,33 @@ Copy this contract address, and use it to get an instance of your smart contract
 For example, we can get our NFT Drop contract using the code below:
 
 ```jsx
-import { useNFTDrop } from '@thirdweb-dev/react'
+import { useNFTDrop } from "@thirdweb-dev/react";
 
 export default function Component() {
-  const contract = useNFTDrop("<contract-address>")
+  const contract = useNFTDrop("<contract-address>");
 
   // Now you can use the nft drop contract in the rest of the component
 }
 ```
 
-## Using Your Smart Contract
-
 Now you're ready to use the functions of your smart contract.
 
-### Read Data
+### Read Data from your contract
 
 You can now read data from your contract with any of our [React](/react) hooks.
 
 In the example below, we'll read and display all the NFTs on your drop contract.
 
 ```jsx
-import { useNFTDrop, ThirdwebNftMedia } from '@thirdweb-dev/react'
+import { useNFTDrop, ThirdwebNftMedia } from "@thirdweb-dev/react";
 
-export default function Component() {
+export default function NFTGalleryComponent() {
   const contract = useNFTDrop("<contract-address>");
 
-  // Read data about all NFTs from this contract
+  // Get all NFTs from this contract
   const { data: nfts, isLoading } = useNFTs(contract);
 
+  // Display them in a gallery
   return (
     <div>
       {isLoading ? (
@@ -119,10 +120,7 @@ export default function Component() {
         <div>
           {nfts.map((nft, id) => (
             <>
-              <ThirdwebNftMedia 
-                key={id} 
-                metadata={nft.metadata} 
-              />
+              <ThirdwebNftMedia key={id} metadata={nft.metadata} />
               <h3>{nft.metadata.name}</h3>
             </>
           ))}
@@ -133,18 +131,19 @@ export default function Component() {
 }
 ```
 
-### Write Data (Create Transaction)
+### Perform transactions on your contract
 
 You can make transactions to your contract from your frontend with the connected wallet.
 
-In the below example, we'll setup a simple claiming page so that users can connect to your website and claim NFTs from your drop. You may want to place this code
-in the same component as the MetaMask connection so that users can connect their wallets and then claim.
+In the below example, we'll setup a simple claiming page so that users can connect to your website and claim NFTs from your drop. You can put this component anywhere in your app,
+the SDK will automatically prompt the connected wallet to execute the transaction.
 
 ```jsx
-import { useNFTDrop } from '@thirdweb-dev/react'
+import { useNFTDrop } from "@thirdweb-dev/react";
 
-export default function Component() {
+export default function ClaimButtonComponent() {
   const contract = useNFTDrop("<contract-address>");
+  const connectedWalletAddresss = useAddress();
 
   // Get the function to claim NFTs
   const { mutate: claim, isLoading } = useClaimNFT(contract);
@@ -153,7 +152,7 @@ export default function Component() {
   return (
     <button
       disabled={isLoading}
-      onClick={() => claim({ to: "0x...", quantity: 1 })}
+      onClick={() => claim({ to: connectedWalletAddresss, quantity: 1 })}
     >
       Claim NFT!
     </button>
@@ -161,6 +160,7 @@ export default function Component() {
 }
 ```
 
-:::info See it in action!
+:::tip See it in action!
+
 If you want to checkout a demo for this example and others, checkout the [thirdweb contract hub](https://contract-hub.thirdweb-example.com/).
 :::
