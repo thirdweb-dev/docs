@@ -30,10 +30,10 @@ export declare function useOwnedNFTs<TContract extends NFTContract>(
 
 ## Parameters
 
-| Parameter          | Type                                                                                       | Description                                           |
-| ------------------ | ------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
-| contract           | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt;                                 | an instace of a [NFTContract](./react.nftcontract.md) |
-| ownerWalletAddress | [RequiredParam](./react.requiredparam.md)&lt;[WalletAddress](./react.walletaddress.md)&gt; | the wallet adress to get owned tokens for             |
+| Parameter          | Type                                                                                       | Description                                            |
+| ------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
+| contract           | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt;                                 | an instance of a [NFTContract](./react.nftcontract.md) |
+| ownerWalletAddress | [RequiredParam](./react.requiredparam.md)&lt;[WalletAddress](./react.walletaddress.md)&gt; | the wallet adress to get owned tokens for              |
 
 **Returns:**
 

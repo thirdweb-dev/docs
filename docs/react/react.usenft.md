@@ -30,10 +30,10 @@ export declare function useNFT<TContract extends NFTContract>(
 
 ## Parameters
 
-| Parameter | Type                                                          | Description                                           |
-| --------- | ------------------------------------------------------------- | ----------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt;    | an instace of a [NFTContract](./react.nftcontract.md) |
-| tokenId   | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt; | the tokenId to look up                                |
+| Parameter | Type                                                          | Description                                            |
+| --------- | ------------------------------------------------------------- | ------------------------------------------------------ |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt;    | an instance of a [NFTContract](./react.nftcontract.md) |
+| tokenId   | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt; | the tokenId to look up                                 |
 
 **Returns:**
 

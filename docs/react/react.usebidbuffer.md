@@ -29,9 +29,9 @@ export declare function useBidBuffer(
 
 ## Parameters
 
-| Parameter | Type                                                         | Description                          |
-| --------- | ------------------------------------------------------------ | ------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instace of a marketplace contract |
+| Parameter | Type                                                         | Description                           |
+| --------- | ------------------------------------------------------------ | ------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a marketplace contract |
 
 **Returns:**
 

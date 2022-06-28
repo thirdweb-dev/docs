@@ -23,7 +23,7 @@ import "@thirdweb-dev/contracts/feature/Multicall.sol";
 contract MyCustomContract is Royalty, ContractMetadata, Multicall {
 
     uint16 private immutable defaultRoyaltyBps = 100; // 1% royalty fee
-    
+
     constructor() {
       // set the default royalty recipient and fee (in bps)
       _setupDefaultRoyaltyInfo(msg.sender, defaultRoyaltyBps);
@@ -35,7 +35,7 @@ contract MyCustomContract is Royalty, ContractMetadata, Multicall {
        // example implementation:
        return msg.sender == owner;
     }
-    
+
     // Access control for updating the contract metadata (required for marketplaces like OpenSea)
     function _canSetContractURI() internal view override returns (bool) {
         // example implementation:

@@ -59,9 +59,9 @@ export declare function useClaimToken<TContract extends TokenDrop>(
 
 ## Parameters
 
-| Parameter | Type                                                       | Description     |
-| --------- | ---------------------------------------------------------- | --------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instace of a |
+| Parameter | Type                                                       | Description      |
+| --------- | ---------------------------------------------------------- | ---------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a |
 
 **Returns:**
 

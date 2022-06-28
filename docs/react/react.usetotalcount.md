@@ -29,9 +29,9 @@ export declare function useTotalCount(
 
 ## Parameters
 
-| Parameter | Type                                                                                   | Description                                           |
-| --------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;[NFTContract](./react.nftcontract.md)&gt; | an instace of a [NFTContract](./react.nftcontract.md) |
+| Parameter | Type                                                                                   | Description                                            |
+| --------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;[NFTContract](./react.nftcontract.md)&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
 
 **Returns:**
 

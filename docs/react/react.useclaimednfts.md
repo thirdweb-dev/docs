@@ -35,7 +35,7 @@ export declare function useClaimedNFTs(
 
 | Parameter   | Type                                                                                     | Description                                                                    |
 | ----------- | ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| contract    | [RequiredParam](./react.requiredparam.md)&lt;[DropContract](./react.dropcontract.md)&gt; | an instace of a [DropContract](./react.dropcontract.md)                        |
+| contract    | [RequiredParam](./react.requiredparam.md)&lt;[DropContract](./react.dropcontract.md)&gt; | an instance of a [DropContract](./react.dropcontract.md)                       |
 | queryParams | QueryAllParams                                                                           | <i>(Optional)</i> query params to pass to the query for the sake of pagination |
 
 **Returns:**

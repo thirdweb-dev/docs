@@ -53,9 +53,9 @@ export declare function useCreateAuctionListing(
 
 ## Parameters
 
-| Parameter | Type                                                         | Description                          |
-| --------- | ------------------------------------------------------------ | ------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instace of a Marketplace contract |
+| Parameter | Type                                                         | Description                           |
+| --------- | ------------------------------------------------------------ | ------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a Marketplace contract |
 
 **Returns:**
 
