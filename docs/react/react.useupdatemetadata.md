@@ -13,6 +13,38 @@ displayed_sidebar: react
 
 Use this to update the metadata of your
 
+## Example
+
+```jsx
+const Component = () => {
+  const {
+    mutate: updateMetadata,
+    isLoading,
+    error,
+  } = useUpdateMetadata(SmartContract);
+
+  if (error) {
+    console.error("failed to update metadata", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() =>
+        updateMetadata({
+          updatePayload: {
+            name: "My Contract",
+            description: "This is my contract",
+          },
+        })
+      }
+    >
+      Update Metadata
+    </button>
+  );
+};
+```
+
 **Signature:**
 
 ```typescript
@@ -46,35 +78,3 @@ export declare function useUpdateMetadata(
 import("react-query").UseMutationResult&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;any&gt;; }, unknown, { \[x: string\]: import("@thirdweb-dev/sdk/dist/browser").Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
 
 a mutation object that can be used to update the metadata
-
-## Example
-
-```jsx
-const Component = () => {
-  const {
-    mutate: updateMetadata,
-    isLoading,
-    error,
-  } = useUpdateMetadata(SmartContract);
-
-  if (error) {
-    console.error("failed to update metadata", error);
-  }
-
-  return (
-    <button
-      disabled={isLoading}
-      onClick={() =>
-        updateMetadata({
-          updatePayload: {
-            name: "My Contract",
-            description: "This is my contract",
-          },
-        })
-      }
-    >
-      Update Metadata
-    </button>
-  );
-};
-```

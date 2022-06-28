@@ -15,16 +15,6 @@ Hook for accessing the address of the connected wallet
 import { useAddress } from "@thirdweb-dev/react";
 ```
 
-**Signature:**
-
-```typescript
-export declare function useAddress(): string | undefined;
-```
-
-**Returns:**
-
-string \| undefined
-
 ## Example
 
 To get the address of the connected wallet, you can use the hook as follows:
@@ -40,3 +30,13 @@ const App = () => {
 ```
 
 The `address` variable will hold the address of the connected wallet if a user has connected using one of the supported wallet connection hooks.
+
+**Signature:**
+
+```typescript
+export declare function useAddress(): string | undefined;
+```
+
+**Returns:**
+
+string \| undefined

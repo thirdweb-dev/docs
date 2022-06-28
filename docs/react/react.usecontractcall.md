@@ -13,6 +13,20 @@ displayed_sidebar: react
 
 Use this to get a function to make a write call to your contract
 
+## Example
+
+```javascript
+const { contract } = useContract("{{contract_address}}");
+const {
+  mutate: myFunction,
+  isLoading,
+  error,
+} = useContractCall(contract, "myFunction");
+
+// the function can be called as follows:
+// myFunction(...args)
+```
+
 **Signature:**
 
 ```typescript
@@ -34,17 +48,3 @@ export declare function useContractCall(
 import("react-query").UseMutationResult&lt;any, unknown, unknown, unknown&gt;
 
 a response object that includes the write function to call
-
-## Example
-
-```javascript
-const { contract } = useContract("{{contract_address}}");
-const {
-  mutate: myFunction,
-  isLoading,
-  error,
-} = useContractCall(contract, "myFunction");
-
-// the function can be called as follows:
-// myFunction(...args)
-```

@@ -13,37 +13,6 @@ displayed_sidebar: react
 
 Use this to claim tokens on your
 
-**Signature:**
-
-```typescript
-export declare function useClaimToken<TContract extends TokenDrop>(
-  contract: RequiredParam<TContract>,
-): import("react-query").UseMutationResult<
-  Omit<
-    {
-      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
-      data: () => Promise<unknown>;
-    },
-    "data"
-  >,
-  unknown,
-  ClaimTokenParams,
-  unknown
->;
-```
-
-## Parameters
-
-| Parameter | Type                                                       | Description      |
-| --------- | ---------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a |
-
-**Returns:**
-
-import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [ClaimTokenParams](./react.claimtokenparams.md), unknown&gt;
-
-a mutation object that can be used to tokens to the wallet specificed in the params
-
 ## Example
 
 ```jsx
@@ -68,3 +37,34 @@ const Component = () => {
   );
 };
 ```
+
+**Signature:**
+
+```typescript
+export declare function useClaimToken<TContract extends TokenDrop>(
+  contract: RequiredParam<TContract>,
+): import("react-query").UseMutationResult<
+  Omit<
+    {
+      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+      data: () => Promise<unknown>;
+    },
+    "data"
+  >,
+  unknown,
+  ClaimTokenParams,
+  unknown
+>;
+```
+
+## Parameters
+
+| Parameter | Type                                                       | Description     |
+| --------- | ---------------------------------------------------------- | --------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instace of a |
+
+**Returns:**
+
+import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [ClaimTokenParams](./react.claimtokenparams.md), unknown&gt;
+
+a mutation object that can be used to tokens to the wallet specificed in the params

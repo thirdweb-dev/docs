@@ -13,31 +13,6 @@ displayed_sidebar: react
 
 Use this to claim a NFT on your [DropContract](./react.dropcontract.md)
 
-**Signature:**
-
-```typescript
-export declare function useClaimNFT<TContract extends DropContract>(
-  contract: RequiredParam<TContract>,
-): import("react-query").UseMutationResult<
-  ClaimNFTReturnType<TContract>,
-  unknown,
-  ClaimNFTParams<TContract>,
-  unknown
->;
-```
-
-## Parameters
-
-| Parameter | Type                                                       | Description                                              |
-| --------- | ---------------------------------------------------------- | -------------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [DropContract](./react.dropcontract.md) |
-
-**Returns:**
-
-import("react-query").UseMutationResult&lt;[ClaimNFTReturnType](./react.claimnftreturntype.md)&lt;TContract&gt;, unknown, [ClaimNFTParams](./react.claimnftparams.md)&lt;TContract&gt;, unknown&gt;
-
-a mutation object that can be used to claim a NFT to the wallet specificed in the params
-
 ## Example
 
 ```jsx
@@ -58,3 +33,28 @@ const Component = () => {
   );
 };
 ```
+
+**Signature:**
+
+```typescript
+export declare function useClaimNFT<TContract extends DropContract>(
+  contract: RequiredParam<TContract>,
+): import("react-query").UseMutationResult<
+  ClaimNFTReturnType<TContract>,
+  unknown,
+  ClaimNFTParams<TContract>,
+  unknown
+>;
+```
+
+## Parameters
+
+| Parameter | Type                                                       | Description                                             |
+| --------- | ---------------------------------------------------------- | ------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instace of a [DropContract](./react.dropcontract.md) |
+
+**Returns:**
+
+import("react-query").UseMutationResult&lt;[ClaimNFTReturnType](./react.claimnftreturntype.md)&lt;TContract&gt;, unknown, [ClaimNFTParams](./react.claimnftparams.md)&lt;TContract&gt;, unknown&gt;
+
+a mutation object that can be used to claim a NFT to the wallet specificed in the params

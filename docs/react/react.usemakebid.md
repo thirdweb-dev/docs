@@ -13,37 +13,6 @@ displayed_sidebar: react
 
 Use this to place a bid on an auction listing from your marketplace contract.
 
-**Signature:**
-
-```typescript
-export declare function useMakeBid(
-  contract: RequiredParam<Marketplace>,
-): import("react-query").UseMutationResult<
-  Omit<
-    {
-      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
-      data: () => Promise<unknown>;
-    },
-    "data"
-  >,
-  unknown,
-  MakeBidParams,
-  unknown
->;
-```
-
-## Parameters
-
-| Parameter | Type                                                         | Description                           |
-| --------- | ------------------------------------------------------------ | ------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a Marketplace contract |
-
-**Returns:**
-
-import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [MakeBidParams](./react.makebidparams.md), unknown&gt;
-
-a mutation object that can be used to make a bid on an auction listing
-
 ## Example
 
 ```jsx
@@ -68,3 +37,34 @@ const Component = () => {
   );
 };
 ```
+
+**Signature:**
+
+```typescript
+export declare function useMakeBid(
+  contract: RequiredParam<Marketplace>,
+): import("react-query").UseMutationResult<
+  Omit<
+    {
+      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+      data: () => Promise<unknown>;
+    },
+    "data"
+  >,
+  unknown,
+  MakeBidParams,
+  unknown
+>;
+```
+
+## Parameters
+
+| Parameter | Type                                                         | Description                          |
+| --------- | ------------------------------------------------------------ | ------------------------------------ |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instace of a Marketplace contract |
+
+**Returns:**
+
+import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [MakeBidParams](./react.makebidparams.md), unknown&gt;
+
+a mutation object that can be used to make a bid on an auction listing

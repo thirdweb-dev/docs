@@ -13,6 +13,16 @@ displayed_sidebar: react
 
 Use this to get the publish metadata for a deployed contract.
 
+## Example
+
+```javascript
+const {
+  data: publishMetadata,
+  isLoading,
+  error,
+} = useContractPublishMetadata("{{contract_address}}");
+```
+
 **Signature:**
 
 ```typescript
@@ -32,13 +42,3 @@ export declare function useContractPublishMetadata(
 import("react-query").UseQueryResult&lt;PublishedMetadata \| undefined, unknown&gt;
 
 a response object that includes the published metadata (name, abi, bytecode) of the contract
-
-## Example
-
-```javascript
-const {
-  data: publishMetadata,
-  isLoading,
-  error,
-} = useContractPublishMetadata("{{contract_address}}");
-```

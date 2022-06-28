@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get the balance of your Token contract for a given address.
 
+## Example
+
+```javascript
+const { data: balance, isLoading, error } = useTokenBalance(<YourTokenContractInstance>);
+```
+
 **Signature:**
 
 ```typescript
@@ -33,19 +39,13 @@ export declare function useTokenBalance(
 
 ## Parameters
 
-| Parameter     | Type                                                                                       | Description                      |
-| ------------- | ------------------------------------------------------------------------------------------ | -------------------------------- |
-| contract      | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt;                                     | an instance of a Token contract. |
-| walletAddress | [RequiredParam](./react.requiredparam.md)&lt;[WalletAddress](./react.walletaddress.md)&gt; |                                  |
+| Parameter     | Type                                                                                       | Description                     |
+| ------------- | ------------------------------------------------------------------------------------------ | ------------------------------- |
+| contract      | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt;                                     | an instace of a Token contract. |
+| walletAddress | [RequiredParam](./react.requiredparam.md)&lt;[WalletAddress](./react.walletaddress.md)&gt; |                                 |
 
 **Returns:**
 
 import("react-query").UseQueryResult&lt;{ symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }, unknown&gt;
 
 a response object that includes the balance of the address
-
-## Example
-
-```javascript
-const { data: balance, isLoading, error } = useTokenBalance(<YourTokenContractInstance>);
-```

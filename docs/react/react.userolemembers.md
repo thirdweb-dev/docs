@@ -13,6 +13,16 @@ displayed_sidebar: react
 
 Use this to get the members of a role on a
 
+## Example
+
+```jsx
+const {
+  data: members,
+  isLoading,
+  error,
+} = useRoleMembers(SmartContract, "admin");
+```
+
 **Signature:**
 
 ```typescript
@@ -34,13 +44,3 @@ export declare function useRoleMembers<TContract extends ContractWithRoles>(
 import("react-query").UseQueryResult&lt;string\[\], unknown&gt;
 
 a list of addresses that are members of the role
-
-## Example
-
-```jsx
-const {
-  data: members,
-  isLoading,
-  error,
-} = useRoleMembers(SmartContract, "admin");
-```

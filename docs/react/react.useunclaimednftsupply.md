@@ -19,9 +19,9 @@ export declare function useUnclaimedNFTSupply(
 
 ## Parameters
 
-| Parameter | Type                                                     | Description      |
-| --------- | -------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;NFTDrop&gt; | an instance of a |
+| Parameter | Type                                                     | Description     |
+| --------- | -------------------------------------------------------- | --------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;NFTDrop&gt; | an instace of a |
 
 **Returns:**
 

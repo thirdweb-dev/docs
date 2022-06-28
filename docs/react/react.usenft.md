@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get an individual NFT token of your [NFTContract](./react.nftcontract.md).
 
+## Example
+
+```javascript
+const { data: nft, isLoading, error } = useNFT(NFTContract, <tokenId>);
+```
+
 **Signature:**
 
 ```typescript
@@ -24,19 +30,13 @@ export declare function useNFT<TContract extends NFTContract>(
 
 ## Parameters
 
-| Parameter | Type                                                          | Description                                            |
-| --------- | ------------------------------------------------------------- | ------------------------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt;    | an instance of a [NFTContract](./react.nftcontract.md) |
-| tokenId   | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt; | the tokenId to look up                                 |
+| Parameter | Type                                                          | Description                                           |
+| --------- | ------------------------------------------------------------- | ----------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt;    | an instace of a [NFTContract](./react.nftcontract.md) |
+| tokenId   | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt; | the tokenId to look up                                |
 
 **Returns:**
 
 import("react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;TContract&gt;, unknown&gt;
 
 a response object that includes the metadata for the given tokenId
-
-## Example
-
-```javascript
-const { data: nft, isLoading, error } = useNFT(NFTContract, <tokenId>);
-```

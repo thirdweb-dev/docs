@@ -11,22 +11,6 @@ displayed_sidebar: react
 
 Hook for getting an instance of a `Split` contract. This contract supports fund distribution to multiple parties.
 
-**Signature:**
-
-```typescript
-export declare function useSplit(contractAddress?: string): Split | undefined;
-```
-
-## Parameters
-
-| Parameter       | Type   | Description                                                                           |
-| --------------- | ------ | ------------------------------------------------------------------------------------- |
-| contractAddress | string | <i>(Optional)</i> the address of the Split contract, found in your thirdweb dashboard |
-
-**Returns:**
-
-Split \| undefined
-
 ## Example
 
 ```javascript
@@ -46,3 +30,19 @@ export default function Component() {
   ...
 }
 ```
+
+**Signature:**
+
+```typescript
+export declare function useSplit(contractAddress?: string): Split | undefined;
+```
+
+## Parameters
+
+| Parameter       | Type   | Description                                                                           |
+| --------------- | ------ | ------------------------------------------------------------------------------------- |
+| contractAddress | string | <i>(Optional)</i> the address of the Split contract, found in your thirdweb dashboard |
+
+**Returns:**
+
+Split \| undefined

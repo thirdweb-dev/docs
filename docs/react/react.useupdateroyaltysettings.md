@@ -13,6 +13,38 @@ displayed_sidebar: react
 
 Use this to update the royalty settings of your
 
+## Example
+
+```jsx
+const Component = () => {
+  const {
+    mutate: updateRoyaltySettings,
+    isLoading,
+    error,
+  } = useUpdateRoyaltySettings(SmartContract);
+
+  if (error) {
+    console.error("failed to update royalty settings", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() =>
+        updateRoyaltySettings({
+          updatePayload: {
+            fee_recipient: "0x123",
+            seller_fee_basis_points: 5_00,
+          },
+        })
+      }
+    >
+      Update Royalty Settings
+    </button>
+  );
+};
+```
+
 **Signature:**
 
 ```typescript
@@ -46,35 +78,3 @@ export declare function useUpdateRoyaltySettings(
 import("react-query").UseMutationResult&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;{ seller_fee_basis_points: number; fee_recipient: string; }&gt;; }, unknown, { seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; }, unknown&gt;
 
 a mutation object that can be used to update the royalty settings
-
-## Example
-
-```jsx
-const Component = () => {
-  const {
-    mutate: updateRoyaltySettings,
-    isLoading,
-    error,
-  } = useUpdateRoyaltySettings(SmartContract);
-
-  if (error) {
-    console.error("failed to update royalty settings", error);
-  }
-
-  return (
-    <button
-      disabled={isLoading}
-      onClick={() =>
-        updateRoyaltySettings({
-          updatePayload: {
-            fee_recipient: "0x123",
-            seller_fee_basis_points: 5_00,
-          },
-        })
-      }
-    >
-      Update Royalty Settings
-    </button>
-  );
-};
-```
