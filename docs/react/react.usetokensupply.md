@@ -32,9 +32,9 @@ export declare function useTokenSupply(
 
 ## Parameters
 
-| Parameter | Type                                                   | Description                     |
-| --------- | ------------------------------------------------------ | ------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instace of a Token contract. |
+| Parameter | Type                                                   | Description                      |
+| --------- | ------------------------------------------------------ | -------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instance of a Token contract. |
 
 **Returns:**
 

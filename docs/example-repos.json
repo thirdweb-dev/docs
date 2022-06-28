@@ -33,7 +33,7 @@
     "html_url": "https://github.com/thirdweb-example/contract-hub",
     "description": "Demonstration of all thirdweb's pre-built contracts with TypeScript + Getting started snippets",
     "created_at": "2022-05-03T10:20:11Z",
-    "updated_at": "2022-06-14T13:35:22Z",
+    "updated_at": "2022-06-28T05:39:48Z",
     "clone_url": "https://github.com/thirdweb-example/contract-hub.git",
     "topics": [
       "edition",
@@ -46,7 +46,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 5,
+    "stargazers_count": 6,
     "is_template": false
   },
   {
@@ -101,13 +101,13 @@
     "html_url": "https://github.com/thirdweb-example/custom-minting-page",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2022-06-17T20:11:48Z",
+    "updated_at": "2022-06-27T21:55:14Z",
     "clone_url": "https://github.com/thirdweb-example/custom-minting-page.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 16,
+    "stargazers_count": 17,
     "is_template": false
   },
   {
@@ -252,7 +252,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2022-06-26T00:50:17Z",
+    "updated_at": "2022-06-27T23:56:36Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -265,7 +265,7 @@
       "web3js"
     ],
     "language": "TypeScript",
-    "stargazers_count": 12,
+    "stargazers_count": 13,
     "is_template": true
   },
   {
@@ -379,7 +379,7 @@
     "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2022-06-25T23:45:40Z",
+    "updated_at": "2022-06-27T23:55:59Z",
     "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
@@ -388,7 +388,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 5,
+    "stargazers_count": 6,
     "is_template": false
   },
   {
@@ -422,11 +422,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2022-06-26T00:51:53Z",
+    "updated_at": "2022-06-28T03:54:06Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false
   }
 ]

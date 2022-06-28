@@ -27,10 +27,10 @@ export declare function useWinningBid(
 
 ## Parameters
 
-| Parameter | Type                                                          | Description                          |
-| --------- | ------------------------------------------------------------- | ------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt;  | an instace of a marketplace contract |
-| listingId | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt; | the listing id to check              |
+| Parameter | Type                                                          | Description                           |
+| --------- | ------------------------------------------------------------- | ------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt;  | an instance of a marketplace contract |
+| listingId | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt; | the listing id to check               |
 
 **Returns:**
 

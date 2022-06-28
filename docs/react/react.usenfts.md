@@ -26,7 +26,7 @@ export declare function useNFTs<TContract extends NFTContract>(
 
 | Parameter   | Type                                                       | Description                                                                    |
 | ----------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| contract    | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instace of a [NFTContract](./react.nftcontract.md)                          |
+| contract    | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md)                         |
 | queryParams | QueryAllParams                                             | <i>(Optional)</i> query params to pass to the query for the sake of pagination |
 
 **Returns:**

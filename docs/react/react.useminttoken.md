@@ -34,9 +34,9 @@ export declare function useMintToken(
 
 ## Parameters
 
-| Parameter | Type                                                   | Description                                                                                                           |
-| --------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instace of a contract that extends the ERC20 spec (token, token drop, custom contract that follows the ERC20 spec) |
+| Parameter | Type                                                   | Description                                                                                                            |
+| --------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instance of a contract that extends the ERC20 spec (token, token drop, custom contract that follows the ERC20 spec) |
 
 **Returns:**
 
