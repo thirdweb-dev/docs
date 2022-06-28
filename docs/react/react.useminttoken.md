@@ -13,6 +13,31 @@ displayed_sidebar: react
 
 Use this to mint a new NFT on your ERC20 contract
 
+## Example
+
+```jsx
+const Component = () => {
+  const {
+    mutate: mintNft,
+    isLoading,
+    error,
+  } = useMintToken(">>YourERC20ContractInstance<<");
+
+  if (error) {
+    console.error("failed to mint nft", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() => mintNft({ name: "My awesome NFT!" })}
+    >
+      Mint!
+    </button>
+  );
+};
+```
+
 **Signature:**
 
 ```typescript
@@ -43,28 +68,3 @@ export declare function useMintToken(
 import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [TokenMintParams](./react.tokenmintparams.md), unknown&gt;
 
 a mutation object that can be used to mint a new NFT token to the connected wallet
-
-## Example
-
-```jsx
-const Component = () => {
-  const {
-    mutate: mintNft,
-    isLoading,
-    error,
-  } = useMintToken(">>YourERC20ContractInstance<<");
-
-  if (error) {
-    console.error("failed to mint nft", error);
-  }
-
-  return (
-    <button
-      disabled={isLoading}
-      onClick={() => mintNft({ name: "My awesome NFT!" })}
-    >
-      Mint!
-    </button>
-  );
-};
-```

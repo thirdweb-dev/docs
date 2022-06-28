@@ -13,6 +13,24 @@ displayed_sidebar: react
 
 Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.
 
+## Example 1
+
+```javascript
+const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC20ContractInstance>);
+```
+
+## Example 2
+
+```javascript
+const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC721ContractInstance>);
+```
+
+## Example 3
+
+```javascript
+const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC1155ContractInstance>, <tokenId>);
+```
+
 **Signature:**
 
 ```typescript
@@ -60,21 +78,3 @@ export declare function useClaimConditions<
 import("react-query").UseQueryResult&lt;{ snapshot?: { address: string; maxClaimable: string; }\[\] \| undefined; quantityLimitPerTransaction: string; startTime: Date; price: import("ethers").BigNumber; currencyAddress: string; maxQuantity: string; waitInSeconds: import("ethers").BigNumber; merkleRootHash: string \| number\[\]; availableSupply: string; currentMintSupply: string; currencyMetadata: { symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }; }\[\], unknown&gt;
 
 a response object with the list of claim conditions
-
-## Example 1
-
-```javascript
-const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC20ContractInstance>);
-```
-
-## Example 2
-
-```javascript
-const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC721ContractInstance>);
-```
-
-## Example 3
-
-```javascript
-const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC1155ContractInstance>, <tokenId>);
-```

@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get a list of \*claimed\* (minted) NFT tokens of your ERC721 Drop contract.
 
+## Example
+
+```javascript
+const { data: claimedNFTs, isLoading, error } = useClaimedNFTs(<YourERC721DropContractInstance>, { start: 0, count: 100 });
+```
+
 **Signature:**
 
 ```typescript
@@ -41,9 +47,3 @@ a response object that includes an array of NFTs that are claimed
 ## Remarks
 
 Equivalent to using [useNFTs()](./react.usenfts.md).
-
-## Example
-
-```javascript
-const { data: claimedNFTs, isLoading, error } = useClaimedNFTs(<YourERC721DropContractInstance>, { start: 0, count: 100 });
-```

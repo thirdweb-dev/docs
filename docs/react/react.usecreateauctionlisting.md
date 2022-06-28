@@ -13,31 +13,6 @@ displayed_sidebar: react
 
 Use this to create a new Auction Listing on your marketplace contract.
 
-**Signature:**
-
-```typescript
-export declare function useCreateAuctionListing(
-  contract: RequiredParam<Marketplace>,
-): import("react-query").UseMutationResult<
-  import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId<never>,
-  unknown,
-  NewAuctionListing,
-  unknown
->;
-```
-
-## Parameters
-
-| Parameter | Type                                                         | Description                          |
-| --------- | ------------------------------------------------------------ | ------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instace of a Marketplace contract |
-
-**Returns:**
-
-import("react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId&lt;never&gt;, unknown, NewAuctionListing, unknown&gt;
-
-a mutation object that can be used to create a new auction listing
-
 ## Example
 
 ```jsx
@@ -62,3 +37,28 @@ const Component = () => {
   );
 };
 ```
+
+**Signature:**
+
+```typescript
+export declare function useCreateAuctionListing(
+  contract: RequiredParam<Marketplace>,
+): import("react-query").UseMutationResult<
+  import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId<never>,
+  unknown,
+  NewAuctionListing,
+  unknown
+>;
+```
+
+## Parameters
+
+| Parameter | Type                                                         | Description                          |
+| --------- | ------------------------------------------------------------ | ------------------------------------ |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instace of a Marketplace contract |
+
+**Returns:**
+
+import("react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId&lt;never&gt;, unknown, NewAuctionListing, unknown&gt;
+
+a mutation object that can be used to create a new auction listing

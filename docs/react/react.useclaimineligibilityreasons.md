@@ -13,6 +13,24 @@ displayed_sidebar: react
 
 Use this to check for reasons that prevent claiming for either ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.
 
+## Example 1
+
+```javascript
+const { data: activeClaimCondition, isLoading, error } = useClaimIneligibilityReasons(<YourERC20ContractInstance>);
+```
+
+## Example 2
+
+```javascript
+const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(<YourERC721ContractInstance>, {quantity: <quantity>});
+```
+
+## Example 3
+
+```javascript
+const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(<YourERC1155ContractInstance>, {quantity: <quantity>}, <tokenId>);
+```
+
 **Signature:**
 
 ```typescript
@@ -37,21 +55,3 @@ export declare function useClaimIneligibilityReasons<
 import("react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk/dist/browser").ClaimEligibility\[\], unknown&gt;
 
 a response object with the resons for the claim ineligibility
-
-## Example 1
-
-```javascript
-const { data: activeClaimCondition, isLoading, error } = useClaimIneligibilityReasons(<YourERC20ContractInstance>);
-```
-
-## Example 2
-
-```javascript
-const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(<YourERC721ContractInstance>, {quantity: <quantity>});
-```
-
-## Example 3
-
-```javascript
-const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(<YourERC1155ContractInstance>, {quantity: <quantity>}, <tokenId>);
-```

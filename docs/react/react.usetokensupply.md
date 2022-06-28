@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get a the total supply of your Token contract.
 
+## Example
+
+```javascript
+const { data: totalSupply, isLoading, error } = useTokenSupply(<YourTokenContractInstance>);
+```
+
 **Signature:**
 
 ```typescript
@@ -41,9 +47,3 @@ export declare function useTokenSupply(
 import("react-query").UseQueryResult&lt;{ symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }, unknown&gt;
 
 a response object that incudes the total minted supply
-
-## Example
-
-```javascript
-const { data: totalSupply, isLoading, error } = useTokenSupply(<YourTokenContractInstance>);
-```

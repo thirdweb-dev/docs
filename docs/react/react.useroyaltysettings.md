@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get the royalty settings of your
 
+## Example
+
+```jsx
+const { data: settings, isLoading, error } = useRoyaltySettings(SmartContract);
+```
+
 **Signature:**
 
 ```typescript
@@ -38,9 +44,3 @@ export declare function useRoyaltySettings(
 import("react-query").UseQueryResult&lt;{ seller_fee_basis_points: number; fee_recipient: string; }, unknown&gt;
 
 an object containing recipient address and the royalty basis points
-
-## Example
-
-```jsx
-const { data: settings, isLoading, error } = useRoyaltySettings(SmartContract);
-```

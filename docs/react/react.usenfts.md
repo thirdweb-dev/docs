@@ -13,6 +13,16 @@ displayed_sidebar: react
 
 Use this to get a list of NFT tokens of your [NFTContract](./react.nftcontract.md).
 
+## Example
+
+```javascript
+const {
+  data: nfts,
+  isLoading,
+  error,
+} = useNFTs(NFTContract, { start: 0, count: 100 });
+```
+
 **Signature:**
 
 ```typescript
@@ -34,13 +44,3 @@ export declare function useNFTs<TContract extends NFTContract>(
 import("react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;TContract&gt;\[\], unknown&gt;
 
 a response object that includes an array of NFTs
-
-## Example
-
-```javascript
-const {
-  data: nfts,
-  isLoading,
-  error,
-} = useNFTs(NFTContract, { start: 0, count: 100 });
-```

@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get the metadata of your
 
+## Example
+
+```jsx
+const { data: metadata, isLoading, error } = useMetadata(SmartContract);
+```
+
 **Signature:**
 
 ```typescript
@@ -41,9 +47,3 @@ export declare function useMetadata(
 import("react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk/dist/browser").Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
 
 a object containing the metadata
-
-## Example
-
-```jsx
-const { data: metadata, isLoading, error } = useMetadata(SmartContract);
-```

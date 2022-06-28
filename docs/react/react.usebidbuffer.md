@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get the buffer in basis points between offers from your marketplace contract.
 
+## Example
+
+```javascript
+const { data: auctionWinner, isLoading, error } = useAuctionWinner(<YourMarketplaceContractInstance>, <listingId>);
+```
+
 **Signature:**
 
 ```typescript
@@ -32,9 +38,3 @@ export declare function useBidBuffer(
 import("react-query").UseQueryResult&lt;BigNumber, unknown&gt;
 
 a response object that includes an array of listings
-
-## Example
-
-```javascript
-const { data: auctionWinner, isLoading, error } = useAuctionWinner(<YourMarketplaceContractInstance>, <listingId>);
-```

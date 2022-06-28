@@ -11,24 +11,6 @@ displayed_sidebar: react
 
 Hook for getting an instance of an `Edition` contract. This contract is used to interface with ERC1155 compliant NFTs.
 
-**Signature:**
-
-```typescript
-export declare function useEdition(
-  contractAddress?: string,
-): Edition | undefined;
-```
-
-## Parameters
-
-| Parameter       | Type   | Description                                                                             |
-| --------------- | ------ | --------------------------------------------------------------------------------------- |
-| contractAddress | string | <i>(Optional)</i> the address of the Edition contract, found in your thirdweb dashboard |
-
-**Returns:**
-
-Edition \| undefined
-
 ## Example
 
 ```javascript
@@ -48,3 +30,21 @@ export default function Component() {
   ...
 }
 ```
+
+**Signature:**
+
+```typescript
+export declare function useEdition(
+  contractAddress?: string,
+): Edition | undefined;
+```
+
+## Parameters
+
+| Parameter       | Type   | Description                                                                             |
+| --------------- | ------ | --------------------------------------------------------------------------------------- |
+| contractAddress | string | <i>(Optional)</i> the address of the Edition contract, found in your thirdweb dashboard |
+
+**Returns:**
+
+Edition \| undefined

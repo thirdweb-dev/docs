@@ -13,6 +13,31 @@ displayed_sidebar: react
 
 Use this to claim tokens on your
 
+## Example
+
+```jsx
+const Component = () => {
+  const {
+    mutate: claimTokens,
+    isLoading,
+    error,
+  } = useClaimToken(TokenDropContract);
+
+  if (error) {
+    console.error("failed to claim tokens", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() => claimTokens({ to: "0x...", amount: 100 })}
+    >
+      Claim Tokens!
+    </button>
+  );
+};
+```
+
 **Signature:**
 
 ```typescript
@@ -43,28 +68,3 @@ export declare function useClaimToken<TContract extends TokenDrop>(
 import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [ClaimTokenParams](./react.claimtokenparams.md), unknown&gt;
 
 a mutation object that can be used to tokens to the wallet specificed in the params
-
-## Example
-
-```jsx
-const Component = () => {
-  const {
-    mutate: claimTokens,
-    isLoading,
-    error,
-  } = useClaimToken(TokenDropContract);
-
-  if (error) {
-    console.error("failed to claim tokens", error);
-  }
-
-  return (
-    <button
-      disabled={isLoading}
-      onClick={() => claimTokens({ to: "0x...", amount: 100 })}
-    >
-      Claim Tokens!
-    </button>
-  );
-};
-```

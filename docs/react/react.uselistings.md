@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get a list all listings from your marketplace contract.
 
+## Example
+
+```javascript
+const { data: listings, isLoading, error } = useListings(<YourMarketplaceContractInstance>, { start: 0, count: 100 });
+```
+
 **Signature:**
 
 ```typescript
@@ -40,9 +46,3 @@ export declare function useListings(
 import("react-query").UseQueryResult&lt;(import("@thirdweb-dev/sdk/dist/browser").AuctionListing \| import("@thirdweb-dev/sdk/dist/browser").DirectListing)\[\], unknown&gt;
 
 a response object that includes an array of listings
-
-## Example
-
-```javascript
-const { data: listings, isLoading, error } = useListings(<YourMarketplaceContractInstance>, { start: 0, count: 100 });
-```

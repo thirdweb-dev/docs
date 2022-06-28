@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get a the total balance of a [NFTContract](./react.nftcontract.md) and wallet address.
 
+## Example
+
+```javascript
+const { data: ownerBalance, isLoading, error } = useNFTBalance(NFTContract, <OwnerWalletAddress>);
+```
+
 **Signature:**
 
 ```typescript
@@ -32,9 +38,3 @@ export declare function useNFTBalance<TContract extends NFTContract>(
 import("react-query").UseQueryResult&lt;BigNumber, unknown&gt;
 
 a response object that includes the total balance of the owner
-
-## Example
-
-```javascript
-const { data: ownerBalance, isLoading, error } = useNFTBalance(NFTContract, <OwnerWalletAddress>);
-```

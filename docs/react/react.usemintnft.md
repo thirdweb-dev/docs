@@ -13,6 +13,27 @@ displayed_sidebar: react
 
 Use this to mint a new NFT on your [NFTContract](./react.nftcontract.md)
 
+## Example
+
+```jsx
+const Component = () => {
+  const { mutate: mintNft, isLoading, error } = useMintNFT(NFTContract);
+
+  if (error) {
+    console.error("failed to mint nft", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() => mintNft({ name: "My awesome NFT!" })}
+    >
+      Mint!
+    </button>
+  );
+};
+```
+
 **Signature:**
 
 ```typescript
@@ -37,24 +58,3 @@ export declare function useMintNFT<TContract extends NFTContract>(
 import("react-query").UseMutationResult&lt;[MintNFTReturnType](./react.mintnftreturntype.md)&lt;TContract&gt;, unknown, [MintNFTParams](./react.mintnftparams.md)&lt;TContract&gt;, unknown&gt;
 
 a mutation object that can be used to mint a new NFT token to the connected wallet
-
-## Example
-
-```jsx
-const Component = () => {
-  const { mutate: mintNft, isLoading, error } = useMintNFT(NFTContract);
-
-  if (error) {
-    console.error("failed to mint nft", error);
-  }
-
-  return (
-    <button
-      disabled={isLoading}
-      onClick={() => mintNft({ name: "My awesome NFT!" })}
-    >
-      Mint!
-    </button>
-  );
-};
-```

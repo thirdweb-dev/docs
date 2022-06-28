@@ -11,6 +11,22 @@ displayed_sidebar: react
 
 The `<ThirdwebProvider />` component lets you control what networks you want users to connect to, what types of wallets can connect to your app, and the settings for the \[Typescript SDK\](https://docs.thirdweb.com/typescript).
 
+## Example
+
+You can wrap your application with the provider as follows:
+
+```jsx title="App.jsx"
+import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
+
+const App = () => {
+  return (
+    <ThirdwebProvider desiredChainId={ChainId.Mainnet}>
+      <YourApp />
+    </ThirdwebProvider>
+  );
+};
+```
+
 **Signature:**
 
 ```typescript
@@ -27,20 +43,4 @@ ThirdwebProvider: <TSupportedChain extends SupportedChain = SupportedChain>({
   children,
 }: React.PropsWithChildren<ThirdwebProviderProps<TSupportedChain>>) =>
   JSX.Element;
-```
-
-## Example
-
-You can wrap your application with the provider as follows:
-
-```jsx title="App.jsx"
-import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
-
-const App = () => {
-  return (
-    <ThirdwebProvider desiredChainId={ChainId.Mainnet}>
-      <YourApp />
-    </ThirdwebProvider>
-  );
-};
 ```

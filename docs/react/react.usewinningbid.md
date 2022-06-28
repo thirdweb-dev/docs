@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get a the winning bid for an auction listing from your marketplace contract.
 
+## Example
+
+```javascript
+const { data: winningBid, isLoading, error } = useWinningBid(<YourMarketplaceContractInstance>, <listingId>);
+```
+
 **Signature:**
 
 ```typescript
@@ -37,9 +43,3 @@ export declare function useWinningBid(
 import("react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk/dist/browser").Offer \| undefined, unknown&gt;
 
 a response object that includes the that is winning the auction
-
-## Example
-
-```javascript
-const { data: winningBid, isLoading, error } = useWinningBid(<YourMarketplaceContractInstance>, <listingId>);
-```

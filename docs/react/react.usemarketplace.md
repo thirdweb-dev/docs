@@ -11,24 +11,6 @@ displayed_sidebar: react
 
 Hook for getting an instance of a `Marketplace` contract. This contract is used to support marketplace for purchase and sale of on-chain assets.
 
-**Signature:**
-
-```typescript
-export declare function useMarketplace(
-  contractAddress?: string,
-): Marketplace | undefined;
-```
-
-## Parameters
-
-| Parameter       | Type   | Description                                                                                 |
-| --------------- | ------ | ------------------------------------------------------------------------------------------- |
-| contractAddress | string | <i>(Optional)</i> the address of the Marketplace contract, found in your thirdweb dashboard |
-
-**Returns:**
-
-Marketplace \| undefined
-
 ## Example
 
 ```javascript
@@ -48,3 +30,21 @@ export default function Component() {
   ...
 }
 ```
+
+**Signature:**
+
+```typescript
+export declare function useMarketplace(
+  contractAddress?: string,
+): Marketplace | undefined;
+```
+
+## Parameters
+
+| Parameter       | Type   | Description                                                                                 |
+| --------------- | ------ | ------------------------------------------------------------------------------------------- |
+| contractAddress | string | <i>(Optional)</i> the address of the Marketplace contract, found in your thirdweb dashboard |
+
+**Returns:**
+
+Marketplace \| undefined

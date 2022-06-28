@@ -13,6 +13,31 @@ displayed_sidebar: react
 
 Use this to OVERWRITE the list of addresses that are members of specific roles
 
+## Example
+
+```jsx
+const Component = () => {
+  const {
+    mutate: overwriteRoles,
+    isLoading,
+    error,
+  } = useSetAllRoleMembers(SmartContract);
+
+  if (error) {
+    console.error("failed to overwrite roles", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() => overwriteRoles({ rolesWithAddresses: { minter: [] } })}
+    >
+      Overwrite Roles
+    </button>
+  );
+};
+```
+
 **Signature:**
 
 ```typescript
@@ -39,28 +64,3 @@ export declare function useSetAllRoleMembers<
 import("react-query").UseMutationResult&lt;void, unknown, { \[role in RolesForContract&lt;TContract&gt;\]: string\[\]; }, unknown&gt;
 
 a mutation object that can be used to overwrite all roles on the contract
-
-## Example
-
-```jsx
-const Component = () => {
-  const {
-    mutate: overwriteRoles,
-    isLoading,
-    error,
-  } = useSetAllRoleMembers(SmartContract);
-
-  if (error) {
-    console.error("failed to overwrite roles", error);
-  }
-
-  return (
-    <button
-      disabled={isLoading}
-      onClick={() => overwriteRoles({ rolesWithAddresses: { minter: [] } })}
-    >
-      Overwrite Roles
-    </button>
-  );
-};
-```

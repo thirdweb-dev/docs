@@ -15,18 +15,6 @@ Hook for checking whether the connected wallet is on the correct network specifi
 import { useNetworkMistmatch } from "@thirdweb-dev/react";
 ```
 
-**Signature:**
-
-```typescript
-export declare function useNetworkMismatch(): boolean;
-```
-
-**Returns:**
-
-boolean
-
-`true` if the chainId of the connected wallet is different from the desired chainId passed into <ThirdwebProvider />
-
 ## Example
 
 You can check if a users wallet is connected to the correct chain ID as follows:
@@ -42,3 +30,15 @@ const App = () => {
 ```
 
 From here, you can prompt users to switch their network using the `useNetwork` hook.
+
+**Signature:**
+
+```typescript
+export declare function useNetworkMismatch(): boolean;
+```
+
+**Returns:**
+
+boolean
+
+`true` if the chainId of the connected wallet is different from the desired chainId passed into <ThirdwebProvider />

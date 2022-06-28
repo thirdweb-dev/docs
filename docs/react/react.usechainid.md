@@ -15,16 +15,6 @@ Hook for accessing the chain ID of the network the current wallet is connected t
 import { useChainId } from "@thirdweb-dev/react";
 ```
 
-**Signature:**
-
-```typescript
-export declare function useChainId(): number | undefined;
-```
-
-**Returns:**
-
-number \| undefined
-
 ## Example
 
 You can get the chain ID of the connected wallet by using the hook as follows:
@@ -38,3 +28,13 @@ const App = () => {
   return <div>{chainId}</div>;
 };
 ```
+
+**Signature:**
+
+```typescript
+export declare function useChainId(): number | undefined;
+```
+
+**Returns:**
+
+number \| undefined

@@ -11,24 +11,6 @@ displayed_sidebar: react
 
 Hook for getting an instance of an `NFTCollection` contract. This contract is meant to interface with ERC721 compliant NFTs.
 
-**Signature:**
-
-```typescript
-export declare function useNFTCollection(
-  contractAddress?: string,
-): NFTCollection | undefined;
-```
-
-## Parameters
-
-| Parameter       | Type   | Description                                                                                    |
-| --------------- | ------ | ---------------------------------------------------------------------------------------------- |
-| contractAddress | string | <i>(Optional)</i> the address of the NFT Collection contract, found in your thirdweb dashboard |
-
-**Returns:**
-
-NFTCollection \| undefined
-
 ## Example
 
 ```javascript
@@ -48,3 +30,21 @@ export default function Component() {
   ...
 }
 ```
+
+**Signature:**
+
+```typescript
+export declare function useNFTCollection(
+  contractAddress?: string,
+): NFTCollection | undefined;
+```
+
+## Parameters
+
+| Parameter       | Type   | Description                                                                                    |
+| --------------- | ------ | ---------------------------------------------------------------------------------------------- |
+| contractAddress | string | <i>(Optional)</i> the address of the NFT Collection contract, found in your thirdweb dashboard |
+
+**Returns:**
+
+NFTCollection \| undefined

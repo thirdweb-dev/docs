@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get a the owned NFTs for a specific [NFTContract](./react.nftcontract.md) and wallet address.
 
+## Example
+
+```javascript
+const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(NFTContract, <OwnerWalletAddress>);
+```
+
 **Signature:**
 
 ```typescript
@@ -34,9 +40,3 @@ export declare function useOwnedNFTs<TContract extends NFTContract>(
 import("react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;TContract&gt;\[\], unknown&gt;
 
 a response object that includes the list of owned tokens
-
-## Example
-
-```javascript
-const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(NFTContract, <OwnerWalletAddress>);
-```

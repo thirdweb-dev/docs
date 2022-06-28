@@ -13,31 +13,6 @@ displayed_sidebar: react
 
 Use this to create a new Direct Listing on your marketplace contract.
 
-**Signature:**
-
-```typescript
-export declare function useCreateDirectListing(
-  contract: RequiredParam<Marketplace>,
-): import("react-query").UseMutationResult<
-  import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId<never>,
-  unknown,
-  NewDirectListing,
-  unknown
->;
-```
-
-## Parameters
-
-| Parameter | Type                                                         | Description                          |
-| --------- | ------------------------------------------------------------ | ------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instace of a Marketplace contract |
-
-**Returns:**
-
-import("react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId&lt;never&gt;, unknown, NewDirectListing, unknown&gt;
-
-a mutation object that can be used to create a new direct listing
-
 ## Example
 
 ```jsx
@@ -62,3 +37,28 @@ const Component = () => {
   );
 };
 ```
+
+**Signature:**
+
+```typescript
+export declare function useCreateDirectListing(
+  contract: RequiredParam<Marketplace>,
+): import("react-query").UseMutationResult<
+  import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId<never>,
+  unknown,
+  NewDirectListing,
+  unknown
+>;
+```
+
+## Parameters
+
+| Parameter | Type                                                         | Description                          |
+| --------- | ------------------------------------------------------------ | ------------------------------------ |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instace of a Marketplace contract |
+
+**Returns:**
+
+import("react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId&lt;never&gt;, unknown, NewDirectListing, unknown&gt;
+
+a mutation object that can be used to create a new direct listing

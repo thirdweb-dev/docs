@@ -13,6 +13,31 @@ displayed_sidebar: react
 
 Use this to buy out an auction listing from your marketplace contract.
 
+## Example
+
+```jsx
+const Component = () => {
+  const {
+    mutate: buyNow,
+    isLoading,
+    error,
+  } = useBuyNow(">>YourMarketplaceContractInstance<<");
+
+  if (error) {
+    console.error("failed to buyout listing", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() => buyNow({ listingId: 1, type: ListingType.Auction })}
+    >
+      Buy listing!
+    </button>
+  );
+};
+```
+
 **Signature:**
 
 ```typescript
@@ -52,28 +77,3 @@ export declare function useBuyNow(
 import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, { id: BigNumberish; type: ListingType.Direct; buyAmount: BigNumberish; buyForWallet?: string \| undefined; } \| { id: BigNumberish; type: ListingType.Auction; }, unknown&gt;
 
 a mutation object that can be used to buy out an auction listing
-
-## Example
-
-```jsx
-const Component = () => {
-  const {
-    mutate: buyNow,
-    isLoading,
-    error,
-  } = useBuyNow(">>YourMarketplaceContractInstance<<");
-
-  if (error) {
-    console.error("failed to buyout listing", error);
-  }
-
-  return (
-    <button
-      disabled={isLoading}
-      onClick={() => buyNow({ listingId: 1, type: ListingType.Auction })}
-    >
-      Buy listing!
-    </button>
-  );
-};
-```

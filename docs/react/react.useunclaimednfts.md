@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get a list of \*unclaimed\* NFT tokens of your ERC721 Drop contract.
 
+## Example
+
+```javascript
+const { data: unclaimedNfts, isLoading, error } = useUnclaimedNFTs(<YourERC721DropContractInstance>, { start: 0, count: 100 });
+```
+
 **Signature:**
 
 ```typescript
@@ -46,9 +52,3 @@ export declare function useUnclaimedNFTs(
 import("react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk/dist/browser").Json; name?: string \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: import("ethers").BigNumber; }\[\], unknown&gt;
 
 a response object that includes an array of NFTs that are unclaimed
-
-## Example
-
-```javascript
-const { data: unclaimedNfts, isLoading, error } = useUnclaimedNFTs(<YourERC721DropContractInstance>, { start: 0, count: 100 });
-```

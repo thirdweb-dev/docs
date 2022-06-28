@@ -13,6 +13,17 @@ displayed_sidebar: react
 
 Use this to get data from a contract read-function call.
 
+## Example
+
+```javascript
+const { contract } = useContract("{{contract_address}}");
+const { data, isLoading, error } = useContractData(
+  contract,
+  "functionName",
+  ...args,
+);
+```
+
 **Signature:**
 
 ```typescript
@@ -36,14 +47,3 @@ export declare function useContractData(
 import("react-query").UseQueryResult&lt;any, unknown&gt;
 
 a response object that includes the data returned by the function call
-
-## Example
-
-```javascript
-const { contract } = useContract("{{contract_address}}");
-const { data, isLoading, error } = useContractData(
-  contract,
-  "functionName",
-  ...args,
-);
-```

@@ -13,6 +13,27 @@ displayed_sidebar: react
 
 Use this to claim a NFT on your [DropContract](./react.dropcontract.md)
 
+## Example
+
+```jsx
+const Component = () => {
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(DropContract);
+
+  if (error) {
+    console.error("failed to claim nft", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() => claimNft({ to: "0x...", quantity: 1 })}
+    >
+      Claim NFT!
+    </button>
+  );
+};
+```
+
 **Signature:**
 
 ```typescript
@@ -37,24 +58,3 @@ export declare function useClaimNFT<TContract extends DropContract>(
 import("react-query").UseMutationResult&lt;[ClaimNFTReturnType](./react.claimnftreturntype.md)&lt;TContract&gt;, unknown, [ClaimNFTParams](./react.claimnftparams.md)&lt;TContract&gt;, unknown&gt;
 
 a mutation object that can be used to claim a NFT to the wallet specificed in the params
-
-## Example
-
-```jsx
-const Component = () => {
-  const { mutate: claimNft, isLoading, error } = useClaimNFT(DropContract);
-
-  if (error) {
-    console.error("failed to claim nft", error);
-  }
-
-  return (
-    <button
-      disabled={isLoading}
-      onClick={() => claimNft({ to: "0x...", quantity: 1 })}
-    >
-      Claim NFT!
-    </button>
-  );
-};
-```

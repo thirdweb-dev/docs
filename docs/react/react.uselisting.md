@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get a specific listing from the marketplace.
 
+## Example
+
+```javascript
+const { data: listing, isLoading, error } = useListing(<YourMarketplaceContractInstance>, <listingId>);
+```
+
 **Signature:**
 
 ```typescript
@@ -38,9 +44,3 @@ export declare function useListing(
 import("react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk/dist/browser").AuctionListing \| import("@thirdweb-dev/sdk/dist/browser").DirectListing, unknown&gt;
 
 a response object that includes an array of listings
-
-## Example
-
-```javascript
-const { data: listing, isLoading, error } = useListing(<YourMarketplaceContractInstance>, <listingId>);
-```

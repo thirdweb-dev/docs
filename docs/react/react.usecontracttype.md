@@ -13,6 +13,16 @@ displayed_sidebar: react
 
 Use this to get the contract type for a (built-in or custom) contract.
 
+## Example
+
+```javascript
+const {
+  data: contractType,
+  isLoading,
+  error,
+} = useContractType("{{contract_address}}");
+```
+
 **Signature:**
 
 ```typescript
@@ -48,13 +58,3 @@ export declare function useContractType(
 import("react-query").UseQueryResult&lt;"split" \| "custom" \| "nft-drop" \| "signature-drop" \| "nft-collection" \| "edition-drop" \| "edition" \| "token-drop" \| "token" \| "vote" \| "marketplace" \| "pack" \| "multiwrap" \| undefined, unknown&gt;
 
 a response object that includes the contract type of the contract
-
-## Example
-
-```javascript
-const {
-  data: contractType,
-  isLoading,
-  error,
-} = useContractType("{{contract_address}}");
-```
