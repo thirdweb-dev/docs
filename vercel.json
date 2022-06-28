@@ -228,12 +228,7 @@
     },
     {
       "source": "/installation",
-      "destination": "/getting-started/setting-up",
-      "permanent": true
-    },
-    {
-      "source": "/getting-started/deploying-contracts",
-      "destination": "/getting-started/setting-up",
+      "destination": "/getting-started/deploying-contracts",
       "permanent": true
     }
   ]
