@@ -14,7 +14,7 @@ Signature Minting
 **Signature:**
 
 ```typescript
-signature: Erc721SignatureMinting;
+signature: Erc721WithQuantitySignatureMintable;
 ```
 
 ## Remarks

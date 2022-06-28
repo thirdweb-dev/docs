@@ -14,7 +14,7 @@ Standard ERC20 Token functions
 **Signature:**
 
 ```typescript
-export declare class Erc20<T extends TokenERC20 | DropERC20 | BaseERC20 = BaseERC20> implements UpdateableNetwork, DetectableFeature
+export declare class Erc20<T extends TokenERC20 | DropERC20 | BaseERC20 = BaseERC20 | BaseSignatureMintERC20> implements UpdateableNetwork, DetectableFeature
 ```
 
 **Implements:** UpdateableNetwork, DetectableFeature
@@ -38,13 +38,14 @@ await contract.token.transfer(walletAddress, amount);
 
 ## Properties
 
-| Property                                          | Modifiers | Type                                                     | Description |
-| ------------------------------------------------- | --------- | -------------------------------------------------------- | ----------- |
-| [contractWrapper](./sdk.erc20.contractwrapper.md) |           | ContractWrapper&lt;T&gt;                                 |             |
-| [featureName](./sdk.erc20.featurename.md)         |           | "ERC20"                                                  |             |
-| [mint](./sdk.erc20.mint.md)                       |           | [Erc20Mintable](./sdk.erc20mintable.md) &#124; undefined | Mint tokens |
-| [options](./sdk.erc20.options.md)                 |           | [SDKOptions](./sdk.sdkoptions.md)                        |             |
-| [storage](./sdk.erc20.storage.md)                 |           | [IStorage](./sdk.istorage.md)                            |             |
+| Property                                          | Modifiers | Type                                                                       | Description |
+| ------------------------------------------------- | --------- | -------------------------------------------------------------------------- | ----------- |
+| [contractWrapper](./sdk.erc20.contractwrapper.md) |           | ContractWrapper&lt;T&gt;                                                   |             |
+| [featureName](./sdk.erc20.featurename.md)         |           | "ERC20"                                                                    |             |
+| [mint](./sdk.erc20.mint.md)                       |           | [Erc20Mintable](./sdk.erc20mintable.md) &#124; undefined                   | Mint tokens |
+| [options](./sdk.erc20.options.md)                 |           | [SDKOptions](./sdk.sdkoptions.md)                                          |             |
+| [signature](./sdk.erc20.signature.md)             |           | [Erc20SignatureMintable](./sdk.erc20signaturemintable.md) &#124; undefined |             |
+| [storage](./sdk.erc20.storage.md)                 |           | [IStorage](./sdk.istorage.md)                                              |             |
 
 ## Methods
 

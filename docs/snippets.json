@@ -172,7 +172,7 @@
           "go": ""
         },
         "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.erc721signatureminting",
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.erc721withquantitysignaturemintable",
           "python": "",
           "go": ""
         }
@@ -374,7 +374,7 @@
           "go": ""
         },
         "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.erc1155signatureminting",
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.erc1155signaturemintable",
           "python": "",
           "go": ""
         }
@@ -896,7 +896,7 @@
           "go": ""
         },
         "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.erc20signatureminting",
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.erc20signaturemintable",
           "python": "",
           "go": ""
         }

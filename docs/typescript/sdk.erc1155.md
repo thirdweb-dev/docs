@@ -14,7 +14,7 @@ Standard ERC1155 NFT functions
 **Signature:**
 
 ```typescript
-export declare class Erc1155<T extends DropERC1155 | TokenERC1155 | BaseERC1155 = BaseERC1155> implements UpdateableNetwork, DetectableFeature
+export declare class Erc1155<T extends DropERC1155 | TokenERC1155 | BaseERC1155 = BaseERC1155 | BaseSignatureMintERC1155> implements UpdateableNetwork, DetectableFeature
 ```
 
 **Implements:** UpdateableNetwork, DetectableFeature
@@ -38,14 +38,15 @@ await contract.edition.transfer(walletAddress, tokenId, quantity);
 
 ## Properties
 
-| Property                                            | Modifiers | Type                                                             | Description |
-| --------------------------------------------------- | --------- | ---------------------------------------------------------------- | ----------- |
-| [contractWrapper](./sdk.erc1155.contractwrapper.md) |           | ContractWrapper&lt;T&gt;                                         |             |
-| [featureName](./sdk.erc1155.featurename.md)         |           | "ERC1155"                                                        |             |
-| [mint](./sdk.erc1155.mint.md)                       |           | [Erc1155Mintable](./sdk.erc1155mintable.md) &#124; undefined     |             |
-| [options](./sdk.erc1155.options.md)                 |           | [SDKOptions](./sdk.sdkoptions.md)                                |             |
-| [query](./sdk.erc1155.query.md)                     |           | [Erc1155Enumerable](./sdk.erc1155enumerable.md) &#124; undefined |             |
-| [storage](./sdk.erc1155.storage.md)                 |           | [IStorage](./sdk.istorage.md)                                    |             |
+| Property                                            | Modifiers | Type                                                                           | Description |
+| --------------------------------------------------- | --------- | ------------------------------------------------------------------------------ | ----------- |
+| [contractWrapper](./sdk.erc1155.contractwrapper.md) |           | ContractWrapper&lt;T&gt;                                                       |             |
+| [featureName](./sdk.erc1155.featurename.md)         |           | "ERC1155"                                                                      |             |
+| [mint](./sdk.erc1155.mint.md)                       |           | [Erc1155Mintable](./sdk.erc1155mintable.md) &#124; undefined                   |             |
+| [options](./sdk.erc1155.options.md)                 |           | [SDKOptions](./sdk.sdkoptions.md)                                              |             |
+| [query](./sdk.erc1155.query.md)                     |           | [Erc1155Enumerable](./sdk.erc1155enumerable.md) &#124; undefined               |             |
+| [signature](./sdk.erc1155.signature.md)             |           | [Erc1155SignatureMintable](./sdk.erc1155signaturemintable.md) &#124; undefined |             |
+| [storage](./sdk.erc1155.storage.md)                 |           | [IStorage](./sdk.istorage.md)                                                  |             |
 
 ## Methods
 

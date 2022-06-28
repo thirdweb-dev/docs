@@ -14,7 +14,7 @@ Standard ERC721 NFT functions
 **Signature:**
 
 ```typescript
-export declare class Erc721<T extends Multiwrap | SignatureDrop | DropERC721 | TokenERC721 | BaseERC721 = BaseERC721> implements UpdateableNetwork, DetectableFeature
+export declare class Erc721<T extends Multiwrap | SignatureDrop | DropERC721 | TokenERC721 | BaseERC721 = BaseERC721 | BaseSignatureMintERC721> implements UpdateableNetwork, DetectableFeature
 ```
 
 **Implements:** UpdateableNetwork, DetectableFeature
@@ -38,15 +38,16 @@ await contract.nft.transfer(walletAddress, tokenId);
 
 ## Properties
 
-| Property                                           | Modifiers | Type                                                       | Description |
-| -------------------------------------------------- | --------- | ---------------------------------------------------------- | ----------- |
-| [contractWrapper](./sdk.erc721.contractwrapper.md) |           | ContractWrapper&lt;T&gt;                                   |             |
-| [drop](./sdk.erc721.drop.md)                       |           | [Erc721Dropable](./sdk.erc721dropable.md) &#124; undefined |             |
-| [featureName](./sdk.erc721.featurename.md)         |           | "ERC721"                                                   |             |
-| [mint](./sdk.erc721.mint.md)                       |           | [Erc721Mintable](./sdk.erc721mintable.md) &#124; undefined |             |
-| [options](./sdk.erc721.options.md)                 |           | [SDKOptions](./sdk.sdkoptions.md)                          |             |
-| [query](./sdk.erc721.query.md)                     |           | [Erc721Supply](./sdk.erc721supply.md) &#124; undefined     |             |
-| [storage](./sdk.erc721.storage.md)                 |           | [IStorage](./sdk.istorage.md)                              |             |
+| Property                                           | Modifiers | Type                                                                                                 | Description |
+| -------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------- | ----------- |
+| [contractWrapper](./sdk.erc721.contractwrapper.md) |           | ContractWrapper&lt;T&gt;                                                                             |             |
+| [drop](./sdk.erc721.drop.md)                       |           | [Erc721Dropable](./sdk.erc721dropable.md) &#124; undefined                                           |             |
+| [featureName](./sdk.erc721.featurename.md)         |           | "ERC721"                                                                                             |             |
+| [mint](./sdk.erc721.mint.md)                       |           | [Erc721Mintable](./sdk.erc721mintable.md) &#124; undefined                                           |             |
+| [options](./sdk.erc721.options.md)                 |           | [SDKOptions](./sdk.sdkoptions.md)                                                                    |             |
+| [query](./sdk.erc721.query.md)                     |           | [Erc721Supply](./sdk.erc721supply.md) &#124; undefined                                               |             |
+| [signature](./sdk.erc721.signature.md)             |           | [Erc721WithQuantitySignatureMintable](./sdk.erc721withquantitysignaturemintable.md) &#124; undefined |             |
+| [storage](./sdk.erc721.storage.md)                 |           | [IStorage](./sdk.istorage.md)                                                                        |             |
 
 ## Methods
 
