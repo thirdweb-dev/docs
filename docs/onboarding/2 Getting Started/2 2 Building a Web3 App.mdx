@@ -27,9 +27,7 @@ You can start with one of our [example projects](/examples) by passing the `--ex
 
 Let's quickly take a look at the generated code to understand what's going on in our app.
 
-First, we can look at the `pages/_app.js` file.
-
-This file has our `ThirdwebProvider` configured, which allows us to use wallet connection features and interact with the desired blockchain.
+This entry point of the app is where we configure the `ThirdwebProvider`, which allows us to use wallet connection features and interact with the desired blockchain.
 
 ```jsx
 import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
@@ -47,12 +45,12 @@ export const MyApp = () => {
 };
 ```
 
-Additionally, you can take a look at the `pages/index.js` file.
-
-This file contains a basic setup for users to connect their wallets to our page. It uses the `useMetamask()` to let a user connect their wallet to your app. For other ways to connect wallets, check out the [documentation](/react/category/wallet-connection).
+The template has a basic setup for users to connect their wallets to our page. It uses the `useMetamask()` to let a user connect their wallet to your app. For other ways to connect wallets, check out the [documentation](/react/category/wallet-connection).
 
 ```jsx
-const Home: NextPage = () => {
+import { useAddress, useMetamask, useDisconnect } from "@thirdweb-dev/react";
+
+const Home = () => {
   const address = useAddress();
   // This function will allow the user to connect their metamask wallet to our page
   const connectWithMetamask = useMetamask();
@@ -103,7 +101,7 @@ You can now read data from your contract with any of our [React](/react) hooks.
 In the example below, we'll read and display all the NFTs on your drop contract.
 
 ```jsx
-import { useNFTDrop, ThirdwebNftMedia } from "@thirdweb-dev/react";
+import { useNFTDrop, useNFTs, ThirdwebNftMedia } from "@thirdweb-dev/react";
 
 export default function NFTGalleryComponent() {
   const contract = useNFTDrop("<contract-address>");
@@ -139,7 +137,7 @@ In the below example, we'll setup a simple claiming page so that users can conne
 the SDK will automatically prompt the connected wallet to execute the transaction.
 
 ```jsx
-import { useNFTDrop } from "@thirdweb-dev/react";
+import { useNFTDrop, useAddress, useClaimNFT } from "@thirdweb-dev/react";
 
 export default function ClaimButtonComponent() {
   const contract = useNFTDrop("<contract-address>");
@@ -154,13 +152,15 @@ export default function ClaimButtonComponent() {
       disabled={isLoading}
       onClick={() => claim({ to: connectedWalletAddresss, quantity: 1 })}
     >
-      Claim NFT!
+      Claim NFT
     </button>
   );
 }
 ```
 
-:::info See it in action!
+:::tip See it in action!
 
-If you want to checkout a demo for this example and others, checkout the [thirdweb contract hub](https://contract-hub.thirdweb-example.com/).
+Checkout a **live demo** for this example and others on the [thirdweb contract hub](https://contract-hub.thirdweb-example.com/).
+
+![Claim NFT button](./assets/claim-nft-button.png)
 :::
