@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get a the total (minted) supply of your [NFTContract](./react.nftcontract.md).
 
+## Example
+
+```javascript
+const { data: totalSupply, isLoading, error } = useNFTSupply(NFTContract);
+```
+
 **Signature:**
 
 ```typescript
@@ -34,9 +40,3 @@ export declare function useTotalCirculatingSupply<
 import("react-query").UseQueryResult&lt;BigNumber, unknown&gt;
 
 a response object that incudes the total minted supply
-
-## Example
-
-```javascript
-const { data: totalSupply, isLoading, error } = useNFTSupply(NFTContract);
-```

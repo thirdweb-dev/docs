@@ -11,22 +11,6 @@ displayed_sidebar: react
 
 Hook for getting an instance of a `Pack` contract. This contract supports the creation of on-chain luck-based lootboxes.
 
-**Signature:**
-
-```typescript
-export declare function usePack(contractAddress?: string): Pack | undefined;
-```
-
-## Parameters
-
-| Parameter       | Type   | Description                                                                          |
-| --------------- | ------ | ------------------------------------------------------------------------------------ |
-| contractAddress | string | <i>(Optional)</i> the address of the Pack contract, found in your thirdweb dashboard |
-
-**Returns:**
-
-Pack \| undefined
-
 ## Example
 
 ```javascript
@@ -46,3 +30,19 @@ export default function Component() {
   ...
 }
 ```
+
+**Signature:**
+
+```typescript
+export declare function usePack(contractAddress?: string): Pack | undefined;
+```
+
+## Parameters
+
+| Parameter       | Type   | Description                                                                          |
+| --------------- | ------ | ------------------------------------------------------------------------------------ |
+| contractAddress | string | <i>(Optional)</i> the address of the Pack contract, found in your thirdweb dashboard |
+
+**Returns:**
+
+Pack \| undefined

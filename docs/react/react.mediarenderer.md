@@ -13,16 +13,6 @@ This component can be used to render any media type, including image, audio, vid
 
 Props: [MediaRendererProps](./react.mediarendererprops.md)
 
-**Signature:**
-
-```typescript
-MediaRenderer: React.ForwardRefExoticComponent<
-  MediaRendererProps & {
-    children?: React.ReactNode;
-  } & React.RefAttributes<HTMLMediaElement>
->;
-```
-
 ## Example
 
 We can take a video file hosted on IPFS and render it using this component as follows
@@ -39,3 +29,11 @@ const Component = () => {
 ```
 
 You can try switching out the `src` prop to different types of URLs and media types to explore the possibilities.
+
+**Signature:**
+
+```typescript
+MediaRenderer: React.ForwardRefExoticComponent<MediaRendererProps & {
+    children?: React.ReactNode;
+} & React.RefAttributes<HTMLMediaElement>>
+```

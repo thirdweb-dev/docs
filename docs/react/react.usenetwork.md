@@ -11,6 +11,53 @@ displayed_sidebar: react
 
 Hook for getting metadata about the network the current wallet is connected to and switching networks
 
+## Example
+
+```javascript
+import { useNetwork } from "@thirdweb-dev/react";
+
+const App = () => {
+  const [
+    {
+      data: { chain, chains },
+      loading,
+      error,
+    },
+    switchNetwork,
+  ] = useNetwork();
+
+  return (
+    <>
+      {loading ? (
+        <div>Connecting...</div>
+      ) : chain ? (
+        <div>Connected to {chain.name}</div>
+      ) : (
+        ""
+      )}
+
+      {chains.map((ch) => (
+        <button
+          disabled={!switchNetwork || ch.id === chain?.id}
+          key={ch.id}
+          onClick={() => {
+            if (switchNetwork) {
+              switchNetwork(ch.id);
+            }
+          }}
+        >
+          {ch.name}
+        </button>
+      ))}
+
+      {error && <div>{error.message}</div>}
+    </>
+  );
+};
+```
+
+It's important to note that some wallet apps do not support programmatic network switching and switchNetwork will be undefined. For those situations, you can typically switch networks in the wallet app this hook will still work.
+
 **Signature:**
 
 ```typescript
@@ -63,50 +110,3 @@ export declare function useNetwork(): readonly [
 **Returns:**
 
 readonly \[{ readonly data: { readonly chain: { id: number; unsupported: boolean \| undefined; name?: string \| undefined; nativeCurrency?: { name: string; symbol: string; decimals: 18; } \| undefined; rpcUrls?: string\[\] \| undefined; blockExplorers?: { name: string; url: string; }\[\] \| undefined; testnet?: boolean \| undefined; } \| undefined; readonly chains: import("wagmi").Chain\[\]; }; readonly error: Error \| undefined; readonly loading: boolean \| undefined; }, ((chainId: number) =&gt; Promise&lt;{ data: undefined; error: import("wagmi").SwitchChainError; } \| { data: import("wagmi").Chain \| undefined; error: undefined; }&gt;) \| undefined\]
-
-## Example
-
-```javascript
-import { useNetwork } from "@thirdweb-dev/react";
-
-const App = () => {
-  const [
-    {
-      data: { chain, chains },
-      loading,
-      error,
-    },
-    switchNetwork,
-  ] = useNetwork();
-
-  return (
-    <>
-      {loading ? (
-        <div>Connecting...</div>
-      ) : chain ? (
-        <div>Connected to {chain.name}</div>
-      ) : (
-        ""
-      )}
-
-      {chains.map((ch) => (
-        <button
-          disabled={!switchNetwork || ch.id === chain?.id}
-          key={ch.id}
-          onClick={() => {
-            if (switchNetwork) {
-              switchNetwork(ch.id);
-            }
-          }}
-        >
-          {ch.name}
-        </button>
-      ))}
-
-      {error && <div>{error.message}</div>}
-    </>
-  );
-};
-```
-
-It's important to note that some wallet apps do not support programmatic network switching and switchNetwork will be undefined. For those situations, you can typically switch networks in the wallet app this hook will still work.

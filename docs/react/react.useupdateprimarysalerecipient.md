@@ -13,6 +13,31 @@ displayed_sidebar: react
 
 Use this to update the primary sales recipient of your
 
+## Example
+
+```jsx
+const Component = () => {
+  const {
+    mutate: updatePrimarySalesRecipient,
+    isLoading,
+    error,
+  } = useUpdatePrimarySaleRecipient(SmartContract);
+
+  if (error) {
+    console.error("failed to update recipient", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() => updatePrimarySalesRecipient({ newRecipient: "0x123" })}
+    >
+      Update Recipient
+    </button>
+  );
+};
+```
+
 **Signature:**
 
 ```typescript
@@ -43,28 +68,3 @@ export declare function useUpdatePrimarySaleRecipient(
 import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, string, unknown&gt;
 
 a mutation object that can be used to update the primary sales recipient
-
-## Example
-
-```jsx
-const Component = () => {
-  const {
-    mutate: updatePrimarySalesRecipient,
-    isLoading,
-    error,
-  } = useUpdatePrimarySaleRecipient(SmartContract);
-
-  if (error) {
-    console.error("failed to update recipient", error);
-  }
-
-  return (
-    <button
-      disabled={isLoading}
-      onClick={() => updatePrimarySalesRecipient({ newRecipient: "0x123" })}
-    >
-      Update Recipient
-    </button>
-  );
-};
-```

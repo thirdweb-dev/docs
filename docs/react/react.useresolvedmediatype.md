@@ -9,27 +9,6 @@ displayed_sidebar: react
 
 ## useResolvedMediaType() function
 
-**Signature:**
-
-```typescript
-export declare function useResolvedMediaType(uri?: string): {
-  url: string | undefined;
-  mimeType: string | undefined;
-};
-```
-
-## Parameters
-
-| Parameter | Type   | Description                                                                 |
-| --------- | ------ | --------------------------------------------------------------------------- |
-| uri       | string | <i>(Optional)</i> the uri to resolve (can be a url or a ipfs://&lt;cid&gt;) |
-
-**Returns:**
-
-{ url: string \| undefined; mimeType: string \| undefined; }
-
-the fully resolved url + mime type of the media
-
 ## Example
 
 Usage with fully formed url:
@@ -55,3 +34,24 @@ const Component = () => {
   return null;
 };
 ```
+
+**Signature:**
+
+```typescript
+export declare function useResolvedMediaType(uri?: string): {
+  url: string | undefined;
+  mimeType: string | undefined;
+};
+```
+
+## Parameters
+
+| Parameter | Type   | Description                                                                 |
+| --------- | ------ | --------------------------------------------------------------------------- |
+| uri       | string | <i>(Optional)</i> the uri to resolve (can be a url or a ipfs://&lt;cid&gt;) |
+
+**Returns:**
+
+{ url: string \| undefined; mimeType: string \| undefined; }
+
+the fully resolved url + mime type of the media

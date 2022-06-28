@@ -11,24 +11,6 @@ displayed_sidebar: react
 
 Hook for getting an instance of an `Multiwrap` contract. This contract is an ERC721 in which you can wrap ERC721, ERC1155 and ERC20 tokens.
 
-**Signature:**
-
-```typescript
-export declare function useMultiwrap(
-  contractAddress?: string,
-): Multiwrap | undefined;
-```
-
-## Parameters
-
-| Parameter       | Type   | Description                                                                               |
-| --------------- | ------ | ----------------------------------------------------------------------------------------- |
-| contractAddress | string | <i>(Optional)</i> the address of the Multiwrap contract, found in your thirdweb dashboard |
-
-**Returns:**
-
-Multiwrap \| undefined
-
 ## Example
 
 ```javascript
@@ -47,3 +29,21 @@ export default function Component() {
   ...
 }
 ```
+
+**Signature:**
+
+```typescript
+export declare function useMultiwrap(
+  contractAddress?: string,
+): Multiwrap | undefined;
+```
+
+## Parameters
+
+| Parameter       | Type   | Description                                                                               |
+| --------------- | ------ | ----------------------------------------------------------------------------------------- |
+| contractAddress | string | <i>(Optional)</i> the address of the Multiwrap contract, found in your thirdweb dashboard |
+
+**Returns:**
+
+Multiwrap \| undefined

@@ -15,21 +15,6 @@ Hook for connecting to an email wallet using magic link. This enables users with
 import { useMagic } from "@thirdweb-dev/react";
 ```
 
-**Signature:**
-
-```typescript
-export declare function useMagic(): (
-  configuration: LoginWithMagicLinkConfiguration,
-) => Promise<{
-  data?: import("wagmi-core").ConnectorData<any> | undefined;
-  error?: Error | undefined;
-}>;
-```
-
-**Returns:**
-
-(configuration: LoginWithMagicLinkConfiguration) =&gt; Promise&lt;{ data?: import("wagmi-core").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;
-
 ## Example
 
 Before using this hook, you first need to set up the magic configuration in your `ThirdwebProvider`, including your magic API key.
@@ -82,3 +67,18 @@ const LoginWithMagicLink = () => {
   );
 };
 ```
+
+**Signature:**
+
+```typescript
+export declare function useMagic(): (
+  configuration: LoginWithMagicLinkConfiguration,
+) => Promise<{
+  data?: import("wagmi-core").ConnectorData<any> | undefined;
+  error?: Error | undefined;
+}>;
+```
+
+**Returns:**
+
+(configuration: LoginWithMagicLinkConfiguration) =&gt; Promise&lt;{ data?: import("wagmi-core").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;

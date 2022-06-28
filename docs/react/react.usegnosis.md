@@ -15,21 +15,6 @@ Hook for connecting to a Gnosis Safe. This enables multisig wallets to connect t
 import { useGnosis } from "@thirdweb-dev/react";
 ```
 
-**Signature:**
-
-```typescript
-export declare function useGnosis(): (
-  config: GnosisConnectorArguments,
-) => Promise<{
-  data?: import("wagmi-core").ConnectorData<any> | undefined;
-  error?: Error | undefined;
-}>;
-```
-
-**Returns:**
-
-(config: GnosisConnectorArguments) =&gt; Promise&lt;{ data?: import("wagmi-core").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;
-
 ## Example
 
 ```javascript
@@ -49,3 +34,18 @@ const App = () => {
   );
 };
 ```
+
+**Signature:**
+
+```typescript
+export declare function useGnosis(): (
+  config: GnosisConnectorArguments,
+) => Promise<{
+  data?: import("wagmi-core").ConnectorData<any> | undefined;
+  error?: Error | undefined;
+}>;
+```
+
+**Returns:**
+
+(config: GnosisConnectorArguments) =&gt; Promise&lt;{ data?: import("wagmi-core").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;

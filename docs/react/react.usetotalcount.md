@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get a the number of tokens in your [NFTContract](./react.nftcontract.md).
 
+## Example
+
+```javascript
+const { data: totalSupply, isLoading, error } = useTotalCount(NFTContract);
+```
+
 **Signature:**
 
 ```typescript
@@ -23,9 +29,9 @@ export declare function useTotalCount(
 
 ## Parameters
 
-| Parameter | Type                                                                                   | Description                                            |
-| --------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;[NFTContract](./react.nftcontract.md)&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
+| Parameter | Type                                                                                   | Description                                           |
+| --------- | -------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;[NFTContract](./react.nftcontract.md)&gt; | an instace of a [NFTContract](./react.nftcontract.md) |
 
 **Returns:**
 
@@ -36,9 +42,3 @@ a response object that incudes the total number of tokens in the contract
 ## Remarks
 
 The `total count` and `total supply` are the same for based contracts. For the `total count` is the number of NFTs that exist on the contract, \*\*not\*\* the sum of all supply of each token. (Since ERC1155 can have multiple owners per token.)
-
-## Example
-
-```javascript
-const { data: totalSupply, isLoading, error } = useTotalCount(NFTContract);
-```

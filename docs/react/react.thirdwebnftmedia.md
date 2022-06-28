@@ -14,7 +14,5 @@ Render a nft based on the common metadata returned by the thirdweb sdk.
 **Signature:**
 
 ```typescript
-ThirdwebNftMedia: React.ForwardRefExoticComponent<
-  ThirdwebNftMediaProps & React.RefAttributes<HTMLMediaElement>
->;
+ThirdwebNftMedia: React.ForwardRefExoticComponent<ThirdwebNftMediaProps & React.RefAttributes<HTMLMediaElement>>
 ```

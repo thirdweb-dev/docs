@@ -13,6 +13,27 @@ displayed_sidebar: react
 
 Use this to grant a [WalletAddress](./react.walletaddress.md) a specific role on a
 
+## Example
+
+```jsx
+const Component = () => {
+  const { mutate: grantRole, isLoading, error } = useGrantRole(SmartContract);
+
+  if (error) {
+    console.error("failed to grant role", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() => grantRole({ role: "admin", address: "0x123" })}
+    >
+      Grant Role
+    </button>
+  );
+};
+```
+
 **Signature:**
 
 ```typescript
@@ -40,24 +61,3 @@ export declare function useGrantRole<TContract extends ContractWithRoles>(
 import("react-query").UseMutationResult&lt;void, unknown, { role: RolesForContract&lt;TContract&gt;; address: [WalletAddress](./react.walletaddress.md); }, unknown&gt;
 
 a mutation object that can be used to grant a member of a role on the contract
-
-## Example
-
-```jsx
-const Component = () => {
-  const { mutate: grantRole, isLoading, error } = useGrantRole(SmartContract);
-
-  if (error) {
-    console.error("failed to grant role", error);
-  }
-
-  return (
-    <button
-      disabled={isLoading}
-      onClick={() => grantRole({ role: "admin", address: "0x123" })}
-    >
-      Grant Role
-    </button>
-  );
-};
-```

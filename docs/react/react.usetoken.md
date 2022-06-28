@@ -11,22 +11,6 @@ displayed_sidebar: react
 
 Hook for getting an instance of an `Token` contract. This contract supports ERC20 compliant tokens.
 
-**Signature:**
-
-```typescript
-export declare function useToken(contractAddress?: string): Token | undefined;
-```
-
-## Parameters
-
-| Parameter       | Type   | Description                                                                           |
-| --------------- | ------ | ------------------------------------------------------------------------------------- |
-| contractAddress | string | <i>(Optional)</i> the address of the Token contract, found in your thirdweb dashboard |
-
-**Returns:**
-
-Token \| undefined
-
 ## Example
 
 ```javascript
@@ -46,3 +30,19 @@ export default function Component() {
   ...
 }
 ```
+
+**Signature:**
+
+```typescript
+export declare function useToken(contractAddress?: string): Token | undefined;
+```
+
+## Parameters
+
+| Parameter       | Type   | Description                                                                           |
+| --------------- | ------ | ------------------------------------------------------------------------------------- |
+| contractAddress | string | <i>(Optional)</i> the address of the Token contract, found in your thirdweb dashboard |
+
+**Returns:**
+
+Token \| undefined

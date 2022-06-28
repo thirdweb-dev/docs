@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get a the owned NFTs for a specific [NFTContract](./react.nftcontract.md) and wallet address.
 
+## Example
+
+```javascript
+const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(NFTContract, <OwnerWalletAddress>);
+```
+
 **Signature:**
 
 ```typescript
@@ -24,19 +30,13 @@ export declare function useOwnedNFTs<TContract extends NFTContract>(
 
 ## Parameters
 
-| Parameter          | Type                                                                                       | Description                                            |
-| ------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
-| contract           | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt;                                 | an instance of a [NFTContract](./react.nftcontract.md) |
-| ownerWalletAddress | [RequiredParam](./react.requiredparam.md)&lt;[WalletAddress](./react.walletaddress.md)&gt; | the wallet adress to get owned tokens for              |
+| Parameter          | Type                                                                                       | Description                                           |
+| ------------------ | ------------------------------------------------------------------------------------------ | ----------------------------------------------------- |
+| contract           | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt;                                 | an instace of a [NFTContract](./react.nftcontract.md) |
+| ownerWalletAddress | [RequiredParam](./react.requiredparam.md)&lt;[WalletAddress](./react.walletaddress.md)&gt; | the wallet adress to get owned tokens for             |
 
 **Returns:**
 
 import("react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;TContract&gt;\[\], unknown&gt;
 
 a response object that includes the list of owned tokens
-
-## Example
-
-```javascript
-const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(NFTContract, <OwnerWalletAddress>);
-```

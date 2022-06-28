@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get the platform fees settings of your
 
+## Example
+
+```jsx
+const { data: platformFees, isLoading, error } = usePlatformFees(SmartContract);
+```
+
 **Signature:**
 
 ```typescript
@@ -38,9 +44,3 @@ export declare function usePlatformFees(
 import("react-query").UseQueryResult&lt;{ platform_fee_basis_points: number; platform_fee_recipient: string; }, unknown&gt;
 
 an object containing the platform fee basis points and the fee recipient address
-
-## Example
-
-```jsx
-const { data: platformFees, isLoading, error } = usePlatformFees(SmartContract);
-```

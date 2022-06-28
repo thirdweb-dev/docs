@@ -13,6 +13,16 @@ displayed_sidebar: react
 
 Use this to check if a [WalletAddress](./react.walletaddress.md) is a member of a role on a
 
+## Example
+
+```jsx
+const {
+  data: isMember,
+  isLoading,
+  error,
+} = useIsAddressRole(SmartContract, "admin", "0x123");
+```
+
 **Signature:**
 
 ```typescript
@@ -36,13 +46,3 @@ export declare function useIsAddressRole<TContract extends ContractWithRoles>(
 boolean
 
 true if the address is a member of the role, or false if not
-
-## Example
-
-```jsx
-const {
-  data: isMember,
-  isLoading,
-  error,
-} = useIsAddressRole(SmartContract, "admin", "0x123");
-```

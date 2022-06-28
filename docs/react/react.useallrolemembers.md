@@ -13,6 +13,12 @@ displayed_sidebar: react
 
 Use this to get the roles of a
 
+## Example
+
+```jsx
+const { data: roles, isLoading, error } = useAllRoleMembers(SmartContract);
+```
+
 **Signature:**
 
 ```typescript
@@ -35,9 +41,3 @@ export declare function useAllRoleMembers<TContract extends ContractWithRoles>(
 import("react-query").UseQueryResult&lt;Awaited&lt;Record&lt;RolesForContract&lt;TContract&gt;, string\[\]&gt;&gt;, unknown&gt;
 
 a list of addresses for all supported roles on the contract.
-
-## Example
-
-```jsx
-const { data: roles, isLoading, error } = useAllRoleMembers(SmartContract);
-```

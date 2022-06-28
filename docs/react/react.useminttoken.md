@@ -13,37 +13,6 @@ displayed_sidebar: react
 
 Use this to mint a new NFT on your ERC20 contract
 
-**Signature:**
-
-```typescript
-export declare function useMintToken(
-  contract: RequiredParam<Erc20>,
-): import("react-query").UseMutationResult<
-  Omit<
-    {
-      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
-      data: () => Promise<unknown>;
-    },
-    "data"
-  >,
-  unknown,
-  TokenMintParams,
-  unknown
->;
-```
-
-## Parameters
-
-| Parameter | Type                                                   | Description                                                                                                            |
-| --------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instance of a contract that extends the ERC20 spec (token, token drop, custom contract that follows the ERC20 spec) |
-
-**Returns:**
-
-import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [TokenMintParams](./react.tokenmintparams.md), unknown&gt;
-
-a mutation object that can be used to mint a new NFT token to the connected wallet
-
 ## Example
 
 ```jsx
@@ -68,3 +37,34 @@ const Component = () => {
   );
 };
 ```
+
+**Signature:**
+
+```typescript
+export declare function useMintToken(
+  contract: RequiredParam<Erc20>,
+): import("react-query").UseMutationResult<
+  Omit<
+    {
+      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+      data: () => Promise<unknown>;
+    },
+    "data"
+  >,
+  unknown,
+  TokenMintParams,
+  unknown
+>;
+```
+
+## Parameters
+
+| Parameter | Type                                                   | Description                                                                                                           |
+| --------- | ------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instace of a contract that extends the ERC20 spec (token, token drop, custom contract that follows the ERC20 spec) |
+
+**Returns:**
+
+import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [TokenMintParams](./react.tokenmintparams.md), unknown&gt;
+
+a mutation object that can be used to mint a new NFT token to the connected wallet
