@@ -97,13 +97,13 @@ const sidebars = {
         {
           type: "doc",
           label: "Multiwrap",
-          id: "sdk.multiwrap"
+          id: "sdk.multiwrap",
         },
         {
           type: "doc",
           label: "Signature Drop",
-          id: "sdk.signaturedrop"
-        }
+          id: "sdk.signaturedrop",
+        },
       ],
     },
     {
@@ -169,17 +169,17 @@ const sidebars = {
         {
           type: "doc",
           label: "ERC 20 Signature Minting",
-          id: "sdk.erc20signatureminting",
+          id: "sdk.erc20signaturemintable",
         },
         {
           type: "doc",
           label: "ERC 721 Signature Minting",
-          id: "sdk.erc721signatureminting",
+          id: "sdk.erc721withquantitysignaturemintable",
         },
         {
           type: "doc",
           label: "ERC 1155 Signature Minting",
-          id: "sdk.erc1155signatureminting",
+          id: "sdk.erc1155signaturemintable",
         },
       ],
     },

@@ -1,0 +1,143 @@
+---
+slug: /pre-built-contracts/pack
+---
+
+import ThirdwebCodeSnippet from "../../../../../src/components/ThirdwebCodeSnippet";
+
+# Pack
+
+The pack contract lets you bundle
+[ERC20](https://eips.ethereum.org/EIPS/eip-20),
+[ERC721](https://eips.ethereum.org/EIPS/eip-721) and,
+[ERC1155](https://eips.ethereum.org/EIPS/eip-1155) tokens together into **ERC-1155 NFTs** that act as randomized loot boxes.
+
+When a pack is opened, a pre-defined quantity of tokens are randomly selected from the ones
+that were used to create the packs _(that haven't already been selected)_, and awarded to the opener.
+The pack NFT is burned as it's opened.
+
+You can configure how many tokens get selected for the pack:
+
+- How many tokens are in each "unit" (for ERC-20 & ERC-1155 tokens - one unit could be multiple tokens).
+- How many units are in each pack.
+
+<br />
+
+You could use the Pack contract to:
+
+- Create randomized NFT loot boxes
+
+- Run a randomized raffle where some users open a winning ticket
+
+- Reward your community with token gift boxes
+
+:::tip Learn more
+
+[How thirdweb pre-built contracts work and how to create one](/pre-built-contracts)
+
+:::
+
+## Create a Pack Contract
+
+_Currently, you can only deploy a Pack contract from the thirdweb SDK._
+
+_Support for Pack dashboard deployments is coming soon._
+
+<!-- Learn how to create any of thirdweb's pre-built contracts via the [Deploying Contracts page](/getting-started/setting-up). -->
+
+<ThirdwebCodeSnippet contract={"ContractDeployer"} name={"deployPack"} />
+
+## Getting the contract in your application
+
+To start using your Pack contract inside your application, you need to use its contract address.
+
+You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+
+<ThirdwebCodeSnippet
+  contract={"Pack"}
+  name={"initializing the SDK"}
+  isGetContractCode
+/>
+
+## Setting Royalty Fees
+
+Royalty fees are fees you earn on secondary sales of your NFTs.
+
+For example, if you sell an NFT on the marketplace, and it is then sold again to another user, you will earn a royalty fee.
+
+Since each pack is an NFT itself, royalty fees get paid on these secondary sales.
+
+### Using the dashboard
+
+From the dashboard, in the **Settings** tab, you can set the royalty **percentage** and the **address** that should receive the revenue from royalties earned from secondary sales of the assets.
+
+![Configuring Royalties on the Dashboard](../assets/royalties.png)
+
+### Using the thirdweb SDK
+
+<ThirdwebCodeSnippet contract={"Pack"} name={"royalties"} />
+
+## Create a Pack
+
+You can bundle any number of ERC20, ERC721, or ERC1155 tokens into a set quantity of ERC-1155 pack NFTs.
+
+When you create a pack, it is minted as a new NFT in the smart contract.
+
+<ThirdwebCodeSnippet contract={"Pack"} name={"createTo"} />
+
+## Airdrop a Pack
+
+Airdropping means you send a wallet or a list of wallets a configurable quantity of your NFT (pack).
+
+### Using the dashboard
+
+Using the thirdweb dashboard, you can upload a `.csv` file containing a list of addresses you want to airdrop NFTs to.
+
+You can download our example `.csv` file for airdrops [here](https://thirdweb.com/airdrop.csv).
+
+In the `.csv` file, you must specify an `address` column and a `quantity` column, representing the address you want to send the NFTs and how many you wish to send.
+
+### Using the thirdweb SDK
+
+<ThirdwebCodeSnippet contract={"Pack"} name={"airdrop"} />
+
+## View Packs
+
+### One
+
+<ThirdwebCodeSnippet contract={"Pack"} name={"get"} />
+
+### All
+
+<ThirdwebCodeSnippet contract={"Pack"} name={"getAll"} />
+
+### Owned by a specific wallet
+
+<ThirdwebCodeSnippet contract={"Pack"} name={"getOwned"} />
+
+### Amount owned by a specific wallet
+
+<ThirdwebCodeSnippet contract={"Pack"} name={"balanceOf"} />
+
+## View Pack Contents
+
+You can view all of the rewards that were bundled to create the packs, but not the contents of each individual pack.
+
+<ThirdwebCodeSnippet contract={"Pack"} name={"getPackContents"} />
+
+## Open Pack
+
+When you open a pack, you receive the tokens within it and **burn** the pack NFT.
+
+Only the owner of a pack can open it.
+
+Multiple of the same pack can be opened at once.
+
+<ThirdwebCodeSnippet contract={"Pack"} name={"open"} />
+
+## Transferring NFTs
+
+Transferring allows you to send this pack to another wallet.
+
+You must be the owner of the pack you're trying to transfer for this to be successful.
+
+<ThirdwebCodeSnippet contract={"Pack"} name={"transfer"} />
