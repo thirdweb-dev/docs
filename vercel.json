@@ -206,7 +206,7 @@
     },
     {
       "source": "/getting-started",
-      "destination": "/getting-started/setting-up"
+      "destination": "/getting-started/deploying-contracts"
     },
     {
       "source": "/advanced-features/signature-based-minting",
