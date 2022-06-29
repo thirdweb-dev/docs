@@ -11,6 +11,18 @@ displayed_sidebar: typescript
 
 Claim unique NFTs to a specific Wallet
 
+## Example
+
+```javascript
+const address = "{{wallet_address}}"; // address of the wallet you want to claim the NFTs
+const quantity = 1; // how many unique NFTs you want to claim
+
+const tx = await contract.claimTo(address, quantity);
+const receipt = tx[0].receipt; // the transaction receipt
+const claimedTokenId = tx[0].id; // the id of the first NFT claimed
+const claimedNFT = await tx[0].data(); // (optional) get the first claimed NFT metadata
+```
+
 **Signature:**
 
 ```typescript
@@ -35,15 +47,3 @@ Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMe
 ## Remarks
 
 Let the specified wallet claim NFTs.
-
-## Example
-
-```javascript
-const address = "{{wallet_address}}"; // address of the wallet you want to claim the NFTs
-const quantity = 1; // how many unique NFTs you want to claim
-
-const tx = await contract.claimTo(address, quantity);
-const receipt = tx[0].receipt; // the transaction receipt
-const claimedTokenId = tx[0].id; // the id of the first NFT claimed
-const claimedNFT = await tx[0].data(); // (optional) get the first claimed NFT metadata
-```

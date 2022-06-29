@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 Remove a transaction listener
 
+## Example
+
+```javascript
+contract.events.removeTransactionListener((event) => {
+ console.log(event);
+}
+```
+
 **Signature:**
 
 ```typescript
@@ -30,11 +38,3 @@ void
 ## Remarks
 
 Remove a listener that was added with addTransactionListener
-
-## Example
-
-```javascript
-contract.events.removeTransactionListener((event) => {
- console.log(event);
-}
-```

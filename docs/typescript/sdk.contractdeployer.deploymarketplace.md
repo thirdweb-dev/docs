@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Deploys a new Marketplace contract
 
+## Example
+
+```javascript
+const contractAddress = await sdk.deployer.deployMarketplace({
+  name: "My Marketplace",
+  primary_sale_recipient: "your-address",
+});
+```
+
 **Signature:**
 
 ```typescript
@@ -32,12 +41,3 @@ the address of the deployed contract
 ## Remarks
 
 Deploys a Marketplace contract and returns the address of the deployed contract
-
-## Example
-
-```javascript
-const contractAddress = await sdk.deployer.deployMarketplace({
-  name: "My Marketplace",
-  primary_sale_recipient: "your-address",
-});
-```

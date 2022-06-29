@@ -11,27 +11,6 @@ displayed_sidebar: typescript
 
 Mint an NFT with a limited supply
 
-**Signature:**
-
-```typescript
-mintTo(to: string, metadataWithSupply: EditionMetadataOrUri): Promise<TransactionResultWithId<EditionMetadata>>;
-```
-
-## Parameters
-
-| Parameter          | Type                                                  | Description |
-| ------------------ | ----------------------------------------------------- | ----------- |
-| to                 | string                                                |             |
-| metadataWithSupply | [EditionMetadataOrUri](./sdk.editionmetadataoruri.md) |             |
-
-**Returns:**
-
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;&gt;
-
-## Remarks
-
-Mint an NFT with a limited supply to a specified wallet.
-
 ## Example
 
 ```javascript
@@ -55,3 +34,24 @@ const receipt = tx.receipt; // the transaction receipt
 const tokenId = tx.id; // the id of the NFT minted
 const nft = await tx.data(); // (optional) fetch details of minted NFT
 ```
+
+**Signature:**
+
+```typescript
+mintTo(to: string, metadataWithSupply: EditionMetadataOrUri): Promise<TransactionResultWithId<EditionMetadata>>;
+```
+
+## Parameters
+
+| Parameter          | Type                                                  | Description |
+| ------------------ | ----------------------------------------------------- | ----------- |
+| to                 | string                                                |             |
+| metadataWithSupply | [EditionMetadataOrUri](./sdk.editionmetadataoruri.md) |             |
+
+**Returns:**
+
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;&gt;
+
+## Remarks
+
+Mint an NFT with a limited supply to a specified wallet.

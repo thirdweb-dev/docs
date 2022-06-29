@@ -11,6 +11,13 @@ displayed_sidebar: typescript
 
 Get the native balance of a given address (wallet or contract)
 
+## Example
+
+```javascript
+const balance = await sdk.getBalance("0x...");
+console.log(balance.displayValue);
+```
+
 **Signature:**
 
 ```typescript
@@ -26,10 +33,3 @@ getBalance(address: string): Promise<CurrencyValue>;
 **Returns:**
 
 Promise&lt;[CurrencyValue](./sdk.currencyvalue.md)&gt;
-
-## Example
-
-```javascript
-const balance = await sdk.getBalance("0x...");
-console.log(balance.displayValue);
-```

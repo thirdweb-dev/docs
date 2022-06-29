@@ -11,6 +11,16 @@ displayed_sidebar: typescript
 
 Get Pack Contents
 
+## Example
+
+```javascript
+const packId = 0;
+const contents = await contract.getPackContents(packId);
+console.log(contents.erc20Rewards);
+console.log(contents.erc721Rewards);
+console.log(contents.erc1155Rewards);
+```
+
 **Signature:**
 
 ```typescript
@@ -32,13 +42,3 @@ Promise&lt;PackRewardsOutput&gt;
 ## Remarks
 
 Get the rewards contained inside a pack.
-
-## Example
-
-```javascript
-const packId = 0;
-const contents = await contract.getPackContents(packId);
-console.log(contents.erc20Rewards);
-console.log(contents.erc721Rewards);
-console.log(contents.erc1155Rewards);
-```

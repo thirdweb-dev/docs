@@ -11,14 +11,6 @@ displayed_sidebar: typescript
 
 Create a decentralized organization for token holders to vote on proposals.
 
-**Signature:**
-
-```typescript
-export declare class Vote implements UpdateableNetwork
-```
-
-**Implements:** UpdateableNetwork
-
 ## Example
 
 ```javascript
@@ -62,3 +54,11 @@ const contract = sdk.getVote("{{contract_address}}");
 | [propose(description, executions)](./sdk.vote.propose.md)      |           | Create Proposal                                                              |
 | [settings()](./sdk.vote.settings.md)                           |           | Get the Vote contract configuration                                          |
 | [vote(proposalId, voteType, reason)](./sdk.vote.vote.md)       |           | Vote                                                                         |
+
+**Signature:**
+
+```typescript
+export declare class Vote implements UpdateableNetwork
+```
+
+**Implements:** UpdateableNetwork

@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Get all holder balances
 
+## Example
+
+```javascript
+const allHolderBalances = await contract.history.getAllHolderBalances();
+```
+
 **Signature:**
 
 ```typescript
@@ -26,9 +32,3 @@ Promise&lt;[TokenHolderBalance](./sdk.tokenholderbalance.md)\[\]&gt;
 ## Remarks
 
 Lets you get all token holders and their corresponding balances
-
-## Example
-
-```javascript
-const allHolderBalances = await contract.history.getAllHolderBalances();
-```

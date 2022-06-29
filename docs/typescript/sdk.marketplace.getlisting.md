@@ -11,6 +11,13 @@ displayed_sidebar: typescript
 
 Convenience function to get either a direct or auction listing
 
+## Example
+
+```javascript
+const listingId = 0;
+const listing = await contract.getListing(listingId);
+```
+
 **Signature:**
 
 ```typescript
@@ -32,10 +39,3 @@ either a direct or auction listing
 ## Remarks
 
 Get a listing by its listing id
-
-## Example
-
-```javascript
-const listingId = 0;
-const listing = await contract.getListing(listingId);
-```

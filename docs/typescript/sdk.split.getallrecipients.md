@@ -11,6 +11,13 @@ displayed_sidebar: typescript
 
 Get Recipients of this splits contract
 
+## Example
+
+```javascript
+const recipients = await contract.getAllRecipients();
+console.log(recipients);
+```
+
 **Signature:**
 
 ```typescript
@@ -24,10 +31,3 @@ Promise&lt;[SplitRecipient](./sdk.splitrecipient.md)\[\]&gt;
 ## Remarks
 
 Get the data about the shares of every split recipient on the contract
-
-## Example
-
-```javascript
-const recipients = await contract.getAllRecipients();
-console.log(recipients);
-```

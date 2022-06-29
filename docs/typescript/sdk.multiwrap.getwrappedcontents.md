@@ -13,6 +13,15 @@ displayed_sidebar: typescript
 
 Get the contents of a wrapped token bundle
 
+## Example
+
+```javascript
+const contents = await contract.getWrappedContents(wrappedTokenId);
+console.log(contents.erc20Tokens);
+console.log(contents.erc721Tokens);
+console.log(contents.erc1155Tokens);
+```
+
 **Signature:**
 
 ```typescript
@@ -28,12 +37,3 @@ getWrappedContents(wrappedTokenId: BigNumberish): Promise<WrappedTokens>;
 **Returns:**
 
 Promise&lt;[WrappedTokens](./sdk.wrappedtokens.md)&gt;
-
-## Example
-
-```javascript
-const contents = await contract.getWrappedContents(wrappedTokenId);
-console.log(contents.erc20Tokens);
-console.log(contents.erc721Tokens);
-console.log(contents.erc1155Tokens);
-```

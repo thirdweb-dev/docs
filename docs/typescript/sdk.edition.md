@@ -11,14 +11,6 @@ displayed_sidebar: typescript
 
 Create a collection of NFTs that lets you mint multiple copies of each NFT.
 
-**Signature:**
-
-```typescript
-export declare class Edition extends Erc1155<TokenERC1155>
-```
-
-**Extends:** [Erc1155](./sdk.erc1155.md)&lt;TokenERC1155
-
 ## Example
 
 ```javascript
@@ -66,3 +58,11 @@ const contract = sdk.getEdition("{{contract_address}}");
 | [mintBatchTo(to, metadataWithSupply)](./sdk.edition.mintbatchto.md)                              |           | Mint Many NFTs with limited supplies                                         |
 | [mintTo(to, metadataWithSupply)](./sdk.edition.mintto.md)                                        |           | Mint an NFT with a limited supply                                            |
 | [mintToSelf(metadataWithSupply)](./sdk.edition.minttoself.md)                                    |           | Mint NFT for the connected wallet                                            |
+
+**Signature:**
+
+```typescript
+export declare class Edition extends Erc1155<TokenERC1155>
+```
+
+**Extends:** [Erc1155](./sdk.erc1155.md)&lt;TokenERC1155

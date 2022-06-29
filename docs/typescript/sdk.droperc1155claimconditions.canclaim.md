@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 Can Claim
 
+## Example
+
+```javascript
+// Quantity of tokens to check claimability of
+const quantity = 1;
+const canClaim = await contract.canClaim(quantity);
+```
+
 **Signature:**
 
 ```typescript
@@ -32,11 +40,3 @@ Promise&lt;boolean&gt;
 ## Remarks
 
 Check if a particular NFT can currently be claimed by a given user.
-
-## Example
-
-```javascript
-// Quantity of tokens to check claimability of
-const quantity = 1;
-const canClaim = await contract.canClaim(quantity);
-```

@@ -11,6 +11,13 @@ displayed_sidebar: typescript
 
 Get the unclaimed supply
 
+## Example
+
+```javascript
+const unclaimedNFTCount = await contract.totalUnclaimedSupply();
+console.log(`NFTs left to claim: ${unclaimedNFTCount}`);
+```
+
 **Signature:**
 
 ```typescript
@@ -28,10 +35,3 @@ the unclaimed supply
 Get the number of unclaimed NFTs in this Drop.
 
 \*
-
-## Example
-
-```javascript
-const unclaimedNFTCount = await contract.totalUnclaimedSupply();
-console.log(`NFTs left to claim: ${unclaimedNFTCount}`);
-```

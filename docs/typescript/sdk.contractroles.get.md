@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 Call this to get a list of addresses that are members of a specific role.
 
+## Example
+
+Say you want to get the list of addresses that are members of the minter role.
+
+```javascript
+const minterAddresses = await contract.roles.get("minter");
+```
+
 **Signature:**
 
 ```typescript
@@ -36,11 +44,3 @@ If you are requestiong a role that does not exist on the contract this will thro
 ## Remarks
 
 See [ContractRoles.getAll()](./sdk.contractroles.getall.md) to get get a list of addresses for all supported roles on the contract.
-
-## Example
-
-Say you want to get the list of addresses that are members of the minter role.
-
-```javascript
-const minterAddresses = await contract.roles.get("minter");
-```

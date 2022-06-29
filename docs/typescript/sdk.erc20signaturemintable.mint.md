@@ -11,6 +11,18 @@ displayed_sidebar: typescript
 
 Mint tokens from a signature
 
+## Example
+
+```javascript
+// see how to craft a payload to sign in the `generate()` documentation
+const signedPayload = contract.signature.generate(payload);
+
+// now anyone can mint the NFT
+const tx = contract.signature.mint(signedPayload);
+const receipt = tx.receipt; // the mint transaction receipt
+const mintedId = tx.id; // the id of the NFT minted
+```
+
 **Signature:**
 
 ```typescript
@@ -30,15 +42,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Mint a certain amount of tokens from a previously generated signature.
-
-## Example
-
-```javascript
-// see how to craft a payload to sign in the `generate()` documentation
-const signedPayload = contract.signature.generate(payload);
-
-// now anyone can mint the NFT
-const tx = contract.signature.mint(signedPayload);
-const receipt = tx.receipt; // the mint transaction receipt
-const mintedId = tx.id; // the id of the NFT minted
-```

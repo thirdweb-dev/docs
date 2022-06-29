@@ -11,6 +11,16 @@ displayed_sidebar: typescript
 
 Allows the specified `spender` wallet to transfer the given `amount` of tokens to another wallet
 
+## Example
+
+```javascript
+// Address of the wallet to allow transfers from
+const spenderAddress = "0x...";
+// The number of tokens to give as allowance
+const amount = 100;
+await contract.token.setAllowance(spenderAddress, amount);
+```
+
 **Signature:**
 
 ```typescript
@@ -27,13 +37,3 @@ setAllowance(spender: string, amount: Amount): Promise<TransactionResult>;
 **Returns:**
 
 Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
-
-## Example
-
-```javascript
-// Address of the wallet to allow transfers from
-const spenderAddress = "0x...";
-// The number of tokens to give as allowance
-const amount = 100;
-await contract.token.setAllowance(spenderAddress, amount);
-```

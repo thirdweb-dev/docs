@@ -11,16 +11,6 @@ displayed_sidebar: typescript
 
 Signature Minting
 
-**Signature:**
-
-```typescript
-signature: Erc20SignatureMintable;
-```
-
-## Remarks
-
-Generate tokens that can be minted only with your own signature, attaching your own set of mint conditions.
-
 ## Example
 
 ```javascript
@@ -31,3 +21,13 @@ const signedPayload = contract.signature.generate(payload);
 const tx = contract.signature.mint(signedPayload);
 const receipt = tx.receipt; // the mint transaction receipt
 ```
+
+**Signature:**
+
+```typescript
+signature: Erc20SignatureMintable;
+```
+
+## Remarks
+
+Generate tokens that can be minted only with your own signature, attaching your own set of mint conditions.

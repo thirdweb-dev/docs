@@ -11,6 +11,13 @@ displayed_sidebar: typescript
 
 Get all active listings
 
+## Example
+
+```javascript
+const listings = await contract.getActiveListings();
+const priceOfFirstActiveListing = listings[0].price;
+```
+
 **Signature:**
 
 ```typescript
@@ -30,10 +37,3 @@ Promise&lt;([AuctionListing](./sdk.auctionlisting.md) \| [DirectListing](./sdk.d
 ## Remarks
 
 Fetch all the active listings from this marketplace contract. An active listing means it can be bought or bid on.
-
-## Example
-
-```javascript
-const listings = await contract.getActiveListings();
-const priceOfFirstActiveListing = listings[0].price;
-```

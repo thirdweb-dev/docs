@@ -11,6 +11,13 @@ displayed_sidebar: typescript
 
 Get All Unclaimed NFTs
 
+## Example
+
+```javascript
+const unclaimedNFTs = await contract.getAllUnclaimed();
+const firstUnclaimedNFT = unclaimedNFTs[0].name;
+```
+
 **Signature:**
 
 ```typescript
@@ -34,10 +41,3 @@ The NFT metadata for all NFTs queried.
 Fetch all the NFTs that have been not been claimed yet in this Drop.
 
 \*
-
-## Example
-
-```javascript
-const unclaimedNFTs = await contract.getAllUnclaimed();
-const firstUnclaimedNFT = unclaimedNFTs[0].name;
-```

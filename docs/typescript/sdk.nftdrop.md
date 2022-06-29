@@ -11,14 +11,6 @@ displayed_sidebar: typescript
 
 Setup a collection of one-of-one NFTs that are minted as users claim them.
 
-**Signature:**
-
-```typescript
-export declare class NFTDrop extends Erc721<DropERC721>
-```
-
-**Extends:** [Erc721](./sdk.erc721.md)&lt;DropERC721
-
 ## Example
 
 ```javascript
@@ -69,3 +61,11 @@ const contract = sdk.getNFTDrop("{{contract_address}}");
 | [totalClaimedSupply()](./sdk.nftdrop.totalclaimedsupply.md)                            |           | Get the claimed supply                                                     |
 | [totalSupply()](./sdk.nftdrop.totalsupply.md)                                          |           | Get the total count NFTs in this drop contract, both claimed and unclaimed |
 | [totalUnclaimedSupply()](./sdk.nftdrop.totalunclaimedsupply.md)                        |           | Get the unclaimed supply                                                   |
+
+**Signature:**
+
+```typescript
+export declare class NFTDrop extends Erc721<DropERC721>
+```
+
+**Extends:** [Erc721](./sdk.erc721.md)&lt;DropERC721

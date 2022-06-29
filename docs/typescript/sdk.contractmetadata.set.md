@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Set the metadata of a contract
 
+## Example
+
+```javascript
+await contract.metadata.set({
+  name: "My Contract",
+  description: "My contract description",
+});
+```
+
 **Signature:**
 
 ```typescript
@@ -36,12 +45,3 @@ Promise&lt;((&lt;A&gt;() =&gt; A extends never ? 1 : 0) extends &lt;A_1&gt;() =&
 ## Remarks
 
 OVERWRITE the metadata of a contract
-
-## Example
-
-```javascript
-await contract.metadata.set({
-  name: "My Contract",
-  description: "My contract description",
-});
-```

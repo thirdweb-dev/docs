@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Deploys an NFT Collection contract
 
+## Example
+
+```javascript
+const contractAddress = await sdk.deployer.deployNFTCollection({
+  name: "My Collection",
+  primary_sale_recipient: "your-address",
+});
+```
+
 **Signature:**
 
 ```typescript
@@ -32,12 +41,3 @@ the address of the deployed contract
 ## Remarks
 
 Deploys an NFT Collection contract and returns the address of the deployed contract
-
-## Example
-
-```javascript
-const contractAddress = await sdk.deployer.deployNFTCollection({
-  name: "My Collection",
-  primary_sale_recipient: "your-address",
-});
-```

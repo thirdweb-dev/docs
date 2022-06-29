@@ -11,6 +11,18 @@ displayed_sidebar: typescript
 
 Get Auction Winner
 
+## Example
+
+```javascript
+// The listing ID of the auction that closed
+const listingId = 0;
+
+contract.auction.
+  .getWinner(listingId)
+  .then((auctionWinner) => console.log(auctionWinner))
+  .catch((err) => console.error(err));
+```
+
 **Signature:**
 
 ```typescript
@@ -30,15 +42,3 @@ Promise&lt;string&gt;
 ## Remarks
 
 Get the winner of the auction after an auction ends.
-
-## Example
-
-```javascript
-// The listing ID of the auction that closed
-const listingId = 0;
-
-contract.auction.
-  .getWinner(listingId)
-  .then((auctionWinner) => console.log(auctionWinner))
-  .catch((err) => console.error(err));
-```

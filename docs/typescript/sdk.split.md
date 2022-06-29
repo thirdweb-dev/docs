@@ -11,14 +11,6 @@ displayed_sidebar: typescript
 
 Create custom royalty splits to distribute funds.
 
-**Signature:**
-
-```typescript
-export declare class Split implements UpdateableNetwork
-```
-
-**Implements:** UpdateableNetwork
-
 ## Example
 
 ```javascript
@@ -61,3 +53,11 @@ const contract = sdk.getSplit("{{contract_address}}");
 | [onNetworkUpdated(network)](./sdk.split.onnetworkupdated.md)                            |           |                                                                                 |
 | [withdraw(walletAddress)](./sdk.split.withdraw.md)                                      |           | Withdraw Funds                                                                  |
 | [withdrawToken(walletAddress, tokenAddress)](./sdk.split.withdrawtoken.md)              |           | Triggers a transfer to account of the amount of a given currency they are owed. |
+
+**Signature:**
+
+```typescript
+export declare class Split implements UpdateableNetwork
+```
+
+**Implements:** UpdateableNetwork

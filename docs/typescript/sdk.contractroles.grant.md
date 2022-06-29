@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Call this to grant a role to a specific address.
 
+## Example
+
+```javascript
+await contract.roles.grant(
+  "minter",
+  "0x1234567890123456789012345678901234567890",
+);
+```
+
 **Signature:**
 
 ```typescript
@@ -37,12 +46,3 @@ If you are trying to grant does not exist on the contract this will throw an err
 ## Remarks
 
 Make sure you are sure you want to grant the role to the address.
-
-## Example
-
-```javascript
-await contract.roles.grant(
-  "minter",
-  "0x1234567890123456789012345678901234567890",
-);
-```

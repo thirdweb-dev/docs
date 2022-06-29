@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 Mint ERC721 NFTs
 
-**Signature:**
-
-```typescript
-export declare class Erc721Mintable implements DetectableFeature
-```
-
-**Implements:** DetectableFeature
-
-## Remarks
-
-NFT minting functionality that handles IPFS storage for you.
-
 ## Example
 
 ```javascript
@@ -48,3 +36,15 @@ await contract.nft.mint.to(walletAddress, nftMetadata);
 | Method                                         | Modifiers | Description       |
 | ---------------------------------------------- | --------- | ----------------- |
 | [to(to, metadata)](./sdk.erc721mintable.to.md) |           | Mint a unique NFT |
+
+**Signature:**
+
+```typescript
+export declare class Erc721Mintable implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+NFT minting functionality that handles IPFS storage for you.

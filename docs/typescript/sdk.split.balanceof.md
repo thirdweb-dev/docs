@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Get Funds owed to a particular wallet
 
+## Example
+
+```javascript
+// The address to check the funds of
+const address = "{{wallet_address}}";
+const funds = await contract.balanceOf(address);
+console.log(funds);
+```
+
 **Signature:**
 
 ```typescript
@@ -30,12 +39,3 @@ Promise&lt;BigNumber&gt;
 ## Remarks
 
 Get the amount of funds in the native currency held by the contract that is owed to a specific recipient.
-
-## Example
-
-```javascript
-// The address to check the funds of
-const address = "{{wallet_address}}";
-const funds = await contract.balanceOf(address);
-console.log(funds);
-```

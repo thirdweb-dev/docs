@@ -11,6 +11,13 @@ displayed_sidebar: typescript
 
 Get All Packs
 
+## Example
+
+```javascript
+const packs = await contract.getAll();
+console.log(packs;
+```
+
 **Signature:**
 
 ```typescript
@@ -34,10 +41,3 @@ The pack metadata for all packs queried.
 Get all the data associated with every pack in this contract.
 
 By default, returns the first 100 packs, use queryParams to fetch more.
-
-## Example
-
-```javascript
-const packs = await contract.getAll();
-console.log(packs;
-```

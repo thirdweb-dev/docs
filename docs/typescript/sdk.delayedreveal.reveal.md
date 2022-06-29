@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Reveal a batch of hidden NFTs
 
+## Example
+
+```javascript
+// the batch to reveal
+const batchId = 0;
+// reveal the batch
+await contract.revealer.reveal(batchId, "my secret password");
+```
+
 **Signature:**
 
 ```typescript
@@ -31,12 +40,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Reveal the NFTs of a batch using the password.
-
-## Example
-
-```javascript
-// the batch to reveal
-const batchId = 0;
-// reveal the batch
-await contract.revealer.reveal(batchId, "my secret password");
-```

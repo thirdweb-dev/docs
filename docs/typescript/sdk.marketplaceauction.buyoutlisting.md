@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Buyout Auction
 
+## Example
+
+```javascript
+// The listing ID of the asset you want to buy
+const listingId = 0;
+
+await contract.auction.buyoutListing(listingId);
+```
+
 **Signature:**
 
 ```typescript
@@ -30,12 +39,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Buy a specific direct listing from the marketplace.
-
-## Example
-
-```javascript
-// The listing ID of the asset you want to buy
-const listingId = 0;
-
-await contract.auction.buyoutListing(listingId);
-```

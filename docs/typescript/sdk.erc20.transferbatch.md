@@ -11,6 +11,24 @@ displayed_sidebar: typescript
 
 Transfer Tokens To Many Wallets
 
+## Example
+
+```javascript
+// Data of the tokens you want to mint
+const data = [
+  {
+    toAddress: "{{wallet_address}}", // Address to mint tokens to
+    amount: 100, // How many tokens to mint to specified address
+  },
+  {
+    toAddress: "0x...",
+    amount: 100,
+  },
+];
+
+await contract.token.transferBatch(data);
+```
+
 **Signature:**
 
 ```typescript
@@ -30,21 +48,3 @@ Promise&lt;void&gt;
 ## Remarks
 
 Mint tokens from the connected wallet to many wallets
-
-## Example
-
-```javascript
-// Data of the tokens you want to mint
-const data = [
-  {
-    toAddress: "{{wallet_address}}", // Address to mint tokens to
-    amount: 100, // How many tokens to mint to specified address
-  },
-  {
-    toAddress: "0x...",
-    amount: 100,
-  },
-];
-
-await contract.token.transferBatch(data);
-```

@@ -11,6 +11,13 @@ displayed_sidebar: typescript
 
 Get All Claimed NFTs
 
+## Example
+
+```javascript
+const claimedNFTs = await contract.getAllClaimed();
+const firstOwner = claimedNFTs[0].owner;
+```
+
 **Signature:**
 
 ```typescript
@@ -34,10 +41,3 @@ The NFT metadata and their ownersfor all NFTs queried.
 Fetch all the NFTs (and their owners) that have been claimed in this Drop.
 
 \*
-
-## Example
-
-```javascript
-const claimedNFTs = await contract.getAllClaimed();
-const firstOwner = claimedNFTs[0].owner;
-```

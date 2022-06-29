@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Get Token Balance for the currently connected wallet
 
+## Example
+
+```javascript
+const balance = await contract.token.balance();
+```
+
 **Signature:**
 
 ```typescript
@@ -26,9 +32,3 @@ The balance of a specific wallet.
 ## Remarks
 
 Get a wallets token balance.
-
-## Example
-
-```javascript
-const balance = await contract.token.balance();
-```

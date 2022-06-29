@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 Execute Proposal
 
+## Example
+
+```javascript
+// The proposal ID ofthe proposal you want to execute
+const proposalId = "0";
+await contract.execute(proposalId);
+```
+
 **Signature:**
 
 ```typescript
@@ -30,11 +38,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Execute the related transactions for a proposal if the proposal succeeded.
-
-## Example
-
-```javascript
-// The proposal ID ofthe proposal you want to execute
-const proposalId = "0";
-await contract.execute(proposalId);
-```

@@ -11,16 +11,6 @@ displayed_sidebar: typescript
 
 Configure claim conditions
 
-**Signature:**
-
-```typescript
-claimConditions: DropClaimConditions<DropERC20>;
-```
-
-## Remarks
-
-Define who can claim Tokens, when and how many.
-
 ## Example
 
 ```javascript
@@ -40,3 +30,13 @@ const claimConditions = [
 ]);
 await contract.claimConditions.set(claimConditions);
 ```
+
+**Signature:**
+
+```typescript
+claimConditions: DropClaimConditions<DropERC20>;
+```
+
+## Remarks
+
+Define who can claim Tokens, when and how many.

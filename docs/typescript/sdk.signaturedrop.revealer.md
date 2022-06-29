@@ -11,16 +11,6 @@ displayed_sidebar: typescript
 
 Delayed reveal
 
-**Signature:**
-
-```typescript
-revealer: DelayedReveal<SignatureDropContract>;
-```
-
-## Remarks
-
-Create a batch of encrypted NFTs that can be revealed at a later time.
-
 ## Example
 
 ```javascript
@@ -52,3 +42,13 @@ await contract.revealer.createDelayedRevealBatch(
 const batchId = 0; // the batch to reveal
 await contract.revealer.reveal(batchId, "my secret password");
 ```
+
+**Signature:**
+
+```typescript
+revealer: DelayedReveal<SignatureDropContract>;
+```
+
+## Remarks
+
+Create a batch of encrypted NFTs that can be revealed at a later time.

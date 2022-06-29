@@ -13,6 +13,16 @@ displayed_sidebar: typescript
 
 Generate Authentication Token
 
+## Example
+
+```javascript
+const domain = "thirdweb.com";
+const loginPayload = await sdk.auth.login(domain);
+
+// Generate a JWT token that can be sent to the client-side wallet and used for authentication
+const token = await sdk.auth.generateAuthToken(domain, loginPayload);
+```
+
 **Signature:**
 
 ```typescript
@@ -36,13 +46,3 @@ A authentication token that can be used by the client to make authenticated requ
 ## Remarks
 
 Server-side function that generates a JWT token from the provided login request that the client-side wallet can use to authenticate to the server-side application.
-
-## Example
-
-```javascript
-const domain = "thirdweb.com";
-const loginPayload = await sdk.auth.login(domain);
-
-// Generate a JWT token that can be sent to the client-side wallet and used for authentication
-const token = await sdk.auth.generateAuthToken(domain, loginPayload);
-```

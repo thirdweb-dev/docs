@@ -11,6 +11,16 @@ displayed_sidebar: typescript
 
 Deploys a new Vote contract
 
+## Example
+
+```javascript
+const contractAddress = await sdk.deployer.deployVote({
+  name: "My Vote",
+  primary_sale_recipient: "your-address",
+  voting_token_address: "your-token-contract-address",
+});
+```
+
 **Signature:**
 
 ```typescript
@@ -32,13 +42,3 @@ the address of the deployed contract
 ## Remarks
 
 Deploys an Vote contract and returns the address of the deployed contract
-
-## Example
-
-```javascript
-const contractAddress = await sdk.deployer.deployVote({
-  name: "My Vote",
-  primary_sale_recipient: "your-address",
-  voting_token_address: "your-token-contract-address",
-});
-```

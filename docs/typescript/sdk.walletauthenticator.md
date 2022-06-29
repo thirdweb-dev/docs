@@ -13,18 +13,6 @@ displayed_sidebar: typescript
 
 Wallet Authenticator
 
-**Signature:**
-
-```typescript
-export declare class WalletAuthenticator extends RPCConnectionHandler
-```
-
-**Extends:** RPCConnectionHandler
-
-## Remarks
-
-The wallet authenticator enables server-side applications to securely identify the connected wallet address of users on the client-side, and also enables users to authenticate to any backend using just their wallet. It implements the JSON Web Token (JWT) authentication standard.
-
 ## Example
 
 ```javascript
@@ -59,3 +47,15 @@ const address = sdk.auth.authenticate(domain, token);
 | [generateAuthToken(domain, payload, options)](./sdk.walletauthenticator.generateauthtoken.md) |           | **<i>(BETA)</i>** Generate Authentication Token |
 | [login(domain, options)](./sdk.walletauthenticator.login.md)                                  |           | **<i>(BETA)</i>** Login With Connected Wallet   |
 | [verify(domain, payload, options)](./sdk.walletauthenticator.verify.md)                       |           | **<i>(BETA)</i>** Verify Logged In Address      |
+
+**Signature:**
+
+```typescript
+export declare class WalletAuthenticator extends RPCConnectionHandler
+```
+
+**Extends:** RPCConnectionHandler
+
+## Remarks
+
+The wallet authenticator enables server-side applications to securely identify the connected wallet address of users on the client-side, and also enables users to authenticate to any backend using just their wallet. It implements the JSON Web Token (JWT) authentication standard.

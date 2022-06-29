@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Get the currently connected address
 
+## Example
+
+```javascript
+const address = await sdk.wallet.getAddress();
+```
+
 **Signature:**
 
 ```typescript
@@ -20,9 +26,3 @@ getAddress(): Promise<string>;
 **Returns:**
 
 Promise&lt;string&gt;
-
-## Example
-
-```javascript
-const address = await sdk.wallet.getAddress();
-```

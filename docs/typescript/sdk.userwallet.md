@@ -11,12 +11,6 @@ displayed_sidebar: typescript
 
 Connect and Interact with a user wallet
 
-**Signature:**
-
-```typescript
-export declare class UserWallet
-```
-
 ## Example
 
 ```javascript
@@ -39,3 +33,9 @@ const balance = await sdk.wallet.balance();
 | [sendRawTransaction(transactionRequest)](./sdk.userwallet.sendrawtransaction.md) |           | Send a raw transaction to the blockchain from the connected wallet |
 | [sign(message)](./sdk.userwallet.sign.md)                                        |           | Sign any message with the connected wallet private key             |
 | [transfer(to, amount, currencyAddress)](./sdk.userwallet.transfer.md)            |           | Transfer native or ERC20 tokens from this wallet to another wallet |
+
+**Signature:**
+
+```typescript
+export declare class UserWallet
+```

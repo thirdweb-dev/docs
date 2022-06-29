@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Get all claimer addresses
 
+## Example
+
+```javascript
+const tokenId = "0";
+const allClaimerAddresses = await contract.history.getAllClaimerAddresses(
+  tokenId,
+);
+```
+
 **Signature:**
 
 ```typescript
@@ -32,12 +41,3 @@ Promise&lt;string\[\]&gt;
 ## Remarks
 
 Get a list of all the addresses that have claimed a token
-
-## Example
-
-```javascript
-const tokenId = "0";
-const allClaimerAddresses = await contract.history.getAllClaimerAddresses(
-  tokenId,
-);
-```

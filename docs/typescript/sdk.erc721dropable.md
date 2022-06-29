@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 Lazily mint and claim ERC721 NFTs
 
-**Signature:**
-
-```typescript
-export declare class Erc721Dropable implements DetectableFeature
-```
-
-**Implements:** DetectableFeature
-
-## Remarks
-
-Manage claim phases and claim ERC721 NFTs that have been lazily minted.
-
 ## Example
 
 ```javascript
@@ -51,3 +39,15 @@ await contract.drop.claim(quantity);
 | [claim(quantity, checkERC20Allowance, claimData)](./sdk.erc721dropable.claim.md)                         |           | Claim NFTs to the connected wallet.                       |
 | [claimTo(destinationAddress, quantity, checkERC20Allowance, claimData)](./sdk.erc721dropable.claimto.md) |           | Claim unique NFTs to a specific Wallet                    |
 | [lazyMint(metadatas, options)](./sdk.erc721dropable.lazymint.md)                                         |           | Create a batch of unique NFTs to be claimed in the future |
+
+**Signature:**
+
+```typescript
+export declare class Erc721Dropable implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+Manage claim phases and claim ERC721 NFTs that have been lazily minted.

@@ -11,27 +11,6 @@ displayed_sidebar: typescript
 
 Upload any data to an IPFS directory. We'll handle all the details for you, including pinning your files and making sure that you get the fastest upload speeds.
 
-**Signature:**
-
-```typescript
-upload(data: FileOrBuffer[] | JsonObject[] | FileOrBuffer | JsonObject, options?: {
-        onProgress: (event: UploadProgressEvent) => void;
-    }): Promise<UploadResult>;
-```
-
-## Parameters
-
-| Parameter | Type                                                                                                                                                                         | Description                                                          |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| data      | [FileOrBuffer](./sdk.fileorbuffer.md)\[\] &#124; [JsonObject](./sdk.jsonobject.md)\[\] &#124; [FileOrBuffer](./sdk.fileorbuffer.md) &#124; [JsonObject](./sdk.jsonobject.md) | An array of file data or an array of JSON metadata to upload to IPFS |
-| options   | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; }                                                                                     | <i>(Optional)</i> Optional. Upload progress callback.                |
-
-**Returns:**
-
-Promise&lt;[UploadResult](./sdk.uploadresult.md)&gt;
-
-The IPFS hash of the directory that holds all the uploaded data
-
 ## Example
 
 ```javascript
@@ -54,3 +33,24 @@ const result = await sdk.storage.upload(files, {
   },
 });
 ```
+
+**Signature:**
+
+```typescript
+upload(data: FileOrBuffer[] | JsonObject[] | FileOrBuffer | JsonObject, options?: {
+        onProgress: (event: UploadProgressEvent) => void;
+    }): Promise<UploadResult>;
+```
+
+## Parameters
+
+| Parameter | Type                                                                                                                                                                         | Description                                                          |
+| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------- |
+| data      | [FileOrBuffer](./sdk.fileorbuffer.md)\[\] &#124; [JsonObject](./sdk.jsonobject.md)\[\] &#124; [FileOrBuffer](./sdk.fileorbuffer.md) &#124; [JsonObject](./sdk.jsonobject.md) | An array of file data or an array of JSON metadata to upload to IPFS |
+| options   | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; }                                                                                     | <i>(Optional)</i> Optional. Upload progress callback.                |
+
+**Returns:**
+
+Promise&lt;[UploadResult](./sdk.uploadresult.md)&gt;
+
+The IPFS hash of the directory that holds all the uploaded data

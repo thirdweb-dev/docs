@@ -13,6 +13,13 @@ displayed_sidebar: typescript
 
 Get All Wrapped Token Bundles
 
+## Example
+
+```javascript
+const wrappedBundles = await contract.getAll();
+console.log(wrappedBundles);
+```
+
 **Signature:**
 
 ```typescript
@@ -36,10 +43,3 @@ The NFT metadata for all NFTs queried.
 Get all the data associated with every token bundle in this contract.
 
 By default, returns the first 100 NFTs, use queryParams to fetch more.
-
-## Example
-
-```javascript
-const wrappedBundles = await contract.getAll();
-console.log(wrappedBundles);
-```

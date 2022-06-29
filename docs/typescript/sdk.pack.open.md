@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 Open Pack
 
+## Example
+
+```javascript
+const tokenId = 0;
+const amount = 1;
+const tx = await contract.open(tokenId, amount);
+```
+
 **Signature:**
 
 ```typescript
@@ -31,11 +39,3 @@ Promise&lt;PackRewards&gt;
 ## Remarks
 
 - Open a pack to reveal the contained rewards. This will burn the specified pack and the contained assets will be transferred to the opening users wallet.
-
-## Example
-
-```javascript
-const tokenId = 0;
-const amount = 1;
-const tx = await contract.open(tokenId, amount);
-```

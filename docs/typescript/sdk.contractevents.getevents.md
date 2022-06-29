@@ -11,6 +11,21 @@ displayed_sidebar: typescript
 
 Get Events
 
+## Example
+
+```javascript
+// The name of the event to get logs for
+const eventName = "Transfer";
+// Optionally pass in filters to limit the blocks from which events are retrieved
+const filters = {
+  fromBlock: 0,
+  toBlock: 1000000,
+};
+const events = await contract.events.getEvents(eventName, filters);
+console.log(events[0].eventName);
+console.log(events[0].data);
+```
+
 **Signature:**
 
 ```typescript
@@ -33,18 +48,3 @@ The requested event objects with event data
 ## Remarks
 
 Get a list of the events of a specific type emitted from this contract during the specified time period
-
-## Example
-
-```javascript
-// The name of the event to get logs for
-const eventName = "Transfer";
-// Optionally pass in filters to limit the blocks from which events are retrieved
-const filters = {
-  fromBlock: 0,
-  toBlock: 1000000,
-};
-const events = await contract.events.getEvents(eventName, filters);
-console.log(events[0].eventName);
-console.log(events[0].data);
-```

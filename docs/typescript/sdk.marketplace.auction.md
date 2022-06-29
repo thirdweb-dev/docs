@@ -11,16 +11,6 @@ displayed_sidebar: typescript
 
 Auctions
 
-**Signature:**
-
-```typescript
-auction: MarketplaceAuction;
-```
-
-## Remarks
-
-Create and manage auctions in your marketplace.
-
 ## Example
 
 ```javascript
@@ -53,3 +43,13 @@ const listingId = tx.id; // the id of the newly created listing
 const pricePerToken = 2.6;
 await contract.auction.makeBid(listingId, pricePerToken);
 ```
+
+**Signature:**
+
+```typescript
+auction: MarketplaceAuction;
+```
+
+## Remarks
+
+Create and manage auctions in your marketplace.

@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 The next transaction executed will add/replace any overrides passed via the passed in hook.
 
+## Example
+
+```javascript
+contract.interceptor.overrideNextTransaction(() => ({
+  gasLimit: 3000000,
+}));
+```
+
 **Signature:**
 
 ```typescript
@@ -30,11 +38,3 @@ void
 ## Remarks
 
 Overridden values will be applied to the next transaction executed.
-
-## Example
-
-```javascript
-contract.interceptor.overrideNextTransaction(() => ({
-  gasLimit: 3000000,
-}));
-```

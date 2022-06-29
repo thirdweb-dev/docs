@@ -11,26 +11,6 @@ displayed_sidebar: typescript
 
 Create Direct Listing
 
-**Signature:**
-
-```typescript
-createListing(listing: NewDirectListing): Promise<TransactionResultWithId>;
-```
-
-## Parameters
-
-| Parameter | Type                                          | Description |
-| --------- | --------------------------------------------- | ----------- |
-| listing   | [NewDirectListing](./sdk.newdirectlisting.md) |             |
-
-**Returns:**
-
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&gt;
-
-## Remarks
-
-Create a new listing on the marketplace where people can buy an asset directly.
-
 ## Example
 
 ```javascript
@@ -56,3 +36,23 @@ const tx = await contract.direct.createListing(listing);
 const receipt = tx.receipt; // the transaction receipt
 const id = tx.id; // the id of the newly created listing
 ```
+
+**Signature:**
+
+```typescript
+createListing(listing: NewDirectListing): Promise<TransactionResultWithId>;
+```
+
+## Parameters
+
+| Parameter | Type                                          | Description |
+| --------- | --------------------------------------------- | ----------- |
+| listing   | [NewDirectListing](./sdk.newdirectlisting.md) |             |
+
+**Returns:**
+
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&gt;
+
+## Remarks
+
+Create a new listing on the marketplace where people can buy an asset directly.

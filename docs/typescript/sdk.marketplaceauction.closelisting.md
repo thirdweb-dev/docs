@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 Close the Auction
 
+## Example
+
+```javascript
+// The listing ID of the auction listing you want to close
+const listingId = "0";
+await contract.auction.closeListing(listingId);
+```
+
 **Signature:**
 
 ```typescript
@@ -31,11 +39,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Closes the Auction and executes the sale.
-
-## Example
-
-```javascript
-// The listing ID of the auction listing you want to close
-const listingId = "0";
-await contract.auction.closeListing(listingId);
-```

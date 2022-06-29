@@ -11,29 +11,6 @@ displayed_sidebar: typescript
 
 Create Proposal
 
-**Signature:**
-
-```typescript
-propose(description: string, executions?: ProposalExecutable[]): Promise<TransactionResultWithId>;
-```
-
-## Parameters
-
-| Parameter   | Type                                                  | Description                                                                                                 |
-| ----------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| description | string                                                | The description of the proposal.                                                                            |
-| executions  | [ProposalExecutable](./sdk.proposalexecutable.md)\[\] | <i>(Optional)</i> A set of executable transactions that will be run if the proposal is passed and executed. |
-
-**Returns:**
-
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&gt;
-
-- The id of the created proposal and the transaction receipt.
-
-## Remarks
-
-Create a new proposal for token holders to vote on.
-
 ## Example
 
 ```javascript
@@ -57,3 +34,26 @@ const executions = [
 
 const proposal = await contract.propose(description, executions);
 ```
+
+**Signature:**
+
+```typescript
+propose(description: string, executions?: ProposalExecutable[]): Promise<TransactionResultWithId>;
+```
+
+## Parameters
+
+| Parameter   | Type                                                  | Description                                                                                                 |
+| ----------- | ----------------------------------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| description | string                                                | The description of the proposal.                                                                            |
+| executions  | [ProposalExecutable](./sdk.proposalexecutable.md)\[\] | <i>(Optional)</i> A set of executable transactions that will be run if the proposal is passed and executed. |
+
+**Returns:**
+
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&gt;
+
+- The id of the created proposal and the transaction receipt.
+
+## Remarks
+
+Create a new proposal for token holders to vote on.

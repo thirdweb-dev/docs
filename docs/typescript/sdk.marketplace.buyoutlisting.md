@@ -11,6 +11,17 @@ displayed_sidebar: typescript
 
 Purchase NFTs
 
+## Example
+
+```javascript
+// The listing ID of the asset you want to buy
+const listingId = 0;
+// Quantity of the asset you want to buy
+const quantityDesired = 1;
+
+await contract.buyoutListing(listingId, quantityDesired);
+```
+
 **Signature:**
 
 ```typescript
@@ -32,14 +43,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Buy a Direct or Auction listing on your marketplace.
-
-## Example
-
-```javascript
-// The listing ID of the asset you want to buy
-const listingId = 0;
-// Quantity of the asset you want to buy
-const quantityDesired = 1;
-
-await contract.buyoutListing(listingId, quantityDesired);
-```

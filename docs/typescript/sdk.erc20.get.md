@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Get the token Metadata (name, symbol, etc...)
 
+## Example
+
+```javascript
+const token = await contract.token.get();
+```
+
 **Signature:**
 
 ```typescript
@@ -22,9 +28,3 @@ get(): Promise<Currency>;
 Promise&lt;[Currency](./sdk.currency.md)&gt;
 
 The token metadata
-
-## Example
-
-```javascript
-const token = await contract.token.get();
-```

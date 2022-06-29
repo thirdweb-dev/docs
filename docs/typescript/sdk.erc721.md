@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 Standard ERC721 NFT functions
 
-**Signature:**
-
-```typescript
-export declare class Erc721<T extends Multiwrap | SignatureDrop | DropERC721 | TokenERC721 | BaseERC721 = BaseERC721 | BaseSignatureMintERC721> implements UpdateableNetwork, DetectableFeature
-```
-
-**Implements:** UpdateableNetwork, DetectableFeature
-
-## Remarks
-
-Basic functionality for a ERC721 contract that handles IPFS storage for you.
-
 ## Example
 
 ```javascript
@@ -60,3 +48,15 @@ await contract.nft.transfer(walletAddress, tokenId);
 | [isApproved(address, operator)](./sdk.erc721.isapproved.md) |           | Get whether this wallet has approved transfers from the given operator |
 | [ownerOf(tokenId)](./sdk.erc721.ownerof.md)                 |           | Get the current owner of a given NFT within this Contract              |
 | [transfer(to, tokenId)](./sdk.erc721.transfer.md)           |           | Transfer a single NFT                                                  |
+
+**Signature:**
+
+```typescript
+export declare class Erc721<T extends Multiwrap | SignatureDrop | DropERC721 | TokenERC721 | BaseERC721 = BaseERC721 | BaseSignatureMintERC721> implements UpdateableNetwork, DetectableFeature
+```
+
+**Implements:** UpdateableNetwork, DetectableFeature
+
+## Remarks
+
+Basic functionality for a ERC721 contract that handles IPFS storage for you.

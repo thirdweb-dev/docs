@@ -11,6 +11,16 @@ displayed_sidebar: typescript
 
 Transfer a single NFT
 
+## Example
+
+```javascript
+// Address of the wallet you want to send the NFT to
+const toAddress = "{{wallet_address}}";
+const tokenId = "0"; // The token ID of the NFT you want to send
+const amount = 3; // How many copies of the NFTs to transfer
+await contract.transfer(toAddress, tokenId, amount);
+```
+
 **Signature:**
 
 ```typescript
@@ -33,13 +43,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Transfer an NFT from the connected wallet to another wallet.
-
-## Example
-
-```javascript
-// Address of the wallet you want to send the NFT to
-const toAddress = "{{wallet_address}}";
-const tokenId = "0"; // The token ID of the NFT you want to send
-const amount = 3; // How many copies of the NFTs to transfer
-await contract.transfer(toAddress, tokenId, amount);
-```

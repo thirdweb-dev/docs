@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 Remove an event listener from this contract
 
+## Example
+
+```javascript
+contract.events.removeEventListener("TokensMinted", (event) => {
+  console.log(event);
+});
+```
+
 **Signature:**
 
 ```typescript
@@ -31,11 +39,3 @@ void
 ## Remarks
 
 Remove a listener that was added with addEventListener
-
-## Example
-
-```javascript
-contract.events.removeEventListener("TokensMinted", (event) => {
-  console.log(event);
-});
-```

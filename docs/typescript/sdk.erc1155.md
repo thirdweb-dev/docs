@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 Standard ERC1155 NFT functions
 
-**Signature:**
-
-```typescript
-export declare class Erc1155<T extends DropERC1155 | TokenERC1155 | BaseERC1155 = BaseERC1155 | BaseSignatureMintERC1155> implements UpdateableNetwork, DetectableFeature
-```
-
-**Implements:** UpdateableNetwork, DetectableFeature
-
-## Remarks
-
-Basic functionality for a ERC1155 contract that handles IPFS storage for you.
-
 ## Example
 
 ```javascript
@@ -60,3 +48,15 @@ await contract.edition.transfer(walletAddress, tokenId, quantity);
 | [isApproved(address, operator)](./sdk.erc1155.isapproved.md)     |           | Get whether this wallet has approved transfers from the given operator |
 | [totalSupply(tokenId)](./sdk.erc1155.totalsupply.md)             |           | Returns the total supply of a specific token                           |
 | [transfer(to, tokenId, amount, data)](./sdk.erc1155.transfer.md) |           | Transfer a single NFT                                                  |
+
+**Signature:**
+
+```typescript
+export declare class Erc1155<T extends DropERC1155 | TokenERC1155 | BaseERC1155 = BaseERC1155 | BaseSignatureMintERC1155> implements UpdateableNetwork, DetectableFeature
+```
+
+**Implements:** UpdateableNetwork, DetectableFeature
+
+## Remarks
+
+Basic functionality for a ERC1155 contract that handles IPFS storage for you.

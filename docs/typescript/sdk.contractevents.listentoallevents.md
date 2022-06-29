@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Listen to all events emitted from this contract
 
+## Example
+
+```javascript
+contract.events.listenToAllEvents((event) => {
+  console.log(event.eventName) // the name of the emitted event
+  console.log(event.data) // event payload
+}
+```
+
 **Signature:**
 
 ```typescript
@@ -28,12 +37,3 @@ listenToAllEvents(listener: (event: ContractEvent) => void): () => void;
 () =&gt; void
 
 A function that can be called to stop listening to events
-
-## Example
-
-```javascript
-contract.events.listenToAllEvents((event) => {
-  console.log(event.eventName) // the name of the emitted event
-  console.log(event.data) // event payload
-}
-```

@@ -11,6 +11,16 @@ displayed_sidebar: typescript
 
 Get Token Allowance
 
+## Example
+
+```javascript
+// Address of the wallet who owns the funds
+const owner = "{{wallet_address}}";
+// Address of the wallet to check token allowance
+const spender = "0x...";
+const allowance = await contract.token.allowanceOf(owner, spender);
+```
+
 **Signature:**
 
 ```typescript
@@ -33,13 +43,3 @@ The allowance of one wallet over anothers funds.
 ## Remarks
 
 Get the allowance of one wallet over another wallet's funds - the allowance of a different address for a token is the amount of tokens that the wallet is allowed to spend on behalf of the specified wallet.
-
-## Example
-
-```javascript
-// Address of the wallet who owns the funds
-const owner = "{{wallet_address}}";
-// Address of the wallet to check token allowance
-const spender = "0x...";
-const allowance = await contract.token.allowanceOf(owner, spender);
-```
