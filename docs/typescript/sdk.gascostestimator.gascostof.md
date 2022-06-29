@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Estimates the cost of gas in native token of the current chain
 
+## Example
+
+```javascript
+const costOfBurn = await contract?.estimator.gasCostOf("burn", [0]);
+```
+
 **Signature:**
 
 ```typescript
@@ -33,9 +39,3 @@ the estimated price in native currency (ETH, MATIC, etc) of calling this functio
 ## Remarks
 
 Estimate the cost of gas in native token of the current chain
-
-## Example
-
-```javascript
-const costOfBurn = await contract?.estimator.gasCostOf("burn", [0]);
-```

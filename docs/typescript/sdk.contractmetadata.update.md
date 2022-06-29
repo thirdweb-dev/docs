@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Update the metadata of a contract
 
+## Example
+
+```javascript
+await contract.metadata.update({
+  name: "My Contract",
+  description: "My contract description",
+});
+```
+
 **Signature:**
 
 ```typescript
@@ -36,12 +45,3 @@ Promise&lt;((&lt;A&gt;() =&gt; A extends never ? 1 : 0) extends &lt;A_1&gt;() =&
 ## Remarks
 
 Update the metadata of a contract
-
-## Example
-
-```javascript
-await contract.metadata.update({
-  name: "My Contract",
-  description: "My contract description",
-});
-```

@@ -13,6 +13,12 @@ displayed_sidebar: typescript
 
 Unwrap a wrapped token bundle, and retrieve its contents
 
+## Example
+
+```javascript
+await contract.unwrap(wrappedTokenId);
+```
+
 **Signature:**
 
 ```typescript
@@ -29,9 +35,3 @@ unwrap(wrappedTokenId: BigNumberish, recipientAddress?: string): Promise<Transac
 **Returns:**
 
 Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
-
-## Example
-
-```javascript
-await contract.unwrap(wrappedTokenId);
-```

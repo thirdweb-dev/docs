@@ -13,6 +13,17 @@ displayed_sidebar: typescript
 
 Authenticate With Token
 
+## Example
+
+```javascript
+const domain = "thirdweb.com";
+const loginPayload = await sdk.auth.login(domain);
+const token = await sdk.auth.generateAuthToken(domain, loginPayload);
+
+// Authenticate the token and get the address of authenticating users wallet
+const address = sdk.auth.authenticate(domain, token);
+```
+
 **Signature:**
 
 ```typescript
@@ -35,14 +46,3 @@ The address of the authenticated wallet
 ## Remarks
 
 Server-side function that authenticates the provided JWT token. This function verifies that the provided authentication token is valid and returns the address of the authenticated wallet.
-
-## Example
-
-```javascript
-const domain = "thirdweb.com";
-const loginPayload = await sdk.auth.login(domain);
-const token = await sdk.auth.generateAuthToken(domain, loginPayload);
-
-// Authenticate the token and get the address of authenticating users wallet
-const address = sdk.auth.authenticate(domain, token);
-```

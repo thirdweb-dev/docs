@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Burn a single NFT
 
+## Example
+
+```javascript
+const result = await contract.burn(tokenId);
+```
+
 **Signature:**
 
 ```typescript
@@ -26,9 +32,3 @@ burn(tokenId: BigNumberish): Promise<TransactionResult>;
 **Returns:**
 
 Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
-
-## Example
-
-```javascript
-const result = await contract.burn(tokenId);
-```

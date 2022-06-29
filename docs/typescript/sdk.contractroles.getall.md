@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Call this to get get a list of addresses for all supported roles on the contract.
 
+## Example
+
+```javascript
+const rolesAndMembers = await contract.roles.getAll();
+```
+
 **Signature:**
 
 ```typescript
@@ -30,9 +36,3 @@ If the contract does not support roles this will throw an error.
 ## Remarks
 
 See [ContractRoles.get()](./sdk.contractroles.get.md) to get a list of addresses that are members of a specific role.
-
-## Example
-
-```javascript
-const rolesAndMembers = await contract.roles.getAll();
-```

@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Burn Tokens
 
+## Example
+
+```javascript
+// The amount of this token you want to burn
+const amount = 1.2;
+
+await contract.burn(amount);
+```
+
 **Signature:**
 
 ```typescript
@@ -30,12 +39,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Burn tokens held by the connected wallet
-
-## Example
-
-```javascript
-// The amount of this token you want to burn
-const amount = 1.2;
-
-await contract.burn(amount);
-```

@@ -11,14 +11,6 @@ displayed_sidebar: typescript
 
 Setup a collection of NFTs with a customizable number of each NFT that are minted as users claim them.
 
-**Signature:**
-
-```typescript
-export declare class EditionDrop extends Erc1155<DropERC1155>
-```
-
-**Extends:** [Erc1155](./sdk.erc1155.md)&lt;DropERC1155
-
 ## Example
 
 ```javascript
@@ -64,3 +56,11 @@ const contract = sdk.getEditionDrop("{{contract_address}}");
 | [getOwned(walletAddress)](./sdk.editiondrop.getowned.md)                                            |           | Get Owned NFTs                                         |
 | [getTotalCount()](./sdk.editiondrop.gettotalcount.md)                                               |           | Get the number of NFTs minted                          |
 | [isTransferRestricted()](./sdk.editiondrop.istransferrestricted.md)                                 |           | Get whether users can transfer NFTs from this contract |
+
+**Signature:**
+
+```typescript
+export declare class EditionDrop extends Erc1155<DropERC1155>
+```
+
+**Extends:** [Erc1155](./sdk.erc1155.md)&lt;DropERC1155

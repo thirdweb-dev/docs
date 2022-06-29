@@ -11,14 +11,6 @@ displayed_sidebar: typescript
 
 Setup a collection of NFTs where when it comes to minting, you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party..
 
-**Signature:**
-
-```typescript
-export declare class SignatureDrop extends Erc721<SignatureDropContract>
-```
-
-**Extends:** [Erc721](./sdk.erc721.md)&lt;SignatureDropContract
-
 ## Example
 
 ```javascript
@@ -70,3 +62,11 @@ const contract = sdk.getSignatureDrop("{{contract_address}}");
 | [totalClaimedSupply()](./sdk.signaturedrop.totalclaimedsupply.md)                            |           | Get the claimed supply                                                     |
 | [totalSupply()](./sdk.signaturedrop.totalsupply.md)                                          |           | Get the total count NFTs in this drop contract, both claimed and unclaimed |
 | [totalUnclaimedSupply()](./sdk.signaturedrop.totalunclaimedsupply.md)                        |           | Get the unclaimed supply                                                   |
+
+**Signature:**
+
+```typescript
+export declare class SignatureDrop extends Erc721<SignatureDropContract>
+```
+
+**Extends:** [Erc721](./sdk.erc721.md)&lt;SignatureDropContract

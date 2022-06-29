@@ -11,28 +11,6 @@ displayed_sidebar: typescript
 
 Set claim conditions on a single NFT
 
-**Signature:**
-
-```typescript
-set(tokenId: BigNumberish, claimConditionInputs: ClaimConditionInput[], resetClaimEligibilityForAll?: boolean): Promise<TransactionResult>;
-```
-
-## Parameters
-
-| Parameter                   | Type                                                    | Description                                                                         |
-| --------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| tokenId                     | BigNumberish                                            | The id of the NFT to set the claim conditions on                                    |
-| claimConditionInputs        | [ClaimConditionInput](./sdk.claimconditioninput.md)\[\] | The claim conditions                                                                |
-| resetClaimEligibilityForAll | boolean                                                 | <i>(Optional)</i> Whether to reset the state of who already claimed NFTs previously |
-
-**Returns:**
-
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
-
-## Remarks
-
-Sets the public mint conditions that need to be fulfilled by users to claim a particular NFT in this contract.
-
 ## Example
 
 ```javascript
@@ -54,3 +32,25 @@ const claimConditions = [
 const tokenId = 0; // the id of the NFT to set claim conditions on
 await dropContract.claimConditions.set(tokenId, claimConditions);
 ```
+
+**Signature:**
+
+```typescript
+set(tokenId: BigNumberish, claimConditionInputs: ClaimConditionInput[], resetClaimEligibilityForAll?: boolean): Promise<TransactionResult>;
+```
+
+## Parameters
+
+| Parameter                   | Type                                                    | Description                                                                         |
+| --------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| tokenId                     | BigNumberish                                            | The id of the NFT to set the claim conditions on                                    |
+| claimConditionInputs        | [ClaimConditionInput](./sdk.claimconditioninput.md)\[\] | The claim conditions                                                                |
+| resetClaimEligibilityForAll | boolean                                                 | <i>(Optional)</i> Whether to reset the state of who already claimed NFTs previously |
+
+**Returns:**
+
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+
+## Remarks
+
+Sets the public mint conditions that need to be fulfilled by users to claim a particular NFT in this contract.

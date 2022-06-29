@@ -13,24 +13,6 @@ displayed_sidebar: typescript
 
 Wrap any number of ERC20/ERC721/ERC1155 tokens into a single wrapped token
 
-**Signature:**
-
-```typescript
-wrap(contents: TokensToWrap, wrappedTokenMetadata: NFTMetadataOrUri, recipientAddress?: string): Promise<TransactionResultWithId<NFTMetadataOwner>>;
-```
-
-## Parameters
-
-| Parameter            | Type                                  | Description                                                                 |
-| -------------------- | ------------------------------------- | --------------------------------------------------------------------------- |
-| contents             | [TokensToWrap](./sdk.tokenstowrap.md) | the contents to wrap                                                        |
-| wrappedTokenMetadata | NFTMetadataOrUri                      | metadata to represent the wrapped token bundle                              |
-| recipientAddress     | string                                | <i>(Optional)</i> Optional. The address to send the wrapped token bundle to |
-
-**Returns:**
-
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;&gt;
-
 ## Example
 
 ```javascript
@@ -65,3 +47,21 @@ const tx = await contract.wrap(
 const receipt = tx.receipt(); // the transaction receipt
 const wrappedTokenId = tx.id; // the id of the wrapped token bundle
 ```
+
+**Signature:**
+
+```typescript
+wrap(contents: TokensToWrap, wrappedTokenMetadata: NFTMetadataOrUri, recipientAddress?: string): Promise<TransactionResultWithId<NFTMetadataOwner>>;
+```
+
+## Parameters
+
+| Parameter            | Type                                  | Description                                                                 |
+| -------------------- | ------------------------------------- | --------------------------------------------------------------------------- |
+| contents             | [TokensToWrap](./sdk.tokenstowrap.md) | the contents to wrap                                                        |
+| wrappedTokenMetadata | NFTMetadataOrUri                      | metadata to represent the wrapped token bundle                              |
+| recipientAddress     | string                                | <i>(Optional)</i> Optional. The address to send the wrapped token bundle to |
+
+**Returns:**
+
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;&gt;

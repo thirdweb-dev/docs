@@ -11,16 +11,6 @@ displayed_sidebar: typescript
 
 Direct listings
 
-**Signature:**
-
-```typescript
-direct: MarketplaceDirect;
-```
-
-## Remarks
-
-Create and manage direct listings in your marketplace.
-
 ## Example
 
 ```javascript
@@ -51,3 +41,13 @@ const listingId = tx.id; // the id of the newly created listing
 const quantityDesired = 1;
 await contract.direct.buyoutListing(listingId, quantityDesired);
 ```
+
+**Signature:**
+
+```typescript
+direct: MarketplaceDirect;
+```
+
+## Remarks
+
+Create and manage direct listings in your marketplace.

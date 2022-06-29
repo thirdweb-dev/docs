@@ -11,6 +11,19 @@ displayed_sidebar: typescript
 
 Get All Events
 
+## Example
+
+```javascript
+// Optionally pass in filters to limit the blocks from which events are retrieved
+const filters = {
+  fromBlock: 0,
+  toBlock: 1000000,
+};
+const events = await contract.events.getAllEvents(filters);
+console.log(events[0].eventName);
+console.log(events[0].data);
+```
+
 **Signature:**
 
 ```typescript
@@ -32,16 +45,3 @@ The event objects of the events emitted with event names and data for each event
 ## Remarks
 
 Get a list of all the events emitted from this contract during the specified time period
-
-## Example
-
-```javascript
-// Optionally pass in filters to limit the blocks from which events are retrieved
-const filters = {
-  fromBlock: 0,
-  toBlock: 1000000,
-};
-const events = await contract.events.getAllEvents(filters);
-console.log(events[0].eventName);
-console.log(events[0].data);
-```

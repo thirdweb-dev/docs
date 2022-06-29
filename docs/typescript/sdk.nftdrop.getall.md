@@ -11,6 +11,13 @@ displayed_sidebar: typescript
 
 Get All Minted NFTs
 
+## Example
+
+```javascript
+const nfts = await contract.getAll();
+console.log(nfts);
+```
+
 **Signature:**
 
 ```typescript
@@ -34,10 +41,3 @@ The NFT metadata for all NFTs queried.
 Get all the data associated with every NFT in this contract.
 
 By default, returns the first 100 NFTs, use queryParams to fetch more.
-
-## Example
-
-```javascript
-const nfts = await contract.getAll();
-console.log(nfts);
-```

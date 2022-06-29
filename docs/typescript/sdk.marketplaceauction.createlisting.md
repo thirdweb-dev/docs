@@ -11,26 +11,6 @@ displayed_sidebar: typescript
 
 Create Auction
 
-**Signature:**
-
-```typescript
-createListing(listing: NewAuctionListing): Promise<TransactionResultWithId>;
-```
-
-## Parameters
-
-| Parameter | Type                                            | Description |
-| --------- | ----------------------------------------------- | ----------- |
-| listing   | [NewAuctionListing](./sdk.newauctionlisting.md) |             |
-
-**Returns:**
-
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&gt;
-
-## Remarks
-
-Create a new auction where people can bid on an asset.
-
 ## Example
 
 ```javascript
@@ -58,3 +38,23 @@ const tx = await contract.auction.createListing(auction);
 const receipt = tx.receipt; // the transaction receipt
 const id = tx.id; // the id of the newly created listing
 ```
+
+**Signature:**
+
+```typescript
+createListing(listing: NewAuctionListing): Promise<TransactionResultWithId>;
+```
+
+## Parameters
+
+| Parameter | Type                                            | Description |
+| --------- | ----------------------------------------------- | ----------- |
+| listing   | [NewAuctionListing](./sdk.newauctionlisting.md) |             |
+
+**Returns:**
+
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&gt;
+
+## Remarks
+
+Create a new auction where people can bid on an asset.

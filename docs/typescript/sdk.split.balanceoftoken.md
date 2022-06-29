@@ -11,6 +11,17 @@ displayed_sidebar: typescript
 
 Get non-native Token Funds owed to a particular wallet
 
+## Example
+
+```javascript
+// The address to check the funds of
+const address = "{{wallet_address}}";
+// The address of the currency to check the contracts funds of
+const tokenAddress = "0x...";
+const funds = await contract.balanceOfToken(address, tokenAddress);
+console.log(funds);
+```
+
 **Signature:**
 
 ```typescript
@@ -31,14 +42,3 @@ Promise&lt;[CurrencyValue](./sdk.currencyvalue.md)&gt;
 ## Remarks
 
 Get the amount of funds in the non-native tokens held by the contract that is owed to a specific recipient.
-
-## Example
-
-```javascript
-// The address to check the funds of
-const address = "{{wallet_address}}";
-// The address of the currency to check the contracts funds of
-const tokenAddress = "0x...";
-const funds = await contract.balanceOfToken(address, tokenAddress);
-console.log(funds);
-```

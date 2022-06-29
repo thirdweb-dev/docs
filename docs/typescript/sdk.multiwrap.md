@@ -13,14 +13,6 @@ displayed_sidebar: typescript
 
 Multiwrap lets you wrap any number of ERC20, ERC721 and ERC1155 tokens you own into a single wrapped token bundle.
 
-**Signature:**
-
-```typescript
-export declare class Multiwrap extends Erc721<MultiwrapContract>
-```
-
-**Extends:** [Erc721](./sdk.erc721.md)&lt;MultiwrapContract
-
 ## Example
 
 ```javascript
@@ -58,3 +50,11 @@ const contract = sdk.getMultiwrap("{{contract_address}}");
 | [getWrappedContents(wrappedTokenId)](./sdk.multiwrap.getwrappedcontents.md)       |           | **<i>(BETA)</i>** Get the contents of a wrapped token bundle                                 |
 | [unwrap(wrappedTokenId, recipientAddress)](./sdk.multiwrap.unwrap.md)             |           | **<i>(BETA)</i>** Unwrap a wrapped token bundle, and retrieve its contents                   |
 | [wrap(contents, wrappedTokenMetadata, recipientAddress)](./sdk.multiwrap.wrap.md) |           | **<i>(BETA)</i>** Wrap any number of ERC20/ERC721/ERC1155 tokens into a single wrapped token |
+
+**Signature:**
+
+```typescript
+export declare class Multiwrap extends Erc721<MultiwrapContract>
+```
+
+**Extends:** [Erc721](./sdk.erc721.md)&lt;MultiwrapContract

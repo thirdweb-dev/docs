@@ -11,6 +11,13 @@ displayed_sidebar: typescript
 
 Get all the listings
 
+## Example
+
+```javascript
+const listings = await contract.getAllListings();
+const priceOfFirstListing = listings[0].price;
+```
+
 **Signature:**
 
 ```typescript
@@ -30,10 +37,3 @@ Promise&lt;([AuctionListing](./sdk.auctionlisting.md) \| [DirectListing](./sdk.d
 ## Remarks
 
 Fetch all the listings from this marketplace contract, including sold ones.
-
-## Example
-
-```javascript
-const listings = await contract.getAllListings();
-const priceOfFirstListing = listings[0].price;
-```

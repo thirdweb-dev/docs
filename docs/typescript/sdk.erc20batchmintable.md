@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 Mint Many ERC20 Tokens at once
 
-**Signature:**
-
-```typescript
-export declare class Erc20BatchMintable implements DetectableFeature
-```
-
-**Implements:** DetectableFeature
-
-## Remarks
-
-Token batch minting functionality that handles unit parsing for you.
-
 ## Example
 
 ```javascript
@@ -47,3 +35,15 @@ await contract.token.mint.batch.to(walletAddress, [nftMetadata1, nftMetadata2, .
 | Method                                     | Modifiers | Description                 |
 | ------------------------------------------ | --------- | --------------------------- |
 | [to(args)](./sdk.erc20batchmintable.to.md) |           | Mint Tokens To Many Wallets |
+
+**Signature:**
+
+```typescript
+export declare class Erc20BatchMintable implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+Token batch minting functionality that handles unit parsing for you.

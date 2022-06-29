@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Gets the list of unrevealed NFT batches.
 
+## Example
+
+```javascript
+const batches = await contract.revealer.getBatchesToReveal();
+```
+
 **Signature:**
 
 ```typescript
@@ -24,9 +30,3 @@ Promise&lt;[BatchToReveal](./sdk.batchtoreveal.md)\[\]&gt;
 ## Remarks
 
 Gets the list of unrevealed NFT batches.
-
-## Example
-
-```javascript
-const batches = await contract.revealer.getBatchesToReveal();
-```

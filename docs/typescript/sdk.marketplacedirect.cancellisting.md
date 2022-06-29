@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Cancel Direct Listing
 
+## Example
+
+```javascript
+// The listing ID of the direct listing you want to cancel
+const listingId = "0";
+
+await contract.direct.cancelListing(listingId);
+```
+
 **Signature:**
 
 ```typescript
@@ -30,12 +39,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Cancel a direct listing on the marketplace
-
-## Example
-
-```javascript
-// The listing ID of the direct listing you want to cancel
-const listingId = "0";
-
-await contract.direct.cancelListing(listingId);
-```

@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 Get Owned Packs
 
+## Example
+
+```javascript
+// Address of the wallet to get the packs of
+const address = "{{wallet_address}}";
+const packss = await contract.getOwned(address);
+```
+
 **Signature:**
 
 ```typescript
@@ -32,11 +40,3 @@ The pack metadata for all the owned packs in the contract.
 ## Remarks
 
 Get all the data associated with the packs owned by a specific wallet.
-
-## Example
-
-```javascript
-// Address of the wallet to get the packs of
-const address = "{{wallet_address}}";
-const packss = await contract.getOwned(address);
-```

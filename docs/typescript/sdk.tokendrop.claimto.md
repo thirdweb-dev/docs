@@ -11,6 +11,16 @@ displayed_sidebar: typescript
 
 Claim a certain amount of tokens to a specific Wallet
 
+## Example
+
+```javascript
+const address = "{{wallet_address}}"; // address of the wallet you want to claim the NFTs
+const quantity = 42.69; // how many tokens you want to claim
+
+const tx = await contract.claimTo(address, quantity);
+const receipt = tx.receipt; // the transaction receipt
+```
+
 **Signature:**
 
 ```typescript
@@ -34,13 +44,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Let the specified wallet claim Tokens.
-
-## Example
-
-```javascript
-const address = "{{wallet_address}}"; // address of the wallet you want to claim the NFTs
-const quantity = 42.69; // how many tokens you want to claim
-
-const tx = await contract.claimTo(address, quantity);
-const receipt = tx.receipt; // the transaction receipt
-```

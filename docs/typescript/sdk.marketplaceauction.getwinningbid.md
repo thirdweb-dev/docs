@@ -11,6 +11,18 @@ displayed_sidebar: typescript
 
 Get Highest Bid
 
+## Example
+
+```javascript
+// The listing ID of the auction that closed
+const listingId = 0;
+
+contract.auction.
+  .getWinningBid(listingId)
+  .then((offer) => console.log(offer))
+  .catch((err) => console.error(err));
+```
+
 **Signature:**
 
 ```typescript
@@ -30,15 +42,3 @@ Promise&lt;[Offer](./sdk.offer.md) \| undefined&gt;
 ## Remarks
 
 Get the current highest bid of an active auction.
-
-## Example
-
-```javascript
-// The listing ID of the auction that closed
-const listingId = 0;
-
-contract.auction.
-  .getWinningBid(listingId)
-  .then((offer) => console.log(offer))
-  .catch((err) => console.error(err));
-```

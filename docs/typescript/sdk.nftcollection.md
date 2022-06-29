@@ -11,14 +11,6 @@ displayed_sidebar: typescript
 
 Create a collection of one-of-one NFTs.
 
-**Signature:**
-
-```typescript
-export declare class NFTCollection extends Erc721<TokenERC721>
-```
-
-**Extends:** [Erc721](./sdk.erc721.md)&lt;TokenERC721
-
 ## Example
 
 ```javascript
@@ -65,3 +57,11 @@ const contract = sdk.getNFTCollection("{{contract_address}}");
 | [mintTo(walletAddress, metadata)](./sdk.nftcollection.mintto.md)           |           | Mint a unique NFT                                      |
 | [mintToSelf(metadata)](./sdk.nftcollection.minttoself.md)                  |           | Mint a unique NFT                                      |
 | [totalSupply()](./sdk.nftcollection.totalsupply.md)                        |           | Get the total count NFTs minted in this contract       |
+
+**Signature:**
+
+```typescript
+export declare class NFTCollection extends Erc721<TokenERC721>
+```
+
+**Extends:** [Erc721](./sdk.erc721.md)&lt;TokenERC721

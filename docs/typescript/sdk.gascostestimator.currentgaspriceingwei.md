@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Returns the current gas price in gwei
 
+## Example
+
+```javascript
+const gasCostInGwei = await contract.estimator.currentGasPriceInGwei();
+```
+
 **Signature:**
 
 ```typescript
@@ -26,9 +32,3 @@ the current gas price in gwei
 ## Remarks
 
 Get the current gas price in gwei
-
-## Example
-
-```javascript
-const gasCostInGwei = await contract.estimator.currentGasPriceInGwei();
-```

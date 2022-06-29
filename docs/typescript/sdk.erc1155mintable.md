@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 Mint ERC1155 NFTs
 
-**Signature:**
-
-```typescript
-export declare class Erc1155Mintable implements DetectableFeature
-```
-
-**Implements:** DetectableFeature
-
-## Remarks
-
-NFT minting functionality that handles IPFS storage for you.
-
 ## Example
 
 ```javascript
@@ -49,3 +37,15 @@ await contract.edition.mint.to(walletAddress, nftMetadata);
 | ------------------------------------------------------------------------------------------------ | --------- | ---------------------------------------------------------------------------- |
 | [additionalSupplyTo(to, tokenId, additionalSupply)](./sdk.erc1155mintable.additionalsupplyto.md) |           | Increase the supply of an existing NFT and mint it to a given wallet address |
 | [to(to, metadataWithSupply)](./sdk.erc1155mintable.to.md)                                        |           | Mint an NFT with a limited supply                                            |
+
+**Signature:**
+
+```typescript
+export declare class Erc1155Mintable implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+NFT minting functionality that handles IPFS storage for you.

@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Get NFT Balance
 
+## Example
+
+```javascript
+// Address of the wallet to check NFT balance
+const walletAddress = "{{wallet_address}}";
+const tokenId = 0; // Id of the NFT to check
+const balance = await contract.balanceOf(walletAddress, tokenId);
+```
+
 **Signature:**
 
 ```typescript
@@ -31,12 +40,3 @@ Promise&lt;BigNumber&gt;
 ## Remarks
 
 Get a wallets NFT balance (number of NFTs in this contract owned by the wallet).
-
-## Example
-
-```javascript
-// Address of the wallet to check NFT balance
-const walletAddress = "{{wallet_address}}";
-const tokenId = 0; // Id of the NFT to check
-const balance = await contract.balanceOf(walletAddress, tokenId);
-```

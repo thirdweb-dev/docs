@@ -11,27 +11,6 @@ displayed_sidebar: typescript
 
 Mint Many NFTs with limited supplies
 
-**Signature:**
-
-```typescript
-mintBatchTo(to: string, metadataWithSupply: EditionMetadataOrUri[]): Promise<TransactionResultWithId<EditionMetadata>[]>;
-```
-
-## Parameters
-
-| Parameter          | Type                                                      | Description |
-| ------------------ | --------------------------------------------------------- | ----------- |
-| to                 | string                                                    |             |
-| metadataWithSupply | [EditionMetadataOrUri](./sdk.editionmetadataoruri.md)\[\] |             |
-
-**Returns:**
-
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;\[\]&gt;
-
-## Remarks
-
-Mint many different NFTs with limited supplies to a specified wallet.
-
 ## Example
 
 ```javascript
@@ -63,3 +42,24 @@ const receipt = tx[0].receipt; // same transaction receipt for all minted NFTs
 const firstTokenId = tx[0].id; // token id of the first minted NFT
 const firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT
 ```
+
+**Signature:**
+
+```typescript
+mintBatchTo(to: string, metadataWithSupply: EditionMetadataOrUri[]): Promise<TransactionResultWithId<EditionMetadata>[]>;
+```
+
+## Parameters
+
+| Parameter          | Type                                                      | Description |
+| ------------------ | --------------------------------------------------------- | ----------- |
+| to                 | string                                                    |             |
+| metadataWithSupply | [EditionMetadataOrUri](./sdk.editionmetadataoruri.md)\[\] |             |
+
+**Returns:**
+
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;\[\]&gt;
+
+## Remarks
+
+Mint many different NFTs with limited supplies to a specified wallet.

@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Remove all listeners on this contract
 
+## Example
+
+```javascript
+contract.events.removeAllListeners();
+```
+
 **Signature:**
 
 ```typescript
@@ -24,9 +30,3 @@ void
 ## Remarks
 
 Remove all listeners from a contract
-
-## Example
-
-```javascript
-contract.events.removeAllListeners();
-```

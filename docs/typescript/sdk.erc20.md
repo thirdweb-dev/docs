@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 Standard ERC20 Token functions
 
-**Signature:**
-
-```typescript
-export declare class Erc20<T extends TokenERC20 | DropERC20 | BaseERC20 = BaseERC20 | BaseSignatureMintERC20> implements UpdateableNetwork, DetectableFeature
-```
-
-**Implements:** UpdateableNetwork, DetectableFeature
-
-## Remarks
-
-Basic functionality for a ERC20 contract that handles all unit transformation for you.
-
 ## Example
 
 ```javascript
@@ -61,3 +49,15 @@ await contract.token.transfer(walletAddress, amount);
 | [transfer(to, amount)](./sdk.erc20.transfer.md)               |           | Transfer Tokens                                                                                                        |
 | [transferBatch(args)](./sdk.erc20.transferbatch.md)           |           | Transfer Tokens To Many Wallets                                                                                        |
 | [transferFrom(from, to, amount)](./sdk.erc20.transferfrom.md) |           | Transfer Tokens From Address                                                                                           |
+
+**Signature:**
+
+```typescript
+export declare class Erc20<T extends TokenERC20 | DropERC20 | BaseERC20 = BaseERC20 | BaseSignatureMintERC20> implements UpdateableNetwork, DetectableFeature
+```
+
+**Implements:** UpdateableNetwork, DetectableFeature
+
+## Remarks
+
+Basic functionality for a ERC20 contract that handles all unit transformation for you.

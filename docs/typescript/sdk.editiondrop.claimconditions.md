@@ -11,16 +11,6 @@ displayed_sidebar: typescript
 
 Configure claim conditions for each NFT
 
-**Signature:**
-
-```typescript
-claimConditions: DropErc1155ClaimConditions;
-```
-
-## Remarks
-
-Define who can claim each NFT in the edition, when and how many.
-
 ## Example
 
 ```javascript
@@ -42,3 +32,13 @@ const claimConditions = [
 const tokenId = 0; // the id of the NFT to set claim conditions on
 await contract.claimConditions.set(tokenId, claimConditions);
 ```
+
+**Signature:**
+
+```typescript
+claimConditions: DropErc1155ClaimConditions;
+```
+
+## Remarks
+
+Define who can claim each NFT in the edition, when and how many.

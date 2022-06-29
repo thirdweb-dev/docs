@@ -11,28 +11,6 @@ displayed_sidebar: typescript
 
 Generate a signature that can be used to mint an NFT dynamically.
 
-**Signature:**
-
-```typescript
-generate(payloadToSign: PayloadToSign1155): Promise<SignedPayload1155>;
-```
-
-## Parameters
-
-| Parameter     | Type                                            | Description         |
-| ------------- | ----------------------------------------------- | ------------------- |
-| payloadToSign | [PayloadToSign1155](./sdk.payloadtosign1155.md) | the payload to sign |
-
-**Returns:**
-
-Promise&lt;[SignedPayload1155](./sdk.signedpayload1155.md)&gt;
-
-the signed payload and the corresponding signature
-
-## Remarks
-
-Takes in an NFT and some information about how it can be minted, uploads the metadata and signs it with your private key. The generated signature can then be used to mint an NFT using the exact payload and signature generated.
-
 ## Example
 
 ```javascript
@@ -60,3 +38,25 @@ const payload = {
 const signedPayload = contract.signature.generate(payload);
 // now anyone can use these to mint the NFT using `contract.signature.mint(signedPayload)`
 ```
+
+**Signature:**
+
+```typescript
+generate(payloadToSign: PayloadToSign1155): Promise<SignedPayload1155>;
+```
+
+## Parameters
+
+| Parameter     | Type                                            | Description         |
+| ------------- | ----------------------------------------------- | ------------------- |
+| payloadToSign | [PayloadToSign1155](./sdk.payloadtosign1155.md) | the payload to sign |
+
+**Returns:**
+
+Promise&lt;[SignedPayload1155](./sdk.signedpayload1155.md)&gt;
+
+the signed payload and the corresponding signature
+
+## Remarks
+
+Takes in an NFT and some information about how it can be minted, uploads the metadata and signs it with your private key. The generated signature can then be used to mint an NFT using the exact payload and signature generated.

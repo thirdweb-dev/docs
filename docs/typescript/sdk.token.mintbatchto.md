@@ -11,6 +11,24 @@ displayed_sidebar: typescript
 
 Mint Tokens To Many Wallets
 
+## Example
+
+```javascript
+// Data of the tokens you want to mint
+const data = [
+  {
+    toAddress: "{{wallet_address}}", // Address to mint tokens to
+    amount: 0.2, // How many tokens to mint to specified address
+  },
+  {
+    toAddress: "0x...",
+    amount: 1.4,
+  },
+];
+
+await contract.mintBatchTo(data);
+```
+
 **Signature:**
 
 ```typescript
@@ -30,21 +48,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Mint tokens to many wallets in one transaction.
-
-## Example
-
-```javascript
-// Data of the tokens you want to mint
-const data = [
-  {
-    toAddress: "{{wallet_address}}", // Address to mint tokens to
-    amount: 0.2, // How many tokens to mint to specified address
-  },
-  {
-    toAddress: "0x...",
-    amount: 1.4,
-  },
-];
-
-await contract.mintBatchTo(data);
-```

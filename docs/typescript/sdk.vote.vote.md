@@ -11,6 +11,19 @@ displayed_sidebar: typescript
 
 Vote
 
+## Example
+
+```javascript
+// The proposal ID of the proposal you want to vote on
+const proposalId = "0";
+// The vote type you want to cast, can be VoteType.Against, VoteType.For, or VoteType.Abstain
+const voteType = VoteType.For;
+// The (optional) reason for the vote
+const reason = "I like this proposal!";
+
+await contract.vote(proposalId, voteType, reason);
+```
+
 **Signature:**
 
 ```typescript
@@ -32,16 +45,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Vote on an active proposal
-
-## Example
-
-```javascript
-// The proposal ID of the proposal you want to vote on
-const proposalId = "0";
-// The vote type you want to cast, can be VoteType.Against, VoteType.For, or VoteType.Abstain
-const voteType = VoteType.For;
-// The (optional) reason for the vote
-const reason = "I like this proposal!";
-
-await contract.vote(proposalId, voteType, reason);
-```

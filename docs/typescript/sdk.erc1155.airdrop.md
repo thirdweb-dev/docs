@@ -11,28 +11,6 @@ displayed_sidebar: typescript
 
 Airdrop multiple NFTs
 
-**Signature:**
-
-```typescript
-airdrop(tokenId: BigNumberish, addresses: AirdropInput, data?: BytesLike): Promise<TransactionResult>;
-```
-
-## Parameters
-
-| Parameter | Type                                  | Description       |
-| --------- | ------------------------------------- | ----------------- |
-| tokenId   | BigNumberish                          |                   |
-| addresses | [AirdropInput](./sdk.airdropinput.md) |                   |
-| data      | BytesLike                             | <i>(Optional)</i> |
-
-**Returns:**
-
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
-
-## Remarks
-
-Airdrop one or multiple NFTs to the provided wallet addresses.
-
 ## Example
 
 ```javascript
@@ -56,3 +34,25 @@ const tokenId = "0";
 const addresses = ["0x...", "0x...", "0x..."];
 await contract.airdrop(tokenId, addresses);
 ```
+
+**Signature:**
+
+```typescript
+airdrop(tokenId: BigNumberish, addresses: AirdropInput, data?: BytesLike): Promise<TransactionResult>;
+```
+
+## Parameters
+
+| Parameter | Type                                  | Description       |
+| --------- | ------------------------------------- | ----------------- |
+| tokenId   | BigNumberish                          |                   |
+| addresses | [AirdropInput](./sdk.airdropinput.md) |                   |
+| data      | BytesLike                             | <i>(Optional)</i> |
+
+**Returns:**
+
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+
+## Remarks
+
+Airdrop one or multiple NFTs to the provided wallet addresses.

@@ -11,27 +11,6 @@ displayed_sidebar: typescript
 
 Set public mint conditions
 
-**Signature:**
-
-```typescript
-set(claimConditionInputs: ClaimConditionInput[], resetClaimEligibilityForAll?: boolean): Promise<TransactionResult>;
-```
-
-## Parameters
-
-| Parameter                   | Type                                                    | Description                                                                         |
-| --------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| claimConditionInputs        | [ClaimConditionInput](./sdk.claimconditioninput.md)\[\] | The claim conditions                                                                |
-| resetClaimEligibilityForAll | boolean                                                 | <i>(Optional)</i> Whether to reset the state of who already claimed NFTs previously |
-
-**Returns:**
-
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
-
-## Remarks
-
-Sets the public mint conditions that need to be fullfiled by users to claim NFTs.
-
 ## Example
 
 ```javascript
@@ -52,3 +31,24 @@ const claimConditions = [
 
 await dropContract.claimConditions.set(claimConditions);
 ```
+
+**Signature:**
+
+```typescript
+set(claimConditionInputs: ClaimConditionInput[], resetClaimEligibilityForAll?: boolean): Promise<TransactionResult>;
+```
+
+## Parameters
+
+| Parameter                   | Type                                                    | Description                                                                         |
+| --------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| claimConditionInputs        | [ClaimConditionInput](./sdk.claimconditioninput.md)\[\] | The claim conditions                                                                |
+| resetClaimEligibilityForAll | boolean                                                 | <i>(Optional)</i> Whether to reset the state of who already claimed NFTs previously |
+
+**Returns:**
+
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+
+## Remarks
+
+Sets the public mint conditions that need to be fullfiled by users to claim NFTs.

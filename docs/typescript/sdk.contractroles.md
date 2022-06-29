@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 Handle contract permissions
 
-**Signature:**
-
-```typescript
-export declare class ContractRoles<TContract extends IPermissionsEnumerable, TRole extends Role> implements DetectableFeature
-```
-
-**Implements:** DetectableFeature
-
-## Remarks
-
-Configure roles and permissions for a contract, to restrict certain actions.
-
 ## Example
 
 ```javascript
@@ -52,3 +40,15 @@ await contract.roles.grantRole("admin", "0x...");
 | [grant(role, address)](./sdk.contractroles.grant.md)        |           | Call this to grant a role to a specific address.                                                                                                                                                                                                                                                                                                                                      |
 | [revoke(role, address)](./sdk.contractroles.revoke.md)      |           | Call this to revoke a role from a specific address.                                                                                                                                                                                                                                                                                                                                   |
 | [setAll(rolesWithAddresses)](./sdk.contractroles.setall.md) |           | Call this to OVERWRITE the list of addresses that are members of specific roles.Every role in the list will be overwritten with the new list of addresses provided with them. If you want to add or remove addresses for a single address use [ContractRoles.grant()](./sdk.contractroles.grant.md) and [ContractRoles.revoke()](./sdk.contractroles.revoke.md) respectively instead. |
+
+**Signature:**
+
+```typescript
+export declare class ContractRoles<TContract extends IPermissionsEnumerable, TRole extends Role> implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+Configure roles and permissions for a contract, to restrict certain actions.

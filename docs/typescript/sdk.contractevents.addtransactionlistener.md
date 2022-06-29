@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 Subscribe to transactions in this contract.
 
+## Example
+
+```javascript
+contract.events.addTransactionListener((event) => {
+  console.log(event);
+}
+```
+
 **Signature:**
 
 ```typescript
@@ -30,11 +38,3 @@ void
 ## Remarks
 
 Will emit an "event" object containing the transaction status ('submitted' and 'completed') and hash
-
-## Example
-
-```javascript
-contract.events.addTransactionListener((event) => {
-  console.log(event);
-}
-```

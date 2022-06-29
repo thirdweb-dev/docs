@@ -11,6 +11,22 @@ displayed_sidebar: typescript
 
 Mint a unique NFT
 
+## Example
+
+```javascript*
+// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.
+const metadata = {
+  name: "Cool NFT",
+  description: "This is a cool NFT",
+  image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
+};
+
+const tx = await contract.mintToSelf(metadata);
+const receipt = tx.receipt; // the transaction receipt
+const tokenId = tx.id; // the id of the NFT minted
+const nft = await tx.data(); // (optional) fetch details of minted NFT
+```
+
 **Signature:**
 
 ```typescript
@@ -30,19 +46,3 @@ Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMe
 ## Remarks
 
 Mint a unique NFT to a specified wallet.
-
-## Example
-
-```javascript*
-// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.
-const metadata = {
-  name: "Cool NFT",
-  description: "This is a cool NFT",
-  image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
-};
-
-const tx = await contract.mintToSelf(metadata);
-const receipt = tx.receipt; // the transaction receipt
-const tokenId = tx.id; // the id of the NFT minted
-const nft = await tx.data(); // (optional) fetch details of minted NFT
-```

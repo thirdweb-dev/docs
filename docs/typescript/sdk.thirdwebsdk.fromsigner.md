@@ -13,6 +13,16 @@ displayed_sidebar: typescript
 
 Get an instance of the thirdweb SDK based on an existing ethers signer
 
+## Example
+
+```javascript
+// get a signer from somewhere (createRandom is being used purely for example purposes)
+const signer = ethers.Wallet.createRandom();
+
+// get an instance of the SDK with the signer already setup
+const sdk = ThirdwebSDK.fromSigner(signer, "mainnet");
+```
+
 **Signature:**
 
 ```typescript
@@ -33,13 +43,3 @@ static fromSigner(signer: Signer, network?: ChainOrRpc, options?: SDKOptions, st
 [ThirdwebSDK](./sdk.thirdwebsdk.md)
 
 an instance of the SDK
-
-## Example
-
-```javascript
-// get a signer from somewhere (createRandom is being used purely for example purposes)
-const signer = ethers.Wallet.createRandom();
-
-// get an instance of the SDK with the signer already setup
-const sdk = ThirdwebSDK.fromSigner(signer, "mainnet");
-```

@@ -11,16 +11,6 @@ displayed_sidebar: typescript
 
 Configure royalties
 
-**Signature:**
-
-```typescript
-royalties: ContractRoyalty<TokenERC721, typeof NFTCollection.schema>;
-```
-
-## Remarks
-
-Set your own royalties for the entire contract or per token
-
 ## Example
 
 ```javascript
@@ -35,3 +25,13 @@ contract.royalties.setTokenRoyaltyInfo(tokenId, {
   fee_recipient: "0x...",
 });
 ```
+
+**Signature:**
+
+```typescript
+royalties: ContractRoyalty<TokenERC721, typeof NFTCollection.schema>;
+```
+
+## Remarks
+
+Set your own royalties for the entire contract or per token

@@ -11,26 +11,6 @@ displayed_sidebar: typescript
 
 Create a batch of unique NFTs to be claimed in the future
 
-**Signature:**
-
-```typescript
-createBatch(metadatas: NFTMetadataInput[]): Promise<TransactionResultWithId<NFTMetadata>[]>;
-```
-
-## Parameters
-
-| Parameter | Type                                              | Description                           |
-| --------- | ------------------------------------------------- | ------------------------------------- |
-| metadatas | [NFTMetadataInput](./sdk.nftmetadatainput.md)\[\] | The metadata to include in the batch. |
-
-**Returns:**
-
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadata](./sdk.nftmetadata.md)&gt;\[\]&gt;
-
-## Remarks
-
-Create batch allows you to create a batch of many unique NFTs in one transaction.
-
 ## Example
 
 ```javascript
@@ -52,3 +32,23 @@ const results = await contract.createBatch(metadatas); // uploads and creates th
 const firstTokenId = results[0].id; // token id of the first created NFT
 const firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT
 ```
+
+**Signature:**
+
+```typescript
+createBatch(metadatas: NFTMetadataInput[]): Promise<TransactionResultWithId<NFTMetadata>[]>;
+```
+
+## Parameters
+
+| Parameter | Type                                              | Description                           |
+| --------- | ------------------------------------------------- | ------------------------------------- |
+| metadatas | [NFTMetadataInput](./sdk.nftmetadatainput.md)\[\] | The metadata to include in the batch. |
+
+**Returns:**
+
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadata](./sdk.nftmetadata.md)&gt;\[\]&gt;
+
+## Remarks
+
+Create batch allows you to create a batch of many unique NFTs in one transaction.

@@ -11,31 +11,6 @@ displayed_sidebar: typescript
 
 Create a batch of encrypted NFTs that can be revealed at a later time.
 
-**Signature:**
-
-```typescript
-createDelayedRevealBatch(placeholder: NFTMetadataInput, metadatas: NFTMetadataInput[], password: string, options?: {
-        onProgress: (event: UploadProgressEvent) => void;
-    }): Promise<TransactionResultWithId[]>;
-```
-
-## Parameters
-
-| Parameter   | Type                                                                                     | Description                                         |
-| ----------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| placeholder | [NFTMetadataInput](./sdk.nftmetadatainput.md)                                            | the placeholder NFT to show before the reveal       |
-| metadatas   | [NFTMetadataInput](./sdk.nftmetadatainput.md)\[\]                                        | the final NFTs that will be hidden                  |
-| password    | string                                                                                   | the password that will be used to reveal these NFTs |
-| options     | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | <i>(Optional)</i>                                   |
-
-**Returns:**
-
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)\[\]&gt;
-
-## Remarks
-
-Create a batch of encrypted NFTs that can be revealed at a later time.
-
 ## Example
 
 ```javascript
@@ -67,3 +42,28 @@ await contract.revealer.createDelayedRevealBatch(
 const batchId = 0; // the batch to reveal
 await contract.revealer.reveal(batchId, "my secret password");
 ```
+
+**Signature:**
+
+```typescript
+createDelayedRevealBatch(placeholder: NFTMetadataInput, metadatas: NFTMetadataInput[], password: string, options?: {
+        onProgress: (event: UploadProgressEvent) => void;
+    }): Promise<TransactionResultWithId[]>;
+```
+
+## Parameters
+
+| Parameter   | Type                                                                                     | Description                                         |
+| ----------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| placeholder | [NFTMetadataInput](./sdk.nftmetadatainput.md)                                            | the placeholder NFT to show before the reveal       |
+| metadatas   | [NFTMetadataInput](./sdk.nftmetadatainput.md)\[\]                                        | the final NFTs that will be hidden                  |
+| password    | string                                                                                   | the password that will be used to reveal these NFTs |
+| options     | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | <i>(Optional)</i>                                   |
+
+**Returns:**
+
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)\[\]&gt;
+
+## Remarks
+
+Create a batch of encrypted NFTs that can be revealed at a later time.

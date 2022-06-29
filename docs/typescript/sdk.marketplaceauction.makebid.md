@@ -11,6 +11,17 @@ displayed_sidebar: typescript
 
 Bid On Auction
 
+## Example
+
+```javascript
+// The listing ID of the asset you want to bid on
+const listingId = 0;
+// The price you are willing to bid for a single token of the listing
+const pricePerToken = 1;
+
+await contract.auction.makeBid(listingId, pricePerToken);
+```
+
 **Signature:**
 
 ```typescript
@@ -31,14 +42,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Make a bid on an auction listing
-
-## Example
-
-```javascript
-// The listing ID of the asset you want to bid on
-const listingId = 0;
-// The price you are willing to bid for a single token of the listing
-const pricePerToken = 1;
-
-await contract.auction.makeBid(listingId, pricePerToken);
-```

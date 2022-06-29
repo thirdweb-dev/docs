@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 Get Token Allowance
 
+## Example
+
+```javascript
+// Address of the wallet to check token allowance
+const spenderAddress = "0x...";
+const allowance = await contract.token.allowance(spenderAddress);
+```
+
 **Signature:**
 
 ```typescript
@@ -32,11 +40,3 @@ The allowance of one wallet over anothers funds.
 ## Remarks
 
 Get the allowance of a 'spender' wallet over the connected wallet's funds - the allowance of a different address for a token is the amount of tokens that the `spender` wallet is allowed to spend on behalf of the connected wallet.
-
-## Example
-
-```javascript
-// Address of the wallet to check token allowance
-const spenderAddress = "0x...";
-const allowance = await contract.token.allowance(spenderAddress);
-```

@@ -11,14 +11,6 @@ displayed_sidebar: typescript
 
 Create a Drop contract for a standard crypto token or cryptocurrency.
 
-**Signature:**
-
-```typescript
-export declare class TokenDrop extends Erc20<DropERC20>
-```
-
-**Extends:** [Erc20](./sdk.erc20.md)&lt;DropERC20
-
 ## Example
 
 ```javascript
@@ -62,3 +54,11 @@ const contract = sdk.getTokenDrop("{{contract_address}}");
 | [getVoteBalance()](./sdk.tokendrop.getvotebalance.md)                                  |           | Get your wallet voting power for the current checkpoints |
 | [getVoteBalanceOf(account)](./sdk.tokendrop.getvotebalanceof.md)                       |           |                                                          |
 | [isTransferRestricted()](./sdk.tokendrop.istransferrestricted.md)                      |           | Get whether users can transfer tokens from this contract |
+
+**Signature:**
+
+```typescript
+export declare class TokenDrop extends Erc20<DropERC20>
+```
+
+**Extends:** [Erc20](./sdk.erc20.md)&lt;DropERC20

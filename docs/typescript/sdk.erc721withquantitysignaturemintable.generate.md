@@ -11,28 +11,6 @@ displayed_sidebar: typescript
 
 Generate a signature that can be used to mint a dynamic NFT
 
-**Signature:**
-
-```typescript
-generate(mintRequest: PayloadToSign721withQuantity): Promise<SignedPayload721WithQuantitySignature>;
-```
-
-## Parameters
-
-| Parameter   | Type                                                                  | Description         |
-| ----------- | --------------------------------------------------------------------- | ------------------- |
-| mintRequest | [PayloadToSign721withQuantity](./sdk.payloadtosign721withquantity.md) | the payload to sign |
-
-**Returns:**
-
-Promise&lt;[SignedPayload721WithQuantitySignature](./sdk.signedpayload721withquantitysignature.md)&gt;
-
-the signed payload and the corresponding signature
-
-## Remarks
-
-Takes in an NFT and some information about how it can be minted, uploads the metadata and signs it with your private key. The generated signature can then be used to mint an NFT using the exact payload and signature generated.
-
 ## Example
 
 ```javascript
@@ -60,3 +38,25 @@ const payload = {
 const signedPayload = contract.signature.generate(payload);
 // now anyone can use these to mint the NFT using `contract.signature.mint(signedPayload)`
 ```
+
+**Signature:**
+
+```typescript
+generate(mintRequest: PayloadToSign721withQuantity): Promise<SignedPayload721WithQuantitySignature>;
+```
+
+## Parameters
+
+| Parameter   | Type                                                                  | Description         |
+| ----------- | --------------------------------------------------------------------- | ------------------- |
+| mintRequest | [PayloadToSign721withQuantity](./sdk.payloadtosign721withquantity.md) | the payload to sign |
+
+**Returns:**
+
+Promise&lt;[SignedPayload721WithQuantitySignature](./sdk.signedpayload721withquantitysignature.md)&gt;
+
+the signed payload and the corresponding signature
+
+## Remarks
+
+Takes in an NFT and some information about how it can be minted, uploads the metadata and signs it with your private key. The generated signature can then be used to mint an NFT using the exact payload and signature generated.

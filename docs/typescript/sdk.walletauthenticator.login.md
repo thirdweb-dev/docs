@@ -13,6 +13,15 @@ displayed_sidebar: typescript
 
 Login With Connected Wallet
 
+## Example
+
+```javascript
+// Add the domain of the application users will login to, this will be used throughout the login process
+const domain = "thirdweb.com";
+// Generate a signed login payload for the connected wallet to authenticate with
+const loginPayload = await sdk.auth.login(domain);
+```
+
 **Signature:**
 
 ```typescript
@@ -35,12 +44,3 @@ Login payload that can be used on the server-side to verify the login request or
 ## Remarks
 
 Client-side function that allows the connected wallet to login to a server-side application. Generates a login payload that can be sent to the server-side for verification or authentication.
-
-## Example
-
-```javascript
-// Add the domain of the application users will login to, this will be used throughout the login process
-const domain = "thirdweb.com";
-// Generate a signed login payload for the connected wallet to authenticate with
-const loginPayload = await sdk.auth.login(domain);
-```

@@ -11,26 +11,6 @@ displayed_sidebar: typescript
 
 Mint Many unique NFTs
 
-**Signature:**
-
-```typescript
-mintBatch(metadata: NFTMetadataOrUri[]): Promise<TransactionResultWithId<NFTMetadataOwner>[]>;
-```
-
-## Parameters
-
-| Parameter | Type                 | Description |
-| --------- | -------------------- | ----------- |
-| metadata  | NFTMetadataOrUri\[\] |             |
-
-**Returns:**
-
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;\[\]&gt;
-
-## Remarks
-
-Mint many unique NFTs at once to the connected wallet
-
 ## Example
 
 ```javascript*
@@ -50,3 +30,23 @@ const receipt = tx[0].receipt; // same transaction receipt for all minted NFTs
 const firstTokenId = tx[0].id; // token id of the first minted NFT
 const firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT
 ```
+
+**Signature:**
+
+```typescript
+mintBatch(metadata: NFTMetadataOrUri[]): Promise<TransactionResultWithId<NFTMetadataOwner>[]>;
+```
+
+## Parameters
+
+| Parameter | Type                 | Description |
+| --------- | -------------------- | ----------- |
+| metadata  | NFTMetadataOrUri\[\] |             |
+
+**Returns:**
+
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;\[\]&gt;
+
+## Remarks
+
+Mint many unique NFTs at once to the connected wallet

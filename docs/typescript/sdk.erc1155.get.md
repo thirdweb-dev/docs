@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Get a single NFT Metadata
 
+## Example
+
+```javascript
+const nft = await contract.get("0");
+```
+
 **Signature:**
 
 ```typescript
@@ -28,9 +34,3 @@ get(tokenId: BigNumberish): Promise<EditionMetadata>;
 Promise&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;
 
 The NFT metadata
-
-## Example
-
-```javascript
-const nft = await contract.get("0");
-```

@@ -11,6 +11,13 @@ displayed_sidebar: typescript
 
 Get All Proposals
 
+## Example
+
+```javascript
+const proposals = await contract.getAll();
+console.log(proposals);
+```
+
 **Signature:**
 
 ```typescript
@@ -26,10 +33,3 @@ Promise&lt;[Proposal](./sdk.proposal.md)\[\]&gt;
 ## Remarks
 
 Get all the proposals in this contract.
-
-## Example
-
-```javascript
-const proposals = await contract.getAll();
-console.log(proposals);
-```

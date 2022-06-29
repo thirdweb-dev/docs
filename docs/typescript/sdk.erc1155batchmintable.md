@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 Mint Many ERC1155 NFTs at once
 
-**Signature:**
-
-```typescript
-export declare class Erc1155BatchMintable implements DetectableFeature
-```
-
-**Implements:** DetectableFeature
-
-## Remarks
-
-NFT batch minting functionality that handles IPFS storage for you.
-
 ## Example
 
 ```javascript
@@ -47,3 +35,15 @@ await contract.edition.mint.batch.to(walletAddress, [nftMetadataWithSupply1, nft
 | Method                                                         | Modifiers | Description                          |
 | -------------------------------------------------------------- | --------- | ------------------------------------ |
 | [to(to, metadataWithSupply)](./sdk.erc1155batchmintable.to.md) |           | Mint Many NFTs with limited supplies |
+
+**Signature:**
+
+```typescript
+export declare class Erc1155BatchMintable implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+NFT batch minting functionality that handles IPFS storage for you.

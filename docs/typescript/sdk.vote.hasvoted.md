@@ -11,6 +11,17 @@ displayed_sidebar: typescript
 
 Check If Wallet Voted
 
+## Example
+
+```javascript
+// The proposal ID of the proposal you want to check
+const proposalId = "0";
+// The address of the wallet you want to check to see if they voted
+const address = "{{wallet_address}}";
+
+await contract.hasVoted(proposalId, address);
+```
+
 **Signature:**
 
 ```typescript
@@ -33,14 +44,3 @@ Promise&lt;boolean&gt;
 ## Remarks
 
 Check if a specified wallet has voted a specific proposal
-
-## Example
-
-```javascript
-// The proposal ID of the proposal you want to check
-const proposalId = "0";
-// The address of the wallet you want to check to see if they voted
-const address = "{{wallet_address}}";
-
-await contract.hasVoted(proposalId, address);
-```

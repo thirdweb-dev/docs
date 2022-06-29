@@ -11,29 +11,6 @@ displayed_sidebar: typescript
 
 Set claim conditions on multiple NFTs at once
 
-**Signature:**
-
-```typescript
-setBatch(claimConditionsForToken: ClaimConditionsForToken[], resetClaimEligibilityForAll?: boolean): Promise<{
-        receipt: ethers.providers.TransactionReceipt;
-    }>;
-```
-
-## Parameters
-
-| Parameter                   | Type                                                            | Description                                                                         |
-| --------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| claimConditionsForToken     | [ClaimConditionsForToken](./sdk.claimconditionsfortoken.md)\[\] | The claim conditions for each NFT                                                   |
-| resetClaimEligibilityForAll | boolean                                                         | <i>(Optional)</i> Whether to reset the state of who already claimed NFTs previously |
-
-**Returns:**
-
-Promise&lt;{ receipt: ethers.providers.TransactionReceipt; }&gt;
-
-## Remarks
-
-Sets the claim conditions that need to be fulfilled by users to claim the given NFTs in this contract.
-
 ## Example
 
 ```javascript
@@ -62,3 +39,26 @@ const claimConditionsForTokens = [
 
 await dropContract.claimConditions.setBatch(claimConditionsForTokens);
 ```
+
+**Signature:**
+
+```typescript
+setBatch(claimConditionsForToken: ClaimConditionsForToken[], resetClaimEligibilityForAll?: boolean): Promise<{
+        receipt: ethers.providers.TransactionReceipt;
+    }>;
+```
+
+## Parameters
+
+| Parameter                   | Type                                                            | Description                                                                         |
+| --------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| claimConditionsForToken     | [ClaimConditionsForToken](./sdk.claimconditionsfortoken.md)\[\] | The claim conditions for each NFT                                                   |
+| resetClaimEligibilityForAll | boolean                                                         | <i>(Optional)</i> Whether to reset the state of who already claimed NFTs previously |
+
+**Returns:**
+
+Promise&lt;{ receipt: ethers.providers.TransactionReceipt; }&gt;
+
+## Remarks
+
+Sets the claim conditions that need to be fulfilled by users to claim the given NFTs in this contract.

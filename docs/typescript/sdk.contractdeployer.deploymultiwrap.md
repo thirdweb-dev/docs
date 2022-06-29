@@ -13,6 +13,14 @@ displayed_sidebar: typescript
 
 Deploys a new Multiwrap contract
 
+## Example
+
+```javascript
+const contractAddress = await sdk.deployer.deployMultiwrap({
+  name: "My Multiwrap",
+});
+```
+
 **Signature:**
 
 ```typescript
@@ -34,11 +42,3 @@ the address of the deployed contract
 ## Remarks
 
 Deploys a Multiwrap contract and returns the address of the deployed contract
-
-## Example
-
-```javascript
-const contractAddress = await sdk.deployer.deployMultiwrap({
-  name: "My Multiwrap",
-});
-```

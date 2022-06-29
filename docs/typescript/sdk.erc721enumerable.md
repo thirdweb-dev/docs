@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 List owned ERC721 NFTs
 
-**Signature:**
-
-```typescript
-export declare class Erc721Enumerable implements DetectableFeature
-```
-
-**Implements:** DetectableFeature
-
-## Remarks
-
-Easily list all the NFTs from a ERC721 contract, owned by a certain wallet.
-
 ## Example
 
 ```javascript
@@ -49,3 +37,15 @@ const ownedNFTs = await contract.nft.query.owned.all(walletAddress);
 | ------------------------------------------------------------- | --------- | ----------------------------------------------------- |
 | [all(walletAddress)](./sdk.erc721enumerable.all.md)           |           | Get Owned NFTs                                        |
 | [tokenIds(walletAddress)](./sdk.erc721enumerable.tokenids.md) |           | Get all token ids of NFTs owned by a specific wallet. |
+
+**Signature:**
+
+```typescript
+export declare class Erc721Enumerable implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+Easily list all the NFTs from a ERC721 contract, owned by a certain wallet.

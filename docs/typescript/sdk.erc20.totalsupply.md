@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 The total supply for this Token
 
+## Example
+
+```javascript
+const balance = await contract.token.totalSupply();
+```
+
 **Signature:**
 
 ```typescript
@@ -24,9 +30,3 @@ Promise&lt;[CurrencyValue](./sdk.currencyvalue.md)&gt;
 ## Remarks
 
 Get how much supply has been minted
-
-## Example
-
-```javascript
-const balance = await contract.token.totalSupply();
-```

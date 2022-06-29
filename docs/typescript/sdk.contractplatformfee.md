@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 Handle platform fees and recipients
 
-**Signature:**
-
-```typescript
-export declare class ContractPlatformFee<TContract extends IPlatformFee> implements DetectableFeature
-```
-
-**Implements:** DetectableFeature
-
-## Remarks
-
-Configure platform fees for a contract, which can be applied on certain paid transactions
-
 ## Example
 
 ```javascript
@@ -52,3 +40,15 @@ await contract.platformFee.set({
 | -------------------------------------------------------- | --------- | ----------------------------------------------- |
 | [get()](./sdk.contractplatformfee.get.md)                |           | Get the platform fee recipient and basis points |
 | [set(platformFeeInfo)](./sdk.contractplatformfee.set.md) |           | Set the platform fee recipient and basis points |
+
+**Signature:**
+
+```typescript
+export declare class ContractPlatformFee<TContract extends IPlatformFee> implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+Configure platform fees for a contract, which can be applied on certain paid transactions

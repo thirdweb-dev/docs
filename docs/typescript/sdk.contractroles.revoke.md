@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Call this to revoke a role from a specific address.
 
+## Example
+
+```javascript
+await contract.roles.revoke(
+  "minter",
+  "0x1234567890123456789012345678901234567890",
+);
+```
+
 **Signature:**
 
 ```typescript
@@ -39,12 +48,3 @@ If you are trying to revoke does not exist on the module this will throw an erro
 -- Caution --
 
 This will let you remove yourself from the role, too. If you remove yourself from the admin role, you will no longer be able to administer the contract. There is no way to recover from this.
-
-## Example
-
-```javascript
-await contract.roles.revoke(
-  "minter",
-  "0x1234567890123456789012345678901234567890",
-);
-```

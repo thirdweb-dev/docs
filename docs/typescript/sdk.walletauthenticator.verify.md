@@ -13,6 +13,16 @@ displayed_sidebar: typescript
 
 Verify Logged In Address
 
+## Example
+
+```javascript
+const domain = "thirdweb.com";
+const loginPayload = await sdk.auth.login(domain);
+
+// Verify the login request
+const address = sdk.auth.verify(domain, loginPayload);
+```
+
 **Signature:**
 
 ```typescript
@@ -36,13 +46,3 @@ Address of the logged in wallet
 ## Remarks
 
 Server-side function to securely verify the address of the logged in client-side wallet by validating the provided client-side login request.
-
-## Example
-
-```javascript
-const domain = "thirdweb.com";
-const loginPayload = await sdk.auth.login(domain);
-
-// Verify the login request
-const address = sdk.auth.verify(domain, loginPayload);
-```

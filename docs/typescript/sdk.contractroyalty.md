@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 Handle contract royalties
 
-**Signature:**
-
-```typescript
-export declare class ContractRoyalty<TContract extends IRoyalty & (IThirdwebContract | ThirdwebContract), TSchema extends IGenericSchemaType> implements DetectableFeature
-```
-
-**Implements:** DetectableFeature
-
-## Remarks
-
-Configure royalties for an entire contract or a particular token.
-
 ## Example
 
 ```javascript
@@ -54,3 +42,15 @@ await contract.roles.setTokenRoyaltyInfo(tokenId, {
 | [getTokenRoyaltyInfo(tokenId)](./sdk.contractroyalty.gettokenroyaltyinfo.md)              |           | Gets the royalty recipient and BPS (basis points) of a particular token |
 | [setDefaultRoyaltyInfo(royaltyData)](./sdk.contractroyalty.setdefaultroyaltyinfo.md)      |           | Set the royalty recipient and fee for a contract                        |
 | [setTokenRoyaltyInfo(tokenId, royaltyData)](./sdk.contractroyalty.settokenroyaltyinfo.md) |           | Set the royalty recipient and fee for a particular token                |
+
+**Signature:**
+
+```typescript
+export declare class ContractRoyalty<TContract extends IRoyalty & (IThirdwebContract | ThirdwebContract), TSchema extends IGenericSchemaType> implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+Configure royalties for an entire contract or a particular token.

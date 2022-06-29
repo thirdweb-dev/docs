@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 Distribute Funds
 
+## Example
+
+```javascript
+// The address of the currency to distribute funds
+const tokenAddress = "0x...";
+await contract.distributeToken(tokenAddress);
+```
+
 **Signature:**
 
 ```typescript
@@ -30,11 +38,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Distribute funds held by the contract in the native currency to all recipients.
-
-## Example
-
-```javascript
-// The address of the currency to distribute funds
-const tokenAddress = "0x...";
-await contract.distributeToken(tokenAddress);
-```

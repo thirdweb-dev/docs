@@ -13,6 +13,12 @@ displayed_sidebar: typescript
 
 Get an instance of the thirdweb SDK based on a private key.
 
+## Example
+
+```javascript
+const sdk = ThirdwebSDK.fromPrivateKey("SecretPrivateKey", "mainnet");
+```
+
 **Signature:**
 
 ```typescript
@@ -37,9 +43,3 @@ an instance of the SDK
 ## Remarks
 
 This should only be used for backend services or scripts, with the private key stored in a secure way. \*\*NEVER\*\* expose your private key to the public in any way.
-
-## Example
-
-```javascript
-const sdk = ThirdwebSDK.fromPrivateKey("SecretPrivateKey", "mainnet");
-```

@@ -11,16 +11,6 @@ displayed_sidebar: typescript
 
 Signature Minting
 
-**Signature:**
-
-```typescript
-signature: Erc1155SignatureMintable;
-```
-
-## Remarks
-
-Generate dynamic NFTs with your own signature, and let others mint them using that signature.
-
 ## Example
 
 ```javascript
@@ -32,3 +22,13 @@ const tx = contract.signature.mint(signedPayload);
 const receipt = tx.receipt; // the mint transaction receipt
 const mintedId = tx.id; // the id of the NFT minted
 ```
+
+**Signature:**
+
+```typescript
+signature: Erc1155SignatureMintable;
+```
+
+## Remarks
+
+Generate dynamic NFTs with your own signature, and let others mint them using that signature.

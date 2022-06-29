@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 List ERC721 NFTs
 
-**Signature:**
-
-```typescript
-export declare class Erc721Supply implements DetectableFeature
-```
-
-**Implements:** DetectableFeature
-
-## Remarks
-
-Easily list all the NFTs in a ERC721 contract.
-
 ## Example
 
 ```javascript
@@ -49,3 +37,15 @@ const nfts = await contract.nft.query.all();
 | ------------------------------------------------------------------------ | --------- | -------------------------------------------------------------------- |
 | [all(queryParams)](./sdk.erc721supply.all.md)                            |           | Get All Minted NFTs                                                  |
 | [totalCirculatingSupply()](./sdk.erc721supply.totalcirculatingsupply.md) |           | Get the number of NFTs of this contract currently owned by end users |
+
+**Signature:**
+
+```typescript
+export declare class Erc721Supply implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+Easily list all the NFTs in a ERC721 contract.

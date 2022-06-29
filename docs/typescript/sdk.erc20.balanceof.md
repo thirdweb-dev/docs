@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 Get Token Balance
 
+## Example
+
+```javascript
+// Address of the wallet to check token balance
+const walletAddress = "{{wallet_address}}";
+const balance = await contract.token.balanceOf(walletAddress);
+```
+
 **Signature:**
 
 ```typescript
@@ -32,11 +40,3 @@ The balance of a specific wallet.
 ## Remarks
 
 Get a wallets token balance.
-
-## Example
-
-```javascript
-// Address of the wallet to check token balance
-const walletAddress = "{{wallet_address}}";
-const balance = await contract.token.balanceOf(walletAddress);
-```

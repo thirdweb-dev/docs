@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 Handles metadata for a Contract
 
-**Signature:**
-
-```typescript
-export declare class ContractMetadata<TContract extends BaseContract, TSchema extends IGenericSchemaType> implements DetectableFeature
-```
-
-**Implements:** DetectableFeature
-
-## Remarks
-
-Read and update metadata for this contract
-
 ## Example
 
 ```javascript
@@ -53,3 +41,15 @@ await contract.metadata.set({
 | [get()](./sdk.contractmetadata.get.md)               |           | Get the metadata of a contract    |
 | [set(metadata)](./sdk.contractmetadata.set.md)       |           | Set the metadata of a contract    |
 | [update(metadata)](./sdk.contractmetadata.update.md) |           | Update the metadata of a contract |
+
+**Signature:**
+
+```typescript
+export declare class ContractMetadata<TContract extends BaseContract, TSchema extends IGenericSchemaType> implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+Read and update metadata for this contract

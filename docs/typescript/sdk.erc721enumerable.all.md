@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 Get Owned NFTs
 
+## Example
+
+```javascript
+// Address of the wallet to get the NFTs of
+const address = "{{wallet_address}}";
+const nfts = await contract.nft.query.owned.all(address);
+```
+
 **Signature:**
 
 ```typescript
@@ -32,11 +40,3 @@ The NFT metadata for all NFTs in the contract.
 ## Remarks
 
 Get all the data associated with the NFTs owned by a specific wallet.
-
-## Example
-
-```javascript
-// Address of the wallet to get the NFTs of
-const address = "{{wallet_address}}";
-const nfts = await contract.nft.query.owned.all(address);
-```

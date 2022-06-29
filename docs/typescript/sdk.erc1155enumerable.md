@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 List ERC1155 NFTs
 
-**Signature:**
-
-```typescript
-export declare class Erc1155Enumerable implements DetectableFeature
-```
-
-**Implements:** DetectableFeature
-
-## Remarks
-
-Easily list all the NFTs in a ERC1155 contract.
-
 ## Example
 
 ```javascript
@@ -50,3 +38,15 @@ const nfts = await contract.edition.query.all();
 | [owned(walletAddress)](./sdk.erc1155enumerable.owned.md)                             |           | Get Owned NFTs                               |
 | [totalCirculatingSupply(tokenId)](./sdk.erc1155enumerable.totalcirculatingsupply.md) |           | Get the supply of token for a given tokenId. |
 | [totalCount()](./sdk.erc1155enumerable.totalcount.md)                                |           | Get the number of NFTs minted                |
+
+**Signature:**
+
+```typescript
+export declare class Erc1155Enumerable implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+Easily list all the NFTs in a ERC1155 contract.

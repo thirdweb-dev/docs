@@ -80,6 +80,23 @@ async function main() {
         "---",
       ];
 
+      // The signature line is the first line that starts with "**Signature:**"
+      const signatureLine = output.findIndex((line) =>
+        line.startsWith("**Signature:**"),
+      );
+
+      // Example line is the first line that starts with "**Example:**"
+      const exampleLine = output.findIndex((line) =>
+        line.startsWith("## Example"),
+      );
+
+      // Edit the array so that every string that comes after example line (inclusive) is
+      // moved to be before the signature line.
+      if (exampleLine > -1) {
+        const exampleLines = output.splice(exampleLine);
+        output.splice(signatureLine, 0, ...exampleLines);
+      }
+
       await writeFile(docPathOut, header.concat(output).join("\n"));
     } catch (err) {
       console.error(`Could not process ${docFile}: ${err}`);

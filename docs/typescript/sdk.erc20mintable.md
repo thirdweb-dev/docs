@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 Mint ERC20 Tokens
 
-**Signature:**
-
-```typescript
-export declare class Erc20Mintable implements DetectableFeature
-```
-
-**Implements:** DetectableFeature
-
-## Remarks
-
-Token minting functionality that handles unit parsing for you.
-
 ## Example
 
 ```javascript
@@ -48,3 +36,15 @@ await contract.nft.mint.to(walletAddress, nftMetadata);
 | Method                                      | Modifiers | Description |
 | ------------------------------------------- | --------- | ----------- |
 | [to(to, amount)](./sdk.erc20mintable.to.md) |           | Mint Tokens |
+
+**Signature:**
+
+```typescript
+export declare class Erc20Mintable implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+Token minting functionality that handles unit parsing for you.

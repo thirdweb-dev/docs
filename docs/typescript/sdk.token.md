@@ -11,14 +11,6 @@ displayed_sidebar: typescript
 
 Create a standard crypto token or cryptocurrency.
 
-**Signature:**
-
-```typescript
-export declare class Token extends Erc20<TokenERC20>
-```
-
-**Extends:** [Erc20](./sdk.erc20.md)&lt;TokenERC20
-
 ## Example
 
 ```javascript
@@ -64,3 +56,11 @@ const contract = sdk.getToken("{{contract_address}}");
 | [mintBatchTo(args)](./sdk.token.mintbatchto.md)               |           | Mint Tokens To Many Wallets                              |
 | [mintTo(to, amount)](./sdk.token.mintto.md)                   |           | Mint Tokens                                              |
 | [mintToSelf(amount)](./sdk.token.minttoself.md)               |           | Mint Tokens for the connected wallet                     |
+
+**Signature:**
+
+```typescript
+export declare class Token extends Erc20<TokenERC20>
+```
+
+**Extends:** [Erc20](./sdk.erc20.md)&lt;TokenERC20

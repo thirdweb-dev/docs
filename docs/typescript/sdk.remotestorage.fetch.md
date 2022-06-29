@@ -11,6 +11,14 @@ displayed_sidebar: typescript
 
 Fetch data from any IPFS hash without worrying about gateways, data types, etc. Simply pass in an IPFS url and we'll handle fetching for you and try every public gateway to get the fastest response.
 
+## Example
+
+```javascript
+// Your IPFS hash here
+const hash = "ipfs://...";
+const data = await sdk.storage.fetch(hash);
+```
+
 **Signature:**
 
 ```typescript
@@ -28,11 +36,3 @@ fetch(hash: string): Promise<Record<string, any>>;
 Promise&lt;Record&lt;string, any&gt;&gt;
 
 The data stored at the specified IPFS hash
-
-## Example
-
-```javascript
-// Your IPFS hash here
-const hash = "ipfs://...";
-const data = await sdk.storage.fetch(hash);
-```

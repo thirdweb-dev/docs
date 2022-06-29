@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Fetch the native or ERC20 token balance of this wallet
 
+## Example
+
+```javascript
+// native currency balance
+const balance = await sdk.wallet.balance();
+// ERC20 token balance
+const erc20balance = await sdk.wallet.balance(tokenContractAddress);
+```
+
 **Signature:**
 
 ```typescript
@@ -26,12 +35,3 @@ balance(currencyAddress?: string): Promise<CurrencyValue>;
 **Returns:**
 
 Promise&lt;[CurrencyValue](./sdk.currencyvalue.md)&gt;
-
-## Example
-
-```javascript
-// native currency balance
-const balance = await sdk.wallet.balance();
-// ERC20 token balance
-const erc20balance = await sdk.wallet.balance(tokenContractAddress);
-```

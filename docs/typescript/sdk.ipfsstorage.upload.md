@@ -11,6 +11,13 @@ displayed_sidebar: typescript
 
 Upload a file to IPFS and return the hash
 
+## Example
+
+```javascript
+const file = "./path/to/file.png"; // Can be a path or a File object such as a file from an input element.
+const hash = await sdk.storage.upload(file);
+```
+
 **Signature:**
 
 ```typescript
@@ -35,10 +42,3 @@ Promise&lt;string&gt;
 ## Remarks
 
 This method is a wrapper around [IStorage.upload()](./sdk.istorage.upload.md)
-
-## Example
-
-```javascript
-const file = "./path/to/file.png"; // Can be a path or a File object such as a file from an input element.
-const hash = await sdk.storage.upload(file);
-```

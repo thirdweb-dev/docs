@@ -13,6 +13,18 @@ Call this to OVERWRITE the list of addresses that are members of specific roles.
 
 Every role in the list will be overwritten with the new list of addresses provided with them. If you want to add or remove addresses for a single address use [ContractRoles.grant()](./sdk.contractroles.grant.md) and [ContractRoles.revoke()](./sdk.contractroles.revoke.md) respectively instead.
 
+## Example
+
+Say you want to overwrite the list of addresses that are members of the minter role.
+
+```javascript
+const minterAddresses = await contract.roles.get("minter");
+await contract.roles.setAll({
+  minter: [],
+});
+console.log(await contract.roles.get("minter")); // No matter what members had the role before, the new list will be set to []
+```
+
 **Signature:**
 
 ```typescript
@@ -34,15 +46,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Exceptions
 
 If you are requestiong a role that does not exist on the contract this will throw an error.
-
-## Example
-
-Say you want to overwrite the list of addresses that are members of the minter role.
-
-```javascript
-const minterAddresses = await contract.roles.get("minter");
-await contract.roles.setAll({
-  minter: [],
-});
-console.log(await contract.roles.get("minter")); // No matter what members had the role before, the new list will be set to []
-```

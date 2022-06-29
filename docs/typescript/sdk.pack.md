@@ -11,14 +11,6 @@ displayed_sidebar: typescript
 
 Create lootboxes of NFTs with rarity based open mechanics.
 
-**Signature:**
-
-```typescript
-export declare class Pack extends Erc1155<PackContract>
-```
-
-**Extends:** [Erc1155](./sdk.erc1155.md)&lt;PackContract
-
 ## Example
 
 ```javascript
@@ -60,3 +52,11 @@ const contract = sdk.getPack("{{contract_address}}");
 | [getTotalCount()](./sdk.pack.gettotalcount.md)               |           | Get the number of packs created                         |
 | [isTransferRestricted()](./sdk.pack.istransferrestricted.md) |           | Get whether users can transfer packs from this contract |
 | [open(tokenId, amount)](./sdk.pack.open.md)                  |           | Open Pack                                               |
+
+**Signature:**
+
+```typescript
+export declare class Pack extends Erc1155<PackContract>
+```
+
+**Extends:** [Erc1155](./sdk.erc1155.md)&lt;PackContract

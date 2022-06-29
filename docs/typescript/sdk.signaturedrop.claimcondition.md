@@ -11,16 +11,6 @@ displayed_sidebar: typescript
 
 Configure claim conditions
 
-**Signature:**
-
-```typescript
-claimCondition: DropSingleClaimConditions<SignatureDropContract>;
-```
-
-## Remarks
-
-Define who can claim NFTs in the collection, when and how many.
-
 ## Example
 
 ```javascript
@@ -33,3 +23,13 @@ const claimCondition = {
 };
 await contract.claimCondition.set(claimCondition);
 ```
+
+**Signature:**
+
+```typescript
+claimCondition: DropSingleClaimConditions<SignatureDropContract>;
+```
+
+## Remarks
+
+Define who can claim NFTs in the collection, when and how many.

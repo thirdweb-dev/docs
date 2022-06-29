@@ -13,23 +13,6 @@ displayed_sidebar: typescript
 
 Call any function on this contract
 
-**Signature:**
-
-```typescript
-call(functionName: string, ...args: unknown[] | [...unknown[], CallOverrides]): Promise<any>;
-```
-
-## Parameters
-
-| Parameter    | Type                                                 | Description                      |
-| ------------ | ---------------------------------------------------- | -------------------------------- |
-| functionName | string                                               | the name of the function to call |
-| args         | unknown\[\] &#124; \[...unknown\[\], CallOverrides\] | the arguments of the function    |
-
-**Returns:**
-
-Promise&lt;any&gt;
-
 ## Example
 
 ```javascript
@@ -47,3 +30,20 @@ await contract.call("myWriteFunction", arg1, arg2, {
  value: ethers.utils.parseEther("0.1"), // send 0.1 ether with the contract call
 };
 ```
+
+**Signature:**
+
+```typescript
+call(functionName: string, ...args: unknown[] | [...unknown[], CallOverrides]): Promise<any>;
+```
+
+## Parameters
+
+| Parameter    | Type                                                 | Description                      |
+| ------------ | ---------------------------------------------------- | -------------------------------- |
+| functionName | string                                               | the name of the function to call |
+| args         | unknown\[\] &#124; \[...unknown\[\], CallOverrides\] | the arguments of the function    |
+
+**Returns:**
+
+Promise&lt;any&gt;

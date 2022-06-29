@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Transfer native or ERC20 tokens from this wallet to another wallet
 
+## Example
+
+```javascript
+// transfer 0.8 ETH
+await sdk.wallet.transfer("0x...", 0.8);
+// transfer 0.8 tokens of `tokenContractAddress`
+await sdk.wallet.transfer("0x...", 0.8, tokenContractAddress);
+```
+
 **Signature:**
 
 ```typescript
@@ -28,12 +37,3 @@ transfer(to: string, amount: Amount, currencyAddress?: string): Promise<Transact
 **Returns:**
 
 Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
-
-## Example
-
-```javascript
-// transfer 0.8 ETH
-await sdk.wallet.transfer("0x...", 0.8);
-// transfer 0.8 tokens of `tokenContractAddress`
-await sdk.wallet.transfer("0x...", 0.8, tokenContractAddress);
-```

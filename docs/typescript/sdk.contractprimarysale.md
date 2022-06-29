@@ -11,18 +11,6 @@ displayed_sidebar: typescript
 
 Handle primary sales recipients
 
-**Signature:**
-
-```typescript
-export declare class ContractPrimarySale<TContract extends IPrimarySale> implements DetectableFeature
-```
-
-**Implements:** DetectableFeature
-
-## Remarks
-
-Configure primary sale recipients for an entire contract.
-
 ## Example
 
 ```javascript
@@ -49,3 +37,15 @@ await contract.roles.setRecipient(recipientWalletAddress);
 | -------------------------------------------------------------------- | --------- | ------------------------------- |
 | [getRecipient()](./sdk.contractprimarysale.getrecipient.md)          |           | Get the primary sale recipient. |
 | [setRecipient(recipient)](./sdk.contractprimarysale.setrecipient.md) |           | Set the primary sale recipient  |
+
+**Signature:**
+
+```typescript
+export declare class ContractPrimarySale<TContract extends IPrimarySale> implements DetectableFeature
+```
+
+**Implements:** DetectableFeature
+
+## Remarks
+
+Configure primary sale recipients for an entire contract.

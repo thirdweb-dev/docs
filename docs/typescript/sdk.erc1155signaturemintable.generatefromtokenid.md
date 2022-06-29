@@ -11,28 +11,6 @@ displayed_sidebar: typescript
 
 Generate a signature that can be used to mint additionaly supply to an existing NFT.
 
-**Signature:**
-
-```typescript
-generateFromTokenId(payloadToSign: PayloadToSign1155WithTokenId): Promise<SignedPayload1155>;
-```
-
-## Parameters
-
-| Parameter     | Type                                                                  | Description         |
-| ------------- | --------------------------------------------------------------------- | ------------------- |
-| payloadToSign | [PayloadToSign1155WithTokenId](./sdk.payloadtosign1155withtokenid.md) | the payload to sign |
-
-**Returns:**
-
-Promise&lt;[SignedPayload1155](./sdk.signedpayload1155.md)&gt;
-
-the signed payload and the corresponding signature
-
-## Remarks
-
-Takes in a payload with the token ID of an existing NFT, and signs it with your private key. The generated signature can then be used to mint additional supply to the NFT using the exact payload and signature generated.
-
 ## Example
 
 ```javascript
@@ -60,3 +38,25 @@ const payload = {
 const signedPayload = contract.signature.generate(payload);
 // now anyone can use these to mint the NFT using `contract.signature.mint(signedPayload)`
 ```
+
+**Signature:**
+
+```typescript
+generateFromTokenId(payloadToSign: PayloadToSign1155WithTokenId): Promise<SignedPayload1155>;
+```
+
+## Parameters
+
+| Parameter     | Type                                                                  | Description         |
+| ------------- | --------------------------------------------------------------------- | ------------------- |
+| payloadToSign | [PayloadToSign1155WithTokenId](./sdk.payloadtosign1155withtokenid.md) | the payload to sign |
+
+**Returns:**
+
+Promise&lt;[SignedPayload1155](./sdk.signedpayload1155.md)&gt;
+
+the signed payload and the corresponding signature
+
+## Remarks
+
+Takes in a payload with the token ID of an existing NFT, and signs it with your private key. The generated signature can then be used to mint additional supply to the NFT using the exact payload and signature generated.

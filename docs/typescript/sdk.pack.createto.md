@@ -11,27 +11,6 @@ displayed_sidebar: typescript
 
 Create Pack To Wallet
 
-**Signature:**
-
-```typescript
-createTo(to: string, metadataWithRewards: PackMetadataInput): Promise<TransactionResultWithId<EditionMetadata>>;
-```
-
-## Parameters
-
-| Parameter           | Type              | Description                                     |
-| ------------------- | ----------------- | ----------------------------------------------- |
-| to                  | string            | the address to mint the pack to                 |
-| metadataWithRewards | PackMetadataInput | the metadata and rewards to include in the pack |
-
-**Returns:**
-
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;&gt;
-
-## Remarks
-
-Create a new pack with the given metadata and rewards and mint it to the specified address.
-
 ## Example
 
 ```javascript
@@ -70,3 +49,24 @@ const pack = {
 
 const tx = await contract.createTo("0x...", pack);
 ```
+
+**Signature:**
+
+```typescript
+createTo(to: string, metadataWithRewards: PackMetadataInput): Promise<TransactionResultWithId<EditionMetadata>>;
+```
+
+## Parameters
+
+| Parameter           | Type              | Description                                     |
+| ------------------- | ----------------- | ----------------------------------------------- |
+| to                  | string            | the address to mint the pack to                 |
+| metadataWithRewards | PackMetadataInput | the metadata and rewards to include in the pack |
+
+**Returns:**
+
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;&gt;
+
+## Remarks
+
+Create a new pack with the given metadata and rewards and mint it to the specified address.

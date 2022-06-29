@@ -11,6 +11,28 @@ displayed_sidebar: typescript
 
 Make an offer for a Direct Listing
 
+## Example
+
+```javascript
+import { ChainId, NATIVE_TOKENS } from "@thirdweb-dev/sdk";
+
+// The listing ID of the asset you want to offer on
+const listingId = 0;
+// The price you are willing to offer per token
+const pricePerToken = 1;
+// The quantity of tokens you want to receive for this offer
+const quantity = 1;
+// The address of the currency you are making the offer in (must be ERC-20)
+const currencyContractAddress = NATIVE_TOKENS[ChainId.Rinkeby].wrapped.address;
+
+await contract.direct.makeOffer(
+  listingId,
+  quantity,
+  currencyContractAddress,
+  pricePerToken,
+);
+```
+
 **Signature:**
 
 ```typescript
@@ -34,25 +56,3 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Remarks
 
 Make an offer on a direct listing
-
-## Example
-
-```javascript
-import { ChainId, NATIVE_TOKENS } from "@thirdweb-dev/sdk";
-
-// The listing ID of the asset you want to offer on
-const listingId = 0;
-// The price you are willing to offer per token
-const pricePerToken = 1;
-// The quantity of tokens you want to receive for this offer
-const quantity = 1;
-// The address of the currency you are making the offer in (must be ERC-20)
-const currencyContractAddress = NATIVE_TOKENS[ChainId.Rinkeby].wrapped.address;
-
-await contract.direct.makeOffer(
-  listingId,
-  quantity,
-  currencyContractAddress,
-  pricePerToken,
-);
-```

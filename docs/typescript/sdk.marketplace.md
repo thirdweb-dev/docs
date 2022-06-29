@@ -11,14 +11,6 @@ displayed_sidebar: typescript
 
 Create your own whitelabel marketplace that enables users to buy and sell any digital assets.
 
-**Signature:**
-
-```typescript
-export declare class Marketplace implements UpdateableNetwork
-```
-
-**Implements:** UpdateableNetwork
-
 ## Example
 
 ```javascript
@@ -68,3 +60,11 @@ const contract = sdk.getMarketplace("{{contract_address}}");
 | [onNetworkUpdated(network)](./sdk.marketplace.onnetworkupdated.md)                                           |           |                                                                                                                                       |
 | [setBidBufferBps(bufferBps)](./sdk.marketplace.setbidbufferbps.md)                                           |           | Set the Auction bid buffer                                                                                                            |
 | [setTimeBufferInSeconds(bufferInSeconds)](./sdk.marketplace.settimebufferinseconds.md)                       |           | Set the Auction Time buffer:                                                                                                          |
+
+**Signature:**
+
+```typescript
+export declare class Marketplace implements UpdateableNetwork
+```
+
+**Implements:** UpdateableNetwork

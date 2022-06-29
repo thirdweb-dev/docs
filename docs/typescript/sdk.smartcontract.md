@@ -13,14 +13,6 @@ displayed_sidebar: typescript
 
 Custom contract dynamic class with feature detection
 
-**Signature:**
-
-```typescript
-export declare class SmartContract<TContract extends ThirdwebContract = ThirdwebContract> implements UpdateableNetwork
-```
-
-**Implements:** UpdateableNetwork
-
 ## Example
 
 ```javascript
@@ -73,3 +65,11 @@ const tx = await contract.nft.mint.to("0x...", {
 | [call(functionName, args)](./sdk.smartcontract.call.md)              |           | **<i>(BETA)</i>** Call any function on this contract |
 | [getAddress()](./sdk.smartcontract.getaddress.md)                    |           | **<i>(BETA)</i>**                                    |
 | [onNetworkUpdated(network)](./sdk.smartcontract.onnetworkupdated.md) |           | **<i>(BETA)</i>**                                    |
+
+**Signature:**
+
+```typescript
+export declare class SmartContract<TContract extends ThirdwebContract = ThirdwebContract> implements UpdateableNetwork
+```
+
+**Implements:** UpdateableNetwork
