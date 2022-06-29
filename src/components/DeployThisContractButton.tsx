@@ -48,7 +48,7 @@ export default function DeployThisContractButton({ link }: Props) {
             alignItems: "center",
           }}
         >
-          <div style={{ marginLeft: 8 }}>Deploy This Contract</div>
+          <div style={{ marginLeft: 8 }}>Deploy Contract</div>
         </div>
       </div>
     </a>
