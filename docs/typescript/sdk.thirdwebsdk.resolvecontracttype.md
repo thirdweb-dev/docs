@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-resolveContractType(contractAddress: string): Promise<ContractType>;
+resolveContractType(contractAddress: string): Promise<Exclude<ContractType, "custom">>;
 ```
 
 ## Parameters
@@ -23,7 +23,7 @@ resolveContractType(contractAddress: string): Promise<ContractType>;
 
 **Returns:**
 
-Promise&lt;[ContractType](./sdk.contracttype.md)&gt;
+Promise&lt;Exclude&lt;[ContractType](./sdk.contracttype.md), "custom"&gt;&gt;
 
 the [ContractType](./sdk.contracttype.md) for the given contract address
 

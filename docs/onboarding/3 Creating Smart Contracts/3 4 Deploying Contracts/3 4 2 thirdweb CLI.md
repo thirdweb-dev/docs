@@ -10,6 +10,7 @@ title: thirdweb CLI
 The thirdweb CLI is your one-stop-shop for publishing custom contracts for your team or the world to use. The CLI uploads all necessary data to decentralized storage and makes it available to deploy via the thirdweb sdk or thirdweb dashboard.
 
 This brings all the capabilities of thirdweb to your own custom contracts.
+
 ## Deploying your contract
 
 Once your contract code is setup like above, you can now publish it by running:
@@ -45,6 +46,7 @@ npx thirdweb@latest detect
 ```
 
 Or by installing the CLI as a global command on your machine:
+
 ```shell
 npm i -g @thirdweb-dev/cli
 thirdweb detect
