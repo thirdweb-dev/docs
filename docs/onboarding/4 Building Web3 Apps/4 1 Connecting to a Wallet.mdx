@@ -15,6 +15,47 @@ If you are looking to connect to the SDK via your private key or via a signer ob
 
 :::
 
+To use a wallet connection hook, your app needs to be wrapped in the [ThirdwebProvider](/building-web3-apps/setting-up-the-sdk/frontend#manual-installation) component.
+
+```jsx
+import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
+
+const desiredChainId = ChainId.Mumbai;
+
+export const MyApp = () => {
+  return (
+    <ThirdwebProvider desiredChainId={desiredChainId}>
+      {/*
+          Your App Goes Here
+      */}
+    </ThirdwebProvider>
+  );
+};
+```
+
+Then, connect to the wallet using one of our [wallet connection hooks](/react/category/wallet-connection) such as [useMetamask](/react/react.usemetamask), and
+view the connected wallet address using [useAddress](/react/react.useaddress).
+
+Below is an example of a React component that shows users a button to connect their wallet using MetaMask, then shows the connected wallet address once they have connected.
+
+```jsx
+import { useAddress, useDisconnect, useMetamask } from "@thirdweb-dev/react";
+
+export const ConnectMetamaskButtonComponent = () => {
+  const connectWithMetamask = useMetamask();
+  const address = useAddress();
+  return (
+    <div>
+      {address ? (
+        <h4>Connected as {address}</h4>
+      ) : (
+        <button onClick={connectWithMetamask}>Connect Metamask Wallet</button>
+      )}
+    </div>
+  );
+};
+```
+
 ## Resources
 
 Learn more about how to connect to user's wallets from our React SDK's documentation:
@@ -23,3 +64,4 @@ Learn more about how to connect to user's wallets from our React SDK's documenta
 - [Viewing Wallet Address](/react/react.useaddress)
 - [Disconnecting a Wallet](/react/react.usedisconnect)
 - [Viewing Token Balances](/react/react.usetokenbalance#usetokenbalance-function)
+- [Connecting with user's emails (Magic.Link)](/react/react.usemagic)
