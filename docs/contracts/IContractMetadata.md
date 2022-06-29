@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # IContractMetadata
 
+Thirdweb&#39;s `ContractMetadata` is a contract extension for any base contracts. It lets you set a metadata URI for you contract. Additionally, `ContractMetadata` is necessary for NFT contracts that want royalties to get distributed on OpenSea.
+
 ## Methods
 
 ### contractURI
@@ -45,9 +47,21 @@ _Sets contract URI for the storefront-level metadata of the contract. Only modul
 event ContractURIUpdated(string prevURI, string newURI)
 ```
 
+_Emitted when the contract URI is updated._
+
 #### Parameters
 
 | Name    | Type   | Description |
 | ------- | ------ | ----------- |
 | prevURI | string | undefined   |
 | newURI  | string | undefined   |
+
+## Errors
+
+### ContractMetadata\_\_NotAuthorized
+
+```solidity
+error ContractMetadata__NotAuthorized()
+```
+
+_Emitted when an unauthorized caller tries to set the contract metadata URI._

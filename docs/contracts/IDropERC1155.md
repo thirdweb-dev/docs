@@ -257,6 +257,21 @@ _Emitted when the max wallet claim count for a given tokenId is updated._
 | tokenId | uint256 | undefined   |
 | count   | uint256 | undefined   |
 
+### SaleRecipientForTokenUpdated
+
+```solidity
+event SaleRecipientForTokenUpdated(uint256 indexed tokenId, address saleRecipient)
+```
+
+_Emitted when the sale recipient for a particular tokenId is updated._
+
+#### Parameters
+
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| tokenId `indexed` | uint256 | undefined   |
+| saleRecipient     | address | undefined   |
+
 ### TokensClaimed
 
 ```solidity

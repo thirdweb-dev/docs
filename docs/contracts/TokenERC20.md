@@ -923,15 +923,15 @@ event Paused(address account)
 ### PlatformFeeInfoUpdated
 
 ```solidity
-event PlatformFeeInfoUpdated(address platformFeeRecipient, uint256 platformFeeBps)
+event PlatformFeeInfoUpdated(address indexed platformFeeRecipient, uint256 platformFeeBps)
 ```
 
 #### Parameters
 
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| platformFeeRecipient | address | undefined   |
-| platformFeeBps       | uint256 | undefined   |
+| Name                           | Type    | Description |
+| ------------------------------ | ------- | ----------- |
+| platformFeeRecipient `indexed` | address | undefined   |
+| platformFeeBps                 | uint256 | undefined   |
 
 ### PrimarySaleRecipientUpdated
 
@@ -1039,3 +1039,35 @@ event Unpaused(address account)
 | Name    | Type    | Description |
 | ------- | ------- | ----------- |
 | account | address | undefined   |
+
+## Errors
+
+### PlatformFee\_\_ExceedsMaxBps
+
+```solidity
+error PlatformFee__ExceedsMaxBps(uint256 platformFeeBps)
+```
+
+Emitted when given platform-fee bps exceeds max bps.
+
+#### Parameters
+
+| Name           | Type    | Description |
+| -------------- | ------- | ----------- |
+| platformFeeBps | uint256 | undefined   |
+
+### PlatformFee\_\_NotAuthorized
+
+```solidity
+error PlatformFee__NotAuthorized()
+```
+
+_Emitted when an unauthorized caller tries to set platform fee details._
+
+### PrimarySale\_\_NotAuthorized
+
+```solidity
+error PrimarySale__NotAuthorized()
+```
+
+_Emitted when an unauthorized caller tries to set primary sales details._

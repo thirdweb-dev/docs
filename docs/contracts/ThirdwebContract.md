@@ -54,12 +54,22 @@ _Initializes the owner of the contract._
 ### OwnerUpdated
 
 ```solidity
-event OwnerUpdated(address prevOwner, address newOwner)
+event OwnerUpdated(address indexed prevOwner, address indexed newOwner)
 ```
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| prevOwner | address | undefined   |
-| newOwner  | address | undefined   |
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| prevOwner `indexed` | address | undefined   |
+| newOwner `indexed`  | address | undefined   |
+
+## Errors
+
+### Ownable\_\_NotAuthorized
+
+```solidity
+error Ownable__NotAuthorized()
+```
+
+_Emitted when an unauthorized caller tries to set the owner._
