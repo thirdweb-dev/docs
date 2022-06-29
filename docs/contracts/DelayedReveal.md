@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # DelayedReveal
 
+Thirdweb&#39;s `DelayedReveal` is a contract extension for base NFT contracts. It lets you create batches of &#39;delayed-reveal&#39; NFTs. You can learn more about the usage of delayed reveal NFTs here - https://blog.thirdweb.com/delayed-reveal-nfts
+
 ## Methods
 
 ### encryptDecrypt
@@ -53,7 +55,7 @@ _Mapping from id of a batch of tokens =&gt; to encrypted base URI for the respec
 ### getRevealURI
 
 ```solidity
-function getRevealURI(uint256 _batchId, bytes _key) external nonpayable returns (string revealedURI)
+function getRevealURI(uint256 _batchId, bytes _key) external view returns (string revealedURI)
 ```
 
 _Returns the decrypted i.e. revealed URI for a batch of tokens._
@@ -97,15 +99,33 @@ _Returns whether the relvant batch of NFTs is subject to a delayed reveal._
 function reveal(uint256 identifier, bytes key) external nonpayable returns (string revealedURI)
 ```
 
+Reveals a batch of delayed reveal NFTs.
+
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| identifier | uint256 | undefined   |
-| key        | bytes   | undefined   |
+| Name       | Type    | Description                                                                   |
+| ---------- | ------- | ----------------------------------------------------------------------------- |
+| identifier | uint256 | The ID for the batch of delayed-reveal NFTs to reveal.                        |
+| key        | bytes   | The key with which the base URI for the relevant batch of NFTs was encrypted. |
 
 #### Returns
 
 | Name        | Type   | Description |
 | ----------- | ------ | ----------- |
 | revealedURI | string | undefined   |
+
+## Errors
+
+### DelayedReveal\_\_NothingToReveal
+
+```solidity
+error DelayedReveal__NothingToReveal(uint256 batchId)
+```
+
+Emitted when encrypted URI for a given batch is empty.
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| batchId | uint256 | undefined   |
