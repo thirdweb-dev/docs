@@ -84,3 +84,56 @@ aside {
   justify-content: center;
   align-items: center;
 }
+
+.deployContractBtnContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  margin-right: 16px;
+  margin-bottom: calc(
+    var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading)
+  );
+}
+
+.deployContractBtn {
+  appearance: button;
+  background-color: #a855f7;
+  color: #fff;
+  min-height: 42px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  border-radius: 8px;
+  border: none;
+  font-family: var(--ifm-font-family-base);
+  font-size: 15px;
+  line-height: 1.1;
+  font-weight: 500;
+  cursor: pointer;
+  min-width: 140px;
+}
+
+.deployContractBtn:hover {
+  // Dont underline text
+  text-decoration: none;
+  color: #fff;
+}
+
+// On mobile screens (between 641 and 996px)
+@media (min-width: 900px) and (max-width: 1100px) {
+  .deployContractBtnContainer {
+    display: none;
+    margin-bottom: calc(
+      var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading) + 32px
+    );
+  }
+}
+
+// And on less than 641px screens
+@media (max-width: 640px) {
+  .deployContractBtnContainer {
+    display: none;
+    margin-bottom: calc(
+      var(--ifm-h1-vertical-rhythm-bottom) * var(--ifm-leading) + 32px
+    );
+  }
+}

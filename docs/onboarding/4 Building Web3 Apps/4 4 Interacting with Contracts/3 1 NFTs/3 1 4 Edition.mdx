@@ -3,8 +3,17 @@ slug: /pre-built-contracts/edition
 ---
 
 import ThirdwebCodeSnippet from "../../../../../src/components/ThirdwebCodeSnippet";
+import DeployThisContractButton from "../../../../../src/components/DeployThisContractButton";
 
 # Edition
+
+<div class='deployContractBtnContainer' style={{marginTop:-70}}>
+
+<DeployThisContractButton
+  link={"https://thirdweb.com/contracts/new/pre-built/token/edition"}
+/>
+
+</div>
 
 thirdweb's Edition contract is a **n-of-1** or **n-of-many** NFT Collection, that follows the [ERC1155 Standard](https://eips.ethereum.org/EIPS/eip-1155) also known as "Semi-Fungible Tokens".
 
@@ -19,12 +28,6 @@ You could use the Edition contract to:
 - Create an NFT Collection where each NFT has 100 copies
 - Airdrop an NFT to a list of addresses that all use the same asset and metadata
 - Create 10 "copies" of your artwork and sell them on a [Marketplace](/pre-built-contracts/marketplace)
-
-:::tip Learn more
-
-[How thirdweb pre-built contracts work and how to create one](/pre-built-contracts)
-
-:::
 
 ## Create an Edition Contract
 

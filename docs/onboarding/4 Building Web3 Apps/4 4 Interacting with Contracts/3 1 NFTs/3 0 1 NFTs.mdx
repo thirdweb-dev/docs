@@ -3,6 +3,8 @@ slug: /pre-built-contracts/nfts
 title: Overview
 ---
 
+import DeployThisContractButton from "../../../../../src/components/DeployThisContractButton";
+
 # NFTs
 
 NFTs are tokens that follow either the
@@ -10,17 +12,8 @@ NFTs are tokens that follow either the
 or
 [ERC-1155](https://eips.ethereum.org/EIPS/eip-1155) "semi-fungible" standard.
 
-- ERC-721: Each NFT is unique and owned by a single address.
-- ERC-1155: There can be multiple owners of each NFT.
-
-thirdweb currently has six types of NFT contracts:
-
-1. [NFT Drop](/pre-built-contracts/nft-drop)
-2. [NFT Collection](/pre-built-contracts/nft-collection)
-3. [Edition Drop](/pre-built-contracts/edition)
-4. [Edition](/pre-built-contracts/edition-drop)
-5. [Pack](/pre-built-contracts/pack)
-6. [Multiwrap](/pre-built-contracts/multiwrap)
+- **ERC-721**: Each NFT is unique and owned by a single address.
+- **ERC-1155**: There can be multiple owners of each NFT.
 
 ## Which NFT contract should I use?
 
@@ -28,13 +21,13 @@ Below is a helpful table to demonstrate the differences between the contracts.
 
 <div style={{textAlign:'center'}}>
 
-| Contract       | Type     | Multiple copies of NFT | Claimable by other people |
-| -------------- | -------- | ---------------------- | ------------------------- |
-| NFT Drop       | ERC-721  | ❌                     | ✅                        |
-| NFT Collection | ERC-721  | ❌                     | ❌                        |
-| Edition Drop   | ERC-1155 | ✅                     | ✅                        |
-| Edition        | ERC-1155 | ✅                     | ❌                        |
-| Multiwrap      | ERC-721  | ❌                     | ❌                        |
-| Pack           | ERC-1155 | ✅                     | ❌                        |
+| Contract                                              | Type     | Multiple copies | Claimable by others | Deploy                                                                                                                                                   |
+| ----------------------------------------------------- | -------- | --------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [NFT Drop](/pre-built-contracts/nft-drop)             | ERC-721  | ❌              | ✅                  | <DeployThisContractButton name={"NFT Drop"} image={"nft-drop"} link={"https://thirdweb.com/contracts/new/pre-built/drop/nft-drop"} />                    |
+| [NFT Collection](/pre-built-contracts/nft-collection) | ERC-721  | ❌              | ❌                  | <DeployThisContractButton name={"NFT Collection"} image={"nft-collection"} link={"https://thirdweb.com/contracts/new/pre-built/token/nft-collection"} /> |
+| [Edition Drop](/pre-built-contracts/edition)          | ERC-1155 | ✅              | ✅                  | <DeployThisContractButton name={"Edition Drop"} image={"edition-drop"} link={"https://thirdweb.com/contracts/new/pre-built/drop/edition-drop"} />        |
+| [Edition](/pre-built-contracts/edition-drop)          | ERC-1155 | ✅              | ❌                  | <DeployThisContractButton name={"Edition"} image={"edition"} link={"https://thirdweb.com/contracts/new/pre-built/token/edition"} />                      |
+| [Multiwrap](/pre-built-contracts/multiwrap)           | ERC-721  | ❌              | ❌                  | <DeployThisContractButton name={"Multiwrap"} image={"multiwrap"} link={"https://thirdweb.com/contracts/new/pre-built/token/multiwrap"} />                |
+| [Pack](/pre-built-contracts/pack)                     | ERC-1155 | ✅              | ❌                  | <DeployThisContractButton name={"Pack"} image={"pack"} link={"https://thirdweb.com/contracts/new/pre-built/token/pack"} />                               |
 
 </div>
