@@ -3,8 +3,17 @@ slug: /pre-built-contracts/split
 ---
 
 import ThirdwebCodeSnippet from "../../../../../src/components/ThirdwebCodeSnippet";
+import DeployThisContractButton from "../../../../../src/components/DeployThisContractButton";
 
 # Split
+
+<div class='deployContractBtnContainer' style={{marginTop:-70}}>
+
+<DeployThisContractButton
+  link={"https://thirdweb.com/contracts/new/pre-built/governance/split"}
+/>
+
+</div>
 
 The Split contract lets you specify multiple wallet addresses that are recipients of any revenue or royalty split.
 You define what percentage of funds that are sent to this address to each recipient you specify.
@@ -26,15 +35,9 @@ You could use the Split contract to:
 - Share revenue from our royalty sales with members of your team, such as an artist
 - Any programmatic split of revenue
 
-:::tip Learn more
-
-[How thirdweb pre-built contracts work and how to create one](/pre-built-contracts)
-
-:::
-
 ## Create a Split Contract
 
-Learn how to create any of thirdweb's pre-built contracts via the [Deploying Contracts page](/getting-started/setting-up).
+Learn how to create any of thirdweb's pre-built contracts via the [Deploying Contracts page](/getting-started/deploying-contracts).
 
 <ThirdwebCodeSnippet contract={"ContractDeployer"} name={"deploySplit"} />
 

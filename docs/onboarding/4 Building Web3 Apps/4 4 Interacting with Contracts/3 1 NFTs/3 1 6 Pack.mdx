@@ -3,8 +3,17 @@ slug: /pre-built-contracts/pack
 ---
 
 import ThirdwebCodeSnippet from "../../../../../src/components/ThirdwebCodeSnippet";
+import DeployThisContractButton from "../../../../../src/components/DeployThisContractButton";
 
 # Pack
+
+<div class='deployContractBtnContainer' style={{marginTop:-70}}>
+
+<DeployThisContractButton
+  link={"https://thirdweb.com/contracts/new/pre-built/token/pack"}
+/>
+
+</div>
 
 The pack contract lets you bundle
 [ERC20](https://eips.ethereum.org/EIPS/eip-20),
@@ -30,19 +39,13 @@ You could use the Pack contract to:
 
 - Reward your community with token gift boxes
 
-:::tip Learn more
-
-[How thirdweb pre-built contracts work and how to create one](/pre-built-contracts)
-
-:::
-
 ## Create a Pack Contract
 
 _Currently, you can only deploy a Pack contract from the thirdweb SDK._
 
 _Support for Pack dashboard deployments is coming soon._
 
-<!-- Learn how to create any of thirdweb's pre-built contracts via the [Deploying Contracts page](/getting-started/setting-up). -->
+<!-- Learn how to create any of thirdweb's pre-built contracts via the [Deploying Contracts page](/getting-started/deploying-contracts). -->
 
 <ThirdwebCodeSnippet contract={"ContractDeployer"} name={"deployPack"} />
 

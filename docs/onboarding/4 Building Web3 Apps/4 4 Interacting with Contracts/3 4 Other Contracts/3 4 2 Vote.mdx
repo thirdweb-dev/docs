@@ -3,8 +3,17 @@ slug: /pre-built-contracts/vote
 ---
 
 import ThirdwebCodeSnippet from "../../../../../src/components/ThirdwebCodeSnippet";
+import DeployThisContractButton from "../../../../../src/components/DeployThisContractButton";
 
 # Vote
+
+<div class='deployContractBtnContainer' style={{marginTop:-70}}>
+
+<DeployThisContractButton
+  link={"https://thirdweb.com/contracts/new/pre-built/governance/vote"}
+/>
+
+</div>
 
 The Vote contract is designed for groups such as DAOs to vote on proposals.
 
@@ -17,15 +26,9 @@ You could use the Vote contract to:
 - Vote on managing and distributing funds in a treasury
 - Vote on any other proposal in an organization, such as a DAO
 
-:::tip Learn more
-
-[How thirdweb pre-built contracts work and how to create one](/pre-built-contracts)
-
-:::
-
 ## Create a Vote Contract
 
-Learn how to create any of thirdweb's pre-built contracts via the [Deploying Contracts page](/getting-started/setting-up).
+Learn how to create any of thirdweb's pre-built contracts via the [Deploying Contracts page](/getting-started/deploying-contracts).
 
 <ThirdwebCodeSnippet contract={"ContractDeployer"} name={"deployVote"} />
 
