@@ -817,41 +817,41 @@ event ApprovalForAll(address indexed account, address indexed operator, bool app
 ### DefaultRoyalty
 
 ```solidity
-event DefaultRoyalty(address newRoyaltyRecipient, uint256 newRoyaltyBps)
+event DefaultRoyalty(address indexed newRoyaltyRecipient, uint256 newRoyaltyBps)
+```
+
+#### Parameters
+
+| Name                          | Type    | Description |
+| ----------------------------- | ------- | ----------- |
+| newRoyaltyRecipient `indexed` | address | undefined   |
+| newRoyaltyBps                 | uint256 | undefined   |
+
+### OwnerUpdated
+
+```solidity
+event OwnerUpdated(address indexed prevOwner, address indexed newOwner)
 ```
 
 #### Parameters
 
 | Name                | Type    | Description |
 | ------------------- | ------- | ----------- |
-| newRoyaltyRecipient | address | undefined   |
-| newRoyaltyBps       | uint256 | undefined   |
-
-### OwnerUpdated
-
-```solidity
-event OwnerUpdated(address prevOwner, address newOwner)
-```
-
-#### Parameters
-
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| prevOwner | address | undefined   |
-| newOwner  | address | undefined   |
+| prevOwner `indexed` | address | undefined   |
+| newOwner `indexed`  | address | undefined   |
 
 ### PlatformFeeInfoUpdated
 
 ```solidity
-event PlatformFeeInfoUpdated(address platformFeeRecipient, uint256 platformFeeBps)
+event PlatformFeeInfoUpdated(address indexed platformFeeRecipient, uint256 platformFeeBps)
 ```
 
 #### Parameters
 
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| platformFeeRecipient | address | undefined   |
-| platformFeeBps       | uint256 | undefined   |
+| Name                           | Type    | Description |
+| ------------------------------ | ------- | ----------- |
+| platformFeeRecipient `indexed` | address | undefined   |
+| platformFeeBps                 | uint256 | undefined   |
 
 ### PrimarySaleRecipientUpdated
 
@@ -910,16 +910,16 @@ event RoleRevoked(bytes32 indexed role, address indexed account, address indexed
 ### RoyaltyForToken
 
 ```solidity
-event RoyaltyForToken(uint256 indexed tokenId, address royaltyRecipient, uint256 royaltyBps)
+event RoyaltyForToken(uint256 indexed tokenId, address indexed royaltyRecipient, uint256 royaltyBps)
 ```
 
 #### Parameters
 
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| tokenId `indexed` | uint256 | undefined   |
-| royaltyRecipient  | address | undefined   |
-| royaltyBps        | uint256 | undefined   |
+| Name                       | Type    | Description |
+| -------------------------- | ------- | ----------- |
+| tokenId `indexed`          | uint256 | undefined   |
+| royaltyRecipient `indexed` | address | undefined   |
+| royaltyBps                 | uint256 | undefined   |
 
 ### TokensMinted
 
@@ -995,3 +995,65 @@ event URI(string value, uint256 indexed id)
 | ------------ | ------- | ----------- |
 | value        | string  | undefined   |
 | id `indexed` | uint256 | undefined   |
+
+## Errors
+
+### Ownable\_\_NotAuthorized
+
+```solidity
+error Ownable__NotAuthorized()
+```
+
+_Emitted when an unauthorized caller tries to set the owner._
+
+### PlatformFee\_\_ExceedsMaxBps
+
+```solidity
+error PlatformFee__ExceedsMaxBps(uint256 platformFeeBps)
+```
+
+Emitted when given platform-fee bps exceeds max bps.
+
+#### Parameters
+
+| Name           | Type    | Description |
+| -------------- | ------- | ----------- |
+| platformFeeBps | uint256 | undefined   |
+
+### PlatformFee\_\_NotAuthorized
+
+```solidity
+error PlatformFee__NotAuthorized()
+```
+
+_Emitted when an unauthorized caller tries to set platform fee details._
+
+### PrimarySale\_\_NotAuthorized
+
+```solidity
+error PrimarySale__NotAuthorized()
+```
+
+_Emitted when an unauthorized caller tries to set primary sales details._
+
+### Royalty\_\_ExceedsMaxBps
+
+```solidity
+error Royalty__ExceedsMaxBps(uint256 royaltyBps)
+```
+
+Emitted when the given bps exceeds max bps.
+
+#### Parameters
+
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| royaltyBps | uint256 | undefined   |
+
+### Royalty\_\_NotAuthorized
+
+```solidity
+error Royalty__NotAuthorized()
+```
+
+_Emitted when an unauthorized caller tries to set royalty details._

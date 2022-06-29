@@ -88,6 +88,8 @@ _Returns the number of accounts that have `role`. Can be used together with {get
 function grantRole(bytes32 role, address account) external nonpayable
 ```
 
+_Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have `role`&#39;s admin role._
+
 #### Parameters
 
 | Name    | Type    | Description |
@@ -122,6 +124,8 @@ _Returns `true` if `account` has been granted `role`._
 function hasRoleWithSwitch(bytes32 role, address account) external view returns (bool)
 ```
 
+_Returns `true` if either (1) `account` has been granted `role`, or (2) the relevant role restrictions do not apply at the time of calling this function._
+
 #### Parameters
 
 | Name    | Type    | Description |
@@ -141,6 +145,8 @@ function hasRoleWithSwitch(bytes32 role, address account) external view returns 
 function renounceRole(bytes32 role, address account) external nonpayable
 ```
 
+_Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function&#39;s purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`._
+
 #### Parameters
 
 | Name    | Type    | Description |
@@ -153,6 +159,8 @@ function renounceRole(bytes32 role, address account) external nonpayable
 ```solidity
 function revokeRole(bytes32 role, address account) external nonpayable
 ```
+
+_Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have `role`&#39;s admin role._
 
 #### Parameters
 
@@ -204,3 +212,34 @@ event RoleRevoked(bytes32 indexed role, address indexed account, address indexed
 | role `indexed`    | bytes32 | undefined   |
 | account `indexed` | address | undefined   |
 | sender `indexed`  | address | undefined   |
+
+## Errors
+
+### Permissions\_\_CanOnlyGrantToNonHolders
+
+```solidity
+error Permissions__CanOnlyGrantToNonHolders(address account)
+```
+
+Emitted when specified account already has the role.
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| account | address | undefined   |
+
+### Permissions\_\_CanOnlyRenounceForSelf
+
+```solidity
+error Permissions__CanOnlyRenounceForSelf(address caller, address account)
+```
+
+Emitted when calling address is different from the specified account.
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| caller  | address | undefined   |
+| account | address | undefined   |

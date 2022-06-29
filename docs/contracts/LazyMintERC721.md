@@ -104,14 +104,58 @@ _Returns the URI for a given tokenId_
 ### TokensLazyMinted
 
 ```solidity
-event TokensLazyMinted(uint256 startTokenId, uint256 endTokenId, string baseURI, bytes extraData)
+event TokensLazyMinted(uint256 indexed startTokenId, uint256 endTokenId, string baseURI, bytes extraData)
 ```
 
 #### Parameters
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| startTokenId | uint256 | undefined   |
-| endTokenId   | uint256 | undefined   |
-| baseURI      | string  | undefined   |
-| extraData    | bytes   | undefined   |
+| Name                   | Type    | Description |
+| ---------------------- | ------- | ----------- |
+| startTokenId `indexed` | uint256 | undefined   |
+| endTokenId             | uint256 | undefined   |
+| baseURI                | string  | undefined   |
+| extraData              | bytes   | undefined   |
+
+## Errors
+
+### LazyMint\_\_InvalidIndex
+
+```solidity
+error LazyMint__InvalidIndex(uint256 index)
+```
+
+Emitted when the given index is equal to or higher than total number of batches.
+
+#### Parameters
+
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| index | uint256 | undefined   |
+
+### LazyMint\_\_NoBaseURIForToken
+
+```solidity
+error LazyMint__NoBaseURIForToken(uint256 tokenId)
+```
+
+Emitted when there&#39;s no Base URI set for the given token ID.
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |
+
+### LazyMint\_\_NoBatchIDForToken
+
+```solidity
+error LazyMint__NoBatchIDForToken(uint256 tokenId)
+```
+
+Emitted when the given token ID doesn&#39;t belong to any batch.
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |

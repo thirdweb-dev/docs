@@ -12,21 +12,21 @@ displayed_sidebar: contracts
 ### claim
 
 ```solidity
-function claim(address _receiver, uint256 _quantity, address _currency, uint256 _pricePerToken, IDrop.AllowlistProof _allowlistProof, bytes _data) external payable
+function claim(address _receiver, uint256 _quantity, address _currency, uint256 _pricePerToken, IDropSinglePhase.AllowlistProof _allowlistProof, bytes _data) external payable
 ```
 
 _Lets an account claim tokens._
 
 #### Parameters
 
-| Name             | Type                 | Description |
-| ---------------- | -------------------- | ----------- |
-| \_receiver       | address              | undefined   |
-| \_quantity       | uint256              | undefined   |
-| \_currency       | address              | undefined   |
-| \_pricePerToken  | uint256              | undefined   |
-| \_allowlistProof | IDrop.AllowlistProof | undefined   |
-| \_data           | bytes                | undefined   |
+| Name             | Type                            | Description |
+| ---------------- | ------------------------------- | ----------- |
+| \_receiver       | address                         | undefined   |
+| \_quantity       | uint256                         | undefined   |
+| \_currency       | address                         | undefined   |
+| \_pricePerToken  | uint256                         | undefined   |
+| \_allowlistProof | IDropSinglePhase.AllowlistProof | undefined   |
+| \_data           | bytes                           | undefined   |
 
 ### claimCondition
 
@@ -49,40 +49,6 @@ _The active conditions for claiming tokens._
 | pricePerToken                  | uint256 | undefined   |
 | currency                       | address | undefined   |
 
-### getBaseURICount
-
-```solidity
-function getBaseURICount() external view returns (uint256)
-```
-
-_Returns the number of batches of tokens having the same baseURI._
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
-
-### getBatchIdAtIndex
-
-```solidity
-function getBatchIdAtIndex(uint256 _index) external view returns (uint256)
-```
-
-_Returns the id for the batch of tokens the given tokenId belongs to._
-
-#### Parameters
-
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| \_index | uint256 | undefined   |
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
-
 ### getClaimTimestamp
 
 ```solidity
@@ -103,26 +69,6 @@ _Returns the timestamp for when a claimer is eligible for claiming NFTs again._
 | ----------------------- | ------- | ----------- |
 | lastClaimedAt           | uint256 | undefined   |
 | nextValidClaimTimestamp | uint256 | undefined   |
-
-### lazyMint
-
-```solidity
-function lazyMint(uint256 amount, string baseURIForTokens, bytes extraData) external nonpayable returns (uint256 batchId)
-```
-
-#### Parameters
-
-| Name             | Type    | Description |
-| ---------------- | ------- | ----------- |
-| amount           | uint256 | undefined   |
-| baseURIForTokens | string  | undefined   |
-| extraData        | bytes   | undefined   |
-
-#### Returns
-
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| batchId | uint256 | undefined   |
 
 ### setClaimConditions
 
@@ -160,18 +106,18 @@ _Checks a request to claim NFTs against the active claim condition&#39;s criteri
 ### verifyClaimMerkleProof
 
 ```solidity
-function verifyClaimMerkleProof(address _claimer, uint256 _quantity, IDrop.AllowlistProof _allowlistProof) external view returns (bool validMerkleProof, uint256 merkleProofIndex)
+function verifyClaimMerkleProof(address _claimer, uint256 _quantity, IDropSinglePhase.AllowlistProof _allowlistProof) external view returns (bool validMerkleProof, uint256 merkleProofIndex)
 ```
 
 _Checks whether a claimer meets the claim condition&#39;s allowlist criteria._
 
 #### Parameters
 
-| Name             | Type                 | Description |
-| ---------------- | -------------------- | ----------- |
-| \_claimer        | address              | undefined   |
-| \_quantity       | uint256              | undefined   |
-| \_allowlistProof | IDrop.AllowlistProof | undefined   |
+| Name             | Type                            | Description |
+| ---------------- | ------------------------------- | ----------- |
+| \_claimer        | address                         | undefined   |
+| \_quantity       | uint256                         | undefined   |
+| \_allowlistProof | IDropSinglePhase.AllowlistProof | undefined   |
 
 #### Returns
 
@@ -185,28 +131,138 @@ _Checks whether a claimer meets the claim condition&#39;s allowlist criteria._
 ### ClaimConditionUpdated
 
 ```solidity
-event ClaimConditionUpdated(IClaimCondition.ClaimCondition claimConditions, bool resetClaimEligibility)
+event ClaimConditionUpdated(IClaimCondition.ClaimCondition condition, bool resetEligibility)
 ```
 
 #### Parameters
 
-| Name                  | Type                           | Description |
-| --------------------- | ------------------------------ | ----------- |
-| claimConditions       | IClaimCondition.ClaimCondition | undefined   |
-| resetClaimEligibility | bool                           | undefined   |
+| Name             | Type                           | Description |
+| ---------------- | ------------------------------ | ----------- |
+| condition        | IClaimCondition.ClaimCondition | undefined   |
+| resetEligibility | bool                           | undefined   |
 
 ### TokensClaimed
 
 ```solidity
-event TokensClaimed(uint256 indexed claimConditionIndex, address indexed claimer, address indexed receiver, uint256 startTokenId, uint256 quantityClaimed)
+event TokensClaimed(address indexed claimer, address indexed receiver, uint256 indexed startTokenId, uint256 quantityClaimed)
 ```
 
 #### Parameters
 
-| Name                          | Type    | Description |
-| ----------------------------- | ------- | ----------- |
-| claimConditionIndex `indexed` | uint256 | undefined   |
-| claimer `indexed`             | address | undefined   |
-| receiver `indexed`            | address | undefined   |
-| startTokenId                  | uint256 | undefined   |
-| quantityClaimed               | uint256 | undefined   |
+| Name                   | Type    | Description |
+| ---------------------- | ------- | ----------- |
+| claimer `indexed`      | address | undefined   |
+| receiver `indexed`     | address | undefined   |
+| startTokenId `indexed` | uint256 | undefined   |
+| quantityClaimed        | uint256 | undefined   |
+
+## Errors
+
+### DropSinglePhase\_\_CannotClaimYet
+
+```solidity
+error DropSinglePhase__CannotClaimYet(uint256 blockTimestamp, uint256 startTimestamp, uint256 lastClaimedAt, uint256 nextValidClaimTimestamp)
+```
+
+Emitted when the current timestamp is invalid for claim.
+
+#### Parameters
+
+| Name                    | Type    | Description |
+| ----------------------- | ------- | ----------- |
+| blockTimestamp          | uint256 | undefined   |
+| startTimestamp          | uint256 | undefined   |
+| lastClaimedAt           | uint256 | undefined   |
+| nextValidClaimTimestamp | uint256 | undefined   |
+
+### DropSinglePhase\_\_ExceedMaxClaimableSupply
+
+```solidity
+error DropSinglePhase__ExceedMaxClaimableSupply(uint256 supplyClaimed, uint256 maxClaimableSupply)
+```
+
+Emitted when claiming given quantity will exceed max claimable supply.
+
+#### Parameters
+
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| supplyClaimed      | uint256 | undefined   |
+| maxClaimableSupply | uint256 | undefined   |
+
+### DropSinglePhase\_\_InvalidCurrencyOrPrice
+
+```solidity
+error DropSinglePhase__InvalidCurrencyOrPrice(address givenCurrency, address requiredCurrency, uint256 givenPricePerToken, uint256 requiredPricePerToken)
+```
+
+Emitted when given currency or price is invalid.
+
+#### Parameters
+
+| Name                  | Type    | Description |
+| --------------------- | ------- | ----------- |
+| givenCurrency         | address | undefined   |
+| requiredCurrency      | address | undefined   |
+| givenPricePerToken    | uint256 | undefined   |
+| requiredPricePerToken | uint256 | undefined   |
+
+### DropSinglePhase\_\_InvalidQuantity
+
+```solidity
+error DropSinglePhase__InvalidQuantity()
+```
+
+Emitted when claiming invalid quantity of tokens.
+
+### DropSinglePhase\_\_InvalidQuantityProof
+
+```solidity
+error DropSinglePhase__InvalidQuantityProof(uint256 maxQuantityInAllowlist)
+```
+
+Emitted when claiming more than allowed quantity in allowlist.
+
+#### Parameters
+
+| Name                   | Type    | Description |
+| ---------------------- | ------- | ----------- |
+| maxQuantityInAllowlist | uint256 | undefined   |
+
+### DropSinglePhase\_\_MaxSupplyClaimedAlready
+
+```solidity
+error DropSinglePhase__MaxSupplyClaimedAlready(uint256 supplyClaimedAlready)
+```
+
+Emitted when max claimable supply in given condition is less than supply claimed already.
+
+#### Parameters
+
+| Name                 | Type    | Description |
+| -------------------- | ------- | ----------- |
+| supplyClaimedAlready | uint256 | undefined   |
+
+### DropSinglePhase\_\_NotAuthorized
+
+```solidity
+error DropSinglePhase__NotAuthorized()
+```
+
+_Emitted when an unauthorized caller tries to set claim conditions._
+
+### DropSinglePhase\_\_NotInWhitelist
+
+```solidity
+error DropSinglePhase__NotInWhitelist()
+```
+
+Emitted when given allowlist proof is invalid.
+
+### DropSinglePhase\_\_ProofClaimed
+
+```solidity
+error DropSinglePhase__ProofClaimed()
+```
+
+Emitted when allowlist spot is already used.
