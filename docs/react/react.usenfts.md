@@ -13,14 +13,18 @@ displayed_sidebar: react
 
 Use this to get a list of NFT tokens of your [NFTContract](./react.nftcontract.md).
 
-## Example
+## Example 1
 
 ```javascript
-const {
-  data: nfts,
-  isLoading,
-  error,
-} = useNFTs(NFTContract, { start: 0, count: 100 });
+const nftDrop = useNFTDrop(<ContractAddress>);
+const { data: nfts, isLoading, error } = useNFTs(nftDrop, { start: 0, count: 100 });
+```
+
+## Example 2
+
+```javascript
+const { contract } = useContract(<ContractAddress>);
+const { data: nfts, isLoading, error } = useNFTs(contract?.nft, { start: 0, count: 100 });
 ```
 
 **Signature:**

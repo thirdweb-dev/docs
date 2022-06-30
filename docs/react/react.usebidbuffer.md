@@ -16,7 +16,7 @@ Use this to get the buffer in basis points between offers from your marketplace 
 ## Example
 
 ```javascript
-const { data: auctionWinner, isLoading, error } = useAuctionWinner(<YourMarketplaceContractInstance>, <listingId>);
+const { data: auctionWinner, isLoading, error } = useBidBuffer(<YourMarketplaceContractInstance>);
 ```
 
 **Signature:**
