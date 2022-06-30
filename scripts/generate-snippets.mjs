@@ -100,7 +100,13 @@ const snippets = CLASSES.reduce((acc, contractName) => {
           goExample?.methods?.find(
             (m) => m.name.toLowerCase() === method.name.toLowerCase(),
           )?.example || "",
-        react: createReactSnippet(contractName, method.name).example || "",
+        react:
+          createReactSnippet(contractName, method.name).example ||
+          `// Note: We don't have a React hook for this function yet, but you can still use the TypeScript SDK!\n\n${
+            tsExample?.methods?.find(
+              (m) => m.name.toLowerCase() === method.name.toLowerCase(),
+            )?.examples?.javascript || ""
+          }`,
       },
       reference: {
         javascript:
@@ -117,7 +123,12 @@ const snippets = CLASSES.reduce((acc, contractName) => {
           goExample?.methods?.find(
             (m) => m.name.toLowerCase() === method.name.toLowerCase(),
           )?.reference || "",
-        react: createReactSnippet(contractName, method.name).reference || "",
+        react:
+          createReactSnippet(contractName, method.name).reference ||
+          tsExample?.methods?.find(
+            (m) => m.name.toLowerCase() === method.name.toLowerCase(),
+          )?.reference ||
+          "",
       },
     })) || [];
 
