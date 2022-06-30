@@ -13,10 +13,18 @@ displayed_sidebar: react
 
 Use this to get a the owned NFTs for a specific [NFTContract](./react.nftcontract.md) and wallet address.
 
-## Example
+## Example 1
 
 ```javascript
-const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(NFTContract, <OwnerWalletAddress>);
+const nftDrop = useNFTDrop(<ContractAddress>);
+const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(nftDrop, <OwnerWalletAddress>);
+```
+
+## Example 2
+
+```javascript
+const { contract } = useContract(<ContractAddress>);
+const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract?.nft, <OwnerWalletAddress>);
 ```
 
 **Signature:**

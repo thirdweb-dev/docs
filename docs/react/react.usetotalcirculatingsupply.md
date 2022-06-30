@@ -13,10 +13,20 @@ displayed_sidebar: react
 
 Use this to get a the total (minted) supply of your [NFTContract](./react.nftcontract.md).
 
-## Example
+\*
+
+## Example 1
 
 ```javascript
-const { data: totalSupply, isLoading, error } = useNFTSupply(NFTContract);
+const nftDrop = useNFTDrop(<ContractAddress>);
+const { data: totalSupply, isLoading, error } = useNFTSupply(nftDrop);
+```
+
+## Example 2
+
+```javascript
+const { contract } = useContract(<ContractAddress>);
+const { data: totalSupply, isLoading, error } = useNFTSupply(contract?.nft);
 ```
 
 **Signature:**
