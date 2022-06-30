@@ -217,6 +217,28 @@ const reactMapping = {
       transfer: "",
     },
   },
+  SignatureDrop: {
+    mainHook: "useSignatureDrop",
+    subHooks: {
+      // methods
+      claimTo: "useClaimNFT",
+      createBatch: "",
+      getAll: "useNFTs",
+      getAllClaimed: "useClaimedNFTs",
+      getAllUnclaimed: "useUnclaimedNFTs",
+      getOwned: "useOwnedNFTs",
+      totalClaimedSupply: "useClaimedNFTSupply",
+      totalUnclaimedSupply: "useUnclaimedNFTSupply",
+      balanceOf: "useNFTBalance",
+      get: "useNFT",
+      transfer: "",
+      // properties
+      claimConditions: "",
+      revealer: "",
+      royalties: "",
+      signature: "",
+    },
+  },
   ContractEvents: {
     mainHook: "useAllContractEvents",
     subHooks: {
@@ -230,6 +252,33 @@ const reactMapping = {
       removeAllListeners: "",
       removeEventListener: "",
       removeTransactionListener: "",
+    },
+  },
+  ContractMetadata: {
+    mainHook: "useContractMetadata",
+    subHooks: {
+      // methods
+      get: "useContractMetadata",
+      set: "",
+      update: "",
+    },
+  },
+  ContractRoles: {
+    mainHook: "useRoleMembers",
+    subHooks: {
+      // methods
+      get: "useRoleMembers",
+      getll: "useAllRoleMembers",
+      grant: "useGrantRole",
+      revoke: "useRevokeRole",
+      setAll: "useSetAllRoleMembers",
+    },
+  },
+  SmartContract: {
+    mainHook: "useContract",
+    subHooks: {
+      // methods
+      call: "useContractCall",
     },
   },
 };
