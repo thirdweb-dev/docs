@@ -37,7 +37,7 @@ We provide template repositories that already have the thirdweb React SDK setup 
 
 - Next.js ([typescript](https://github.com/thirdweb-example/next-typescript-starter) / [javascript](https://github.com/thirdweb-example/next-javascript-starter))
 - Create React App ([typescript](https://github.com/thirdweb-example/cra-typescript-starter) / [javascript](https://github.com/thirdweb-example/cra-javascript-starter))
-- Vite ([typescript](https://github.com/thirdweb-example/vite-typescript-starter) / [javascript](https://github.com/thirdweb-example/vite-javascript-starter))
+
 
 ## Quick Start
 
