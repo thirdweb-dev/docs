@@ -1,6 +1,7 @@
 import fs from "fs";
+import createReactSnippet from "./helper/create-react-snippet-from-mapping.mjs";
 
-const CONTRACTS = [
+const CLASSES = [
   "NFTCollection",
   "Edition",
   "TokenDrop",
@@ -20,6 +21,10 @@ const CONTRACTS = [
   "GasCostEstimator",
   "RemoteStorage",
   "ContractInterceptor",
+  "ContractMetadata",
+  "ContractRoles",
+  "SignatureDrop",
+  "SmartContract",
 ];
 
 const typescript = JSON.parse(
@@ -47,7 +52,7 @@ const go = JSON.parse(
   fs.readFileSync(`${process.cwd()}/submodules/go/docs/snippets.json`, "utf8"),
 );
 
-const snippets = CONTRACTS.reduce((acc, contractName) => {
+const snippets = CLASSES.reduce((acc, contractName) => {
   const data = {
     name: contractName,
     summary: "",
@@ -96,11 +101,12 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
             (m) => m.name.toLowerCase() === method.name.toLowerCase(),
           )?.example || "",
         react:
-          reactExample?.subhooks?.find(
-            (m) =>
-              m.name.toLowerCase() ===
-              `use${contractName.toLowerCase()}${method.name.toLowerCase()}`,
-          )?.example || "",
+          createReactSnippet(contractName, method.name).example ||
+          `// Note: We don't have a React hook for this function yet, but you can still use the TypeScript SDK!\n\n${
+            tsExample?.methods?.find(
+              (m) => m.name.toLowerCase() === method.name.toLowerCase(),
+            )?.examples?.javascript || ""
+          }`,
       },
       reference: {
         javascript:
@@ -118,11 +124,11 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
             (m) => m.name.toLowerCase() === method.name.toLowerCase(),
           )?.reference || "",
         react:
-          reactExample?.subhooks?.find(
-            (m) =>
-              m.name.toLowerCase() ===
-              `$use${contractName.toLowerCase()}${method.name.toLowerCase()}`,
-          )?.reference || "",
+          createReactSnippet(contractName, method.name).reference ||
+          tsExample?.methods?.find(
+            (m) => m.name.toLowerCase() === method.name.toLowerCase(),
+          )?.reference ||
+          "",
       },
     })) || [];
 
