@@ -30,7 +30,7 @@ You can access all of the code for this example on our [thirdweb-example](https:
 If you want to create a copy of this project, run:
 
 ```
-npx thirdweb create --example packs
+npx create-tw-app --example packs
 ```
 
 :::
@@ -55,7 +55,7 @@ ERC-20 is an Ethereum standard for "fungible" tokens, which simply means that ea
 
 To create the token, I'll use the [dashboard](https://thirdweb.com/dashboard).
 
-Head to [https://thirdweb.com/contracts/new](https://thirdweb.com/contracts/new), select "Create NFTs and Tokens", and select "Token".
+Head to [https://thirdweb.com/contracts/new](https://thirdweb.com/contracts/new/pre-built/token/token).
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1655688127715/2sUg-4aMM.png)
 
@@ -199,8 +199,7 @@ Now, create a file within the `scripts` directory we just created called `deploy
 
 ```jsx
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import dotenv from "dotenv";
-dotenv.config();
+import "dotenv/config";
 
 (async () => {
   const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "mumbai");
