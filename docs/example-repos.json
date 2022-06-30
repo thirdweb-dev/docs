@@ -101,7 +101,7 @@
     "html_url": "https://github.com/thirdweb-example/custom-minting-page",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2022-06-29T03:19:24Z",
+    "updated_at": "2022-06-30T02:17:46Z",
     "clone_url": "https://github.com/thirdweb-example/custom-minting-page.git",
     "topics": [
       "nft-drop"
@@ -343,7 +343,7 @@
     "html_url": "https://github.com/thirdweb-example/packs",
     "description": "Bundle NFTs and Tokens together in Packs that users can open and receive randomly selected tokens from those that were bundled!",
     "created_at": "2022-06-21T07:50:46Z",
-    "updated_at": "2022-06-21T08:29:16Z",
+    "updated_at": "2022-06-30T06:05:59Z",
     "clone_url": "https://github.com/thirdweb-example/packs.git",
     "topics": [],
     "language": "TypeScript",

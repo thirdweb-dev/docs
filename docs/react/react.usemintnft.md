@@ -13,11 +13,42 @@ displayed_sidebar: react
 
 Use this to mint a new NFT on your [NFTContract](./react.nftcontract.md)
 
-## Example
+## Example 1
 
 ```jsx
 const Component = () => {
-  const { mutate: mintNft, isLoading, error } = useMintNFT(NFTContract);
+  const nftDrop = useNFTDrop(<ContractAddress>);
+  const {
+    mutate: mintNft,
+    isLoading,
+    error,
+  } = useMintNFT(nftDrop);
+
+  if (error) {
+    console.error("failed to mint nft", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() => mintNft({ name: "My awesome NFT!" })}
+    >
+      Mint!
+    </button>
+  );
+};
+```
+
+## Example 2
+
+```jsx
+const Component = () => {
+ const { contract } = useContract(<ContractAddress>);
+  const {
+    mutate: mintNft,
+    isLoading,
+    error,
+  } = useMintNFT(contract?.nft);
 
   if (error) {
     console.error("failed to mint nft", error);

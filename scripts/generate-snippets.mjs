@@ -1,6 +1,7 @@
 import fs from "fs";
+import createReactSnippet from "./helper/create-react-snippet-from-mapping.mjs";
 
-const CONTRACTS = [
+const CLASSES = [
   "NFTCollection",
   "Edition",
   "TokenDrop",
@@ -20,6 +21,10 @@ const CONTRACTS = [
   "GasCostEstimator",
   "RemoteStorage",
   "ContractInterceptor",
+  "ContractMetadata",
+  "ContractRoles",
+  "SignatureDrop",
+  "SmartContract",
 ];
 
 const typescript = JSON.parse(
@@ -47,7 +52,7 @@ const go = JSON.parse(
   fs.readFileSync(`${process.cwd()}/submodules/go/docs/snippets.json`, "utf8"),
 );
 
-const snippets = CONTRACTS.reduce((acc, contractName) => {
+const snippets = CLASSES.reduce((acc, contractName) => {
   const data = {
     name: contractName,
     summary: "",
@@ -95,12 +100,7 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
           goExample?.methods?.find(
             (m) => m.name.toLowerCase() === method.name.toLowerCase(),
           )?.example || "",
-        react:
-          reactExample?.subhooks?.find(
-            (m) =>
-              m.name.toLowerCase() ===
-              `use${contractName.toLowerCase()}${method.name.toLowerCase()}`,
-          )?.example || "",
+        react: createReactSnippet(contractName, method.name).example || "",
       },
       reference: {
         javascript:
@@ -117,12 +117,7 @@ const snippets = CONTRACTS.reduce((acc, contractName) => {
           goExample?.methods?.find(
             (m) => m.name.toLowerCase() === method.name.toLowerCase(),
           )?.reference || "",
-        react:
-          reactExample?.subhooks?.find(
-            (m) =>
-              m.name.toLowerCase() ===
-              `$use${contractName.toLowerCase()}${method.name.toLowerCase()}`,
-          )?.reference || "",
+        react: createReactSnippet(contractName, method.name).reference || "",
       },
     })) || [];
 

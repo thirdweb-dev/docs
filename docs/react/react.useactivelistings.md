@@ -16,7 +16,7 @@ Use this to get a list active listings from your marketplace contract.
 ## Example
 
 ```javascript
-const { data: listings, isLoading, error } = useMarketplaceListings(<YourMarketplaceContractInstance>, { seller: "0x...", tokenContract: "0x...", tokenId: 1, start: 0, count: 100 });
+const { data: listings, isLoading, error } = useActiveListings(<YourMarketplaceContractInstance>, { seller: "0x...", tokenContract: "0x...", tokenId: 1, start: 0, count: 100 });
 ```
 
 **Signature:**

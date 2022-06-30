@@ -13,10 +13,18 @@ displayed_sidebar: react
 
 Use this to get a the number of tokens in your [NFTContract](./react.nftcontract.md).
 
-## Example
+## Example 1
 
 ```javascript
-const { data: totalSupply, isLoading, error } = useTotalCount(NFTContract);
+const nftDrop = useNFTDrop(<ContractAddress>);
+const { data: totalCount, isLoading, error } = useTotalCount(nftDrop);
+```
+
+## Example 2
+
+```javascript
+const { contract } = useContract(<ContractAddress>);
+const { data: totalCount, isLoading, error } = useTotalCount(contract?.nft);
 ```
 
 **Signature:**
