@@ -56,7 +56,7 @@ Alright, enough talking! Let's write some code!
 To create your marketplace project let's head to the command line and run:
 
 ```bash
-npx create-tw-app --next --ts
+npx thirdweb create --next --ts
 ```
 
 ## Displaying Listings On The Marketplace
