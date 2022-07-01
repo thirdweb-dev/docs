@@ -16,7 +16,7 @@ Create lootboxes of NFTs with rarity based open mechanics.
 ```javascript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-const sdk = new ThirdwebSDK("rinkeby");
+const sdk = new ThirdwebSDK("{{chainName}}");
 const contract = sdk.getPack("{{contract_address}}");
 ```
 

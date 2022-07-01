@@ -16,7 +16,7 @@ Create a Drop contract for a standard crypto token or cryptocurrency.
 ```javascript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-const sdk = new ThirdwebSDK("rinkeby");
+const sdk = new ThirdwebSDK("{{chainName}}");
 const contract = sdk.getTokenDrop("{{contract_address}}");
 ```
 
