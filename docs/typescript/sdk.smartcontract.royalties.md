@@ -14,5 +14,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-royalties: ContractRoyalty<IRoyalty & ThirdwebContract, any> | undefined;
+royalties: ContractRoyalty<IRoyalty, any> | undefined;
 ```

@@ -14,5 +14,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-metadata: ContractMetadata<ThirdwebContract, any>;
+metadata: ContractMetadata<BaseContract, any>;
 ```
