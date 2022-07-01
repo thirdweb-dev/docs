@@ -17,7 +17,7 @@ Thirdweb&#39;s `Ownable` is a contract extension to be used with any base contra
 function owner() external view returns (address)
 ```
 
-_Owner of the contract (purpose: OpenSea compatibility)_
+_Returns the owner of the contract._
 
 #### Returns
 

@@ -541,6 +541,8 @@ _See {IERC721Receiver-onERC721Received}. Always returns `IERC721Receiver.onERC72
 function owner() external view returns (address)
 ```
 
+_Returns the owner of the contract._
+
 #### Returns
 
 | Name | Type    | Description |

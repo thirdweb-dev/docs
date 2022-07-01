@@ -629,6 +629,8 @@ _The tokenId of the next NFT that will be minted / lazy minted._
 function owner() external view returns (address)
 ```
 
+_Returns the owner of the contract._
+
 #### Returns
 
 | Name | Type    | Description |

@@ -574,6 +574,8 @@ Lets a pack owner open packs and receive the packs&#39; reward units.
 function owner() external view returns (address)
 ```
 
+_Returns the owner of the contract._
+
 #### Returns
 
 | Name | Type    | Description |

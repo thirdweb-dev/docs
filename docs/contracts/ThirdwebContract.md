@@ -15,6 +15,8 @@ displayed_sidebar: contracts
 function owner() external view returns (address)
 ```
 
+_Returns the owner of the contract._
+
 #### Returns
 
 | Name | Type    | Description |
