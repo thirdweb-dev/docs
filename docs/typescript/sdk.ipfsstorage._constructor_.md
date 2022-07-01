@@ -14,12 +14,12 @@ Constructs a new instance of the `IpfsStorage` class
 **Signature:**
 
 ```typescript
-constructor(gatewayUrl?: string, uploader?: IpfsUploader);
+constructor(gatewayUrl?: string, uploader?: IStorageUpload);
 ```
 
 ## Parameters
 
-| Parameter  | Type         | Description       |
-| ---------- | ------------ | ----------------- |
-| gatewayUrl | string       | <i>(Optional)</i> |
-| uploader   | IpfsUploader | <i>(Optional)</i> |
+| Parameter  | Type           | Description       |
+| ---------- | -------------- | ----------------- |
+| gatewayUrl | string         | <i>(Optional)</i> |
+| uploader   | IStorageUpload | <i>(Optional)</i> |

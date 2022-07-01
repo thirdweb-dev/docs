@@ -16,7 +16,7 @@ Create a decentralized organization for token holders to vote on proposals.
 ```javascript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-const sdk = new ThirdwebSDK("rinkeby");
+const sdk = new ThirdwebSDK("{{chainName}}");
 const contract = sdk.getVote("{{contract_address}}");
 ```
 

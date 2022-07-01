@@ -16,7 +16,7 @@ Setup a collection of one-of-one NFTs that are minted as users claim them.
 ```javascript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-const sdk = new ThirdwebSDK("rinkeby");
+const sdk = new ThirdwebSDK("{{chainName}}");
 const contract = sdk.getNFTDrop("{{contract_address}}");
 ```
 
