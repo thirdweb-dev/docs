@@ -3,51 +3,78 @@ slug: /smart-contracts
 title: Overview
 ---
 
-# Smart Contracts in thirdweb
+import Image from "@theme/IdealImage";
+import QuickstartCard from "../../../src/components/QuickstartCard";
+
+# Smart Contracts Overview
+
+<div className="heroGrid">
+
+<div>
 
 Smart contracts are pieces of code that are stored and run on the blockchain.
 
-thirdweb offers two ways to build and deploy smart contracts:
+We offer two ways to build and deploy smart contracts:
 
-1. [Pre-built contracts](/pre-built-contracts) that we provide for you that are already built and ready to deploy.
-2. Your own contracts that we provide tools to help you build with [contract extensions](/thirdweb-deploy/contract-extensions)
-   and deploy with [thirdweb deploy](/thirdweb-deploy)
+1. [Pre-built contracts](/smart-contracts/deploying-pre-built-contracts) that are ready to deploy via the SDK or the dashboard.
+2. Custom contracts that you can build with our [Solidity SDK](/thirdweb-deploy/contract-extensions) and ship with [thirdweb deploy](/thirdweb-deploy).
 
-## Pre-built contracts
+Both methods unlock features from our dashboard and SDK that help you develop web3 applications that interact with your smart contract.
 
-Pre-built contracts cover the most common use cases for smart contracts, such as:
+</div>
 
-- [Releasing an NFT Collection](/pre-built-contracts/nft-drop)
-- [Creating your own Token](/pre-built-contracts/token)
-- [Building your own Marketplace](/pre-built-contracts/marketplace)
+<div className="heroGridImageContainer">
+  <Image
+    alt="thirdweb contracts"
+    img={require(`/assets/portal_imgs_1-04.png`)}
+  />
+</div>
 
-Any contract you deploy with thirdweb is stored on the blockchain and **100% owned by you**.
+</div>
 
-<!-- TODO: This should be here, but currently it's on pre-built contracts Overview page.
+### Learn More
 
-### Proxy Contract Architecture
+Discover how our pre-built contracts work or how to start building your own contracts with our [Solidity SDK](/thirdweb-deploy/contract-extensions).
 
-Pre-built contracts you deploy with thirdweb are "proxy" contracts, which reduce the gas cost of deploying smart contracts by **~90%** for you.
+<div className="row">
 
-This works by having our smart contracts run the underlying logic, and you only deploy the code that is unique to your contract.
-This is possible since all of the contracts deployed using our pre-built contracts run the same logic for things
-like minting, transferring, and burning tokens.
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Pre-Built Contracts"
+    link="/smart-contracts/pre-built-contracts-overview"
+    image="/assets/icons/split.svg"
+  />
+</div>
 
-For _example_, your contract stores knowledge of its metadata and state, such as its name, and what NFTs have been minted so far.
-However, for any logic (such as minting an NFT), it delegates this to our underlying smart contract to handle.
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard name="Custom Contracts"
+    link="/thirdweb-deploy/contract-extensions"
+  />
 
-Our contracts are [open source](https://github.com/thirdweb-dev/contracts) and also publicly visible on the blockchain;
-so you can always check the code to see how it works.
+</div>
 
-## Your Own "Custom" Contracts
+</div>
 
-We recognize that not all web3 problems can be solved by one of our pre-built contracts,
-which is why we built tooling to help you create and deploy your own contracts, and
-**still get all the benefits of the thirdweb dashboard and SDKs!**
+### Quick Start
 
-We have two tools to help you build and deploy your own smart contracts:
+If you're ready to see how easy it is to deploy a smart contract, check out one of our resources below.
 
-1. [Contract Extensions (Solidity SDK)](/thirdweb-deploy/contract-extensions) enabling you to implement specific features to unlock full support for those features in the SDK and the dashboard.
-2. [thirdweb deploy](/thirdweb-deploy) which allows you to deploy your own smart contracts using a CLI and the thirdweb dashboard (without any private keys)!
+<div className="row">
 
--->
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Deploy an NFT Drop Contract"
+    description="Use the dashboard to deploy and configure a pre-built NFT Drop contract."
+    link="/getting-started/deploying-contracts"
+    image="/assets/icons/drop.svg"
+  />
+</div>
+
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Get Started with Solidity"
+    description="Learn the basics of our Solidity SDK by deploying a simple Solidity contract."
+  />
+</div>
+
+</div>
