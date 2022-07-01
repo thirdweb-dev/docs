@@ -446,11 +446,6 @@ const sidebars = {
             },
             {
               type: "doc",
-              label: "Published Metadata",
-              id: "react.usecontractpublishmetadata",
-            },
-            {
-              type: "doc",
               label: "Contract Metadata",
               id: "react.usecontractmetadata",
             },

@@ -20,8 +20,6 @@ export default function DeployThisContractButton({
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
-        paddingLeft: 14,
-        paddingRight: 16,
       }}
     >
       <img
@@ -32,16 +30,17 @@ export default function DeployThisContractButton({
           height: 24,
           width: 24,
           pointerEvents: "none",
+          marginLeft: 12,
         }}
       />
 
       {/* Horizontal white line 1px wide */}
       <div
         style={{
-          height: 41,
+          height: 32,
           width: 1,
           backgroundColor: "rgba(255, 255, 255, 0.25)",
-          marginRight: 4,
+          marginRight: 12,
           marginLeft: 12,
           pointerEvents: "none",
         }}
@@ -52,9 +51,10 @@ export default function DeployThisContractButton({
           display: "flex",
           alignItems: "center",
           pointerEvents: "none",
+          whiteSpace: "nowrap",
         }}
       >
-        <div style={{ marginLeft: 8 }}>Deploy Contract</div>
+        <div style={{ marginRight: 14, fontWeight: 600 }}>Deploy Contract</div>
       </div>
     </a>
   );
