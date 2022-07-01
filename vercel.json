@@ -230,6 +230,11 @@
       "source": "/installation",
       "destination": "/getting-started/deploying-contracts",
       "permanent": true
+    },
+    {
+      "source": "/guides/create-a-pack-with-typescript-and-nextjs",
+      "destination": "/guides/create-an-nft-lootbox",
+      "permanent": true
     }
   ]
 }

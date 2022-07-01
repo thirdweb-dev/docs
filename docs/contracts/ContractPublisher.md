@@ -21,35 +21,6 @@ function DEFAULT_ADMIN_ROLE() external view returns (bytes32)
 | ---- | ------- | ----------- |
 | \_0  | bytes32 | undefined   |
 
-### addToPublicList
-
-```solidity
-function addToPublicList(address _publisher, string _contractId) external nonpayable
-```
-
-Lets an account add a published contract (and all its versions). The account must be approved by the publisher, or be the publisher.
-
-#### Parameters
-
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| \_publisher  | address | undefined   |
-| \_contractId | string  | undefined   |
-
-### getAllPublicPublishedContracts
-
-```solidity
-function getAllPublicPublishedContracts() external view returns (struct IContractPublisher.CustomContractInstance[] published)
-```
-
-Returns the latest version of all contracts published by a publisher.
-
-#### Returns
-
-| Name      | Type                                        | Description |
-| --------- | ------------------------------------------- | ----------- |
-| published | IContractPublisher.CustomContractInstance[] | undefined   |
-
 ### getAllPublishedContracts
 
 ```solidity
@@ -69,27 +40,6 @@ Returns the latest version of all contracts published by a publisher.
 | Name      | Type                                        | Description |
 | --------- | ------------------------------------------- | ----------- |
 | published | IContractPublisher.CustomContractInstance[] | undefined   |
-
-### getPublicId
-
-```solidity
-function getPublicId(address _publisher, string _contractId) external view returns (uint256 publicId)
-```
-
-Returns the public id of a published contract, if it is public.
-
-#### Parameters
-
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| \_publisher  | address | undefined   |
-| \_contractId | string  | undefined   |
-
-#### Returns
-
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| publicId | uint256 | undefined   |
 
 ### getPublishedContract
 
@@ -132,6 +82,46 @@ Returns all versions of a published contract.
 | Name      | Type                                        | Description |
 | --------- | ------------------------------------------- | ----------- |
 | published | IContractPublisher.CustomContractInstance[] | undefined   |
+
+### getPublishedUriFromCompilerUri
+
+```solidity
+function getPublishedUriFromCompilerUri(string compilerMetadataUri) external view returns (string[] publishedMetadataUris)
+```
+
+Retrieve the published metadata URI from a compiler metadata URI
+
+#### Parameters
+
+| Name                | Type   | Description |
+| ------------------- | ------ | ----------- |
+| compilerMetadataUri | string | undefined   |
+
+#### Returns
+
+| Name                  | Type     | Description |
+| --------------------- | -------- | ----------- |
+| publishedMetadataUris | string[] | undefined   |
+
+### getPublisherProfileUri
+
+```solidity
+function getPublisherProfileUri(address publisher) external view returns (string uri)
+```
+
+get the publisher profile uri
+
+#### Parameters
+
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| publisher | address | undefined   |
+
+#### Returns
+
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| uri  | string | undefined   |
 
 ### getRoleAdmin
 
@@ -282,52 +272,24 @@ _Receives and executes a batch of function calls on this contract._
 | ------- | ------- | ----------- |
 | results | bytes[] | undefined   |
 
-### nextPublicId
-
-```solidity
-function nextPublicId() external view returns (uint256)
-```
-
-_The global Id for publicly published contracts._
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
-
 ### publishContract
 
 ```solidity
-function publishContract(address _publisher, string _publishMetadataUri, bytes32 _bytecodeHash, address _implementation, string _contractId) external nonpayable
+function publishContract(address _publisher, string _contractId, string _publishMetadataUri, string _compilerMetadataUri, bytes32 _bytecodeHash, address _implementation) external nonpayable
 ```
 
 Let&#39;s an account publish a contract. The account must be approved by the publisher, or be the publisher.
 
 #### Parameters
 
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| \_publisher          | address | undefined   |
-| \_publishMetadataUri | string  | undefined   |
-| \_bytecodeHash       | bytes32 | undefined   |
-| \_implementation     | address | undefined   |
-| \_contractId         | string  | undefined   |
-
-### removeFromPublicList
-
-```solidity
-function removeFromPublicList(address _publisher, string _contractId) external nonpayable
-```
-
-Lets an account remove a published contract (and all its versions). The account must be approved by the publisher, or be the publisher.
-
-#### Parameters
-
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| \_publisher  | address | undefined   |
-| \_contractId | string  | undefined   |
+| Name                  | Type    | Description |
+| --------------------- | ------- | ----------- |
+| \_publisher           | address | undefined   |
+| \_contractId          | string  | undefined   |
+| \_publishMetadataUri  | string  | undefined   |
+| \_compilerMetadataUri | string  | undefined   |
+| \_bytecodeHash        | bytes32 | undefined   |
+| \_implementation      | address | undefined   |
 
 ### renounceRole
 
@@ -373,6 +335,21 @@ _Lets a contract admin pause the registry._
 | ------- | ---- | ----------- |
 | \_pause | bool | undefined   |
 
+### setPublisherProfileUri
+
+```solidity
+function setPublisherProfileUri(address publisher, string uri) external nonpayable
+```
+
+Lets an account set its own publisher profile uri
+
+#### Parameters
+
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| publisher | address | undefined   |
+| uri       | string  | undefined   |
+
 ### supportsInterface
 
 ```solidity
@@ -409,19 +386,6 @@ Lets an account unpublish a contract and all its versions. The account must be a
 | \_contractId | string  | undefined   |
 
 ## Events
-
-### AddedContractToPublicList
-
-```solidity
-event AddedContractToPublicList(address indexed publisher, string indexed contractId)
-```
-
-#### Parameters
-
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| publisher `indexed`  | address | undefined   |
-| contractId `indexed` | string  | undefined   |
 
 ### ContractPublished
 
@@ -462,19 +426,6 @@ event Paused(bool isPaused)
 | Name     | Type | Description |
 | -------- | ---- | ----------- |
 | isPaused | bool | undefined   |
-
-### RemovedContractToPublicList
-
-```solidity
-event RemovedContractToPublicList(address indexed publisher, string indexed contractId)
-```
-
-#### Parameters
-
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| publisher `indexed`  | address | undefined   |
-| contractId `indexed` | string  | undefined   |
 
 ### RoleAdminChanged
 
