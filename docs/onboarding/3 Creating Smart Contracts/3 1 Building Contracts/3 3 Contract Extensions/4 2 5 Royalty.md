@@ -3,7 +3,7 @@ slug: /thirdweb-deploy/contract-extensions/royalty
 title: Royalty
 ---
 
-import FeatureCodeSnippets from "../../../../src/components/FeatureCodeSnippets";
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
 
 # Contract Royalties
 

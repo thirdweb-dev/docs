@@ -3,7 +3,7 @@ slug: /thirdweb-deploy/contract-extensions/other-settings
 title: Contract settings
 ---
 
-import FeatureCodeSnippets from "../../../../src/components/FeatureCodeSnippets";
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
 
 # Contract Settings
 

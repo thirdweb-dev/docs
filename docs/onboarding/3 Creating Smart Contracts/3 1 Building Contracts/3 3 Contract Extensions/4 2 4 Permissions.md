@@ -3,7 +3,7 @@ slug: /thirdweb-deploy/contract-extensions/permissions
 title: Permissions
 ---
 
-import FeatureCodeSnippets from "../../../../src/components/FeatureCodeSnippets";
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
 
 # Permissions and Roles
 

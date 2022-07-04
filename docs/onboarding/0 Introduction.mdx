@@ -4,6 +4,8 @@ slug: /
 ---
 
 import SupportedLanguagesSection from "../../src/components/SupportedLanguagesSection";
+import QuickstartCard from "../../src/components/QuickstartCard";
+import ThemedImage from "@theme/ThemedImage";
 import Image from "@theme/IdealImage";
 
 # Welcome to thirdweb
@@ -11,17 +13,22 @@ import Image from "@theme/IdealImage";
 <div className="heroGrid">
 
 <div>
-<p>thirdweb is a complete development framework that allows you to easily build powerful web3 functionality into your applications. We provide workflows to speed up your development process at every step:</p>
+<p>thirdweb is a development framework that allows you to build web3 functionality into your applications.</p>
 
-1. **Deploy** smart contracts to the blockchain easily with a single click or a one-line command.
-2. **Build** applications to interact with the blockchain in your favorite languages by using our powerful SDKs, APIs, and frontend libraries.
-3. **Manage** your contract settings, team permissions, revenue streams, and analytics through our intuitive dashboards.
+<p> We provide workflows to speed up your development, including:</p>
+
+1. **Contracts** you can use to build the foundation of your web3 functionality.
+2. **SDKs** to create applications that interact with the blockchain in your favorite languages.
+3. **Dashboards** to manage your contract settings, team permissions, revenue streams, and analytics.
 
 </div>
 
 <div className="heroGridImageContainer">
-  <Image
-    img={require(`/assets/portal_imgs_1-01.png`)}
+  <ThemedImage
+    sources={{
+      light: "/assets/hero-light.png",
+      dark: "/assets/hero-dark.png",
+    }}
     className="heroGridImage"
     alt="thirdweb Core Pillars"
   />
@@ -29,9 +36,9 @@ import Image from "@theme/IdealImage";
 
 </div>
 
-:::info
+:::tip Quick Start
 
-Want to start building and see what you can do? Check out the **[Getting Started](/getting-started/deploying-contracts)** page.
+Want to start building and see what you can do? Check out the **[Getting Started](/getting-started/deploying-contracts)** guide.
 
 :::
 
@@ -42,24 +49,34 @@ Want to start building and see what you can do? Check out the **[Getting Started
   }}
 />
 
-## Deploy
+## Contracts
 
 <div className="heroGrid">
 
 <div>
   <p>Deploying smart contracts is the first step of building any web3 application.</p>
-  
-  <p>With thirdweb, you can deploy any smart contract with a single button-click or command.</p>
 
-You can deploy one of our [pre-built contracts](/pre-built-contracts) for more common use cases (like NFTs, Tokens, and more),
-or you can deploy your own smart contract with a single command using the [thirdweb deploy](/thirdweb-deploy) flow.
+You can deploy one of our [pre-built contracts](/pre-built-contracts) for more common use cases (NFTs, tokens, marketplaces),
+or you can build your own smart contract with our [contract extensions](/thirdweb-deploy/contract-extensions) and ship it with [thirdweb deploy](/thirdweb-deploy).
 
 <p style={{ marginBottom: 6 }}>Our pre-built contracts are:</p>
 
 - Fully **open-source** on GitHub
 - Consistently **audited** by trusted firms
-- **10x cheaper** to deploy than ordinary smart contracts (through the use of proxy contracts)
-- Completely owned by the wallet used to deploy them
+- **10x cheaper** to deploy than ordinary smart contracts
+- Completely owned by you
+
+<div className="row" style={{marginBottom:24}}>
+
+<div className="col col--12" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Learn more about contracts"
+    link="/building-web3-apps/setting-up-the-sdk"
+    image="/assets/icons/general.svg"
+  />
+</div>
+
+</div>
 
 </div>
 
@@ -79,7 +96,7 @@ or you can deploy your own smart contract with a single command using the [third
   }}
 />
 
-## Build
+## SDKs
 
 <div className="heroGrid">
   <div>
@@ -88,15 +105,23 @@ or you can deploy your own smart contract with a single command using the [third
       and frameworks you are most comfortable using:
     </p>
 
-We have **SDKs** to handle interaction with you contracts in multiple languages:
+We have **SDKs** to handle interaction with your contracts in multiple languages and offer plug-and-play frontend components to help you
+build elegant user interfaces around your smart contract functionality.
+
+<div className="row" style={{marginBottom:24}}>
+
+<div className="col col--12" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Learn more about SDKs"
+    link="/building-web3-apps/setting-up-the-sdk"
+    image="/assets/icons/general.svg"
+  />
+</div>
+
+</div>
 
 <p>
-  <SupportedLanguagesSection />
-</p>
 
-<p>
-  And we offer <strong>plug-and-play frontend components</strong> to help you
-  build elegant user interfaces around your smart contract functionality.
 </p>
 
   </div>
@@ -112,7 +137,7 @@ We have **SDKs** to handle interaction with you contracts in multiple languages:
   }}
 />
 
-## Manage
+## Dashboard
 
 <div className="heroGrid">
   
@@ -121,7 +146,7 @@ We have **SDKs** to handle interaction with you contracts in multiple languages:
       We provide you with an inuitive <a href='https://thirdweb.com/dashboard'>dashboard</a> to manage your applications.
     </p>
 
-The dashboard lets you easily perform common admin operations for your projects without any code, such as:
+This lets you perform common admin operations for your projects without any code, such as:
 
 - **Deploying** new smart contracts and **interacting** with current contracts
 - **Configuring** royalty and platform fees or other contract settings
