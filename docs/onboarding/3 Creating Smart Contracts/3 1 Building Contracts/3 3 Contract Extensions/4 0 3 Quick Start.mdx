@@ -65,18 +65,17 @@ contract MyAwesomeNft is IMintableERC721 {
 }
 ```
 
-You might notice your text editor asks you to mark the contract as `abstract`:
+:::tip Viewing the source code
 
-![abstract](./assets/abstract.png)
-
-This is because our contract doesn't yet implement the functionality required to be an `IMintableERC721` contract.
-
-You can `Ctrl / ⌘ + click` on `IMintableERC721` to see the functions that must be implemented to satisfy the interface!
+If you're using VS Code, you can `Ctrl / ⌘ + click` on `IMintableERC721` to see the functions that must be implemented to satisfy the interface!
 In the gif below, you can see we need to implement the `mintTo` function.
 
 ![clickinto](./assets/clickinto.gif)
 
-You have total freedom over how you choose to implement these functions in your contract, but let's explore an example of how you might implement it.
+:::
+
+We now need to implement the `mintTo` function from the `IMintableERC721` interface.
+You have total freedom over how you choose to implement this function in your contract, but let's explore an example of how you might implement it.
 
 ## Writing contract functions
 
@@ -117,10 +116,14 @@ contract MyAwesomeNft is ERC721URIStorage, IMintableERC721, IERC721Supply {
 
 Now let's use the functionality provided to us from the `ERC721URIStorage` interface to write our `mintTo` function.
 
-Firstly, we can copy the function signature from the `IMintableERC721` file by `Ctrl / ⌘ + click`ing on `IMintableERC721` again,
-pasting it into our contract, and signifying we are going to `override` it.
+:::tip Function Signature
+
+In VS Code, you can view the function signature from the `IMintableERC721` file by `Ctrl / ⌘ + click`ing on `IMintableERC721`,
+pasting the `mintTo` function into our contract, and signifying we are going to `override` it.
 
 ![function signature](./assets/function-signature.gif)
+
+:::
 
 Now all that's left to do is write the `mint` logic inside this function:
 
@@ -147,9 +150,9 @@ You just created your very own ERC-721 NFT Collection contract!
 
 Let's see what we can do with it!
 
-## Detecting contract features
+## Detecting contract extensions
 
-The thirdweb CLI provides a command to detect the features of a contract.
+The thirdweb CLI provides a command to detect the implemented contract extensions.
 
 ```bash
 npx thirdweb detect
@@ -158,8 +161,8 @@ npx thirdweb detect
 This command:
 
 - Compiles your contract
-- Detects the features you have successfully implemented
-- Shows you other features you might want to implement _(spoilers)_!
+- Detects the extensions you have successfully implemented
+- Shows you other extensions you might want to implement _(spoilers)_!
 
 ![npx thirdweb detect](./assets/thirdweb-detect.png)
 
@@ -205,7 +208,7 @@ Let's quickly go back to our contract and implement an `Enumerable` contract ext
 
 ## Unlocking thirdweb features
 
-Let's go through the same process again, to demonstrate the general flow of adding features to your contract.
+Let's go through the same process again, to demonstrate the general flow of adding contract extensions to your contract.
 
 **Import the contract extension**
 
@@ -228,7 +231,7 @@ function totalSupply() external view override returns (uint256) {
 }
 ```
 
-**Detect Contract Features**
+**Detect Contract Extensions**
 
 ```bash
 npx thirdweb detect
