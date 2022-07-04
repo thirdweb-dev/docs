@@ -1,0 +1,88 @@
+---
+slug: /pre-built-contracts/nft-drop
+title: NFT Drop
+---
+
+import ThirdwebCodeSnippet from "../../../../../src/components/ThirdwebCodeSnippet";
+import DeployThisContractButton from "../../../../../src/components/DeployThisContractButton";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+<div class='deployContractBtnContainer' style={{marginTop:-70}}>
+
+<DeployThisContractButton
+  link={"https://thirdweb.com/contracts/new/pre-built/drop/nft-drop"}
+  contractType="nft-drop"
+/>
+
+</div>
+
+thirdweb's drop contracts **lazy mint** your NFTs and make them available to be claimed by your users.
+
+The NFT Drop contract is best used when you want to release a **1-of-1** or **1-of-many** NFT collection,
+such as a PFP (profile picture) collection, and uses the [ERC721 Standard](https://eips.ethereum.org/EIPS/eip-721).
+The NFT Drop contract allows you to define the conditions for when and how your users can mint an NFT,
+including allowlists, release dates, claim limits, and delayed reveals.
+
+When you add NFTs to your drop contract, they are **not** minted at this point.
+You prepare everything for your users so that _they_ can mint the NFT(s).
+This means the user who claims the NFT is the one who mints it,
+and it is minted into their wallet. By default, the user is the one who pays the gas fees.
+
+You could use the NFT Drop contract to:
+
+- Release a PFP Collection where each NFT has a different combination of traits
+- Release NFTs of your artwork, and have your community mint them for a price
+- Create a restricted-access NFT drop, where only a certain list of wallets can claim it
+
+## Smart Contract Design
+
+For a detailed exploration of how our drop smart contracts work, why they were built, and their limitations at the smart contract level, visit our [Drop Design Document](/contracts/design/Drop)!
+
+<div className="row">
+
+<div className="col col--12" style={{ marginTop: 8, marginBottom: 16 }}>
+  <QuickstartCard
+    name="Drop Smart Contract Design Document"
+    link="/contracts/design/Drop"
+    image="/assets/icons/drop.svg"
+  />
+</div>
+
+</div>
+
+## Contract Extensions
+
+Below is a list of the [contract extensions](/thirdweb-deploy/contract-extensions) that the NFT Drop contract implements.
+
+This means you can use any of the functionality in these extensions when interacting with the NFT Drop.
+
+| Contract Extension                                                                          | Functions Available           | Solidity Interface                                                                                                                   |
+| ------------------------------------------------------------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
+| [Contract Metadata](/thirdweb-deploy/contract-extensions/other-settings#contract-metadata)  | stuff that gets unlocked here | [IThirdwebContract](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)                  |
+| [Contract Owner](/thirdweb-deploy/contract-extensions/other-settings#contract-primary-sale) | stuff that gets unlocked here | [IOwnable](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)                           |
+| [Royalties](/thirdweb-deploy/contract-extensions/royalty)                                   | stuff that gets unlocked here | [IRoyalty](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)                           |
+| [Primary Sales](thirdweb-deploy/contract-extensions/other-settings#contract-primary-sale)   | stuff that gets unlocked here | [IPrimarySale](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)                       |
+| [Platform Fees](/thirdweb-deploy/contract-extensions/other-settings#contract-platform-fee)  | stuff that gets unlocked here | [IPlatformFee](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)                       |
+| [Batch Mint](todo)                                                                          | stuff that gets unlocked here | [MulticallUpgradeable](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)               |
+| [Permissions](/thirdweb-deploy/contract-extensions/permissions)                             | stuff that gets unlocked here | [AccessControlEnumerableUpgradeable](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol) |
+| [View NFTs](/interacting-with-contracts/nfts-erc-721/view)                                  | stuff that gets unlocked here | [ERC721EnumerableUpgradeable](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)        |
+| [NFT Drop](todo)                                                                            | `nft.claim.to`                | [IDropERC721](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)                        |
+
+## Create an NFT Drop Contract
+
+Learn how to create any of thirdweb's pre-built contracts via the [Deploying Contracts page](/getting-started/deploying-contracts).
+
+<ThirdwebCodeSnippet contract={"ContractDeployer"} name={"deployNFTDrop"} />
+
+<!-- ## Feature Sets -->
+<!-- TODO: Explain how lazy minting works and what contract implementations are used on this contract here. -->
+
+## Getting the contract in your application
+
+To start using your NFT Drop contract inside your application, you'll need to use its contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+
+<ThirdwebCodeSnippet
+  contract={"NFTDrop"}
+  name={"initializing the SDK"}
+  isGetContractCode
+/>

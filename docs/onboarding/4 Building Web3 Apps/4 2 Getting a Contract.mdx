@@ -3,12 +3,41 @@ slug: /building-web3-apps/getting-a-contract
 title: Getting a Contract
 ---
 
+import ThirdwebCodeSnippet from "../../../src/components/ThirdwebCodeSnippet";
+
 # Getting a Contract
 
 The SDK is capable of getting **any** smart contract deployed to one of our [supported blockchains](/guides/which-network-should-you-use).
 
 When you deploy one of our [pre-built contracts](/pre-built-contracts), or your contract implements a [contract extension](/thirdweb-deploy/contract-extensions),
 you unlock specific features of the SDK that help you interact with your contract and it's functions more easily.
+
+## Getting Specific Contracts
+
+If your contract is a [pre-built](/pre-built-contracts) contract, or implements [contract extensions](/thirdweb-deploy/contract-extensions),
+you can get a **typed** instance of the contract with specialized functions.
+
+For example, to get an [NFT Drop](/pre-built-contracts/nft-drop) contract, you can use the following code:
+
+<ThirdwebCodeSnippet
+  contract={"NFTDrop"}
+  name={"initializing the SDK"}
+  isGetContractCode
+  showHr={false}
+/>
+
+Use the resources below to learn more about the specific contracts you can get.
+
+:::tip Contract Documentation in SDKs
+
+Learn how to use specific contracts from the SDK documentation:
+
+- [React](/react/category/get-a-contract)
+- [TypeScript](/typescript/category/built-in-contracts)
+- [Python](/python/category/contracts)
+- [Go](/go/category/contracts)
+
+:::
 
 ## Get Any Contract Instance
 
@@ -31,21 +60,3 @@ const { contract } = useContract("{{contract_address}}");
 ```javascript
 const contract = sdk.getContract("{{contract_address}}");
 ```
-
-## Getting Specific Contracts
-
-If your contract is a [pre-built](/pre-built-contracts) contract, or implements [contract extensions](/thirdweb-deploy/contract-extensions),
-you can get a **typed** instance of the contract with specialized functions.
-
-Use the resources below to learn more about the specific contracts you can get.
-
-:::tip Contract Documentation in SDKs
-
-Learn how to use specific contracts from the SDK documentation:
-
-- [React](/react/category/contracts)
-- [TypeScript](/typescript/category/built-in-contracts)
-- [Python](/python/category/contracts)
-- [Go](/go/category/contracts)
-
-:::

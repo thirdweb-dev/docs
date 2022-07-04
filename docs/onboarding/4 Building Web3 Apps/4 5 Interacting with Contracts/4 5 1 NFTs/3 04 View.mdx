@@ -1,0 +1,38 @@
+---
+slug: /interacting-with-contracts/nfts-erc-721/view
+title: View
+---
+
+import DeployThisContractButton from "../../../../../src/components/DeployThisContractButton";
+import ThirdwebCodeSnippet from "../../../../../src/components/ThirdwebCodeSnippet";
+
+# Viewing NFTs
+
+You can view NFTs on any of the [pre-built NFT contracts](/pre-built-contracts/nfts).
+
+If you are using a custom contract, it needs to implement the following contract extensions to use these features:
+
+| Contract Extension                                                                | Functions Unlocked                             |
+| --------------------------------------------------------------------------------- | ---------------------------------------------- |
+| [IERC721Enumerable](/thirdweb-deploy/contract-extensions/erc721#erc721enumerable) | [View One](#one-nft), [View All](#all-nfts)    |
+| [IERC721Supply](/thirdweb-deploy/contract-extensions/erc721#erc721supply)         | [View Owned](#nfts-owned-by-a-specific-wallet) |
+
+### One NFT
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"get"} />
+
+### All NFTs
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"getAll"} />
+
+### NFTs owned by a specific wallet
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"getOwned"} />
+
+### Claimed NFTs
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"getAllClaimed"} />
+
+### Unclaimed NFTs
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"getAllUnclaimed"} />
