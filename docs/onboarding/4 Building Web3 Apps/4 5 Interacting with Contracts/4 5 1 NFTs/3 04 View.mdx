@@ -8,31 +8,55 @@ import ThirdwebCodeSnippet from "../../../../../src/components/ThirdwebCodeSnipp
 
 # Viewing NFTs
 
-You can view NFTs on any of the [pre-built NFT contracts](/pre-built-contracts/nfts).
-
-If you are using a custom contract, it needs to implement the following contract extensions to use these features:
-
-| Contract Extension                                                                | Functions Unlocked                             |
-| --------------------------------------------------------------------------------- | ---------------------------------------------- |
-| [IERC721Enumerable](/thirdweb-deploy/contract-extensions/erc721#erc721enumerable) | [View One](#one-nft), [View All](#all-nfts)    |
-| [IERC721Supply](/thirdweb-deploy/contract-extensions/erc721#erc721supply)         | [View Owned](#nfts-owned-by-a-specific-wallet) |
+Get the metadata and the current owner of NFTs with different filters and criteria.
 
 ### One NFT
+
+Get one NFT including it's `owner`, and the NFT's `metadata` that is resolved from IPFS for you.
+
+- Related Contract Extension: [ERC721](/thirdweb-deploy/contract-extensions/erc721).
 
 <ThirdwebCodeSnippet contract={"NFTDrop"} name={"get"} />
 
 ### All NFTs
 
+Get all NFTs in the contract with their `owner` and `metadata` that is resolved from IPFS for you.
+
+By default, this returns the first `100` tokens. It accepts an optional parameter that you can use for pagination. Learn how by viewing the SDK documentation.
+
+- Related Contract Extension: [ERC721Supply](/thirdweb-deploy/contract-extensions/erc721#erc721supply).
+
 <ThirdwebCodeSnippet contract={"NFTDrop"} name={"getAll"} />
 
 ### NFTs owned by a specific wallet
 
+Provide a wallet address to get all NFTs owned by that wallet, including the `owner` and the `metadata`.
+
+If no wallet address is provided, the function will use the connected wallet address.
+
+Returns an empty array if no NFTs are owned by the wallet.
+
+- Related Contract Extension: [ERC721Enumerable](/thirdweb-deploy/contract-extensions/erc721#erc721enumerable).
+
 <ThirdwebCodeSnippet contract={"NFTDrop"} name={"getOwned"} />
 
+## Drop Functions
+
+These functions are only relevant to [drop contracts](/contracts/design/Drop),
+such as the [NFT Drop](/pre-built-contracts/nft-drop) or contracts that extend the [DropERC721](/contracts/DropERC721) contract extension.
+
 ### Claimed NFTs
+
+View all of the NFTs that have been claimed from the drop so far, including the `metadata` and `owner`.
+
+- Related Contract Extension: [DropERC721](/contracts/DropERC721).
 
 <ThirdwebCodeSnippet contract={"NFTDrop"} name={"getAllClaimed"} />
 
 ### Unclaimed NFTs
+
+View all of the NFTs that were lazy-minted and have **not** been claimed yet.
+
+- Related Contract Extension: [DropERC721](/contracts/DropERC721).
 
 <ThirdwebCodeSnippet contract={"NFTDrop"} name={"getAllUnclaimed"} />

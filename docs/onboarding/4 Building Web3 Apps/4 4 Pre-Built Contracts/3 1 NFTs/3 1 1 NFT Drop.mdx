@@ -16,17 +16,10 @@ import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 </div>
 
-thirdweb's drop contracts **lazy mint** your NFTs and make them available to be claimed by your users.
+The NFT Drop contract is best used when you want each NFT in the collection to be unique.
 
-The NFT Drop contract is best used when you want to release a **1-of-1** or **1-of-many** NFT collection,
-such as a PFP (profile picture) collection, and uses the [ERC721 Standard](https://eips.ethereum.org/EIPS/eip-721).
-The NFT Drop contract allows you to define the conditions for when and how your users can mint an NFT,
-including allowlists, release dates, claim limits, and delayed reveals.
-
-When you add NFTs to your drop contract, they are **not** minted at this point.
-You prepare everything for your users so that _they_ can mint the NFT(s).
-This means the user who claims the NFT is the one who mints it,
-and it is minted into their wallet. By default, the user is the one who pays the gas fees.
+You **lazy-mint** your NFTs to prepare them for your users so that _they_ can **mint** the NFT(s) into their wallets. It can include a set of claim phases that
+define the conditions for when and how your users can mint; including allowlists, release dates, claim limits, and delayed reveals.
 
 You could use the NFT Drop contract to:
 
@@ -54,19 +47,19 @@ For a detailed exploration of how our drop smart contracts work, why they were b
 
 Below is a list of the [contract extensions](/thirdweb-deploy/contract-extensions) that the NFT Drop contract implements.
 
-This means you can use any of the functionality in these extensions when interacting with the NFT Drop.
+You can use any of the functionality in these extensions when interacting with the NFT Drop.
 
-| Contract Extension                                                                          | Functions Available           | Solidity Interface                                                                                                                   |
-| ------------------------------------------------------------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| [Contract Metadata](/thirdweb-deploy/contract-extensions/other-settings#contract-metadata)  | stuff that gets unlocked here | [IThirdwebContract](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)                  |
-| [Contract Owner](/thirdweb-deploy/contract-extensions/other-settings#contract-primary-sale) | stuff that gets unlocked here | [IOwnable](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)                           |
-| [Royalties](/thirdweb-deploy/contract-extensions/royalty)                                   | stuff that gets unlocked here | [IRoyalty](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)                           |
-| [Primary Sales](thirdweb-deploy/contract-extensions/other-settings#contract-primary-sale)   | stuff that gets unlocked here | [IPrimarySale](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)                       |
-| [Platform Fees](/thirdweb-deploy/contract-extensions/other-settings#contract-platform-fee)  | stuff that gets unlocked here | [IPlatformFee](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)                       |
-| [Batch Mint](todo)                                                                          | stuff that gets unlocked here | [MulticallUpgradeable](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)               |
-| [Permissions](/thirdweb-deploy/contract-extensions/permissions)                             | stuff that gets unlocked here | [AccessControlEnumerableUpgradeable](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol) |
-| [View NFTs](/interacting-with-contracts/nfts-erc-721/view)                                  | stuff that gets unlocked here | [ERC721EnumerableUpgradeable](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)        |
-| [NFT Drop](todo)                                                                            | `nft.claim.to`                | [IDropERC721](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)                        |
+| Functions Available                                                 | Description                                                                                        | Solidity Interface                                                                                                                                                           |
+| ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [Batch Mint](/todo)                                                 | Lazy mint multiple NFTs at once.                                                                   | [MulticallUpgradeable](https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/master/contracts/utils/MulticallUpgradeable.sol)                              |
+| [View NFTs](/interacting-with-contracts/nfts-erc-721/view)          | View the tokens in the contract.                                                                   | [ERC721EnumerableUpgradeable](https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/master/contracts/token/ERC721/ERC721Upgradeable.sol)                   |
+| [Claim NFTs](/todo)                                                 | Mint/claim a set quantity of the lazy-minted tokens from the contract.                             | [IDropERC721](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/drop/IDropERC721.sol)                                                                 |
+| [Permission Controls](/advanced-features/permission-controls)       | Grant specific wallets permissions to perform actions on the contract such as `admin` or `minter`. | [AccessControlEnumerableUpgradeable](https://github.com/OpenZeppelin/openzeppelin-contracts-upgradeable/blob/master/contracts/access/AccessControlEnumerableUpgradeable.sol) |
+| [Contract Metadata](/advanced-features/contract-settings#read)      | Get and set metadata on the contract itself.                                                       | [IThirdwebContract](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/IThirdwebContract.sol)                                                          |
+| [Contract Owner](/todo)                                             | View the wallet address of the owner of the contract.                                              | [IOwnable](https://github.com/thirdweb-dev/contracts/blob/main/contracts/feature/interface/IOwnable.sol)                                                                     |
+| [Royalties](/advanced-features/contract-settings#royalty-fees)      | Earn royalties on secondary sales of the NFTs.                                                     | [IRoyalty](https://github.com/thirdweb-dev/contracts/blob/main/contracts/feature/interface/IRoyalty.sol)                                                                     |
+| [Primary Sales](/todo)                                              | Get and set the wallet address that receives the revenue from primary sales of the NFTs.           | [IPrimarySale](https://github.com/thirdweb-dev/contracts/blob/main/contracts/feature/interface/IPrimarySale.sol)                                                             |
+| [Platform Fees](/advanced-features/contract-settings#platform-fees) | Take a percentage fee of revenue coming in to your contract.                                       | [IPlatformFee](https://github.com/thirdweb-dev/contracts/blob/main/contracts/feature/interface/IPlatformFee.sol)                                                             |
 
 ## Create an NFT Drop Contract
 
