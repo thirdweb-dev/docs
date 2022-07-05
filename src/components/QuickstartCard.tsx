@@ -25,6 +25,7 @@ export default function QuickstartCard({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
+      data-quickstart={"quickstart"} // Generic flag to capture all events
       data-card-name={name}
       data-card-description={description}
       data-card-link={link}
