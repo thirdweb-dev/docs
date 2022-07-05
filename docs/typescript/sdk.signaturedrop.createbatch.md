@@ -36,14 +36,17 @@ const firstNFT = await results[0].data(); // (optional) fetch details of the fir
 **Signature:**
 
 ```typescript
-createBatch(metadatas: NFTMetadataInput[]): Promise<TransactionResultWithId<NFTMetadata>[]>;
+createBatch(metadatas: NFTMetadataOrUri[], options?: {
+        onProgress: (event: UploadProgressEvent) => void;
+    }): Promise<TransactionResultWithId<NFTMetadata>[]>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                              | Description                           |
-| --------- | ------------------------------------------------- | ------------------------------------- |
-| metadatas | [NFTMetadataInput](./sdk.nftmetadatainput.md)\[\] | The metadata to include in the batch. |
+| Parameter | Type                                                                                     | Description                                         |
+| --------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| metadatas | NFTMetadataOrUri\[\]                                                                     | The metadata to include in the batch.               |
+| options   | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | <i>(Optional)</i> optional upload progress callback |
 
 **Returns:**
 
