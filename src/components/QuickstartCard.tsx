@@ -25,6 +25,9 @@ export default function QuickstartCard({
       href={link}
       target="_blank"
       rel="noopener noreferrer"
+      data-card-name={name}
+      data-card-description={description}
+      data-card-link={link}
     >
       <div className="card" style={{ height: "100%" }}>
         <div className="card__header">
