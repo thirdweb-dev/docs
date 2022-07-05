@@ -115,6 +115,7 @@ export default function ExamplesContainer() {
                 color: "inherit",
                 textDecoration: "none",
               }}
+              data-example={"example"} // Generic flag to capture all events
               data-example-name={repo.name}
               data-example-category={"starter-kit"}
               data-example-url={repo.html_url}
@@ -243,9 +244,10 @@ export default function ExamplesContainer() {
                 color: "inherit",
                 textDecoration: "none",
               }}
+              data-example={"example"} // Generic flag to capture all events
               data-example-name={repo.name}
-              data-example-url={repo.html_url}
               data-example-category={"feature-example"}
+              data-example-url={repo.html_url}
             >
               <div
                 className="card-demo"
