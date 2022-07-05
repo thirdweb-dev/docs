@@ -115,22 +115,41 @@ export default function ExamplesContainer() {
                 color: "inherit",
                 textDecoration: "none",
               }}
+              data-example={"example"} // Generic flag to capture all events
+              data-example-name={repo.name}
+              data-example-category={"starter-kit"}
+              data-example-url={repo.html_url}
             >
-              <div className="card-demo" style={{ cursor: "pointer" }}>
-                <div className="card">
+              <div
+                className="card-demo"
+                style={{ cursor: "pointer", pointerEvents: "none" }}
+              >
+                <div
+                  className="card"
+                  style={{
+                    pointerEvents: "none",
+                  }}
+                >
                   <div
                     className="card__header"
                     style={{
                       display: "flex",
                       flexDirection: "row",
                       alignItems: "center",
+                      pointerEvents: "none",
                     }}
                   >
                     <img
                       src={iconMapping["getting-started"]}
-                      style={{ marginRight: 16 }}
+                      style={{ marginRight: 16, pointerEvents: "none" }}
                     />
-                    <h3 style={{ fontWeight: 600, fontSize: "1.1rem" }}>
+                    <h3
+                      style={{
+                        fontWeight: 600,
+                        fontSize: "1.1rem",
+                        pointerEvents: "none",
+                      }}
+                    >
                       {starterKitToDisplayNameMapping[repo.name]}
                     </h3>
                   </div>
@@ -225,12 +244,23 @@ export default function ExamplesContainer() {
                 color: "inherit",
                 textDecoration: "none",
               }}
+              data-example={"example"} // Generic flag to capture all events
+              data-example-name={repo.name}
+              data-example-category={"feature-example"}
+              data-example-url={repo.html_url}
             >
               <div
                 className="card-demo"
-                style={{ cursor: "pointer", height: "100%" }}
+                style={{
+                  cursor: "pointer",
+                  height: "100%",
+                  pointerEvents: "none",
+                }}
               >
-                <div className="card" style={{ height: "100%" }}>
+                <div
+                  className="card"
+                  style={{ height: "100%", pointerEvents: "none" }}
+                >
                   <div
                     className="card__header"
                     style={{
@@ -238,14 +268,23 @@ export default function ExamplesContainer() {
                       flexDirection: "row",
                       alignItems: "center",
                       height: "100%",
+                      pointerEvents: "none",
                     }}
                   >
-                    <img src={decideIcon(repo)} style={{ marginRight: 16 }} />
-                    <div className="card__body">
-                      <h3 style={{ fontWeight: 600 }}>
+                    <img
+                      src={decideIcon(repo)}
+                      style={{ marginRight: 16, pointerEvents: "none" }}
+                    />
+                    <div
+                      className="card__body"
+                      style={{ pointerEvents: "none" }}
+                    >
+                      <h3 style={{ fontWeight: 600, pointerEvents: "none" }}>
                         {transformName(repo.name)}
                       </h3>
-                      <p style={{ opacity: 0.9 }}>{repo.description}</p>
+                      <p style={{ opacity: 0.9, pointerEvents: "none" }}>
+                        {repo.description}
+                      </p>
                     </div>
                   </div>
                 </div>
