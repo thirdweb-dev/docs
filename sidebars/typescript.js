@@ -228,6 +228,11 @@ const sidebars = {
     },
     {
       type: "doc",
+      label: "Wallet Authentication",
+      id: "sdk.walletauthenticator",
+    },
+    {
+      type: "doc",
       label: "Contract Events",
       id: "sdk.contractevents",
     },

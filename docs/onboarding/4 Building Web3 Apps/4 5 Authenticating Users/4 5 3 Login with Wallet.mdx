@@ -3,9 +3,53 @@ slug: /building-web3-apps/authenticating-users/wallet-authentication
 title: Login with Wallet
 ---
 
-Typically, logging in means that we can do the following:
-1. We prove to the backend that we are in fact the identity we claim to have (i.e. we are the user we're trying to login as).
-2. The backend will somehow register that we have logged in, and allow us to continue making requests as if we were the logged in user, which allows us to do special things that only the logged in user could do.
+import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet";
 
-Many websites accomplish the first step by making users enter their password into a form to prove that they are in fact the owner of their username, since only they will know the password. After this, a standard flow would be for the
-backend to generate a token (which is just a string of characters that securely encodes data) and send it to the user. This token can then be attached to any future requests made by the user to prove that they are logged in.
+You can use the authentication SDK to allow users to login to your backend with just their connected wallet.
+
+Typically, logging in means that you can do the following:
+
+1. A user proves to the backend that they are in fact the identity they claim to have.
+2. The backend will somehow register that they have logged in, and allow them to continue making requests as the logged in user.
+
+Many applications accomplish the first step by making users enter their password into a form to prove that they are in fact the owner of their username, since only they will know the password. After this, a standard flow would be for the
+backend to generate a  [JSON Web Token](https://jwt.io) (which is just a string of characters that securely encodes data) and send it to the user. This token can then be attached to any future requests made by the user to prove that they are logged in.
+
+You can accomplish this same flow with the authentication SDK with the following setup:
+- First use the `login` method to sign a login request message that you can send to the backend. This is analagous to entering your password.
+- Then on the backend, use the payload created by the `login` method to pass into the `generateAuthToken` method which you can then send to the user as a cookie for authentication.
+- Finally, users who have the cookie will be able to make requests to the backend without needing to login again, and the backend can use the `authenticate` method to verify the authenticatd user on future requests.
+
+Let's take a look at setting this all up.
+
+### Making a Login Request
+
+First, the user trying to authenticate to a backend needs to generate a login request to send to the backend. This method simply uses the wallet connected to the SDK to sign a login request message that specifies data about the user trying to login and some security specifications.
+
+:::tip
+
+In most cases, you'll want to use the JavaScript SDK for this if you want to allow users to login from a frontend application. However, for scripting or backend to backend use cases, you can also use the Python or Go SDKs.
+
+:::
+
+<ThirdwebCodeSnippet contract="WalletAuthenticator" name="login" />
+
+### Generating a JSON Web Token
+
+After generating a login payload on the client-side and sending it to the backend, the backend can then use that payload to verify the connected user and generate an authentication token for them with the following methods:
+
+<ThirdwebCodeSnippet contract="WalletAuthenticator" name="generateAuthToken" />
+
+This token contains data around how long the login request is valid for, the address of the user authenticating, and the backend that the token is intended for - all of which you can configure through the SDK with optional configuration (view the SDK documentation for more information on this).
+
+:::warning
+
+It's important that the generated JWT token is send back to the client-side as a **secure http-only cookie** to prevent it from being used in XSS attacks. You can see an example of how to do this in our [Basic Authentication Example](https://github.com/thirdweb-example/sign-in-with-ethereum/blob/2ecbf412fdb9888a1f3027ba6ff737b735e8cfb3/pages/api/login.tsx#L37).
+
+:::
+
+### Authenticating Requests
+
+Once users have a JWT token, they can make requests to the backend without needing to login again. You can then use the `authenticate` method to verify the user is authenticated and to get their connected wallet address:
+
+<ThirdwebCodeSnippet contract="WalletAuthenticator" name="authenticate" />
