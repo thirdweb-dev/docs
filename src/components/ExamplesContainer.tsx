@@ -16,31 +16,37 @@ type ExampleRepo = {
 };
 
 const iconMapping = {
-  "nft-drop": "/assets/icons/drop.png",
-  "edition-drop": "/assets/icons/edition-drop.png",
-  "nft-collection": "/assets/icons/nft.png",
-  edition: "/assets/icons/edition.png",
-  general: "/assets/icons/general.png",
-  marketplace: "/assets/icons/marketplace.png",
   nft: "/assets/icons/nft.png",
-  pack: "/assets/icons/pack.png",
+  "nft-drop": "/assets/icons/drop.png",
+  "nft-collection": "/assets/icons/nft.png",
+  "edition-drop": "/assets/icons/edition-drop.png",
+  edition: "/assets/icons/edition.png",
   token: "/assets/icons/token.png",
+  "token-drop": "/assets/icons/token.png",
+  marketplace: "/assets/icons/marketplace.png",
+  pack: "/assets/icons/pack.png",
   split: "/assets/icons/split.png",
   vote: "/assets/icons/vote.png",
   "getting-started": "/assets/icons/sdks.png",
+  general: "/assets/icons/general.png",
+  "wallet-connection": "/assets/icons/vote.png",
+  "thirdweb-deploy": "/assets/icons/tw-publish.webp",
 };
 
 const categories = {
-  "thirdweb-deploy": "thirdweb deploy",
   "nft-drop": "NFT Drop",
   "nft-collection": "NFT Collection",
   "edition-drop": "Edition Drop",
   edition: "Edition",
-  marketplace: "Marketplace",
-  token: "Token",
+  multiwrap: "Multiwrap",
   pack: "Pack",
+  "signature-drop": "Signature Drop",
+  token: "Token",
+  "token-drop": "Token Drop",
+  marketplace: "Marketplace",
   split: "Split",
   vote: "Vote",
+  "thirdweb-deploy": "Solidity SDK",
   "wallet-connection": "Wallets",
 };
 
@@ -56,19 +62,25 @@ const starterKitToDisplayNameMapping = {
 const repoToExampleGuideMapping = {
   "marketplace-next-ts": "/examples/marketplace",
   "custom-minting-page": "/examples/nft-drop",
+  "nft-gated-website": "/examples/token-gated-membership",
 };
 
 function transformName(name: string) {
   const capitalizeWords = ["nft", "ts", "dao"];
+  const lowercaseWords = ["thirdweb"];
 
   return name
     .split("-")
     .map((word) => {
       if (capitalizeWords.includes(word)) {
         return word.toUpperCase();
-      } else {
-        return word[0].toUpperCase() + word.slice(1);
       }
+
+      if (lowercaseWords.includes(word)) {
+        return word.toLowerCase();
+      }
+
+      return word[0].toUpperCase() + word.slice(1);
     })
     .join(" ");
 }
@@ -164,7 +176,6 @@ export default function ExamplesContainer() {
             </a>
           ))}
       </div>
-
       <h2>Feature Examples</h2>
 
       {/* Filters */}
@@ -244,7 +255,7 @@ export default function ExamplesContainer() {
               href={repoToExampleGuideMapping[repo.name] || repo.html_url}
               // Open in new tab if its a github url, same if internal guide
               target={repoToExampleGuideMapping[repo.name] ? "" : "_blank"}
-              className="col col--6"
+              className="col col--4"
               style={{
                 marginBottom: 24,
                 color: "inherit",
@@ -271,15 +282,17 @@ export default function ExamplesContainer() {
                     className="card__header"
                     style={{
                       display: "flex",
-                      flexDirection: "row",
+                      flexDirection: "column",
                       alignItems: "center",
+                      justifyContent: "space-evenly",
+                      textAlign: "center",
                       height: "100%",
                       pointerEvents: "none",
                     }}
                   >
                     <img
                       src={decideIcon(repo)}
-                      style={{ pointerEvents: "none", width: 64 }}
+                      style={{ pointerEvents: "none", width: 48 }}
                     />
                     <div
                       className="card__body"
@@ -288,9 +301,8 @@ export default function ExamplesContainer() {
                       <h3 style={{ fontWeight: 600, pointerEvents: "none" }}>
                         {transformName(repo.name)}
                       </h3>
-                      <p style={{ opacity: 0.9, pointerEvents: "none" }}>
-                        {repo.description}
-                      </p>
+
+                      {/* <code>{repo.name}</code> */}
                     </div>
                   </div>
                 </div>

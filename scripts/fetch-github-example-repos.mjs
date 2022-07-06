@@ -18,6 +18,7 @@ const dataWeWant = ghData
       language,
       stargazers_count,
       is_template,
+      homepage,
     } = repo;
 
     return {
@@ -31,6 +32,7 @@ const dataWeWant = ghData
       language,
       stargazers_count,
       is_template,
+      homepage,
     };
   })
   // filter out the .github repo lol
