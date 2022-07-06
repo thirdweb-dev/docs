@@ -1,0 +1,43 @@
+---
+title: Using Pre-Built Contracts
+slug: /pre-built-contracts
+---
+
+import DeployThisContractButton from "../../../../../src/components/DeployThisContractButton";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+In case you missed it, we outlined what pre-built contracts are and how they work in [Building Pre-Built Contracts](/smart-contracts/pre-built-contracts-overview).
+
+<div className="row">
+
+<div className="col col--12" style={{ marginTop: 8, marginBottom: 16 }}>
+  <QuickstartCard
+    name="Learn About Pre-Built Contracts and How to Deploy One"
+    link="/smart-contracts/pre-built-contracts-overview"
+    image="/assets/icons/split.png"
+  />
+</div>
+
+</div>
+
+This page adds some more context about how you can utilize them when building an application.
+
+## Contract Extensions
+
+Each Pre-Built contract consists of implementations of the [contract extensions](/thirdweb-deploy/contract-extensions)
+that are in our [Solidity SDK](/thirdweb-deploy/contract-extensions). This allows you to use the SDKs with both custom _and_ pre-built contracts, as they
+use the same underlying Solidity interfaces.
+
+### Why It's Designed This Way
+
+Let's look at an example.
+
+Our [NFT Collection](/pre-built-contracts/nft-collection) contract extends our [ITokenERC721](https://github.com/thirdweb-dev/contracts/blob/main/contracts/interfaces/token/ITokenERC721.sol)
+interface; which requires the implementation of the `mintTo` function _(and a few others too)_.
+You could also write a custom contract that implements the `ITokenERC721` interface, and implement the `mintTo` function with some different logic, such as adding some on-chain metadata.
+
+In this scenario, both the custom contract and the pre-built contract will unlock the "Mint" button on the dashboard,
+and also be able to use the SDK's `contract.nft.mint.to` function; which handles the complexity of minting NFTs such as uploading and pinning metadata to IPFS for you.
+
+Since each contract is made up of [contract extensions](/thirdweb-deploy/contract-extensions), our docs are designed to be relevant to both pre-built contract users and
+custom contract users; and are therefore separated at a contract extension level to avoid repeating the same information across multiple pages.

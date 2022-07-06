@@ -1,0 +1,56 @@
+---
+slug: /building-web3-apps/setting-up-the-sdk/backend
+title: Backend & Scripting Applications
+---
+
+import FromPrivateKeyCodeTabs from "../../../../../src/components/FromPrivateKeyCodeTabs";
+import FromSignerCodeTabs from "../../../../../src/components/FromSignerCodeTabs";
+import InitializingThirdwebCodeTabs from "../../../../../src/components/InitializingThirdwebCodeTabs";
+import InstallingThirdwebCodeTabs from "../../../../../src/components/InstallingThirdwebCodeTabs";
+
+# Backend & Scripting Applications
+
+Back-end applications are suitable for when you need to perform actions from _**your**_ wallet or simply need to **read** data,
+rather than connecting to your user's wallets.
+
+You can build back-end applications or scripts by using any of our SDKs:
+
+- [TypeScript](/typescript)
+- [Python](/python)
+- [Go](/go)
+
+<InstallingThirdwebCodeTabs />
+
+There are multiple different ways you can instantiate the SDK and use it, that vary depending on what you need to do.
+
+## From a Private key
+
+This instantiates the SDK with write-permissions directly from a wallet's private key.
+
+If you expose your private key, anyone can access your wallet's funds. Please proceed carefully.
+
+:::warning
+
+Ensure you store and access your private key securely.
+
+- Check if you need to use a private key for your application.
+- **Never** directly expose your private key in your source code.
+- **Never** commit any file that may contain your private key to your source control.
+- **Never** use a private key for a frontend (website/dapp) application.
+
+If you are unsure how to securely store and access your private key, please do not proceed.
+
+:::
+
+<FromPrivateKeyCodeTabs />
+
+## From a Signer / Provider
+
+You can use a signer such as one from an
+[Ethers Web3Provider](https://docs.ethers.io/v4/cookbook-providers.html) to instantiate the SDK.
+
+<FromSignerCodeTabs />
+
+## Read-only Connection
+
+<InitializingThirdwebCodeTabs />

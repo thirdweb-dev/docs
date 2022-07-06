@@ -11,7 +11,7 @@ export default function QuickstartCard({
   name,
   description,
   link,
-  image = "/assets/icons/general.svg",
+  image = "/assets/icons/general.png",
 }: Props) {
   return (
     <a
@@ -36,10 +36,7 @@ export default function QuickstartCard({
                 flexDirection: "row",
               }}
             >
-              <img
-                src={image}
-                style={{ width: "36px", height: "36px", marginRight: 12 }}
-              />
+              <img src={image} style={{ width: "36px", marginRight: 12 }} />
               <h5
                 style={{
                   fontWeight: 600,

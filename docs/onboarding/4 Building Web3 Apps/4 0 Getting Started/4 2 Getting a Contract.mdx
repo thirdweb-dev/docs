@@ -1,0 +1,62 @@
+---
+slug: /building-web3-apps/getting-a-contract
+title: Getting a Contract
+---
+
+import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet";
+
+# Getting a Contract
+
+The SDK is capable of getting **any** smart contract deployed to one of our [supported blockchains](/guides/which-network-should-you-use).
+
+When you deploy one of our [pre-built contracts](/pre-built-contracts), or your contract implements a [contract extension](/thirdweb-deploy/contract-extensions),
+you unlock specific features of the SDK that help you interact with your contract and it's functions more easily.
+
+## Getting Specific Contracts
+
+If your contract is a [pre-built](/pre-built-contracts) contract, or implements [contract extensions](/thirdweb-deploy/contract-extensions),
+you can get a **typed** instance of the contract with specialized functions.
+
+For example, to get an [NFT Drop](/pre-built-contracts/nft-drop) contract, you can use the following code:
+
+<ThirdwebCodeSnippet
+  contract={"NFTDrop"}
+  name={"initializing the SDK"}
+  isGetContractCode
+  showHr={false}
+/>
+
+Use the resources below to learn more about the specific contracts you can get.
+
+:::tip Contract Documentation in SDKs
+
+Learn how to use specific contracts from the SDK documentation:
+
+- [React](/react/category/get-a-contract)
+- [TypeScript](/typescript/category/built-in-contracts)
+- [Python](/python/category/contracts)
+- [Go](/go/category/contracts)
+
+:::
+
+## Get Any Contract Instance
+
+Using the React SDK's [useContract](/react/react.usecontract) hook
+or the TypeScript SDK's [getContract](/typescript/sdk.thirdwebsdk.getcontract) method,
+you can get an instance of any custom contract using it's contract address.
+
+<!-- TODO: Create code snippet for this + more react  -->
+
+**React:**
+
+```jsx
+const { contract } = useContract("{{contract_address}}");
+```
+
+<!-- TODO: Create code snippet for this + more react  -->
+
+**TypeScript:**
+
+```javascript
+const contract = sdk.getContract("{{contract_address}}");
+```

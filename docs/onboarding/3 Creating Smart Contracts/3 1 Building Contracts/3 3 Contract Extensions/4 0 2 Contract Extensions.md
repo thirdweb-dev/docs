@@ -30,7 +30,7 @@ pick and choose which features you want to include.
   <QuickstartCard
     name="Create an NFT Collection using contract extensions"
     link="/thirdweb-deploy/contract-extensions/quickstart"
-    image="/assets/icons/nft.svg"
+    image="/assets/icons/nft.png"
   />
 </div>
 
@@ -45,7 +45,7 @@ pick and choose which features you want to include.
   <QuickstartCard
     name="Explore the Available Contract Extensions"
     link="/thirdweb-deploy/contract-extensions/erc20"
-    image="/assets/icons/general.svg"
+    image="/assets/icons/general.png"
   />
 </div>
 

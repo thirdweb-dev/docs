@@ -1,0 +1,130 @@
+---
+slug: /pre-built-contracts/nft-collection
+---
+
+import ThirdwebCodeSnippet from "../../../../../../src/components/ThirdwebCodeSnippet";
+
+import DeployThisContractButton from "../../../../../../src/components/DeployThisContractButton";
+
+# NFT Collection
+
+<div class='deployContractBtnContainer' style={{marginTop:-70}}>
+
+<DeployThisContractButton
+  link={"https://thirdweb.com/contracts/new/pre-built/token/nft-collection"}
+  contractType="nft-collection"
+/>
+
+</div>
+
+thirdweb's NFT Collection contract is a **1-of-1** or **1-of-many** NFT Collection, that follows the [ERC721 Standard](https://eips.ethereum.org/EIPS/eip-721).
+
+The NFT Collection contract is suitable for when you want to have a collection of NFTs, but **not** "drop" or "release" them for your community to claim.
+
+Unlike the [NFT Drop](/pre-built-contracts/nft-drop) contract, the NFT Collection contract does not **lazy mint** your NFTs. Instead, NFTs are minted immediately when they are added to the collection.
+
+This means you can still transfer the NFTs or sell them on a [Marketplace](/pre-built-contracts/marketplace) and perform any other actions you would expect to do with an NFT.
+
+You could use the NFT Collection contract to:
+
+- Create a 1-of-many collection of your photography
+- Create a 1-of-1 NFT that provides special utility
+- Mint your artwork as NFTs and then sell them on a [Marketplace](/pre-built-contracts/marketplace)
+- Create a community-made NFT collection
+
+## Create an NFT Collection Contract
+
+Learn how to create any of thirdweb's pre-built contracts via the [Deploying Contracts page](/getting-started/deploying-contracts).
+
+<ThirdwebCodeSnippet
+  contract={"ContractDeployer"}
+  name={"deployNFTCollection"}
+/>
+
+## Getting the contract in your application
+
+To start using your NFT Collection contract inside your application, you need to use its contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+
+<ThirdwebCodeSnippet
+  contract={"NFTCollection"}
+  name={"initializing the SDK"}
+  isGetContractCode
+/>
+
+## Setting Royalty Fees
+
+Royalty fees are fees you earn on secondary sales of your NFTs. For example, if you sell an NFT on the marketplace, and it is then sold again to another user, you will earn a royalty fee.
+
+### Using the dashboard
+
+From the dashboard, in the **Settings** tab, you can set the royalty **percentage** and the **address** that should receive the revenue from royalties earned from secondary sales of the assets.
+
+![Configuring Royalties on the Dashboard](../assets/royalties.png)
+
+### Using the thirdweb SDK
+
+<ThirdwebCodeSnippet contract={"NFTCollection"} name={"royalties"} />
+
+## Minting NFTs
+
+With an NFT Collection contract, you choose which wallet addresses can mint NFTs into your collection.
+
+Only you (the smart contract owner) can mint NFTs into the collection by default.
+
+Under the **Creator** section, you can specify which wallets can mint in the **Permissions** tab of your NFT Collection under the **Creator** section.
+
+![Configuring Royalties on the Dashboard](../assets/creator-section.png)
+
+For more advanced use-cases, such as creating a **community-made collection**, you can use [signature-based minting](/typescript/sdk.erc721signatureminting).
+
+### Using the dashboard
+
+For a more in-depth guide on creating an NFT Collection, check out our guide here [Minting an NFT](/guides/create-nft-with-no-code).
+
+### Using the thirdweb SDK
+
+#### Mint One NFT
+
+<ThirdwebCodeSnippet contract={"NFTCollection"} name={"mintTo"} />
+
+#### Mint Many NFTs (Batch Mint)
+
+<ThirdwebCodeSnippet contract={"NFTCollection"} name={"mintBatchTo"} />
+
+## Viewing NFTs
+
+Our SDKs provide helpful ways to view the NFTs in your collection.
+
+### One NFT
+
+<ThirdwebCodeSnippet contract={"NFTCollection"} name={"get"} />
+
+### All NFTs
+
+<ThirdwebCodeSnippet contract={"NFTCollection"} name={"getAll"} />
+
+### NFTs owned by a specific wallet
+
+<ThirdwebCodeSnippet contract={"NFTCollection"} name={"getOwned"} />
+
+### Amount of tokens owned by a specific wallet
+
+<ThirdwebCodeSnippet contract={"NFTCollection"} name={"balanceOf"} />
+
+## Transferring NFTs
+
+You can transfer NFTs from one wallet to another.
+
+<ThirdwebCodeSnippet contract={"NFTCollection"} name={"transfer"} />
+
+## Burning NFTs
+
+Burning is the process of removing the token from circulation by sending it to an inaccessible address. It does **not** delete the token from the blockchain.
+
+### Using the dashboard
+
+![Burning Claimed NFTs on Dashboard](../assets/burn.png)
+
+### Using the SDK
+
+<ThirdwebCodeSnippet contract={"NFTCollection"} name={"burn"} />
