@@ -16,17 +16,18 @@ type ExampleRepo = {
 };
 
 const iconMapping = {
-  "nft-drop": "/assets/icons/drop.svg",
-  "edition-drop": "/assets/icons/drop.svg",
-  "nft-collection": "/assets/icons/collection.svg",
-  edition: "/assets/icons/collection.svg",
-  general: "/assets/icons/general.svg",
-  marketplace: "/assets/icons/marketplace.svg",
-  nft: "/assets/icons/nft.svg",
-  pack: "/assets/icons/pack.svg",
-  token: "/assets/icons/token.svg",
-  split: "/assets/icons/split.svg",
-  "getting-started": "/assets/icons/getting-started.svg",
+  "nft-drop": "/assets/icons/drop.png",
+  "edition-drop": "/assets/icons/edition-drop.png",
+  "nft-collection": "/assets/icons/nft.png",
+  edition: "/assets/icons/edition.png",
+  general: "/assets/icons/general.png",
+  marketplace: "/assets/icons/marketplace.png",
+  nft: "/assets/icons/nft.png",
+  pack: "/assets/icons/pack.png",
+  token: "/assets/icons/token.png",
+  split: "/assets/icons/split.png",
+  vote: "/assets/icons/vote.png",
+  "getting-started": "/assets/icons/sdks.png",
 };
 
 const categories = {
@@ -39,6 +40,7 @@ const categories = {
   token: "Token",
   pack: "Pack",
   split: "Split",
+  vote: "Vote",
   "wallet-connection": "Wallets",
 };
 
@@ -141,7 +143,11 @@ export default function ExamplesContainer() {
                   >
                     <img
                       src={iconMapping["getting-started"]}
-                      style={{ marginRight: 16, pointerEvents: "none" }}
+                      style={{
+                        marginRight: 16,
+                        pointerEvents: "none",
+                        width: 64,
+                      }}
                     />
                     <h3
                       style={{
@@ -273,7 +279,7 @@ export default function ExamplesContainer() {
                   >
                     <img
                       src={decideIcon(repo)}
-                      style={{ marginRight: 16, pointerEvents: "none" }}
+                      style={{ pointerEvents: "none", width: 64 }}
                     />
                     <div
                       className="card__body"
