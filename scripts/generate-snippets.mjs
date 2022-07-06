@@ -25,6 +25,7 @@ const CLASSES = [
   "ContractRoles",
   "SignatureDrop",
   "SmartContract",
+  "WalletAuthenticator",
 ];
 
 const typescript = JSON.parse(

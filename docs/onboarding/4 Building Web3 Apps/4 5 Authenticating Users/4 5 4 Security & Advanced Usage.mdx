@@ -1,62 +1,27 @@
 ---
-slug: /advanced-features/wallet-authentication
+slug: /building-web3-apps/authenticating-users/security-and-advanced-usage
+title: Security & Advanced Usage
 ---
 
-# [Beta] Wallet Authentication
+As the authentication SDK deals with core authentication flows, security is the highest concern, and is important to get right.
 
-> This feature is in beta and is still susceptible to API changes. Please refrain from using it in production environments until we have a stable version.
+When using authentication flows in production, there are a number of important security concerns to be aware of and address properly, which is what this page will be dedicated to explaining.
 
-## Overview
-
-_The following is a technical document outling thirdwebs new `wallet authentication` flows which enable users to verify and authenticate to backends using just their connect client-side wallet._
-
-This functionality opens the door to a new realm of possibilities regarding the integration of web3 into all applications, including the following potential use cases:
-
-- Fully self-custodied authentication to any website backend with just a wallet (no third party dependencies or database requirements)
-- Securely verify existing users wallet addresses to use for reading associated on-chain data
-- Connect user accounts to wallet addresses to allow users to receive and trasfer digital assets
-- Integration of any web2 infrastructure into web3 applications including payments, databases, and other services
-
-The following resources can be referenced in relation to this document:
-
-- [Wallet Authentication TypeScript Docs](https://portal.thirdweb.com/typescript/sdk.walletauthenticator)
-- [Wallet Authentication Basic Example](https://github.com/thirdweb-example/sign-in-with-ethereum)
-- [Wallet Authentication Stripe Example](https://github.com/thirdweb-example/thirdweb-stripe)
-
-As this feature is in beta, we appreciate any feedback or questions you may have while reading through this document, and encourage you to raise any concerns in our [community discord](https://discord.com/invite/thirdweb)
-
-## Background
-
-The web3 technology stack enables a variety of offerings like verifiable ownership and decentralized public data that would stand to benefit many applications.
-
-However, because most traditional/web2 applications rely on a client-server model and often a database, they are limited from accessing these capabilities as they are faced with the challenge of securely obtaining their users on-chain identities to use for ownership and data-reading purposes. We aim to remove this challenge with our new **sign-in with ethereum** based on-chain identity verification flow.
-
-Furthermore, web3 now presents a unique opportunity where the first time, private keys used for security no longer need to lie hidden away in a backend or database, but are actually in the hands of users themselves via wallets. This technology opens the possibilities for a new form of self-custodied authentication in which users and applications are able to provide a new wallet based authentication that doesn’t rely on any external services or databases.
-
-_The following is a technical document outlining our solutions to the two considerations detailed above, specifically (1) a new method to securely transfer users wallet identities between clients and servers and (2) the creation of a new fully self-custodied wallet based authentication method_
-
-## Goal
-
-- **Identification:** Enable services to securely verify a users on-chain identity
-- **Authentication:** Enable users to authenticate to any service using just their wallet
-
-## Implementation
-
-_The thirdweb authentication flow enables backends to identify and authenticate users wallets_
-
-![auth.png](./assets/auth.png)
+In order to explain the details of the security behind the wallet authentication flow, we'll first have to take a look at the details of how the flow works, and we can explore the security details of each piece along the way.
 
 ### Secure Identification
 
-The identification flow lets backends securely verify the wallet address of a client-side user. The flow takes advantage of the sign-in with ethereum flow ([EIP-4361](https://eips.ethereum.org/EIPS/eip-4361)) to verify the users wallet.
+![Secure Identification](./assets/secure-identification.png)
 
-![Screen Shot 2022-06-14 at 10.24.12 PM.png](./assets/Screen_Shot_2022-06-14_at_10.24.12_PM.png)
+The first piece of the authentication flow to understand is the identification flow, which enables backends to securely verify the wallet address of a client-side user.
+
+Our SDK makes use of the the sign-in with ethereum flow ([EIP-4361](https://eips.ethereum.org/EIPS/eip-4361)) to verify the client-side users wallet address, as this specification has been widely agreed about and used for authentication in web3.
 
 **Interface**
 
-`**sdk.auth.login(domain: string, options?: LoginOptions): LoginPayload`\*\*
+**`sdk.auth.login(domain: string, options?: LoginOptions): LoginPayload`**
 
-- Generates a payload signed by the connected wallet that can be used to provide a verifiable wallet address to a backend
+This function generates a payload signed by the connected wallet the can be used to prove the client-side wallet address to the backend.
 
 ```tsx
 type LoginOptions = {
@@ -79,7 +44,7 @@ type LoginPayload = {
 const payload = await sdk.auth.login("thirdweb.com");
 ```
 
-The message to sign should be of the following EIP-4361 compliant format, of which the rationale is described below:
+The message that gets signed by this function follows the EIP-4361 complian format specified below:
 
 ```
 ${domain} wants you to sign in with your account:
@@ -92,7 +57,9 @@ Nonce: ${nonce}
 Expiration Time: ${expirationTime}
 ```
 
-- `domain` - Ensures that the user isn’t signing on an unintended website (phishing attack)
+The rationale for including each field is the following:
+
+- `domain` - Ensures that the user isn't signing on an unintended website (to prevent phishing attacks, explained later)
 - `address` - Shows the user which wallet they are authenticating with + saves address in the payload to show intent
 - `nonce` - Provide a nonce in case backends want to make payloads only one-time use (will be a UUID nonce, generated by SDK)
 - `expirationTime` - Prevent a single payload from being used forever
@@ -100,7 +67,7 @@ Expiration Time: ${expirationTime}
 
 **`sdk.auth.verify(domain: string, payload: LoginPayload): string`**
 
-- Returns the address of the login payload, or throws an error if payload is invalid
+Next, the verify function is used on the backend to verify a login payload. If the payload is valid, it returns the address of the client-side wallet, otherwise it throws an error.
 
 ```tsx
 // Generate a payload from the connected wallet on the client side
@@ -118,23 +85,17 @@ The verification makes a few key checks to ensure the validity of the payload:
 
 If any of these conditions are not met, this method will throw an error.
 
-### Basic Authentication
+### User Authentication
 
-![Screen Shot 2022-06-14 at 10.25.32 PM.png](./assets/Screen_Shot_2022-06-14_at_10.25.32_PM.png)
+![User Authentication](./assets/user-authentication.png)
 
-**Considerations:**
+Next, we can take a look at the authentication flow which allows the backend to generate a JWT authentication token for use on requests.
 
-- Phishing attacks are the main security concern for this flow. Signed messages should make it clear what users are signing so that attackers can’t prompt users to sign an ambiguous message and use it to authenticate with the users address.
-  - The EIP-4361 specifies a message structure that provides sufficient information to mitigate phishing attacks
-- This flow is similar to JWT in that it uses an access token (payload) to authenticate. It’s important to note that if this access token is ever stolen, the users account will be hacked.
-  - Thus, it’s important that the access token is securely stored on the client side for later use.
-  - Typical JWT providers mitigate this issue by issuing JWT access tokens with very short validity times, along with refresh tokens which allow authenticated users to get a new payload when an old one expires. This flow is currently not implemented with our basic authentication flow, but it can be implemented as elaborated below in the “Using Auth Providers” section.
+**Interface**
 
-**Interface:**
+**`sdk.auth.generateAuthToken(domain: string, payload: LoginPayload, options?: AuthenticationOptions): string`**
 
-`**sdk.auth.generateAuthToken(domain: string, payload: LoginPayload, options?: AuthenticationOptions): string**`
-
-- Generate a JWT token that can be used to send authenticated requests to the specified backend service
+This function generates a JWT token from the login payload to send to the client-side.
 
 ```tsx
 type AuthenticationOptions = {
@@ -196,7 +157,7 @@ The JWT payload to be signed will take the following structure
 
 **`sdk.auth.authenticate(domain: string, token: string): string`**
 
-- Authenticates a JWT token generated with the `generateAuthToken` function. Throws an error if the token is invalid, otherwise returns the address of the authenticating wallet.
+This function authenticates a JWT token generated with the `generateAuthToken` function. Throws an error if the token is invalid, otherwise returns the address of the authenticating wallet.
 
 ```tsx
 // Generate a payload from the connected wallet on the client side
@@ -215,6 +176,17 @@ The verification step should verify all of the following:
 - Check that the current time is after `nbf` and before `exp`
 - Check that the provided domain matches the `aud` field
 
+### Using Refresh Tokens
+
+![Refresh Tokens](./assets/refresh-token.png)
+
+If you want to take advantage of standard refresh token flows using authentication providers, you can also do this with the authentication SDK with the following process:
+
+- Use the `sdk.auth.login()` function and `sdk.auth.verify()` functions to securely get the users wallet address to the backend.
+- Then, you can use this requesting user to generate an authentication payload with a third party auth flow like auth0, and relay the requested access and refresh tokens to the user.
+
+Refresh tokens allow you to implement authentication tokens with shorter expiration times, so that any one token can only be used for a small amount of time by a potential hacker, even if it is stolen.
+
 ### Security Considerations
 
 **1. Secure Client-Side Token Storage**
@@ -227,7 +199,7 @@ Storing JWT tokens in `localStorage` or ordinary `cookies` is not a secure way t
 
 Our current recommend method of using these tokens is by setting `httpOnly` and `secure` headers on cookies from the backend - this lets the backend send secure cookies to the client-side that the frontend actually has no access to, which mitigates the risk of XSS attacks.
 
-You can see an example implementation of this setup in our example authentication repository: https://github.com/thirdweb-example/sign-in-with-ethereum
+You can see an example implementation of this setup in our [Basic Authentication Example](https://github.com/thirdweb-example/sign-in-with-ethereum)
 
 **2. Phishing on Login Request**
 
@@ -244,16 +216,3 @@ Login request signatures (created by `sdk.auth.login()`) have a 5 minute expirat
 It may be optimal in some cases to only enable signatures to be used once each. Because of this consideration, we’ve included a `nonce` on each signature so that backends that want to enforce this functionality can store nonces in their database and ensure that no previously used nonces can be used again.
 
 In the future, we’ll offer a self-hosted option (as mentioned below) where we can handle this for users.
-
-### Using Auth Providers
-
-Alternatively, you can take advantage of existing token-based authentication flows:
-
-- Use the `sdk.auth.login()` function and `sdk.auth.verify()` functions to securely get the users wallet address to the backend.
-- Then, you can use this requesting user to generate an authentication payload with a third party auth flow like auth0, and relay the requested access and refresh tokens to the user.
-
-This enables users to take advantage of more advanced token-based auth flows that provide refresh token functionality.
-
-- Eventually, we’ll integrate this functionality directly into our authentication service - specifically, we’ll offer a self-hosted option that lets user plug in their database to get access/refresh token setup and one-time use authentication tokens out of the box.
-
-![Screen Shot 2022-06-14 at 10.25.15 PM.png](./assets/Screen_Shot_2022-06-14_at_10.25.15_PM.png)
