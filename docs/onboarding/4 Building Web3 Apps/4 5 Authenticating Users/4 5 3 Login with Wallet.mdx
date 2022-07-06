@@ -13,9 +13,10 @@ Typically, logging in means that you can do the following:
 2. The backend will somehow register that they have logged in, and allow them to continue making requests as the logged in user.
 
 Many applications accomplish the first step by making users enter their password into a form to prove that they are in fact the owner of their username, since only they will know the password. After this, a standard flow would be for the
-backend to generate a  [JSON Web Token](https://jwt.io) (which is just a string of characters that securely encodes data) and send it to the user. This token can then be attached to any future requests made by the user to prove that they are logged in.
+backend to generate a [JSON Web Token](https://jwt.io) (which is just a string of characters that securely encodes data) and send it to the user. This token can then be attached to any future requests made by the user to prove that they are logged in.
 
 You can accomplish this same flow with the authentication SDK with the following setup:
+
 - First use the `login` method to sign a login request message that you can send to the backend. This is analagous to entering your password.
 - Then on the backend, use the payload created by the `login` method to pass into the `generateAuthToken` method which you can then send to the user as a cookie for authentication.
 - Finally, users who have the cookie will be able to make requests to the backend without needing to login again, and the backend can use the `authenticate` method to verify the authenticatd user on future requests.
