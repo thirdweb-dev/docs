@@ -1,0 +1,11 @@
+---
+slug: /building-web3-apps/authenticating-users/wallet-authentication
+title: Login with Wallet
+---
+
+Typically, logging in means that we can do the following:
+1. We prove to the backend that we are in fact the identity we claim to have (i.e. we are the user we're trying to login as).
+2. The backend will somehow register that we have logged in, and allow us to continue making requests as if we were the logged in user, which allows us to do special things that only the logged in user could do.
+
+Many websites accomplish the first step by making users enter their password into a form to prove that they are in fact the owner of their username, since only they will know the password. After this, a standard flow would be for the
+backend to generate a token (which is just a string of characters that securely encodes data) and send it to the user. This token can then be attached to any future requests made by the user to prove that they are logged in.
