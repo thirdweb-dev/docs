@@ -1,0 +1,91 @@
+---
+slug: /building-web3-apps/authenticating-users
+title: Overview
+---
+
+import QuickstartCard from "../../../../src/components/QuickstartCard";
+
+Our authentication SDK lets you securely enable users to interact with any server-side/backend services by providing the following abilities:
+- Verify the connected client-side wallet address on the backend using the [Sign-in with Ethereum](https://eips.ethereum.org/EIPS/eip-4361) (EIP-4361) standard.
+- Issue [JSON Web Tokens (JWTs)](https://jwt.io) to client-side users to and allow users to make authenticated requests
+
+This functionality opens the door to a new suite of possibilities involving the integration of the web3 stack into all applications, including the following use-cases:
+- Fully self-custodied authentication to any website backend with just a wallet (no third party dependencies or database requirements)
+- Securely verify existing users wallet addresses to use for reading associated on-chain data
+- Connect user accounts to wallet addresses to send users digital assets
+- Integration of any web2 infrastructure into web3 applications including payments, databases, and other services
+
+### Learn More 
+
+Learn more about how to use our authentication SDK to use web3 functionality on the backend.
+
+<div className="row">
+
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Quickstart"
+    link="/building-web3-apps/authenticating-users/quickstart"
+    description="Learn by example by building a simple web app with wallet authentication."
+  />
+</div>
+
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Server-side User Verification"
+    link="/building-web3-apps/authenticating-users/server-side-user-verification"
+    description="Learn how to verify the connected wallet on your backend"
+    image="/assets/icons/drop.svg"
+  />
+</div>
+
+</div>
+
+<div className="row" style={{ marginTop: 24 }}>
+
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard 
+    name="Wallet Authentication"
+    link="/building-web3-apps/authenticating-users/wallet-authentication"
+    description="Learn how to authenticate users to a backend and enable authenticated requests without a third-party."
+    image="/assets/icons/collection.svg"
+  />
+</div>
+
+
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Security & Advanced Usage"
+    link="/building-web3-apps/authenticating-users/security-and-advanced-usage"
+    description="Learn about security and advanced usage of the authentication SDK"
+    image="/assets/icons/split.svg"
+  />
+</div>
+
+</div>
+
+### Example Repositories
+
+Example GitHub repositories to get you started coding with the authentication SDK.
+
+<div className="row" style={{ marginTop: 24 }}>
+
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard 
+    name="Basic Authentication"
+    link="https://github.com/thirdweb-example/sign-in-with-ethereum"
+    description="A basic authentication example showing how to setup a client and server with the authentication SDK."
+    image="/assets/icons/nft.svg"
+  />
+</div>
+
+
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Thirdweb Stripe"
+    link="https://github.com/thirdweb-example/sign-in-with-ethereum"
+    description="An example of how to setup Stripe subscriptions with the authentication SDK."
+    image="/assets/icons/token.svg"
+  />
+</div>
+
+</div>

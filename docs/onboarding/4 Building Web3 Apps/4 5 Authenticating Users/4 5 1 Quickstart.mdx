@@ -1,0 +1,49 @@
+---
+slug: /building-web3-apps/authenticating-users/quickstart
+title: Quickstart
+---
+
+Let's take a look at a quick example of how to use the authentication SDK to allow users on our frontend application to login to our backend application and make authenticated requests.
+
+## Setup the Project
+
+We'll start by cloning the [Basic Authentication](https://github.com/thirdweb-example/sign-in-with-ethereum) example project with the following command:
+
+```bash
+git clone https://github.com/thirdweb-example/sign-in-with-ethereum
+```
+
+This project has all the code we'll need to try out the authentication SDK. After cloning the project, run one the following commands to install the necessary dependencies:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+We also need to setup our backend with an admin private key we can use to generate authentication tokens (we'll explore what this means later). To do this, we need to create a new file in the top-level of our project called `.env.local` and add our private key to the file:
+
+```.env.local
+ADMIN_PRIVATE_KEY=...
+```
+
+Make sure to replace the "..." with your actual private key - you can find or export your private key from your respective wallet app - for example, you can find your private key in MetaMask by going to `3 Dots` > `Account Details` > `Export Private Key`.
+
+:::warning
+
+Make sure to never give away your private key or commit it to file history! In this case, our `.env.local` file is in the `.gitignore` which means it wont be tracked by `git`.
+
+:::
+
+### Trying the Demo
+
+Now that our project is setup, we can run it and see what's going on. To do this, we'll run one of the following commands:
+
+```bash
+npm run dev
+# or
+yarn dev
+```
+
+Now our project should be running on our localhost. You can navigate to [http://localhost:3000](http://localhost:3000) and you should see a page that looks like the following (assuming your wallet isn't already connected to the page).
+
