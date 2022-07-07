@@ -67,7 +67,7 @@ function filterContent(content) {
 
 function createPageFormat(page) {
   const metadata = `---
-slug: /examples/${page.name}-example
+slug: /templates/${page.name}-template
 hide_title: true
 ---`;
 
@@ -83,24 +83,21 @@ hide_title: true
     }}
   ></iframe>`;
 
-  const buttonSection = `
-  <ul>
+  const buttonSection = `<ul>
     <li>
       <a href="${page.demo}" >View Demo</a>
     </li>
     <li>
       <a href="${page.html_url}">View Code on GitHub</a>
     </li>
-  </ul>
-
-`;
+  </ul>`;
 
   const md = filterContent(page.text);
 
   const createSnippet =
     "```jsx" +
     "\n" +
-    "npx thirdweb create --example " +
+    "npx thirdweb create --template " +
     page.name +
     "\n" +
     "```";

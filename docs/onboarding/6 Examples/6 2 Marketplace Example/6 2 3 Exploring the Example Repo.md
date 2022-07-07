@@ -1,5 +1,5 @@
 ---
-slug: /examples/marketplace/exploring-the-example-repo
+slug: /templates/marketplace/exploring-the-example-repo
 ---
 
 # Exploring the Example Repo
