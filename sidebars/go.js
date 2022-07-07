@@ -44,6 +44,11 @@ const sidebars = {
       id: "custom",
     },
     {
+      type: "doc",
+      label: "Wallet Authentication",
+      id: "wallet_authenticator",
+    },
+    {
       type: "category",
       label: "Contracts",
       collapsed: false,
