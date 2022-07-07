@@ -51,12 +51,39 @@ const categories = {
 };
 
 const starterKitToDisplayNameMapping = {
-  "cra-javascript-starter": "Create React App + JavaScript",
-  "cra-typescript-starter": "Create React App + TypeScript",
-  "next-javascript-starter": "Next.js + JavaScript",
-  "next-typescript-starter": "Next.js + TypeScript",
-  "vite-javascript-starter": "Vite + JavaScript",
-  "vite-typescript-starter": "Vite + TypeScript",
+  "cra-javascript-starter": "Create React App - JavaScript",
+  "cra-typescript-starter": "Create React App - TypeScript",
+  "next-javascript-starter": "Next.js - JavaScript",
+  "next-typescript-starter": "Next.js - TypeScript",
+  "vite-javascript-starter": "Vite - JavaScript",
+  "vite-typescript-starter": "Vite - TypeScript",
+};
+
+const starterKitToIconMapping = {
+  "cra-javascript-starter": [
+    "/assets/languages/javascript.png",
+    "/assets/languages/react.png",
+  ],
+  "cra-typescript-starter": [
+    "/assets/languages/typescript.png",
+    "/assets/languages/react.png",
+  ],
+  "next-javascript-starter": [
+    "/assets/languages/javascript.png",
+    "/assets/languages/nextjs.png",
+  ],
+  "next-typescript-starter": [
+    "/assets/languages/typescript.png",
+    "/assets/languages/nextjs.png",
+  ],
+  "vite-javascript-starter": [
+    "/assets/languages/javascript.png",
+    "/assets/languages/vite.png",
+  ],
+  "vite-typescript-starter": [
+    "/assets/languages/typescript.png",
+    "/assets/languages/vite.png",
+  ],
 };
 
 const repoToExampleGuideMapping = {
@@ -154,11 +181,18 @@ export default function ExamplesContainer() {
                     }}
                   >
                     <img
-                      src={iconMapping["getting-started"]}
+                      src={starterKitToIconMapping[repo.name][0]}
                       style={{
-                        marginRight: 16,
+                        marginRight: 8,
                         pointerEvents: "none",
-                        width: 64,
+                        width: 42,
+                      }}
+                    />
+                    <img
+                      src={starterKitToIconMapping[repo.name][1]}
+                      style={{
+                        pointerEvents: "none",
+                        width: 42,
                       }}
                     />
                     <h3
@@ -166,6 +200,7 @@ export default function ExamplesContainer() {
                         fontWeight: 600,
                         fontSize: "1.1rem",
                         pointerEvents: "none",
+                        marginLeft: 16,
                       }}
                     >
                       {starterKitToDisplayNameMapping[repo.name]}
