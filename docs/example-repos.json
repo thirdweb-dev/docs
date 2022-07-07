@@ -11,7 +11,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 2,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://auction-house.thirdweb-example.com"
   },
   {
     "name": "community-rewards",
@@ -26,7 +27,8 @@
     ],
     "language": "JavaScript",
     "stargazers_count": 6,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://community-rewards.thirdweb-example.com"
   },
   {
     "name": "contract-hub",
@@ -47,7 +49,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 6,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://contract-hub.thirdweb-example.com/"
   },
   {
     "name": "cra-javascript-starter",
@@ -63,7 +66,8 @@
     ],
     "language": "JavaScript",
     "stargazers_count": 12,
-    "is_template": true
+    "is_template": true,
+    "homepage": "https://cra-javascript-starter.thirdweb-example.com"
   },
   {
     "name": "cra-typescript-starter",
@@ -79,7 +83,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 4,
-    "is_template": true
+    "is_template": true,
+    "homepage": "https://cra-typescript-starter.thirdweb-example.com"
   },
   {
     "name": "custom-dashboard",
@@ -94,7 +99,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 2,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://custom-dashboard.thirdweb-example.com"
   },
   {
     "name": "dao",
@@ -110,7 +116,8 @@
     ],
     "language": "JavaScript",
     "stargazers_count": 5,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://dao.thirdweb-example.com"
   },
   {
     "name": "edition",
@@ -124,7 +131,8 @@
     ],
     "language": "JavaScript",
     "stargazers_count": 0,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://edition.thirdweb-example.com"
   },
   {
     "name": "edition-drop",
@@ -138,7 +146,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 0,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://edition-drop.thirdweb-example.com"
   },
   {
     "name": "erc721a-thirdweb-deploy",
@@ -152,7 +161,8 @@
     ],
     "language": "Solidity",
     "stargazers_count": 0,
-    "is_template": false
+    "is_template": false,
+    "homepage": ""
   },
   {
     "name": "filebase-metadata",
@@ -166,7 +176,8 @@
     ],
     "language": "JavaScript",
     "stargazers_count": 2,
-    "is_template": false
+    "is_template": false,
+    "homepage": ""
   },
   {
     "name": "hardhat-thirdweb-deploy-app",
@@ -180,7 +191,8 @@
     ],
     "language": "JavaScript",
     "stargazers_count": 0,
-    "is_template": false
+    "is_template": false,
+    "homepage": ""
   },
   {
     "name": "hardhat-thirdweb-deploy-contract-extensions",
@@ -194,7 +206,8 @@
     ],
     "language": "JavaScript",
     "stargazers_count": 0,
-    "is_template": false
+    "is_template": false,
+    "homepage": ""
   },
   {
     "name": "hardhat-thirdweb-deploy-greeter",
@@ -208,7 +221,8 @@
     ],
     "language": "JavaScript",
     "stargazers_count": 0,
-    "is_template": false
+    "is_template": false,
+    "homepage": ""
   },
   {
     "name": "magic-link",
@@ -224,7 +238,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 5,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://magic-link.thirdweb-example.com"
   },
   {
     "name": "marketplace-next-ts",
@@ -240,7 +255,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 13,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://marketplace.thirdweb-example.com"
   },
   {
     "name": "multiwrap",
@@ -254,7 +270,8 @@
     ],
     "language": "JavaScript",
     "stargazers_count": 3,
-    "is_template": false
+    "is_template": false,
+    "homepage": ""
   },
   {
     "name": "next-javascript-starter",
@@ -271,7 +288,8 @@
     ],
     "language": "JavaScript",
     "stargazers_count": 10,
-    "is_template": true
+    "is_template": true,
+    "homepage": "https://next-javascript-starter.thirdweb-example.com"
   },
   {
     "name": "next-typescript-starter",
@@ -292,7 +310,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 14,
-    "is_template": true
+    "is_template": true,
+    "homepage": "https://next-typescript-starter.thirdweb-example.com"
   },
   {
     "name": "nft-collection",
@@ -306,7 +325,8 @@
     ],
     "language": "JavaScript",
     "stargazers_count": 0,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://nft-collection.thirdweb-example.com"
   },
   {
     "name": "nft-collection-vite-ts",
@@ -324,7 +344,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 1,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://nft-collection-vite-ts.thirdweb-example.com"
   },
   {
     "name": "nft-drop",
@@ -338,7 +359,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 22,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://custom-minting-page.thirdweb-example.com"
   },
   {
     "name": "nft-gated-website",
@@ -357,7 +379,8 @@
     ],
     "language": "JavaScript",
     "stargazers_count": 33,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
   {
     "name": "nft-staking-app",
@@ -373,7 +396,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 12,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
   {
     "name": "packs",
@@ -387,7 +411,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 1,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://packs.thirdweb-example.com"
   },
   {
     "name": "play-to-earn-game",
@@ -401,7 +426,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 3,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://play-to-earn.thirdweb-example.com"
   },
   {
     "name": "sign-in-with-ethereum",
@@ -415,7 +441,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 7,
-    "is_template": false
+    "is_template": false,
+    "homepage": ""
   },
   {
     "name": "signature-based-minting",
@@ -432,7 +459,8 @@
     ],
     "language": "TypeScript",
     "stargazers_count": 9,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://signature-based-minting.thirdweb-example.com"
   },
   {
     "name": "thirdweb-deploy-hello-world",
@@ -446,6 +474,7 @@
     ],
     "language": "JavaScript",
     "stargazers_count": 2,
-    "is_template": false
+    "is_template": false,
+    "homepage": "https://thirdweb-deploy-hello-world.thirdweb-example.com"
   }
 ]
