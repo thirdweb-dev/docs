@@ -235,6 +235,16 @@
       "source": "/guides/create-a-pack-with-typescript-and-nextjs",
       "destination": "/guides/create-an-nft-lootbox",
       "permanent": true
+    },
+    {
+      "source": "/examples",
+      "destination": "/templates",
+      "permanent": true
+    },
+    {
+      "source": "/examples/:match*",
+      "destination": "/templates/:match*",
+      "permanent": true
     }
   ]
 }

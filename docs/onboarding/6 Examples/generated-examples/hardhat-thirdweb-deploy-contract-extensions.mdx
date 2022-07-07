@@ -1,5 +1,5 @@
 ---
-slug: /examples/hardhat-thirdweb-deploy-contract-extensions-example
+slug: /templates/hardhat-thirdweb-deploy-contract-extensions-template
 hide_title: true
 ---
 
@@ -11,39 +11,33 @@ Build your own NFT Collection with Solidity using thirdweb deploy and the thirdw
 npx thirdweb create --template hardhat-thirdweb-deploy-contract-extensions
 ```
 
-{" "}
 <ul>
-  <li>
-    <a href="">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/hardhat-thirdweb-deploy-contract-extensions">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
+    <li>
+      <a href="" >View Demo</a>
+    </li>
+    <li>
+      <a href="https://github.com/thirdweb-example/hardhat-thirdweb-deploy-contract-extensions">View Code on GitHub</a>
+    </li>
+  </ul>
 
 <iframe
-  src=""
-  title="hardhat-thirdweb-deploy-contract-extensions"
-  width="100%"
-  height="420px"
-  scrolling="yes"
-  style={{
-    marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
-  }}
-></iframe>
+    src=""
+    title="hardhat-thirdweb-deploy-contract-extensions"
+    width="100%"
+    height="420px"
+    scrolling="yes"
+    style={{marginBottom: 32, borderRadius: 16,
+      border: '1px solid rgba(255,255,255,0.2)'
+    }}
+  ></iframe>
 
 ---
 
-<h1 align="center">Create an NFT collection with Solidity + thirdweb</h1>
 
-<p align="center">
-  This template allows you to create an NFT Collection using Solidity and
-  thirdweb.
-</p>
+
+<h1 align='center'>Create an NFT collection with Solidity + thirdweb</h1>
+
+<p align='center'>This template allows you to create an NFT Collection using Solidity and thirdweb.</p>
 
 <br />
 
@@ -73,7 +67,7 @@ Visit the application at [http://localhost:3000/](http://localhost:3000/).
 
 <br />
 
-<h2 align="center">How to use this template</h2>
+<h2 align='center'>How to use this template</h2>
 
 This template has two components:
 
@@ -98,7 +92,7 @@ contract MyAwesomeNft is ERC721URIStorage, IMintableERC721, IERC721Supply {
 }
 ```
 
-<br />
+<br/>
 
 <h4>ERC721URIStorage</h4>
 
@@ -106,7 +100,7 @@ This contract comes from [OpenZeppelin](https://docs.openzeppelin.com/contracts/
 
 Inside our `mintTo` function (whenever a new NFT is created), we can set the `tokenURI` to point to an IPFS url containing metadata; so that each NFT can have a name, description, image, and properties.
 
-<br />
+<br/>
 
 <h4>IMintableERC721</h4>
 
@@ -116,9 +110,13 @@ This is one of [thirdweb's contract extensions](https://portal.thirdweb.com/thir
 
 When we deploy our contract, we'll see this button:
 
+
 Then we can simply fill out a form with our NFT information, and mint that NFT on the dashboard, no code required.
 
-<br />
+
+
+
+<br/>
 
 **2. The mint function in the thirdweb SDK**
 
@@ -130,7 +128,7 @@ await contract.nft.mint.to(walletAddress, nftMetadata);
 
 This one line will upload our NFT metadata to IPFS, and then mint the NFT on the blockchain.
 
-<br />
+<br/>
 
 <h4>IERC721Supply</h4>
 
@@ -144,7 +142,7 @@ In the SDK, we can query all NFTs that have been minted, and get their metadata,
 const nfts = await contract.nft.query.all();
 ```
 
-<br />
+<br/>
 
 ### The Mint & Total Supply Functions
 
@@ -179,7 +177,7 @@ emit TokensMinted(to, newTokenId, uri);
 return newTokenId;
 ```
 
-<br />
+<br/>
 
 **totalSupply**:
 
@@ -189,7 +187,7 @@ This function returns the current token ID, effectively returning the total supp
 return _tokenIds.current();
 ```
 
-<br />
+<br/>
 
 <h3>Deploying the contract</h3>
 

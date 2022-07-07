@@ -1,5 +1,5 @@
 ---
-slug: /examples/nft-collection-example
+slug: /templates/nft-collection-template
 hide_title: true
 ---
 
@@ -11,30 +11,25 @@ Use the NFT Collection contract to show off your ERC-721 NFTs
 npx thirdweb create --template nft-collection
 ```
 
-{" "}
 <ul>
-  <li>
-    <a href="https://nft-collection.thirdweb-example.com">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/nft-collection">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
+    <li>
+      <a href="https://nft-collection.thirdweb-example.com" >View Demo</a>
+    </li>
+    <li>
+      <a href="https://github.com/thirdweb-example/nft-collection">View Code on GitHub</a>
+    </li>
+  </ul>
 
 <iframe
-  src="https://nft-collection.thirdweb-example.com"
-  title="nft-collection"
-  width="100%"
-  height="420px"
-  scrolling="yes"
-  style={{
-    marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
-  }}
-></iframe>
+    src="https://nft-collection.thirdweb-example.com"
+    title="nft-collection"
+    width="100%"
+    height="420px"
+    scrolling="yes"
+    style={{marginBottom: 32, borderRadius: 16,
+      border: '1px solid rgba(255,255,255,0.2)'
+    }}
+  ></iframe>
 
 ---
 
@@ -50,7 +45,7 @@ You can start editing the page by modifying `pages/index.js`. The page auto-upda
 
 On `pages/_app.js`, you'll find our `ThirdwebProvider` wrapping your app, this is necessary for our hooks to work.
 
-on `pages/index.js`, you'll find the `useMetamask` hook that we use to connect the user's wallet to MetaMask, `useDisconnect` that we use to disconnect it, and `useAddress` to check the user's wallet address once connected.
+on `pages/index.js`, you'll find the `useMetamask` hook that we use to connect the user's wallet to MetaMask, `useDisconnect` that we use to disconnect it, and `useAddress` to check the user's wallet address once connected. 
 
 ## Learn More
 

@@ -1,5 +1,5 @@
 ---
-slug: /examples/token-gated-membership/exploring-the-example-repo
+slug: /templates/token-gated-membership/exploring-the-example-repo
 ---
 
 # Exploring the Example Repo

@@ -1,5 +1,5 @@
 ---
-slug: /examples/community-rewards-example
+slug: /templates/community-rewards-template
 hide_title: true
 ---
 
@@ -11,30 +11,25 @@ Reward your community using NFTs and thirdweb's signature based minting.
 npx thirdweb create --template community-rewards
 ```
 
-{" "}
 <ul>
-  <li>
-    <a href="https://community-rewards.thirdweb-example.com">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/community-rewards">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
+    <li>
+      <a href="https://community-rewards.thirdweb-example.com" >View Demo</a>
+    </li>
+    <li>
+      <a href="https://github.com/thirdweb-example/community-rewards">View Code on GitHub</a>
+    </li>
+  </ul>
 
 <iframe
-  src="https://community-rewards.thirdweb-example.com"
-  title="community-rewards"
-  width="100%"
-  height="420px"
-  scrolling="yes"
-  style={{
-    marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
-  }}
-></iframe>
+    src="https://community-rewards.thirdweb-example.com"
+    title="community-rewards"
+    width="100%"
+    height="420px"
+    scrolling="yes"
+    style={{marginBottom: 32, borderRadius: 16,
+      border: '1px solid rgba(255,255,255,0.2)'
+    }}
+  ></iframe>
 
 ---
 
@@ -95,6 +90,7 @@ yarn start
 This project uses signature-based minting to grant mint signatures to wallets who meet a certain set of criteria.
 
 You can see the basic flow of how signature based minting works in this application below:
+
 
 In this example, we use signature-based minting to exclusively grant signatures to users who are members of the Discord server with ID `834227967404146718`; the thirdweb discord server.
 
@@ -256,7 +252,7 @@ const discordServerId = "834227967404146718";
 // Returns undefined if the user is not a member of the server
 // Returns the server object if the user is a member
 const thirdwebDiscordMembership = data?.find(
-  (server) => server.id === discordServerId,
+  (server) => server.id === discordServerId
 );
 
 // Return undefined or the server object to the client.
@@ -356,7 +352,7 @@ Next, we get our NFT collection contract:
 ```jsx
 // Load the NFT Collection via it's contract address using the SDK
 const nftCollection = sdk.getNFTCollection(
-  "0xb5201E87b17527722A641Ac64097Ece34B21d10A",
+  "0xb5201E87b17527722A641Ac64097Ece34B21d10A"
 );
 ```
 

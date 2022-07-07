@@ -1,5 +1,5 @@
 ---
-slug: /examples/custom-dashboard-example
+slug: /templates/custom-dashboard-template
 hide_title: true
 ---
 
@@ -11,30 +11,25 @@ Use thirdweb's sdk.deployer to deploy any pre-built contract dynamically with no
 npx thirdweb create --template custom-dashboard
 ```
 
-{" "}
 <ul>
-  <li>
-    <a href="https://custom-dashboard.thirdweb-example.com">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/custom-dashboard">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
+    <li>
+      <a href="https://custom-dashboard.thirdweb-example.com" >View Demo</a>
+    </li>
+    <li>
+      <a href="https://github.com/thirdweb-example/custom-dashboard">View Code on GitHub</a>
+    </li>
+  </ul>
 
 <iframe
-  src="https://custom-dashboard.thirdweb-example.com"
-  title="custom-dashboard"
-  width="100%"
-  height="420px"
-  scrolling="yes"
-  style={{
-    marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
-  }}
-></iframe>
+    src="https://custom-dashboard.thirdweb-example.com"
+    title="custom-dashboard"
+    width="100%"
+    height="420px"
+    scrolling="yes"
+    style={{marginBottom: 32, borderRadius: 16,
+      border: '1px solid rgba(255,255,255,0.2)'
+    }}
+  ></iframe>
 
 ---
 
@@ -119,7 +114,7 @@ const contractAddress = await thirdweb.deployer.deployBuiltInContract(
         sharesBps: 100 * 100,
       },
     ],
-  },
+  }
 );
 ```
 

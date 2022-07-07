@@ -87,9 +87,9 @@ const starterKitToIconMapping = {
 };
 
 const repoToExampleGuideMapping = {
-  "marketplace-next-ts": "/examples/marketplace",
-  "custom-minting-page": "/examples/nft-drop",
-  "nft-gated-website": "/examples/token-gated-membership",
+  "marketplace-next-ts": "/templates/marketplace",
+  "custom-minting-page": "/templates/nft-drop",
+  "nft-gated-website": "/templates/token-gated-membership",
 };
 
 function transformName(name: string) {
@@ -148,7 +148,7 @@ export default function ExamplesContainer() {
           .filter((e) => e.is_template === true)
           .map((repo) => (
             <a
-              href={`/examples/${repo.name}-example`}
+              href={`/templates/${repo.name}-template`}
               target="_blank"
               className="col col--6"
               style={{
@@ -289,7 +289,7 @@ export default function ExamplesContainer() {
               // Prefer to show internal guide but fallback to github url
               href={
                 repoToExampleGuideMapping[repo.name] ||
-                `/examples/${repo.name}-example`
+                `/templates/${repo.name}-template`
               }
               // Open in new tab if its a github url, same if internal guide
               target={repoToExampleGuideMapping[repo.name] ? "" : "_blank"}

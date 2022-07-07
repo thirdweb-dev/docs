@@ -1,5 +1,5 @@
 ---
-slug: /examples/signature-based-minting-example
+slug: /templates/signature-based-minting-template
 hide_title: true
 ---
 
@@ -11,30 +11,25 @@ Create a community-made NFT collection with restrictions that you specify using 
 npx thirdweb create --template signature-based-minting
 ```
 
-{" "}
 <ul>
-  <li>
-    <a href="https://signature-based-minting.thirdweb-example.com">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/signature-based-minting">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
+    <li>
+      <a href="https://signature-based-minting.thirdweb-example.com" >View Demo</a>
+    </li>
+    <li>
+      <a href="https://github.com/thirdweb-example/signature-based-minting">View Code on GitHub</a>
+    </li>
+  </ul>
 
 <iframe
-  src="https://signature-based-minting.thirdweb-example.com"
-  title="signature-based-minting"
-  width="100%"
-  height="420px"
-  scrolling="yes"
-  style={{
-    marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
-  }}
-></iframe>
+    src="https://signature-based-minting.thirdweb-example.com"
+    title="signature-based-minting"
+    width="100%"
+    height="420px"
+    scrolling="yes"
+    style={{marginBottom: 32, borderRadius: 16,
+      border: '1px solid rgba(255,255,255,0.2)'
+    }}
+  ></iframe>
 
 ---
 
@@ -149,7 +144,7 @@ For our community collection, each NFT is minted by a different user. We're usin
 // Fetch the NFT collection from thirdweb via it's contract address.
 const nftCollection = useNFTCollection(
   // Replace this with your NFT Collection contract address
-  process.env.NEXT_PUBLIC_NFT_COLLECTION_ADDRESS,
+  process.env.NEXT_PUBLIC_NFT_COLLECTION_ADDRESS
 );
 ```
 
@@ -172,6 +167,7 @@ We can also see who is the owner of each nft with `.owner`, and the `metadata.na
 ## Creating NFTs with Signature Based Minting
 
 The way that our signature-based minting process works is in 3 steps:
+
 
 1. The connected wallet calls a [Next JS API Route](https://nextjs.org/docs/api-routes/introduction) with three parameters, `authorAddress`, `nftName`, and `imagePath` inside the request body.
 
@@ -204,7 +200,7 @@ const { authorAddress, nftName, imagePath } = JSON.parse(req.body);
 const sdk = ThirdwebSDK.fromPrivateKey(
   // Your wallet private key (read it in from .env.local file)
   process.env.PRIVATE_KEY as string,
-  "mumbai",
+  "mumbai"
 );
 ```
 
@@ -213,7 +209,7 @@ const sdk = ThirdwebSDK.fromPrivateKey(
 ```tsx
 const nftCollection = sdk.getNFTCollection(
   // Replace this with your NFT Collection contract address
-  "0x000000000000000000000000000000000000000",
+  "0x000000000000000000000000000000000000000"
 );
 ```
 
