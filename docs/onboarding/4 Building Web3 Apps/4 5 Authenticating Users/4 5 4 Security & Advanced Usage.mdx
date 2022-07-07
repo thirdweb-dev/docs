@@ -3,7 +3,7 @@ slug: /building-web3-apps/authenticating-users/security-and-advanced-usage
 title: Security & Advanced Usage
 ---
 
-As the authentication SDK deals with core authentication flows, security is the highest concern, and is important to get right.
+As the authentication SDK deals with core authentication flow, security is the highest concern and is important to get right.
 
 When using authentication flows in production, there are a number of important security concerns to be aware of and address properly, which is what this page will be dedicated to explaining.
 
@@ -15,13 +15,13 @@ In order to explain the details of the security behind the wallet authentication
 
 The first piece of the authentication flow to understand is the identification flow, which enables backends to securely verify the wallet address of a client-side user.
 
-Our SDK makes use of the the sign-in with ethereum flow ([EIP-4361](https://eips.ethereum.org/EIPS/eip-4361)) to verify the client-side users wallet address, as this specification has been widely agreed about and used for authentication in web3.
+Our SDK makes use of the sign-in with Ethereum flow ([EIP-4361](https://eips.ethereum.org/EIPS/eip-4361)) to verify the client-side user's wallet address, as this specification has been widely agreed about and used for authentication in web3.
 
 **Interface**
 
 **`sdk.auth.login(domain: string, options?: LoginOptions): LoginPayload`**
 
-This function generates a payload signed by the connected wallet the can be used to prove the client-side wallet address to the backend.
+This function generates a payload signed by the connected wallet that can be used to prove the client-side wallet address to the backend.
 
 ```tsx
 type LoginOptions = {
@@ -44,7 +44,7 @@ type LoginPayload = {
 const payload = await sdk.auth.login("thirdweb.com");
 ```
 
-The message that gets signed by this function follows the EIP-4361 complian format specified below:
+The message that gets signed by this function follows the EIP-4361 compliant format specified below:
 
 ```
 ${domain} wants you to sign in with your account:
@@ -183,7 +183,7 @@ The verification step should verify all of the following:
 If you want to take advantage of standard refresh token flows using authentication providers, you can also do this with the authentication SDK with the following process:
 
 - Use the `sdk.auth.login()` function and `sdk.auth.verify()` functions to securely get the users wallet address to the backend.
-- Then, you can use this requesting user to generate an authentication payload with a third party auth flow like auth0, and relay the requested access and refresh tokens to the user.
+- Then, you can use this requesting user to generate an authentication payload with a third-party auth flow like auth0, and relay the requested access and refresh tokens to the user.
 
 Refresh tokens allow you to implement authentication tokens with shorter expiration times, so that any one token can only be used for a small amount of time by a potential hacker, even if it is stolen.
 
@@ -197,13 +197,13 @@ This means that if anyone obtains the auth token through any means, they can als
 
 Storing JWT tokens in `localStorage` or ordinary `cookies` is not a secure way to store tokens on the client-side, as these methods are prone to XSS attacks.
 
-Our current recommend method of using these tokens is by setting `httpOnly` and `secure` headers on cookies from the backend - this lets the backend send secure cookies to the client-side that the frontend actually has no access to, which mitigates the risk of XSS attacks.
+Our current recommended method of using these tokens is by setting `httpOnly` and `secure` headers on cookies from the backend - this lets the backend send secure cookies to the client-side that the frontend actually has no access to, which mitigates the risk of XSS attacks.
 
 You can see an example implementation of this setup in our [Basic Authentication Example](https://github.com/thirdweb-example/sign-in-with-ethereum)
 
 **2. Phishing on Login Request**
 
-The authentication flow relies on the user signing a message on the frontend to prove their identity and sending this to the backend. The backend can then use this message to verify the users identity and issue an authentication token.
+The authentication flow relies on the user signing a message on the frontend to prove their identity and sending this to the backend. The backend can then use this message to verify the user's identity and issue an authentication token.
 
 This means that if a malicious website is able to get a user to sign a message with the same structure as that accepted by the backend, then they can use this signature to authenticate as the user.
 
@@ -211,7 +211,7 @@ Thus, it’s important that the signed message provides sufficient information t
 
 **3. One Time Use Signatures**
 
-Login request signatures (created by `sdk.auth.login()`) have a 5 minute expiration time by default to minimize the amount of time that they are valid for making repeat authentication attempts.
+Login request signatures (created by `sdk.auth.login()`) have a 5-minute expiration time by default to minimize the amount of time that they are valid for making repeat authentication attempts.
 
 It may be optimal in some cases to only enable signatures to be used once each. Because of this consideration, we’ve included a `nonce` on each signature so that backends that want to enforce this functionality can store nonces in their database and ensure that no previously used nonces can be used again.
 

@@ -3,41 +3,42 @@ slug: /building-web3-apps/authenticating-users/quickstart
 title: Quickstart
 ---
 
-Let's take a look at a quick example of how to use the authentication SDK to allow users on a frontend application to login with just their wallets to a backend and make authenticated requests.
+Let's take a look at a quick example of how to use the authentication SDK to allow users on a frontend application to log in with just their wallets to a backend and make authenticated requests.
 
 ## Setup the Project
 
-We'll start by cloning the [Basic Authentication](https://github.com/thirdweb-example/sign-in-with-ethereum) example project with the following command:
+We'll start by cloning the [Basic Authentication](https://github.com/thirdweb-example/sign-in-with-ethereum) example project using the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli)
 
 ```bash
-git clone https://github.com/thirdweb-example/sign-in-with-ethereum
+npx thirdweb create --example sign-in-with-ethereum
 ```
 
-This project has all the code we'll need to try out the authentication SDK. After cloning the project, run one the following commands to install the necessary dependencies:
+We also need to set up our backend with an admin private key (we'll explore what this means later).
+To do this, we need to create a new file at the top level of our project called `.env.local` and add our private key to the file:
 
-```bash
-npm install
-# or
-yarn install
+```
+PRIVATE_KEY=your-private-key-here
 ```
 
-We also need to setup our backend with an admin private key we can use to generate authentication tokens (we'll explore what this means later). To do this, we need to create a new file in the top-level of our project called `.env.local` and add our private key to the file:
+:::info How to export your private key
 
-```.env.local
-ADMIN_PRIVATE_KEY=...
-```
+Learn how to [export your private key](/guides/create-a-metamask-wallet#export-your-private-key) from your wallet.
 
-Make sure to replace the "..." with your actual private key - you can find or export your private key from your respective wallet app - for example, you can find your private key in MetaMask by going to `3 Dots` > `Account Details` > `Export Private Key`.
+:::
+
+This is your "admin" wallet, which you can use to generate authentication tokens.
 
 :::warning
 
-Make sure to never give away your private key or commit it to file history! In this case, our `.env.local` file is in the `.gitignore` which means it wont be tracked by `git`.
+Ensure you store and access your private key securely.
+
+- **Never** commit any file that may contain your private key to your source control.
 
 :::
 
 ### Trying the Demo
 
-Now that our project is setup, we can run it and see what's going on. To do this, we'll run one of the following commands:
+To run the project locally, run one of the following commands:
 
 ```bash
 npm run dev
@@ -45,21 +46,39 @@ npm run dev
 yarn dev
 ```
 
-Now our project should be running on our localhost. You can navigate to [http://localhost:3000](http://localhost:3000) and you should see a page that looks like the following (assuming your wallet isn't already connected to the page).
+You can navigate to [http://localhost:3000](http://localhost:3000) and you should see a page that looks like the following (assuming your wallet isn't already connected to the page).
 
 ![Connect Wallet](./assets/connect-wallet.png)
 
-The first thing to do is to connect your MetaMask wallet to the page by clicking the `Connect Wallet` button (if you don't have MetaMask on your browser, you can get it [here](https://metamask.io/download/)).
+The first thing to do is to connect your MetaMask wallet to the page by clicking the `Connect Wallet` button.
 
-Once you connect your wallet, the page should update to the following, reflected your connect wallet address in the `Connect Address` section.
+:::tip Getting A Wallet
+
+If you don't already have one, you can follow our guide on [creating a MetaMask wallet](/guides/create-a-metamask-wallet)!
+
+:::
+
+Once you connect your wallet, the page should update to the following, and show you your wallet address in the `Connect Address` section.
 
 ![Login with Wallet](./assets/login-with-wallet.png)
 
-At this point, we've simply connected our wallet to the page, so only the browser knows what our wallet address is.
+## Why do we need authentication?
 
-However, now we want to login to the backend with our wallet. In order to log in, we need to prove to the backend that we do in fact own the wallet address that's connected on the frontend, and then the backend will issue us an authentication token that we can use to make authenticated requests.
+At this point, we've simply connected our wallet to the page, so the browser knows what our wallet address is.
 
-We can prove this to the backend by signing a specific login message with our private key, which the backend will then use to verify that we do in fact own the address we claim to have.
+What if a user wanted to make an API request to the back-end to access their sensitive account information?
+
+We could restrict access based on their wallet address, but what if somebody else knew that address?
+That person could then make an API request pretending to be the user, and get the account information, even if they didn't own the wallet; which would be a security risk!
+
+We need to **prove** to the backend that we own the wallet address, rather than simply sending the wallet address.
+
+Let's explore how this is possible with the authentication SDK.
+
+### Generating an Authentication Token
+
+We can prove that we are connected to a wallet to the backend by signing a specific login message with our private key,
+which the backend will then use to verify that we do in fact own the address we claim to have.
 
 You can do this step by clicking the `Login with Wallet` button, and you should be prompted to sign a message that looks something like the following (with different addresses, times, and nonce).
 
@@ -87,7 +106,7 @@ Now that you're logged in, your page should update to the following with the cor
 
 Our authentication token is now stored securely on the frontend, so if we make any future requests to the backend, the backend will still know the wallet address that we are logged in as.
 
-You can try this out by clicking the `Authenticate` button, which just makes a request to the backend and returns `true` if you're wallet address is still authenticated.
+You can try this out by clicking the `Authenticate` button, which just makes a request to the backend and returns `true` if your wallet address is still authenticated.
 
 Finally, if you try clicking the `Logout` button, the authentication token will be removed from the frontend, which means you will no longer be able to make authenticated requests. If try the `Authenticate` button, it should now show `false` for the `Authenticated` value, reflecting that you are no longer logged in.
 
@@ -98,7 +117,7 @@ So just like that, we have a **full login-flow where you can login to a backend 
 Now that we've seen the basics of what this login flow can do, let's take a look at the important code to try to understand what's going on.
 
 The first file we can take a look at is the `hooks/useAuthenticate.ts` file, which will have functions called `login`, `authenticate`, and `logout`. Notice that all of these functions are simply making API requests to the backend, which we'll take a look at soon. However,
-if we take a closer look at the `login` function, you'll notice that's its also doing something else:
+if we take a closer look at the `login` function, you'll notice that's it's also doing something else:
 
 ```typescript
 async function login() {
@@ -157,7 +176,7 @@ const domain = "thirdweb.com";
 const address = await sdk.auth.authenticate(domain, token);
 ```
 
-Here, we extract the authentication token off the request cookies and verify it with the `sdk.auth.authenticate` method. If the authentication token is valid, the function will return us the address of the authenticated wallet, otherwise this function will throw an error.
+Here, we extract the authentication token of the request cookies and verify it with the `sdk.auth.authenticate` method. If the authentication token is valid, the function will return us the address of the authenticated wallet, otherwise this function will throw an error.
 
 Finally, let's look at the `pages/api/logout.tsx` file, which demonstrates how to logout a user. All we have to do is remove the cookie with the authentication token from the frontend (which we can specify on the request with the following):
 
