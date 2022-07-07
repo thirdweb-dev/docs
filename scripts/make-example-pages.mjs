@@ -127,7 +127,7 @@ async function run() {
 
   examplePages.forEach((page) => {
     fs.writeFileSync(
-      `../docs/onboarding/6 Examples/generated-examples/${page.name}.mdx`,
+      `docs/onboarding/6 Examples/generated-examples/${page.name}.mdx`,
       createPageFormat(page),
     );
   });

@@ -16,6 +16,7 @@
     "typecheck": "tsc",
     "generate-snippets": "node ./scripts/generate-snippets.mjs",
     "generate-github-examples": "node scripts/fetch-github-example-repos.mjs",
+    "generate-example-pages": "node scripts/make-example-pages.mjs",
     "make-docs:typescript": "node scripts/make-typescript-docs.mjs",
     "make-docs:react": "node scripts/make-react-docs.mjs",
     "make-docs:contracts": "node scripts/make-contracts-docs.mjs",
