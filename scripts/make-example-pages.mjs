@@ -100,7 +100,7 @@ hide_title: true
   const createSnippet =
     "```jsx" +
     "\n" +
-    "npx thirdweb create --example " +
+    "npx thirdweb create --template " +
     page.name +
     "\n" +
     "```";

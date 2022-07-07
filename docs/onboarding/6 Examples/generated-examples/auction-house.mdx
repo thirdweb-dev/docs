@@ -8,31 +8,33 @@ hide_title: true
 Create an auction house where users can bid and buy NFTs from auctions using thirdweb's marketplace contract.
 
 ```jsx
-npx thirdweb create --example auction-house
+npx thirdweb create --template auction-house
 ```
 
-
-  <ul>
-    <li>
-      <a href="https://auction-house.thirdweb-example.com" >View Demo</a>
-    </li>
-    <li>
-      <a href="https://github.com/thirdweb-example/auction-house">View Code on GitHub</a>
-    </li>
-  </ul>
-
-
+{" "}
+<ul>
+  <li>
+    <a href="https://auction-house.thirdweb-example.com">View Demo</a>
+  </li>
+  <li>
+    <a href="https://github.com/thirdweb-example/auction-house">
+      View Code on GitHub
+    </a>
+  </li>
+</ul>
 
 <iframe
-    src="https://auction-house.thirdweb-example.com"
-    title="auction-house"
-    width="100%"
-    height="420px"
-    scrolling="yes"
-    style={{marginBottom: 32, borderRadius: 16,
-      border: '1px solid rgba(255,255,255,0.2)'
-    }}
-  ></iframe>
+  src="https://auction-house.thirdweb-example.com"
+  title="auction-house"
+  width="100%"
+  height="420px"
+  scrolling="yes"
+  style={{
+    marginBottom: 32,
+    borderRadius: 16,
+    border: "1px solid rgba(255,255,255,0.2)",
+  }}
+></iframe>
 
 ---
 
@@ -57,7 +59,7 @@ and enables others users to [place bids](https://portal.thirdweb.com/pre-built-c
 - Create a copy of this repo by running the below command:
 
 ```bash
-npx thirdweb create --example auction-house
+npx thirdweb create --template auction-house
 ```
 
 - Deploy your own marketplace via the [thirdweb dashboard](https://thirdweb.com/contracts)
@@ -85,7 +87,7 @@ We use the [useMarketplace](https://portal.thirdweb.com/react/react.usemarketpla
 
 ```jsx
 const marketplace = useMarketplace(
-  "0x2f50Dd49dD0b721f08F53b417C58587df5A7188f" // your marketplace contract address here
+  "0x2f50Dd49dD0b721f08F53b417C58587df5A7188f", // your marketplace contract address here
 );
 ```
 
@@ -107,7 +109,7 @@ On the UI, we sort the `listings` so we have the one closest to ending at the to
 listings
   .sort(
     (a, b) =>
-      a.endTimeInEpochSeconds.toNumber() - b.endTimeInEpochSeconds.toNumber()
+      a.endTimeInEpochSeconds.toNumber() - b.endTimeInEpochSeconds.toNumber(),
   )
   // remove first item
   .slice(1)
@@ -171,7 +173,7 @@ async function calculateLowestBidPrice() {
     const bidBufferBps = await marketplace.getBidBufferBps();
 
     const currentPrice = parseFloat(
-      ethers.utils.formatEther(currentWinningBid.pricePerToken)
+      ethers.utils.formatEther(currentWinningBid.pricePerToken),
     );
 
     const bidBufferMultipler = bidBufferBps.toNumber() / 100 / 100;

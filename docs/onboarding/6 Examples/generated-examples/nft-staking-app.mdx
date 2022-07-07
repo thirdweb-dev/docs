@@ -8,31 +8,33 @@ hide_title: true
 An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!
 
 ```jsx
-npx thirdweb create --example nft-staking-app
+npx thirdweb create --template nft-staking-app
 ```
 
-
-  <ul>
-    <li>
-      <a href="https://nft-staking-contract.thirdweb-example.com/" >View Demo</a>
-    </li>
-    <li>
-      <a href="https://github.com/thirdweb-example/nft-staking-app">View Code on GitHub</a>
-    </li>
-  </ul>
-
-
+{" "}
+<ul>
+  <li>
+    <a href="https://nft-staking-contract.thirdweb-example.com/">View Demo</a>
+  </li>
+  <li>
+    <a href="https://github.com/thirdweb-example/nft-staking-app">
+      View Code on GitHub
+    </a>
+  </li>
+</ul>
 
 <iframe
-    src="https://nft-staking-contract.thirdweb-example.com/"
-    title="nft-staking-app"
-    width="100%"
-    height="420px"
-    scrolling="yes"
-    style={{marginBottom: 32, borderRadius: 16,
-      border: '1px solid rgba(255,255,255,0.2)'
-    }}
-  ></iframe>
+  src="https://nft-staking-contract.thirdweb-example.com/"
+  title="nft-staking-app"
+  width="100%"
+  height="420px"
+  scrolling="yes"
+  style={{
+    marginBottom: 32,
+    borderRadius: 16,
+    border: "1px solid rgba(255,255,255,0.2)",
+  }}
+></iframe>
 
 ---
 
@@ -60,7 +62,7 @@ We deploy the NFT Staking Smart contract using [thirdweb deploy](https://portal.
 - Create a copy of this repo by running the below command:
 
 ```bash
-npx thirdweb create --example nft-staking-app
+npx thirdweb create --template nft-staking-app
 ```
 
 - Deploy the `StakingContract.sol` smart contract by running the below command from the root of the project directory:
@@ -284,7 +286,7 @@ On the [mint.tsx](./pages/mint.tsx), we connect to our NFT Drop contract using t
 ```jsx
 // Get the NFT Collection contract
 const nftDropContract = useNFTDrop(
-  "0x322067594DBCE69A9a9711BC393440aA5e3Aaca1" // your contract here
+  "0x322067594DBCE69A9a9711BC393440aA5e3Aaca1", // your contract here
 );
 ```
 
@@ -329,8 +331,8 @@ async function loadStakedNfts() {
         // Fetch metadata for each staked token id
         const nft = await nftDropContract?.get(stakedToken.tokenId);
         return nft;
-      }
-    )
+      },
+    ),
   );
 
   // Store the result in state, now we have an array of NFT metadata.
@@ -356,7 +358,7 @@ async function stakeNft(id: BigNumber) {
 
   const isApproved = await nftDropContract?.isApproved(
     address,
-    stakingContractAddress
+    stakingContractAddress,
   );
   // If not approved, request approval
   if (!isApproved) {

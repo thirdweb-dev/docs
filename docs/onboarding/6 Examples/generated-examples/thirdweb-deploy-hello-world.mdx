@@ -8,31 +8,35 @@ hide_title: true
 A starter project for using thirdweb deploy with the thirdweb SDKs
 
 ```jsx
-npx thirdweb create --example thirdweb-deploy-hello-world
+npx thirdweb create --template thirdweb-deploy-hello-world
 ```
 
-
-  <ul>
-    <li>
-      <a href="https://thirdweb-deploy-hello-world.thirdweb-example.com" >View Demo</a>
-    </li>
-    <li>
-      <a href="https://github.com/thirdweb-example/thirdweb-deploy-hello-world">View Code on GitHub</a>
-    </li>
-  </ul>
-
-
+{" "}
+<ul>
+  <li>
+    <a href="https://thirdweb-deploy-hello-world.thirdweb-example.com">
+      View Demo
+    </a>
+  </li>
+  <li>
+    <a href="https://github.com/thirdweb-example/thirdweb-deploy-hello-world">
+      View Code on GitHub
+    </a>
+  </li>
+</ul>
 
 <iframe
-    src="https://thirdweb-deploy-hello-world.thirdweb-example.com"
-    title="thirdweb-deploy-hello-world"
-    width="100%"
-    height="420px"
-    scrolling="yes"
-    style={{marginBottom: 32, borderRadius: 16,
-      border: '1px solid rgba(255,255,255,0.2)'
-    }}
-  ></iframe>
+  src="https://thirdweb-deploy-hello-world.thirdweb-example.com"
+  title="thirdweb-deploy-hello-world"
+  width="100%"
+  height="420px"
+  scrolling="yes"
+  style={{
+    marginBottom: 32,
+    borderRadius: 16,
+    border: "1px solid rgba(255,255,255,0.2)",
+  }}
+></iframe>
 
 ---
 
@@ -56,7 +60,7 @@ We deploy a basic [HelloWorld](./HelloWorld.sol) smart contract using thirdweb d
 - Create a copy of this repo by running the below command:
 
 ```bash
-npx thirdweb create --example thirdweb-deploy-hello-world
+npx thirdweb create --template thirdweb-deploy-hello-world
 ```
 
 - Deploy the `HelloWorld.sol` smart contract by running the below command from the root of the project directory:
@@ -100,12 +104,9 @@ npx thirdweb deploy
 
 This uploads the contract's ABI to IPFS and generates a link for us to deploy it on the [thirdweb dashboard](https://thirdweb.com/dashboard):
 
-
 Now we choose the network we want to deploy our contract on:
 
-
 And can view how to call the contracts functions yb using the SDK:
-
 
 ### Getting the contract in our code
 
@@ -114,7 +115,7 @@ We can get the contract address from the dashboard, and connect to our smart con
 ```jsx
 // Get the smart contract
 const { contract } = useContract(
-  "0x83EA59613422752A37400473380723C85e2F7122" // your contract address
+  "0x83EA59613422752A37400473380723C85e2F7122", // your contract address
 );
 ```
 

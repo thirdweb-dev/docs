@@ -8,31 +8,33 @@ hide_title: true
 An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.
 
 ```jsx
-npx thirdweb create --example marketplace-next-ts
+npx thirdweb create --template marketplace-next-ts
 ```
 
-
-  <ul>
-    <li>
-      <a href="https://marketplace.thirdweb-example.com" >View Demo</a>
-    </li>
-    <li>
-      <a href="https://github.com/thirdweb-example/marketplace-next-ts">View Code on GitHub</a>
-    </li>
-  </ul>
-
-
+{" "}
+<ul>
+  <li>
+    <a href="https://marketplace.thirdweb-example.com">View Demo</a>
+  </li>
+  <li>
+    <a href="https://github.com/thirdweb-example/marketplace-next-ts">
+      View Code on GitHub
+    </a>
+  </li>
+</ul>
 
 <iframe
-    src="https://marketplace.thirdweb-example.com"
-    title="marketplace-next-ts"
-    width="100%"
-    height="420px"
-    scrolling="yes"
-    style={{marginBottom: 32, borderRadius: 16,
-      border: '1px solid rgba(255,255,255,0.2)'
-    }}
-  ></iframe>
+  src="https://marketplace.thirdweb-example.com"
+  title="marketplace-next-ts"
+  width="100%"
+  height="420px"
+  scrolling="yes"
+  style={{
+    marginBottom: 32,
+    borderRadius: 16,
+    border: "1px solid rgba(255,255,255,0.2)",
+  }}
+></iframe>
 
 ---
 
@@ -62,7 +64,7 @@ By the end, we'll implement the following features:
 Create a project using this example by running:
 
 ```bash
-npx thirdweb create --example marketplace-next-ts
+npx thirdweb create --template marketplace-next-ts
 ```
 
 - Create your own Marketplace contract via the thirdweb dashboard. (Follow the steps in the guide below if you need extra help)!
@@ -113,7 +115,7 @@ We're using React's `useState` to store the listings as well as a loading flag.
 const [loadingListings, setLoadingListings] = useState<boolean>(true);
 // Store Listings
 const [listings, setListings] = useState<(AuctionListing | DirectListing)[]>(
-  []
+  [],
 );
 ```
 
@@ -155,7 +157,7 @@ const marketplace = useMarketplace(
 async function createAuctionListing(
   contractAddress: string,
   tokenId: string,
-  price: string
+  price: string,
 ) {
   try {
     const transaction = await marketplace?.auction.createListing({
@@ -182,7 +184,7 @@ async function createAuctionListing(
 async function createDirectListing(
   contractAddress: string,
   tokenId: string,
-  price: string
+  price: string,
 ) {
   try {
     const transaction = await marketplace?.direct.createListing({
@@ -249,7 +251,7 @@ async function createBidOrOffer() {
         listingId, // The listingId of the listing we want to make an offer for
         1, // Quantity = 1
         NATIVE_TOKENS[ChainId.Rinkeby].wrapped.address, // Wrapped Ether address on Rinkeby
-        bidAmount // The offer amount the user entered
+        bidAmount, // The offer amount the user entered
       );
     }
 

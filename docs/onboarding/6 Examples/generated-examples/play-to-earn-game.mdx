@@ -8,31 +8,33 @@ hide_title: true
 Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!
 
 ```jsx
-npx thirdweb create --example play-to-earn-game
+npx thirdweb create --template play-to-earn-game
 ```
 
-
-  <ul>
-    <li>
-      <a href="https://play-to-earn.thirdweb-example.com" >View Demo</a>
-    </li>
-    <li>
-      <a href="https://github.com/thirdweb-example/play-to-earn-game">View Code on GitHub</a>
-    </li>
-  </ul>
-
-
+{" "}
+<ul>
+  <li>
+    <a href="https://play-to-earn.thirdweb-example.com">View Demo</a>
+  </li>
+  <li>
+    <a href="https://github.com/thirdweb-example/play-to-earn-game">
+      View Code on GitHub
+    </a>
+  </li>
+</ul>
 
 <iframe
-    src="https://play-to-earn.thirdweb-example.com"
-    title="play-to-earn-game"
-    width="100%"
-    height="420px"
-    scrolling="yes"
-    style={{marginBottom: 32, borderRadius: 16,
-      border: '1px solid rgba(255,255,255,0.2)'
-    }}
-  ></iframe>
+  src="https://play-to-earn.thirdweb-example.com"
+  title="play-to-earn-game"
+  width="100%"
+  height="420px"
+  scrolling="yes"
+  style={{
+    marginBottom: 32,
+    borderRadius: 16,
+    border: "1px solid rgba(255,255,255,0.2)",
+  }}
+></iframe>
 
 ---
 
@@ -50,7 +52,6 @@ In the beginning, you start out with nothing! In order to play the game, you nee
 2. Purchase a pickaxe NFT from the "Shop" (Another ERC-1155 using an [Edition Drop](https://portal.thirdweb.com/pre-built-contracts/edition-drop) contract)
 3. "Equip" (stake) the pickaxe NFT in the [Mining](./contracts/contracts/Mining.sol) contract (built with [thirdweb deploy](https://portal.thirdweb.com/thirdweb-deploy))
 4. Start earning "Gold Gems"; ERC-20 tokens (using the [Token](https://portal.thirdweb.com/pre-built-contracts/token) contract)
-
 
 You can use the GEMs you earn to purchase higher tier pickaxes, which will increase your rewards per block.
 
@@ -75,7 +76,7 @@ For example, when you buy the "Stone Hammer" (token ID `1`) for 10 GEMs, you wil
 You can create your own copy of this project by running the following command:
 
 ```bash
-npx thirdweb create --example play-to-earn
+npx thirdweb create --template play-to-earn
 ```
 
 Inside the [contractAddresses](./application/const/contractAddresses.ts) file, you can change the contract addresses to your own contracts.
@@ -326,7 +327,6 @@ This component simply shows the user the character NFT they own, the pickaxe the
 
 It looks like this:
 
-
 To get the metadata of the character NFT:
 
 ```tsx
@@ -341,7 +341,7 @@ To get the staked pickaxe:
 // It maps walletAddress -> staked token ID.
 const p = (await miningContract.call(
   "playerPickaxe",
-  address
+  address,
 )) as ContractMappingResponse;
 ```
 
@@ -367,9 +367,6 @@ This component shows:
 - A client-side estimation of the rewards the user has earned since they loaded the page in this session
 
 It looks like this:
-
-
-
 
 To get the metadata of the token:
 
@@ -413,14 +410,13 @@ This component shows the user the NFTs that they own from the pickaxe edition dr
 
 It looks like this:
 
-
 To view all of their owned pickaxes:
 
 ```tsx
 const address = useAddress();
 const { data: ownedPickaxes, isLoading } = useOwnedNFTs(
   pickaxeContract,
-  address
+  address,
 );
 ```
 
@@ -452,7 +448,7 @@ async function equip(id: BigNumber) {
   // The contract requires approval to be able to transfer the pickaxe
   const hasApproval = await pickaxeContract.isApproved(
     address,
-    MINING_CONTRACT_ADDRESS
+    MINING_CONTRACT_ADDRESS,
   );
 
   if (!hasApproval) {
@@ -474,7 +470,6 @@ At this point, the page reloads and the user's character will start "mining", an
 The shop is a component that maps over all of the NFTs inside the Pickaxe Edition Drop contract, and displays them, including a "Buy" button for each; allowing the user to claim the NFT for a price (in GEMs).
 
 It looks like this:
-
 
 The price for each pickaxe NFT is configured with the drop's [claim phases](https://portal.thirdweb.com/pre-built-contracts/edition-drop#setting-claim-phases).
 
@@ -507,7 +502,7 @@ Since the price information is inside the claim phases, we map them out into a `
 ```tsx
 const { data: claimCondition } = useActiveClaimCondition(
   pickaxeContract,
-  item.metadata.id
+  item.metadata.id,
 );
 ```
 
