@@ -12,24 +12,28 @@ npx thirdweb create --template nft-staking-app
 ```
 
 <ul>
-    <li>
-      <a href="https://nft-staking-contract.thirdweb-example.com/" >View Demo</a>
-    </li>
-    <li>
-      <a href="https://github.com/thirdweb-example/nft-staking-app">View Code on GitHub</a>
-    </li>
-  </ul>
+  <li>
+    <a href="https://nft-staking-contract.thirdweb-example.com/">View Demo</a>
+  </li>
+  <li>
+    <a href="https://github.com/thirdweb-example/nft-staking-app">
+      View Code on GitHub
+    </a>
+  </li>
+</ul>
 
 <iframe
-    src="https://nft-staking-contract.thirdweb-example.com/"
-    title="nft-staking-app"
-    width="100%"
-    height="420px"
-    scrolling="yes"
-    style={{marginBottom: 32, borderRadius: 16,
-      border: '1px solid rgba(255,255,255,0.2)'
-    }}
-  ></iframe>
+  src="https://nft-staking-contract.thirdweb-example.com/"
+  title="nft-staking-app"
+  width="100%"
+  height="420px"
+  scrolling="yes"
+  style={{
+    marginBottom: 32,
+    borderRadius: 16,
+    border: "1px solid rgba(255,255,255,0.2)",
+  }}
+></iframe>
 
 ---
 
@@ -281,7 +285,7 @@ On the [mint.tsx](./pages/mint.tsx), we connect to our NFT Drop contract using t
 ```jsx
 // Get the NFT Collection contract
 const nftDropContract = useNFTDrop(
-  "0x322067594DBCE69A9a9711BC393440aA5e3Aaca1" // your contract here
+  "0x322067594DBCE69A9a9711BC393440aA5e3Aaca1", // your contract here
 );
 ```
 
@@ -326,8 +330,8 @@ async function loadStakedNfts() {
         // Fetch metadata for each staked token id
         const nft = await nftDropContract?.get(stakedToken.tokenId);
         return nft;
-      }
-    )
+      },
+    ),
   );
 
   // Store the result in state, now we have an array of NFT metadata.
@@ -353,7 +357,7 @@ async function stakeNft(id: BigNumber) {
 
   const isApproved = await nftDropContract?.isApproved(
     address,
-    stakingContractAddress
+    stakingContractAddress,
   );
   // If not approved, request approval
   if (!isApproved) {
