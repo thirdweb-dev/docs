@@ -329,36 +329,17 @@
     "homepage": "https://nft-collection.thirdweb-example.com"
   },
   {
-    "name": "nft-collection-vite-ts",
-    "html_url": "https://github.com/thirdweb-example/nft-collection-vite-ts",
-    "description": "Deploy NFT Collections using Coinbase Wallet",
-    "created_at": "2022-04-05T06:19:48Z",
-    "updated_at": "2022-06-05T23:44:21Z",
-    "clone_url": "https://github.com/thirdweb-example/nft-collection-vite-ts.git",
-    "topics": [
-      "coinbase-wallet",
-      "nft-collection",
-      "typescript",
-      "vite",
-      "wallet-connection"
-    ],
-    "language": "TypeScript",
-    "stargazers_count": 1,
-    "is_template": false,
-    "homepage": "https://nft-collection-vite-ts.thirdweb-example.com"
-  },
-  {
     "name": "nft-drop",
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2022-07-05T13:14:19Z",
+    "updated_at": "2022-07-07T19:30:23Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 22,
+    "stargazers_count": 24,
     "is_template": false,
     "homepage": "https://custom-minting-page.thirdweb-example.com"
   },
@@ -404,13 +385,13 @@
     "html_url": "https://github.com/thirdweb-example/packs",
     "description": "Bundle NFTs and Tokens together in Packs that users can open and receive randomly selected tokens from those that were bundled!",
     "created_at": "2022-06-21T07:50:46Z",
-    "updated_at": "2022-07-06T04:44:15Z",
+    "updated_at": "2022-07-07T18:31:31Z",
     "clone_url": "https://github.com/thirdweb-example/packs.git",
     "topics": [
       "pack"
     ],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://packs.thirdweb-example.com"
   },
@@ -419,13 +400,13 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2022-07-07T01:57:56Z",
+    "updated_at": "2022-07-07T23:05:02Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 4,
+    "stargazers_count": 5,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },
@@ -476,5 +457,18 @@
     "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://thirdweb-deploy-hello-world.thirdweb-example.com"
+  },
+  {
+    "name": "thirdweb-stripe",
+    "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
+    "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
+    "created_at": "2022-06-19T02:19:09Z",
+    "updated_at": "2022-06-28T03:54:06Z",
+    "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 3,
+    "is_template": false,
+    "homepage": null
   }
 ]
