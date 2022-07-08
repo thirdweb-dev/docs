@@ -41,6 +41,11 @@ const sidebars = {
           label: "NFT Renderer",
           id: "react.thirdwebnftmedia",
         },
+        {
+          type: "doc",
+          label: "IPFS Media Renderer",
+          id: "react.mediarenderer",
+        },
       ],
     },
 
