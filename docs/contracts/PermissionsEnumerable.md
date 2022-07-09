@@ -210,34 +210,3 @@ event RoleRevoked(bytes32 indexed role, address indexed account, address indexed
 | role `indexed`    | bytes32 | undefined   |
 | account `indexed` | address | undefined   |
 | sender `indexed`  | address | undefined   |
-
-## Errors
-
-### Permissions\_\_CanOnlyGrantToNonHolders
-
-```solidity
-error Permissions__CanOnlyGrantToNonHolders(address account)
-```
-
-Emitted when specified account already has the role.
-
-#### Parameters
-
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| account | address | undefined   |
-
-### Permissions\_\_CanOnlyRenounceForSelf
-
-```solidity
-error Permissions__CanOnlyRenounceForSelf(address caller, address account)
-```
-
-Emitted when calling address is different from the specified account.
-
-#### Parameters
-
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| caller  | address | undefined   |
-| account | address | undefined   |

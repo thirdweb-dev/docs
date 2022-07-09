@@ -1210,35 +1210,3 @@ event WalletClaimCountUpdated(address indexed wallet, uint256 count)
 | ---------------- | ------- | ----------- |
 | wallet `indexed` | address | undefined   |
 | count            | uint256 | undefined   |
-
-## Errors
-
-### PlatformFee\_\_ExceedsMaxBps
-
-```solidity
-error PlatformFee__ExceedsMaxBps(uint256 platformFeeBps)
-```
-
-Emitted when given platform-fee bps exceeds max bps.
-
-#### Parameters
-
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| platformFeeBps | uint256 | undefined   |
-
-### PlatformFee\_\_NotAuthorized
-
-```solidity
-error PlatformFee__NotAuthorized()
-```
-
-_Emitted when an unauthorized caller tries to set platform fee details._
-
-### PrimarySale\_\_NotAuthorized
-
-```solidity
-error PrimarySale__NotAuthorized()
-```
-
-_Emitted when an unauthorized caller tries to set primary sales details._

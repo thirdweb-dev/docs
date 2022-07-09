@@ -55,13 +55,3 @@ _Emitted when a new Owner is set._
 | ------------------- | ------- | ----------- |
 | prevOwner `indexed` | address | undefined   |
 | newOwner `indexed`  | address | undefined   |
-
-## Errors
-
-### Ownable\_\_NotAuthorized
-
-```solidity
-error Ownable__NotAuthorized()
-```
-
-_Emitted when an unauthorized caller tries to set the owner._

@@ -55,27 +55,3 @@ event PlatformFeeInfoUpdated(address indexed platformFeeRecipient, uint256 platf
 | ------------------------------ | ------- | ----------- |
 | platformFeeRecipient `indexed` | address | undefined   |
 | platformFeeBps                 | uint256 | undefined   |
-
-## Errors
-
-### PlatformFee\_\_ExceedsMaxBps
-
-```solidity
-error PlatformFee__ExceedsMaxBps(uint256 platformFeeBps)
-```
-
-Emitted when given platform-fee bps exceeds max bps.
-
-#### Parameters
-
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| platformFeeBps | uint256 | undefined   |
-
-### PlatformFee\_\_NotAuthorized
-
-```solidity
-error PlatformFee__NotAuthorized()
-```
-
-_Emitted when an unauthorized caller tries to set platform fee details._

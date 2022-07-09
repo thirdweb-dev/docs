@@ -55,13 +55,3 @@ _Emitted when the contract URI is updated._
 | ------- | ------ | ----------- |
 | prevURI | string | undefined   |
 | newURI  | string | undefined   |
-
-## Errors
-
-### ContractMetadata\_\_NotAuthorized
-
-```solidity
-error ContractMetadata__NotAuthorized()
-```
-
-_Emitted when an unauthorized caller tries to set the contract metadata URI._

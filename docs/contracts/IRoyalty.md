@@ -132,27 +132,3 @@ _Emitted when royalty recipient for tokenId is set_
 | tokenId `indexed`          | uint256 | undefined   |
 | royaltyRecipient `indexed` | address | undefined   |
 | royaltyBps                 | uint256 | undefined   |
-
-## Errors
-
-### Royalty\_\_ExceedsMaxBps
-
-```solidity
-error Royalty__ExceedsMaxBps(uint256 royaltyBps)
-```
-
-Emitted when the given bps exceeds max bps.
-
-#### Parameters
-
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| royaltyBps | uint256 | undefined   |
-
-### Royalty\_\_NotAuthorized
-
-```solidity
-error Royalty__NotAuthorized()
-```
-
-_Emitted when an unauthorized caller tries to set royalty details._
