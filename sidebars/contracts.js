@@ -59,7 +59,7 @@ const sidebars = {
           type: "doc",
           label: "Signature Drop",
           id: "design/SignatureDrop",
-        }
+        },
       ],
     },
     {
@@ -126,11 +126,6 @@ const sidebars = {
         keywords: ["solidity", "interfaces"],
       },
       items: [
-        {
-          type: "doc",
-          label: "ThirdwebContract",
-          id: "ThirdwebContract",
-        },
         {
           type: "doc",
           label: "Ownable",

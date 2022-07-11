@@ -3,41 +3,40 @@ slug: /templates/hardhat-thirdweb-deploy-app-template
 hide_title: true
 ---
 
+import DemoButton from "../../../../src/components/generated-md-components/DemoButton";
+import ViewCodeButton from "../../../../src/components/generated-md-components/ViewCodeButton";
+
 # Hardhat thirdweb Deploy App
 
 Build an application on top of a custom contract using the thirdweb SDK
+
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
 
 ```jsx
 npx thirdweb create --template hardhat-thirdweb-deploy-app
 ```
 
-<ul>
-  <li>
-    <a href="">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
-
-<iframe
-  src=""
-  title="hardhat-thirdweb-deploy-app"
-  width="100%"
-  height="420px"
-  scrolling="yes"
+<div
   style={{
+    display: "flex",
+    flexDirection: "row",
+    gap: "2%",
     marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 16,
   }}
-></iframe>
+>
+  <ViewCodeButton
+    link="https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app"
+    name="hardhat-thirdweb-deploy-app"
+  />
+</div>
 
 ---
 
-<h1 align="center">Build an Application with Solidity, thirdweb & React</h1>
+## Using this template
 
 <p align="center">
   This template extends from the{" "}

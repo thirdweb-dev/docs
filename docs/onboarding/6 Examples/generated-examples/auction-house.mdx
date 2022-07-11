@@ -3,41 +3,44 @@ slug: /templates/auction-house-template
 hide_title: true
 ---
 
+import DemoButton from "../../../../src/components/generated-md-components/DemoButton";
+import ViewCodeButton from "../../../../src/components/generated-md-components/ViewCodeButton";
+
 # Auction House
 
 Create an auction house where users can bid and buy NFTs from auctions using thirdweb's marketplace contract.
+
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
 
 ```jsx
 npx thirdweb create --template auction-house
 ```
 
-<ul>
-  <li>
-    <a href="https://auction-house.thirdweb-example.com">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/auction-house">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
-
-<iframe
-  src="https://auction-house.thirdweb-example.com"
-  title="auction-house"
-  width="100%"
-  height="420px"
-  scrolling="yes"
+<div
   style={{
+    display: "flex",
+    flexDirection: "row",
+    gap: "2%",
     marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 16,
   }}
-></iframe>
+>
+  <DemoButton
+    link="https://auction-house.thirdweb-example.com"
+    name="auction-house"
+  />
+  <ViewCodeButton
+    link="https://github.com/thirdweb-example/auction-house"
+    name="auction-house"
+  />
+</div>
 
 ---
 
-# Auction House with thirdweb Marketplace
+## Using this template
 
 ## Introduction
 
@@ -132,7 +135,6 @@ For the media of the NFT, we use the [ThirdwebNftMedia](https://portal.thirdweb.
 We can get all kinds of information from the listing, like name, seller, price, etc.
 
 ```jsx
-<h1>{listing.asset.name}</h1>
 
 <p>Seller: {listing.sellerAddress}</p>
 

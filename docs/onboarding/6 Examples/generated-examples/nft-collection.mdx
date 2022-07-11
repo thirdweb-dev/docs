@@ -3,41 +3,44 @@ slug: /templates/nft-collection-template
 hide_title: true
 ---
 
+import DemoButton from "../../../../src/components/generated-md-components/DemoButton";
+import ViewCodeButton from "../../../../src/components/generated-md-components/ViewCodeButton";
+
 # NFT Collection
 
 Use the NFT Collection contract to show off your ERC-721 NFTs
+
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
 
 ```jsx
 npx thirdweb create --template nft-collection
 ```
 
-<ul>
-  <li>
-    <a href="https://nft-collection.thirdweb-example.com">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/nft-collection">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
-
-<iframe
-  src="https://nft-collection.thirdweb-example.com"
-  title="nft-collection"
-  width="100%"
-  height="420px"
-  scrolling="yes"
+<div
   style={{
+    display: "flex",
+    flexDirection: "row",
+    gap: "2%",
     marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 16,
   }}
-></iframe>
+>
+  <DemoButton
+    link="https://nft-collection.thirdweb-example.com"
+    name="nft-collection"
+  />
+  <ViewCodeButton
+    link="https://github.com/thirdweb-example/nft-collection"
+    name="nft-collection"
+  />
+</div>
 
 ---
 
-## Getting Started
+## Using this template
 
 Create a project using this example:
 

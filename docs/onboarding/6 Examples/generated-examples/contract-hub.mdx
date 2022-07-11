@@ -3,41 +3,44 @@ slug: /templates/contract-hub-template
 hide_title: true
 ---
 
+import DemoButton from "../../../../src/components/generated-md-components/DemoButton";
+import ViewCodeButton from "../../../../src/components/generated-md-components/ViewCodeButton";
+
 # Contract Hub
 
 Demonstration of all thirdweb's pre-built contracts with TypeScript + Getting started snippets
+
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
 
 ```jsx
 npx thirdweb create --template contract-hub
 ```
 
-<ul>
-  <li>
-    <a href="https://contract-hub.thirdweb-example.com/">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/contract-hub">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
-
-<iframe
-  src="https://contract-hub.thirdweb-example.com/"
-  title="contract-hub"
-  width="100%"
-  height="420px"
-  scrolling="yes"
+<div
   style={{
+    display: "flex",
+    flexDirection: "row",
+    gap: "2%",
     marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 16,
   }}
-></iframe>
+>
+  <DemoButton
+    link="https://contract-hub.thirdweb-example.com/"
+    name="contract-hub"
+  />
+  <ViewCodeButton
+    link="https://github.com/thirdweb-example/contract-hub"
+    name="contract-hub"
+  />
+</div>
 
 ---
 
-# Contract Hub
+## Using this template
 
 This is an example repository showcases our most popular contracts, and a basic setup for interacting with them all.
 

@@ -3,41 +3,40 @@ slug: /templates/filebase-metadata-template
 hide_title: true
 ---
 
+import DemoButton from "../../../../src/components/generated-md-components/DemoButton";
+import ViewCodeButton from "../../../../src/components/generated-md-components/ViewCodeButton";
+
 # Filebase Metadata
 
 Use Filebase to upload your metadata and thirdweb to mint NFTs with that metadata!
+
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
 
 ```jsx
 npx thirdweb create --template filebase-metadata
 ```
 
-<ul>
-  <li>
-    <a href="">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/filebase-metadata">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
-
-<iframe
-  src=""
-  title="filebase-metadata"
-  width="100%"
-  height="420px"
-  scrolling="yes"
+<div
   style={{
+    display: "flex",
+    flexDirection: "row",
+    gap: "2%",
     marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 16,
   }}
-></iframe>
+>
+  <ViewCodeButton
+    link="https://github.com/thirdweb-example/filebase-metadata"
+    name="filebase-metadata"
+  />
+</div>
 
 ---
 
-# Filebase NFT Metadata Example
+## Using this template
 
 This example demonstrates how you can use [Filebase](https://docs.filebase.com/) to store the metadata of your NFTs minted using thirdweb.
 

@@ -3,41 +3,44 @@ slug: /templates/nft-gated-website-template
 hide_title: true
 ---
 
+import DemoButton from "../../../../src/components/generated-md-components/DemoButton";
+import ViewCodeButton from "../../../../src/components/generated-md-components/ViewCodeButton";
+
 # NFT Gated Website
 
 Restrict access to content based on the ownership of an NFT
+
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
 
 ```jsx
 npx thirdweb create --template nft-gated-website
 ```
 
-<ul>
-  <li>
-    <a href="https://nft-gated-website.thirdweb-example.com">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/nft-gated-website">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
-
-<iframe
-  src="https://nft-gated-website.thirdweb-example.com"
-  title="nft-gated-website"
-  width="100%"
-  height="420px"
-  scrolling="yes"
+<div
   style={{
+    display: "flex",
+    flexDirection: "row",
+    gap: "2%",
     marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 16,
   }}
-></iframe>
+>
+  <DemoButton
+    link="https://nft-gated-website.thirdweb-example.com"
+    name="nft-gated-website"
+  />
+  <ViewCodeButton
+    link="https://github.com/thirdweb-example/nft-gated-website"
+    name="nft-gated-website"
+  />
+</div>
 
 ---
 
-# NFT Gated Website
+## Using this template
 
 This project demonstrates how you can restrict content on your website to only those users who own an NFT from your collection.
 

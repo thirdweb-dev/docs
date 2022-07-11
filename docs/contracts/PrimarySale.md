@@ -52,13 +52,3 @@ event PrimarySaleRecipientUpdated(address indexed recipient)
 | Name                | Type    | Description |
 | ------------------- | ------- | ----------- |
 | recipient `indexed` | address | undefined   |
-
-## Errors
-
-### PrimarySale\_\_NotAuthorized
-
-```solidity
-error PrimarySale__NotAuthorized()
-```
-
-_Emitted when an unauthorized caller tries to set primary sales details._

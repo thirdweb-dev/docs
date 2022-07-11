@@ -3,41 +3,44 @@ slug: /templates/edition-drop-template
 hide_title: true
 ---
 
+import DemoButton from "../../../../src/components/generated-md-components/DemoButton";
+import ViewCodeButton from "../../../../src/components/generated-md-components/ViewCodeButton";
+
 # Edition Drop
 
 Starter kit for using the Edition Drop Pre-Built contract
+
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
 
 ```jsx
 npx thirdweb create --template edition-drop
 ```
 
-<ul>
-  <li>
-    <a href="https://edition-drop.thirdweb-example.com">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/edition-drop">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
-
-<iframe
-  src="https://edition-drop.thirdweb-example.com"
-  title="edition-drop"
-  width="100%"
-  height="420px"
-  scrolling="yes"
+<div
   style={{
+    display: "flex",
+    flexDirection: "row",
+    gap: "2%",
     marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 16,
   }}
-></iframe>
+>
+  <DemoButton
+    link="https://edition-drop.thirdweb-example.com"
+    name="edition-drop"
+  />
+  <ViewCodeButton
+    link="https://github.com/thirdweb-example/edition-drop"
+    name="edition-drop"
+  />
+</div>
 
 ---
 
-# Customizable Edition Drop Minting Page
+## Using this template
 
 In this example, you can create your own NFT Drop minting page just by customising the template with your branding, and plugging in your NFT Drop contract address.
 
