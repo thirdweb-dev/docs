@@ -8,7 +8,7 @@ type Props = {
 export default function DemoButton({ link, name }: Props) {
   return (
     <a
-      className="deployContractBtn"
+      className="viewCodeBtn"
       href={link}
       target="_blank"
       rel="noopener noreferrer"
