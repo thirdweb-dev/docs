@@ -49,13 +49,17 @@ async function makeExamplePages(repos) {
 
 function filterContent(content) {
   const lines = content.split("\n");
+  lines[0] = "## Using this template";
+  // Replace the first line of the content with "# Guide"
   const filteredLines = lines.filter((l) => {
     if (
       l.startsWith("![") ||
       l.startsWith("<img") ||
       l.startsWith("</div") ||
       l.startsWith("<div") ||
-      l.startsWith("<!--")
+      l.startsWith("<!--") ||
+      l.startsWith("<h1") ||
+      l.startsWith("</h1")
     ) {
       return false;
     }
@@ -71,30 +75,34 @@ slug: /templates/${page.name}-template
 hide_title: true
 ---`;
 
-  // Create an iframe that fits the demo onto this page
-  const iframe = `<iframe
-    src="${page.demo}"
-    title="${page.name}"
-    width="100%"
-    height="420px"
-    scrolling="yes"
-    style={{marginBottom: 32, borderRadius: 16,
-      border: '1px solid rgba(255,255,255,0.2)'
-    }}
-  ></iframe>`;
+  const importSection =
+    `import DemoButton from '../../../../src/components/generated-md-components/DemoButton';` +
+    "\n" +
+    `import ViewCodeButton from '../../../../src/components/generated-md-components/ViewCodeButton';` +
+    "\n";
 
-  const buttonSection = `<ul>
-    <li>
-      <a href="${page.demo}" >View Demo</a>
-    </li>
-    <li>
-      <a href="${page.html_url}">View Code on GitHub</a>
-    </li>
-  </ul>`;
+  const demoButton = page.demo
+    ? `<DemoButton link="${page.demo}" name="${page.name}"/>`
+    : "";
+  const viewCodeButton = page.html_url
+    ? `<ViewCodeButton link="${page.html_url}" name="${page.name}"/>`
+    : "";
+
+  const buttonSection =
+    `<div style={{display: 'flex', flexDirection: 'row', gap: '2%', marginBottom:32, width: '100%', alignItems:'center', justifyContent: 'center', marginTop:16}}>
+    ${demoButton}
+    ${viewCodeButton}
+  </div>` +
+    "\n" +
+    "\n" +
+    "---" +
+    "\n";
 
   const md = filterContent(page.text);
 
   const createSnippet =
+    "To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):" +
+    "\n" +
     "```jsx" +
     "\n" +
     "npx thirdweb create --template " +
@@ -102,13 +110,13 @@ hide_title: true
     "\n" +
     "```";
 
-  const introSection = `# ${transformName(page.name)}\n\n${page.description}`;
-
-  const demoSection = iframe + `\n\n` + `---`;
+  const introSection = `# ${transformName(page.name)}\n\n${
+    page.description || ""
+  }`;
 
   const guideSection = md;
 
-  return `${metadata}\n\n${introSection}\n\n${createSnippet}\n\n${buttonSection}\n\n${demoSection}\n\n${guideSection}`;
+  return `${metadata}\n\n${importSection}\n\n${introSection}\n\n${createSnippet}\n\n${buttonSection}\n\n${guideSection}`;
 }
 
 async function run() {

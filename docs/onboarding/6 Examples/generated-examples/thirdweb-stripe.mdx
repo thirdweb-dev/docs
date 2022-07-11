@@ -3,41 +3,40 @@ slug: /templates/thirdweb-stripe-template
 hide_title: true
 ---
 
+import DemoButton from "../../../../src/components/generated-md-components/DemoButton";
+import ViewCodeButton from "../../../../src/components/generated-md-components/ViewCodeButton";
+
 # thirdweb Stripe
 
 Subscription based payments for web3 apps using thirdweb authentication and stripe
+
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
 
 ```jsx
 npx thirdweb create --template thirdweb-stripe
 ```
 
-<ul>
-  <li>
-    <a href="null">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/thirdweb-stripe">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
-
-<iframe
-  src="null"
-  title="thirdweb-stripe"
-  width="100%"
-  height="420px"
-  scrolling="yes"
+<div
   style={{
+    display: "flex",
+    flexDirection: "row",
+    gap: "2%",
     marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 16,
   }}
-></iframe>
+>
+  <ViewCodeButton
+    link="https://github.com/thirdweb-example/thirdweb-stripe"
+    name="thirdweb-stripe"
+  />
+</div>
 
 ---
 
-## Thirdweb Stripe
+## Using this template
 
 This project demonstrates an example flow for setting up subscription based payments for web3 apps using thirdweb [wallet authentication](https://portal.thirdweb.com/advanced-features/wallet-authentication) and [Stripe](https://stripe.com).
 

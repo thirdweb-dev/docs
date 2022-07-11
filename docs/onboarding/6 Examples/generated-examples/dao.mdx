@@ -3,39 +3,38 @@ slug: /templates/dao-template
 hide_title: true
 ---
 
+import DemoButton from "../../../../src/components/generated-md-components/DemoButton";
+import ViewCodeButton from "../../../../src/components/generated-md-components/ViewCodeButton";
+
 # DAO
 
 Build a DAO using thirdweb's vote, token, and edition drop contracts.
+
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
 
 ```jsx
 npx thirdweb create --template dao
 ```
 
-<ul>
-  <li>
-    <a href="https://dao.thirdweb-example.com">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/dao">View Code on GitHub</a>
-  </li>
-</ul>
-
-<iframe
-  src="https://dao.thirdweb-example.com"
-  title="dao"
-  width="100%"
-  height="420px"
-  scrolling="yes"
+<div
   style={{
+    display: "flex",
+    flexDirection: "row",
+    gap: "2%",
     marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 16,
   }}
-></iframe>
+>
+  <DemoButton link="https://dao.thirdweb-example.com" name="dao" />
+  <ViewCodeButton link="https://github.com/thirdweb-example/dao" name="dao" />
+</div>
 
 ---
 
-# Build your own DAO
+## Using this template
 
 This is the repository for the Buildspace x thirdweb course on "Build your own DAO with just Javascript in a weekend"!
 

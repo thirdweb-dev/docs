@@ -3,41 +3,44 @@ slug: /templates/magic-link-template
 hide_title: true
 ---
 
+import DemoButton from "../../../../src/components/generated-md-components/DemoButton";
+import ViewCodeButton from "../../../../src/components/generated-md-components/ViewCodeButton";
+
 # Magic Link
 
 Connect users to your dApp using just their email using thirdweb's useMagic hook!
+
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
 
 ```jsx
 npx thirdweb create --template magic-link
 ```
 
-<ul>
-  <li>
-    <a href="https://magic-link.thirdweb-example.com">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/magic-link">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
-
-<iframe
-  src="https://magic-link.thirdweb-example.com"
-  title="magic-link"
-  width="100%"
-  height="420px"
-  scrolling="yes"
+<div
   style={{
+    display: "flex",
+    flexDirection: "row",
+    gap: "2%",
     marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 16,
   }}
-></iframe>
+>
+  <DemoButton
+    link="https://magic-link.thirdweb-example.com"
+    name="magic-link"
+  />
+  <ViewCodeButton
+    link="https://github.com/thirdweb-example/magic-link"
+    name="magic-link"
+  />
+</div>
 
 ---
 
-# Magic Link Wallet Connection
+## Using this template
 
 This project demonstrates how to use [Magic Link](https://magic.link/) with thirdweb using the [useMagic](https://docs.thirdweb.com/react/react.usemagic) hook from the [thirdweb React SDK](https://docs.thirdweb.com/react).
 

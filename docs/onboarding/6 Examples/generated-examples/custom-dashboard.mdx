@@ -3,41 +3,44 @@ slug: /templates/custom-dashboard-template
 hide_title: true
 ---
 
+import DemoButton from "../../../../src/components/generated-md-components/DemoButton";
+import ViewCodeButton from "../../../../src/components/generated-md-components/ViewCodeButton";
+
 # Custom Dashboard
 
 Use thirdweb's sdk.deployer to deploy any pre-built contract dynamically with no private keys!
+
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
 
 ```jsx
 npx thirdweb create --template custom-dashboard
 ```
 
-<ul>
-  <li>
-    <a href="https://custom-dashboard.thirdweb-example.com">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/custom-dashboard">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
-
-<iframe
-  src="https://custom-dashboard.thirdweb-example.com"
-  title="custom-dashboard"
-  width="100%"
-  height="420px"
-  scrolling="yes"
+<div
   style={{
+    display: "flex",
+    flexDirection: "row",
+    gap: "2%",
     marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 16,
   }}
-></iframe>
+>
+  <DemoButton
+    link="https://custom-dashboard.thirdweb-example.com"
+    name="custom-dashboard"
+  />
+  <ViewCodeButton
+    link="https://github.com/thirdweb-example/custom-dashboard"
+    name="custom-dashboard"
+  />
+</div>
 
 ---
 
-# Custom Dashboard
+## Using this template
 
 This example demonstrates the thirdweb SDK's capability to deploy any of our [pre-built smart contracts](https://portal.thirdweb.com/pre-built-contracts)!
 

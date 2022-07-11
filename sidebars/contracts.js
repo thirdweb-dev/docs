@@ -59,7 +59,7 @@ const sidebars = {
           type: "doc",
           label: "Signature Drop",
           id: "design/SignatureDrop",
-        }
+        },
       ],
     },
     {

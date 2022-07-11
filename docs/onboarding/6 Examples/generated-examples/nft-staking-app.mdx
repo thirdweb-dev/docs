@@ -3,41 +3,44 @@ slug: /templates/nft-staking-app-template
 hide_title: true
 ---
 
+import DemoButton from "../../../../src/components/generated-md-components/DemoButton";
+import ViewCodeButton from "../../../../src/components/generated-md-components/ViewCodeButton";
+
 # NFT Staking App
 
 An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!
+
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
 
 ```jsx
 npx thirdweb create --template nft-staking-app
 ```
 
-<ul>
-  <li>
-    <a href="https://nft-staking-contract.thirdweb-example.com/">View Demo</a>
-  </li>
-  <li>
-    <a href="https://github.com/thirdweb-example/nft-staking-app">
-      View Code on GitHub
-    </a>
-  </li>
-</ul>
-
-<iframe
-  src="https://nft-staking-contract.thirdweb-example.com/"
-  title="nft-staking-app"
-  width="100%"
-  height="420px"
-  scrolling="yes"
+<div
   style={{
+    display: "flex",
+    flexDirection: "row",
+    gap: "2%",
     marginBottom: 32,
-    borderRadius: 16,
-    border: "1px solid rgba(255,255,255,0.2)",
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 16,
   }}
-></iframe>
+>
+  <DemoButton
+    link="https://nft-staking-contract.thirdweb-example.com/"
+    name="nft-staking-app"
+  />
+  <ViewCodeButton
+    link="https://github.com/thirdweb-example/nft-staking-app"
+    name="nft-staking-app"
+  />
+</div>
 
 ---
 
-# NFT Staking App
+## Using this template
 
 ## Introduction
 
