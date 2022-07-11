@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Burn a single NFT
 
+## Example
+
+```javascript
+const result = await contract.burn(tokenId, amount);
+```
+
 **Signature:**
 
 ```typescript
