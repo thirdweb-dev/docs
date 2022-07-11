@@ -2445,6 +2445,23 @@
         }
       },
       {
+        "name": "deploySignatureDrop",
+        "summary": "Deploys a new SignatureDrop contract\n\n",
+        "remarks": "\n\nDeploys a SignatureDrop contract and returns the address of the deployed contract\n\n",
+        "examples": {
+          "javascript": "const contractAddress = await sdk.deployer.deploySignatureDrop({\n  name: \"My Signature Drop\",\n  primary_sale_recipient: \"your-address\",\n});",
+          "python": "",
+          "go": "",
+          "react": "// Note: We don't have a React hook for this function yet, but you can still use the TypeScript SDK!\n\nconst contractAddress = await sdk.deployer.deploySignatureDrop({\n  name: \"My Signature Drop\",\n  primary_sale_recipient: \"your-address\",\n});"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.ContractDeployer.deploySignatureDrop",
+          "python": "",
+          "go": "",
+          "react": "https://docs.thirdweb.com/typescript/sdk.ContractDeployer.deploySignatureDrop"
+        }
+      },
+      {
         "name": "deploySplit",
         "summary": "Deploys a new Split contract\n\n",
         "remarks": "\n\nDeploys a Split contract and returns the address of the deployed contract\n\n",
@@ -2751,13 +2768,13 @@
       },
       {
         "name": "gasCostOf",
-        "summary": "Estimates the cost of gas in native token of the current chain\n\n",
+        "summary": "Estimates the cost of gas in native token of the current chain Pass in the same parameters as the contract's function.\n\n",
         "remarks": "\n\nEstimate the cost of gas in native token of the current chain\n\n",
         "examples": {
-          "javascript": "const costOfBurn = await contract?.estimator.gasCostOf(\"burn\", [0]);",
+          "javascript": "const costOfClaim = await nftDrop?.estimator.gasCostOf(\"claim\", [\n  \"0x...\", // receiver\n  1, // quantity\n  \"0x...\", // currency\n  1, // price per token\n  [], // proofs\n  1, // proof max quantity per transaction\n]);",
           "python": "",
           "go": "",
-          "react": "// Note: We don't have a React hook for this function yet, but you can still use the TypeScript SDK!\n\nconst costOfBurn = await contract?.estimator.gasCostOf(\"burn\", [0]);"
+          "react": "// Note: We don't have a React hook for this function yet, but you can still use the TypeScript SDK!\n\nconst costOfClaim = await nftDrop?.estimator.gasCostOf(\"claim\", [\n  \"0x...\", // receiver\n  1, // quantity\n  \"0x...\", // currency\n  1, // price per token\n  [], // proofs\n  1, // proof max quantity per transaction\n]);"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.GasCostEstimator.gasCostOf",
@@ -3014,6 +3031,23 @@
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getSignatureDrop(\"{{contract_address}}\");"
     },
     "methods": [
+      {
+        "name": "burn",
+        "summary": "Burn a single NFT\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const result = await contract.burn(tokenId, amount);",
+          "python": "",
+          "go": "",
+          "react": "// Note: We don't have a React hook for this function yet, but you can still use the TypeScript SDK!\n\nconst result = await contract.burn(tokenId, amount);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.SignatureDrop.burn",
+          "python": "",
+          "go": "",
+          "react": "https://docs.thirdweb.com/typescript/sdk.SignatureDrop.burn"
+        }
+      },
       {
         "name": "claimTo",
         "summary": "Claim unique NFTs to a specific Wallet\n\n",
