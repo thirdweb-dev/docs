@@ -128,11 +128,6 @@ const sidebars = {
       items: [
         {
           type: "doc",
-          label: "ThirdwebContract",
-          id: "ThirdwebContract",
-        },
-        {
-          type: "doc",
           label: "Ownable",
           id: "Ownable",
         },
