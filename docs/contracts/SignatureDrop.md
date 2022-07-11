@@ -111,10 +111,8 @@ function claimCondition() external view returns (uint256 startTimestamp, uint256
 ### contractType
 
 ```solidity
-function contractType() external pure returns (bytes32)
+function contractType() external view returns (bytes32)
 ```
-
-_Returns the type of the contract._
 
 #### Returns
 
@@ -137,16 +135,14 @@ function contractURI() external view returns (string)
 ### contractVersion
 
 ```solidity
-function contractVersion() external pure returns (uint8)
+function contractVersion() external pure returns (uint256)
 ```
-
-_Returns the version of the contract._
 
 #### Returns
 
-| Name | Type  | Description |
-| ---- | ----- | ----------- |
-| \_0  | uint8 | undefined   |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### encryptDecrypt
 
@@ -933,6 +929,20 @@ _Returns the URI for a given tokenId._
 | ---- | ------ | ----------- |
 | \_0  | string | undefined   |
 
+### totalMinted
+
+```solidity
+function totalMinted() external view returns (uint256)
+```
+
+Returns the total amount of tokens minted in the contract.
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
 ### totalSupply
 
 ```solidity
@@ -1303,179 +1313,6 @@ error BalanceQueryForZeroAddress()
 
 Cannot query the balance for the zero address.
 
-### ContractMetadata\_\_NotAuthorized
-
-```solidity
-error ContractMetadata__NotAuthorized()
-```
-
-_Emitted when an unauthorized caller tries to set the contract metadata URI._
-
-### DelayedReveal\_\_NothingToReveal
-
-```solidity
-error DelayedReveal__NothingToReveal(uint256 batchId)
-```
-
-Emitted when encrypted URI for a given batch is empty.
-
-#### Parameters
-
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| batchId | uint256 | undefined   |
-
-### DropSinglePhase\_\_CannotClaimYet
-
-```solidity
-error DropSinglePhase__CannotClaimYet(uint256 blockTimestamp, uint256 startTimestamp, uint256 lastClaimedAt, uint256 nextValidClaimTimestamp)
-```
-
-Emitted when the current timestamp is invalid for claim.
-
-#### Parameters
-
-| Name                    | Type    | Description |
-| ----------------------- | ------- | ----------- |
-| blockTimestamp          | uint256 | undefined   |
-| startTimestamp          | uint256 | undefined   |
-| lastClaimedAt           | uint256 | undefined   |
-| nextValidClaimTimestamp | uint256 | undefined   |
-
-### DropSinglePhase\_\_ExceedMaxClaimableSupply
-
-```solidity
-error DropSinglePhase__ExceedMaxClaimableSupply(uint256 supplyClaimed, uint256 maxClaimableSupply)
-```
-
-Emitted when claiming given quantity will exceed max claimable supply.
-
-#### Parameters
-
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| supplyClaimed      | uint256 | undefined   |
-| maxClaimableSupply | uint256 | undefined   |
-
-### DropSinglePhase\_\_InvalidCurrencyOrPrice
-
-```solidity
-error DropSinglePhase__InvalidCurrencyOrPrice(address givenCurrency, address requiredCurrency, uint256 givenPricePerToken, uint256 requiredPricePerToken)
-```
-
-Emitted when given currency or price is invalid.
-
-#### Parameters
-
-| Name                  | Type    | Description |
-| --------------------- | ------- | ----------- |
-| givenCurrency         | address | undefined   |
-| requiredCurrency      | address | undefined   |
-| givenPricePerToken    | uint256 | undefined   |
-| requiredPricePerToken | uint256 | undefined   |
-
-### DropSinglePhase\_\_InvalidQuantity
-
-```solidity
-error DropSinglePhase__InvalidQuantity()
-```
-
-Emitted when claiming invalid quantity of tokens.
-
-### DropSinglePhase\_\_InvalidQuantityProof
-
-```solidity
-error DropSinglePhase__InvalidQuantityProof(uint256 maxQuantityInAllowlist)
-```
-
-Emitted when claiming more than allowed quantity in allowlist.
-
-#### Parameters
-
-| Name                   | Type    | Description |
-| ---------------------- | ------- | ----------- |
-| maxQuantityInAllowlist | uint256 | undefined   |
-
-### DropSinglePhase\_\_MaxSupplyClaimedAlready
-
-```solidity
-error DropSinglePhase__MaxSupplyClaimedAlready(uint256 supplyClaimedAlready)
-```
-
-Emitted when max claimable supply in given condition is less than supply claimed already.
-
-#### Parameters
-
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| supplyClaimedAlready | uint256 | undefined   |
-
-### DropSinglePhase\_\_NotAuthorized
-
-```solidity
-error DropSinglePhase__NotAuthorized()
-```
-
-_Emitted when an unauthorized caller tries to set claim conditions._
-
-### DropSinglePhase\_\_NotInWhitelist
-
-```solidity
-error DropSinglePhase__NotInWhitelist()
-```
-
-Emitted when given allowlist proof is invalid.
-
-### DropSinglePhase\_\_ProofClaimed
-
-```solidity
-error DropSinglePhase__ProofClaimed()
-```
-
-Emitted when allowlist spot is already used.
-
-### LazyMint\_\_InvalidIndex
-
-```solidity
-error LazyMint__InvalidIndex(uint256 index)
-```
-
-Emitted when the given index is equal to or higher than total number of batches.
-
-#### Parameters
-
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| index | uint256 | undefined   |
-
-### LazyMint\_\_NoBaseURIForToken
-
-```solidity
-error LazyMint__NoBaseURIForToken(uint256 tokenId)
-```
-
-Emitted when there&#39;s no Base URI set for the given token ID.
-
-#### Parameters
-
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| tokenId | uint256 | undefined   |
-
-### LazyMint\_\_NoBatchIDForToken
-
-```solidity
-error LazyMint__NoBatchIDForToken(uint256 tokenId)
-```
-
-Emitted when the given token ID doesn&#39;t belong to any batch.
-
-#### Parameters
-
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| tokenId | uint256 | undefined   |
-
 ### MintToZeroAddress
 
 ```solidity
@@ -1492,14 +1329,6 @@ error MintZeroQuantity()
 
 The quantity of tokens minted must be more than zero.
 
-### Ownable\_\_NotAuthorized
-
-```solidity
-error Ownable__NotAuthorized()
-```
-
-_Emitted when an unauthorized caller tries to set the owner._
-
 ### OwnerQueryForNonexistentToken
 
 ```solidity
@@ -1507,163 +1336,6 @@ error OwnerQueryForNonexistentToken()
 ```
 
 The token does not exist.
-
-### Permissions\_\_CanOnlyGrantToNonHolders
-
-```solidity
-error Permissions__CanOnlyGrantToNonHolders(address account)
-```
-
-Emitted when specified account already has the role.
-
-#### Parameters
-
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| account | address | undefined   |
-
-### Permissions\_\_CanOnlyRenounceForSelf
-
-```solidity
-error Permissions__CanOnlyRenounceForSelf(address caller, address account)
-```
-
-Emitted when calling address is different from the specified account.
-
-#### Parameters
-
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| caller  | address | undefined   |
-| account | address | undefined   |
-
-### PlatformFee\_\_ExceedsMaxBps
-
-```solidity
-error PlatformFee__ExceedsMaxBps(uint256 platformFeeBps)
-```
-
-Emitted when given platform-fee bps exceeds max bps.
-
-#### Parameters
-
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| platformFeeBps | uint256 | undefined   |
-
-### PlatformFee\_\_NotAuthorized
-
-```solidity
-error PlatformFee__NotAuthorized()
-```
-
-_Emitted when an unauthorized caller tries to set platform fee details._
-
-### PrimarySale\_\_NotAuthorized
-
-```solidity
-error PrimarySale__NotAuthorized()
-```
-
-_Emitted when an unauthorized caller tries to set primary sales details._
-
-### Royalty\_\_ExceedsMaxBps
-
-```solidity
-error Royalty__ExceedsMaxBps(uint256 royaltyBps)
-```
-
-Emitted when the given bps exceeds max bps.
-
-#### Parameters
-
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| royaltyBps | uint256 | undefined   |
-
-### Royalty\_\_NotAuthorized
-
-```solidity
-error Royalty__NotAuthorized()
-```
-
-_Emitted when an unauthorized caller tries to set royalty details._
-
-### SignatureDrop\_\_MintingZeroTokens
-
-```solidity
-error SignatureDrop__MintingZeroTokens()
-```
-
-Emitted when given quantity to mint is zero.
-
-### SignatureDrop\_\_MustSendTotalPrice
-
-```solidity
-error SignatureDrop__MustSendTotalPrice(uint256 sentValue, uint256 totalPrice)
-```
-
-Emitted when sent value doesn&#39;t match the total price of tokens.
-
-#### Parameters
-
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| sentValue  | uint256 | undefined   |
-| totalPrice | uint256 | undefined   |
-
-### SignatureDrop\_\_NotEnoughMintedTokens
-
-```solidity
-error SignatureDrop__NotEnoughMintedTokens(uint256 currentIndex, uint256 quantity)
-```
-
-Emitted when minting the given quantity will exceed available quantity.
-
-#### Parameters
-
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| currentIndex | uint256 | undefined   |
-| quantity     | uint256 | undefined   |
-
-### SignatureDrop\_\_NotTransferRole
-
-```solidity
-error SignatureDrop__NotTransferRole()
-```
-
-Emitted when given address doesn&#39;t have transfer role.
-
-### SignatureDrop\_\_ZeroAmount
-
-```solidity
-error SignatureDrop__ZeroAmount()
-```
-
-Emitted when given amount for lazy-minting is zero.
-
-### SignatureMintERC721\_\_InvalidRequest
-
-```solidity
-error SignatureMintERC721__InvalidRequest()
-```
-
-Emitted when either the signature or the request uid is invalid.
-
-### SignatureMintERC721\_\_RequestExpired
-
-```solidity
-error SignatureMintERC721__RequestExpired(uint256 blockTimestamp)
-```
-
-Emitted when block-timestamp is outside of validity start and end range.
-
-#### Parameters
-
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| blockTimestamp | uint256 | undefined   |
 
 ### TransferCallerNotOwnerNorApproved
 
