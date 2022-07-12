@@ -1,9 +1,9 @@
 ---
 slug: /solidity-sdk/base-contracts/erc-721/erc721base
-title: ERC-721 Base
+title: Base
 ---
 
-import QuickstartCard from "../../../../../../../src/components/QuickstartCard";
+import QuickstartCard from "../../../../../../src/components/QuickstartCard";
 
 # ERC-721 Base Contract
 
@@ -30,7 +30,7 @@ Below is a table outlining what functionality is available in the `ERC721Base` c
 First, import the contract extension and make your contract inherit it.
 
 ```solidity
-// SPDX-License-identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 import "@thirdweb-dev/contracts/base/ERC721Base.sol";
@@ -41,7 +41,7 @@ contract MyNFT is ERC721Base {} // Error: Contract "MyNFT" should be marked as a
 Add a constructor that configures the contract-level metadata when you deploy the contract.
 
 ```solidity
-// SPDX-License-identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 import "@thirdweb-dev/contracts/base/ERC721Base.sol";
