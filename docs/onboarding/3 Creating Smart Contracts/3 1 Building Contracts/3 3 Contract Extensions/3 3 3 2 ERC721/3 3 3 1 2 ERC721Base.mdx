@@ -9,21 +9,21 @@ import QuickstartCard from "../../../../../../src/components/QuickstartCard";
 
 The `ERC721Base` contract is for creating an NFT Collection that follows the [ERC-721](https://eips.ethereum.org/EIPS/eip-721)
 "Non-Fungible Token" standard. It utilizes the [ERC-721A](https://www.azuki.com/erc721a) "Azuki" standard for gas optimizations when minting multiple NFTs at once,
-along with several [contract extensions](/todo) common for NFT Collections outlined below.
+along with several contract extensions common for NFT Collections outlined below.
 
 ## Available Functionality
 
 Below is a table outlining what functionality is available in the `ERC721Base` contract.
 
-| Functionality             | Description                                                                                                                                                                       | Functions Available  |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------- |
-| [ERC721A](/todo)          | Gas-optimized NFT Collection Base Contract.                                                                                                                                       | See [ERC721A](/todo) |
-| [Mintable](/todo)         | Mint functionality (only callable by the owner, by default) with gas-optimized batch minting enabled by ERC721A functionality.                                                    | todo                 |
-| [Multicall](/todo)        | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call.                                             | todo                 |
-| [Ownable](/todo)          | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. | todo                 |
-| [Burnable](/todo)         | Ability for the owner of a token to transfer their NFT to a null address (cannot be recovered).                                                                                   | todo                 |
-| [Royalty](/todo)          | Full royalty support on marketplaces like OpenSea, and [EIP 2981](https://eips.ethereum.org/EIPS/eip-2981) NFT Royalty Standard compliance.                                       | todo                 |
-| [ContractMetadata](/todo) | Set a metadata URI on the contract, to give your collection a name, image, description and symbol.                                                                                | todo                 |
+| Functionality                                                          | Description                                                                                                                                                                       |
+| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [ERC721A](https://www.erc721a.org/)                                    | Gas-optimized NFT Collection Base Contract.                                                                                                                                       |
+| [Mintable](/solidity-sdk/contract-extensions/mintable)                 | Mint functionality (only callable by the owner, by default) with gas-optimized batch minting enabled by ERC721A functionality.                                                    |
+| [Multicall](/solidity-sdk/contract-extensions/multicall)               | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call.                                             |
+| [Ownable](/solidity-sdk/contract-extensions/ownable)                   | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
+| [Burnable](/solidity-sdk/contract-extensions/burnable)                 | Ability for the owner of a token to transfer their NFT to a null address (cannot be recovered).                                                                                   |
+| [Royalty](/solidity-sdk/contract-extensions/royalty)                   | Full royalty support on marketplaces like OpenSea, and [EIP 2981](https://eips.ethereum.org/EIPS/eip-2981) NFT Royalty Standard compliance.                                       |
+| [ContractMetadata](/solidity-sdk/contract-extensions/contractmetadata) | Set a metadata URI on the contract, to give your collection a name, image, description and symbol.                                                                                |
 
 ## Implementing the Contract Extension
 
