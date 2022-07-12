@@ -245,6 +245,11 @@
       "source": "/examples/:match*",
       "destination": "/templates/:match*",
       "permanent": true
+    },
+    {
+      "source": "/thirdweb-deploy",
+      "destination": "/thirdweb-cli",
+      "permanent": true
     }
   ]
 }
