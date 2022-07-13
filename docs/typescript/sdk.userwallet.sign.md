@@ -11,6 +11,16 @@ displayed_sidebar: typescript
 
 Sign any message with the connected wallet private key
 
+## Example
+
+```javascript
+// This is the message to be signed
+const message = "Sign this message...";
+
+// Now we can sign the message with the connected wallet
+const signature = await sdk.wallet.sign(message);
+```
+
 **Signature:**
 
 ```typescript
@@ -26,3 +36,5 @@ sign(message: string): Promise<string>;
 **Returns:**
 
 Promise&lt;string&gt;
+
+the signed message
