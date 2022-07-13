@@ -1,10 +1,16 @@
-# Mintparty x thirdweb: guide (WIP)
+---
+authors: pat
+tags: [react, marketplace, auction, front-end]
+date: "2022-07-13"
+---
 
-**Article Title:** Create the Ultimate NFT Drop with thirdweb x MintParty 
+# Create the Ultimate NFT Drop with thirdweb x MintParty 
+
+**Article Title:** 
 
 **Meta Descriptions:** Learn how to set up an NFT drop complete with allowlist & social integration, pre-audited smart contract, multiple claim phases, and delayed reveal.
 
-### Bear Markets Are For Builders
+## Bear Markets Are For Builders
 
 NFTs, web3, and crypto have recently been a popular focus of pundits, bulls, and bears alike. The skepticism around the decentralized future of the internet continues to wax and wane. While we respect all of the discourse….we think it’s a bit more beneficial to focus on giving the builders what they need - tools they commonly use in premint, during mint, and post-mint. In times like this, there is no better outlet than hacking away at a keyboard on your passion project, and we're dedicated to simplifying the web3 development process for builders & creators.
 
@@ -16,7 +22,7 @@ Of Note: Allowlist is commonly interchanged with ‘NFT whitelist’ — if that
 
 Anyone who’s deployed an NFT collection or smart contract will attest that it can be time-consuming and complex. Manually uploading your artwork and metadata or keeping track of social giveaways via spreadsheet is a grueling ordeal. Enter thirdweb and MintParty. Create your VIP allowlists, activate your community with social giveaways, leverage seamless SDKs and UI/UX components, and more!
 
-### Walkthrough
+## Walkthrough
 
 For the first part of this guide, we’ll head over to our friends at **[MintParty.xyz](https://about.mintparty.xyz/blog-pages/how-to-guide-mintparty-x-thirdweb-for-launching-your-nft-drop?utm_source=thirdweb&utm_medium=guide&utm_campaign=thirdparty)**. It’s essential to keep in mind a few details ahead of dropping your NFT collection: 
 
@@ -156,7 +162,7 @@ When ready to reveal the NFTs, you can click the **Reveal NFTs** button on you
 
 This action will prompt for the password you created in the previous step. Finally, it will prompt you to confirm a transaction on your wallet and pay the gas fees. Congrats, we just completed an NFT drop complete with allowlist, delayed reveal, and multiple claim phases! WAGMI. 
 
-### What is Mintparty and how does it help?
+## What is Mintparty and how does it help?
 
 **[MintParty](https://about.mintparty.xyz/blog-pages/how-to-guide-mintparty-x-thirdweb-for-launching-your-nft-drop?utm_source=thirdweb&utm_medium=guide&utm_campaign=thirdparty)** provides one place to set-up, schedule and manage a communities’ allow list and manage all collaborations with other projects. It reduces the amount of manual DMs and copy and pasting a community builder has to do while collecting this information in preparation for the launch.
 
@@ -170,7 +176,7 @@ MintParty helps with:
 
 Create the most seamless workflow by automating collection of your allowlist and streamline your collabs! For more information on MintParty - check out the guide here and get started today! (insert link to guide + photo)
 
-### What is thirdweb, and how does it help?
+## What is thirdweb, and how does it help?
 
 **[thirdweb](https://thirdweb.com/dashboard)** is a web3 application framework that enables you to build robust, blockchain-based applications quickly.
 
