@@ -6,9 +6,9 @@ date: "2022-07-13"
 
 # Create the Ultimate NFT Drop with thirdweb x MintParty 
 
-**Article Title:** 
+Learn how to set up an NFT drop complete with allowlist & social integration, pre-audited smart contract, multiple claim phases, and delayed reveal.
 
-**Meta Descriptions:** Learn how to set up an NFT drop complete with allowlist & social integration, pre-audited smart contract, multiple claim phases, and delayed reveal.
+<!-- truncate -->
 
 ## Bear Markets Are For Builders
 
