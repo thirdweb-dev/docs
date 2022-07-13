@@ -1,13 +1,13 @@
 ---
-slug: /IERC721
-title: IERC721
+slug: /IERC721A
+title: IERC721A
 hide_title: true
 displayed_sidebar: contracts
 ---
 
-# IERC721
+# IERC721A
 
-_Required interface of an ERC721 compliant contract._
+_Interface of an ERC721A compliant contract._
 
 ## Methods
 
@@ -87,6 +87,20 @@ _Returns if the `operator` is allowed to manage all of the assets of `owner`. Se
 | ---- | ---- | ----------- |
 | \_0  | bool | undefined   |
 
+### name
+
+```solidity
+function name() external view returns (string)
+```
+
+A descriptive name for a collection of NFTs in this contract
+
+#### Returns
+
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
+
 ### ownerOf
 
 ```solidity
@@ -139,6 +153,56 @@ _Approve or remove `operator` as an operator for the caller. Operators can call 
 | operator   | address | undefined   |
 | \_approved | bool    | undefined   |
 
+### symbol
+
+```solidity
+function symbol() external view returns (string)
+```
+
+An abbreviated name for NFTs in this contract
+
+#### Returns
+
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
+
+### tokenURI
+
+```solidity
+function tokenURI(uint256 _tokenId) external view returns (string)
+```
+
+A distinct Uniform Resource Identifier (URI) for a given asset.
+
+_Throws if `_tokenId` is not a valid NFT. URIs are defined in RFC 3986. The URI may point to a JSON file that conforms to the &quot;ERC721 Metadata JSON Schema&quot;._
+
+#### Parameters
+
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| \_tokenId | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
+
+### totalSupply
+
+```solidity
+function totalSupply() external view returns (uint256)
+```
+
+_Returns the total amount of tokens stored by the contract. Burned tokens are calculated here, use `_totalMinted()` if you want to count just minted tokens._
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
 ### transferFrom
 
 ```solidity
@@ -163,8 +227,6 @@ _Transfers `tokenId` token from `from` to `to`. WARNING: Usage of this method is
 event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
 ```
 
-_Emitted when `owner` enables `approved` to manage the `tokenId` token._
-
 #### Parameters
 
 | Name               | Type    | Description |
@@ -178,8 +240,6 @@ _Emitted when `owner` enables `approved` to manage the `tokenId` token._
 ```solidity
 event ApprovalForAll(address indexed owner, address indexed operator, bool approved)
 ```
-
-_Emitted when `owner` enables or disables (`approved`) `operator` to manage all of its assets._
 
 #### Parameters
 
@@ -195,8 +255,6 @@ _Emitted when `owner` enables or disables (`approved`) `operator` to manage all 
 event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
 ```
 
-_Emitted when `tokenId` token is transferred from `from` to `to`._
-
 #### Parameters
 
 | Name              | Type    | Description |
@@ -204,3 +262,109 @@ _Emitted when `tokenId` token is transferred from `from` to `to`._
 | from `indexed`    | address | undefined   |
 | to `indexed`      | address | undefined   |
 | tokenId `indexed` | uint256 | undefined   |
+
+## Errors
+
+### ApprovalCallerNotOwnerNorApproved
+
+```solidity
+error ApprovalCallerNotOwnerNorApproved()
+```
+
+The caller must own the token or be an approved operator.
+
+### ApprovalQueryForNonexistentToken
+
+```solidity
+error ApprovalQueryForNonexistentToken()
+```
+
+The token does not exist.
+
+### ApprovalToCurrentOwner
+
+```solidity
+error ApprovalToCurrentOwner()
+```
+
+The caller cannot approve to the current owner.
+
+### ApproveToCaller
+
+```solidity
+error ApproveToCaller()
+```
+
+The caller cannot approve to their own address.
+
+### BalanceQueryForZeroAddress
+
+```solidity
+error BalanceQueryForZeroAddress()
+```
+
+Cannot query the balance for the zero address.
+
+### MintToZeroAddress
+
+```solidity
+error MintToZeroAddress()
+```
+
+Cannot mint to the zero address.
+
+### MintZeroQuantity
+
+```solidity
+error MintZeroQuantity()
+```
+
+The quantity of tokens minted must be more than zero.
+
+### OwnerQueryForNonexistentToken
+
+```solidity
+error OwnerQueryForNonexistentToken()
+```
+
+The token does not exist.
+
+### TransferCallerNotOwnerNorApproved
+
+```solidity
+error TransferCallerNotOwnerNorApproved()
+```
+
+The caller must own the token or be an approved operator.
+
+### TransferFromIncorrectOwner
+
+```solidity
+error TransferFromIncorrectOwner()
+```
+
+The token must be owned by `from`.
+
+### TransferToNonERC721ReceiverImplementer
+
+```solidity
+error TransferToNonERC721ReceiverImplementer()
+```
+
+Cannot safely transfer to a contract that does not implement the ERC721Receiver interface.
+
+### TransferToZeroAddress
+
+```solidity
+error TransferToZeroAddress()
+```
+
+Cannot transfer to the zero address.
+
+### URIQueryForNonexistentToken
+
+```solidity
+error URIQueryForNonexistentToken()
+```
+
+The token does not exist.
