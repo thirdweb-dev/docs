@@ -35,7 +35,7 @@ const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition
 
 ```typescript
 export declare function useActiveClaimCondition<
-  TContract extends NFTDrop | EditionDrop | TokenDrop,
+  TContract extends NFTDrop | EditionDrop | TokenDrop | SignatureDrop,
 >(
   ...[contract, tokenId]: ActiveClaimConditionParams<TContract>
 ): import("react-query").UseQueryResult<

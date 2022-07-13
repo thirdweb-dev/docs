@@ -13,15 +13,15 @@ displayed_sidebar: react
 
 ```typescript
 export declare function useUnclaimedNFTSupply(
-  contract: RequiredParam<NFTDrop>,
+  contract: RequiredParam<NFTDrop | SignatureDrop>,
 ): import("react-query").UseQueryResult<import("ethers").BigNumber, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                     | Description      |
-| --------- | -------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;NFTDrop&gt; | an instance of a |
+| Parameter | Type                                                                          | Description      |
+| --------- | ----------------------------------------------------------------------------- | ---------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;NFTDrop &#124; SignatureDrop&gt; | an instance of a |
 
 **Returns:**
 
