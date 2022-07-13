@@ -4,7 +4,7 @@ tags: [nft-drop, delayed-reveal, no-code, dashboard, batch-upload, mintparty]
 date: "2022-07-13"
 ---
 
-# Create the Ultimate NFT Drop with thirdweb x MintParty 
+# Create the Ultimate NFT Drop with thirdweb x MintParty
 
 Learn how to set up an NFT drop complete with allowlist & social integration, pre-audited smart contract, multiple claim phases, and delayed reveal.
 
@@ -16,7 +16,7 @@ NFTs, web3, and crypto have recently been a popular focus of pundits, bulls, and
 
 This guide will explore how to set up an NFT drop complete with an allowlist and social connectors courtesy of our friends at **[MintParty](https://about.mintparty.xyz/blog-pages/how-to-guide-mintparty-x-thirdweb-for-launching-your-nft-drop?utm_source=thirdweb&utm_medium=guide&utm_campaign=thirdparty)** during the premint phase. In addition, we’ll leverage thirdweb’s pre-built & audited [**NFT drop**](/guides/create-nft-drop-with-claim-phases) smart-contract to power the blockchain component. Finally, we’ll set up our drop with an allowlist (also known as NFT whitelist), multiple claim phases, AND [delayed reveal](/guides/nft-drop-with-delayed-reveal). EPIC. Let’s dive in!
 
-Of Note: Allowlist is commonly interchanged with ‘NFT whitelist’ — if that is how you understand the process of prioritizing a community of avid participants premint, we ask that you kindly consider the ramifications of using this (NFT whitelist) term in the future. 
+Of Note: Allowlist is commonly interchanged with ‘NFT whitelist’ — if that is how you understand the process of prioritizing a community of avid participants premint, we ask that you kindly consider the ramifications of using this (NFT whitelist) term in the future.
 
 ### How and why should you use MintParty and thirdweb?
 
@@ -24,12 +24,12 @@ Anyone who’s deployed an NFT collection or smart contract will attest that it 
 
 ## Walkthrough
 
-For the first part of this guide, we’ll head over to our friends at **[MintParty.xyz](https://about.mintparty.xyz/blog-pages/how-to-guide-mintparty-x-thirdweb-for-launching-your-nft-drop?utm_source=thirdweb&utm_medium=guide&utm_campaign=thirdparty)**. It’s essential to keep in mind a few details ahead of dropping your NFT collection: 
+For the first part of this guide, we’ll head over to our friends at **[MintParty.xyz](https://about.mintparty.xyz/blog-pages/how-to-guide-mintparty-x-thirdweb-for-launching-your-nft-drop?utm_source=thirdweb&utm_medium=guide&utm_campaign=thirdparty)**. It’s essential to keep in mind a few details ahead of dropping your NFT collection:
 
 - rewarding early adopters and supporters of your project
 - verifying social or wallet credentials for giveaways or other tactics
 
-Many projects accomplish this through a tactic called **allowlists** (or you may have also heard the term, allow lists, whitelisting or whitelist). Allowlists are a VIP or pre-approved list of wallet addresses that have early access to the NFT mint, often at reduced prices. Additionally, these groups of allowlists will often be the target of airdrops or other gamification mechanics to drive further growth. 
+Many projects accomplish this through a tactic called **allowlists** (or you may have also heard the term, allow lists, whitelisting or whitelist). Allowlists are a VIP or pre-approved list of wallet addresses that have early access to the NFT mint, often at reduced prices. Additionally, these groups of allowlists will often be the target of airdrops or other gamification mechanics to drive further growth.
 
 Collecting allowlists can be done through a number of ways, some include collaborations and partnerships with other projects and running games and contests with your community within Discord and Twitter.
 Head on over to MintParty’s **[Guide on How to Use Mintparty](https://about.mintparty.xyz/blog-pages/how-to-use-mintparty-to-help-with-your-nft-launch)** to help with your NFT launch for a full walk through and get started right away!
@@ -38,7 +38,7 @@ Head on over to MintParty’s **[Guide on How to Use Mintparty](https://about.mi
 
 Once we’ve set up our allowlist with MintParty, we’ll jump into setting up our smart contract, claim phases, allowlist, and more. In this guide, we'll create a drop using the NFT Drop contract and opt to reveal them later. To do so, we will set up some conditions to reveal the NFTs in the dashboard.
 
-This guide assumes you already know how to make a contract through the thirdweb dashboard. If you need a refresher, feel free to check out: 
+This guide assumes you already know how to make a contract through the thirdweb dashboard. If you need a refresher, feel free to check out:
 
 - [Release an NFT drop on your own site without writing any code (Dashboard)](/guides/release-an-nft-drop-with-no-code)
 - [Create an NFT Drop Contract (SDK)](/pre-built-contracts/nft-drop#create-an-nft-drop-contract)
@@ -68,7 +68,7 @@ For this guide, we are going to choose Delayed Reveal.
 
 ![](./select-delayed-reveal.png)
 
-When you select Delayed Reveal, you will be prompted to create a password (please make sure to store this securely somewhere). 
+When you select Delayed Reveal, you will be prompted to create a password (please make sure to store this securely somewhere).
 
 ![](./enter-password.png)
 
@@ -84,7 +84,7 @@ When you return to the dashboard, your NFTs will display with the placeholder da
 
 ![](./unrevealed-nfts.png)
 
-We’ll next add some claim phases and an allowlist to our drop to enable special claiming for our early adopters and VIPs before opening up claiming to the public and eventually revealing the artwork to our community. To do that, head over to the highlighted claim phases tab below. 
+We’ll next add some claim phases and an allowlist to our drop to enable special claiming for our early adopters and VIPs before opening up claiming to the public and eventually revealing the artwork to our community. To do that, head over to the highlighted claim phases tab below.
 
 ![](./claim_phases_tab.png)
 
@@ -106,23 +106,23 @@ Now, we can set how much we want to charge using **"How much do you want to cha
 
 ### Adding the Allowlist
 
-In this next part, we will limit it to our community by uploading a list of wallet addresses from our community members. First we’ll need to make sure that we’ve setup our allowlist collection using MintParty’s intuitive platform. 
+In this next part, we will limit it to our community by uploading a list of wallet addresses from our community members. First we’ll need to make sure that we’ve setup our allowlist collection using MintParty’s intuitive platform.
 
-**MintParty** makes it super easy to collect all wallet addresses from the entirety of your campaigns into one CSV to download so you don’t have to go back and forth between multiple spreadsheets. For example, if you end up running 20 different giveaways, winners from each campaign will be collected into one CSV so you have a single source of truth. Check out the guide **[here](https://about.mintparty.xyz/blog-pages/how-to-use-mintparty-to-help-with-your-nft-launch)**. 
+**MintParty** makes it super easy to collect all wallet addresses from the entirety of your campaigns into one CSV to download so you don’t have to go back and forth between multiple spreadsheets. For example, if you end up running 20 different giveaways, winners from each campaign will be collected into one CSV so you have a single source of truth. Check out the guide **[here](https://about.mintparty.xyz/blog-pages/how-to-use-mintparty-to-help-with-your-nft-launch)**.
 
 We’ll then need to download a CSV of your allowlist which will be used with thirdweb in a bit. Then head back to thirdweb dashboard and navigate to ‘claim phases’. Change **"Who can claim NFTs during this phase?"** to Specific Wallets using the dropdown.
 
-This action will prompt a screen to upload your CSV file. If you already have a CSV file, go ahead and upload it. 
+This action will prompt a screen to upload your CSV file. If you already have a CSV file, go ahead and upload it.
 
 ![](./upload-snapshot.png)
 
-If you want to double check that you’ve set up your allowlist CSV properly or you don’t have one yet, you can download the example .csv file and edit it in Microsoft Excel, Google Sheets, or another CSV editor. 
+If you want to double check that you’ve set up your allowlist CSV properly or you don’t have one yet, you can download the example .csv file and edit it in Microsoft Excel, Google Sheets, or another CSV editor.
 
-There are two example CSVs you can download: the basic version (has only one column for your users’ wallet ‘address’) or the maxClaimable CSV (specifying how many NFTs can be claimed by that specific wallet address per transaction). If you’ve downloaded the first example, only edit the first column, ‘address’, by adding the wallet address of each user allowed to mint during this phase. In case you’re using the maxClaimable CSV, you’ll need a second column quantifying how many each address is able to mint. 
+There are two example CSVs you can download: the basic version (has only one column for your users’ wallet ‘address’) or the maxClaimable CSV (specifying how many NFTs can be claimed by that specific wallet address per transaction). If you’ve downloaded the first example, only edit the first column, ‘address’, by adding the wallet address of each user allowed to mint during this phase. In case you’re using the maxClaimable CSV, you’ll need a second column quantifying how many each address is able to mint.
 
 ![](./Max_Claimable_CSV_Screenshot.png)
 
-Drag and drop your .csv file to the box. If it looks like it uploaded correctly, go ahead and save it. I am only pasting one fake address for this guide using the basic CSV (for reference, the above and below screenshots show the use of the ‘maxClaimable’ CSV for anyone choosing that option). 
+Drag and drop your .csv file to the box. If it looks like it uploaded correctly, go ahead and save it. I am only pasting one fake address for this guide using the basic CSV (for reference, the above and below screenshots show the use of the ‘maxClaimable’ CSV for anyone choosing that option).
 
 ![](./Max_Claimable_Light_Mode_Snapshot.png)
 
@@ -160,7 +160,7 @@ When ready to reveal the NFTs, you can click the **Reveal NFTs** button on you
 
 ![](./select-reveal-nfts.png)
 
-This action will prompt for the password you created in the previous step. Finally, it will prompt you to confirm a transaction on your wallet and pay the gas fees. Congrats, we just completed an NFT drop complete with allowlist, delayed reveal, and multiple claim phases! WAGMI. 
+This action will prompt for the password you created in the previous step. Finally, it will prompt you to confirm a transaction on your wallet and pay the gas fees. Congrats, we just completed an NFT drop complete with allowlist, delayed reveal, and multiple claim phases! WAGMI.
 
 ## What is Mintparty and how does it help?
 
@@ -180,7 +180,7 @@ Create the most seamless workflow by automating collection of your allowlist and
 
 **[thirdweb](https://thirdweb.com/dashboard)** is a web3 application framework that enables you to build robust, blockchain-based applications quickly.
 
-thirdweb offers four core pillars: 
+thirdweb offers four core pillars:
 
 - Contracts: Smart contracts for you to deploy and tools to support building them.
 - SDKs: Ways to interact with your smart contract in your favorite languages.
