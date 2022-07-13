@@ -17,7 +17,7 @@ Run the `npx hardhat` command to create a basic project with a smart contract us
 npx hardhat
 ```
 
-Select "Create a sample project" from the menu to get started.
+Select "Create a JavaScript project" from the menu to get started.
 
 ![npx hardhat](./assets/npx-hardhat.png)
 
@@ -26,12 +26,12 @@ Select "Create a sample project" from the menu to get started.
 Hardhat will ask you to install a list of packages at this point, you can do this by running:
 
 ```bash
-npm install --save-dev "hardhat@^2.6.8" "@nomiclabs/hardhat-waffle@^2.0.0" "ethereum-waffle@^3.0.0" "chai@^4.2.0" "@nomiclabs/hardhat-ethers@^2.0.0" "ethers@^5.0.0"
+  npm install --save-dev "hardhat@^2.10.0" "@nomicfoundation/hardhat-toolbox@^1.0.1"
 ```
 
 :::
 
-Now we have a simple project with a `Greeter` smart contract, let's introduce our Solidity SDK!
+Now we have a simple project with a `Lock` smart contract, let's introduce our Solidity SDK!
 
 ## Installing the SDK
 
@@ -43,116 +43,59 @@ npm install @thirdweb-dev/contracts
 
 ## Implementing a contract extension
 
-Open the project in your text editor, and remove the existing contents of the `Greeter.sol` file.
+Open the project in your text editor, and remove the existing contents of the `Lock.sol` file.
 
-We'll be creating our own custom ERC-721 NFT contract in this file.
+Let's rename this file to `MyNFT.sol`, since we'll
+be creating our own custom [ERC-721A](https://www.erc721a.org/) NFT contract in this file.
 
-Let's first import the [IMintableERC721](/thirdweb-deploy/contract-extensions/erc721#erc721mintable) contract extension.
+Let's first import the [ERC721Base](/solidity-sdk/base-contracts/erc-721/erc721base)
+base contract from the thirdweb SDK.
 
 ```solidity
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.4;
+pragma solidity ^0.8.9;
 
-import "@thirdweb-dev/contracts/feature/interface/IMintableERC721.sol";
+import "@thirdweb-dev/contracts/base/ERC721Base.sol";
 ```
 
-Next, we need our contract to implement this interface, by saying our contract `is` the `IMintableERC721` interface.
+Next, we need our contract to implement this interface, by saying our contract `is` the `ERC721Base` interface.
 
 ```solidity
-// Here, we tell Solidity that our Awesome NFT contract implements the IMintableERC721 interface.
-contract MyAwesomeNft is IMintableERC721 {
-
-}
+contract MyNFT is ERC721Base {}
 ```
 
-:::tip Viewing the source code
-
-If you're using VS Code, you can `Ctrl / ⌘ + click` on `IMintableERC721` to see the functions that must be implemented to satisfy the interface!
-In the gif below, you can see we need to implement the `mintTo` function.
-
-![clickinto](./assets/clickinto.gif)
-
-:::
-
-We now need to implement the `mintTo` function from the `IMintableERC721` interface.
-You have total freedom over how you choose to implement this function in your contract, but let's explore an example of how you might implement it.
+Now, all we need to do is implement the required functions to satisfy the `ERC721Base` contract extension!
 
 ## Writing contract functions
 
-For our contract, we'll implement [OpenZeppelin](https://docs.openzeppelin.com/contracts/4.x/erc721)'s `ERC721URIStorage` interface
-that allows us to have NFTs with metadata, and also utilize the [Counter](https://docs.openzeppelin.com/contracts/3.x/api/utils#Counters) utility to keep track of our token IDs.
-
-To install these, run the following command:
-
-```bash
-npm install @openzeppelin/contracts
-```
-
-Next, we'll tell Solidity that our contract is both an `ERC721URIStorage` _and_ an `IMintableERC721` contract.
+If we take a look at the [ERC-721 Base Contract](/solidity-sdk/base-contracts/erc-721/erc721base#implementing-the-contract-extension) page on the portal,
+we can see we need to implement the `constructor` to properly implement this contract extension.
 
 ```solidity
-import "@thirdweb-dev/contracts/feature/interface/IMintableERC721.sol";
-import "@openzeppelin/contracts/token/ERC721/extensions/ERC721URIStorage.sol";
-import "@openzeppelin/contracts/utils/Counters.sol";
-
-// Now our contract implements both the ERC721URIStorage and IMintableERC721 interfaces.
-contract MyAwesomeNft is ERC721URIStorage, IMintableERC721 {
-
+contract MyNFT is ERC721Base {
+      constructor(
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps
+    )
+        ERC721Base(
+            _name,
+            _symbol,
+            _royaltyRecipient,
+            _royaltyBps
+        )
+    {}
 }
 ```
 
-To initialize a `Counter` that starts from `0` to represent our token IDs, we can use the following code:
-
-```solidity
-contract MyAwesomeNft is ERC721URIStorage, IMintableERC721, IERC721Supply {
-    // Create a new counter to represent the token ID that we can safely increment.
-    using Counters for Counters.Counter;
-    Counters.Counter private _tokenIds;
-
-    // This sets the name and symbol of our NFT contract when it is created.
-    constructor() ERC721("Awesome NFTs", "AWSM") {}
-}
-```
-
-Now let's use the functionality provided to us from the `ERC721URIStorage` interface to write our `mintTo` function.
-
-:::tip Function Signature
-
-In VS Code, you can view the function signature from the `IMintableERC721` file by `Ctrl / ⌘ + click`ing on `IMintableERC721`,
-pasting the `mintTo` function into our contract, and signifying we are going to `override` it.
-
-![function signature](./assets/function-signature.gif)
-
-:::
-
-Now all that's left to do is write the `mint` logic inside this function:
-
-```solidity
-function mintTo(address to, string calldata uri) external override returns (uint256) {
-    // Get the next token ID from the counter.
-    uint256 newTokenId = _tokenIds.current();
-
-    // Mint the token and set the metadata
-    _mint(to, newTokenId);
-    _setTokenURI(newTokenId, uri);
-
-    // Increment the counter for next time.
-    _tokenIds.increment();
-
-    // Emit an event that the token was minted (enables listening to live events in the SDK).
-    emit TokensMinted(to, newTokenId, uri);
-
-    return newTokenId;
-}
-```
-
-You just created your very own ERC-721 NFT Collection contract!
+You just wrote your very own ERC-721A NFT Collection contract!
 
 Let's see what we can do with it!
 
 ## Detecting contract extensions
 
-The thirdweb CLI provides a command to detect the implemented contract extensions.
+The [thirdweb CLI](/thirdweb-cli) provides a command to detect the implemented contract extensions.
 
 ```bash
 npx thirdweb detect
@@ -162,13 +105,14 @@ This command:
 
 - Compiles your contract
 - Detects the extensions you have successfully implemented
-- Shows you other extensions you might want to implement _(spoilers)_!
+- Shows you other extensions you might want to implement
 
 ![npx thirdweb detect](./assets/thirdweb-detect.png)
 
-As you can see, we have successfully implemented the `ERC721` and `ERC721Mintable` contract extensions in our contract.
+As you can see, by using the base contract,
+we have successfully implemented many of the contract extensions available in the SDK.
 
-Now let's go ahead and deploy it!
+Now we're ready to deploy our contract to the blockchain.
 
 ## Deploying contracts
 
@@ -197,66 +141,33 @@ Once deployed, you'll have your very own contract dashboard where you can view a
 
 ![contract dashboard](./assets/deployed-state.png)
 
-From here, you can easily view, `mint`, and `transfer`, tokens from your contract!
+From here, you can easily interact with your contract, and see the state of the contract as it changes over time.
 
-If you select the `NFTs` tab from the menu, you will notice we can't yet view all of the NFTs minted in our contract,
-because we didn't implement an `Enumerable` contract extension, such as [IERC721Supply](/thirdweb-deploy/contract-extensions/erc721#erc721enumerable)
+Let's check out the thirdweb features we unlocked by implementing contract extensions.
 
-![nfts tab](./assets/no-enum.png)
+## Unlocked Features
 
-Let's quickly go back to our contract and implement an `Enumerable` contract extension.
+As we discovered by running the `npx thirdweb detect` command, our
+contract implements contract extensions such as `ERC721Supply` and `ERC721Mintable` among several others.
 
-## Unlocking thirdweb features
+Each contract extension you implement unlocks features on the dashboard and in the SDK. For example:
 
-Let's go through the same process again, to demonstrate the general flow of adding contract extensions to your contract.
+- The `ERC721Supply` contract extension allows you to view all of the tokens that have been minted in your contract, and use the `nft.query.all()` function in the SDK.
+- The `ERC721Mintable` contract extension allows you to mint new NFTs using a "Mint" button on the dashboard, and the `mintTo()` function in the SDK.
 
-**Import the contract extension**
+To view the NFT contract extensions, you can click the `NFTs` tab on the dashboard.
 
-```solidity
-import "@thirdweb-dev/contracts/eip/interface/IERC721Supply.sol";
-```
+<div align='center'>
 
-**Implement the interface**
+![dashboard tabs](./assets/tabs.png)
 
-```solidity
-// Now we also implement the IERC721Supply interface.
-contract MyAwesomeNft is ERC721URIStorage, IMintableERC721, IERC721Supply {
-```
-
-**Implement the required functions from the interface**
-
-```solidity
-function totalSupply() external view override returns (uint256) {
-    return _tokenIds.current();
-}
-```
-
-**Detect Contract Extensions**
-
-```bash
-npx thirdweb detect
-```
-
-Now we also have successfully implemented the `ERC721Supply` contract extension.
-
-![npx thirdweb detect](./assets/new-interface-implement.png)
-
-**Deploy the Contract**
-
-```bash
-npx thirdweb deploy
-```
-
-Now let's take another look at our dashboard's `NFTs` tab.
-
-We have now enabled the following capabilities in both the SDK and the dashboard:
-
-- View of all the NFTs in our contract
-- The ability to **mint** new NFTs from the dashboard
-
-![nfts tab](./assets/nfts-tab.png)
+</div>
 
 Let's go ahead and mint an NFT by clicking the **Mint** button on the dashboard.
+
+![mint button](./assets/mint-button.png)
+
+This brings up a simple form where we can populate the metadata for the NFT we're going to mint.
 
 <div align='center'>
 
@@ -285,16 +196,4 @@ await contract.nft.mint.to(walletAddress, nftMetadata);
 const nfts = await contract.nft.query.all();
 ```
 
-Learn more about building a web3 application on top of this contract using our sandbox below:
-
-<div className="row" style={{marginBottom:24}}>
-
-<div className="col col--12" style={{ marginTop: 8 }}>
-  <QuickstartCard
-    name="Building a web3 app with your NFT Contract"
-    link="https://replit.com/@thirdweb-dev/hardhat-thirdweb-deploy-contract-extensions"
-    image="/assets/icons/general.png"
-  />
-</div>
-
-</div>
+That's it! Now you're ready to start building applications on top of your contract using the [SDK](/building-web3-apps/setting-up-the-sdk)!
