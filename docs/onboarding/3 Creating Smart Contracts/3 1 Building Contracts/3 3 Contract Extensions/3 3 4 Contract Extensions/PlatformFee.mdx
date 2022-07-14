@@ -2,3 +2,60 @@
 slug: /solidity-sdk/contract-extensions/platformfee
 title: Platform Fee
 ---
+
+# Platform Fee
+
+The `PlatformFee` smart contract extension is usable with any base smart contract. “Platform fee” is a generic fee that you can choose to charge in your smart contract, wherever there is a transfer of currency. The `PlatformFee` extension lets you set a recipient and a % for this generic fee.
+
+## Available functionality
+
+| Functionality            | Description                                                                                          |
+| ------------------------ | ---------------------------------------------------------------------------------------------------- |
+| `getPlatformFeeInfo`     | Returns the platform fee recipient and % of a currency transfer to take as platform fee.             |
+| `setPlatformFeeInfo`     | Lets an authorized wallet set platform fee percentage and recipient.                                 |
+| `_canSetPlatformFeeInfo` | Defines the criteria a wallet must meet to be able to set any platform fee percentage and recipient. |
+
+## Implementing the Contract extension
+
+Import the contract extension and make your contract inherit it.
+
+```solidity
+// SPDX-License-identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/extension/PlatformFee.sol";
+
+contract MyContract is PlatformFee {
+    /**
+     *  We store the contract deployer's address only for the purposes of the example
+     *  in the code comment below.
+     *
+     *  Doing this is not necessary to use the `PlatformFee` extension.
+     */
+    address public deployer;
+
+    constructor() {
+        deployer = msg.sender;
+    }
+
+    /**
+     *  This function returns who is authorized to set platform fee info for your contract.
+     *
+     *  As an EXAMPLE, we'll only allow the contract deployer to set the platform fee info.
+     *
+     *  You MUST complete the body of this function to use the `PlatformFee` extension.
+     */
+    function _canSetPlatformFeeInfo() internal virtual override returns (bool) {
+        return msg.sender == deployer;
+    }
+}
+```
+
+## Unlocked Features
+
+The `PlatformFee` extension smart contract is open source, and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Royalty.sol).
+
+Once deployed, you'll be able to access the following features from the dashboard and the SDK:
+
+- You can interact with your smart contract’s `PlatformFee` features via the thirdweb SDKs. Read about the SDK API [here](https://portal.thirdweb.com/typescript/sdk.contractroyalty).
+- Deploy your contract with `thirdweb deploy` to get a UI on the dashboard to set platform fee information for your contract.

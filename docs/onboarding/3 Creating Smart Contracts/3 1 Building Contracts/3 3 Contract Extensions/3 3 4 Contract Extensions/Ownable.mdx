@@ -2,3 +2,52 @@
 slug: /solidity-sdk/contract-extensions/ownable
 title: Ownable
 ---
+
+# Ownable
+
+The `Ownable` smart contract extension is usable with any base smart contract. It lets you set an owner for your smart contract.
+
+## Available Functionality
+
+| Functionality | Description                                                                           |
+| ------------- | ------------------------------------------------------------------------------------- |
+| `owner`       | Returns the owner of your smart contract.                                             |
+| `setOwner`    | Lets an authorized wallet set the owner of your smart contract.                       |
+| `canSetOwner` | Defines the criteria a wallet must meet to be able to set the owner of your contract. |
+
+Using the `Ownable` extension on your smart contract lets you set an owner for your contract. You can then, for example, restrict functions on your contract to only be callable by the owner, and write other such code that uses information about contract ownership.
+
+For an ERC721 or ERC1155 NFT smart contract, storing royalty information using the `Ownable` extension is necessary to edit your NFT contract’s storefront on Opensea.
+
+## Implementing the Contract extension
+
+Import the contract extension and make your contract inherit it.
+
+```solidity
+// SPDX-License-identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/extension/Ownable.sol";
+
+contract MyContract is Ownable {
+    /**
+     *  This function returns who is authorized to set the owner of your contract.
+     *
+     *  As an EXAMPLE, we'll only allow the current owner to set the contract's new owner.
+     *
+     *  You MUST complete the body of this function to use the `Ownable` extension.
+     */
+    function _canSetOwner() internal virtual override returns (bool) {
+        return msg.sender == owner();
+    }
+}
+```
+
+## Unlocked Features
+
+The `Ownable` extension smart contract is open source, and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Ownable.sol).
+
+Once deployed, you'll be able to access the following features from the dashboard and the SDK:
+
+- You can interact with your smart contract’s `Ownable` features via the thirdweb SDKs. Read about the SDK API [here](https://portal.thirdweb.com/typescript/sdk.contractmetadata).
+- Deploy your contract with `thirdweb deploy` to get a UI on the dashboard to set the owner of your smart contract.

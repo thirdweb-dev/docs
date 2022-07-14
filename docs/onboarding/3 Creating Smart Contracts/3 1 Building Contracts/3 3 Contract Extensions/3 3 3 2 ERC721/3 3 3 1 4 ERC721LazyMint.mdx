@@ -4,3 +4,44 @@ title: Lazy Mint
 ---
 
 import QuickstartCard from "../../../../../../src/components/QuickstartCard";
+
+# ERC-721 Lazy Mint
+
+The `ERC721LazyMint` smart contract uses the [ERC721Base](/solidity-sdk/base-contracts/erc-721/erc721base) base contract along with the `LazyMint` contract extension.
+
+'Lazy minting' means defining the metadata of NFTs without minting it to an address. Regular 'minting' of  NFTs means actually assigning an owner to an NFT.
+
+As a contract admin, this lets you prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs.
+
+## Available functionality
+
+| Functionality                                                 | Description                                                                                                                        |
+| ------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| [ERC721Base](/solidity-sdk/base-contracts/erc-721/erc721base) | See the portal page for ERC721Base, here.                                                                                          |
+| [LazyMint](/solidity-sdk/contract-extensions/lazymint)        | Prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs. |
+
+## Implementing the Contract
+
+Import the contract extension and make your contract inherit it.
+
+```solidity
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC721LazyMint.sol";
+
+contract MyNFT is ERC721LazyMint {
+    constructor(
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps
+    ) ERC721LazyMint(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+}
+```
+
+## Unlocked Features
+
+The `ERC721SignatureMint` smart contract is open source and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721LazyMint.sol).
+
+Once deployed, you'll be able to access the following features from the dashboard and the SDK: extensions used by `ERC721Base`, `LazyMint`.

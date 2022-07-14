@@ -5,17 +5,53 @@ title: Signature Mint
 
 import QuickstartCard from "../../../../../../src/components/QuickstartCard";
 
-# ERC-721 with Signature Minting
+# ERC-721 Signature Mint
 
-todo - this page will be like
+The `ERC721SignatureMint` smart contract uses the [ERC721Base](/solidity-sdk/base-contracts/erc-721/erc721base) base contract along with the `SignatureMintERC721` contract extension.
 
-"same stuff as erc721a (link) but here's what else you get."
+The 'signature minting' mechanism in the `SignatureMintERC721` extension uses [EIP 712](https://eips.ethereum.org/EIPS/eip-712), and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract.
 
-table includes rows:
+At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
 
-1. Link to erc-721a base
-2. link to signature minting contract extension
+## Available functionality
 
-heres what you unlock:
+| Functionality                                                           | Description                                                                                                                    |
+| ----------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| [ERC721Base](/solidity-sdk/base-contracts/erc-721/erc721base)           | See the portal page for ERC721Base, here.                                                                                      |
+| [Primary Sale](/solidity-sdk/contract-extensions/primarysale)           | Accept a price in the currency of your choice from wallets minting your collection’s NFTs.                                     |
+| [Signature Minting](/solidity-sdk/contract-extensions/signatureminting) | Authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party. |
 
-- link to signature (ondemand minting page) : /advanced-features/on-demand-minting
+## Implementing the Contract
+
+Import the contract extension and make your contract inherit it.
+
+```solidity
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC721SignatureMint.sol";
+
+contract MyNFT is ERC721SignatureMint {
+    constructor(
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps,
+        address _primarySaleRecipient
+    )
+        ERC721SignatureMint(
+            _name,
+            _symbol,
+            _royaltyRecipient,
+            _royaltyBps,
+            _primarySaleRecipient
+        )
+    {}
+}
+```
+
+## Unlocked Features
+
+The `ERC721SignatureMint` smart contract is open source and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721SignatureMint.sol).
+
+Once deployed, you'll be able to access the following features from the dashboard and the SDK: extensions used by `ERC721Base`, `SignatureMintERC721`.

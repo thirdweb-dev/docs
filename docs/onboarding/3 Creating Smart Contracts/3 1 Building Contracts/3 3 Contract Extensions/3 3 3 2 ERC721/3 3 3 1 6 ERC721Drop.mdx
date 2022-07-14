@@ -4,3 +4,55 @@ title: Drop
 ---
 
 import QuickstartCard from "../../../../../../src/components/QuickstartCard";
+
+# ERC-721 Drop
+
+The `ERC721Drop` smart contract uses the [ERC721SignatureMint](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721SignatureMint.sol) base contract along with the `LazyMint`, `DelayedReveal` and `DropSinglePhase` contract extension.
+
+The `drop` mechanism in the `DropSinglePhase` extension is a distribution mechanism for lazy minted tokens. It lets you set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint lazy minted tokens.
+
+The `ERC721Drop` contract lets you lazy mint tokens, and distribute those lazy minted tokens via signature minting, or via the drop mechanism.
+
+## Availability functionality
+
+| Functionality                                                                   | Description                                                                                                                        |
+| ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| [ERC721SignatureMint](/solidity-sdk/base-contracts/erc-721/erc721signaturemint) | See the portal page for ERC721SignatureMint, here.                                                                                 |
+| [LazyMint](/solidity-sdk/contract-extensions/lazymint)                          | Prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs. |
+| [DelayedReveal](/solidity-sdk/contract-extensions/delayedreveal)                | Distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact.                                  |
+| DropSinglePhase                                                                 | Set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint lazy minted tokens.                 |
+
+## Implementing the Contract
+
+Import the contract extension and make your contract inherit it.
+
+```solidity
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC721Drop.sol";
+
+contract MyNFT is ERC721Drop {
+    constructor(
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps,
+        address _primarySaleRecipient
+    )
+        ERC721Drop(
+            _name,
+            _symbol,
+            _royaltyRecipient,
+            _royaltyBps,
+            _primarySaleRecipient
+        )
+    {}
+}
+```
+
+## Unlocked Features
+
+The `ERC721Drop` smart contract is open source, and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Drop.sol).
+
+Once deployed, you'll be able to access the following features from the dashboard and the SDK: extensions used by `ERC721SignatureMint`, `LazyMint`, `DelayedReveal` and `DropSinglePhase`.

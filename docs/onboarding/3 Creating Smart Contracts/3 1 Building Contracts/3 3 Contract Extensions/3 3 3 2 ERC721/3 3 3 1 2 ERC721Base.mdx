@@ -7,41 +7,28 @@ import QuickstartCard from "../../../../../../src/components/QuickstartCard";
 
 # ERC-721 Base Contract
 
-The `ERC721Base` contract is for creating an NFT Collection that follows the [ERC-721](https://eips.ethereum.org/EIPS/eip-721)
-"Non-Fungible Token" standard. It utilizes the [ERC-721A](https://www.azuki.com/erc721a) "Azuki" standard for gas optimizations when minting multiple NFTs at once,
-along with several contract extensions common for NFT Collections outlined below.
+The `ERC721Base` smart contract implements the [ERC721](https://eips.ethereum.org/EIPS/eip-721) NFT standard, along with the [ERC721A](https://www.erc721a.org/) optimization to the standard.
+
+The `ERC721Base` smart contract is usable as it is. It is sufficient for the use case of minting NFTs for yourself (or to someone else) and selling those NFTs on a marketplace.
 
 ## Available Functionality
 
-Below is a table outlining what functionality is available in the `ERC721Base` contract.
-
-| Functionality                                                          | Description                                                                                                                                                                       |
-| ---------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [ERC721A](https://www.erc721a.org/)                                    | Gas-optimized NFT Collection Base Contract.                                                                                                                                       |
-| [Mintable](/solidity-sdk/contract-extensions/mintable)                 | Mint functionality (only callable by the owner, by default) with gas-optimized batch minting enabled by ERC721A functionality.                                                    |
-| [Multicall](/solidity-sdk/contract-extensions/multicall)               | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call.                                             |
-| [Ownable](/solidity-sdk/contract-extensions/ownable)                   | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
-| [Burnable](/solidity-sdk/contract-extensions/burnable)                 | Ability for the owner of a token to transfer their NFT to a null address (cannot be recovered).                                                                                   |
-| [Royalty](/solidity-sdk/contract-extensions/royalty)                   | Full royalty support on marketplaces like OpenSea, and [EIP 2981](https://eips.ethereum.org/EIPS/eip-2981) NFT Royalty Standard compliance.                                       |
-| [ContractMetadata](/solidity-sdk/contract-extensions/contractmetadata) | Set a metadata URI on the contract, to give your collection a name, image, description and symbol.                                                                                |
+| Functionality                                                                    | Description                                                                                                                                                                       |
+| -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [ERC721A](https://github.com/chiru-labs/ERC721A/blob/main/contracts/ERC721A.sol) | Gas-optimized NFT Collection Base Contract.                                                                                                                                       |
+| Mintable                                                                         | Mint functionality (only callable by the owner, by default) with gas-optimized batch minting enabled by ERC721A functionality.                                                    |
+| Multicall                                                                        | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call.                                             |
+| [Ownable](/solidity-sdk/contract-extensions/ownable)                             | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
+| Burnable                                                                         | Ability for the owner of a token to transfer their NFT to a null address (cannot be recovered).                                                                                   |
+| [Royalty](/solidity-sdk/contract-extensions/royalty)                             | Full royalty support on marketplaces like OpenSea, and EIP 2981 NFT Royalty Standard compliance.                                                                                  |
+| [ContractMetadata](/solidity-sdk/contract-extensions/contractmetadata)           | Set a metadata URI on the contract, to give your collection a name, image, description and symbol.                                                                                |
 
 ## Implementing the Contract Extension
 
-First, import the contract extension and make your contract inherit it.
+Import the contract extension and make your contract inherit it.
 
 ```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-import "@thirdweb-dev/contracts/base/ERC721Base.sol";
-
-contract MyNFT is ERC721Base {} // Error: Contract "MyNFT" should be marked as abstract.
-```
-
-Add a constructor that configures the contract-level metadata when you deploy the contract.
-
-```solidity
-// SPDX-License-Identifier: MIT
+// SPDX-License-identifier: MIT
 pragma solidity ^0.8.0;
 
 import "@thirdweb-dev/contracts/base/ERC721Base.sol";
@@ -51,14 +38,12 @@ contract MyNFT is ERC721Base {
 	  constructor(
         string memory _name,
         string memory _symbol,
-        string memory _contractURI,
         address _royaltyRecipient,
         uint128 _royaltyBps
     )
         ERC721Base(
             _name,
             _symbol,
-            _contractURI,
             _royaltyRecipient,
             _royaltyBps
         )
@@ -69,16 +54,6 @@ contract MyNFT is ERC721Base {
 
 ## Unlocked Features
 
-Once deployed, you'll be able to access the following features from the dashboard and the SDK:
+The `ERC721Base` smart contract is open source, and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol).
 
-<div className="row" style={{marginBottom:24}}>
-
-<div className="col col--12" style={{ marginTop: 8 }}>
-  <QuickstartCard
-    name="Available ERC721Base Functions"
-    link="/pre-built-contracts/nft-collection"
-    image="/assets/icons/nft.png"
-  />
-</div>
-
-</div>
+Once deployed, you'll be able to access the following features from the dashboard and the SDK:`ContractMetadata`, `Royalty`, `Ownable`, `Mintable` and `Burnable`.

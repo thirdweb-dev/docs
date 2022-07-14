@@ -2,3 +2,82 @@
 slug: /solidity-sdk/contract-extensions/lazymint
 title: Lazy Mint
 ---
+
+# Lazy Mint
+
+The `LazyMint` smart contract extension is meant to be used with any ERC721 or ERC1155 NFT smart contract. It lets you 'lazy mint' any number of NFTs at once.
+
+'Lazy minting' means defining the metadata of NFTs without minting it to an address. Regular 'minting’ of NFTs means actually assigning an owner to an NFT. As a contract admin, this lets you prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs.
+
+## Available functionality
+
+| Functionality  | Description                                                                                                                        |
+| -------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `lazyMint`     | Prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs. |
+| `_canLazyMint` | Defines the criteria a wallet must meet to be able to lazy mint NFTs.                                                              |
+
+## Implementing the Contract extension.
+
+Import the contract extension and make your contract inherit it.
+
+```solidity
+// SPDX-License-identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC721Base.sol";
+import "@thirdweb-dev/contracts/extension/LazyMint.sol";
+
+contract MyNFT is ERC721Base, LazyMint {
+    /**
+     *  We store the contract deployer's address only for the purposes of the example
+     *  in the code comment below.
+     *
+     *  Doing this is not necessary to use the `LazyMint` extension.
+     */
+    address public deployer;
+
+    constructor(
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps
+    ) ERC721Base(_name, _symbol, _royaltyRecipient, _royaltyBps) {
+        deployer = msg.sender;
+    }
+
+    /**
+     *  Here we override the `mintTo` function made available by the `ERC721Base` contract.
+     *
+     *  We make it so that anyone can mint tokens that have already been lazy minted.
+     */
+    function mintTo(address _to, string memory) public virtual override {
+        uint256 quantity = 1;
+        require(
+            nextTokenIdToMint() + quantity <= nextTokenIdToLazyMint,
+            "Not enough lazy minted tokens."
+        );
+
+        _safeMint(_to, quantity, "");
+    }
+
+    /**
+     *  This function returns who is authorized to lazy mint NFTs on your contract.
+     *
+     *  As an EXAMPLE, we'll only allow the contract deployer to lazy mint NFTs.
+     *
+     *  You MUST complete the body of this function to use the `LazyMint` extension.
+     */
+    function _canLazyMint() internal view virtual override returns (bool) {
+        return msg.sender == deployer;
+    }
+}
+```
+
+## Unlocked Features
+
+The `LazyMint` extension smart contract is open source, and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Royalty.sol).
+
+Once deployed, you'll be able to access the following features from the dashboard and the SDK:
+
+- You can interact with your smart contract’s `LazyMint` features via the thirdweb SDKs. Read about the SDK API [here](https://portal.thirdweb.com/typescript/sdk.contractroyalty).
+- Deploy your contract with `thirdweb deploy` to get a UI on the dashboard to set royalty information for your NFT contract.
