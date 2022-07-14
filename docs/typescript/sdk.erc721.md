@@ -52,7 +52,7 @@ await contract.nft.transfer(walletAddress, tokenId);
 **Signature:**
 
 ```typescript
-export declare class Erc721<T extends Multiwrap | SignatureDrop | DropERC721 | TokenERC721 | BaseERC721 = BaseERC721 | BaseSignatureMintERC721> implements UpdateableNetwork, DetectableFeature
+export declare class Erc721<T extends Multiwrap | SignatureDrop | DropERC721 | TokenERC721 | BaseERC721 = BaseERC721> implements UpdateableNetwork, DetectableFeature
 ```
 
 **Implements:** UpdateableNetwork, DetectableFeature

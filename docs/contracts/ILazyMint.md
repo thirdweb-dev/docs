@@ -32,3 +32,22 @@ Lazy mints a given amount of NFTs.
 | Name    | Type    | Description                                                             |
 | ------- | ------- | ----------------------------------------------------------------------- |
 | batchId | uint256 | A unique integer identifier for the batch of NFTs lazy minted together. |
+
+## Events
+
+### TokensLazyMinted
+
+```solidity
+event TokensLazyMinted(uint256 indexed startTokenId, uint256 endTokenId, string baseURI, bytes encryptedBaseURI)
+```
+
+_Emitted when tokens are lazy minted._
+
+#### Parameters
+
+| Name                   | Type    | Description |
+| ---------------------- | ------- | ----------- |
+| startTokenId `indexed` | uint256 | undefined   |
+| endTokenId             | uint256 | undefined   |
+| baseURI                | string  | undefined   |
+| encryptedBaseURI       | bytes   | undefined   |

@@ -35,7 +35,7 @@ const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC1
 
 ```typescript
 export declare function useClaimConditions<
-  TContract extends NFTDrop | EditionDrop | TokenDrop,
+  TContract extends NFTDrop | EditionDrop | TokenDrop | SignatureDrop,
 >(
   ...[contract, tokenId]: ActiveClaimConditionParams<TContract>
 ): import("react-query").UseQueryResult<
