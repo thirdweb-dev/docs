@@ -3,11 +3,19 @@ slug: /solidity-sdk/contract-extensions/lazymint
 title: Lazy Mint
 ---
 
+import ViewContractCodeButton from "../../../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../../../src/components/QuickstartCard";
+
 # Lazy Mint
 
 The `LazyMint` smart contract extension is meant to be used with any ERC721 or ERC1155 NFT smart contract. It lets you 'lazy mint' any number of NFTs at once.
 
 'Lazy minting' means defining the metadata of NFTs without minting it to an address. Regular 'minting’ of NFTs means actually assigning an owner to an NFT. As a contract admin, this lets you prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/LazyMint.sol"
+  name="LazyMint"
+/>
 
 ## Available functionality
 
@@ -75,9 +83,28 @@ contract MyNFT is ERC721Base, LazyMint {
 
 ## Unlocked Features
 
-The `LazyMint` extension smart contract is open source, and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Royalty.sol).
+On the dashboard, you'll be able to lazy mint NFTs by batch uploading metadata files.
 
-Once deployed, you'll be able to access the following features from the dashboard and the SDK:
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ marginTop: 16 }}>
+    <QuickstartCard
+      name="Batch Uploading NFT Metadata Guide"
+      link="/templates/nft-drop/lazy-minting-nfts"
+      image="/assets/icons/drop.png"
+    />
+  </div>
+</div>
 
-- You can interact with your smart contract’s `LazyMint` features via the thirdweb SDKs. Read about the SDK API [here](https://portal.thirdweb.com/typescript/sdk.contractroyalty).
-- Deploy your contract with `thirdweb deploy` to get a UI on the dashboard to set royalty information for your NFT contract.
+![Batch Upload](../../../assets/batch-upload.png)
+
+Within the SDK, you can pass an array of NFT metadata objects to batch lazy mint them
+
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ marginTop: 16 }}>
+    <QuickstartCard
+      name="Lazy Minting in the SDK"
+      link="/pre-built-contracts/signature-drop#lazy-minting-your-nfts"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>

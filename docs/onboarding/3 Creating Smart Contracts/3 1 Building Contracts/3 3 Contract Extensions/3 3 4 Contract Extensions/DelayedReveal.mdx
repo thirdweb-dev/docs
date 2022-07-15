@@ -3,11 +3,30 @@ slug: /solidity-sdk/contract-extensions/delayedreveal
 title: Delayed Reveal
 ---
 
+import ViewContractCodeButton from "../../../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../../../src/components/QuickstartCard";
+
 # Delayed Reveal
 
 The `DelayedReveal` smart contract extension is meant to be used with any ERC721 or ERC1155 NFT smart contract. It lets you create batches of 'delayed-reveal' NFTs.
 
-'Delayed reveal' is a mechanism by which you can distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact. You can learn more how the delayed reveal NFTs work in [this blogpost](https://blog.thirdweb.com/delayed-reveal-nfts).
+'Delayed reveal' is a mechanism by which you can distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DelayedReveal.sol"
+  name="DelayedReveal"
+/>
+
+<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
+<div className="col col--12" style={{marginTop:16}} >
+  <QuickstartCard
+    name="Learn More About How Delayed Reveal Works"
+    link="https://blog.thirdweb.com/delayed-reveal-nfts"
+    image="/assets/icons/drop.png"
+  />
+</div>
+
+</div>
 
 ## Available functionality
 
@@ -130,9 +149,22 @@ contract MyNFT is ERC721Base, DelayedReveal {
 }
 ```
 
-The `DelayedReveal` extension smart contract is open source, and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Royalty.sol).
+## Unlocked Features
 
-Once deployed, you'll be able to access the following features from the dashboard and the SDK:
+Configure a password and placeholder metadata of your delayed reveal using the dashboard or the SDK.
 
-- You can interact with your smart contract’s `DelayedReveal` features via the thirdweb SDKs. Read about the SDK API [here](https://portal.thirdweb.com/typescript/sdk.contractroyalty).
-- Deploy your contract with `thirdweb deploy` to get a UI on the dashboard for revealing the metadata of delayed-reveal NFTs on your NFT contract.
+If you use [thirdweb deploy](/thirdweb-cli) you'll be able to select the delayed reveal option when you batch upload your NFTs.
+
+![Delayed Reveal.png](../assets/delayed-reveal.png)
+
+You can also set up and release a delayed reveal using the [SDK](/building-web3-apps/setting-up-the-sdk):
+
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ marginTop: 16 }}>
+    <QuickstartCard
+      name="Delayed Reveals in the SDK"
+      link="/advanced-features/delayed-reveal"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>

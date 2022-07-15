@@ -3,9 +3,17 @@ slug: /solidity-sdk/contract-extensions/primarysale
 title: Primary Sale
 ---
 
+import ViewContractCodeButton from "../../../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../../../src/components/QuickstartCard";
+
 # Primary Sale
 
 The `PrimarySale` smart contract extension is usable with any base smart contract. It lets you set a recipient for any sale value you collect in your smart contract.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/PrimarySale.sol"
+  name="PrimarySale"
+/>
 
 ## Available functionality
 
@@ -58,9 +66,6 @@ contract MyContract is PrimarySale {
 
 ## Unlocked Features
 
-The `PrimarySale` extension smart contract is open source, and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Royalty.sol).
+On the dashboard, you'll be able to set the wallet address for the primary sale recipient under the `Settings` tab:
 
-Once deployed, you'll be able to access the following features from the dashboard and the SDK:
-
-- You can interact with your smart contract’s `PrimarySale` features via the thirdweb SDKs. Read about the SDK API [here](https://portal.thirdweb.com/typescript/sdk.contractroyalty).
-- Deploy your contract with `thirdweb deploy` to get a UI on the dashboard to set primary sale information for your contract.
+![Batch Upload](../../../assets/platform-fee.png)

@@ -3,9 +3,17 @@ slug: /solidity-sdk/contract-extensions/platformfee
 title: Platform Fee
 ---
 
+import ViewContractCodeButton from "../../../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../../../src/components/QuickstartCard";
+
 # Platform Fee
 
 The `PlatformFee` smart contract extension is usable with any base smart contract. “Platform fee” is a generic fee that you can choose to charge in your smart contract, wherever there is a transfer of currency. The `PlatformFee` extension lets you set a recipient and a % for this generic fee.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/PlatformFee.sol"
+  name="PlatformFee"
+/>
 
 ## Available functionality
 
@@ -53,9 +61,18 @@ contract MyContract is PlatformFee {
 
 ## Unlocked Features
 
-The `PlatformFee` extension smart contract is open source, and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Royalty.sol).
+On the dashboard, you'll be able to set the wallet address and percentage of the platform fee under the `Settings` tab:
 
-Once deployed, you'll be able to access the following features from the dashboard and the SDK:
+![Batch Upload](../../../assets/platform-fee.png)
 
-- You can interact with your smart contract’s `PlatformFee` features via the thirdweb SDKs. Read about the SDK API [here](https://portal.thirdweb.com/typescript/sdk.contractroyalty).
-- Deploy your contract with `thirdweb deploy` to get a UI on the dashboard to set platform fee information for your contract.
+Within the SDK, you can `get` and `set` the platform fee (if you have the necessary permissions).
+
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ marginTop: 16 }}>
+    <QuickstartCard
+      name="Platform Fees in the SDK"
+      link="/advanced-features/contract-settings#platform-fees"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>

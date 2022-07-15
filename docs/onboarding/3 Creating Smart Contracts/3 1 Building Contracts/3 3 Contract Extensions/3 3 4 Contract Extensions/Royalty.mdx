@@ -3,9 +3,17 @@ slug: /solidity-sdk/contract-extensions/royalty
 title: Royalties
 ---
 
+import ViewContractCodeButton from "../../../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../../../src/components/QuickstartCard";
+
 # Royalties
 
 The `Royalty` smart contract is an extension usable with any base smart contract. It implements [EIP 2981](https://eips.ethereum.org/EIPS/eip-2981) NFT royalty standard for royalty support on NFT marketplaces.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Royalty.sol"
+  name="Royalty"
+/>
 
 ## Available functionality
 
@@ -61,9 +69,18 @@ contract MyContract is Royalty {
 
 ## Unlocked Features
 
-The `Royalty` extension smart contract is open source, and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Royalty.sol).
+On the dashboard, you'll be able to set the wallet address and percentage of the royalty fee on secondary sales under the `Settings` tab:
 
-Once deployed, you'll be able to access the following features from the dashboard and the SDK:
+![Batch Upload](../../../assets/platform-fee.png)
 
-- You can interact with your smart contract’s `Royalty` features via the thirdweb SDKs. Read about the SDK API [here](https://portal.thirdweb.com/typescript/sdk.contractroyalty).
-- Deploy your contract with `thirdweb deploy` to get a UI on the dashboard to set royalty information for your NFT contract.
+Within the SDK, you can `get` and `set` the royalty fee (if you have the necessary permissions).
+
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ marginTop: 16 }}>
+    <QuickstartCard
+      name="Royalty Fees in the SDK"
+      link="/advanced-features/contract-settings#royalty-fees"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>

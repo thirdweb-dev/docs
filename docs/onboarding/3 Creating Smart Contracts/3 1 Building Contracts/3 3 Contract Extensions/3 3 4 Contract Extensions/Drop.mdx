@@ -3,19 +3,27 @@ slug: /solidity-sdk/contract-extensions/drop
 title: Drop
 ---
 
+import ViewContractCodeButton from "../../../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../../../src/components/QuickstartCard";
+
 # Drop Single Phase
 
 The `DropSinglePhase` smart contract extension is meant to be used with any token (ERC20), or NFT (ERC721 or ERC1155) smart contract.
 
 The ‘drop’ mechanism in the `DropSinglePhase` extension is a distribution mechanism for tokens. It lets you set ‘claim conditions’ i.e. restrictions such as a price to charge, an allowlist etc. when a wallet attempts to mint tokens on your smart contract.
 
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DropSinglePhase.sol"
+  name="DropSinglePhase"
+/>
+
 ## Available functionality
 
-| Functionality | Description |
-| --- | --- |
-| `setClaimConditions` | Lets an authorized wallet set restrictions around the minting of tokens, such as a price to charge, or an allowlist of eligible minters, etc. |
-| `claim` | Lets a wallet eligible to claim tokens. |
-| `_canSetClaimConditions` | Defines the criteria a wallet must meet to be able to set claim conditions. |
+| Functionality            | Description                                                                                                                                   |
+| ------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| `setClaimConditions`     | Lets an authorized wallet set restrictions around the minting of tokens, such as a price to charge, or an allowlist of eligible minters, etc. |
+| `claim`                  | Lets a wallet eligible to claim tokens.                                                                                                       |
+| `_canSetClaimConditions` | Defines the criteria a wallet must meet to be able to set claim conditions.                                                                   |
 
 ## Implementing the Contract extension.
 
@@ -119,9 +127,53 @@ contract MyNFT is ERC721LazyMint, DropSinglePhase {
 }
 ```
 
-The `DropSinglePhase` extension smart contract is open source, and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DropSinglePhase.sol).
+## Unlocked Features
 
-Once deployed, you'll be able to access the following features from the dashboard and the SDK:
+Once deployed, you can now:
 
-- You can interact with your smart contract’s `DropSinglePhase` features via the thirdweb SDKs. Read about the SDK API [here](https://portal.thirdweb.com/typescript/sdk.nftdrop).
-- Deploy your contract with `thirdweb deploy` to get a UI on the dashboard for revealing the metadata of delayed-reveal NFTs on your NFT contract.
+- [Configure a claim phase](/signature-drop#setting-claim-phases)
+- [Have other wallets claim/mint NFTs from your drop](/pre-built-contracts/signature-drop#minting--claiming-nfts)
+
+### Configure a claim phase
+
+On the dashboard, you'll be able to set the criteria under which a wallet can claim tokens from the `Claim Phases` tab:
+
+<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
+<div className="col col--12" style={{marginTop:16}} >
+  <QuickstartCard
+    name="Batch Uploading NFT Metadata Guide"
+    link="/templates/nft-drop/lazy-minting-nfts"
+    image="/assets/icons/drop.png"
+  />
+</div>
+
+</div>
+
+![Claim Phase](../../../assets/claim-phase.png)
+
+Within the SDK, you can pass an array of NFT metadata objects to batch lazy mint them
+
+<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
+<div className="col col--12" style={{marginTop:16}} >
+  <QuickstartCard
+    name="Claim Phases in the SDK"
+    link="/pre-built-contracts/signature-drop#lazy-minting-your-nfts"
+    image="/assets/icons/sdks.png"
+  />
+</div>
+
+</div>
+
+### Claiming NFTs
+
+Within the SDK, you can have a wallet claim tokens from your drop or claim tokens to an address.
+
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ marginTop: 16 }}>
+    <QuickstartCard
+      name="Claim NFTs in the SDK"
+      link="/pre-built-contracts/signature-drop#minting--claiming-nfts"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>

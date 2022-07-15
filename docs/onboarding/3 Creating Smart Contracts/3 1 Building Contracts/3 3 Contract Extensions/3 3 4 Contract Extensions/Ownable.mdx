@@ -3,9 +3,17 @@ slug: /solidity-sdk/contract-extensions/ownable
 title: Ownable
 ---
 
+import ViewContractCodeButton from "../../../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../../../src/components/QuickstartCard";
+
 # Ownable
 
 The `Ownable` smart contract extension is usable with any base smart contract. It lets you set an owner for your smart contract.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Ownable.sol"
+  name="Ownable"
+/>
 
 ## Available Functionality
 
@@ -45,9 +53,14 @@ contract MyContract is Ownable {
 
 ## Unlocked Features
 
-The `Ownable` extension smart contract is open source, and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Ownable.sol).
+Within the SDK, you can have a wallet claim tokens from your drop or claim tokens to an address.
 
-Once deployed, you'll be able to access the following features from the dashboard and the SDK:
-
-- You can interact with your smart contract’s `Ownable` features via the thirdweb SDKs. Read about the SDK API [here](https://portal.thirdweb.com/typescript/sdk.contractmetadata).
-- Deploy your contract with `thirdweb deploy` to get a UI on the dashboard to set the owner of your smart contract.
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ marginTop: 16 }}>
+    <QuickstartCard
+      name="Claim NFTs in the SDK"
+      link="/pre-built-contracts/signature-drop#minting--claiming-nfts"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>

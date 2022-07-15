@@ -3,9 +3,17 @@ slug: /solidity-sdk/contract-extensions/contractmetadata
 title: Contract Metadata
 ---
 
+import ViewContractCodeButton from "../../../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../../../src/components/QuickstartCard";
+
 # Contract Metadata
 
 The `ContractMetadata` smart contract is an extension usable with any base smart contract. It lets you associate arbitrary metadata with your smart contract.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/ContractMetadata.sol"
+  name="ContractMetadata"
+/>
 
 ## Available functionality
 
@@ -58,10 +66,20 @@ contract MyContract is ContractMetadata {
 
 ## Unlocked Features
 
-The `ContractMetadata` extension smart contract is open source, and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/ContractMetadata.sol).
+Read, write, and update metadata on the contract itself using the dashboard or the SDK.
 
-Once deployed, you'll be able to access the following features from the dashboard and the SDK:
+If you use [thirdweb deploy](/thirdweb-cli) to deploy, you'll unlock the `Settings` tab to easily modify the contract's metadata:
 
-- You can interact with your smart contract’s `ContractMetadata` features via the thirdweb SDKs. Read about the SDK API [here](https://portal.thirdweb.com/typescript/sdk.contractmetadata).
-- Deploy your contract with `thirdweb deploy` to get a UI on the dashboard to set the metadata of your smart contract.
-  ![Settings Tab.png](../../../assets/settings-tab.png)
+![Settings Tab.png](../../../assets/settings-tab.png)
+
+You can also edit the contract metadata programmatically using the [SDK](/building-web3-apps/setting-up-the-sdk):
+
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ marginTop: 16 }}>
+    <QuickstartCard
+      name="Contract Metadata in the SDK"
+      link="/advanced-features/contract-settings#contract-metadata"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>

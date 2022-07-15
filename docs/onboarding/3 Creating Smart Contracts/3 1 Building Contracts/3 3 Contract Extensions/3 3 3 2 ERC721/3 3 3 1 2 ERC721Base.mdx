@@ -3,6 +3,7 @@ slug: /solidity-sdk/base-contracts/erc-721/erc721base
 title: Base
 ---
 
+import ViewContractCodeButton from "../../../../../../src/components/ViewContractCodeButton";
 import QuickstartCard from "../../../../../../src/components/QuickstartCard";
 
 # ERC-721 Base Contract
@@ -10,6 +11,11 @@ import QuickstartCard from "../../../../../../src/components/QuickstartCard";
 The `ERC721Base` smart contract implements the [ERC721](https://eips.ethereum.org/EIPS/eip-721) NFT standard, along with the [ERC721A](https://www.erc721a.org/) optimization to the standard.
 
 The `ERC721Base` smart contract is usable as it is. It is sufficient for the use case of minting NFTs for yourself (or to someone else) and selling those NFTs on a marketplace.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol"
+  name="ERC721Base"
+/>
 
 ## Available Functionality
 
@@ -54,6 +60,42 @@ contract MyNFT is ERC721Base {
 
 ## Unlocked Features
 
-The `ERC721Base` smart contract is open source, and is available [here on github](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol).
+Once deployed, you'll be able to access the following contract extensions' features on the SDK and dashboard:
 
-Once deployed, you'll be able to access the following features from the dashboard and the SDK:`ContractMetadata`, `Royalty`, `Ownable`, `Mintable` and `Burnable`.
+<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
+<div className="col col--4" style={{marginTop:16}} >
+  <QuickstartCard
+    name="Contract Metadata"
+    link="/solidity-sdk/contract-extensions/contractmetadata#unlocked-features"
+    image="/assets/icons/general.png"
+  />
+</div>
+
+<div className="col col--4" style={{marginTop:16}}>
+  <QuickstartCard
+    name="Royalties"
+    link="/solidity-sdk/contract-extensions/royalty#unlocked-features"
+    image="/assets/icons/general.png"
+  />
+</div>
+<div className="col col--4" style={{marginTop:16}}>
+  <QuickstartCard
+    name="Ownable"
+    link="/solidity-sdk/contract-extensions/ownable#unlocked-features"
+    image="/assets/icons/general.png"
+  />
+</div>
+<div className="col col--4" style={{marginTop:16}}>
+  <QuickstartCard
+    name="Mintable"
+    link="/pre-built-contracts/nft-collection#minting-nfts"
+    image="/assets/icons/nft.png"
+  />
+</div><div className="col col--4" style={{marginTop:16}}>
+  <QuickstartCard
+    name="Burnable"
+    link="/pre-built-contracts/nft-collection#burning-nfts"
+    image="/assets/icons/nft.png"
+  />
+</div>
+</div>
