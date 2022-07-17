@@ -52,7 +52,7 @@ In the beginning, you start out with nothing! In order to play the game, you nee
 
 1. Mint your character NFT (ERC-1155 using the [Edition Drop](https://portal.thirdweb.com/pre-built-contracts/edition-drop) contract)
 2. Purchase a pickaxe NFT from the "Shop" (Another ERC-1155 using an [Edition Drop](https://portal.thirdweb.com/pre-built-contracts/edition-drop) contract)
-3. "Equip" (stake) the pickaxe NFT in the [Mining](https://github.com/thirdweb-example/play-to-earn-game/blob/main/contracts/contracts/Mining.sol)
+3. "Equip" (stake) the pickaxe NFT in the [Mining](https://github.com/thirdweb-example/play-to-earn-game/blob/main/contracts/contracts/Mining.sol) contract (built with [thirdweb deploy
 4. Start earning "Gold Gems"; ERC-20 tokens (using the [Token](https://portal.thirdweb.com/pre-built-contracts/token) contract)
 
 You can use the GEMs you earn to purchase higher tier pickaxes, which will increase your rewards per block.
@@ -81,7 +81,7 @@ You can create your own copy of this project by running the following command:
 npx thirdweb create --template play-to-earn
 ```
 
-Inside the [contractAddresses](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/const/contractAddresses.ts)
+Inside the [contractAddresses](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/const/contractAddresses.ts) file, you can change the contract addresses to your own contracts.
 
 This project uses 4 contracts built with thirdweb:
 
@@ -106,9 +106,9 @@ Below, you can find an explanation of the key areas of the project and code snip
 
 The project is divided into two parts:
 
-1. The [application](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application)
+1. The [application](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application) folder contains the code for the front-end of the application.
 
-2. The [contracts](https://github.com/thirdweb-example/play-to-earn-game/blob/main/contracts)
+2. The [contracts](https://github.com/thirdweb-example/play-to-earn-game/blob/main/contracts) folder contains our smart contract set up, including our [Mining
 
 ### Deploying the Mining Contract
 
@@ -245,7 +245,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 Which allows us to use any of the React SDK's hooks in our application!
 
-On the [index.tsx](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/pages/index.tsx)
+On the [index.tsx](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/pages/index.tsx) page, we use [useMetamask
 
 ```tsx
 const connectWithMetamask = useMetamask();
@@ -295,7 +295,7 @@ export default function MintContainer() {
 
 Once they have claimed their character, they can play the game.
 
-The logic of the game page is on the [play](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/pages/play.tsx)
+The logic of the game page is on the [play](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/pages/play.tsx) page.
 
 ### The Play Page
 
@@ -312,10 +312,10 @@ const tokenContract = useToken(GOLD_GEMS_ADDRESS);
 
 There are several components that show different information and pull data from the contracts.
 
-1. [CurrentGear Component](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/components/CurrentGear.tsx)
-2. [Rewards Component](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/components/Rewards.tsx)
-3. [OwnedGear Component](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/components/OwnedGear.tsx)
-4. [Shop Component](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/components/Shop.tsx)
+1. [CurrentGear Component](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/components/CurrentGear.tsx) - Shows the owned character NFT and currently staked pickaxe
+2. [Rewards Component](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/components/Rewards.tsx) - Shows the available rewards in the mining contract, the balance of the connected wallet, and a client-side estimation of the rewards they have earnt since they loaded the page in this session.
+3. [OwnedGear Component](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/components/OwnedGear.tsx) - Shows the owned pickaxes the wallet has and an "Equip" button to stake it.
+4. [Shop Component](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/components/Shop.tsx) - Shows all of the pickaxes in the Pickaxe Edition Drop contract, the price for each, and a "Buy" button to claim it.
 
 ### Current Gear
 
@@ -395,7 +395,7 @@ To claim the rewards from the contract:
 await miningContract.call("claim");
 ```
 
-There is a fun little component within this one caled [ApproxRewards](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/components/ApproxRewards.tsx)
+There is a fun little component within this one caled [ApproxRewards](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/components/ApproxRewards.tsx) that estimates the rewards that have been earnt during this session. \_It's probably not that accurate, it just looks pretty cool! It:
 
 - Reads the token ID of the currently staked pickaxe
 - Multiplies it by the rewards amount `10_000_000_000_000`

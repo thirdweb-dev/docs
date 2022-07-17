@@ -73,7 +73,7 @@ This example project uses a [Token](https://portal.thirdweb.com/pre-built-contra
 
 You can deploy all of these contracts via the [thirdweb dashboard](https://thirdweb.com/dashboard)
 
-This project also includes a [deployPack](https://github.com/thirdweb-example/packs/blob/main/scripts/deployPack.mjs)
+This project also includes a [deployPack](https://github.com/thirdweb-example/packs/blob/main/scripts/deployPack.mjs) script that you can use to deploy the pack contract and a [bundleTokens
 
 ### 3. Plug in your NFT Drop contract address
 
@@ -95,7 +95,7 @@ Below, you'll find the core features of this example explained!
 
 You can use the thirdweb dashboard to deploy a pack contract.
 
-In this example project, we have written a script to deploy the pack contract via the SDK in [deployPack.ts](https://github.com/thirdweb-example/packs/blob/main/scripts/deployPack.mjs)
+In this example project, we have written a script to deploy the pack contract via the SDK in [deployPack.ts](https://github.com/thirdweb-example/packs/blob/main/scripts/deployPack.mjs).
 
 ```js
 const packAddress = await sdk.deployer.deployPack({
@@ -106,7 +106,7 @@ const packAddress = await sdk.deployer.deployPack({
 
 ### Bundling Tokens
 
-Inside the [bundleTokens](https://github.com/thirdweb-example/packs/blob/main/scripts/bundleTokens.mjs)
+Inside the [bundleTokens](https://github.com/thirdweb-example/packs/blob/main/scripts/bundleTokens.mjs) script, we can bundle NFTs and Tokens into the packs.
 
 We bundle 500 units worth of tokens to create 100 packs with 5 rewards each.
 
@@ -120,7 +120,7 @@ const packNfts = await pack.create({
 
 ### Connecting to User Wallets
 
-We wrap our application in the `ThirdwebProvider` in the [\_app.tsx](https://github.com/thirdweb-example/packs/blob/main/pages/_app.tsx)
+We wrap our application in the `ThirdwebProvider` in the [\_app.tsx](https://github.com/thirdweb-example/packs/blob/main/pages/_app.tsx) so that we can use all of the React SDK's hooks:
 
 ```jsx
 <ThirdwebProvider desiredChainId={activeChainId}>
@@ -128,7 +128,7 @@ We wrap our application in the `ThirdwebProvider` in the [\_app.tsx](https://git
 </ThirdwebProvider>
 ```
 
-Now in the [index.tsx](https://github.com/thirdweb-example/packs/blob/main/pages/index.tsx)
+Now in the [index.tsx](https://github.com/thirdweb-example/packs/blob/main/pages/index.tsx) file, we can use the [useMetamask
 
 ```jsx
 const address = useAddress();

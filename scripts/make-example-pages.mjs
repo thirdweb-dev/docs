@@ -79,13 +79,14 @@ function filterContent(content, url) {
           const link = links[i];
           const linkEnd = link.indexOf(")");
           const linkText = link.substring(0, linkEnd);
+          const restOfLinkText = link.substring(linkEnd).slice(1);
 
           if (linkText.startsWith(".")) {
             // Link text now looks like ./relative-path
             // Replace the link text with: url + /relative-path
             links[i] = `](${url}/blob/main/${linkText.slice(2)})`;
 
-            newString += links[i - 1] + links[i];
+            newString += links[i - 1] + links[i] + restOfLinkText;
           }
         }
       }
