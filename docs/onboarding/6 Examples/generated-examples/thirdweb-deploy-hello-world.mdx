@@ -46,7 +46,7 @@ npx thirdweb create --template thirdweb-deploy-hello-world
 
 This example demonstrates a basic project utilizing the thirdweb SDK to interact with a simple contract deployed with [thirdweb deploy](https://portal.thirdweb.com/thirdweb-deploy).
 
-We deploy a basic [HelloWorld](./HelloWorld.sol) smart contract using thirdweb deploy, containing a `get` and `set` function to view data stored in the smart contract, and interact with it using the [thirdweb React SDK](https://portal.thirdweb.com/react).
+We deploy a basic [HelloWorld](https://github.com/thirdweb-example/thirdweb-deploy-hello-world/blob/main/HelloWorld.sol) smart contract using thirdweb deploy, containing a `get` and `set` function to view data stored in the smart contract, and interact with it using the [thirdweb React SDK](https://portal.thirdweb.com/react).
 
 **Check out the Demo here**: https://thirdweb-deploy-hello-world.thirdweb-example.com/
 
@@ -69,7 +69,7 @@ npx thirdweb create --template thirdweb-deploy-hello-world
 npx thirdweb deploy
 ```
 
-- Configure the network you deployed in [`index.js`](./src/index.js):
+- Configure the network you deployed in [`index.js`](https://github.com/thirdweb-example/thirdweb-deploy-hello-world/blob/main/src/index.js):
 
 ```jsx
 // This is the chainId your dApp will work on.
@@ -88,7 +88,7 @@ In this section, we'll dive into the code and explain how it works.
 
 ### Hello World Smart Contract
 
-In [HelloWorld.sol](./HelloWorld.sol), we have a basic smart contract that has three key elements:
+In [HelloWorld.sol](https://github.com/thirdweb-example/thirdweb-deploy-hello-world/blob/main/HelloWorld.sol), we have a basic smart contract that has three key elements:
 
 1. A `storedMessage` variable that stores a `string` inside the smart contract.
 2. A `get` function that returns the value of `storedMessage`.

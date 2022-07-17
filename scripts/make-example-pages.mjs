@@ -47,25 +47,46 @@ async function makeExamplePages(repos) {
   return examplePages;
 }
 
-function filterContent(content) {
+function filterContent(content, url) {
   const lines = content.split("\n");
   lines[0] = "## Using this template";
   // Replace the first line of the content with "# Guide"
-  const filteredLines = lines.filter((l) => {
-    if (
-      l.startsWith("![") ||
-      l.startsWith("<img") ||
-      l.startsWith("</div") ||
-      l.startsWith("<div") ||
-      l.startsWith("<!--") ||
-      l.startsWith("<h1") ||
-      l.startsWith("</h1")
-    ) {
-      return false;
-    }
+  const filteredLines = lines
+    .filter((l) => {
+      if (
+        l.startsWith("![") ||
+        l.startsWith("<img") ||
+        l.startsWith("</div") ||
+        l.startsWith("<div") ||
+        l.startsWith("<!--") ||
+        l.startsWith("<h1") ||
+        l.startsWith("</h1")
+      ) {
+        return false;
+      }
 
-    return true;
-  });
+      return true;
+    })
+    .map((l) => {
+      // Go through each letter of the line until you see "](."
+      // When you do, replace the text that comes after it until you see a closing ")".
+      // The new text should be the old text stripped of the starting ".", and replaced with `${url}/blob/main/`.
+      let i = 0;
+      while (i < l.length) {
+        if (l[i] === "(" && l[i + 1] === ".") {
+          const start = i + 2;
+          let end = start;
+          while (l[end] !== ")") {
+            end++;
+          }
+          const newText = `${url}/blob/main` + l.slice(start, end);
+          l = l.slice(0, start - 1) + newText + l.slice(end);
+        }
+        i++;
+      }
+      return l;
+    });
+
   return filteredLines.join("\n");
 }
 
@@ -98,7 +119,7 @@ hide_title: true
     "---" +
     "\n";
 
-  const md = filterContent(page.text);
+  const md = filterContent(page.text, page.html_url);
 
   const createSnippet =
     "To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):" +

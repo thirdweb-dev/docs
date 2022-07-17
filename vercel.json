@@ -250,6 +250,11 @@
       "source": "/thirdweb-deploy",
       "destination": "/thirdweb-cli",
       "permanent": true
+    },
+    {
+      "source": "/thirdweb-deploy/thirdweb-cli",
+      "destination": "/thirdweb-cli",
+      "permanent": true
     }
   ]
 }

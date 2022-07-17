@@ -80,8 +80,8 @@ Visit the application at [http://localhost:3000/](http://localhost:3000/).
 
 This template has two components:
 
-1. The smart contract development in the [contract folder](./contract).
-2. The web application in the [application folder](./application).
+1. The smart contract development in the [contract folder](https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app/blob/main/contract).
+2. The web application in the [application folder](https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app/blob/main/application).
 
 <h3>Deploying the contract</h3>
 
@@ -101,21 +101,21 @@ Complete the deployment flow by clicking the generated link and using the thirdw
 
 <h3>Using Your Contract</h3>
 
-Inside the [home page](./application/pages/index.js) of the web application, connect to your smart contract inside the [`useContract`](https://portal.thirdweb.com/react/react.usecontract#usecontract-function) hook:
+Inside the [home page](https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app/blob/main/application/pages/index.js) of the web application, connect to your smart contract inside the [`useContract`](https://portal.thirdweb.com/react/react.usecontract#usecontract-function) hook:
 
 ```jsx
 // Get the smart contract by it's address
 const { contract } = useContract("0x..."); // Your contract address here (from the thirdweb dashboard)
 ```
 
-We configure the desired blockchain/network in the [`_app.js`](./application/pages/_app.js) file; be sure to change this to the network you deployed your contract to.
+We configure the desired blockchain/network in the [`_app.js`](https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app/blob/main/application/pages/_app.js) file; be sure to change this to the network you deployed your contract to.
 
 ```jsx
 // This is the chainId your dApp will work on.
 const activeChainId = ChainId.Goerli;
 ```
 
-Now we can easily call the functions of our [`Greeter`](./contract/Greeter.sol) contract, such as the `greet` and `setGreeting` contract:
+Now we can easily call the functions of our [`Greeter`](https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app/blob/main/contract/Greeter.sol) contract, such as the `greet` and `setGreeting` contract:
 
 ```jsx
 // Greet function (read message)
@@ -129,7 +129,7 @@ await contract?.call("setGreeting", newGreeting);
 
 To perform a "write" operation (a transaction on the blockchain), we need to have a connected wallet, so we can use their **signer** to sign the transaction.
 
-To connect a user's wallet, we use one of thirdweb's [wallet connection hooks](https://portal.thirdweb.com/react/category/wallet-connection). The SDK automatically detects the connected wallet and uses it to sign transactions. This works because our application is wrapped in the [`ThirdwebProvider`](https://portal.thirdweb.com/react/react.thirdwebprovider), as seen in the [`_app.js`](./application/pages/_app.js) file.
+To connect a user's wallet, we use one of thirdweb's [wallet connection hooks](https://portal.thirdweb.com/react/category/wallet-connection). The SDK automatically detects the connected wallet and uses it to sign transactions. This works because our application is wrapped in the [`ThirdwebProvider`](https://portal.thirdweb.com/react/react.thirdwebprovider), as seen in the [`_app.js`](https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app/blob/main/application/pages/_app.js) file.
 
 ## What's next?
 

@@ -66,7 +66,7 @@ npx thirdweb create --template auction-house
 
 - Deploy your own marketplace via the [thirdweb dashboard](https://thirdweb.com/contracts)
 
-- Configure the network you deployed in [`_app.tsx`](./pages/_app.tsx):
+- Configure the network you deployed in [`_app.tsx`](https://github.com/thirdweb-example/auction-house/blob/main/pages/_app.tsx):
 
 ```jsx
 // This is the chainId your dApp will work on.
@@ -146,7 +146,7 @@ We can get all kinds of information from the listing, like name, seller, price, 
 
 ### Showing Highest Current Bid
 
-Inside the [CurrentHighestBidArea](./components/CurrentHighestBidArea.tsx) we check the current highest bid on the auction using [.getWinningBid](https://portal.thirdweb.com/pre-built-contracts/marketplace#winning-bid)
+Inside the [CurrentHighestBidArea](https://github.com/thirdweb-example/auction-house/blob/main/components/CurrentHighestBidArea.tsx) we check the current highest bid on the auction using [.getWinningBid](https://portal.thirdweb.com/pre-built-contracts/marketplace#winning-bid)
 
 ```jsx
 const currentWinningBid = await marketplace.auction.getWinningBid(listing.id);
@@ -161,7 +161,7 @@ The way thirdweb's auctions work at a smart contract level is:
 
 For example, if somebody bid `1 ETH` on an auction, and the configured [bid buffer](https://portal.thirdweb.com/pre-built-contracts/marketplace#set-bid-buffer) is `5%`, the next highest bid must be at minimum `1.05 ETH`.
 
-We calculate this inside the [MinimumBidArea](./components/MinimumBidArea.tsx) component:
+We calculate this inside the [MinimumBidArea](https://github.com/thirdweb-example/auction-house/blob/main/components/MinimumBidArea.tsx) component:
 
 _Note: This logic will be easily accessible in the thirdweb SDK soon, so we won't have to do this complexity here._
 
@@ -194,7 +194,7 @@ async function calculateLowestBidPrice() {
 
 ### Bidding
 
-In the [BidBuyArea](./components/BidBuyArea.tsx) we handle the logic for bidding and buying the NFTs from the listings.
+In the [BidBuyArea](https://github.com/thirdweb-example/auction-house/blob/main/components/BidBuyArea.tsx) we handle the logic for bidding and buying the NFTs from the listings.
 
 **Buying:**
 
