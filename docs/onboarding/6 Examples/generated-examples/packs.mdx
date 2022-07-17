@@ -53,7 +53,7 @@ We can open these loot boxes to reveal the tokens inside!
 - [**Edition contract**](https://portal.thirdweb.com/pre-built-contracts/edition): To create NFTs with multiple copies and bundle them into the packs.
 - [**Token contract**](https://portal.thirdweb.com/pre-built-contracts/token): To create our own token that we can bundle into the packs.
 - [**React SDK**](https://docs.thirdweb.com/react): to enable users to connect their wallets with the [useMetamask](https://portal.thirdweb.com/react/react.usemetamask) hook, and access hooks such as [usePack](https://portal.thirdweb.com/react/react.usePack) to interact with the Pack contract.
-- [**TypeScript SDK**](https://docs.thirdweb.com/typescript): To write [scripts](./scripts) that create and deploy our pack contract, and bundle the tokens into the packs.
+- [**TypeScript SDK**](https://docs.thirdweb.com/typescript): To write [scripts](https://github.com/thirdweb-example/packs/blob/main/scripts) that create and deploy our pack contract, and bundle the tokens into the packs.
 
 ## Using This Repo
 
@@ -73,7 +73,7 @@ This example project uses a [Token](https://portal.thirdweb.com/pre-built-contra
 
 You can deploy all of these contracts via the [thirdweb dashboard](https://thirdweb.com/dashboard)
 
-This project also includes a [deployPack](https://github.com/thirdweb-example/packs/blob/main/scripts/deployPack.mjs) script that you can use to deploy the pack contract and a [bundleTokens
+This project also includes a [deployPack](https://github.com/thirdweb-example/packs/blob/main/scripts/deployPack.mjs) script that you can use to deploy the pack contract and a [bundleTokens](https://github.com/thirdweb-example/packs/blob/main/scripts/bundleTokens.mjs) script that you can use to bundle the tokens (from your NFT/Token contracts) into the packs.
 
 ### 3. Plug in your NFT Drop contract address
 
@@ -128,7 +128,7 @@ We wrap our application in the `ThirdwebProvider` in the [\_app.tsx](https://git
 </ThirdwebProvider>
 ```
 
-Now in the [index.tsx](https://github.com/thirdweb-example/packs/blob/main/pages/index.tsx) file, we can use the [useMetamask
+Now in the [index.tsx](https://github.com/thirdweb-example/packs/blob/main/pages/index.tsx) file, we can use the [useMetamask](https://portal.thirdweb.com/react/react.usemetamask) hook to connect to the user's wallet:
 
 ```jsx
 const address = useAddress();

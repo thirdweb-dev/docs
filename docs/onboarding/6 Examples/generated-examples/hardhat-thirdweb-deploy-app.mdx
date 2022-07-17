@@ -101,7 +101,7 @@ Complete the deployment flow by clicking the generated link and using the thirdw
 
 <h3>Using Your Contract</h3>
 
-Inside the [home page](https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app/blob/main/application/pages/index.js) of the web application, connect to your smart contract inside the [`useContract`
+Inside the [home page](https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app/blob/main/application/pages/index.js) of the web application, connect to your smart contract inside the [`useContract`](https://portal.thirdweb.com/react/react.usecontract#usecontract-function) hook:
 
 ```jsx
 // Get the smart contract by it's address
@@ -129,7 +129,7 @@ await contract?.call("setGreeting", newGreeting);
 
 To perform a "write" operation (a transaction on the blockchain), we need to have a connected wallet, so we can use their **signer** to sign the transaction.
 
-https://portal.thirdweb.com/react/react.thirdwebprovider), as seen in the [`_app.js`](https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app/blob/main/application/pages/_app.js) file.
+To connect a user's wallet, we use one of thirdweb's [wallet connection hooks](https://portal.thirdweb.com/react/category/wallet-connection). The SDK automatically detects the connected wallet and uses it to sign transactions. This works because our application is wrapped in the [`ThirdwebProvider`](https://portal.thirdweb.com/react/react.thirdwebprovider), as seen in the [`_app.js`](https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app/blob/main/application/pages/_app.js) file.
 
 ## What's next?
 

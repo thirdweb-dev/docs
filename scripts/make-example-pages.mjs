@@ -68,29 +68,23 @@ function filterContent(content, url) {
       return true;
     })
     .map((l) => {
-      // If a line contains something that looks like: [something](relative-path)
-      // replace it with: [something](url/relative-path)
-
-      let newString = "";
-      // Find each time there is a link
-      const links = l.split("](");
-      if (links.length > 1) {
-        for (let i = 1; i < links.length; i += 2) {
-          const link = links[i];
-          const linkEnd = link.indexOf(")");
-          const linkText = link.substring(0, linkEnd);
-          const restOfLinkText = link.substring(linkEnd).slice(1);
-
-          if (linkText.startsWith(".")) {
-            // Link text now looks like ./relative-path
-            // Replace the link text with: url + /relative-path
-            links[i] = `](${url}/blob/main/${linkText.slice(2)})`;
-
-            newString += links[i - 1] + links[i] + restOfLinkText;
+      // Go through each letter of the line until you see "](."
+      // When you do, replace the text that comes after it until you see a closing ")".
+      // The new text should be the old text stripped of the starting ".", and replaced with `${url}/blob/main/`.
+      let i = 0;
+      while (i < l.length) {
+        if (l[i] === "(" && l[i + 1] === ".") {
+          const start = i + 2;
+          let end = start;
+          while (l[end] !== ")") {
+            end++;
           }
+          const newText = `${url}/blob/main` + l.slice(start, end);
+          l = l.slice(0, start - 1) + newText + l.slice(end);
         }
+        i++;
       }
-      return newString || l;
+      return l;
     });
 
   return filteredLines.join("\n");

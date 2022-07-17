@@ -52,7 +52,7 @@ In the beginning, you start out with nothing! In order to play the game, you nee
 
 1. Mint your character NFT (ERC-1155 using the [Edition Drop](https://portal.thirdweb.com/pre-built-contracts/edition-drop) contract)
 2. Purchase a pickaxe NFT from the "Shop" (Another ERC-1155 using an [Edition Drop](https://portal.thirdweb.com/pre-built-contracts/edition-drop) contract)
-3. "Equip" (stake) the pickaxe NFT in the [Mining](https://github.com/thirdweb-example/play-to-earn-game/blob/main/contracts/contracts/Mining.sol) contract (built with [thirdweb deploy
+3. "Equip" (stake) the pickaxe NFT in the [Mining](https://github.com/thirdweb-example/play-to-earn-game/blob/main/contracts/contracts/Mining.sol) contract (built with [thirdweb deploy](https://portal.thirdweb.com/thirdweb-deploy))
 4. Start earning "Gold Gems"; ERC-20 tokens (using the [Token](https://portal.thirdweb.com/pre-built-contracts/token) contract)
 
 You can use the GEMs you earn to purchase higher tier pickaxes, which will increase your rewards per block.
@@ -108,7 +108,7 @@ The project is divided into two parts:
 
 1. The [application](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application) folder contains the code for the front-end of the application.
 
-2. The [contracts](https://github.com/thirdweb-example/play-to-earn-game/blob/main/contracts) folder contains our smart contract set up, including our [Mining
+2. The [contracts](https://github.com/thirdweb-example/play-to-earn-game/blob/main/contracts) folder contains our smart contract set up, including our [Mining](https://github.com/thirdweb-example/play-to-earn-game/blob/main/contracts/contracts/Mining.sol) contract. We're using [Hardhat](https://hardhat.ethereum.org/) so that we can write tests or scripts to interact with the smart contracts locally.
 
 ### Deploying the Mining Contract
 
@@ -245,7 +245,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 
 Which allows us to use any of the React SDK's hooks in our application!
 
-On the [index.tsx](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/pages/index.tsx) page, we use [useMetamask
+On the [index.tsx](https://github.com/thirdweb-example/play-to-earn-game/blob/main/application/pages/index.tsx) page, we use [useMetamask](https://portal.thirdweb.com/react/react.usemetamask) and [useAddress](https://portal.thirdweb.com/react/react.useaddress) to connect and read to the user's wallet.
 
 ```tsx
 const connectWithMetamask = useMetamask();

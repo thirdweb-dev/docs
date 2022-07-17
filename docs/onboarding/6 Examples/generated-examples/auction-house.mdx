@@ -146,7 +146,7 @@ We can get all kinds of information from the listing, like name, seller, price, 
 
 ### Showing Highest Current Bid
 
-Inside the [CurrentHighestBidArea](https://github.com/thirdweb-example/auction-house/blob/main/components/CurrentHighestBidArea.tsx) we check the current highest bid on the auction using [.getWinningBid
+Inside the [CurrentHighestBidArea](https://github.com/thirdweb-example/auction-house/blob/main/components/CurrentHighestBidArea.tsx) we check the current highest bid on the auction using [.getWinningBid](https://portal.thirdweb.com/pre-built-contracts/marketplace#winning-bid)
 
 ```jsx
 const currentWinningBid = await marketplace.auction.getWinningBid(listing.id);
