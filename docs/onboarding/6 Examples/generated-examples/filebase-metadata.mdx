@@ -61,7 +61,7 @@ npx thirdweb create --template filebase-metadata
 
 You can use the [thirdweb dashboard](https://thirdweb.com/dashboard) to deploy your NFT Collection.
 
-In this example, we provide a script to deploy the NFT Collection contract using the SDK, inside [1-create-nft-collection.mjs](./scripts/1-create-nft-collection.mjs).
+In this example, we provide a script to deploy the NFT Collection contract using the SDK, inside [1-create-nft-collection.mjs](https://github.com/thirdweb-example/filebase-metadata/blob/main/scripts/1-create-nft-collection.mjs)
 
 ```jsx
 const contractAddress = await sdk.deployer.deployNFTCollection({
@@ -74,7 +74,7 @@ const contractAddress = await sdk.deployer.deployNFTCollection({
 
 Head to the [Filebase Console](https://console.filebase.com/), and upload an image file to a bucket using IPFS.
 
-This produces a unique identifier that you can copy into the [2-mint-nft.mjs](./scripts/2-mint-nft.mjs) script.
+This produces a unique identifier that you can copy into the [2-mint-nft.mjs](https://github.com/thirdweb-example/filebase-metadata/blob/main/scripts/2-mint-nft.mjs)
 
 ```js
 // Your Filebase file CID
@@ -98,7 +98,7 @@ const tx = await nftCollection.mint.to(myAddress, {
 
 This means we can use the [AWS SDK](https://docs.filebase.com/configurations/code-development/aws-sdk-javascript) to view information about our Filebase bucket.
 
-In the [3-batch-mint-nfts.mjs](./scripts/3-batch-mint-nfts.mjs) script, we use the AWS SDK to list all of the files that are in our Filebase bucket.
+In the [3-batch-mint-nfts.mjs](https://github.com/thirdweb-example/filebase-metadata/blob/main/scripts/3-batch-mint-nfts.mjs)
 
 With this information, we can get all of the `CID`s of the files that are in our bucket, and then use them to batch mint NFTs.
 
@@ -210,7 +210,7 @@ const batchMint = await nftCollection.mintBatch(metadataArray);
 
 ### Creating a Web App to view NFTs
 
-Inside the [index.js](./pages/index.js) file, we use the thirdweb React SDK to create a web app that can view the NFTs that we minted into this NFT Collection
+Inside the [index.js](https://github.com/thirdweb-example/filebase-metadata/blob/main/pages/index.js)
 
 ```jsx
 const { data: nfts, isLoading } = useNFTs(nftCollection);

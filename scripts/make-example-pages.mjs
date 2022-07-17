@@ -47,25 +47,51 @@ async function makeExamplePages(repos) {
   return examplePages;
 }
 
-function filterContent(content) {
+function filterContent(content, url) {
   const lines = content.split("\n");
   lines[0] = "## Using this template";
   // Replace the first line of the content with "# Guide"
-  const filteredLines = lines.filter((l) => {
-    if (
-      l.startsWith("![") ||
-      l.startsWith("<img") ||
-      l.startsWith("</div") ||
-      l.startsWith("<div") ||
-      l.startsWith("<!--") ||
-      l.startsWith("<h1") ||
-      l.startsWith("</h1")
-    ) {
-      return false;
-    }
+  const filteredLines = lines
+    .filter((l) => {
+      if (
+        l.startsWith("![") ||
+        l.startsWith("<img") ||
+        l.startsWith("</div") ||
+        l.startsWith("<div") ||
+        l.startsWith("<!--") ||
+        l.startsWith("<h1") ||
+        l.startsWith("</h1")
+      ) {
+        return false;
+      }
 
-    return true;
-  });
+      return true;
+    })
+    .map((l) => {
+      // If a line contains something that looks like: [something](relative-path)
+      // replace it with: [something](url/relative-path)
+
+      let newString = "";
+      // Find each time there is a link
+      const links = l.split("](");
+      if (links.length > 1) {
+        for (let i = 1; i < links.length; i += 2) {
+          const link = links[i];
+          const linkEnd = link.indexOf(")");
+          const linkText = link.substring(0, linkEnd);
+
+          if (linkText.startsWith(".")) {
+            // Link text now looks like ./relative-path
+            // Replace the link text with: url + /relative-path
+            links[i] = `](${url}/blob/main/${linkText.slice(2)})`;
+
+            newString += links[i - 1] + links[i];
+          }
+        }
+      }
+      return newString || l;
+    });
+
   return filteredLines.join("\n");
 }
 
@@ -98,7 +124,7 @@ hide_title: true
     "---" +
     "\n";
 
-  const md = filterContent(page.text);
+  const md = filterContent(page.text, page.html_url);
 
   const createSnippet =
     "To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):" +
