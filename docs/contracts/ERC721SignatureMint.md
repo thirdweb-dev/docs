@@ -204,6 +204,27 @@ _See {IERC721-isApprovedForAll}._
 | ---- | ---- | ----------- |
 | \_0  | bool | undefined   |
 
+### isApprovedOrOwner
+
+```solidity
+function isApprovedOrOwner(address _operator, uint256 _tokenId) external view returns (bool isApprovedOrOwnerOf)
+```
+
+Returns whether a given address is the owner, or approved to transfer an NFT.
+
+#### Parameters
+
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_operator | address | undefined   |
+| \_tokenId  | uint256 | undefined   |
+
+#### Returns
+
+| Name                | Type | Description |
+| ------------------- | ---- | ----------- |
+| isApprovedOrOwnerOf | bool | undefined   |
+
 ### mintTo
 
 ```solidity
