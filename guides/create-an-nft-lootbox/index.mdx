@@ -21,7 +21,7 @@ This guide will outline how to:
 
 Demo:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1655793382843/umg37wLi-.png)
+![Project Demo](https://cdn.hashnode.com/res/hashnode/image/upload/v1655793382843/umg37wLi-.png)
 
 :::tip Source Code
 
@@ -57,7 +57,7 @@ To create the token, I'll use the [dashboard](https://thirdweb.com/dashboard).
 
 Head to [https://thirdweb.com/contracts/new](https://thirdweb.com/contracts/new/pre-built/token/token).
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1655688127715/2sUg-4aMM.png)
+![Select contract](https://cdn.hashnode.com/res/hashnode/image/upload/v1655688127715/2sUg-4aMM.png)
 
 From here, we'll need to provide:
 
@@ -68,7 +68,7 @@ From here, we'll need to provide:
 
 for our token!
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1655688200341/XnYEirdLO.png)
+![Token metadata](https://cdn.hashnode.com/res/hashnode/image/upload/v1655688200341/XnYEirdLO.png)
 
 Once you're happy with your token metadata, click the **Deploy Now** button!
 
@@ -78,13 +78,13 @@ If you want to learn more about testnets, check out this guide on [Which network
 
 Once we deploy it, we can see the result, which looks like this:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1655688424324/byuBC2loe.png)
+![Current token supply is 0](https://cdn.hashnode.com/res/hashnode/image/upload/v1655688424324/byuBC2loe.png)
 
 Since we have a total supply of `0.0`, let's mint some tokens now, by clicking the **Mint** button!
 
 I'll mint 100 $GOLD tokens:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1655688463894/j9IPiwvu3.png)
+![Mint gold tokens](https://cdn.hashnode.com/res/hashnode/image/upload/v1655688463894/j9IPiwvu3.png)
 
 Nice! Now we have our very own token, let's start creating some Pirate Item NFTs!
 
@@ -98,11 +98,11 @@ Head back to the [dashboard](https://thirdweb.com/dashboard) and click "Deploy N
 
 Once again, we'll need to provide the metadata for the contract:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1655688834106/QDkSugnTe.png)
+![Create Pirate Items](https://cdn.hashnode.com/res/hashnode/image/upload/v1655688834106/QDkSugnTe.png)
 
 Nice! Now we're ready to mint some NFTs into this collection. Here's how it looks so far:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1655688930210/Z4_fmfexL.png)
+![Pirate items empty state](https://cdn.hashnode.com/res/hashnode/image/upload/v1655688930210/Z4_fmfexL.png)
 
 Before we dive right into the minting, let's think about how we want our treasure chests to work.
 
@@ -139,11 +139,11 @@ Now let's mint these NFTs!
 
 I'll mint the NFTs we listed in the table above with the specified quantity, remembering that our `Gold Coins` are the ERC-20 tokens we already created in the previous step!
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1655690187754/Tq5wyKSKl.png)
+![Mint an NFT](https://cdn.hashnode.com/res/hashnode/image/upload/v1655690187754/Tq5wyKSKl.png)
 
 After I've minted all the NFTs, it looks like this:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1655699874962/UNn4XZRaE.png)
+![All minted NFTs](https://cdn.hashnode.com/res/hashnode/image/upload/v1655699874962/UNn4XZRaE.png)
 
 Now we're ready to bundle these into our treasure chests - let's make some Packs!
 
@@ -219,7 +219,7 @@ We can run this script by running:
 node ./scripts/deployPack.mjs
 ```
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1655705189339/3o39tdHD-.png)
+![Deploy pack with script](https://cdn.hashnode.com/res/hashnode/image/upload/v1655705189339/3o39tdHD-.png)
 
 Now, our next step is to bundle the NFTs and ERC-20 tokens we created into these packs!
 
@@ -264,7 +264,7 @@ import fs from "fs";
 ```js
 // Upload the Chest to IPFS
 const ipfsHash = await sdk.storage.upload(chestFile);
-const url = `${ipfsHash.baseUri}`;
+const url = ipfsHash.uris[0];
 ```
 
 **Create the Packs**
@@ -413,7 +413,7 @@ We then `map` over each of the different ERC-1155 tokens they own (assuming you 
 
 With some added [styles](https://github.com/thirdweb-example/packs/tree/main/styles) we have something that looks like this:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1655734747758/UAqWIuD28.png)
+![100 treasure chest nfts](https://cdn.hashnode.com/res/hashnode/image/upload/v1655734747758/UAqWIuD28.png)
 
 Now, we'll need to add the `Open` functionality!
 
@@ -422,11 +422,12 @@ Now, we'll need to add the `Open` functionality!
 To open packs, we simply use the `.open` function and specify how many we want to open.
 
 ```tsx
-const [rewards, setRewards] = useState<PackRewardsOutput>();
+const [openedPackRewards, setOpenedPackRewards] = useState<PackRewards>();
 
 async function open() {
   const openedRewards = await pack?.open(0, 1);
-  setRewards(openedRewards as PackRewardsOutput);
+  console.log("Opened rewards:", openedRewards);
+  setOpenedPackRewards(openedRewards);
 }
 ```
 
@@ -439,22 +440,26 @@ Beneath our existing UI, let's create a section to display the opened rewards.
 
             <h2>Opened Rewards</h2>
 
-            {rewards && Object.entries(rewards.erc20Rewards)?.length > 0 && (
+           {openedPackRewards &&
+            openedPackRewards?.erc20Rewards &&
+            openedPackRewards?.erc20Rewards?.length > 0 && (
               <>
                 <h3>ERC-20 Tokens</h3>
                 <div className={styles.nftBoxGrid}>
-                  {rewards.erc20Rewards.map((reward, i) => (
+                  {openedPackRewards?.erc20Rewards?.map((reward, i) => (
                     <ERC20RewardBox reward={reward} key={i} />
                   ))}
                 </div>
               </>
             )}
 
-            {rewards && Object.entries(rewards.erc1155Rewards)?.length && (
+          {openedPackRewards &&
+            openedPackRewards?.erc1155Rewards &&
+            openedPackRewards?.erc1155Rewards?.length > 0 && (
               <>
                 <h3>ERC-1155 Tokens</h3>
                 <div className={styles.nftBoxGrid}>
-                  {rewards.erc1155Rewards.map((reward, i) => (
+                  {openedPackRewards?.erc1155Rewards.map((reward, i) => (
                     <ERC1155RewardBox reward={reward} key={i} />
                   ))}
                 </div>
@@ -481,14 +486,12 @@ import styles from "../styles/Home.module.css";
 type Props = {
   reward: {
     contractAddress: string,
-    quantityPerReward: string,
-    totalRewards: string,
+    quantityPerReward: string | number,
   },
 };
 
 export default function ERC20RewardBox({ reward }: Props) {
   const token = useToken(reward.contractAddress);
-
   const { data } = useMetadata(token);
 
   return (
@@ -497,7 +500,6 @@ export default function ERC20RewardBox({ reward }: Props) {
         <>
           <ThirdwebNftMedia metadata={data} className={styles.nftMedia} />
           <h3>{data?.name}</h3>
-          {/* @ts-ignore */}
           <p>Amount: {reward.quantityPerReward}</p>
         </>
       )}
@@ -509,28 +511,21 @@ export default function ERC20RewardBox({ reward }: Props) {
 **ERC1155RewardBox**:
 
 ```jsx
-import {
-  ThirdwebNftMedia,
-  useEdition,
-  useMetadata,
-  useNFT,
-  useToken,
-} from "@thirdweb-dev/react";
+import { ThirdwebNftMedia, useEdition, useNFT } from "@thirdweb-dev/react";
+import { BigNumber } from "ethers";
 import React from "react";
 import styles from "../styles/Home.module.css";
 
 type Props = {
   reward: {
+    tokenId: string | number | bigint | BigNumber,
     contractAddress: string,
-    tokenId: string,
-    quantityPerReward: string,
-    totalRewards: string,
+    quantityPerReward: string | number | bigint | BigNumber,
   },
 };
 
 export default function ERC115RewardBox({ reward }: Props) {
   const edition = useEdition(reward.contractAddress);
-
   const { data } = useNFT(edition, reward.tokenId);
 
   return (
@@ -564,7 +559,7 @@ And we can successfully open packs!
 
 When they are opened, we show the metadata for the tokens that were opened:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1655793382843/umg37wLi-.png)
+![Opened Pack](https://cdn.hashnode.com/res/hashnode/image/upload/v1655793382843/umg37wLi-.png)
 
 ## Conclusion
 
