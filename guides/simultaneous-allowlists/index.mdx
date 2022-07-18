@@ -7,20 +7,24 @@ date: "2022-07-19"
 
 # Create Simultaneous Allowlists drop with Signature Drop and Next.js
 
-Learn how to create simultaneous allowlists where different users can buy NFTs from the drop at different price based on which allowlist they are in.
+Learn how to create simultaneous allowlists where different users can buy NFTs from the drop at a different price based on which allowlist they are in.
 
 <!-- truncate -->
 
 ## Introduction
 
 In this guide, we are going to create a [Signature drop](/pre-built-contracts/signature-drop) where users
-will be able to connect their wallets to the website and claim an NFT from the drop. Once the user clicks Mint we will make an api request that checks if the user is a team Member, in a allowlist etc. and based on that we will generate a signature with a different price for each allowlist! Let's get started
+will be able to connect their wallets to the website and claim an NFT from the drop. Once the user clicks `Mint`, we will make an
+API request that checks if the user is in one of our allowlists.
+
+Based on the check, we will generate a signature with a different price for each allowlist! Let's get started.
 
 ## Setup
 
 I am going to use the [Next typescript starter template](https://github.com/thirdweb-example/next-typescript-starter) for this guide.
 
-If you are following along with the guide, you can create a project with the [Next TypeScript template](https://github.com/thirdweb-example/next-typescript-starter) using the thirdweb CLI:
+If you are following along with the guide, you can create a project with the
+[Next TypeScript template](https://github.com/thirdweb-example/next-typescript-starter) using the [thirdweb CLI](/thirdweb-cli):
 
 ```bash
 npx thirdweb create --next --ts
@@ -28,9 +32,8 @@ npx thirdweb create --next --ts
 
 If you already have a Next.js app you can simply follow these steps to get started:
 
-- Install `@thirdweb-dev/react` and `@thirdweb-dev/sdk`
-- Add MetaMask authentication to the site. You can follow this [guide](/guides/add-connectwallet-to-your-website) to do this
-- You all are set to go now!
+- Install `@thirdweb-dev/react` and `@thirdweb-dev/sdk` and `ethers`
+- Add MetaMask authentication to the site. You can follow this [guide](/guides/add-connectwallet-to-your-website) to do this.
 
 By default the network in `_app.tsx` is Mainnet, we need to change it to Mumbai
 
@@ -54,19 +57,25 @@ export default MyApp;
 
 ## Creating a Signature Drop and batch Uploading NFTs
 
-We also need to create a Signature Drop and upload a bunch of NFTs that users can claim. So, go to the [thirdweb dashboard](https://thirdweb.com/dashboard) and create a signature drop!
+We also need to create a Signature Drop and upload a bunch of NFTs that users can claim.
+So, go to the [thirdweb dashboard](https://thirdweb.com/dashboard) and create a signature drop!
 
 Fill out the details and deploy the contract!
 
 ![Deploy Signature Drop](./deploy-signature-drop.png)
 
-Now, let's batch upload some NFTs for the users to mint! I am going to use the [pokemon batch upload example](https://github.com/nachoiacovino/thirdweb-pokemon). Click on batch upload and upload the images and the csv/json file. Once they are uploaded you will be able to see the NFTs! To learn more about batch upload check out [this guide](/guides/how-to-batch-upload).
+Now, let's batch upload some NFTs for the users to mint!
+I am going to use the [pokemon batch upload example](https://github.com/nachoiacovino/thirdweb-pokemon).
+
+Click on batch upload and upload the images and the CSV/JSON file.
+
+Once they are uploaded you will be able to see the NFTs! To learn more about batch upload check out [this guide](/guides/how-to-batch-upload).
 
 ![Batch uploaded NFTs](./batch-upload.png)
 
 ## Making the website
 
-### Creating an API for generating signature
+### Creating an API for generating a signature
 
 We are going to use the signature minting on our backend to check the price at which this user will mint the NFT!
 
@@ -87,11 +96,12 @@ const generateMintSignature = async (
 export default generateMintSignature;
 ```
 
-This creates a basic api for us, if you now go to the [`api/generate-mint-sig`](http://localhost:3000/api/generate-mint-sig) endpoint you will get a response of `Gm wagmi`.
+This creates a basic API for us, if you now go to the [`api/generate-mint-sig`](http://localhost:3000/api/generate-mint-sig)
+endpoint, you will get a response of `Gm wagmi`.
 
-![Api response](./api-response.png)
+![Batch uploaded NFTs](./batch-upload.png)
 
-Let's now initialize the thirdweb sdk!
+Let's now initialize the [thirdweb SDK](/building-web3-apps/setting-up-the-sdk)!
 
 ```ts
 const sdk = ThirdwebSDK.fromPrivateKey(
@@ -108,17 +118,25 @@ Create a new file `.env.local` and add your private key.
 PRIVATE_KEY=<private_key>
 ```
 
-Let's see how to get this private key value.
+:::info How to export your private key
 
-**Getting the wallet private key**
+Learn how to [export your private key](/guides/create-a-metamask-wallet#export-your-private-key) from your wallet.
 
-In your metamask wallet, click on the three dots, then click account details. You will see an option to export private key there. Export your private key and paste it into the `PRIVATE_KEY` variable.
+:::
 
-![Export private key](./export-pvt-key.png)
+To do this, create a file called `.env.local` at the root of your project, and add the following to it:
 
-This will give full access to your wallet to make sure to keep it secret!
+```
+PRIVATE_KEY=your-private-key-here
+```
 
-Finally, paste this in the `.env.local` file. Since we have changed the env variables we need to restart the server. So, cut the terminal and run `yarn dev` again.
+:::warning
+
+Ensure you store and access your private key securely.
+
+- **Never** commit any file that may contain your private key to your source control.
+
+:::
 
 We also need to import the `ThirdwebSDK`:
 
@@ -128,7 +146,9 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 **Determining the price of the NFT**
 
-I am creating 2 hardcoded arrays here but you can get it from a JSON file, from a database, or anything you like! So add these 2 arrays and a function to determine the price:
+I am creating 2 hardcoded arrays in this example, but you can get them from a JSON file, from a database, or anything you like!
+
+So add these 2 arrays and a function to determine the price:
 
 ```ts title="/api/generate-mint-sig.ts"
 const teamMembers = ["0x39Ab29fAfb5ad19e96CFB1E1c492083492DB89d4"];
@@ -146,7 +166,8 @@ const determinePrice = (address: string) => {
 };
 ```
 
-So if the person is in the allowlist they will mint the NFT for 1 matic, if they are a team member they will mint the NFT for 0 matic, and if they are not in the allowlist they will mint the NFT for 2 matic.
+So if the person is in the allowlist they will mint the NFT for 1 MATIC, if they are a team member they will mint the NFT for 0 MATIC,
+and if they are not in an allowlist, they will mint the NFT for 2 MATIC.
 
 **Generating the signature**
 Finally, we are going to access the Signature Drop using the sdk and generate a signature from it:
@@ -209,4 +230,5 @@ If we now try minting the NFT, we will be able to mint the NFT successfully at d
 
 ## Conclusion
 
-This was a lot, now give yourself a pat on the back and share your amazing apps with us! If you want to have a look at the code, check out the [GitHub Repository](https://github.com/thirdweb-dev/examples/tree/main/typescript/simultaneous-allowlist).
+This was a lot, now pat yourself on the back and share your amazing apps with us!
+If you want to have a look at the code, check out the [GitHub Repository](https://github.com/thirdweb-dev/examples/tree/main/typescript/simultaneous-allowlist).
