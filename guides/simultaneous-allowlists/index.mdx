@@ -173,6 +173,8 @@ and if they are not in an allowlist, they will mint the NFT for 2 MATIC.
 Finally, we are going to access the Signature Drop using the sdk and generate a signature from it:
 
 ```ts title="api/generate-mint-sig.ts"
+const { address } = req.body;
+
 const drop = sdk.getSignatureDrop("0xcB31341eE7FaC6917e8e9D71441747e5FAdA466F");
 try {
   const signedPayload = await drop.signature.generate({
@@ -208,6 +210,8 @@ In `index.tsx` update the address ternary and add the Mint button:
 Now we will create the mint function that makes an api call to the backend and mints the NFT:
 
 ```tsx title="index.tsx"
+const drop = useSignatureDrop("0xcB31341eE7FaC6917e8e9D71441747e5FAdA466F");
+
 const mint = async () => {
   const signedPayloadReq = await fetch("/api/generate-mint-sig", {
     method: "POST",
