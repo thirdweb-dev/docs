@@ -46,6 +46,111 @@ aside {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
+.feedback {
+  max-width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 24px;
+  gap: 16px;
+  max-width: 578px;
+  min-height: 67px;
+  left: 16px;
+  top: 16px;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+// mobile screens
+@media (max-width: 960px) {
+  .feedback {
+    flex-direction: column;
+  }
+}
+
+.feedback:hover {
+  outline: none;
+  box-shadow: none;
+}
+
+.feedback-title {
+  width: 186px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  padding-top: 16px;
+}
+
+.feedback-button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 8px;
+  width: 84px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 24px;
+
+  width: 578px;
+  max-width: 100%;
+  height: 307px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+.feedback-form:hover {
+  outline: none;
+  box-shadow: none;
+}
+
+.feedback-form-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: -0.03em;
+  color: #ffffff;
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+}
+
+.feedback-form-input {
+  box-sizing: border-box;
+  padding: 8px 16px;
+  gap: 8px;
+  width: 530px;
+  max-width: 100%;
+  height: 120px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: transparent;
+  border-radius: 4px;
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: inherit;
+  padding-bottom: 8px;
+}
+
 // Welcome to thirdweb Hero section
 .heroGrid {
   display: flex;
