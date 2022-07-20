@@ -129,6 +129,7 @@ export default function FeedbackFooter() {
             width: "auto",
             marginTop: 16,
             borderColor: colorMode === "light" ? "rgba(0, 0, 0, 1)" : "",
+            cursor: "pointer",
           }}
           onClick={() => {
             handleSubmitText(feedback);
