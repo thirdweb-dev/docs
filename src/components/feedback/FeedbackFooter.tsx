@@ -7,12 +7,39 @@ export default function FeedbackFooter({}: Props) {
     "pending" | "open" | "answered"
   >("pending");
 
+  const [feedback, setFeedback] = React.useState<string>("");
+
   async function handleSubmit(answer: boolean) {
     if (answer === true) {
       setSubmissionState("answered");
     }
     if (answer === false) {
       setSubmissionState("open");
+    }
+    sendPosthogEvent(answer);
+  }
+
+  async function sendPosthogEvent(value: boolean) {
+    const posthog = window?.posthog;
+
+    console.log(posthog);
+
+    if (posthog) {
+      posthog.capture("Feedback", {
+        response: value.toString(),
+      });
+    }
+  }
+
+  async function handleSubmitText(text: string) {
+    const posthog = window?.posthog;
+
+    console.log(posthog);
+
+    if (posthog) {
+      posthog.capture("Feedback", {
+        text: text,
+      });
     }
   }
 
@@ -60,12 +87,18 @@ export default function FeedbackFooter({}: Props) {
         <p className="feedback-form-title">
           Please describe the issue you faced so that we can improve the page.
         </p>
-        <textarea className="feedback-form-input" style={{ resize: "none" }} />
+        <textarea
+          className="feedback-form-input"
+          style={{ resize: "none" }}
+          onChange={(e) => setFeedback(e.target.value)}
+        />
 
         <button
           className="feedback-button"
           style={{ width: "auto", marginTop: 16 }}
-          onClick={() => handleSubmit(true)}
+          onClick={() => {
+            handleSubmitText(feedback);
+          }}
         >
           Send feedback
         </button>
