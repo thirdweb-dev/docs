@@ -135,14 +135,14 @@ function contractURI() external view returns (string)
 ### contractVersion
 
 ```solidity
-function contractVersion() external pure returns (uint256)
+function contractVersion() external pure returns (uint8)
 ```
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| \_0  | uint8 | undefined   |
 
 ### encryptDecrypt
 

@@ -75,6 +75,7 @@ import { useGnosis } from "@thirdweb-dev/react";
 |
 | [useGrantRole(contract)](./react.usegrantrole.md) | **<i>(BETA)</i>** Use this to grant a [WalletAddress](./react.walletaddress.md) a specific role on a |
 | [useIsAddressRole(contract, role, walletAddress)](./react.useisaddressrole.md) | **<i>(BETA)</i>** Use this to check if a [WalletAddress](./react.walletaddress.md) is a member of a role on a |
+| [useLazyMint(contract, onProgress)](./react.uselazymint.md) | **<i>(BETA)</i>** Use this to lazy mint a batch of NFTs on your [DropContract](./react.dropcontract.md) |
 | [useListing(contract, listingId)](./react.uselisting.md) | **<i>(BETA)</i>** Use this to get a specific listing from the marketplace. |
 | [useListings(contract, filter)](./react.uselistings.md) | **<i>(BETA)</i>** Use this to get a list all listings from your marketplace contract. |
 | [useMagic()](./react.usemagic.md) | Hook for connecting to an email wallet using magic link. This enables users without their own wallets to connect to your application and sign transactions securely using their email.
