@@ -27,13 +27,6 @@ function EditMetaRow({
   lastUpdatedBy,
   formattedLastUpdatedAt,
 }) {
-  console.log({
-    editUrl,
-    lastUpdatedAt,
-    lastUpdatedBy,
-    formattedLastUpdatedAt,
-  });
-
   return (
     <div
       className={clsx(ThemeClassNames.docs.docFooterEditMetaRow, "row")}

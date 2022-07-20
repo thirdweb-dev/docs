@@ -51,13 +51,12 @@ aside {
   flex-direction: row;
   align-items: center;
   padding: 16px 24px;
+  padding-left: 16px;
   gap: 16px;
   width: 578px;
   width: fit-content;
   min-width: 320px;
   min-height: 67px;
-  left: 16px;
-  top: 16px;
   border-radius: 8px;
   flex-wrap: wrap;
 }

@@ -22,9 +22,6 @@ export default function FeedbackFooter() {
 
   async function sendPosthogEvent(value: boolean) {
     const posthog = window?.posthog;
-
-    console.log(posthog);
-
     if (posthog) {
       posthog.capture("Portal Feedback", {
         response: true ? "yes" : "no",
@@ -34,15 +31,12 @@ export default function FeedbackFooter() {
 
   async function handleSubmitText(text: string) {
     const posthog = window?.posthog;
-
-    console.log(posthog);
-
-    if (posthog) {
+    if (posthog && text?.length > 0) {
       posthog.capture("Portal Feedback", {
         feedback: text,
       });
+      setSubmissionState("answered");
     }
-    setSubmissionState("answered");
   }
 
   // User hasn't clicked yes or no yet
@@ -60,29 +54,21 @@ export default function FeedbackFooter() {
           <button
             className="feedback-button"
             onClick={() => handleSubmit(true)}
-            style={{ marginRight: 8 }}
+            style={{
+              marginRight: 8,
+              borderColor: colorMode === "light" ? "rgba(0, 0, 0, 0.2)" : "",
+            }}
           >
-            <img
-              src="/assets/feedback/thumbs_up.png"
-              alt="thumbs up"
-              style={{
-                filter: colorMode === "light" ? "brightness(0%)" : "",
-              }}
-            />
-            Yes
+            👍 Yes
           </button>
           <button
             className="feedback-button"
             onClick={() => handleSubmit(false)}
+            style={{
+              borderColor: colorMode === "light" ? "rgba(0, 0, 0, 0.2)" : "",
+            }}
           >
-            <img
-              src="/assets/feedback/thumbs_down.png"
-              alt="thumbs down"
-              style={{
-                filter: colorMode === "light" ? "brightness(0%)" : "",
-              }}
-            />
-            No
+            👎 No
           </button>
         </div>
       </div>
@@ -92,7 +78,7 @@ export default function FeedbackFooter() {
   // User clicked yes
   if (submissionState === "answered") {
     return (
-      <div className="feedback card">
+      <div className="feedback card" style={{ justifyContent: "center" }}>
         <p className="feedback-title" style={{ width: "auto" }}>
           Thanks for your feedback 🙏
         </p>
@@ -128,7 +114,7 @@ export default function FeedbackFooter() {
           style={{
             width: "auto",
             marginTop: 16,
-            borderColor: colorMode === "light" ? "rgba(0, 0, 0, 1)" : "",
+            borderColor: colorMode === "light" ? "rgba(0, 0, 0, 0.25)" : "",
             cursor: "pointer",
           }}
           onClick={() => {
