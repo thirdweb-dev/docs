@@ -2,7 +2,6 @@
 // this should be changed later to be more reusable as one component
 
 import React from "react";
-import { useColorMode } from "@docusaurus/theme-common";
 
 type Props = {
   link: string;
@@ -10,8 +9,6 @@ type Props = {
 };
 
 export default function ViewContractCodeButton({ link, name }: Props) {
-  const { colorMode } = useColorMode();
-
   return (
     <div style={{ width: "fit-content" }}>
       <a
@@ -20,26 +17,17 @@ export default function ViewContractCodeButton({ link, name }: Props) {
         target="_blank"
         rel="noopener noreferrer"
         data-view-contract-code={name}
-        style={
-          colorMode === "dark"
-            ? {
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-              }
-            : {
-                display: "flex",
-                flexDirection: "row",
-                alignItems: "center",
-                color: "#000",
-              }
-        }
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "center",
+          color: "#000", // overridden to #fff in css on dark mode
+        }}
       >
         <img
           src={"/assets/github-icon.webp"}
+          className="viewContractCodeBtn__icon"
           style={{
-            // Make it completely white
-            filter: colorMode === "dark" ? "brightness(0) invert(1)" : "",
             height: 24,
             width: 24,
             pointerEvents: "none",
@@ -49,13 +37,11 @@ export default function ViewContractCodeButton({ link, name }: Props) {
 
         {/* Horizontal white line 1px wide */}
         <div
+          className="viewContractCodeBtn__divider"
           style={{
             height: 32,
             width: 1,
-            backgroundColor:
-              colorMode === "dark"
-                ? "rgba(255, 255, 255, 0.25)"
-                : "rgba(0, 0, 0, 0.25)",
+            backgroundColor: "rgba(0, 0, 0, 0.25)",
             marginRight: 12,
             marginLeft: 12,
             pointerEvents: "none",
