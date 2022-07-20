@@ -24,7 +24,7 @@ export default function FeedbackFooter() {
     const posthog = window?.posthog;
     if (posthog) {
       posthog.capture("Portal Feedback", {
-        response: true ? "yes" : "no",
+        response: value ? "yes" : "no",
       });
     }
   }
