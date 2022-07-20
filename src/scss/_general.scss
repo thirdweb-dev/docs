@@ -46,6 +46,116 @@ aside {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
+.feedback {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 16px 24px;
+  padding-left: 16px;
+  gap: 16px;
+  width: 578px;
+  width: fit-content;
+  min-width: 320px;
+  min-height: 67px;
+  border-radius: 8px;
+  flex-wrap: wrap;
+}
+
+// mobile screens
+@media (max-width: 960px) {
+  .feedback {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 8px;
+  }
+}
+
+.feedback:hover {
+  outline: none;
+  box-shadow: none;
+}
+
+.feedback-title {
+  width: 186px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: -0.03em;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  padding-top: 16px;
+}
+
+.feedback-button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 8px;
+  width: 84px;
+  height: 35px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.feedback-button:hover {
+  outline: 1px solid var(--thirdweb-tertiary-color);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
+.feedback-form {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 16px 24px;
+  width: 578px;
+  max-width: 100%;
+  height: 307px;
+  border-radius: 8px;
+}
+.feedback-form:hover {
+  outline: none;
+  box-shadow: none;
+}
+
+.feedback-form-title {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 120%;
+  letter-spacing: -0.03em;
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+  text-align: left;
+}
+
+.feedback-form-input {
+  box-sizing: border-box;
+  padding: 8px 16px;
+  gap: 8px;
+  width: 530px;
+  max-width: 100%;
+  height: 120px;
+  border: 1px solid;
+  border-color: rgba(255, 255, 255, 0.1);
+  background-color: transparent;
+  border-radius: 4px;
+  align-self: stretch;
+  flex-grow: 0;
+  font-family: inherit;
+  margin-bottom: 8px;
+}
+
 // Welcome to thirdweb Hero section
 .heroGrid {
   display: flex;
