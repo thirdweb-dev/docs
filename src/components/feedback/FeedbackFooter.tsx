@@ -1,8 +1,9 @@
 import React from "react";
+import { useColorMode } from "@docusaurus/theme-common";
 
-type Props = {};
+export default function FeedbackFooter() {
+  const { colorMode } = useColorMode();
 
-export default function FeedbackFooter({}: Props) {
   const [submissionState, setSubmissionState] = React.useState<
     "pending" | "open" | "answered"
   >("pending");
@@ -26,7 +27,7 @@ export default function FeedbackFooter({}: Props) {
 
     if (posthog) {
       posthog.capture("Portal Feedback", {
-        response: value.toString(),
+        response: true ? "yes" : "no",
       });
     }
   }
@@ -38,9 +39,10 @@ export default function FeedbackFooter({}: Props) {
 
     if (posthog) {
       posthog.capture("Portal Feedback", {
-        text: text,
+        feedback: text,
       });
     }
+    setSubmissionState("answered");
   }
 
   // User hasn't clicked yes or no yet
@@ -48,14 +50,41 @@ export default function FeedbackFooter({}: Props) {
     return (
       <div className="feedback card">
         <p className="feedback-title">Was this page helpful?</p>
-        <button className="feedback-button" onClick={() => handleSubmit(true)}>
-          <img src="/assets/feedback/thumbs_up.png" alt="thumbs up" />
-          Yes
-        </button>
-        <button className="feedback-button" onClick={() => handleSubmit(false)}>
-          <img src="/assets/feedback/thumbs_down.png" alt="thumbs up" />
-          No
-        </button>
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "row",
+            alignItems: "center",
+          }}
+        >
+          <button
+            className="feedback-button"
+            onClick={() => handleSubmit(true)}
+            style={{ marginRight: 8 }}
+          >
+            <img
+              src="/assets/feedback/thumbs_up.png"
+              alt="thumbs up"
+              style={{
+                filter: colorMode === "light" ? "brightness(0%)" : "",
+              }}
+            />
+            Yes
+          </button>
+          <button
+            className="feedback-button"
+            onClick={() => handleSubmit(false)}
+          >
+            <img
+              src="/assets/feedback/thumbs_down.png"
+              alt="thumbs down"
+              style={{
+                filter: colorMode === "light" ? "brightness(0%)" : "",
+              }}
+            />
+            No
+          </button>
+        </div>
       </div>
     );
   }
@@ -81,21 +110,26 @@ export default function FeedbackFooter({}: Props) {
           justifyContent: "flex-start",
         }}
       >
-        <p className="feedback-form-title" style={{ width: "100%" }}>
-          Sorry about that 😔
-        </p>
+        <p className="feedback-form-title">Sorry about that 😔</p>
         <p className="feedback-form-title">
           Please describe the issue you faced so that we can improve the page.
         </p>
         <textarea
           className="feedback-form-input"
-          style={{ resize: "none" }}
+          style={{
+            resize: "none",
+            borderColor: colorMode === "light" ? "rgba(0, 0, 0, 0.1)" : "",
+          }}
           onChange={(e) => setFeedback(e.target.value)}
         />
 
         <button
           className="feedback-button"
-          style={{ width: "auto", marginTop: 16 }}
+          style={{
+            width: "auto",
+            marginTop: 16,
+            borderColor: colorMode === "light" ? "rgba(0, 0, 0, 1)" : "",
+          }}
           onClick={() => {
             handleSubmitText(feedback);
           }}
