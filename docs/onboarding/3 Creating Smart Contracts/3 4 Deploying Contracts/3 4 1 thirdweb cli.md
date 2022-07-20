@@ -22,6 +22,24 @@ During your development, you can run the `thirdweb detect` command to detect any
 npx thirdweb detect
 ```
 
+### Release
+
+Creates an official release of your contract, along with:
+
+- Author attribution
+- Contract information
+- Instructions on how to use and what it's for
+- Versioning
+- Release notes
+
+Creating releases this way gives you a shareable URL to let others deploy your contracts in one click. It lets you manage released versions and get attribution for deployed contracts. Contract releases are registered on-chain (Polygon) and IPFS, for free [(gasless)](/advanced-features/gasless-transactions).
+
+Deploying released contracts give deployers access to automatic SDKs to integrate into their app and dashboards to manage and monitor the deployed contracts.
+
+```bash
+npx thirdweb release
+```
+
 ### Deploy
 
 - Auto-detect any deployable contract in your project
@@ -33,14 +51,6 @@ Follow the link to the dashboard where you can connect a wallet (or a multi-sig 
 
 ```bash
 npx thirdweb deploy
-```
-
-### Release
-
-Upload your contract to the dashboard and create a sharable landing page with your contract's information.
-
-```bash
-npx thirdweb release
 ```
 
 ### Continuous Integration (Alpha)
