@@ -1,9 +1,6 @@
 import React from "react";
-import { useColorMode } from "@docusaurus/theme-common";
 
 export default function FeedbackFooter() {
-  const { colorMode } = useColorMode();
-
   const [submissionState, setSubmissionState] = React.useState<
     "pending" | "open" | "answered"
   >("pending");
@@ -56,7 +53,6 @@ export default function FeedbackFooter() {
             onClick={() => handleSubmit(true)}
             style={{
               marginRight: 8,
-              borderColor: colorMode === "light" ? "rgba(0, 0, 0, 0.2)" : "",
             }}
           >
             👍 Yes
@@ -64,9 +60,6 @@ export default function FeedbackFooter() {
           <button
             className="feedback-button"
             onClick={() => handleSubmit(false)}
-            style={{
-              borderColor: colorMode === "light" ? "rgba(0, 0, 0, 0.2)" : "",
-            }}
           >
             👎 No
           </button>
@@ -104,7 +97,6 @@ export default function FeedbackFooter() {
           className="feedback-form-input"
           style={{
             resize: "none",
-            borderColor: colorMode === "light" ? "rgba(0, 0, 0, 0.1)" : "",
           }}
           onChange={(e) => setFeedback(e.target.value)}
         />
@@ -114,7 +106,6 @@ export default function FeedbackFooter() {
           style={{
             width: "auto",
             marginTop: 16,
-            borderColor: colorMode === "light" ? "rgba(0, 0, 0, 0.25)" : "",
             cursor: "pointer",
           }}
           onClick={() => {

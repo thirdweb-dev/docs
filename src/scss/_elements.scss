@@ -25,3 +25,37 @@ html[data-theme="dark"] .supported-language-section {
     }
   }
 }
+
+html[data-theme="dark"] .viewContractCodeBtn {
+  color: #fff !important;
+
+  &__icon {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  &__divider {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+  }
+}
+
+html[data-theme="light"] .feedback-button {
+  color: #000 !important;
+  border-color: rgba(0, 0, 0, 0.2) !important;
+}
+
+html[data-theme="light"] .feedback-form-input {
+  color: #000 !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
+}
+
+html[data-theme="dark"] .viewCodeBtn {
+  color: #fff !important;
+
+  &__icon {
+    filter: brightness(0) invert(1) !important;
+  }
+
+  &__divider {
+    background-color: rgba(255, 255, 255, 0.25) !important;
+  }
+}
