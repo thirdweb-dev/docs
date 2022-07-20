@@ -53,6 +53,19 @@
     "homepage": "https://contract-hub.thirdweb-example.com/"
   },
   {
+    "name": "covalent",
+    "html_url": "https://github.com/thirdweb-example/covalent",
+    "description": "Load the tokens a wallet owns using the covalent API",
+    "created_at": "2022-07-07T07:04:15Z",
+    "updated_at": "2022-07-20T07:13:19Z",
+    "clone_url": "https://github.com/thirdweb-example/covalent.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "https://covalent.thirdweb-example.com"
+  },
+  {
     "name": "cra-javascript-starter",
     "html_url": "https://github.com/thirdweb-example/cra-javascript-starter",
     "description": "thirdweb starter project with Create React App & JavaScript",
@@ -396,6 +409,21 @@
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },
   {
+    "name": "quiz",
+    "html_url": "https://github.com/thirdweb-example/quiz",
+    "description": "Reward users who pass a set of questions with an ERC-1155 NFT!",
+    "created_at": "2022-07-20T02:15:59Z",
+    "updated_at": "2022-07-20T06:42:01Z",
+    "clone_url": "https://github.com/thirdweb-example/quiz.git",
+    "topics": [
+      "edition"
+    ],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "https://quiz.thirdweb-example.com"
+  },
+  {
     "name": "sign-in-with-ethereum",
     "html_url": "https://github.com/thirdweb-example/sign-in-with-ethereum",
     "description": "Authenticate to a backend using a wallet",
@@ -442,33 +470,5 @@
     "stargazers_count": 0,
     "is_template": false,
     "homepage": "http://signature-drop.thirdweb-example.com/"
-  },
-  {
-    "name": "thirdweb-deploy-hello-world",
-    "html_url": "https://github.com/thirdweb-example/thirdweb-deploy-hello-world",
-    "description": "A starter project for using thirdweb deploy with the thirdweb SDKs",
-    "created_at": "2022-06-03T00:54:26Z",
-    "updated_at": "2022-06-30T15:08:03Z",
-    "clone_url": "https://github.com/thirdweb-example/thirdweb-deploy-hello-world.git",
-    "topics": [
-      "thirdweb-deploy"
-    ],
-    "language": "JavaScript",
-    "stargazers_count": 2,
-    "is_template": false,
-    "homepage": "https://thirdweb-deploy-hello-world.thirdweb-example.com"
-  },
-  {
-    "name": "thirdweb-stripe",
-    "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
-    "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
-    "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2022-07-11T03:23:18Z",
-    "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
-    "topics": [],
-    "language": "TypeScript",
-    "stargazers_count": 6,
-    "is_template": false,
-    "homepage": null
   }
 ]
