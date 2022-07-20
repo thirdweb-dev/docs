@@ -25,7 +25,7 @@ export default function FeedbackFooter({}: Props) {
     console.log(posthog);
 
     if (posthog) {
-      posthog.capture("Feedback", {
+      posthog.capture("Portal Feedback", {
         response: value.toString(),
       });
     }
@@ -37,7 +37,7 @@ export default function FeedbackFooter({}: Props) {
     console.log(posthog);
 
     if (posthog) {
-      posthog.capture("Feedback", {
+      posthog.capture("Portal Feedback", {
         text: text,
       });
     }
