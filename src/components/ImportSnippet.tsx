@@ -13,7 +13,7 @@ export default function ImportSnippet({ type, category, name }: Props) {
       onClick={(e) => {
         const tagName = e.target.tagName;
         // If tagName is BUTTON, svg, or path -> this is the "copy to clipboard" button
-        if (tagName === "BUTTON" || tagName === "SVG" || tagName === "PATH") {
+        if (tagName === "BUTTON" || tagName === "svg" || tagName === "path") {
           const posthog = window?.posthog;
 
           if (posthog) {
