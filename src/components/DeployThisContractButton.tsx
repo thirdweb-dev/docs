@@ -9,6 +9,26 @@ export default function DeployThisContractButton({
   link,
   contractType,
 }: Props) {
+  function formatName(name: string) {
+    // Replace - with space and capitalize
+    let newName = name.replace("-", " ");
+
+    // Capitalize first letter of each word
+    newName = newName
+      .split(" ")
+      .map((word) => {
+        return word.charAt(0).toUpperCase() + word.slice(1);
+      })
+      .join(" ");
+
+    // Capitalize "Nft"
+    if (newName.includes("Nft")) {
+      newName = newName.replace("Nft", "NFT");
+    }
+
+    return newName;
+  }
+
   return (
     <a
       className="deployContractBtn"
@@ -54,7 +74,9 @@ export default function DeployThisContractButton({
           whiteSpace: "nowrap",
         }}
       >
-        <div style={{ marginRight: 14, fontWeight: 600 }}>Deploy Contract</div>
+        <div style={{ marginRight: 14, fontWeight: 600 }}>
+          Deploy {formatName(contractType)}
+        </div>
       </div>
     </a>
   );

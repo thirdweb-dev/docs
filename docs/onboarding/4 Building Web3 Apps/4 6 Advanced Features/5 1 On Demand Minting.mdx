@@ -3,6 +3,7 @@ slug: /advanced-features/on-demand-minting
 ---
 
 import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet";
+import DeployThisContractButton from "../../../../src/components/DeployThisContractButton";
 
 # On Demand Minting
 
@@ -30,16 +31,50 @@ You can authorize some external party to mint tokens on your contract and specif
 
 ## Signature Drop
 
-<ThirdwebCodeSnippet contract={"SignatureDrop"} name={"signature"} />
+<ThirdwebCodeSnippet
+  contract={"SignatureDrop"}
+  name={"signature"}
+  showHr={false}
+/>
+
+<div style={{ maxWidth: "fit-content" }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/drop/signature-drop"}
+    contractType="signature-drop"
+  />
+</div>
 
 ## NFT Collection
 
 <ThirdwebCodeSnippet contract={"NFTCollection"} name={"signature"} />
 
+<div style={{ maxWidth: "fit-content" }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/token/nft-collection"}
+    contractType="nft-collection"
+    showHr={false}
+  />
+</div>
+
 ## Edition
 
 <ThirdwebCodeSnippet contract={"Edition"} name={"signature"} />
 
+<div style={{ maxWidth: "fit-content" }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/token/edition"}
+    contractType="edition"
+    showHr={false}
+  />
+</div>
+
 ## Token
 
-<ThirdwebCodeSnippet contract={"Token"} name={"signature"} />
+<ThirdwebCodeSnippet contract={"Token"} name={"signature"} showHr={false} />
+
+<div style={{ maxWidth: "fit-content" }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/token/token"}
+    contractType="token"
+  />
+</div>
