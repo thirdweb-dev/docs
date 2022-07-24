@@ -199,7 +199,7 @@ Storing JWT tokens in `localStorage` or ordinary `cookies` is not a secure way t
 
 Our current recommended method of using these tokens is by setting `httpOnly` and `secure` headers on cookies from the backend - this lets the backend send secure cookies to the client-side that the frontend actually has no access to, which mitigates the risk of XSS attacks.
 
-You can see an example implementation of this setup in our [Basic Authentication Example](https://github.com/thirdweb-example/sign-in-with-ethereum)
+You can see an example implementation of this setup in our [Basic Authentication Example](https://github.com/thirdweb-example/login-with-wallet)
 
 **2. Phishing on Login Request**
 
