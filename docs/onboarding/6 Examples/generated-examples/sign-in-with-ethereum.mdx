@@ -38,45 +38,28 @@ npx thirdweb create --template sign-in-with-ethereum
 
 ## Using this template
 
-This project demonstrates an example flow for setting up an authentication flow using the
-[sign-in with ethereum](https://eips.ethereum.org/EIPS/eip-4361) spec via the thirdweb SDK.
+This project demonstrates how to setup a wallet-based authentication flow compliant with the
+[sign-in with ethereum](https://eips.ethereum.org/EIPS/eip-4361) spec via the thirdweb SDK. It enables users to securely sign in to any backend service using just their wallet.
 
-It implements a backend endpoint with an admin wallet to generate and verify signatures as a form of authentication, and a react frontend to enable a user on the client side to connect and authenticate with their wallet.
+## Getting Started
 
-## Setup
+This repository has multiple different examples showing how to implement this flow in different languages and backend frameworks.
 
-To run the project, first clone this repository, and then run one of the following commands to install the dependencies:
+**You can explore the setup and usage for each of these examples in the project specific folders:**
 
-```bash
-npm install
-# or
-yarn install
-```
-
-Next, you need to create a `.env.local` file and add the `ADMIN_PRIVATE_KEY` variable to it with the private key of the wallet you want to use as the admin wallet to generate and verify payloads. Your file should use something like the following:
-
-```.env
-ADMIN_PRIVATE_KEY=...
-```
-
-Finally, you can run the project with one of the following commands:
-
-```bash
-npm run dev
-# or
-yarn dev
-```
-
-Now, you can navigate to [http://localhost:3000](http://localhost:3000) to visit the client side page where you can connect a wallet, sign-in with ethereum and view the payload, and use the payload to authenticate with the backend.
+- [Login with Wallet Next](/tree/main/login-with-wallet-next) - Uses [Next.js](https://nextjs.org/) ([React](https://reactjs.org/) and [Express](https://expressjs.com/)) for both the frontend and backend.
+- [Login with Wallet Next Fiber](/tree/main/login-with-wallet-next-fiber) - Uses [Next.js](https://nextjs.com/) ([React](https://reactjs.org/)) for the frontend and a [Go Fiber](https://gofiber.io/) for the backend.
 
 ## Learn More
 
-To learn more about thirdweb and Next.js, take a look at the following resources:
+To learn more about thirdweb and the authentication SDk, checkout the following resources:
 
+- [thirdweb Authentication Documentation](https://portal.thirdweb.com/building-web3-apps/authenticating-users) - learn about thirdweb authentication.
 - [thirdweb React Documentation](https://docs.thirdweb.com/react) - learn about our React SDK.
-- [thirdweb TypeScript Documentation](https://docs.thirdweb.com/typescript) - learn about our JavaScript/TypeScript SDK.
+- [thirdweb TypeScript Documentation](https://docs.thirdweb.com/typescript) - learn about our TypeScript SDK.
+- [thirdweb Python Documentation](https://docs.thirdweb.com/python) - learn about our Python SDK.
+- [thirdweb Go Documentation](https://docs.thirdweb.com/go) - learn about our Go SDK.
 - [thirdweb Portal](https://docs.thirdweb.com) - check our guides and development resources.
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 
 You can check out [the thirdweb GitHub organization](https://github.com/thirdweb-dev) - your feedback and contributions are welcome!
 
