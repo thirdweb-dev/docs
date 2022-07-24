@@ -238,17 +238,19 @@
     "homepage": ""
   },
   {
-    "name": "login-with-wallet-next-fiber",
-    "html_url": "https://github.com/thirdweb-example/login-with-wallet-next-fiber",
-    "description": "Login with wallet example using a Next frontend and Fiber backend",
-    "created_at": "2022-07-24T00:41:42Z",
-    "updated_at": "2022-07-24T01:10:08Z",
-    "clone_url": "https://github.com/thirdweb-example/login-with-wallet-next-fiber.git",
-    "topics": [],
+    "name": "login-with-wallet",
+    "html_url": "https://github.com/thirdweb-example/login-with-wallet",
+    "description": "Authenticate to a backend using a wallet",
+    "created_at": "2022-06-03T16:04:25Z",
+    "updated_at": "2022-07-24T23:12:40Z",
+    "clone_url": "https://github.com/thirdweb-example/login-with-wallet.git",
+    "topics": [
+      "wallet-connection"
+    ],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 7,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
   },
   {
     "name": "magic-link",
@@ -437,21 +439,6 @@
     "homepage": "https://quiz.thirdweb-example.com"
   },
   {
-    "name": "sign-in-with-ethereum",
-    "html_url": "https://github.com/thirdweb-example/sign-in-with-ethereum",
-    "description": "Authenticate to a backend using a wallet",
-    "created_at": "2022-06-03T16:04:25Z",
-    "updated_at": "2022-07-06T04:38:43Z",
-    "clone_url": "https://github.com/thirdweb-example/sign-in-with-ethereum.git",
-    "topics": [
-      "wallet-connection"
-    ],
-    "language": "TypeScript",
-    "stargazers_count": 7,
-    "is_template": false,
-    "homepage": ""
-  },
-  {
     "name": "signature-based-minting",
     "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
@@ -468,5 +455,20 @@
     "stargazers_count": 10,
     "is_template": false,
     "homepage": "https://signature-based-minting.thirdweb-example.com"
+  },
+  {
+    "name": "signature-drop",
+    "html_url": "https://github.com/thirdweb-example/signature-drop",
+    "description": "Use the signature drop pre-built contract to claim NFTs under a claim phase as well as claim using signature-based minting!",
+    "created_at": "2022-07-14T23:58:52Z",
+    "updated_at": "2022-07-15T12:54:48Z",
+    "clone_url": "https://github.com/thirdweb-example/signature-drop.git",
+    "topics": [
+      "signature-drop"
+    ],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "http://signature-drop.thirdweb-example.com/"
   }
 ]
