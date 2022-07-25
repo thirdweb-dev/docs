@@ -104,6 +104,30 @@ const sidebars = {
       },
       items: [
         {
+          type: "category",
+          label: "Contract Encoders",
+          collapsed: true,
+          link: {
+            type: "generated-index",
+            title: "Contract Encoders",
+            description:
+              "Contract encoders that return unsigned transaction data for contract calls.",
+            keywords: ["contracts", "shared-interfaces"],
+          },
+          items: [
+            {
+              type: "doc",
+              label: "Contract Encoder",
+              id: "contract_encoder",
+            },
+            {
+              type: "doc",
+              label: "Marketplace Encoder",
+              id: "marketplace_encoder"
+            }
+          ],
+        },
+        {
           type: "doc",
           label: "ERC 20",
           id: "erc20",

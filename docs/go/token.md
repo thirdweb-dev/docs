@@ -26,10 +26,11 @@ contract, err := sdk.GetToken("{{contract_address}}")
 ```go
 type Token struct {
     *ERC20
+    Encoder *ContractEncoder
 }
 ```
 
-### func \(\*Token\) [DelegateTo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L185)
+### func \(\*Token\) [DelegateTo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L192)
 
 ```go
 func (token *Token) DelegateTo(delegatreeAddress string) (*types.Transaction, error)
@@ -41,7 +42,7 @@ delegateeAddress: wallet address to delegate tokens to
 
 returns: transaction receipt of the delegation
 
-### func \(\*Token\) [GetDelegation](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L73)
+### func \(\*Token\) [GetDelegation](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L80)
 
 ```go
 func (token *Token) GetDelegation() (string, error)
@@ -51,7 +52,7 @@ Get the connected wallets delegatee address for this token\.
 
 returns: delegation address of the connected wallet
 
-### func \(\*Token\) [GetDelegationOf](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L80)
+### func \(\*Token\) [GetDelegationOf](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L87)
 
 ```go
 func (token *Token) GetDelegationOf(address string) (string, error)
@@ -61,7 +62,7 @@ Get a specified wallets delegatee for this token\.
 
 returns: delegation address of the connected wallet
 
-### func \(\*Token\) [GetVoteBalance](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L52)
+### func \(\*Token\) [GetVoteBalance](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L59)
 
 ```go
 func (token *Token) GetVoteBalance() (*CurrencyValue, error)
@@ -71,7 +72,7 @@ Get the connected wallets voting power in this token\.
 
 returns: vote balance of the connected wallet
 
-### func \(\*Token\) [GetVoteBalanceOf](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L61)
+### func \(\*Token\) [GetVoteBalanceOf](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L68)
 
 ```go
 func (token *Token) GetVoteBalanceOf(address string) (*CurrencyValue, error)
@@ -83,7 +84,7 @@ address: wallet address to check the vote balance of
 
 returns: vote balance of the specified wallet
 
-### func \(\*Token\) [Mint](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L94)
+### func \(\*Token\) [Mint](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L101)
 
 ```go
 func (token *Token) Mint(amount float64) (*types.Transaction, error)
@@ -95,7 +96,7 @@ amount: amount of tokens to mint
 
 returns: transaction receipt of the mint
 
-### func \(\*Token\) [MintBatchTo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L147)
+### func \(\*Token\) [MintBatchTo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L154)
 
 ```go
 func (token *Token) MintBatchTo(args []*TokenAmount) (*types.Transaction, error)
@@ -124,7 +125,7 @@ args = []*thirdweb.TokenAmount{
 tx, err := contract.MintBatchTo(args)
 ```
 
-### func \(\*Token\) [MintTo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L109)
+### func \(\*Token\) [MintTo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/token.go#L116)
 
 ```go
 func (token *Token) MintTo(to string, amount float64) (*types.Transaction, error)
