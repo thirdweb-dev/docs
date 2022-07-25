@@ -5,6 +5,8 @@ image: "./thumbnail.png"
 date: "2022-07-22"
 ---
 
+import QuickstartCard from "../../src/components/QuickstartCard";
+
 # Create A Discord Bot That Gives NFT Holders A Role
 
 In this guide, we'll set up a Discord bot that checks if a wallet has an NFT from a collection, and grants them a special role on our Discord server if they do!
@@ -12,6 +14,28 @@ In this guide, we'll set up a Discord bot that checks if a wallet has an NFT fro
 <!-- truncate -->
 
 Similar to [Collab.Land](https://collab.land/), we'll ask the user to sign in with their wallet as well as their Discord account on our web application, and ask a bot we create to grant them a role on our server using the Discord API running on a Next.js API route.
+
+Before we begin, below are some helpful resources for you to learn more about the parts of the SDK we'll be using.
+
+<div className="row" style={{marginBottom:24}}>
+
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="View Project Source Code"
+    link="https://github.com/thirdweb-example/discord-role-granter"
+    image="/assets/icons/general.png"
+  />
+</div>
+
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Authentication Docs"
+    link="/building-web3-apps/authenticating-users"
+    image="/assets/icons/general.png"
+  />
+</div>
+
+</div>
 
 Let's do it!
 
@@ -43,6 +67,12 @@ Give your bot a username, and I'm unchecking the `Public Bot` field so that only
 
 Scroll down to `Bot Permissions` and give our bot the `Manage Roles` permission:
 
+:::warning Bot Permissions
+
+It's important to note that you should only give your bot the roles it requires. If your bot token is compromised, other users can perform any actions you have permitted it to do.
+
+:::
+
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1658378279649/0SCOzdku8.png)
 
 Once you're ready, click `Save Changes`!
@@ -59,7 +89,7 @@ Copy the Generated URL and open it in your browser.
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1658378817253/bzEMllDkE.png)
 
-Select the server you want to add your bot to and click `Continue`. It will ask you to approve this bot's permissions, you should see a prompt to authorise the bot for `Manage Roles` permissions:
+Make sure it is the bot you expect, select the server you want to add your bot to and click `Continue`. It will ask you to approve this bot's permissions, you should see a prompt to authorize the bot for `Manage Roles` permissions:
 
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1658378873543/clVZw5YdI.png)
 
@@ -350,7 +380,7 @@ On the client, we're going to ask the user to sign in using the [Authentication 
 ```jsx
 // Authenticate login payload
 const sdk = new ThirdwebSDK("mumbai");
-const domain = "thirdweb.com";
+const domain = "thirdweb.com"; // This should be the domain name of your own website
 // Verify the login payload is real and valid
 const verifiedWalletAddress = sdk.auth.verify(domain, loginPayload);
 
@@ -423,16 +453,15 @@ else {
 
 That's it for our API route, now we need to call this from our client!
 
-Back on the `index.tsx` page, let's create a function called `requestGrantRole` and make a fetch request to this API endpoint.
+Back on the `index.tsx` page, let's create a function called `requestGrantRole` _inside_ the component and make a fetch request to this API endpoint.
 
 ```tsx
 const sdk = useSDK();
 
 async function requestGrantRole() {
   // First, login and sign a message
-  const domain = "thirdweb.com";
+  const domain = "thirdweb.com"; // This should be the domain name of your own website
   const loginPayload = await sdk?.auth.login(domain);
-  console.log(loginPayload);
 
   // Then make a request to our API endpoint.
   try {
