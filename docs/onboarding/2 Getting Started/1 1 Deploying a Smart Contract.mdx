@@ -1,136 +1,97 @@
 ---
 slug: /getting-started/deploying-contracts
-title: Deploying a Smart Contract
+title: Deploying a Pre-built Contract
 ---
 
 import DeployingContractsCodeTabs from "../../../src/components/DeployingContractsCodeTabs";
 import InstallingThirdwebCodeTabs from "../../../src/components/InstallingThirdwebCodeTabs.tsx";
 import InitializingThirdwebCodeTabs from "../../../src/components/InitializingThirdwebCodeTabs.tsx";
 import DeployThisContractButton from "../../../src/components/DeployThisContractButton";
+import QuickstartCard from "../../../src/components/QuickstartCard";
 
-# Deploying a Smart Contract
+# Deploying a Pre-Built Contract
 
-There are two ways to deploy contracts using thirdweb.
+[Pre-built contracts](/smart-contracts/deploying-pre-built-contracts) are the quickest way to start building.
 
-1. Deploying one of our [pre-built contracts](/pre-built-contracts), using the [dashboard](https://thirdweb.com/dashboard) or the [SDK](/typescript/sdk.contractdeployer.deploynftdrop).
-2. Writing your own smart contract with the help of our [contract extensions](/thirdweb-deploy/contract-extensions) and deploying it with [thirdweb deploy](/thirdweb-cli).
+This page will show you how to deploy the [NFT Drop](/pre-built-contracts/nft-drop) contract onto the Goerli test network.
 
-To get started, we'll show you how to deploy a pre-built contract; the [NFT Drop](/pre-built-contracts/nft-drop)!
+Click the button below to go to the dashboard, where you can create and deploy your smart contract.
 
-<div style={{ maxWidth: "fit-content" }}>
+<div
+  style={{
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    marginBottom: 32,
+  }}
+>
   <DeployThisContractButton
     link={"https://thirdweb.com/contracts/new/pre-built/drop/nft-drop"}
     contractType="nft-drop"
   />
 </div>
 
-## Connect Your Wallet
+Beneath your contract metadata, select the `Goerli (GOR)` test network, and click `Deploy Now`!
 
-The first step is to visit the [thirdweb dashboard](https://thirdweb.com/dashboard) and connect your wallet.
+![Select Goerli Test Network](./assets/select-goerli.png)
 
-![Connect your wallet](./assets/connect-wallet.png)
+:::tip Deploying Contracts with Code
 
-:::tip Creating a Wallet
+You can deploy and interact with smart contracts using code via our [SDK](/building-web3-apps/setting-up-the-sdk) too!
 
-Learn how to create a wallet here: [Create a MetaMask Wallet Guide](/guides/create-a-metamask-wallet).
-
-:::
-
-## Choosing your Contract
-
-Next, we'll pick which contract we want to deploy.
-
-To deploy an [NFT Drop](/pre-built-contracts/nft-drop), select **Pre-built contracts**.
-
-![What do you want to deploy](./assets/what-do-you-want-to-deploy.png)
-
-From here, we can select which kind of pre-built contract we want to deploy.
-
-To learn more about the different kinds of contracts you can deploy with thirdweb, check out the [pre-built contracts](/pre-built-contracts) page.
-There, you'll find detailed explanations and example use-cases for each of them.
-
-![What do you want to deploy](./assets/what-do-you-want-to-build.png)
-
-An [NFT Drop](/pre-built-contracts/nft-drop) is a "drop" contract, which means other wallets mint NFTs from your collection.
-
-Click **Release a drop** and then **NFT Drop**.
-
-![Select NFT Drop](./assets/nft-drop-selection.png)
-
-## Configuring Contract Metadata
-
-You can configure the [metadata](/advanced-features/contract-settings#contract-metadata)
-of your smart contract before you deploy it.
-
-Metadata includes information such as:
-
-- Image, name, symbol and description.
-- The wallet address that will receive the funds from the contract's mints/sales.
-- The royalty percentage fee on secondary sales and the wallet that will receive them.
-- The blockchain & network that the contract will be deployed to.
-
-:::info Blockchains & Networks
-
-Not sure which blockchain and network you want to deploy to?
-
-Learn more about testnets, and the blockchains that thirdweb supports here: [Blockchains & Networks Guide](/guides/which-network-should-you-use).
-:::
-
-To deploy a contract, you need to have enough funds in your wallet to cover the gas cost of the deployment.
-
-If you're deploying to a testnet, you can get test funds for free, using our [Faucet Guide](guides/get-matic-on-polygon-mumbai-testnet-faucet).
-
-To deploy your contract, click the **Deploy Now** button!
-
-:::tip Deployment Tip
-
-We recommend deploying to a testnet first, to make sure your contract is working as expected.
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Deploy An NFT Drop Contract With Code"
+      link="/pre-built-contracts/nft-drop#create-an-nft-drop-contract"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
 
 :::
 
-## Managing Your Contract
+## Connecting Your Wallet
 
-The dashboard is a great way to visualize and configure your contract.
+If this is your first time building in web3, you'll need a **wallet** to interact with the blockchain.
 
-It allows you to view the contract's current state, configure settings & permissions, and perform helpful actions like mint and transfer NFTs.
+You can also get free **test funds** from a **faucet** to pay for the gas fees for your transactions.
 
-### Creating an NFT
+Learn how to set up a wallet with test funds, and how test networks work below:
 
-To create an NFT, click on the **Create** button.
+<div className="row" style={{marginBottom:24}}>
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Create A MetaMask Wallet"
+    link="/guides/create-a-metamask-wallet"
+    image="/assets/icons/vote.png"
+  />
+</div>
 
-![Mint an NFT Drop](./assets/create-an-nft.png)
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="What Are Test Networks?"
+    link="/guides/which-network-should-you-use"
+    image="/assets/icons/education.png"
+  />
+</div>
+</div>
 
-All of the metadata you configure will automatically be [pinned to IPFS](/guides/securing-pinning-your-nft-with-ipfs) and stored on the blockchain.
+## Next Up
 
-This means it will instantly show up on sites like [OpenSea](https://opensea.io/) and [Rarible](https://rarible.com/) without any extra steps.
+You just deployed your very own smart contract!
 
-Click the **Create Drop** button to lazy-mint your NFT (this allows it to be minted by other wallets).
+You can check it out on [Etherscan](https://goerli.etherscan.io/)
+by entering your contract address _(found underneath your contract name)_.
 
-### Setting up Claim Phases
+Next, let's learn how to get it ready for production; by adding team members, configuring royalties, and more!
 
-The NFT Drop contract uses [claim phases](/pre-built-contracts/nft-drop#claim-phase)
-that define the conditions that must be met before a wallet can claim an NFT.
-
-To add a claim phase, click the **Claim Phases** tab, and then click the **Add Initial Claim Phase** button.
-
-![Add a claim phase](./assets/add-claim-phase.png)
-
-Each claim phase can include a sale price, release date, allow-lists, and more.
-
-Below is an example of a claim phase, where:
-
-- Each NFT is sold for 1 MATIC
-- Any wallet can claim an NFT
-- Each wallet can claim one time, and mint up to 5 NFTs
-
-![Add a claim phase](./assets/configured-claim-phase.png)
-
-Click **Save Claim Phases** to save your changes.
-
-### Adding Team Members
-
-If you're working in a team, you can invite your team members to your contract with different levels of permissions.
-
-Learn more about the different roles and what they mean here: [Permission Controls](/advanced-features/permission-controls).
-
-![Permissions page](./assets/permissions.png)
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Configuring Smart Contracts"
+      link="/getting-started/configuring-contracts"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
