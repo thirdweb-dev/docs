@@ -173,7 +173,7 @@ and if they are not in an allowlist, they will mint the NFT for 2 MATIC.
 Finally, we are going to access the Signature Drop using the sdk and generate a signature from it:
 
 ```ts title="api/generate-mint-sig.ts"
-const { address } = req.body;
+const { address } = JSON.parse(req.body);
 
 const drop = sdk.getSignatureDrop("0xcB31341eE7FaC6917e8e9D71441747e5FAdA466F");
 try {
