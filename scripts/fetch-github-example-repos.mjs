@@ -1,7 +1,8 @@
 import fetch from "node-fetch";
 import fs from "fs-extra";
 
-const apiUrl = "https://api.github.com/users/thirdweb-example/repos";
+const apiUrl =
+  "https://api.github.com/users/thirdweb-example/repos?per_page=100";
 const ghRes = await fetch(apiUrl);
 const ghData = await ghRes.json();
 

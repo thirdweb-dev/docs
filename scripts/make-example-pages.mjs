@@ -39,8 +39,6 @@ async function makeExamplePages(repos) {
         demo: repo.homepage,
         html_url: repo.html_url,
       });
-
-      console.log(`Made page for ${repo.name}`);
     }),
   );
 
@@ -143,9 +141,30 @@ hide_title: true
 async function run() {
   console.log("Making example pages...");
 
+  // Copy the /docs/onboarding/6 Examples/generated-examples\_category.json_ file
+  // so we can restore it after deleting the generated pages.
+  const examplesCategoryJson = fs.readFileSync(
+    "./docs/onboarding/6 Examples/generated-examples/_category_.json",
+    "utf8",
+  );
+
+  // First, delete all pages inside \docs\onboarding\6 Examples\generated-examples using rmdir
+  const dir = "./docs/onboarding/6 Examples/generated-examples";
+
+  if (fs.existsSync(dir)) {
+    fs.rmdirSync(dir, { recursive: true });
+  }
+
+  // Make a new directory for the generated pages
+  fs.mkdirSync(dir);
+
   const examplePages = await makeExamplePages(examplesJson);
 
-  console.log(examplePages);
+  // Restore category.json
+  fs.writeFileSync(
+    "./docs/onboarding/6 Examples/generated-examples/_category_.json",
+    examplesCategoryJson,
+  );
 
   // For each example page,
   // write a file to the /docs/onboarding/6 Examples/test folder
