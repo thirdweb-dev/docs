@@ -2,26 +2,54 @@
 authors: avneesh
 tags: [signature-drop, react, signature, mint, next.js]
 
-date: "2022-07-19"
+date: "2022-07-26"
 ---
+
+import QuickstartCard from "../../src/components/QuickstartCard";
 
 # Make the first NFT per wallet free on an NFT Drop
 
-Learn how to create a drop where users can mint their first NFT for free then be charged an amount for all the nfts they mint later on!
+Learn how to create an ERC-721A NFT drop where users can mint their first NFT for free, and then be charged a price for all the NFTs they mint after that!
 
 <!-- truncate -->
 
 ## Introduction
 
-In this guide, we are going to create a [Signature drop](/pre-built-contracts/signature-drop) where users
-will be able to connect their wallets to the website and claim an NFT from the drop. Once the user clicks `Mint`, we will make an
-API request that will check if the user has already minted an NFT and then determine the price.
+In this guide, we are going to create:
 
-Based on the check, we will generate a signature with a different price for each allowlist! Let's get started.
+- An ERC-721A [Signature Drop](/pre-built-contracts/signature-drop) contract.
+- A web application where users will be able to connect their wallets and claim an NFT from the drop!
+
+When a user clicks the `Mint` button, we will make an API request that will check if the user has already minted an NFT; and then determine the price based on that.
+To do this, We'll be using [signature-based minting](/advanced-features/on-demand-minting) to generate mint signatures with a different price for each allowlist!
+
+Before we get started, below are some helpful resources where you can learn more about the tools we're going to be using in this guide.
+
+<div className="row" style={{marginBottom:24}}>
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="View Project Source Code"
+    link="https://github.com/thirdweb-dev/examples/tree/main/typescript/simultaneous-allowlists"
+    image="/assets/icons/general.png"
+    openInNewTab
+  />
+</div>
+
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Signature Drop Contract"
+    link="/pre-built-contracts/signature-drop"
+    image="/assets/icons/drop.png"
+    openInNewTab
+  />
+</div>
+</div>
+
+Let's get started.
 
 ## Setup
 
-I am going to use the [Next typescript starter template](https://github.com/thirdweb-example/next-typescript-starter) for this guide.
+I am going to use the [Next.js + TypeScript starter template](https://github.com/thirdweb-example/next-typescript-starter) for this guide.
 
 If you are following along with the guide, you can create a project with the
 [Next TypeScript template](https://github.com/thirdweb-example/next-typescript-starter) using the [thirdweb CLI](/thirdweb-cli):
@@ -60,16 +88,36 @@ export default MyApp;
 We also need to create a Signature Drop and upload a bunch of NFTs that users can claim.
 So, go to the [thirdweb dashboard](https://thirdweb.com/dashboard) and create a signature drop!
 
-Fill out the details and deploy the contract!
-
 ![Deploy Signature Drop](./deploy-signature-drop.png)
+
+You can use one of our guides below to learn how to set up your signature drop contract:
+
+<div className="row" style={{marginBottom:24}}>
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="YouTube Tutorial"
+    link="https://youtu.be/2ITg70MPFJ8?t=125"
+    image="/assets/icons/education.png"
+    openInNewTab
+  />
+</div>
+
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Written Guide"
+    link="/guides/signature-drop"
+    image="/assets/icons/education.png"
+    openInNewTab
+  />
+</div>
+</div>
 
 Now, let's batch upload some NFTs for the users to mint!
 I am going to use the [pokemon batch upload example](https://github.com/nachoiacovino/thirdweb-pokemon).
 
-Click on batch upload and upload the images and the CSV/JSON file.
+Click on **batch upload** and upload the images and the CSV/JSON file.
 
-Once they are uploaded you will be able to see the NFTs! To learn more about batch upload check out [this guide](/guides/how-to-batch-upload).
+Once they are uploaded you will be able to see the NFTs! To learn more about batch upload check out our guide on [how to batch upload NFT metadata](/guides/how-to-batch-upload).
 
 ![Batch uploaded NFTs](./batch-upload.png)
 
@@ -83,15 +131,14 @@ After you create a new base, give a name to your base and add two columns: `addr
 
 **Getting airtable api keys and id**
 
-We now need to get some API keys and ids to interact with the base. So, go to [your Airtable account](https://airtable.com/account) and generate an api key
+We now need to get some API keys and ids to interact with the base. So, go to [your Airtable account](https://airtable.com/account) and generate an API key.
 
 ![Generate api key](./generate-api-key-airtable.png)
 
-Store this api key somewhere safe as we are going to need it.
+Now to get the base id, go to the [Airtable API](https://airtable.com/api) and click on the base that you just created.
+When you open the page, at the top itself you would see "Your base id is app......".
 
-Now to get the base id go to the [Airtable API](https://airtable.com/api) and click on the base that you just created. When you open the page, at the top itself you would see "Your base id is app......".
-
-Inside `.env.local` add three new variables:
+Create a new `.env.local` at the root of your project and add three new variables:
 
 ```bash title=".env.local"
 AIRTABLE_API_KEY=
@@ -101,7 +148,8 @@ AIRTABLE_TABLE_NAME=
 
 ### Creating a utility function for accessing the table
 
-To keep our code clean we are going to create a file where we initialize the airtable with the api key, name, and id. So, create a new folder `utils` and `Airtable.ts` inside it. Now, add in the following in `Airtable.ts`:
+To keep our code clean, we are going to create a file where we initialize the Airtable with the API key, name, and id.
+So, create a new folder called `utils` and `Airtable.ts` inside it. Now, add in the following in `Airtable.ts`:
 
 ```ts
 import Airtable from "airtable";
@@ -125,18 +173,20 @@ As you can see we are going to need to install a new package called `airtable`:
 ```bash
 npm i airtable # npm
 
-yarn add airtable # yarn
+yarn add airtable # or yarn
 ```
 
 ## Making the website
 
+Now we're set up with Airtable, let's continue building out the website.
+
 ### Creating an API for generating a signature
 
-We are going to use the signature minting on our backend to check the price at which this user will mint the NFT!
+We are going to use signature-based minting on our backend to check the price at which this user will mint the NFT!
 
 Create a new folder `api` in the pages folder and `generate-mint-sig.ts` inside it.
 
-We will now build a basic API that will output "gm wagmi"
+We will now build a basic API that will output "gm wagmi".
 
 ```ts title="api/generate-mint-sig.ts"
 import type { NextApiRequest, NextApiResponse } from "next";
@@ -165,13 +215,11 @@ const sdk = ThirdwebSDK.fromPrivateKey(
 );
 ```
 
-As you can see, we are using an environment variable to initialize the sdk.
-The variable is called `PRIVATE_KEY` which is the private key of the wallet.
-Create a new file `.env.local` and add your private key.
+As you can see, we are using an environment variable to initialize the SDK.
 
-```bash title=".env.local"
-PRIVATE_KEY=<private_key>
-```
+The variable is called `PRIVATE_KEY` which is the private key of the wallet.
+
+To do this, we need to export our wallet's private key and add it to our `.env.local` file.
 
 :::info How to export your private key
 
@@ -179,10 +227,8 @@ Learn how to [export your private key](/guides/create-a-metamask-wallet#export-y
 
 :::
 
-To do this, create a file called `.env.local` at the root of your project, and add the following to it:
-
-```
-PRIVATE_KEY=your-private-key-here
+```bash title=".env.local"
+PRIVATE_KEY=<private_key>
 ```
 
 :::warning
@@ -200,7 +246,7 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 ```
 
 **Determining the price of the NFT**
-We will first get the record using the address from req body:
+We will first get the record using the address from request body:
 
 ```ts title="api/generate-mint-sig.ts"
 const { address } = JSON.parse(req.body);
@@ -213,7 +259,7 @@ const record = await table
   .all();
 ```
 
-This will get the record with this address. Now we will use this address to determine price of the NFT:
+This will get the record with this address. Now we will use this address to determine the price of the NFT:
 
 ```ts title="api/generate-mint-sig.ts"
 const pricePerNft = 2;
@@ -227,7 +273,7 @@ const determinePrice = (): number => {
 ```
 
 **Generating the signature**
-Finally, we are going to access the Signature Drop using the sdk and generate a signature from it:
+Finally, we are going to access the Signature Drop using the SDK and generate a mint signature from it:
 
 ```ts title="api/generate-mint-sig.ts"
 const drop = sdk.getSignatureDrop("0x6d148a12f7c0ae693609F5a26E085646f8F73A53");
@@ -279,7 +325,7 @@ const [quantity, setQuantity] = useState<number>(1);
 
 ### Calling the API from the frontend
 
-Now we will create a mint function that makes an api call to the backend and mints the NFT:
+Now we will create a mint function that makes an API call to the backend and mints the NFT, using the signature that got generated.
 
 ```tsx title="index.tsx"
 const drop = useSignatureDrop("0x6d148a12f7c0ae693609F5a26E085646f8F73A53");
@@ -303,15 +349,18 @@ const mint = async () => {
 };
 ```
 
-We also need to link the mint function with onClick of the button:
+We also need to link the mint function with `onClick` of the button:
 
 ```tsx
 <button onClick={mint}>Mint</button>
 ```
 
-If we now try minting the NFT, we will be able to mint but when we try and mint again it will still give us the first mint free as the airtable doesn't know that we have minted so we need to create a new api route that does this.
+If we now try minting the NFT, we will be able to mint! However, when we try and mint _again_ it will still be free;
+as our Airtable doesn't know that we have minted.
 
-### Creating an api to set claimed
+Next, we need to add another API route to handle this logic.
+
+### Checking Mint History
 
 Create a new file called `set-claimed.ts` in the `api` folder and add the following:
 
@@ -368,9 +417,11 @@ const generateMintSignature = async (
 export default generateMintSignature;
 ```
 
-Here we are first getting the record using the address, now if the record exists we will just update it with hasClaimed to true, otherwise we will create a new record. We are also making sure that the address owns an NFT so someone can't make a false api call and mark an address as claimed even though it hasn't claimed any NFT yet.
+Here, we are first getting the record using the address. If the record exists, we will just update it with `hasClaimed` to `true`, otherwise we will create a new record.
 
-In the mint function we will fetch this api in the try catch block like this:
+We are also making sure that the address owns an NFT so someone can't make a false API call and mark an address as claimed even though it hasn't claimed any NFT yet.
+
+In the mint function, we will fetch this API in the `try catch` block like this:
 
 ```tsx title="index.tsx"
 try {
@@ -389,8 +440,3 @@ try {
 ```
 
 Now our app works successfully! 🎉
-
-## Conclusion
-
-This was a lot, now pat yourself on the back and share your amazing apps with us!
-If you want to have a look at the code, check out the [GitHub Repository](https://github.com/thirdweb-dev/examples/tree/main/typescript/simultaneous-allowlists).
