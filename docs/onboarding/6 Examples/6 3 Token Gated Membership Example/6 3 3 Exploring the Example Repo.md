@@ -18,7 +18,7 @@ We'll explore how we use the SDK to:
 Inside the [homepage](https://github.com/thirdweb-example/nft-gated-website/blob/main/src/index.js)
 we are wrapping our application in the `ThirdwebProvider` so that we can use all of the React SDKs hooks anywhere in our application.
 
-This allows us to easily use hooks such as [`useMetamask`](https://portal.thirdweb.com/react/react.usemetamask) on the [`App.js`](https://github.com/thirdweb-example/nft-gated-website/blob/main/src/App.js) page to connect the user's wallet. Once the user is connected, we can access their wallet address with the [`useAddress`](https://portal.thirdweb.com/react/react.useaddress) hook.
+This allows us to easily use hooks such as [`useMetamask`](https://portal.thirdweb.com/react/react.usemetamask) on the [`index.js`](https://github.com/thirdweb-example/nft-gated-website/blob/main/pages/index.js) page to connect the user's wallet. Once the user is connected, we can access their wallet address with the [`useAddress`](https://portal.thirdweb.com/react/react.useaddress) hook.
 
 ```jsx
 // allow user to connect to app with metamask, and obtain address
