@@ -1406,7 +1406,8 @@
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getMarketplace(\"{{contract_address}}\");",
       "react": "import { useMarketplace } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const marketplace = useMarketplace(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the marketplace contract in the rest of the component\n}",
-      "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_marketplace(\"{{contract_address}}\")"
+      "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_marketplace(\"{{contract_address}}\")",
+      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetMarketplace(\"{{contract_address}}\")\n"
     },
     "methods": [
       {
@@ -1433,13 +1434,13 @@
         "examples": {
           "javascript": "const listings = await contract.getActiveListings();\nconst priceOfFirstActiveListing = listings[0].price;",
           "python": "listings = contract.get_active_listings()\nprice_of_first = listings[0].price",
-          "go": "",
+          "go": "listings, err := marketplace.GetActiveListings()\n// Price per token of the first listing\nlistings[0].BuyoutCurrencyValuePerToken.DisplayValue\n",
           "react": "const { data: listings, isLoading, error } = useActiveListings(<YourMarketplaceContractInstance>, { seller: \"0x...\", tokenContract: \"0x...\", tokenId: 1, start: 0, count: 100 });"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Marketplace.getActiveListings",
           "python": "https://docs.thirdweb.com/python/marketplace#get_active_listings",
-          "go": "",
+          "go": "https://docs.thirdweb.com/go/marketplace#func-marketplace-getactivelistings",
           "react": "https://portal.thirdweb.com/react/react.useactivelistings"
         }
       },
@@ -1467,13 +1468,13 @@
         "examples": {
           "javascript": "const listingId = 0;\nconst listing = await contract.getListing(listingId);",
           "python": "",
-          "go": "",
+          "go": "listingId := 0\nlisting, err := marketplace.GetListing(listingId)\n",
           "react": "const { data: listing, isLoading, error } = useListing(<YourMarketplaceContractInstance>, <listingId>);"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Marketplace.getListing",
           "python": "",
-          "go": "",
+          "go": "https://docs.thirdweb.com/go/marketplace#func-marketplace-getlisting",
           "react": "https://portal.thirdweb.com/react/react.uselisting"
         }
       },
@@ -1550,7 +1551,8 @@
     ],
     "reference": {
       "typescript": "https://docs.thirdweb.com/typescript/sdk.Marketplace",
-      "python": "https://docs.thirdweb.com/python/marketplace"
+      "python": "https://docs.thirdweb.com/python/marketplace",
+      "go": "https://docs.thirdweb.com/go/marketplace"
     }
   },
   "MarketplaceDirect": {
@@ -1904,20 +1906,37 @@
     },
     "methods": [
       {
+        "name": "create",
+        "summary": "Create Pack\n\n",
+        "remarks": "\n\nSee {@link Pack.createTo}\n\n",
+        "examples": {
+          "javascript": "const pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.create(pack);",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\nconst pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.create(pack);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.Pack.create",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\nconst pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.create(pack);"
+        }
+      },
+      {
         "name": "createTo",
         "summary": "Create Pack To Wallet\n\n",
         "remarks": "\n\nCreate a new pack with the given metadata and rewards and mint it to the specified address.\n\n",
         "examples": {
-          "javascript": "const pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantity: 100,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantity: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.createTo(\"0x...\", pack);",
+          "javascript": "const pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.createTo(\"0x...\", pack);",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantity: 100,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantity: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.createTo(\"0x...\", pack);"
+          "react": "const sdk = useSDK();\n\nconst pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.createTo(\"0x...\", pack);"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.Pack.createTo",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantity: 100,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantity: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.createTo(\"0x...\", pack);"
+          "react": "const sdk = useSDK();\n\nconst pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.createTo(\"0x...\", pack);"
         }
       },
       {

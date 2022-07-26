@@ -44,74 +44,100 @@ npx thirdweb create --template nft-gated-website
 
 This project demonstrates how you can restrict content on your website to only those users who own an NFT from your collection.
 
-We use an [Edition Drop](https://portal.thirdweb.com/pre-built-contracts/edition-drop) contract to enable users to claim one of the NFTs, and show users the restricted content once we detect they have at least one of the NFTs claimed.
+We use an [Edition Drop](https://portal.thirdweb.com/pre-built-contracts/edition-drop) contract to enable users to claim one of the NFTs, and serve users
+the restricted content if they have at least one of the NFTs claimed.
 
 ## Tools:
 
-- [thirdweb React SDK](https://docs.thirdweb.com/react): To access hooks such as [useAddress](https://portal.thirdweb.com/react/react.useaddress) to view the connected wallet address, [useMetamask](https://portal.thirdweb.com/react/react.usemetamask) to connect user's wallets, and [useEdition](https://portal.thirdweb.com/react/react.useeditiondrop) to interact with the Edition Drop we deployed via the [dashboard](https://thirdweb.com/dashboard).
-- [thirdweb TypeScript SDK](https://docs.thirdweb.com/typescript): We're using the [ThirdwebProvider](https://docs.thirdweb.com/react) to configure the Network we want our user's to be on, and to check the NFTs that the user owns from our collection using the [getOwned](https://portal.thirdweb.com/pre-built-contracts/edition-drop#nfts-owned-by-a-specific-wallet) function.
+- [React SDK](https://docs.thirdweb.com/react): To access the connected wallet, switch the user's network, and claim an NFT from our Edition Drop collection.
+- [Auth](https://portal.thirdweb.com/building-web3-apps/authenticating-users): To ask users to sign a message and verify they own the wallet they claim to be, while on the server-side
 
-## Using This Repo
+## Using This Template
 
-- Create an Edition Drop contract via the thirdweb dashboard on the Polygon Mumbai (MATIC) test network.
-
-- Clone this repository by running:
+Create a project using this example:
 
 ```bash
-npx thirdweb create --template nft-gated-website
+npx thirdweb create --authentication-restricted-content
 ```
 
-- Replace the address in `useEditionDrop` with your Edition Drop contract address from the dashboard.
+- Create an [Edition Drop](https://thirdweb.com/contracts/new/pre-built/drop/edition-drop) contract using the dashboard.
+- Replace instances of our contract address (`0x1fCbA150F05Bbe1C9D21d3ab08E35D682a4c41bF`) with the address of the contract you created in [index.js](/pages/index.js) and [the API route](/pages/api/get-restricted-content.js).
 
-# Guide
+## How It Works
 
-## Setting Up the ThirdwebProvider
+This template uses our [authentication SDK](https://portal.thirdweb.com/building-web3-apps/authenticating-users) to serve restricted content
+to users who own at least one NFT from the collection.
 
-Inside [index.js](https://github.com/thirdweb-example/nft-gated-website/blob/main/src/index.js), we are wrapping our application with the [ThirdwebProvider](https://docs.thirdweb.com/react) component, which allows us to configure the **Network** we want our user's to be on, which we have set to `ChainId.Mumbai` in this demo.
+### Sign In
 
-```tsx
-<ThirdwebProvider desiredChainId={activeChainId} walletConnectors={connectors}>
-  <Component {...pageProps} />
-</ThirdwebProvider>
+When the user clicks the `Request Access` button, they are prompted to sign a message on the client-side, which uses the SDK to generate a login payload.
+
+```jsx
+// Add the domain of the application users will login to, this will be used throughout the login process
+const domain = "thirdweb.com";
+// Generate a signed login payload for the connected wallet to authenticate with
+const loginPayload = await sdk.auth.login(domain);
 ```
 
-This allows us to access all of the React SDK's hooks throughout our application.
+### Request Restricted Content
 
-## Connecting User's Wallets
+This payload is sent in the `body` of a `fetch` request for restricted data on our API route on the server-side.
 
-We're using the [useMetamask](https://portal.thirdweb.com/react/react.usemetamask) hook to connect user's MetaMask wallets.
-
-```tsx
-const connectWithMetamask = useMetamask();
+```jsx
+// Make api request to server and send the login payload in the body
+const response = await fetch(`/api/get-restricted-content`, {
+  method: "POST",
+  body: JSON.stringify({
+    loginPayload,
+  }),
+});
 ```
 
-We can detect when a user's wallet is connected to the site using the [useAddress](https://portal.thirdweb.com/react/react.useaddress) hook.
+### Verify User On the Server
 
-```tsx
-const address = useAddress();
+On the server-side, we verify that the user is who they claim to be:
+
+```jsx
+// Get the login payload that we sent with the request
+const { loginPayload } = JSON.parse(req.body);
+
+const sdk = new ThirdwebSDK("mumbai");
+const domain = "thirdweb.com";
+
+// Use that login payload to verify the user
+const verified = sdk.auth.verify(domain, loginPayload);
 ```
 
-If the `address` is undefined, we show the user a welcome page, and ask them to connect with their MetaMask wallet.
+And then check if that wallet has at least one NFT from our collection:
 
-## Checking User's NFTs
+```jsx
+// Get addresses' balance of token ID 0
+const balance = await editionDrop.balanceOf(loginPayload.payload.address, 0);
 
-We use the Typescript SDK to check the user's NFTs using the [getOwned](https://portal.thirdweb.com/pre-built-contracts/nft-drop#nfts-owned-by-a-specific-wallet) function.
-
-```tsx
-const nfts = await editionDrop.getOwned(address);
+if (balance > 0) {
+  // If the user is verified and has an NFT, return the content
+  res.status(200).json({
+    message: "This is the restricted content",
+  });
+} else {
+  // If the user is verified but doesn't have an NFT, return a message
+  res.status(200).json({
+    message: "You don't have an NFT",
+  });
+}
 ```
 
-If the user has at least one NFT, we show the user the restricted content!
+### Why Is This Important?
 
-## Minting a new NFT
+Let's look at an example _without_ using the authentication SDK.
 
-When the user doesn't have an NFT from our collection in their connected wallet, we show them a page that allows them to mint a new NFT.
+You could restrict access to content based on the wallet address that gets passed in as a `string` to the server-side. And when you make requests to the server, you could pass the connected wallet address in the request body.
 
-We use the [claim](https://portal.thirdweb.com/pre-built-contracts/nft-drop#minting--claiming-nfts) function to mint a new NFT for the user.
+For example, you might have an off-chain database that stores user profile information. You could say `if (user.address === walletAddress) { return userProfile }` to get the user profile and only allow the connected wallet to access it.
 
-```tsx
-await editionDrop.claim(0, 1); // 0 is the tokenId, 1 is the quantity of NFTs to mint
-```
+The security concern here is that users can make API requests with **any** value for that wallet address, meaning they can pretend to be another user/wallet. For example, if I try to access your profile, I could pass in your wallet address rather than mine in the request body, and see your profile!
+
+With authentication, you can only access content that you have permission to access, since the login payload is verified on the server-side.
 
 ## Join our Discord!
 
