@@ -20,7 +20,8 @@ The Split contract lets you specify multiple wallet addresses that are recipient
 You define what percentage of funds that are sent to this address to each recipient you specify.
 
 For example, you could define 0x1 and 0x2 and configure them to receive 50% of the funds to this wallet.
-The split contract will store the funds and will split the funds between the two recipients when either user
+The split contract will store the funds and will split the funds between the two recipients when a user
+calls the `distribute` function.
 
 This contract can also hold native currencies (ETH and MATIC) and any ERC-20 tokens.
 
