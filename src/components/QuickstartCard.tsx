@@ -17,7 +17,7 @@ export default function QuickstartCard({
 }: Props) {
   return (
     <a
-      className="card-demo"
+      className="card"
       style={{
         cursor: "pointer",
         height: "100%",

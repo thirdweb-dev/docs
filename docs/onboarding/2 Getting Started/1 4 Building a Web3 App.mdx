@@ -13,7 +13,7 @@ This page will show you how to get started with the SDK and create a web applica
 
 The easiest way to get started is by using our [CLI](/thirdweb-cli).
 This interactive tool creates a new project with the [React](/react)
-and [TypeScript](/typescript) SDKs pre-configured with a framework and language of your choice.
+and [JavaScript](/typescript) SDKs pre-configured with a framework and language of your choice.
 
 ```bash
 npx thirdweb create
@@ -35,8 +35,8 @@ This entry point of the app is where we configure the `ThirdwebProvider`, which 
 import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
 
 // Here we can specify the chainId our app should run on
-// In this example, we'll use the Polygon Mumbai Testnet
-const desiredChainId = ChainId.Mumbai;
+// In this example, we'll use the Ethereum Goerli Testnet
+const desiredChainId = ChainId.Goerli;
 
 export const MyApp = () => {
   return (
