@@ -2,3 +2,10 @@
 .footer {
   display: none;
 }
+
+// Don't show edit this page on mobile screens
+@media screen and (max-width: 996px) {
+  .theme-doc-footer-edit-meta-row > *:first-child {
+    display: none;
+  }
+}
