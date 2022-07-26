@@ -78,11 +78,11 @@ const starterKitToIconMapping = {
   ],
   "vite-javascript-starter": [
     "/assets/languages/javascript.png",
-    "/assets/languages/vite.png",
+    "/assets/languages/vite.webp",
   ],
   "vite-typescript-starter": [
     "/assets/languages/typescript.png",
-    "/assets/languages/vite.png",
+    "/assets/languages/vite.webp",
   ],
 };
 
