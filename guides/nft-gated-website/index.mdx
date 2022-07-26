@@ -11,27 +11,6 @@ In this guide, we will create a website that restricts content based on owning a
 
 <!-- truncate -->
 
-One of the more dynamic use cases for NFTs is using them as a membership pass to the NFT holders.
-Let’s assume you want to create a website for your community that is only accessible if you have an NFT from
-a specific NFT collection.
-
-This way, you could provide exclusive access to downloadable content or hidden pages to NFT holders!
-
-You can grab a copy of the final project from our examples organization, [check it out here](https://github.com/thirdweb-example/NFT-Gated-Website).
-
-## Mint an Edition Drop
-
-To create an NFT gated website, you will need a collection of NFTs, you could use your own, or one of thirdweb's:
-
-- [NFT Collection](/pre-built-contracts/nft-collection)
-- [NFT Drop](/pre-built-contracts/nft-drop)
-- [Edition](/pre-built-contracts/edition)
-- [Edition Drop](/pre-built-contracts/edition-drop)
-
-You can create one using thirdweb’s SDK or thirdweb’s [dashboard](https://thirdweb.com/dashboard).
-
-[Learn more about the differences between our NFT contracts here](https://portal.thirdweb.com/pre-built-contracts/nfts).
-
 In this guide, we use an [Edition Drop](/pre-built-contracts/edition-drop), which allows many NFTs to be created from the same asset, which is perfect for a membership card!
 
 ## Using the template repository
@@ -39,176 +18,192 @@ In this guide, we use an [Edition Drop](/pre-built-contracts/edition-drop), whic
 To get started, we can use the CLI to clone a starter kit.
 
 ```bash
-npx thirdweb create --template cra-javascript-starter
+npx thirdweb create --next --js
 ```
 
-:::tip
-If you’d prefer to use your project, you can install the latest version of our SDK in your project with:
+## Setup the ThirdwebProvider
 
-```bash
-npm install @thirdweb-dev/sdk @thirdweb-dev/react ethers
-```
+Inside the `pages/_app.js` page, we wrap our application in the `ThirdwebProvider` component to access all of the React SDK's hooks anywhere in our application.
 
-:::
-
-## Setup the blockchain
-
-Inside our `src` folder, open the `index.js` file and change the `desiredChainId` to the chain of your Edition Drop.
+In this file we need to configure a `desiredChainId` that our project will work on.
 
 For this project, we’ll be using `Mumbai` since our Edition Drop contract is on the Mumbai testnet.
 
-```jsx title="index.js"
-import React from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
+```jsx title="_app.js"
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
 // This is the chainId your dApp will work on.
 const activeChainId = ChainId.Mumbai;
 
-const container = document.getElementById("root");
-const root = createRoot(container);
-root.render(
-  <React.StrictMode>
+function MyApp({ Component, pageProps }) {
+  return (
     <ThirdwebProvider desiredChainId={activeChainId}>
-      <App />
+      <Component {...pageProps} />
     </ThirdwebProvider>
-  </React.StrictMode>,
+  );
+}
+
+export default MyApp;
+```
+
+## Requesting Restricted content
+
+On the homepage (`index.js`), there is a connect wallet and disconnect wallet
+button set up for us!
+
+This setup conditionally renders the `Connect Wallet` button if there is no `address` detected,
+and the `Disconnect Wallet` button next to the connected wallet address if there is.
+
+Let's modify this file a little bit now.
+
+When there is a connected wallet, we'll show the user a button for them to request access to the NFT-gated content,
+as well as another button for them to claim one of the NFTs from our drop.
+
+```jsx title="index.js"
+return (
+  <div>
+    {address ? (
+      <>
+        <button
+          className={styles.secondaryButton}
+          onClick={() => {
+            claimNft({
+              quantity: 1,
+              tokenId: 0,
+              to: address,
+            });
+          }}
+        >
+          Claim NFT
+        </button>
+
+        <button onClick={() => requestAuthenticatedContent()}>
+          Request Content
+        </button>
+      </>
+    ) : (
+      <button onClick={connectWithMetamask}>Connect Wallet</button>
+    )}
+  </div>
+);
+```
+
+When the user clicks the `Request Content` button, we call a function called `requestAuthenticatedContent`, _(which we haven't written yet)_ let's do that now.
+
+This function asks the user to sign a message with their wallet using the
+[Auth SDK](https://portal.thirdweb.com/building-web3-apps/authenticating-users)
+to prove the user owns this wallet, and generate a **login payload**.
+
+We then this login payload in the body of a `fetch` request to an [API route](https://nextjs.org/docs/api-routes/introduction).
+
+This API route uses the Auth SDK to verify the login payload is valid, which means the user who sent this request is the owner of the wallet.
+
+If the login payload is valid, we then check to see if the user owns an NFT, and send back the restricted content if they do.
+
+```jsx title="index.js"
+const sdk = useSDK();
+
+// For user to claim an NFT to then view the restricted content
+const editionDropContract = useEditionDrop(
+  "0x1fCbA150F05Bbe1C9D21d3ab08E35D682a4c41bF", // replace this with your contract address
 );
 
-reportWebVitals();
-```
+// Function to make a request to our /api/get-restricted-content route to check if we own an NFT.
+async function requestAuthenticatedContent() {
+  // Add the domain of the application users will login to, this will be used throughout the login process
+  const domain = "thirdweb.com";
 
-## The connect wallet button
+  // Generate a signed login payload for the connected wallet to authenticate with
+  const loginPayload = await sdk.auth.login(domain);
 
-In the same folder, there is the `App.js` file.
-In this file, the template has a simple wallet connection page setup.
+  // Make api request to server
+  const response = await fetch(`/api/get-restricted-content`, {
+    method: "POST",
+    body: JSON.stringify({
+      loginPayload,
+    }),
+  });
 
-We have a button that lets users connect with MetaMask, and
-when a wallet is connected, it will display the connected wallet address instead!
-
-```jsx title="App.js"
-import { useAddress, useMetamask } from "@thirdweb-dev/react";
-import "./styles.css";
-
-const App = () => {
-  // get address of user & allow them to connect with metamask
-  const address = useAddress();
-  const connectWithMetamask = useMetamask();
-
-  //if there isn't a wallet connected, display our connect MetaMask button
-  if (!address) {
-    return (
-      <>
-        <h1>Welcome to the Cookie Club</h1>
-        <button onClick={connectWithMetamask}>Connect MetaMask</button>
-      </>
+  if (response.ok) {
+    const data = await response.json();
+    console.log(data);
+    alert(`Here's your content: ${data.message}`);
+  } else {
+    alert(
+      "Unauthorized! You don't own an NFT, so you can't view the content, sorry!",
     );
   }
-
-  // if an address is connected, display address
-  return (
-    <div>
-      <p>Your address: {address}</p>
-    </div>
-  );
-};
-
-export default App;
+}
 ```
 
-Let’s preview what our app looks like and ensure it’s working by running `npm start` in the terminal.
+Additionally, users who don't own an NFT can claim one using the `claim` button we defined,
+which we can attach to the `useClaimNFT` hook from the React SDK to allow users to claim NFTs:
 
-## Conditionally render content & add an NFT minting button
+```jsx title="index.js"
+// Hook to claim NFTs from the NFT drop (to allow users to claim and *then* view the restricted content)
+const { mutate: claimNft, isLoading: isClaiming } =
+  useClaimNFT(editionDropContract);
+```
 
-In the same `App.js` file, we will add conditionals that render specific pages based on the connection status of the user.
+We need to import all of thes hooks into our `index.js` file too.
 
-We want the user to be able to mint an NFT from the drop if they don’t already hold an NFT.
-If the connected user does have one, we will display some congratulatory text.
-
-As an extra, I added a helper function to display our shortened wallet address called `truncateAddress`.
-Feel free to add or omit this as well in your app.
-
-```jsx title="App.js"
+```jsx title="index.js"
 import {
   useAddress,
+  useDisconnect,
   useMetamask,
   useEditionDrop,
-  useNFTBalance,
+  useClaimNFT,
 } from "@thirdweb-dev/react";
-import { useState } from "react";
+```
 
-const App = () => {
-  // allow user to connect to app with metamask, and obtain address
-  const address = useAddress();
-  const connectWithMetamask = useMetamask();
+## Checking NFT Balance
 
-  // Replace this address with your Edition Drop address!
-  const editionDrop = useEditionDrop(
-    "0x1fCbA150F05Bbe1C9D21d3ab08E35D682a4c41bF",
+Create a new folder inside your `pages` directory called `api`, and within that folder, create a file called `get-restricted-content.js`.
+
+This is where our logic on the server-side will live, and conditionally serve content based on the user's NFT balance.
+
+First, we need to verify the login payload the user sent with this request, which proves the person who made this request owns the wallet.
+
+```jsx title="api/get-restricted-content"
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+export default async function handler(req, res) {
+  // Get the login payload out of the request
+  const { loginPayload } = JSON.parse(req.body);
+
+  // SDK instantiation (read-only)
+  const sdk = new ThirdwebSDK("mumbai");
+
+  // Verify the login request
+  const domain = "thirdweb.com";
+  const verified = sdk.auth.verify(domain, loginPayload);
+
+  if (!verified) {
+    res.status(401).json({ error: "Unauthorized" });
+  }
+
+  // Now check if the user meets the criteria to see this content
+  // (e.g. they own an NFT from the collection)
+  const editionDrop = sdk.getEditionDrop(
+    "0x1fCbA150F05Bbe1C9D21d3ab08E35D682a4c41bF", // replace this with your contract address
   );
-  const [isClaiming, setIsClaiming] = useState(false);
-  const { data: balance, isLoading } = useNFTBalance(editionDrop, address, "0");
 
-  // helper function to truncate the address so it displays in a nice format
-  function truncateAddress(address) {
-    return `${address.slice(0, 6)}...${address.slice(-4)}`;
-  }
+  // Get addresses' balance of token ID 0
+  const balance = await editionDrop.balanceOf(loginPayload.payload.address, 0);
 
-  const mintNft = async () => {
-    try {
-      setIsClaiming(true);
-      await editionDrop.claim(0, 1);
-    } catch (error) {
-      console.error("Failed to mint NFT", error);
-    } finally {
-      setIsClaiming(false);
-    }
-  };
-
-  //if there isn't a wallet connected, display our connect MetaMask button
-  if (!address) {
-    return (
-      <div>
-        <h1>Welcome to the Shape Club</h1>
-        <button onClick={connectWithMetamask}>Connect MetaMask</button>
-      </div>
-    );
-  }
-
-  if (isLoading) {
-    return (
-      <div className="container">
-        <h1>Checking your wallet...</h1>
-      </div>
-    );
-  }
-
-  // if the user is connected and has an NFT from the drop, display text
   if (balance > 0) {
-    return (
-      <div>
-        <h2>Congratulations! You have a Shape Membership Card! 🟦🔺🟣</h2>
-      </div>
-    );
+    // If the user is verified and has an NFT, return the content
+    res.status(200).json({
+      message: "This is the restricted content",
+    });
+  } else {
+    // If the user is verified but doesn't have an NFT, return a message
+    res.status(200).json({
+      message: "You don't have an NFT",
+    });
   }
-
-  // if there are no NFTs from collection in wallet, display button to mint
-  return (
-    <div>
-      <p>
-        There are no Shape Membership Card NFTs held by:{" "}
-        <span>{truncateAddress(address)}</span>
-      </p>
-      <button disabled={isClaiming} onClick={mintNft}>
-        {isClaiming ? "Claiming..." : "Mint NFT"}
-      </button>
-    </div>
-  );
-};
-
-export default App;
+}
 ```
 
 ## Link to Project
@@ -220,11 +215,3 @@ To create a project with all of the code from this guide, you can run:
 ```bash
 npx thirdweb create --template nft-gated-website
 ```
-
-## Congratulations!
-
-Let’s go! You created an NFT gated membership website using React.
-
-Feel free to add some downloadable content or secret updates behind this new page for your NFT community members!
-
-!["Congratulations! You own a Cookie NFT" screen](./congratulations-screen.png)
