@@ -530,4 +530,4 @@ You can check out the full code for this project on our GitHub:
 
 https://github.com/thirdweb-example/discord-role-granter
 
-For any questions, suggestions, join our discord at [https://discord.gg/cd thirdweb](https://discord.gg/thirdweb).
+For any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).
