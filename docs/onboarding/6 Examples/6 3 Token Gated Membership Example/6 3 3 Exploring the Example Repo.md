@@ -15,12 +15,12 @@ We'll explore how we use the SDK to:
 
 ## Connecting the user's wallet
 
-Inside the [homepage](https://github.com/thirdweb-example/nft-gated-website/blob/main/src/index.js)
+Inside the [homepage](https://github.com/thirdweb-example/nft-gated-website/blob/main/pages/index.js)
 we are wrapping our application in the `ThirdwebProvider` so that we can use all of the React SDKs hooks anywhere in our application.
 
 This allows us to easily use hooks such as [`useMetamask`](https://portal.thirdweb.com/react/react.usemetamask) on the [`index.js`](https://github.com/thirdweb-example/nft-gated-website/blob/main/pages/index.js) page to connect the user's wallet. Once the user is connected, we can access their wallet address with the [`useAddress`](https://portal.thirdweb.com/react/react.useaddress) hook.
 
-```jsx
+```jsx title="index.js"
 // allow user to connect to app with metamask, and obtain address
 const address = useAddress();
 const connectWithMetamask = useMetamask();
@@ -28,7 +28,7 @@ const connectWithMetamask = useMetamask();
 
 We first return a page for users to connect their wallets if they haven't already.
 
-```jsx
+```jsx title="index.js"
 <button onClick={connectWithMetamask}>Connect Wallet</button>
 ```
 
@@ -36,13 +36,13 @@ We first return a page for users to connect their wallets if they haven't alread
 
 Once the user has connected their MetaMask wallet, we show them a different button:
 
-```jsx
+```jsx title="index.js"
 <button onClick={() => requestAuthenticatedContent()}>Request Content</button>
 ```
 
 When the user clicks the `Request Access` button, they are prompted to sign a message on the client-side, which uses the SDK to generate a login payload.
 
-```jsx
+```jsx title="index.js"
 // Generate a signed login payload for the connected wallet to authenticate with
 const loginPayload = await sdk.auth.login(domain);
 ```
@@ -51,7 +51,7 @@ const loginPayload = await sdk.auth.login(domain);
 
 This payload is sent in the `body` of a `fetch` request for restricted data on our API route on the server-side.
 
-```jsx
+```jsx title="index.js"
 // Make api request to server and send the login payload in the body
 const response = await fetch(`/api/get-restricted-content`, {
   method: "POST",
@@ -65,7 +65,9 @@ const response = await fetch(`/api/get-restricted-content`, {
 
 On the server-side, we verify that the user is who they claim to be, and exit if this login payload is not valid. This proves that the user making this request owns the wallet.
 
-```jsx
+This logic runs on an API route called [get-restricted-content](https://github.com/thirdweb-example/nft-gated-website/blob/main/pages/api/get-restricted-content.js).
+
+```jsx title="api/get-restricted-content.js"
 // Get the login payload that we sent with the request
 const { loginPayload } = JSON.parse(req.body);
 
@@ -82,7 +84,7 @@ if (!verified) {
 
 Now we can check if that wallet that made this request has at least one NFT from our collection:
 
-```jsx
+```jsx title="api/get-restricted-content.js"
 // Now check if the user meets the criteria to see this content
 // (e.g. they own an NFT from the collection)
 const editionDrop = sdk.getEditionDrop(
@@ -95,7 +97,7 @@ const balance = await editionDrop.balanceOf(loginPayload.payload.address, 0);
 
 And return the content if the user has an NFT:
 
-```jsx
+```jsx title="api/get-restricted-content.js"
 if (balance > 0) {
   // If the user is verified and has an NFT, return the content
   res.status(200).json({
@@ -113,7 +115,7 @@ if (balance > 0) {
 
 If the user has not already claimed an NFT, they can click a button to claim one!
 
-```jsx
+```jsx title="index.js"
 // Hook to claim NFTs from the NFT drop (to allow users to claim and *then* view the restricted content)
 const { mutate: claimNft, isLoading: isClaiming } =
   useClaimNFT(editionDropContract);
