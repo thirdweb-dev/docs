@@ -3,11 +3,13 @@ import React from "react";
 type Props = {
   link: string;
   contractType: string;
+  additionalStyles?: React.CSSProperties;
 };
 
 export default function DeployThisContractButton({
   link,
   contractType,
+  additionalStyles,
 }: Props) {
   function formatName(name: string) {
     // Replace - with space and capitalize
@@ -40,6 +42,7 @@ export default function DeployThisContractButton({
         display: "flex",
         flexDirection: "row",
         alignItems: "center",
+        ...additionalStyles,
       }}
     >
       <img

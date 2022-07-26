@@ -76,20 +76,17 @@ aside {
 }
 
 .feedback-title {
-  width: 186px;
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
   line-height: 120%;
   letter-spacing: -0.03em;
-  flex: none;
-  order: 0;
-  flex-grow: 0;
   padding-top: 16px;
+  padding-left: 8px;
 }
 
 .feedback-button {
-  color: "#fff";
+  color: #fff;
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -141,7 +138,7 @@ aside {
 }
 
 .feedback-form-input {
-  color: "#fff";
+  color: #fff;
   box-sizing: border-box;
   padding: 8px 16px;
   gap: 8px;
