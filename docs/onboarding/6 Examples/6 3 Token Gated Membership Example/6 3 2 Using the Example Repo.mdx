@@ -18,29 +18,24 @@ and have Node JS installed on your machine.
 
 ## Cloning the Token Gated Membership Example Repository
 
-You can create your copy of this [template repository](https://github.com/thirdweb-example/NFT-Gated-Website)
+You can create your copy of this [template repository](https://github.com/thirdweb-example/nft-gated-website)
 by using the thirdweb CLI, or downloading the repository as a `.zip` file and unzipping it from the GitHub URL.
 
 ```bash
 npx thirdweb create --template nft-gated-website
 ```
 
-Once you have the code on your computer, you'll need to install the dependencies:
-
-```bash npm2yarn
-npm install
-```
-
 To start running the code locally, run the command below.
 
 ```bash npm2yarn
-npm run dev
+cd nft-gated-website # this is the name of your project you created
+npm run dev # run the local dev server
 ```
 
 ## Configure your Edition Drop Contract Address
 
-Replace the value of the contract address inside the of the `useEditionDrop` hook on `App.js`
-with your Edition Drop contract address; you can find this address in the dashboard.
+Replace the value of the contract address inside of the `useEditionDrop` hook on both the `index.js` and `api/get-restricted-content.js` file
+with your edition drop contract address; you can find this address in the dashboard.
 
 ## Configure the Network
 
@@ -56,16 +51,10 @@ const activeChainId = ChainId.Mumbai;
 We also ensure users are on the correct network when they click the mint button, so you'll need to configure this here too:
 
 ```jsx
-// App.js
-const mintNft = async () => {
-  // ...
-
-  // Ensure they're on the right network (mumbai)
-  if (networkMismatched) {
-    switchNetwork(ChainId.Mumbai); // Configure this to your network
-    return;
-  }
-};
+if (networkMismatch) {
+  switchNetwork(ChainId.Mumbai); // Configure this to your network
+  return;
+}
 ```
 
 ## Configure the Styles

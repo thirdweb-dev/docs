@@ -103,7 +103,7 @@ const snippets = CLASSES.reduce((acc, contractName) => {
           )?.example || "",
         react:
           createReactSnippet(contractName, method.name).example ||
-          `// Note: We don't have a React hook for this function yet, but you can still use the TypeScript SDK!\n\n${
+          `const sdk = useSDK();\n\n${
             tsExample?.methods?.find(
               (m) => m.name.toLowerCase() === method.name.toLowerCase(),
             )?.examples?.javascript || ""
@@ -126,10 +126,11 @@ const snippets = CLASSES.reduce((acc, contractName) => {
           )?.reference || "",
         react:
           createReactSnippet(contractName, method.name).reference ||
-          tsExample?.methods?.find(
-            (m) => m.name.toLowerCase() === method.name.toLowerCase(),
-          )?.reference ||
-          "",
+          `const sdk = useSDK();\n\n${
+            tsExample?.methods?.find(
+              (m) => m.name.toLowerCase() === method.name.toLowerCase(),
+            )?.examples?.javascript || ""
+          }`,
       },
     })) || [];
 
@@ -154,6 +155,13 @@ const snippets = CLASSES.reduce((acc, contractName) => {
           goExample?.properties?.find(
             (m) => p.name.toLowerCase() === property.name.toLowerCase(),
           )?.example || "",
+        react:
+          createReactSnippet(contractName, property.name).reference ||
+          `const sdk = useSDK();\n\n${
+            tsExample?.properties?.find(
+              (p) => p.name.toLowerCase() === property.name.toLowerCase(),
+            )?.examples?.javascript || ""
+          }`,
       },
       reference: {
         javascript:
@@ -170,6 +178,13 @@ const snippets = CLASSES.reduce((acc, contractName) => {
           goExample?.properties?.find(
             (m) => p.name.toLowerCase() === property.name.toLowerCase(),
           )?.reference || "",
+        react:
+          createReactSnippet(contractName, property.name).reference ||
+          `const sdk = useSDK();\n\n${
+            tsExample?.properties?.find(
+              (p) => p.name.toLowerCase() === property.name.toLowerCase(),
+            )?.examples?.javascript || ""
+          }`,
       },
     })) || [];
 
