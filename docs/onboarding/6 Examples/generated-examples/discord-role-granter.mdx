@@ -165,7 +165,6 @@ export default NextAuth({
     async jwt({ token, account }) {
       // Persist the user ID to the token right after signin
       if (account) {
-        console.log(account);
         token.userId = account.providerAccountId;
       }
       return token;
@@ -203,6 +202,7 @@ First, we need to prove that the user owns the wallet by using the authenticatio
 // First, login and sign a message
 const domain = "thirdweb.com";
 const loginPayload = await sdk?.auth.login(domain);
+console.log(loginPayload);
 ```
 
 **Make the request to the API route with the login payload**
