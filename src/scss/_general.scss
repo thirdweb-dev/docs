@@ -46,6 +46,11 @@ aside {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
 }
 
+.quickstart-card:hover {
+  outline: 1px solid var(--thirdweb-tertiary-color);
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+}
+
 .feedback {
   display: flex;
   flex-direction: row;

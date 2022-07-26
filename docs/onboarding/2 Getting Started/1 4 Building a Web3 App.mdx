@@ -3,19 +3,21 @@ slug: /getting-started/building-app
 title: Building a Web3 App
 ---
 
-Now that we've deployed an NFT Drop contract from the dashboard, we can build a frontend application using the thirdweb [React](/react) SDK to enable our users to connect their wallets and claim NFTs.
+import QuickstartCard from "../../../src/components/QuickstartCard";
+
+Using the SDK, we can build a web app that allows users to mint NFTs from our contract.
+
+This page will show you how to get started with the SDK and create a web application.
 
 ## Creating a New App
 
-The easiest way to get started is by using our CLI.
-
-This interactive tool creates a new project with thirdweb pre-configured with a framework and language of your choice.
+The easiest way to get started is by using our [CLI](/thirdweb-cli).
+This interactive tool creates a new project with the [React](/react)
+and [JavaScript](/typescript) SDKs pre-configured with a framework and language of your choice.
 
 ```bash
 npx thirdweb create
 ```
-
-That's it! You're ready to start building your project, and all the setup gets auto generated for you, including the wallet connection functionality.
 
 :::tip Starter Kits & Templates
 
@@ -33,8 +35,8 @@ This entry point of the app is where we configure the `ThirdwebProvider`, which 
 import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
 
 // Here we can specify the chainId our app should run on
-// In this example, we'll use the Polygon Mumbai Testnet
-const desiredChainId = ChainId.Mumbai;
+// In this example, we'll use the Ethereum Goerli Testnet
+const desiredChainId = ChainId.Goerli;
 
 export const MyApp = () => {
   return (
@@ -45,7 +47,8 @@ export const MyApp = () => {
 };
 ```
 
-The template has a basic setup for users to connect their wallets to our page. It uses the `useMetamask()` to let a user connect their wallet to your app. For other ways to connect wallets, check out the [documentation](/react/category/wallet-connection).
+The template has a basic setup for users to connect their wallets to our page.
+It uses the [useMetamask](/react/react.usemetamask) hook to let a user connect their wallet to your app.
 
 ```jsx
 import { useAddress, useMetamask, useDisconnect } from "@thirdweb-dev/react";
@@ -160,7 +163,23 @@ export default function ClaimButtonComponent() {
 
 :::tip See it in action!
 
-Checkout a **live demo** for this example and others on the [thirdweb contract hub](https://contract-hub.thirdweb-example.com/).
+Check out a **live demo** for this example and others on the [thirdweb contract hub](https://contract-hub.thirdweb-example.com/nft-drop).
 
 ![Claim NFT button](./assets/claim-nft-button.png)
 :::
+
+## Next Steps
+
+We've deployed an NFT Drop smart contract and an app to interact with it.
+
+Next, we'll learn how you can build and release custom smart contracts using the Solidity SDK.
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Custom Contracts with the Solidity SDK"
+      link="/getting-started/creating-custom-contracts"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>
