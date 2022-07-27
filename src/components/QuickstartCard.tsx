@@ -5,6 +5,7 @@ type Props = {
   description: string;
   link: string;
   image: string;
+  openInNewTab?: boolean;
 };
 
 export default function QuickstartCard({
@@ -12,10 +13,11 @@ export default function QuickstartCard({
   description,
   link,
   image = "/assets/icons/general.png",
+  openInNewTab = false,
 }: Props) {
   return (
     <a
-      className="card-demo"
+      className="card"
       style={{
         cursor: "pointer",
         height: "100%",
@@ -23,8 +25,8 @@ export default function QuickstartCard({
         textDecoration: "none",
       }}
       href={link}
-      target="_blank"
-      rel="noopener noreferrer"
+      target={openInNewTab ? "_blank" : undefined}
+      rel={openInNewTab ? "noopener noreferrer" : undefined}
       data-quickstart={"quickstart"} // Generic flag to capture all events
       data-card-name={name}
       data-card-description={description}
