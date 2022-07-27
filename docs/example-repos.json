@@ -274,13 +274,13 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-with-signature-based-minting",
     "description": "Mint and list NFTs on to a marketplace using signature-based minting",
     "created_at": "2022-07-26T07:48:49Z",
-    "updated_at": "2022-07-26T07:54:34Z",
+    "updated_at": "2022-07-27T10:06:51Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-with-signature-based-minting.git",
     "topics": [
       "marketplace"
     ],
     "language": "JavaScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": "https://marketplace-with-signature-based-minting.thirdweb-example.com/"
   },
@@ -359,7 +359,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-07-10T23:55:40Z",
+    "updated_at": "2022-07-27T10:05:10Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "edition",
@@ -370,7 +370,7 @@
       "react"
     ],
     "language": "JavaScript",
-    "stargazers_count": 35,
+    "stargazers_count": 36,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -411,13 +411,13 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2022-07-26T23:37:11Z",
+    "updated_at": "2022-07-27T10:56:22Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 10,
+    "stargazers_count": 11,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },
@@ -441,7 +441,7 @@
     "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2022-07-10T03:43:38Z",
+    "updated_at": "2022-07-27T05:32:08Z",
     "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
