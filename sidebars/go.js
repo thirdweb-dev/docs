@@ -142,6 +142,16 @@ const sidebars = {
           label: "ERC 1155",
           id: "erc1155",
         },
+        {
+          type: "doc",
+          label: "NFT Drop Claim Conditions",
+          id: "nft_drop_claim_conditions",
+        },
+        {
+          type: "doc",
+          label: "Edition Drop Claim conditions",
+          id: "edition_drop_claim_conditions"
+        }
       ],
     },
     {
