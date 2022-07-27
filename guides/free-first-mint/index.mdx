@@ -154,7 +154,7 @@ AIRTABLE_TABLE_NAME=
 To keep our code clean, we are going to create a file where we initialize the Airtable with the API key, name, and id.
 So, create a new folder called `utils` and `Airtable.ts` inside it. Now, add in the following in `Airtable.ts`:
 
-```ts
+```ts title='utils/Airtable.ts'
 import Airtable from "airtable";
 
 // Authenticate
@@ -209,9 +209,9 @@ endpoint, you will get a response of `Gm wagmi`.
 
 ![Api response](./api-response.png)
 
-Let's now initialize the [thirdweb SDK](/building-web3-apps/setting-up-the-sdk)!
+Let's now initialize the [thirdweb SDK](/building-web3-apps/setting-up-the-sdk)! In a new file called `thirdweb.ts` inside the `utils` folder:
 
-```ts
+```ts title="utils/thirdweb.ts"
 const sdk = ThirdwebSDK.fromPrivateKey(
   process.env.PRIVATE_KEY as string,
   "mumbai",
@@ -280,6 +280,7 @@ Finally, we are going to access the Signature Drop using the SDK and generate a 
 
 ```ts title="api/generate-mint-sig.ts"
 const drop = sdk.getSignatureDrop("0x6d148a12f7c0ae693609F5a26E085646f8F73A53");
+
 try {
   const signedPayload = await drop.signature.generate({
     to: address,
@@ -295,6 +296,12 @@ try {
     error,
   });
 }
+```
+
+We will import sdk from the utils folder:
+
+```ts title='api/generate-mint-sig.ts'
+import sdk from "../../utils/thirdweb";
 ```
 
 ### Allowing users to select quantity of NFTs to mint
@@ -322,7 +329,7 @@ In `index.tsx` update the address ternary and add the Mint button, and input:
 
 As you can see we are going to need a `useState` to store the quantity so add it on top:
 
-```tsx
+```tsx title="index.tsx"
 const [quantity, setQuantity] = useState<number>(1);
 ```
 
@@ -354,7 +361,7 @@ const mint = async () => {
 
 We also need to link the mint function with `onClick` of the button:
 
-```tsx
+```tsx title="index.tsx"
 <button onClick={mint}>Mint</button>
 ```
 
@@ -367,7 +374,7 @@ Next, we need to add another API route to handle this logic.
 
 Create a new file called `set-claimed.ts` in the `api` folder and add the following:
 
-```ts
+```ts title='api/set-claimed.ts'
 import type { NextApiRequest, NextApiResponse } from "next";
 import { table } from "../../utils/Airtable";
 import sdk from "../../utils/thirdweb";
