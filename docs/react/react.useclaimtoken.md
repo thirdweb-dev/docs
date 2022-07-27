@@ -43,7 +43,7 @@ const Component = () => {
 ```typescript
 export declare function useClaimToken<TContract extends TokenDrop>(
   contract: RequiredParam<TContract>,
-): import("react-query").UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
       receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
@@ -65,6 +65,6 @@ export declare function useClaimToken<TContract extends TokenDrop>(
 
 **Returns:**
 
-import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [ClaimTokenParams](./react.claimtokenparams.md), unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [ClaimTokenParams](./react.claimtokenparams.md), unknown&gt;
 
 a mutation object that can be used to tokens to the wallet specificed in the params

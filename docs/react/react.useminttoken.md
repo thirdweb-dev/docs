@@ -43,7 +43,7 @@ const Component = () => {
 ```typescript
 export declare function useMintToken(
   contract: RequiredParam<Erc20>,
-): import("react-query").UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
       receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
@@ -65,6 +65,6 @@ export declare function useMintToken(
 
 **Returns:**
 
-import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [TokenMintParams](./react.tokenmintparams.md), unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [TokenMintParams](./react.tokenmintparams.md), unknown&gt;
 
 a mutation object that can be used to mint a new NFT token to the connected wallet

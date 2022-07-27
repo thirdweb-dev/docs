@@ -39,7 +39,7 @@ const Component = () => {
 ```typescript
 export declare function useRevokeRole<TContract extends ContractWithRoles>(
   contract: RequiredParam<TContract>,
-): import("react-query").UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   void,
   unknown,
   {
@@ -58,6 +58,6 @@ export declare function useRevokeRole<TContract extends ContractWithRoles>(
 
 **Returns:**
 
-import("react-query").UseMutationResult&lt;void, unknown, { role: RolesForContract&lt;TContract&gt;; address: [WalletAddress](./react.walletaddress.md); }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;void, unknown, { role: RolesForContract&lt;TContract&gt;; address: [WalletAddress](./react.walletaddress.md); }, unknown&gt;
 
 a mutation object that can be used to revoke a role from a member on the contract

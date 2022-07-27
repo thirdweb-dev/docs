@@ -33,7 +33,7 @@ const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract?.nft, <Owner
 export declare function useOwnedNFTs<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
   ownerWalletAddress: RequiredParam<WalletAddress>,
-): import("react-query").UseQueryResult<NFT<TContract>[], unknown>;
+): import("@tanstack/react-query").UseQueryResult<NFT<TContract>[], unknown>;
 ```
 
 ## Parameters
@@ -45,6 +45,6 @@ export declare function useOwnedNFTs<TContract extends NFTContract>(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;TContract&gt;\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;TContract&gt;\[\], unknown&gt;
 
 a response object that includes the list of owned tokens

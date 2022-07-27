@@ -28,7 +28,7 @@ Use this to get the primary sales recipient of your
 ```typescript
 export declare function usePrimarySaleRecipient(
   contract: RequiredParam<SmartContract | ValidContractInstance>,
-): import("react-query").UseQueryResult<string, unknown>;
+): import("@tanstack/react-query").UseQueryResult<string, unknown>;
 ```
 
 ## Parameters
@@ -39,6 +39,6 @@ export declare function usePrimarySaleRecipient(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;string, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;string, unknown&gt;
 
 the wallet address of the primary sales recipient

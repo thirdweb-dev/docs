@@ -24,7 +24,7 @@ const { data: settings, isLoading, error } = useRoyaltySettings(SmartContract);
 ```typescript
 export declare function useRoyaltySettings(
   contract: RequiredParam<SmartContract | ValidContractInstance>,
-): import("react-query").UseQueryResult<
+): import("@tanstack/react-query").UseQueryResult<
   {
     seller_fee_basis_points: number;
     fee_recipient: string;
@@ -41,6 +41,6 @@ export declare function useRoyaltySettings(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;{ seller_fee_basis_points: number; fee_recipient: string; }, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ seller_fee_basis_points: number; fee_recipient: string; }, unknown&gt;
 
 an object containing recipient address and the royalty basis points

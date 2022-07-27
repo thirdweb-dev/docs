@@ -24,7 +24,7 @@ const { data: metadata, isLoading, error } = useMetadata(SmartContract);
 ```typescript
 export declare function useMetadata(
   contract: RequiredParam<SmartContract | ValidContractInstance>,
-): import("react-query").UseQueryResult<
+): import("@tanstack/react-query").UseQueryResult<
   {
     [x: string]: import("@thirdweb-dev/sdk/dist/browser").Json;
     description?: string | undefined;
@@ -44,6 +44,6 @@ export declare function useMetadata(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk/dist/browser").Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk/dist/browser").Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
 
 a object containing the metadata

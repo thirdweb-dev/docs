@@ -19,7 +19,7 @@ Use this to lazy mint a batch of NFTs on your [DropContract](./react.dropcontrac
 export declare function useLazyMint<TContract extends Erc721>(
   contract: RequiredParam<TContract>,
   onProgress?: (progress: UploadProgressEvent) => void,
-): import("react-query").UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId<{
     [x: string]: import("@thirdweb-dev/sdk/dist/browser").Json;
     name?: string | undefined;
@@ -47,6 +47,6 @@ export declare function useLazyMint<TContract extends Erc721>(
 
 **Returns:**
 
-import("react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId&lt;{ \[x: string\]: import("@thirdweb-dev/sdk/dist/browser").Json; name?: string \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: import("ethers").BigNumber; }&gt;\[\], unknown, { metadatas: NFTMetadataInput\[\]; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId&lt;{ \[x: string\]: import("@thirdweb-dev/sdk/dist/browser").Json; name?: string \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: import("ethers").BigNumber; }&gt;\[\], unknown, { metadatas: NFTMetadataInput\[\]; }, unknown&gt;
 
 a mutation object that can be used to lazy mint a batch of NFTs

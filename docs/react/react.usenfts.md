@@ -33,7 +33,7 @@ const { data: nfts, isLoading, error } = useNFTs(contract?.nft, { start: 0, coun
 export declare function useNFTs<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
   queryParams?: QueryAllParams,
-): import("react-query").UseQueryResult<NFT<TContract>[], unknown>;
+): import("@tanstack/react-query").UseQueryResult<NFT<TContract>[], unknown>;
 ```
 
 ## Parameters
@@ -45,6 +45,6 @@ export declare function useNFTs<TContract extends NFTContract>(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;TContract&gt;\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;TContract&gt;\[\], unknown&gt;
 
 a response object that includes an array of NFTs

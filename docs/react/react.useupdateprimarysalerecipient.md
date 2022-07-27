@@ -43,7 +43,7 @@ const Component = () => {
 ```typescript
 export declare function useUpdatePrimarySaleRecipient(
   contract: RequiredParam<SmartContract | ValidContractInstance>,
-): import("react-query").UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
       receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
@@ -65,6 +65,6 @@ export declare function useUpdatePrimarySaleRecipient(
 
 **Returns:**
 
-import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, string, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, string, unknown&gt;
 
 a mutation object that can be used to update the primary sales recipient

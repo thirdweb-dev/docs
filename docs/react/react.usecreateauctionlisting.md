@@ -43,7 +43,7 @@ const Component = () => {
 ```typescript
 export declare function useCreateAuctionListing(
   contract: RequiredParam<Marketplace>,
-): import("react-query").UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId<never>,
   unknown,
   NewAuctionListing,
@@ -59,6 +59,6 @@ export declare function useCreateAuctionListing(
 
 **Returns:**
 
-import("react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId&lt;never&gt;, unknown, NewAuctionListing, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId&lt;never&gt;, unknown, NewAuctionListing, unknown&gt;
 
 a mutation object that can be used to create a new auction listing

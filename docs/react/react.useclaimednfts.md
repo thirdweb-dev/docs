@@ -25,7 +25,7 @@ const { data: claimedNFTs, isLoading, error } = useClaimedNFTs(<YourERC721DropCo
 export declare function useClaimedNFTs(
   contract: RequiredParam<DropContract>,
   queryParams?: QueryAllParams,
-): import("react-query").UseQueryResult<
+): import("@tanstack/react-query").UseQueryResult<
   import("../../types").NFT<DropContract>[],
   unknown
 >;
@@ -40,7 +40,7 @@ export declare function useClaimedNFTs(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;import("../../types").[NFT](./react.nft.md)&lt;[DropContract](./react.dropcontract.md)&gt;\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;import("../../types").[NFT](./react.nft.md)&lt;[DropContract](./react.dropcontract.md)&gt;\[\], unknown&gt;
 
 a response object that includes an array of NFTs that are claimed
 
