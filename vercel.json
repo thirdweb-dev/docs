@@ -255,6 +255,11 @@
       "source": "/thirdweb-deploy/thirdweb-cli",
       "destination": "/thirdweb-cli",
       "permanent": true
+    },
+    {
+      "source": "/guides/randomized-nft-drop",
+      "destination": "/guides/shuffle-nft-drop",
+      "permanent": true
     }
   ]
 }
