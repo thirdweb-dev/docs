@@ -120,7 +120,7 @@ hide_title: true
   const md = filterContent(page.text, page.html_url);
 
   const createSnippet =
-    "To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):" +
+    "To create a new project using this template, use the [thirdweb CLI](/thirdweb-cli):" +
     "\n" +
     "```jsx" +
     "\n" +

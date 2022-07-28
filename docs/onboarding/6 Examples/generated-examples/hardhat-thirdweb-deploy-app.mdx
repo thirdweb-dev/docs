@@ -10,7 +10,7 @@ import ViewCodeButton from "../../../../src/components/generated-md-components/V
 
 Build an application on top of a custom contract using the thirdweb SDK
 
-To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-cli):
 
 ```jsx
 npx thirdweb create --template hardhat-thirdweb-deploy-app
@@ -69,6 +69,8 @@ cd application
 Then, run the development server:
 
 ```bash
+npm install # Install dependencies first
+
 npm run dev
 ```
 
@@ -94,6 +96,7 @@ cd contract
 Use [thirdweb deploy](https://portal.thirdweb.com/thirdweb-deploy) to deploy the contract:
 
 ```bash
+npm install # Install dependencies first
 npx thirdweb deploy
 ```
 
@@ -115,14 +118,17 @@ We configure the desired blockchain/network in the [`_app.js`](https://github.co
 const activeChainId = ChainId.Goerli;
 ```
 
-Now we can easily call the functions of our [`Greeter`](https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app/blob/main/contract/Greeter.sol) contract, such as the `greet` and `setGreeting` contract:
+Now we can easily call the functions of our [`Greeter`](https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app/blob/main/contract/Greeter.sol) contract, such as the `greet` and `setGreeting` contract by using the [useContractData](https://portal.thirdweb.com/react/react.usecontractdata) hook to read, and the [useContractCall](https://portal.thirdweb.com/react/react.usecontractcall) hook to write data.
 
 ```jsx
-// Greet function (read message)
-await contract?.call("greet");
+// Read the current greeting
+const { data: currentGreeting, isLoading } = useContractData(contract, "greet");
 
-// Set greeting function (write message)
-await contract?.call("setGreeting", newGreeting);
+// Write a new greeting
+const { mutate: writeGreeting, isLoading: isWriting } = useContractCall(
+  contract,
+  "setGreeting",
+);
 ```
 
 ### Connecting to user wallets

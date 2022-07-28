@@ -73,8 +73,6 @@ function CodeSnippet({ examples, references }) {
               {reference && (
                 <a
                   href={reference}
-                  target="_blank"
-                  rel="noopener noreferrer"
                   style={{
                     display: "block",
                     marginTop: "1rem",
