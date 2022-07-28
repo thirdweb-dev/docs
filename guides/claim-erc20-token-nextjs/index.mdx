@@ -6,6 +6,7 @@ date: "2022-07-28"
 # Claim an ERC20 Token with NextJS
 
 In this guide, we will allow users to claim ERC-20 tokens in our nextJS app and show holders of our tokens!
+
 <!-- truncate -->
 
 ## Intro
@@ -31,10 +32,13 @@ To build this app, we need to walk through the following steps.
 
 First deploy a `Token Drop` contract from [thirdweb’s dashboard](https://thirdweb.com/dashboard) by clicking on `+ Deploy new contract`. Navigate to the `Token Drop` contract by clicking on `Pre-built contracts` and then `Release a drop`. Don't forget to set your claim conditions under `Claim Phases`.  
 Next go ahead and run the following command to get the NextJS Javascript starter template. 
+
 ```bash
 npx thirdweb create --next --js
 ```
+
 Inside the `_app.js` file, change the chain ID to the chain you deployed the smartcontract too.
+
 ```jsx
 import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
 
@@ -116,14 +120,13 @@ export default function Claim({ tokenDropContract }) {
   }
 
   return (
-    <div className={styles.claimGrid}>
+    <div>
       <input
         type="text"
         placeholder="Enter amount to claim"
         onChange={(e) => setAmountToClaim(e.target.value)}
-        className={`${styles.textInput} ${styles.noGapBottom}`}
       />
-      <button onClick={claim} className={styles.mainButton}>
+      <button onClick={claim}>
         Claim
       </button>
     </div>
@@ -138,15 +141,14 @@ Now to render out a list of our token holders, we’ll use the `getAllHolderBala
 Let’s build out the function first
 
 ```jsx
-//useState hook
 const [holders, setHolders] = useState([]);
-//Our function
+
 async function checkHolders() {
-		//define the method
+    //define the method
     const balances = await token.history.getAllHolderBalances();
-		//assign the data to the variable balances
+    //assign the data to the variable balances
     setHolders(balances);
-  }
+}
 ```
 
 Next we’ll *trigger* the function upon loading the page. We can do that with the hook `useEffect`
@@ -157,14 +159,15 @@ Next we’ll *trigger* the function upon loading the page. We can do that with t
   }, []);
 ```
 
-Now we need to render out the data inside our page. `balances` fetches data in a JSON format. We can use a `map` method to render out all the holders and their balances like this.
+Now we need to render out the data inside our page. We can use a `map` method to render out all the holders and their balances like this.
 
 ```jsx
-.map((holder) => (
-            <div key={holder.holder}>
-              <p>{holder.holder}</p>
-              <p>{holder.balance.displayValue} {holder.balance.symbol}</p>
-            </div>
+{holders?.map((holder) => (
+  <div key={holder.holder}>
+    <p>{holder.holder}</p>
+    <p>{holder.balance.displayValue} {holder.balance.symbol}</p>
+  </div>
+))}
 ```
 
 Here is the full page, including a loading view and sorting the balances 👇
@@ -173,6 +176,7 @@ Here is the full page, including a loading view and sorting the balances 👇
 export default function TokenHolders() {
   const [loading, setLoading] = useState(true);
   const [holders, setHolders] = useState([]);
+  
   async function checkHolders() {
     const sdk = new ThirdwebSDK("mumbai"); // configure this to your network
 
@@ -192,7 +196,7 @@ export default function TokenHolders() {
 
   return (
     <>
-      <div className={styles.holderGrid}>
+      <div>
         {holders
           .sort(
             (a, b) =>
@@ -200,15 +204,13 @@ export default function TokenHolders() {
               parseInt(a.balance.displayValue)
           )
           .map((holder) => (
-            <div
-              key={holder.holder}
-              className={`${styles.holderItem} ${styles.spacerBottom}`}
-            >
+            <div key={holder.holder}>
               <p>{truncateAddress(holder.holder)}</p>
               <p>
                 {holder.balance.displayValue} {holder.balance.symbol}
               </p>
-            </div> ))}
+            </div> 
+	  ))}
       </div>
     </>
   );
