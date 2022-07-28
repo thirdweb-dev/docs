@@ -141,7 +141,11 @@ Now to get the base id, go to the [Airtable API](https://airtable.com/api) and c
 
 When you open the page, at the top itself you would see "Your base id is app......".
 
+![Airtable App ID](./airtable-app-id.png)
+
 Create a new `.env.local` at the root of your project and add three new variables:
+
+The table name is the name of the table you created in Airtable.
 
 ```bash title=".env.local"
 AIRTABLE_API_KEY=
@@ -168,7 +172,7 @@ const base = Airtable.base(process.env.AIRTABLE_BASE_ID!);
 // Reference a table
 const table = base(process.env.AIRTABLE_TABLE_NAME!);
 
-export { table };
+export default table;
 ```
 
 As you can see we are going to need to install a new package called `airtable`:
@@ -191,7 +195,7 @@ Create a new folder `api` in the pages folder and `generate-mint-sig.ts` inside 
 
 We will now build a basic API that will output "gm wagmi".
 
-```ts title="api/generate-mint-sig.ts"
+```ts title="pages/api/generate-mint-sig.ts"
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const generateMintSignature = async (
@@ -212,10 +216,14 @@ endpoint, you will get a response of `Gm wagmi`.
 Let's now initialize the [thirdweb SDK](/building-web3-apps/setting-up-the-sdk)! In a new file called `thirdweb.ts` inside the `utils` folder:
 
 ```ts title="utils/thirdweb.ts"
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
 const sdk = ThirdwebSDK.fromPrivateKey(
   process.env.PRIVATE_KEY as string,
   "mumbai",
 );
+
+export default sdk;
 ```
 
 As you can see, we are using an environment variable to initialize the SDK.
@@ -242,17 +250,11 @@ Ensure you store and access your private key securely.
 
 :::
 
-We also need to import the `ThirdwebSDK`:
-
-```tsx
-import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-```
-
 **Determining the price of the NFT**
 We will first get the record using the address from request body:
 
-```ts title="api/generate-mint-sig.ts"
-const { address } = JSON.parse(req.body);
+```ts title="pages/api/generate-mint-sig.ts"
+const { address, quantity } = JSON.parse(req.body);
 
 const record = await table
   .select({
@@ -264,7 +266,7 @@ const record = await table
 
 This will get the record with this address. Now we will use this address to determine the price of the NFT:
 
-```ts title="api/generate-mint-sig.ts"
+```ts title="pages/api/generate-mint-sig.ts"
 const pricePerNft = 2;
 
 const determinePrice = (): number => {
@@ -278,7 +280,9 @@ const determinePrice = (): number => {
 **Generating the signature**
 Finally, we are going to access the Signature Drop using the SDK and generate a mint signature from it:
 
-```ts title="api/generate-mint-sig.ts"
+```ts title="pages/api/generate-mint-sig.ts"
+// Replace this address below with your signature drop contract address
+// (You can get this from the dashboard)
 const drop = sdk.getSignatureDrop("0x6d148a12f7c0ae693609F5a26E085646f8F73A53");
 
 try {
@@ -298,10 +302,11 @@ try {
 }
 ```
 
-We will import sdk from the utils folder:
+We will import SDK from the utils folder as well as our Airtable:
 
 ```ts title='api/generate-mint-sig.ts'
 import sdk from "../../utils/thirdweb";
+import table from "../../utils/Airtable";
 ```
 
 ### Allowing users to select quantity of NFTs to mint
@@ -309,7 +314,7 @@ import sdk from "../../utils/thirdweb";
 We are going to allow users to select the quantity of NFTs so let's create a number input.
 In `index.tsx` update the address ternary and add the Mint button, and input:
 
-```tsx title="index.tsx"
+```tsx title="pages/index.tsx"
 <div>
   {address ? (
     <>
@@ -329,7 +334,7 @@ In `index.tsx` update the address ternary and add the Mint button, and input:
 
 As you can see we are going to need a `useState` to store the quantity so add it on top:
 
-```tsx title="index.tsx"
+```tsx title="pages/index.tsx"
 const [quantity, setQuantity] = useState<number>(1);
 ```
 
@@ -337,7 +342,8 @@ const [quantity, setQuantity] = useState<number>(1);
 
 Now we will create a mint function that makes an API call to the backend and mints the NFT, using the signature that got generated.
 
-```tsx title="index.tsx"
+```tsx title="pages/index.tsx"
+// Change this to your contract address
 const drop = useSignatureDrop("0x6d148a12f7c0ae693609F5a26E085646f8F73A53");
 
 const mint = async () => {
@@ -361,8 +367,20 @@ const mint = async () => {
 
 We also need to link the mint function with `onClick` of the button:
 
-```tsx title="index.tsx"
+```tsx title="pages/index.tsx"
 <button onClick={mint}>Mint</button>
+```
+
+And add the necessary imports:
+
+```tsx title="pages/index.tsx"
+import {
+  useAddress,
+  useDisconnect,
+  useMetamask,
+  useSignatureDrop,
+} from "@thirdweb-dev/react";
+import { useState } from "react";
 ```
 
 If we now try minting the NFT, we will be able to mint! However, when we try and mint _again_ it will still be free;
@@ -374,9 +392,9 @@ Next, we need to add another API route to handle this logic.
 
 Create a new file called `set-claimed.ts` in the `api` folder and add the following:
 
-```ts title='api/set-claimed.ts'
+```ts title='pages/api/set-claimed.ts'
 import type { NextApiRequest, NextApiResponse } from "next";
-import { table } from "../../utils/Airtable";
+import table from "../../utils/Airtable";
 import sdk from "../../utils/thirdweb";
 
 const generateMintSignature = async (
@@ -427,9 +445,11 @@ const generateMintSignature = async (
 export default generateMintSignature;
 ```
 
-Here, we are first getting the record using the address. If the record exists, we will just update it with `hasClaimed` to `true`, otherwise we will create a new record.
+Here, we are first getting the record using the address. If the record exists, we will just update it with `hasClaimed` to `true`,
+otherwise, we will create a new record.
 
-We are also making sure that the address owns an NFT so someone can't make a false API call and mark an address as claimed even though it hasn't claimed any NFT yet.
+We are also making sure that the address owns an NFT so someone can't make a false API call and mark an address as
+claimed even though it hasn't claimed any NFT yet.
 
 In the mint function, we will fetch this API in the `try catch` block like this:
 
