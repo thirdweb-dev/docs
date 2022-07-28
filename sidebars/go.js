@@ -89,6 +89,11 @@ const sidebars = {
           label: "Multiwrap",
           id: "multiwrap",
         },
+        {
+          type: "doc",
+          label: "Marketplace",
+          id: "marketplace"
+        }
       ],
     },
     {
