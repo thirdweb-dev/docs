@@ -5,9 +5,9 @@ image: "./thumbnail.png"
 date: "2022-07-26"
 ---
 
-# How to shuffle your NFT drop without writing any code
+# Shuffle your NFT drop without writing any code
 
-Learn how to shuffle your NFT drop without writing any code.
+Learn how to shuffle your NFT drop without writing any code using the dashboard only.
 
 <!-- truncate -->
 
@@ -15,17 +15,17 @@ Learn how to shuffle your NFT drop without writing any code.
 
 Let’s say you are ready to launch your first NFT project, but you want it to be shuffled for your community to mint. This is possible without writing any code by just using the thirdweb dashboard.
 
-In this guide, we’ll [deploy a collection using the NFT drop contract](https://portal.thirdweb.com/guides/release-an-nft-drop-with-no-code), after that, we'll **batch upload** it to the dashboard and shuffle the metadata arrangement using the dashboard only. I’ll assume you have the metadata and the image assets ready, if not it is fine, I would recommend watching Hashlips’ [Generate NFT art and metadata speed run](https://youtu.be/8PcncMYQRU0) video.
+In this guide, we’ll [deploy a collection using the NFT drop contract](/guides/release-an-nft-drop-with-no-code), after that, we'll **batch upload** it to the dashboard and shuffle the metadata arrangement using the dashboard only. I’ll assume you have the metadata and the image assets ready, if not it is fine, I would recommend watching Hashlips’ [Generate NFT art and metadata speed run](https://youtu.be/8PcncMYQRU0) video.
 
 ## Setup
 
-Let’s assume you’ve already a MetaMask wallet, if not please follow our [create a MetaMask wallet tutorial](https://portal.thirdweb.com/guides/create-a-metamask-wallet).
+Let’s assume you’ve already a MetaMask wallet, if not please follow our [create a MetaMask wallet tutorial](/guides/create-a-metamask-wallet).
 
-We’re going to use Polygon Mumbai Testnet for this guide, therefore, grab some test MATIC for the Mumbai Testnet using our tutorial on [how to get Matic on the Polygon Mumbai Testnet](https://portal.thirdweb.com/guides/get-matic-on-polygon-mumbai-testnet-faucet).
+We’re going to use Polygon Mumbai Testnet for this guide, therefore, grab some test MATIC for the Mumbai Testnet using our tutorial on [how to get Matic on the Polygon Mumbai Testnet](/guides/get-matic-on-polygon-mumbai-testnet-faucet).
 
 Lastly, you can use the same images I use for this guide: [download the image assets here](./shuffled-pixel-eyes.zip).
 
-Now, let’s head over to the [thirdweb dashboard](https://thirdweb.com/dashboard) and deploy the [NFT Drop pre-built contract](https://portal.thirdweb.com/pre-built-contracts/nft-drop).
+Now, let’s head over to the [thirdweb dashboard](https://thirdweb.com/dashboard) and deploy the [NFT Drop pre-built contract](/pre-built-contracts/nft-drop).
 
 ![Deploy NFT drop contract](./deploy-nft-drop-contract.gif)
 
@@ -45,7 +45,7 @@ Once the transaction has been confirmed you will see the dashboard of your NFT d
 
 ![Set up claim phases](./set-claim-phases.png)
 
-You will need to set up your contract’s claim phases before we proceed to the next step. In this guide, I will not cover this, feel free to learn more about how to [create nft drop with claim phases here](https://portal.thirdweb.com/guides/create-nft-drop-with-claim-phases).
+You will need to set up your contract’s claim phases before we proceed to the next step. In this guide, I will not cover this, feel free to learn more about how to [create nft drop with claim phases here](/guides/create-nft-drop-with-claim-phases).
 
 ## Shuffle and Upload
 
@@ -73,7 +73,7 @@ Pre-built contracts are immutable by design, meaning you can't modify or update 
 
 :::
 
-Let's choose **Reveal upon mint** for this guide, if you prefer [delayed reveal](https://portal.thirdweb.com/guides/nft-drop-with-delayed-reveal) go ahead.
+Let's choose **Reveal upon mint** for this guide, if you prefer [delayed reveal](/guides/nft-drop-with-delayed-reveal) go ahead.
 
 After that, click the checkbox for "**Shuffle the order of the NFTs before uploading.**" and click **upload**!
 
@@ -83,7 +83,7 @@ After that, click the checkbox for "**Shuffle the order of the NFTs before uploa
 
 - Shuffle feature is an off-chain operation and is not provable.
 - It will shuffle the order of **metadata** only **not the token ID**.
-- Minting will still follow the order of token ID.
+- Minting will still be sequential by token ID.
 
 :::
 
