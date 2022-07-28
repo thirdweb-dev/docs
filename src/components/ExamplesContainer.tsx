@@ -149,7 +149,6 @@ export default function ExamplesContainer() {
           .map((repo) => (
             <a
               href={`/templates/${repo.name}-template`}
-              target="_blank"
               className="col col--6"
               style={{
                 marginBottom: 24,
@@ -291,8 +290,6 @@ export default function ExamplesContainer() {
                 repoToExampleGuideMapping[repo.name] ||
                 `/templates/${repo.name}-template`
               }
-              // Open in new tab if its a github url, same if internal guide
-              target={repoToExampleGuideMapping[repo.name] ? "" : "_blank"}
               className="col col--4"
               style={{
                 marginBottom: 24,
