@@ -39,7 +39,7 @@ const Component = () => {
 ```typescript
 export declare function useClaimNFT<TContract extends DropContract>(
   contract: RequiredParam<TContract>,
-): import("react-query").UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   ClaimNFTReturnType<TContract>,
   unknown,
   ClaimNFTParams<TContract>,
@@ -55,6 +55,6 @@ export declare function useClaimNFT<TContract extends DropContract>(
 
 **Returns:**
 
-import("react-query").UseMutationResult&lt;[ClaimNFTReturnType](./react.claimnftreturntype.md)&lt;TContract&gt;, unknown, [ClaimNFTParams](./react.claimnftparams.md)&lt;TContract&gt;, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;[ClaimNFTReturnType](./react.claimnftreturntype.md)&lt;TContract&gt;, unknown, [ClaimNFTParams](./react.claimnftparams.md)&lt;TContract&gt;, unknown&gt;
 
 a mutation object that can be used to claim a NFT to the wallet specificed in the params

@@ -25,7 +25,7 @@ const { data: balance, isLoading, error } = useTokenBalance(<YourTokenContractIn
 export declare function useTokenBalance(
   contract: RequiredParam<Erc20>,
   walletAddress: RequiredParam<WalletAddress>,
-): import("react-query").UseQueryResult<
+): import("@tanstack/react-query").UseQueryResult<
   {
     symbol: string;
     value: import("ethers").BigNumber;
@@ -46,6 +46,6 @@ export declare function useTokenBalance(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;{ symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }, unknown&gt;
 
 a response object that includes the balance of the address

@@ -29,7 +29,7 @@ const {
 export declare function useRoleMembers<TContract extends ContractWithRoles>(
   contract: RequiredParam<TContract>,
   role: RolesForContract<TContract>,
-): import("react-query").UseQueryResult<string[], unknown>;
+): import("@tanstack/react-query").UseQueryResult<string[], unknown>;
 ```
 
 ## Parameters
@@ -41,6 +41,6 @@ export declare function useRoleMembers<TContract extends ContractWithRoles>(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;string\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;string\[\], unknown&gt;
 
 a list of addresses that are members of the role

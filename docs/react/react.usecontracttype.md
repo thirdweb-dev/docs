@@ -28,7 +28,7 @@ const {
 ```typescript
 export declare function useContractType(
   contractAddress: RequiredParam<ContractAddress>,
-): import("react-query").UseQueryResult<
+): import("@tanstack/react-query").UseQueryResult<
   | "split"
   | "custom"
   | "nft-drop"
@@ -55,6 +55,6 @@ export declare function useContractType(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;"split" \| "custom" \| "nft-drop" \| "signature-drop" \| "nft-collection" \| "edition-drop" \| "edition" \| "token-drop" \| "token" \| "vote" \| "marketplace" \| "pack" \| "multiwrap" \| undefined, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;"split" \| "custom" \| "nft-drop" \| "signature-drop" \| "nft-collection" \| "edition-drop" \| "edition" \| "token-drop" \| "token" \| "vote" \| "marketplace" \| "pack" \| "multiwrap" \| undefined, unknown&gt;
 
 a response object that includes the contract type of the contract

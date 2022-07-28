@@ -23,7 +23,7 @@ export declare function useContractEvents(
     queryFilter?: EventQueryFilter;
     subscribe?: boolean;
   },
-): import("react-query").UseQueryResult<ContractEvent[], unknown>;
+): import("@tanstack/react-query").UseQueryResult<ContractEvent[], unknown>;
 ```
 
 ## Parameters
@@ -36,6 +36,6 @@ export declare function useContractEvents(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;ContractEvent\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;ContractEvent\[\], unknown&gt;
 
 a response object that includes the contract events

@@ -28,7 +28,7 @@ const {
 ```typescript
 export declare function useContractCompilerMetadata(
   contractAddress: RequiredParam<ContractAddress>,
-): import("react-query").UseQueryResult<
+): import("@tanstack/react-query").UseQueryResult<
   | {
       name: string;
       metadata: Record<string, any>;
@@ -84,6 +84,6 @@ export declare function useContractCompilerMetadata(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;{ name: string; metadata: Record&lt;string, any&gt;; abi: { \[x: string\]: any; type: string; name: string; outputs: { \[x: string\]: any; components?: { \[x: string\]: any; type: string; name: string; }\[\] \| undefined; stateMutability?: string \| undefined; type: string; name: string; }\[\]; inputs: { \[x: string\]: any; components?: { \[x: string\]: any; type: string; name: string; }\[\] \| undefined; stateMutability?: string \| undefined; type: string; name: string; }\[\]; }\[\]; info: { title?: string \| undefined; author?: string \| undefined; details?: string \| undefined; notice?: string \| undefined; }; licenses: string\[\]; } \| undefined, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ name: string; metadata: Record&lt;string, any&gt;; abi: { \[x: string\]: any; type: string; name: string; outputs: { \[x: string\]: any; components?: { \[x: string\]: any; type: string; name: string; }\[\] \| undefined; stateMutability?: string \| undefined; type: string; name: string; }\[\]; inputs: { \[x: string\]: any; components?: { \[x: string\]: any; type: string; name: string; }\[\] \| undefined; stateMutability?: string \| undefined; type: string; name: string; }\[\]; }\[\]; info: { title?: string \| undefined; author?: string \| undefined; details?: string \| undefined; notice?: string \| undefined; }; licenses: string\[\]; } \| undefined, unknown&gt;
 
 a response object that includes the published metadata (name, abi, bytecode) of the contract

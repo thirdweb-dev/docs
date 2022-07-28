@@ -25,7 +25,7 @@ const { data: auctionWinner, isLoading, error } = useAuctionWinner(<YourMarketpl
 export declare function useAuctionWinner(
   contract: RequiredParam<Marketplace>,
   listingId: RequiredParam<BigNumberish>,
-): import("react-query").UseQueryResult<string | undefined, unknown>;
+): import("@tanstack/react-query").UseQueryResult<string | undefined, unknown>;
 ```
 
 ## Parameters
@@ -37,6 +37,6 @@ export declare function useAuctionWinner(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;string \| undefined, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;string \| undefined, unknown&gt;
 
 a response object that includes the address of the winner of the auction or undefined if there is no winner yet

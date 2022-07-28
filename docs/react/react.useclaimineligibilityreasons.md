@@ -38,7 +38,7 @@ export declare function useClaimIneligibilityReasons<
   TContract extends NFTDrop | EditionDrop | TokenDrop | SignatureDrop,
 >(
   ...[contract, params, tokenId]: ClaimIneligibilityInputParams<TContract>
-): import("react-query").UseQueryResult<
+): import("@tanstack/react-query").UseQueryResult<
   import("@thirdweb-dev/sdk/dist/browser").ClaimEligibility[],
   unknown
 >;
@@ -52,6 +52,6 @@ export declare function useClaimIneligibilityReasons<
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk/dist/browser").ClaimEligibility\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk/dist/browser").ClaimEligibility\[\], unknown&gt;
 
 a response object with the resons for the claim ineligibility
