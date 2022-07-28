@@ -1,0 +1,69 @@
+---
+slug: /templates/dao-template
+hide_title: true
+---
+
+import DemoButton from "../../../../src/components/generated-md-components/DemoButton";
+import ViewCodeButton from "../../../../src/components/generated-md-components/ViewCodeButton";
+
+# DAO
+
+Build a DAO using thirdweb's vote, token, and edition drop contracts.
+
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
+
+```jsx
+npx thirdweb create --template dao
+```
+
+<div
+  style={{
+    display: "flex",
+    flexDirection: "row",
+    gap: "2%",
+    marginBottom: 32,
+    width: "100%",
+    alignItems: "center",
+    justifyContent: "center",
+    marginTop: 16,
+  }}
+>
+  <DemoButton link="https://dao.thirdweb-example.com" name="dao" />
+  <ViewCodeButton link="https://github.com/thirdweb-example/dao" name="dao" />
+</div>
+
+---
+
+## Using this template
+
+This is the repository for the Buildspace x thirdweb course on "Build your own DAO with just Javascript in a weekend"!
+
+You can find the course here: https://buildspace.so/p/build-dao-with-javascript
+
+## Tools
+
+- [Vote Contract](https://portal.thirdweb.com/pre-built-contracts/vote): To orchestrate votes and view proposals for members of the DAO, using the governance token created in the token contract.
+
+- [Token Contract](https://portal.thirdweb.com/pre-built-contracts/token): To act as the governance token for the DAO, which is required to participate in the voting process.
+
+- [Edition Drop Contract](https://portal.thirdweb.com/pre-built-contracts/edition-drop): To mint NFTs for the DAO using the same asset (i.e. a membership card NFT)
+
+## Using This Repo
+
+To get started with this repo, you'll need to deploy your own:
+
+1. [Token Contract](https://portal.thirdweb.com/pre-built-contracts/token)
+2. [Vote Contract](https://portal.thirdweb.com/pre-built-contracts/vote)
+3. [Edition Drop Contract](https://portal.thirdweb.com/pre-built-contracts/edition-drop)
+
+Then, clone this example project by running:
+
+```bash
+npx thirdweb create --template dao
+```
+
+Replace the addresses in [App.jsx](https://github.com/thirdweb-example/dao/blob/main/src/App.jsx) with your own contract addresses.
+
+## Join our Discord!
+
+For any questions, suggestions, join our discord at [https://discord.gg/thirdweb](https://discord.gg/thirdweb).

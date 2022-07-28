@@ -1,5 +1,5 @@
 ---
-slug: /solidity-sdk/base-contracts/erc-721/erc721base
+slug: /contracts-sdk/base-contracts/erc-721/erc721base
 title: Base
 ---
 
@@ -29,10 +29,10 @@ The `ERC721Base` smart contract is usable as it is. It is sufficient for the use
 | [ERC721A](https://github.com/chiru-labs/ERC721A/blob/main/contracts/ERC721A.sol) | Gas-optimized NFT Collection Base Contract.                                                                                                                                       |
 | Mintable                                                                         | Mint functionality (only callable by the owner, by default) with gas-optimized batch minting enabled by ERC721A functionality.                                                    |
 | Multicall                                                                        | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call.                                             |
-| [Ownable](/solidity-sdk/contract-extensions/ownable)                             | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
+| [Ownable](/contracts-sdk/contract-extensions/ownable)                            | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
 | Burnable                                                                         | Ability for the owner of a token to transfer their NFT to a null address (cannot be recovered).                                                                                   |
-| [Royalty](/solidity-sdk/contract-extensions/royalty)                             | Full royalty support on marketplaces like OpenSea, and EIP 2981 NFT Royalty Standard compliance.                                                                                  |
-| [ContractMetadata](/solidity-sdk/contract-extensions/contractmetadata)           | Set a metadata URI on the contract, to give your collection a name, image, description and symbol.                                                                                |
+| [Royalty](/contracts-sdk/contract-extensions/royalty)                            | Full royalty support on marketplaces like OpenSea, and EIP 2981 NFT Royalty Standard compliance.                                                                                  |
+| [ContractMetadata](/contracts-sdk/contract-extensions/contractmetadata)          | Set a metadata URI on the contract, to give your collection a name, image, description and symbol.                                                                                |
 
 ## Implementing the Contract Extension
 
@@ -71,7 +71,7 @@ Once deployed, you'll be able to access the following contract extensions' featu
 <div className="col col--4" style={{marginTop:16}} >
   <QuickstartCard
     name="Contract Metadata"
-    link="/solidity-sdk/contract-extensions/contractmetadata#unlocked-features"
+    link="/contracts-sdk/contract-extensions/contractmetadata#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>
@@ -79,14 +79,14 @@ Once deployed, you'll be able to access the following contract extensions' featu
 <div className="col col--4" style={{marginTop:16}}>
   <QuickstartCard
     name="Royalties"
-    link="/solidity-sdk/contract-extensions/royalty#unlocked-features"
+    link="/contracts-sdk/contract-extensions/royalty#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>
 <div className="col col--4" style={{marginTop:16}}>
   <QuickstartCard
     name="Ownable"
-    link="/solidity-sdk/contract-extensions/ownable#unlocked-features"
+    link="/contracts-sdk/contract-extensions/ownable#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>
