@@ -9,7 +9,7 @@ In this guide, we will allow users to claim ERC-20 tokens in our nextJS app and 
 
 ## Intro
 
-Just like our [NFT Drop](https://portal.thirdweb.com/pre-built-contracts/nft-drop) contract, the [Token Drop](https://portal.thirdweb.com/pre-built-contracts/token-drop) contract lazy mints the token and makes it available for users to claim. In other words, the actual minting happens when a user claims the token. In this app a user can claim our token. Right at that time the ERC-20 token is minted and sent to the wallet of that user. This app also shows all the wallets that hold this token. 
+Just like our [NFT Drop](https://portal.thirdweb.com/pre-built-contracts/nft-drop) contract, the [Token Drop](https://portal.thirdweb.com/pre-built-contracts/token-drop) contract makes the token available for users to claim. In other words, the actual minting happens when a user claims the token. In this app a user can claim our token. Right at that time the ERC-20 token is minted and sent to the wallet of that user. This app also shows all the wallets that hold this token. 
 
 Check out our example repository with the project built out on [Github](https://github.com/thirdweb-example/token-drop) and click [here](https://token-drop.thirdweb-example.com) to see a live example of the app. 
 
@@ -28,15 +28,39 @@ To build this app, we need to walk through the following steps.
 
 ## Build
 
-First deploy a `Token Drop` contract from [thirdweb’s dashboard](https://thirdweb.com/dashboard) by clicking on `+ Deploy new contract`. Navigate to the `Token Drop` contract by clicking on `Pre-built contracts` and then `Release a drop`. Don't forget to set your claim conditions under `Claim Phases`.  Next go ahead and clone [this](https://github.com/thirdweb-example/next-typescript-starter) repo to get the starters template. We will go through the logic, but won't show every piece of code. If you want to have a look at the full piece of code, check out the [repo!](https://github.com/thirdweb-example/token-drop) 
+First deploy a `Token Drop` contract from [thirdweb’s dashboard](https://thirdweb.com/dashboard) by clicking on `+ Deploy new contract`. Navigate to the `Token Drop` contract by clicking on `Pre-built contracts` and then `Release a drop`. Don't forget to set your claim conditions under `Claim Phases`.  
+Next go ahead and run the following command to get the NextJS Javascript starter template. 
+```bash
+npx thirdweb create --next --js
+```
+Inside the `_app.js` file, change the chain ID to the chain you deployed the smartcontract too.
+```jsx
+import type { AppProps } from 'next/app';
+import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
+
+// This is the chainId your dApp will work on.
+const activeChainId = ChainId.Mainnet;
+
+function MyApp({ Component, pageProps }) {
+  return (
+    <ThirdwebProvider desiredChainId={activeChainId}>
+      <Component {...pageProps} />
+    </ThirdwebProvider>
+  );
+}
+
+export default MyApp;
+```
+
+We will go through the logic, but won't show every piece of code. If you want to have a look at the full piece of code, check out the [repo!](https://github.com/thirdweb-example/token-drop) 
 
 ### Connect our smart contract
 
 Inside the `index.js` file import the hook to connect to our `Token Drop` contract and pass your contract address.
 
 ```jsx
-import {useTokenDrop,} from "@thirdweb-dev/react";
-
+import {useTokenDrop} from "@thirdweb-dev/react";
+//add your own contract address below
 const tokenDropContract = useTokenDrop(<CONTRACT_ADDRESS>);
 ```
 
@@ -70,6 +94,9 @@ Finally we bind the method via a function to a button
 The full code looks something like this 👇
 
 ```jsx
+import {useTokenDrop, useAddress} from "@thirdweb-dev/react";
+import {useState} from react;
+
 export default function Claim({ tokenDropContract }) {
   const address = useAddress();
   const [amountToClaim, setAmountToClaim] = useState("");
@@ -106,7 +133,7 @@ export default function Claim({ tokenDropContract }) {
 
 ### Tokenholders
 
-Now to render out a list of our token holders, we’ll use the `getAllHolderBalances` method. It’s straight forward, build the function and render it out within the html tags like this.
+Now to render out a list of our token holders, we’ll use the `getAllHolderBalances` method. It’s straight forward, build the function and render it out inside the component like this.
 
 Let’s build out the function first
 
