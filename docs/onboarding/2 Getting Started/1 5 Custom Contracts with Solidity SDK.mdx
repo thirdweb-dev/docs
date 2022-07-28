@@ -68,13 +68,13 @@ by following the same pattern as we did for the base contract.
 **1. Import the contract from the SDK.**
 
 ```solidity
-import "@thirdweb-dev/contracts/extension/Permissions.sol";
+import "@thirdweb-dev/contracts/extension/PermissionsEnumberable.sol";
 ```
 
-**2. Inherit the contract, by saying `MyNFT is Permissions`.**
+**2. Inherit the contract, by saying `MyNFT is PermissionsEnumberable`.**
 
 ```solidity
-contract MyNFT is ERC721Base, Permissions {
+contract MyNFT is ERC721Base, PermissionsEnumberable {
     // ...
 }
 ```
@@ -86,9 +86,9 @@ contract MyNFT is ERC721Base, Permissions {
 pragma solidity ^0.8.0;
 
 import "@thirdweb-dev/contracts/base/ERC721Base.sol";
-import "@thirdweb-dev/contracts/extension/Permissions.sol";
+import "@thirdweb-dev/contracts/extension/PermissionsEnumerable.sol";
 
-contract MyNFT is ERC721Base, Permissions {
+contract MyNFT is ERC721Base, PermissionsEnumerable {
       constructor(
         string memory _name,
         string memory _symbol,
