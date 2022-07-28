@@ -74,7 +74,7 @@ We’re going to use the `claim` method in our sdk. The `claim` method takes one
 
 ```jsx
 function claim () {
-	const claimResult = tokenDropContract?.claim(<AMOUNT>);
+  const claimResult = tokenDropContract?.claim(<AMOUNT>);
 }
 ```
 
@@ -85,7 +85,7 @@ Because we we’re allowing the user to enter the amount, we need to make use of
 const [amountToClaim, setAmountToClaim] = useState("");
 //updated method
 function claim () {
-	const claimResult = tokenDropContract?.claim(amountToClaim);
+  const claimResult = tokenDropContract?.claim(amountToClaim);
 }
 ```
 
