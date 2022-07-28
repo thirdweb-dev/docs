@@ -25,8 +25,20 @@ export default function QuickstartCard({
         textDecoration: "none",
       }}
       href={link}
-      target={openInNewTab ? "_blank" : undefined}
-      rel={openInNewTab ? "noopener noreferrer" : undefined}
+      target={
+        openInNewTab
+          ? "_blank"
+          : link.startsWith("http") && !link.includes("portal.thirdweb.com") // if the link is external, we want to open it in a new tab
+          ? "_blank"
+          : undefined
+      }
+      rel={
+        openInNewTab
+          ? "noopener noreferrer"
+          : link.startsWith("http") && !link.includes("portal.thirdweb.com") // if the link is external, we want to open it in a new tab
+          ? "noopener noreferrer"
+          : undefined
+      }
       data-quickstart={"quickstart"} // Generic flag to capture all events
       data-card-name={name}
       data-card-description={description}
