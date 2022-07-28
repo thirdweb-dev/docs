@@ -50,7 +50,7 @@ const Component = () => {
 ```typescript
 export declare function useUpdatePlatformFees(
   contract: RequiredParam<SmartContract | ValidContractInstance>,
-): import("react-query").UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
       receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
@@ -75,6 +75,6 @@ export declare function useUpdatePlatformFees(
 
 **Returns:**
 
-import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, { platform_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, { platform_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; }, unknown&gt;
 
 a mutation object that can be used to update the platform fees settings

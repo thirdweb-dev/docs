@@ -33,7 +33,12 @@ const {
 export declare function useContractCall(
   contract: RequiredParam<ReturnType<typeof useContract>["contract"]>,
   functionName: RequiredParam<string>,
-): import("react-query").UseMutationResult<any, unknown, unknown, unknown>;
+): import("@tanstack/react-query").UseMutationResult<
+  any,
+  unknown,
+  unknown,
+  unknown
+>;
 ```
 
 ## Parameters
@@ -45,6 +50,6 @@ export declare function useContractCall(
 
 **Returns:**
 
-import("react-query").UseMutationResult&lt;any, unknown, unknown, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;any, unknown, unknown, unknown&gt;
 
 a response object that includes the write function to call

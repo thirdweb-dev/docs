@@ -43,7 +43,7 @@ const Component = () => {
 ```typescript
 export declare function useBuyNow(
   contract: RequiredParam<Marketplace>,
-): import("react-query").UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
       receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
@@ -74,6 +74,6 @@ export declare function useBuyNow(
 
 **Returns:**
 
-import("react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, { id: BigNumberish; type: ListingType.Direct; buyAmount: BigNumberish; buyForWallet?: string \| undefined; } \| { id: BigNumberish; type: ListingType.Auction; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, { id: BigNumberish; type: ListingType.Direct; buyAmount: BigNumberish; buyForWallet?: string \| undefined; } \| { id: BigNumberish; type: ListingType.Auction; }, unknown&gt;
 
 a mutation object that can be used to buy out an auction listing

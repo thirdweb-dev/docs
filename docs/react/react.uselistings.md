@@ -25,7 +25,7 @@ const { data: listings, isLoading, error } = useListings(<YourMarketplaceContrac
 export declare function useListings(
   contract: RequiredParam<Marketplace>,
   filter?: MarketplaceFilter,
-): import("react-query").UseQueryResult<
+): import("@tanstack/react-query").UseQueryResult<
   (
     | import("@thirdweb-dev/sdk/dist/browser").AuctionListing
     | import("@thirdweb-dev/sdk/dist/browser").DirectListing
@@ -43,6 +43,6 @@ export declare function useListings(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;(import("@thirdweb-dev/sdk/dist/browser").AuctionListing \| import("@thirdweb-dev/sdk/dist/browser").DirectListing)\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;(import("@thirdweb-dev/sdk/dist/browser").AuctionListing \| import("@thirdweb-dev/sdk/dist/browser").DirectListing)\[\], unknown&gt;
 
 a response object that includes an array of listings

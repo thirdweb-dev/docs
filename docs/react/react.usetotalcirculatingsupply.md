@@ -36,7 +36,7 @@ export declare function useTotalCirculatingSupply<
   TContract extends NFTContract,
 >(
   ...[contract, tokenId]: useTotalCirculatingSupplyParams<TContract>
-): import("react-query").UseQueryResult<BigNumber, unknown>;
+): import("@tanstack/react-query").UseQueryResult<BigNumber, unknown>;
 ```
 
 ## Parameters
@@ -47,6 +47,6 @@ export declare function useTotalCirculatingSupply<
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;BigNumber, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;BigNumber, unknown&gt;
 
 a response object that incudes the total minted supply

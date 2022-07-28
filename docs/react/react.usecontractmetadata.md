@@ -28,7 +28,7 @@ const {
 ```typescript
 export declare function useContractMetadata(
   contractAddress: RequiredParam<ContractAddress>,
-): import("react-query").UseQueryResult<
+): import("@tanstack/react-query").UseQueryResult<
   {
     [x: string]: import("@thirdweb-dev/sdk/dist/browser").Json;
     description?: string | undefined;
@@ -48,6 +48,6 @@ export declare function useContractMetadata(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk/dist/browser").Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk/dist/browser").Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
 
 a response object that includes the contract metadata of the deployed contract

@@ -50,7 +50,7 @@ const Component = () => {
 ```typescript
 export declare function useUpdateRoyaltySettings(
   contract: RequiredParam<SmartContract | ValidContractInstance>,
-): import("react-query").UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   {
     receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
     data: () => Promise<{
@@ -75,6 +75,6 @@ export declare function useUpdateRoyaltySettings(
 
 **Returns:**
 
-import("react-query").UseMutationResult&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;{ seller_fee_basis_points: number; fee_recipient: string; }&gt;; }, unknown, { seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;{ seller_fee_basis_points: number; fee_recipient: string; }&gt;; }, unknown, { seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; }, unknown&gt;
 
 a mutation object that can be used to update the royalty settings

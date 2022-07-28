@@ -45,7 +45,7 @@ export declare function useSetAllRoleMembers<
   TContract extends ContractWithRoles,
 >(
   contract: RequiredParam<TContract>,
-): import("react-query").UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   void,
   unknown,
   { [role in RolesForContract<TContract>]: string[] },
@@ -61,6 +61,6 @@ export declare function useSetAllRoleMembers<
 
 **Returns:**
 
-import("react-query").UseMutationResult&lt;void, unknown, { \[role in RolesForContract&lt;TContract&gt;\]: string\[\]; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;void, unknown, { \[role in RolesForContract&lt;TContract&gt;\]: string\[\]; }, unknown&gt;
 
 a mutation object that can be used to overwrite all roles on the contract

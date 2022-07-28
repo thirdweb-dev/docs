@@ -1,0 +1,60 @@
+---
+slug: /getting-started/configuring-contracts
+title: Configuring Smart Contracts
+---
+
+import QuickstartCard from "../../../src/components/QuickstartCard";
+
+# Configuring Smart Contracts
+
+Each contract you create includes configurations such as
+[metadata](/advanced-features/contract-settings#contract-metadata),
+[permissions](/advanced-features/permission-controls), and
+[royalties](/advanced-features/contract-settings#royalty-fees);
+for fine-grained control over your contract.
+
+This page will show you how you can get your contract ready to ship to production!
+
+## Metadata and Royalties
+
+Metadata includes information such as the image, name, symbol and description of the contract itself.
+This information will automatically show up on websites such as OpenSea and Rarible after you configure it.
+
+Below is an example of how you could set up metadata for your contract in the **Settings** tab of the dashboard:
+
+![Contract Metadata](./assets/contract-metadata.png)
+
+From the same tab, you can also set up royalties for your contract; which are fees you will earn on secondary sales of the NFTs.
+
+![Royalties](./assets/royalties.png)
+
+## Adding Team Members
+
+If you're working in a team, you can invite wallets to your contract with different levels of permission; such as
+admin, and creator. Learn more about the different roles and what they can do below:
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Permission Controls for Contracts"
+      link="/advanced-features/permission-controls"
+      image="/assets/icons/teams.png"
+    />
+  </div>
+</div>
+
+You simply enter the wallet address of the wallet you want to invite, and click **Update Permissions**!
+
+![Permissions page](./assets/permissions-2.png)
+
+Now you've got your contract set up, let's learn how you can mint NFTs into it!
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Minting & Releasing NFTs"
+      link="/getting-started/creating-nfts"
+      image="/assets/icons/drop.png"
+    />
+  </div>
+</div>

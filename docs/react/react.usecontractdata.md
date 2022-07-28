@@ -31,7 +31,7 @@ export declare function useContractData(
   contract: RequiredParam<ReturnType<typeof useContract>["contract"]>,
   functionName: RequiredParam<string>,
   ...args: unknown[] | [...unknown[], CallOverrides]
-): import("react-query").UseQueryResult<any, unknown>;
+): import("@tanstack/react-query").UseQueryResult<any, unknown>;
 ```
 
 ## Parameters
@@ -44,6 +44,6 @@ export declare function useContractData(
 
 **Returns:**
 
-import("react-query").UseQueryResult&lt;any, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;any, unknown&gt;
 
 a response object that includes the data returned by the function call
