@@ -161,50 +161,45 @@ export default function ExamplesContainer() {
               data-example-url={repo.html_url}
             >
               <div
-                className="card-demo"
-                style={{ cursor: "pointer", pointerEvents: "none" }}
+                className="card"
+                style={{
+                  cursor: "pointer",
+                }}
               >
                 <div
-                  className="card"
+                  className="card__header"
                   style={{
+                    display: "flex",
+                    flexDirection: "row",
+                    alignItems: "center",
                     pointerEvents: "none",
                   }}
                 >
-                  <div
-                    className="card__header"
+                  <img
+                    src={starterKitToIconMapping[repo.name][0]}
                     style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      alignItems: "center",
+                      marginRight: 8,
                       pointerEvents: "none",
+                      width: 42,
+                    }}
+                  />
+                  <img
+                    src={starterKitToIconMapping[repo.name][1]}
+                    style={{
+                      pointerEvents: "none",
+                      width: 42,
+                    }}
+                  />
+                  <h3
+                    style={{
+                      fontWeight: 600,
+                      fontSize: "1.1rem",
+                      pointerEvents: "none",
+                      marginLeft: 16,
                     }}
                   >
-                    <img
-                      src={starterKitToIconMapping[repo.name][0]}
-                      style={{
-                        marginRight: 8,
-                        pointerEvents: "none",
-                        width: 42,
-                      }}
-                    />
-                    <img
-                      src={starterKitToIconMapping[repo.name][1]}
-                      style={{
-                        pointerEvents: "none",
-                        width: 42,
-                      }}
-                    />
-                    <h3
-                      style={{
-                        fontWeight: 600,
-                        fontSize: "1.1rem",
-                        pointerEvents: "none",
-                        marginLeft: 16,
-                      }}
-                    >
-                      {starterKitToDisplayNameMapping[repo.name]}
-                    </h3>
-                  </div>
+                    {starterKitToDisplayNameMapping[repo.name]}
+                  </h3>
                 </div>
               </div>
             </a>
@@ -302,43 +297,34 @@ export default function ExamplesContainer() {
               data-example-url={repo.html_url}
             >
               <div
-                className="card-demo"
+                className="card"
                 style={{
                   cursor: "pointer",
                   height: "100%",
-                  pointerEvents: "none",
                 }}
               >
                 <div
-                  className="card"
-                  style={{ height: "100%", pointerEvents: "none" }}
+                  className="card__header"
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "space-evenly",
+                    textAlign: "center",
+                    height: "100%",
+                    pointerEvents: "none",
+                  }}
                 >
-                  <div
-                    className="card__header"
-                    style={{
-                      display: "flex",
-                      flexDirection: "column",
-                      alignItems: "center",
-                      justifyContent: "space-evenly",
-                      textAlign: "center",
-                      height: "100%",
-                      pointerEvents: "none",
-                    }}
-                  >
-                    <img
-                      src={decideIcon(repo)}
-                      style={{ pointerEvents: "none", width: 48 }}
-                    />
-                    <div
-                      className="card__body"
-                      style={{ pointerEvents: "none" }}
-                    >
-                      <h3 style={{ fontWeight: 600, pointerEvents: "none" }}>
-                        {transformName(repo.name)}
-                      </h3>
+                  <img
+                    src={decideIcon(repo)}
+                    style={{ pointerEvents: "none", width: 48 }}
+                  />
+                  <div className="card__body" style={{ pointerEvents: "none" }}>
+                    <h3 style={{ fontWeight: 600, pointerEvents: "none" }}>
+                      {transformName(repo.name)}
+                    </h3>
 
-                      {/* <code>{repo.name}</code> */}
-                    </div>
+                    {/* <code>{repo.name}</code> */}
                   </div>
                 </div>
               </div>
