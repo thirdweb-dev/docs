@@ -30,11 +30,11 @@ Create a new file called `MyNFT.sol` in this directory.
 
 Base contracts give us a great starting point with functionality already implemented for us.
 
-To create a contract that "starts out" as a base contract, such as the [ERC721Base](/solidity-sdk/base-contracts/erc-721/erc721base), we need to:
+To create a contract that "starts out" as a base contract, such as the [ERC721Base](/contracts-sdk/base-contracts/erc-721/erc721base), we need to:
 
 1. Import the contract from the SDK.
 2. Inherit the contract, by saying `MyNFT is ERC721Base`.
-3. Implement any [required methods](/solidity-sdk/base-contracts/erc-721/erc721base#implementing-the-contract-extension) such as the `constructor`.
+3. Implement any [required methods](/contracts-sdk/base-contracts/erc-721/erc721base#implementing-the-contract-extension) such as the `constructor`.
 
 ```solidity title="MyNFT.sol"
 // SPDX-License-Identifier: MIT
@@ -62,7 +62,7 @@ contract MyNFT is ERC721Base {
 ### Add Contract Extensions
 
 To add more functionality, we can write any custom logic or
-begin to implement additional contract extensions; such as [Permissions](/solidity-sdk/contract-extensions/permissions),
+begin to implement additional contract extensions; such as [Permissions](/contracts-sdk/contract-extensions/permissions),
 by following the same pattern as we did for the base contract.
 
 **1. Import the contract from the SDK.**

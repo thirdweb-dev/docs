@@ -2,3 +2,200 @@
 slug: /web3-sdk/interacting-with-contracts/nft-drop
 title: NFT Drop
 ---
+
+import ThirdwebCodeSnippet from "../../../../../src/components/ThirdwebCodeSnippet";
+import DeployThisContractButton from "../../../../../src/components/DeployThisContractButton";
+
+<div className='deployContractBtnContainer' style={{marginTop:-70}}>
+
+<DeployThisContractButton
+  link={"https://thirdweb.com/contracts/new/pre-built/drop/nft-drop"}
+  contractType="nft-drop"
+/>
+
+</div>
+
+thirdweb's drop contracts **lazy mint** your NFTs and make them available to be claimed by your users.
+
+The NFT Drop contract is ideal when you want to release a **1-of-1**, or **1-of-many** NFT collection,
+such as a PFP (profile picture) collection, and uses the [ERC721 Standard](https://eips.ethereum.org/EIPS/eip-721).
+The NFT Drop contract allows you to define the conditions for when and how your users can mint an NFT,
+including allowlists, release dates, claim limits, and delayed reveals.
+
+When you add NFTs to your drop contract, they are **not** minted at this point.
+You prepare everything for your users so that _they_ can mint the NFT(s).
+This procedure means the user who claims the NFT is the one who mints it and the NFT mints into their wallet.
+By default, the user is the one who pays the gas fees.
+
+You could use the NFT Drop contract to:
+
+- Release a PFP Collection where each NFT has a different combination of traits
+- Release NFTs of your artwork, and have your community mint them for a price
+- Create a restricted-access NFT drop, where only a specified list of wallets can claim it
+
+## Smart Contract Design
+
+For a detailed exploration of how our drop smart contracts work, why they were built, and their limitations, visit our [Drop Design Doc](/contracts/design/Drop)!
+
+## Create an NFT Drop Contract
+
+Learn how to create any of thirdweb's pre-built contracts via the [Deploying Contracts page](/getting-started/deploying-contracts).
+
+<ThirdwebCodeSnippet contract={"ContractDeployer"} name={"deployNFTDrop"} />
+
+<!-- ## Feature Sets -->
+<!-- TODO: Explain how lazy minting works and what contract implementations are used on this contract here. -->
+
+## Getting the contract in your application
+
+To start using your NFT Drop contract inside your application, you'll need to use its contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+
+<ThirdwebCodeSnippet
+  contract={"NFTDrop"}
+  name={"initializing the SDK"}
+  isGetContractCode
+/>
+
+## Lazy Minting Your NFTs
+
+### Using the dashboard
+
+You can batch upload NFTs through the dashboard by uploading a `.csv` file or a `.json` file that contains the metadata of all your NFTs, alongside the assets (images, videos, etc.).
+
+- You must include a `name` column for each NFT in the `.csv` or `json` file
+- Asset file names must be sequential. E.g. `0.png`, `1.png`, `2.png`.
+
+You can use our examples to get started:
+
+- [Example CSV File](https://thirdweb.com/example.csv)
+- [Example JSON File](https://nightly.thirdweb.com/example.json)
+
+For a more in-depth guide on creating your NFTs in the NFT Drop contract, check out [How to Release an NFT Drop](https://portal.thirdweb.com/guides/release-an-nft-drop-with-no-code).
+
+### Using the thirdweb SDK
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"createBatch"} />
+
+## Setting Claim Phases
+
+A claim phase is a set of conditions that define when and how your users can mint an NFT.
+
+You can have multiple claim phases that occur in sequence.
+
+For each claim phase, you can define:
+
+- When the claim phase will start
+- How many NFTs do you want to drop
+- How much do you want to charge per NFT
+- What currency do you want to use
+- Which wallet addresses are allowed to mint (allowlist)
+- How many NFTs can be claimed per transaction
+- How many seconds do wallets have to wait between claims
+
+### Using the dashboard
+
+For a more in-depth guide on setting up your NFT Drop with multiple claim phases and an allowlist, check out our guide [Release an NFT Drop with an allowlist and multiple claim phases](https://portal.thirdweb.com/guides/create-nft-drop-with-claim-phases).
+
+### Using the thirdweb SDK
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"claimConditions"} />
+
+## Delayed Reveals
+
+Delayed reveal enables you to reveal the contents of the NFT to the user later at a specific date and show a placeholder asset in the meantime.
+
+### Using the dashboard
+
+- **Reveal upon mint**: Collectors will immediately see the final NFT when they complete the minting.
+- **Delayed Reveal**: Collectors will mint your placeholder image, then you reveal it at a later time.
+
+![Select Delayed Reveal](../assets/select-delayed-reveal.png)
+
+For a more in-depth guide on setting up your NFT Drop with delayed reveal, check out our guide [Release an NFT drop with delayed reveal](https://portal.thirdweb.com/guides/nft-drop-with-delayed-reveal).
+
+### Using the thirdweb SDK
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"revealer"} />
+
+## Setting Royalty Fees
+
+Royalty fees are fees you earn on secondary sales of your NFTs. For example, if somebody mints an NFT from your drop and then sells it to another user, you will earn a royalty fee.
+
+### Using the dashboard
+
+From the dashboard, in the **Settings** tab, you can set the royalty **percentage** and the **address** that should receive the revenue from royalties earned from secondary sales of the assets.
+
+![Configuring Royalties on the Dashboard](../assets/royalties.png)
+
+### Using the thirdweb SDK
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"royalties"} />
+
+## Minting / Claiming NFTs
+
+With an NFT Drop contract, users claim NFTs by minting them into their wallets.
+Typically you will have a "mint" button that your users can click, which mints this user the next unclaimed NFT in your collection.
+
+### Using the embed
+
+We have a pre-built embed that you can use to display your NFT Drop within your website.
+
+You can access your NFT Drop's embed URL from the [dashboard](https://thirdweb.com/dashboard).
+
+![MFT Drop Dashboard Embed](../assets/embed-dark-mode.png)
+
+### Using the thirdweb SDK
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"claimTo"} />
+
+## Viewing NFTs
+
+Our SDKs provide helpful ways to view the NFTs in your collection.
+
+### One NFT
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"get"} />
+
+### All NFTs
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"getAll"} />
+
+### Claimed NFTs
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"getAllClaimed"} />
+
+### Unclaimed NFTs
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"getAllUnclaimed"} />
+
+### NFTs owned by a specific wallet
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"getOwned"} />
+
+## Viewing Supply
+
+### Claimed supply
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"totalClaimedSupply"} />
+
+### Unclaimed supply
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"totalUnclaimedSupply"} />
+
+## Transferring NFTs
+
+You can transfer NFTs from one wallet to another.
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"transfer"} />
+
+## Burning NFTs
+
+Burning is the process of removing the token from circulation by sending it to an inaccessible address. It does **not** delete the token from the blockchain.
+
+### Using the dashboard
+
+![Burning Claimed NFTs on Dashboard](../assets/burn.png)
+
+### Using the SDK
+
+<ThirdwebCodeSnippet contract={"NFTDrop"} name={"burn"} />
