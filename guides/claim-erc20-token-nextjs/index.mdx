@@ -6,6 +6,7 @@ date: "2022-07-28"
 # Claim an ERC20 Token with NextJS
 
 In this guide, we will allow users to claim ERC-20 tokens in our nextJS app and show holders of our tokens!
+<!-- truncate -->
 
 ## Intro
 
@@ -35,7 +36,6 @@ npx thirdweb create --next --js
 ```
 Inside the `_app.js` file, change the chain ID to the chain you deployed the smartcontract too.
 ```jsx
-import type { AppProps } from 'next/app';
 import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
 
 // This is the chainId your dApp will work on.
@@ -88,7 +88,7 @@ function claim () {
 Finally we bind the method via a function to a button
 
 ```jsx
-<button onClick={claim} className={styles.mainButton}>
+<button onClick={claim}>
 ```
 
 The full code looks something like this 👇
@@ -131,7 +131,7 @@ export default function Claim({ tokenDropContract }) {
 }
 ```
 
-### Tokenholders
+### Token Holders
 
 Now to render out a list of our token holders, we’ll use the `getAllHolderBalances` method. It’s straight forward, build the function and render it out inside the component like this.
 
@@ -208,8 +208,7 @@ export default function TokenHolders() {
               <p>
                 {holder.balance.displayValue} {holder.balance.symbol}
               </p>
-            </div>
-          ))}
+            </div> ))}
       </div>
     </>
   );
