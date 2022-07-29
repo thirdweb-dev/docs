@@ -15,10 +15,10 @@ We'll explore how we use the SDK to:
 
 ## Connecting the user's wallet
 
-Inside the [homepage](https://github.com/thirdweb-example/nft-gated-website/blob/main/pages/index.js)
+Inside the [homepage](https://github.com/thirdweb-example/nft-gated-website/blob/main/pages/index.jsx)
 we are wrapping our application in the `ThirdwebProvider` so that we can use all of the React SDKs hooks anywhere in our application.
 
-This allows us to easily use hooks such as [`useMetamask`](https://portal.thirdweb.com/react/react.usemetamask) on the [`index.js`](https://github.com/thirdweb-example/nft-gated-website/blob/main/pages/index.js) page to connect the user's wallet. Once the user is connected, we can access their wallet address with the [`useAddress`](https://portal.thirdweb.com/react/react.useaddress) hook.
+This allows us to easily use hooks such as [`useMetamask`](https://portal.thirdweb.com/react/react.usemetamask) on the [`index.js`](https://github.com/thirdweb-example/nft-gated-website/blob/main/pages/index.jsx) page to connect the user's wallet. Once the user is connected, we can access their wallet address with the [`useAddress`](https://portal.thirdweb.com/react/react.useaddress) hook.
 
 ```jsx title="index.js"
 // allow user to connect to app with metamask, and obtain address
@@ -65,7 +65,7 @@ const response = await fetch(`/api/get-restricted-content`, {
 
 On the server-side, we verify that the user is who they claim to be, and exit if this login payload is not valid. This proves that the user making this request owns the wallet.
 
-This logic runs on an API route called [get-restricted-content](https://github.com/thirdweb-example/nft-gated-website/blob/main/pages/api/get-restricted-content.js).
+This logic runs on an API route called [get-restricted-content](https://github.com/thirdweb-example/nft-gated-website/blob/main/pages/index.jsx).
 
 ```jsx title="api/get-restricted-content.js"
 // Get the login payload that we sent with the request

@@ -122,7 +122,7 @@ For the MetaMask connection, we are using the [useMetamask](https://docs.thirdwe
 const connectWithMetamask = useMetamask();
 ```
 
-This works because we have the `ThirdwebProvider` setup in our [/pages/app.js](https://github.com/thirdweb-example/community-rewards/blob/main/pages/app.js) file, which allows us to use all of the thirdweb React SDK's helpful hooks.
+This works because we have the `ThirdwebProvider` setup in our [\_app.js](https://github.com/thirdweb-example/community-rewards/blob/main/pages/_app.js) file, which allows us to use all of the thirdweb React SDK's helpful hooks.
 
 ```jsx
 // This is the chainId your dApp will work on.
@@ -144,7 +144,7 @@ function MyApp({ Component, pageProps }) {
 
 We are using the Authentication library [NextAuth.js](https://next-auth.js.org/) to authenticate users with their Discord accounts.
 
-`NextAuth` uses the [`pages/api/auth/[...nextauth].js`](pages/api/auth/[...nextauth].js) file to handle the authentication logic such as redirects for us.
+`NextAuth` uses the [`pages/api/auth/[...nextauth].js`](https://github.com/thirdweb-example/community-rewards/blob/main/pages/api/auth/[...nextauth].js) file to handle the authentication logic such as redirects for us.
 
 We setup the Discord Provider and pass in our Discord applications information that we got from the Discord Developer Portal (discussed below).
 
@@ -225,7 +225,7 @@ Now when we call `useSession` or `getSession`, we have access to the `accessToke
 
 Before the user see's the mint button, we make a check to see if the user is a member of the Discord server, using Next.js API Routes.
 
-This logic is performed on the [pages/api/check-is-in-server.js](pages/api/check-is-in-server.js) file.
+This logic is performed on the [pages/api/check-is-in-server.js](https://github.com/thirdweb-example/community-rewards/blob/main/pages/api/check-is-in-server.js) file.
 
 First, we get the user's accessToken from the session.
 
