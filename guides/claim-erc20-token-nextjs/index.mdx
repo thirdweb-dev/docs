@@ -3,6 +3,7 @@ authors: raza
 tags: [erc20, javascript, token]
 date: "2022-07-28"
 ---
+
 # Claim an ERC20 Token with NextJS
 
 In this guide, we will allow users to claim ERC-20 tokens in our nextJS app and show holders of our tokens!
@@ -11,9 +12,9 @@ In this guide, we will allow users to claim ERC-20 tokens in our nextJS app and 
 
 ## Intro
 
-Just like our [NFT Drop](https://portal.thirdweb.com/pre-built-contracts/nft-drop) contract, the [Token Drop](https://portal.thirdweb.com/pre-built-contracts/token-drop) contract makes the token available for users to claim. In other words, the actual minting happens when a user claims the token. In this app a user can claim our token. Right at that time the ERC-20 token is minted and sent to the wallet of that user. This app also shows all the wallets that hold this token. 
+Just like our [NFT Drop](https://portal.thirdweb.com/pre-built-contracts/nft-drop) contract, the [Token Drop](https://portal.thirdweb.com/pre-built-contracts/token-drop) contract makes the token available for users to claim. In other words, the actual minting happens when a user claims the token. In this app a user can claim our token. Right at that time the ERC-20 token is minted and sent to the wallet of that user. This app also shows all the wallets that hold this token.
 
-Check out our example repository with the project built out on [Github](https://github.com/thirdweb-example/token-drop) and click [here](https://token-drop.thirdweb-example.com) to see a live example of the app. 
+Check out our example repository with the project built out on [Github](https://github.com/thirdweb-example/token-drop) and click [here](https://token-drop.thirdweb-example.com) to see a live example of the app.
 
 ## Flow
 
@@ -31,7 +32,7 @@ To build this app, we need to walk through the following steps.
 ## Build
 
 First deploy a `Token Drop` contract from [thirdweb’s dashboard](https://thirdweb.com/dashboard) by clicking on `+ Deploy new contract`. Navigate to the `Token Drop` contract by clicking on `Pre-built contracts` and then `Release a drop`. Don't forget to set your claim conditions under `Claim Phases`.  
-Next go ahead and run the following command to get the NextJS Javascript starter template. 
+Next go ahead and run the following command to get the NextJS Javascript starter template.
 
 ```bash
 npx thirdweb create --next --js
@@ -40,7 +41,7 @@ npx thirdweb create --next --js
 Inside the `_app.js` file, change the chain ID to the chain you deployed the smartcontract too.
 
 ```jsx
-import { ChainId, ThirdwebProvider } from '@thirdweb-dev/react';
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
 // This is the chainId your dApp will work on.
 const activeChainId = ChainId.Mainnet;
@@ -56,7 +57,7 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 ```
 
-We will go through the logic, but won't show every piece of code. If you want to have a look at the full piece of code, check out the [repo!](https://github.com/thirdweb-example/token-drop) 
+We will go through the logic, but won't show every piece of code. If you want to have a look at the full piece of code, check out the [repo!](https://github.com/thirdweb-example/token-drop)
 
 ### Connect our smart contract
 
@@ -84,7 +85,7 @@ Because we we’re allowing the user to enter the amount, we need to make use of
 //React hook to manage state
 const [amountToClaim, setAmountToClaim] = useState("");
 //updated method
-function claim () {
+function claim() {
   const claimResult = tokenDropContract?.claim(amountToClaim);
 }
 ```
@@ -144,30 +145,34 @@ Let’s build out the function first
 const [holders, setHolders] = useState([]);
 
 async function checkHolders() {
-    //define the method
-    const balances = await token.history.getAllHolderBalances();
-    //assign the data to the variable balances
-    setHolders(balances);
+  //define the method
+  const balances = await token.history.getAllHolderBalances();
+  //assign the data to the variable balances
+  setHolders(balances);
 }
 ```
 
-Next we’ll *trigger* the function upon loading the page. We can do that with the hook `useEffect`
+Next we’ll _trigger_ the function upon loading the page. We can do that with the hook `useEffect`
 
 ```jsx
- useEffect(() => {
-    checkHolders();
-  }, []);
+useEffect(() => {
+  checkHolders();
+}, []);
 ```
 
 Now we need to render out the data inside our page. We can use a `map` method to render out all the holders and their balances like this.
 
 ```jsx
-{holders?.map((holder) => (
-  <div key={holder.holder}>
-    <p>{holder.holder}</p>
-    <p>{holder.balance.displayValue} {holder.balance.symbol}</p>
-  </div>
-))}
+{
+  holders?.map((holder) => (
+    <div key={holder.holder}>
+      <p>{holder.holder}</p>
+      <p>
+        {holder.balance.displayValue} {holder.balance.symbol}
+      </p>
+    </div>
+  ));
+}
 ```
 
 Here is the full page, including a loading view and sorting the balances 👇
@@ -176,7 +181,7 @@ Here is the full page, including a loading view and sorting the balances 👇
 export default function TokenHolders() {
   const [loading, setLoading] = useState(true);
   const [holders, setHolders] = useState([]);
-  
+
   async function checkHolders() {
     const sdk = new ThirdwebSDK("mumbai"); // configure this to your network
 
@@ -201,7 +206,7 @@ export default function TokenHolders() {
           .sort(
             (a, b) =>
               parseInt(b.balance.displayValue) -
-              parseInt(a.balance.displayValue)
+              parseInt(a.balance.displayValue),
           )
           .map((holder) => (
             <div key={holder.holder}>
@@ -209,8 +214,8 @@ export default function TokenHolders() {
               <p>
                 {holder.balance.displayValue} {holder.balance.symbol}
               </p>
-            </div> 
-	  ))}
+            </div>
+          ))}
       </div>
     </>
   );
