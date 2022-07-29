@@ -164,6 +164,19 @@
     "homepage": ""
   },
   {
+    "name": "hardhat-javascript-starter",
+    "html_url": "https://github.com/thirdweb-example/hardhat-javascript-starter",
+    "description": "thirdweb contracts starter project for Hardhat & TypeScript",
+    "created_at": "2022-07-29T02:19:53Z",
+    "updated_at": "2022-07-29T10:41:51Z",
+    "clone_url": "https://github.com/thirdweb-example/hardhat-javascript-starter.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "hardhat-thirdweb-deploy-app",
     "html_url": "https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app",
     "description": "Build an application on top of a custom contract using the thirdweb SDK",
@@ -204,6 +217,19 @@
       "thirdweb-deploy"
     ],
     "language": "JavaScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": ""
+  },
+  {
+    "name": "hardhat-typescript-starter",
+    "html_url": "https://github.com/thirdweb-example/hardhat-typescript-starter",
+    "description": "thirdweb contracts starter project for Hardhat & TypeScript",
+    "created_at": "2022-07-29T01:58:49Z",
+    "updated_at": "2022-07-29T02:19:37Z",
+    "clone_url": "https://github.com/thirdweb-example/hardhat-typescript-starter.git",
+    "topics": [],
+    "language": "TypeScript",
     "stargazers_count": 0,
     "is_template": false,
     "homepage": ""

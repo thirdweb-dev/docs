@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # PlatformFee
 
+> Platform Fee
+
 Thirdweb&#39;s `PlatformFee` is a contract extension to be used with any base contract. It exposes functions for setting and reading the recipient of platform fee and the platform fee basis points, and lets the inheriting contract perform conditional logic that uses information about platform fees, if desired.
 
 ## Methods
@@ -32,14 +34,16 @@ _Returns the platform fee recipient and bps._
 function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeBps) external nonpayable
 ```
 
-_Lets a contract admin update the platform fee recipient and bps_
+Updates the platform fee recipient and bps.
+
+_Caller should be authorized to set platform fee info. See {\_canSetPlatformFeeInfo}. Emits {PlatformFeeInfoUpdated Event}; See {\_setupPlatformFeeInfo}._
 
 #### Parameters
 
-| Name                   | Type    | Description |
-| ---------------------- | ------- | ----------- |
-| \_platformFeeRecipient | address | undefined   |
-| \_platformFeeBps       | uint256 | undefined   |
+| Name                   | Type    | Description                                    |
+| ---------------------- | ------- | ---------------------------------------------- |
+| \_platformFeeRecipient | address | Address to be set as new platformFeeRecipient. |
+| \_platformFeeBps       | uint256 | Updated platformFeeBps.                        |
 
 ## Events
 
