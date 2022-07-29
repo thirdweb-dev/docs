@@ -10,7 +10,7 @@ import ViewCodeButton from "../../../../src/components/generated-md-components/V
 
 Use thirdweb's sdk.deployer to deploy any pre-built contract dynamically with no private keys!
 
-To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):
+To create a new project using this template, use the [thirdweb CLI](/thirdweb-cli):
 
 ```jsx
 npx thirdweb create --template custom-dashboard
@@ -68,7 +68,7 @@ We'll explore the details of how this repository works below.
 
 ### Viewing Deployed Contracts
 
-On the [index.tsx](pages/index.tsx) page, we use the [`.getContractList`](https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.getcontractlist#thirdwebsdkgetcontractlist-method) function to view all the contracts we deployed so far:
+On the [index.tsx](https://github.com/thirdweb-example/custom-dashboard/blob/main/pages/index.tsx) page, we use the [`.getContractList`](https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.getcontractlist#thirdwebsdkgetcontractlist-method) function to view all the contracts we deployed so far:
 
 ```jsx
 // Get the signer of the currently connected wallet
@@ -86,7 +86,7 @@ thirdweb.getContractList(address).then((contracts) => {
 
 ### Deploying Contracts
 
-On the [deploy.tsx](pages/deploy.tsx) page, we use the [`.deployBuiltInContract`] function to deploy a contract, which is a generic function to deploy _any_ pre-built contract.
+On the [deploy.tsx](https://github.com/thirdweb-example/custom-dashboard/blob/main/pages/deploy.tsx) page, we use the [`.deployBuiltInContract`] function to deploy a contract, which is a generic function to deploy _any_ pre-built contract.
 
 Typically, you know which contract you want your users to deploy, so it's more helpful to use one of the methods exposed on the [ContractDeployer class](https://portal.thirdweb.com/typescript/sdk.contractdeployer#contractdeployer-class).
 

@@ -24,7 +24,6 @@ export default function SupportedLanguagesSection() {
           className="col col--12 card"
           key={lang}
           href={languageToUrlMapping[lang]}
-          target="_blank"
           aria-label={`${lang} SDK`}
         >
           <div className="card__body">

@@ -122,10 +122,11 @@
     "html_url": "https://github.com/thirdweb-example/discord-role-granter",
     "description": "Grant users who own NFTs a role in your Discord server!",
     "created_at": "2022-07-22T03:52:48Z",
-    "updated_at": "2022-07-22T13:41:59Z",
+    "updated_at": "2022-07-28T21:04:22Z",
     "clone_url": "https://github.com/thirdweb-example/discord-role-granter.git",
     "topics": [
-      "authentication"
+      "authentication",
+      "wallet-connection"
     ],
     "language": "TypeScript",
     "stargazers_count": 1,
@@ -161,6 +162,19 @@
     "stargazers_count": 2,
     "is_template": false,
     "homepage": ""
+  },
+  {
+    "name": "hardhat-javascript-starter",
+    "html_url": "https://github.com/thirdweb-example/hardhat-javascript-starter",
+    "description": "thirdweb contracts starter project for Hardhat & TypeScript",
+    "created_at": "2022-07-29T02:19:53Z",
+    "updated_at": "2022-07-29T10:41:51Z",
+    "clone_url": "https://github.com/thirdweb-example/hardhat-javascript-starter.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": null
   },
   {
     "name": "hardhat-thirdweb-deploy-app",
@@ -203,6 +217,19 @@
       "thirdweb-deploy"
     ],
     "language": "JavaScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": ""
+  },
+  {
+    "name": "hardhat-typescript-starter",
+    "html_url": "https://github.com/thirdweb-example/hardhat-typescript-starter",
+    "description": "thirdweb contracts starter project for Hardhat & TypeScript",
+    "created_at": "2022-07-29T01:58:49Z",
+    "updated_at": "2022-07-29T02:19:37Z",
+    "clone_url": "https://github.com/thirdweb-example/hardhat-typescript-starter.git",
+    "topics": [],
+    "language": "TypeScript",
     "stargazers_count": 0,
     "is_template": false,
     "homepage": ""
@@ -359,15 +386,14 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-07-27T10:05:10Z",
+    "updated_at": "2022-07-28T21:04:32Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
-      "edition",
+      "authentication",
       "edition-drop",
       "javascript",
-      "nft-collection",
-      "nft-drop",
-      "react"
+      "react",
+      "wallet-connection"
     ],
     "language": "JavaScript",
     "stargazers_count": 36,
@@ -379,7 +405,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-07-26T01:03:21Z",
+    "updated_at": "2022-07-28T22:19:15Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "nft-drop",
@@ -387,7 +413,7 @@
       "token"
     ],
     "language": "TypeScript",
-    "stargazers_count": 19,
+    "stargazers_count": 20,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -441,7 +467,7 @@
     "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2022-07-27T05:32:08Z",
+    "updated_at": "2022-07-28T04:34:17Z",
     "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
@@ -450,7 +476,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 10,
+    "stargazers_count": 11,
     "is_template": false,
     "homepage": "https://signature-based-minting.thirdweb-example.com"
   },
@@ -489,11 +515,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2022-07-23T06:52:08Z",
+    "updated_at": "2022-07-28T17:29:09Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 7,
+    "stargazers_count": 8,
     "is_template": false,
     "homepage": null
   },

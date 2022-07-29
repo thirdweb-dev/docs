@@ -71,13 +71,19 @@ function filterContent(content, url) {
       // The new text should be the old text stripped of the starting ".", and replaced with `${url}/blob/main/`.
       let i = 0;
       while (i < l.length) {
-        if (l[i] === "(" && l[i + 1] === ".") {
+        if (
+          (l[i - 1] && l[i - 1] === "]" && l[i] === "(" && l[i + 1] === ".") ||
+          (l[i - 1] && l[i - 1] === "]" && l[i] === "(" && l[i + 1] === "/")
+        ) {
           const start = i + 2;
           let end = start;
           while (l[end] !== ")") {
             end++;
           }
-          const newText = `${url}/blob/main` + l.slice(start, end);
+          const newText =
+            `${url}/blob/main` +
+            (l[i + 1] === "/" ? "/" : "") +
+            l.slice(start, end);
           l = l.slice(0, start - 1) + newText + l.slice(end);
         }
         i++;
@@ -120,7 +126,7 @@ hide_title: true
   const md = filterContent(page.text, page.html_url);
 
   const createSnippet =
-    "To create a new project using this template, use the [thirdweb CLI](/thirdweb-deploy/thirdweb-cli):" +
+    "To create a new project using this template, use the [thirdweb CLI](/thirdweb-cli):" +
     "\n" +
     "```jsx" +
     "\n" +
