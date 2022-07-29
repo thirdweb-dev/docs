@@ -57,7 +57,7 @@ Want to start building and see what you can do? Check out the **[Getting Started
   <p>Deploying smart contracts is the first step of building any web3 application.</p>
 
 You can deploy one of our [pre-built contracts](/pre-built-contracts) for more common use cases (NFTs, tokens, marketplaces),
-or you can build your own smart contract with our [contract extensions](/thirdweb-deploy/contract-extensions) and ship it with [thirdweb deploy](/thirdweb-cli).
+or you can build your own smart contract with our [contract extensions](/thirdweb-deploy/contract-extensions) and ship it with [thirdweb deploy](/cli).
 
 <p style={{ marginBottom: 6 }}>Our pre-built contracts are:</p>
 
@@ -71,7 +71,7 @@ or you can build your own smart contract with our [contract extensions](/thirdwe
 <div className="col col--12" style={{ marginTop: 8 }}>
   <QuickstartCard
     name="Learn more about contracts"
-    link="/smart-contracts"
+    link="/pre-built-contracts"
     image="/assets/icons/general.png"
   />
 </div>
@@ -113,7 +113,7 @@ build elegant user interfaces around your smart contract functionality.
 <div className="col col--12" style={{ marginTop: 8 }}>
   <QuickstartCard
     name="Learn more about SDKs"
-    link="/building-web3-apps/setting-up-the-sdk"
+    link="/web3-sdk"
     image="/assets/icons/general.png"
   />
 </div>

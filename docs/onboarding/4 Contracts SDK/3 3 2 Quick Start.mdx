@@ -95,7 +95,7 @@ Let's see what we can do with it!
 
 ## Detecting contract extensions
 
-The [thirdweb CLI](/thirdweb-cli) provides a command to detect the implemented contract extensions.
+The [thirdweb CLI](/cli) provides a command to detect the implemented contract extensions.
 
 ```bash
 npx thirdweb detect
@@ -185,7 +185,7 @@ After the `mintTo` transaction is confirmed, you can view all of the NFTs that h
 
 ![minted nfts](./assets/minted-nfts.png)
 
-Within the [SDK](/building-web3-apps/setting-up-the-sdk), you can also easily utilize these features, for example:
+Within the [SDK](/web3-sdk), you can also easily utilize these features, for example:
 
 ```javascript
 // Minting an NFT (includes uploading metadata to IPFS automatically)
@@ -196,4 +196,4 @@ await contract.nft.mint.to(walletAddress, nftMetadata);
 const nfts = await contract.nft.query.all();
 ```
 
-That's it! Now you're ready to start building applications on top of your contract using the [SDK](/building-web3-apps/setting-up-the-sdk)!
+That's it! Now you're ready to start building applications on top of your contract using the [SDK](/web3-sdk)!
