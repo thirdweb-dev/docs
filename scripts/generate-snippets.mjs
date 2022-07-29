@@ -111,9 +111,9 @@ const snippets = CLASSES.reduce((acc, contractName) => {
       },
       reference: {
         javascript:
-          tsExample?.methods?.find(
-            (m) => m.name.toLowerCase() === method.name.toLowerCase(),
-          )?.reference || "",
+          tsExample?.methods
+            ?.find((m) => m.name.toLowerCase() === method.name.toLowerCase())
+            ?.reference?.toLowerCase() || "",
         python:
           pythonExample?.methods?.find(
             (m) =>
@@ -159,9 +159,9 @@ const snippets = CLASSES.reduce((acc, contractName) => {
       },
       reference: {
         javascript:
-          tsExample?.properties?.find(
-            (p) => p.name.toLowerCase() === property.name.toLowerCase(),
-          )?.reference || "",
+          tsExample?.properties
+            ?.find((p) => p.name.toLowerCase() === property.name.toLowerCase())
+            ?.reference?.toLowerCase() || "",
         python:
           pythonExample?.properties?.find(
             (p) =>
