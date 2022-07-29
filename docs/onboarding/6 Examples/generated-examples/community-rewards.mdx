@@ -44,7 +44,7 @@ npx thirdweb create --template community-rewards
 
 ## Introduction
 
-In this guide, we will utilize [signature-based minting](https://portal.thirdweb.com/python/erc721-signature-minting) of NFTs as a mechanism to reward users of a specific community. We connect user's with their Discord account, and generate signatures for an NFT if the user is a **member** of the Discord server.
+In this guide, we will utilize [signature-based minting](https://portal.thirdweb.com/advanced-features/on-demand-minting) of NFTs as a mechanism to reward users of a specific community. We connect user's with their Discord account, and generate signatures for an NFT if the user is a **member** of the Discord server.
 
 **Check out the Demo here**: https://community-rewards.thirdweb-example.com
 
@@ -52,15 +52,15 @@ If you're interested in reading the basics of signature-based minting, we recomm
 
 ## Tools:
 
-- [**thirdweb React SDK**](https://docs.thirdweb.com/react): To connect to our NFT Collection Smart contract via React hooks such as [useNFTCollection](https://docs.thirdweb.com/react/react.usenftcollection), and allow users to sign in with [useMetamask](https://docs.thirdweb.com/react/react.usemetamask).
+- [**React SDK**](https://docs.thirdweb.com/react): To connect to our NFT Collection Smart contract via React hooks such as [useNFTCollection](https://docs.thirdweb.com/react/react.usenftcollection), and allow users to sign in with [useMetamask](https://docs.thirdweb.com/react/react.usemetamask).
 
-- [**thirdweb NFT Collection**](https://portal.thirdweb.com/contracts/nft-collection): This is the smart contract that our NFTs will be created into.
+- [**NFT Collection**](https://portal.thirdweb.com/pre-built-contracts/nft-collection): This is the smart contract that our NFTs will be created into.
 
-- [**thirdweb TypeScript SDK**](https://docs.thirdweb.com/typescript): To mint new NFTs with [signature based minting](https://docs.thirdweb.com/typescript/sdk.nftcollection.signature)!
+- [**TypeScript SDK**](https://docs.thirdweb.com/typescript): To mint new NFTs with [signature based minting](https://docs.thirdweb.com/typescript/sdk.nftcollection.signature)!
 
 - [**Next JS API Routes**](https://nextjs.org/docs/api-routes/introduction): For us to securely generate signatures on the server-side, on behalf of our wallet, using our wallet's private key. As well as making server-side queries to the Discord APIs with the user's access token to view which servers they are part of.
 
-- [**Next Auth**](https://next-auth.js.org/): To authenticate with Discord and access the user's Discord data such as their username, and which servers they are members of.
+- [**NextAuth**](https://next-auth.js.org/): To authenticate with Discord and access the user's Discord data such as their username, and which servers they are members of.
 
 ## Using This Repo
 
@@ -114,7 +114,7 @@ In the below sections, we'll outline how each of these steps work and explain th
 
 ## Connecting With Metamask
 
-We have a component that handles the sign in logic for both MetaMask and Discord in [/components/SignIn.js](/components/SignIn.js).
+We have a component that handles the sign in logic for both MetaMask and Discord in [/components/SignIn.js](https://github.com/thirdweb-example/community-rewards/blob/main/components/SignIn.js).
 
 For the MetaMask connection, we are using the [useMetamask](https://docs.thirdweb.com/react/react.usemetamask) hook from the thirdweb React SDK.
 
@@ -122,7 +122,7 @@ For the MetaMask connection, we are using the [useMetamask](https://docs.thirdwe
 const connectWithMetamask = useMetamask();
 ```
 
-This works because we have the `ThirdwebProvider` setup in our [/pages/app.js](/pages/app.js) file, which allows us to use all of the thirdweb React SDK's helpful hooks.
+This works because we have the `ThirdwebProvider` setup in our [/pages/app.js](https://github.com/thirdweb-example/community-rewards/blob/main/pages/app.js) file, which allows us to use all of the thirdweb React SDK's helpful hooks.
 
 ```jsx
 // This is the chainId your dApp will work on.
@@ -265,7 +265,7 @@ const thirdwebDiscordMembership = data?.find(
 res.status(200).json({ thirdwebMembership: thirdwebDiscordMembership });
 ```
 
-We then make a `fetch` request on the client to this API route on the [index.js](/pages/index.js) file:
+We then make a `fetch` request on the client to this API route on the [index.js](https://github.com/thirdweb-example/community-rewards/blob/main/pages/index.js) file:
 
 ```jsx
 // This is simply a client-side check to see if the user is a member of the discord in /api/check-is-in-server
@@ -310,7 +310,7 @@ Now the user can either make another request to mint the NFT, or join the Discor
 
 ## Signature Based Minting
 
-On the client-side, when the user clicks the `Mint` button, we make a request to the [generate-signature](/pages/api/generate-signature.js) API route to ask the server to generate a signature for us to use to mint an NFT.
+On the client-side, when the user clicks the `Mint` button, we make a request to the [generate-signature](https://github.com/thirdweb-example/community-rewards/blob/main/pages/api/generate-signature.js) API route to ask the server to generate a signature for us to use to mint an NFT.
 
 ```jsx
 // Make a request to the API route to generate a signature for us to mint the NFT with
@@ -387,7 +387,7 @@ res.status(200).json({
 });
 ```
 
-The client uses this signature to `mint` the NFT that was generated on the server back on [index.js](/pages/index.js):
+The client uses this signature to `mint` the NFT that was generated on the server back on [index.js](https://github.com/thirdweb-example/community-rewards/blob/main/pages/index.js):
 
 ```jsx
 // If the user meets the criteria to have a signature generated, we can use the signature
