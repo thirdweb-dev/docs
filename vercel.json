@@ -300,6 +300,11 @@
       "source": "/building-web3-apps/authenticating-users/security-and-advanced-usage",
       "destination": "/auth/security-and-advanced-usage",
       "permanent": true
+    },
+    {
+      "source": "/advanced-features/:match*",
+      "destination": "/web3-sdk/advanced-features/:match*",
+      "permanent": true
     }
   ]
 }

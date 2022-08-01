@@ -1,0 +1,96 @@
+---
+slug: /web3-sdk/advanced-features/permission-controls
+---
+
+import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet";
+
+# Permission Controls
+
+Permissions outline which wallet addresses can perform which actions on your smart contract.
+
+To define which wallets have these permissions, you must add them to the required role.
+
+Each contract has a different set of configurable roles, you can find the full list in the [ALL_ROLES](/typescript/sdk.all_roles#all_roles-variable) variable.
+
+| Role Name | Description                                                                  | Relevant Contracts                                                             |
+| --------- | ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| admin     | Grant or revoke roles and modify settings on this contract.                  | All contracts                                                                  |
+| minter    | Create new tokens on this contract.                                          | [NFTs](/pre-built-contracts/nfts), [Tokens](/pre-built-contracts/tokens)       |
+| transfer  | Transfer tokens on this contract.                                            | [NFTs](/pre-built-contracts/nfts), [Tokens](/pre-built-contracts/tokens)       |
+| unwrap    | Can unwrap tokens on this contract.                                          | [Multiwrap](/pre-built-contracts/multiwrap), [Pack](/pre-built-contracts/pack) |
+| lister    | Can create new listings on this marketplace contract.                        | [Marketplace](/pre-built-contracts/marketplace)                                |
+| pauser    | Can pause (and unpause) all external calls made to this contract's contract. | [Custom](/thirdweb-deploy/contract-extensions)                                 |
+| asset     | Which assets can be listed on this marketplace contract.                     | [Marketplace](/pre-built-contracts/marketplace)                                |
+
+### Read All Members of All Roles
+
+Get all roles and all the members of each role.
+
+<ThirdwebCodeSnippet
+  contract={"Permissions"}
+  name={"getAll"}
+  isFeatureSnippet={true}
+/>
+
+### Read Members of a Role
+
+Get the wallet addresses of a specific role.
+
+<ThirdwebCodeSnippet
+  contract={"Permissions"}
+  name={"get"}
+  isFeatureSnippet={true}
+/>
+
+### Grant Role
+
+<ThirdwebCodeSnippet
+  contract={"Permissions"}
+  name={"grant"}
+  isFeatureSnippet={true}
+/>
+
+### Revoke Role
+
+<ThirdwebCodeSnippet
+  contract={"Permissions"}
+  name={"revoke"}
+  isFeatureSnippet={true}
+/>
+
+### Set All Roles (Overwrite)
+
+:::warning Dangerous Operation
+
+This will overwrite all existing permissions on this contract.
+
+**THIS INCLUDES YOUR OWN WALLET ADDRESS**.
+
+If you revoke your admin permissions, you will not be able to get them back.
+
+Only proceed if you know what you are doing.
+
+:::
+
+<ThirdwebCodeSnippet
+  contract={"Permissions"}
+  name={"setAll"}
+  isFeatureSnippet={true}
+/>
+
+### Update Roles
+
+1. Read the current roles from the `get` function.
+2. Modify the array for the role you want to update.
+3. Call the `setAll` function with the modified array.
+
+```javascript
+const rolesAndMembers = await contract.roles.getAll();
+
+const updatedRoles = {
+  ...rolesAndMembers,
+  admin: [...rolesAndMembers.admin, "0x-new-address-here"],
+};
+
+await contract.roles.setAll(updatedRoles);
+```
