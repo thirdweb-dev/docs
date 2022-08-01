@@ -1,9 +1,28 @@
 import React from "react";
 
 type Props = {
-  link: string;
   contractType: string;
+  link?: string;
   additionalStyles?: React.CSSProperties;
+};
+
+const contractTypeToLinkMapping = {
+  "nft-drop": "https://thirdweb.com/contracts/new/pre-built/drop/nft-drop",
+  "nft-collection":
+    "https://thirdweb.com/contracts/new/pre-built/token/nft-collection",
+  "edition-drop":
+    "https://thirdweb.com/contracts/new/pre-built/drop/edition-drop",
+  pack: "https://thirdweb.com/contracts/new/pre-built/token/pack",
+  multiwrap: "https://thirdweb.com/contracts/new/pre-built/token/multiwrap",
+  "signature-drop":
+    "https://thirdweb.com/contracts/new/pre-built/token/signature-drop",
+  edition: "https://thirdweb.com/contracts/new/pre-built/token/edition",
+  marketplace:
+    "https://thirdweb.com/contracts/new/pre-built/marketplace/marketplace",
+  token: "https://thirdweb.com/contracts/new/pre-built/token/token",
+  "token-drop": "https://thirdweb.com/contracts/new/pre-built/drop/token-drop",
+  vote: "https://thirdweb.com/contracts/new/pre-built/governance/vote",
+  split: "https://thirdweb.com/contracts/new/pre-built/governance/split",
 };
 
 export default function DeployThisContractButton({
@@ -34,7 +53,7 @@ export default function DeployThisContractButton({
   return (
     <a
       className="deployContractBtn"
-      href={link}
+      href={contractTypeToLinkMapping[contractType] || link}
       target="_blank"
       rel="noopener noreferrer"
       data-contract={contractType}

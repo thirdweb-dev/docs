@@ -305,6 +305,36 @@
       "source": "/advanced-features/:match*",
       "destination": "/web3-sdk/advanced-features/:match*",
       "permanent": true
+    },
+    {
+      "source": "/thirdweb-deploy/contract-extensions",
+      "destination": "/contracts-sdk",
+      "permanent": true
+    },
+    {
+      "source": "/thirdweb-deploy/contract-extensions/quickstart",
+      "destination": "/contracts-sdk/quickstart",
+      "permanent": true
+    },
+    {
+      "source": "/pre-built-contracts/nfts",
+      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract#nfts",
+      "permanent": true
+    },
+    {
+      "source": "/pre-built-contracts/tokens",
+      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract#tokens",
+      "permanent": true
+    },
+    {
+      "source": "/pre-built-contracts/marketplace",
+      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract",
+      "permanent": true
+    },
+    {
+      "source": "/pre-built-contracts/other",
+      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract",
+      "permanent": true
     }
   ]
 }

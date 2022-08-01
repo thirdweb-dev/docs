@@ -46,7 +46,7 @@ const categories = {
   marketplace: "Marketplace",
   split: "Split",
   vote: "Vote",
-  "thirdweb-deploy": "Solidity SDK",
+  "thirdweb-deploy": "Contracts SDK",
   "wallet-connection": "Wallets",
 };
 
