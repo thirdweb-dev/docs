@@ -321,7 +321,7 @@ In `index.tsx` update the address ternary and add the Mint button, and input:
       <button>Mint</button>
       <input
         value={quantity}
-        onChange={(e) => setQuantity(parseInt(e.target.value))}
+        onChange={(e) => setQuantity(e.target.value)}
         placeholder="Quantity"
         type="number"
       />
@@ -335,7 +335,7 @@ In `index.tsx` update the address ternary and add the Mint button, and input:
 As you can see we are going to need a `useState` to store the quantity so add it on top:
 
 ```tsx title="pages/index.tsx"
-const [quantity, setQuantity] = useState<number>(1);
+const [quantity, setQuantity] = useState<string>("1");
 ```
 
 ### Calling the API from the frontend
@@ -386,87 +386,29 @@ import { useState } from "react";
 If we now try minting the NFT, we will be able to mint! However, when we try and mint _again_ it will still be free;
 as our Airtable doesn't know that we have minted.
 
-Next, we need to add another API route to handle this logic.
+To fix this after generating the signature we will set the hasClaimed to true in the airtable. So, add the following:
 
-### Checking Mint History
+```ts title="pages/api/generate-mint-sig.ts"
+const record = await table
+  .select({
+    fields: ["address", "hasClaimed"],
+    filterByFormula: `NOT({address} != '${address}')`,
+  })
+  .all();
 
-Create a new file called `set-claimed.ts` in the `api` folder and add the following:
-
-```ts title='pages/api/set-claimed.ts'
-import type { NextApiRequest, NextApiResponse } from "next";
-import table from "../../utils/Airtable";
-import sdk from "../../utils/thirdweb";
-
-const generateMintSignature = async (
-  req: NextApiRequest,
-  res: NextApiResponse,
-) => {
-  const { address } = JSON.parse(req.body);
-
-  const drop = sdk.getSignatureDrop(
-    "0x6d148a12f7c0ae693609F5a26E085646f8F73A53",
-  );
-  const balance = await drop.balanceOf(address);
-
-  if (balance.toNumber() > 0) {
-    const record = await table
-      .select({
-        fields: ["address", "hasClaimed"],
-        filterByFormula: `NOT({address} != '${address}')`,
-      })
-      .all();
-
-    try {
-      if (record.length > 0) {
-        record[0].updateFields({
-          hasClaimed: "true",
-        });
-      } else {
-        await table.create({
-          address: address,
-          hasClaimed: "true",
-        });
-      }
-
-      return res.status(200).json({
-        success: true,
-      });
-    } catch (err) {
-      res.status(500).json({
-        error: err,
-      });
-    }
-  }
-  res.status(400).json({
-    error: "The user hasn't claimed NFT yet.",
+if (record.length > 0) {
+  record[0].updateFields({
+    hasClaimed: "true",
   });
-};
-
-export default generateMintSignature;
+} else {
+  await table.create({
+    address,
+    hasClaimed: "true",
+  });
+}
 ```
 
 Here, we are first getting the record using the address. If the record exists, we will just update it with `hasClaimed` to `true`,
 otherwise, we will create a new record.
-
-We are also making sure that the address owns an NFT so someone can't make a false API call and mark an address as
-claimed even though it hasn't claimed any NFT yet.
-
-In the mint function, we will fetch this API in the `try catch` block like this:
-
-```tsx title="index.tsx"
-try {
-  const nft = await signatureDrop?.signature.mint(signedPayload.signedPayload);
-  if (nft) {
-    await fetch("/api/set-claimed", {
-      method: "POST",
-      body: JSON.stringify({ address }),
-    });
-  }
-  return nft;
-} catch (err) {
-  console.error(err);
-  return null;
-}
-```
 
 Now our app works successfully! 🎉
