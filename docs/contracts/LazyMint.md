@@ -17,7 +17,9 @@ The `LazyMint` is a contract extension for any base NFT contract. It lets you &#
 function getBaseURICount() external view returns (uint256)
 ```
 
-_Returns the number of batches of tokens having the same baseURI._
+Returns the count of batches of NFTs.
+
+_Each batch of tokens has an in ID and an associated `baseURI`. See {batchIds}._
 
 #### Returns
 
@@ -31,13 +33,15 @@ _Returns the number of batches of tokens having the same baseURI._
 function getBatchIdAtIndex(uint256 _index) external view returns (uint256)
 ```
 
-_Returns the id for the batch of tokens the given tokenId belongs to._
+Returns the ID for the batch of tokens the given tokenId belongs to.
+
+_See {getBaseURICount}._
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| \_index | uint256 | undefined   |
+| Name    | Type    | Description    |
+| ------- | ------- | -------------- |
+| \_index | uint256 | ID of a token. |
 
 #### Returns
 

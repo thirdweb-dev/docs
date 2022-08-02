@@ -7,6 +7,12 @@ displayed_sidebar: contracts
 
 # TokenBundle
 
+> Token Bundle
+
+`TokenBundle` contract extension allows bundling-up of ERC20/ERC721/ERC1155 and native-tokan assets in a data structure, and provides logic for setting/getting IDs and URIs for created bundles.
+
+_See {ITokenBundle}_
+
 ## Methods
 
 ### getTokenCountOfBundle

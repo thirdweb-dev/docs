@@ -109,7 +109,7 @@ Retrieve the published metadata URI from a compiler metadata URI
 function getPublisherProfileUri(address publisher) external view returns (string uri)
 ```
 
-get the publisher profile uri
+Get the publisher profile uri for a given publisher.
 
 #### Parameters
 
@@ -226,7 +226,7 @@ _Returns `true` if `account` has been granted `role`._
 function isPaused() external view returns (bool)
 ```
 
-_Whether the registry is paused._
+Whether the contract publisher is paused.
 
 #### Returns
 
@@ -278,7 +278,7 @@ _Receives and executes a batch of function calls on this contract._
 function publishContract(address _publisher, string _contractId, string _publishMetadataUri, string _compilerMetadataUri, bytes32 _bytecodeHash, address _implementation) external nonpayable
 ```
 
-Let&#39;s an account publish a contract. The account must be approved by the publisher, or be the publisher.
+Let&#39;s an account publish a contract.
 
 #### Parameters
 
@@ -376,7 +376,7 @@ _See {IERC165-supportsInterface}._
 function unpublishContract(address _publisher, string _contractId) external nonpayable
 ```
 
-Lets an account unpublish a contract and all its versions. The account must be approved by the publisher, or be the publisher.
+Lets a publisher unpublish a contract and all its versions.
 
 #### Parameters
 

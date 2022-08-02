@@ -7,7 +7,11 @@ displayed_sidebar: contracts
 
 # Royalty
 
-Thirdweb&#39;s `Royalty` is a contract extension to be used with any base contract. It exposes functions for setting and reading the recipient of royalty fee and the royalty fee basis points, and lets the inheriting contract perform conditional logic that uses information about royalty fees, if desired. The `Royalty` contract is ERC2981 compliant.
+> Royalty
+
+Thirdweb&#39;s `Royalty` is a contract extension to be used with any base contract. It exposes functions for setting and reading the recipient of royalty fee and the royalty fee basis points, and lets the inheriting contract perform conditional logic that uses information about royalty fees, if desired.
+
+_The `Royalty` contract is ERC2981 compliant._
 
 ## Methods
 
@@ -17,7 +21,7 @@ Thirdweb&#39;s `Royalty` is a contract extension to be used with any base contra
 function getDefaultRoyaltyInfo() external view returns (address, uint16)
 ```
 
-_Returns the default royalty recipient and bps._
+Returns the defualt royalty recipient and BPS for this contract&#39;s NFTs.
 
 #### Returns
 
@@ -32,13 +36,15 @@ _Returns the default royalty recipient and bps._
 function getRoyaltyInfoForToken(uint256 _tokenId) external view returns (address, uint16)
 ```
 
-_Returns the royalty recipient and bps for a particular token Id._
+View royalty info for a given token.
+
+_Returns royalty recipient and bps for `_tokenId`._
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| \_tokenId | uint256 | undefined   |
+| Name      | Type    | Description                                             |
+| --------- | ------- | ------------------------------------------------------- |
+| \_tokenId | uint256 | The tokenID of the NFT for which to query royalty info. |
 
 #### Returns
 
@@ -53,21 +59,23 @@ _Returns the royalty recipient and bps for a particular token Id._
 function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (address receiver, uint256 royaltyAmount)
 ```
 
-_Returns the royalty recipient and amount, given a tokenId and sale price._
+View royalty info for a given token and sale price.
+
+_Returns royalty amount and recipient for `tokenId` and `salePrice`._
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| tokenId   | uint256 | undefined   |
-| salePrice | uint256 | undefined   |
+| Name      | Type    | Description                                             |
+| --------- | ------- | ------------------------------------------------------- |
+| tokenId   | uint256 | The tokenID of the NFT for which to query royalty info. |
+| salePrice | uint256 | Sale price of the token.                                |
 
 #### Returns
 
-| Name          | Type    | Description |
-| ------------- | ------- | ----------- |
-| receiver      | address | undefined   |
-| royaltyAmount | uint256 | undefined   |
+| Name          | Type    | Description                                            |
+| ------------- | ------- | ------------------------------------------------------ |
+| receiver      | address | Address of royalty recipient account.                  |
+| royaltyAmount | uint256 | Royalty amount calculated at current royaltyBps value. |
 
 ### setDefaultRoyaltyInfo
 
@@ -75,14 +83,16 @@ _Returns the royalty recipient and amount, given a tokenId and sale price._
 function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
 ```
 
-_Lets a contract admin update the default royalty recipient and bps._
+Updates default royalty recipient and bps.
+
+_Caller should be authorized to set royalty info. See {\_canSetRoyaltyInfo}. Emits {DefaultRoyalty Event}; See {\_setupDefaultRoyaltyInfo}._
 
 #### Parameters
 
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| \_royaltyRecipient | address | undefined   |
-| \_royaltyBps       | uint256 | undefined   |
+| Name               | Type    | Description                                     |
+| ------------------ | ------- | ----------------------------------------------- |
+| \_royaltyRecipient | address | Address to be set as default royalty recipient. |
+| \_royaltyBps       | uint256 | Updated royalty bps.                            |
 
 ### setRoyaltyInfoForToken
 
@@ -90,15 +100,17 @@ _Lets a contract admin update the default royalty recipient and bps._
 function setRoyaltyInfoForToken(uint256 _tokenId, address _recipient, uint256 _bps) external nonpayable
 ```
 
-_Lets a contract admin set the royalty recipient and bps for a particular token Id._
+Updates default royalty recipient and bps for a particular token.
+
+_Sets royalty info for `_tokenId`. Caller should be authorized to set royalty info. See {\_canSetRoyaltyInfo}. Emits {RoyaltyForToken Event}; See {\_setupRoyaltyInfoForToken}._
 
 #### Parameters
 
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| \_tokenId   | uint256 | undefined   |
-| \_recipient | address | undefined   |
-| \_bps       | uint256 | undefined   |
+| Name        | Type    | Description                                                |
+| ----------- | ------- | ---------------------------------------------------------- |
+| \_tokenId   | uint256 | undefined                                                  |
+| \_recipient | address | Address to be set as royalty recipient for given token Id. |
+| \_bps       | uint256 | Updated royalty bps for the token Id.                      |
 
 ### supportsInterface
 

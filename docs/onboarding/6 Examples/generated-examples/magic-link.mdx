@@ -73,7 +73,7 @@ npx thirdweb create --template magic-link
 
 ## Setting Up Magic Link WalletConnector
 
-Over in [\_app.tsx](_app.tsx) we are wrapping our application with the [ThirdwebProvider](https://docs.thirdweb.com/react) component, which allows us to configure the Network we want our user's to be on, and to configure the Magic Link Wallet Connector with our API key.
+Over in [\_app.tsx](https://github.com/thirdweb-example/magic-link/blob/main/pages/_app.tsx) we are wrapping our application with the [ThirdwebProvider](https://docs.thirdweb.com/react) component, which allows us to configure the Network we want our user's to be on, and to configure the Magic Link Wallet Connector with our API key.
 
 ```ts
 <ThirdwebProvider desiredChainId={activeChainId} walletConnectors={connectors}>
@@ -104,7 +104,7 @@ const magicLinkWalletConnector: WalletConnector = {
 
 ## Logging Users In Via Email
 
-On the [Home Page](_pages_index.tsx), we are using the `useMagic` hook to connect user's wallets' by submitting their email address.
+On the [Home Page](https://github.com/thirdweb-example/magic-link/blob/main/pages/index.tsx), we are using the `useMagic` hook to connect user's wallets' by submitting their email address.
 
 Once the user enters their email and clicks the Login button, they will be connected to their wallet via a Magic Link (email with a link is sent to the user's email - they are signed in after they click this link).
 
