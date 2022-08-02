@@ -18,9 +18,7 @@ You can use this in order to be able to pass a provider &amp; signer directly to
 **Signature:**
 
 ```typescript
-ThirdwebSDKProvider: React.FC<
-  React.PropsWithChildren<ThirdwebSDKProviderProps>
->;
+ThirdwebSDKProvider: React.FC<React.PropsWithChildren<ThirdwebSDKProviderProps>>
 ```
 
 ## Remarks
