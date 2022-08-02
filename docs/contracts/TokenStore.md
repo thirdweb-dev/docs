@@ -7,6 +7,12 @@ displayed_sidebar: contracts
 
 # TokenStore
 
+> Token Store
+
+`TokenStore` contract extension allows bundling-up of ERC20/ERC721/ERC1155 and native-tokan assets and provides logic for storing, releasing, and transferring them from the extending contract.
+
+_See {CurrencyTransferLib}_
+
 ## Methods
 
 ### NATIVE_TOKEN

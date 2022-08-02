@@ -126,6 +126,8 @@ function contractType() external pure returns (bytes32)
 function contractURI() external view returns (string)
 ```
 
+Returns the contract metadata URI.
+
 #### Returns
 
 | Name | Type   | Description |
@@ -150,20 +152,22 @@ function contractVersion() external pure returns (uint8)
 function encryptDecrypt(bytes data, bytes key) external pure returns (bytes result)
 ```
 
-_See: https://ethereum.stackexchange.com/questions/69825/decrypt-message-on-chain_
+Encrypt/decrypt data on chain.
+
+_Encrypt/decrypt given `data` with `key`. Uses inline assembly. See: https://ethereum.stackexchange.com/questions/69825/decrypt-message-on-chain_
 
 #### Parameters
 
-| Name | Type  | Description |
-| ---- | ----- | ----------- |
-| data | bytes | undefined   |
-| key  | bytes | undefined   |
+| Name | Type  | Description                                          |
+| ---- | ----- | ---------------------------------------------------- |
+| data | bytes | Bytes of data to encrypt/decrypt.                    |
+| key  | bytes | Secure key used by caller for encryption/decryption. |
 
 #### Returns
 
-| Name   | Type  | Description |
-| ------ | ----- | ----------- |
-| result | bytes | undefined   |
+| Name   | Type  | Description                                       |
+| ------ | ----- | ------------------------------------------------- |
+| result | bytes | Output after encryption/decryption of given data. |
 
 ### encryptedBaseURI
 
@@ -209,7 +213,9 @@ _See {IERC721-getApproved}._
 function getBaseURICount() external view returns (uint256)
 ```
 
-_Returns the number of batches of tokens having the same baseURI._
+Returns the count of batches of NFTs.
+
+_Each batch of tokens has an in ID and an associated `baseURI`. See {batchIds}._
 
 #### Returns
 
@@ -223,13 +229,15 @@ _Returns the number of batches of tokens having the same baseURI._
 function getBatchIdAtIndex(uint256 _index) external view returns (uint256)
 ```
 
-_Returns the id for the batch of tokens the given tokenId belongs to._
+Returns the ID for the batch of tokens the given tokenId belongs to.
+
+_See {getBaseURICount}._
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| \_index | uint256 | undefined   |
+| Name    | Type    | Description    |
+| ------- | ------- | -------------- |
+| \_index | uint256 | ID of a token. |
 
 #### Returns
 
@@ -264,7 +272,7 @@ _Returns the timestamp for when a claimer is eligible for claiming NFTs again._
 function getDefaultRoyaltyInfo() external view returns (address, uint16)
 ```
 
-_Returns the default royalty recipient and bps._
+Returns the defualt royalty recipient and BPS for this contract&#39;s NFTs.
 
 #### Returns
 
@@ -294,20 +302,22 @@ _Returns the platform fee recipient and bps._
 function getRevealURI(uint256 _batchId, bytes _key) external view returns (string revealedURI)
 ```
 
-_Returns the decrypted i.e. revealed URI for a batch of tokens._
+Returns revealed URI for a batch of NFTs.
+
+_Reveal encrypted base URI for `_batchId` with caller/admin&#39;s `_key` used for encryption. Reverts if there&#39;s no encrypted URI for `_batchId`. See {encryptDecrypt}._
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| \_batchId | uint256 | undefined   |
-| \_key     | bytes   | undefined   |
+| Name      | Type    | Description                                                |
+| --------- | ------- | ---------------------------------------------------------- |
+| \_batchId | uint256 | ID of the batch for which URI is being revealed.           |
+| \_key     | bytes   | Secure key used by caller/admin for encryption of baseURI. |
 
 #### Returns
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| revealedURI | string | undefined   |
+| Name        | Type   | Description         |
+| ----------- | ------ | ------------------- |
+| revealedURI | string | Decrypted base URI. |
 
 ### getRoleAdmin
 
@@ -315,13 +325,15 @@ _Returns the decrypted i.e. revealed URI for a batch of tokens._
 function getRoleAdmin(bytes32 role) external view returns (bytes32)
 ```
 
-_Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {AccessControl-\_setRoleAdmin}._
+Returns the admin role that controls the specified role.
+
+_See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {\_setRoleAdmin}._
 
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| role | bytes32 | undefined   |
+| Name | Type    | Description                                                           |
+| ---- | ------- | --------------------------------------------------------------------- |
+| role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
 #### Returns
 
@@ -335,20 +347,22 @@ _Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. 
 function getRoleMember(bytes32 role, uint256 index) external view returns (address member)
 ```
 
-_Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information._
+Returns the role-member from a list of members for a role, at a given index.
+
+_Returns `member` who has `role`, at `index` of role-members list. See struct {RoleMembers}, and mapping {roleMembers}_
 
 #### Parameters
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| role  | bytes32 | undefined   |
-| index | uint256 | undefined   |
+| Name  | Type    | Description                                                           |
+| ----- | ------- | --------------------------------------------------------------------- |
+| role  | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| index | uint256 | Index in list of current members for the role.                        |
 
 #### Returns
 
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| member | address | undefined   |
+| Name   | Type    | Description                        |
+| ------ | ------- | ---------------------------------- |
+| member | address | Address of account that has `role` |
 
 ### getRoleMemberCount
 
@@ -356,19 +370,21 @@ _Returns one of the accounts that have `role`. `index` must be a value between 0
 function getRoleMemberCount(bytes32 role) external view returns (uint256 count)
 ```
 
-_Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role._
+Returns total number of accounts that have a role.
+
+_Returns `count` of accounts that have `role`. See struct {RoleMembers}, and mapping {roleMembers}_
 
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| role | bytes32 | undefined   |
+| Name | Type    | Description                                                           |
+| ---- | ------- | --------------------------------------------------------------------- |
+| role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
 #### Returns
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| count | uint256 | undefined   |
+| Name  | Type    | Description                               |
+| ----- | ------- | ----------------------------------------- |
+| count | uint256 | Total number of accounts that have `role` |
 
 ### getRoyaltyInfoForToken
 
@@ -376,13 +392,15 @@ _Returns the number of accounts that have `role`. Can be used together with {get
 function getRoyaltyInfoForToken(uint256 _tokenId) external view returns (address, uint16)
 ```
 
-_Returns the royalty recipient and bps for a particular token Id._
+View royalty info for a given token.
+
+_Returns royalty recipient and bps for `_tokenId`._
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| \_tokenId | uint256 | undefined   |
+| Name      | Type    | Description                                             |
+| --------- | ------- | ------------------------------------------------------- |
+| \_tokenId | uint256 | The tokenID of the NFT for which to query royalty info. |
 
 #### Returns
 
@@ -397,14 +415,16 @@ _Returns the royalty recipient and bps for a particular token Id._
 function grantRole(bytes32 role, address account) external nonpayable
 ```
 
-_Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have `role`&#39;s admin role._
+Grants a role to an account, if not previously granted.
+
+_Caller must have admin role for the `role`. Emits {RoleGranted Event}._
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| role    | bytes32 | undefined   |
-| account | address | undefined   |
+| Name    | Type    | Description                                                           |
+| ------- | ------- | --------------------------------------------------------------------- |
+| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account to which the role is being granted.            |
 
 ### hasRole
 
@@ -412,14 +432,16 @@ _Grants `role` to `account`. If `account` had not been already granted `role`, e
 function hasRole(bytes32 role, address account) external view returns (bool)
 ```
 
+Checks whether an account has a particular role.
+
 _Returns `true` if `account` has been granted `role`._
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| role    | bytes32 | undefined   |
-| account | address | undefined   |
+| Name    | Type    | Description                                                           |
+| ------- | ------- | --------------------------------------------------------------------- |
+| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account for which the role is being checked.           |
 
 #### Returns
 
@@ -433,12 +455,16 @@ _Returns `true` if `account` has been granted `role`._
 function hasRoleWithSwitch(bytes32 role, address account) external view returns (bool)
 ```
 
+Checks whether an account has a particular role; role restrictions can be swtiched on and off.
+
+_Returns `true` if `account` has been granted `role`. Role restrictions can be swtiched on and off: - If address(0) has ROLE, then the ROLE restrictions don&#39;t apply. - If address(0) does not have ROLE, then the ROLE restrictions will apply._
+
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| role    | bytes32 | undefined   |
-| account | address | undefined   |
+| Name    | Type    | Description                                                           |
+| ------- | ------- | --------------------------------------------------------------------- |
+| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account for which the role is being checked.           |
 
 #### Returns
 
@@ -496,13 +522,15 @@ _See {IERC721-isApprovedForAll}._
 function isEncryptedBatch(uint256 _batchId) external view returns (bool)
 ```
 
-_Returns whether the relvant batch of NFTs is subject to a delayed reveal._
+Returns whether the relvant batch of NFTs is subject to a delayed reveal.
+
+_Returns `true` if `_batchId`&#39;s base URI is encrypted._
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| \_batchId | uint256 | undefined   |
+| Name      | Type    | Description            |
+| --------- | ------- | ---------------------- |
+| \_batchId | uint256 | ID of a batch of NFTs. |
 
 #### Returns
 
@@ -625,7 +653,7 @@ _The tokenId of the next NFT that will be minted / lazy minted._
 function owner() external view returns (address)
 ```
 
-_Returns the owner of the contract._
+Returns the owner of the contract.
 
 #### Returns
 
@@ -659,7 +687,7 @@ _See {IERC721-ownerOf}._
 function primarySaleRecipient() external view returns (address)
 ```
 
-_The adress that receives all primary sales value._
+_Returns primary sale recipient address._
 
 #### Returns
 
@@ -673,14 +701,16 @@ _The adress that receives all primary sales value._
 function renounceRole(bytes32 role, address account) external nonpayable
 ```
 
-_Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function&#39;s purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`._
+Revokes role from the account.
+
+_Caller must have the `role`, with caller being the same as `account`. Emits {RoleRevoked Event}._
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| role    | bytes32 | undefined   |
-| account | address | undefined   |
+| Name    | Type    | Description                                                           |
+| ------- | ------- | --------------------------------------------------------------------- |
+| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account from which the role is being revoked.          |
 
 ### reveal
 
@@ -709,14 +739,16 @@ _Lets an account with `MINTER_ROLE` reveal the URI for a batch of &#39;delayed-r
 function revokeRole(bytes32 role, address account) external nonpayable
 ```
 
-_Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have `role`&#39;s admin role._
+Revokes role from an account.
+
+_Caller must have admin role for the `role`. Emits {RoleRevoked Event}._
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| role    | bytes32 | undefined   |
-| account | address | undefined   |
+| Name    | Type    | Description                                                           |
+| ------- | ------- | --------------------------------------------------------------------- |
+| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account from which the role is being revoked.          |
 
 ### royaltyInfo
 
@@ -724,21 +756,23 @@ _Revokes `role` from `account`. If `account` had been granted `role`, emits a {R
 function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (address receiver, uint256 royaltyAmount)
 ```
 
-_Returns the royalty recipient and amount, given a tokenId and sale price._
+View royalty info for a given token and sale price.
+
+_Returns royalty amount and recipient for `tokenId` and `salePrice`._
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| tokenId   | uint256 | undefined   |
-| salePrice | uint256 | undefined   |
+| Name      | Type    | Description                                             |
+| --------- | ------- | ------------------------------------------------------- |
+| tokenId   | uint256 | The tokenID of the NFT for which to query royalty info. |
+| salePrice | uint256 | Sale price of the token.                                |
 
 #### Returns
 
-| Name          | Type    | Description |
-| ------------- | ------- | ----------- |
-| receiver      | address | undefined   |
-| royaltyAmount | uint256 | undefined   |
+| Name          | Type    | Description                                            |
+| ------------- | ------- | ------------------------------------------------------ |
+| receiver      | address | Address of royalty recipient account.                  |
+| royaltyAmount | uint256 | Royalty amount calculated at current royaltyBps value. |
 
 ### safeTransferFrom
 
@@ -793,13 +827,15 @@ _Lets a contract admin set claim conditions._
 function setContractURI(string _uri) external nonpayable
 ```
 
-_Lets a contract admin set the URI for contract-level metadata._
+Lets a contract admin set the URI for contract-level metadata.
+
+_Caller should be authorized to setup contractURI, e.g. contract admin. See {\_canSetContractURI}. Emits {ContractURIUpdated Event}._
 
 #### Parameters
 
-| Name  | Type   | Description |
-| ----- | ------ | ----------- |
-| \_uri | string | undefined   |
+| Name  | Type   | Description                                                           |
+| ----- | ------ | --------------------------------------------------------------------- |
+| \_uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
 ### setDefaultRoyaltyInfo
 
@@ -807,14 +843,16 @@ _Lets a contract admin set the URI for contract-level metadata._
 function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
 ```
 
-_Lets a contract admin update the default royalty recipient and bps._
+Updates default royalty recipient and bps.
+
+_Caller should be authorized to set royalty info. See {\_canSetRoyaltyInfo}. Emits {DefaultRoyalty Event}; See {\_setupDefaultRoyaltyInfo}._
 
 #### Parameters
 
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| \_royaltyRecipient | address | undefined   |
-| \_royaltyBps       | uint256 | undefined   |
+| Name               | Type    | Description                                     |
+| ------------------ | ------- | ----------------------------------------------- |
+| \_royaltyRecipient | address | Address to be set as default royalty recipient. |
+| \_royaltyBps       | uint256 | Updated royalty bps.                            |
 
 ### setOwner
 
@@ -822,13 +860,13 @@ _Lets a contract admin update the default royalty recipient and bps._
 function setOwner(address _newOwner) external nonpayable
 ```
 
-_Lets a contract admin set a new owner for the contract. The new owner must be a contract admin._
+Lets an authorized wallet set a new owner for the contract.
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_newOwner | address | undefined   |
+| Name       | Type    | Description                                          |
+| ---------- | ------- | ---------------------------------------------------- |
+| \_newOwner | address | The address to set as the new owner of the contract. |
 
 ### setPlatformFeeInfo
 
@@ -836,14 +874,16 @@ _Lets a contract admin set a new owner for the contract. The new owner must be a
 function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeBps) external nonpayable
 ```
 
-_Lets a contract admin update the platform fee recipient and bps_
+Updates the platform fee recipient and bps.
+
+_Caller should be authorized to set platform fee info. See {\_canSetPlatformFeeInfo}. Emits {PlatformFeeInfoUpdated Event}; See {\_setupPlatformFeeInfo}._
 
 #### Parameters
 
-| Name                   | Type    | Description |
-| ---------------------- | ------- | ----------- |
-| \_platformFeeRecipient | address | undefined   |
-| \_platformFeeBps       | uint256 | undefined   |
+| Name                   | Type    | Description                                    |
+| ---------------------- | ------- | ---------------------------------------------- |
+| \_platformFeeRecipient | address | Address to be set as new platformFeeRecipient. |
+| \_platformFeeBps       | uint256 | Updated platformFeeBps.                        |
 
 ### setPrimarySaleRecipient
 
@@ -851,13 +891,15 @@ _Lets a contract admin update the platform fee recipient and bps_
 function setPrimarySaleRecipient(address _saleRecipient) external nonpayable
 ```
 
-_Lets a contract admin set the recipient for all primary sales._
+Updates primary sale recipient.
+
+_Caller should be authorized to set primary sales info. See {\_canSetPrimarySaleRecipient}. Emits {PrimarySaleRecipientUpdated Event}; See {\_setupPrimarySaleRecipient}._
 
 #### Parameters
 
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| \_saleRecipient | address | undefined   |
+| Name            | Type    | Description                                          |
+| --------------- | ------- | ---------------------------------------------------- |
+| \_saleRecipient | address | Address to be set as new recipient of primary sales. |
 
 ### setRoyaltyInfoForToken
 
@@ -865,15 +907,17 @@ _Lets a contract admin set the recipient for all primary sales._
 function setRoyaltyInfoForToken(uint256 _tokenId, address _recipient, uint256 _bps) external nonpayable
 ```
 
-_Lets a contract admin set the royalty recipient and bps for a particular token Id._
+Updates default royalty recipient and bps for a particular token.
+
+_Sets royalty info for `_tokenId`. Caller should be authorized to set royalty info. See {\_canSetRoyaltyInfo}. Emits {RoyaltyForToken Event}; See {\_setupRoyaltyInfoForToken}._
 
 #### Parameters
 
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| \_tokenId   | uint256 | undefined   |
-| \_recipient | address | undefined   |
-| \_bps       | uint256 | undefined   |
+| Name        | Type    | Description                                                |
+| ----------- | ------- | ---------------------------------------------------------- |
+| \_tokenId   | uint256 | undefined                                                  |
+| \_recipient | address | Address to be set as royalty recipient for given token Id. |
+| \_bps       | uint256 | Updated royalty bps for the token Id.                      |
 
 ### supportsInterface
 
