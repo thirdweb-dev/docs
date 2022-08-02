@@ -7,6 +7,7 @@ type Props = {
   name: string;
   isFeatureSnippet: boolean;
   isGetContractCode: boolean;
+  showHr: boolean;
 };
 
 export default function CodeSnippetRemark({
@@ -14,6 +15,7 @@ export default function CodeSnippetRemark({
   name,
   isFeatureSnippet = false,
   isGetContractCode = false,
+  showHr = true,
 }: Props) {
   const contractObject = isFeatureSnippet
     ? featureJsonData[contract]

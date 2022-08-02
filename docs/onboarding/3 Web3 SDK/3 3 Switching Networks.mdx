@@ -3,4 +3,114 @@ slug: /web3-sdk/switching-networks
 title: Switching Networks
 ---
 
-=== MISSING CONTENT ===
+In most Web3 Applications, you want your user to be connected to the same network that the contract is deployed on.
+
+## Declaring Your Desired Chain
+
+Using the [React](/react) SDK, you first declare your "desired" chain for users in the `ThirdwebProvider`:
+
+```jsx
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+
+// Here, we set our desired chain to be "Mainnet" (Ethereum)
+const App = () => {
+  return (
+    <ThirdwebProvider desiredChainId={ChainId.Mainnet}>
+      <YourApp />
+    </ThirdwebProvider>
+  );
+};
+```
+
+## Detecting Incorrect Chain Connection
+
+Now you can detect when users are connected to the wrong network using the `useNetworkMismatch` hook:
+
+```jsx
+import { useNetworkMismatch } from "@thirdweb-dev/react";
+
+const Component = () => {
+  const isMismatched = useNetworkMismatch();
+
+  return <div>{isMismatched}</div>;
+};
+```
+
+## Switching Networks
+
+If you need to request users to change networks, you can use the `useNetwork` hook:
+
+```jsx
+import { useNetworkMismatch, useNetwork, ChainId } from "@thirdweb-dev/react";
+
+// Here, we show a button to the user if they are connected to the wrong network
+// When they click the button, they will be prompted to switch to the desired chain
+const Component = () => {
+  const isMismatched = useNetworkMismatch();
+  const [, switchNetwork] = useNetwork();
+
+  return (
+    <div>
+      <p>{isMismatched}</p>
+      {isMismatched && (
+        <button onClick={() => switchNetwork(ChainId.Mainnet)}>
+          Switch Network
+        </button>
+      )}
+    </div>
+  );
+};
+```
+
+## Accessing Current Chain ID
+
+Alternatively, you can also access the [chain ID](/typescript/sdk.chainid#chainid-enum) of the network the current wallet is connected to using `useChainId`:
+
+```jsx
+import { useChainId } from "@thirdweb-dev/react";
+
+const Component = () => {
+  const chainId = useChainId();
+
+  return <div>{chainId}</div>;
+};
+```
+
+## Example
+
+Below is an example where you listen for when the user connects their wallet, and then immediately ask them to switch to the desired chain.
+
+```jsx
+import {
+  ChainId,
+  useNetworkMismatch,
+  useNetwork,
+  useChainId,
+  useMetamask,
+} from "@thirdweb-dev/react";
+
+const Component = () => {
+  const address = useAddress(); // Get connected wallet address
+  const connectWithMetamask = useMetamask(); // Connect wallet with Metamask
+  const [, switchNetwork] = useNetwork(); // Switch to desired chain
+  const isMismatched = useNetworkMismatch(); // Detect if user is connected to the wrong network
+
+  useEffect(() => {
+    // Check if the user is connected to the wrong network
+    if (isMismatched) {
+      // Prompt their MetaMask wallet to switch networks
+      switchNetwork(ChainId.Mainnet); // the chain you want here
+    }
+  }, [address]); // This above block gets run every time "address" changes (e.g. when the user connects)
+
+  return (
+    <div>
+      {address ? (
+        <h4>Connected as {address}</h4>
+      ) : (
+        <button onClick={connectWithMetamask}>Connect Metamask Wallet</button>
+      )}
+    </div>
+  );
+};
+```

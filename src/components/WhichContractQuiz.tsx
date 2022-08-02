@@ -118,21 +118,20 @@ export default function WhichContractQuiz() {
 
     // ERC-721 or ERC-721A
     {
-      questionTitle:
-        "Do you want additional gas optimizations for your contract (ERC-721A)?",
+      questionTitle: "Do you need multiple claim phases for your drop?",
       options: [
         {
           title: "No",
           image: "/assets/icons/drop.png",
           onSelect: () => {
-            setAnswer("nft-drop");
+            setAnswer("signature-drop");
           },
         },
         {
           title: "Yes",
-          image: "/assets/icons/permissionless.png",
+          image: "/assets/icons/teams.png",
           onSelect: () => {
-            setAnswer("signature-drop");
+            setAnswer("nft-drop");
           },
         },
       ],

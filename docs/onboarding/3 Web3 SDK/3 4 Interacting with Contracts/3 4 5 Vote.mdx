@@ -8,29 +8,9 @@ import DeployThisContractButton from "../../../../src/components/DeployThisContr
 
 # Vote
 
-<div className='deployContractBtnContainer' style={{marginTop:-70}}>
-
-<DeployThisContractButton
-  link={"https://thirdweb.com/contracts/new/pre-built/governance/vote"}
-  contractType="vote"
-/>
-
-</div>
-
-The Vote contract is designed for groups such as DAOs to vote on proposals.
-
-To use the Vote contract, you also need to have an existing ERC-20 token,
-such as our [Token Contract](/pre-built-contracts/token) to act as the `governance token`.
-
-You could use the Vote contract to:
-
-- Vote to decide on organizational changes
-- Vote on managing and distributing funds in a treasury
-- Vote on any other proposal in an organization, such as a DAO
+Learn how to interact with your [Vote](/pre-built-contracts/vote) contract in the SDK.
 
 ## Create a Vote Contract
-
-Learn how to create any of thirdweb's pre-built contracts via the [Deploying Contracts page](/getting-started/deploying-contracts).
 
 <ThirdwebCodeSnippet contract={"ContractDeployer"} name={"deployVote"} />
 
@@ -42,15 +22,10 @@ To start using your Vote contract inside your application, you'll need to use it
   contract={"Vote"}
   name={"initializing the SDK"}
   isGetContractCode
+  dontShowSummary
 />
 
 ## Creating A Proposal
-
-### Using the dashboard
-
-![Create New Proposal](./assets/create-new-proposal.png)
-
-### Using the SDK
 
 <ThirdwebCodeSnippet contract={"Vote"} name={"propose"} />
 
@@ -58,28 +33,26 @@ To start using your Vote contract inside your application, you'll need to use it
 
 View all of the proposals that have been created in this Vote smart contract.
 
-<ThirdwebCodeSnippet contract={"Vote"} name={"getAll"} />
+<ThirdwebCodeSnippet contract={"Vote"} name={"getAll"} dontShowSummary />
 
-### Check if a wallet has voted
+## Check if a wallet has voted
 
 Check if a wallet address has voted on a specific proposal.
 
-<ThirdwebCodeSnippet contract={"Vote"} name={"hasVoted"} />
-
-## Execute A Proposal
-
-### Check if a proposal can be executed
-
-Check to see if the amount of votes required for the proposal to be executed has been met.
-
-<ThirdwebCodeSnippet contract={"Vote"} name={"canExecute"} />
-
-### Execute a proposal
-
-Execute a proposal that has a sufficient amount of votes.
-
-<ThirdwebCodeSnippet contract={"Vote"} name={"execute"} />
+<ThirdwebCodeSnippet contract={"Vote"} name={"hasVoted"} dontShowSummary />
 
 ## Vote on a Proposal
 
 <ThirdwebCodeSnippet contract={"Vote"} name={"vote"} />
+
+## Check if a proposal can be executed
+
+Check to see if the amount of votes required for the proposal to be executed has been met.
+
+<ThirdwebCodeSnippet contract={"Vote"} name={"canExecute"} dontShowSummary />
+
+## Execute a proposal
+
+Execute a proposal that has a sufficient amount of votes.
+
+<ThirdwebCodeSnippet contract={"Vote"} name={"execute"} dontShowSummary />

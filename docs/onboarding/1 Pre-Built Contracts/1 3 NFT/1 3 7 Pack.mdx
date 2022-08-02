@@ -6,37 +6,51 @@ slug: /pre-built-contracts/pack
 import DeployThisContractButton from "../../../../src/components/DeployThisContractButton";
 import QuickstartCard from "../../../../src/components/QuickstartCard";
 
-# Multiwrap
+# Pack
 
 <div className="deployContractBtnContainer" style={{ marginTop: -70 }}>
   <DeployThisContractButton
-    link={"https://thirdweb.com/contracts/new/pre-built/token/multiwrap"}
-    contractType="multiwrap"
+    link={"https://thirdweb.com/contracts/new/pre-built/token/pack"}
+    contractType="pack"
   />
 </div>
 
-The Multiwrap contract lets you wrap [ERC20](https://eips.ethereum.org/EIPS/eip-20),
-[ERC721](https://eips.ethereum.org/EIPS/eip-721) and
-[ERC1155](https://eips.ethereum.org/EIPS/eip-1155)
-tokens into a **new** wrapped ERC-721 NFT.
-The wrapped NFT can be unwrapped (burned) back into the underlying tokens.
-
+The pack contract lets you bundle
+[ERC20](https://eips.ethereum.org/EIPS/eip-20),
+[ERC721](https://eips.ethereum.org/EIPS/eip-721) and,
+[ERC1155](https://eips.ethereum.org/EIPS/eip-1155) tokens together into **ERC-1155 NFTs** that act as randomized loot boxes.
 The wrapped NFT itself also acts as an ERC-721 token, which can have the metadata you'd expect of an NFT,
 such as a name, image, description, etc.
 
+When a pack is opened, a pre-defined quantity of tokens are randomly selected from the ones
+that were used to create the packs _(that haven't already been selected)_, and awarded to the opener.
+The pack NFT is burned as it's opened.
+
+You can configure how many tokens get selected for the pack:
+
+- How many tokens are in each "unit" (for ERC-20 & ERC-1155 tokens - one unit could be multiple tokens)
+- How many units are in each pack
+
 ## Use Cases & Examples
 
-You could use the Multiwrap contract to:
+You could use the Pack contract to:
 
-- Combine multiple NFTs into one NFT with new metadata
-- Wrap NFTs along with ERC-20 tokens to easily trade them for other NFTs
-- Create a transparent "bundle" in your game, where the contents of the bundle are visible to the player
+- Create randomized NFT loot boxes
+- Run a randomized raffle where some users open a winning ticket
+- Reward your community with token gift boxes
 
 <div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--12" style={{ marginTop: 8 }}>
+  <div className="col col--6" style={{ marginTop: 8 }}>
     <QuickstartCard
-      name="Example Repo: Build A Multiwrap Web Application"
-      link="https://github.com/thirdweb-example/multiwrap"
+      name="Video: Create NFT Lootboxes with the Pack Contract"
+      link="https://www.youtube.com/watch?v=MBmQtpNLmgg"
+      image="/assets/icons/education.png"
+    />
+  </div>  
+  <div className="col col--6" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Guide: Create NFT Lootboxes with the Pack Contract"
+      link="https://portal.thirdweb.com/guides/create-an-nft-lootbox"
       image="/assets/icons/education.png"
     />
   </div>
@@ -45,48 +59,48 @@ You could use the Multiwrap contract to:
 
 ## Smart Contract Design
 
-For a detailed exploration of how the multiwrap smart contract works, why it was built,
-and it's limitations, visit our [Multiwrap Design Doc](/contracts/design/multiwrap)!
+For a detailed exploration of how the pack smart contract works, why it was built,
+and it's limitations, visit our [Pack Design Doc](/contracts/design/pack)!
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
     <QuickstartCard
-      name="Multiwrap Smart Contract Design Document"
-      link="/contracts/design/Multiwrap"
-      image="/assets/icons/product.png"
+      name="Pack Smart Contract Design Document"
+      link="/contracts/design/Pack"
+      image="/assets/icons/pack.png"
     />
   </div>
 </div>
 
 ## Using the Contract in the SDK
 
-This page outlines how you can create and configure your multiwrap contract using the [dashboard](https://thirdweb.com/dashboard).
+This page outlines how you can create and configure your pack contract using the [dashboard](https://thirdweb.com/dashboard).
 
 You can also use our [Web3 SDK](/web3-sdk) to create and interact with your contract.
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
     <QuickstartCard
-      name="Using the Multiwrap Contract in the Web3 SDK"
-      link="/web3-sdk/interacting-with-contracts/multiwrap"
+      name="Using the Pack Contract in the Web3 SDK"
+      link="/web3-sdk/interacting-with-contracts/pack"
       image="/assets/icons/sdks.png"
     />
   </div>
 </div>
 
-## Creating & Configuring the Multiwrap
+## Creating & Configuring the Pack
 
 Learn how to create and configure your smart contract using the [dashboard](https://thirdweb.com/dashboard).
 
-### Creating a Multiwrap Contract
+### Creating a Pack Contract
 
-Deploy the multiwrap contract to any of our
+Deploy the pack contract to any of our
 [supported networks](/guides/which-network-should-you-use) using the button below.
 
 <div style={{ width: "fit-content" }}>
   <DeployThisContractButton
-    link={"https://thirdweb.com/contracts/new/pre-built/token/multiwrap"}
-    contractType="multiwrap"
+    link={"https://thirdweb.com/contracts/new/pre-built/token/pack"}
+    contractType="pack"
   />
 </div>
 
