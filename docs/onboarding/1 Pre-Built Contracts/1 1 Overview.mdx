@@ -1,0 +1,66 @@
+---
+title: Overview
+slug: /pre-built-contracts
+---
+
+import DeployThisContractButton from "../../../src/components/DeployThisContractButton";
+import QuickstartCard from "../../../src/components/QuickstartCard";
+
+# Pre-Built Contracts Overview
+
+Pre-built contracts are written by the thirdweb team, and cover the most common use cases for smart contracts; each of them are:
+
+- [Open source](https://github.com/thirdweb-dev/contracts) and free to deploy (excl. gas fees)
+- [Audited](https://gateway.thirdweb.dev/ipfs/QmWfueeKQrggrVQNjWkF4sYJECp56vNnuAXCPVecFFKz2j) and supported by our [bug bounty program](https://thirdweb.notion.site/thirdweb-Bug-Bounty-Program-f78d1db776ab4f0e974c9da176fcf706)
+- Fully owned by the contract deployer _(you)_
+- 10x cheaper to deploy than traditional contracts
+
+### Quick Start
+
+<div className="row" style={{marginBottom:24}}>
+
+<div className="col col--4" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Releasing an NFT Drop"
+    link="/getting-started/deploying-contracts"
+    image="/assets/icons/drop.png"
+  />
+</div>
+
+<div className="col col--4" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Creating your own Token"
+    link="/guides/create-your-currency-with-typescript-sdk"
+    image="/assets/icons/token.png"
+  />
+</div>
+
+<div className="col col--4" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Building an NFT Marketplace"
+    link="/guides/nft-marketplace-with-typescript-next"
+    image="/assets/icons/marketplace.png"
+  />
+</div>
+
+</div>
+
+## How Pre-Built Contracts Work
+
+Each contract makes use of the contract extensions that are available in our [Contracts SDK](/contracts-sdk),
+and all come with a standard set of features that enable fine-grained control over the contract's behavior, such as:
+
+- [Contract metadata](/web3-sdk/advanced-features/contract-settings#contract-metadata)
+- [Permission controls](/web3-sdk/advanced-features/permission-controls)
+- [Royalties and platform fees](/web3-sdk/advanced-features/contract-settings#royalty-fees)
+
+When you deploy one, under the hood you are creating a **proxy contract**, which reduces the gas cost of deploying smart contracts by **~90%** for you.
+
+This works by having our smart contracts run the underlying logic, meaning you only deploy the code that is unique to _your_ contract.
+This is possible since all of the contracts deployed using our pre-built contracts run the same logic for things
+like minting, transferring, and burning tokens.
+
+For _example_, your contract stores knowledge of its metadata and state, such as its name, and what NFTs have been minted so far.
+For any logic (such as minting an NFT), it delegates this to our underlying smart contract to handle.
+
+![Proxy Contract Flow](./assets/delegating-calls.png)

@@ -126,7 +126,7 @@ hide_title: true
   const md = filterContent(page.text, page.html_url);
 
   const createSnippet =
-    "To create a new project using this template, use the [thirdweb CLI](/thirdweb-cli):" +
+    "To create a new project using this template, use the [thirdweb CLI](/cli):" +
     "\n" +
     "```jsx" +
     "\n" +
@@ -147,15 +147,12 @@ hide_title: true
 async function run() {
   console.log("Making example pages...");
 
-  // Copy the /docs/onboarding/6 Examples/generated-examples\_category.json_ file
-  // so we can restore it after deleting the generated pages.
+  const dir = "./docs/onboarding/7 Starter Kits/generated-examples";
+
   const examplesCategoryJson = fs.readFileSync(
-    "./docs/onboarding/6 Examples/generated-examples/_category_.json",
+    `${dir}/_category_.json`,
     "utf8",
   );
-
-  // First, delete all pages inside \docs\onboarding\6 Examples\generated-examples using rmdir
-  const dir = "./docs/onboarding/6 Examples/generated-examples";
 
   if (fs.existsSync(dir)) {
     fs.rmdirSync(dir, { recursive: true });
@@ -167,20 +164,10 @@ async function run() {
   const examplePages = await makeExamplePages(examplesJson);
 
   // Restore category.json
-  fs.writeFileSync(
-    "./docs/onboarding/6 Examples/generated-examples/_category_.json",
-    examplesCategoryJson,
-  );
-
-  // For each example page,
-  // write a file to the /docs/onboarding/6 Examples/test folder
-  // with the name of the example and the content of the page.
+  fs.writeFileSync(`${dir}/_category_.json`, examplesCategoryJson);
 
   examplePages.forEach((page) => {
-    fs.writeFileSync(
-      `docs/onboarding/6 Examples/generated-examples/${page.name}.mdx`,
-      createPageFormat(page),
-    );
+    fs.writeFileSync(`${dir}/${page.name}.mdx`, createPageFormat(page));
   });
 }
 

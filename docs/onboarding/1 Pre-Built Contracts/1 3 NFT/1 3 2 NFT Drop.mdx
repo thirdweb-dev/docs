@@ -1,0 +1,153 @@
+---
+title: NFT Drop (ERC-721)
+slug: /pre-built-contracts/nft-drop
+---
+
+import DeployThisContractButton from "../../../../src/components/DeployThisContractButton";
+import QuickstartCard from "../../../../src/components/QuickstartCard";
+
+# NFT Drop
+
+<div className="deployContractBtnContainer" style={{ marginTop: -70 }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/drop/nft-drop"}
+    contractType="nft-drop"
+  />
+</div>
+
+The NFT Drop contract is ideal when you want to release a collection of unique NFTs
+using the [ERC721 Standard](https://eips.ethereum.org/EIPS/eip-721).
+
+It allows you to define a set of conditions called **claim phases** in a sequence which defines
+when and how your users can claim an NFT from your drop;
+including allowlists, release dates, claim limits, and delayed reveals.
+
+When you add NFTs to your drop contract, they are **not** minted at this point.
+You prepare everything for your users by **lazy minting** them, so that other wallets can mint them
+
+## Use Cases & Examples
+
+You could use the NFT Drop contract to:
+
+- Release a PFP Collection where each NFT has a different combination of traits
+- Release NFTs of your artwork, and have your community mint them for a price
+- Create a restricted-access NFT drop, where only a specified list of wallets can claim NFTs
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--6" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Guide: Create an NFT Drop with an Allowlist & Multiple Claim Phases"
+      link="/guides/create-nft-drop-with-claim-phases"
+      image="/assets/icons/education.png"
+    />
+  </div>
+  <div className="col col--6" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Guide: Create an NFT Drop with Delayed Reveal"
+      link="/guides/nft-drop-with-delayed-reveal"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
+
+## Smart Contract Design
+
+For a detailed exploration of how our drop smart contracts work, why they were built,
+and their limitations, visit our [Drop Design Doc](/contracts/design/Drop)!
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Drop Smart Contract Design Document"
+      link="/contracts/design/Drop"
+      image="/assets/icons/drop.png"
+    />
+  </div>
+</div>
+
+## Using the Contract in the SDK
+
+This page outlines how you can create and configure your NFT drop contract using the [dashboard](https://thirdweb.com/dashboard).
+
+You can also use our [Web3 SDK](/web3-sdk) to create and interact with your contract.
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Using the NFT Drop Contract in the Web3 SDK"
+      link="/web3-sdk/interacting-with-contracts/nft-drop"
+      image="/assets/icons/drop.png"
+    />
+  </div>
+</div>
+
+## Creating & Configuring the NFT Drop
+
+Learn how to create and configure your smart contract using the [dashboard](https://thirdweb.com/dashboard).
+
+### Creating a NFT Drop Contract
+
+Deploy the NFT drop contract to any of our
+[supported networks](/guides/which-network-should-you-use) using the button below.
+
+<div style={{ width: "fit-content" }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/token/nft-drop"}
+    contractType="nft-drop"
+  />
+</div>
+
+### Lazy Minting NFTs
+
+Lazy minting is the process of uploading your metadata for your NFT(s) without minting them _yet_.
+
+This is useful for when you want _other_ wallets to mint NFTs from your drop into their own wallets.
+
+To lazy mint NFT(s), click **Create** to lazy-mint a single NFT, or **Batch Upload** to lazy-mint multiple NFTs at once.
+
+![Create or Batch Upload Buttons](../assets/lazy-minting.png)
+
+To get started, you can use one of our example files for [CSV](https://thirdweb.com/example.csv) or [JSON](https://nightly.thirdweb.com/example.json) metadata.
+
+### Delayed Reveals
+
+Delayed reveals allow you to reveal the contents of the NFT to the user later at a specific date and show a placeholder asset in the meantime.
+
+- **Reveal upon mint**: Collectors will immediately see the final NFT when they complete the minting.
+- **Delayed Reveal**: Collectors will mint your placeholder image, then you reveal it at a later time.
+
+You have the option to add a delayed reveal to a batch of NFTs after you batch upload them.
+
+![Select Delayed Reveal](../assets/select-delayed-reveal.png)
+
+### Setting Claim Phases
+
+A claim phase is a set of conditions that define when and how your users can claim an NFT from your drop.
+
+**The NFT Drop contract supports multiple sequential claim phases**.
+
+Within a claim phase, you can define:
+
+- When the claim phase will start
+- How many NFTs do you want to drop
+- How much do you want to charge per NFT
+- What currency do you want to use
+- Which wallet addresses are allowed to mint (allowlist)
+- How many NFTs can be claimed per transaction
+- How many seconds do wallets have to wait between claims
+
+To configure the claim phase, click the **Claim Phases** tab and **Add Claim Phase**.
+
+![Add Claim Phase Button](../assets/add-claim-phase.png)
+
+### Contract Metadata
+
+To configure the image, name, and description of the contract, click the **Settings** tab:
+
+![Contract Metadata](../assets/contract-metadata.png)
+
+### Royalty & Platform Fees
+
+From the **Settings** tab, you also configure both the [royalty fee](/dashboard/contract-settings) and [platform fee](/dashboard/contract-settings).
+
+![Royalty and Platform Fee](../assets/royalty-and-platform-fee.png)
