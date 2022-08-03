@@ -52,8 +52,8 @@
   height: 38px;
 }
 
-.menu__link--sublist {
-  // border: 1px solid green;
+.menu__caret {
+  display: none;
 }
 
 // This is a really hacky animation cuz idk how to do it properly
@@ -110,13 +110,9 @@
     }
   }
 
-  .menu__link--sublist:after {
+  .menu__link:after {
     // dont show dropdown arrow on right
     visibility: hidden;
-  }
-
-  .menu__link--sublist::before {
-    // set it same as the after (above)
   }
 
   > .menu__list-item {
@@ -145,14 +141,6 @@
   background-color: var(thirdweb-menu-selected-background-color);
 }
 
-.theme-doc-sidebar-item-category-level-1 {
-  // padding-bottom: 0.5rem;
-}
-
-.theme-doc-sidebar-item-link-level-1 {
-  // padding-bottom: 0.25rem;
-}
-
 .tocCollapsibleContent__-_-node_modules-\@docusaurus-theme-classic-lib-next-theme-TOCCollapsible-styles-module
   > ul {
   border-top: none !important;
@@ -178,8 +166,5 @@
     // Margin top with the remaining avialble space
     margin-top: auto !important;
     padding-bottom: 0px !important;
-    // Margin bottom with the remaining avialble space
-
-    // padding-top: 1rem;
   }
 }
