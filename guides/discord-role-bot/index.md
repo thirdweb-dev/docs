@@ -41,7 +41,7 @@ Let's do it!
 
 ## Creating a thirdweb app
 
-To get started, we can use the [thirdweb CLI](https://portal.thirdweb.com/thirdweb-cli)
+To get started, we can use the [thirdweb CLI](https://portal.thirdweb.com/cli)
 
 ```bash
 npx thirdweb create

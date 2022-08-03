@@ -12,8 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-roles: ContractRoles<
-  SignatureDropContract,
-  typeof SignatureDrop.contractRoles[number]
->;
+roles: ContractRoles<SignatureDropContract, typeof SignatureDrop.contractRoles[number]>;
 ```
