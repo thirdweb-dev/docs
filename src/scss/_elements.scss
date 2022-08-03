@@ -63,3 +63,8 @@ html[data-theme="dark"] .viewCodeBtn {
 html[data-theme="light"] .quiz-container {
   border-color: rgba(0, 0, 0, 0.1) !important;
 }
+
+html[data-theme="dark"] .deployContractBtn > img {
+  // make it ocmpletely white for now (TODO)
+  filter: brightness(0) invert(1) !important;
+}

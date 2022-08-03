@@ -1,6 +1,37 @@
 ---
 title: Home
 slug: /
+hide_title: true
 ---
 
-# thirdweb documentation
+import Hero from "../../src/components/landing-page/Hero";
+import GettingStartedCard from "../../src/components/landing-page/GettingStartedCard";
+
+<Hero />
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--4" style={{ marginTop: 8 }}>
+    <GettingStartedCard
+      name="Getting Started"
+      description="A series of quick starts to get you off localhost"
+      link="/getting-started/deploying-contracts"
+      image="/assets/flag.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ marginTop: 8 }}>
+    <GettingStartedCard
+      name="SDK Reference"
+      description="References for our Solidity, React, Python and Go SDKs"
+      link="/web3-sdk"
+      image="/assets/sdk-reference.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ marginTop: 8 }}>
+    <GettingStartedCard
+      name="Support"
+      description="Get in touch with our team"
+      link="https://discord.gg/thirdweb"
+      image="/assets/support.svg"
+    />
+  </div>
+</div>

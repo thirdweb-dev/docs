@@ -161,7 +161,7 @@ export default function ExamplesContainer() {
               data-example-url={repo.html_url}
             >
               <div
-                className="card"
+                className="new-card"
                 style={{
                   cursor: "pointer",
                 }}
@@ -297,7 +297,7 @@ export default function ExamplesContainer() {
               data-example-url={repo.html_url}
             >
               <div
-                className="card"
+                className="new-card"
                 style={{
                   cursor: "pointer",
                   height: "100%",
