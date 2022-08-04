@@ -284,10 +284,10 @@
     "html_url": "https://github.com/thirdweb-example/makeswift",
     "description": null,
     "created_at": "2022-07-25T21:35:43Z",
-    "updated_at": "2022-07-25T21:35:43Z",
+    "updated_at": "2022-08-03T22:33:03Z",
     "clone_url": "https://github.com/thirdweb-example/makeswift.git",
     "topics": [],
-    "language": null,
+    "language": "TypeScript",
     "stargazers_count": 0,
     "is_template": false,
     "homepage": null
