@@ -6,11 +6,13 @@ hide_title: true
 
 import Hero from "../../src/components/landing-page/Hero";
 import GettingStartedCard from "../../src/components/landing-page/GettingStartedCard";
+import ExploreProductsSection from "../../src/components/landing-page/ExploreProductsSection";
+import LearnSection from "../../src/components/landing-page/LearnSection";
 
 <Hero />
 
-<div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--4" style={{ marginTop: 8 }}>
+<div className="row" style={{ marginBottom: 64 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
     <GettingStartedCard
       name="Getting Started"
       description="A series of quick starts to get you off localhost"
@@ -18,7 +20,7 @@ import GettingStartedCard from "../../src/components/landing-page/GettingStarted
       image="/assets/flag.svg"
     />
   </div>
-  <div className="col col--4" style={{ marginTop: 8 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
     <GettingStartedCard
       name="SDK Reference"
       description="References for our Solidity, React, Python and Go SDKs"
@@ -26,7 +28,7 @@ import GettingStartedCard from "../../src/components/landing-page/GettingStarted
       image="/assets/sdk-reference.svg"
     />
   </div>
-  <div className="col col--4" style={{ marginTop: 8 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
     <GettingStartedCard
       name="Support"
       description="Get in touch with our team"
@@ -35,3 +37,7 @@ import GettingStartedCard from "../../src/components/landing-page/GettingStarted
     />
   </div>
 </div>
+
+<ExploreProductsSection />
+
+<LearnSection />

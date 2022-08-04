@@ -6,6 +6,7 @@ type Props = {
   link: string;
   image: string;
   openInNewTab?: boolean;
+  additionalStyles?: React.CSSProperties;
 };
 
 export default function GettingStartedCard({
@@ -14,16 +15,18 @@ export default function GettingStartedCard({
   link,
   image = "/assets/icons/general.png",
   openInNewTab = false,
+  additionalStyles,
 }: Props) {
   return (
     <a
-      className="new-card"
+      className="tw-card"
       style={{
         cursor: "pointer",
         height: "100%",
         width: "100%",
         color: "inherit",
         textDecoration: "none",
+        ...additionalStyles,
       }}
       href={link}
       target={
@@ -45,13 +48,13 @@ export default function GettingStartedCard({
       data-card-description={description}
       data-card-link={link}
     >
-      <div className="new-card-icon-container">
-        <img className="new-card-icon" src={image} alt={name} />
+      <div className="tw-card-icon-container">
+        <img className="tw-card-icon" src={image} alt={name} />
       </div>
 
-      <div className="new-card-text-container">
-        <p className="new-card-title">{name}</p>
-        <p className="new-card-description">{description}</p>
+      <div className="tw-card-text-container">
+        <p className="tw-card-title">{name}</p>
+        <p className="tw-card-description">{description}</p>
       </div>
     </a>
   );

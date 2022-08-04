@@ -256,7 +256,7 @@ export default function WhichContractQuiz() {
             onClick={() => option.onSelect()}
           >
             <div
-              className="new-card"
+              className="tw-card"
               style={{
                 cursor: "pointer",
                 height: "100%",

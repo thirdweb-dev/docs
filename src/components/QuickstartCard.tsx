@@ -17,13 +17,14 @@ export default function QuickstartCard({
 }: Props) {
   return (
     <a
-      className="new-card"
+      className="tw-card"
       style={{
         cursor: "pointer",
         height: "100%",
         width: "100%",
         color: "inherit",
         textDecoration: "none",
+        padding: 0,
       }}
       href={link}
       target={

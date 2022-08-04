@@ -67,9 +67,6 @@ aside {
   color: var(--thirdweb-body-text-color);
 }
 
-.hero-right {
-}
-
 .hero-right-image-container {
   display: flex;
   flex-direction: row;
@@ -86,7 +83,12 @@ aside {
   border-radius: 8px;
 }
 
-.new-card {
+.hero-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tw-card {
   box-sizing: border-box;
   display: flex;
   flex-direction: row;
@@ -104,21 +106,24 @@ aside {
   z-index: 0;
 }
 
-.new-card-icon-container {
+.tw-card-icon-container {
   flex: none;
   width: 24px;
   height: 24px;
   margin-left: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.new-card-icon {
-  width: 14px;
+.tw-card-icon {
+  width: 16.25px;
   height: 16.25px;
   fill: #c29afe;
   border-radius: 0px !important;
 }
 
-.new-card-text-container {
+.tw-card-text-container {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -126,27 +131,25 @@ aside {
   gap: 4px;
 }
 
-.new-card-title {
+.tw-card-title {
   font-size: 16px;
   font-weight: 500;
   line-height: 22.4px;
   font-style: normal;
-  color: #ffffff;
-  margin-top: 2px;
+  color: var(--thirdweb-body-text-color);
   padding-bottom: 0px;
   margin-bottom: 0px;
-  color: #fff;
 }
 
-.new-card-description {
-  font-weight: 400px;
+.tw-card-description {
+  font-weight: 400;
   font-size: 14px;
-  line-height: 18.2px;
+  line-height: 130%;
   color: rgba(255, 255, 255, 0.7);
   margin-bottom: 0px;
 }
 
-.new-card:hover {
+.tw-card:hover {
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
   border: 1px solid var(--thirdweb-tertiary-color);
   transition: all 0.2s ease-in-out;
@@ -173,6 +176,19 @@ aside {
   .hero-left-description {
     max-width: none;
   }
+}
+
+// Explore Products Section
+.explore-products-container {
+}
+
+.explore-products-heading {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  line-height: 29px !important;
+  letter-spacing: -0.03em;
+  text-align: left;
+  margin-bottom: 0px;
 }
 
 .card__body {
@@ -456,4 +472,35 @@ aside {
   height: 100%;
   pointer-events: none;
   text-align: center;
+}
+
+// Landing page light mode
+html[data-theme="light"] {
+  .hero-right-image {
+    filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.05)) !important;
+  }
+
+  .hero-divider {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .tw-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .tw-card:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--thirdweb-tertiary-color);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .tw-card-icon {
+    fill: #9045fe !important;
+  }
+
+  .tw-card-description {
+    color: rgba(0, 0, 0, 0.8);
+  }
 }
