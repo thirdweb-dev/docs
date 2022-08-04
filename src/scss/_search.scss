@@ -24,10 +24,34 @@ html[data-theme="dark"] .DocSearch {
   --docsearch-searchbox-focus-background: none;
 }
 
+.navbar__items--right {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
+
 @media (min-width: 996px) {
   .navbar__items--right {
     position: fixed;
-    right: 1em;
+    right: 0em;
     top: 1em;
+    // fill width of the screen
+    width: calc(100% - 300px);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 32px;
+    padding-right: 24px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+}
+
+@media (max-width: 997px) {
+  .navbar {
+    height: auto;
+  }
+
+  .navbar__items--right:first-child {
+    display: none;
   }
 }
