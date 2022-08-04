@@ -2,6 +2,7 @@
 title: Home
 slug: /
 hide_title: true
+hide_table_of_contents: true
 ---
 
 import Hero from "../../src/components/landing-page/Hero";
@@ -9,6 +10,10 @@ import GettingStartedCard from "../../src/components/landing-page/GettingStarted
 import ExploreProductsSection from "../../src/components/landing-page/ExploreProductsSection";
 import LearnSection from "../../src/components/landing-page/LearnSection";
 
+<div style={{width:'100%', display:'flex',alignItems:'center', justifyContent:'center'}}>
+<div style={{display: 'flex', alignItems:'left', flexDirection:'column', justifyContent:'center',
+  maxWidth:851
+}}>
 <Hero />
 
 <div className="row" style={{ marginBottom: 64 }}>
@@ -41,3 +46,6 @@ import LearnSection from "../../src/components/landing-page/LearnSection";
 <ExploreProductsSection />
 
 <LearnSection />
+
+</div>
+</div>

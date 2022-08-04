@@ -16,6 +16,9 @@ import styles from "./styles.module.css";
  */
 function useDocTOC() {
   const { frontMatter, toc } = useDoc();
+
+  console.log(frontMatter);
+
   const windowSize = useWindowSize();
   const hidden = frontMatter.hide_table_of_contents;
   const canRender = !hidden && toc.length > 0;

@@ -56,6 +56,10 @@ html[data-theme="dark"] .DocSearch {
   .navbar__items--right:first-child {
     display: none;
   }
+
+  .goToAppButton_src-theme-Navbar-Content-styles-module {
+    display: none !important;
+  }
 }
 
 html[data-theme="light"] .navbar__items--right {
