@@ -70,6 +70,13 @@ export default function NavbarContent() {
                 <SearchBar />
               </NavbarSearch>
             )}
+
+            <a
+              className={styles.goToAppButton}
+              href="https://thirdweb.com/dashboard"
+            >
+              Go to app
+            </a>
           </div>
         </>
       }
