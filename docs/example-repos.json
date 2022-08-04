@@ -164,14 +164,27 @@
     "homepage": ""
   },
   {
+    "name": "forge-starter",
+    "html_url": "https://github.com/thirdweb-example/forge-starter",
+    "description": "thirdweb contracts starter project for Forge",
+    "created_at": "2022-08-02T21:35:35Z",
+    "updated_at": "2022-08-03T02:45:31Z",
+    "clone_url": "https://github.com/thirdweb-example/forge-starter.git",
+    "topics": [],
+    "language": "Solidity",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "hardhat-javascript-starter",
     "html_url": "https://github.com/thirdweb-example/hardhat-javascript-starter",
     "description": "thirdweb contracts starter project for Hardhat & TypeScript",
     "created_at": "2022-07-29T02:19:53Z",
-    "updated_at": "2022-07-29T20:54:03Z",
+    "updated_at": "2022-08-02T21:23:50Z",
     "clone_url": "https://github.com/thirdweb-example/hardhat-javascript-starter.git",
     "topics": [],
-    "language": "Solidity",
+    "language": "JavaScript",
     "stargazers_count": 1,
     "is_template": false,
     "homepage": null
@@ -271,10 +284,10 @@
     "html_url": "https://github.com/thirdweb-example/makeswift",
     "description": null,
     "created_at": "2022-07-25T21:35:43Z",
-    "updated_at": "2022-07-25T21:35:43Z",
+    "updated_at": "2022-08-03T22:33:03Z",
     "clone_url": "https://github.com/thirdweb-example/makeswift.git",
     "topics": [],
-    "language": null,
+    "language": "TypeScript",
     "stargazers_count": 0,
     "is_template": false,
     "homepage": null
