@@ -33,7 +33,7 @@ html[data-theme="dark"] .DocSearch {
   .navbar__items--right {
     position: fixed;
     right: 0em;
-    top: 1em;
+    top: 0em;
     // fill width of the screen
     width: calc(100% - 300px);
     display: flex;
@@ -43,6 +43,8 @@ html[data-theme="dark"] .DocSearch {
     padding-left: 32px;
     padding-right: 24px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+    background-color: var(--ifm-background-color) !important;
   }
 }
 
@@ -54,4 +56,9 @@ html[data-theme="dark"] .DocSearch {
   .navbar__items--right:first-child {
     display: none;
   }
+}
+
+html[data-theme="light"] .navbar__items--right {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
