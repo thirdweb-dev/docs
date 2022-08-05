@@ -70,45 +70,59 @@ function HomeBreadcrumbItem() {
   );
 }
 export default function DocBreadcrumbs() {
-  const breadcrumbs = useSidebarBreadcrumbs();
-  const homePageRoute = useHomePageRoute();
-  if (!breadcrumbs) {
-    return null;
-  }
-  return (
-    <nav
-      className={clsx(
-        ThemeClassNames.docs.docBreadcrumbs,
-        styles.breadcrumbsContainer,
-      )}
-      aria-label={translate({
-        id: "theme.docs.breadcrumbs.navAriaLabel",
-        message: "Breadcrumbs",
-        description: "The ARIA label for the breadcrumbs",
-      })}
-    >
-      <ul
-        className="breadcrumbs"
-        itemScope
-        itemType="https://schema.org/BreadcrumbList"
-      >
-        {homePageRoute && <HomeBreadcrumbItem />}
-        {breadcrumbs.map((item, idx) => {
-          const isLast = idx === breadcrumbs.length - 1;
-          return (
-            <BreadcrumbsItem
-              key={idx}
-              active={isLast}
-              index={idx}
-              addMicrodata={!!item.href}
-            >
-              <BreadcrumbsItemLink href={item.href} isLast={isLast}>
-                {item.label}
-              </BreadcrumbsItemLink>
-            </BreadcrumbsItem>
-          );
+  try {
+    const breadcrumbs = useSidebarBreadcrumbs();
+    const homePageRoute = useHomePageRoute();
+    if (!breadcrumbs) {
+      return null;
+    }
+
+    return (
+      <nav
+        className={clsx(
+          ThemeClassNames.docs.docBreadcrumbs,
+          styles.breadcrumbsContainer,
+        )}
+        aria-label={translate({
+          id: "theme.docs.breadcrumbs.navAriaLabel",
+          message: "Breadcrumbs",
+          description: "The ARIA label for the breadcrumbs",
         })}
-      </ul>
-    </nav>
-  );
+      >
+        <ul
+          className="breadcrumbs"
+          itemScope
+          itemType="https://schema.org/BreadcrumbList"
+        >
+          {homePageRoute && <HomeBreadcrumbItem />}
+          {breadcrumbs.map((item, idx) => {
+            const isLast = idx === breadcrumbs.length - 1;
+            return (
+              <BreadcrumbsItem
+                key={idx}
+                active={isLast}
+                index={idx}
+                addMicrodata={!!item.href}
+              >
+                <BreadcrumbsItemLink href={item.href} isLast={isLast}>
+                  {item.label}
+                </BreadcrumbsItemLink>
+              </BreadcrumbsItem>
+            );
+          })}
+        </ul>
+      </nav>
+    );
+  } catch (error) {
+    console.log(error);
+
+    return (
+      <div
+        className={clsx(
+          ThemeClassNames.docs.docBreadcrumbs,
+          styles.breadcrumbsContainer,
+        )}
+      ></div>
+    );
+  }
 }
