@@ -114,8 +114,6 @@ export default function DocBreadcrumbs() {
       </nav>
     );
   } catch (error) {
-    console.log(error);
-
     return (
       <div
         className={clsx(
