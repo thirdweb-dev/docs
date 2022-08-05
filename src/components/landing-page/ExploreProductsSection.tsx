@@ -13,7 +13,7 @@ const products: Product[] = [
     gradient: "linear-gradient(324.45deg, #410AB7 7.45%, #FEFF00 108.42%)",
     name: "Prebuilt contracts",
     description: "Contract templates for common use-cases",
-    link: "/prebuilt-contracts",
+    link: "/pre-built-contracts",
   },
   {
     gradient: "linear-gradient(324.45deg, #410AB7 7.45%, #00FF75 85.28%)",

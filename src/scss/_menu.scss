@@ -67,6 +67,7 @@
   transition: 0.2s ease-in-out;
   margin-left: -20px;
 }
+
 .menu__list-item--collapsed
   > .menu__list-item-collapsible
   > .menu__link--sublist-caret::before {
@@ -77,6 +78,15 @@
   margin-left: -20px;
   // animation
   transition: 0.2s ease-in-out;
+}
+
+.menu__list {
+  padding-left: 11px !important;
+}
+
+// But not the first menu__list
+.menu__list:first-child {
+  padding-left: 0 !important;
 }
 
 .menu__list-item {
@@ -108,7 +118,6 @@
     margin-top: 0;
 
     .menu__list-item {
-      margin-left: 1em;
       font-size: 13px;
     }
   }
