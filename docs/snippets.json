@@ -2831,6 +2831,23 @@
           "go": "",
           "react": ""
         }
+      },
+      {
+        "name": "gasLimitOf",
+        "summary": "Estimates the gas limit of a transaction Pass in the same parameters as the contract's function.\n\n",
+        "remarks": "\n\nEstimates the gas limit of a transaction\n\n",
+        "examples": {
+          "javascript": "const gasLimitOfClaim = await nftDrop?.estimator.gasLimitOf(\"claim\", [\n  \"0x...\", // receiver\n  1, // quantity\n  \"0x...\", // currency\n  1, // price per token\n  [], // proofs\n  1, // proof max quantity per transaction\n]);",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\nconst gasLimitOfClaim = await nftDrop?.estimator.gasLimitOf(\"claim\", [\n  \"0x...\", // receiver\n  1, // quantity\n  \"0x...\", // currency\n  1, // price per token\n  [], // proofs\n  1, // proof max quantity per transaction\n]);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.gascostestimator.gaslimitof",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
       }
     ],
     "properties": [],
