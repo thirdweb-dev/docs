@@ -24,7 +24,7 @@ const {
 } = useContractCall(contract, "myFunction");
 
 // the function can be called as follows:
-// myFunction(...args)
+// myFunction(["param 1", "param 2", ...])
 ```
 
 **Signature:**
@@ -36,7 +36,7 @@ export declare function useContractCall(
 ): import("@tanstack/react-query").UseMutationResult<
   any,
   unknown,
-  unknown,
+  unknown[] | [...unknown[], CallOverrides] | undefined,
   unknown
 >;
 ```
@@ -50,6 +50,6 @@ export declare function useContractCall(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;any, unknown, unknown, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;any, unknown, unknown\[\] \| \[...unknown\[\], CallOverrides\] \| undefined, unknown&gt;
 
 a response object that includes the write function to call
