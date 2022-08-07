@@ -2831,6 +2831,23 @@
           "go": "",
           "react": ""
         }
+      },
+      {
+        "name": "gasLimitOf",
+        "summary": "Estimates the gas limit of a transaction Pass in the same parameters as the contract's function.\n\n",
+        "remarks": "\n\nEstimates the gas limit of a transaction\n\n",
+        "examples": {
+          "javascript": "const gasLimitOfClaim = await nftDrop?.estimator.gasLimitOf(\"claim\", [\n  \"0x...\", // receiver\n  1, // quantity\n  \"0x...\", // currency\n  1, // price per token\n  [], // proofs\n  1, // proof max quantity per transaction\n]);",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\nconst gasLimitOfClaim = await nftDrop?.estimator.gasLimitOf(\"claim\", [\n  \"0x...\", // receiver\n  1, // quantity\n  \"0x...\", // currency\n  1, // price per token\n  [], // proofs\n  1, // proof max quantity per transaction\n]);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.gascostestimator.gaslimitof",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
       }
     ],
     "properties": [],
@@ -3374,7 +3391,7 @@
           "javascript": "// read functions will return the data from the contract\nconst myValue = await contract.call(\"myReadFunction\");\nconsole.log(myValue);\n\n// write functions will return the transaction receipt\nconst tx = await contract.call(\"myWriteFunction\", arg1, arg2);\nconst receipt = tx.receipt;\n\n// Optionally override transaction options\nawait contract.call(\"myWriteFunction\", arg1, arg2, {\n gasLimit: 1000000, // override default gas limit\n value: ethers.utils.parseEther(\"0.1\"), // send 0.1 ether with the contract call\n};",
           "python": "",
           "go": "",
-          "react": "const { contract } = useContract(\"{{contract_address}}\");\nconst { mutate: myFunction, isLoading, error } = useContractCall(contract, \"myFunction\");\n\n// the function can be called as follows:\n// myFunction(...args)"
+          "react": "const { contract } = useContract(\"{{contract_address}}\");\nconst { mutate: myFunction, isLoading, error } = useContractCall(contract, \"myFunction\");\n\n// the function can be called as follows:\n// myFunction([\"param 1\", \"param 2\", ...])"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.smartcontract.call",

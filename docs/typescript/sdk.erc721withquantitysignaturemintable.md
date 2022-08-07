@@ -21,9 +21,9 @@ export declare class Erc721WithQuantitySignatureMintable implements DetectableFe
 
 ## Constructors
 
-| Constructor                                                                                                  | Modifiers | Description                                                                             |
-| ------------------------------------------------------------------------------------------------------------ | --------- | --------------------------------------------------------------------------------------- |
-| [(constructor)(contractWrapper, storage, roles)](./sdk.erc721withquantitysignaturemintable._constructor_.md) |           | Constructs a new instance of the <code>Erc721WithQuantitySignatureMintable</code> class |
+| Constructor                                                                                           | Modifiers | Description                                                                             |
+| ----------------------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------------------- |
+| [(constructor)(contractWrapper, storage)](./sdk.erc721withquantitysignaturemintable._constructor_.md) |           | Constructs a new instance of the <code>Erc721WithQuantitySignatureMintable</code> class |
 
 ## Properties
 
