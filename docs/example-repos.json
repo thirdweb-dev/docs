@@ -42,11 +42,11 @@
     "html_url": "https://github.com/thirdweb-example/covalent",
     "description": "Load the tokens a wallet owns using the covalent API",
     "created_at": "2022-07-07T07:04:15Z",
-    "updated_at": "2022-07-20T07:13:19Z",
+    "updated_at": "2022-08-07T11:25:51Z",
     "clone_url": "https://github.com/thirdweb-example/covalent.git",
     "topics": [],
     "language": "JavaScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": "https://covalent.thirdweb-example.com"
   },
@@ -164,14 +164,27 @@
     "homepage": ""
   },
   {
+    "name": "forge-starter",
+    "html_url": "https://github.com/thirdweb-example/forge-starter",
+    "description": "thirdweb contracts starter project for Forge",
+    "created_at": "2022-08-02T21:35:35Z",
+    "updated_at": "2022-08-03T02:45:31Z",
+    "clone_url": "https://github.com/thirdweb-example/forge-starter.git",
+    "topics": [],
+    "language": "Solidity",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "hardhat-javascript-starter",
     "html_url": "https://github.com/thirdweb-example/hardhat-javascript-starter",
     "description": "thirdweb contracts starter project for Hardhat & TypeScript",
     "created_at": "2022-07-29T02:19:53Z",
-    "updated_at": "2022-07-29T20:54:03Z",
+    "updated_at": "2022-08-02T21:23:50Z",
     "clone_url": "https://github.com/thirdweb-example/hardhat-javascript-starter.git",
     "topics": [],
-    "language": "Solidity",
+    "language": "JavaScript",
     "stargazers_count": 1,
     "is_template": false,
     "homepage": null
@@ -271,10 +284,10 @@
     "html_url": "https://github.com/thirdweb-example/makeswift",
     "description": null,
     "created_at": "2022-07-25T21:35:43Z",
-    "updated_at": "2022-07-25T21:35:43Z",
+    "updated_at": "2022-08-03T22:33:03Z",
     "clone_url": "https://github.com/thirdweb-example/makeswift.git",
     "topics": [],
-    "language": null,
+    "language": "TypeScript",
     "stargazers_count": 0,
     "is_template": false,
     "homepage": null
@@ -284,7 +297,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-next-ts",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2022-07-14T01:37:32Z",
+    "updated_at": "2022-08-05T20:56:49Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-next-ts.git",
     "topics": [
       "marketplace",
@@ -292,7 +305,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 18,
+    "stargazers_count": 19,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
@@ -386,7 +399,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-07-28T21:04:32Z",
+    "updated_at": "2022-08-07T02:50:38Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "authentication",
@@ -396,7 +409,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 36,
+    "stargazers_count": 38,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -485,13 +498,13 @@
     "html_url": "https://github.com/thirdweb-example/signature-drop",
     "description": "Use the signature drop pre-built contract to claim NFTs under a claim phase as well as claim using signature-based minting!",
     "created_at": "2022-07-14T23:58:52Z",
-    "updated_at": "2022-07-15T12:54:48Z",
+    "updated_at": "2022-08-04T15:38:38Z",
     "clone_url": "https://github.com/thirdweb-example/signature-drop.git",
     "topics": [
       "signature-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": "http://signature-drop.thirdweb-example.com/"
   },
@@ -515,11 +528,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2022-07-28T17:29:09Z",
+    "updated_at": "2022-08-04T16:27:20Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 8,
+    "stargazers_count": 9,
     "is_template": false,
     "homepage": null
   },
