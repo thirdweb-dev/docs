@@ -70,7 +70,7 @@
 
 .menu__list-item--collapsed
   > .menu__list-item-collapsible
-  > .menu__link--sublist-caret::before {
+  > .menu__link--sublist::before {
   transform: rotate(-90deg);
   padding-bottom: 30px;
   padding-right: 8px;
