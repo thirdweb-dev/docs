@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DeployThisContractButton from "./DeployThisContractButton";
 
 export default function WhichContractQuiz() {
@@ -193,6 +193,34 @@ export default function WhichContractQuiz() {
     return newName;
   }
 
+  async function sendPosthogEvent(
+    eventName: string,
+    question: string,
+    answerToQuestion: string,
+  ) {
+    const posthog = window?.posthog;
+    if (posthog) {
+      posthog.capture(eventName, {
+        question: question,
+        answer: answerToQuestion,
+        qanda: `${question} - ${answerToQuestion}`,
+      });
+    }
+  }
+
+  useEffect(() => {
+    (async () => {
+      if (answer) {
+        const posthog = window?.posthog;
+        if (posthog) {
+          posthog.capture("Which Contract Quiz Answer Arrival", {
+            answer: answer,
+          });
+        }
+      }
+    })();
+  }, [answer]);
+
   if (answer) {
     return (
       <div
@@ -253,7 +281,14 @@ export default function WhichContractQuiz() {
               color: "inherit",
               textDecoration: "none",
             }}
-            onClick={() => option.onSelect()}
+            onClick={() => {
+              option.onSelect();
+              sendPosthogEvent(
+                "Which Contract Quiz Question Item Select",
+                questions[questionIndex].questionTitle,
+                option.title,
+              );
+            }}
           >
             <div
               className="card"
