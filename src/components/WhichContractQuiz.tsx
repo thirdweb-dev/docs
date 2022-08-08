@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import DeployThisContractButton from "./DeployThisContractButton";
 
 export default function WhichContractQuiz() {
@@ -54,18 +54,18 @@ export default function WhichContractQuiz() {
       questionTitle: "Do you want to have multiple copies of the same NFT?",
       options: [
         {
-          title: "No",
-          image: "/assets/icons/nft.png",
-          onSelect: () => {
-            setNftType("nft");
-            setQuestionIndex(2);
-          },
-        },
-        {
           title: "Yes",
           image: "/assets/icons/edition.png",
           onSelect: () => {
             setNftType("edition");
+            setQuestionIndex(2);
+          },
+        },
+        {
+          title: "No",
+          image: "/assets/icons/nft.png",
+          onSelect: () => {
+            setNftType("nft");
             setQuestionIndex(2);
           },
         },
@@ -77,6 +77,24 @@ export default function WhichContractQuiz() {
       questionTitle:
         "Do you want your tokens to be minted (claimed) by other people?",
       options: [
+        {
+          title: "Yes",
+          image: "/assets/icons/drop.png",
+          onSelect: () => {
+            if (tokenType === "nft") {
+              if (nftType === "nft") {
+                setAnswer("signature-drop");
+              }
+              if (nftType === "edition") {
+                setAnswer("edition-drop");
+              }
+            }
+
+            if (tokenType === "token") {
+              setAnswer("token-drop");
+            }
+          },
+        },
         {
           title: "No",
           image: "/assets/icons/nft.png",
@@ -92,24 +110,6 @@ export default function WhichContractQuiz() {
 
             if (tokenType === "token") {
               setAnswer("token");
-            }
-          },
-        },
-        {
-          title: "Yes",
-          image: "/assets/icons/drop.png",
-          onSelect: () => {
-            if (tokenType === "nft") {
-              if (nftType === "nft") {
-                setQuestionIndex(3);
-              }
-              if (nftType === "edition") {
-                setAnswer("edition-drop");
-              }
-            }
-
-            if (tokenType === "token") {
-              setAnswer("token-drop");
             }
           },
         },
@@ -193,6 +193,34 @@ export default function WhichContractQuiz() {
     return newName;
   }
 
+  async function sendPosthogEvent(
+    eventName: string,
+    question: string,
+    answerToQuestion: string,
+  ) {
+    const posthog = window?.posthog;
+    if (posthog) {
+      posthog.capture(eventName, {
+        question: question,
+        answer: answerToQuestion,
+        qanda: `${question} - ${answerToQuestion}`,
+      });
+    }
+  }
+
+  useEffect(() => {
+    (async () => {
+      if (answer) {
+        const posthog = window?.posthog;
+        if (posthog) {
+          posthog.capture("Which Contract Quiz Answer Arrival", {
+            answer: answer,
+          });
+        }
+      }
+    })();
+  }, [answer]);
+
   if (answer) {
     return (
       <div
@@ -253,7 +281,14 @@ export default function WhichContractQuiz() {
               color: "inherit",
               textDecoration: "none",
             }}
-            onClick={() => option.onSelect()}
+            onClick={() => {
+              option.onSelect();
+              sendPosthogEvent(
+                "Which Contract Quiz Question Item Select",
+                questions[questionIndex].questionTitle,
+                option.title,
+              );
+            }}
           >
             <div
               className="card"
@@ -274,6 +309,32 @@ export default function WhichContractQuiz() {
             </div>
           </a>
         ))}
+
+        <div
+          style={{
+            width: "100%",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <a
+            onClick={() => {
+              // Reset all state
+              setQuestionIndex(0);
+              setTokenType(undefined);
+              setNftType(undefined);
+              setAnswer(undefined);
+            }}
+            style={{
+              cursor: "pointer",
+              fontSize: "0.9rem",
+              marginTop: 16,
+            }}
+          >
+            Reset Form
+          </a>
+        </div>
       </div>
     </div>
   );
