@@ -53,6 +53,10 @@ html[data-theme="dark"] .DocSearch {
     height: auto;
   }
 
+  .navbar__items--right {
+    border: none !important;
+  }
+
   .navbar__items--right:first-child {
     display: none;
   }
