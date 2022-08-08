@@ -252,8 +252,88 @@
       "permanent": true
     },
     {
-      "source": "/thirdweb-deploy/thirdweb-cli",
-      "destination": "/thirdweb-cli",
+      "source": "/thirdweb-cli",
+      "destination": "/cli",
+      "permanent": true
+    },
+    {
+      "source": "/smart-contracts",
+      "destination": "/pre-built-contracts",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/setting-up-the-sdk",
+      "destination": "/web3-sdk",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/setting-up-the-sdk/frontend",
+      "destination": "/web3-sdk/set-up-the-sdk/frontend",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/setting-up-the-sdk/backend",
+      "destination": "/web3-sdk/set-up-the-sdk/backend",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/authenticating-users",
+      "destination": "/auth",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/authenticating-users/quickstart",
+      "destination": "/auth/quickstart",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/authenticating-users/server-side-user-verification",
+      "destination": "/auth/sign-in-with-web3",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/authenticating-users/wallet-authentication",
+      "destination": "/auth/remember-the-user",
+      "permanent": true
+    },
+    {
+      "source": "/building-web3-apps/authenticating-users/security-and-advanced-usage",
+      "destination": "/auth/security-and-advanced-usage",
+      "permanent": true
+    },
+    {
+      "source": "/advanced-features/:match*",
+      "destination": "/web3-sdk/advanced-features/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/thirdweb-deploy/contract-extensions",
+      "destination": "/contracts-sdk",
+      "permanent": true
+    },
+    {
+      "source": "/thirdweb-deploy/contract-extensions/quickstart",
+      "destination": "/contracts-sdk/quickstart",
+      "permanent": true
+    },
+    {
+      "source": "/pre-built-contracts/nfts",
+      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract#nfts",
+      "permanent": true
+    },
+    {
+      "source": "/pre-built-contracts/tokens",
+      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract#tokens",
+      "permanent": true
+    },
+    {
+      "source": "/pre-built-contracts/marketplace",
+      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract",
+      "permanent": true
+    },
+    {
+      "source": "/pre-built-contracts/other",
+      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract",
       "permanent": true
     },
     {

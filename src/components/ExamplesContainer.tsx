@@ -46,7 +46,7 @@ const categories = {
   marketplace: "Marketplace",
   split: "Split",
   vote: "Vote",
-  "thirdweb-deploy": "Solidity SDK",
+  "thirdweb-deploy": "Contracts SDK",
   "wallet-connection": "Wallets",
 };
 
@@ -87,9 +87,9 @@ const starterKitToIconMapping = {
 };
 
 const repoToExampleGuideMapping = {
-  "marketplace-next-ts": "/templates/marketplace",
-  "custom-minting-page": "/templates/nft-drop",
-  "nft-gated-website": "/templates/token-gated-membership",
+  // "marketplace-next-ts": "/templates/marketplace",
+  // "custom-minting-page": "/templates/nft-drop",
+  // "nft-gated-website": "/templates/token-gated-membership",
 };
 
 function transformName(name: string) {
