@@ -2220,6 +2220,7 @@
     "summary": "Multiwrap lets you wrap any number of ERC20, ERC721 and ERC1155 tokens you own into a single wrapped token bundle.\n\n",
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getMultiwrap(\"{{contract_address}}\");",
+      "react": "import { useMultiwrap } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const multiwrap = useMultiwrap(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the multiwrap contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_multiwrap(\"{{contract_address}}\")",
       "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetMultiwrap(\"{{contract_address}}\")\n"
     },
@@ -2232,13 +2233,13 @@
           "javascript": "const wrappedBundles = await contract.getAll();\nconsole.log(wrappedBundles);",
           "python": "nfts = contract.get_all()\nprint(nfts)",
           "go": "nfts, err := contract.GetAll()\nownerOne := nfts[0].Owner\nnameOne := nfts[0].Metadata.Name\n",
-          "react": "const sdk = useSDK();\n\nconst wrappedBundles = await contract.getAll();\nconsole.log(wrappedBundles);"
+          "react": "const { contract } = useContract(<ContractAddress>);\nconst { data: nfts, isLoading, error } = useNFTs(contract?.nft, { start: 0, count: 100 });"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.multiwrap.getall",
           "python": "https://docs.thirdweb.com/python/erc721#get_all",
           "go": "https://docs.thirdweb.com/go/multiwrap#func-multiwrap-getall",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.usenfts"
         }
       },
       {
@@ -2300,13 +2301,13 @@
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.nft.balanceOf(walletAddress);\nconsole.log(balance);",
           "python": "balance = contract.balance_of(\"{{wallet_address}}\")\nprint(balance)",
           "go": "address := \"{{wallet_address}}\"\nbalance, err := contract.BalanceOf(address)\n",
-          "react": "const sdk = useSDK();\n\nconst walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.nft.balanceOf(walletAddress);\nconsole.log(balance);"
+          "react": "const { contract } = useContract(<ContractAddress>);\nconst { data: ownerBalance, isLoading, error } = useNFTBalance(contract?.nft, <OwnerWalletAddress>);"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.erc721.balanceof",
           "python": "https://docs.thirdweb.com/python/erc721#balance_of",
           "go": "https://docs.thirdweb.com/go/multiwrap#func-multiwrap-balanceof",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.usenftbalance"
         }
       },
       {
@@ -2317,13 +2318,13 @@
           "javascript": "const tokenId = 0;\nconst nft = await contract.nft.get(tokenId);",
           "python": "nft = contract.get(0)\nprint(nft)",
           "go": "nft, err := contract.Get(0)\n",
-          "react": "const sdk = useSDK();\n\nconst tokenId = 0;\nconst nft = await contract.nft.get(tokenId);"
+          "react": "const { contract } = useContract(<ContractAddress>);\nconst { data: nft, isLoading, error } = useNFT(contract?.nft, <tokenId>);"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.erc721.get",
           "python": "https://docs.thirdweb.com/python/erc721#get",
           "go": "https://docs.thirdweb.com/go/multiwrap#func-multiwrap-get",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.usenft"
         }
       },
       {
@@ -3094,7 +3095,8 @@
     "name": "SignatureDrop",
     "summary": "Setup a collection of NFTs where when it comes to minting, you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party..\n\n",
     "examples": {
-      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getSignatureDrop(\"{{contract_address}}\");"
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getSignatureDrop(\"{{contract_address}}\");",
+      "react": "import { useSignatureDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const signatureDrop = useSignatureDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the Signature drop contract in the rest of the component\n}"
     },
     "methods": [
       {
@@ -3122,13 +3124,13 @@
           "javascript": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 1; // how many unique NFTs you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx.receipt; // the transaction receipt\nconst claimedTokenId = tx.id; // the id of the NFT claimed\nconst claimedNFT = await tx.data(); // (optional) get the claimed NFT metadata",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 1; // how many unique NFTs you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx.receipt; // the transaction receipt\nconst claimedTokenId = tx.id; // the id of the NFT claimed\nconst claimedNFT = await tx.data(); // (optional) get the claimed NFT metadata"
+          "react": "const Component = () => {\n  const {\n    mutate: claimNft,\n    isLoading,\n    error,\n  } = useClaimNFT(DropContract);\n\n  if (error) {\n    console.error(\"failed to claim nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimNft({ to: \"0x...\", quantity: 1 })}\n    >\n      Claim NFT!\n    </button>\n  );\n};"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.signaturedrop.claimto",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.useclaimnft"
         }
       },
       {
@@ -3156,13 +3158,13 @@
           "javascript": "const nfts = await contract.getAll();\nconsole.log(nfts);",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst nfts = await contract.getAll();\nconsole.log(nfts);"
+          "react": "const { contract } = useContract(<ContractAddress>);\nconst { data: nfts, isLoading, error } = useNFTs(contract?.nft, { start: 0, count: 100 });"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.signaturedrop.getall",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.usenfts"
         }
       },
       {
@@ -3173,13 +3175,13 @@
           "javascript": "const claimedNFTs = await contract.getAllClaimed();\nconst firstOwner = claimedNFTs[0].owner;",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst claimedNFTs = await contract.getAllClaimed();\nconst firstOwner = claimedNFTs[0].owner;"
+          "react": "const { data: claimedNFTs, isLoading, error } = useClaimedNFTs(<YourERC721DropContractInstance>, { start: 0, count: 100 });"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.signaturedrop.getallclaimed",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.useclaimednfts"
         }
       },
       {
@@ -3190,13 +3192,13 @@
           "javascript": "const unclaimedNFTs = await contract.getAllUnclaimed();\nconst firstUnclaimedNFT = unclaimedNFTs[0].name;",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst unclaimedNFTs = await contract.getAllUnclaimed();\nconst firstUnclaimedNFT = unclaimedNFTs[0].name;"
+          "react": "const { data: unclaimedNfts, isLoading, error } = useUnclaimedNFTs(<YourERC721DropContractInstance>, { start: 0, count: 100 });"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.signaturedrop.getallunclaimed",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.useunclaimednfts"
         }
       },
       {
@@ -3207,13 +3209,13 @@
           "javascript": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\n// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);"
+          "react": "const { contract } = useContract(<ContractAddress>);\nconst { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract?.nft, <OwnerWalletAddress>);"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.signaturedrop.getowned",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.useownednfts"
         }
       },
       {
@@ -3230,7 +3232,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.signaturedrop.totalclaimedsupply",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.useclaimednftsupply"
         }
       },
       {
@@ -3247,7 +3249,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.signaturedrop.totalunclaimedsupply",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.useunclaimednftsupply"
         }
       },
       {
@@ -3258,13 +3260,13 @@
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.nft.balanceOf(walletAddress);\nconsole.log(balance);",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.nft.balanceOf(walletAddress);\nconsole.log(balance);"
+          "react": "const { contract } = useContract(<ContractAddress>);\nconst { data: ownerBalance, isLoading, error } = useNFTBalance(contract?.nft, <OwnerWalletAddress>);"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.erc721.balanceof",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.usenftbalance"
         }
       },
       {
@@ -3275,13 +3277,13 @@
           "javascript": "const tokenId = 0;\nconst nft = await contract.nft.get(tokenId);",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst tokenId = 0;\nconst nft = await contract.nft.get(tokenId);"
+          "react": "const { contract } = useContract(<ContractAddress>);\nconst { data: nft, isLoading, error } = useNFT(contract?.nft, <tokenId>);"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.erc721.get",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.usenft"
         }
       },
       {
