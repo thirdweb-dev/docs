@@ -6,7 +6,7 @@ date: "2022-07-28"
 
 # Claim an ERC20 Token with NextJS
 
-In this guide, we will allow users to claim ERC-20 tokens in our nextJS app and show holders of our tokens!
+In this guide, we will allow users to claim ERC-20 tokens in a Next.js app and show the holders of our token!
 
 <!-- truncate -->
 
@@ -18,7 +18,7 @@ Check out our example repository with the project built out on [Github](https://
 
 ## Flow
 
-The user flow of this app is as follows, a user enters the app, connects their wallet and enters the amount of tokens they want to claim. Once the claim button is clicked, the transaction is processed and the user receives their tokens. Please note, the tokens have to be imported in the wallet to be visible inside the wallet. Once the transaction is processed, the user’s wallet is added to the list of token holders.
+The user flow of this app is as follows, a user enters the app, connects their wallet and enters the number of tokens they want to claim. Once the claim button is clicked, the transaction is processed and the user receives their tokens. Please note, the tokens have to be imported in the wallet to be visible inside the wallet. Once the transaction is processed, the user’s wallet is added to the list of token holders.
 
 ## Setup
 
@@ -42,7 +42,7 @@ Next, go ahead and run the following command to get the Next.js JavaScript start
 npx thirdweb create --next --js
 ```
 
-Inside the `_app.js` file, change the chain ID to the chain you deployed the smart contract too.
+Inside the `_app.js` file, change the chain ID to the chain you deployed the smart contract to.
 
 ```jsx
 import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
@@ -61,7 +61,7 @@ function MyApp({ Component, pageProps }) {
 export default MyApp;
 ```
 
-We will go through the logic, but won't show every piece of code. If you want to have a look at the full piece of code, check out the [repo](https://github.com/thirdweb-example/token-drop)!
+We will go through the logic but won't show every piece of code. If you want to have a look at the full piece of code, check out the [repo](https://github.com/thirdweb-example/token-drop)!
 
 ### Connect our smart contract
 
@@ -75,22 +75,37 @@ const tokenDropContract = useTokenDrop(<CONTRACT_ADDRESS>);
 
 ### Claim component
 
-We’re going to use the `claim` method in our sdk. The `claim` method takes one parameter, which is the amount of tokens to be claimed. In this example we’ll let the user pass the amount, but you can pre-define this.
-
-```jsx
-function claim () {
-  const claimResult = tokenDropContract?.claim(<AMOUNT>);
-}
-```
+We’re going to use the `useClaimToken` hook from the React SDK to allow the connected wallet to claim tokens from the drop.
 
 Because we’re allowing the user to enter the amount, we need to make use of the react hook `useState` to allow our app to handle the dynamic input.
 
 ```jsx
-//React hook to manage state
+const address = useAddress();
 const [amountToClaim, setAmountToClaim] = useState("");
-//updated method
-function claim() {
-  const claimResult = tokenDropContract?.claim(amountToClaim);
+const { mutate: claimTokens } = useClaimToken(tokenDropContract);
+
+async function claim() {
+  if (!amountToClaim || !address) {
+    return;
+  }
+
+  try {
+    claimTokens(
+      {
+        to: address,
+        amount: amountToClaim,
+      },
+      {
+        onSuccess: (data) => {
+          console.log("Claimed", data);
+          alert("Successfully claimed!");
+        },
+      },
+    );
+  } catch (e) {
+    console.error(e);
+    alert(e);
+  }
 }
 ```
 
@@ -103,21 +118,32 @@ Finally, we bind the method via a function to a button
 The full code looks something like this 👇
 
 ```jsx
-import {useTokenDrop, useAddress} from "@thirdweb-dev/react";
-import {useState} from react;
+import { useAddress, useClaimToken } from "@thirdweb-dev/react";
+import React, { useState } from "react";
 
 export default function Claim({ tokenDropContract }) {
   const address = useAddress();
   const [amountToClaim, setAmountToClaim] = useState("");
+  const { mutate: claimTokens } = useClaimToken(tokenDropContract);
 
   async function claim() {
     if (!amountToClaim || !address) {
       return;
     }
+
     try {
-      const claimResult = await tokenDropContract?.claim(amountToClaim);
-      console.log("Claimed", claimResult);
-      alert("Successfully claimed!");
+      claimTokens(
+        {
+          to: address,
+          amount: amountToClaim,
+        },
+        {
+          onSuccess: (data) => {
+            console.log("Claimed", data);
+            alert("Successfully claimed!");
+          },
+        },
+      );
     } catch (e) {
       console.error(e);
       alert(e);
@@ -131,9 +157,8 @@ export default function Claim({ tokenDropContract }) {
         placeholder="Enter amount to claim"
         onChange={(e) => setAmountToClaim(e.target.value)}
       />
-      <button onClick={claim}>
-        Claim
-      </button>
+
+      <button onClick={claim}>Claim</button>
     </div>
   );
 }
@@ -181,7 +206,7 @@ Now we need to render out the data inside our page. We can use a `map` method to
 }
 ```
 
-Here is the full page, including a loading view and sorting the balances 👇
+Here is the full page, including a loading view and sorting of the balances 👇
 
 ```jsx
 export default function TokenHolders() {
