@@ -103,11 +103,18 @@ const snippets = CLASSES.reduce((acc, contractName) => {
           )?.example || "",
         react:
           createReactSnippet(contractName, method.name).example ||
-          `const sdk = useSDK();\n\n${
-            tsExample?.methods?.find(
-              (m) => m.name.toLowerCase() === method.name.toLowerCase(),
-            )?.examples?.javascript || ""
-          }`,
+          (function gen() {
+            const ts =
+              tsExample?.methods?.find(
+                (m) => m.name.toLowerCase() === method.name.toLowerCase(),
+              )?.examples?.javascript || "";
+
+            if (ts.includes("sdk")) {
+              return `const sdk = useSDK();\n\n${ts}`;
+            } else {
+              return ts;
+            }
+          })(),
       },
       reference: {
         javascript:
@@ -151,11 +158,18 @@ const snippets = CLASSES.reduce((acc, contractName) => {
           )?.example || "",
         react:
           createReactSnippet(contractName, property.name).example ||
-          `const sdk = useSDK();\n\n${
-            tsExample?.properties?.find(
-              (p) => p.name.toLowerCase() === property.name.toLowerCase(),
-            )?.examples?.javascript || ""
-          }`,
+          (function gen() {
+            const ts =
+              tsExample?.properties?.find(
+                (p) => p.name.toLowerCase() === property.name.toLowerCase(),
+              )?.examples?.javascript || "";
+
+            if (ts.includes("sdk")) {
+              return `const sdk = useSDK();\n\n${ts}`;
+            } else {
+              return ts;
+            }
+          })(),
       },
       reference: {
         javascript:

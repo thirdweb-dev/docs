@@ -106,7 +106,7 @@ import "@thirdweb-dev/contracts/extension/PermissionsEnumerable.sol";
 
 // Usage is the same as `extensions/Permissions.sol`
 
-contract MyContract is Permissions {
+contract MyContract is PermissionsEnumerable {
     // Any `bytes32` value is a valid role. You can create roles by defining them like this.
     bytes32 public constant NUMBER_ROLE = keccak256("NUMBER_ROLE");
 

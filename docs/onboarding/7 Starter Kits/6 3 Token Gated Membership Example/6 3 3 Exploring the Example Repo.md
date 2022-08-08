@@ -13,129 +13,162 @@ We'll explore how we use the SDK to:
 - Check if the user [has an NFT](https://portal.thirdweb.com/pre-built-contracts/edition-drop#amount-of-tokens-owned-by-a-specific-wallet) from our smart contract
 - Allow them to [claim](/react/react.useclaimnft) a new NFT from our smart contract
 
-## Connecting the user's wallet
+## Restricting Access to the Homepage
 
-Inside the [homepage](https://github.com/thirdweb-example/nft-gated-website/blob/main/pages/index.jsx)
-we are wrapping our application in the `ThirdwebProvider` so that we can use all of the React SDKs hooks anywhere in our application.
-
-This allows us to easily use hooks such as [`useMetamask`](https://portal.thirdweb.com/react/react.usemetamask) on the [`index.js`](https://github.com/thirdweb-example/nft-gated-website/blob/main/pages/index.jsx) page to connect the user's wallet. Once the user is connected, we can access their wallet address with the [`useAddress`](https://portal.thirdweb.com/react/react.useaddress) hook.
+When the user tries to visit the homepage `/`, we check on the server-side to see if they have an authenticated token:
 
 ```jsx title="index.js"
-// allow user to connect to app with metamask, and obtain address
-const address = useAddress();
-const connectWithMetamask = useMetamask();
+// This gets called on every request
+export async function getServerSideProps(context) {
+  // Check to see if they have an authentication cookie
+  const parsedCookies = cookie?.parse(context?.req?.headers?.cookie || "");
+  const authToken = parsedCookies?.["access_token"];
+
+  // if there is no auth token, redirect them to the login page
+  if (!authToken) {
+    return {
+      redirect: {
+        destination: "/login",
+        permanent: false,
+      },
+    };
+  }
+
+  // ...
+}
 ```
 
-We first return a page for users to connect their wallets if they haven't already.
+If they don't, we redirect them to the login page.
+However, if they are authenticated, we then also check to see if they hold an NFT from our collection, and redirect them
+to the login page if they don't.
 
 ```jsx title="index.js"
-<button onClick={connectWithMetamask}>Connect Wallet</button>
+// Ensure we are able to generate an auth token using our private key instantiated SDK
+const PRIVATE_KEY = process.env.PRIVATE_KEY;
+if (!PRIVATE_KEY) {
+  throw new Error("You need to add an PRIVATE_KEY environment variable.");
+}
+
+// Instantiate our SDK
+const sdk = ThirdwebSDK.fromPrivateKey(PRIVATE_KEY, "mumbai");
+
+// Authenticate token with the SDK
+const domain = domainName;
+const address = await sdk.auth.authenticate(domain, authToken);
+
+// If the auth token is invalid, redirect them to the login page
+if (!address) {
+  return {
+    redirect: {
+      destination: "/login",
+      permanent: false,
+    },
+  };
+}
+
+const hasNft = await checkBalance(sdk, address);
+
+// If they don't have an NFT, redirect them to the login page
+if (!hasNft) {
+  return {
+    redirect: {
+      destination: "/login",
+      permanent: false,
+    },
+  };
+}
+
+// Finally, return the props
+return {
+  props: {},
+};
 ```
 
-## Requesting Restricted Content
+Here, the `checkBalance` function is a helper function that we use to check if the user has an NFT from our collection.
 
-Once the user has connected their MetaMask wallet, we show them a different button:
+```jsx title="checkBalance.js"
+import { contractAddress } from "../const/yourDetails";
 
-```jsx title="index.js"
-<button onClick={() => requestAuthenticatedContent()}>Request Content</button>
+export default async function checkBalance(sdk, address) {
+  const editionDrop = sdk.getEditionDrop(
+    contractAddress, // replace this with your contract address
+  );
+
+  const balance = await editionDrop.balanceOf(address, 0);
+
+  // gt = greater than
+  return balance.gt(0);
+}
 ```
 
-When the user clicks the `Request Access` button, they are prompted to sign a message on the client-side, which uses the SDK to generate a login payload.
+## The Login Page
 
-```jsx title="index.js"
-// Generate a signed login payload for the connected wallet to authenticate with
-const loginPayload = await sdk.auth.login(domain);
+On the `/login` route, we have a button that users can press to call the `signIn` function:
+
+```jsx title="login.js"
+// Function to make a request to our /api/login route to check if we own an NFT.
+async function signIn() {
+  // Add the domain of the application users will login to, this will be used throughout the login process
+  const domain = domainName;
+  // Generate a signed login payload for the connected wallet to authenticate with
+  const payload = await sdk.auth.login(domain);
+
+  // Make api request to server with the login payload as a query param
+  window.location = `/api/login?payload=${JSON.stringify(payload)}`;
+}
 ```
 
-### Request Restricted Content
+This function takes them to our API route, where we:
 
-This payload is sent in the `body` of a `fetch` request for restricted data on our API route on the server-side.
+- Verify the login payload they sent us from the `sdk.auth.login` function is valid:
 
-```jsx title="index.js"
-// Make api request to server and send the login payload in the body
-const response = await fetch(`/api/get-restricted-content`, {
-  method: "POST",
-  body: JSON.stringify({
-    loginPayload,
+```jsx title="api/login.js"
+const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "mumbai");
+
+// Get signed login payload from the frontend
+const payload = JSON.parse(req.query.payload);
+
+const domain = "example.org";
+// Verify the token and get the address, so we can check their NFT balance
+const address = sdk.auth.verify(domain, payload);
+```
+
+- Check their balance using the `checkBalance` helper function we made
+
+```jsx title="api/login.js"
+const hasNft = await checkBalance(sdk, address);
+```
+
+- If they do have an NFT, generate an **auth token** for them and set it as a cookie
+
+```jsx title="api/login.js"
+const hasNft = await checkBalance(sdk, address);
+
+if (!hasNft) {
+  return res.status(401).json({
+    error: "You don't own an NFT and cannot access this page.",
+  });
+}
+
+// At this point, the user has authenticated and owns at least 1 NFT.
+// Generate an auth token for them
+const token = await sdk.auth.generateAuthToken(domain, payload);
+
+// Securely set httpOnly cookie on request to prevent XSS on frontend
+// And set path to / to enable access_token usage on all endpoints
+res.setHeader(
+  "Set-Cookie",
+  serialize("access_token", token, {
+    path: "/",
+    httpOnly: true,
+    secure: true,
+    sameSite: "strict",
   }),
-});
-```
-
-### Verify User On the Server
-
-On the server-side, we verify that the user is who they claim to be, and exit if this login payload is not valid. This proves that the user making this request owns the wallet.
-
-This logic runs on an API route called [get-restricted-content](https://github.com/thirdweb-example/nft-gated-website/blob/main/pages/index.jsx).
-
-```jsx title="api/get-restricted-content.js"
-// Get the login payload that we sent with the request
-const { loginPayload } = JSON.parse(req.body);
-
-const sdk = new ThirdwebSDK("mumbai");
-const domain = "thirdweb.com";
-
-// Use that login payload to verify the user
-const verified = sdk.auth.verify(domain, loginPayload);
-
-if (!verified) {
-  res.status(401).json({ error: "Unauthorized" });
-}
-```
-
-Now we can check if that wallet that made this request has at least one NFT from our collection:
-
-```jsx title="api/get-restricted-content.js"
-// Now check if the user meets the criteria to see this content
-// (e.g. they own an NFT from the collection)
-const editionDrop = sdk.getEditionDrop(
-  "0x1fCbA150F05Bbe1C9D21d3ab08E35D682a4c41bF", // replace this with your contract address
 );
-
-// Get addresses' balance of token ID 0
-const balance = await editionDrop.balanceOf(loginPayload.payload.address, 0);
 ```
 
-And return the content if the user has an NFT:
+- Redirect them to the homepage (or show them an error screen if they don't have an NFT)
 
-```jsx title="api/get-restricted-content.js"
-if (balance > 0) {
-  // If the user is verified and has an NFT, return the content
-  res.status(200).json({
-    message: "This is the restricted content",
-  });
-} else {
-  // If the user is verified but doesn't have an NFT, return a message
-  res.status(200).json({
-    message: "You don't have an NFT",
-  });
-}
-```
-
-## Claiming an NFT
-
-If the user has not already claimed an NFT, they can click a button to claim one!
-
-```jsx title="index.js"
-// Hook to claim NFTs from the NFT drop (to allow users to claim and *then* view the restricted content)
-const { mutate: claimNft, isLoading: isClaiming } =
-  useClaimNFT(editionDropContract);
-
-// ...
-
-<button
-  className={styles.secondaryButton}
-  onClick={() => {
-    if (networkMismatch) {
-      switchNetwork(ChainId.Mumbai);
-      return;
-    }
-    claimNft({
-      quantity: 1,
-      tokenId: 0,
-      to: address,
-    });
-  }}
->
-  {!isClaiming ? " Claim An NFT" : "Claiming..."}
-</button>;
+```jsx
+return res.redirect("/", 302);
 ```
