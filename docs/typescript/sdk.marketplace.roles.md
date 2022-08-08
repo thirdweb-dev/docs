@@ -12,8 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-roles: ContractRoles<
-  MarketplaceContract,
-  typeof Marketplace.contractRoles[number]
->;
+roles: ContractRoles<MarketplaceContract, typeof Marketplace.contractRoles[number]>;
 ```
