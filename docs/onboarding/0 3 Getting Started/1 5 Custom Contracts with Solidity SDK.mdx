@@ -1,0 +1,126 @@
+---
+slug: /getting-started/creating-custom-contracts
+title: Creating Custom Contracts
+---
+
+import QuickstartCard from "../../../src/components/QuickstartCard";
+
+# Creating Custom Contracts
+
+All the individual elements that make up our pre-built contracts are available in our [Contracts SDK](/contracts-sdk),
+for you to piece together various parts of our contracts and customize them to build your own!
+
+This page will show you how to create and release your own [ERC-721A](https://www.erc721a.org/) NFT collection.
+
+## Creating a Custom Contract
+
+First, we can use the [CLI](/cli) to create a new project with a smart contract inside, and the [Contracts SDK](/contracts) installed for us.
+
+```bash
+npx thirdweb create --contract
+```
+
+Using the CLI, we can simply select the base contract we wish to start from. Let's select [ERC721Base](/contracts-sdk/base-contracts/erc-721/erc721base):
+
+![select base contract](./assets/npx-thirdweb-create-contract.png)
+
+### Starting From A Base Contract
+
+Once the project has been initialized, you can open it in your text editor and view the code for the contract.
+
+Base contracts give us a great starting point with functionality already implemented for us.
+
+You can see that for a contract to "start" as a base contract, such as the [ERC721Base](/contracts-sdk/base-contracts/erc-721/erc721base), we need to:
+
+1. Import the contract from the SDK.
+2. Inherit the contract, by saying `MyNFT is ERC721Base`.
+3. Implement any [required methods](/contracts-sdk/base-contracts/erc-721/erc721base#implementing-the-contract-extension) such as the `constructor`.
+
+```solidity title="MyNFT.sol"
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC721Base.sol";
+
+contract MyNFT is ERC721Base {
+      constructor(
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps
+    )
+        ERC721Base(
+            _name,
+            _symbol,
+            _royaltyRecipient,
+            _royaltyBps
+        )
+    {}
+}
+```
+
+### Add Contract Extensions
+
+Base contracts work out of the box without any additional code required, but you might want to add additional functionality to your contract.
+To do so, we can write any custom logic or
+begin to implement additional contract extensions; such as [Permissions](/contracts-sdk/contract-extensions/permissions),
+by following the same pattern as this contract does.
+
+**1. Import the contract from the SDK.**
+
+```solidity
+import "@thirdweb-dev/contracts/extension/PermissionsEnumberable.sol";
+```
+
+**2. Inherit the contract, by saying `MyNFT is PermissionsEnumberable`.**
+
+```solidity
+contract MyNFT is ERC721Base, PermissionsEnumberable {
+    // ...
+}
+```
+
+**3. Implement any required methods such as the `constructor`.**
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC721Base.sol";
+import "@thirdweb-dev/contracts/extension/PermissionsEnumerable.sol";
+
+contract MyNFT is ERC721Base, PermissionsEnumerable {
+      constructor(
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps
+    )
+        ERC721Base(
+            _name,
+            _symbol,
+            _royaltyRecipient,
+            _royaltyBps
+        )
+    {
+        // Give the contract deployer the "admin" role when the contract is deployed.
+        _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+    }
+}
+```
+
+## Next Steps
+
+Now we've written our contract, let's share it with the world!
+
+Next, we'll learn how to use the CLI to create a versioned **release** of our contract, and then **deploy** it from the dashboard.
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Releasing & Deploying Custom Contracts"
+      link="/getting-started/releasing-custom-contracts"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>

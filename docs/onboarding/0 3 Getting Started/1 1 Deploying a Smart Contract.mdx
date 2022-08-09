@@ -1,0 +1,98 @@
+---
+slug: /getting-started/deploying-contracts
+title: Deploying a Pre-built Contract
+---
+
+import DeployingContractsCodeTabs from "../../../src/components/DeployingContractsCodeTabs";
+import InstallingThirdwebCodeTabs from "../../../src/components/InstallingThirdwebCodeTabs.tsx";
+import InitializingThirdwebCodeTabs from "../../../src/components/InitializingThirdwebCodeTabs.tsx";
+import DeployThisContractButton from "../../../src/components/DeployThisContractButton";
+import QuickstartCard from "../../../src/components/QuickstartCard";
+
+# Deploying a Pre-Built Contract
+
+[Pre-built contracts](/pre-built-contracts) are the quickest way to start building.
+
+This page will show you how to deploy the [NFT Drop](/pre-built-contracts/nft-drop) contract onto the Goerli test network.
+
+Click the button below to go to the dashboard, where you can create and deploy your smart contract.
+
+<div
+  style={{
+    width: "fit-content",
+    marginBottom: 32,
+  }}
+>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/drop/nft-drop"}
+    contractType="nft-drop"
+  />
+</div>
+
+## Connecting Your Wallet
+
+If this is your first time building in web3, you'll need a **wallet** to interact with the blockchain.
+
+You can also get free **test funds** from a **faucet** to pay for the gas fees for your transactions.
+
+Learn how to set up a wallet with test funds, and how test networks work below:
+
+<div className="row" style={{marginBottom:24}}>
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Create A MetaMask Wallet"
+    link="/guides/create-a-metamask-wallet"
+    image="/assets/icons/vote.png"
+  />
+</div>
+
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="What Are Testnets?"
+    link="/guides/which-network-should-you-use#what-is-a-testnet"
+    image="/assets/icons/education.png"
+  />
+</div>
+</div>
+
+## Creating Your Contract
+
+Before you deploy, you can set up your contract metadata such as the name, description, and image!
+
+![contract metadata](./assets/configure-contract-metadata-trimmed.png)
+
+Beneath your contract metadata, select the `Goerli (GOR)` test network, and click `Deploy Now`!
+
+![Select Goerli Test Network](./assets/select-goerli.png)
+
+:::tip Deploying Contracts with Code
+
+You can deploy and interact with smart contracts using code via our [SDK](/web3-sdk) too!
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Deploy An NFT Drop Contract With Code"
+      link="/pre-built-contracts/nft-drop#create-an-nft-drop-contract"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
+
+:::
+
+## Next Up
+
+You just deployed your very own smart contract!
+
+Next, let's learn how to get it ready for production; by adding team members, configuring royalties, and more!
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Configuring Smart Contracts"
+      link="/getting-started/configuring-contracts"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>

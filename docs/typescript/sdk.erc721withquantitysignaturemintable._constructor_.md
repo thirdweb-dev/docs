@@ -14,13 +14,12 @@ Constructs a new instance of the `Erc721WithQuantitySignatureMintable` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<SignatureMintERC721 | TokenERC721>, storage: IStorage, roles?: ContractRoles<TokenERC721, typeof NFTCollection.contractRoles[number]>);
+constructor(contractWrapper: ContractWrapper<SignatureMintERC721 | TokenERC721>, storage: IStorage);
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                                                                                                             | Description       |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------- |
-| contractWrapper | ContractWrapper&lt;SignatureMintERC721 &#124; TokenERC721&gt;                                                                                    |                   |
-| storage         | [IStorage](./sdk.istorage.md)                                                                                                                    |                   |
-| roles           | [ContractRoles](./sdk.contractroles.md)&lt;TokenERC721, typeof [NFTCollection.contractRoles](./sdk.nftcollection.contractroles.md)\[number\]&gt; | <i>(Optional)</i> |
+| Parameter       | Type                                                          | Description |
+| --------------- | ------------------------------------------------------------- | ----------- |
+| contractWrapper | ContractWrapper&lt;SignatureMintERC721 &#124; TokenERC721&gt; |             |
+| storage         | [IStorage](./sdk.istorage.md)                                 |             |

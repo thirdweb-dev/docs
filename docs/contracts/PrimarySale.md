@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # PrimarySale
 
+> Primary Sale
+
 Thirdweb&#39;s `PrimarySale` is a contract extension to be used with any base contract. It exposes functions for setting and reading the recipient of primary sales, and lets the inheriting contract perform conditional logic that uses information about primary sales, if desired.
 
 ## Methods
@@ -17,7 +19,7 @@ Thirdweb&#39;s `PrimarySale` is a contract extension to be used with any base co
 function primarySaleRecipient() external view returns (address)
 ```
 
-_The adress that receives all primary sales value._
+_Returns primary sale recipient address._
 
 #### Returns
 
@@ -31,13 +33,15 @@ _The adress that receives all primary sales value._
 function setPrimarySaleRecipient(address _saleRecipient) external nonpayable
 ```
 
-_Lets a contract admin set the recipient for all primary sales._
+Updates primary sale recipient.
+
+_Caller should be authorized to set primary sales info. See {\_canSetPrimarySaleRecipient}. Emits {PrimarySaleRecipientUpdated Event}; See {\_setupPrimarySaleRecipient}._
 
 #### Parameters
 
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| \_saleRecipient | address | undefined   |
+| Name            | Type    | Description                                          |
+| --------------- | ------- | ---------------------------------------------------- |
+| \_saleRecipient | address | Address to be set as new recipient of primary sales. |
 
 ## Events
 
