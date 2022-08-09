@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-drop: Erc721Dropable | undefined;
+drop: Erc721Droppable | undefined;
 ```
