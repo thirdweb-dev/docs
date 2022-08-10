@@ -118,7 +118,7 @@ html[data-theme="dark"] {
   --ifm-h3-vertical-rhythm-top: 3;
 }
 
-@media (max-width: 996px) {
+@media (max-width: 997px) {
   :root {
     --ifm-spacing-horizontal: 1rem;
     --ifm-navbar-padding-horizontal: 1rem;
@@ -130,7 +130,7 @@ html[data-theme="dark"] {
   }
 }
 
-@media (min-width: 961px) {
+@media (min-width: 996px) {
   :root {
     --ifm-navbar-height: 100px;
   }

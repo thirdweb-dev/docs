@@ -1,4 +1,4 @@
-@media (min-width: 961px) {
+@media (min-width: 996px) {
   .menu {
     height: calc(100% - 110px);
     flex-grow: 0;
@@ -33,7 +33,7 @@
   display: none;
 }
 
-@media (min-width: 961px) {
+@media (min-width: 996px) {
   .bottom-link {
     background: var(--thirdweb-background-color);
     width: var(--doc-sidebar-width);
