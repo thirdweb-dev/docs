@@ -161,9 +161,11 @@ export default function ExamplesContainer() {
               data-example-url={repo.html_url}
             >
               <div
-                className="card"
+                className="tw-card"
                 style={{
                   cursor: "pointer",
+                  width: "100%",
+                  alignItems: "center",
                 }}
               >
                 <div
@@ -297,10 +299,11 @@ export default function ExamplesContainer() {
               data-example-url={repo.html_url}
             >
               <div
-                className="card"
+                className="tw-card"
                 style={{
                   cursor: "pointer",
                   height: "100%",
+                  width: "100%",
                 }}
               >
                 <div
@@ -313,6 +316,7 @@ export default function ExamplesContainer() {
                     textAlign: "center",
                     height: "100%",
                     pointerEvents: "none",
+                    width: "100%",
                   }}
                 >
                   <img

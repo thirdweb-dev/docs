@@ -1,0 +1,53 @@
+/*
+Hide color mode toggle in small viewports
+ */
+@media (max-width: 996px) {
+  .colorModeToggle {
+    display: none;
+  }
+
+  .breadcrumbs {
+    display: none !important;
+  }
+}
+
+.goToAppButton {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0px 16px;
+  gap: 12px;
+  width: 98px;
+  height: 32px;
+  background: linear-gradient(86.62deg, #c643f4 0%, #8b43f4 82.93%);
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 100%;
+  text-decoration: none;
+  color: #fff;
+}
+
+html[data-theme="light"] .goToAppButton {
+  text-decoration: none;
+}
+
+html[data-theme="light"] .goToAppButton:hover {
+  color: #fff;
+  opacity: 0.9;
+  transition: all 0.2s ease-in-out;
+}
+
+html[data-theme="dark"] .goToAppButton {
+  /* background: linear-gradient(83.27deg, #c29afe 17.16%, #fe9aee 99.87%); */
+  /* color: #000; */
+  text-decoration: none;
+}
+
+html[data-theme="dark"] .goToAppButton:hover {
+  /* color: #000; */
+  opacity: 0.9;
+  transition: all 0.2s ease-in-out;
+}

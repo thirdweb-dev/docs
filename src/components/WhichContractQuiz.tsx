@@ -277,9 +277,10 @@ export default function WhichContractQuiz() {
             key={option.title}
             className="col col--6"
             style={{
-              marginBottom: 24,
               color: "inherit",
               textDecoration: "none",
+              width: "100%",
+              padding: 8,
             }}
             onClick={() => {
               option.onSelect();
@@ -291,13 +292,17 @@ export default function WhichContractQuiz() {
             }}
           >
             <div
-              className="card"
+              className="tw-card"
               style={{
                 cursor: "pointer",
                 height: "100%",
+                width: "100%",
               }}
             >
-              <div className="card__header quiz-option">
+              <div
+                className="card__header quiz-option"
+                style={{ width: "100%" }}
+              >
                 <img
                   src={option.image}
                   style={{ pointerEvents: "none", width: 42 }}
