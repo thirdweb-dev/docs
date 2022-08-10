@@ -165,6 +165,7 @@ export default function ExamplesContainer() {
                 style={{
                   cursor: "pointer",
                   width: "100%",
+                  alignItems: "center",
                 }}
               >
                 <div
