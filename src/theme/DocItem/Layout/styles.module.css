@@ -3,7 +3,7 @@
   margin-top: 0px;
 }
 
-@media (min-width: 997px) {
+@media (min-width: 996px) {
   .docItemCol {
     max-width: 75% !important;
   }
