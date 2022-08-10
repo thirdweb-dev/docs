@@ -9,6 +9,10 @@ Hide color mode toggle in small viewports
   .breadcrumbs {
     display: none !important;
   }
+
+  .goToAppButton {
+    display: none !important;
+  }
 }
 
 .goToAppButton {
