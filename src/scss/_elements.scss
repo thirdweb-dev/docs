@@ -63,3 +63,7 @@ html[data-theme="dark"] .viewCodeBtn {
 html[data-theme="light"] .quiz-container {
   border-color: rgba(0, 0, 0, 0.1) !important;
 }
+
+html[data-theme="dark"] .deployContractBtn > img {
+  // filter: brightness(0) !important;
+}
