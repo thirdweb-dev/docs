@@ -16,7 +16,7 @@ h3 {
   letter-spacing: -0.5px !important;
 }
 
-@media (min-width: 961px) {
+@media (min-width: 996px) {
   main {
     border-left: 1px solid var(--thirdweb-border-color) !important;
     position: relative;
@@ -235,7 +235,7 @@ aside {
 }
 
 // mobile screens
-@media (max-width: 960px) {
+@media (max-width: 997px) {
   .feedback {
     flex-direction: column;
     width: 100%;
