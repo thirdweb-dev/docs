@@ -5,6 +5,17 @@ body {
   line-height: 27px;
 }
 
+// h1, h2, h3
+h1 {
+  letter-spacing: -0.5px !important;
+}
+h2 {
+  letter-spacing: -0.5px !important;
+}
+h3 {
+  letter-spacing: -0.5px !important;
+}
+
 @media (min-width: 961px) {
   main {
     border-left: 1px solid var(--thirdweb-border-color) !important;
