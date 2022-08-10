@@ -65,6 +65,5 @@ html[data-theme="light"] .quiz-container {
 }
 
 html[data-theme="dark"] .deployContractBtn > img {
-  // make it ocmpletely white for now (TODO)
-  filter: brightness(0) invert(1) !important;
+  // filter: brightness(0) !important;
 }

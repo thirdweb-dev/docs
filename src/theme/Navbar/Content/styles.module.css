@@ -41,13 +41,13 @@ html[data-theme="light"] .goToAppButton:hover {
 }
 
 html[data-theme="dark"] .goToAppButton {
-  background: linear-gradient(83.27deg, #c29afe 17.16%, #fe9aee 99.87%);
-  color: #000;
+  /* background: linear-gradient(83.27deg, #c29afe 17.16%, #fe9aee 99.87%); */
+  /* color: #000; */
   text-decoration: none;
 }
 
 html[data-theme="dark"] .goToAppButton:hover {
-  color: #000;
+  /* color: #000; */
   opacity: 0.9;
   transition: all 0.2s ease-in-out;
 }

@@ -368,8 +368,10 @@ aside {
 
 .deployContractBtn {
   appearance: button;
-  background: var(--thirdweb-gradient);
-  color: var(--thirdweb-gradient-text-color);
+  // background: var(--thirdweb-gradient);
+  background: linear-gradient(86.62deg, #c643f4 0%, #8b43f4 82.93%);
+  // color: var(--thirdweb-gradient-text-color);
+  color: #fff;
   min-height: 42px;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -385,7 +387,7 @@ aside {
 }
 
 .deployContractBtn:hover {
-  color: var(--thirdweb-gradient-text-color);
+  // color: var(--thirdweb-gradient-text-color);
   text-decoration: none;
   opacity: 0.8;
 

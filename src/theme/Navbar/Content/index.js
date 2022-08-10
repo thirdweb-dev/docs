@@ -75,7 +75,7 @@ export default function NavbarContent() {
               className={styles.goToAppButton}
               href="https://thirdweb.com/dashboard"
             >
-              Go to app
+              Dashboard
             </a>
           </div>
         </>
