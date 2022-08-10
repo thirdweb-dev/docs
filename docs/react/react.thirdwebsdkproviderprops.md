@@ -12,15 +12,13 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export interface ThirdwebSDKProviderProps extends Pick<ThirdwebProviderProps, "desiredChainId" | "sdkOptions" | "storageInterface">
+export interface ThirdwebSDKProviderProps extends Omit<ThirdwebSDKProviderWagmiWrapper, "queryClient">
 ```
 
-**Extends:** Pick&lt;[ThirdwebProviderProps](./react.thirdwebproviderprops.md)
+**Extends:** Omit&lt;[ThirdwebSDKProviderWagmiWrapper](./react.thirdwebsdkproviderwagmiwrapper.md)
 
 ## Properties
 
-| Property                                                       | Modifiers | Type                               | Description       |
-| -------------------------------------------------------------- | --------- | ---------------------------------- | ----------------- |
-| [provider](./react.thirdwebsdkproviderprops.provider.md)       |           | ChainOrRpc &#124; SignerOrProvider |                   |
-| [queryClient](./react.thirdwebsdkproviderprops.queryclient.md) |           | QueryClient                        |                   |
-| [signer?](./react.thirdwebsdkproviderprops.signer.md)          |           | Signer                             | <i>(Optional)</i> |
+| Property                                                        | Modifiers | Type        | Description       |
+| --------------------------------------------------------------- | --------- | ----------- | ----------------- |
+| [queryClient?](./react.thirdwebsdkproviderprops.queryclient.md) |           | QueryClient | <i>(Optional)</i> |

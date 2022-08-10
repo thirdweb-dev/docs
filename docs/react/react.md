@@ -150,15 +150,16 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 
 ## Interfaces
 
-| Interface                                                       | Description                                                                                         |
-| --------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [DAppMetaData](./react.dappmetadata.md)                         | the metadata to pass to wallet connection dialog (may show up during the wallet-connection process) |
-| [MediaRendererProps](./react.mediarendererprops.md)             | The props for the [MediaRenderer](./react.mediarenderer.md) component.                              |
-| [MediaType](./react.mediatype.md)                               |                                                                                                     |
-| [SharedMediaProps](./react.sharedmediaprops.md)                 |                                                                                                     |
-| [ThirdwebNftMediaProps](./react.thirdwebnftmediaprops.md)       | The props for the [ThirdwebNftMedia](./react.thirdwebnftmedia.md) component.                        |
-| [ThirdwebProviderProps](./react.thirdwebproviderprops.md)       | The possible props for the ThirdwebProvider.                                                        |
-| [ThirdwebSDKProviderProps](./react.thirdwebsdkproviderprops.md) |                                                                                                     |
+| Interface                                                                     | Description                                                                                         |
+| ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
+| [DAppMetaData](./react.dappmetadata.md)                                       | the metadata to pass to wallet connection dialog (may show up during the wallet-connection process) |
+| [MediaRendererProps](./react.mediarendererprops.md)                           | The props for the [MediaRenderer](./react.mediarenderer.md) component.                              |
+| [MediaType](./react.mediatype.md)                                             |                                                                                                     |
+| [SharedMediaProps](./react.sharedmediaprops.md)                               |                                                                                                     |
+| [ThirdwebNftMediaProps](./react.thirdwebnftmediaprops.md)                     | The props for the [ThirdwebNftMedia](./react.thirdwebnftmedia.md) component.                        |
+| [ThirdwebProviderProps](./react.thirdwebproviderprops.md)                     | The possible props for the ThirdwebProvider.                                                        |
+| [ThirdwebSDKProviderProps](./react.thirdwebsdkproviderprops.md)               |                                                                                                     |
+| [ThirdwebSDKProviderWagmiWrapper](./react.thirdwebsdkproviderwagmiwrapper.md) |                                                                                                     |
 
 ## Variables
 
