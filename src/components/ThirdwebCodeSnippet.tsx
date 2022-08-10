@@ -13,8 +13,8 @@ export default function ThirdwebCodeSnippet({
   showHr = true,
 }) {
   const languagesToShow = {
-    javascript: true,
     react: true,
+    javascript: true,
     python: true,
     go: true,
   };
@@ -66,10 +66,7 @@ export default function ThirdwebCodeSnippet({
 
   return (
     <>
-      <Tabs
-        groupId="thirdweb-code-snippet"
-        defaultValue={Object.keys(examples)[0]}
-      >
+      <Tabs groupId="thirdweb-code-snippet" defaultValue={"react"}>
         {Object.entries(languagesToShow).map(([language, alwaysShow]) => {
           const example = examples[language];
           const reference = references[language];
