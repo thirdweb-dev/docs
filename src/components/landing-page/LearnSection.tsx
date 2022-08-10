@@ -25,7 +25,7 @@ const products = [
 
 export default function LearnSection() {
   return (
-    <div className="explore-products-container">
+    <div className="explore-products-container" style={{ width: "100%" }}>
       <h2 className="explore-products-heading">Learn</h2>
 
       <div className="row" style={{ marginBottom: 64 }}>
