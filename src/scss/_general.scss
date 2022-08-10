@@ -1,9 +1,22 @@
 body {
-  color: "var(--thirdweb-text-color)";
+  color: var(--thirdweb-body-text-color);
   font-size: 18px;
+  font-weight: 400;
+  line-height: 27px;
 }
 
-@media (min-width: 961px) {
+// h1, h2, h3
+h1 {
+  letter-spacing: -0.5px !important;
+}
+h2 {
+  letter-spacing: -0.5px !important;
+}
+h3 {
+  letter-spacing: -0.5px !important;
+}
+
+@media (min-width: 996px) {
   main {
     border-left: 1px solid var(--thirdweb-border-color) !important;
     position: relative;
@@ -30,8 +43,163 @@ aside {
   border-radius: var(--thirdweb-border-radius);
 }
 
-.card {
+.hero-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0px;
+  gap: 64px;
+  width: 100%;
+  padding-bottom: 64px;
+}
+
+.hero-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+}
+
+.hero-left-title {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 120%;
+  letter-spacing: -0.03em;
+  color: var(--thirdweb-body-text-color);
+}
+
+.hero-left-description {
+  font-weight: 400;
+  font-size: 18px;
+  font-style: normal;
+  line-height: 150%;
+  max-width: 513px;
+  color: var(--thirdweb-body-text-color);
+}
+
+.hero-right-image-container {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.hero-right-image {
+  min-width: 274px;
+  max-width: 274px;
+  min-height: 285px;
+  max-height: 285px;
+  border: 3px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+}
+
+.hero-divider {
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.tw-card {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  padding: 16px;
+  gap: 12px;
+  width: 273px;
+  height: 94px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  flex: none;
+  order: 0;
+  flex-grow: 1;
+  z-index: 0;
+}
+
+.tw-card-icon-container {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  margin-left: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tw-card-icon {
+  width: 16.25px;
+  height: 16.25px;
+  fill: #c29afe;
+  border-radius: 0px !important;
+}
+
+.tw-card-text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 4px;
+}
+
+.tw-card-title {
   font-size: 16px;
+  font-weight: 500;
+  line-height: 22.4px;
+  font-style: normal;
+  color: var(--thirdweb-body-text-color);
+  padding-bottom: 0px;
+  margin-bottom: 0px;
+}
+
+.tw-card-description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 130%;
+  color: rgba(255, 255, 255, 0.7);
+  margin-bottom: 0px;
+}
+
+.tw-card:hover {
+  box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--thirdweb-tertiary-color);
+  transition: all 0.2s ease-in-out;
+}
+
+@media (max-width: 1274px) {
+  // don't show the hero image on mobile
+  .hero-right {
+    display: none;
+  }
+
+  .hero-container {
+    padding-bottom: 0px;
+  }
+
+  .hero-left-title {
+    margin-bottom: 0px;
+  }
+
+  .hero-left-title > br {
+    display: none;
+  }
+
+  .hero-left-description {
+    max-width: none;
+  }
+}
+
+// Explore Products Section
+.explore-products-container {
+}
+
+.explore-products-heading {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  line-height: 29px !important;
+  letter-spacing: -0.03em;
+  text-align: left;
+  margin-bottom: 0px;
 }
 
 .card__body {
@@ -67,7 +235,7 @@ aside {
 }
 
 // mobile screens
-@media (max-width: 960px) {
+@media (max-width: 997px) {
   .feedback {
     flex-direction: column;
     width: 100%;
@@ -211,7 +379,9 @@ aside {
 
 .deployContractBtn {
   appearance: button;
-  background-color: #a855f7;
+  // background: var(--thirdweb-gradient);
+  background: linear-gradient(86.62deg, #c643f4 0%, #8b43f4 82.93%);
+  // color: var(--thirdweb-gradient-text-color);
   color: #fff;
   min-height: 42px;
   padding-top: 4px;
@@ -220,7 +390,7 @@ aside {
   border: none;
   font-family: var(--ifm-font-family-base);
   font-size: 15px;
-  line-height: 1.1;
+  line-height: 100%;
   font-weight: 500;
   cursor: pointer;
   min-width: 140px;
@@ -228,46 +398,47 @@ aside {
 }
 
 .deployContractBtn:hover {
-  // Dont underline text
+  // color: var(--thirdweb-gradient-text-color);
   text-decoration: none;
-  color: #fff;
+  opacity: 0.8;
+
+  transition: opacity 0.3s ease-in-out;
 }
 
 .viewCodeBtn {
-  border: 1px solid #a855f7;
-  color: #fff;
+  border: 1px solid var(--thirdweb-primary-color);
+  color: var(--thirdweb-gradient-text-color);
   background-color: transparent;
   min-height: 42px;
   padding-top: 4px;
   padding-bottom: 4px;
   border-radius: 8px;
   font-family: var(--ifm-font-family-base);
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.1;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   min-width: 140px;
   max-width: 192px;
 }
 
 .viewCodeBtn:hover {
-  // Dont underline text
   text-decoration: none;
-  color: #a855f7;
+  opacity: 0.9;
 }
 
 .viewContractCodeBtn {
-  border: 1px solid #a855f7;
-  color: #fff;
+  border: 1px solid var(--thirdweb-primary-color);
+  color: var(--thirdweb-gradient-text-color);
   background-color: transparent;
   min-height: 42px;
   padding-top: 4px;
   padding-bottom: 4px;
   border-radius: 8px;
   font-family: var(--ifm-font-family-base);
-  font-size: 15px;
+  font-size: 14px;
   line-height: 1.1;
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   min-width: 140px;
   width: auto;
@@ -276,7 +447,7 @@ aside {
 .viewContractCodeBtn:hover {
   // Dont underline text
   text-decoration: none;
-  color: #a855f7;
+  opacity: 0.9;
 }
 
 // On mobile screens (between 641 and 996px)
@@ -314,4 +485,35 @@ aside {
   height: 100%;
   pointer-events: none;
   text-align: center;
+}
+
+// Landing page light mode
+html[data-theme="light"] {
+  .hero-right-image {
+    filter: drop-shadow(0px 2px 8px rgba(0, 0, 0, 0.05)) !important;
+  }
+
+  .hero-divider {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+
+  .tw-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .tw-card:hover {
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--thirdweb-tertiary-color);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .tw-card-icon {
+    fill: #9045fe !important;
+  }
+
+  .tw-card-description {
+    color: rgba(0, 0, 0, 0.8);
+  }
 }

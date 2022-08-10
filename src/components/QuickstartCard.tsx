@@ -17,12 +17,14 @@ export default function QuickstartCard({
 }: Props) {
   return (
     <a
-      className="card"
+      className="tw-card"
       style={{
         cursor: "pointer",
         height: "100%",
+        width: "100%",
         color: "inherit",
         textDecoration: "none",
+        padding: 0,
       }}
       href={link}
       target={
@@ -44,51 +46,49 @@ export default function QuickstartCard({
       data-card-description={description}
       data-card-link={link}
     >
-      <div className="card" style={{ height: "100%", pointerEvents: "none" }}>
+      <div
+        className="card__header"
+        style={{
+          pointerEvents: "none",
+        }}
+      >
         <div
-          className="card__header"
+          className="card__body"
           style={{
             pointerEvents: "none",
           }}
         >
           <div
-            className="card__body"
             style={{
+              display: "flex",
+              alignItems: "center",
+              flexDirection: "row",
               pointerEvents: "none",
+              minHeight: 36,
             }}
           >
-            <div
+            <img
+              src={image}
               style={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "row",
+                width: "36px",
+                marginRight: 12,
                 pointerEvents: "none",
-                minHeight: 36,
+              }}
+            />
+            <h5
+              style={{
+                fontWeight: 600,
+                marginBottom: 0,
+                fontSize: "1.25rem",
+                pointerEvents: "none",
               }}
             >
-              <img
-                src={image}
-                style={{
-                  width: "36px",
-                  marginRight: 12,
-                  pointerEvents: "none",
-                }}
-              />
-              <h5
-                style={{
-                  fontWeight: 600,
-                  marginBottom: 0,
-                  fontSize: "1.25rem",
-                  pointerEvents: "none",
-                }}
-              >
-                {name}
-              </h5>
-            </div>
-            <p style={{ opacity: 0.9, marginTop: 6, pointerEvents: "none" }}>
-              {description}
-            </p>
+              {name}
+            </h5>
           </div>
+          <p style={{ opacity: 0.9, marginTop: 6, pointerEvents: "none" }}>
+            {description}
+          </p>
         </div>
       </div>
     </a>

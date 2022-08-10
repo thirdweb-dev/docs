@@ -1,0 +1,34 @@
+.toggle {
+  width: 2rem;
+  height: 2rem;
+}
+
+.toggleButton {
+  -webkit-tap-highlight-color: transparent;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  transition: background var(--ifm-transition-fast);
+}
+
+.toggleButton:hover {
+  background: var(--ifm-color-emphasis-200);
+}
+
+[data-theme="light"] .darkToggleIcon,
+[data-theme="dark"] .lightToggleIcon {
+  display: none;
+}
+
+.toggleButtonDisabled {
+  cursor: not-allowed;
+}
+
+html[data-theme="dark"] .toggleButton {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}

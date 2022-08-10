@@ -1,50 +1,7 @@
-.menu {
-  padding: 1.5rem 0 !important;
-}
-
-@media (min-width: 961px) {
+@media (min-width: 996px) {
   .menu {
-    padding: 1.5rem 0 1.5rem 1rem !important;
     height: calc(100% - 110px);
     flex-grow: 0;
-  }
-}
-
-.menu__list {
-  padding-bottom: 0rem;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-
-  .menu__link {
-    border-radius: 0;
-    height: auto !important;
-    font-size: 1.125rem;
-    line-height: 1.25;
-
-    &:hover {
-      background: transparent;
-      color: var(--thirdweb-text-color);
-    }
-
-    &.menu__link--active {
-      color: inherit;
-    }
-  }
-
-  .menu__list {
-    margin-left: 0;
-    padding-left: 0;
-
-    --ifm-menu-color: var(--thirdweb-text-secondary-color);
-
-    .menu__link {
-      font-size: 14px;
-
-      &.menu__link--active {
-        color: var(--thirdweb-primary-color);
-      }
-    }
   }
 }
 
@@ -76,15 +33,11 @@
   display: none;
 }
 
-@media (min-width: 961px) {
+@media (min-width: 996px) {
   .bottom-link {
     background: var(--thirdweb-background-color);
     width: var(--doc-sidebar-width);
     width: 100%;
-  }
-
-  .menu__list-item:last-child {
-    padding-bottom: 15px;
   }
 
   .bottom-link .menu__link {
@@ -92,7 +45,59 @@
   }
 }
 
+.menu__link {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 38px;
+}
+
+.menu__caret {
+  display: none;
+}
+
+// This is a really hacky animation cuz idk how to do it properly
+.menu__link--sublist::before {
+  content: var(--ifm-menu-link-sublist-icon);
+  width: 8px;
+  height: 4px;
+  padding-bottom: 22px;
+  padding-right: 8px;
+  padding-left: 4px;
+  transition: 0.2s ease-in-out;
+  margin-left: -20px;
+}
+
+.menu__list-item--collapsed
+  > .menu__list-item-collapsible
+  > .menu__link--sublist::before {
+  transform: rotate(-90deg);
+  padding-bottom: 30px;
+  padding-right: 8px;
+  padding-left: 4px;
+  margin-left: -20px;
+  // animation
+  transition: 0.2s ease-in-out;
+}
+
+.menu__list {
+  padding-left: 11px !important;
+}
+
+// But not the first menu__list
+.menu__list:first-child {
+  padding-left: 0 !important;
+}
+
 .menu__list-item {
+  padding-left: 0px;
+  font-size: 16px;
+  line-height: 22.4px;
+  font-weight: 500;
+  font-style: normal;
+  line-height: 140%;
+  color: var(--thirdweb-text-color);
+
   .menu__list-item-collapsible {
     button {
       &:before {
@@ -106,19 +111,37 @@
   }
 
   .menu__list-item {
+    font-size: 14px;
+    padding-left: 32px;
+    border-left: 2px solid var(--thirdweb-menu-border-color);
+    padding-left: 8px;
     margin-top: 0;
 
     .menu__list-item {
-      margin-left: 1em;
+      font-size: 13px;
     }
   }
 
-  .menu__link--sublist:after {
-    background: var(--ifm-menu-link-sublist-icon) 50% / 1.2rem 1.2rem;
+  .menu__link:after {
+    // dont show dropdown arrow on right
+    visibility: hidden;
   }
 
   > .menu__list-item {
     margin-left: 0em;
+  }
+}
+
+.menu__list-item--collapsed {
+  // first child
+  &:first-child {
+    &:first-child {
+      margin-top: 0;
+      // get the before of the first child and rotate it 90 deg
+      &:before {
+        transform: rotate(180deg);
+      }
+    }
   }
 }
 
@@ -127,15 +150,7 @@
 }
 
 .menu__link--active:not(.menu__link--sublist) {
-  background-color: transparent;
-}
-
-.theme-doc-sidebar-item-category-level-1 {
-  padding-bottom: 0.5rem;
-}
-
-.theme-doc-sidebar-item-link-level-1 {
-  padding-bottom: 0.25rem;
+  background-color: var(thirdweb-menu-selected-background-color);
 }
 
 .tocCollapsibleContent__-_-node_modules-\@docusaurus-theme-classic-lib-next-theme-TOCCollapsible-styles-module
@@ -163,8 +178,5 @@
     // Margin top with the remaining avialble space
     margin-top: auto !important;
     padding-bottom: 0px !important;
-    // Margin bottom with the remaining avialble space
-
-    padding-top: 1rem;
   }
 }
