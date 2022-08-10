@@ -55,7 +55,7 @@
     "html_url": "https://github.com/thirdweb-example/cra-javascript-starter",
     "description": "thirdweb starter project with Create React App & JavaScript",
     "created_at": "2022-03-18T00:31:36Z",
-    "updated_at": "2022-08-01T01:46:15Z",
+    "updated_at": "2022-08-08T16:01:54Z",
     "clone_url": "https://github.com/thirdweb-example/cra-javascript-starter.git",
     "topics": [
       "javascript",
@@ -63,7 +63,7 @@
       "starter-kit"
     ],
     "language": "JavaScript",
-    "stargazers_count": 12,
+    "stargazers_count": 13,
     "is_template": true,
     "homepage": "https://cra-javascript-starter.thirdweb-example.com"
   },
@@ -297,7 +297,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-next-ts",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2022-08-05T20:56:49Z",
+    "updated_at": "2022-08-08T17:49:37Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-next-ts.git",
     "topics": [
       "marketplace",
@@ -305,7 +305,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 19,
+    "stargazers_count": 20,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
@@ -399,7 +399,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-08-07T02:50:38Z",
+    "updated_at": "2022-08-08T13:16:45Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "authentication",
@@ -409,7 +409,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 38,
+    "stargazers_count": 39,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -418,7 +418,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-07-31T01:11:02Z",
+    "updated_at": "2022-08-09T14:04:11Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "nft-drop",
@@ -426,7 +426,7 @@
       "token"
     ],
     "language": "TypeScript",
-    "stargazers_count": 22,
+    "stargazers_count": 23,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -450,13 +450,13 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2022-07-30T04:11:54Z",
+    "updated_at": "2022-08-09T04:46:34Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 13,
+    "stargazers_count": 14,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },
