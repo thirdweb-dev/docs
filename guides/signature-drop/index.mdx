@@ -31,7 +31,7 @@ Check out the demo here: https://signature-drop.thirdweb-example.com/
 
 ## Creating the Signature Drop Contract
 
-To deploy one of thirdweb's [Pre-built contracts](https://portal.thirdweb.com/pre-built-contracts), head to the [dashboard](https://thirdweb.com/dashboard) and connect your wallet.
+To deploy one of our [Pre-built contracts](https://portal.thirdweb.com/pre-built-contracts), head to the [dashboard](https://thirdweb.com/dashboard) and connect your wallet.
 
 :::tip Create A Wallet
 
@@ -258,9 +258,9 @@ export default async function generateMintSignature(
 
 When we call this API endpoint, we'll be passing an `address` argument into the request body. In this API route, we de-structure that value so that we can use it when we generate the mint signature.
 
-Since we're going to provide the NFTs for free to wallets that own one of thirdweb's [Early Access NFTs](https://opensea.io/collection/thirdweb-community), let's check that now.
+Since we're going to provide the NFTs for free to wallets that own one of our [Early Access NFTs](https://opensea.io/collection/thirdweb-community), let's check that now.
 
-To do that, we instantiate the thirdweb SDK with a read-only connection on the Polygon network and get the `thirdweb-community` NFT Collection using its contract address.
+To do that, we instantiate the SDK with a read-only connection on the Polygon network and get the `thirdweb-community` NFT Collection using its contract address.
 
 ```js
 // Get the Early Access NFT Edition Drop contract
