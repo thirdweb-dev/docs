@@ -125,7 +125,7 @@ Once they are uploaded you will be able to see the NFTs! To learn more about bat
 
 Go to [Airtable](https://airtable.com/) and create a new base.
 
-After you create a new base, give a name to your base and add two columns: `address` and `hasClaimed` like this:
+After you create a new base, give a name to your base and add two columns: `address` and `quantityClaimed`. Address will be of type `Single Line Text` and quantityClaimed will be of type `Number`:
 
 ![Airtable base](./airtable-new-base.png)
 
@@ -255,10 +255,11 @@ We will first get the record using the address from request body:
 
 ```ts title="pages/api/generate-mint-sig.ts"
 const { address, quantity } = JSON.parse(req.body);
+const quantityToMint = parseInt(quantity) as number;
 
 const record = await table
   .select({
-    fields: ["address", "hasClaimed"],
+    fields: ["address", "quantityClaimed"],
     filterByFormula: `NOT({address} != '${address}')`,
   })
   .all();
@@ -268,12 +269,18 @@ This will get the record with this address. Now we will use this address to dete
 
 ```ts title="pages/api/generate-mint-sig.ts"
 const pricePerNft = 2;
+const freeNFTs = 2;
+
+const quantityClaimed = (record[0]?.fields?.quantityClaimed as number) || 0;
 
 const determinePrice = (): number => {
-  if (record[0]?.fields?.hasClaimed) {
+  if (quantityClaimed >= freeNFTs) {
     return pricePerNft;
   }
-  return ((quantity - 1) * pricePerNft) / quantity;
+  if (quantityToMint > freeNFTs) {
+    return ((quantityToMint - freeNFTs) * pricePerNft) / quantityToMint;
+  }
+  return 0;
 };
 ```
 
@@ -386,29 +393,91 @@ import { useState } from "react";
 If we now try minting the NFT, we will be able to mint! However, when we try and mint _again_ it will still be free;
 as our Airtable doesn't know that we have minted.
 
-To fix this after generating the signature we will set the hasClaimed to true in the airtable. So, add the following:
+To fix this after generating the signature we will update the `quantityClaimed` in the airtable. So, add the following:
 
 ```ts title="pages/api/generate-mint-sig.ts"
-const record = await table
-  .select({
-    fields: ["address", "hasClaimed"],
-    filterByFormula: `NOT({address} != '${address}')`,
-  })
-  .all();
-
 if (record.length > 0) {
   record[0].updateFields({
-    hasClaimed: "true",
+    quantityClaimed: quantityClaimed + quantityToMint,
   });
 } else {
   await table.create({
     address,
-    hasClaimed: "true",
+    quantityClaimed: quantityToMint,
   });
 }
 ```
 
-Here, we are first getting the record using the address. If the record exists, we will just update it with `hasClaimed` to `true`,
-otherwise, we will create a new record.
+Here, we are first getting the record using the address. If the record exists, we will just update it by adding the `quantityToMint` to previous `quantityClaimed` and if it doesn't exist, we will create a new record with the address and set it to `quantityToMint`.
+
+The final code for our API looks like this:
+
+```ts title="api/generate-mint-sig.ts"
+import type { NextApiRequest, NextApiResponse } from "next";
+import { table } from "../../utils/Airtable";
+import sdk from "../../utils/thirdweb";
+
+const generateMintSignature = async (
+  req: NextApiRequest,
+  res: NextApiResponse,
+) => {
+  const { address, quantity } = JSON.parse(req.body);
+  const quantityToMint = parseInt(quantity) as number;
+  const pricePerNft = 2;
+  const freeNFTs = 2;
+
+  const drop = sdk.getSignatureDrop(
+    "0x6d148a12f7c0ae693609F5a26E085646f8F73A53",
+  );
+
+  const record = await table
+    .select({
+      fields: ["address", "quantityClaimed"],
+      filterByFormula: `NOT({address} != '${address}')`,
+    })
+    .all();
+
+  const quantityClaimed = (record[0]?.fields?.quantityClaimed as number) || 0;
+
+  const determinePrice = (): number => {
+    if (quantityClaimed >= freeNFTs) {
+      return pricePerNft;
+    }
+    if (quantityToMint > freeNFTs) {
+      return ((quantityToMint - freeNFTs) * pricePerNft) / quantityToMint;
+    }
+    return 0;
+  };
+
+  try {
+    const signedPayload = await drop.signature.generate({
+      to: address,
+      price: determinePrice(),
+      quantity: quantityToMint,
+    });
+
+    if (record.length > 0) {
+      record[0].updateFields({
+        quantityClaimed: quantityClaimed + quantityToMint,
+      });
+    } else {
+      await table.create({
+        address,
+        quantityClaimed: quantityToMint,
+      });
+    }
+
+    return res.status(200).json({
+      signedPayload,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      error,
+    });
+  }
+};
+
+export default generateMintSignature;
+```
 
 Now our app works successfully! 🎉
