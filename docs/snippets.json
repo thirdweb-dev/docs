@@ -10,19 +10,19 @@
     },
     "methods": [
       {
-        "name": "burn",
+        "name": "burnToken",
         "summary": "Burn a single NFT\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "const result = await contract.burn(tokenId);",
+          "javascript": "const result = await contract.burnToken(tokenId);",
           "python": "",
-          "go": "tokenId := 0\ntx, err := contract.Burn(tokenId)\n",
-          "react": "const result = await contract.burn(tokenId);"
+          "go": "",
+          "react": "const result = await contract.burnToken(tokenId);"
         },
         "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.nftcollection.burn",
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.nftcollection.burntoken",
           "python": "",
-          "go": "https://docs.thirdweb.com/go/nft_collection#func-nftcollection-burn",
+          "go": "",
           "react": ""
         }
       },
@@ -199,19 +199,19 @@
     },
     "methods": [
       {
-        "name": "burn",
+        "name": "burnTokens",
         "summary": "Burn a specified amount of a NFT\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "const result = await contract.burn(tokenId, amount);",
+          "javascript": "const result = await contract.burnTokens(tokenId, amount);",
           "python": "",
-          "go": "tokenId := 0\namount := 1\ntx, err := contract.Burn(tokenId, amount)\n",
-          "react": "const result = await contract.burn(tokenId, amount);"
+          "go": "",
+          "react": "const result = await contract.burnTokens(tokenId, amount);"
         },
         "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.edition.burn",
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.edition.burntokens",
           "python": "",
-          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-burn",
+          "go": "",
           "react": ""
         }
       },
@@ -402,23 +402,6 @@
     },
     "methods": [
       {
-        "name": "burn",
-        "summary": "Burn Tokens\n\n",
-        "remarks": "\n\nBurn tokens held by the connected wallet\n\n",
-        "examples": {
-          "javascript": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burn(amount);",
-          "python": "",
-          "go": "",
-          "react": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burn(amount);"
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.tokendrop.burn",
-          "python": "",
-          "go": "",
-          "react": ""
-        }
-      },
-      {
         "name": "burnFrom",
         "summary": "Burn Tokens\n\n",
         "remarks": "\n\nBurn tokens held by the specified wallet\n\n",
@@ -430,6 +413,23 @@
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.tokendrop.burnfrom",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "burnTokens",
+        "summary": "Burn Tokens\n\n",
+        "remarks": "\n\nBurn tokens held by the connected wallet\n\n",
+        "examples": {
+          "javascript": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnTokens(amount);",
+          "python": "",
+          "go": "",
+          "react": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnTokens(amount);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.tokendrop.burntokens",
           "python": "",
           "go": "",
           "react": ""
@@ -657,23 +657,6 @@
     },
     "methods": [
       {
-        "name": "burn",
-        "summary": "Burn Tokens\n\n",
-        "remarks": "\n\nBurn tokens held by the connected wallet\n\n",
-        "examples": {
-          "javascript": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burn(amount);",
-          "python": "amount = 0.1\ncontract.burn(amount)",
-          "go": "amount := 1\ntx, err := contract.Burn(amount)\n",
-          "react": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burn(amount);"
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.token.burn",
-          "python": "https://docs.thirdweb.com/python/erc20#burn",
-          "go": "https://docs.thirdweb.com/go/token#func-token-burn",
-          "react": ""
-        }
-      },
-      {
         "name": "burnFrom",
         "summary": "Burn Tokens\n\n",
         "remarks": "\n\nBurn tokens held by the specified wallet\n\n",
@@ -687,6 +670,23 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.token.burnfrom",
           "python": "https://docs.thirdweb.com/python/erc20#burn_from",
           "go": "https://docs.thirdweb.com/go/token#func-token-burnfrom",
+          "react": ""
+        }
+      },
+      {
+        "name": "burnTokens",
+        "summary": "Burn Tokens\n\n",
+        "remarks": "\n\nBurn tokens held by the connected wallet\n\n",
+        "examples": {
+          "javascript": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnTokens(amount);",
+          "python": "",
+          "go": "",
+          "react": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnTokens(amount);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.token.burntokens",
+          "python": "",
+          "go": "",
           "react": ""
         }
       },
@@ -931,19 +931,19 @@
     },
     "methods": [
       {
-        "name": "burn",
+        "name": "burnToken",
         "summary": "Burn a single NFT\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "const result = await contract.burn(tokenId);",
+          "javascript": "const result = await contract.burnToken(tokenId);",
           "python": "",
-          "go": "tokenId := 0\ntx, err := contract.Burn(tokenId)\n",
-          "react": "const result = await contract.burn(tokenId);"
+          "go": "",
+          "react": "const result = await contract.burnToken(tokenId);"
         },
         "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.nftdrop.burn",
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.nftdrop.burntoken",
           "python": "",
-          "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-burn",
+          "go": "",
           "react": ""
         }
       },
@@ -1205,19 +1205,19 @@
     },
     "methods": [
       {
-        "name": "burn",
+        "name": "burnTokens",
         "summary": "Burn a specified amount of a NFT\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "const result = await contract.burn(tokenId, amount);",
+          "javascript": "const result = await contract.burnTokens(tokenId, amount);",
           "python": "",
-          "go": "tokenId := 0\namount := 1\ntx, err := contract.Burn(tokenId, amount)\n",
-          "react": "const result = await contract.burn(tokenId, amount);"
+          "go": "",
+          "react": "const result = await contract.burnTokens(tokenId, amount);"
         },
         "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.editiondrop.burn",
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.editiondrop.burntokens",
           "python": "",
-          "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-burn",
+          "go": "",
           "react": ""
         }
       },
@@ -3100,17 +3100,17 @@
     },
     "methods": [
       {
-        "name": "burn",
+        "name": "burnToken",
         "summary": "Burn a single NFT\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "const result = await contract.burn(tokenId, amount);",
+          "javascript": "const result = await contract.burnToken(tokenId);",
           "python": "",
           "go": "",
-          "react": "const result = await contract.burn(tokenId, amount);"
+          "react": "const result = await contract.burnToken(tokenId);"
         },
         "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.signaturedrop.burn",
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.signaturedrop.burntoken",
           "python": "",
           "go": "",
           "react": ""
