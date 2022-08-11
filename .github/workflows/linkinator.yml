@@ -4,6 +4,7 @@ on:
       - main
   pull_request:
 name: ci
+continue_on_error: true
 jobs:
   linkinator:
     runs-on: ubuntu-latest
