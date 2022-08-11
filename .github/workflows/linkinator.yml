@@ -1,0 +1,18 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+name: ci
+jobs:
+  linkinator:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: JustinBeckwith/linkinator-action@v1
+        with:
+          paths: "**/*.{mdx,md}"
+          concurrency: 1
+          markdown: true
+          recurse: true
+          linksToSkip: "https://opensea.io, http://localhost:3000"
