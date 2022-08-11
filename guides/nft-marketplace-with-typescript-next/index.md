@@ -140,13 +140,13 @@ Now we are done with the home page, let's create some listings to display!
 
 In this guide, we'll also quickly go through the process of creating an NFT Collection, so that we can play around with some NFTs on the marketplace!
 
-If you already have NFTs that you can play around with on the Rinkeby network, feel free to use those instead and skip this optional step.
+If you already have NFTs that you can play around with on the Goerli network, feel free to use those instead and skip this optional step.
 
 ## (Optional) Creating An NFT Collection
 
 Head back to the [dashboard](https://thirdweb.com/dashboard) and create a new **NFT Collection** contract.
 
-Configure your NFT Collection to your liking, and deploy it onto the Rinkeby test network.
+Configure your NFT Collection to your liking, and deploy it onto the Goerli test network.
 
 Now, let's go ahead and mint our very own NFT via the UI!
 
@@ -227,7 +227,7 @@ async function handleCreateListing(e: any) {
   try {
     // Ensure user is on the correct network
     if (networkMismatch) {
-      switchNetwork && switchNetwork(4); // 4 is rinkeby here
+      switchNetwork && switchNetwork(4); // 4 is goerli here
       return;
     }
 
@@ -281,7 +281,7 @@ async function createAuctionListing(
     const transaction = await marketplace?.auction.createListing({
       assetContractAddress: contractAddress, // Contract Address of the NFT
       buyoutPricePerToken: price, // Maximum price, the auction will end immediately if a user pays this price.
-      currencyContractAddress: NATIVE_TOKEN_ADDRESS, // NATIVE_TOKEN_ADDRESS is the crpyto curency that is native to the network. i.e. Rinkeby ETH.
+      currencyContractAddress: NATIVE_TOKEN_ADDRESS, // NATIVE_TOKEN_ADDRESS is the crpyto curency that is native to the network. i.e. Goerli ETH.
       listingDurationInSeconds: 60 * 60 * 24 * 7, // When the auction will be closed and no longer accept bids (1 Week)
       quantity: 1, // How many of the NFTs are being listed (useful for ERC 1155 tokens)
       reservePricePerToken: 0, // Minimum price, users cannot bid below this amount
@@ -308,7 +308,7 @@ async function createDirectListing(
     const transaction = await marketplace?.direct.createListing({
       assetContractAddress: contractAddress, // Contract Address of the NFT
       buyoutPricePerToken: price, // Maximum price, the auction will end immediately if a user pays this price.
-      currencyContractAddress: NATIVE_TOKEN_ADDRESS, // NATIVE_TOKEN_ADDRESS is the crpyto curency that is native to the network. i.e. Rinkeby ETH.
+      currencyContractAddress: NATIVE_TOKEN_ADDRESS, // NATIVE_TOKEN_ADDRESS is the crpyto curency that is native to the network. i.e. Goerli ETH.
       listingDurationInSeconds: 60 * 60 * 24 * 7, // When the auction will be closed and no longer accept bids (1 Week)
       quantity: 1, // How many of the NFTs are being listed (useful for ERC 1155 tokens)
       startTimestamp: new Date(0), // When the listing will start
@@ -559,7 +559,7 @@ async function createBidOrOffer() {
       await marketplace?.direct.makeOffer(
         listingId, // The listingId of the listing we want to make an offer for
         1, // Quantity = 1
-        NATIVE_TOKENS[ChainId.Rinkeby].wrapped.address, // Wrapped Ether address on Rinkeby
+        NATIVE_TOKENS[ChainId.Goerli].wrapped.address, // Wrapped Ether address on Goerli
         bidAmount, // The offer amount the user entered
       );
     }
@@ -623,7 +623,7 @@ Great work! Now let's try it out!
 
 To test that it works as you expect, feel free to create a new wallet, so that you know for sure that the funds and NFTs are being exchanged between the two wallets.
 
-As we mentioned briefly, in order to make bids, we'll need some Rinkeby wETH, which is the ERC20 token Wrapped Ether.
+As we mentioned briefly, in order to make bids, we'll need some Goerli wETH, which is the ERC20 token Wrapped Ether.
 
 Let's try it out, and click on our `Buy` button! This will pay the full price for the NFT, and once you accept the transaction request, head back to the homepage, and you'll notice the listing is no longer displayed!
 
