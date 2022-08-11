@@ -272,6 +272,18 @@ _Receives and executes a batch of function calls on this contract._
 | ------- | ------- | ----------- |
 | results | bytes[] | undefined   |
 
+### prevPublisher
+
+```solidity
+function prevPublisher() external view returns (contract IContractPublisher)
+```
+
+#### Returns
+
+| Name | Type                        | Description |
+| ---- | --------------------------- | ----------- |
+| \_0  | contract IContractPublisher | undefined   |
+
 ### publishContract
 
 ```solidity
