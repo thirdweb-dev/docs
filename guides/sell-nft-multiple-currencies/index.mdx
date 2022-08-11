@@ -210,18 +210,21 @@ Let's now initialize the thirdweb sdk!
 
 ```ts
 const sdk = ThirdwebSDK.fromPrivateKey(
-  process.env.PRIVATE_KEY as string,
+  // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+  "<your-private-key-here>",
   "mumbai",
 );
 ```
 
-As you can see, we are using an environment variable to initialize the sdk.
-The variable is called `PRIVATE_KEY` which is the private key of the wallet.
-Create a new file `.env.local` and add your private key in.
+:::warning
 
-```bash title=".env.local"
-PRIVATE_KEY=<private_key>
-```
+Ensure you store and access your private key securely.
+
+- **Never** commit any file that may contain your private key to your source control.
+
+[Learn more about securely accessing your private key](/web3-sdk/set-up-the-sdk/securing-your-private-key).
+
+:::
 
 Let's see how to get this private key value.
 
@@ -232,8 +235,6 @@ In your metamask wallet, click on the three dots, then click account details. Yo
 ![Export private key](./export-pvt-key.png)
 
 This will give full access to your wallet to make sure to keep it secret!
-
-Finally, paste this in the `.env.local` file. Since we have changed the env variables we need to restart the server. So, cut the terminal and run `yarn dev` again.
 
 We also need to import `ThirdwebSDK`:
 
@@ -315,7 +316,8 @@ const generateMintSignature = async (
   const { tokenId, address, tokenName } = JSON.parse(req.body);
 
   const sdk = ThirdwebSDK.fromPrivateKey(
-    process.env.PRIVATE_KEY as string,
+    // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+    "<your-private-key-here>",
     "mumbai",
   );
 

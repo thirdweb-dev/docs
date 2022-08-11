@@ -8,7 +8,8 @@ export default function ThirdwebCodeSnippet() {
     javascript: `import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = ThirdwebSDK.fromPrivateKey(
-  process.env.PRIVATE_KEY, // Your wallet private key
+  // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+  "<your-private-key-here>",
   "mumbai", // configure this to your network
 );
 `,
@@ -17,8 +18,8 @@ const sdk = ThirdwebSDK.fromPrivateKey(
 from thirdweb.types.nft import NFTMetadataInput
 import os
 
-# This PRIVATE KEY is coming from your environment variables. Make sure to never put it in a tracked file or share it with anyone.
-PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
+# Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+PRIVATE_KEY = "<your-private-key-here>"
 
 # Now you can create a new instance of the SDK with your private key
 sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, "mumbai")`,

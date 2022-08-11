@@ -240,17 +240,16 @@ pip install fastapi uvicorn thirdweb-sdk firebase-admin Pillow python-dotenv
 
 Let's first write the code for minting an NFT, then we'll wrap it up in a simple API.
 
-You can go through the thirdweb Python SDK docs [here](https://portal.thirdweb.com/python).
+You can go through the Python SDK docs [here](https://portal.thirdweb.com/python).
 
-First, let's import the thirdweb SDK and a way to read the environment variables.
+First, let's import the SDK.
 
 ```python
 from thirdweb import ThirdwebSDK
 from thirdweb.types import NFTMetadataInput
-from dotenv import load_dotenv
 ```
 
-To sign transactions from your wallet, we need to create a `.env` file and connect our wallet using its private key.
+To sign transactions from your wallet, we need to instantiate the SDK using our wallet's private key.
 
 :::info How to export your private key
 
@@ -258,26 +257,20 @@ Learn how to [export your private key](/guides/create-a-metamask-wallet#export-y
 
 :::
 
-To do this, create a file called `.env`, and add the following to it:
-
-```bash title=".env"
-PRIVATE_KEY=your-private-key-here
-```
-
 :::warning
 
 Ensure you store and access your private key securely.
 
 - **Never** commit any file that may contain your private key to your source control.
 
+[Learn more about securely accessing your private key](/web3-sdk/set-up-the-sdk/securing-your-private-key).
+
 :::
 
 ```python
-# Load environment variables into this file
-load_dotenv()
 
-# This PRIVATE KEY is coming from your environment variables. Make sure to never put it in a tracked file or share it with anyone.
-PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
+# Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+PRIVATE_KEY = "<your-private-key>"
 
 # Set the network you want to operate on, or add your own RPC URL here
 NETWORK = "mumbai"
@@ -454,11 +447,8 @@ def mint(item: Item):
     blob.make_public()
     print("your file url", blob.public_url)
 
-    # Load environment variables into this file
-    load_dotenv()
-
-    # This PRIVATE KEY is coming from your environment variables. Make sure to never put it in a tracked file or share it with anyone.
-    PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
+    # Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+    PRIVATE_KEY = "<your-private-key-here>"
 
     # Set the network you want to operate on, or add your own RPC URL here
     NETWORK = "mumbai"

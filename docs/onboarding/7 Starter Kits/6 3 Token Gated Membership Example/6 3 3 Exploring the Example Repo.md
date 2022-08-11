@@ -43,14 +43,9 @@ However, if they are authenticated, we then also check to see if they hold an NF
 to the login page if they don't.
 
 ```jsx title="index.js"
-// Ensure we are able to generate an auth token using our private key instantiated SDK
-const PRIVATE_KEY = process.env.PRIVATE_KEY;
-if (!PRIVATE_KEY) {
-  throw new Error("You need to add an PRIVATE_KEY environment variable.");
-}
-
 // Instantiate our SDK
-const sdk = ThirdwebSDK.fromPrivateKey(PRIVATE_KEY, "mumbai");
+// Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+const sdk = ThirdwebSDK.fromPrivateKey("<your-private-key-here>", "mumbai");
 
 // Authenticate token with the SDK
 const domain = domainName;
@@ -123,7 +118,8 @@ This function takes them to our API route, where we:
 - Verify the login payload they sent us from the `sdk.auth.login` function is valid:
 
 ```jsx title="api/login.js"
-const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "mumbai");
+// Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+const sdk = ThirdwebSDK.fromPrivateKey("<your-private-key-here>", "mumbai");
 
 // Get signed login payload from the frontend
 const payload = JSON.parse(req.query.payload);

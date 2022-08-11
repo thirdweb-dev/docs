@@ -202,10 +202,10 @@ const { authorAddress, nftName, imagePath } = JSON.parse(req.body);
 **Initialize the Thirdweb SDK on the server-side**
 
 ```tsx
-// Initialize the Thirdweb SDK on the serverside
+// Initialize the Thirdweb SDK on the server-side
 const sdk = ThirdwebSDK.fromPrivateKey(
-  // Your wallet private key (read it in from .env.local file)
-  process.env.PRIVATE_KEY as string,
+  // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+  "<your-private-key-here>"
   "mumbai",
 );
 ```

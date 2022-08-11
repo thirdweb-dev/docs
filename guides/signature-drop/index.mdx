@@ -292,29 +292,30 @@ Great! Now we have a `userHasToken` variable that is true _if_ the user had a ba
 Now we can use that variable to determine whether or not we generate a mint signature for this user:
 
 ```js
-  // Now use the SDK on Goerli to get the signature drop
-  const arbitrumSDK = ThirdwebSDK.fromPrivateKey(
-    process.env.PRIVATE_KEY as string,
-    "arbitrum-testnet"
-  );
-  const signatureDrop = arbitrumSDK.getSignatureDrop(
-    "your-contract-address-here" // Your contract address here
-  );
+// Now use the SDK on Goerli to get the signature drop
+const arbitrumSDK = ThirdwebSDK.fromPrivateKey(
+  // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+  "<your-private-key-here>",
+  "arbitrum-testnet",
+);
+const signatureDrop = arbitrumSDK.getSignatureDrop(
+  "your-contract-address-here", // Your contract address here
+);
 
-  // If the user has an early access NFT, generate a mint signature
-  if (userHasToken) {
-    const mintSignature = await signatureDrop.signature.generate({
-      to: address, // Can only be minted by the address we checked earlier
-      price: "0", // Free!
-      mintStartTime: new Date(0), // now
-    });
+// If the user has an early access NFT, generate a mint signature
+if (userHasToken) {
+  const mintSignature = await signatureDrop.signature.generate({
+    to: address, // Can only be minted by the address we checked earlier
+    price: "0", // Free!
+    mintStartTime: new Date(0), // now
+  });
 
-    res.status(200).json(mintSignature);
-  } else {
-    res.status(400).json({
-      message: "User does not have an early access NFT",
-    });
-  }
+  res.status(200).json(mintSignature);
+} else {
+  res.status(400).json({
+    message: "User does not have an early access NFT",
+  });
+}
 ```
 
 In the above snippet, we are using our private key to instantiate the SDK on behalf of our admin wallet.
@@ -325,17 +326,13 @@ Learn how to [export your private key](/guides/create-a-metamask-wallet#export-y
 
 :::
 
-To do this, create a file called `.env` at the root of your project, and add the following to it:
-
-```
-PRIVATE_KEY=your-private-key-here
-```
-
 :::warning
 
 Ensure you store and access your private key securely.
 
 - **Never** commit any file that may contain your private key to your source control.
+
+[Learn more about securely accessing your private key](/web3-sdk/set-up-the-sdk/securing-your-private-key).
 
 :::
 

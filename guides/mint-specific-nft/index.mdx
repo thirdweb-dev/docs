@@ -56,10 +56,10 @@ The easiest way to set up a Next.js app is to use the thirdweb CLI.
 npx thirdweb create --next --ts
 ```
 
-For this project, we will use Chakra to style our components and dotenv for environment variables. You can install these dependencies:
+For this project, we will use Chakra to style our components. You can install these dependencies:
 
 ```bash npm2yarn
-npm install @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6 dotenv
+npm install @chakra-ui/react @emotion/react@^11 @emotion/styled@^11 framer-motion@^6
 ```
 
 Don’t forget to add the `ChakraProvider`, afterwhich, your `_app.tsx` (in the `pages` folder) should look like this:
@@ -203,11 +203,6 @@ import {
   NFTMetadataOwner,
   PayloadToSign721,
 } from "@thirdweb-dev/sdk";
-// We use dotenv to securely manage our private key.
-// If you deploy this project to Vercel, use their environment variable management instead
-import dotenv from "dotenv";
-
-dotenv.config();
 
 export default async function handler(
   req: NextApiRequest,
@@ -227,8 +222,8 @@ export default async function handler(
 
   // Connect to thirdweb SDK
   const sdk = ThirdwebSDK.fromPrivateKey(
-    // Your wallet private key
-    process.env.PRIVATE_KEY as string,
+    // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+    "<your-private-key-here>",
     "rinkeby",
   );
 

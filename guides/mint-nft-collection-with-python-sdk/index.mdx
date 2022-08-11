@@ -35,11 +35,6 @@ Next up, use the following code in your terminal to install the thirdweb SDK!
 pip install thirdweb-sdk
 ```
 
-```bash
-# dotenv to load environment variables
-pip install python-dotenv
-```
-
 ## Setup the SDK
 
 Now that we have our environment setup with the thirdweb python SDK, we can get started. In our `python_nft.py` file, we can use the following code:
@@ -47,14 +42,9 @@ Now that we have our environment setup with the thirdweb python SDK, we can get 
 ```python title="python_nft.py"
 from thirdweb import ThirdwebSDK
 from thirdweb.types.nft import NFTMetadataInput
-from dotenv import load_dotenv
-import os
 
-# Load environment variables into this file
-load_dotenv()
-
-# This PRIVATE KEY is coming from your environment variables. Make sure to never put it in a tracked file or share it with anyone.
-PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
+# Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+PRIVATE_KEY = "<your-private-key-here>"
 
 # Set the network you want to operate on, or add your own RPC URL here
 NETWORK = "mumbai"
@@ -63,13 +53,15 @@ NETWORK = "mumbai"
 sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, NETWORK)
 ```
 
-To use the setup above, we need to create a `.env` file and connect our wallet by private key.
+:::warning
 
-It's very important to make sure that you NEVER commit this file to any github repository and you never share your private key with anyone.
+Ensure you store and access your private key securely.
 
-```bash title=".env"
-PRIVATE_KEY=your-private-key-here
-```
+- **Never** commit any file that may contain your private key to your source control.
+
+[Learn more about securely accessing your private key](/web3-sdk/set-up-the-sdk/securing-your-private-key).
+
+:::
 
 ## Define the NFT Collection contract
 

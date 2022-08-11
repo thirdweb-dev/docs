@@ -111,24 +111,23 @@ Ensure you store and access your private key securely.
 
 If you are unsure how to securely store and access your private key, please do not proceed.
 
+[Learn more about securely accessing your private key](/web3-sdk/set-up-the-sdk/securing-your-private-key).
+
 :::
+
+:::info
 
 To get your private key, follow this guide on how to [Export your private key](/guides/create-a-metamask-wallet#export-your-private-key).
 
-Store your private key in a secure environment variable file like so:
-
-```bash title=".env"
-PRIVATE_KEY=<your-private-key-here>
-```
+:::
 
 Then use the `.fromPrivateKey` method to create a new instance of the SDK:
 
 ```jsx
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import {} from "dotenv/config";
 
-// load your private key in a secure way (env variable, never commited to git)
-const privateKey = process.env.PRIVATE_KEY;
+// Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+const privateKey = "<your-private-key-here>",
 // instantiate the SDK based on your private key, with the desired chain to connect to
 const sdk = ThirdwebSDK.fromPrivateKey(privateKey, "mumbai");
 ```

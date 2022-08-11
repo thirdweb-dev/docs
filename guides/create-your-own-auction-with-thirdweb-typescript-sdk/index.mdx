@@ -44,12 +44,12 @@ Install the required dependencies to get started with thirdweb, by running the f
 your `my-auction` folder:
 
 ```bash
-npm install @thirdweb-dev/sdk dotenv
+npm install @thirdweb-dev/sdk
 ```
 
 ## Listing an NFT
 
-To create a listing from your wallet, you'll first need to export your wallet's private key and add it to an environment variable in this project.
+To create a listing from your wallet, you'll first need to export your wallet's private key.
 
 :::info How to export your private key
 
@@ -57,34 +57,29 @@ Learn how to [export your private key](/guides/create-a-metamask-wallet#export-y
 
 :::
 
-To do this, create a file called `.env` in your `my-auction` folder, and add the following to it:
-
-```
-PRIVATE_KEY=your-private-key-here
-```
-
 :::warning
 
 Ensure you store and access your private key securely.
 
 - **Never** commit any file that may contain your private key to your source control.
 
-:::
+[Learn more about securely accessing your private key](/web3-sdk/set-up-the-sdk/securing-your-private-key).
 
+:::
 Now we're ready to create some listings!
 
 First, let's initialize the SDK and connect to our marketplace contract.
 
 ```tsx title="index.ts"
 import { NATIVE_TOKEN_ADDRESS, ThirdwebSDK } from "@thirdweb-dev/sdk";
-import "dotenv/config";
 
 async function main() {
   // Declaring the Marketplace contract address
   const marketplaceAddress = "0xC06adC34097afa2085324D4192fbE9206059f8e0"; // your contract address here
 
   const sdk = ThirdwebSDK.fromPrivateKey(
-    process.env.PRIVATE_KEY, // Your wallet private key
+    // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+    "<your-private-key-here>",
     "mumbai", // configure this to your network
   );
 

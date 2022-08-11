@@ -120,8 +120,8 @@ If there _is_ an authentication token in this user's cookies, we need to **valid
 
 ```js
 // Instantiate our SDK
-const PRIVATE_KEY = process.env.PRIVATE_KEY;
-const sdk = ThirdwebSDK.fromPrivateKey(PRIVATE_KEY, "mumbai");
+// Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+const sdk = ThirdwebSDK.fromPrivateKey("<your-private-key-here>", "mumbai");
 
 // Authenticate token with the SDK
 const domain = domainName;

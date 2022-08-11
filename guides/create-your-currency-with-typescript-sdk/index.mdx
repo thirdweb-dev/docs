@@ -22,7 +22,7 @@ Create a new folder on your computer called `my-token`, and within this folder, 
 Install the required dependencies to get started with thirdweb, by running the following command inside your `my-token` folder.:
 
 ```bash
-npm install @thirdweb-dev/sdk dotenv
+npm install @thirdweb-dev/sdk
 ```
 
 ## Deploying a Token Contract
@@ -30,7 +30,7 @@ npm install @thirdweb-dev/sdk dotenv
 To deploy a Token using the SDK, we can make use of the [sdk.deployer](/typescript/sdk.thirdwebsdk.deployer),
 which can create any of thirdweb's [pre-built contracts](/pre-built-contracts)!
 
-To deploy from your wallet, you'll first need to export your wallet's private key and add it to an environment variable in this project.
+To deploy from your wallet, you'll first need to export your wallet's private key.
 
 :::info How to export your private key
 
@@ -38,17 +38,13 @@ Learn how to [export your private key](/guides/create-a-metamask-wallet#export-y
 
 :::
 
-To do this, create a file called `.env` in the same folder as your `mint-token.ts` file, and add the following to it:
-
-```
-PRIVATE_KEY=your-private-key-here
-```
-
 :::warning
 
 Ensure you store and access your private key securely.
 
 - **Never** commit any file that may contain your private key to your source control.
+
+[Learn more about securely accessing your private key](/web3-sdk/set-up-the-sdk/securing-your-private-key).
 
 :::
 
@@ -56,12 +52,13 @@ Now we're ready to deploy the Token!
 
 ```typescript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import "dotenv/config";
 
 async function main() {
   const NETWORK = "mumbai";
+
+  // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
   const sdk = ThirdwebSDK.fromPrivateKey(
-    process.env.PRIVATE_KEY as string,
+    "<your-private-key-here>"
     NETWORK,
   );
 

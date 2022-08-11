@@ -157,9 +157,9 @@ Let's use the CLI to create a new Next.js + TypeScript project:
 npx thirdweb create --next --ts
 ```
 
-Open this project up in Visual Studio Code, and create a new folder called `scripts`.
+Open this project up in your text editor, and create a new folder called `scripts`.
 
-The first thing we need to do is export our wallet private key and add it to a .env file at the root of this project.
+The first thing we need to do is export our wallet's private key.
 
 :::info How to export your private key
 
@@ -167,42 +167,32 @@ Learn how to [export your private key](/guides/create-a-metamask-wallet#export-y
 
 :::
 
-To do this, create a file called `.env` at the root of your project, and add the following to it:
-
-```
-PRIVATE_KEY=your-private-key-here
-```
-
 :::warning
 
 Ensure you store and access your private key securely.
 
 - **Never** commit any file that may contain your private key to your source control.
 
+[Learn more about securely accessing your private key](/web3-sdk/set-up-the-sdk/securing-your-private-key).
+
 :::
-
-To use the environment variable in our script, run:
-
-```bash
-npm install dotenv
-```
 
 ```javascript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import "dotenv/config";
 
 const NETWORK = "mumbai";
-const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, NETWORK);
+// Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+const sdk = ThirdwebSDK.fromPrivateKey("<your-private-key-here>", NETWORK);
 ```
 
 Now, create a file within the `scripts` directory we just created called `deployPack.mjs`.
 
 ```jsx
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import "dotenv/config";
 
 (async () => {
-  const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "mumbai");
+  // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+  const sdk = ThirdwebSDK.fromPrivateKey("<your-private-key-here>", "mumbai");
 
   const packAddress = await sdk.deployer.deployPack({
     name: "Treasure Chests",
@@ -233,8 +223,6 @@ There are a few steps to it, so let's break it down step-by-step:
 
 ```js
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import dotenv from "dotenv";
-dotenv.config();
 import fs from "fs";
 ```
 
@@ -246,7 +234,8 @@ import fs from "fs";
   const tokenAddress = "0x270d0f9DA22332F33159337E3DE244113a1C863C";
   const editionAddress = "0xb4A48c837aB7D0e5C85eA2b0D9Aa11537340Fa17";
 
-  const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "mumbai");
+  // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+  const sdk = ThirdwebSDK.fromPrivateKey("<your-private-key-here>", "mumbai");
 
   const pack = sdk.getPack(packAddress);
 

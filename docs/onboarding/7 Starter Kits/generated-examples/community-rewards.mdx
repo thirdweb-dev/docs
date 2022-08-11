@@ -341,16 +341,9 @@ If the user is a member of the server, we can start the process of generating th
 Firstly, we initialize the thirdweb SDK using our private key.
 
 ```jsx
-// Initialize the Thirdweb SDK on the serverside using the private key on the mumbai network
-const sdk = ThirdwebSDK.fromPrivateKey(process.env.PRIVATE_KEY, "mumbai");
-```
-
-You'll need another entry in your `.env.local` file, containing your private key for this to work.
-
-**IMPORTANT:** Never use your private key value outside of a secured server-side environment.
-
-```
-PRIVATE_KEY=<your-private-key-here>
+// Initialize the Thirdweb SDK on the server-side using the private key on the mumbai network
+// Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+const sdk = ThirdwebSDK.fromPrivateKey("<your-private-key-here>", "mumbai");
 ```
 
 Next, we get our NFT collection contract:
