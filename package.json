@@ -26,11 +26,11 @@
     "prettier": "prettier --write '(docs|guides|blog)/**/*.{js,jsx,ts,tsx,md,mdx}'"
   },
   "dependencies": {
-    "@docusaurus/core": "^2.0.0-beta.20",
-    "@docusaurus/plugin-content-docs": "^2.0.0-beta.20",
-    "@docusaurus/plugin-ideal-image": "^2.0.0-beta.21",
-    "@docusaurus/preset-classic": "^2.0.0-beta.20",
-    "@docusaurus/remark-plugin-npm2yarn": "^2.0.0-beta.20",
+    "@docusaurus/core": "^2.0.1",
+    "@docusaurus/plugin-content-docs": "^2.0.1",
+    "@docusaurus/plugin-ideal-image": "^2.0.1",
+    "@docusaurus/preset-classic": "^2.0.1",
+    "@docusaurus/remark-plugin-npm2yarn": "^2.0.1",
     "@mdx-js/react": "^1.6.21",
     "clsx": "^1.1.1",
     "docusaurus-plugin-sass": "^0.2.2",
@@ -42,7 +42,7 @@
     "sass": "^1.52.1"
   },
   "devDependencies": {
-    "@docusaurus/module-type-aliases": "^2.0.0-beta.20",
+    "@docusaurus/module-type-aliases": "^2.0.1",
     "@swc/core": "^1.2.181",
     "@tsconfig/docusaurus": "^1.0.4",
     "@types/fs-extra": "^9.0.13",

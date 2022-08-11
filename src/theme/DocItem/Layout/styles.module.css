@@ -1,0 +1,20 @@
+.docItemContainer header + *,
+.docItemContainer article > *:first-child {
+  margin-top: 0px;
+}
+
+@media (min-width: 996px) {
+  .docItemCol {
+    max-width: 75% !important;
+  }
+}
+
+.docItemContainer {
+  margin-top: 48px;
+}
+
+@media (max-width: 997px) {
+  .docItemContainer {
+    margin-top: 16px;
+  }
+}
