@@ -28,6 +28,8 @@ import { useAddress } from "@thirdweb-dev/react";
 | [useAuctionWinner(contract, listingId)](./react.useauctionwinner.md) | **<i>(BETA)</i>** Use this to get the winner of an auction listing from your marketplace contract. |
 | [useBalance(tokenAddress)](./react.usebalance.md) | **<i>(BETA)</i>** A hook to get the native or (optional) ERC20 token balance of the connected wallet. |
 | [useBidBuffer(contract)](./react.usebidbuffer.md) | **<i>(BETA)</i>** Use this to get the buffer in basis points between offers from your marketplace contract. |
+| [useBurnNFT(contract)](./react.useburnnft.md) | **<i>(BETA)</i>** Use this to burn an NFT on your [NFTContract](./react.nftcontract.md) |
+| [useBurnToken(contract)](./react.useburntoken.md) | **<i>(BETA)</i>** Use this to burn tokens on your contract |
 | [useBuyNow(contract)](./react.usebuynow.md) | **<i>(BETA)</i>** Use this to buy out an auction listing from your marketplace contract. |
 | [useChainId()](./react.usechainid.md) | <p>Hook for accessing the chain ID of the network the current wallet is connected to</p>
 
@@ -175,6 +177,7 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 | Type Alias                                                                    | Description                                                                                                               |
 | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | [AirdropNFTParams](./react.airdropnftparams.md)                               | **<i>(BETA)</i>** The params to pass to <code>useTransferBatchNFT</code>.                                                 |
+| [BurnNFTParams](./react.burnnftparams.md)                                     | **<i>(BETA)</i>** The params for the [useBurnNFT()](./react.useburnnft.md) hook mutation.                                 |
 | [BuyNowParams](./react.buynowparams.md)                                       |                                                                                                                           |
 | [ClaimIneligibilityParameters](./react.claimineligibilityparameters.md)       | **<i>(BETA)</i>** The options to be passed as the second parameter to the <code>useClaimIneligibilityReasons</code> hook. |
 | [ClaimNFTParams](./react.claimnftparams.md)                                   | **<i>(BETA)</i>** The params for the [useClaimNFT()](./react.useclaimnft.md) hook mutation.                               |
@@ -188,6 +191,7 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 | [NFT](./react.nft.md)                                                         | **<i>(BETA)</i>** A single NFT token                                                                                      |
 | [NFTContract](./react.nftcontract.md)                                         | **<i>(BETA)</i>** The possible NFT contract types.                                                                        |
 | [RequiredParam](./react.requiredparam.md)                                     | **<i>(BETA)</i>** Makes a parameter required to be passed, but still allowes it to be undefined.                          |
+| [TokenBurnParams](./react.tokenburnparams.md)                                 | **<i>(BETA)</i>** The parameters to pass to the burn function.                                                            |
 | [TokenParams](./react.tokenparams.md)                                         | **<i>(BETA)</i>** The parameters to pass to the mint and transfer functions.                                              |
 | [TransferNFTParams](./react.transfernftparams.md)                             | **<i>(BETA)</i>** The params to pass to <code>useTransferNFT</code>.                                                      |
 | [useNFTBalanceParams](./react.usenftbalanceparams.md)                         | **<i>(BETA)</i>** The params to pass to <code>useNftBalance</code>.                                                       |

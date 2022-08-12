@@ -50,7 +50,7 @@ This will allow you to query data from any contract with no additional setup.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 // instantiate the SDK in read-only mode (our example is running on `polygon` here)
-// all major chains and testnets are supported (e.g. `mainnet`, `goerli`, 'polygon', 'mumbai', etc.)
+// all major chains and testnets are supported (e.g. `mainnet`, `rinkeby`, `goerli`, 'polygon', 'mumbai', etc.)
 const sdk = new ThirdwebSDK("polygon");
 
 // access your deployed contracts
