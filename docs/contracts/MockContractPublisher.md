@@ -12,78 +12,70 @@ displayed_sidebar: contracts
 ### getAllPublishedContracts
 
 ```solidity
-function getAllPublishedContracts(address publisher) external view returns (struct IContractPublisher.CustomContractInstance[] published)
+function getAllPublishedContracts(address) external pure returns (struct IContractPublisher.CustomContractInstance[] published)
 ```
-
-Returns the latest version of all contracts published by a publisher.
 
 #### Parameters
 
-| Name      | Type    | Description                   |
-| --------- | ------- | ----------------------------- |
-| publisher | address | The address of the publisher. |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 #### Returns
 
-| Name      | Type                                        | Description                                           |
-| --------- | ------------------------------------------- | ----------------------------------------------------- |
-| published | IContractPublisher.CustomContractInstance[] | An array of all contracts published by the publisher. |
+| Name      | Type                                        | Description |
+| --------- | ------------------------------------------- | ----------- |
+| published | IContractPublisher.CustomContractInstance[] | undefined   |
 
 ### getPublishedContract
 
 ```solidity
-function getPublishedContract(address publisher, string contractId) external view returns (struct IContractPublisher.CustomContractInstance published)
+function getPublishedContract(address, string) external pure returns (struct IContractPublisher.CustomContractInstance published)
 ```
-
-Returns the latest version of a contract published by a publisher.
 
 #### Parameters
 
-| Name       | Type    | Description                                                                |
-| ---------- | ------- | -------------------------------------------------------------------------- |
-| publisher  | address | The address of the publisher.                                              |
-| contractId | string  | The identifier for a published contract (that can have multiple verisons). |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | string  | undefined   |
 
 #### Returns
 
-| Name      | Type                                      | Description                                      |
-| --------- | ----------------------------------------- | ------------------------------------------------ |
-| published | IContractPublisher.CustomContractInstance | The desired contract published by the publisher. |
+| Name      | Type                                      | Description |
+| --------- | ----------------------------------------- | ----------- |
+| published | IContractPublisher.CustomContractInstance | undefined   |
 
 ### getPublishedContractVersions
 
 ```solidity
-function getPublishedContractVersions(address publisher, string contractId) external view returns (struct IContractPublisher.CustomContractInstance[] published)
+function getPublishedContractVersions(address, string) external pure returns (struct IContractPublisher.CustomContractInstance[] published)
 ```
-
-Returns all versions of a published contract.
 
 #### Parameters
 
-| Name       | Type    | Description                                                                |
-| ---------- | ------- | -------------------------------------------------------------------------- |
-| publisher  | address | The address of the publisher.                                              |
-| contractId | string  | The identifier for a published contract (that can have multiple verisons). |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | string  | undefined   |
 
 #### Returns
 
-| Name      | Type                                        | Description                                       |
-| --------- | ------------------------------------------- | ------------------------------------------------- |
-| published | IContractPublisher.CustomContractInstance[] | The desired contracts published by the publisher. |
+| Name      | Type                                        | Description |
+| --------- | ------------------------------------------- | ----------- |
+| published | IContractPublisher.CustomContractInstance[] | undefined   |
 
 ### getPublishedUriFromCompilerUri
 
 ```solidity
-function getPublishedUriFromCompilerUri(string compilerMetadataUri) external view returns (string[] publishedMetadataUris)
+function getPublishedUriFromCompilerUri(string) external pure returns (string[] publishedMetadataUris)
 ```
-
-Retrieve the published metadata URI from a compiler metadata URI.
 
 #### Parameters
 
-| Name                | Type   | Description |
-| ------------------- | ------ | ----------- |
-| compilerMetadataUri | string | undefined   |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 #### Returns
 
@@ -94,16 +86,14 @@ Retrieve the published metadata URI from a compiler metadata URI.
 ### getPublisherProfileUri
 
 ```solidity
-function getPublisherProfileUri(address publisher) external view returns (string uri)
+function getPublisherProfileUri(address) external pure returns (string uri)
 ```
-
-Get the publisher profile uri for a given publisher.
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| publisher | address | undefined   |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 #### Returns
 
@@ -133,17 +123,15 @@ Let&#39;s an account publish a contract.
 ### setPublisherProfileUri
 
 ```solidity
-function setPublisherProfileUri(address publisher, string uri) external nonpayable
+function setPublisherProfileUri(address, string) external nonpayable
 ```
-
-Lets an account set its publisher profile uri
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| publisher | address | undefined   |
-| uri       | string  | undefined   |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | string  | undefined   |
 
 ### unpublishContract
 
