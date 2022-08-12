@@ -99,6 +99,7 @@ import { useMetamask } from "@thirdweb-dev/react";
 
 |
 | [useMintNFT(contract)](./react.usemintnft.md) | **<i>(BETA)</i>** Use this to mint a new NFT on your [NFTContract](./react.nftcontract.md) |
+| [useMintNFTSupply(contract)](./react.usemintnftsupply.md) | **<i>(BETA)</i>** Use this to mint a new NFT on your [NFTContract](./react.nftcontract.md) |
 | [useMintToken(contract)](./react.useminttoken.md) | **<i>(BETA)</i>** Use this to mint new tokens on your contract |
 | [useMultiwrap(contractAddress)](./react.usemultiwrap.md) | Hook for getting an instance of an <code>Multiwrap</code> contract. This contract is an ERC721 in which you can wrap ERC721, ERC1155 and ERC20 tokens. |
 | [useNetwork()](./react.usenetwork.md) | Hook for getting metadata about the network the current wallet is connected to and switching networks |
@@ -188,6 +189,7 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 | [MakeBidParams](./react.makebidparams.md)                                     |                                                                                                                           |
 | [MintNFTParams](./react.mintnftparams.md)                                     | **<i>(BETA)</i>** The params for the [useMintNFT()](./react.usemintnft.md) hook mutation.                                 |
 | [MintNFTReturnType](./react.mintnftreturntype.md)                             | **<i>(BETA)</i>** The return type of the [useMintNFT()](./react.usemintnft.md) hook.                                      |
+| [MintNFTSupplyParams](./react.mintnftsupplyparams.md)                         | **<i>(BETA)</i>** The params to pass to <code>useMintNFTSupply</code>.                                                    |
 | [NFT](./react.nft.md)                                                         | **<i>(BETA)</i>** A single NFT token                                                                                      |
 | [NFTContract](./react.nftcontract.md)                                         | **<i>(BETA)</i>** The possible NFT contract types.                                                                        |
 | [RequiredParam](./react.requiredparam.md)                                     | **<i>(BETA)</i>** Makes a parameter required to be passed, but still allowes it to be undefined.                          |
