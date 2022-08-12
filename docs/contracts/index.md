@@ -92,7 +92,6 @@ npx hardhat run scripts/{path to the script}
 The thirdweb registry (`TWRegistry`) and factory (`TWFactory`) have been deployed on the following chains:
 
 - [Ethereum mainnet](https://etherscan.io/)
-- [Rinkeby](https://rinkeby.etherscan.io/)
 - [Goerli](https://goerli.etherscan.io/)
 - [Polygon mainnet](https://polygonscan.com/)
 - [Polygon Mumbai testnet](https://mumbai.polygonscan.com/)
