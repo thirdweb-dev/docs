@@ -6,7 +6,7 @@ slug: /templates/marketplace/exploring-the-example-repo
 
 In this section, we'll explain the key elements of the example repository.
 
-We'll explore how we use the thirdweb SDKs to:
+We'll explore how we use the Web3 SDKs to:
 
 - Fetch all active listings from the smart contract
 - Allow users to create their own listings on the `create` page
@@ -56,7 +56,7 @@ In **Auction Listings**, the `reservePricePerToken` parameter is required. This 
 await marketplace?.auction.createListing({
   assetContractAddress: contractAddress, // Contract Address of the NFT
   buyoutPricePerToken: price, // Maximum price, the auction will end immediately if a user pays this price.
-  currencyContractAddress: NATIVE_TOKEN_ADDRESS, // NATIVE_TOKEN_ADDRESS is the crpyto curency that is native to the network. i.e. Rinkeby ETH.
+  currencyContractAddress: NATIVE_TOKEN_ADDRESS, // NATIVE_TOKEN_ADDRESS is the crpyto curency that is native to the network. e.g. ETH.
   listingDurationInSeconds: 60 * 60 * 24 * 7, // When the auction will be closed and no longer accept bids (1 Week)
   quantity: 1, // How many of the NFTs are being listed (useful for ERC 1155 tokens)
   reservePricePerToken: 0, // Minimum price, users cannot bid below this amount
@@ -71,7 +71,7 @@ await marketplace?.auction.createListing({
 await marketplace?.direct.createListing({
   assetContractAddress: contractAddress, // Contract Address of the NFT
   buyoutPricePerToken: price, // Maximum price, the auction will end immediately if a user pays this price.
-  currencyContractAddress: NATIVE_TOKEN_ADDRESS, // NATIVE_TOKEN_ADDRESS is the crpyto curency that is native to the network. i.e. Rinkeby ETH.
+  currencyContractAddress: NATIVE_TOKEN_ADDRESS, // NATIVE_TOKEN_ADDRESS is the crpyto curency that is native to the network. e.g. ETH.
   listingDurationInSeconds: 60 * 60 * 24 * 7, // When the auction will be closed and no longer accept bids (1 Week)
   quantity: 1, // How many of the NFTs are being listed (useful for ERC 1155 tokens)
   startTimestamp: new Date(0), // When the listing will start
@@ -117,7 +117,7 @@ To create an offer on a listing:
 await marketplace?.direct.makeOffer(
   listingId, // The listingId of the listing we want to make an offer for
   1, // Quantity = 1
-  NATIVE_TOKENS[ChainId.Rinkeby].wrapped.address, // Wrapped Ether address on Rinkeby
+  NATIVE_TOKENS[ChainId.Goerli].wrapped.address, // Wrapped Ether address on Goerli
   bidAmount, // The offer amount the user entered
 );
 ```

@@ -70,7 +70,7 @@ import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import { ChakraProvider } from "@chakra-ui/react";
 
 // This is the chainId your dApp will work on.
-const activeChainId = ChainId.Rinkeby;
+const activeChainId = ChainId.Goerli;
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -85,7 +85,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 export default MyApp;
 ```
 
-**NB:** If you open `_app.tsx`, you’ll see that you can set the chain on which you want your app to work. In this tutorial, we are working on the Rinkeby testnet so we have changed it from this:
+**NB:** If you open `_app.tsx`, you’ll see that you can set the chain on which you want your app to work.
+In this tutorial, we are working on the Goerli testnet so we have changed it from this:
 
 ```tsx title="_app.tsx"
 // This is the chainId your dApp will work on.
@@ -96,7 +97,7 @@ to this:
 
 ```tsx title="_app.tsx"
 // This is the chainId your dApp will work on.
-const activeChainId = ChainId.Rinkeby;
+const activeChainId = ChainId.Goerli;
 ```
 
 **Awesome🔥  Let’s create some NFTs**
@@ -225,11 +226,11 @@ export default async function handler(
     // Add more NFTs here...
   ];
 
-  // Connect to thirdweb SDK
+  // Connect to SDK
   const sdk = ThirdwebSDK.fromPrivateKey(
     // Your wallet private key
     process.env.PRIVATE_KEY as string,
-    "rinkeby",
+    "goerli",
   );
 
   // Set variable for the NFT collection contract address which can be found after creating an NFT collection in the dashboard
@@ -500,11 +501,11 @@ const connectWithMetamask = useMetamask();
 // Get the id of the chain that the user is connected to
 const chainId = useChainId();
 
-// Require that the user is connected to Rinkeby
-if (chainId !== ChainId.Rinkeby) {
+// Require that the user is connected to Goerli
+if (chainId !== ChainId.Goerli) {
   return (
     <Flex mt="5rem" alignItems="center" flexDir="column">
-      <Heading fontSize="md">Please connect to the Rinkeby Testnet</Heading>
+      <Heading fontSize="md">Please connect to the Goerli Testnet</Heading>
     </Flex>
   );
 }
@@ -611,10 +612,10 @@ const Nfts = () => {
 
   const chainId = useChainId();
 
-  if (chainId !== ChainId.Rinkeby) {
+  if (chainId !== ChainId.Goerli) {
     return (
       <Flex mt="5rem" alignItems="center" flexDir="column">
-        <Heading fontSize="md">Please connect to the Rinkeby Testnet</Heading>
+        <Heading fontSize="md">Please connect to the Goerli Testnet</Heading>
       </Flex>
     );
   }
