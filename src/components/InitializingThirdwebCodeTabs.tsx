@@ -36,7 +36,7 @@ import (
 
 func main() {
 	// Creates a new READ-ONLY instance of the SDK to get read-only data for your contracts, you can pass:
-	// - a chain name (mainnet, rinkeby, goerli, polygon, mumbai, avalanche, fantom)
+	// - a chain name (mainnet, goerli, polygon, mumbai, avalanche, fantom)
 	// - a custom RPC URL
 	sdk, err := thirdweb.NewThirdwebSDK("mumbai", nil)
 	if err != nil {

@@ -74,7 +74,7 @@ To showcase our nft, we are going to create a simple card and we will get the da
 const edition = useEdition("EDITION_CONTRACT_ADDRESS");
 ```
 
-We need to import it from the thirdweb sdk:
+We need to import it from the SDK:
 
 ```tsx
 import { useEdition } from "@thirdweb-dev/react";
@@ -152,7 +152,7 @@ This creates a basic api for us, if you now go to the [`api/generate-mint-sig`](
 
 ![Api response](./api-response.png)
 
-Let's now initialize the thirdweb sdk!
+Let's now initialize the SDK!
 
 ```ts
 const sdk = ThirdwebSDK.fromPrivateKey(
@@ -744,7 +744,7 @@ Get access to the network by using the `useNetwork` hook:
 const network = useNetwork();
 ```
 
-It will be imported from the thirdweb sdk:
+It will be imported from the SDK:
 
 ```tsx
 import {
