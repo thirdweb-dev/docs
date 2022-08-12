@@ -118,10 +118,10 @@ _Encrypt/decrypt given `data` with `key`. Uses inline assembly. See: https://eth
 | ------ | ----- | ------------------------------------------------- |
 | result | bytes | Output after encryption/decryption of given data. |
 
-### encryptedBaseURI
+### encryptedData
 
 ```solidity
-function encryptedBaseURI(uint256) external view returns (bytes)
+function encryptedData(uint256) external view returns (bytes)
 ```
 
 #### Parameters
@@ -322,7 +322,7 @@ _Returns `true` if `_batchId`&#39;s base URI is encrypted._
 ### lazyMint
 
 ```solidity
-function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _encryptedBaseURI) external nonpayable returns (uint256 batchId)
+function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _data) external nonpayable returns (uint256 batchId)
 ```
 
 Lets an authorized address lazy mint a given amount of NFTs.
@@ -333,7 +333,7 @@ Lets an authorized address lazy mint a given amount of NFTs.
 | ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | \_amount           | uint256 | The number of NFTs to lazy mint.                                                                                                                              |
 | \_baseURIForTokens | string  | The placeholder base URI for the &#39;n&#39; number of NFTs being lazy minted, where the metadata for each of those NFTs is `${baseURIForTokens}/${tokenId}`. |
-| \_encryptedBaseURI | bytes   | The encrypted base URI for the batch of NFTs being lazy minted.                                                                                               |
+| \_data             | bytes   | The encrypted base URI + provenance hash for the batch of NFTs being lazy minted.                                                                             |
 
 #### Returns
 

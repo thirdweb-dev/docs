@@ -36,13 +36,13 @@ _Encrypt/decrypt given `data` with `key`. Uses inline assembly. See: https://eth
 | ------ | ----- | ------------------------------------------------- |
 | result | bytes | Output after encryption/decryption of given data. |
 
-### encryptedBaseURI
+### encryptedData
 
 ```solidity
-function encryptedBaseURI(uint256) external view returns (bytes)
+function encryptedData(uint256) external view returns (bytes)
 ```
 
-_Mapping from id of a batch of tokens =&gt; to encrypted base URI for the respective batch of tokens._
+_Mapping from tokenId of a batch of tokens =&gt; to delayed reveal data._
 
 #### Parameters
 
