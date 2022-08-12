@@ -9,7 +9,7 @@ In this section, we'll explain the key elements of the example repository.
 We'll explore how we use the SDK to:
 
 - Connect the user's wallet to the site using [MetaMask](/react/react.usemetamask)
-- Verify the user owns the wallet by asking them to sign a message using [Auth](/building-web3-apps/authenticating-users)
+- Verify the user owns the wallet by asking them to sign a message using [Auth](/auth)
 - Check if the user [has an NFT](https://portal.thirdweb.com/pre-built-contracts/edition-drop#amount-of-tokens-owned-by-a-specific-wallet) from our smart contract
 - Allow them to [claim](/react/react.useclaimnft) a new NFT from our smart contract
 
