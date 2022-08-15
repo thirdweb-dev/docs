@@ -169,10 +169,10 @@ _Encrypt/decrypt given `data` with `key`. Uses inline assembly. See: https://eth
 | ------ | ----- | ------------------------------------------------- |
 | result | bytes | Output after encryption/decryption of given data. |
 
-### encryptedBaseURI
+### encryptedData
 
 ```solidity
-function encryptedBaseURI(uint256) external view returns (bytes)
+function encryptedData(uint256) external view returns (bytes)
 ```
 
 #### Parameters
@@ -559,7 +559,7 @@ function isTrustedForwarder(address forwarder) external view returns (bool)
 ### lazyMint
 
 ```solidity
-function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _encryptedBaseURI) external nonpayable returns (uint256 batchId)
+function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _data) external nonpayable returns (uint256 batchId)
 ```
 
 _Lets an account with `MINTER_ROLE` lazy mint &#39;n&#39; NFTs. The URIs for each token is the provided `_baseURIForTokens` + `{tokenId}`._
@@ -570,7 +570,7 @@ _Lets an account with `MINTER_ROLE` lazy mint &#39;n&#39; NFTs. The URIs for eac
 | ------------------ | ------- | ----------- |
 | \_amount           | uint256 | undefined   |
 | \_baseURIForTokens | string  | undefined   |
-| \_encryptedBaseURI | bytes   | undefined   |
+| \_data             | bytes   | undefined   |
 
 #### Returns
 

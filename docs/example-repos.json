@@ -344,7 +344,7 @@
     "html_url": "https://github.com/thirdweb-example/next-javascript-starter",
     "description": "thirdweb starter project with Next.js & JavaScript",
     "created_at": "2022-03-17T23:05:32Z",
-    "updated_at": "2022-07-13T21:18:41Z",
+    "updated_at": "2022-08-15T21:47:29Z",
     "clone_url": "https://github.com/thirdweb-example/next-javascript-starter.git",
     "topics": [
       "javascript",
@@ -353,7 +353,7 @@
       "starter-kit"
     ],
     "language": "JavaScript",
-    "stargazers_count": 12,
+    "stargazers_count": 14,
     "is_template": true,
     "homepage": "https://next-javascript-starter.thirdweb-example.com"
   },
@@ -399,7 +399,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-08-10T04:53:21Z",
+    "updated_at": "2022-08-12T13:19:03Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "authentication",
@@ -409,7 +409,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 40,
+    "stargazers_count": 41,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -418,7 +418,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-08-11T13:48:27Z",
+    "updated_at": "2022-08-15T09:13:02Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "nft-drop",
@@ -426,7 +426,7 @@
       "token"
     ],
     "language": "TypeScript",
-    "stargazers_count": 25,
+    "stargazers_count": 26,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -480,7 +480,7 @@
     "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2022-07-28T04:34:17Z",
+    "updated_at": "2022-08-13T18:22:07Z",
     "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
@@ -489,7 +489,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 11,
+    "stargazers_count": 13,
     "is_template": false,
     "homepage": "https://signature-based-minting.thirdweb-example.com"
   },

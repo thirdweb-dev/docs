@@ -187,10 +187,10 @@ _See: https://ethereum.stackexchange.com/questions/69825/decrypt-message-on-chai
 | ------ | ----- | ----------- |
 | result | bytes | undefined   |
 
-### encryptedBaseURI
+### encryptedData
 
 ```solidity
-function encryptedBaseURI(uint256) external view returns (bytes)
+function encryptedData(uint256) external view returns (bytes)
 ```
 
 \*Mapping from &#39;Largest tokenId of a batch of &#39;delayed-reveal&#39; tokens with the same baseURI&#39; to encrypted base URI for the respective batch of tokens.\*\*
@@ -510,7 +510,7 @@ function isTrustedForwarder(address forwarder) external view returns (bool)
 ### lazyMint
 
 ```solidity
-function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _encryptedBaseURI) external nonpayable
+function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _data) external nonpayable
 ```
 
 _Lets an account with `MINTER_ROLE` lazy mint &#39;n&#39; NFTs. The URIs for each token is the provided `_baseURIForTokens` + `{tokenId}`._
@@ -521,7 +521,7 @@ _Lets an account with `MINTER_ROLE` lazy mint &#39;n&#39; NFTs. The URIs for eac
 | ------------------ | ------- | ----------- |
 | \_amount           | uint256 | undefined   |
 | \_baseURIForTokens | string  | undefined   |
-| \_encryptedBaseURI | bytes   | undefined   |
+| \_data             | bytes   | undefined   |
 
 ### maxTotalSupply
 

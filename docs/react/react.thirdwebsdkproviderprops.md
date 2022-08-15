@@ -15,7 +15,7 @@ displayed_sidebar: react
 export interface ThirdwebSDKProviderProps extends Omit<ThirdwebSDKProviderWagmiWrapper, "queryClient">
 ```
 
-**Extends:** Omit&lt;[ThirdwebSDKProviderWagmiWrapper](./react.thirdwebsdkproviderwagmiwrapper.md)
+**Extends:** Omit&lt;[ThirdwebSDKProviderWagmiWrapper](./react.thirdwebsdkproviderwagmiwrapper.md), "queryClient"&gt;
 
 ## Properties
 
