@@ -23,7 +23,7 @@ const pricePerToken = 1;
 // The quantity of tokens you want to receive for this offer
 const quantity = 1;
 // The address of the currency you are making the offer in (must be ERC-20)
-const currencyContractAddress = NATIVE_TOKENS[ChainId.Rinkeby].wrapped.address;
+const currencyContractAddress = NATIVE_TOKENS[ChainId.Goerli].wrapped.address;
 
 await contract.direct.makeOffer(
   listingId,

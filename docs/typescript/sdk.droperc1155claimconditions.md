@@ -14,7 +14,7 @@ Manages claim conditions for Edition Drop contracts
 **Signature:**
 
 ```typescript
-export declare class DropErc1155ClaimConditions<TContract extends DropERC1155 | BaseClaimConditionERC1155>
+export declare class DropErc1155ClaimConditions
 ```
 
 ## Constructors
@@ -31,7 +31,6 @@ export declare class DropErc1155ClaimConditions<TContract extends DropERC1155 | 
 | [getActive(tokenId)](./sdk.droperc1155claimconditions.getactive.md)                                                                 |           | Get the currently active claim condition                                                                                                                                                |
 | [getAll(tokenId)](./sdk.droperc1155claimconditions.getall.md)                                                                       |           | Get all the claim conditions                                                                                                                                                            |
 | [getClaimIneligibilityReasons(tokenId, quantity, addressToCheck)](./sdk.droperc1155claimconditions.getclaimineligibilityreasons.md) |           | For any claim conditions that a particular wallet is violating, this function returns human-readable information about the breaks in the condition that can be used to inform the user. |
-| [prepareClaim(tokenId, quantity, checkERC20Allowance)](./sdk.droperc1155claimconditions.prepareclaim.md)                            |           | Returns proofs and the overrides required for the transaction.                                                                                                                          |
 | [set(tokenId, claimConditionInputs, resetClaimEligibilityForAll)](./sdk.droperc1155claimconditions.set.md)                          |           | Set claim conditions on a single NFT                                                                                                                                                    |
 | [setBatch(claimConditionsForToken, resetClaimEligibilityForAll)](./sdk.droperc1155claimconditions.setbatch.md)                      |           | Set claim conditions on multiple NFTs at once                                                                                                                                           |
 | [update(tokenId, index, claimConditionInput)](./sdk.droperc1155claimconditions.update.md)                                           |           | Update a single claim condition with new data.                                                                                                                                          |

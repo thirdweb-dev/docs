@@ -28,7 +28,6 @@ await contract.token.transfer(walletAddress, amount);
 
 | Property                                          | Modifiers | Type                                                                       | Description |
 | ------------------------------------------------- | --------- | -------------------------------------------------------------------------- | ----------- |
-| [burn](./sdk.erc20.burn.md)                       |           | [Erc20Burnable](./sdk.erc20burnable.md) &#124; undefined                   |             |
 | [contractWrapper](./sdk.erc20.contractwrapper.md) |           | ContractWrapper&lt;T&gt;                                                   |             |
 | [featureName](./sdk.erc20.featurename.md)         |           | "ERC20"                                                                    |             |
 | [mint](./sdk.erc20.mint.md)                       |           | [Erc20Mintable](./sdk.erc20mintable.md) &#124; undefined                   | Mint tokens |
