@@ -267,7 +267,7 @@ const sidebars = {
             },
             {
               type: "doc",
-              label: "Number of NFTs (ERC-1155)",
+              label: "Number of NFTs (ERC1155)",
               id: "react.usetotalcount",
             },
           ],
@@ -298,7 +298,7 @@ const sidebars = {
         type: "generated-index",
         title: "Token",
         description:
-          "Convenient react hooks for ERC-20 token contracts that give you out-of-the-box functionality",
+          "Convenient react hooks for ERC20 token contracts that give you out-of-the-box functionality",
         keywords: ["token", "hooks"],
       },
       items: [
