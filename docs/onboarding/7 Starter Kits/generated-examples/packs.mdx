@@ -41,9 +41,9 @@ npx thirdweb create --template packs
 
 In this example, we use [packs](https://portal.thirdweb.com/pre-built-contracts/pack) to create loot boxes that can contain any amount of:
 
-- ERC-721 NFTs
-- ERC-1155 NFTs
-- ERC-20 tokens
+- ERC721 NFTs
+- ERC1155 NFTs
+- ERC20 tokens
 
 We can open these loot boxes to reveal the tokens inside!
 
@@ -146,7 +146,7 @@ const pack = usePack("0x0Aee160411473f63be2DfF2865E81A1D59636C97");
 
 ### Viewing Packs Owned by the Connected Wallet
 
-Since each pack is an ERC-1155 NFT itself, we can use the [useOwnedNFTs](https://portal.thirdweb.com/react/react.useownednfts) hook to view the packs (and quantity) that the user owns:
+Since each pack is an ERC1155 NFT itself, we can use the [useOwnedNFTs](https://portal.thirdweb.com/react/react.useownednfts) hook to view the packs (and quantity) that the user owns:
 
 ```jsx
 const { data: nfts, isLoading } = useOwnedNFTs(pack, address);
@@ -167,14 +167,14 @@ const openedRewards = await pack?.open(0, 1); // 0 = tokenId, 1 = quantity
 We then use the values returned in this `openedRewards` object to display the tokens that the user opened.
 
 Since the `openedRewards` object returns the `contractAddress` and `tokenId`, we use the [useNFT](https://portal.thirdweb.com/react/react.usenft) or the
-[useMetadata](https://portal.thirdweb.com/react/react.usemetadata) hook (for ERC-20 tokens) to get the metadata of the tokens that were opened:
+[useMetadata](https://portal.thirdweb.com/react/react.usemetadata) hook (for ERC20 tokens) to get the metadata of the tokens that were opened:
 
 ```jsx
-// For ERC-1155 / ERC-721 tokens:
+// For ERC1155 / ERC721 tokens:
 const edition = useEdition(reward.contractAddress);
 const { data } = useNFT(edition, reward.tokenId);
 
-// For ERC-20 tokens:
+// For ERC20 tokens:
 const token = useToken(reward.contractAddress);
 const { data } = useMetadata(token);
 ```

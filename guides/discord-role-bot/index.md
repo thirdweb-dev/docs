@@ -395,7 +395,7 @@ This step ensures that the user owns the wallet that we are going to check. It p
 
 ### Check the wallet's NFT balance
 
-We use the SDK to view the balance of the wallet address for token ID `0` of our ERC-1155 NFT collection.
+We use the SDK to view the balance of the wallet address for token ID `0` of our ERC1155 NFT collection.
 
 ```ts
 // Check if this user owns an NFT
