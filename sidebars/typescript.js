@@ -252,6 +252,7 @@ const sidebars = {
           dirName: ".",
         },
       ],
+      collapsible: false,
     },
   ],
 };

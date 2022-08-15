@@ -98,8 +98,6 @@ export default function DocSidebarItemCategory({
   const { expandedItem, setExpandedItem } = useDocSidebarItemsExpandedState();
   // Use this instead of `setCollapsed`, because it is also reactive
   const updateCollapsed = (toCollapsed = !collapsed) => {
-    console.log("hi");
-    console.log(collapsed, toCollapsed);
     setExpandedItem(toCollapsed ? null : index);
     setCollapsed(toCollapsed);
   };

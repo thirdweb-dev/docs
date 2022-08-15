@@ -160,16 +160,8 @@
 
 /* hide categories */
 
-.hidden-category a {
-  color: var(--ifm-menu-color) !important;
-}
-
-.hidden-category button {
+.hidden-category {
   display: none;
-}
-
-.hidden-category > .menu__list {
-  display: none !important;
 }
 
 // On non-mobile, sdks should be at bottom

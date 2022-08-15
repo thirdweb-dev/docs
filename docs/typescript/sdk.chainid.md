@@ -34,4 +34,4 @@ export declare enum ChainId
 | Optimism             | <code>10</code>         |             |
 | OptimismTestnet      | <code>69</code>         |             |
 | Polygon              | <code>137</code>        |             |
-| Rinkeby              | <code>4</code>          |             |
+| Goerli               | <code>4</code>          |             |
