@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## TransferNFTParams type
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 The params to pass to `useTransferNFT`.
 

@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useRoleMembers() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get the members of a role on a
 

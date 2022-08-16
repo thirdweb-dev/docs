@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useContractData() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get data from a contract read-function call.
 

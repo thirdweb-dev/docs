@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useTokenBalance() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get the balance of your contract for a given address.
 

@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useTransferNFT() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to transfer tokens on your [NFTContract](./react.nftcontract.md)
 

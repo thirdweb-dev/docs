@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## NFT type
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 A single NFT token
 

@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## RequiredParam type
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Makes a parameter required to be passed, but still allowes it to be undefined.
 

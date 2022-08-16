@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## TokenParams type
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 The parameters to pass to the mint and transfer functions.
 

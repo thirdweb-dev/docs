@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## ThirdwebProviderProps.queryClient property
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 The react-query client to use. (Defaults to a default client.)
 

@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useContractEvents() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to query (and subscribe) to a specific event on a contract.
 

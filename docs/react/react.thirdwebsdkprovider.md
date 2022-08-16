@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## ThirdwebSDKProvider variable
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 A barebones wrapper around the Thirdweb SDK.
 

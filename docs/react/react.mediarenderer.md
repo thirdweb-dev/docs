@@ -29,6 +29,7 @@ const Component = () => {
 ```
 
 You can try switching out the `src` prop to different types of URLs and media types to explore the possibilities.
+
 **Signature:**
 
 ```typescript

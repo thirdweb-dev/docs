@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useBidBuffer() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get the buffer in basis points between offers from your marketplace contract.
 

@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useListings() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get a list all listings from your marketplace contract.
 
