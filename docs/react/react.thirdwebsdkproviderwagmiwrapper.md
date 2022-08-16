@@ -15,7 +15,7 @@ displayed_sidebar: react
 export interface ThirdwebSDKProviderWagmiWrapper extends Pick<ThirdwebProviderProps, "desiredChainId" | "sdkOptions" | "storageInterface">
 ```
 
-**Extends:** Pick&lt;[ThirdwebProviderProps](./react.thirdwebproviderprops.md), "desiredChainId" \| "sdkOptions" \| "storageInterface"&gt;
+**Extends:** Pick&lt;[ThirdwebProviderProps](./react.thirdwebproviderprops.md)
 
 ## Properties
 
