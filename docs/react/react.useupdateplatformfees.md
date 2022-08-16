@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useUpdatePlatformFees() function
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+>
 
 Use this to update the platform fees settings of your
 

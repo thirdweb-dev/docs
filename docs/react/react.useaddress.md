@@ -30,7 +30,6 @@ const App = () => {
 ```
 
 The `address` variable will hold the address of the connected wallet if a user has connected using one of the supported wallet connection hooks.
-
 **Signature:**
 
 ```typescript

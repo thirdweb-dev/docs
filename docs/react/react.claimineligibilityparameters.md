@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## ClaimIneligibilityParameters type
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+>
 
 The options to be passed as the second parameter to the `useClaimIneligibilityReasons` hook.
 

@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useWinningBid() function
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+>
 
 Use this to get a the winning bid for an auction listing from your marketplace contract.
 

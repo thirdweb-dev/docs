@@ -36,10 +36,11 @@ Hide color mode toggle in small viewports
 
 html[data-theme="light"] .goToAppButton {
   text-decoration: none;
+  color: #fff !important;
 }
 
 html[data-theme="light"] .goToAppButton:hover {
-  color: #fff;
+  color: #fff !important;
   opacity: 0.9;
   transition: all 0.2s ease-in-out;
 }
@@ -51,7 +52,7 @@ html[data-theme="dark"] .goToAppButton {
 }
 
 html[data-theme="dark"] .goToAppButton:hover {
-  /* color: #000; */
+  color: #fff !important;
   opacity: 0.9;
   transition: all 0.2s ease-in-out;
 }

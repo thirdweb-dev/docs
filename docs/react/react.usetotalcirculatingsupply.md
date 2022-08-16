@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useTotalCirculatingSupply() function
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+>
 
 Use this to get a the total (minted) supply of your [NFTContract](./react.nftcontract.md).
 

@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## BurnNFTParams type
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+>
 
 The params for the [useBurnNFT()](./react.useburnnft.md) hook mutation.
 
