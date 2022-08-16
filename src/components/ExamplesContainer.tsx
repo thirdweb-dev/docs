@@ -283,10 +283,7 @@ export default function ExamplesContainer() {
           .map((repo) => (
             <a
               // Prefer to show internal guide but fallback to github url
-              href={
-                repoToExampleGuideMapping[repo.name] ||
-                `/templates/${repo.name}-template`
-              }
+              href={repoToExampleGuideMapping[repo.name] || repo.html_url}
               className="col col--4"
               style={{
                 marginBottom: 24,
@@ -301,6 +298,8 @@ export default function ExamplesContainer() {
               <div
                 className="tw-card"
                 style={{
+                  padding: 0,
+                  paddingTop: 8,
                   cursor: "pointer",
                   height: "100%",
                   width: "100%",
@@ -328,7 +327,7 @@ export default function ExamplesContainer() {
                       {transformName(repo.name)}
                     </h3>
 
-                    {/* <code>{repo.name}</code> */}
+                    <code>{repo.name}</code>
                   </div>
                 </div>
               </div>
