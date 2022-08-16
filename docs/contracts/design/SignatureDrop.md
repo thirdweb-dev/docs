@@ -12,7 +12,7 @@ The thirdweb [`Drop`](https://portal.thirdweb.com/contracts/design/Drop) and [si
 
 The `Drop` contracts are meant to be used when the goal of the contract creator is for an audience to come in and claim tokens within certain restrictions e.g. — ‘only addresses in an allowlist can mint tokens’, or ‘minters must pay **x** amount of price in **y** currency to mint’, etc.
 
-Built-in contracts that implement [signature minting](https://portal.thirdweb.com/contracts/design/SignatureMint) are meant to be used when the restrictions around a wallet's minting tokens are not pre-defined, like in `Drop`. With signature minting, a contract creator can set custom restrictions around a token's minting, such as a price, at the very time that a wallet wants to mint tokens.
+Pre-built contracts that implement [signature minting](https://portal.thirdweb.com/contracts/design/SignatureMint) are meant to be used when the restrictions around a wallet's minting tokens are not pre-defined, like in `Drop`. With signature minting, a contract creator can set custom restrictions around a token's minting, such as a price, at the very time that a wallet wants to mint tokens.
 
 The `SignatureDrop` contract supports both distribution mechanisms - of drop and signature minting - in the same contract.
 
