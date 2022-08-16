@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## ThirdwebSDKProvider variable
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This feature is currently in beta and may change based on feedback that we receive.
 
 A barebones wrapper around the Thirdweb SDK.
 
@@ -18,9 +18,7 @@ You can use this in order to be able to pass a provider &amp; signer directly to
 **Signature:**
 
 ```typescript
-ThirdwebSDKProvider: React.FC<
-  React.PropsWithChildren<ThirdwebSDKProviderProps>
->;
+ThirdwebSDKProvider: React.FC<React.PropsWithChildren<ThirdwebSDKProviderProps>>
 ```
 
 ## Remarks

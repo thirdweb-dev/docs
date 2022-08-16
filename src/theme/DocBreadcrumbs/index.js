@@ -12,6 +12,12 @@ import IconHome from "@theme/Icon/Home";
 import styles from "./styles.module.css";
 // TODO move to design system folder
 function BreadcrumbsItemLink({ children, href, isLast }) {
+  console.log({
+    children,
+    href,
+    isLast,
+  });
+
   const className = "breadcrumbs__link";
   if (isLast) {
     return (

@@ -7,9 +7,9 @@ displayed_sidebar: contracts
 
 # IERC721Metadata
 
-> ERC-721 Non-Fungible Token Standard, optional metadata extension
+> ERC721 Non-Fungible Token Standard, optional metadata extension
 
-_See https://eips.ethereum.org/EIPS/eip-721 Note: the ERC-165 identifier for this interface is 0x5b5e139f._
+_See https://eips.ethereum.org/EIPS/eip-721 Note: the ERC165 identifier for this interface is 0x5b5e139f._
 
 ## Methods
 

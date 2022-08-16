@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useClaimedNFTs() function
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get a list of \*claimed\* (minted) NFT tokens of your ERC721 Drop contract.
 

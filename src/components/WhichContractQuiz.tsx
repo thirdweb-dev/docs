@@ -49,7 +49,7 @@ export default function WhichContractQuiz() {
       ],
     },
 
-    // If NFTs, decide if ERC-1155 or ERC-721/(A)
+    // If NFTs, decide if ERC1155 or ERC721/(A)
     {
       questionTitle: "Do you want to have multiple copies of the same NFT?",
       options: [
@@ -116,7 +116,7 @@ export default function WhichContractQuiz() {
       ],
     },
 
-    // ERC-721 or ERC-721A
+    // ERC721 or ERC721A
     {
       questionTitle: "Do you need multiple claim phases for your drop?",
       options: [

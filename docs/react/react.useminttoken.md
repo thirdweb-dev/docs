@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useMintToken() function
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to mint new tokens on your contract
 
@@ -67,4 +67,4 @@ export declare function useMintToken(
 
 import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [TokenParams](./react.tokenparams.md), unknown&gt;
 
-a mutation object that can be used to mint a new NFT token to the connected wallet
+a mutation object that can be used to mint new tokens to the connected wallet

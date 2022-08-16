@@ -62,70 +62,114 @@ const sidebars = {
         },
       ],
     },
+
+    // Base Contracts
     {
       type: "category",
-      label: "Contracts",
-      collapsed: false,
-      link: {
-        type: "generated-index",
-        title: "Contracts",
-        description: "solidity on-chain smart contracts.",
-        keywords: ["solidity", "contracts"],
-      },
+      label: "Base Contracts",
+      collapsed: true,
       items: [
+        // ERC721A
         {
-          type: "doc",
-          label: "TokenERC20",
-          id: "TokenERC20",
+          type: "category",
+          label: "ERC721A",
+          collapsed: false,
+          items: [
+            {
+              type: "doc",
+              label: "ERC721Base",
+              id: "ERC721Base",
+            },
+            {
+              type: "doc",
+              label: "ERC721SignatureMint",
+              id: "ERC721SignatureMint",
+            },
+            {
+              type: "doc",
+              label: "ERC721LazyMint",
+              id: "ERC721LazyMint",
+            },
+            {
+              type: "doc",
+              label: "ERC721DelayedReveal",
+              id: "ERC721DelayedReveal",
+            },
+            {
+              type: "doc",
+              label: "ERC721Drop",
+              id: "ERC721Drop",
+            },
+          ],
+          // ERC1155
+
+          // ERC20
         },
+
+        // ERC1155
         {
-          type: "doc",
-          label: "TokenERC721",
-          id: "TokenERC721",
+          type: "category",
+          label: "ERC1155",
+          collapsed: false,
+          items: [
+            {
+              type: "doc",
+              label: "ERC1155Base",
+              id: "ERC1155Base",
+            },
+            {
+              type: "doc",
+              label: "ERC1155SignatureMint",
+              id: "ERC1155SignatureMint",
+            },
+            {
+              type: "doc",
+              label: "ERC1155LazyMint",
+              id: "ERC1155LazyMint",
+            },
+            {
+              type: "doc",
+              label: "ERC1155DelayedReveal",
+              id: "ERC1155DelayedReveal",
+            },
+            {
+              type: "doc",
+              label: "ERC1155Drop",
+              id: "ERC1155Drop",
+            },
+          ],
         },
-        {
-          type: "doc",
-          label: "TokenERC1155",
-          id: "TokenERC1155",
-        },
-        {
-          type: "doc",
-          label: "DropERC721",
-          id: "DropERC721",
-        },
-        {
-          type: "doc",
-          label: "DropERC1155",
-          id: "DropERC1155",
-        },
-        {
-          type: "doc",
-          label: "VoteERC20",
-          id: "VoteERC20",
-        },
-        {
-          type: "doc",
-          label: "Marketplace",
-          id: "Marketplace",
-        },
-        {
-          type: "doc",
-          label: "Split",
-          id: "Split",
-        },
+
+        // ERC20 (Coming soon)
       ],
     },
+
+    // Contract Extensions
     {
       type: "category",
-      label: "Interfaces",
+      label: "Contract Extensions",
       collapsed: true,
-      link: {
-        type: "generated-index",
-        title: "Interfaces",
-        description: "solidity on-chain smart contracts interfaces.",
-        keywords: ["solidity", "interfaces"],
-      },
       items: [
+        {
+          type: "doc",
+          label: "ContractMetadata",
+          id: "ContractMetadata",
+        },
+        {
+          type: "doc",
+          label: "DelayedReveal",
+          id: "DelayedReveal",
+        },
+        {
+          type: "doc",
+          label: "Drop",
+          id: "Drop",
+        },
+        {
+          type: "doc",
+          label: "LazyMint",
+          id: "LazyMint",
+        },
         {
           type: "doc",
           label: "Ownable",
@@ -133,8 +177,13 @@ const sidebars = {
         },
         {
           type: "doc",
-          label: "PrimarySale",
-          id: "PrimarySale",
+          label: "Permissions",
+          id: "Permissions",
+        },
+        {
+          type: "doc",
+          label: "PermissionsEnumerable",
+          id: "PermissionsEnumerable",
         },
         {
           type: "doc",
@@ -143,59 +192,110 @@ const sidebars = {
         },
         {
           type: "doc",
+          label: "PrimarySale",
+          id: "PrimarySale",
+        },
+        {
+          type: "doc",
           label: "Royalty",
           id: "Royalty",
         },
         {
           type: "doc",
-          label: "ITokenERC20",
-          id: "ITokenERC20",
+          label: "SignatureMintERC721",
+          id: "SignatureMintERC721",
         },
         {
           type: "doc",
-          label: "ITokenERC721",
-          id: "ITokenERC721",
-        },
-        {
-          type: "doc",
-          label: "ITokenERC1155",
-          id: "ITokenERC1155",
-        },
-        {
-          type: "doc",
-          label: "IDropERC721",
-          id: "IDropERC721",
-        },
-        {
-          type: "doc",
-          label: "IDropERC1155",
-          id: "IDropERC1155",
+          label: "SignatureMintERC1155",
+          id: "SignatureMintERC1155",
         },
       ],
     },
+
+    // Pre-Built Contracts
     {
       type: "category",
-      label: "Platform",
+      label: "Pre-Built Contracts",
       collapsed: true,
-      link: {
-        type: "generated-index",
-        title: "Platform",
-        description: "solidity on-chain smart contracts for the platform.",
-        keywords: ["solidity", "platform"],
-      },
       items: [
         {
-          type: "doc",
-          label: "TWRegistry",
-          id: "TWRegistry",
+          type: "category",
+          label: "NFTs",
+          collapsed: false,
+          items: [
+            {
+              type: "doc",
+              label: "Signature Drop",
+              id: "SignatureDrop",
+            },
+            {
+              type: "doc",
+              label: "NFT Drop",
+              id: "DropERC721",
+            },
+            {
+              type: "doc",
+              label: "Edition Drop",
+              id: "DropERC1155",
+            },
+            {
+              type: "doc",
+              label: "NFT Collection",
+              id: "TokenERC721",
+            },
+            {
+              type: "doc",
+              label: "Edition",
+              id: "TokenERC1155",
+            },
+            {
+              type: "doc",
+              label: "Multiwrap",
+              id: "Multiwrap",
+            },
+            {
+              type: "doc",
+              label: "Pack",
+              id: "Pack",
+            },
+          ],
+        },
+        {
+          type: "category",
+          label: "Tokens",
+          collapsed: false,
+          items: [
+            {
+              type: "doc",
+              label: "Token Drop",
+              id: "DropERC20",
+            },
+            {
+              type: "doc",
+              label: "Token",
+              id: "TokenERC20",
+            },
+          ],
         },
         {
           type: "doc",
-          label: "TWFactory",
-          id: "TWFactory",
+          label: "Marketplace",
+          id: "Marketplace",
+        },
+        {
+          type: "doc",
+          label: "Vote",
+          id: "VoteERC20",
+        },
+        {
+          type: "doc",
+          label: "Split",
+          id: "Split",
         },
       ],
     },
+
     {
       className: "hidden-category",
       type: "category",

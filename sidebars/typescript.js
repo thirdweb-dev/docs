@@ -40,11 +40,11 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Built-in Contracts",
+      label: "Pre-built Contracts",
       collapsed: false,
       link: {
         type: "generated-index",
-        title: "Built-in Contracts",
+        title: "Pre-Built Contracts",
         description: "Interfaces for on-chain contracts.",
         keywords: ["contracts"],
       },
@@ -252,6 +252,7 @@ const sidebars = {
           dirName: ".",
         },
       ],
+      collapsible: false,
     },
   ],
 };

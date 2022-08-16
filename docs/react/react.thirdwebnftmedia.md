@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## ThirdwebNftMedia variable
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This feature is currently in beta and may change based on feedback that we receive.
 
 ## Example
 
@@ -36,7 +36,5 @@ Use this to get the primary sales recipient of your
 **Signature:**
 
 ```typescript
-ThirdwebNftMedia: React.ForwardRefExoticComponent<
-  ThirdwebNftMediaProps & React.RefAttributes<HTMLMediaElement>
->;
+ThirdwebNftMedia: React.ForwardRefExoticComponent<ThirdwebNftMediaProps & React.RefAttributes<HTMLMediaElement>>
 ```

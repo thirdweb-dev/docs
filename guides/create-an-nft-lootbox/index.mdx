@@ -11,13 +11,13 @@ In this guide, we'll create a "loot-box" NFT that can be opened to reveal tokens
 
 <!-- truncate -->
 
-In more detail, we'll bundle up ERC-20, ERC-1155, and ERC-721 tokens into a set of ERC-1155 NFTs using the [Pack](https://portal.thirdweb.com/pre-built-contracts/pack) contract!
+In more detail, we'll bundle up ERC20, ERC1155, and ERC721 tokens into a set of ERC1155 NFTs using the [Pack](https://portal.thirdweb.com/pre-built-contracts/pack) contract!
 
 This guide will outline how to:
 
-- Create an ERC-20 token
-- Create an ERC-1155 "semi-fungible" NFT Collection
-- Bundle these together to produce a quantity of ERC-1155 loot-box NFTs that can be opened to randomly reward the opener with some of the tokens that were bundled into the set!
+- Create an ERC20 token
+- Create an ERC1155 "semi-fungible" NFT Collection
+- Bundle these together to produce a quantity of ERC1155 loot-box NFTs that can be opened to randomly reward the opener with some of the tokens that were bundled into the set!
 
 Demo:
 
@@ -45,13 +45,13 @@ We're going to create a pirate-themed loot box!
 - Inside the loot boxes, users can unlock two different types of things.
 
 1. Pirate items (swords, keys, flags, etc.) - these will be NFTs.
-2. Gold coins - these will be tokens inside our ERC-20 token smart contract.
+2. Gold coins - these will be tokens inside our ERC20 token smart contract.
 
 Items will have different rarity levels, so some loot boxes will be better than others!
 
 ## Creating the Token
 
-ERC-20 is an Ethereum standard for "fungible" tokens, which simply means that each token is the exact same in value as other tokens in this smart contract.
+ERC20 is an Ethereum standard for "fungible" tokens, which simply means that each token is the exact same in value as other tokens in this smart contract.
 
 To create the token, I'll use the [dashboard](https://thirdweb.com/dashboard).
 
@@ -88,11 +88,11 @@ I'll mint 100 $GOLD tokens:
 
 Nice! Now we have our very own token, let's start creating some Pirate Item NFTs!
 
-## Creating the ERC-1155 NFT Collection
+## Creating the ERC1155 NFT Collection
 
-ERC-1155 NFTs are known as "semi-fungible" tokens.
+ERC1155 NFTs are known as "semi-fungible" tokens.
 
-They're NFTs, but each NFT in the collection can have multiple "copies". (This is different from the typical ERC-721 non-fungible NFT, which can only have one quantity per token.)
+They're NFTs, but each NFT in the collection can have multiple "copies". (This is different from the typical ERC721 non-fungible NFT, which can only have one quantity per token.)
 
 Head back to the [dashboard](https://thirdweb.com/dashboard) and click "Deploy New contract". Click "Create NFTs and Tokens", and then **"Edition"**.
 
@@ -137,7 +137,7 @@ For example, we've provided 500 units, and have 5 units per pack, so this means 
 
 Now let's mint these NFTs!
 
-I'll mint the NFTs we listed in the table above with the specified quantity, remembering that our `Gold Coins` are the ERC-20 tokens we already created in the previous step!
+I'll mint the NFTs we listed in the table above with the specified quantity, remembering that our `Gold Coins` are the ERC20 tokens we already created in the previous step!
 
 ![Mint an NFT](https://cdn.hashnode.com/res/hashnode/image/upload/v1655690187754/Tq5wyKSKl.png)
 
@@ -221,7 +221,7 @@ node ./scripts/deployPack.mjs
 
 ![Deploy pack with script](https://cdn.hashnode.com/res/hashnode/image/upload/v1655705189339/3o39tdHD-.png)
 
-Now, our next step is to bundle the NFTs and ERC-20 tokens we created into these packs!
+Now, our next step is to bundle the NFTs and ERC20 tokens we created into these packs!
 
 Create another file in the `scripts` directory called `bundleTokens.mjs`.
 
@@ -279,7 +279,7 @@ const url = ipfsHash.uris[0];
       image: url,
     },
 
-    // Gold coin ERC-20 Tokens
+    // Gold coin ERC20 Tokens
     erc20Rewards: [
       {
         contractAddress: tokenAddress,
@@ -365,7 +365,7 @@ node ./scripts/bundleTokens.mjs
 
 Voilà!
 
-We now have 100-pack NFTs containing all of the ERC-20 and ERC-1155 tokens we created in the previous steps!
+We now have 100-pack NFTs containing all of the ERC20 and ERC1155 tokens we created in the previous steps!
 
 Now, let's create an interface where users can view their owned packs and open them to see what's inside!
 
@@ -385,7 +385,7 @@ const { data: nfts, isLoading } = useOwnedNFTs(pack, address);
 
 Now, `data` will contain an array of packs that this wallet address owns.
 
-We then `map` over each of the different ERC-1155 tokens they own (assuming you created 1 kind of pack, this should just be `1`):
+We then `map` over each of the different ERC1155 tokens they own (assuming you created 1 kind of pack, this should just be `1`):
 
 ```jsx
 <div className={styles.container}>
@@ -444,7 +444,7 @@ Beneath our existing UI, let's create a section to display the opened rewards.
             openedPackRewards?.erc20Rewards &&
             openedPackRewards?.erc20Rewards?.length > 0 && (
               <>
-                <h3>ERC-20 Tokens</h3>
+                <h3>ERC20 Tokens</h3>
                 <div className={styles.nftBoxGrid}>
                   {openedPackRewards?.erc20Rewards?.map((reward, i) => (
                     <ERC20RewardBox reward={reward} key={i} />
@@ -457,7 +457,7 @@ Beneath our existing UI, let's create a section to display the opened rewards.
             openedPackRewards?.erc1155Rewards &&
             openedPackRewards?.erc1155Rewards?.length > 0 && (
               <>
-                <h3>ERC-1155 Tokens</h3>
+                <h3>ERC1155 Tokens</h3>
                 <div className={styles.nftBoxGrid}>
                   {openedPackRewards?.erc1155Rewards.map((reward, i) => (
                     <ERC1155RewardBox reward={reward} key={i} />
@@ -563,13 +563,13 @@ When they are opened, we show the metadata for the tokens that were opened:
 
 ## Conclusion
 
-We've created some awesome NFT packs that reveal NFTs and ERC-20 tokens when opened!
+We've created some awesome NFT packs that reveal NFTs and ERC20 tokens when opened!
 
 In this guide, we have covered:
 
 - Creating a "semi-fungible" NFT Collection
 - Minting NFTs with different quantities into our collection
-- Creating our own ERC-20 token/cryptocurrency
+- Creating our own ERC20 token/cryptocurrency
 - Bundling all of our NFTs and cryptocurrency supply into packs
 - Creating randomized pack openings that reveal the tokens inside!
 

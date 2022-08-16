@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # IERC721EnumerableUpgradeable
 
-> ERC-721 Non-Fungible Token Standard, optional enumeration extension
+> ERC721 Non-Fungible Token Standard, optional enumeration extension
 
 _See https://eips.ethereum.org/EIPS/eip-721_
 
