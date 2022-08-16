@@ -32,7 +32,6 @@ const App = () => {
 ```
 
 Upon clicking this button, users will be prompted with a popup asking them scan a QR code with their Coinbase Wallet. Once they scan the QR code, their wallet will then be connected to the page as expected.
-
 **Signature:**
 
 ```typescript

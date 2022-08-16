@@ -30,7 +30,6 @@ const App = () => {
 ```
 
 Here, we use the `useMetamask` hook to handle metamask connection. When a user clicks the button, we'll call the `connectWithMetamask` function, which will prompt users to connect their metamask wallet.
-
 **Signature:**
 
 ```typescript

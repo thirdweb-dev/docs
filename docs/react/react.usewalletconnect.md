@@ -32,7 +32,6 @@ const App = () => {
 ```
 
 When users click this button, a popup will appear on the screen prompting them to scan a QR code from their phone to connect their mobile wallets. Once they scan the QR code from a wallet connect supported mobile wallet, their wallet will then be connected to the page as expected.
-
 **Signature:**
 
 ```typescript
