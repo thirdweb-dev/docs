@@ -11,7 +11,7 @@ displayed_sidebar: react
 
 > This feature is currently in beta and may change based on feedback that we receive.
 
-Use this to get the contract type for a (built-in or custom) contract.
+Use this to get the contract type for a (pre-built or custom) contract.
 
 ## Example
 
