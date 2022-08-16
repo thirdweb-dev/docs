@@ -29,13 +29,14 @@ await contract.drop.claim.to("0x...", quantity);
 | Property                                            | Modifiers | Type                                                                                | Description                |
 | --------------------------------------------------- | --------- | ----------------------------------------------------------------------------------- | -------------------------- |
 | [conditions](./sdk.erc721claimable.conditions.md)   |           | [DropClaimConditions](./sdk.dropclaimconditions.md)&lt;BaseClaimConditionERC721&gt; | Configure claim conditions |
-| [featureName](./sdk.erc721claimable.featurename.md) |           | "ERC721ClaimConditions"                                                             |                            |
+| [featureName](./sdk.erc721claimable.featurename.md) |           | "ERC721Claimable"                                                                   |                            |
 
 ## Methods
 
-| Method                                                                                          | Modifiers | Description                            |
-| ----------------------------------------------------------------------------------------------- | --------- | -------------------------------------- |
-| [to(destinationAddress, quantity, checkERC20Allowance, claimData)](./sdk.erc721claimable.to.md) |           | Claim unique NFTs to a specific Wallet |
+| Method                                                                                                                            | Modifiers | Description                                                                                                                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [getClaimTransaction(destinationAddress, quantity, checkERC20Allowance, claimData)](./sdk.erc721claimable.getclaimtransaction.md) |           | Construct a claim transaction without executing it. This is useful for estimating the gas cost of a claim transaction, overriding transaction options and having fine grained control over the transaction execution. |
+| [to(destinationAddress, quantity, checkERC20Allowance, claimData)](./sdk.erc721claimable.to.md)                                   |           | Claim unique NFTs to a specific Wallet                                                                                                                                                                                |
 
 **Signature:**
 

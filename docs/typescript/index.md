@@ -50,7 +50,7 @@ This will allow you to query data from any contract with no additional setup.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 // instantiate the SDK in read-only mode (our example is running on `polygon` here)
-// all major chains and testnets are supported (e.g. `mainnet`, `goerli`, `goerli`, 'polygon', 'mumbai', etc.)
+// all major chains and testnets are supported (e.g. `mainnet`, `rinkeby`, `goerli`, 'polygon', 'mumbai', etc.)
 const sdk = new ThirdwebSDK("polygon");
 
 // access your deployed contracts
@@ -84,8 +84,8 @@ Here's how to provide your own private key to the SDK to perform transactions wi
 // my_script.js
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-// Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
-"<your-private-key-here>",
+// load your private key in a secure way (env variable, never commited to git)
+const privateKey = process.env.PRIVATE_KEY;
 // instantiate the SDK based on your private key, with the desired chain to connect to
 const sdk = ThirdwebSDK.fromPrivateKey(privateKey, "polygon");
 
