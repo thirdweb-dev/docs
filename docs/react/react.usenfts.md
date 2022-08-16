@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useNFTs() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get a list of NFT tokens of your [NFTContract](./react.nftcontract.md).
 

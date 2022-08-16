@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## NFTContract type
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 The possible NFT contract types.
 

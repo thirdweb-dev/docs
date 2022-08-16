@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useRevokeRole() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to revoke a [WalletAddress](./react.walletaddress.md) a specific role on a
 

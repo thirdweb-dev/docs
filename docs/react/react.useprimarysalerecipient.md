@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## usePrimarySaleRecipient() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 ## Example
 

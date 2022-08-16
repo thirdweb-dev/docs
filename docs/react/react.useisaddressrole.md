@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useIsAddressRole() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to check if a [WalletAddress](./react.walletaddress.md) is a member of a role on a
 

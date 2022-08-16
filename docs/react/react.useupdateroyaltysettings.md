@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useUpdateRoyaltySettings() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to update the royalty settings of your
 

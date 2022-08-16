@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useTokenSupply() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get a the total supply of your contract.
 

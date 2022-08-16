@@ -30,6 +30,7 @@ const App = () => {
 ```
 
 From here, you can prompt users to switch their network using the `useNetwork` hook.
+
 **Signature:**
 
 ```typescript

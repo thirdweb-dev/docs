@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useBurnNFT() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to burn an NFT on your [NFTContract](./react.nftcontract.md)
 

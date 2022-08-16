@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useNFTBalance() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get a the total balance of a [NFTContract](./react.nftcontract.md) and wallet address.
 

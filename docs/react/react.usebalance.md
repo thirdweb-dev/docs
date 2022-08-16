@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useBalance() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 A hook to get the native or (optional) ERC20 token balance of the connected wallet.
 

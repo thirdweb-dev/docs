@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useSetAllRoleMembers() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to OVERWRITE the list of addresses that are members of specific roles
 

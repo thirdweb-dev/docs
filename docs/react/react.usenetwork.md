@@ -28,6 +28,7 @@ const App = () => {
 ```
 
 It's important to note that some wallet apps do not support programmatic network switching and switchNetwork will be undefined. For those situations, you can typically switch networks in the wallet app this hook will still work.
+
 **Signature:**
 
 ```typescript

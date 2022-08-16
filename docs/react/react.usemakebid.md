@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useMakeBid() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to place a bid on an auction listing from your marketplace contract.
 

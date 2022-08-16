@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useActiveListings() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get a list active listings from your marketplace contract.
 

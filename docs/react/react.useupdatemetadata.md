@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useUpdateMetadata() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to update the metadata of your
 

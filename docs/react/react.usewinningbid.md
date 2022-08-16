@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useWinningBid() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get a the winning bid for an auction listing from your marketplace contract.
 

@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useCreateAuctionListing() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to create a new Auction Listing on your marketplace contract.
 

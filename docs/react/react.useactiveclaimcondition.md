@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useActiveClaimCondition() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.
 
