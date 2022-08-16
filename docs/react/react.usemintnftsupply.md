@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useMintNFTSupply() function
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to mint a new NFT on your [NFTContract](./react.nftcontract.md)
 

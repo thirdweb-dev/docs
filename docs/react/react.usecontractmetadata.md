@@ -9,9 +9,9 @@ displayed_sidebar: react
 
 ## useContractMetadata() function
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This feature is currently in beta and may change based on feedback that we receive.
 
-Use this to get the contract metadata for a (built-in or custom) contract.
+Use this to get the contract metadata for a (pre-built or custom) contract.
 
 ## Example
 
