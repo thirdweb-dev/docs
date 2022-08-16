@@ -327,11 +327,6 @@
       "permanent": true
     },
     {
-      "source": "/pre-built-contracts/marketplace",
-      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract",
-      "permanent": true
-    },
-    {
       "source": "/pre-built-contracts/other",
       "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract",
       "permanent": true

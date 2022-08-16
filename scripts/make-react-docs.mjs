@@ -84,6 +84,16 @@ async function main() {
         "---",
       ];
 
+      // The default generation contains a line that says the below text:
+      // > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+      // Delete this line
+      output.splice(
+        output.indexOf(
+          "> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.",
+        ),
+        1,
+      );
+
       // The signature line is the first line that starts with "**Signature:**"
       const signatureLine = output.findIndex((line) =>
         line.startsWith("**Signature:**"),
