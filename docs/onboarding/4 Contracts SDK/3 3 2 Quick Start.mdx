@@ -46,7 +46,7 @@ npm install @thirdweb-dev/contracts
 Open the project in your text editor, and remove the existing contents of the `Lock.sol` file.
 
 Let's rename this file to `MyNFT.sol`, since we'll
-be creating our own custom [ERC-721A](https://www.erc721a.org/) NFT contract in this file.
+be creating our own custom [ERC721A](https://www.erc721a.org/) NFT contract in this file.
 
 Let's first import the [ERC721Base](/contracts-sdk/base-contracts/erc-721/erc721base)
 base contract from the thirdweb SDK.
@@ -68,7 +68,7 @@ Now, all we need to do is implement the required functions to satisfy the `ERC72
 
 ## Writing contract functions
 
-If we take a look at the [ERC-721 Base Contract](/contracts-sdk/base-contracts/erc-721/erc721base#implementing-the-contract-extension) page on the portal,
+If we take a look at the [ERC721 Base Contract](/contracts-sdk/base-contracts/erc-721/erc721base#implementing-the-contract-extension) page on the portal,
 we can see we need to implement the `constructor` to properly implement this contract extension.
 
 ```solidity
@@ -89,7 +89,7 @@ contract MyNFT is ERC721Base {
 }
 ```
 
-You just wrote your very own ERC-721A NFT Collection contract!
+You just wrote your very own ERC721A NFT Collection contract!
 
 Let's see what we can do with it!
 

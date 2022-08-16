@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # IERC721MetadataUpgradeable
 
-> ERC-721 Non-Fungible Token Standard, optional metadata extension
+> ERC721 Non-Fungible Token Standard, optional metadata extension
 
 _See https://eips.ethereum.org/EIPS/eip-721_
 

@@ -41,7 +41,7 @@ npx thirdweb create --template covalent
 
 This example shows you how to fetch indexed NFT information about a wallet using [Covalent](https://www.covalenthq.com).
 
-It loads all of a user's owned tokens by making an API request to the [Get token balances for address](https://www.covalenthq.com/docs/api/#/0/Get%20token%20balances%20for%20address/USD/1) endpoint. Using thirdweb's React SDK, we fetch the metadata about each ERC-721 NFT and display it in a list using the
+It loads all of a user's owned tokens by making an API request to the [Get token balances for address](https://www.covalenthq.com/docs/api/#/0/Get%20token%20balances%20for%20address/USD/1) endpoint. Using thirdweb's React SDK, we fetch the metadata about each ERC721 NFT and display it in a list using the
 [ThirdwebNftMedia](https://portal.thirdweb.com/react/react.thirdwebnftmedia) component.
 
 ## Tools:
@@ -164,7 +164,7 @@ Now we have the token balances of the connected wallet, we're ready to display t
 
 ### Displaying NFTs
 
-Firstly, we map over the different kinds of tokens returned from the API endpoint, filtering to ERC-721 NFTs.
+Firstly, we map over the different kinds of tokens returned from the API endpoint, filtering to ERC721 NFTs.
 
 ```jsx
 {
