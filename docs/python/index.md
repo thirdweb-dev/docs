@@ -40,7 +40,7 @@ from thirdweb import ThirdwebSDK
 sdk = ThirdwebSDK("mumbai")
 ```
 
-The SDK supports the `mainnet`, `goerli`, `polygon`, `mumbai`, `fantom`, and `avalanche` networks.
+The SDK supports the `mainnet`, `rinkeby`, `goerli`, `polygon`, `mumbai`, `fantom`, and `avalanche` networks.
 
 Alternatively, if you want to use your own custom RPC URL, you can pass in the RPC URL directly as follows:
 

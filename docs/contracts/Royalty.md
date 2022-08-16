@@ -118,7 +118,7 @@ _Sets royalty info for `_tokenId`. Caller should be authorized to set royalty in
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
-_Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas._
+_Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding [EIP section](https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified) to learn more about how these ids are created. This function call must use less than 30 000 gas._
 
 #### Parameters
 

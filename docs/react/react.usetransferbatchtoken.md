@@ -66,4 +66,4 @@ export declare function useTransferBatchToken(
 
 import("@tanstack/react-query").UseMutationResult&lt;void, unknown, [TokenParams](./react.tokenparams.md)\[\], unknown&gt;
 
-a mutation object that can be used to mint a new NFT token to the connected wallet
+a mutation object that can be used to transfer batch tokens
