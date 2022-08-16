@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useMintNFT() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to mint a new NFT on your [NFTContract](./react.nftcontract.md)
 

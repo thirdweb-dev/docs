@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## ClaimIneligibilityParameters type
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 The options to be passed as the second parameter to the `useClaimIneligibilityReasons` hook.
 

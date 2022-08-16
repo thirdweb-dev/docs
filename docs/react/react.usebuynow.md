@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useBuyNow() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to buy out an auction listing from your marketplace contract.
 

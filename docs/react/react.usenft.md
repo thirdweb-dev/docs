@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useNFT() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get an individual NFT token of your [NFTContract](./react.nftcontract.md).
 

@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## MintNFTParams type
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 The params for the [useMintNFT()](./react.usemintnft.md) hook mutation.
 

@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useClaimNFT() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to claim a NFT on your [DropContract](./react.dropcontract.md)
 

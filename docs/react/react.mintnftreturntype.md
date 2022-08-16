@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## MintNFTReturnType type
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 The return type of the [useMintNFT()](./react.usemintnft.md) hook.
 

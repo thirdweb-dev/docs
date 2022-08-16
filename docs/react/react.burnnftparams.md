@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## BurnNFTParams type
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 The params for the [useBurnNFT()](./react.useburnnft.md) hook mutation.
 

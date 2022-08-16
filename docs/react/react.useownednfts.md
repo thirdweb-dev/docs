@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useOwnedNFTs() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get a the owned NFTs for a specific [NFTContract](./react.nftcontract.md) and wallet address.
 

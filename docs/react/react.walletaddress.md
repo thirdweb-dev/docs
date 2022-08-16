@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## WalletAddress type
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 A wallet address.
 

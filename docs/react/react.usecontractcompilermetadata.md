@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useContractCompilerMetadata() function
 
->
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get the publish metadata for a deployed contract.
 

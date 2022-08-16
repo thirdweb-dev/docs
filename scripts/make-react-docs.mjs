@@ -86,13 +86,17 @@ async function main() {
 
       // The default generation contains a line that says the below text:
       // > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
-      // Delete this line
-      output.splice(
-        output.indexOf(
+      // Replace this text with "This feature is currently in beta and may change based on feedback that we receive."
+      const betaText =
+        "> This feature is currently in beta and may change based on feedback that we receive.";
+      const betaLine = output.find((line) =>
+        line.includes(
           "> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.",
         ),
-        1,
       );
+      if (betaLine) {
+        output.splice(output.indexOf(betaLine), 1, `${betaText}`);
+      }
 
       // The signature line is the first line that starts with "**Signature:**"
       const signatureLine = output.findIndex((line) =>
