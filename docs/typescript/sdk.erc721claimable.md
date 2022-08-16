@@ -9,13 +9,13 @@ displayed_sidebar: typescript
 
 ## Erc721Claimable class
 
-Lazily mint and claim ERC721 NFTs
+Configure and claim ERC721 NFTs
 
 ## Example
 
 ```javascript
 const contract = await sdk.getContract("{{contract_address}}");
-await contract.drop.claim.to("0x...", quantity);
+await contract.nft.drop.claim.to("0x...", quantity);
 ```
 
 ## Constructors
