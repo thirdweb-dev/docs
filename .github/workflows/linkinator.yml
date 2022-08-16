@@ -1,7 +1,8 @@
 on:
+  # PR to main
+  pull_request:
   push:
-    branches:
-      - jw/linkinator
+    branches: main
 name: Linkinator
 jobs:
   linkinator:
