@@ -53,6 +53,22 @@ Follow the link to the dashboard where you can connect a wallet (or a multi-sig 
 npx thirdweb deploy
 ```
 
+You can also deploy a contract that has been [released](/release) by running:
+
+```bash
+# Deploy a released contract
+npx thirdweb deploy --name doubledev.eth/ERC4907
+```
+
+Or one of our [pre-built contracts](/pre-built-contracts) by running:
+
+```bash
+# Deploy a pre-built contract
+npx thirdweb deploy --name --nft-drop
+```
+
+or a pre-built contract
+
 ### Continuous Integration (Alpha)
 
 Set up continuous integration for your contracts.
@@ -65,7 +81,7 @@ npx thirdweb install-ci
 
 ### Create
 
-Create a new app with the language & framework of your choice and thirdweb pre-configured.
+Create a new project with the language & framework of your choice and our SDKs pre-configured.
 
 ```bash
 # Create a basic project with the language & framework of your choice
@@ -75,6 +91,6 @@ npx thirdweb create
 You can also start with one of our [template repositories](https://github.com/thirdweb-example) by passing the `--template` flag and the name of the repo.
 
 ```bash
-# Create a project from an template repository
+# Create a project from a template repository
 npx thirdweb create --template nft-drop
 ```
