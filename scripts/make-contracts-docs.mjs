@@ -98,16 +98,16 @@ async function main() {
           const linkStartIndex = line.indexOf("https://");
           const linkEndIndex = line.indexOf("[forum post]");
 
-          // Remove the characters
+          if (linkEndIndex > linkStartIndex) {
+            // Replace link[forum post] with [forum post](link)
+            line = line.replace(
+              "[forum post]",
+              `[forum post](${line.substring(linkStartIndex, linkEndIndex)})`,
+            );
 
-          // Replace link[forum post] with [forum post](link)
-          line = line.replace(
-            "[forum post]",
-            `[forum post](${line.substring(linkStartIndex, linkEndIndex)})`,
-          );
-
-          // remove the original link
-          line = line.slice(0, linkStartIndex) + line.slice(linkEndIndex + 0);
+            // remove the original link
+            line = line.slice(0, linkStartIndex) + line.slice(linkEndIndex + 0);
+          }
         }
 
         output.push(line);
