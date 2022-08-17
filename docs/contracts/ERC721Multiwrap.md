@@ -797,7 +797,7 @@ _Sets royalty info for `_tokenId`. Caller should be authorized to set royalty in
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
-_See ERC165_
+_See ERC-165_
 
 #### Parameters
 
