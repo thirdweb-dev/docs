@@ -37,7 +37,6 @@ ThirdwebProvider: <TSupportedChain extends SupportedChain = SupportedChain>({
   walletConnectors,
   dAppMeta,
   desiredChainId,
-  authConfig,
   storageInterface,
   queryClient,
   autoConnect,

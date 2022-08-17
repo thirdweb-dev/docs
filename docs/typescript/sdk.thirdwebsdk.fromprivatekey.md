@@ -27,12 +27,12 @@ static fromPrivateKey(privateKey: string, network: ChainOrRpc, options?: SDKOpti
 
 ## Parameters
 
-| Parameter  | Type                              | Description                                                                                                     |
-| ---------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| privateKey | string                            | the private key - \*\*DO NOT EXPOSE THIS TO THE PUBLIC\*\*                                                      |
-| network    | ChainOrRpc                        | the network (chain) to connect to (e.g. "mainnet", "rinkeby", "polygon", "mumbai"...) or a fully formed RPC url |
-| options    | [SDKOptions](./sdk.sdkoptions.md) | <i>(Optional)</i> the SDK options to use                                                                        |
-| storage    | [IStorage](./sdk.istorage.md)     | <i>(Optional)</i>                                                                                               |
+| Parameter  | Type                              | Description                                                                                                    |
+| ---------- | --------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| privateKey | string                            | the private key - \*\*DO NOT EXPOSE THIS TO THE PUBLIC\*\*                                                     |
+| network    | ChainOrRpc                        | the network (chain) to connect to (e.g. "mainnet", "goerli", "polygon", "mumbai"...) or a fully formed RPC url |
+| options    | [SDKOptions](./sdk.sdkoptions.md) | <i>(Optional)</i> the SDK options to use                                                                       |
+| storage    | [IStorage](./sdk.istorage.md)     | <i>(Optional)</i>                                                                                              |
 
 **Returns:**
 
