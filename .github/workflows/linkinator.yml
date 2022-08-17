@@ -13,4 +13,4 @@ jobs:
           paths: "**/*.md*"
           markdown: true
           recurse: true
-          linksToSkip: "https://opensea.io, http://localhost:3000, assets/, /assets, https://support.discord.com, https://www.pokemoncenter.com"
+          linksToSkip: "https://opensea.io, http://localhost:3000, assets/, /assets, https://support.discord.com, https://www.pokemoncenter.com, https://collab.land/"
