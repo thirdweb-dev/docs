@@ -26,13 +26,13 @@ The `ERC1155Base` smart contract is usable as it is. It is sufficient for the us
 
 | Functionality | Description |
 | --- | --- |
-| ERC1155 | Basic implementation of the ERC1155 NFT standard. |
+| [ERC1155](https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC1155.sol) | Basic implementation of the ERC1155 NFT standard. |
 | Mintable | Mint functionality (only callable by the owner, by default). |
 | Multicall | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call. |
-| Ownable | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
+| [Ownable](/contracts-sdk/contract-extensions/ownable) | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
 | Burnable | Ability for the owner of a token to transfer their NFT to a null address (cannot be recovered). |
-| Royalty | Full royalty support on marketplaces like OpenSea, and EIP 2981 NFT Royalty Standard compliance. |
-| ContractMetadata | Set a metadata URI on the contract, to give your collection a name, image, description and symbol. |
+| [Royalty](/contracts-sdk/contract-extensions/royalty) | Full royalty support on marketplaces like OpenSea, and EIP 2981 NFT Royalty Standard compliance. |
+| [ContractMetadata](/contracts-sdk/contract-extensions/contractmetadata) | Set a metadata URI on the contract, to give your collection a name, image, description and symbol. |
 
 ## Implementing the Contract Extension
 
