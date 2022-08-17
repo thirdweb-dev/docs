@@ -277,10 +277,16 @@ const determinePrice = (): number => {
   if (quantityClaimed >= freeNFTs) {
     return pricePerNft;
   }
-  if (quantityToMint > freeNFTs) {
-    return ((quantityToMint - freeNFTs) * pricePerNft) / quantityToMint;
+  return ((quantity - 1) * pricePerNft) / quantity;
+
+  if (quantityClaimed + quantityToMint <= freeNFTs) {
+    return 0;
   }
-  return 0;
+
+  return (
+    (pricePerNft * (quantityClaimed - freeNFTs + quantityToMint)) /
+    quantityToMint
+  );
 };
 ```
 
@@ -443,10 +449,16 @@ const generateMintSignature = async (
     if (quantityClaimed >= freeNFTs) {
       return pricePerNft;
     }
-    if (quantityToMint > freeNFTs) {
-      return ((quantityToMint - freeNFTs) * pricePerNft) / quantityToMint;
+    return ((quantity - 1) * pricePerNft) / quantity;
+
+    if (quantityClaimed + quantityToMint <= freeNFTs) {
+      return 0;
     }
-    return 0;
+
+    return (
+      (pricePerNft * (quantityClaimed - freeNFTs + quantityToMint)) /
+      quantityToMint
+    );
   };
 
   try {
@@ -480,4 +492,52 @@ const generateMintSignature = async (
 export default generateMintSignature;
 ```
 
-Now our app works successfully! 🎉
+### Adding error handling
+
+We are updating the airtable while generating the signature so what if we get an error or the user rejects the signature? So, we will create a new route called `fix-airtable`. Create a new file called `pages/api/fix-airtable.ts` and add the following:
+
+```tsx title="api/fix-airtable.ts"
+import type { NextApiRequest, NextApiResponse } from "next";
+import { table } from "../../utils/Airtable";
+
+const handler = async (req: NextApiRequest, res: NextApiResponse) => {
+  const { address, quantity } = JSON.parse(req.body);
+
+  if (req.headers["sec-fetch-site"] !== "same-origin") {
+    return res.status(403).json({
+      error: "Forbidden",
+      message: "This endpoint can only be called from the same origin.",
+    });
+  }
+
+  const record = await table
+    .select({
+      fields: ["address", "quantityClaimed"],
+      filterByFormula: `NOT({address} != '${address}')`,
+    })
+    .all();
+
+  const quantityClaimed = record[0]?.fields?.quantityClaimed as number;
+
+  if (record.length > 0) {
+    record[0].updateFields({
+      quantityClaimed: quantityClaimed - parseInt(quantity),
+    });
+
+    return res.status(200).json({
+      message: "success",
+      data: record[0].fields,
+    });
+  }
+
+  return res.status(404).json({
+    message: "not found",
+  });
+};
+
+export default handler;
+```
+
+Here we are receiving the address and quantity from the user and then we are subtracting the quantity from the quantity claimed in the airtable. We are also making sure that no one can make api requests from outside the website and tamper the data by checking for same origin!
+
+If we test out the flow now, everything works perfectly 🥳!
