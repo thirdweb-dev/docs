@@ -12,10 +12,10 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export interface ThirdwebSDKProviderWagmiWrapper extends Pick<ThirdwebProviderProps, "desiredChainId" | "sdkOptions" | "storageInterface">
+export interface ThirdwebSDKProviderWagmiWrapper extends Pick<ThirdwebProviderProps, "desiredChainId" | "sdkOptions" | "storageInterface" | "authConfig">
 ```
 
-**Extends:** Pick&lt;[ThirdwebProviderProps](./react.thirdwebproviderprops.md), "desiredChainId" \| "sdkOptions" \| "storageInterface"&gt;
+**Extends:** Pick&lt;[ThirdwebProviderProps](./react.thirdwebproviderprops.md), "desiredChainId" \| "sdkOptions" \| "storageInterface" \| "authConfig"&gt;
 
 ## Properties
 
