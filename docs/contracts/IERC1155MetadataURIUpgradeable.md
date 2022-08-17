@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # IERC1155MetadataURIUpgradeable
 
-_Interface of the optional ERC1155MetadataExtension interface, as defined in the https://eips.ethereum.org/EIPS/eip-1155#metadata-extensions[EIP]. *Available since v3.1.*_
+_Interface of the optional ERC1155MetadataExtension interface, as defined in the https://eips.ethereum.org/EIPS/eip-1155#metadata-extensions. *Available since v3.1.*_
 
 ## Methods
 

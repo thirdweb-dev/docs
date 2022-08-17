@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # IERC165Upgradeable
 
-_Interface of the ERC165 standard, as defined in the https://eips.ethereum.org/EIPS/eip-165[EIP]. Implementers can declare support of contract interfaces, which can then be queried by others ({ERC165Checker}). For an implementation, see {ERC165}._
+_Interface of the ERC165 standard, as defined in the https://eips.ethereum.org/EIPS/eip-165. Implementers can declare support of contract interfaces, which can then be queried by others ({ERC165Checker}). For an implementation, see {ERC165}._
 
 ## Methods
 

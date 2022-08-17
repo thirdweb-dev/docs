@@ -92,21 +92,25 @@ async function main() {
           line = line.replace(/<!-- -->/g, "");
         }
 
-        // Some lines are broken containing links in the format link[forum post].
-        // We need to re-format them to [forum post](link).
-        if (line.includes("[forum post]") && line.includes("https://")) {
-          const linkStartIndex = line.indexOf("https://");
-          const linkEndIndex = line.indexOf("[forum post]");
+        const linksToFix = [
+          "forum post",
+          "EIP 1167",
+          "EIP-2612",
+          "ERC721",
+          "EIP 712",
+          "`eth_signTypedDataV4` in MetaMask",
+          "merkle-distributor",
+          "EIP",
+          "`URLSearchParams`",
+          "merkletreejs",
+          "How to implement supply mechanisms",
+          "Reentrancy After Istanbul",
+        ];
 
-          if (linkEndIndex > linkStartIndex) {
-            // Replace link[forum post] with [forum post](link)
-            line = line.replace(
-              "[forum post]",
-              `[forum post](${line.substring(linkStartIndex, linkEndIndex)})`,
-            );
-
-            // remove the original link
-            line = line.slice(0, linkStartIndex) + line.slice(linkEndIndex + 0);
+        for (const link of linksToFix) {
+          if (line.includes(`[${link}]`)) {
+            // Delete the link
+            line = line.replace(`[${link}]`, "");
           }
         }
 
