@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # ERC721A
 
-_Implementation of [ERC721](https://eips.ethereum.org/EIPS/eip-721) Non-Fungible Token Standard, including the Metadata extension. Built to optimize for lower gas during batch mints. Assumes serials are sequentially minted starting at \_startTokenId() (defaults to 0, e.g. 0, 1, 2, 3..). Assumes that an owner cannot have more than 2^64 - 1 (max value of uint64) of supply. Assumes that the maximum token id cannot exceed 2^256 - 1 (max value of uint256)._
+_Implementation of (https://eips.ethereum.org/EIPS/eip-721) Non-Fungible Token Standard, including the Metadata extension. Built to optimize for lower gas during batch mints. Assumes serials are sequentially minted starting at \_startTokenId() (defaults to 0, e.g. 0, 1, 2, 3..). Assumes that an owner cannot have more than 2^64 - 1 (max value of uint64) of supply. Assumes that the maximum token id cannot exceed 2^256 - 1 (max value of uint256)._
 
 ## Methods
 
@@ -120,6 +120,22 @@ _See {IERC721-ownerOf}._
 | Name | Type    | Description |
 | ---- | ------- | ----------- |
 | \_0  | address | undefined   |
+
+### safeTransferFrom
+
+```solidity
+function safeTransferFrom(address from, address to, uint256 tokenId) external nonpayable
+```
+
+_See {IERC721-safeTransferFrom}._
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
 
 ### safeTransferFrom
 

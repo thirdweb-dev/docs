@@ -123,8 +123,6 @@ _Returns the version of the contract._
 function createPack(ITokenBundle.Token[] _contents, uint256[] _numOfRewardUnits, string _packUri, uint128 _openStartTimestamp, uint128 _amountDistributedPerOpen, address _recipient) external payable returns (uint256 packId, uint256 packTotalSupply)
 ```
 
-_Creates a pack with the stated contents._
-
 #### Parameters
 
 | Name                       | Type                 | Description |

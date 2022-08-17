@@ -6,5 +6,4 @@ yarn install
 yarn make-docs
 yarn generate-snippets
 yarn generate-github-examples
-yarn generate-example-pages
 yarn prettier

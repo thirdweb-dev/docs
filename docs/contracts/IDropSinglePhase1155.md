@@ -15,19 +15,17 @@ displayed_sidebar: contracts
 function claim(address receiver, uint256 tokenId, uint256 quantity, address currency, uint256 pricePerToken, IDropSinglePhase1155.AllowlistProof allowlistProof, bytes data) external payable
 ```
 
-Lets an account claim a given quantity of NFTs.
-
 #### Parameters
 
-| Name           | Type                                | Description                                                                                               |
-| -------------- | ----------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| receiver       | address                             | The receiver of the NFT to claim.                                                                         |
-| tokenId        | uint256                             | The tokenId of the NFT to claim.                                                                          |
-| quantity       | uint256                             | The quantity of the NFT to claim.                                                                         |
-| currency       | address                             | The currency in which to pay for the claim.                                                               |
-| pricePerToken  | uint256                             | The price per token to pay for the claim.                                                                 |
-| allowlistProof | IDropSinglePhase1155.AllowlistProof | The proof of the claimer&#39;s inclusion in the merkle root allowlist of the claim conditions that apply. |
-| data           | bytes                               | Arbitrary bytes data that can be leveraged in the implementation of this interface.                       |
+| Name           | Type                                | Description |
+| -------------- | ----------------------------------- | ----------- |
+| receiver       | address                             | undefined   |
+| tokenId        | uint256                             | undefined   |
+| quantity       | uint256                             | undefined   |
+| currency       | address                             | undefined   |
+| pricePerToken  | uint256                             | undefined   |
+| allowlistProof | IDropSinglePhase1155.AllowlistProof | undefined   |
+| data           | bytes                               | undefined   |
 
 ### setClaimConditions
 
@@ -35,15 +33,13 @@ Lets an account claim a given quantity of NFTs.
 function setClaimConditions(uint256 tokenId, IClaimCondition.ClaimCondition phase, bool resetClaimEligibility) external nonpayable
 ```
 
-Lets a contract admin (account with `DEFAULT_ADMIN_ROLE`) set claim conditions.
-
 #### Parameters
 
-| Name                  | Type                           | Description                                                                                                      |
-| --------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| tokenId               | uint256                        | The tokenId for which to set the relevant claim condition.                                                       |
-| phase                 | IClaimCondition.ClaimCondition | Claim condition to set.                                                                                          |
-| resetClaimEligibility | bool                           | Whether to reset `limitLastClaimTimestamp` and `limitMerkleProofClaim` values when setting new claim conditions. |
+| Name                  | Type                           | Description |
+| --------------------- | ------------------------------ | ----------- |
+| tokenId               | uint256                        | undefined   |
+| phase                 | IClaimCondition.ClaimCondition | undefined   |
+| resetClaimEligibility | bool                           | undefined   |
 
 ## Events
 

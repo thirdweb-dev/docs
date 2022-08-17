@@ -188,7 +188,8 @@ _Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. 
 function getRoleMember(bytes32 role, uint256 index) external view returns (address)
 ```
 
-_Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information._
+_Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296 for more information._
+
 
 #### Parameters
 
@@ -368,8 +369,6 @@ _Lets an account with MINTER_ROLE mint an NFT._
 ```solidity
 function mintWithSignature(ITokenERC721.MintRequest _req, bytes _signature) external payable returns (uint256 tokenIdMinted)
 ```
-
-_Mints an NFT according to the provided mint request._
 
 #### Parameters
 
@@ -559,6 +558,22 @@ _See EIP-2981_
 | ------------- | ------- | ----------- |
 | receiver      | address | undefined   |
 | royaltyAmount | uint256 | undefined   |
+
+### safeTransferFrom
+
+```solidity
+function safeTransferFrom(address from, address to, uint256 tokenId) external nonpayable
+```
+
+_See {IERC721-safeTransferFrom}._
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
 
 ### safeTransferFrom
 
@@ -822,8 +837,6 @@ _See {IERC721-transferFrom}._
 ```solidity
 function verify(ITokenERC721.MintRequest _req, bytes _signature) external view returns (bool, address)
 ```
-
-_Verifies that a mint request is signed by an account holding MINTER_ROLE (at the time of the function call)._
 
 #### Parameters
 

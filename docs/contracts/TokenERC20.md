@@ -359,7 +359,8 @@ _Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. 
 function getRoleMember(bytes32 role, uint256 index) external view returns (address)
 ```
 
-_Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information._
+_Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296 for more information._
+
 
 #### Parameters
 
@@ -530,8 +531,6 @@ _Creates `amount` new tokens for `to`. See {ERC20-\_mint}. Requirements: - the c
 ```solidity
 function mintWithSignature(ITokenERC20.MintRequest _req, bytes _signature) external payable
 ```
-
-_Mints tokens according to the provided mint request._
 
 #### Parameters
 
@@ -847,8 +846,6 @@ _Unpauses all token transfers. See {ERC20Pausable} and {Pausable-\_unpause}. Req
 ```solidity
 function verify(ITokenERC20.MintRequest _req, bytes _signature) external view returns (bool, address)
 ```
-
-_Verifies that a mint request is signed by an account holding MINTER_ROLE (at the time of the function call)._
 
 #### Parameters
 

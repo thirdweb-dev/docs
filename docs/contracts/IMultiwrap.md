@@ -32,15 +32,13 @@ Unwrap a wrapped NFT to retrieve underlying ERC1155, ERC721, ERC20 tokens.
 function wrap(ITokenBundle.Token[] wrappedContents, string uriForWrappedToken, address recipient) external payable returns (uint256 tokenId)
 ```
 
-Wrap multiple ERC1155, ERC721, ERC20 tokens into a single wrapped NFT.
-
 #### Parameters
 
-| Name               | Type                 | Description                           |
-| ------------------ | -------------------- | ------------------------------------- |
-| wrappedContents    | ITokenBundle.Token[] | The tokens to wrap.                   |
-| uriForWrappedToken | string               | The metadata URI for the wrapped NFT. |
-| recipient          | address              | The recipient of the wrapped NFT.     |
+| Name               | Type                 | Description |
+| ------------------ | -------------------- | ----------- |
+| wrappedContents    | ITokenBundle.Token[] | undefined   |
+| uriForWrappedToken | string               | undefined   |
+| recipient          | address              | undefined   |
 
 #### Returns
 

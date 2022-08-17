@@ -697,6 +697,22 @@ _Returns royalty amount and recipient for `tokenId` and `salePrice`._
 ### safeTransferFrom
 
 ```solidity
+function safeTransferFrom(address from, address to, uint256 tokenId) external nonpayable
+```
+
+_See {IERC721-safeTransferFrom}._
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
+
+### safeTransferFrom
+
+```solidity
 function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data) external nonpayable
 ```
 
@@ -896,21 +912,19 @@ Unwrap a wrapped NFT to retrieve underlying ERC1155, ERC721, ERC20 tokens.
 function wrap(ITokenBundle.Token[] _tokensToWrap, string _uriForWrappedToken, address _recipient) external payable returns (uint256 tokenId)
 ```
 
-Wrap multiple ERC1155, ERC721, ERC20 tokens into a single wrapped NFT.
-
 #### Parameters
 
-| Name                 | Type                 | Description                           |
-| -------------------- | -------------------- | ------------------------------------- |
-| \_tokensToWrap       | ITokenBundle.Token[] | The tokens to wrap.                   |
-| \_uriForWrappedToken | string               | The metadata URI for the wrapped NFT. |
-| \_recipient          | address              | The recipient of the wrapped NFT.     |
+| Name                 | Type                 | Description |
+| -------------------- | -------------------- | ----------- |
+| \_tokensToWrap       | ITokenBundle.Token[] | undefined   |
+| \_uriForWrappedToken | string               | undefined   |
+| \_recipient          | address              | undefined   |
 
 #### Returns
 
-| Name    | Type    | Description                            |
-| ------- | ------- | -------------------------------------- |
-| tokenId | uint256 | The tokenId of the wrapped NFT minted. |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |
 
 ## Events
 

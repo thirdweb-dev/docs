@@ -92,6 +92,28 @@ async function main() {
           line = line.replace(/<!-- -->/g, "");
         }
 
+        const linksToFix = [
+          "forum post",
+          "EIP 1167",
+          "EIP-2612",
+          "ERC721",
+          "EIP 712",
+          "`eth_signTypedDataV4` in MetaMask",
+          "merkle-distributor",
+          "EIP",
+          "`URLSearchParams`",
+          "merkletreejs",
+          "How to implement supply mechanisms",
+          "Reentrancy After Istanbul",
+        ];
+
+        for (const link of linksToFix) {
+          if (line.includes(`[${link}]`)) {
+            // Delete the link
+            line = line.replace(`[${link}]`, "");
+          }
+        }
+
         output.push(line);
       });
 

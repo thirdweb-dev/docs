@@ -238,14 +238,12 @@ _- The logic in the `_canMint` function determines whether the caller is authori
 function mintWithSignature(ISignatureMintERC1155.MintRequest _req, bytes _signature) external payable returns (address signer)
 ```
 
-Mints tokens according to the provided mint request.
-
 #### Parameters
 
-| Name        | Type                              | Description                                                    |
-| ----------- | --------------------------------- | -------------------------------------------------------------- |
-| \_req       | ISignatureMintERC1155.MintRequest | The payload / mint request.                                    |
-| \_signature | bytes                             | The signature produced by an account signing the mint request. |
+| Name        | Type                              | Description |
+| ----------- | --------------------------------- | ----------- |
+| \_req       | ISignatureMintERC1155.MintRequest | undefined   |
+| \_signature | bytes                             | undefined   |
 
 #### Returns
 
@@ -556,8 +554,6 @@ Returns the metadata URI for the given tokenId.
 ```solidity
 function verify(ISignatureMintERC1155.MintRequest _req, bytes _signature) external view returns (bool success, address signer)
 ```
-
-_Verifies that a mint request is signed by an account holding MINTER_ROLE (at the time of the function call)._
 
 #### Parameters
 

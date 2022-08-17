@@ -15,14 +15,12 @@ displayed_sidebar: contracts
 function mintWithSignature(ISignatureMintERC721.MintRequest req, bytes signature) external payable returns (address signer)
 ```
 
-Mints tokens according to the provided mint request.
-
 #### Parameters
 
-| Name      | Type                             | Description                                                    |
-| --------- | -------------------------------- | -------------------------------------------------------------- |
-| req       | ISignatureMintERC721.MintRequest | The payload / mint request.                                    |
-| signature | bytes                            | The signature produced by an account signing the mint request. |
+| Name      | Type                             | Description |
+| --------- | -------------------------------- | ----------- |
+| req       | ISignatureMintERC721.MintRequest | undefined   |
+| signature | bytes                            | undefined   |
 
 #### Returns
 
@@ -35,8 +33,6 @@ Mints tokens according to the provided mint request.
 ```solidity
 function verify(ISignatureMintERC721.MintRequest _req, bytes _signature) external view returns (bool success, address signer)
 ```
-
-_Verifies that a mint request is signed by an account holding MINTER_ROLE (at the time of the function call)._
 
 #### Parameters
 

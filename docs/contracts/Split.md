@@ -66,10 +66,24 @@ _Returns the version of the contract._
 ### distribute
 
 ```solidity
-function distribute() external nonpayable
+function distribute(contract IERC20Upgradeable token) external nonpayable
 ```
 
 _Release owed amount of the `token` to all of the payees._
+
+#### Parameters
+
+| Name  | Type                       | Description |
+| ----- | -------------------------- | ----------- |
+| token | contract IERC20Upgradeable | undefined   |
+
+### distribute
+
+```solidity
+function distribute() external nonpayable
+```
+
+_Release the owed amount of token to all of the payees._
 
 ### getRoleAdmin
 
@@ -97,7 +111,7 @@ _Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. 
 function getRoleMember(bytes32 role, uint256 index) external view returns (address)
 ```
 
-_Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information._
+_Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296 for more information._
 
 #### Parameters
 
@@ -261,6 +275,20 @@ _Get the number of payees_
 ### release
 
 ```solidity
+function release(address payable account) external nonpayable
+```
+
+_Triggers a transfer to `account` of the amount of Ether they are owed, according to their percentage of the total shares and their previous withdrawals._
+
+#### Parameters
+
+| Name    | Type            | Description |
+| ------- | --------------- | ----------- |
+| account | address payable | undefined   |
+
+### release
+
+```solidity
 function release(contract IERC20Upgradeable token, address account) external nonpayable
 ```
 
@@ -276,10 +304,31 @@ _Triggers a transfer to `account` of the amount of `token` tokens they are owed,
 ### released
 
 ```solidity
-function released(address account) external view returns (uint256)
+function released(contract IERC20Upgradeable token, address account) external view returns (uint256)
 ```
 
 _Getter for the amount of `token` tokens already released to a payee. `token` should be the address of an IERC20 contract._
+
+#### Parameters
+
+| Name    | Type                       | Description |
+| ------- | -------------------------- | ----------- |
+| token   | contract IERC20Upgradeable | undefined   |
+| account | address                    | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### released
+
+```solidity
+function released(address account) external view returns (uint256)
+```
+
+_Getter for the amount of Ether already released to a payee._
 
 #### Parameters
 
@@ -394,10 +443,30 @@ _The thirdweb contract with fee related information._
 ### totalReleased
 
 ```solidity
-function totalReleased() external view returns (uint256)
+function totalReleased(contract IERC20Upgradeable token) external view returns (uint256)
 ```
 
 _Getter for the total amount of `token` already released. `token` should be the address of an IERC20 contract._
+
+#### Parameters
+
+| Name  | Type                       | Description |
+| ----- | -------------------------- | ----------- |
+| token | contract IERC20Upgradeable | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### totalReleased
+
+```solidity
+function totalReleased() external view returns (uint256)
+```
+
+_Getter for the total amount of Ether already released._
 
 #### Returns
 

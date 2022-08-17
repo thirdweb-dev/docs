@@ -15,8 +15,6 @@ displayed_sidebar: contracts
 function claim(address _receiver, uint256 _quantity, address _currency, uint256 _pricePerToken, IDropSinglePhase.AllowlistProof _allowlistProof, bytes _data) external payable
 ```
 
-_Lets an account claim tokens._
-
 #### Parameters
 
 | Name             | Type                            | Description |
@@ -76,8 +74,6 @@ _Returns the timestamp for when a claimer is eligible for claiming NFTs again._
 function setClaimConditions(IClaimCondition.ClaimCondition _condition, bool _resetClaimEligibility) external nonpayable
 ```
 
-_Lets a contract admin set claim conditions._
-
 #### Parameters
 
 | Name                    | Type                           | Description |
@@ -108,8 +104,6 @@ _Checks a request to claim NFTs against the active claim condition&#39;s criteri
 ```solidity
 function verifyClaimMerkleProof(address _claimer, uint256 _quantity, IDropSinglePhase.AllowlistProof _allowlistProof) external view returns (bool validMerkleProof, uint256 merkleProofIndex)
 ```
-
-_Checks whether a claimer meets the claim condition&#39;s allowlist criteria._
 
 #### Parameters
 
