@@ -1,0 +1,106 @@
+---
+slug: /contracts-sdk/base-contracts/erc-1155/erc1155base
+title: Base
+---
+
+import ViewContractCodeButton from "../../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+import ImportSnippet from "../../../../../src/components/ImportSnippet";
+
+# ERC1155 Base Contract
+
+The `ERC1155Base` smart contract implements the [ERC1155](https://eips.ethereum.org/EIPS/eip-1155) NFT standard.
+
+The `ERC1155Base` smart contract is usable as it is. It is sufficient for the use case of minting NFTs for yourself (or to someone else) and selling those NFTs on a marketplace. 
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155Base.sol"
+  name="ERC1155Base"
+/>
+
+## Import
+
+<ImportSnippet type="base" category="ERC1155" name="ERC1155Base" />
+
+## Available Functionality
+
+| Functionality | Description |
+| --- | --- |
+| ERC1155 | Basic implementation of the ERC1155 NFT standard. |
+| Mintable | Mint functionality (only callable by the owner, by default). |
+| Multicall | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call. |
+| Ownable | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
+| Burnable | Ability for the owner of a token to transfer their NFT to a null address (cannot be recovered). |
+| Royalty | Full royalty support on marketplaces like OpenSea, and EIP 2981 NFT Royalty Standard compliance. |
+| ContractMetadata | Set a metadata URI on the contract, to give your collection a name, image, description and symbol. |
+
+## Implementing the Contract Extension
+
+Import the contract extension and make your contract inherit it.
+
+```solidity
+// SPDX-License-identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC1155Base.sol";
+
+contract MyNFT is ERC1155Base {
+
+	  constructor(
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps
+    )
+        ERC1155Base(
+            _name,
+            _symbol,
+            _royaltyRecipient,
+            _royaltyBps
+        )
+    {}
+
+}
+```
+
+## Unlocked Features
+
+Once deployed, you'll be able to access the following contract extensions from the dashboard and the SDK:
+
+<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
+<div className="col col--4" style={{marginTop:16}} >
+    <QuickstartCard
+        name="Contract Metadata"
+        link="/contracts-sdk/contract-extensions/contractmetadata#unlocked-features"
+        image="/assets/icons/general.png"
+    />
+</div>
+
+<div className="col col--4" style={{marginTop:16}}>
+    <QuickstartCard
+        name="Royalties"
+        link="/contracts-sdk/contract-extensions/royalty#unlocked-features"
+        image="/assets/icons/general.png"
+    />
+</div>
+<div className="col col--4" style={{marginTop:16}}>
+    <QuickstartCard
+        name="Ownable"
+        link="/contracts-sdk/contract-extensions/ownable#unlocked-features"
+        image="/assets/icons/general.png"
+    />
+</div>
+<div className="col col--4" style={{marginTop:16}}>
+    <QuickstartCard
+        name="Mintable"
+        link="/pre-built-contracts/nft-collection#minting-nfts"
+        image="/assets/icons/nft.png"
+    />
+</div><div className="col col--4" style={{marginTop:16}}>
+    <QuickstartCard
+        name="Burnable"
+        link="/pre-built-contracts/nft-collection#burning-nfts"
+        image="/assets/icons/nft.png"
+    />
+</div>
+</div>
