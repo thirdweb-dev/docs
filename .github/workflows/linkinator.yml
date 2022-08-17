@@ -1,5 +1,4 @@
 on:
-  # PR to main
   pull_request:
   push:
     branches: main
