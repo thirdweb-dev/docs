@@ -9,6 +9,8 @@ displayed_sidebar: react
 
 ## useUser() function
 
+> This feature is currently in beta and may change based on feedback that we receive.
+
 Hook to get the currently logged in user.
 
 **Signature:**

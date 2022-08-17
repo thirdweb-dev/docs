@@ -9,7 +9,9 @@ displayed_sidebar: react
 
 ## ThirdwebAuthConfig.authUrl property
 
-The backend URL of the authentication endoints. For example, if your endpoints are at /api/auth/login, /api/auth/logout, etc. then this should be set to "/api/auth".
+> This feature is currently in beta and may change based on feedback that we receive.
+
+The backend URL of the authentication endoints. For example, if your endpoints are at `/api/auth/login`, `/api/auth/logout`, etc. then this should be set to `/api/auth`.
 
 **Signature:**
 

@@ -9,6 +9,8 @@ displayed_sidebar: react
 
 ## ThirdwebAuthConfig.loginRedirect property
 
+> This feature is currently in beta and may change based on feedback that we receive.
+
 The URL to redirect to after a succesful login.
 
 **Signature:**

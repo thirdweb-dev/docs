@@ -9,6 +9,8 @@ displayed_sidebar: react
 
 ## ThirdwebAuthConfig.domain property
 
+> This feature is currently in beta and may change based on feedback that we receive.
+
 The frontend domain used to generate the login payload. This domain should match the domain used on your auth backend.
 
 **Signature:**

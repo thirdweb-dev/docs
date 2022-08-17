@@ -9,6 +9,8 @@ displayed_sidebar: react
 
 ## useLogin() function
 
+> This feature is currently in beta and may change based on feedback that we receive.
+
 Hook to securely login to a backend with the connected wallet. The backend authentication URL must be configured on the ThirdwebProvider.
 
 **Signature:**

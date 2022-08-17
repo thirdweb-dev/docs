@@ -9,6 +9,8 @@ displayed_sidebar: react
 
 ## useLogout() function
 
+> This feature is currently in beta and may change based on feedback that we receive.
+
 Hook to logout the connected wallet from the backend. The backend logout URL must be configured on the ThirdwebProvider.
 
 **Signature:**
