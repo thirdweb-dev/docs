@@ -1,0 +1,85 @@
+---
+slug: /contracts-sdk/base-contracts/erc-1155/erc1155signaturemint
+title: Signature Mint
+---
+
+import ViewContractCodeButton from "../../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+import ImportSnippet from "../../../../../src/components/ImportSnippet";
+
+# ERC1155 Signature Mint
+
+The `ERC1155SignatureMint` smart contract uses the [ERC1155Base](/contracts-sdk/base-contracts/erc-1155/erc1155base) base contract along with the `SignatureMintERC1155` contract extension.
+
+The 'signature minting' mechanism in the `SignatureMintERC1155` extension uses [EIP 712](https://eips.ethereum.org/EIPS/eip-712), and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract.
+
+At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155SignatureMint.sol"
+  name="ERC1155SignatureMint"
+/>
+
+## Import
+
+<ImportSnippet type="base" category="ERC1155" name="ERC1155SignatureMint" />
+
+## Available functionality
+
+| Functionality                                                                | Description                                                                                                                    |
+| ---------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| [ERC1155Base](/contracts-sdk/base-contracts/erc-1155/erc1155base)            | See the portal page for ERC1155Base.                                                                                           |
+| [Primary Sale](/contracts-sdk/contract-extensions/primarysale)               | Accept a price in the currency of your choice from wallets minting your collection’s NFTs.                                     |
+| [Signature Minting](/contracts-sdk/contract-extensions/signatureminterc1155) | Authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party. |
+
+## Implementing the Contract
+
+Import the contract extension and make your contract inherit it.
+
+```solidity
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC1155SignatureMint.sol";
+
+contract MyNFT is ERC1155SignatureMint {
+    constructor(
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps,
+        address _primarySaleRecipient
+    )
+        ERC1155SignatureMint(
+            _name,
+            _symbol,
+            _royaltyRecipient,
+            _royaltyBps,
+            _primarySaleRecipient
+        )
+    {}
+}
+```
+
+## Unlocked Features
+
+Once deployed, you'll be able to access the following contract extensions' features on the SDK and dashboard:
+
+<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
+<div className="col col--6" style={{marginTop:16}} >
+  <QuickstartCard
+    name="ERC1155Base"
+    link="/contracts-sdk/base-contracts/erc-1155/erc1155base#unlocked-features"
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+<div className="col col--6" style={{ marginTop: 16 }}>
+  <QuickstartCard
+    name="SignatureMint"
+    link="/contracts-sdk/contract-extensions/signatureminterc1155#unlocked-features"
+    image="/assets/icons/general.png"
+  />
+</div>
+
+</div>
