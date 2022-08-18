@@ -14,20 +14,20 @@ Handles delayed reveal logic
 **Signature:**
 
 ```typescript
-export declare class DelayedReveal<T extends DropERC721 | BaseDelayedRevealERC721 | SignatureDrop>
+export declare class DelayedReveal<T extends DropERC721 | BaseDelayedRevealERC721 | SignatureDrop | BaseDelayedRevealERC1155>
 ```
 
 ## Constructors
 
-| Constructor                                                                             | Modifiers | Description                                                       |
-| --------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------- |
-| [(constructor)(erc721, contractWrapper, storage)](./sdk.delayedreveal._constructor_.md) |           | Constructs a new instance of the <code>DelayedReveal</code> class |
+| Constructor                                                                                                      | Modifiers | Description                                                       |
+| ---------------------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------- |
+| [(constructor)(contractWrapper, storage, fetureName, nextTokenIdToMintFn)](./sdk.delayedreveal._constructor_.md) |           | Constructs a new instance of the <code>DelayedReveal</code> class |
 
 ## Properties
 
-| Property                                          | Modifiers | Type               | Description |
-| ------------------------------------------------- | --------- | ------------------ | ----------- |
-| [featureName](./sdk.delayedreveal.featurename.md) |           | "ERC721Revealable" |             |
+| Property                                          | Modifiers | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | Description |
+| ------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------- |
+| [featureName](./sdk.delayedreveal.featurename.md) |           | "ERC721Burnable" &#124; "ERC721Revealable" &#124; "ERC721Claimable" &#124; "ERC721Droppable" &#124; "ERC721BatchMintable" &#124; "ERC721Mintable" &#124; "ERC721SignatureMint" &#124; "ERC721Enumerable" &#124; "ERC721Supply" &#124; "ERC721" &#124; "ERC20Droppable" &#124; "ERC20Burnable" &#124; "ERC20SignatureMintable" &#124; "ERC20BatchMintable" &#124; "ERC20Mintable" &#124; "ERC20" &#124; "ERC1155Burnable" &#124; "ERC1155Claimable" &#124; "ERC1155Droppable" &#124; "ERC1155Revealable" &#124; "ERC1155SignatureMintable" &#124; "ERC1155BatchMintable" &#124; "ERC1155Mintable" &#124; "ERC1155Enumerable" &#124; "ERC1155" &#124; "Royalty" &#124; "PrimarySale" &#124; "PlatformFee" &#124; "Permissions" &#124; "ContractMetadata" |             |
 
 ## Methods
 

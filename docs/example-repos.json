@@ -105,7 +105,7 @@
     "html_url": "https://github.com/thirdweb-example/dao",
     "description": "Build a DAO using thirdweb's vote, token, and edition drop contracts.",
     "created_at": "2022-05-17T11:42:42Z",
-    "updated_at": "2022-07-22T14:18:27Z",
+    "updated_at": "2022-08-17T22:39:33Z",
     "clone_url": "https://github.com/thirdweb-example/dao.git",
     "topics": [
       "edition-drop",
@@ -113,7 +113,7 @@
       "vote"
     ],
     "language": "JavaScript",
-    "stargazers_count": 7,
+    "stargazers_count": 8,
     "is_template": false,
     "homepage": "https://dao.thirdweb-example.com"
   },
@@ -450,13 +450,13 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2022-08-09T04:46:34Z",
+    "updated_at": "2022-08-17T11:24:01Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 14,
+    "stargazers_count": 15,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },
