@@ -17,14 +17,12 @@ The &#39;signature minting&#39; mechanism used in thirdweb Token smart contracts
 function mintWithSignature(ISignatureMintERC20.MintRequest req, bytes signature) external payable returns (address signer)
 ```
 
-Mints tokens according to the provided mint request.
-
 #### Parameters
 
-| Name      | Type                            | Description                                                    |
-| --------- | ------------------------------- | -------------------------------------------------------------- |
-| req       | ISignatureMintERC20.MintRequest | The payload / mint request.                                    |
-| signature | bytes                           | The signature produced by an account signing the mint request. |
+| Name      | Type                            | Description |
+| --------- | ------------------------------- | ----------- |
+| req       | ISignatureMintERC20.MintRequest | undefined   |
+| signature | bytes                           | undefined   |
 
 #### Returns
 
@@ -38,14 +36,12 @@ Mints tokens according to the provided mint request.
 function verify(ISignatureMintERC20.MintRequest req, bytes signature) external view returns (bool success, address signer)
 ```
 
-Verifies that a mint request is signed by an account holding MINTER_ROLE (at the time of the function call).
-
 #### Parameters
 
-| Name      | Type                            | Description                                                                                                                                |
-| --------- | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| req       | ISignatureMintERC20.MintRequest | The payload / mint request.                                                                                                                |
-| signature | bytes                           | The signature produced by an account signing the mint request. returns (success, signer) Result of verification and the recovered address. |
+| Name      | Type                            | Description |
+| --------- | ------------------------------- | ----------- |
+| req       | ISignatureMintERC20.MintRequest | undefined   |
+| signature | bytes                           | undefined   |
 
 #### Returns
 

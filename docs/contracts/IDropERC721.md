@@ -145,6 +145,22 @@ _Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist.
 ### safeTransferFrom
 
 ```solidity
+function safeTransferFrom(address from, address to, uint256 tokenId) external nonpayable
+```
+
+_Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients are aware of the ERC721 protocol to prevent tokens from being forever locked. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be have been allowed to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event._
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
+
+### safeTransferFrom
+
+```solidity
 function safeTransferFrom(address from, address to, uint256 tokenId, bytes data) external nonpayable
 ```
 
@@ -180,14 +196,12 @@ _Approve or remove `operator` as an operator for the caller. Operators can call 
 function setClaimConditions(IDropClaimCondition.ClaimCondition[] phases, bool resetClaimEligibility) external nonpayable
 ```
 
-Lets a contract admin (account with `DEFAULT_ADMIN_ROLE`) set claim conditions.
-
 #### Parameters
 
-| Name                  | Type                                 | Description                                                                                                      |
-| --------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| phases                | IDropClaimCondition.ClaimCondition[] | Claim conditions in ascending order by `startTimestamp`.                                                         |
-| resetClaimEligibility | bool                                 | Whether to reset `limitLastClaimTimestamp` and `limitMerkleProofClaim` values when setting new claim conditions. |
+| Name                  | Type                                 | Description |
+| --------------------- | ------------------------------------ | ----------- |
+| phases                | IDropClaimCondition.ClaimCondition[] | undefined   |
+| resetClaimEligibility | bool                                 | undefined   |
 
 ### supportsInterface
 

@@ -17,14 +17,12 @@ Thirdweb&#39;s &#39;Drop&#39; contracts are distribution mechanisms for tokens. 
 function setClaimConditions(IClaimCondition.ClaimCondition phase, bool resetClaimEligibility) external nonpayable
 ```
 
-Lets a contract admin (account with `DEFAULT_ADMIN_ROLE`) set claim conditions.
-
 #### Parameters
 
-| Name                  | Type                           | Description                                                                                                      |
-| --------------------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| phase                 | IClaimCondition.ClaimCondition | Claim conditions in ascending order by `startTimestamp`.                                                         |
-| resetClaimEligibility | bool                           | Whether to reset `limitLastClaimTimestamp` and `limitMerkleProofClaim` values when setting new claim conditions. |
+| Name                  | Type                           | Description |
+| --------------------- | ------------------------------ | ----------- |
+| phase                 | IClaimCondition.ClaimCondition | undefined   |
+| resetClaimEligibility | bool                           | undefined   |
 
 ## Events
 

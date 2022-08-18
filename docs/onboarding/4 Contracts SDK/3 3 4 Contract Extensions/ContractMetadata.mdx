@@ -37,7 +37,7 @@ For an ERC721 or ERC1155 NFT smart contract, storing royalty information using t
 Import the contract extension and make your contract inherit it.
 
 ```solidity
-// SPDX-License-identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
 import "@thirdweb-dev/contracts/extension/ContractMetadata.sol";
@@ -73,7 +73,7 @@ contract MyContract is ContractMetadata {
 
 Read, write, and update metadata on the contract itself using the dashboard or the SDK.
 
-If you use [thirdweb deploy](/cli) to deploy, you'll unlock the `Settings` tab to easily modify the contract's metadata:
+If you use [deploy](/deploy), you'll unlock the `Settings` tab to easily modify the contract's metadata:
 
 ![Settings Tab.png](../assets/settings-tab.png)
 

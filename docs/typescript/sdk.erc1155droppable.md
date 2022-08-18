@@ -25,9 +25,11 @@ export declare class Erc1155Droppable implements DetectableFeature
 
 ## Properties
 
-| Property                                             | Modifiers | Type               | Description |
-| ---------------------------------------------------- | --------- | ------------------ | ----------- |
-| [featureName](./sdk.erc1155droppable.featurename.md) |           | "ERC1155Droppable" |             |
+| Property                                             | Modifiers | Type                                                                                     | Description                                 |
+| ---------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------- | ------------------------------------------- |
+| [claim](./sdk.erc1155droppable.claim.md)             |           | Erc1155Claimable &#124; undefined                                                        | Claim tokens and configure claim conditions |
+| [featureName](./sdk.erc1155droppable.featurename.md) |           | "ERC1155Droppable"                                                                       |                                             |
+| [revealer](./sdk.erc1155droppable.revealer.md)       |           | [DelayedReveal](./sdk.delayedreveal.md)&lt;BaseDelayedRevealERC1155&gt; &#124; undefined | Delayed reveal                              |
 
 ## Methods
 

@@ -17,25 +17,23 @@ The thirdweb `Pack` contract is a lootbox mechanism. An account can bundle up ar
 function createPack(ITokenBundle.Token[] contents, uint256[] numOfRewardUnits, string packUri, uint128 openStartTimestamp, uint128 amountDistributedPerOpen, address recipient) external payable returns (uint256 packId, uint256 packTotalSupply)
 ```
 
-Creates a pack with the stated contents.
-
 #### Parameters
 
-| Name                     | Type                 | Description                                                                   |
-| ------------------------ | -------------------- | ----------------------------------------------------------------------------- |
-| contents                 | ITokenBundle.Token[] | The reward units to pack in the packs.                                        |
-| numOfRewardUnits         | uint256[]            | The number of reward units to create, for each asset specified in `contents`. |
-| packUri                  | string               | The (metadata) URI assigned to the packs created.                             |
-| openStartTimestamp       | uint128              | The timestamp after which packs can be opened.                                |
-| amountDistributedPerOpen | uint128              | The number of reward units distributed per open.                              |
-| recipient                | address              | The recipient of the packs created.                                           |
+| Name                     | Type                 | Description |
+| ------------------------ | -------------------- | ----------- |
+| contents                 | ITokenBundle.Token[] | undefined   |
+| numOfRewardUnits         | uint256[]            | undefined   |
+| packUri                  | string               | undefined   |
+| openStartTimestamp       | uint128              | undefined   |
+| amountDistributedPerOpen | uint128              | undefined   |
+| recipient                | address              | undefined   |
 
 #### Returns
 
-| Name            | Type    | Description                                       |
-| --------------- | ------- | ------------------------------------------------- |
-| packId          | uint256 | The unique identifer of the created set of packs. |
-| packTotalSupply | uint256 | The total number of packs created.                |
+| Name            | Type    | Description |
+| --------------- | ------- | ----------- |
+| packId          | uint256 | undefined   |
+| packTotalSupply | uint256 | undefined   |
 
 ### openPack
 

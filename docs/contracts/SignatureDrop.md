@@ -76,8 +76,6 @@ _Burns `tokenId`. See {ERC721-\_burn}._
 function claim(address _receiver, uint256 _quantity, address _currency, uint256 _pricePerToken, IDropSinglePhase.AllowlistProof _allowlistProof, bytes _data) external payable
 ```
 
-_Lets an account claim tokens._
-
 #### Parameters
 
 | Name             | Type                            | Description |
@@ -169,10 +167,10 @@ _Encrypt/decrypt given `data` with `key`. Uses inline assembly. See: https://eth
 | ------ | ----- | ------------------------------------------------- |
 | result | bytes | Output after encryption/decryption of given data. |
 
-### encryptedBaseURI
+### encryptedData
 
 ```solidity
-function encryptedBaseURI(uint256) external view returns (bytes)
+function encryptedData(uint256) external view returns (bytes)
 ```
 
 #### Parameters
@@ -559,7 +557,7 @@ function isTrustedForwarder(address forwarder) external view returns (bool)
 ### lazyMint
 
 ```solidity
-function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _encryptedBaseURI) external nonpayable returns (uint256 batchId)
+function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _data) external nonpayable returns (uint256 batchId)
 ```
 
 _Lets an account with `MINTER_ROLE` lazy mint &#39;n&#39; NFTs. The URIs for each token is the provided `_baseURIForTokens` + `{tokenId}`._
@@ -570,7 +568,7 @@ _Lets an account with `MINTER_ROLE` lazy mint &#39;n&#39; NFTs. The URIs for eac
 | ------------------ | ------- | ----------- |
 | \_amount           | uint256 | undefined   |
 | \_baseURIForTokens | string  | undefined   |
-| \_encryptedBaseURI | bytes   | undefined   |
+| \_data             | bytes   | undefined   |
 
 #### Returns
 
@@ -583,8 +581,6 @@ _Lets an account with `MINTER_ROLE` lazy mint &#39;n&#39; NFTs. The URIs for eac
 ```solidity
 function mintWithSignature(ISignatureMintERC721.MintRequest _req, bytes _signature) external payable returns (address signer)
 ```
-
-_Claim lazy minted tokens via signature._
 
 #### Parameters
 
@@ -777,6 +773,22 @@ _Returns royalty amount and recipient for `tokenId` and `salePrice`._
 ### safeTransferFrom
 
 ```solidity
+function safeTransferFrom(address from, address to, uint256 tokenId) external nonpayable
+```
+
+_See {IERC721-safeTransferFrom}._
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
+
+### safeTransferFrom
+
+```solidity
 function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data) external nonpayable
 ```
 
@@ -811,8 +823,6 @@ _See {IERC721-setApprovalForAll}._
 ```solidity
 function setClaimConditions(IClaimCondition.ClaimCondition _condition, bool _resetClaimEligibility) external nonpayable
 ```
-
-_Lets a contract admin set claim conditions._
 
 #### Parameters
 
@@ -1023,8 +1033,6 @@ _See {IERC721-transferFrom}._
 function verify(ISignatureMintERC721.MintRequest _req, bytes _signature) external view returns (bool success, address signer)
 ```
 
-_Verifies that a mint request is signed by an account holding MINTER_ROLE (at the time of the function call)._
-
 #### Parameters
 
 | Name        | Type                             | Description |
@@ -1062,8 +1070,6 @@ _Checks a request to claim NFTs against the active claim condition&#39;s criteri
 ```solidity
 function verifyClaimMerkleProof(address _claimer, uint256 _quantity, IDropSinglePhase.AllowlistProof _allowlistProof) external view returns (bool validMerkleProof, uint256 merkleProofIndex)
 ```
-
-_Checks whether a claimer meets the claim condition&#39;s allowlist criteria._
 
 #### Parameters
 

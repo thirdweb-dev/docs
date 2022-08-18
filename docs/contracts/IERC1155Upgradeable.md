@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # IERC1155Upgradeable
 
-_Required interface of an ERC1155 compliant contract, as defined in the https://eips.ethereum.org/EIPS/eip-1155[EIP]. *Available since v3.1.*_
+_Required interface of an ERC1155 compliant contract, as defined in the https://eips.ethereum.org/EIPS/eip-1155. *Available since v3.1.*_
 
 ## Methods
 

@@ -97,14 +97,12 @@ Lets an account with MINTER_ROLE mint an NFT.
 function mintWithSignature(ITokenERC1155.MintRequest req, bytes signature) external payable
 ```
 
-Mints an NFT according to the provided mint request.
-
 #### Parameters
 
-| Name      | Type                      | Description                                                   |
-| --------- | ------------------------- | ------------------------------------------------------------- |
-| req       | ITokenERC1155.MintRequest | The mint request.                                             |
-| signature | bytes                     | he signature produced by an account signing the mint request. |
+| Name      | Type                      | Description |
+| --------- | ------------------------- | ----------- |
+| req       | ITokenERC1155.MintRequest | undefined   |
+| signature | bytes                     | undefined   |
 
 ### safeBatchTransferFrom
 
@@ -183,14 +181,12 @@ _Returns true if this contract implements the interface defined by `interfaceId`
 function verify(ITokenERC1155.MintRequest req, bytes signature) external view returns (bool success, address signer)
 ```
 
-Verifies that a mint request is signed by an account holding MINTER_ROLE (at the time of the function call).
-
 #### Parameters
 
-| Name      | Type                      | Description                                                                                                                                |
-| --------- | ------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| req       | ITokenERC1155.MintRequest | The mint request.                                                                                                                          |
-| signature | bytes                     | The signature produced by an account signing the mint request. returns (success, signer) Result of verification and the recovered address. |
+| Name      | Type                      | Description |
+| --------- | ------------------------- | ----------- |
+| req       | ITokenERC1155.MintRequest | undefined   |
+| signature | bytes                     | undefined   |
 
 #### Returns
 

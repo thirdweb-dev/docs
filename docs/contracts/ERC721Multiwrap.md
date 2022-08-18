@@ -85,21 +85,17 @@ _See {IERC721-balanceOf}._
 ### batchMintTo
 
 ```solidity
-function batchMintTo(address _to, uint256 _quantity, string _baseURI, bytes _data) external nonpayable
+function batchMintTo(address, uint256, string, bytes) external nonpayable
 ```
-
-Lets an authorized address mint multiple NFTs at once to a recipient.
-
-_The logic in the `_canMint` function determines whether the caller is authorized to mint NFTs._
 
 #### Parameters
 
-| Name       | Type    | Description                                                                                   |
-| ---------- | ------- | --------------------------------------------------------------------------------------------- |
-| \_to       | address | The recipient of the NFT to mint.                                                             |
-| \_quantity | uint256 | The number of NFTs to mint.                                                                   |
-| \_baseURI  | string  | The baseURI for the `n` number of NFTs minted. The metadata for each NFT is `baseURI/tokenId` |
-| \_data     | bytes   | Additional data to pass along during the minting of the NFT.                                  |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | uint256 | undefined   |
+| \_2  | string  | undefined   |
+| \_3  | bytes   | undefined   |
 
 ### burn
 
@@ -463,19 +459,15 @@ Returns whether a given address is the owner, or approved to transfer an NFT.
 ### mintTo
 
 ```solidity
-function mintTo(address _to, string _tokenURI) external nonpayable
+function mintTo(address, string) external nonpayable
 ```
-
-Lets an authorized address mint an NFT to a recipient.
-
-_The logic in the `_canMint` function determines whether the caller is authorized to mint NFTs._
 
 #### Parameters
 
-| Name       | Type    | Description                               |
-| ---------- | ------- | ----------------------------------------- |
-| \_to       | address | The recipient of the NFT to mint.         |
-| \_tokenURI | string  | The full metadata URI for the NFT minted. |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | string  | undefined   |
 
 ### multicall
 
@@ -705,6 +697,22 @@ _Returns royalty amount and recipient for `tokenId` and `salePrice`._
 ### safeTransferFrom
 
 ```solidity
+function safeTransferFrom(address from, address to, uint256 tokenId) external nonpayable
+```
+
+_See {IERC721-safeTransferFrom}._
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
+
+### safeTransferFrom
+
+```solidity
 function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data) external nonpayable
 ```
 
@@ -839,15 +847,13 @@ _See {IERC721Metadata-symbol}._
 function tokenURI(uint256 _tokenId) external view returns (string)
 ```
 
-Returns the metadata URI for an NFT.
-
-_See `BatchMintMetadata` for handling of metadata in this contract._
+_Returns the URI for a given tokenId._
 
 #### Parameters
 
-| Name      | Type    | Description            |
-| --------- | ------- | ---------------------- |
-| \_tokenId | uint256 | The tokenId of an NFT. |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| \_tokenId | uint256 | undefined   |
 
 #### Returns
 
@@ -906,21 +912,19 @@ Unwrap a wrapped NFT to retrieve underlying ERC1155, ERC721, ERC20 tokens.
 function wrap(ITokenBundle.Token[] _tokensToWrap, string _uriForWrappedToken, address _recipient) external payable returns (uint256 tokenId)
 ```
 
-Wrap multiple ERC1155, ERC721, ERC20 tokens into a single wrapped NFT.
-
 #### Parameters
 
-| Name                 | Type                 | Description                           |
-| -------------------- | -------------------- | ------------------------------------- |
-| \_tokensToWrap       | ITokenBundle.Token[] | The tokens to wrap.                   |
-| \_uriForWrappedToken | string               | The metadata URI for the wrapped NFT. |
-| \_recipient          | address              | The recipient of the wrapped NFT.     |
+| Name                 | Type                 | Description |
+| -------------------- | -------------------- | ----------- |
+| \_tokensToWrap       | ITokenBundle.Token[] | undefined   |
+| \_uriForWrappedToken | string               | undefined   |
+| \_recipient          | address              | undefined   |
 
 #### Returns
 
-| Name    | Type    | Description                            |
-| ------- | ------- | -------------------------------------- |
-| tokenId | uint256 | The tokenId of the wrapped NFT minted. |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |
 
 ## Events
 

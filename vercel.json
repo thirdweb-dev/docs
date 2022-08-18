@@ -327,11 +327,6 @@
       "permanent": true
     },
     {
-      "source": "/pre-built-contracts/marketplace",
-      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract",
-      "permanent": true
-    },
-    {
       "source": "/pre-built-contracts/other",
       "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract",
       "permanent": true
@@ -340,6 +335,31 @@
       "source": "/guides/randomized-nft-drop",
       "destination": "/guides/shuffle-nft-drop",
       "permanent": true
+    },
+    {
+      "source": "/pre-built-contracts/other",
+      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract",
+      "permanent": true
+    },
+    {
+      "source": "/typescript/category/built-in-contracts",
+      "destination": "/typescript/category/pre-built-contracts"
+    },
+    {
+      "source": "/react/category/contracts",
+      "destination": "/react/react.usecontract"
+    },
+    {
+      "source": "/react/category/wallet-connection",
+      "destination": "/react/react.usemetamask"
+    },
+    {
+      "source": "/contracts-sdk/quickstart",
+      "destination": "/getting-started/creating-custom-contracts"
+    },
+    {
+      "source": "/contracts-sdk/contract-extensions/signatureminting",
+      "destination": "/contracts-sdk/contract-extensions/signatureminterc721"
     }
   ]
 }
