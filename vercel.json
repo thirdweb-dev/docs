@@ -342,6 +342,10 @@
     {
       "source": "/react/category/wallet-connection",
       "destination": "/react/react.usemetamask"
+    },
+    {
+      "source": "/contracts-sdk/quickstart",
+      "destination": "/getting-started/creating-custom-contracts"
     }
   ]
 }
