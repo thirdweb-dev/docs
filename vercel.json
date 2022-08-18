@@ -332,6 +332,16 @@
       "permanent": true
     },
     {
+      "source": "/guides/randomized-nft-drop",
+      "destination": "/guides/shuffle-nft-drop",
+      "permanent": true
+    },
+    {
+      "source": "/pre-built-contracts/other",
+      "destination": "/pre-built-contracts/choosing-the-right-pre-built-contract",
+      "permanent": true
+    },
+    {
       "source": "/typescript/category/built-in-contracts",
       "destination": "/typescript/category/pre-built-contracts"
     },
