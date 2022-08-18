@@ -192,6 +192,21 @@ _Emitted when new claim conditions are set._
 | --------------- | ------------------------------------ | ----------- |
 | claimConditions | IDropClaimCondition.ClaimCondition[] | undefined   |
 
+### ContractURIUpdated
+
+```solidity
+event ContractURIUpdated(string prevURI, string newURI)
+```
+
+_Emitted when the contract URI is updated._
+
+#### Parameters
+
+| Name    | Type   | Description |
+| ------- | ------ | ----------- |
+| prevURI | string | undefined   |
+| newURI  | string | undefined   |
+
 ### MaxTotalSupplyUpdated
 
 ```solidity
