@@ -252,13 +252,13 @@
     "html_url": "https://github.com/thirdweb-example/login-with-wallet",
     "description": "Authenticate to a backend using a wallet",
     "created_at": "2022-06-03T16:04:25Z",
-    "updated_at": "2022-08-11T20:16:57Z",
+    "updated_at": "2022-08-18T02:42:03Z",
     "clone_url": "https://github.com/thirdweb-example/login-with-wallet.git",
     "topics": [
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 8,
+    "stargazers_count": 9,
     "is_template": false,
     "homepage": ""
   },
@@ -284,11 +284,11 @@
     "html_url": "https://github.com/thirdweb-example/makeswift",
     "description": null,
     "created_at": "2022-07-25T21:35:43Z",
-    "updated_at": "2022-08-03T22:33:03Z",
+    "updated_at": "2022-08-18T02:44:10Z",
     "clone_url": "https://github.com/thirdweb-example/makeswift.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": null
   },
