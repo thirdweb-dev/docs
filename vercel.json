@@ -346,6 +346,10 @@
     {
       "source": "/contracts-sdk/quickstart",
       "destination": "/getting-started/creating-custom-contracts"
+    },
+    {
+      "source": "/contracts-sdk/contract-extensions/signatureminting",
+      "destination": "/contracts-sdk/contract-extensions/signatureminterc721"
     }
   ]
 }
