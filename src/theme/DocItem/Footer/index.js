@@ -28,7 +28,7 @@ function EditMetaRow({
   lastUpdatedBy,
   formattedLastUpdatedAt,
 }) {
-  const isNotHomePage = window.location.pathname !== "/";
+  const isNotHomePage = editUrl.href !== "/";
 
   return (
     <div
