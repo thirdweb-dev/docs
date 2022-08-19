@@ -34,10 +34,8 @@ const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition
 **Signature:**
 
 ```typescript
-export declare function useActiveClaimCondition<
-  TContract extends NFTDrop | EditionDrop | TokenDrop | SignatureDrop,
->(
-  ...[contract, tokenId]: ActiveClaimConditionParams<TContract>
+export declare function useActiveClaimCondition<TContract extends NFTContract>(
+  ...[contract, tokenId]: ClaimConditionsInputParams<TContract>
 ): import("@tanstack/react-query").UseQueryResult<
   {
     snapshot?:
@@ -71,7 +69,7 @@ export declare function useActiveClaimCondition<
 
 | Parameter             | Type                                        | Description |
 | --------------------- | ------------------------------------------- | ----------- |
-| \[contract, tokenId\] | ActiveClaimConditionParams&lt;TContract&gt; |             |
+| \[contract, tokenId\] | ClaimConditionsInputParams&lt;TContract&gt; |             |
 
 **Returns:**
 

@@ -35,7 +35,7 @@ const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibil
 
 ```typescript
 export declare function useClaimIneligibilityReasons<
-  TContract extends NFTDrop | EditionDrop | TokenDrop | SignatureDrop,
+  TContract extends NFTContract,
 >(
   ...[contract, params, tokenId]: ClaimIneligibilityInputParams<TContract>
 ): import("@tanstack/react-query").UseQueryResult<
