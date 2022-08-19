@@ -165,11 +165,11 @@ const sidebars = {
           label: "Token",
           id: "react.usetoken",
         },
-        // {
-        //   type: "doc",
-        //   label: "useTokenDrop",
-        //   id: "react.usetokendrop",
-        // },
+        {
+          type: "doc",
+          label: "Token Drop",
+          id: "react.usetokendrop",
+        },
         {
           type: "doc",
           label: "Vote",
@@ -435,6 +435,29 @@ const sidebars = {
           type: "doc",
           label: "Claim Inelibility Reasons",
           id: "react.useclaimineligibilityreasons",
+        },
+      ],
+    },
+
+    {
+      type: "category",
+      label: "Delayed Reveal",
+      collapsed: true,
+      items: [
+        {
+          type: "doc",
+          label: "View Unrevealed Batches",
+          id: "react.usebatchestoreveal",
+        },
+        {
+          type: "doc",
+          label: "Lazy Mint with Delayed Reveal",
+          id: "react.usedelayedreveallazymint",
+        },
+        {
+          type: "doc",
+          label: "Reveal Batch",
+          id: "react.usereveallazymint",
         },
       ],
     },
