@@ -21,71 +21,27 @@ There are many services available to store secret values:
 
 ## Using Google Cloud Secret Manager
 
-This page will show you how to use **Google Cloud Secret Manager** as an example.
+This section shows you how to use Google Cloud Secret Manager, as an example.
 
-### Creating A Secret Value
+From the [Google Cloud Console](https://cloud.google.com/secret-manager), enable the Secret Manager API in your project,
+and create a new secret containing your wallet's private key as the value. Follow [this guide](https://cloud.google.com/docs/authentication/getting-started#creating_a_service_account)
+to create a service account with the **Secret Manager Secret Accessor** role and export the key as a JSON file.
 
-- From the [Google Cloud Console](https://cloud.google.com/secret-manager), enable the **Secret Manager API** in your project,
-  and create a new secret containing your wallet's private key as the value.
+:::warning
 
-- Follow [this guide](https://cloud.google.com/docs/authentication/getting-started#creating_a_service_account)
-  to create a service account with the **Secret Manager Secret Accessor** role and export the key as a JSON file.
+Ensure you secure the values in the `.json` file securely; such as using environment variables.
 
-### Accessing A Secret Value
+:::
 
-The JSON file you exported in the previous step contains the authentication information we can use to retrieve the secret value.
-Convert the values in this JSON file to environment variables in your project like so:
+Create and retrieve your private key from a secret value by following [this guide](https://cloud.google.com/secret-manager/docs/creating-and-accessing-secrets).
 
-```text title=".env.local"
-GOOGLE_PRIVATE_KEY=XXX
-GOOGLE_CLIENT_EMAIL=XXX
-```
-
-Next, install Google's [Secret Manager Client Library](https://cloud.google.com/secret-manager/docs/reference/libraries), by running:
-
-```bash
-npm install @google-cloud/secret-manager
-```
-
-In a server-side environment such as an API route, use the secret manager package and the environment variables you created to retrieve the secret value:
-
-```ts
-import { SecretManagerServiceClient } from "@google-cloud/secret-manager";
-
-// Change these values to your own.
-const project = "XXX"; // Your GCP project ID.
-const secretName = "private-key"; // Name of the secret.
-const version = "latest"; // Use a specific version or "latest" to get the latest version of the secret value.
-
-// String we use to access the secret.
-const name = `projects/${project}/secrets/${secretName}/versions/${version}`;
-
-// Instantiates a GCP Secret Manager client
-const client = new SecretManagerServiceClient({
-  credentials: {
-    private_key: process.env.GOOGLE_PRIVATE_KEY.replace(/\\n/g, "\n"),
-    client_email: process.env.GOOGLE_CLIENT_EMAIL,
-  },
-});
-
-// Use the Secret Manager client to access the secret.
-const [version] = await client.accessSecretVersion({
-  name: name,
-});
-
-// Extract the payload as a string (contains the secret value).
-const payload = version.payload.data.toString();
-```
-
-### Instantiating the SDK
-
-Use the `payload` string to instantiate the SDK with your private key.
+Use the `accessSecretVersion` function from the guide to instantiate the SDK with your private key on the server-side.
 
 ```jsx
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = ThirdwebSDK.fromPrivateKey(
-  payload, // Your wallet private key
+  accessSecretVersion(), // Your wallet private key
   "goerli", // configure this to your network
 );
 ```
