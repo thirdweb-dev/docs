@@ -167,7 +167,7 @@ const sidebars = {
         },
         {
           type: "doc",
-          label: "useTokenDrop",
+          label: "Token Drop",
           id: "react.usetokendrop",
         },
         {
