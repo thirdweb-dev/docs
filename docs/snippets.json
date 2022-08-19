@@ -398,7 +398,8 @@
     "name": "TokenDrop",
     "summary": "Create a Drop contract for a standard crypto token or cryptocurrency.\n\n",
     "examples": {
-      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getTokenDrop(\"{{contract_address}}\");"
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getTokenDrop(\"{{contract_address}}\");",
+      "react": "import { useTokenDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const tokenDrop = useTokenDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the token drop contract in the rest of the component\n}"
     },
     "methods": [
       {
@@ -511,13 +512,13 @@
           "javascript": "// Address of the wallet to check token balance\nconst walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.token.balanceOf(walletAddress);",
           "python": "",
           "go": "",
-          "react": "// Address of the wallet to check token balance\nconst walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.token.balanceOf(walletAddress);"
+          "react": "const { data: balance, isLoading, error } = useTokenBalance(<YourTokenContractInstance>);"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.erc20.balanceof",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.usetokenbalance"
         }
       },
       {

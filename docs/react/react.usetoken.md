@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useToken() function
 
-Hook for getting an instance of an `Token` contract. This contract supports ERC20 compliant tokens.
+Hook for getting an instance of a `Token` contract. This contract supports ERC20 compliant tokens.
 
 ## Example
 
