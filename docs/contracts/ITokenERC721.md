@@ -114,14 +114,12 @@ Lets an account with MINTER_ROLE mint an NFT.
 function mintWithSignature(ITokenERC721.MintRequest req, bytes signature) external payable returns (uint256)
 ```
 
-Mints an NFT according to the provided mint request.
-
 #### Parameters
 
-| Name      | Type                     | Description                                                   |
-| --------- | ------------------------ | ------------------------------------------------------------- |
-| req       | ITokenERC721.MintRequest | The mint request.                                             |
-| signature | bytes                    | he signature produced by an account signing the mint request. |
+| Name      | Type                     | Description |
+| --------- | ------------------------ | ----------- |
+| req       | ITokenERC721.MintRequest | undefined   |
+| signature | bytes                    | undefined   |
 
 #### Returns
 
@@ -148,6 +146,22 @@ _Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist.
 | Name  | Type    | Description |
 | ----- | ------- | ----------- |
 | owner | address | undefined   |
+
+### safeTransferFrom
+
+```solidity
+function safeTransferFrom(address from, address to, uint256 tokenId) external nonpayable
+```
+
+_Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients are aware of the ERC721 protocol to prevent tokens from being forever locked. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be have been allowed to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event._
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
 
 ### safeTransferFrom
 
@@ -223,14 +237,12 @@ _Transfers `tokenId` token from `from` to `to`. WARNING: Usage of this method is
 function verify(ITokenERC721.MintRequest req, bytes signature) external view returns (bool success, address signer)
 ```
 
-Verifies that a mint request is signed by an account holding MINTER_ROLE (at the time of the function call).
-
 #### Parameters
 
-| Name      | Type                     | Description                                                                                                                                |
-| --------- | ------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| req       | ITokenERC721.MintRequest | The mint request.                                                                                                                          |
-| signature | bytes                    | The signature produced by an account signing the mint request. returns (success, signer) Result of verification and the recovered address. |
+| Name      | Type                     | Description |
+| --------- | ------------------------ | ----------- |
+| req       | ITokenERC721.MintRequest | undefined   |
+| signature | bytes                    | undefined   |
 
 #### Returns
 

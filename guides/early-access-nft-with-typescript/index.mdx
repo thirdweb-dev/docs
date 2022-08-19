@@ -37,11 +37,11 @@ This can be done in the [dashboard](https://thirdweb.com/dashboard).
 - Head to the thirdweb dashboard,
 - Click "Deploy New Contract"
 - Click "Deploy Now" on the Edition Drop pre-built contract.
-- Configure the metadata for the contract, and deploy to the Rinkeby test network.
+- Configure the metadata for the contract, and deploy to the Goerli test network.
 
 ## Project Set-Up
 
-Create a new TypeScript + React project using the thirdweb CLI, by running:
+Create a new TypeScript + React project using the [CLI](/cli), by running:
 
 ```bash
 npx thirdweb create --cra --ts
@@ -49,7 +49,7 @@ npx thirdweb create --cra --ts
 
 ## Instantiate the SDK
 
-To create, configure and interact with our NFTs we will need to use the thirdweb SDK.
+To create, configure and interact with our NFTs we will need to use the SDK.
 
 Instead of initializing it each time we use it, let's make a function that initializes it and then can be called as needed.
 
@@ -70,7 +70,7 @@ Instantiate and connect to the contract using the contract address found in the 
 // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
 const privateKey = "<your-private-key-here>";
 // instantiate the SDK based on your private key, with the desired chain to connect to
-const sdk = ThirdwebSDK.fromPrivateKey(privateKey, "rinkeby");
+const sdk = ThirdwebSDK.fromPrivateKey(privateKey, "goerli");
 
 // Set variable for the edition drop contract address which can be found after creating an edition drop in the dashboard
 const editionDropAddress = "your-edition-drop-contract-address";
@@ -336,7 +336,7 @@ import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 import Nft from "./Nft";
 
 // This is the chainId your dApp will work on.
-const activeChainId = ChainId.Rinkeby;
+const activeChainId = ChainId.Goerli;
 
 const container = document.getElementById("root");
 const root = createRoot(container!);

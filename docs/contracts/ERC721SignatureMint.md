@@ -256,14 +256,12 @@ _The logic in the `_canMint` function determines whether the caller is authorize
 function mintWithSignature(ISignatureMintERC721.MintRequest _req, bytes _signature) external payable returns (address signer)
 ```
 
-Mints tokens according to the provided mint request.
-
 #### Parameters
 
-| Name        | Type                             | Description                                                    |
-| ----------- | -------------------------------- | -------------------------------------------------------------- |
-| \_req       | ISignatureMintERC721.MintRequest | The payload / mint request.                                    |
-| \_signature | bytes                            | The signature produced by an account signing the mint request. |
+| Name        | Type                             | Description |
+| ----------- | -------------------------------- | ----------- |
+| \_req       | ISignatureMintERC721.MintRequest | undefined   |
+| \_signature | bytes                            | undefined   |
 
 #### Returns
 
@@ -392,6 +390,22 @@ _Returns royalty amount and recipient for `tokenId` and `salePrice`._
 | ------------- | ------- | ------------------------------------------------------ |
 | receiver      | address | Address of royalty recipient account.                  |
 | royaltyAmount | uint256 | Royalty amount calculated at current royaltyBps value. |
+
+### safeTransferFrom
+
+```solidity
+function safeTransferFrom(address from, address to, uint256 tokenId) external nonpayable
+```
+
+_See {IERC721-safeTransferFrom}._
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
 
 ### safeTransferFrom
 
@@ -597,8 +611,6 @@ _See {IERC721-transferFrom}._
 ```solidity
 function verify(ISignatureMintERC721.MintRequest _req, bytes _signature) external view returns (bool success, address signer)
 ```
-
-_Verifies that a mint request is signed by an authorized account._
 
 #### Parameters
 

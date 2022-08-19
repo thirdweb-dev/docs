@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## ClaimNFTParams type
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This feature is currently in beta and may change based on feedback that we receive.
 
 The params for the [useClaimNFT()](./react.useclaimnft.md) hook mutation.
 

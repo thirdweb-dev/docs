@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useClaimConditions() function
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> This feature is currently in beta and may change based on feedback that we receive.
 
 Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.
 
@@ -34,10 +34,8 @@ const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC1
 **Signature:**
 
 ```typescript
-export declare function useClaimConditions<
-  TContract extends NFTDrop | EditionDrop | TokenDrop | SignatureDrop,
->(
-  ...[contract, tokenId]: ActiveClaimConditionParams<TContract>
+export declare function useClaimConditions<TContract extends NFTContract>(
+  ...[contract, tokenId]: ClaimConditionsInputParams<TContract>
 ): import("@tanstack/react-query").UseQueryResult<
   {
     snapshot?:
@@ -71,7 +69,7 @@ export declare function useClaimConditions<
 
 | Parameter             | Type                                        | Description |
 | --------------------- | ------------------------------------------- | ----------- |
-| \[contract, tokenId\] | ActiveClaimConditionParams&lt;TContract&gt; |             |
+| \[contract, tokenId\] | ClaimConditionsInputParams&lt;TContract&gt; |             |
 
 **Returns:**
 

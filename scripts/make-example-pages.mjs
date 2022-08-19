@@ -158,6 +158,9 @@ async function run() {
     fs.rmdirSync(dir, { recursive: true });
   }
 
+  // TEMP: Delete these pages
+  return;
+
   // Make a new directory for the generated pages
   fs.mkdirSync(dir);
 

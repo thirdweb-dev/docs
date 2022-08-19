@@ -166,15 +166,13 @@ _Grants or revokes permission to `operator` to transfer the caller&#39;s tokens,
 function setClaimConditions(uint256 tokenId, IDropClaimCondition.ClaimCondition[] phases, bool resetClaimEligibility) external nonpayable
 ```
 
-Lets a contract admin (account with `DEFAULT_ADMIN_ROLE`) set claim conditions.
-
 #### Parameters
 
-| Name                  | Type                                 | Description                                                                                                      |
-| --------------------- | ------------------------------------ | ---------------------------------------------------------------------------------------------------------------- |
-| tokenId               | uint256                              | The token ID for which to set mint conditions.                                                                   |
-| phases                | IDropClaimCondition.ClaimCondition[] | Claim conditions in ascending order by `startTimestamp`.                                                         |
-| resetClaimEligibility | bool                                 | Whether to reset `limitLastClaimTimestamp` and `limitMerkleProofClaim` values when setting new claim conditions. |
+| Name                  | Type                                 | Description |
+| --------------------- | ------------------------------------ | ----------- |
+| tokenId               | uint256                              | undefined   |
+| phases                | IDropClaimCondition.ClaimCondition[] | undefined   |
+| resetClaimEligibility | bool                                 | undefined   |
 
 ### supportsInterface
 

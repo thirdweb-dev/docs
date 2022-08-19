@@ -40,7 +40,7 @@ We want to let people vote on proposals, automatically count the votes, and let 
 Create a `vote.js` file, and make sure you [initialize the SDK](/web3-sdk/set-up-the-sdk/backend) before you copy and paste the code.
 
 To deploy a vote contract using the SDK, we can make use of the [sdk.deployer](/typescript/sdk.thirdwebsdk.deployer),
-which can create any of thirdweb's [pre-built contracts](/pre-built-contracts)!
+which can create any of our [pre-built contracts](/pre-built-contracts)!
 
 To deploy from your wallet, you'll first need to export your wallet's private key.
 
@@ -80,7 +80,7 @@ Replace `<TOKEN_ADDRESS>` with the address of the token you just created.
       // Give your governance contract a name.
       name: "My amazing DAO",
 
-      // This is the location of our governance token, our ERC-20 contract!
+      // This is the location of our governance token, our ERC20 contract!
       voting_token_address: "<TOKEN_ADDRESS>",
 
       // These parameters are specified in number of blocks.
@@ -143,7 +143,7 @@ const sdk = ThirdwebSDK.fromPrivateKey("<your-private-key-here>", NETWORK);
 // This is our governance contract.
 const vote = sdk.getVote("INSERT_VOTE_ADDRESS");
 
-// This is our ERC-20 contract.
+// This is our ERC20 contract.
 const token = sdk.getToken("INSERT_TOKEN_ADDRESS");
 
 (async () => {
@@ -219,7 +219,7 @@ const sdk = ThirdwebSDK.fromPrivateKey("<your-private-key-here>", NETWORK);
 // This is our governance contract.
 const vote = sdk.getVote("INSERT_VOTE_ADDRESS");
 
-// This is our ERC-20 contract.
+// This is our ERC20 contract.
 const token = sdk.getToken("INSERT_TOKEN_ADDRESS");
 
 (async () => {

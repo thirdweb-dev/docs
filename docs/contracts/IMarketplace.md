@@ -123,15 +123,11 @@ _Returns the version of the contract._
 function createListing(IMarketplace.ListingParameters _params) external nonpayable
 ```
 
-Lets a token owner list tokens (ERC 721 or ERC 1155) for sale in a direct listing, or an auction.
-
-_NFTs to list for sale in an auction are escrowed in Marketplace. For direct listings, the contract only checks whether the listing&#39;s creator owns and has approved Marketplace to transfer the NFTs to list._
-
 #### Parameters
 
-| Name     | Type                           | Description                                           |
-| -------- | ------------------------------ | ----------------------------------------------------- |
-| \_params | IMarketplace.ListingParameters | The parameters that govern the listing to be created. |
+| Name     | Type                           | Description |
+| -------- | ------------------------------ | ----------- |
+| \_params | IMarketplace.ListingParameters | undefined   |
 
 ### getPlatformFeeInfo
 

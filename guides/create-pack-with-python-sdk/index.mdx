@@ -38,31 +38,31 @@ Go ahead and create a new Python file. Let's call it `python_nft.py` and open it
 
 ![Creating a python file inside the terminal](./terminal.png)
 
-Next up use the following code in your terminal to create a virtual environment and install the ThirdWeb SDK!
+Next up use the following code in your terminal to create a virtual environment and install the SDK!
 
 ### Virtual-env
 
 ```python
-#create a virtual environment
+# create a virtual environment
 python3 -m venv ./myenv
 
-#activate virtual environment
+# activate virtual environment
 source ./myenv/bin/activate
 
-#install the thirdweb sdk
+# install the sdk
 pip install thirdweb-sdk
 ```
 
 ### Conda
 
 ```python
-#create a virtual environment
+# create a virtual environment
 conda create -n "thirdweb" python=3.9
 
-#activate virtual environment
+# activate virtual environment
 conda activate thirdweb
 
-#install the thirdweb sdk
+# install the sdk
 pip install thirdweb-sdk
 ```
 
@@ -94,7 +94,7 @@ In our `python_nft.py` we include the following code. First we define a variable
 Then we create an object that uses the Pack module inside the sdk with our address.
 
 ```python
-#pick your module and enter the smart contract address
+# pick your module and enter the smart contract address
 pack_contract = "0xEA9e245C4663AC7A82Df0329A1a480C4729adC52"
 pack_module = sdk.get_pack_module(pack_contract)
 ```
@@ -103,7 +103,7 @@ pack_module = sdk.get_pack_module(pack_contract)
 
 The arguments passed over here are the same as inside the dashboard. If you want to familiarize yourself with the process, check out the dashboard!
 
-Note, the Pack module only works with NFTs from the 'Drop' and 'Bundle' module, because these modules are based on ERC-1155. If this is new to you, in short a Pack holds multiple NFTs.
+Note, the Pack module only works with NFTs from the 'Drop' and 'Bundle' module, because these modules are based on ERC1155. If this is new to you, in short a Pack holds multiple NFTs.
 
 ```python
 #Create the Pack
@@ -178,7 +178,7 @@ To open a random pack we need to perform some additional steps. In order to crea
 
 The following method, gets a random number from Chainlink and passes it on to our sdk.
 
-The argument that we're passing to our method is the amount of Chainlink tokens we need to pay. To make use of Chainlink we need special tokens. For the `Rinkeby` network you can get them [here](https://faucets.chain.link/rinkeby).
+The argument that we're passing to our method is the amount of Chainlink tokens we need to pay. To make use of Chainlink we need special tokens.
 
 ```python
 #Creating a deposit link

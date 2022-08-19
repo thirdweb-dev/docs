@@ -106,14 +106,12 @@ _Creates `amount` new tokens for `to`. See {ERC20-\_mint}. Requirements: - the c
 function mintWithSignature(ITokenERC20.MintRequest req, bytes signature) external payable
 ```
 
-Mints an NFT according to the provided mint request.
-
 #### Parameters
 
-| Name      | Type                    | Description                                                   |
-| --------- | ----------------------- | ------------------------------------------------------------- |
-| req       | ITokenERC20.MintRequest | The mint request.                                             |
-| signature | bytes                   | he signature produced by an account signing the mint request. |
+| Name      | Type                    | Description |
+| --------- | ----------------------- | ----------- |
+| req       | ITokenERC20.MintRequest | undefined   |
+| signature | bytes                   | undefined   |
 
 ### name
 
@@ -206,14 +204,12 @@ _Moves `amount` tokens from `from` to `to` using the allowance mechanism. `amoun
 function verify(ITokenERC20.MintRequest req, bytes signature) external view returns (bool success, address signer)
 ```
 
-Verifies that a mint request is signed by an account holding MINTER_ROLE (at the time of the function call).
-
 #### Parameters
 
-| Name      | Type                    | Description                                                                                                                                |
-| --------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------ |
-| req       | ITokenERC20.MintRequest | The mint request.                                                                                                                          |
-| signature | bytes                   | The signature produced by an account signing the mint request. returns (success, signer) Result of verification and the recovered address. |
+| Name      | Type                    | Description |
+| --------- | ----------------------- | ----------- |
+| req       | ITokenERC20.MintRequest | undefined   |
+| signature | bytes                   | undefined   |
 
 #### Returns
 

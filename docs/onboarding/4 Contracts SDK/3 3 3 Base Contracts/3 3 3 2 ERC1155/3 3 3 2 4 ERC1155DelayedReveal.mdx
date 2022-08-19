@@ -1,0 +1,75 @@
+---
+slug: /contracts-sdk/base-contracts/erc-1155/erc1155delayedreveal
+title: Delayed Reveal
+---
+
+import ViewContractCodeButton from "../../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+import ImportSnippet from "../../../../../src/components/ImportSnippet";
+
+# ERC1155DelayedReveal
+
+The `ERC1155DelayedReveal` smart contract uses the [ERC1155LazyMint](/contracts-sdk/base-contracts/erc-1155/erc1155lazymint) base contract along with the `DelayedReveal`contract extension.
+
+'Delayed reveal' is a mechanism by which you can distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact.
+
+You can read more about how the `DelayedReveal` extension works, [here](https://blog.thirdweb.com/delayed-reveal-nfts).
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155DelayedReveal.sol"
+  name="ERC1155DelayedReveal"
+/>
+
+## Import
+
+<ImportSnippet type="base" category="ERC1155" name="ERC1155DelayedReveal" />
+
+## Available functionality
+
+| Functionality                                                     | Description                                                                                                                        |
+| ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| [ERC1155Base](/contracts-sdk/base-contracts/erc-1155/erc1155base) | See the portal page for ERC1155Base.                                                                                               |
+| [LazyMint](/contracts-sdk/contract-extensions/lazymint)           | Prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs. |
+| [DelayedReveal](/contracts-sdk/contract-extensions/delayedreveal) | Distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact.                                  |
+
+## Implementing the Contract
+
+Import the contract extension and make your contract inherit it.
+
+```solidity
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC1155DelayedReveal.sol";
+
+contract MyNFT is ERC1155DelayedReveal {
+    constructor(
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps
+    ) ERC1155DelayedReveal(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+}
+```
+
+## Unlocked Features
+
+Once deployed, you'll be able to access the following contract extensions' features on the SDK and dashboard:
+
+<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
+<div className="col col--6" style={{marginTop:16}} >
+  <QuickstartCard
+    name="ERC1155LazyMint"
+    link="/contracts-sdk/base-contracts/erc-1155/erc1155lazymint#unlocked-features"
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+<div className="col col--6" style={{ marginTop: 16 }}>
+  <QuickstartCard
+    name="DelayedReveal"
+    link="/contracts-sdk/contract-extensions/delayedreveal#unlocked-features"
+    image="/assets/icons/general.png"
+  />
+</div>
+</div>

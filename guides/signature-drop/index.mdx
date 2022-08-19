@@ -8,11 +8,11 @@ date: "2022-07-18"
 # Release an NFT Drop with signature-based minting using the Signature Drop contract
 
 In this guide, we'll use the [Signature Drop](https://portal.thirdweb.com/pre-built-contracts/signature-drop)
-contract to create a collection of NFTs that follow the [ERC-721A](https://www.erc721a.org/) standard!
+contract to create a collection of NFTs that follow the [ERC721A](https://www.erc721a.org/) standard!
 
 <!-- truncate -->
 
-Compared to the regular [ERC-721](https://eips.ethereum.org/EIPS/eip-721) standard, the ERC-721A implementation
+Compared to the regular [ERC721](https://eips.ethereum.org/EIPS/eip-721) standard, the ERC721A implementation
 optimizes the gas fees of the contract to enable cheaper gas fees for users when they are minting multiple tokens in one transaction.
 
 The signature drop contract also enables [Signature-based Minting](https://portal.thirdweb.com/advanced-features/on-demand-minting)
@@ -22,7 +22,7 @@ which allows us, (the admin wallet), to approve users' mint requests on-demand i
 
 Here's what we'll be doing in this guide:
 
-- Deploying the ERC-721A Signature Drop contract.
+- Deploying the ERC721A Signature Drop contract.
 - Lazy Minting our NFTs by batch uploading metadata files.
 - Creating a web application where users can claim NFTs.
 - Adding a special "Discount Claim" button where users who hold an NFT from another collection can claim an NFT for a discount!
@@ -31,7 +31,7 @@ Check out the demo here: https://signature-drop.thirdweb-example.com/
 
 ## Creating the Signature Drop Contract
 
-To deploy one of thirdweb's [Pre-built contracts](https://portal.thirdweb.com/pre-built-contracts), head to the [dashboard](https://thirdweb.com/dashboard) and connect your wallet.
+To deploy one of our [Pre-built contracts](https://portal.thirdweb.com/pre-built-contracts), head to the [dashboard](https://thirdweb.com/dashboard) and connect your wallet.
 
 :::tip Create A Wallet
 
@@ -66,7 +66,7 @@ When you're ready, click `Deploy Now`, and approve the `Deploy Proxy` transactio
 
 ![approve proxy transaction](./assets/deploy-proxy-transaction.png)
 
-You just deployed your very own ERC-721A NFT Collection!
+You just deployed your very own ERC721A NFT Collection!
 
 ![deployed state](./assets/deployed-state.png)
 
@@ -258,9 +258,9 @@ export default async function generateMintSignature(
 
 When we call this API endpoint, we'll be passing an `address` argument into the request body. In this API route, we de-structure that value so that we can use it when we generate the mint signature.
 
-Since we're going to provide the NFTs for free to wallets that own one of thirdweb's [Early Access NFTs](https://opensea.io/collection/thirdweb-community), let's check that now.
+Since we're going to provide the NFTs for free to wallets that own one of our [Early Access NFTs](https://opensea.io/collection/thirdweb-community), let's check that now.
 
-To do that, we instantiate the thirdweb SDK with a read-only connection on the Polygon network and get the `thirdweb-community` NFT Collection using its contract address.
+To do that, we instantiate the SDK with a read-only connection on the Polygon network and get the `thirdweb-community` NFT Collection using its contract address.
 
 ```js
 // Get the Early Access NFT Edition Drop contract
@@ -270,7 +270,7 @@ const earlyAccessNfts = polygonSDK.getEditionDrop(
 );
 ```
 
-Then we can use the `balanceOf` function to check if the wallet that made this API request has any NFTs from that collection. Since it's an ERC-1155 collection, we check to see if they have a `balanceOf` **any** of the tokens in that collection in a loop:
+Then we can use the `balanceOf` function to check if the wallet that made this API request has any NFTs from that collection. Since it's an ERC1155 collection, we check to see if they have a `balanceOf` **any** of the tokens in that collection in a loop:
 
 ```js
 // Check to see if the wallet address has an early access NFT
@@ -287,7 +287,7 @@ for (let i = 0; i < numTokensInCollection.toNumber(); i++) {
 }
 ```
 
-Great! Now we have a `userHasToken` variable that is true _if_ the user had a balance greater than zero for any token in that ERC-1155 NFT Collection.
+Great! Now we have a `userHasToken` variable that is true _if_ the user had a balance greater than zero for any token in that ERC1155 NFT Collection.
 
 Now we can use that variable to determine whether or not we generate a mint signature for this user:
 
@@ -394,6 +394,6 @@ Once the transaction is confirmed, we should see:
 
 ## Conclusion
 
-That's it! You have successfully created your very own ERC-721A NFT collection with signature minting, and built an app to claim your NFTs on top of it!
+That's it! You have successfully created your very own ERC721A NFT collection with signature minting, and built an app to claim your NFTs on top of it!
 
 To learn more about what you can do with the signature drop contract, check out the [Portal documentation](https://portal.thirdweb.com/pre-built-contracts/signature-drop)!

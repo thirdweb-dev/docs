@@ -9,13 +9,13 @@ displayed_sidebar: typescript
 
 ## Erc721Claimable class
 
-Lazily mint and claim ERC721 NFTs
+Configure and claim ERC721 NFTs
 
 ## Example
 
 ```javascript
 const contract = await sdk.getContract("{{contract_address}}");
-await contract.drop.claim.to("0x...", quantity);
+await contract.nft.drop.claim.to("0x...", quantity);
 ```
 
 ## Constructors
@@ -33,9 +33,10 @@ await contract.drop.claim.to("0x...", quantity);
 
 ## Methods
 
-| Method                                                                                          | Modifiers | Description                            |
-| ----------------------------------------------------------------------------------------------- | --------- | -------------------------------------- |
-| [to(destinationAddress, quantity, checkERC20Allowance, claimData)](./sdk.erc721claimable.to.md) |           | Claim unique NFTs to a specific Wallet |
+| Method                                                                                                                            | Modifiers | Description                                                                                                                                                                                                           |
+| --------------------------------------------------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [getClaimTransaction(destinationAddress, quantity, checkERC20Allowance, claimData)](./sdk.erc721claimable.getclaimtransaction.md) |           | Construct a claim transaction without executing it. This is useful for estimating the gas cost of a claim transaction, overriding transaction options and having fine grained control over the transaction execution. |
+| [to(destinationAddress, quantity, checkERC20Allowance, claimData)](./sdk.erc721claimable.to.md)                                   |           | Claim unique NFTs to a specific Wallet                                                                                                                                                                                |
 
 **Signature:**
 

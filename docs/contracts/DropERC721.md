@@ -187,10 +187,10 @@ _See: https://ethereum.stackexchange.com/questions/69825/decrypt-message-on-chai
 | ------ | ----- | ----------- |
 | result | bytes | undefined   |
 
-### encryptedBaseURI
+### encryptedData
 
 ```solidity
-function encryptedBaseURI(uint256) external view returns (bytes)
+function encryptedData(uint256) external view returns (bytes)
 ```
 
 \*Mapping from &#39;Largest tokenId of a batch of &#39;delayed-reveal&#39; tokens with the same baseURI&#39; to encrypted base URI for the respective batch of tokens.\*\*
@@ -353,7 +353,7 @@ _Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. 
 function getRoleMember(bytes32 role, uint256 index) external view returns (address)
 ```
 
-_Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296[forum post] for more information._
+_Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296 for more information._
 
 #### Parameters
 
@@ -510,7 +510,7 @@ function isTrustedForwarder(address forwarder) external view returns (bool)
 ### lazyMint
 
 ```solidity
-function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _encryptedBaseURI) external nonpayable
+function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _data) external nonpayable
 ```
 
 _Lets an account with `MINTER_ROLE` lazy mint &#39;n&#39; NFTs. The URIs for each token is the provided `_baseURIForTokens` + `{tokenId}`._
@@ -521,7 +521,7 @@ _Lets an account with `MINTER_ROLE` lazy mint &#39;n&#39; NFTs. The URIs for eac
 | ------------------ | ------- | ----------- |
 | \_amount           | uint256 | undefined   |
 | \_baseURIForTokens | string  | undefined   |
-| \_encryptedBaseURI | bytes   | undefined   |
+| \_data             | bytes   | undefined   |
 
 ### maxTotalSupply
 
@@ -737,6 +737,22 @@ _Returns the royalty recipient and amount, given a tokenId and sale price._
 ### safeTransferFrom
 
 ```solidity
+function safeTransferFrom(address from, address to, uint256 tokenId) external nonpayable
+```
+
+_See {IERC721-safeTransferFrom}._
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
+
+### safeTransferFrom
+
+```solidity
 function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data) external nonpayable
 ```
 
@@ -771,8 +787,6 @@ _See {IERC721-setApprovalForAll}._
 ```solidity
 function setClaimConditions(IDropClaimCondition.ClaimCondition[] _phases, bool _resetClaimEligibility) external nonpayable
 ```
-
-_Lets a contract admin (account with `DEFAULT_ADMIN_ROLE`) set claim conditions._
 
 #### Parameters
 

@@ -28,6 +28,8 @@ import { useAddress } from "@thirdweb-dev/react";
 | [useAuctionWinner(contract, listingId)](./react.useauctionwinner.md) | **<i>(BETA)</i>** Use this to get the winner of an auction listing from your marketplace contract. |
 | [useBalance(tokenAddress)](./react.usebalance.md) | **<i>(BETA)</i>** A hook to get the native or (optional) ERC20 token balance of the connected wallet. |
 | [useBidBuffer(contract)](./react.usebidbuffer.md) | **<i>(BETA)</i>** Use this to get the buffer in basis points between offers from your marketplace contract. |
+| [useBurnNFT(contract)](./react.useburnnft.md) | **<i>(BETA)</i>** Use this to burn an NFT on your [NFTContract](./react.nftcontract.md) |
+| [useBurnToken(contract)](./react.useburntoken.md) | **<i>(BETA)</i>** Use this to burn tokens on your contract |
 | [useBuyNow(contract)](./react.usebuynow.md) | **<i>(BETA)</i>** Use this to buy out an auction listing from your marketplace contract. |
 | [useChainId()](./react.usechainid.md) | <p>Hook for accessing the chain ID of the network the current wallet is connected to</p>
 
@@ -79,6 +81,8 @@ import { useGnosis } from "@thirdweb-dev/react";
 | [useLazyMint(contract, onProgress)](./react.uselazymint.md) | **<i>(BETA)</i>** Use this to lazy mint a batch of NFTs on your [DropContract](./react.dropcontract.md) |
 | [useListing(contract, listingId)](./react.uselisting.md) | **<i>(BETA)</i>** Use this to get a specific listing from the marketplace. |
 | [useListings(contract, filter)](./react.uselistings.md) | **<i>(BETA)</i>** Use this to get a list all listings from your marketplace contract. |
+| [useLogin(config)](./react.uselogin.md) | **<i>(BETA)</i>** Hook to securely login to a backend with the connected wallet. The backend authentication URL must be configured on the ThirdwebProvider. |
+| [useLogout()](./react.uselogout.md) | **<i>(BETA)</i>** Hook to logout the connected wallet from the backend. The backend logout URL must be configured on the ThirdwebProvider. |
 | [useMagic()](./react.usemagic.md) | <p>Hook for connecting to an email wallet using magic link. This enables users without their own wallets to connect to your application and sign transactions securely using their email.</p>
 
 ```javascript
@@ -97,6 +101,7 @@ import { useMetamask } from "@thirdweb-dev/react";
 
 |
 | [useMintNFT(contract)](./react.usemintnft.md) | **<i>(BETA)</i>** Use this to mint a new NFT on your [NFTContract](./react.nftcontract.md) |
+| [useMintNFTSupply(contract)](./react.usemintnftsupply.md) | **<i>(BETA)</i>** Use this to mint a new NFT on your [NFTContract](./react.nftcontract.md) |
 | [useMintToken(contract)](./react.useminttoken.md) | **<i>(BETA)</i>** Use this to mint new tokens on your contract |
 | [useMultiwrap(contractAddress)](./react.usemultiwrap.md) | Hook for getting an instance of an <code>Multiwrap</code> contract. This contract is an ERC721 in which you can wrap ERC721, ERC1155 and ERC20 tokens. |
 | [useNetwork()](./react.usenetwork.md) | Hook for getting metadata about the network the current wallet is connected to and switching networks |
@@ -116,12 +121,14 @@ import { useNetworkMistmatch } from "@thirdweb-dev/react";
 | [usePack(contractAddress)](./react.usepack.md) | Hook for getting an instance of a <code>Pack</code> contract. This contract supports the creation of on-chain luck-based lootboxes. |
 | [usePlatformFees(contract)](./react.useplatformfees.md) | **<i>(BETA)</i>** Use this to get the platform fees settings of your |
 | [usePrimarySaleRecipient(contract)](./react.useprimarysalerecipient.md) | **<i>(BETA)</i>** |
+| [useResetClaimConditions(\[contract, tokenId\])](./react.useresetclaimconditions.md) | **<i>(BETA)</i>** Use this to reset claim conditions on your [NFTContract](./react.nftcontract.md) |
 | [useResolvedMediaType(uri)](./react.useresolvedmediatype.md) | |
 | [useRevokeRole(contract)](./react.userevokerole.md) | **<i>(BETA)</i>** Use this to revoke a [WalletAddress](./react.walletaddress.md) a specific role on a |
 | [useRoleMembers(contract, role)](./react.userolemembers.md) | **<i>(BETA)</i>** Use this to get the members of a role on a |
 | [useRoyaltySettings(contract)](./react.useroyaltysettings.md) | **<i>(BETA)</i>** Use this to get the royalty settings of your |
 | [useSDK()](./react.usesdk.md) | |
 | [useSetAllRoleMembers(contract)](./react.usesetallrolemembers.md) | **<i>(BETA)</i>** Use this to OVERWRITE the list of addresses that are members of specific roles |
+| [useSetClaimConditions(\[contract, tokenId\])](./react.usesetclaimconditions.md) | **<i>(BETA)</i>** Use this to set claim conditions on your [NFTContract](./react.nftcontract.md) |
 | [useSignatureDrop(contractAddress)](./react.usesignaturedrop.md) | Hook for getting an instance of an <code>SignatureDrop</code> contract. This contract is meant to interface with ERC721 compliant NFTs that can be lazily minted. |
 | [useSplit(contractAddress)](./react.usesplit.md) | Hook for getting an instance of a <code>Split</code> contract. This contract supports fund distribution to multiple parties. |
 | [useToken(contractAddress)](./react.usetoken.md) | Hook for getting an instance of an <code>Token</code> contract. This contract supports ERC20 compliant tokens. |
@@ -138,6 +145,7 @@ import { useNetworkMistmatch } from "@thirdweb-dev/react";
 | [useUpdatePlatformFees(contract)](./react.useupdateplatformfees.md) | **<i>(BETA)</i>** Use this to update the platform fees settings of your |
 | [useUpdatePrimarySaleRecipient(contract)](./react.useupdateprimarysalerecipient.md) | **<i>(BETA)</i>** Use this to update the primary sales recipient of your |
 | [useUpdateRoyaltySettings(contract)](./react.useupdateroyaltysettings.md) | **<i>(BETA)</i>** Use this to update the royalty settings of your |
+| [useUser()](./react.useuser.md) | **<i>(BETA)</i>** Hook to get the currently logged in user. |
 | [useVote(contractAddress)](./react.usevote.md) | Hook for getting an instance of an <code>Vote</code> contract. This contract enables fully featured voting-based decentralized governance systems. |
 | [useWalletConnect()](./react.usewalletconnect.md) | <p>Hook for connecting to a mobile wallet with Wallet Connect</p>
 
@@ -150,16 +158,18 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 
 ## Interfaces
 
-| Interface                                                                     | Description                                                                                         |
-| ----------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| [DAppMetaData](./react.dappmetadata.md)                                       | the metadata to pass to wallet connection dialog (may show up during the wallet-connection process) |
-| [MediaRendererProps](./react.mediarendererprops.md)                           | The props for the [MediaRenderer](./react.mediarenderer.md) component.                              |
-| [MediaType](./react.mediatype.md)                                             |                                                                                                     |
-| [SharedMediaProps](./react.sharedmediaprops.md)                               |                                                                                                     |
-| [ThirdwebNftMediaProps](./react.thirdwebnftmediaprops.md)                     | The props for the [ThirdwebNftMedia](./react.thirdwebnftmedia.md) component.                        |
-| [ThirdwebProviderProps](./react.thirdwebproviderprops.md)                     | The possible props for the ThirdwebProvider.                                                        |
-| [ThirdwebSDKProviderProps](./react.thirdwebsdkproviderprops.md)               |                                                                                                     |
-| [ThirdwebSDKProviderWagmiWrapper](./react.thirdwebsdkproviderwagmiwrapper.md) |                                                                                                     |
+| Interface                                                                     | Description                                                                                                         |
+| ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- |
+| [DAppMetaData](./react.dappmetadata.md)                                       | the metadata to pass to wallet connection dialog (may show up during the wallet-connection process)                 |
+| [LoginConfig](./react.loginconfig.md)                                         |                                                                                                                     |
+| [MediaRendererProps](./react.mediarendererprops.md)                           | The props for the [MediaRenderer](./react.mediarenderer.md) component.                                              |
+| [MediaType](./react.mediatype.md)                                             |                                                                                                                     |
+| [SharedMediaProps](./react.sharedmediaprops.md)                               |                                                                                                                     |
+| [ThirdwebAuthConfig](./react.thirdwebauthconfig.md)                           | **<i>(BETA)</i>** The configuration to use the react SDK with an \[auth\](https://portal.thirdweb.com/auth) server. |
+| [ThirdwebNftMediaProps](./react.thirdwebnftmediaprops.md)                     | The props for the [ThirdwebNftMedia](./react.thirdwebnftmedia.md) component.                                        |
+| [ThirdwebProviderProps](./react.thirdwebproviderprops.md)                     | The possible props for the ThirdwebProvider.                                                                        |
+| [ThirdwebSDKProviderProps](./react.thirdwebsdkproviderprops.md)               |                                                                                                                     |
+| [ThirdwebSDKProviderWagmiWrapper](./react.thirdwebsdkproviderwagmiwrapper.md) |                                                                                                                     |
 
 ## Variables
 
@@ -175,6 +185,7 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 | Type Alias                                                                    | Description                                                                                                               |
 | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
 | [AirdropNFTParams](./react.airdropnftparams.md)                               | **<i>(BETA)</i>** The params to pass to <code>useTransferBatchNFT</code>.                                                 |
+| [BurnNFTParams](./react.burnnftparams.md)                                     | **<i>(BETA)</i>** The params for the [useBurnNFT()](./react.useburnnft.md) hook mutation.                                 |
 | [BuyNowParams](./react.buynowparams.md)                                       |                                                                                                                           |
 | [ClaimIneligibilityParameters](./react.claimineligibilityparameters.md)       | **<i>(BETA)</i>** The options to be passed as the second parameter to the <code>useClaimIneligibilityReasons</code> hook. |
 | [ClaimNFTParams](./react.claimnftparams.md)                                   | **<i>(BETA)</i>** The params for the [useClaimNFT()](./react.useclaimnft.md) hook mutation.                               |
@@ -185,9 +196,12 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 | [MakeBidParams](./react.makebidparams.md)                                     |                                                                                                                           |
 | [MintNFTParams](./react.mintnftparams.md)                                     | **<i>(BETA)</i>** The params for the [useMintNFT()](./react.usemintnft.md) hook mutation.                                 |
 | [MintNFTReturnType](./react.mintnftreturntype.md)                             | **<i>(BETA)</i>** The return type of the [useMintNFT()](./react.usemintnft.md) hook.                                      |
+| [MintNFTSupplyParams](./react.mintnftsupplyparams.md)                         | **<i>(BETA)</i>** The params to pass to <code>useMintNFTSupply</code>.                                                    |
 | [NFT](./react.nft.md)                                                         | **<i>(BETA)</i>** A single NFT token                                                                                      |
 | [NFTContract](./react.nftcontract.md)                                         | **<i>(BETA)</i>** The possible NFT contract types.                                                                        |
 | [RequiredParam](./react.requiredparam.md)                                     | **<i>(BETA)</i>** Makes a parameter required to be passed, but still allowes it to be undefined.                          |
+| [SetClaimConditionsParams](./react.setclaimconditionsparams.md)               | **<i>(BETA)</i>** The params for the [useSetClaimConditions()](./react.usesetclaimconditions.md) hook mutation.           |
+| [TokenBurnParams](./react.tokenburnparams.md)                                 | **<i>(BETA)</i>** The parameters to pass to the burn function.                                                            |
 | [TokenParams](./react.tokenparams.md)                                         | **<i>(BETA)</i>** The parameters to pass to the mint and transfer functions.                                              |
 | [TransferNFTParams](./react.transfernftparams.md)                             | **<i>(BETA)</i>** The params to pass to <code>useTransferNFT</code>.                                                      |
 | [useNFTBalanceParams](./react.usenftbalanceparams.md)                         | **<i>(BETA)</i>** The params to pass to <code>useNftBalance</code>.                                                       |
