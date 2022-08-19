@@ -194,13 +194,13 @@
     "html_url": "https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app",
     "description": "Build an application on top of a custom contract using the thirdweb SDK",
     "created_at": "2022-06-15T06:28:28Z",
-    "updated_at": "2022-07-06T04:38:04Z",
+    "updated_at": "2022-08-18T15:09:30Z",
     "clone_url": "https://github.com/thirdweb-example/hardhat-thirdweb-deploy-app.git",
     "topics": [
       "thirdweb-deploy"
     ],
     "language": "JavaScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": ""
   },
@@ -418,7 +418,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-08-16T03:24:12Z",
+    "updated_at": "2022-08-18T22:51:05Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "nft-drop",
@@ -426,7 +426,7 @@
       "token"
     ],
     "language": "TypeScript",
-    "stargazers_count": 27,
+    "stargazers_count": 30,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -498,15 +498,28 @@
     "html_url": "https://github.com/thirdweb-example/signature-drop",
     "description": "Use the signature drop pre-built contract to claim NFTs under a claim phase as well as claim using signature-based minting!",
     "created_at": "2022-07-14T23:58:52Z",
-    "updated_at": "2022-08-04T15:38:38Z",
+    "updated_at": "2022-08-18T16:39:27Z",
     "clone_url": "https://github.com/thirdweb-example/signature-drop.git",
     "topics": [
       "signature-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": "http://signature-drop.thirdweb-example.com/"
+  },
+  {
+    "name": "thirdweb-auth-next",
+    "html_url": "https://github.com/thirdweb-example/thirdweb-auth-next",
+    "description": "Enable users to login to your backend with their wallet",
+    "created_at": "2022-08-18T20:13:40Z",
+    "updated_at": "2022-08-18T20:14:01Z",
+    "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-next.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
   },
   {
     "name": "thirdweb-deploy-hello-world",
@@ -528,11 +541,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2022-08-04T16:27:20Z",
+    "updated_at": "2022-08-18T15:07:51Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 9,
+    "stargazers_count": 11,
     "is_template": false,
     "homepage": null
   },

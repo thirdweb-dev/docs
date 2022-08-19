@@ -207,3 +207,19 @@ _Emitted when the registry is paused._
 | Name     | Type | Description |
 | -------- | ---- | ----------- |
 | isPaused | bool | undefined   |
+
+### PublisherProfileUpdated
+
+```solidity
+event PublisherProfileUpdated(address indexed publisher, string prevURI, string newURI)
+```
+
+_Emitted when a publisher updates their profile URI._
+
+#### Parameters
+
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| publisher `indexed` | address | undefined   |
+| prevURI             | string  | undefined   |
+| newURI              | string  | undefined   |
