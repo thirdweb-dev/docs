@@ -509,6 +509,19 @@
     "homepage": "http://signature-drop.thirdweb-example.com/"
   },
   {
+    "name": "thirdweb-auth-express",
+    "html_url": "https://github.com/thirdweb-example/thirdweb-auth-express",
+    "description": "Enable users to login to your backend with their wallet",
+    "created_at": "2022-08-19T15:40:00Z",
+    "updated_at": "2022-08-19T18:45:30Z",
+    "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-express.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "thirdweb-auth-next",
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-next",
     "description": "Enable users to login to your backend with their wallet",
@@ -517,6 +530,19 @@
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-next.git",
     "topics": [],
     "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
+    "name": "thirdweb-auth-supabase",
+    "html_url": "https://github.com/thirdweb-example/thirdweb-auth-supabase",
+    "description": "Enable users to login to your backend with their wallet, and store users in supabase. ",
+    "created_at": "2022-08-19T19:02:16Z",
+    "updated_at": "2022-08-19T19:02:16Z",
+    "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-supabase.git",
+    "topics": [],
+    "language": null,
     "stargazers_count": 0,
     "is_template": false,
     "homepage": null
