@@ -4,14 +4,14 @@
     "html_url": "https://github.com/thirdweb-example/community-rewards",
     "description": "Reward your community using NFTs and thirdweb's signature based minting.",
     "created_at": "2022-05-22T23:33:24Z",
-    "updated_at": "2022-07-26T21:12:57Z",
+    "updated_at": "2022-08-19T22:45:54Z",
     "clone_url": "https://github.com/thirdweb-example/community-rewards.git",
     "topics": [
       "nft-collection",
       "signature-based-minting"
     ],
     "language": "JavaScript",
-    "stargazers_count": 8,
+    "stargazers_count": 9,
     "is_template": false,
     "homepage": "https://community-rewards.thirdweb-example.com"
   },
