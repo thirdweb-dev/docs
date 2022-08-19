@@ -28,21 +28,19 @@ function EditMetaRow({
   lastUpdatedBy,
   formattedLastUpdatedAt,
 }) {
-  const isNotHomePage = editUrl.href !== "/";
-
   return (
     <div
       className={clsx(ThemeClassNames.docs.docFooterEditMetaRow, "row")}
       style={{ alignItems: "center" }}
     >
       <div className="col col--3">
-        {editUrl && isNotHomePage && <EditThisPage editUrl={editUrl} />}
+        {editUrl && <EditThisPage editUrl={editUrl} />}
       </div>
       <div
         className={clsx("col col--9", styles.lastUpdated)}
         style={{ display: "flex", justifyContent: "flex-end" }}
       >
-        {isNotHomePage && <FeedbackFooter />}
+        <FeedbackFooter />
       </div>
     </div>
   );
@@ -62,19 +60,23 @@ export default function DocItemFooter() {
   if (!canDisplayFooter) {
     return null;
   }
+
   return (
     <footer
       className={clsx(ThemeClassNames.docs.docFooter, "docusaurus-mt-lg")}
     >
       {canDisplayTagsRow && <TagsRow tags={tags} />}
-      {canDisplayEditMetaRow && (
-        <EditMetaRow
-          editUrl={editUrl}
-          lastUpdatedAt={lastUpdatedAt}
-          lastUpdatedBy={lastUpdatedBy}
-          formattedLastUpdatedAt={formattedLastUpdatedAt}
-        />
-      )}
+      {canDisplayEditMetaRow &&
+        editUrl !==
+          // TODO: this is bad - Hard code don't show the footer on the homepage
+          "https://github.com/thirdweb-dev/docs/edit/main/docs/onboarding/0 0 Home.mdx" && (
+          <EditMetaRow
+            editUrl={editUrl}
+            lastUpdatedAt={lastUpdatedAt}
+            lastUpdatedBy={lastUpdatedBy}
+            formattedLastUpdatedAt={formattedLastUpdatedAt}
+          />
+        )}
     </footer>
   );
 }
