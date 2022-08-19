@@ -62,14 +62,13 @@ Import the libraries we'll need:
 ```jsx
 // Importing libraries
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import {} from "dotenv/config";
 ```
 
 Instantiate and connect to the contract using the contract address found in the dashboard. Then export the contract.
 
 ```jsx
-// load your private key in a secure way (env variable, never commited to git)
-const privateKey = process.env.PRIVATE_KEY;
+// Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+const privateKey = "<your-private-key-here>";
 // instantiate the SDK based on your private key, with the desired chain to connect to
 const sdk = ThirdwebSDK.fromPrivateKey(privateKey, "goerli");
 
@@ -80,30 +79,6 @@ const editionDrop = sdk.getEditionDrop(editionDropAddress);
 
 export default editionDrop;
 ```
-
-You'll notice we are using the `process.env.PRIVATE_KEY` method to get the private key.
-
-To sign transactions from your wallet, you'll first need to export your wallet's private key and add it to an environment variable in this project.
-
-:::info How to export your private key
-
-Learn how to [export your private key](/guides/create-a-metamask-wallet#export-your-private-key) from your wallet.
-
-:::
-
-To do this, create a file called `.env` file at the root of your project, and add the following to it:
-
-```
-PRIVATE_KEY=your-private-key-here
-```
-
-:::warning
-
-Ensure you store and access your private key securely.
-
-- **Never** commit any file that may contain your private key to your source control.
-
-:::
 
 ## Create the NFT
 

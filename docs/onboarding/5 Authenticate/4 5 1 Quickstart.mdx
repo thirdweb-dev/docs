@@ -20,19 +20,11 @@ To do this, we need to create a new file at the top level of our project called 
 PRIVATE_KEY=your-private-key-here
 ```
 
-:::info How to export your private key
+:::warning Private Key Best Practices
 
-Learn how to [export your private key](/guides/create-a-metamask-wallet#export-your-private-key) from your wallet.
+It is not secure to store your private key in an environment variable.
 
-:::
-
-This is your "admin" wallet, which you can use to generate authentication tokens.
-
-:::warning
-
-Ensure you store and access your private key securely.
-
-- **Never** commit any file that may contain your private key to your source control.
+[Learn how to use a secret manager as we recommend here](/web3-sdk/set-up-the-sdk/securing-your-private-key)
 
 :::
 
@@ -167,7 +159,8 @@ if (!token) {
 }
 
 const sdk = ThirdwebSDK.fromPrivateKey(
-  process.env.ADMIN_PRIVATE_KEY as string,
+  // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+  "<your-private-key-here>"
   "mainnet",
 );
 

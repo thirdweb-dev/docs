@@ -66,9 +66,9 @@ Now, let's create and mint a new NFT inside of it. Fill out the details and make
 
 ## Making the website
 
-### Creating an nft card
+### Creating an NFT card
 
-To showcase our nft, we are going to create a simple card and we will get the data from the edition contract itself! So, inside `index.tsx` add the useEdition hook like this:
+To showcase our NFT, we are going to create a simple card and we will get the data from the edition contract itself! So, inside `index.tsx` add the useEdition hook like this:
 
 ```tsx
 const edition = useEdition("EDITION_CONTRACT_ADDRESS");
@@ -129,7 +129,7 @@ If the user is logged in we will show them this NFT instead of their address, so
 
 ### Creating the mint API
 
-We are going to use the signature minting on our backend to ensure that the address is present in the airtable, but first, let's get the signature minting working.
+We are going to use the signature minting on our backend to ensure that the address is present in the Airtable, but first, let's get the signature minting working.
 
 Create a new folder `api` in the pages folder and `generate-mint-sig.ts` inside it.
 
@@ -148,7 +148,7 @@ const generateMintSignature = async (
 export default generateMintSignature;
 ```
 
-This creates a basic api for us, if you now go to the [`api/generate-mint-sig`](http://localhost:3000/api/generate-mint-sig) endpoint you will get a response of `Gm wagmi`.
+This creates a basic API for us, if you now go to the [`api/generate-mint-sig`](http://localhost:3000/api/generate-mint-sig) endpoint you will get a response of `Gm wagmi`.
 
 ![Api response](./api-response.png)
 
@@ -156,30 +156,29 @@ Let's now initialize the SDK!
 
 ```ts
 const sdk = ThirdwebSDK.fromPrivateKey(
-  process.env.PRIVATE_KEY as string,
+  // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+  "<your-private-key-here>",
   "mumbai",
 );
 ```
 
-As you can see, we are using an environment variable to initialize the sdk.
-The variable is called `PRIVATE_KEY` which is the private key of the wallet.
-Create a new file `.env.local` and add your private key.
-
-```bash title=".env.local"
-PRIVATE_KEY=<private_key>
-```
-
-Let's see how to get this private key value.
-
 **Getting the wallet private key**
 
-In your metamask wallet, click on the three dots, then click account details. You will see an option to export private key there. Export your private key and paste it into the `PRIVATE_KEY` variable.
+In your metamask wallet, click on the three dots, then click account details. You will see an option to export private key there.
 
 ![Export private key](./export-pvt-key.png)
 
 This will give full access to your wallet to make sure to keep it secret!
 
-Finally, paste this in the `.env.local` file. Since we have changed the env variables we need to restart the server. So, cut the terminal and run `yarn dev` again.
+:::warning
+
+Using environment variables to store your private key is not secure.
+
+- **Never** commit any file that may contain your private key to your source control.
+
+[Learn more about securely accessing your private key](/web3-sdk/set-up-the-sdk/securing-your-private-key).
+
+:::
 
 We also need to import the `ThirdwebSDK`:
 
@@ -187,7 +186,7 @@ We also need to import the `ThirdwebSDK`:
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 ```
 
-**Generating the siganture mint**
+**Generating the signature mint**
 
 In the api we are going to use the sdk to get access to the edition contract and generate a mint signature:
 
@@ -343,7 +342,8 @@ const generateMintSignature = async (
     });
   } else {
     const sdk = ThirdwebSDK.fromPrivateKey(
-      process.env.PRIVATE_KEY as string,
+      // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+      "<your-private-key-here>",
       "mumbai",
     );
 
