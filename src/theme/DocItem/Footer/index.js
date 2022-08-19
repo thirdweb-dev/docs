@@ -1,12 +1,13 @@
 import React from "react";
 import clsx from "clsx";
 import { ThemeClassNames } from "@docusaurus/theme-common";
+import { useDoc } from "@docusaurus/theme-common/internal";
 import LastUpdated from "@theme/LastUpdated";
 import EditThisPage from "@theme/EditThisPage";
 import TagsListInline from "@theme/TagsListInline";
+import styles from "./styles.module.css";
 import FeedbackFooter from "@site/src/components/feedback/FeedbackFooter";
 
-import styles from "./styles.module.css";
 function TagsRow(props) {
   return (
     <div
@@ -44,9 +45,8 @@ function EditMetaRow({
     </div>
   );
 }
-export default function DocItemFooter(props) {
-  const { content: DocContent } = props;
-  const { metadata } = DocContent;
+export default function DocItemFooter() {
+  const { metadata } = useDoc();
   const {
     editUrl,
     lastUpdatedAt,
@@ -60,19 +60,23 @@ export default function DocItemFooter(props) {
   if (!canDisplayFooter) {
     return null;
   }
+
   return (
     <footer
       className={clsx(ThemeClassNames.docs.docFooter, "docusaurus-mt-lg")}
     >
       {canDisplayTagsRow && <TagsRow tags={tags} />}
-      {canDisplayEditMetaRow && (
-        <EditMetaRow
-          editUrl={editUrl}
-          lastUpdatedAt={lastUpdatedAt}
-          lastUpdatedBy={lastUpdatedBy}
-          formattedLastUpdatedAt={formattedLastUpdatedAt}
-        />
-      )}
+      {canDisplayEditMetaRow &&
+        editUrl !==
+          // TODO: this is bad - Hard code don't show the footer on the homepage
+          "https://github.com/thirdweb-dev/docs/edit/main/docs/onboarding/0 0 Home.mdx" && (
+          <EditMetaRow
+            editUrl={editUrl}
+            lastUpdatedAt={lastUpdatedAt}
+            lastUpdatedBy={lastUpdatedBy}
+            formattedLastUpdatedAt={formattedLastUpdatedAt}
+          />
+        )}
     </footer>
   );
 }
