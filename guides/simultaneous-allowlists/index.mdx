@@ -105,29 +105,10 @@ Let's now initialize the [thirdweb SDK](/web3-sdk)!
 
 ```ts
 const sdk = ThirdwebSDK.fromPrivateKey(
-  process.env.PRIVATE_KEY as string,
+  // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+  "<your-private-key-here>",
   "mumbai",
 );
-```
-
-As you can see, we are using an environment variable to initialize the sdk.
-The variable is called `PRIVATE_KEY` which is the private key of the wallet.
-Create a new file `.env.local` and add your private key.
-
-```bash title=".env.local"
-PRIVATE_KEY=<private_key>
-```
-
-:::info How to export your private key
-
-Learn how to [export your private key](/guides/create-a-metamask-wallet#export-your-private-key) from your wallet.
-
-:::
-
-To do this, create a file called `.env.local` at the root of your project, and add the following to it:
-
-```
-PRIVATE_KEY=your-private-key-here
 ```
 
 :::warning
@@ -135,6 +116,8 @@ PRIVATE_KEY=your-private-key-here
 Ensure you store and access your private key securely.
 
 - **Never** commit any file that may contain your private key to your source control.
+
+[Learn more about securely accessing your private key](/web3-sdk/set-up-the-sdk/securing-your-private-key).
 
 :::
 

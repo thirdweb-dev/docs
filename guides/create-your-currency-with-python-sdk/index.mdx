@@ -33,21 +33,13 @@ Use the following code in your terminal to install the thirdweb SDK in the proje
 pip install thirdweb-sdk
 ```
 
-We'll also use environment variables, so install the `python-dotenv` package too:
-
-```bash
-pip install python-dotenv
-```
-
 Now we can import the SDK, along with the other libraries we're going to use.
 
 ```python title="currency.py"
 from thirdweb import ThirdwebSDK
-from dotenv import load_dotenv
-import os
 ```
 
-To sign transactions from your wallet, we need to create a `.env` file and connect our wallet using its private key.
+To sign transactions from your wallet, we need to instantiate the SDK using our wallet's private key.
 
 :::info How to export your private key
 
@@ -55,28 +47,21 @@ Learn how to [export your private key](/guides/create-a-metamask-wallet#export-y
 
 :::
 
-To do this, create a file called `.env` in the same folder as your `currency.py` file, and add the following to it:
-
-```bash title=".env"
-PRIVATE_KEY=your-private-key-here
-```
-
 :::warning
 
 Ensure you store and access your private key securely.
 
 - **Never** commit any file that may contain your private key to your source control.
 
+[Learn more about securely accessing your private key](/web3-sdk/set-up-the-sdk/securing-your-private-key).
+
 :::
 
 Now we can initialize our SDK:
 
 ```python
-# Load environment variables into this file
-load_dotenv()
-
-# This PRIVATE KEY is coming from your environment variables. Make sure to never put it in a tracked file or share it with anyone.
-PRIVATE_KEY = os.environ.get("PRIVATE_KEY")
+# Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+PRIVATE_KEY = "<your-private-key-here>"
 
 # Set the network you want to operate on, or add your own RPC URL here
 NETWORK = "mumbai"
