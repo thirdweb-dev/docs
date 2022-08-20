@@ -627,5 +627,18 @@
     "stargazers_count": 2,
     "is_template": true,
     "homepage": "https://vite-typescript-starter.thirdweb-example.com"
+  },
+  {
+    "name": "web3button",
+    "html_url": "https://github.com/thirdweb-example/web3button",
+    "description": null,
+    "created_at": "2022-08-20T00:27:11Z",
+    "updated_at": "2022-08-20T01:12:27Z",
+    "clone_url": "https://github.com/thirdweb-example/web3button.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": null
   }
 ]
