@@ -12,31 +12,22 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-ProfileSchemaOutput: z.ZodObject<
-  z.extendShape<
-    {
-      name: z.ZodOptional<z.ZodString>;
-      bio: z.ZodOptional<z.ZodString>;
-      avatar: z.ZodOptional<
-        z.ZodNullable<z.ZodUnion<[z.ZodTypeAny, z.ZodString]>>
-      >;
-      website: z.ZodOptional<z.ZodString>;
-      twitter: z.ZodOptional<z.ZodString>;
-      telegram: z.ZodOptional<z.ZodString>;
-      facebook: z.ZodOptional<z.ZodString>;
-      github: z.ZodOptional<z.ZodString>;
-      medium: z.ZodOptional<z.ZodString>;
-      linkedin: z.ZodOptional<z.ZodString>;
-      reddit: z.ZodOptional<z.ZodString>;
-      discord: z.ZodOptional<z.ZodString>;
-    },
-    {
-      avatar: z.ZodOptional<z.ZodNullable<z.ZodString>>;
-    }
-  >,
-  "strip",
-  z.ZodTypeAny,
-  {
+ProfileSchemaOutput: z.ZodObject<z.extendShape<{
+    name: z.ZodOptional<z.ZodString>;
+    bio: z.ZodOptional<z.ZodString>;
+    avatar: z.ZodOptional<z.ZodNullable<z.ZodUnion<[z.ZodTypeAny, z.ZodString]>>>;
+    website: z.ZodOptional<z.ZodString>;
+    twitter: z.ZodOptional<z.ZodString>;
+    telegram: z.ZodOptional<z.ZodString>;
+    facebook: z.ZodOptional<z.ZodString>;
+    github: z.ZodOptional<z.ZodString>;
+    medium: z.ZodOptional<z.ZodString>;
+    linkedin: z.ZodOptional<z.ZodString>;
+    reddit: z.ZodOptional<z.ZodString>;
+    discord: z.ZodOptional<z.ZodString>;
+}, {
+    avatar: z.ZodOptional<z.ZodNullable<z.ZodString>>;
+}>, "strip", z.ZodTypeAny, {
     name?: string | undefined;
     bio?: string | undefined;
     avatar?: string | null | undefined;
@@ -49,8 +40,7 @@ ProfileSchemaOutput: z.ZodObject<
     linkedin?: string | undefined;
     reddit?: string | undefined;
     discord?: string | undefined;
-  },
-  {
+}, {
     name?: string | undefined;
     bio?: string | undefined;
     avatar?: string | null | undefined;
@@ -63,6 +53,5 @@ ProfileSchemaOutput: z.ZodObject<
     linkedin?: string | undefined;
     reddit?: string | undefined;
     discord?: string | undefined;
-  }
->;
+}>
 ```
