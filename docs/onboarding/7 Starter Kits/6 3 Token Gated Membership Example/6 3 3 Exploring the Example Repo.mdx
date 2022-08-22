@@ -15,17 +15,14 @@ We'll explore how we use the SDK to:
 
 ## Restricting Access to the Homepage
 
-When the user tries to visit the homepage `/`, we check on the server-side to see if they have an authenticated token:
+When the user tries to visit the homepage `/`, we check on the server-side to see if they are authenticated:
 
 ```jsx title="index.js"
 // This gets called on every request
 export async function getServerSideProps(context) {
-  // Check to see if they have an authentication cookie
-  const parsedCookies = cookie?.parse(context?.req?.headers?.cookie || "");
-  const authToken = parsedCookies?.["access_token"];
+  const user = await getUser(context.req);
 
-  // if there is no auth token, redirect them to the login page
-  if (!authToken) {
+  if (!user) {
     return {
       redirect: {
         destination: "/login",
@@ -39,28 +36,11 @@ export async function getServerSideProps(context) {
 ```
 
 If they don't, we redirect them to the login page.
+
 However, if they are authenticated, we then also check to see if they hold an NFT from our collection, and redirect them
 to the login page if they don't.
 
 ```jsx title="index.js"
-// Instantiate our SDK
-// Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
-const sdk = ThirdwebSDK.fromPrivateKey("<your-private-key-here>", "mumbai");
-
-// Authenticate token with the SDK
-const domain = domainName;
-const address = await sdk.auth.authenticate(domain, authToken);
-
-// If the auth token is invalid, redirect them to the login page
-if (!address) {
-  return {
-    redirect: {
-      destination: "/login",
-      permanent: false,
-    },
-  };
-}
-
 const hasNft = await checkBalance(sdk, address);
 
 // If they don't have an NFT, redirect them to the login page
@@ -72,11 +52,6 @@ if (!hasNft) {
     },
   };
 }
-
-// Finally, return the props
-return {
-  props: {},
-};
 ```
 
 Here, the `checkBalance` function is a helper function that we use to check if the user has an NFT from our collection.
@@ -89,6 +64,7 @@ export default async function checkBalance(sdk, address) {
     contractAddress, // replace this with your contract address
   );
 
+  // Here, "0" is checking the balance of token ID 0.
   const balance = await editionDrop.balanceOf(address, 0);
 
   // gt = greater than
@@ -98,73 +74,77 @@ export default async function checkBalance(sdk, address) {
 
 ## The Login Page
 
-On the `/login` route, we have a button that users can press to call the `signIn` function:
+On the `/login` route, we have a button that users can press to call the `login` function that we import from the React SDK:
 
 ```jsx title="login.js"
-// Function to make a request to our /api/login route to check if we own an NFT.
-async function signIn() {
-  // Add the domain of the application users will login to, this will be used throughout the login process
-  const domain = domainName;
-  // Generate a signed login payload for the connected wallet to authenticate with
-  const payload = await sdk.auth.login(domain);
+const login = useLogin();
 
-  // Make api request to server with the login payload as a query param
-  window.location = `/api/login?payload=${JSON.stringify(payload)}`;
+// ...
+
+{
+  address ? (
+    <>
+      <button onClick={signIn}>Sign In</button>
+    </>
+  ) : (
+    <>
+      <button onClick={() => connectWithMetamask()}>Connect Wallet</button>
+    </>
+  );
 }
 ```
 
-This function takes them to our API route, where we:
-
-- Verify the login payload they sent us from the `sdk.auth.login` function is valid:
-
-```jsx title="api/login.js"
-// Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
-const sdk = ThirdwebSDK.fromPrivateKey("<your-private-key-here>", "mumbai");
-
-// Get signed login payload from the frontend
-const payload = JSON.parse(req.query.payload);
-
-const domain = "example.org";
-// Verify the token and get the address, so we can check their NFT balance
-const address = sdk.auth.verify(domain, payload);
-```
-
-- Check their balance using the `checkBalance` helper function we made
-
-```jsx title="api/login.js"
-const hasNft = await checkBalance(sdk, address);
-```
-
-- If they do have an NFT, generate an **auth token** for them and set it as a cookie
-
-```jsx title="api/login.js"
-const hasNft = await checkBalance(sdk, address);
-
-if (!hasNft) {
-  return res.status(401).json({
-    error: "You don't own an NFT and cannot access this page.",
-  });
-}
-
-// At this point, the user has authenticated and owns at least 1 NFT.
-// Generate an auth token for them
-const token = await sdk.auth.generateAuthToken(domain, payload);
-
-// Securely set httpOnly cookie on request to prevent XSS on frontend
-// And set path to / to enable access_token usage on all endpoints
-res.setHeader(
-  "Set-Cookie",
-  serialize("access_token", token, {
-    path: "/",
-    httpOnly: true,
-    secure: true,
-    sameSite: "strict",
-  }),
-);
-```
-
-- Redirect them to the homepage (or show them an error screen if they don't have an NFT)
+Inside the [\_app.jsx](./page/_app.jsx) file, we configured the redirect users to the `/` route after they successfully sign in:
 
 ```jsx
-return res.redirect("/", 302);
+function MyApp({ Component, pageProps }) {
+  return (
+    <ThirdwebProvider
+      desiredChainId={activeChainId}
+      authConfig={{
+        domain: domainName,
+        authUrl: "/api/auth",
+        loginRedirect: "/", // redirect users to the home page after they successfully sign in
+      }}
+    >
+      <Component {...pageProps} />
+    </ThirdwebProvider>
+  );
+}
+
+export default MyApp;
+```
+
+Inside the [\_app.jsx](./page/_app.jsx) file, we configured the redirect users to the `/` route after they successfully sign in, meaning
+once the user has authenticated (signed the message), they are redirected to the home page `/`,
+and the `getServersideProps` logic runs again; checking to see if they have an NFT balance greater than `0`.
+
+```jsx title="index.js"
+function MyApp({ Component, pageProps }) {
+  return (
+    <ThirdwebProvider
+      desiredChainId={activeChainId}
+      authConfig={{
+        domain: domainName,
+        authUrl: "/api/auth",
+        loginRedirect: "/", // redirect users to the home page after they successfully sign in
+      }}
+    >
+      <Component {...pageProps} />
+    </ThirdwebProvider>
+  );
+}
+
+export default MyApp;
+```
+
+Finally, on the home page, we have a `Sign Out` button for the user, which calls the `logout`
+function that we imported from the Auth SDK, and sends the user back to the `/login` route.
+
+```jsx
+const logout = useLogout();
+
+// ...
+
+<button onClick={logout}>Logout</button>;
 ```
