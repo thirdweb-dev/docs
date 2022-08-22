@@ -17,6 +17,8 @@ The `ERC20Base` smart contract implements the ERC20 standard. It includes the fo
 function DOMAIN_SEPARATOR() external view returns (bytes32)
 ```
 
+_See {IERC20Permit-DOMAIN_SEPARATOR}._
+
 #### Returns
 
 | Name | Type    | Description |
@@ -26,15 +28,17 @@ function DOMAIN_SEPARATOR() external view returns (bytes32)
 ### allowance
 
 ```solidity
-function allowance(address, address) external view returns (uint256)
+function allowance(address owner, address spender) external view returns (uint256)
 ```
+
+_See {IERC20-allowance}._
 
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | address | undefined   |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| owner   | address | undefined   |
+| spender | address | undefined   |
 
 #### Returns
 
@@ -47,6 +51,8 @@ function allowance(address, address) external view returns (uint256)
 ```solidity
 function approve(address spender, uint256 amount) external nonpayable returns (bool)
 ```
+
+_See {IERC20-approve}. NOTE: If `amount` is the maximum `uint256`, the allowance is not updated on `transferFrom`. This is semantically equivalent to an infinite approval. Requirements: - `spender` cannot be the zero address._
 
 #### Parameters
 
@@ -64,14 +70,16 @@ function approve(address spender, uint256 amount) external nonpayable returns (b
 ### balanceOf
 
 ```solidity
-function balanceOf(address) external view returns (uint256)
+function balanceOf(address account) external view returns (uint256)
 ```
+
+_See {IERC20-balanceOf}._
 
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| account | address | undefined   |
 
 #### Returns
 
@@ -101,6 +109,8 @@ _Caller should own the `_amount` of tokens._
 function contractURI() external view returns (string)
 ```
 
+Returns the contract metadata URI.
+
 #### Returns
 
 | Name | Type   | Description |
@@ -113,11 +123,55 @@ function contractURI() external view returns (string)
 function decimals() external view returns (uint8)
 ```
 
+_Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless this function is overridden; NOTE: This information is only used for *display* purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}._
+
 #### Returns
 
 | Name | Type  | Description |
 | ---- | ----- | ----------- |
 | \_0  | uint8 | undefined   |
+
+### decreaseAllowance
+
+```solidity
+function decreaseAllowance(address spender, uint256 subtractedValue) external nonpayable returns (bool)
+```
+
+_Atomically decreases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`._
+
+#### Parameters
+
+| Name            | Type    | Description |
+| --------------- | ------- | ----------- |
+| spender         | address | undefined   |
+| subtractedValue | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
+
+### increaseAllowance
+
+```solidity
+function increaseAllowance(address spender, uint256 addedValue) external nonpayable returns (bool)
+```
+
+_Atomically increases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address._
+
+#### Parameters
+
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| spender    | address | undefined   |
+| addedValue | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### mint
 
@@ -142,25 +196,29 @@ _The logic in the `_canMint` function determines whether the caller is authorize
 function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 ```
 
+Receives and executes a batch of function calls on this contract.
+
 _Receives and executes a batch of function calls on this contract._
 
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| data | bytes[] | undefined   |
+| Name | Type    | Description                                                          |
+| ---- | ------- | -------------------------------------------------------------------- |
+| data | bytes[] | The bytes data that makes up the batch of function calls to execute. |
 
 #### Returns
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| results | bytes[] | undefined   |
+| Name    | Type    | Description                                                                      |
+| ------- | ------- | -------------------------------------------------------------------------------- |
+| results | bytes[] | The bytes data that makes up the result of the batch of function calls executed. |
 
 ### name
 
 ```solidity
 function name() external view returns (string)
 ```
+
+_Returns the name of the token._
 
 #### Returns
 
@@ -171,14 +229,16 @@ function name() external view returns (string)
 ### nonces
 
 ```solidity
-function nonces(address) external view returns (uint256)
+function nonces(address owner) external view returns (uint256)
 ```
+
+_See {IERC20Permit-nonces}._
 
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| owner | address | undefined   |
 
 #### Returns
 
@@ -192,7 +252,7 @@ function nonces(address) external view returns (uint256)
 function owner() external view returns (address)
 ```
 
-_Returns the owner of the contract._
+Returns the owner of the contract.
 
 #### Returns
 
@@ -205,6 +265,8 @@ _Returns the owner of the contract._
 ```solidity
 function permit(address owner, address spender, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s) external nonpayable
 ```
+
+_See {IERC20Permit-permit}._
 
 #### Parameters
 
@@ -224,13 +286,15 @@ function permit(address owner, address spender, uint256 value, uint256 deadline,
 function setContractURI(string _uri) external nonpayable
 ```
 
-_Lets a contract admin set the URI for contract-level metadata._
+Lets a contract admin set the URI for contract-level metadata.
+
+_Caller should be authorized to setup contractURI, e.g. contract admin. See {\_canSetContractURI}. Emits {ContractURIUpdated Event}._
 
 #### Parameters
 
-| Name  | Type   | Description |
-| ----- | ------ | ----------- |
-| \_uri | string | undefined   |
+| Name  | Type   | Description                                                           |
+| ----- | ------ | --------------------------------------------------------------------- |
+| \_uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
 ### setOwner
 
@@ -238,19 +302,21 @@ _Lets a contract admin set the URI for contract-level metadata._
 function setOwner(address _newOwner) external nonpayable
 ```
 
-_Lets a contract admin set a new owner for the contract. The new owner must be a contract admin._
+Lets an authorized wallet set a new owner for the contract.
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_newOwner | address | undefined   |
+| Name       | Type    | Description                                          |
+| ---------- | ------- | ---------------------------------------------------- |
+| \_newOwner | address | The address to set as the new owner of the contract. |
 
 ### symbol
 
 ```solidity
 function symbol() external view returns (string)
 ```
+
+_Returns the symbol of the token, usually a shorter version of the name._
 
 #### Returns
 
@@ -264,6 +330,8 @@ function symbol() external view returns (string)
 function totalSupply() external view returns (uint256)
 ```
 
+_See {IERC20-totalSupply}._
+
 #### Returns
 
 | Name | Type    | Description |
@@ -275,6 +343,8 @@ function totalSupply() external view returns (uint256)
 ```solidity
 function transfer(address to, uint256 amount) external nonpayable returns (bool)
 ```
+
+_See {IERC20-transfer}. Requirements: - `to` cannot be the zero address. - the caller must have a balance of at least `amount`._
 
 #### Parameters
 
@@ -295,6 +365,8 @@ function transfer(address to, uint256 amount) external nonpayable returns (bool)
 function transferFrom(address from, address to, uint256 amount) external nonpayable returns (bool)
 ```
 
+_See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `from` and `to` cannot be the zero address. - `from` must have a balance of at least `amount`. - the caller must have allowance for `from`&#39;s tokens of at least `amount`._
+
 #### Parameters
 
 | Name   | Type    | Description |
@@ -314,7 +386,7 @@ function transferFrom(address from, address to, uint256 amount) external nonpaya
 ### Approval
 
 ```solidity
-event Approval(address indexed owner, address indexed spender, uint256 amount)
+event Approval(address indexed owner, address indexed spender, uint256 value)
 ```
 
 #### Parameters
@@ -323,7 +395,7 @@ event Approval(address indexed owner, address indexed spender, uint256 amount)
 | ----------------- | ------- | ----------- |
 | owner `indexed`   | address | undefined   |
 | spender `indexed` | address | undefined   |
-| amount            | uint256 | undefined   |
+| value             | uint256 | undefined   |
 
 ### ContractURIUpdated
 
@@ -354,7 +426,7 @@ event OwnerUpdated(address indexed prevOwner, address indexed newOwner)
 ### Transfer
 
 ```solidity
-event Transfer(address indexed from, address indexed to, uint256 amount)
+event Transfer(address indexed from, address indexed to, uint256 value)
 ```
 
 #### Parameters
@@ -363,4 +435,4 @@ event Transfer(address indexed from, address indexed to, uint256 amount)
 | -------------- | ------- | ----------- |
 | from `indexed` | address | undefined   |
 | to `indexed`   | address | undefined   |
-| amount         | uint256 | undefined   |
+| value          | uint256 | undefined   |
