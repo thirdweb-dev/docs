@@ -37,7 +37,7 @@ const typescript = JSON.parse(
 
 const react = JSON.parse(
   fs.readFileSync(
-    `${process.cwd()}/submodules/react/docs/snippets.json`,
+    `${process.cwd()}/submodules/react/packages/thirdweb-react/docs/snippets.json`,
     "utf8",
   ),
 );
