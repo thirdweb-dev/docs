@@ -9,7 +9,7 @@ const { readdir, createReadStream, writeFile, readFile } = pkg;
 
 const outDir = "./docs/react";
 const packageRoot = "./submodules/react";
-const inDir = packageRoot + "/docs";
+const inDir = packageRoot + "/packages/thirdweb-react/docs";
 const readmePath = packageRoot + "/README.md";
 
 pkg.rmdirSync(outDir, { recursive: true, force: true });

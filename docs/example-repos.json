@@ -4,14 +4,14 @@
     "html_url": "https://github.com/thirdweb-example/community-rewards",
     "description": "Reward your community using NFTs and thirdweb's signature based minting.",
     "created_at": "2022-05-22T23:33:24Z",
-    "updated_at": "2022-07-26T21:12:57Z",
+    "updated_at": "2022-08-19T22:45:54Z",
     "clone_url": "https://github.com/thirdweb-example/community-rewards.git",
     "topics": [
       "nft-collection",
       "signature-based-minting"
     ],
     "language": "JavaScript",
-    "stargazers_count": 8,
+    "stargazers_count": 9,
     "is_template": false,
     "homepage": "https://community-rewards.thirdweb-example.com"
   },
@@ -344,7 +344,7 @@
     "html_url": "https://github.com/thirdweb-example/next-javascript-starter",
     "description": "thirdweb starter project with Next.js & JavaScript",
     "created_at": "2022-03-17T23:05:32Z",
-    "updated_at": "2022-08-16T09:18:28Z",
+    "updated_at": "2022-08-21T09:50:40Z",
     "clone_url": "https://github.com/thirdweb-example/next-javascript-starter.git",
     "topics": [
       "javascript",
@@ -353,7 +353,7 @@
       "starter-kit"
     ],
     "language": "JavaScript",
-    "stargazers_count": 15,
+    "stargazers_count": 14,
     "is_template": true,
     "homepage": "https://next-javascript-starter.thirdweb-example.com"
   },
@@ -509,6 +509,19 @@
     "homepage": "http://signature-drop.thirdweb-example.com/"
   },
   {
+    "name": "thirdweb-auth-express",
+    "html_url": "https://github.com/thirdweb-example/thirdweb-auth-express",
+    "description": "Enable users to login to your backend with their wallet",
+    "created_at": "2022-08-19T15:40:00Z",
+    "updated_at": "2022-08-19T18:45:30Z",
+    "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-express.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "thirdweb-auth-next",
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-next",
     "description": "Enable users to login to your backend with their wallet",
@@ -517,6 +530,19 @@
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-next.git",
     "topics": [],
     "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
+    "name": "thirdweb-auth-supabase",
+    "html_url": "https://github.com/thirdweb-example/thirdweb-auth-supabase",
+    "description": "Enable users to login to your backend with their wallet, and store users in supabase. ",
+    "created_at": "2022-08-19T19:02:16Z",
+    "updated_at": "2022-08-19T19:02:16Z",
+    "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-supabase.git",
+    "topics": [],
+    "language": null,
     "stargazers_count": 0,
     "is_template": false,
     "homepage": null
@@ -601,5 +627,18 @@
     "stargazers_count": 2,
     "is_template": true,
     "homepage": "https://vite-typescript-starter.thirdweb-example.com"
+  },
+  {
+    "name": "web3button",
+    "html_url": "https://github.com/thirdweb-example/web3button",
+    "description": null,
+    "created_at": "2022-08-20T00:27:11Z",
+    "updated_at": "2022-08-20T01:12:27Z",
+    "clone_url": "https://github.com/thirdweb-example/web3button.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": null
   }
 ]
