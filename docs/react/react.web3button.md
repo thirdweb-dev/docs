@@ -12,5 +12,5 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-Web3Button: React.FC<PropsWithChildren<Web3ButtonProps>>
+Web3Button: React.FC<PropsWithChildren<Web3ButtonProps>>;
 ```
