@@ -360,6 +360,10 @@
     {
       "source": "/contracts-sdk/contract-extensions/signatureminting",
       "destination": "/contracts-sdk/contract-extensions/signatureminterc721"
+    },
+    {
+      "source": "/guides/sign-in-with-ethereum-using-thirdweb-connectwallet",
+      "destination": "/auth"
     }
   ]
 }

@@ -12,5 +12,5 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-ConnectWallet: React.FC<ConnectWalletProps>
+ConnectWallet: React.FC<ConnectWalletProps>;
 ```
