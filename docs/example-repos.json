@@ -1,5 +1,18 @@
 [
   {
+    "name": "artblocks",
+    "html_url": "https://github.com/thirdweb-example/artblocks",
+    "description": "Create Generative Art NFTs with centralized metadata using the Contracts SDK",
+    "created_at": "2022-08-23T02:16:31Z",
+    "updated_at": "2022-08-23T02:21:29Z",
+    "clone_url": "https://github.com/thirdweb-example/artblocks.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "community-rewards",
     "html_url": "https://github.com/thirdweb-example/community-rewards",
     "description": "Reward your community using NFTs and thirdweb's signature based minting.",
@@ -14,6 +27,19 @@
     "stargazers_count": 9,
     "is_template": false,
     "homepage": "https://community-rewards.thirdweb-example.com"
+  },
+  {
+    "name": "connect-wallet-button",
+    "html_url": "https://github.com/thirdweb-example/connect-wallet-button",
+    "description": "Learn how to use the ConnectWallet Button component from the React SDK!",
+    "created_at": "2022-08-23T04:29:36Z",
+    "updated_at": "2022-08-23T05:05:07Z",
+    "clone_url": "https://github.com/thirdweb-example/connect-wallet-button.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "connect-wallet-button-kappa.vercel.app"
   },
   {
     "name": "contract-hub",
@@ -369,13 +395,13 @@
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2022-08-07T22:50:00Z",
+    "updated_at": "2022-08-23T07:38:26Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 32,
+    "stargazers_count": 33,
     "is_template": false,
     "homepage": "https://custom-minting-page.thirdweb-example.com"
   },
@@ -465,7 +491,7 @@
     "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2022-08-13T18:22:07Z",
+    "updated_at": "2022-08-23T14:37:51Z",
     "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
@@ -474,7 +500,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 13,
+    "stargazers_count": 14,
     "is_template": false,
     "homepage": "https://signature-based-minting.thirdweb-example.com"
   },
@@ -567,11 +593,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2022-08-18T15:07:51Z",
+    "updated_at": "2022-08-23T10:21:47Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 11,
+    "stargazers_count": 12,
     "is_template": false,
     "homepage": null
   },
@@ -631,14 +657,16 @@
   {
     "name": "web3button",
     "html_url": "https://github.com/thirdweb-example/web3button",
-    "description": null,
+    "description": "Learn how to use the Web3Button component from the thirdweb React SDK!",
     "created_at": "2022-08-20T00:27:11Z",
-    "updated_at": "2022-08-22T09:36:40Z",
+    "updated_at": "2022-08-23T04:19:18Z",
     "clone_url": "https://github.com/thirdweb-example/web3button.git",
-    "topics": [],
+    "topics": [
+      "ui-components"
+    ],
     "language": "JavaScript",
     "stargazers_count": 2,
     "is_template": false,
-    "homepage": null
+    "homepage": "https://web3button.thirdweb-example.com/"
   }
 ]
