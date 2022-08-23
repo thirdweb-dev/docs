@@ -9,8 +9,28 @@ displayed_sidebar: react
 
 ## Web3Button variable
 
+> This feature is currently in beta and may change based on feedback that we receive.
+
+A component that allows the user to call an on-chain function on a contract.
+
+The button has to be wrapped in a `ThirdwebProvider` in order to function.
+
+## Example
+
+```javascript
+import { Web3Button } from "@thirdweb-dev/react";
+
+const App = () => {
+  return (
+    <div>
+      <Web3Button contractAddress="0x..." functionName="mint" />
+    </div>
+  );
+};
+```
+
 **Signature:**
 
 ```typescript
-Web3Button: React.FC<PropsWithChildren<Web3ButtonProps>>
+Web3Button: React.FC<PropsWithChildren<Web3ButtonProps>>;
 ```
