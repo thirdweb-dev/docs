@@ -50,7 +50,6 @@ displayed_sidebar: typescript
 | [Erc721Supply](./sdk.erc721supply.md)                                               | List ERC721 NFTs                                                                                                                                                                                   |
 | [Erc721WithQuantitySignatureMintable](./sdk.erc721withquantitysignaturemintable.md) | Enables generating dynamic ERC721 NFTs with rules and an associated signature, which can then be minted by anyone securely                                                                         |
 | [GasCostEstimator](./sdk.gascostestimator.md)                                       | Estimates the gas cost of Contract calls                                                                                                                                                           |
-| [IpfsStorage](./sdk.ipfsstorage.md)                                                 | IPFS Storage implementation, accepts custom IPFS gateways                                                                                                                                          |
 | [Marketplace](./sdk.marketplace.md)                                                 | Create your own whitelabel marketplace that enables users to buy and sell any digital assets.                                                                                                      |
 | [MarketplaceAuction](./sdk.marketplaceauction.md)                                   | Handles auction listings                                                                                                                                                                           |
 | [MarketplaceDirect](./sdk.marketplacedirect.md)                                     | Handles direct listings                                                                                                                                                                            |
@@ -58,7 +57,6 @@ displayed_sidebar: typescript
 | [NFTCollection](./sdk.nftcollection.md)                                             | Create a collection of one-of-one NFTs.                                                                                                                                                            |
 | [NFTDrop](./sdk.nftdrop.md)                                                         | Setup a collection of one-of-one NFTs that are minted as users claim them.                                                                                                                         |
 | [Pack](./sdk.pack.md)                                                               | Create lootboxes of NFTs with rarity based open mechanics.                                                                                                                                         |
-| [RemoteStorage](./sdk.remotestorage.md)                                             | Fetch and upload files to IPFS or any other storage.                                                                                                                                               |
 | [SignatureDrop](./sdk.signaturedrop.md)                                             | Setup a collection of NFTs where when it comes to minting, you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.. |
 | [SmartContract](./sdk.smartcontract.md)                                             | **<i>(BETA)</i>** Custom contract dynamic class with feature detection                                                                                                                             |
 | [Split](./sdk.split.md)                                                             | Create custom royalty splits to distribute funds.                                                                                                                                                  |
@@ -88,6 +86,7 @@ displayed_sidebar: typescript
 | --------------------------------------------------------------------- | ------------------------------------------ |
 | [getNativeTokenByChainId(chainId)](./sdk.getnativetokenbychainid.md)  | Returns the native token for a given chain |
 | [getReadOnlyProvider(network, chainId)](./sdk.getreadonlyprovider.md) |                                            |
+| [isDowngradeVersion(current, next)](./sdk.isdowngradeversion.md)      |                                            |
 
 ## Interfaces
 
@@ -98,7 +97,6 @@ displayed_sidebar: typescript
 | [DirectListing](./sdk.directlisting.md)                                         | Represents a marketplace direct listing.                                                             |
 | [EventQueryFilter](./sdk.eventqueryfilter.md)                                   | Filters for querying past events                                                                     |
 | [GaslessTransaction](./sdk.gaslesstransaction.md)                               | transaction message contains information that's needed to execute a gasless transaction              |
-| [IStorage](./sdk.istorage.md)                                                   | Interface for any storage provider                                                                   |
 | [MarketplaceContractDeployMetadata](./sdk.marketplacecontractdeploymetadata.md) | Options for deploying a Marketplace contract                                                         |
 | [MarketplaceFilter](./sdk.marketplacefilter.md)                                 |                                                                                                      |
 | [MultiwrapContractDeployMetadata](./sdk.multiwrapcontractdeploymetadata.md)     | Options for deploying an Multiwrap contract                                                          |
@@ -136,83 +134,89 @@ displayed_sidebar: typescript
 
 ## Type Aliases
 
-| Type Alias                                                                              | Description                                                                                                |
-| --------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| [AbiEvent](./sdk.abievent.md)                                                           |                                                                                                            |
-| [AbiFunction](./sdk.abifunction.md)                                                     |                                                                                                            |
-| [AirdropInput](./sdk.airdropinput.md)                                                   | Input model to pass a list of addresses + amount to transfer to each one                                   |
-| [Amount](./sdk.amount.md)                                                               | Represents a currency amount already formatted. ie. "1" for 1 ether.                                       |
-| [BufferOrStringWithName](./sdk.bufferorstringwithname.md)                               |                                                                                                            |
-| [ClaimCondition](./sdk.claimcondition.md)                                               | Represents a claim condition fetched from the SDK                                                          |
-| [ClaimConditionInput](./sdk.claimconditioninput.md)                                     | Input model to create a claim condition with optional snapshot of wallets                                  |
-| [ClaimConditionsForToken](./sdk.claimconditionsfortoken.md)                             |                                                                                                            |
-| [ClaimVerification](./sdk.claimverification.md)                                         |                                                                                                            |
-| [ContractEvent](./sdk.contractevent.md)                                                 | Standardized return type for contract events that returns event arguments                                  |
-| [ContractForContractType](./sdk.contractforcontracttype.md)                             |                                                                                                            |
-| [ContractParam](./sdk.contractparam.md)                                                 |                                                                                                            |
-| [ContractSource](./sdk.contractsource.md)                                               |                                                                                                            |
-| [ContractType](./sdk.contracttype.md)                                                   |                                                                                                            |
-| [Currency](./sdk.currency.md)                                                           |                                                                                                            |
-| [CurrencyValue](./sdk.currencyvalue.md)                                                 | Currency metadata &amp; value.                                                                             |
-| [EditionMetadata](./sdk.editionmetadata.md)                                             |                                                                                                            |
-| [EditionMetadataInput](./sdk.editionmetadatainput.md)                                   |                                                                                                            |
-| [EditionMetadataOrUri](./sdk.editionmetadataoruri.md)                                   |                                                                                                            |
-| [EditionMetadataOwner](./sdk.editionmetadataowner.md)                                   |                                                                                                            |
-| [ERC1155Wrappable](./sdk.erc1155wrappable.md)                                           | Represents a certain amount of ERC1155 NFTs that can be wrapped                                            |
-| [ERC20Wrappable](./sdk.erc20wrappable.md)                                               | Represents a certain amount of ERC20 tokens that can be wrapped                                            |
-| [ERC721Wrappable](./sdk.erc721wrappable.md)                                             | Represents a ERC721 NFT that can be wrapped                                                                |
-| [ExtraPublishMetadata](./sdk.extrapublishmetadata.md)                                   |                                                                                                            |
-| [FileOrBuffer](./sdk.fileorbuffer.md)                                                   |                                                                                                            |
-| [FilledConditionInput](./sdk.filledconditioninput.md)                                   |                                                                                                            |
-| [FilledSignature721WithQuantity](./sdk.filledsignature721withquantity.md)               |                                                                                                            |
-| [FilledSignaturePayload1155](./sdk.filledsignaturepayload1155.md)                       |                                                                                                            |
-| [FilledSignaturePayload1155WithTokenId](./sdk.filledsignaturepayload1155withtokenid.md) |                                                                                                            |
-| [FilledSignaturePayload20](./sdk.filledsignaturepayload20.md)                           |                                                                                                            |
-| [FilledSignaturePayload721](./sdk.filledsignaturepayload721.md)                         |                                                                                                            |
-| [ForwardRequestMessage](./sdk.forwardrequestmessage.md)                                 | Forward Request Message that's used for gasless transaction                                                |
-| [FullPublishMetadata](./sdk.fullpublishmetadata.md)                                     |                                                                                                            |
-| [Json](./sdk.json.md)                                                                   |                                                                                                            |
-| [JsonObject](./sdk.jsonobject.md)                                                       |                                                                                                            |
-| [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md)                         |                                                                                                            |
-| [NFTMetadata](./sdk.nftmetadata.md)                                                     |                                                                                                            |
-| [NFTMetadataInput](./sdk.nftmetadatainput.md)                                           |                                                                                                            |
-| [NFTMetadataOwner](./sdk.nftmetadataowner.md)                                           |                                                                                                            |
-| [PayloadToSign1155](./sdk.payloadtosign1155.md)                                         |                                                                                                            |
-| [PayloadToSign1155WithTokenId](./sdk.payloadtosign1155withtokenid.md)                   |                                                                                                            |
-| [PayloadToSign20](./sdk.payloadtosign20.md)                                             |                                                                                                            |
-| [PayloadToSign721](./sdk.payloadtosign721.md)                                           |                                                                                                            |
-| [PayloadToSign721withQuantity](./sdk.payloadtosign721withquantity.md)                   |                                                                                                            |
-| [PayloadWithUri1155](./sdk.payloadwithuri1155.md)                                       |                                                                                                            |
-| [PayloadWithUri20](./sdk.payloadwithuri20.md)                                           |                                                                                                            |
-| [PayloadWithUri721](./sdk.payloadwithuri721.md)                                         |                                                                                                            |
-| [PayloadWithUri721withQuantity](./sdk.payloadwithuri721withquantity.md)                 |                                                                                                            |
-| [PermitRequestMessage](./sdk.permitrequestmessage.md)                                   | EIP-2612 token permit message for gasless transaction                                                      |
-| [PreDeployMetadataFetched](./sdk.predeploymetadatafetched.md)                           |                                                                                                            |
-| [Price](./sdk.price.md)                                                                 | Represents a currency price already formatted. ie. "1" for 1 ether.                                        |
-| [ProfileMetadata](./sdk.profilemetadata.md)                                             |                                                                                                            |
-| [ProfileMetadataInput](./sdk.profilemetadatainput.md)                                   |                                                                                                            |
-| [PublishedContract](./sdk.publishedcontract.md)                                         |                                                                                                            |
-| [PublishedContractFetched](./sdk.publishedcontractfetched.md)                           |                                                                                                            |
-| [PublishedMetadata](./sdk.publishedmetadata.md)                                         |                                                                                                            |
-| [Role](./sdk.role.md)                                                                   |                                                                                                            |
-| [SDKOptions](./sdk.sdkoptions.md)                                                       | All these configuration options are optional with sane defaults:                                           |
-| [SignedPayload1155](./sdk.signedpayload1155.md)                                         |                                                                                                            |
-| [SignedPayload20](./sdk.signedpayload20.md)                                             |                                                                                                            |
-| [SignedPayload721](./sdk.signedpayload721.md)                                           |                                                                                                            |
-| [SignedPayload721WithQuantitySignature](./sdk.signedpayload721withquantitysignature.md) |                                                                                                            |
-| [SignerOrProvider](./sdk.signerorprovider.md)                                           |                                                                                                            |
-| [Snapshot](./sdk.snapshot.md)                                                           |                                                                                                            |
-| [SnapshotInfo](./sdk.snapshotinfo.md)                                                   |                                                                                                            |
-| [SnapshotInput](./sdk.snapshotinput.md)                                                 | Input model to pass a snapshot of addresses + amount claimable for a claim condition                       |
-| [SUPPORTED_CHAIN_ID](./sdk.supported_chain_id.md)                                       |                                                                                                            |
-| [TokenHolderBalance](./sdk.tokenholderbalance.md)                                       | A token holder address and its current balance                                                             |
-| [TokenMintInput](./sdk.tokenmintinput.md)                                               |                                                                                                            |
-| [TokensToWrap](./sdk.tokenstowrap.md)                                                   | Input for wrapping any number of tokens                                                                    |
-| [TransactionResult](./sdk.transactionresult.md)                                         |                                                                                                            |
-| [TransactionResultWithAddress](./sdk.transactionresultwithaddress.md)                   |                                                                                                            |
-| [TransactionResultWithId](./sdk.transactionresultwithid.md)                             |                                                                                                            |
-| [UploadResult](./sdk.uploadresult.md)                                                   | The result of an IPFS upload, including the URI of the upload director and the URIs of the uploaded files. |
-| [ValidContractClass](./sdk.validcontractclass.md)                                       |                                                                                                            |
-| [ValidContractInstance](./sdk.validcontractinstance.md)                                 |                                                                                                            |
-| [ValueOf](./sdk.valueof.md)                                                             |                                                                                                            |
-| [WrappedTokens](./sdk.wrappedtokens.md)                                                 | Output for the contents of a bundle wrapped token                                                          |
+| Type Alias                                                                              | Description                                                                          |
+| --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| [AbiEvent](./sdk.abievent.md)                                                           |                                                                                      |
+| [AbiFunction](./sdk.abifunction.md)                                                     |                                                                                      |
+| [AirdropInput](./sdk.airdropinput.md)                                                   | Input model to pass a list of addresses + amount to transfer to each one             |
+| [Amount](./sdk.amount.md)                                                               | Represents a currency amount already formatted. ie. "1" for 1 ether.                 |
+| [AuthenticationOptions](./sdk.authenticationoptions.md)                                 |                                                                                      |
+| [AuthenticationPayload](./sdk.authenticationpayload.md)                                 |                                                                                      |
+| [AuthenticationPayloadData](./sdk.authenticationpayloaddata.md)                         |                                                                                      |
+| [BufferOrStringWithName](./sdk.bufferorstringwithname.md)                               |                                                                                      |
+| [ClaimCondition](./sdk.claimcondition.md)                                               | Represents a claim condition fetched from the SDK                                    |
+| [ClaimConditionInput](./sdk.claimconditioninput.md)                                     | Input model to create a claim condition with optional snapshot of wallets            |
+| [ClaimConditionsForToken](./sdk.claimconditionsfortoken.md)                             |                                                                                      |
+| [ClaimVerification](./sdk.claimverification.md)                                         |                                                                                      |
+| [ContractEvent](./sdk.contractevent.md)                                                 | Standardized return type for contract events that returns event arguments            |
+| [ContractForContractType](./sdk.contractforcontracttype.md)                             |                                                                                      |
+| [ContractParam](./sdk.contractparam.md)                                                 |                                                                                      |
+| [ContractSource](./sdk.contractsource.md)                                               |                                                                                      |
+| [ContractType](./sdk.contracttype.md)                                                   |                                                                                      |
+| [Currency](./sdk.currency.md)                                                           |                                                                                      |
+| [CurrencyValue](./sdk.currencyvalue.md)                                                 | Currency metadata &amp; value.                                                       |
+| [EditionMetadata](./sdk.editionmetadata.md)                                             |                                                                                      |
+| [EditionMetadataInput](./sdk.editionmetadatainput.md)                                   |                                                                                      |
+| [EditionMetadataOrUri](./sdk.editionmetadataoruri.md)                                   |                                                                                      |
+| [EditionMetadataOwner](./sdk.editionmetadataowner.md)                                   |                                                                                      |
+| [ERC1155Wrappable](./sdk.erc1155wrappable.md)                                           | Represents a certain amount of ERC1155 NFTs that can be wrapped                      |
+| [ERC20Wrappable](./sdk.erc20wrappable.md)                                               | Represents a certain amount of ERC20 tokens that can be wrapped                      |
+| [ERC721Wrappable](./sdk.erc721wrappable.md)                                             | Represents a ERC721 NFT that can be wrapped                                          |
+| [ExtraPublishMetadata](./sdk.extrapublishmetadata.md)                                   |                                                                                      |
+| [FileOrBuffer](./sdk.fileorbuffer.md)                                                   |                                                                                      |
+| [FilledConditionInput](./sdk.filledconditioninput.md)                                   |                                                                                      |
+| [FilledSignature721WithQuantity](./sdk.filledsignature721withquantity.md)               |                                                                                      |
+| [FilledSignaturePayload1155](./sdk.filledsignaturepayload1155.md)                       |                                                                                      |
+| [FilledSignaturePayload1155WithTokenId](./sdk.filledsignaturepayload1155withtokenid.md) |                                                                                      |
+| [FilledSignaturePayload20](./sdk.filledsignaturepayload20.md)                           |                                                                                      |
+| [FilledSignaturePayload721](./sdk.filledsignaturepayload721.md)                         |                                                                                      |
+| [ForwardRequestMessage](./sdk.forwardrequestmessage.md)                                 | Forward Request Message that's used for gasless transaction                          |
+| [FullPublishMetadata](./sdk.fullpublishmetadata.md)                                     |                                                                                      |
+| [Json](./sdk.json.md)                                                                   |                                                                                      |
+| [JsonObject](./sdk.jsonobject.md)                                                       |                                                                                      |
+| [LoginOptions](./sdk.loginoptions.md)                                                   |                                                                                      |
+| [LoginPayload](./sdk.loginpayload.md)                                                   |                                                                                      |
+| [LoginPayloadData](./sdk.loginpayloaddata.md)                                           |                                                                                      |
+| [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md)                         |                                                                                      |
+| [NFTMetadata](./sdk.nftmetadata.md)                                                     |                                                                                      |
+| [NFTMetadataInput](./sdk.nftmetadatainput.md)                                           |                                                                                      |
+| [NFTMetadataOwner](./sdk.nftmetadataowner.md)                                           |                                                                                      |
+| [PayloadToSign1155](./sdk.payloadtosign1155.md)                                         |                                                                                      |
+| [PayloadToSign1155WithTokenId](./sdk.payloadtosign1155withtokenid.md)                   |                                                                                      |
+| [PayloadToSign20](./sdk.payloadtosign20.md)                                             |                                                                                      |
+| [PayloadToSign721](./sdk.payloadtosign721.md)                                           |                                                                                      |
+| [PayloadToSign721withQuantity](./sdk.payloadtosign721withquantity.md)                   |                                                                                      |
+| [PayloadWithUri1155](./sdk.payloadwithuri1155.md)                                       |                                                                                      |
+| [PayloadWithUri20](./sdk.payloadwithuri20.md)                                           |                                                                                      |
+| [PayloadWithUri721](./sdk.payloadwithuri721.md)                                         |                                                                                      |
+| [PayloadWithUri721withQuantity](./sdk.payloadwithuri721withquantity.md)                 |                                                                                      |
+| [PermitRequestMessage](./sdk.permitrequestmessage.md)                                   | EIP-2612 token permit message for gasless transaction                                |
+| [PreDeployMetadataFetched](./sdk.predeploymetadatafetched.md)                           |                                                                                      |
+| [Price](./sdk.price.md)                                                                 | Represents a currency price already formatted. ie. "1" for 1 ether.                  |
+| [ProfileMetadata](./sdk.profilemetadata.md)                                             |                                                                                      |
+| [ProfileMetadataInput](./sdk.profilemetadatainput.md)                                   |                                                                                      |
+| [PublishedContract](./sdk.publishedcontract.md)                                         |                                                                                      |
+| [PublishedContractFetched](./sdk.publishedcontractfetched.md)                           |                                                                                      |
+| [PublishedMetadata](./sdk.publishedmetadata.md)                                         |                                                                                      |
+| [Role](./sdk.role.md)                                                                   |                                                                                      |
+| [SDKOptions](./sdk.sdkoptions.md)                                                       | All these configuration options are optional with sane defaults:                     |
+| [SignedPayload1155](./sdk.signedpayload1155.md)                                         |                                                                                      |
+| [SignedPayload20](./sdk.signedpayload20.md)                                             |                                                                                      |
+| [SignedPayload721](./sdk.signedpayload721.md)                                           |                                                                                      |
+| [SignedPayload721WithQuantitySignature](./sdk.signedpayload721withquantitysignature.md) |                                                                                      |
+| [SignerOrProvider](./sdk.signerorprovider.md)                                           |                                                                                      |
+| [Snapshot](./sdk.snapshot.md)                                                           |                                                                                      |
+| [SnapshotInfo](./sdk.snapshotinfo.md)                                                   |                                                                                      |
+| [SnapshotInput](./sdk.snapshotinput.md)                                                 | Input model to pass a snapshot of addresses + amount claimable for a claim condition |
+| [SUPPORTED_CHAIN_ID](./sdk.supported_chain_id.md)                                       |                                                                                      |
+| [TokenHolderBalance](./sdk.tokenholderbalance.md)                                       | A token holder address and its current balance                                       |
+| [TokenMintInput](./sdk.tokenmintinput.md)                                               |                                                                                      |
+| [TokensToWrap](./sdk.tokenstowrap.md)                                                   | Input for wrapping any number of tokens                                              |
+| [TransactionResult](./sdk.transactionresult.md)                                         |                                                                                      |
+| [TransactionResultWithAddress](./sdk.transactionresultwithaddress.md)                   |                                                                                      |
+| [TransactionResultWithId](./sdk.transactionresultwithid.md)                             |                                                                                      |
+| [ValidContractClass](./sdk.validcontractclass.md)                                       |                                                                                      |
+| [ValidContractInstance](./sdk.validcontractinstance.md)                                 |                                                                                      |
+| [ValueOf](./sdk.valueof.md)                                                             |                                                                                      |
+| [VerifyOptions](./sdk.verifyoptions.md)                                                 |                                                                                      |
+| [WrappedTokens](./sdk.wrappedtokens.md)                                                 | Output for the contents of a bundle wrapped token                                    |
