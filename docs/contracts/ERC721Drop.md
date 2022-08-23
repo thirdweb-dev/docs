@@ -46,21 +46,6 @@ _See {IERC721-balanceOf}._
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
 
-### batchMintTo
-
-```solidity
-function batchMintTo(address, uint256, string, bytes) external nonpayable
-```
-
-#### Parameters
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint256 | undefined   |
-| \_2  | string  | undefined   |
-| \_3  | bytes   | undefined   |
-
 ### burn
 
 ```solidity
@@ -329,27 +314,6 @@ _See {IERC721-isApprovedForAll}._
 | ---- | ---- | ----------- |
 | \_0  | bool | undefined   |
 
-### isApprovedOrOwner
-
-```solidity
-function isApprovedOrOwner(address _operator, uint256 _tokenId) external view returns (bool isApprovedOrOwnerOf)
-```
-
-Returns whether a given address is the owner, or approved to transfer an NFT.
-
-#### Parameters
-
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_operator | address | undefined   |
-| \_tokenId  | uint256 | undefined   |
-
-#### Returns
-
-| Name                | Type | Description |
-| ------------------- | ---- | ----------- |
-| isApprovedOrOwnerOf | bool | undefined   |
-
 ### isEncryptedBatch
 
 ```solidity
@@ -393,19 +357,6 @@ Lets an authorized address lazy mint a given amount of NFTs.
 | Name    | Type    | Description                                                             |
 | ------- | ------- | ----------------------------------------------------------------------- |
 | batchId | uint256 | A unique integer identifier for the batch of NFTs lazy minted together. |
-
-### mintTo
-
-```solidity
-function mintTo(address, string) external nonpayable
-```
-
-#### Parameters
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | string  | undefined   |
 
 ### mintWithSignature
 
