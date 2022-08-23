@@ -1,5 +1,18 @@
 [
   {
+    "name": "artblocks",
+    "html_url": "https://github.com/thirdweb-example/artblocks",
+    "description": "Create Generative Art NFTs with centralized metadata using the Contracts SDK",
+    "created_at": "2022-08-23T02:16:31Z",
+    "updated_at": "2022-08-23T02:21:29Z",
+    "clone_url": "https://github.com/thirdweb-example/artblocks.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "community-rewards",
     "html_url": "https://github.com/thirdweb-example/community-rewards",
     "description": "Reward your community using NFTs and thirdweb's signature based minting.",
@@ -631,14 +644,16 @@
   {
     "name": "web3button",
     "html_url": "https://github.com/thirdweb-example/web3button",
-    "description": null,
+    "description": "Learn how to use the Web3Button component from the thirdweb React SDK!",
     "created_at": "2022-08-20T00:27:11Z",
-    "updated_at": "2022-08-22T09:36:40Z",
+    "updated_at": "2022-08-23T04:19:18Z",
     "clone_url": "https://github.com/thirdweb-example/web3button.git",
-    "topics": [],
+    "topics": [
+      "ui-components"
+    ],
     "language": "JavaScript",
     "stargazers_count": 2,
     "is_template": false,
-    "homepage": null
+    "homepage": "https://web3button.thirdweb-example.com/"
   }
 ]

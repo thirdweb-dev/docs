@@ -31,6 +31,16 @@ const sidebars = {
       items: [
         {
           type: "doc",
+          label: "Web3 Button",
+          id: "react.web3button",
+        },
+        {
+          type: "doc",
+          label: "Connect Wallet Button",
+          id: "react.connectwallet",
+        },
+        {
+          type: "doc",
           label: "NFT Renderer",
           id: "react.thirdwebnftmedia",
         },

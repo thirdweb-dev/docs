@@ -1,0 +1,70 @@
+---
+slug: /web3-sdk/ui-components/web3button
+title: Web3 Button
+---
+
+import QuickstartCard from "../../../../src/components/QuickstartCard";
+
+# Web3 Button
+
+The Web3 Button component calls a function on your smart contract when clicked.
+
+It ensures the following before attempting to call the contract function:
+
+1. There is a **connected wallet** (If there is not, renders a [ConnectWalletButton](/web3-sdk/ui-components/connectwalletbutton) component instead).
+2. The connected wallet is on the **correct network**
+   (as specified in the [ThirdwebProvider](https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/frontend#manual-installation)'s `desiredChainId`).
+
+Below is an example of the button before and after the user connects their wallet:
+
+<div
+  style={{
+    display: "flex",
+    justifyContent: "center",
+    marginBottom: 24,
+  }}
+>
+  <img src={"/assets/web3button.png"} style={{ maxHeight: 240 }} />
+</div>
+
+The button has two required props:
+
+- `contractAddress`: The address of the contract to call.
+- `functionName`: The name of the function to call (as it is on the contract itself)
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Example: Web3 Button"
+      link="https://web3button.thirdweb-example.com/"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
+
+## Example
+
+```jsx
+<Web3Button
+  // The contract address
+  contractAddress="0xe0F5f8Bb09627B0A886D4CBd300Ba36cd9E522c6"
+  // The name of the function to call on the contract
+  functionName="mintTo"
+  // Some customization of the button style
+  colorMode="light"
+  accentColor="#F213A4"
+  // The mintTo Function on this contract accepts two parameters, we can pass them in an array here.
+  params={[
+    // First parameter of mintTo is the address to mint to
+    "0xb371d1C5629C70ACd726B20a045D197c256E1054",
+    // Second parameter of mintTo is the metadata URI
+    "ipfs://Qmf9csTfndWRgH2z35WUBm9jTuQKfSv1dJC9YKW6iTZkDP/0",
+  ]}
+  // If the function is successful, we can do something here.
+  onSuccess={(result) => console.log(result)}
+  // If the function fails, we can do something here.
+  onError={(error) => console.error(error)}
+>
+  Mint NFT
+</Web3Button>
+```
