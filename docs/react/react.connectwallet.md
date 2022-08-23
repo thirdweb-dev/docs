@@ -9,8 +9,28 @@ displayed_sidebar: react
 
 ## ConnectWallet variable
 
+> This feature is currently in beta and may change based on feedback that we receive.
+
+A component that allows the user to connect their wallet.
+
+The button has to be wrapped in a `ThirdwebProvider` in order to function.
+
+## Example
+
+```javascript
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+const App = () => {
+  return (
+    <div>
+      <ConnectWallet />
+    </div>
+  );
+};
+```
+
 **Signature:**
 
 ```typescript
-ConnectWallet: React.FC<ConnectWalletProps>
+ConnectWallet: React.FC<ConnectWalletProps>;
 ```

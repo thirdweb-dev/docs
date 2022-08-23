@@ -36,5 +36,7 @@ Use this to get the primary sales recipient of your
 **Signature:**
 
 ```typescript
-ThirdwebNftMedia: React.ForwardRefExoticComponent<ThirdwebNftMediaProps & React.RefAttributes<HTMLMediaElement>>
+ThirdwebNftMedia: React.ForwardRefExoticComponent<
+  ThirdwebNftMediaProps & React.RefAttributes<HTMLMediaElement>
+>;
 ```
