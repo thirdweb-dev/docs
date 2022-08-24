@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # ERC721Drop
 
-BASE: ERC721A EXTENSION: SignatureMintERC721, DropSinglePhase The `ERC721Drop` contract uses the `ERC721Base` contract, along with the `SignatureMintERC721` and `DropSinglePhase` extension. The &#39;signature minting&#39; mechanism in the `SignatureMintERC721` extension is a way for a contract admin to authorize an external party&#39;s request to mint tokens on the admin&#39;s contract. At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party. The `drop` mechanism in the `DropSinglePhase` extension is a distribution mechanism for lazy minted tokens. It lets you set restrictions such as a price to charge, an allowlist etc. when an address atttempts to mint lazy minted tokens. The `ERC721Drop` contract lets you lazy mint tokens, and distribute those lazy minted tokens via signature minting, or via the drop mechanism.
+BASE: ERC721A EXTENSION: DropSinglePhase The `ERC721Drop` contract implements the ERC721 NFT standard, along with the ERC721A optimization to the standard. It includes the following additions to standard ERC721 logic: - Contract metadata for royalty support on platforms such as OpenSea that use off-chain information to distribute roaylties. - Ownership of the contract, with the ability to restrict certain functions to only be called by the contract&#39;s owner. - Multicall capability to perform multiple actions atomically - EIP 2981 compliance for royalty support on NFT marketplaces. The `drop` mechanism in the `DropSinglePhase` extension is a distribution mechanism for lazy minted tokens. It lets you set restrictions such as a price to charge, an allowlist etc. when an address atttempts to mint lazy minted tokens. The `ERC721Drop` contract lets you lazy mint tokens, and distribute those lazy minted tokens via the drop mechanism.
 
 ## Methods
 
@@ -357,25 +357,6 @@ Lets an authorized address lazy mint a given amount of NFTs.
 | Name    | Type    | Description                                                             |
 | ------- | ------- | ----------------------------------------------------------------------- |
 | batchId | uint256 | A unique integer identifier for the batch of NFTs lazy minted together. |
-
-### mintWithSignature
-
-```solidity
-function mintWithSignature(ISignatureMintERC721.MintRequest _req, bytes _signature) external payable returns (address signer)
-```
-
-#### Parameters
-
-| Name        | Type                             | Description |
-| ----------- | -------------------------------- | ----------- |
-| \_req       | ISignatureMintERC721.MintRequest | undefined   |
-| \_signature | bytes                            | undefined   |
-
-#### Returns
-
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| signer | address | undefined   |
 
 ### multicall
 
@@ -748,26 +729,6 @@ _See {IERC721-transferFrom}._
 | to      | address | undefined   |
 | tokenId | uint256 | undefined   |
 
-### verify
-
-```solidity
-function verify(ISignatureMintERC721.MintRequest _req, bytes _signature) external view returns (bool success, address signer)
-```
-
-#### Parameters
-
-| Name        | Type                             | Description |
-| ----------- | -------------------------------- | ----------- |
-| \_req       | ISignatureMintERC721.MintRequest | undefined   |
-| \_signature | bytes                            | undefined   |
-
-#### Returns
-
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| success | bool    | undefined   |
-| signer  | address | undefined   |
-
 ### verifyClaim
 
 ```solidity
@@ -957,21 +918,6 @@ event TokensLazyMinted(uint256 indexed startTokenId, uint256 endTokenId, string 
 | endTokenId             | uint256 | undefined   |
 | baseURI                | string  | undefined   |
 | encryptedBaseURI       | bytes   | undefined   |
-
-### TokensMintedWithSignature
-
-```solidity
-event TokensMintedWithSignature(address indexed signer, address indexed mintedTo, uint256 indexed tokenIdMinted, ISignatureMintERC721.MintRequest mintRequest)
-```
-
-#### Parameters
-
-| Name                    | Type                             | Description |
-| ----------------------- | -------------------------------- | ----------- |
-| signer `indexed`        | address                          | undefined   |
-| mintedTo `indexed`      | address                          | undefined   |
-| tokenIdMinted `indexed` | uint256                          | undefined   |
-| mintRequest             | ISignatureMintERC721.MintRequest | undefined   |
 
 ### Transfer
 
