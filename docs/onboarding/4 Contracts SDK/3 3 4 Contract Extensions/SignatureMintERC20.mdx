@@ -1,23 +1,23 @@
 ---
-slug: /contracts-sdk/contract-extensions/signatureminterc1155
-title: Signature Mint ERC1155
+slug: /contracts-sdk/contract-extensions/signatureminterc20
+title: Signature Mint ERC20
 ---
 
 import ViewContractCodeButton from "../../../../src/components/ViewContractCodeButton";
 import QuickstartCard from "../../../../src/components/QuickstartCard";
 import ImportSnippet from "../../../../src/components/ImportSnippet";
 
-# SignatureMint ERC1155
+# SignatureMint ERC20
 
-The `SignatureMintERC1155` smart contract extension is meant to be used with any ERC1155 NFT smart contract.
+The `SignatureMintERC20` smart contract extension is meant to be used with any ERC20 smart contract.
 
-The 'signature minting' mechanism in the `SignatureMintERC1155` extension uses EIP 712, and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract.
+The 'signature minting' mechanism in the `SignatureMintERC20` extension uses EIP 712, and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract.
 
 At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
 
 <ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/SignatureMintERC1155.sol"
-  name="SignatureMintERC1155"
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/SignatureMintERC20.sol"
+  name="SignatureMintERC20"
 />
 
 ## Import
@@ -25,7 +25,7 @@ At a high level, this means you can authorize some external party to mint tokens
 <ImportSnippet
   type="extension"
   category="extension"
-  name="SignatureMintERC1155"
+  name="SignatureMintERC20"
 />
 
 ## Available functionality
@@ -43,16 +43,15 @@ Import the contract extension and make your contract inherit it.
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@thirdweb-dev/contracts/base/ERC1155Base.sol";
-import "@thirdweb-dev/contracts/extension/SignatureMintERC1155.sol";
+import "@thirdweb-dev/contracts/base/ERC20Base.sol";
+import "@thirdweb-dev/contracts/extension/SignatureMintERC20.sol";
 
-contract MyNFT is ERC1155Base, SignatureMintERC1155 {
+contract MyToken is ERC20Base, SignatureMintERC20 {
     constructor(
         string memory _name,
         string memory _symbol,
-        address _royaltyRecipient,
-        uint128 _royaltyBps
-    ) ERC1155Base(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+        string memory _contractURI,
+    ) ERC20Base(_name, _symbol, _contractURI) {}
 
     /**
      *  @notice           Mints tokens according to the provided mint request.
@@ -60,7 +59,7 @@ contract MyNFT is ERC1155Base, SignatureMintERC1155 {
      *  @param _req       The mint request.
      *  @param _signature The signature produced by an account signing the mint request.
      *
-     *  You MUST complete the body of this function to use the `SignatureMintERC1155` extension.
+     *  You MUST complete the body of this function to use the `SignatureMintERC20` extension.
      */
     function mintWithSignature(
         MintRequest calldata _req,
@@ -71,7 +70,7 @@ contract MyNFT is ERC1155Base, SignatureMintERC1155 {
         // Verify and process payload.
         signer = _processRequest(_req, _signature);
 
-        // Mint tokens according to the mint request via `mintTo` made available by `ERC1155Base`.
+        // Mint tokens according to the mint request via `mintTo` made available by `ERC20Base`.
         mintTo(_req.to, _req.uri);
     }
 
@@ -80,7 +79,7 @@ contract MyNFT is ERC1155Base, SignatureMintERC1155 {
      *
      *  As an EXAMPLE, we'll only allow the contract's current owner to sign off on mint requests.
      *
-     *  You MUST complete the body of this function to use the `SignatureMintERC1155` extension.
+     *  You MUST complete the body of this function to use the `SignatureMintERC20` extension.
      */
     function _canSignMintRequest(address _signer)
         internal
