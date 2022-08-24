@@ -23,4 +23,4 @@ constructor(erc1155: Erc1155, contractWrapper: ContractWrapper<IMintableERC1155>
 | --------------- | --------------------------------------- | ----------- |
 | erc1155         | [Erc1155](./sdk.erc1155.md)             |             |
 | contractWrapper | ContractWrapper&lt;IMintableERC1155&gt; |             |
-| storage         | [IStorage](./sdk.istorage.md)           |             |
+| storage         | IStorage                                |             |

@@ -224,7 +224,7 @@ const sidebars = {
     {
       type: "doc",
       label: "Remote Storage",
-      id: "sdk.remotestorage",
+      id: "sdk.thirdwebsdk.storage",
     },
     {
       type: "doc",

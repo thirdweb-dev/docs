@@ -31,11 +31,11 @@ verify(domain: string, payload: LoginPayload, options?: VerifyOptions): string;
 
 ## Parameters
 
-| Parameter | Type          | Description                                                               |
-| --------- | ------------- | ------------------------------------------------------------------------- |
-| domain    | string        | The domain of the server-side application to verify the login request for |
-| payload   | LoginPayload  | The login payload to verify                                               |
-| options   | VerifyOptions | <i>(Optional)</i>                                                         |
+| Parameter | Type                                    | Description                                                               |
+| --------- | --------------------------------------- | ------------------------------------------------------------------------- |
+| domain    | string                                  | The domain of the server-side application to verify the login request for |
+| payload   | [LoginPayload](./sdk.loginpayload.md)   | The login payload to verify                                               |
+| options   | [VerifyOptions](./sdk.verifyoptions.md) | <i>(Optional)</i>                                                         |
 
 **Returns:**
 
