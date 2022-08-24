@@ -11,7 +11,7 @@ import ImportSnippet from "../../../../../src/components/ImportSnippet";
 
 The `ERC20SignatureMintVote` smart contract uses the [ERC20Vote](/contracts-sdk/base-contracts/erc-20/erc20vote) contract along with `SignatureMintERC20` contract extension.
 
-The 'signature minting' mechanism in the `SignatureMintERC20` extension uses [EIP 712](https://eips.ethereum.org/EIPS/eip-712), and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract. 
+The 'signature minting' mechanism in the `SignatureMintERC20` extension uses [EIP 712](https://eips.ethereum.org/EIPS/eip-712), and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract.
 
 At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
 
@@ -28,12 +28,12 @@ Moreover, it implements [ERC20Votes](https://github.com/thirdweb-dev/contracts/b
 
 ## Available Functionality
 
-| Functionality | Description |
-| --- | --- |
-| [ERC20Base](/contracts-sdk/base-contracts/erc-20/erc20base) | Portal page for ERC20Base. |
-| [Signature Minting](/contracts-sdk/contract-extensions/signatureminterc20) | Authorize an external party to mint tokens on your contract, and specify minting details in a mint-request signed by the owner. |
-| [Primary Sale](/contracts-sdk/contract-extensions/primarysale) | Accept a price in the currency of your choice from wallets minting tokens on your contract. |
-| [Voting](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Votes.sol) | Voting and delegation functionality (incl. delegation via signature). Records each account’s vote power in form of checkpoints |
+| Functionality                                                                                                                      | Description                                                                                                                     |
+| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| [ERC20Base](/contracts-sdk/base-contracts/erc-20/erc20base)                                                                        | Portal page for ERC20Base.                                                                                                      |
+| [Signature Minting](/contracts-sdk/contract-extensions/signatureminterc20)                                                         | Authorize an external party to mint tokens on your contract, and specify minting details in a mint-request signed by the owner. |
+| [Primary Sale](/contracts-sdk/contract-extensions/primarysale)                                                                     | Accept a price in the currency of your choice from wallets minting tokens on your contract.                                     |
+| [Voting](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Votes.sol) | Voting and delegation functionality (incl. delegation via signature). Records each account’s vote power in form of checkpoints  |
 
 ## Implementing the Contract Extension
 

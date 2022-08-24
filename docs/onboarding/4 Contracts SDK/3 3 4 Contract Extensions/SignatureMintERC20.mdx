@@ -11,7 +11,7 @@ import ImportSnippet from "../../../../src/components/ImportSnippet";
 
 The `SignatureMintERC20` smart contract extension is meant to be used with any ERC20 smart contract.
 
-The 'signature minting' mechanism in the `SignatureMintERC20` extension uses EIP 712, and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract. 
+The 'signature minting' mechanism in the `SignatureMintERC20` extension uses EIP 712, and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract.
 
 At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
 
@@ -30,10 +30,10 @@ At a high level, this means you can authorize some external party to mint tokens
 
 ## Available functionality
 
-| Functionality | Description |
-| --- | --- |
-| `mintWithSignature` | Mints tokens according to a given mint request, signed off i.e. approved by an authorized wallet. |
-| `_canSignMintRequest` | Defines the criteria a wallet must meet to be able to sign off on mint requests. |
+| Functionality         | Description                                                                                       |
+| --------------------- | ------------------------------------------------------------------------------------------------- |
+| `mintWithSignature`   | Mints tokens according to a given mint request, signed off i.e. approved by an authorized wallet. |
+| `_canSignMintRequest` | Defines the criteria a wallet must meet to be able to sign off on mint requests.                  |
 
 ## Implementing the Contract extension.
 

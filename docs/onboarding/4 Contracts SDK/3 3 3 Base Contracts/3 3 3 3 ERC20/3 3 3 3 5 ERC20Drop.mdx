@@ -13,7 +13,7 @@ The `ERC20Drop` smart contract implements the [ERC20](https://eips.ethereum.org/
 
 The `drop` mechanism in the `DropSinglePhase` extension is a distribution mechanism for tokens. It lets you set restrictions such as a price to charge, an allowlist etc. when an address atttempts to mint tokens.
 
-The tokens can be distributed via either signature minting or drop mechanism. 
+The tokens can be distributed via either signature minting or drop mechanism.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC20Drop.sol"
@@ -26,15 +26,15 @@ The tokens can be distributed via either signature minting or drop mechanism.
 
 ## Available Functionality
 
-| Functionality | Description |
-| --- | --- |
-| [ERC20](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/ERC20.sol) | ERC20 token base contract. |
-| Multicall | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call. |
-| [Ownable](/contracts-sdk/contract-extensions/ownable) | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
-| Burnable | Ability for the owner of tokens to transfer their tokens to a null address (cannot be recovered). |
-| [ContractMetadata](/contracts-sdk/contract-extensions/contractmetadata) | Set a metadata URI on the contract. |
-| [Permit](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Permit.sol) | Allowing token approvals to be made via signatures. |
-| [DropSinglePhase](/contracts-sdk/contract-extensions/drop) | Set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint tokens. |
+| Functionality                                                                                                                       | Description                                                                                                                                                                       |
+| ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [ERC20](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/ERC20.sol)                   | ERC20 token base contract.                                                                                                                                                        |
+| Multicall                                                                                                                           | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call.                                             |
+| [Ownable](/contracts-sdk/contract-extensions/ownable)                                                                               | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
+| Burnable                                                                                                                            | Ability for the owner of tokens to transfer their tokens to a null address (cannot be recovered).                                                                                 |
+| [ContractMetadata](/contracts-sdk/contract-extensions/contractmetadata)                                                             | Set a metadata URI on the contract.                                                                                                                                               |
+| [Permit](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Permit.sol) | Allowing token approvals to be made via signatures.                                                                                                                               |
+| [DropSinglePhase](/contracts-sdk/contract-extensions/drop)                                                                          | Set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint tokens.                                                                            |
 
 ## Implementing the Contract Extension
 
@@ -78,19 +78,19 @@ Once deployed, you'll be able to access the following contract extensions' featu
     />
 </div>
 
-<div className="col col--4" style={{marginTop:16}}>
-    <QuickstartCard
-        name="Ownable"
-        link="/contracts-sdk/contract-extensions/ownable#unlocked-features"
-        image="/assets/icons/general.png"
-    />
+<div className="col col--4" style={{ marginTop: 16 }}>
+  <QuickstartCard
+    name="Ownable"
+    link="/contracts-sdk/contract-extensions/ownable#unlocked-features"
+    image="/assets/icons/general.png"
+  />
 </div>
-<div className="col col--4" style={{marginTop:16}}>
-    <QuickstartCard
-        name="Burnable"
-        link="/pre-built-contracts/token"
-        image="/assets/icons/nft.png"
-    />
+<div className="col col--4" style={{ marginTop: 16 }}>
+  <QuickstartCard
+    name="Burnable"
+    link="/pre-built-contracts/token"
+    image="/assets/icons/nft.png"
+  />
 </div>
 
 <div className="col col--4" style={{ marginTop: 16 }}>

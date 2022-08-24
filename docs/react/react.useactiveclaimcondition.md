@@ -34,7 +34,9 @@ const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition
 **Signature:**
 
 ```typescript
-export declare function useActiveClaimCondition<TContract extends NFTContract>(
+export declare function useActiveClaimCondition<
+  TContract extends NFTContract | Erc20,
+>(
   ...[contract, tokenId]: ClaimConditionsInputParams<TContract>
 ): import("@tanstack/react-query").UseQueryResult<
   {

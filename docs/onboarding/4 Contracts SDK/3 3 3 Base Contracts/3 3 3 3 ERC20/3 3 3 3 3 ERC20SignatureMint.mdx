@@ -11,7 +11,7 @@ import ImportSnippet from "../../../../../src/components/ImportSnippet";
 
 The `ERC20SignatureMint` smart contract uses the [ERC20Base](/contracts-sdk/base-contracts/erc-20/erc20base) contract along with `SignatureMintERC20` contract extension.
 
-The 'signature minting' mechanism in the `SignatureMintERC20` extension uses [EIP 712](https://eips.ethereum.org/EIPS/eip-712), and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract. 
+The 'signature minting' mechanism in the `SignatureMintERC20` extension uses [EIP 712](https://eips.ethereum.org/EIPS/eip-712), and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract.
 
 At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
 
@@ -26,11 +26,11 @@ At a high level, this means you can authorize some external party to mint tokens
 
 ## Available Functionality
 
-| Functionality | Description |
-| --- | --- |
-| [ERC20Base](/contracts-sdk/base-contracts/erc-20/erc20base) | Portal page for ERC20Base. |
+| Functionality                                                              | Description                                                                                                                     |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| [ERC20Base](/contracts-sdk/base-contracts/erc-20/erc20base)                | Portal page for ERC20Base.                                                                                                      |
 | [Signature Minting](/contracts-sdk/contract-extensions/signatureminterc20) | Authorize an external party to mint tokens on your contract, and specify minting details in a mint-request signed by the owner. |
-| [Primary Sale](/contracts-sdk/contract-extensions/primarysale) | Accept a price in the currency of your choice from wallets minting tokens on your contract. |
+| [Primary Sale](/contracts-sdk/contract-extensions/primarysale)             | Accept a price in the currency of your choice from wallets minting tokens on your contract.                                     |
 
 ## Implementing the Contract Extension
 
