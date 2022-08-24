@@ -52,7 +52,7 @@ import { useCoinbaseWallet } from "@thirdweb-dev/react";
 ```
 
 |
-| [useContract(contractAddress)](./react.usecontract.md) | **<i>(BETA)</i>** Use this resolve a contract address to a thirdweb (built-in / custom) contract instance. |
+| [useContract(contractAddress)](./react.usecontract.md) | Use this resolve a contract address to a smart contract instance. |
 | [useContractCall(contract, functionName)](./react.usecontractcall.md) | **<i>(BETA)</i>** Use this to get a function to make a write call to your contract |
 | [useContractCompilerMetadata(contractAddress)](./react.usecontractcompilermetadata.md) | **<i>(BETA)</i>** Use this to get the publish metadata for a deployed contract. |
 | [useContractData(contract, functionName, args)](./react.usecontractdata.md) | **<i>(BETA)</i>** Use this to get data from a contract read-function call. |
@@ -170,6 +170,7 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 | [MediaType](./react.mediatype.md)                                             |                                                                                                                     |
 | [SharedMediaProps](./react.sharedmediaprops.md)                               |                                                                                                                     |
 | [ThirdwebAuthConfig](./react.thirdwebauthconfig.md)                           | **<i>(BETA)</i>** The configuration to use the react SDK with an \[auth\](https://portal.thirdweb.com/auth) server. |
+| [ThirdwebAuthUser](./react.thirdwebauthuser.md)                               |                                                                                                                     |
 | [ThirdwebNftMediaProps](./react.thirdwebnftmediaprops.md)                     | The props for the [ThirdwebNftMedia](./react.thirdwebnftmedia.md) component.                                        |
 | [ThirdwebProviderProps](./react.thirdwebproviderprops.md)                     | The possible props for the ThirdwebProvider.                                                                        |
 | [ThirdwebSDKProviderProps](./react.thirdwebsdkproviderprops.md)               |                                                                                                                     |
