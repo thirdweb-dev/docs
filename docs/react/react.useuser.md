@@ -24,6 +24,6 @@ export declare function useUser(): {
 
 **Returns:**
 
-{ user: ThirdwebAuthUser \| undefined; isLoading: boolean; }
+{ user: [ThirdwebAuthUser](./react.thirdwebauthuser.md) \| undefined; isLoading: boolean; }
 
 - The currently logged in user or null if not logged in, as well as a loading state.

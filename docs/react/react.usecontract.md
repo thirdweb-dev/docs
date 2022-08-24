@@ -9,9 +9,7 @@ displayed_sidebar: react
 
 ## useContract() function
 
-> This feature is currently in beta and may change based on feedback that we receive.
-
-Use this resolve a contract address to a thirdweb (built-in / custom) contract instance.
+Use this resolve a contract address to a smart contract instance.
 
 ## Example
 
