@@ -263,13 +263,13 @@
     "html_url": "https://github.com/thirdweb-example/login-with-wallet",
     "description": "Authenticate to a backend using a wallet",
     "created_at": "2022-06-03T16:04:25Z",
-    "updated_at": "2022-08-18T02:42:03Z",
+    "updated_at": "2022-08-25T18:13:31Z",
     "clone_url": "https://github.com/thirdweb-example/login-with-wallet.git",
     "topics": [
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 9,
+    "stargazers_count": 10,
     "is_template": false,
     "homepage": ""
   },
@@ -355,7 +355,7 @@
     "html_url": "https://github.com/thirdweb-example/next-javascript-starter",
     "description": "thirdweb starter project with Next.js & JavaScript",
     "created_at": "2022-03-17T23:05:32Z",
-    "updated_at": "2022-08-21T09:50:40Z",
+    "updated_at": "2022-08-25T12:02:52Z",
     "clone_url": "https://github.com/thirdweb-example/next-javascript-starter.git",
     "topics": [
       "javascript",
@@ -373,7 +373,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2022-08-22T16:02:55Z",
+    "updated_at": "2022-08-25T12:02:54Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -386,7 +386,7 @@
       "web3js"
     ],
     "language": "TypeScript",
-    "stargazers_count": 18,
+    "stargazers_count": 19,
     "is_template": true,
     "homepage": "https://next-typescript-starter.thirdweb-example.com"
   },
@@ -410,7 +410,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-08-12T13:19:03Z",
+    "updated_at": "2022-08-25T12:33:07Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "authentication",
@@ -420,7 +420,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 41,
+    "stargazers_count": 42,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -429,7 +429,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-08-19T04:30:30Z",
+    "updated_at": "2022-08-25T12:45:43Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "nft-drop",
@@ -437,7 +437,7 @@
       "token"
     ],
     "language": "TypeScript",
-    "stargazers_count": 31,
+    "stargazers_count": 32,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },

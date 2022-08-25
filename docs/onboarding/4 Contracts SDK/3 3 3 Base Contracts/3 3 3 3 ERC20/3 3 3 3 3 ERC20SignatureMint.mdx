@@ -47,13 +47,11 @@ contract MyToken is ERC20SignatureMint {
 	  constructor(
         string memory _name,
         string memory _symbol,
-        string memory _contractURI,
         address _primarySaleRecipient
     )
         ERC20SignatureMint(
             _name,
             _symbol,
-            _contractURI,
             _primarySaleRecipient
         )
     {}
