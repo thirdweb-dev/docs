@@ -17,16 +17,16 @@ const products: Product[] = [
   },
   {
     gradient: "linear-gradient(324.45deg, #410AB7 7.45%, #00FF75 85.28%)",
-    name: "Web3 SDK",
+    name: "SDK",
     description:
       "Components and hooks to integrate smart contracts into your apps",
-    link: "/web3-sdk",
+    link: "/sdk",
   },
   {
     gradient: "linear-gradient(324.45deg, #410AB7 7.45%, #FF8A00 108.42%)",
-    name: "Contracts SDK",
+    name: "Extensions",
     description: "Build and extend smart contracts using our Solidity SDK",
-    link: "/contracts-sdk ",
+    link: "/extensions ",
   },
   {
     gradient: "linear-gradient(324.45deg, #410AB7 7.45%, #14FF00 108.42%)",

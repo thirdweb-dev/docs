@@ -1,5 +1,5 @@
 ---
-slug: /contracts-sdk/base-contracts/erc-20/erc20drop
+slug: /extensions/base-contracts/erc-20/erc20drop
 title: Drop
 ---
 
@@ -30,11 +30,11 @@ The tokens can be distributed via either signature minting or drop mechanism.
 | ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | [ERC20](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/ERC20.sol)                   | ERC20 token base contract.                                                                                                                                                        |
 | Multicall                                                                                                                           | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call.                                             |
-| [Ownable](/contracts-sdk/contract-extensions/ownable)                                                                               | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
+| [Ownable](/extensions/features/ownable)                                                                                             | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
 | Burnable                                                                                                                            | Ability for the owner of tokens to transfer their tokens to a null address (cannot be recovered).                                                                                 |
-| [ContractMetadata](/contracts-sdk/contract-extensions/contractmetadata)                                                             | Set a metadata URI on the contract.                                                                                                                                               |
+| [ContractMetadata](/extensions/features/contractmetadata)                                                                           | Set a metadata URI on the contract.                                                                                                                                               |
 | [Permit](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Permit.sol) | Allowing token approvals to be made via signatures.                                                                                                                               |
-| [DropSinglePhase](/contracts-sdk/contract-extensions/drop)                                                                          | Set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint tokens.                                                                            |
+| [DropSinglePhase](/extensions/features/drop)                                                                                        | Set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint tokens.                                                                            |
 
 ## Implementing the Contract Extension
 
@@ -73,7 +73,7 @@ Once deployed, you'll be able to access the following contract extensions' featu
   <div className="col col--4" style={{marginTop:16}} >
     <QuickstartCard
         name="Contract Metadata"
-        link="/contracts-sdk/contract-extensions/contractmetadata#unlocked-features"
+        link="/extensions/features/contractmetadata#unlocked-features"
         image="/assets/icons/general.png"
     />
 </div>
@@ -81,7 +81,7 @@ Once deployed, you'll be able to access the following contract extensions' featu
 <div className="col col--4" style={{ marginTop: 16 }}>
   <QuickstartCard
     name="Ownable"
-    link="/contracts-sdk/contract-extensions/ownable#unlocked-features"
+    link="/extensions/features/ownable#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>
@@ -96,7 +96,7 @@ Once deployed, you'll be able to access the following contract extensions' featu
 <div className="col col--4" style={{ marginTop: 16 }}>
   <QuickstartCard
     name="Drop"
-    link="/contracts-sdk/contract-extensions/drop#unlocked-features"
+    link="/extensions/features/drop#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>

@@ -1,5 +1,5 @@
 ---
-slug: /contracts-sdk/base-contracts/erc-1155/erc1155delayedreveal
+slug: /extensions/base-contracts/erc-1155/erc1155delayedreveal
 title: Delayed Reveal
 ---
 
@@ -9,7 +9,7 @@ import ImportSnippet from "../../../../../src/components/ImportSnippet";
 
 # ERC1155DelayedReveal
 
-The `ERC1155DelayedReveal` smart contract uses the [ERC1155LazyMint](/contracts-sdk/base-contracts/erc-1155/erc1155lazymint) base contract along with the `DelayedReveal`contract extension.
+The `ERC1155DelayedReveal` smart contract uses the [ERC1155LazyMint](/extensions/base-contracts/erc-1155/erc1155lazymint) base contract along with the `DelayedReveal`contract extension.
 
 'Delayed reveal' is a mechanism by which you can distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact.
 
@@ -26,11 +26,11 @@ You can read more about how the `DelayedReveal` extension works, [here](https://
 
 ## Available functionality
 
-| Functionality                                                     | Description                                                                                                                        |
-| ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| [ERC1155Base](/contracts-sdk/base-contracts/erc-1155/erc1155base) | See the portal page for ERC1155Base.                                                                                               |
-| [LazyMint](/contracts-sdk/contract-extensions/lazymint)           | Prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs. |
-| [DelayedReveal](/contracts-sdk/contract-extensions/delayedreveal) | Distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact.                                  |
+| Functionality                                                  | Description                                                                                                                        |
+| -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| [ERC1155Base](/extensions/base-contracts/erc-1155/erc1155base) | See the portal page for ERC1155Base.                                                                                               |
+| [LazyMint](/extensions/features/lazymint)                      | Prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs. |
+| [DelayedReveal](/extensions/features/delayedreveal)            | Distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact.                                  |
 
 ## Implementing the Contract
 
@@ -60,7 +60,7 @@ Once deployed, you'll be able to access the following contract extensions' featu
 <div className="col col--6" style={{marginTop:16}} >
   <QuickstartCard
     name="ERC1155LazyMint"
-    link="/contracts-sdk/base-contracts/erc-1155/erc1155lazymint#unlocked-features"
+    link="/extensions/base-contracts/erc-1155/erc1155lazymint#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -68,7 +68,7 @@ Once deployed, you'll be able to access the following contract extensions' featu
 <div className="col col--6" style={{ marginTop: 16 }}>
   <QuickstartCard
     name="DelayedReveal"
-    link="/contracts-sdk/contract-extensions/delayedreveal#unlocked-features"
+    link="/extensions/features/delayedreveal#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>

@@ -1,5 +1,5 @@
 ---
-slug: /web3-sdk/advanced-features/non-transferable-tokens
+slug: /sdk/advanced-features/non-transferable-tokens
 ---
 
 import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet";
@@ -10,7 +10,7 @@ Configure tokens in your smart contract to be non-transferable (or "soulbound").
 
 For a step-by-step tutorial, check our [Make your NFT non-transferable](/guides/make-your-nft-non-transferable) guide.
 
-To make tokens in your contract non-transferable, set the [transfer role](/web3-sdk/advanced-features/permission-controls) to be empty.
+To make tokens in your contract non-transferable, set the [transfer role](/sdk/advanced-features/permission-controls) to be empty.
 
 ```javascript
 const rolesAndMembers = await contract.roles.getAll();
