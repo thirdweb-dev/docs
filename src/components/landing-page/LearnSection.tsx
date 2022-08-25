@@ -11,7 +11,7 @@ export default function LearnSection() {
           <GettingStartedCard
             name="Guides"
             description=""
-            link="/guides"
+            link="https://blog.thirdweb.com/guides/"
             image="/assets/guides.svg"
             additionalStyles={{
               height: 56,

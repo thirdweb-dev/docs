@@ -51,13 +51,11 @@ contract MyToken is ERC20Drop {
 	  constructor(
         string memory _name,
         string memory _symbol,
-        string memory _contractURI,
         address _primarySaleRecipient
     )
         ERC20Drop(
             _name,
             _symbol,
-            _contractURI,
             _primarySaleRecipient
         )
     {}
