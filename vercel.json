@@ -201,8 +201,7 @@
     },
     {
       "source": "/thirdweb-deploy/contract-features/:match*",
-      "destination": "/thirdweb-deploy/features/:match*",
-      "permanent": true
+      "destination": "/extensions/features/:match*"
     },
     {
       "source": "/getting-started",
@@ -312,9 +311,8 @@
       "permanent": true
     },
     {
-      "source": "/thirdweb-deploy/features/quickstart",
-      "destination": "/extensions/quickstart",
-      "permanent": true
+      "source": "/thirdweb-deploy/contract-extensions/quickstart",
+      "destination": "/extensions"
     },
     {
       "source": "/pre-built-contracts/nfts",
@@ -354,11 +352,11 @@
       "destination": "/react/react.usemetamask"
     },
     {
-      "source": "/extensions/quickstart",
+      "source": "/contracts-sdk/quickstart",
       "destination": "/getting-started/creating-custom-contracts"
     },
     {
-      "source": "/extensions/features/signatureminting",
+      "source": "/contracts-sdk/contract-extensions/signatureminting",
       "destination": "/extensions/features/signatureminterc721"
     },
     {
@@ -376,6 +374,14 @@
     {
       "source": "/contracts-sdk",
       "destination": "/extensions"
+    },
+    {
+      "source": "/contracts-sdk/contract-extensions",
+      "destination": "/extensions/features"
+    },
+    {
+      "source": "/contracts-sdk/contract-extensions/:match*",
+      "destination": "/extensions/features/:match*"
     },
     {
       "source": "/contracts-sdk/:match*",
