@@ -46,7 +46,7 @@ const categories = {
   marketplace: "Marketplace",
   split: "Split",
   vote: "Vote",
-  "thirdweb-deploy": "Contracts SDK",
+  "thirdweb-deploy": "Extensions",
   "wallet-connection": "Wallets",
 };
 

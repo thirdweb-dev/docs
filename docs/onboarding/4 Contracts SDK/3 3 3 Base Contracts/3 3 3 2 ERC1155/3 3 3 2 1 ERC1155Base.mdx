@@ -1,5 +1,5 @@
 ---
-slug: /contracts-sdk/base-contracts/erc-1155/erc1155base
+slug: /extensions/base-contracts/erc-1155/erc1155base
 title: Base
 ---
 
@@ -29,10 +29,10 @@ The `ERC1155Base` smart contract is usable as it is. It is sufficient for the us
 | [ERC1155](https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC1155.sol) | Basic implementation of the ERC1155 NFT standard.                                                                                                                                 |
 | Mintable                                                                                 | Mint functionality (only callable by the owner, by default).                                                                                                                      |
 | Multicall                                                                                | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call.                                             |
-| [Ownable](/contracts-sdk/contract-extensions/ownable)                                    | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
+| [Ownable](/extensions/features/ownable)                                                  | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
 | Burnable                                                                                 | Ability for the owner of a token to transfer their NFT to a null address (cannot be recovered).                                                                                   |
-| [Royalty](/contracts-sdk/contract-extensions/royalty)                                    | Full royalty support on marketplaces like OpenSea, and EIP 2981 NFT Royalty Standard compliance.                                                                                  |
-| [ContractMetadata](/contracts-sdk/contract-extensions/contractmetadata)                  | Set a metadata URI on the contract, to give your collection a name, image, description and symbol.                                                                                |
+| [Royalty](/extensions/features/royalty)                                                  | Full royalty support on marketplaces like OpenSea, and EIP 2981 NFT Royalty Standard compliance.                                                                                  |
+| [ContractMetadata](/extensions/features/contractmetadata)                                | Set a metadata URI on the contract, to give your collection a name, image, description and symbol.                                                                                |
 
 ## Implementing the Contract Extension
 
@@ -71,7 +71,7 @@ Once deployed, you'll be able to access the following contract extensions from t
 <div className="col col--4" style={{marginTop:16}} >
     <QuickstartCard
         name="Contract Metadata"
-        link="/contracts-sdk/contract-extensions/contractmetadata#unlocked-features"
+        link="/extensions/features/contractmetadata#unlocked-features"
         image="/assets/icons/general.png"
     />
 </div>
@@ -79,14 +79,14 @@ Once deployed, you'll be able to access the following contract extensions from t
 <div className="col col--4" style={{marginTop:16}}>
     <QuickstartCard
         name="Royalties"
-        link="/contracts-sdk/contract-extensions/royalty#unlocked-features"
+        link="/extensions/features/royalty#unlocked-features"
         image="/assets/icons/general.png"
     />
 </div>
 <div className="col col--4" style={{marginTop:16}}>
     <QuickstartCard
         name="Ownable"
-        link="/contracts-sdk/contract-extensions/ownable#unlocked-features"
+        link="/extensions/features/ownable#unlocked-features"
         image="/assets/icons/general.png"
     />
 </div>
