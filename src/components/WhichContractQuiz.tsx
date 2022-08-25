@@ -238,7 +238,7 @@ export default function WhichContractQuiz() {
         <p>
           Based on your answers, we recommend using the{" "}
           <a href={`/pre-built-contracts/${answer}`}>{formatName(answer)}</a>{" "}
-          pre-built contract!
+          prebuilt contract!
         </p>
 
         <div style={{ maxWidth: "fit-content" }}>

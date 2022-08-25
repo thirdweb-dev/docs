@@ -40,7 +40,7 @@ const sidebars = {
     },
     {
       type: "category",
-      label: "Pre-built Contracts",
+      label: "Prebuilt Contracts",
       collapsed: false,
       link: {
         type: "generated-index",
