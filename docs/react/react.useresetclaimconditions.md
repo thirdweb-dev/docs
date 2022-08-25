@@ -68,7 +68,9 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-export declare function useResetClaimConditions<TContract extends NFTContract>(
+export declare function useResetClaimConditions<
+  TContract extends NFTContract | Erc20,
+>(
   ...[contract, tokenId]: ClaimConditionsInputParams<TContract>
 ): import("@tanstack/react-query").UseMutationResult<
   | Omit<

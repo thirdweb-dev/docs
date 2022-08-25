@@ -9,11 +9,11 @@ import ImportSnippet from "../../../../../src/components/ImportSnippet";
 
 # ERC721 Drop
 
-The `ERC721Drop` smart contract uses the [ERC721SignatureMint](/contracts-sdk/base-contracts/erc-721/erc721signaturemint) base contract along with the `LazyMint`, `DelayedReveal` and `DropSinglePhase` contract extension.
+The `ERC721Drop` smart contract implements the [ERC721](https://eips.ethereum.org/EIPS/eip-721) NFT standard, along with the [ERC721A](https://www.erc721a.org/) optimization to the standard. It also uses `LazyMint`, `DelayedReveal` and `DropSinglePhase` contract extension.
 
 The `drop` mechanism in the `DropSinglePhase` extension is a distribution mechanism for lazy minted tokens. It lets you set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint lazy minted tokens.
 
-The `ERC721Drop` contract lets you lazy mint tokens, and distribute those lazy minted tokens via signature minting, or via the drop mechanism.
+The `ERC721Drop` contract lets you lazy mint tokens, and distribute those lazy minted tokens via the drop mechanism.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Drop.sol"
@@ -26,12 +26,18 @@ The `ERC721Drop` contract lets you lazy mint tokens, and distribute those lazy m
 
 ## Availability functionality
 
-| Functionality                                                                    | Description                                                                                                                        |
-| -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| [ERC721SignatureMint](/contracts-sdk/base-contracts/erc-721/erc721signaturemint) | See the portal page for ERC721SignatureMint, here.                                                                                 |
-| [LazyMint](/contracts-sdk/contract-extensions/lazymint)                          | Prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs. |
-| [DelayedReveal](/contracts-sdk/contract-extensions/delayedreveal)                | Distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact.                                  |
-| [DropSinglePhase](/contracts-sdk/contract-extensions/drop)                       | Set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint lazy minted tokens.                 |
+| Functionality                                                                    | Description                                                                                                                                                                       |
+| -------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [ERC721A](https://github.com/chiru-labs/ERC721A/blob/main/contracts/ERC721A.sol) | Gas-optimized NFT Collection Base Contract.                                                                                                                                       |
+| Multicall                                                                        | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call.                                             |
+| [Ownable](/contracts-sdk/contract-extensions/ownable)                            | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
+| Burnable                                                                         | Ability for the owner of a token to transfer their NFT to a null address (cannot be recovered).                                                                                   |
+| [Primary Sale](/contracts-sdk/contract-extensions/primarysale)                   | Accept a price in the currency of your choice from wallets minting your collection’s NFTs.                                                                                        |
+| [Royalty](/contracts-sdk/contract-extensions/royalty)                            | Full royalty support on marketplaces like OpenSea, and EIP 2981 NFT Royalty Standard compliance.                                                                                  |
+| [ContractMetadata](/contracts-sdk/contract-extensions/contractmetadata)          | Set a metadata URI on the contract, to give your collection a name, image, description and symbol.                                                                                |
+| [LazyMint](/contracts-sdk/contract-extensions/lazymint)                          | Prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs.                                                |
+| [DelayedReveal](/contracts-sdk/contract-extensions/delayedreveal)                | Distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact.                                                                                 |
+| [DropSinglePhase](/contracts-sdk/contract-extensions/drop)                       | Set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint lazy minted tokens.                                                                |
 
 ## Implementing the Contract
 
@@ -67,22 +73,43 @@ contract MyNFT is ERC721Drop {
 Once deployed, you'll be able to access the following contract extensions' features on the SDK and dashboard:
 
 <div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
-<div className="col col--6" style={{marginTop:16}} >
+<div className="col col--4" style={{marginTop:16}} >
   <QuickstartCard
-    name="ERC721Base"
-    link="/contracts-sdk/base-contracts/erc-721/erc721base#unlocked-features"
-    image="/assets/icons/nft.png"
-  />
-</div>
-
-<div className="col col--6" style={{ marginTop: 16 }}>
-  <QuickstartCard
-    name="SignatureMint"
-    link="/contracts-sdk/contract-extensions/signatureminterc721#unlocked-features"
+    name="Contract Metadata"
+    link="/contracts-sdk/contract-extensions/contractmetadata#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>
-<div className="col col--6" style={{ marginTop: 16 }}>
+
+<div className="col col--4" style={{ marginTop: 16 }}>
+  <QuickstartCard
+    name="Royalties"
+    link="/contracts-sdk/contract-extensions/royalty#unlocked-features"
+    image="/assets/icons/general.png"
+  />
+</div>
+<div className="col col--4" style={{ marginTop: 16 }}>
+  <QuickstartCard
+    name="Ownable"
+    link="/contracts-sdk/contract-extensions/ownable#unlocked-features"
+    image="/assets/icons/general.png"
+  />
+</div>
+<div className="col col--4" style={{ marginTop: 16 }}>
+  <QuickstartCard
+    name="Burnable"
+    link="/pre-built-contracts/nft-collection#burning-nfts"
+    image="/assets/icons/nft.png"
+  />
+</div>
+<div className="col col--4" style={{ marginTop: 16 }}>
+  <QuickstartCard
+    name="LazyMint"
+    link="/contracts-sdk/contract-extensions/lazymint#unlocked-features"
+    image="/assets/icons/general.png"
+  />
+</div>
+<div className="col col--4" style={{ marginTop: 16 }}>
   <QuickstartCard
     name="Delayed Reveal"
     link="/contracts-sdk/contract-extensions/delayedreveal#unlocked-features"
@@ -90,7 +117,7 @@ Once deployed, you'll be able to access the following contract extensions' featu
   />
 </div>
 
-<div className="col col--6" style={{ marginTop: 16 }}>
+<div className="col col--4" style={{ marginTop: 16 }}>
   <QuickstartCard
     name="Drop"
     link="/contracts-sdk/contract-extensions/drop#unlocked-features"
