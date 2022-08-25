@@ -201,7 +201,7 @@
     },
     {
       "source": "/thirdweb-deploy/contract-features/:match*",
-      "destination": "/thirdweb-deploy/contract-extensions/:match*",
+      "destination": "/thirdweb-deploy/features/:match*",
       "permanent": true
     },
     {
@@ -263,17 +263,17 @@
     },
     {
       "source": "/building-web3-apps/setting-up-the-sdk",
-      "destination": "/web3-sdk",
+      "destination": "/sdk",
       "permanent": true
     },
     {
       "source": "/building-web3-apps/setting-up-the-sdk/frontend",
-      "destination": "/web3-sdk/set-up-the-sdk/frontend",
+      "destination": "/sdk/set-up-the-sdk/frontend",
       "permanent": true
     },
     {
       "source": "/building-web3-apps/setting-up-the-sdk/backend",
-      "destination": "/web3-sdk/set-up-the-sdk/backend",
+      "destination": "/sdk/set-up-the-sdk/backend",
       "permanent": true
     },
     {
@@ -303,17 +303,17 @@
     },
     {
       "source": "/advanced-features/:match*",
-      "destination": "/web3-sdk/advanced-features/:match*",
+      "destination": "/sdk/advanced-features/:match*",
       "permanent": true
     },
     {
-      "source": "/thirdweb-deploy/contract-extensions",
-      "destination": "/contracts-sdk",
+      "source": "/thirdweb-deploy/features",
+      "destination": "/extensions",
       "permanent": true
     },
     {
-      "source": "/thirdweb-deploy/contract-extensions/quickstart",
-      "destination": "/contracts-sdk/quickstart",
+      "source": "/thirdweb-deploy/features/quickstart",
+      "destination": "/extensions/quickstart",
       "permanent": true
     },
     {
@@ -354,16 +354,32 @@
       "destination": "/react/react.usemetamask"
     },
     {
-      "source": "/contracts-sdk/quickstart",
+      "source": "/extensions/quickstart",
       "destination": "/getting-started/creating-custom-contracts"
     },
     {
-      "source": "/contracts-sdk/contract-extensions/signatureminting",
-      "destination": "/contracts-sdk/contract-extensions/signatureminterc721"
+      "source": "/extensions/features/signatureminting",
+      "destination": "/extensions/features/signatureminterc721"
     },
     {
       "source": "/guides/sign-in-with-ethereum-using-thirdweb-connectwallet",
       "destination": "/auth"
+    },
+    {
+      "source": "/web3-sdk",
+      "destination": "/sdk"
+    },
+    {
+      "source": "/web3-sdk/:match*",
+      "destination": "/sdk/:match*"
+    },
+    {
+      "source": "/contracts-sdk",
+      "destination": "/extensions"
+    },
+    {
+      "source": "/contracts-sdk/:match*",
+      "destination": "/extensions/:match*"
     }
   ]
 }

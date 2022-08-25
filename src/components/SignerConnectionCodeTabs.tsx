@@ -8,7 +8,7 @@ export default function ThirdwebCodeSnippet() {
     javascript: `import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = ThirdwebSDK.fromPrivateKey(
-  // Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+  // Learn more about securely accessing your private key: https://portal.thirdweb.com/sdk/set-up-the-sdk/securing-your-private-key
   "<your-private-key-here>",
   "mumbai", // configure this to your network
 );
@@ -18,7 +18,7 @@ const sdk = ThirdwebSDK.fromPrivateKey(
 from thirdweb.types.nft import NFTMetadataInput
 import os
 
-# Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+# Learn more about securely accessing your private key: https://portal.thirdweb.com/sdk/set-up-the-sdk/securing-your-private-key
 PRIVATE_KEY = "<your-private-key-here>"
 
 # Now you can create a new instance of the SDK with your private key
