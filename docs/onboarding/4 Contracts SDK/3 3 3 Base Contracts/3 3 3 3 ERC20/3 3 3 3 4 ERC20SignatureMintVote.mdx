@@ -50,13 +50,11 @@ contract MyToken is ERC20SignatureMintVote {
 	  constructor(
         string memory _name,
         string memory _symbol,
-        string memory _contractURI,
         address _primarySaleRecipient
     )
         ERC20SignatureMintVote(
             _name,
             _symbol,
-            _contractURI,
             _primarySaleRecipient
         )
     {}

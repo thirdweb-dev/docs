@@ -54,13 +54,11 @@ contract MyToken is ERC20DropVote {
 	  constructor(
         string memory _name,
         string memory _symbol,
-        string memory _contractURI,
         address _primarySaleRecipient
     )
         ERC20DropVote(
             _name,
             _symbol,
-            _contractURI,
             _primarySaleRecipient
         )
     {}
