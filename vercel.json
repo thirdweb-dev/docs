@@ -394,7 +394,7 @@
     },
     {
       "source": "/guides/:match*",
-      "destination": "https://blog.thirdweb.com/:match*",
+      "destination": "https://blog.thirdweb.com/guides/:match*",
       "permanent": true
     },
     {
