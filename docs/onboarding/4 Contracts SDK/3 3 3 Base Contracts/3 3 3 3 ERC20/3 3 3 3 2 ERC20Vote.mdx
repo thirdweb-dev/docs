@@ -1,5 +1,5 @@
 ---
-slug: /contracts-sdk/base-contracts/erc-20/erc20vote
+slug: /extensions/base-contracts/erc-20/erc20vote
 title: Base - Vote
 ---
 
@@ -29,9 +29,9 @@ Moreover, it implements [ERC20Votes](https://github.com/thirdweb-dev/contracts/b
 | [ERC20](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/ERC20.sol)                   | ERC20 token base contract.                                                                                                                                                        |
 | Mintable                                                                                                                            | Mint functionality (only callable by the owner, by default).                                                                                                                      |
 | Multicall                                                                                                                           | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call.                                             |
-| [Ownable](/contracts-sdk/contract-extensions/ownable)                                                                               | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
+| [Ownable](/extensions/features/ownable)                                                                                             | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
 | Burnable                                                                                                                            | Ability for the owner of tokens to transfer their tokens to a null address (cannot be recovered).                                                                                 |
-| [ContractMetadata](/contracts-sdk/contract-extensions/contractmetadata)                                                             | Set a metadata URI on the contract.                                                                                                                                               |
+| [ContractMetadata](/extensions/features/contractmetadata)                                                                           | Set a metadata URI on the contract.                                                                                                                                               |
 | [Permit](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Permit.sol) | Allowing token approvals to be made via signatures.                                                                                                                               |
 | [Voting](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Votes.sol)  | Voting and delegation functionality (incl. delegation via signature). Records each account’s vote power in form of checkpoints                                                    |
 
@@ -70,7 +70,7 @@ Once deployed, you'll be able to access the following contract extensions' featu
 <div className="col col--4" style={{marginTop:16}} >
     <QuickstartCard
         name="Contract Metadata"
-        link="/contracts-sdk/contract-extensions/contractmetadata#unlocked-features"
+        link="/extensions/features/contractmetadata#unlocked-features"
         image="/assets/icons/general.png"
     />
 </div>
@@ -78,7 +78,7 @@ Once deployed, you'll be able to access the following contract extensions' featu
 <div className="col col--4" style={{marginTop:16}}>
     <QuickstartCard
         name="Ownable"
-        link="/contracts-sdk/contract-extensions/ownable#unlocked-features"
+        link="/extensions/features/ownable#unlocked-features"
         image="/assets/icons/general.png"
     />
 </div>
