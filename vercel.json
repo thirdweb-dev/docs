@@ -16,27 +16,27 @@
     },
     {
       "source": "/guides/tag/bundle-collection",
-      "destination": "/guides/tag/edition",
+      "destination": "/tag/edition",
       "permanent": true
     },
     {
       "source": "/guides/tag/bundle-drop",
-      "destination": "/guides/tag/edition-drop",
+      "destination": "/tag/edition-drop",
       "permanent": true
     },
     {
       "source": "/guides/bundle-collection",
-      "destination": "/guides/tag/edition",
+      "destination": "/tag/edition",
       "permanent": true
     },
     {
       "source": "/guides/bundle-drop",
-      "destination": "/guides/tag/edition-drop",
+      "destination": "/tag/edition-drop",
       "permanent": true
     },
     {
       "source": "/guides/splits",
-      "destination": "/guides/tag/split",
+      "destination": "/tag/split",
       "permanent": true
     },
     {
@@ -91,47 +91,47 @@
     },
     {
       "source": "/guides/nft-drop",
-      "destination": "/guides/tag/nft-drop",
+      "destination": "/tag/nft-drop",
       "permanent": true
     },
     {
       "source": "/guides/nft-collection",
-      "destination": "/guides/tag/nft-collection",
+      "destination": "/tag/nft-collection",
       "permanent": true
     },
     {
       "source": "/guides/edition-drop",
-      "destination": "/guides/tag/edition-drop",
+      "destination": "/tag/edition-drop",
       "permanent": true
     },
     {
       "source": "/guides/edition",
-      "destination": "/guides/tag/edition",
+      "destination": "/tag/edition",
       "permanent": true
     },
     {
       "source": "/guides/token",
-      "destination": "/guides/tag/token",
+      "destination": "/tag/token",
       "permanent": true
     },
     {
       "source": "/guides/vote",
-      "destination": "/guides/tag/vote",
+      "destination": "/tag/vote",
       "permanent": true
     },
     {
       "source": "/guides/split",
-      "destination": "/guides/tag/split",
+      "destination": "/tag/split",
       "permanent": true
     },
     {
       "source": "/guides/marketplace",
-      "destination": "/guides/tag/marketplace",
+      "destination": "/tag/marketplace",
       "permanent": true
     },
     {
       "source": "/guides/pack",
-      "destination": "/guides/tag/pack",
+      "destination": "/tag/pack",
       "permanent": true
     },
     {
@@ -364,6 +364,21 @@
     {
       "source": "/guides/sign-in-with-ethereum-using-thirdweb-connectwallet",
       "destination": "/auth"
+    },
+    {
+      "source": "/guides",
+      "destination": "https://blog.thirdweb.com",
+      "permanent": true
+    },
+    {
+      "source": "/guides/:match*",
+      "destination": "https://blog.thirdweb.com/:match*",
+      "permanent": true
+    },
+    {
+      "source": "/tag/:match*",
+      "destination": "https://blog.thirdweb.com/tag/:match*",
+      "permanent": true
     }
   ]
 }
