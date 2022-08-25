@@ -1,0 +1,85 @@
+---
+slug: /contracts-sdk/base-contracts/erc-20/erc20signaturemint
+title: Signature Mint
+---
+
+import ViewContractCodeButton from "../../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+import ImportSnippet from "../../../../../src/components/ImportSnippet";
+
+# ERC20SignatureMint
+
+The `ERC20SignatureMint` smart contract uses the [ERC20Base](/contracts-sdk/base-contracts/erc-20/erc20base) contract along with `SignatureMintERC20` contract extension.
+
+The 'signature minting' mechanism in the `SignatureMintERC20` extension uses [EIP 712](https://eips.ethereum.org/EIPS/eip-712), and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract.
+
+At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC20SignatureMint.sol"
+  name="ERC20SignatureMint"
+/>
+
+## Import
+
+<ImportSnippet type="base" category="ERC20" name="ERC20SignatureMint" />
+
+## Available Functionality
+
+| Functionality                                                              | Description                                                                                                                     |
+| -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| [ERC20Base](/contracts-sdk/base-contracts/erc-20/erc20base)                | Portal page for ERC20Base.                                                                                                      |
+| [Signature Minting](/contracts-sdk/contract-extensions/signatureminterc20) | Authorize an external party to mint tokens on your contract, and specify minting details in a mint-request signed by the owner. |
+| [Primary Sale](/contracts-sdk/contract-extensions/primarysale)             | Accept a price in the currency of your choice from wallets minting tokens on your contract.                                     |
+
+## Implementing the Contract Extension
+
+Import the contract extension and make your contract inherit it.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC20SignatureMint.sol";
+
+contract MyToken is ERC20SignatureMint {
+
+	  constructor(
+        string memory _name,
+        string memory _symbol,
+        string memory _contractURI,
+        address _primarySaleRecipient
+    )
+        ERC20SignatureMint(
+            _name,
+            _symbol,
+            _contractURI,
+            _primarySaleRecipient
+        )
+    {}
+
+}
+```
+
+## Unlocked Features
+
+Once deployed, you'll be able to access the following contract extensions' features on the SDK and dashboard:
+
+<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
+<div className="col col--6" style={{marginTop:16}} >
+  <QuickstartCard
+    name="ERC20Base"
+    link="/contracts-sdk/base-contracts/erc-20/erc20base#unlocked-features"
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+<div className="col col--6" style={{ marginTop: 16 }}>
+  <QuickstartCard
+    name="SignatureMint"
+    link="/contracts-sdk/contract-extensions/signatureminterc20#unlocked-features"
+    image="/assets/icons/general.png"
+  />
+</div>
+
+</div>

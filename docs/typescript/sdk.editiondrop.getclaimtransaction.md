@@ -19,12 +19,12 @@ getClaimTransaction(destinationAddress: string, tokenId: BigNumberish, quantity:
 
 ## Parameters
 
-| Parameter           | Type         | Description       |
-| ------------------- | ------------ | ----------------- |
-| destinationAddress  | string       |                   |
-| tokenId             | BigNumberish |                   |
-| quantity            | BigNumberish |                   |
-| checkERC20Allowance | boolean      | <i>(Optional)</i> |
+| Parameter           | Type         | Description                                                                                                                      |
+| ------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------- |
+| destinationAddress  | string       | Address you want to send the token to                                                                                            |
+| tokenId             | BigNumberish | Id of the token you want to claim                                                                                                |
+| quantity            | BigNumberish | Quantity of the tokens you want to claim                                                                                         |
+| checkERC20Allowance | boolean      | <i>(Optional)</i> Optional, check if the wallet has enough ERC20 allowance to claim the tokens, and if not, approve the transfer |
 
 **Returns:**
 

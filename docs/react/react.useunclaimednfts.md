@@ -28,7 +28,7 @@ export declare function useUnclaimedNFTs(
 ): import("@tanstack/react-query").UseQueryResult<
   {
     [x: string]: import("@thirdweb-dev/sdk/dist/browser").Json;
-    name?: string | undefined;
+    name?: string | number | undefined;
     description?: string | null | undefined;
     image?: string | null | undefined;
     external_url?: string | null | undefined;
@@ -49,6 +49,6 @@ export declare function useUnclaimedNFTs(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk/dist/browser").Json; name?: string \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: import("ethers").BigNumber; }\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk/dist/browser").Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: import("ethers").BigNumber; }\[\], unknown&gt;
 
 a response object that includes an array of NFTs that are unclaimed
