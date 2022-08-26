@@ -16,24 +16,28 @@ function DocSidebarItems({ items, ...props }) {
 
   const sidebarItems = [
     {
-      title: "Introduction",
-      items: ["Home", "Platform Overview"],
+      title: "",
+      items: ["Home", "Platform Overview", "Getting Started"],
     },
     {
-      title: "Get Started 🤠",
-      items: ["Getting Started", "Templates"],
+      title: "📄 Build Contracts",
+      items: ["Extensions", "Prebuilt Contracts"],
     },
     {
-      title: "Build Contracts 📄",
-      items: ["Extensions", "Pre-Built Contracts"],
+      title: "🚢 Ship Projects",
+      items: ["Release", "Deploy", "Create"],
     },
     {
-      title: "Create Apps 🧰",
-      items: ["Dashboard", "SDK", "Auth"],
+      title: "🚀 Create Apps",
+      items: ["SDK", "Auth"],
     },
     {
-      title: "Ship To Production 🚀",
-      items: ["Release & Deploy"],
+      title: "🎨 Manage Projects",
+      items: ["Dashboard"],
+    },
+    {
+      title: "📚 Resources",
+      items: ["Templates", "Guides", "SDK References"],
     },
   ];
 
@@ -43,18 +47,7 @@ function DocSidebarItems({ items, ...props }) {
         {sidebarItems.map((section, index) => (
           <div key={section.title} style={{ marginBottom: "2.5rem" }}>
             {section.title && (
-              <p
-                style={{
-                  fontSize: 16,
-                  opacity: 0.8,
-                  marginLeft: 12,
-                  borderBottom: section.dontShowBorder
-                    ? ""
-                    : "1px solid rgba(255, 255, 255, 0.1)",
-                }}
-              >
-                {section.title}
-              </p>
+              <p className="sidebar-section-title">{section.title}</p>
             )}
             {items
               .filter((item) => section.items.includes(item.label))
