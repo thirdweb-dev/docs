@@ -339,7 +339,7 @@ aside {
 }
 
 .heroGridImageContainer {
-  width: 35%;
+  width: 40%;
   flex-shrink: 0;
 }
 
@@ -354,6 +354,11 @@ aside {
     justify-content: center;
     width: 100%;
     flex-shrink: 0;
+  }
+
+  .heroGridImageContainer > img {
+    max-height: 400px;
+    margin-top: 16px;
   }
 }
 
