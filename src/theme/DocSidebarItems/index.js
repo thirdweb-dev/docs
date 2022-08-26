@@ -17,7 +17,7 @@ function DocSidebarItems({ items, ...props }) {
   const sidebarItems = [
     {
       title: "",
-      items: ["Home", "Platform Overview", "Getting Started"],
+      items: ["Home", "Platform Overview", "Getting Started", "Create"],
     },
     {
       title: "📄 Build Contracts",
@@ -25,7 +25,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "🚢 Ship Projects",
-      items: ["Release", "Deploy", "Create"],
+      items: ["Release", "Deploy"],
     },
     {
       title: "🚀 Create Apps",
@@ -51,6 +51,11 @@ function DocSidebarItems({ items, ...props }) {
             )}
             {items
               .filter((item) => section.items.includes(item.label))
+              .sort(
+                (a, b) =>
+                  section.items.indexOf(a.label) -
+                  section.items.indexOf(b.label),
+              )
               .map((item, index) => (
                 <DocSidebarItem
                   key={index}
