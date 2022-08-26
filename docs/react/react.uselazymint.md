@@ -20,8 +20,8 @@ export declare function useLazyMint<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
   onProgress?: (progress: UploadProgressEvent) => void,
 ): import("@tanstack/react-query").UseMutationResult<
-  import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId<{
-    [x: string]: import("@thirdweb-dev/sdk/dist/browser").Json;
+  import("@thirdweb-dev/sdk").TransactionResultWithId<{
+    [x: string]: import("@thirdweb-dev/sdk").Json;
     name?: string | number | undefined;
     description?: string | null | undefined;
     image?: string | null | undefined;
@@ -47,6 +47,6 @@ export declare function useLazyMint<TContract extends NFTContract>(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId&lt;{ \[x: string\]: import("@thirdweb-dev/sdk/dist/browser").Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: import("ethers").BigNumber; }&gt;\[\], unknown, { metadatas: NFTMetadataInput\[\]; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;{ \[x: string\]: import("@thirdweb-dev/sdk").Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: import("ethers").BigNumber; }&gt;\[\], unknown, { metadatas: NFTMetadataInput\[\]; }, unknown&gt;
 
 a mutation object that can be used to lazy mint a batch of NFTs
