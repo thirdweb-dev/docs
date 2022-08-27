@@ -1,0 +1,386 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.react.category.UI Components": {
+    "message": "UI Components",
+    "description": "The label for category UI Components in sidebar react"
+  },
+  "sidebar.react.category.Wallet Connection": {
+    "message": "Wallet Connection",
+    "description": "The label for category Wallet Connection in sidebar react"
+  },
+  "sidebar.react.category.Network Info": {
+    "message": "Network Info",
+    "description": "The label for category Network Info in sidebar react"
+  },
+  "sidebar.react.category.Get a Contract": {
+    "message": "Get a Contract",
+    "description": "The label for category Get a Contract in sidebar react"
+  },
+  "sidebar.react.category.NFT & Edition": {
+    "message": "NFT & Edition",
+    "description": "The label for category NFT & Edition in sidebar react"
+  },
+  "sidebar.react.category.Read Hooks": {
+    "message": "Read Hooks",
+    "description": "The label for category Read Hooks in sidebar react"
+  },
+  "sidebar.react.category.Write Hooks": {
+    "message": "Write Hooks",
+    "description": "The label for category Write Hooks in sidebar react"
+  },
+  "sidebar.react.category.Token": {
+    "message": "Token",
+    "description": "The label for category Token in sidebar react"
+  },
+  "sidebar.react.category.Marketplace": {
+    "message": "Marketplace",
+    "description": "The label for category Marketplace in sidebar react"
+  },
+  "sidebar.react.category.Custom Contracts": {
+    "message": "Custom Contracts",
+    "description": "The label for category Custom Contracts in sidebar react"
+  },
+  "sidebar.react.category.Claim Conditions": {
+    "message": "Claim Conditions",
+    "description": "The label for category Claim Conditions in sidebar react"
+  },
+  "sidebar.react.category.Delayed Reveal": {
+    "message": "Delayed Reveal",
+    "description": "The label for category Delayed Reveal in sidebar react"
+  },
+  "sidebar.react.category.Configuration": {
+    "message": "Configuration",
+    "description": "The label for category Configuration in sidebar react"
+  },
+  "sidebar.react.category.Contract Settings": {
+    "message": "Contract Settings",
+    "description": "The label for category Contract Settings in sidebar react"
+  },
+  "sidebar.react.category.Roles": {
+    "message": "Roles",
+    "description": "The label for category Roles in sidebar react"
+  },
+  "sidebar.react.category.Full Reference": {
+    "message": "Full Reference",
+    "description": "The label for category Full Reference in sidebar react"
+  },
+  "sidebar.react.doc.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for the doc item Getting Started in sidebar react, linking to the doc index"
+  },
+  "sidebar.react.doc.Web3 Button": {
+    "message": "Web3 Button",
+    "description": "The label for the doc item Web3 Button in sidebar react, linking to the doc react.web3button"
+  },
+  "sidebar.react.doc.Connect Wallet Button": {
+    "message": "Connect Wallet Button",
+    "description": "The label for the doc item Connect Wallet Button in sidebar react, linking to the doc react.connectwallet"
+  },
+  "sidebar.react.doc.NFT Renderer": {
+    "message": "NFT Renderer",
+    "description": "The label for the doc item NFT Renderer in sidebar react, linking to the doc react.thirdwebnftmedia"
+  },
+  "sidebar.react.doc.IPFS Media Renderer": {
+    "message": "IPFS Media Renderer",
+    "description": "The label for the doc item IPFS Media Renderer in sidebar react, linking to the doc react.mediarenderer"
+  },
+  "sidebar.react.doc.useAddress": {
+    "message": "useAddress",
+    "description": "The label for the doc item useAddress in sidebar react, linking to the doc react.useaddress"
+  },
+  "sidebar.react.doc.useMetamask": {
+    "message": "useMetamask",
+    "description": "The label for the doc item useMetamask in sidebar react, linking to the doc react.usemetamask"
+  },
+  "sidebar.react.doc.useWalletConnect": {
+    "message": "useWalletConnect",
+    "description": "The label for the doc item useWalletConnect in sidebar react, linking to the doc react.usewalletconnect"
+  },
+  "sidebar.react.doc.useCoinbaseWallet": {
+    "message": "useCoinbaseWallet",
+    "description": "The label for the doc item useCoinbaseWallet in sidebar react, linking to the doc react.usecoinbasewallet"
+  },
+  "sidebar.react.doc.useMagic": {
+    "message": "useMagic",
+    "description": "The label for the doc item useMagic in sidebar react, linking to the doc react.usemagic"
+  },
+  "sidebar.react.doc.useGnosis": {
+    "message": "useGnosis",
+    "description": "The label for the doc item useGnosis in sidebar react, linking to the doc react.usegnosis"
+  },
+  "sidebar.react.doc.useDisconnect": {
+    "message": "useDisconnect",
+    "description": "The label for the doc item useDisconnect in sidebar react, linking to the doc react.usedisconnect"
+  },
+  "sidebar.react.doc.useChainId": {
+    "message": "useChainId",
+    "description": "The label for the doc item useChainId in sidebar react, linking to the doc react.usechainid"
+  },
+  "sidebar.react.doc.useNetwork": {
+    "message": "useNetwork",
+    "description": "The label for the doc item useNetwork in sidebar react, linking to the doc react.usenetwork"
+  },
+  "sidebar.react.doc.useNetworkMismatch": {
+    "message": "useNetworkMismatch",
+    "description": "The label for the doc item useNetworkMismatch in sidebar react, linking to the doc react.usenetworkmismatch"
+  },
+  "sidebar.react.doc.Custom Contract": {
+    "message": "Custom Contract",
+    "description": "The label for the doc item Custom Contract in sidebar react, linking to the doc react.usecontract"
+  },
+  "sidebar.react.doc.Edition": {
+    "message": "Edition",
+    "description": "The label for the doc item Edition in sidebar react, linking to the doc react.useedition"
+  },
+  "sidebar.react.doc.Edition Drop": {
+    "message": "Edition Drop",
+    "description": "The label for the doc item Edition Drop in sidebar react, linking to the doc react.useeditiondrop"
+  },
+  "sidebar.react.doc.Marketplace": {
+    "message": "Marketplace",
+    "description": "The label for the doc item Marketplace in sidebar react, linking to the doc react.usemarketplace"
+  },
+  "sidebar.react.doc.Multiwrap": {
+    "message": "Multiwrap",
+    "description": "The label for the doc item Multiwrap in sidebar react, linking to the doc react.usemultiwrap"
+  },
+  "sidebar.react.doc.NFT Collection": {
+    "message": "NFT Collection",
+    "description": "The label for the doc item NFT Collection in sidebar react, linking to the doc react.usenftcollection"
+  },
+  "sidebar.react.doc.NFT Drop": {
+    "message": "NFT Drop",
+    "description": "The label for the doc item NFT Drop in sidebar react, linking to the doc react.usenftdrop"
+  },
+  "sidebar.react.doc.Pack": {
+    "message": "Pack",
+    "description": "The label for the doc item Pack in sidebar react, linking to the doc react.usepack"
+  },
+  "sidebar.react.doc.Signature Drop": {
+    "message": "Signature Drop",
+    "description": "The label for the doc item Signature Drop in sidebar react, linking to the doc react.usesignaturedrop"
+  },
+  "sidebar.react.doc.Split": {
+    "message": "Split",
+    "description": "The label for the doc item Split in sidebar react, linking to the doc react.usesplit"
+  },
+  "sidebar.react.doc.Token": {
+    "message": "Token",
+    "description": "The label for the doc item Token in sidebar react, linking to the doc react.usetoken"
+  },
+  "sidebar.react.doc.Token Drop": {
+    "message": "Token Drop",
+    "description": "The label for the doc item Token Drop in sidebar react, linking to the doc react.usetokendrop"
+  },
+  "sidebar.react.doc.Vote": {
+    "message": "Vote",
+    "description": "The label for the doc item Vote in sidebar react, linking to the doc react.usevote"
+  },
+  "sidebar.react.doc.NFT by Token ID": {
+    "message": "NFT by Token ID",
+    "description": "The label for the doc item NFT by Token ID in sidebar react, linking to the doc react.usenft"
+  },
+  "sidebar.react.doc.All NFTs": {
+    "message": "All NFTs",
+    "description": "The label for the doc item All NFTs in sidebar react, linking to the doc react.usenfts"
+  },
+  "sidebar.react.doc.Unclaimed NFTs": {
+    "message": "Unclaimed NFTs",
+    "description": "The label for the doc item Unclaimed NFTs in sidebar react, linking to the doc react.useunclaimednfts"
+  },
+  "sidebar.react.doc.Claimed NFTs": {
+    "message": "Claimed NFTs",
+    "description": "The label for the doc item Claimed NFTs in sidebar react, linking to the doc react.useclaimednfts"
+  },
+  "sidebar.react.doc.Total Supply": {
+    "message": "Total Supply",
+    "description": "The label for the doc item Total Supply in sidebar react, linking to the doc react.usetokensupply"
+  },
+  "sidebar.react.doc.Unclaimed Supply": {
+    "message": "Unclaimed Supply",
+    "description": "The label for the doc item Unclaimed Supply in sidebar react, linking to the doc react.useunclaimednftsupply"
+  },
+  "sidebar.react.doc.Claimed Supply": {
+    "message": "Claimed Supply",
+    "description": "The label for the doc item Claimed Supply in sidebar react, linking to the doc react.useclaimednftsupply"
+  },
+  "sidebar.react.doc.Owned NFTs": {
+    "message": "Owned NFTs",
+    "description": "The label for the doc item Owned NFTs in sidebar react, linking to the doc react.useownednfts"
+  },
+  "sidebar.react.doc.NFT Balance": {
+    "message": "NFT Balance",
+    "description": "The label for the doc item NFT Balance in sidebar react, linking to the doc react.usenftbalance"
+  },
+  "sidebar.react.doc.Number of NFTs (ERC1155)": {
+    "message": "Number of NFTs (ERC1155)",
+    "description": "The label for the doc item Number of NFTs (ERC1155) in sidebar react, linking to the doc react.usetotalcount"
+  },
+  "sidebar.react.doc.Mint an NFT": {
+    "message": "Mint an NFT",
+    "description": "The label for the doc item Mint an NFT in sidebar react, linking to the doc react.usemintnft"
+  },
+  "sidebar.react.doc.Claim an NFT": {
+    "message": "Claim an NFT",
+    "description": "The label for the doc item Claim an NFT in sidebar react, linking to the doc react.useclaimnft"
+  },
+  "sidebar.react.doc.Token Balance": {
+    "message": "Token Balance",
+    "description": "The label for the doc item Token Balance in sidebar react, linking to the doc react.usetokenbalance"
+  },
+  "sidebar.react.doc.Mint Tokens": {
+    "message": "Mint Tokens",
+    "description": "The label for the doc item Mint Tokens in sidebar react, linking to the doc react.useminttoken"
+  },
+  "sidebar.react.doc.Claim Tokens (Token Drop)": {
+    "message": "Claim Tokens (Token Drop)",
+    "description": "The label for the doc item Claim Tokens (Token Drop) in sidebar react, linking to the doc react.useclaimtoken"
+  },
+  "sidebar.react.doc.Listing by ID": {
+    "message": "Listing by ID",
+    "description": "The label for the doc item Listing by ID in sidebar react, linking to the doc react.uselisting"
+  },
+  "sidebar.react.doc.All Listings": {
+    "message": "All Listings",
+    "description": "The label for the doc item All Listings in sidebar react, linking to the doc react.uselistings"
+  },
+  "sidebar.react.doc.Active Listings": {
+    "message": "Active Listings",
+    "description": "The label for the doc item Active Listings in sidebar react, linking to the doc react.useactivelistings"
+  },
+  "sidebar.react.doc.Winning Bid (Auction)": {
+    "message": "Winning Bid (Auction)",
+    "description": "The label for the doc item Winning Bid (Auction) in sidebar react, linking to the doc react.usewinningbid"
+  },
+  "sidebar.react.doc.Auction Winner (Auction)": {
+    "message": "Auction Winner (Auction)",
+    "description": "The label for the doc item Auction Winner (Auction) in sidebar react, linking to the doc react.useauctionwinner"
+  },
+  "sidebar.react.doc.Bid Buffer (Auction)": {
+    "message": "Bid Buffer (Auction)",
+    "description": "The label for the doc item Bid Buffer (Auction) in sidebar react, linking to the doc react.usebidbuffer"
+  },
+  "sidebar.react.doc.Create Direct Listing": {
+    "message": "Create Direct Listing",
+    "description": "The label for the doc item Create Direct Listing in sidebar react, linking to the doc react.usecreatedirectlisting"
+  },
+  "sidebar.react.doc.Create Auction Listing": {
+    "message": "Create Auction Listing",
+    "description": "The label for the doc item Create Auction Listing in sidebar react, linking to the doc react.usecreateauctionlisting"
+  },
+  "sidebar.react.doc.Make a Bid": {
+    "message": "Make a Bid",
+    "description": "The label for the doc item Make a Bid in sidebar react, linking to the doc react.usemakebid"
+  },
+  "sidebar.react.doc.Buyout a Listing": {
+    "message": "Buyout a Listing",
+    "description": "The label for the doc item Buyout a Listing in sidebar react, linking to the doc react.usebuynow"
+  },
+  "sidebar.react.doc.Read a Contract's View/Mapping": {
+    "message": "Read a Contract's View/Mapping",
+    "description": "The label for the doc item Read a Contract's View/Mapping in sidebar react, linking to the doc react.usecontractdata"
+  },
+  "sidebar.react.doc.Read All Contract Events": {
+    "message": "Read All Contract Events",
+    "description": "The label for the doc item Read All Contract Events in sidebar react, linking to the doc react.useallcontractevents"
+  },
+  "sidebar.react.doc.Read A Specific Contract Event": {
+    "message": "Read A Specific Contract Event",
+    "description": "The label for the doc item Read A Specific Contract Event in sidebar react, linking to the doc react.usecontractevents"
+  },
+  "sidebar.react.doc.Contract Type": {
+    "message": "Contract Type",
+    "description": "The label for the doc item Contract Type in sidebar react, linking to the doc react.usecontracttype"
+  },
+  "sidebar.react.doc.Contract Metadata": {
+    "message": "Contract Metadata",
+    "description": "The label for the doc item Contract Metadata in sidebar react, linking to the doc react.usecontractmetadata"
+  },
+  "sidebar.react.doc.Call a Contract's Function": {
+    "message": "Call a Contract's Function",
+    "description": "The label for the doc item Call a Contract's Function in sidebar react, linking to the doc react.usecontractcall"
+  },
+  "sidebar.react.doc.Active Claim Condition": {
+    "message": "Active Claim Condition",
+    "description": "The label for the doc item Active Claim Condition in sidebar react, linking to the doc react.useactiveclaimcondition"
+  },
+  "sidebar.react.doc.All Claim Conditions": {
+    "message": "All Claim Conditions",
+    "description": "The label for the doc item All Claim Conditions in sidebar react, linking to the doc react.useclaimconditions"
+  },
+  "sidebar.react.doc.Claim Inelibility Reasons": {
+    "message": "Claim Inelibility Reasons",
+    "description": "The label for the doc item Claim Inelibility Reasons in sidebar react, linking to the doc react.useclaimineligibilityreasons"
+  },
+  "sidebar.react.doc.View Unrevealed Batches": {
+    "message": "View Unrevealed Batches",
+    "description": "The label for the doc item View Unrevealed Batches in sidebar react, linking to the doc react.usebatchestoreveal"
+  },
+  "sidebar.react.doc.Lazy Mint with Delayed Reveal": {
+    "message": "Lazy Mint with Delayed Reveal",
+    "description": "The label for the doc item Lazy Mint with Delayed Reveal in sidebar react, linking to the doc react.usedelayedreveallazymint"
+  },
+  "sidebar.react.doc.Reveal Batch": {
+    "message": "Reveal Batch",
+    "description": "The label for the doc item Reveal Batch in sidebar react, linking to the doc react.usereveallazymint"
+  },
+  "sidebar.react.doc.Read Contract Metadata": {
+    "message": "Read Contract Metadata",
+    "description": "The label for the doc item Read Contract Metadata in sidebar react, linking to the doc react.usemetadata"
+  },
+  "sidebar.react.doc.Update Contract Metadata": {
+    "message": "Update Contract Metadata",
+    "description": "The label for the doc item Update Contract Metadata in sidebar react, linking to the doc react.useupdatemetadata"
+  },
+  "sidebar.react.doc.Read Primary Sale Recipient": {
+    "message": "Read Primary Sale Recipient",
+    "description": "The label for the doc item Read Primary Sale Recipient in sidebar react, linking to the doc react.useprimarysalerecipient"
+  },
+  "sidebar.react.doc.Update Primary Sale Recipient": {
+    "message": "Update Primary Sale Recipient",
+    "description": "The label for the doc item Update Primary Sale Recipient in sidebar react, linking to the doc react.useupdateprimarysalerecipient"
+  },
+  "sidebar.react.doc.Read Royalty Settings": {
+    "message": "Read Royalty Settings",
+    "description": "The label for the doc item Read Royalty Settings in sidebar react, linking to the doc react.useroyaltysettings"
+  },
+  "sidebar.react.doc.Update Royalty Settings": {
+    "message": "Update Royalty Settings",
+    "description": "The label for the doc item Update Royalty Settings in sidebar react, linking to the doc react.useupdateroyaltysettings"
+  },
+  "sidebar.react.doc.Read Platform Fees": {
+    "message": "Read Platform Fees",
+    "description": "The label for the doc item Read Platform Fees in sidebar react, linking to the doc react.useplatformfees"
+  },
+  "sidebar.react.doc.Update Platform Fees": {
+    "message": "Update Platform Fees",
+    "description": "The label for the doc item Update Platform Fees in sidebar react, linking to the doc react.useupdateplatformfees"
+  },
+  "sidebar.react.doc.All Members of All Roles": {
+    "message": "All Members of All Roles",
+    "description": "The label for the doc item All Members of All Roles in sidebar react, linking to the doc react.useallrolemembers"
+  },
+  "sidebar.react.doc.All Members of One Role": {
+    "message": "All Members of One Role",
+    "description": "The label for the doc item All Members of One Role in sidebar react, linking to the doc react.userolemembers"
+  },
+  "sidebar.react.doc.Check if Address is Role": {
+    "message": "Check if Address is Role",
+    "description": "The label for the doc item Check if Address is Role in sidebar react, linking to the doc react.useisaddressrole"
+  },
+  "sidebar.react.doc.Overwrite All Role Members": {
+    "message": "Overwrite All Role Members",
+    "description": "The label for the doc item Overwrite All Role Members in sidebar react, linking to the doc react.usesetallrolemembers"
+  },
+  "sidebar.react.doc.Grant Role": {
+    "message": "Grant Role",
+    "description": "The label for the doc item Grant Role in sidebar react, linking to the doc react.usegrantrole"
+  },
+  "sidebar.react.doc.Revoke Role": {
+    "message": "Revoke Role",
+    "description": "The label for the doc item Revoke Role in sidebar react, linking to the doc react.userevokerole"
+  }
+}

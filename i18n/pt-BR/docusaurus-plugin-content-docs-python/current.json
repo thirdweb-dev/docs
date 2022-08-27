@@ -1,0 +1,182 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.python.category.Contracts": {
+    "message": "Contracts",
+    "description": "The label for category Contracts in sidebar python"
+  },
+  "sidebar.python.category.Contracts.link.generated-index.title": {
+    "message": "Contracts",
+    "description": "The generated-index page title for category Contracts in sidebar python"
+  },
+  "sidebar.python.category.Contracts.link.generated-index.description": {
+    "message": "Interfaces for on-chain contracts.",
+    "description": "The generated-index page description for category Contracts in sidebar python"
+  },
+  "sidebar.python.category.Contract Interfaces": {
+    "message": "Contract Interfaces",
+    "description": "The label for category Contract Interfaces in sidebar python"
+  },
+  "sidebar.python.category.Contract Interfaces.link.generated-index.title": {
+    "message": "Contract Interfaces",
+    "description": "The generated-index page title for category Contract Interfaces in sidebar python"
+  },
+  "sidebar.python.category.Contract Interfaces.link.generated-index.description": {
+    "message": "Contract interfaces that extend the functionality of contracts.",
+    "description": "The generated-index page description for category Contract Interfaces in sidebar python"
+  },
+  "sidebar.python.category.Signature Minting": {
+    "message": "Signature Minting",
+    "description": "The label for category Signature Minting in sidebar python"
+  },
+  "sidebar.python.category.Signature Minting.link.generated-index.title": {
+    "message": "Signature Minting",
+    "description": "The generated-index page title for category Signature Minting in sidebar python"
+  },
+  "sidebar.python.category.Signature Minting.link.generated-index.description": {
+    "message": "Signature based minting for contracts.",
+    "description": "The generated-index page description for category Signature Minting in sidebar python"
+  },
+  "sidebar.python.category.Contract Settings": {
+    "message": "Contract Settings",
+    "description": "The label for category Contract Settings in sidebar python"
+  },
+  "sidebar.python.category.Contract Settings.link.generated-index.title": {
+    "message": "Contract Settings",
+    "description": "The generated-index page title for category Contract Settings in sidebar python"
+  },
+  "sidebar.python.category.Contract Settings.link.generated-index.description": {
+    "message": "Interfaces to manage contract settings.",
+    "description": "The generated-index page description for category Contract Settings in sidebar python"
+  },
+  "sidebar.python.category.Full Reference": {
+    "message": "Full Reference",
+    "description": "The label for category Full Reference in sidebar python"
+  },
+  "sidebar.python.category.Full Reference.link.generated-index.title": {
+    "message": "Full Reference",
+    "description": "The generated-index page title for category Full Reference in sidebar python"
+  },
+  "sidebar.python.category.Full Reference.link.generated-index.description": {
+    "message": "Everything exported by the package",
+    "description": "The generated-index page description for category Full Reference in sidebar python"
+  },
+  "sidebar.python.doc.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for the doc item Getting Started in sidebar python, linking to the doc index"
+  },
+  "sidebar.python.doc.ThirdwebSDK": {
+    "message": "ThirdwebSDK",
+    "description": "The label for the doc item ThirdwebSDK in sidebar python, linking to the doc sdk"
+  },
+  "sidebar.python.doc.Deploying Contracts": {
+    "message": "Deploying Contracts",
+    "description": "The label for the doc item Deploying Contracts in sidebar python, linking to the doc contract-deployer"
+  },
+  "sidebar.python.doc.Custom Contracts": {
+    "message": "Custom Contracts",
+    "description": "The label for the doc item Custom Contracts in sidebar python, linking to the doc custom"
+  },
+  "sidebar.python.doc.NFT Collection": {
+    "message": "NFT Collection",
+    "description": "The label for the doc item NFT Collection in sidebar python, linking to the doc nft-collection"
+  },
+  "sidebar.python.doc.Edition": {
+    "message": "Edition",
+    "description": "The label for the doc item Edition in sidebar python, linking to the doc edition"
+  },
+  "sidebar.python.doc.Token": {
+    "message": "Token",
+    "description": "The label for the doc item Token in sidebar python, linking to the doc token"
+  },
+  "sidebar.python.doc.Marketplace": {
+    "message": "Marketplace",
+    "description": "The label for the doc item Marketplace in sidebar python, linking to the doc marketplace"
+  },
+  "sidebar.python.doc.NFT Drop": {
+    "message": "NFT Drop",
+    "description": "The label for the doc item NFT Drop in sidebar python, linking to the doc nft-drop"
+  },
+  "sidebar.python.doc.Edition Drop": {
+    "message": "Edition Drop",
+    "description": "The label for the doc item Edition Drop in sidebar python, linking to the doc edition-drop"
+  },
+  "sidebar.python.doc.Multiwrap": {
+    "message": "Multiwrap",
+    "description": "The label for the doc item Multiwrap in sidebar python, linking to the doc multiwrap"
+  },
+  "sidebar.python.doc.ERC 20": {
+    "message": "ERC 20",
+    "description": "The label for the doc item ERC 20 in sidebar python, linking to the doc erc20"
+  },
+  "sidebar.python.doc.ERC 721": {
+    "message": "ERC 721",
+    "description": "The label for the doc item ERC 721 in sidebar python, linking to the doc erc721"
+  },
+  "sidebar.python.doc.ERC 1155": {
+    "message": "ERC 1155",
+    "description": "The label for the doc item ERC 1155 in sidebar python, linking to the doc erc1155"
+  },
+  "sidebar.python.doc.Direct Listing": {
+    "message": "Direct Listing",
+    "description": "The label for the doc item Direct Listing in sidebar python, linking to the doc marketplace-direct"
+  },
+  "sidebar.python.doc.Auction Listing": {
+    "message": "Auction Listing",
+    "description": "The label for the doc item Auction Listing in sidebar python, linking to the doc marketplace-auction"
+  },
+  "sidebar.python.doc.NFT Drop Claim Conditions": {
+    "message": "NFT Drop Claim Conditions",
+    "description": "The label for the doc item NFT Drop Claim Conditions in sidebar python, linking to the doc nft-drop-claim-conditions"
+  },
+  "sidebar.python.doc.Edition Drop Claim Conditions": {
+    "message": "Edition Drop Claim Conditions",
+    "description": "The label for the doc item Edition Drop Claim Conditions in sidebar python, linking to the doc edition-drop-claim-conditions"
+  },
+  "sidebar.python.doc.ERC 20 Signature Minting": {
+    "message": "ERC 20 Signature Minting",
+    "description": "The label for the doc item ERC 20 Signature Minting in sidebar python, linking to the doc erc20-signature-minting"
+  },
+  "sidebar.python.doc.ERC 721 Signature Minting": {
+    "message": "ERC 721 Signature Minting",
+    "description": "The label for the doc item ERC 721 Signature Minting in sidebar python, linking to the doc erc721-signature-minting"
+  },
+  "sidebar.python.doc.ERC 1155 Signature Minting": {
+    "message": "ERC 1155 Signature Minting",
+    "description": "The label for the doc item ERC 1155 Signature Minting in sidebar python, linking to the doc erc1155-signature-minting"
+  },
+  "sidebar.python.doc.Contract Metadata": {
+    "message": "Contract Metadata",
+    "description": "The label for the doc item Contract Metadata in sidebar python, linking to the doc contract-metadata"
+  },
+  "sidebar.python.doc.Contract Roles": {
+    "message": "Contract Roles",
+    "description": "The label for the doc item Contract Roles in sidebar python, linking to the doc contract-roles"
+  },
+  "sidebar.python.doc.Platform Fee": {
+    "message": "Platform Fee",
+    "description": "The label for the doc item Platform Fee in sidebar python, linking to the doc contract-platform-fee"
+  },
+  "sidebar.python.doc.Royalties": {
+    "message": "Royalties",
+    "description": "The label for the doc item Royalties in sidebar python, linking to the doc contract-royalty"
+  },
+  "sidebar.python.doc.Primary Sales": {
+    "message": "Primary Sales",
+    "description": "The label for the doc item Primary Sales in sidebar python, linking to the doc contract-sales"
+  },
+  "sidebar.python.doc.IPFS Storage": {
+    "message": "IPFS Storage",
+    "description": "The label for the doc item IPFS Storage in sidebar python, linking to the doc ipfs-storage"
+  },
+  "sidebar.python.doc.Wallet Authentication": {
+    "message": "Wallet Authentication",
+    "description": "The label for the doc item Wallet Authentication in sidebar python, linking to the doc wallet-authenticator"
+  },
+  "sidebar.python.doc.Contract Events": {
+    "message": "Contract Events",
+    "description": "The label for the doc item Contract Events in sidebar python, linking to the doc contract-events"
+  }
+}

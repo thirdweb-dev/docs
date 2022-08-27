@@ -1,0 +1,206 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.contracts.category.Design Docs": {
+    "message": "Design Docs",
+    "description": "The label for category Design Docs in sidebar contracts"
+  },
+  "sidebar.contracts.category.Design Docs.link.generated-index.title": {
+    "message": "Design Docs",
+    "description": "The generated-index page title for category Design Docs in sidebar contracts"
+  },
+  "sidebar.contracts.category.Design Docs.link.generated-index.description": {
+    "message": "In-depth breakdowns of thirdweb smart contract architecture.",
+    "description": "The generated-index page description for category Design Docs in sidebar contracts"
+  },
+  "sidebar.contracts.category.Base Contracts": {
+    "message": "Base Contracts",
+    "description": "The label for category Base Contracts in sidebar contracts"
+  },
+  "sidebar.contracts.category.ERC721A": {
+    "message": "ERC721A",
+    "description": "The label for category ERC721A in sidebar contracts"
+  },
+  "sidebar.contracts.category.ERC1155": {
+    "message": "ERC1155",
+    "description": "The label for category ERC1155 in sidebar contracts"
+  },
+  "sidebar.contracts.category.Contract Extensions": {
+    "message": "Contract Extensions",
+    "description": "The label for category Contract Extensions in sidebar contracts"
+  },
+  "sidebar.contracts.category.Pre-Built Contracts": {
+    "message": "Pre-Built Contracts",
+    "description": "The label for category Pre-Built Contracts in sidebar contracts"
+  },
+  "sidebar.contracts.category.NFTs": {
+    "message": "NFTs",
+    "description": "The label for category NFTs in sidebar contracts"
+  },
+  "sidebar.contracts.category.Tokens": {
+    "message": "Tokens",
+    "description": "The label for category Tokens in sidebar contracts"
+  },
+  "sidebar.contracts.category.Full Reference": {
+    "message": "Full Reference",
+    "description": "The label for category Full Reference in sidebar contracts"
+  },
+  "sidebar.contracts.category.Full Reference.link.generated-index.title": {
+    "message": "Full Reference",
+    "description": "The generated-index page title for category Full Reference in sidebar contracts"
+  },
+  "sidebar.contracts.category.Full Reference.link.generated-index.description": {
+    "message": "Everything exported by the package",
+    "description": "The generated-index page description for category Full Reference in sidebar contracts"
+  },
+  "sidebar.contracts.category.design": {
+    "message": "design",
+    "description": "The label for category design in sidebar contracts"
+  },
+  "sidebar.contracts.doc.Getting Started": {
+    "message": "Primeiros Passos",
+    "description": "The label for the doc item Getting Started in sidebar contracts, linking to the doc index"
+  },
+  "sidebar.contracts.doc.Drop": {
+    "message": "Drop",
+    "description": "The label for the doc item Drop in sidebar contracts, linking to the doc Drop"
+  },
+  "sidebar.contracts.doc.Marketplace": {
+    "message": "Marketplace",
+    "description": "The label for the doc item Marketplace in sidebar contracts, linking to the doc Marketplace"
+  },
+  "sidebar.contracts.doc.Signature Minting": {
+    "message": "Signature Minting",
+    "description": "The label for the doc item Signature Minting in sidebar contracts, linking to the doc design/SignatureMint"
+  },
+  "sidebar.contracts.doc.Multiwrap": {
+    "message": "Multiwrap",
+    "description": "The label for the doc item Multiwrap in sidebar contracts, linking to the doc Multiwrap"
+  },
+  "sidebar.contracts.doc.Signature Drop": {
+    "message": "Signature Drop",
+    "description": "The label for the doc item Signature Drop in sidebar contracts, linking to the doc SignatureDrop"
+  },
+  "sidebar.contracts.doc.ERC721Base": {
+    "message": "ERC721Base",
+    "description": "The label for the doc item ERC721Base in sidebar contracts, linking to the doc ERC721Base"
+  },
+  "sidebar.contracts.doc.ERC721SignatureMint": {
+    "message": "ERC721SignatureMint",
+    "description": "The label for the doc item ERC721SignatureMint in sidebar contracts, linking to the doc ERC721SignatureMint"
+  },
+  "sidebar.contracts.doc.ERC721LazyMint": {
+    "message": "ERC721LazyMint",
+    "description": "The label for the doc item ERC721LazyMint in sidebar contracts, linking to the doc ERC721LazyMint"
+  },
+  "sidebar.contracts.doc.ERC721DelayedReveal": {
+    "message": "ERC721DelayedReveal",
+    "description": "The label for the doc item ERC721DelayedReveal in sidebar contracts, linking to the doc ERC721DelayedReveal"
+  },
+  "sidebar.contracts.doc.ERC721Drop": {
+    "message": "ERC721Drop",
+    "description": "The label for the doc item ERC721Drop in sidebar contracts, linking to the doc ERC721Drop"
+  },
+  "sidebar.contracts.doc.ERC1155Base": {
+    "message": "ERC1155Base",
+    "description": "The label for the doc item ERC1155Base in sidebar contracts, linking to the doc ERC1155Base"
+  },
+  "sidebar.contracts.doc.ERC1155SignatureMint": {
+    "message": "ERC1155SignatureMint",
+    "description": "The label for the doc item ERC1155SignatureMint in sidebar contracts, linking to the doc ERC1155SignatureMint"
+  },
+  "sidebar.contracts.doc.ERC1155LazyMint": {
+    "message": "ERC1155LazyMint",
+    "description": "The label for the doc item ERC1155LazyMint in sidebar contracts, linking to the doc ERC1155LazyMint"
+  },
+  "sidebar.contracts.doc.ERC1155DelayedReveal": {
+    "message": "ERC1155DelayedReveal",
+    "description": "The label for the doc item ERC1155DelayedReveal in sidebar contracts, linking to the doc ERC1155DelayedReveal"
+  },
+  "sidebar.contracts.doc.ERC1155Drop": {
+    "message": "ERC1155Drop",
+    "description": "The label for the doc item ERC1155Drop in sidebar contracts, linking to the doc ERC1155Drop"
+  },
+  "sidebar.contracts.doc.ContractMetadata": {
+    "message": "ContractMetadata",
+    "description": "The label for the doc item ContractMetadata in sidebar contracts, linking to the doc ContractMetadata"
+  },
+  "sidebar.contracts.doc.DelayedReveal": {
+    "message": "DelayedReveal",
+    "description": "The label for the doc item DelayedReveal in sidebar contracts, linking to the doc DelayedReveal"
+  },
+  "sidebar.contracts.doc.LazyMint": {
+    "message": "LazyMint",
+    "description": "The label for the doc item LazyMint in sidebar contracts, linking to the doc LazyMint"
+  },
+  "sidebar.contracts.doc.Ownable": {
+    "message": "Ownable",
+    "description": "The label for the doc item Ownable in sidebar contracts, linking to the doc Ownable"
+  },
+  "sidebar.contracts.doc.Permissions": {
+    "message": "Permissions",
+    "description": "The label for the doc item Permissions in sidebar contracts, linking to the doc Permissions"
+  },
+  "sidebar.contracts.doc.PermissionsEnumerable": {
+    "message": "PermissionsEnumerable",
+    "description": "The label for the doc item PermissionsEnumerable in sidebar contracts, linking to the doc PermissionsEnumerable"
+  },
+  "sidebar.contracts.doc.PlatformFee": {
+    "message": "PlatformFee",
+    "description": "The label for the doc item PlatformFee in sidebar contracts, linking to the doc PlatformFee"
+  },
+  "sidebar.contracts.doc.PrimarySale": {
+    "message": "PrimarySale",
+    "description": "The label for the doc item PrimarySale in sidebar contracts, linking to the doc PrimarySale"
+  },
+  "sidebar.contracts.doc.Royalty": {
+    "message": "Royalty",
+    "description": "The label for the doc item Royalty in sidebar contracts, linking to the doc Royalty"
+  },
+  "sidebar.contracts.doc.SignatureMintERC721": {
+    "message": "SignatureMintERC721",
+    "description": "The label for the doc item SignatureMintERC721 in sidebar contracts, linking to the doc SignatureMintERC721"
+  },
+  "sidebar.contracts.doc.SignatureMintERC1155": {
+    "message": "SignatureMintERC1155",
+    "description": "The label for the doc item SignatureMintERC1155 in sidebar contracts, linking to the doc SignatureMintERC1155"
+  },
+  "sidebar.contracts.doc.NFT Drop": {
+    "message": "NFT Drop",
+    "description": "The label for the doc item NFT Drop in sidebar contracts, linking to the doc DropERC721"
+  },
+  "sidebar.contracts.doc.Edition Drop": {
+    "message": "Edition Drop",
+    "description": "The label for the doc item Edition Drop in sidebar contracts, linking to the doc DropERC1155"
+  },
+  "sidebar.contracts.doc.NFT Collection": {
+    "message": "NFT Collection",
+    "description": "The label for the doc item NFT Collection in sidebar contracts, linking to the doc TokenERC721"
+  },
+  "sidebar.contracts.doc.Edition": {
+    "message": "Edition",
+    "description": "The label for the doc item Edition in sidebar contracts, linking to the doc TokenERC1155"
+  },
+  "sidebar.contracts.doc.Pack": {
+    "message": "Pack",
+    "description": "The label for the doc item Pack in sidebar contracts, linking to the doc Pack"
+  },
+  "sidebar.contracts.doc.Token Drop": {
+    "message": "Token Drop",
+    "description": "The label for the doc item Token Drop in sidebar contracts, linking to the doc DropERC20"
+  },
+  "sidebar.contracts.doc.Token": {
+    "message": "Token",
+    "description": "The label for the doc item Token in sidebar contracts, linking to the doc TokenERC20"
+  },
+  "sidebar.contracts.doc.Vote": {
+    "message": "Vote",
+    "description": "The label for the doc item Vote in sidebar contracts, linking to the doc VoteERC20"
+  },
+  "sidebar.contracts.doc.Split": {
+    "message": "Split",
+    "description": "The label for the doc item Split in sidebar contracts, linking to the doc Split"
+  }
+}

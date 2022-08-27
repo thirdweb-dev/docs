@@ -47,6 +47,7 @@ const config = {
     localeConfigs: {
       pt: {
         htmlLang: 'pt-BR',
+        path: 'pt-BR',
       },
     },
   },

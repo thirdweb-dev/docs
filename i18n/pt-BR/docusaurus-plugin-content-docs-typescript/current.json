@@ -1,0 +1,198 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.typescript.category.Prebuilt Contracts": {
+    "message": "Prebuilt Contracts",
+    "description": "The label for category Prebuilt Contracts in sidebar typescript"
+  },
+  "sidebar.typescript.category.Prebuilt Contracts.link.generated-index.title": {
+    "message": "Pre-Built Contracts",
+    "description": "The generated-index page title for category Prebuilt Contracts in sidebar typescript"
+  },
+  "sidebar.typescript.category.Prebuilt Contracts.link.generated-index.description": {
+    "message": "Interfaces for on-chain contracts.",
+    "description": "The generated-index page description for category Prebuilt Contracts in sidebar typescript"
+  },
+  "sidebar.typescript.category.Contract Interfaces": {
+    "message": "Contract Interfaces",
+    "description": "The label for category Contract Interfaces in sidebar typescript"
+  },
+  "sidebar.typescript.category.Contract Interfaces.link.generated-index.title": {
+    "message": "Contract Interfaces",
+    "description": "The generated-index page title for category Contract Interfaces in sidebar typescript"
+  },
+  "sidebar.typescript.category.Contract Interfaces.link.generated-index.description": {
+    "message": "Contract interfaces that extend the functionality of contracts",
+    "description": "The generated-index page description for category Contract Interfaces in sidebar typescript"
+  },
+  "sidebar.typescript.category.Signature Minting": {
+    "message": "Signature Minting",
+    "description": "The label for category Signature Minting in sidebar typescript"
+  },
+  "sidebar.typescript.category.Signature Minting.link.generated-index.title": {
+    "message": "Signature Minting",
+    "description": "The generated-index page title for category Signature Minting in sidebar typescript"
+  },
+  "sidebar.typescript.category.Signature Minting.link.generated-index.description": {
+    "message": "Signature based minting for contracts.",
+    "description": "The generated-index page description for category Signature Minting in sidebar typescript"
+  },
+  "sidebar.typescript.category.Contract Settings": {
+    "message": "Contract Settings",
+    "description": "The label for category Contract Settings in sidebar typescript"
+  },
+  "sidebar.typescript.category.Contract Settings.link.generated-index.title": {
+    "message": "Contract Settings",
+    "description": "The generated-index page title for category Contract Settings in sidebar typescript"
+  },
+  "sidebar.typescript.category.Contract Settings.link.generated-index.description": {
+    "message": "Interfaces to manage contract settings.",
+    "description": "The generated-index page description for category Contract Settings in sidebar typescript"
+  },
+  "sidebar.typescript.category.Full Reference": {
+    "message": "Full Reference",
+    "description": "The label for category Full Reference in sidebar typescript"
+  },
+  "sidebar.typescript.category.Full Reference.link.generated-index.title": {
+    "message": "Full Reference",
+    "description": "The generated-index page title for category Full Reference in sidebar typescript"
+  },
+  "sidebar.typescript.category.Full Reference.link.generated-index.description": {
+    "message": "Everything exported by the package",
+    "description": "The generated-index page description for category Full Reference in sidebar typescript"
+  },
+  "sidebar.typescript.doc.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for the doc item Getting Started in sidebar typescript, linking to the doc index"
+  },
+  "sidebar.typescript.doc.ThirdwebSDK": {
+    "message": "ThirdwebSDK",
+    "description": "The label for the doc item ThirdwebSDK in sidebar typescript, linking to the doc sdk.thirdwebsdk"
+  },
+  "sidebar.typescript.doc.Deploying Contracts": {
+    "message": "Deploying Contracts",
+    "description": "The label for the doc item Deploying Contracts in sidebar typescript, linking to the doc sdk.contractdeployer"
+  },
+  "sidebar.typescript.doc.Custom Contracts": {
+    "message": "Custom Contracts",
+    "description": "The label for the doc item Custom Contracts in sidebar typescript, linking to the doc sdk.smartcontract"
+  },
+  "sidebar.typescript.doc.Edition": {
+    "message": "Edition",
+    "description": "The label for the doc item Edition in sidebar typescript, linking to the doc sdk.edition"
+  },
+  "sidebar.typescript.doc.Edition Drop": {
+    "message": "Edition Drop",
+    "description": "The label for the doc item Edition Drop in sidebar typescript, linking to the doc sdk.editiondrop"
+  },
+  "sidebar.typescript.doc.Marketplace": {
+    "message": "Marketplace",
+    "description": "The label for the doc item Marketplace in sidebar typescript, linking to the doc sdk.marketplace"
+  },
+  "sidebar.typescript.doc.NFT Collection": {
+    "message": "NFT Collection",
+    "description": "The label for the doc item NFT Collection in sidebar typescript, linking to the doc sdk.nftcollection"
+  },
+  "sidebar.typescript.doc.NFT Drop": {
+    "message": "NFT Drop",
+    "description": "The label for the doc item NFT Drop in sidebar typescript, linking to the doc sdk.nftdrop"
+  },
+  "sidebar.typescript.doc.Pack": {
+    "message": "Pack",
+    "description": "The label for the doc item Pack in sidebar typescript, linking to the doc sdk.pack"
+  },
+  "sidebar.typescript.doc.Split": {
+    "message": "Split",
+    "description": "The label for the doc item Split in sidebar typescript, linking to the doc sdk.split"
+  },
+  "sidebar.typescript.doc.Token": {
+    "message": "Token",
+    "description": "The label for the doc item Token in sidebar typescript, linking to the doc sdk.token"
+  },
+  "sidebar.typescript.doc.Vote": {
+    "message": "Vote",
+    "description": "The label for the doc item Vote in sidebar typescript, linking to the doc sdk.vote"
+  },
+  "sidebar.typescript.doc.Multiwrap": {
+    "message": "Multiwrap",
+    "description": "The label for the doc item Multiwrap in sidebar typescript, linking to the doc sdk.multiwrap"
+  },
+  "sidebar.typescript.doc.Signature Drop": {
+    "message": "Signature Drop",
+    "description": "The label for the doc item Signature Drop in sidebar typescript, linking to the doc sdk.signaturedrop"
+  },
+  "sidebar.typescript.doc.ERC 20": {
+    "message": "ERC 20",
+    "description": "The label for the doc item ERC 20 in sidebar typescript, linking to the doc sdk.erc20"
+  },
+  "sidebar.typescript.doc.ERC 721": {
+    "message": "ERC 721",
+    "description": "The label for the doc item ERC 721 in sidebar typescript, linking to the doc sdk.erc721"
+  },
+  "sidebar.typescript.doc.ERC 1155": {
+    "message": "ERC 1155",
+    "description": "The label for the doc item ERC 1155 in sidebar typescript, linking to the doc sdk.erc1155"
+  },
+  "sidebar.typescript.doc.Direct Listing": {
+    "message": "Direct Listing",
+    "description": "The label for the doc item Direct Listing in sidebar typescript, linking to the doc sdk.marketplacedirect"
+  },
+  "sidebar.typescript.doc.Auction Listing": {
+    "message": "Auction Listing",
+    "description": "The label for the doc item Auction Listing in sidebar typescript, linking to the doc sdk.marketplaceauction"
+  },
+  "sidebar.typescript.doc.NFT Drop Claim Conditions": {
+    "message": "NFT Drop Claim Conditions",
+    "description": "The label for the doc item NFT Drop Claim Conditions in sidebar typescript, linking to the doc sdk.dropclaimconditions"
+  },
+  "sidebar.typescript.doc.Edition Drop Claim Conditions": {
+    "message": "Edition Drop Claim Conditions",
+    "description": "The label for the doc item Edition Drop Claim Conditions in sidebar typescript, linking to the doc sdk.droperc1155claimconditions"
+  },
+  "sidebar.typescript.doc.ERC 20 Signature Minting": {
+    "message": "ERC 20 Signature Minting",
+    "description": "The label for the doc item ERC 20 Signature Minting in sidebar typescript, linking to the doc sdk.erc20signaturemintable"
+  },
+  "sidebar.typescript.doc.ERC 721 Signature Minting": {
+    "message": "ERC 721 Signature Minting",
+    "description": "The label for the doc item ERC 721 Signature Minting in sidebar typescript, linking to the doc sdk.erc721withquantitysignaturemintable"
+  },
+  "sidebar.typescript.doc.ERC 1155 Signature Minting": {
+    "message": "ERC 1155 Signature Minting",
+    "description": "The label for the doc item ERC 1155 Signature Minting in sidebar typescript, linking to the doc sdk.erc1155signaturemintable"
+  },
+  "sidebar.typescript.doc.Contract Metadata": {
+    "message": "Contract Metadata",
+    "description": "The label for the doc item Contract Metadata in sidebar typescript, linking to the doc sdk.contractmetadata"
+  },
+  "sidebar.typescript.doc.Contract Roles": {
+    "message": "Contract Roles",
+    "description": "The label for the doc item Contract Roles in sidebar typescript, linking to the doc sdk.contractroles"
+  },
+  "sidebar.typescript.doc.Platform Fee": {
+    "message": "Platform Fee",
+    "description": "The label for the doc item Platform Fee in sidebar typescript, linking to the doc sdk.contractplatformfee"
+  },
+  "sidebar.typescript.doc.Royalties": {
+    "message": "Royalties",
+    "description": "The label for the doc item Royalties in sidebar typescript, linking to the doc sdk.contractroyalty"
+  },
+  "sidebar.typescript.doc.Primary Sales": {
+    "message": "Primary Sales",
+    "description": "The label for the doc item Primary Sales in sidebar typescript, linking to the doc sdk.contractprimarysale"
+  },
+  "sidebar.typescript.doc.Remote Storage": {
+    "message": "Remote Storage",
+    "description": "The label for the doc item Remote Storage in sidebar typescript, linking to the doc sdk.thirdwebsdk.storage"
+  },
+  "sidebar.typescript.doc.Wallet Authentication": {
+    "message": "Wallet Authentication",
+    "description": "The label for the doc item Wallet Authentication in sidebar typescript, linking to the doc sdk.walletauthenticator"
+  },
+  "sidebar.typescript.doc.Contract Events": {
+    "message": "Contract Events",
+    "description": "The label for the doc item Contract Events in sidebar typescript, linking to the doc sdk.contractevents"
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.go.category.Contracts": {
+    "message": "Contracts",
+    "description": "The label for category Contracts in sidebar go"
+  },
+  "sidebar.go.category.Contracts.link.generated-index.title": {
+    "message": "Contracts",
+    "description": "The generated-index page title for category Contracts in sidebar go"
+  },
+  "sidebar.go.category.Contracts.link.generated-index.description": {
+    "message": "Interfaces for on-chain contracts.",
+    "description": "The generated-index page description for category Contracts in sidebar go"
+  },
+  "sidebar.go.category.Contract Interfaces": {
+    "message": "Contract Interfaces",
+    "description": "The label for category Contract Interfaces in sidebar go"
+  },
+  "sidebar.go.category.Contract Interfaces.link.generated-index.title": {
+    "message": "Contract Interfaces",
+    "description": "The generated-index page title for category Contract Interfaces in sidebar go"
+  },
+  "sidebar.go.category.Contract Interfaces.link.generated-index.description": {
+    "message": "Contract interfaces that extend the functionality of contracts.",
+    "description": "The generated-index page description for category Contract Interfaces in sidebar go"
+  },
+  "sidebar.go.category.Contract Encoders": {
+    "message": "Contract Encoders",
+    "description": "The label for category Contract Encoders in sidebar go"
+  },
+  "sidebar.go.category.Contract Encoders.link.generated-index.title": {
+    "message": "Contract Encoders",
+    "description": "The generated-index page title for category Contract Encoders in sidebar go"
+  },
+  "sidebar.go.category.Contract Encoders.link.generated-index.description": {
+    "message": "Contract encoders that return unsigned transaction data for contract calls.",
+    "description": "The generated-index page description for category Contract Encoders in sidebar go"
+  },
+  "sidebar.go.category.Signature Minting": {
+    "message": "Signature Minting",
+    "description": "The label for category Signature Minting in sidebar go"
+  },
+  "sidebar.go.category.Signature Minting.link.generated-index.title": {
+    "message": "Signature Minting",
+    "description": "The generated-index page title for category Signature Minting in sidebar go"
+  },
+  "sidebar.go.category.Signature Minting.link.generated-index.description": {
+    "message": "Signature based minting for contracts.",
+    "description": "The generated-index page description for category Signature Minting in sidebar go"
+  },
+  "sidebar.go.doc.Getting Started": {
+    "message": "Getting Started",
+    "description": "The label for the doc item Getting Started in sidebar go, linking to the doc index"
+  },
+  "sidebar.go.doc.ThirdwebSDK": {
+    "message": "ThirdwebSDK",
+    "description": "The label for the doc item ThirdwebSDK in sidebar go, linking to the doc sdk"
+  },
+  "sidebar.go.doc.IPFS Storage": {
+    "message": "IPFS Storage",
+    "description": "The label for the doc item IPFS Storage in sidebar go, linking to the doc storage"
+  },
+  "sidebar.go.doc.Deploying Contracts": {
+    "message": "Deploying Contracts",
+    "description": "The label for the doc item Deploying Contracts in sidebar go, linking to the doc contract_deployer"
+  },
+  "sidebar.go.doc.Custom Contracts": {
+    "message": "Custom Contracts",
+    "description": "The label for the doc item Custom Contracts in sidebar go, linking to the doc custom"
+  },
+  "sidebar.go.doc.Wallet Authentication": {
+    "message": "Wallet Authentication",
+    "description": "The label for the doc item Wallet Authentication in sidebar go, linking to the doc wallet_authenticator"
+  },
+  "sidebar.go.doc.NFT Collection": {
+    "message": "NFT Collection",
+    "description": "The label for the doc item NFT Collection in sidebar go, linking to the doc nft_collection"
+  },
+  "sidebar.go.doc.Edition": {
+    "message": "Edition",
+    "description": "The label for the doc item Edition in sidebar go, linking to the doc edition"
+  },
+  "sidebar.go.doc.Token": {
+    "message": "Token",
+    "description": "The label for the doc item Token in sidebar go, linking to the doc token"
+  },
+  "sidebar.go.doc.NFT Drop": {
+    "message": "NFT Drop",
+    "description": "The label for the doc item NFT Drop in sidebar go, linking to the doc nft_drop"
+  },
+  "sidebar.go.doc.Edition Drop": {
+    "message": "Edition Drop",
+    "description": "The label for the doc item Edition Drop in sidebar go, linking to the doc edition_drop"
+  },
+  "sidebar.go.doc.Multiwrap": {
+    "message": "Multiwrap",
+    "description": "The label for the doc item Multiwrap in sidebar go, linking to the doc multiwrap"
+  },
+  "sidebar.go.doc.Marketplace": {
+    "message": "Marketplace",
+    "description": "The label for the doc item Marketplace in sidebar go, linking to the doc marketplace"
+  },
+  "sidebar.go.doc.Contract Encoder": {
+    "message": "Contract Encoder",
+    "description": "The label for the doc item Contract Encoder in sidebar go, linking to the doc contract_encoder"
+  },
+  "sidebar.go.doc.Marketplace Encoder": {
+    "message": "Marketplace Encoder",
+    "description": "The label for the doc item Marketplace Encoder in sidebar go, linking to the doc marketplace_encoder"
+  },
+  "sidebar.go.doc.ERC 20": {
+    "message": "ERC 20",
+    "description": "The label for the doc item ERC 20 in sidebar go, linking to the doc erc20"
+  },
+  "sidebar.go.doc.ERC 721": {
+    "message": "ERC 721",
+    "description": "The label for the doc item ERC 721 in sidebar go, linking to the doc erc721"
+  },
+  "sidebar.go.doc.ERC 1155": {
+    "message": "ERC 1155",
+    "description": "The label for the doc item ERC 1155 in sidebar go, linking to the doc erc1155"
+  },
+  "sidebar.go.doc.NFT Drop Claim Conditions": {
+    "message": "NFT Drop Claim Conditions",
+    "description": "The label for the doc item NFT Drop Claim Conditions in sidebar go, linking to the doc nft_drop_claim_conditions"
+  },
+  "sidebar.go.doc.Edition Drop Claim conditions": {
+    "message": "Edition Drop Claim conditions",
+    "description": "The label for the doc item Edition Drop Claim conditions in sidebar go, linking to the doc edition_drop_claim_conditions"
+  },
+  "sidebar.go.doc.ERC 721 Signature Minting": {
+    "message": "ERC 721 Signature Minting",
+    "description": "The label for the doc item ERC 721 Signature Minting in sidebar go, linking to the doc erc721_signature_minting"
+  },
+  "sidebar.go.doc.ERC 1155 Signature Minting": {
+    "message": "ERC 1155 Signature Minting",
+    "description": "The label for the doc item ERC 1155 Signature Minting in sidebar go, linking to the doc erc1155_signature_minting"
+  }
+}

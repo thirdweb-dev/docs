@@ -1,0 +1,130 @@
+{
+  "version.label": {
+    "message": "Next",
+    "description": "The label for version current"
+  },
+  "sidebar.onboarding.category.Getting Started": {
+    "message": "Primeiros Passos",
+    "description": "The label for category Getting Started in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Prebuilt": {
+    "message": "Pré-configurados",
+    "description": "The label for category Prebuilt in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.NFT Contracts": {
+    "message": "Contratos NFT",
+    "description": "The label for category NFT Contracts in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Token Contracts": {
+    "message": "Contratos de Token",
+    "description": "The label for category Token Contracts in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Dashboard": {
+    "message": "Dashboard",
+    "description": "The label for category Dashboard in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.SDK": {
+    "message": "SDK",
+    "description": "The label for category SDK in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Setting Up": {
+    "message": "Setting Up",
+    "description": "The label for category Setting Up in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.UI Components": {
+    "message": "Componentes de Interface",
+    "description": "The label for category UI Components in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Interacting with Contracts": {
+    "message": "Interagindo com Contratos",
+    "description": "The label for category Interacting with Contracts in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.NFTs": {
+    "message": "NFTs",
+    "description": "The label for category NFTs in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Tokens": {
+    "message": "Tokens",
+    "description": "The label for category Tokens in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Custom Contracts": {
+    "message": "Contratos Customizados",
+    "description": "The label for category Custom Contracts in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Advanced Features": {
+    "message": "Funcionalidades Avançadas",
+    "description": "The label for category Advanced Features in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Extensions": {
+    "message": "Extensões",
+    "description": "The label for category Extensions in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Base Contracts": {
+    "message": "Contratos Base",
+    "description": "The label for category Base Contracts in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.ERC721": {
+    "message": "ERC721",
+    "description": "The label for category ERC721 in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.ERC1155": {
+    "message": "ERC1155",
+    "description": "The label for category ERC1155 in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.ERC20": {
+    "message": "ERC20",
+    "description": "The label for category ERC20 in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Features": {
+    "message": "Funcionalidades",
+    "description": "The label for category Features in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Auth": {
+    "message": "Autenticação",
+    "description": "The label for category Auth in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Templates": {
+    "message": "Modelos",
+    "description": "The label for category Templates in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Build an NFT Minting Website": {
+    "message": "Construa um site de criação de NFTs",
+    "description": "The label for category Build an NFT Minting Website in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Create an NFT Marketplace": {
+    "message": "Crie um Marketplace de NFT",
+    "description": "The label for category Create an NFT Marketplace in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.Create an NFT Gated Website": {
+    "message": "Crie um site restrito por NFT",
+    "description": "The label for category Create an NFT Gated Website in sidebar onboarding"
+  },
+  "sidebar.onboarding.category.SDK References": {
+    "message": "SDK References",
+    "description": "The label for category SDK References in sidebar onboarding"
+  },
+  "sidebar.onboarding.link.Guides": {
+    "message": "Guias",
+    "description": "The label for link Guides in sidebar onboarding, linking to https://blog.thirdweb.com/guides/"
+  },
+  "sidebar.onboarding.link.JavaScript / TypeScript": {
+    "message": "JavaScript / TypeScript",
+    "description": "The label for link JavaScript / TypeScript in sidebar onboarding, linking to /typescript"
+  },
+  "sidebar.onboarding.link.React": {
+    "message": "React",
+    "description": "The label for link React in sidebar onboarding, linking to /react"
+  },
+  "sidebar.onboarding.link.Python": {
+    "message": "Python",
+    "description": "The label for link Python in sidebar onboarding, linking to /python"
+  },
+  "sidebar.onboarding.link.Go": {
+    "message": "Go",
+    "description": "The label for link Go in sidebar onboarding, linking to /go"
+  },
+  "sidebar.onboarding.link.Solidity": {
+    "message": "Solidity",
+    "description": "The label for link Solidity in sidebar onboarding, linking to /contracts"
+  }
+}
