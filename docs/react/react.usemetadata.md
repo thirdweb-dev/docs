@@ -26,7 +26,7 @@ export declare function useMetadata(
   contract: RequiredParam<SmartContract | ValidContractInstance>,
 ): import("@tanstack/react-query").UseQueryResult<
   {
-    [x: string]: import("@thirdweb-dev/sdk/dist/browser").Json;
+    [x: string]: import("@thirdweb-dev/sdk").Json;
     description?: string | undefined;
     image?: any;
     external_link?: string | undefined;
@@ -44,6 +44,6 @@ export declare function useMetadata(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk/dist/browser").Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk").Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
 
 a object containing the metadata

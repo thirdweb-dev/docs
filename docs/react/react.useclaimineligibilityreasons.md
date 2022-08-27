@@ -39,7 +39,7 @@ export declare function useClaimIneligibilityReasons<
 >(
   ...[contract, params, tokenId]: ClaimIneligibilityInputParams<TContract>
 ): import("@tanstack/react-query").UseQueryResult<
-  import("@thirdweb-dev/sdk/dist/browser").ClaimEligibility[],
+  import("@thirdweb-dev/sdk").ClaimEligibility[],
   unknown
 >;
 ```
@@ -52,6 +52,6 @@ export declare function useClaimIneligibilityReasons<
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk/dist/browser").ClaimEligibility\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk").ClaimEligibility\[\], unknown&gt;
 
 a response object with the resons for the claim ineligibility

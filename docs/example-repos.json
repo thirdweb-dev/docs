@@ -33,11 +33,11 @@
     "html_url": "https://github.com/thirdweb-example/connect-wallet-button",
     "description": "Learn how to use the ConnectWallet Button component from the React SDK!",
     "created_at": "2022-08-23T04:29:36Z",
-    "updated_at": "2022-08-23T05:05:07Z",
+    "updated_at": "2022-08-26T22:25:59Z",
     "clone_url": "https://github.com/thirdweb-example/connect-wallet-button.git",
     "topics": [],
     "language": "JavaScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": "connect-wallet-button-kappa.vercel.app"
   },
@@ -410,7 +410,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-08-25T12:33:07Z",
+    "updated_at": "2022-08-26T22:24:31Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "authentication",
@@ -420,7 +420,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 42,
+    "stargazers_count": 43,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -539,11 +539,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-express",
     "description": "Enable users to login to your backend with their wallet",
     "created_at": "2022-08-19T15:40:00Z",
-    "updated_at": "2022-08-19T18:45:30Z",
+    "updated_at": "2022-08-26T20:25:03Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-express.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": null
   },
@@ -659,13 +659,13 @@
     "html_url": "https://github.com/thirdweb-example/web3button",
     "description": "Learn how to use the Web3Button component from the thirdweb React SDK!",
     "created_at": "2022-08-20T00:27:11Z",
-    "updated_at": "2022-08-23T04:19:18Z",
+    "updated_at": "2022-08-26T17:30:28Z",
     "clone_url": "https://github.com/thirdweb-example/web3button.git",
     "topics": [
       "ui-components"
     ],
     "language": "JavaScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": "https://web3button.thirdweb-example.com/"
   }
