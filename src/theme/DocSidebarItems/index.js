@@ -4,39 +4,42 @@ import DocSidebarItem from "@theme/DocSidebarItem";
 // TODO this item should probably not receive the "activePath" props
 // TODO this triggers whole sidebar re-renders on navigation
 function DocSidebarItems({ items, ...props }) {
-  console.log(items);
-
   const showCategories =
     props?.level === 1 &&
-    props?.activePath !== "/python" &&
-    props?.activePath !== "/typescript" &&
-    props?.activePath !== "/react" &&
-    props?.activePath !== "/go" &&
-    props?.activePath !== "/contracts";
+    !props?.activePath.startsWith("/python") &&
+    !props?.activePath.startsWith("/typescript") &&
+    !props?.activePath.startsWith("/react") &&
+    !props?.activePath.startsWith("/go") &&
+    !props?.activePath.startsWith("/contracts");
 
   const sidebarItems = [
     {
       title: "",
-      items: ["Home", "Platform Overview", "Getting Started", "Create"],
+      items: [
+        "Home",
+        "Platform Overview",
+        "Getting Started",
+        "Create A Project",
+      ],
     },
     {
-      title: "📄 Build Contracts",
-      items: ["Extensions", "Prebuilt Contracts"],
+      title: "Build Contracts",
+      items: ["Prebuilt", "Extensions"],
     },
     {
-      title: "🚢 Ship Projects",
+      title: "Ship Projects",
       items: ["Release", "Deploy"],
     },
     {
-      title: "🚀 Create Apps",
+      title: "Create Apps",
       items: ["SDK", "Auth"],
     },
     {
-      title: "🎨 Manage Projects",
+      title: "Manage Projects",
       items: ["Dashboard"],
     },
     {
-      title: "📚 Resources",
+      title: "",
       items: ["Templates", "Guides", "SDK References"],
     },
   ];
@@ -45,7 +48,7 @@ function DocSidebarItems({ items, ...props }) {
     return (
       <DocSidebarItemsExpandedStateProvider>
         {sidebarItems.map((section, index) => (
-          <div key={section.title} style={{ marginBottom: "2.5rem" }}>
+          <div key={section.title} className="sidebar-section-container">
             {section.title && (
               <p className="sidebar-section-title">{section.title}</p>
             )}
