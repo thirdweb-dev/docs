@@ -668,5 +668,18 @@
     "stargazers_count": 4,
     "is_template": false,
     "homepage": "https://web3button.thirdweb-example.com/"
+  },
+  {
+    "name": "web3sf-demo",
+    "html_url": "https://github.com/thirdweb-example/web3sf-demo",
+    "description": "Demo project used in web3sf",
+    "created_at": "2022-08-27T06:40:44Z",
+    "updated_at": "2022-08-27T19:23:52Z",
+    "clone_url": "https://github.com/thirdweb-example/web3sf-demo.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": "web3sf-demo.vercel.app"
   }
 ]
