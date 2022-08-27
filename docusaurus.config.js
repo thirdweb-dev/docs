@@ -41,6 +41,15 @@ const config = {
     }),
   },
   baseUrlIssueBanner: true,
+  i18n: {
+    defaultLocale: 'en',
+    locales: ['en', 'pt-BR'],
+    localeConfigs: {
+      pt: {
+        htmlLang: 'pt-BR',
+      },
+    },
+  },
   presets: [
     [
       "classic",
@@ -178,6 +187,12 @@ const config = {
           href: "/",
           srcDark: "img/thirdweb-logo-transparent-white.svg",
         },
+        items: [
+          {
+            type: 'localeDropdown',
+            position: 'right',
+          },
+        ]
       },
       footer: {
         style: "light",
