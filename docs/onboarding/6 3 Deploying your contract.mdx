@@ -1,0 +1,38 @@
+---
+slug: /deploy
+title: Deploy
+---
+
+# Deploy
+
+Use the [CLI](https://github.com/thirdweb-dev/thirdweb-cli) to ship your contracts directly to the blockchain.
+
+```bash
+npx thirdweb deploy
+```
+
+Running this command will:
+
+- **Compile** all the contracts in the current directory.
+- Allow you to select which contract(s) you want to deploy.
+- Upload your contract source code (ABI) to IPFS.
+- Open the deploy flow in the [dashboard](https://thirdweb.com/dashboard) for you to select one of
+  our [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use) to deploy to.
+
+## Released Contracts
+
+Deploy a contract that has been [released](/release) by passing the author and name of the contract in the form:
+
+[`<author-address>/<contract-name>`](https://thirdweb.com/dashboard/doubledev.eth/ERC4907)
+
+```bash
+npx thirdweb deploy --name doubledev.eth/ERC4907
+```
+
+## Prebuilt Contracts
+
+Deploy one of our [prebuilt contracts](/pre-built-contracts) by providing the `--name` option.
+
+```bash
+npx thirdweb deploy --name signature-drop
+```

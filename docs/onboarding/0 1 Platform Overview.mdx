@@ -26,8 +26,8 @@ import Image from "@theme/IdealImage";
 <div className="heroGridImageContainer">
   <ThemedImage
     sources={{
-      light: "/assets/hero-light.png",
-      dark: "/assets/hero-dark.png",
+      light: "/assets/portal-overview-all-light.png",
+      dark: "/assets/portal-overview-all-dark.png",
     }}
     className="heroGridImage"
     alt="thirdweb Core Pillars"
@@ -79,9 +79,13 @@ or you can build your own smart contract with our [Extensions](/extensions) and 
 </div>
 
 <div className="heroGridImageContainer">
-  <Image
+  <ThemedImage
+    sources={{
+      light: "/assets/platform-overview-contract-light.png",
+      dark: "/assets/platform-overview-contract-dark.png",
+    }}
+    className="heroGridImage"
     alt="thirdweb contracts"
-    img={require(`/assets/portal_imgs_1-04.png`)}
   />
 </div>
 
@@ -121,10 +125,17 @@ build elegant user interfaces around your smart contract functionality.
 <p>
 
 </p>
+</div>
 
-  </div>
-  <div className="heroGridImageContainer">
-    <Image img={require(`/assets/portal_imgs_1-03.png`)} alt="thirdweb SDKs" />
+<div className="heroGridImageContainer">
+    <ThemedImage
+      sources={{
+        light: "/assets/platform-overview-sdk-light.png",
+        dark: "/assets/platform-overview-sdk-dark.png",
+      }}
+      className="heroGridImage"
+      alt="thirdweb sdk"
+    />
   </div>
 </div>
 
@@ -154,10 +165,13 @@ This lets you perform common admin operations for your projects without any code
 </div>
 
 <div className="heroGridImageContainer">
-  <Image
-    img={require(`/assets/portal_imgs_1-02.png`)}
+  <ThemedImage
+    sources={{
+      light: "/assets/platform-overview-dashboard-light.png",
+      dark: "/assets/platform-overview-dashboard-dark.png",
+    }}
     className="heroGridImage"
-    alt="thirdweb Dashboard"
+    alt="thirdweb dashboard"
   />
 </div>
 
