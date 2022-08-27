@@ -32,5 +32,17 @@ const App = () => {
 **Signature:**
 
 ```typescript
-Web3Button: React.FC<PropsWithChildren<Web3ButtonProps>>;
+Web3Button: <TExecutableFn extends ExecutableFn>({
+  contractAddress,
+  overrides,
+  onSuccess,
+  onError,
+  onSubmit,
+  isDisabled,
+  children,
+  functionName,
+  params,
+  callable,
+  ...themeProps
+}: PropsWithChildren<Web3ButtonProps<TExecutableFn>>) => JSX.Element;
 ```
