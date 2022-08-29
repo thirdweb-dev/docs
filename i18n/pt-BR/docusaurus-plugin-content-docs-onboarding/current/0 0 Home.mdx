@@ -1,0 +1,49 @@
+---
+title: Início
+slug: /
+hide_title: true
+hide_table_of_contents: true
+---
+
+import Hero from "../../../../src/components/landing-page/Hero";
+import GettingStartedCard from "../../../../src/components/landing-page/GettingStartedCard";
+import ExploreProductsSection from "../../../../src/components/landing-page/ExploreProductsSection";
+import LearnSection from "../../../../src/components/landing-page/LearnSection";
+
+<div style={{display: 'flex', alignItems:'flex-start', flexDirection:'column', justifyContent:'flex-start',
+  maxWidth:851
+}}>
+<Hero />
+
+<div className="row" style={{ marginBottom: 64 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <GettingStartedCard
+      name="Primeiros Passos"
+      description="Uma série de tutoriais rápidos para tirar você do localhost"
+      link="/pt-BR/getting-started/deploying-contracts"
+      image="/assets/flag.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <GettingStartedCard
+      name="Guia de Referência do SDK"
+      description="Guia de referência do nosso SDK para Solidity, React, Python e Go"
+      link="/pt-BR/sdk"
+      image="/assets/sdk-reference.svg"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <GettingStartedCard
+      name="Suporte"
+      description="Entre em contato com nossa equipe"
+      link="https://discord.gg/thirdweb"
+      image="/assets/support.svg"
+    />
+  </div>
+</div>
+
+<ExploreProductsSection />
+
+<LearnSection />
+
+</div>

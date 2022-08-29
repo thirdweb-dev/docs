@@ -1,0 +1,175 @@
+---
+slug: /extensions/features/delayedreveal
+title: Delayed Reveal
+---
+
+import ViewContractCodeButton from "../../../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../../../src/components/QuickstartCard";
+import ImportSnippet from "../../../../../../src/components/ImportSnippet";
+
+# Delayed Reveal
+
+The `DelayedReveal` smart contract extension is meant to be used with any ERC721 or ERC1155 NFT smart contract. It lets you create batches of 'delayed-reveal' NFTs.
+
+'Delayed reveal' is a mechanism by which you can distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DelayedReveal.sol"
+  name="DelayedReveal"
+/>
+
+## Import
+
+<ImportSnippet type="extension" category="extension" name="DelayedReveal" />
+
+<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
+<div className="col col--12" style={{marginTop:16}} >
+  <QuickstartCard
+    name="Learn More About How Delayed Reveal Works"
+    link="https://blog.thirdweb.com/delayed-reveal-nfts"
+    image="/assets/icons/drop.png"
+  />
+</div>
+
+</div>
+
+## Available functionality
+
+| Functionality | Description                                                      |
+| ------------- | ---------------------------------------------------------------- |
+| `reveal`      | Lets an authorized wallet reveal a batch of delayed reveal NFTs. |
+
+## Implementing the Contract extension
+
+Import the contract extension and make your contract inherit it.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC721Base.sol";
+import "@thirdweb-dev/contracts/extension/DelayedReveal.sol";
+
+/**
+ *  The `DelayedReveal` extension is meant to be used with an ERC721 or ERC1155 NFT contract as a base.
+ *
+ *  As an EXAMPLE, we'll use the extension with the `ERC721Base` contract to create delayed-reveal NFTs.
+ */
+
+contract MyNFT is ERC721Base, DelayedReveal {
+    /**
+     *  STEP 1: For our example, we'll store the address of the contract's deployer.
+     *          The objective of this to later make it so that only the contract's
+     *          deployer is authorized to reveal our delayed-reveal NFTs.
+     */
+    address public deployer;
+
+    constructor(
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps
+    ) ERC721Base(_name, _symbol, _royaltyRecipient, _royaltyBps) {
+        deployer = msg.sender;
+    }
+
+    /**
+     *  STEP 2: We'll create a function that mints our delayed reveal NFTs.
+     *
+     *  @param to               This is the address of the recipient of the minted delayed reveal NFT.
+     *
+     *  @param beforeRevealURI  This is the metadata of the NFT (i.e. a placeholder) before the true
+     *                          metadata of the NFT is revealed
+     *
+     *  @param encryptedPostRevealURI This is the *encrypted* true metadata of the NFT. Read more about
+     *                                the role of encryption in the delayed reveal process in the linked blog:
+     *                                https://blog.thirdweb.com/delayed-reveal-nfts
+     */
+    function mintDelayedRevealNFT(
+        address to,
+        string memory beforeRevealURI,
+        bytes memory encryptedPostRevealURI
+    ) public {
+        // We'll use the NFT's `tokenId` as an identifier for the NFT, in the delayed reveal process.
+        uint256 tokenId = nextTokenIdToMint();
+
+        // Store the encrypted true metadata for the NFT.
+        _setEncryptedBaseURI(tokenId, encryptedPostRevealURI);
+
+        // Mint the NFT in its un-revealed state using `mintTo`, made available by `ERC721Base`.
+        mintTo(to, beforeRevealURI);
+    }
+
+    /**
+     *  STEP 3: Create a mapping where we'll store the true metadata URI of an NFT (if it is a delayed-reveal NFT)
+     *          after it has been revealed.
+     */
+    mapping(uint256 => string) private postRevealURI;
+
+    /**
+     *  STEP 4: Complete the `reveal` function made available by the `DelayedReveal` contract extension.
+     *
+     *  @param tokenId  The tokenId of the delayed-reveal NFT whose metadata we want to reveal.
+     *
+     *  @param key      This is the key initally used to encrypt the true metadata of the NFT. Read more about
+     *                  the role of encryption in the delayed reveal process in the linked blog:
+     *                  https://blog.thirdweb.com/delayed-reveal-nfts
+     */
+    function reveal(uint256 tokenId, bytes calldata key)
+        external
+        override
+        returns (string memory revealedURI)
+    {
+        // Get the true metadata of the NFT using the `getRevealURI` function made available by the
+        // `DelayedReveal` contract extension.
+        revealedURI = getRevealURI(tokenId, key);
+
+        // We'll delete the encrypted metadata URI of the NFT which we're revealing.
+        delete encryptedBaseURI[tokenId];
+
+        // Now store the revealed, true metadata URI for the NFT.
+        postRevealURI[tokenId] = revealedURI;
+    }
+
+    /**
+     *  FINAL STEP: The tokenURI function returns the metadata URI for the NFT of a given tokenId.
+     *
+     *              In this function, we'll check whether we've stored a 'post reveal' URI for
+     *              the given tokenId. If so, we'll return that URI. Else, we'll return what
+     *              our inherited `ERC721Base` contract's `tokenURI` function returns.
+     */
+    function tokenURI(uint256 tokenId)
+        public
+        view
+        virtual
+        override
+        returns (string memory)
+    {
+        if (bytes(postRevealURI[tokenId]).length > 0) {
+            return postRevealURI[tokenId];
+        }
+
+        return super.tokenURI(tokenId);
+    }
+}
+```
+
+## Unlocked Features
+
+Configure a password and placeholder metadata of your delayed reveal using the dashboard or the SDK.
+
+If you use [deploy](/deploy) you'll be able to select the delayed reveal option when you batch upload your NFTs.
+
+![Delayed Reveal.png](../assets/delayed-reveal.png)
+
+You can also set up and release a delayed reveal using the [SDK](/sdk):
+
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ marginTop: 16 }}>
+    <QuickstartCard
+      name="Delayed Reveals in the SDK"
+      link="/sdk/advanced-features/delayed-reveal"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>

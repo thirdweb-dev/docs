@@ -1,0 +1,29 @@
+---
+slug: /sdk/ui-components/ipfs-media-renderer
+title: IPFS Media Renderer
+---
+
+# IPFS Media Renderer
+
+The IPFS Media Renderer component resolves any IPFS URI that contains a media file (such as an image, video, or audio file)
+and renders the relevant component to show that media. This is especially useful for two use cases:
+
+1. Displaying the media assets of NFTs with metadata stored on IPFS
+2. Rendering NFTs where you are unsure of the file type (i.e. you don't know if it's an image or video)
+
+## Example
+
+Below is an example of passing in an IPFS URI that points to a video (`.mp4`) file into the `MediaRenderer` component
+
+```jsx
+import { MediaRenderer } from "@thirdweb-dev/react";
+
+const Component = () => {
+  return (
+    <MediaRenderer
+      src="ipfs://Qmb9ZV5yznE4C4YvyJe8DVFv1LSVkebdekY6HjLVaKmHZi"
+      alt="A mp4 video"
+    />
+  );
+};
+```

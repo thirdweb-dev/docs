@@ -1,0 +1,71 @@
+---
+slug: /extensions/features/ownable
+title: Ownable
+---
+
+import ViewContractCodeButton from "../../../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../../../src/components/QuickstartCard";
+import ImportSnippet from "../../../../../../src/components/ImportSnippet";
+
+# Ownable
+
+The `Ownable` smart contract extension is usable with any base smart contract. It lets you set an owner for your smart contract.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Ownable.sol"
+  name="Ownable"
+/>
+
+## Import
+
+<ImportSnippet type="extension" category="extension" name="Ownable" />
+
+## Available Functionality
+
+| Functionality | Description                                                                           |
+| ------------- | ------------------------------------------------------------------------------------- |
+| `owner`       | Returns the owner of your smart contract.                                             |
+| `setOwner`    | Lets an authorized wallet set the owner of your smart contract.                       |
+| `canSetOwner` | Defines the criteria a wallet must meet to be able to set the owner of your contract. |
+
+Using the `Ownable` extension on your smart contract lets you set an owner for your contract. You can then, for example, restrict functions on your contract to only be callable by the owner, and write other such code that uses information about contract ownership.
+
+For an ERC721 or ERC1155 NFT smart contract, storing royalty information using the `Ownable` extension is necessary to edit your NFT contract’s storefront on Opensea.
+
+## Implementing the Contract extension
+
+Import the contract extension and make your contract inherit it.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/extension/Ownable.sol";
+
+contract MyContract is Ownable {
+    /**
+     *  This function returns who is authorized to set the owner of your contract.
+     *
+     *  As an EXAMPLE, we'll only allow the current owner to set the contract's new owner.
+     *
+     *  You MUST complete the body of this function to use the `Ownable` extension.
+     */
+    function _canSetOwner() internal virtual override returns (bool) {
+        return msg.sender == owner();
+    }
+}
+```
+
+## Unlocked Features
+
+Within the SDK, you can have a wallet claim tokens from your drop or claim tokens to an address.
+
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ marginTop: 16 }}>
+    <QuickstartCard
+      name="Claim NFTs in the SDK"
+      link="/pre-built-contracts/signature-drop#minting--claiming-nfts"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>

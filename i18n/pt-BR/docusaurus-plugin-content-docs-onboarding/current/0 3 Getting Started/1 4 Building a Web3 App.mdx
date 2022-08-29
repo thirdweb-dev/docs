@@ -1,0 +1,185 @@
+---
+slug: /getting-started/building-app
+title: Construindo uma aplicação Web3
+---
+
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+Usando nosso SDK, podemos construir uma aplicação web que permite aos usuários criar NFTs à partir do nosso contrato.
+
+Esta página mostrará a você como começar a usar o SDK e criar uma aplicação web.
+
+## Criando uma nova aplicação
+
+A maneira mais fácil de iniciar é usando nossa Interface de Linha de Comando, ou [CLI](https://github.com/thirdweb-dev/thirdweb-cli).
+Esta ferramenta interativa consegue criar um novo projeto usando os SDKs do [React](/react)
+e do [TypeScript](/typescript) que são pré-configurados com um framework e linguagem de sua escolha.
+
+```bash
+npx thirdweb create
+```
+
+:::tip Kit Iniciante e Modelos
+
+Você pode começar usando um de nossos [projetos modelo](/templates) por passar a opção `--template` para o comando, junto com o nome do repositório de exemplo.
+
+:::
+
+## Entendendo o Código
+
+Vamos analisar brevemente o código gerado para entender o quê está acontecendo na nossa aplicação.
+
+Este ponto de entrada da aplicação é onde nós configuramos o `ThirdwebProvider`, que nos habilita a usar as funcionalidades de conexão de uma carteira para interagir com a blockchain desejada. 
+
+```jsx
+import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
+
+// Aqui nós podemos especificar o ID da blockchain na qual a nossa aplicação deverá rodar
+// Neste exemplo nós usaremos a rede de testes Ethereum Goerli Testnet
+const desiredChainId = ChainId.Goerli;
+
+export const MyApp = () => {
+  return (
+    <ThirdwebProvider desiredChainId={desiredChainId}>
+      {/* Sua aplicação vai aqui */}
+    </ThirdwebProvider>
+  );
+};
+```
+
+O modelo possui uma configuração básica para usuários conectarem suas carteiras à nossa página.
+Ele usa o gatilho [useMetamask](/react/react.usemetamask) para permitir ao usuário conectar a carteira à sua aplicação.
+
+```jsx
+import { useAddress, useMetamask, useDisconnect } from "@thirdweb-dev/react";
+
+const Home = () => {
+  const address = useAddress();
+  // Esta função habilitará o usuário a conectar sua carteira Metamask à nossa página
+  const connectWithMetamask = useMetamask();
+  const disconnectWallet = useDisconnect();
+  return (
+    <div>
+      {address ? (
+        <>
+          <button onClick={disconnectWallet}>Desconectar carteira</button>
+          <p>Seu endereço: {address}</p>
+        </>
+      ) : (
+        <button onClick={connectWithMetamask}>Conectar usando a carteira Metamask</button>
+      )}
+    </div>
+  );
+};
+```
+
+## Interagindo com o seu Contrato Inteligente
+
+Agora que temos uma nova aplicação Web3 pronta para avançar, nós precisamos ter nosso contrato inteligente na aplicação para interagir com ele.
+
+Você pode fazer isso pegando o endereço do seu contrato inteligente no **Dashboard** e clicando no botão para copiar o endereço dele, logo abaixo do nome do contrato.
+
+![Copiando o endereço do contrato no Dashboard](./assets/copy-contract-address.png)
+
+Copie o endereço do contrato e use ele para obter uma instância do seu contrato inteligente no código.
+
+Por exemplo, podemos obter nosso contrato _NFT Drop_ usando o código abaixo:
+
+```jsx
+import { useNFTDrop } from "@thirdweb-dev/react";
+
+export default function Component() {
+  const contract = useNFTDrop("<contract-address>");
+
+  // Agora nós podemos usar nosso contrato NFT Drop no restante do componente
+}
+```
+
+Agora você está pronto para usar as funções do seu contrato inteligente.
+
+### Lendo Dados do seu contrato
+
+Agora você poderá ler dados do seu contrato usando qualquer dos nossos gatilhos [React](/react).
+
+No exemplo abaixo, vamos ler e exibir todos os NFTs no seu contrato _drop_.
+
+```jsx
+import { useNFTDrop, useNFTs, ThirdwebNftMedia } from "@thirdweb-dev/react";
+
+export default function NFTGalleryComponent() {
+  const contract = useNFTDrop("<contract-address>");
+
+  // Pega todos os NFTs deste contrato
+  const { data: nfts, isLoading } = useNFTs(contract);
+
+  // Exibe-os como uma galeria
+  return (
+    <div>
+      {isLoading ? (
+        <div>Carregando...</div>
+      ) : (
+        <div>
+          {nfts.map((nft, id) => (
+            <>
+              <ThirdwebNftMedia key={id} metadata={nft.metadata} />
+              <h3>{nft.metadata.name}</h3>
+            </>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+```
+
+### Realizando transações em seu contrato
+
+Você pode realizar transações para o seu contrato à partir do seu _frontend_ com a carteira que está conectada.
+
+No exemplo abaixo, iremos configurar uma página simples de reivindicação, assim os usuários podem se conectar ao seu website e reivindicar NFTs à partir do seu _drop_. Você pode colocar este componente em qualquer lugar de sua aplicação,
+o SDK irá acionar automaticamente a carteira conectada para executar a transação.
+
+```jsx
+import { useNFTDrop, useAddress, useClaimNFT } from "@thirdweb-dev/react";
+
+export default function ClaimButtonComponent() {
+  const contract = useNFTDrop("<contract-address>");
+  const connectedWalletAddresss = useAddress();
+
+  // Pega a função para reivindicar NFTs
+  const { mutate: claim, isLoading } = useClaimNFT(contract);
+
+  // E adiciona um botão para reivindicar NFTs
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() => claim({ to: connectedWalletAddresss, quantity: 1 })}
+    >
+      Reivindicar NFT
+    </button>
+  );
+}
+```
+
+:::tip Veja o exemplo em ação!
+
+Confira uma **demostração ao vivo** deste exemplo e outros mais no [hub de contratos do thirdweb](https://contract-hub.thirdweb-example.com/nft-drop).
+
+![Botão de Reivindicar NFT](./assets/claim-nft-button.png)
+:::
+
+## Próximos passos
+
+Nós disponibilizamos um contrato inteligente _NFT Drop_ e uma aplicação que interage com ele.
+
+Na sequência, iremos aprender como construir e disponibilizar contratos inteligentes usando [Extensões](/extensions).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Contratos customizados usando Extensões"
+      link="/getting-started/creating-custom-contracts"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>

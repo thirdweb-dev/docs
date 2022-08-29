@@ -1,0 +1,98 @@
+---
+slug: /getting-started/deploying-contracts
+title: Instalando um Contrato Pré-construído
+---
+
+import DeployingContractsCodeTabs from "../../../../../src/components/DeployingContractsCodeTabs";
+import InstallingThirdwebCodeTabs from "../../../../../src/components/InstallingThirdwebCodeTabs.tsx";
+import InitializingThirdwebCodeTabs from "../../../../../src/components/InitializingThirdwebCodeTabs.tsx";
+import DeployThisContractButton from "../../../../../src/components/DeployThisContractButton";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# Instalando um Contrato Pré-construído
+
+[Contratos Pré-construídos](/pre-built-contracts) são a forma mais rápida de começar a construir.
+
+Está página irá mostrar para você como instalar o contrato pré-construído [NFT Drop](/pre-built-contracts/nft-drop) na rede de teste Goerli.
+
+Clique no botão abaixo para ir até o Dashboard, onde você poderá criar e instalar seu contrato inteligente.
+
+<div
+  style={{
+    width: "fit-content",
+    marginBottom: 32,
+  }}
+>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/drop/nft-drop"}
+    contractType="nft-drop"
+  />
+</div>
+
+## Conectando sua carteira
+
+Se esta é sua primeira vez desenvolvendo para a Web3, you precisará de uma **carteira** para interagir com a blockchain.
+
+Você também pode obter gratuitamente **fundos de teste** à partir de um **faucet** para pagar pelas gas fees de suas transações.
+
+Descubra abaixo como configurar uma carteira com fundos de teste, e como redes de teste funcionam:
+
+<div className="row" style={{marginBottom:24}}>
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Criar uma carteira MetaMask"
+    link="https://blog.thirdweb.com/guides/create-a-metamask-wallet"
+    image="/assets/icons/vote.png"
+  />
+</div>
+
+<div className="col col--6" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="O que são as Redes de Teste?"
+    link="https://blog.thirdweb.com/guides/which-network-should-you-use#what-is-a-testnet"
+    image="/assets/icons/education.png"
+  />
+</div>
+</div>
+
+## Criando o seu contrato
+
+Antes de você instalar, você pode configurar alguns metadados do seu contrato, como o nome, descrição e a imagem!
+
+![contract metadata](./assets/configure-contract-metadata-trimmed.png)
+
+Abaixo dos metadados do seu contrato, selecione a rede de teste `Goerli (GOR)`, então clique em `Deploy Now`!
+
+![Select Goerli Test Network](./assets/select-goerli.png)
+
+:::tip Instalando Contratos usando código
+
+Você pode instalar e interagir com seus contratos via código usando nosso [SDK](/sdk) também!
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Instalar um contrato NFT Drop usando código"
+      link="/pre-built-contracts/nft-drop#create-an-nft-drop-contract"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
+
+:::
+
+## Próximo passo
+
+Você acabou de instalar seu próprio contrato inteligente!
+
+Agora, vamos aprender como prepará-lo para o ambiente de produção; adicionando membros do time, configurando _royalties_, e assim por diante!
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Configurando Contratos Inteligentes"
+      link="/getting-started/configuring-contracts"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>

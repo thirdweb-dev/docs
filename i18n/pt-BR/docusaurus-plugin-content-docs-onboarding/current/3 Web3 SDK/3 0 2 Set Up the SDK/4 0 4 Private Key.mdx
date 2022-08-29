@@ -1,0 +1,47 @@
+---
+slug: /sdk/set-up-the-sdk/securing-your-private-key
+title: Securely Storing Your Private Key
+---
+
+import FromPrivateKeyCodeTabs from "../../../../../../src/components/FromPrivateKeyCodeTabs";
+
+If you need to perform actions directly from your wallet in a server-side or scripting environment,
+instantiate the SDK using your wallet's private key.
+
+Your wallet's private key grants full control of your wallet, for this reason,
+having your private key written in plain text or environment variables is a security risk; we recommend
+using a secret management service to store it securely.
+
+There are many services available to store secret values:
+
+- [Google Cloud Secret Manager](https://cloud.google.com/secret-manager)
+- [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/)
+- [Doppler](https://www.doppler.com/)
+- [HashiCorp Vault](https://www.vaultproject.io/)
+
+## Using Google Cloud Secret Manager
+
+This section shows you how to use Google Cloud Secret Manager, as an example.
+
+From the [Google Cloud Console](https://cloud.google.com/secret-manager), enable the Secret Manager API in your project,
+and create a new secret containing your wallet's private key as the value. Follow [this guide](https://cloud.google.com/docs/authentication/getting-started#creating_a_service_account)
+to create a service account with the **Secret Manager Secret Accessor** role and export the key as a JSON file.
+
+:::warning
+
+Ensure you secure the values in the `.json` file securely; such as using environment variables.
+
+:::
+
+Create and retrieve your private key from a secret value by following [this guide](https://cloud.google.com/secret-manager/docs/creating-and-accessing-secrets).
+
+Use the `accessSecretVersion` function from the guide to instantiate the SDK with your private key on the server-side.
+
+```jsx
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+const sdk = ThirdwebSDK.fromPrivateKey(
+  accessSecretVersion(), // Your wallet private key
+  "goerli", // configure this to your network
+);
+```

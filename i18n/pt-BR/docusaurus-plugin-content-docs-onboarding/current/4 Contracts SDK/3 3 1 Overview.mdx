@@ -1,0 +1,54 @@
+---
+slug: /extensions
+title: Overview
+---
+
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# Extensions
+
+Build smart contracts with Solidity and unlock the features of the [dashboard](/dashboard) and [SDK](/sdk) on your contracts.
+**Extensions** provides:
+
+- Base contracts that you can build upon, such as [ERC721Base](/extensions/base-contracts/erc-721/erc721base).
+- Features for you to implement, such as [Permission Controls](/extensions/features/permissions) and [Royalty Fees](/extensions/features/royalty).
+
+To get started, install the `contracts` package into your Solidity project:
+
+```bash
+npm install @thirdweb-dev/contracts
+```
+
+## Why Use Extensions?
+
+By building with our extensions, you:
+
+- Gain access to powerful, [audited](https://gateway.thirdweb.dev/ipfs/QmWfueeKQrggrVQNjWkF4sYJECp56vNnuAXCPVecFFKz2j) contract extensions you can import and implement in your smart contracts.
+- Unlock the features of [Dashboard](https://thirdweb.com/dashboard) and [SDK](/sdk) on your own smart contracts.
+
+Each feature you implement in your smart contracts unlocks functionality in both the dashboard and SDK to help you build applications on top of them.
+
+For example, if you implement the [ERC721Base](/extensions/base-contracts/erc-721/erc721base) contract, you'll unlock the `mint` button in the dashboard and
+can use the [mint](/pre-built-contracts/nft-collection#using-the-thirdweb-sdk-1) function in the SDK; which automatically uploads and pins your metadata to IPFS!
+
+<div className="row" style={{marginBottom:24}}>
+
+<div className="col col--12" style={{ marginTop: 8 }}>
+  <QuickstartCard
+    name="Quick Start - Extensions + CLI"
+    link="/getting-started/creating-custom-contracts"
+    image="/assets/icons/drop.png"
+  />
+</div>
+
+</div>
+
+## How It Works
+
+You can think of extensions as building blocks that help you enrich your smart contracts with features.
+
+Some blocks come packaged together as **Base Contracts**, which come with a full set of features out of the box that you can modify and extend.
+Other (smaller) blocks are **Features**, which provide a way for you to pick and choose which individual pieces you want to put into your contract;
+with full customization of how those features work.
+
+With both Base Contracts and Contract Extensions, you add and customize functionality by creating a contract that inherits the logic of the contract extension(s) you want to use and combining them along with your custom logic.

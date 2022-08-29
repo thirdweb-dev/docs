@@ -1,0 +1,80 @@
+---
+slug: /sdk/advanced-features/on-demand-minting
+---
+
+import ThirdwebCodeSnippet from "../../../../../../src/components/ThirdwebCodeSnippet";
+import DeployThisContractButton from "../../../../../../src/components/DeployThisContractButton";
+
+# Signature-Based Minting
+
+On-demand minting (or "signature-based minting") allows you to specify which tokens can be minted into your smart contract.
+
+## How it works:
+
+1. **Wallet A** generates a signature for a token (specifying name, image, description, properties, and minter address).
+2. **Wallet B** can use the signature provided by **Wallet A** to mint the NFT.
+
+You can grant signatures for specific wallets to mint tokens with properties you specify in your contract.
+
+For example, you could grant a signature for a wallet to mint an NFT that contains their Discord profile picture,
+and only grant a signature if that person is a member of your Discord server,
+like we do in our [on-demand minting example](https://github.com/thirdweb-example/community-rewards).
+
+## Smart Contract Design
+
+Our [Signature Minting Design Doc](https://portal.thirdweb.com/contracts/design/SignatureMint)
+has a detailed explanation of how signature-based minting works and includes details of each parameter that can be configured.
+
+On-demand minting is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract.
+
+You can authorize some external party to mint tokens on your contract and specify what will be minted by that party.
+
+## Signature Drop
+
+<ThirdwebCodeSnippet
+  contract={"SignatureDrop"}
+  name={"signature"}
+  showHr={false}
+/>
+
+<div style={{ maxWidth: "fit-content" }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/drop/signature-drop"}
+    contractType="signature-drop"
+  />
+</div>
+
+## NFT Collection
+
+<ThirdwebCodeSnippet contract={"NFTCollection"} name={"signature"} />
+
+<div style={{ maxWidth: "fit-content" }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/token/nft-collection"}
+    contractType="nft-collection"
+    showHr={false}
+  />
+</div>
+
+## Edition
+
+<ThirdwebCodeSnippet contract={"Edition"} name={"signature"} />
+
+<div style={{ maxWidth: "fit-content" }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/token/edition"}
+    contractType="edition"
+    showHr={false}
+  />
+</div>
+
+## Token
+
+<ThirdwebCodeSnippet contract={"Token"} name={"signature"} showHr={false} />
+
+<div style={{ maxWidth: "fit-content" }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/token/token"}
+    contractType="token"
+  />
+</div>

@@ -1,0 +1,67 @@
+---
+slug: /getting-started/releasing-custom-contracts
+title: Disponibilizando Contratos usando o CLI
+---
+
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# Disponibilizando Contratos usando o CLI
+
+Agora nosso contrato está configurado, vamos usar o [CLI](https://github.com/thirdweb-dev/thirdweb-cli) para disponibilizar ele, rodando o seguinte comando:
+
+```bash
+npx thirdweb release
+```
+
+:::tip Detectando Extensões de Contrato
+
+Antes de você disponibilizar seu contrato, você pode verificar quais extensões você implementou rodando:
+
+```bash
+npx thirdweb detect
+```
+
+:::
+
+Isso irá compilar e fazer o upload do código do nosso contrato para o IFPS, e gerar uma URL para fazermos a disponibilização dele:
+
+![thirdweb release](./assets/npx-thirdweb-release.png)
+
+Abra o link gerado no seu browser para ir até o _Dashboard_:
+
+![página inicial de uma release thirdweb](./assets/thirdweb-release-info.png)
+
+Clique em **Create Release**, e aprove o [gasless transaction](/sdk/advanced-features/gasless-transactions) para criar uma
+_release_ versionada do seu contrato.
+
+Ao disponibiliza-lo em nossos cadastros, nós automaticamente iremos criar uma página inicial para o seu contrato.
+Esta página é disponível publicamente para qualquer um que queira saber mais sobre seu contrato e as funções disponíveis nele, e
+qualquer pessoa que você compartilhar esta página poderá instalar sua própria cópia do contrato também!
+
+![Página do MyNFT na página inicial do thirdweb release](./assets/npx-thirdweb-release-my-page.png)
+
+## Instalando seu contrato
+
+Selecione uma versão do seu contrato e clique em **Deploy Now** para instalá-lo em uma das [blockchains que suportamos](https://blog.thirdweb.com/guides/which-network-should-you-use).
+
+Preencha os campos do `constructor`, selecione sua rede desejada e clique em **Deploy Now**!
+
+No nosso caso, iremos preencher os parâmetros do contrato da seguinte maneira:
+
+- `_name`: O nome do nosso contrato
+- `_symbol`: O símbolo ou "ticker" dado aos tokens do nosso contrato
+- `_royaltyRecipient`: O endereço da conta que irá receber os _royalties_ das vendas secundárias
+- `_royaltyBps`: Os pontos base (**basis points**, ou _bps_) que serão dados ao recebedor de __royalties_ para cada venda secundária, por exemplo, 500 = 5%
+
+![Página de Instalação](./assets/deploy-page.png)
+
+### Dashboard do Contrato
+
+Quando seu contrato é instalado, você conseguirá configurar todas as
+funcionalidades desbloqueadas como descrito na seção [Configurando Contratos Inteligentes](/getting-started/configuring-contracts).
+
+![Funcionalidades Desbloqueadas](./assets/unlocked-features.png)
+
+Você também desbloqueará o **Contract Explorer** onde você poderá visualizar todas as funções dos contratos, ver como chamá-las usando o SDK, e rodar elas diretamente à partir do _Dashboard_.
+
+![Contract Explorer](./assets/contract-explorer.png)

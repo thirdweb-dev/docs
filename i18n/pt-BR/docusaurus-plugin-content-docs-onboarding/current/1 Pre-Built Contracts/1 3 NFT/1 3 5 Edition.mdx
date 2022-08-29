@@ -1,0 +1,89 @@
+---
+title: Edition
+slug: /pre-built-contracts/edition
+---
+
+import DeployThisContractButton from "../../../../../../src/components/DeployThisContractButton";
+import QuickstartCard from "../../../../../../src/components/QuickstartCard";
+
+# Edition
+
+<div className="deployContractBtnContainer" style={{ marginTop: -70 }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/token/edition"}
+    contractType="edition"
+  />
+</div>
+
+The **Edition** contract is best used when you want to release many NFTs based on the same asset, but you **don't** want to "drop" or "release" them for your community to claim.
+
+Unlike the [Edition Drop](/pre-built-contracts/edition-drop) contract, the Edition contract does not **lazy mint** your NFTs. Instead, NFTs are minted immediately when they are added to the collection.
+
+This means you can still transfer the NFTs or sell them on a [Marketplace](/pre-built-contracts/marketplace) and perform any other actions you would expect to do with an NFT.
+
+## Use Cases & Examples
+
+You could use the Edition contract to:
+
+- Create an NFT Collection where each NFT has 100 copies
+- Airdrop an NFT to a list of addresses that all use the same asset and metadata
+- Create 10 "copies" of your artwork and sell them on a [Marketplace](/pre-built-contracts/marketplace)
+
+## Using the Contract in the SDK
+
+This page outlines how you can create and configure your edition drop contract using the [dashboard](https://thirdweb.com/dashboard).
+
+You can also use our [SDK](/sdk) to create and interact with your contract.
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Using the Edition Contract in the SDK"
+      link="/sdk/interacting-with-contracts/edition"
+      image="/assets/icons/edition.png"
+    />
+  </div>
+</div>
+
+## Creating & Configuring the Edition
+
+Learn how to create and configure your smart contract using the [dashboard](https://thirdweb.com/dashboard).
+
+### Creating an Edition Contract
+
+Deploy the edition drop contract to any of our
+[supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use) using the button below.
+
+<div style={{ width: "fit-content" }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/token/edition"}
+    contractType="edition"
+  />
+</div>
+
+### Minting NFTs
+
+Click **Mint** to create a single NFT.
+
+![Mint Button](../assets/mint.png)
+
+### Airdrop NFTs
+
+Click **Airdrop** on the token you want to use, and upload a `.csv` file containing a list of addresses you want to airdrop NFTs to.
+
+![Airdrop](../assets/airdrop.png)
+
+In the `.csv` file, you must specify an `address` column and a `quantity` column, representing the address you want to send the NFTs and how many you wish to send.
+You can download our example [CSV File](https://thirdweb.com/airdrop.csv) to get started.
+
+### Contract Metadata
+
+To configure the image, name, and description of the contract, click the **Settings** tab:
+
+![Contract Metadata](../assets/contract-metadata.png)
+
+### Royalty & Platform Fees
+
+From the **Settings** tab, you also configure both the [royalty fee](/dashboard/contract-settings) and [platform fee](/dashboard/contract-settings).
+
+![Royalty and Platform Fee](../assets/royalty-and-platform-fee.png)

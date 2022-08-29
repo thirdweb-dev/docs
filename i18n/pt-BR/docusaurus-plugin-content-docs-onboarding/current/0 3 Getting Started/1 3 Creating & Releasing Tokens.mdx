@@ -1,0 +1,60 @@
+---
+slug: /getting-started/creating-nfts
+title: Criando e Disponibilizando NFTs
+---
+
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# Criando e Disponibilizando Tokens
+
+
+Contratos de _Drop_, como o [NFT Drop](/pre-built-contracts/nft-drop), permitem que você crie tokens no modo [lazy mint](/pre-built-contracts/nft-drop#lazy-minting-your-nfts)
+e os disponbilize para serem reivindicados por outras carteiras.
+Eles incluem [fases de reivindicação](/pre-built-contracts/nft-drop#setting-claim-phases) configuráveis que definem as condições nas quais um token pode ser reivindicado,
+como uma lista de permissões, preço e data de liberação.
+
+Esta página mostrará a você como fazer o _lazy mint_ de tokens e configurar as fases de reivindicação para que outros criem seus NFTs. 
+
+## Fazendo o Lazy Minting de um NFT
+
+Para criar um NFT você deve fazer o upload de um recurso de mídia, informar os metadados do seu NFT e clicar no botão **Create Drop**.
+
+![Mint an NFT Drop](./assets/create-an-nft.png)
+
+Todos os metadados que você configurar irão ser automaticamente [fixados ao IFPS](https://blog.thirdweb.com/guides/securing-pinning-your-nft-with-ipfs).
+
+Uma vez criado, ele irá aparecer instantaneamente em sites como o [OpenSea](https://opensea.io/) sem nenhum passo adicional!
+
+## Configurando as Fases de Reivindicação
+
+Para adicionar uma fase de reivindicação, clique na aba **Claim Phases**, e então clique no botão **Add Initial Claim Phase**.
+
+![Adicionando uma Fase de Reivindicação](./assets/add-claim-phase.png)
+
+Cada fase de reivindicação pode incluir um preço de venda, uma data de disponibilização, listas de permissões e outras coisas mais.
+
+Abaixo segue um exemplo de uma fase de reivindicação na qual:
+
+- Cada NFT é vendido por 1 MATIC
+- Qualquer carteira pode reivindicar um NFT
+- Cada carteira pode reivindicar uma vez e neste momento criar até 5 NFTs para esta reivindicação
+
+![Adicionando uma Fase de Reivindicação](./assets/configured-claim-phase.png)
+
+Clique em **Save Claim Phases** para salvar suas alterações.
+
+## Próximos Passos
+
+Nossos NFTs estão prontos para serem reivindicados à partir do contrato!
+
+Vamos ver como podemos construir uma aplicação em cima deste contrato inteligente.
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Construindo uma aplicação Web3"
+      link="/getting-started/building-app"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>
