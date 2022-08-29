@@ -64,4 +64,4 @@ const contract = sdk.getEditionDrop("{{contract_address}}");
 export declare class EditionDrop extends Erc1155<DropERC1155>
 ```
 
-**Extends:** [Erc1155](./sdk.erc1155.md)&lt;DropERC1155
+**Extends:** [Erc1155](./sdk.erc1155.md)&lt;DropERC1155&gt;

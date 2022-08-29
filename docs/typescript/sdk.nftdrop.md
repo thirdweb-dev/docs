@@ -69,4 +69,4 @@ const contract = sdk.getNFTDrop("{{contract_address}}");
 export declare class NFTDrop extends Erc721<DropERC721>
 ```
 
-**Extends:** [Erc721](./sdk.erc721.md)&lt;DropERC721
+**Extends:** [Erc721](./sdk.erc721.md)&lt;DropERC721&gt;

@@ -17,7 +17,7 @@ export interface SplitRecipientInput
 
 ## Properties
 
-| Property                                            | Type   | Description                                                                    |
-| --------------------------------------------------- | ------ | ------------------------------------------------------------------------------ |
-| [address](./sdk.splitrecipientinput.address.md)     | string | The recipient address                                                          |
-| [sharesBps](./sdk.splitrecipientinput.sharesbps.md) | number | the shares in basis point (5% = 500) that address is owed from the total funds |
+| Property                                            | Modifiers | Type   | Description                                                                    |
+| --------------------------------------------------- | --------- | ------ | ------------------------------------------------------------------------------ |
+| [address](./sdk.splitrecipientinput.address.md)     |           | string | The recipient address                                                          |
+| [sharesBps](./sdk.splitrecipientinput.sharesbps.md) |           | number | the shares in basis point (5% = 500) that address is owed from the total funds |

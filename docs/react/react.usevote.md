@@ -31,10 +31,14 @@ export default function Component() {
 }
 ```
 
+use `useContract()` instead
+
 **Signature:**
 
 ```typescript
-export declare function useVote(contractAddress?: string): Vote | undefined;
+export declare function useVote(
+  contractAddress?: string,
+): import("@thirdweb-dev/sdk").Vote | undefined;
 ```
 
 ## Parameters
@@ -45,4 +49,4 @@ export declare function useVote(contractAddress?: string): Vote | undefined;
 
 **Returns:**
 
-Vote \| undefined
+import("@thirdweb-dev/sdk").Vote \| undefined

@@ -30,12 +30,14 @@ export default function Component() {
 }
 ```
 
+use `useContract()` instead
+
 **Signature:**
 
 ```typescript
 export declare function useMultiwrap(
   contractAddress?: string,
-): Multiwrap | undefined;
+): import("@thirdweb-dev/sdk").Multiwrap | undefined;
 ```
 
 ## Parameters
@@ -46,4 +48,4 @@ export declare function useMultiwrap(
 
 **Returns:**
 
-Multiwrap \| undefined
+import("@thirdweb-dev/sdk").Multiwrap \| undefined

@@ -17,11 +17,11 @@ export interface VoteSettings
 
 ## Properties
 
-| Property                                                               | Type                          | Description |
-| ---------------------------------------------------------------------- | ----------------------------- | ----------- |
-| [proposalTokenThreshold](./sdk.votesettings.proposaltokenthreshold.md) | string                        |             |
-| [votingDelay](./sdk.votesettings.votingdelay.md)                       | string                        |             |
-| [votingPeriod](./sdk.votesettings.votingperiod.md)                     | string                        |             |
-| [votingQuorumFraction](./sdk.votesettings.votingquorumfraction.md)     | string                        |             |
-| [votingTokenAddress](./sdk.votesettings.votingtokenaddress.md)         | string                        |             |
-| [votingTokenMetadata](./sdk.votesettings.votingtokenmetadata.md)       | [Currency](./sdk.currency.md) |             |
+| Property                                                               | Modifiers | Type                          | Description |
+| ---------------------------------------------------------------------- | --------- | ----------------------------- | ----------- |
+| [proposalTokenThreshold](./sdk.votesettings.proposaltokenthreshold.md) |           | string                        |             |
+| [votingDelay](./sdk.votesettings.votingdelay.md)                       |           | string                        |             |
+| [votingPeriod](./sdk.votesettings.votingperiod.md)                     |           | string                        |             |
+| [votingQuorumFraction](./sdk.votesettings.votingquorumfraction.md)     |           | string                        |             |
+| [votingTokenAddress](./sdk.votesettings.votingtokenaddress.md)         |           | string                        |             |
+| [votingTokenMetadata](./sdk.votesettings.votingtokenmetadata.md)       |           | [Currency](./sdk.currency.md) |             |

@@ -31,12 +31,14 @@ export default function Component() {
 }
 ```
 
+use `useContract()` instead
+
 **Signature:**
 
 ```typescript
 export declare function useNFTCollection(
   contractAddress?: string,
-): NFTCollection | undefined;
+): import("@thirdweb-dev/sdk").NFTCollection | undefined;
 ```
 
 ## Parameters
@@ -47,4 +49,4 @@ export declare function useNFTCollection(
 
 **Returns:**
 
-NFTCollection \| undefined
+import("@thirdweb-dev/sdk").NFTCollection \| undefined

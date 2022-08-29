@@ -30,12 +30,14 @@ export default function Component() {
 }
 ```
 
+use `useContract()` instead
+
 **Signature:**
 
 ```typescript
 export declare function useSignatureDrop(
   contractAddress?: string,
-): SignatureDrop | undefined;
+): import("@thirdweb-dev/sdk").SignatureDrop | undefined;
 ```
 
 ## Parameters
@@ -46,4 +48,4 @@ export declare function useSignatureDrop(
 
 **Returns:**
 
-SignatureDrop \| undefined
+import("@thirdweb-dev/sdk").SignatureDrop \| undefined

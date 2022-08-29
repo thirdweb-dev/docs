@@ -1,5 +1,5 @@
 // Read in the react snippets
-import reactSnippets from "../../submodules/react/packages/thirdweb-react/docs/snippets.json" assert { type: "json" };
+import reactSnippets from "../../submodules/js/packages/react/docs/snippets.json" assert { type: "json" };
 
 // Takes in a two keys and returns the react snippet defined here for that value
 // TODO: This logic **Probably** doesn't belong here.

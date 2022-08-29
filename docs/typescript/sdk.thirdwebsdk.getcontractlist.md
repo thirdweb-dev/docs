@@ -16,7 +16,7 @@ Return all the contracts deployed by the specified address
 ```typescript
 getContractList(walletAddress: string): Promise<{
         address: string;
-        contractType: "custom" | "token" | "edition" | "split" | "edition-drop" | "token-drop" | "vote" | "marketplace" | "pack" | "nft-drop" | "signature-drop" | "multiwrap" | "nft-collection";
+        contractType: "custom" | "nft-drop" | "signature-drop" | "nft-collection" | "edition-drop" | "edition" | "token-drop" | "token" | "vote" | "split" | "marketplace" | "pack" | "multiwrap";
         metadata: () => Promise<any>;
     }[]>;
 ```
@@ -29,4 +29,4 @@ getContractList(walletAddress: string): Promise<{
 
 **Returns:**
 
-Promise&lt;{ address: string; contractType: "custom" \| "token" \| "edition" \| "split" \| "edition-drop" \| "token-drop" \| "vote" \| "marketplace" \| "pack" \| "nft-drop" \| "signature-drop" \| "multiwrap" \| "nft-collection"; metadata: () =&gt; Promise&lt;any&gt;; }\[\]&gt;
+Promise&lt;{ address: string; contractType: "custom" \| "nft-drop" \| "signature-drop" \| "nft-collection" \| "edition-drop" \| "edition" \| "token-drop" \| "token" \| "vote" \| "split" \| "marketplace" \| "pack" \| "multiwrap"; metadata: () =&gt; Promise&lt;any&gt;; }\[\]&gt;
