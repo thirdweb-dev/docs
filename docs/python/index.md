@@ -16,7 +16,7 @@ displayed_sidebar: python
 <a href="https://discord.gg/thirdweb"><img alt="Join our Discord!" src="https://img.shields.io/discord/834227967404146718.svg?color=7289da&label=discord&logo=discord&style=flat"/></a>
 
 </p>
-<p align="center"><strong>Best in class SDK for Python 3.7+</strong></p>
+<p align="center"><strong>Best in class Web3 SDK for Python 3.7+</strong></p>
 <br />
 
 ## Installation
