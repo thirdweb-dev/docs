@@ -44,7 +44,7 @@ const Component = () => {
 export declare function useCreateDirectListing(
   contract: RequiredParam<Marketplace>,
 ): import("@tanstack/react-query").UseMutationResult<
-  import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId<never>,
+  import("@thirdweb-dev/sdk").TransactionResultWithId<never>,
   unknown,
   NewDirectListing,
   unknown
@@ -59,6 +59,6 @@ export declare function useCreateDirectListing(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/dist/browser").TransactionResultWithId&lt;never&gt;, unknown, NewDirectListing, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;never&gt;, unknown, NewDirectListing, unknown&gt;
 
 a mutation object that can be used to create a new direct listing

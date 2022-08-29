@@ -334,12 +334,12 @@ aside {
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 2%;
+  gap: 4%;
   margin-bottom: 32px;
 }
 
 .heroGridImageContainer {
-  width: 50%;
+  width: 40%;
   flex-shrink: 0;
 }
 
@@ -354,6 +354,11 @@ aside {
     justify-content: center;
     width: 100%;
     flex-shrink: 0;
+  }
+
+  .heroGridImageContainer > img {
+    max-height: 400px;
+    margin-top: 16px;
   }
 }
 

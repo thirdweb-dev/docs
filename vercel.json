@@ -401,6 +401,10 @@
       "source": "/tag/:match*",
       "destination": "https://blog.thirdweb.com/tag/:match*",
       "permanent": true
+    },
+    {
+      "source": "/cli",
+      "destination": "https://github.com/thirdweb-dev/thirdweb-cli"
     }
   ]
 }

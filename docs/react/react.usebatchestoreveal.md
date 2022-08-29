@@ -15,7 +15,7 @@ displayed_sidebar: react
 export declare function useBatchesToReveal<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
 ): import("@tanstack/react-query").UseQueryResult<
-  import("@thirdweb-dev/sdk/dist/browser").BatchToReveal[],
+  import("@thirdweb-dev/sdk").BatchToReveal[],
   unknown
 >;
 ```
@@ -28,6 +28,6 @@ export declare function useBatchesToReveal<TContract extends NFTContract>(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk/dist/browser").BatchToReveal\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk").BatchToReveal\[\], unknown&gt;
 
 a response object that gets the batches to still be revealed

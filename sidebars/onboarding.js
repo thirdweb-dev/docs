@@ -29,7 +29,7 @@ const sidebars = {
       type: "category",
       label: "SDK References",
       className: "bottom-menu-group",
-      collapsible: false,
+      collapsible: true,
       items: [
         {
           type: "link",
