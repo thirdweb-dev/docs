@@ -101,9 +101,6 @@ const sidebars = {
               id: "ERC721Drop",
             },
           ],
-          // ERC1155
-
-          // ERC20
         },
 
         // ERC1155
@@ -140,7 +137,44 @@ const sidebars = {
           ],
         },
 
-        // ERC20 (Coming soon)
+        // ERC20
+        {
+          type: "category",
+          label: "ERC20",
+          collapsed: false,
+          items: [
+            {
+              type: "doc",
+              label: "ERC20Base",
+              id: "ERC20Base",
+            },
+            {
+              type: "doc",
+              label: "ERC20Vote",
+              id: "ERC20Vote",
+            },
+            {
+              type: "doc",
+              label: "ERC20SignatureMint",
+              id: "ERC20SignatureMint",
+            },
+            {
+              type: "doc",
+              label: "ERC20SignatureMintVote",
+              id: "ERC20SignatureMintVote",
+            },
+            {
+              type: "doc",
+              label: "ERC20Drop",
+              id: "ERC20Drop",
+            },
+            {
+              type: "doc",
+              label: "ERC20DropVote",
+              id: "ERC20DropVote",
+            },
+          ],
+        },
       ],
     },
 

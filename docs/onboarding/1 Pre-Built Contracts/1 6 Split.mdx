@@ -16,26 +16,19 @@ import QuickstartCard from "../../../src/components/QuickstartCard";
 </div>
 
 The Split contract lets you specify multiple wallet addresses that are recipients of any revenue or royalty split.
-You define what percentage of funds that are sent to this address to each recipient you specify.
 
-For example, you could define 0x1 and 0x2 and configure them to receive 50% of the funds to this wallet.
-The split contract will store the funds and will split the funds between the two recipients when a user
-calls the `distribute` function.
+You define what percentage of any funds that get sent to the split contract address is sent to each recipient.
+For example, you could define `0x1` and `0x2` as recipients, and configure them to receive 50% of the funds sent to the split contract.
 
-This contract can also hold native currencies (ETH and MATIC) and any ERC20 tokens.
-
-The Split contract is a way to quickly create a royalty split to hold and distribute funds securely.
-You can use it to store funds by sending them directly to the contract,
-using its address as the recipient address of other contracts,
-or sending funds to a standard wallet.
+The split contract will store the funds, and when any user calls the `distribute` function, the funds will be distributed to the recipients according to the percentages you define.
 
 ## Use Cases & Examples
 
 You could use the Split contract to:
 
-- Use as a "team wallet", where funds are distributed between the members of your team with set percentages.
+- Use as a "team wallet", where funds are distributed between the members of your team with set percentages
 - Share revenue from your primary minting in an NFT drop
-- Share revenue from our royalty sales with members of your team, such as an artist
+- Share revenue from royalty sales with members of your team, such as an artist
 - Any programmatic split of revenue
 
 <div className="row" style={{ marginBottom: 24 }}>
@@ -106,3 +99,10 @@ In the **Overview** tab of your split in the dashboard, you can see **your** (th
 To do so, click the **Distribute Funds** button.
 
 ![Distribute Funds](./assets/distribute-funds.png)
+
+:::info Native Token Storage
+
+If your contract is storing both native tokens such as `ETH`, and ERC20 tokens such as `wrapped ETH`,
+it will prompt you to accept two separate transactions to distribute the funds.
+
+:::

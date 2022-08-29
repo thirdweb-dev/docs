@@ -16,7 +16,7 @@ displayed_sidebar: typescript
 <a href="https://discord.gg/thirdweb"><img alt="Join our Discord!" src="https://img.shields.io/discord/834227967404146718.svg?color=7289da&label=discord&logo=discord&style=flat"/></a>
 
 </p>
-<p align="center"><strong>Best in class Web3 SDK for Browser, Node and Mobile apps</strong></p>
+<p align="center"><strong>Best in class SDK for Browser, Node and Mobile apps</strong></p>
 <br />
 
 ## Installation
@@ -84,7 +84,7 @@ Here's how to provide your own private key to the SDK to perform transactions wi
 // my_script.js
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-// Learn more about securely accessing your private key: https://portal.thirdweb.com/web3-sdk/set-up-the-sdk/securing-your-private-key
+// Learn more about securely accessing your private key: https://portal.thirdweb.com/sdk/set-up-the-sdk/securing-your-private-key
 const privateKey = "<your-private-key-here>";
 // instantiate the SDK based on your private key, with the desired chain to connect to
 const sdk = ThirdwebSDK.fromPrivateKey(privateKey, "polygon");
