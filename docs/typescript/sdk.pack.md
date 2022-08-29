@@ -59,4 +59,4 @@ const contract = sdk.getPack("{{contract_address}}");
 export declare class Pack extends Erc1155<PackContract>
 ```
 
-**Extends:** [Erc1155](./sdk.erc1155.md)&lt;PackContract
+**Extends:** [Erc1155](./sdk.erc1155.md)&lt;PackContract&gt;

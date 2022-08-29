@@ -30,12 +30,14 @@ export default function Component() {
 }
 ```
 
+use `useContract()` instead
+
 **Signature:**
 
 ```typescript
 export declare function useNFTDrop(
   contractAddress?: string,
-): NFTDrop | undefined;
+): import("@thirdweb-dev/sdk").NFTDrop | undefined;
 ```
 
 ## Parameters
@@ -46,4 +48,4 @@ export declare function useNFTDrop(
 
 **Returns:**
 
-NFTDrop \| undefined
+import("@thirdweb-dev/sdk").NFTDrop \| undefined

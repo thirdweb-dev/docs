@@ -31,10 +31,14 @@ export default function Component() {
 }
 ```
 
+use `useContract()` instead
+
 **Signature:**
 
 ```typescript
-export declare function useSplit(contractAddress?: string): Split | undefined;
+export declare function useSplit(
+  contractAddress?: string,
+): import("@thirdweb-dev/sdk").Split | undefined;
 ```
 
 ## Parameters
@@ -45,4 +49,4 @@ export declare function useSplit(contractAddress?: string): Split | undefined;
 
 **Returns:**
 
-Split \| undefined
+import("@thirdweb-dev/sdk").Split \| undefined

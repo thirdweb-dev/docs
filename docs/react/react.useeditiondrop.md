@@ -30,12 +30,14 @@ export default function Component() {
 }
 ```
 
+use `useContract()` instead
+
 **Signature:**
 
 ```typescript
 export declare function useEditionDrop(
   contractAddress?: string,
-): EditionDrop | undefined;
+): import("@thirdweb-dev/sdk").EditionDrop | undefined;
 ```
 
 ## Parameters
@@ -46,4 +48,4 @@ export declare function useEditionDrop(
 
 **Returns:**
 
-EditionDrop \| undefined
+import("@thirdweb-dev/sdk").EditionDrop \| undefined

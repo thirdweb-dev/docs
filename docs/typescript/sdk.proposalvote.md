@@ -17,8 +17,8 @@ export interface ProposalVote
 
 ## Properties
 
-| Property                             | Type                          | Description |
-| ------------------------------------ | ----------------------------- | ----------- |
-| [count](./sdk.proposalvote.count.md) | BigNumber                     |             |
-| [label](./sdk.proposalvote.label.md) | string                        |             |
-| [type](./sdk.proposalvote.type.md)   | [VoteType](./sdk.votetype.md) |             |
+| Property                             | Modifiers | Type                          | Description |
+| ------------------------------------ | --------- | ----------------------------- | ----------- |
+| [count](./sdk.proposalvote.count.md) |           | BigNumber                     |             |
+| [label](./sdk.proposalvote.label.md) |           | string                        |             |
+| [type](./sdk.proposalvote.type.md)   |           | [VoteType](./sdk.votetype.md) |             |

@@ -61,4 +61,4 @@ const contract = sdk.getTokenDrop("{{contract_address}}");
 export declare class TokenDrop extends Erc20<DropERC20>
 ```
 
-**Extends:** [Erc20](./sdk.erc20.md)&lt;DropERC20
+**Extends:** [Erc20](./sdk.erc20.md)&lt;DropERC20&gt;

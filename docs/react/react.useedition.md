@@ -31,12 +31,14 @@ export default function Component() {
 }
 ```
 
+use `useContract()` instead
+
 **Signature:**
 
 ```typescript
 export declare function useEdition(
   contractAddress?: string,
-): Edition | undefined;
+): import("@thirdweb-dev/sdk").Edition | undefined;
 ```
 
 ## Parameters
@@ -47,4 +49,4 @@ export declare function useEdition(
 
 **Returns:**
 
-Edition \| undefined
+import("@thirdweb-dev/sdk").Edition \| undefined

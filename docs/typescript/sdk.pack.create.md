@@ -57,6 +57,7 @@ const tx = await contract.create(pack);
 
 ```typescript
 create(metadataWithRewards: PackMetadataInput): Promise<TransactionResultWithId<{
+        supply: BigNumber;
         metadata: {
             [x: string]: import("../core/types").Json;
             name?: string | number | undefined;
@@ -67,7 +68,6 @@ create(metadataWithRewards: PackMetadataInput): Promise<TransactionResultWithId<
             uri: string;
             id: BigNumber;
         };
-        supply: BigNumber;
     }>>;
 ```
 
@@ -79,7 +79,7 @@ create(metadataWithRewards: PackMetadataInput): Promise<TransactionResultWithId<
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;{ metadata: { \[x: string\]: import("../core/types").[Json](./sdk.json.md); name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: BigNumber; }; supply: BigNumber; }&gt;&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;{ supply: BigNumber; metadata: { \[x: string\]: import("../core/types").[Json](./sdk.json.md); name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: BigNumber; }; }&gt;&gt;
 
 ## Remarks
 

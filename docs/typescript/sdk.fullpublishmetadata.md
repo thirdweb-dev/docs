@@ -13,6 +13,6 @@ displayed_sidebar: typescript
 
 ```typescript
 export declare type FullPublishMetadata = z.infer<
-  typeof FullPublishMetadataSchema
+  typeof FullPublishMetadataSchemaOutput
 >;
 ```

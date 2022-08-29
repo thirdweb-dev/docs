@@ -42,7 +42,7 @@ Web3Button: <TExecutableFn extends ExecutableFn>({
   children,
   functionName,
   params,
-  callable,
+  action,
   ...themeProps
 }: PropsWithChildren<Web3ButtonProps<TExecutableFn>>) => JSX.Element;
 ```

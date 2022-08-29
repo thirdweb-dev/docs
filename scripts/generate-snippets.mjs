@@ -32,14 +32,14 @@ const CLASSES = [
 
 const typescript = JSON.parse(
   fs.readFileSync(
-    `${process.cwd()}/submodules/typescript/docs/snippets.json`,
+    `${process.cwd()}/submodules/js/packages/sdk/docs/snippets.json`,
     "utf8",
   ),
 );
 
 const react = JSON.parse(
   fs.readFileSync(
-    `${process.cwd()}/submodules/react/packages/thirdweb-react/docs/snippets.json`,
+    `${process.cwd()}/submodules/js/packages/react/docs/snippets.json`,
     "utf8",
   ),
 );
@@ -230,7 +230,7 @@ fs.writeFileSync(
 fs.writeFileSync(
   `${process.cwd()}/docs/feature_snippets.json`,
   fs.readFileSync(
-    `${process.cwd()}/submodules/typescript/docs/feature_snippets.json`,
+    `${process.cwd()}/submodules/js/packages/sdk/docs/feature_snippets.json`,
     "utf8",
   ),
 );

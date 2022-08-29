@@ -22,15 +22,15 @@ contract.events.addEventListener("TokensMinted", (event) => {
 **Signature:**
 
 ```typescript
-addEventListener(eventName: keyof TContract["filters"] | (string & {}), listener: (event: Record<string, any>) => void): () => void;
+addEventListener(eventName: keyof TContract["filters"] | (string & {}), listener: (event: ContractEvent) => void): () => void;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                  | Description                                                  |
-| --------- | ----------------------------------------------------- | ------------------------------------------------------------ |
-| eventName | keyof TContract\["filters"\] &#124; (string &amp; {}) | the event name as defined in the contract                    |
-| listener  | (event: Record&lt;string, any&gt;) =&gt; void         | the callback function that will be called on every new event |
+| Parameter | Type                                                        | Description                                                  |
+| --------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
+| eventName | keyof TContract\["filters"\] &#124; (string &amp; {})       | the event name as defined in the contract                    |
+| listener  | (event: [ContractEvent](./sdk.contractevent.md)) =&gt; void | the callback function that will be called on every new event |
 
 **Returns:**
 

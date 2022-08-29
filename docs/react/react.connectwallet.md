@@ -32,5 +32,5 @@ const App = () => {
 **Signature:**
 
 ```typescript
-ConnectWallet: React.FC<ConnectWalletProps>
+ConnectWallet: React.FC<ConnectWalletProps>;
 ```

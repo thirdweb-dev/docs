@@ -19,13 +19,13 @@ export interface GaslessTransaction
 
 ## Properties
 
-| Property                                                   | Type          | Description |
-| ---------------------------------------------------------- | ------------- | ----------- |
-| [callOverrides](./sdk.gaslesstransaction.calloverrides.md) | CallOverrides |             |
-| [chainId](./sdk.gaslesstransaction.chainid.md)             | number        |             |
-| [data](./sdk.gaslesstransaction.data.md)                   | string        |             |
-| [from](./sdk.gaslesstransaction.from.md)                   | string        |             |
-| [functionArgs](./sdk.gaslesstransaction.functionargs.md)   | any\[\]       |             |
-| [functionName](./sdk.gaslesstransaction.functionname.md)   | string        |             |
-| [gasLimit](./sdk.gaslesstransaction.gaslimit.md)           | BigNumber     |             |
-| [to](./sdk.gaslesstransaction.to.md)                       | string        |             |
+| Property                                                   | Modifiers | Type          | Description |
+| ---------------------------------------------------------- | --------- | ------------- | ----------- |
+| [callOverrides](./sdk.gaslesstransaction.calloverrides.md) |           | CallOverrides |             |
+| [chainId](./sdk.gaslesstransaction.chainid.md)             |           | number        |             |
+| [data](./sdk.gaslesstransaction.data.md)                   |           | string        |             |
+| [from](./sdk.gaslesstransaction.from.md)                   |           | string        |             |
+| [functionArgs](./sdk.gaslesstransaction.functionargs.md)   |           | any\[\]       |             |
+| [functionName](./sdk.gaslesstransaction.functionname.md)   |           | string        |             |
+| [gasLimit](./sdk.gaslesstransaction.gaslimit.md)           |           | BigNumber     |             |
+| [to](./sdk.gaslesstransaction.to.md)                       |           | string        |             |

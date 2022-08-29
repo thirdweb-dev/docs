@@ -19,7 +19,7 @@ export interface SplitRecipient
 
 ## Properties
 
-| Property                                                   | Type   | Description                                                                                                                                                               |
-| ---------------------------------------------------------- | ------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [address](./sdk.splitrecipient.address.md)                 | string | The address of the recipient                                                                                                                                              |
-| [splitPercentage](./sdk.splitrecipient.splitpercentage.md) | number | The split of the recipient as a percentage of the total amountI.e. If a recipient has a split of 50%, and the asset sells for 100 ETH, the recipient will receive 50 ETH. |
+| Property                                                   | Modifiers | Type   | Description                                                                                                                                                                             |
+| ---------------------------------------------------------- | --------- | ------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [address](./sdk.splitrecipient.address.md)                 |           | string | The address of the recipient                                                                                                                                                            |
+| [splitPercentage](./sdk.splitrecipient.splitpercentage.md) |           | number | <p>The split of the recipient as a percentage of the total amount</p><p>I.e. If a recipient has a split of 50%, and the asset sells for 100 ETH, the recipient will receive 50 ETH.</p> |
