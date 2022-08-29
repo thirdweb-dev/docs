@@ -57,4 +57,4 @@ const contract = sdk.getMultiwrap("{{contract_address}}");
 export declare class Multiwrap extends Erc721<MultiwrapContract>
 ```
 
-**Extends:** [Erc721](./sdk.erc721.md)&lt;MultiwrapContract
+**Extends:** [Erc721](./sdk.erc721.md)&lt;MultiwrapContract&gt;

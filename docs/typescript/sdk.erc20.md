@@ -26,16 +26,16 @@ await contract.token.transfer(walletAddress, amount);
 
 ## Properties
 
-| Property                                          | Modifiers | Type                                                                       | Description |
-| ------------------------------------------------- | --------- | -------------------------------------------------------------------------- | ----------- |
-| [burn](./sdk.erc20.burn.md)                       |           | [Erc20Burnable](./sdk.erc20burnable.md) &#124; undefined                   |             |
-| [contractWrapper](./sdk.erc20.contractwrapper.md) |           | ContractWrapper&lt;T&gt;                                                   |             |
-| [drop](./sdk.erc20.drop.md)                       |           | Erc20Droppable &#124; undefined                                            |             |
-| [featureName](./sdk.erc20.featurename.md)         |           | "ERC20"                                                                    |             |
-| [mint](./sdk.erc20.mint.md)                       |           | [Erc20Mintable](./sdk.erc20mintable.md) &#124; undefined                   | Mint tokens |
-| [options](./sdk.erc20.options.md)                 |           | [SDKOptions](./sdk.sdkoptions.md)                                          |             |
-| [signature](./sdk.erc20.signature.md)             |           | [Erc20SignatureMintable](./sdk.erc20signaturemintable.md) &#124; undefined |             |
-| [storage](./sdk.erc20.storage.md)                 |           | IStorage                                                                   |             |
+| Property                                          | Modifiers              | Type                                                                       | Description |
+| ------------------------------------------------- | ---------------------- | -------------------------------------------------------------------------- | ----------- |
+| [burn](./sdk.erc20.burn.md)                       |                        | [Erc20Burnable](./sdk.erc20burnable.md) &#124; undefined                   |             |
+| [contractWrapper](./sdk.erc20.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;                                                   |             |
+| [drop](./sdk.erc20.drop.md)                       |                        | Erc20Droppable &#124; undefined                                            |             |
+| [featureName](./sdk.erc20.featurename.md)         |                        | "ERC20"                                                                    |             |
+| [mint](./sdk.erc20.mint.md)                       |                        | [Erc20Mintable](./sdk.erc20mintable.md) &#124; undefined                   | Mint tokens |
+| [options](./sdk.erc20.options.md)                 | <code>protected</code> | [SDKOptions](./sdk.sdkoptions.md)                                          |             |
+| [signature](./sdk.erc20.signature.md)             |                        | [Erc20SignatureMintable](./sdk.erc20signaturemintable.md) &#124; undefined |             |
+| [storage](./sdk.erc20.storage.md)                 | <code>protected</code> | IStorage                                                                   |             |
 
 ## Methods
 

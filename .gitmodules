@@ -1,11 +1,3 @@
-[submodule "submodules/typescript"]
-	path = submodules/typescript
-	url = https://github.com/thirdweb-dev/typescript-sdk
-	branch = main
-[submodule "submodules/react"]
-	path = submodules/react
-	url = https://github.com/thirdweb-dev/react
-	branch = main
 [submodule "submodules/contracts"]
 	path = submodules/contracts
 	url = https://github.com/thirdweb-dev/contracts
@@ -17,3 +9,6 @@
 [submodule "submodules/go"]
 	path = submodules/go
 	url = https://github.com/thirdweb-dev/go-sdk.git
+[submodule "submodules/js"]
+	path = submodules/js
+	url = https://github.com/thirdweb-dev/js.git

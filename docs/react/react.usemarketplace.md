@@ -31,12 +31,14 @@ export default function Component() {
 }
 ```
 
+use `useContract()` instead
+
 **Signature:**
 
 ```typescript
 export declare function useMarketplace(
   contractAddress?: string,
-): Marketplace | undefined;
+): import("@thirdweb-dev/sdk").Marketplace | undefined;
 ```
 
 ## Parameters
@@ -47,4 +49,4 @@ export declare function useMarketplace(
 
 **Returns:**
 
-Marketplace \| undefined
+import("@thirdweb-dev/sdk").Marketplace \| undefined

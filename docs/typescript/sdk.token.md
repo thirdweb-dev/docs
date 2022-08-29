@@ -63,4 +63,4 @@ const contract = sdk.getToken("{{contract_address}}");
 export declare class Token extends Erc20<TokenERC20>
 ```
 
-**Extends:** [Erc20](./sdk.erc20.md)&lt;TokenERC20
+**Extends:** [Erc20](./sdk.erc20.md)&lt;TokenERC20&gt;

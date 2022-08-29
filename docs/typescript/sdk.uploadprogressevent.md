@@ -17,7 +17,7 @@ export interface UploadProgressEvent
 
 ## Properties
 
-| Property                                          | Type   | Description                               |
-| ------------------------------------------------- | ------ | ----------------------------------------- |
-| [progress](./sdk.uploadprogressevent.progress.md) | number | The number of bytes uploaded.             |
-| [total](./sdk.uploadprogressevent.total.md)       | number | The total number of bytes to be uploaded. |
+| Property                                          | Modifiers | Type   | Description                               |
+| ------------------------------------------------- | --------- | ------ | ----------------------------------------- |
+| [progress](./sdk.uploadprogressevent.progress.md) |           | number | The number of bytes uploaded.             |
+| [total](./sdk.uploadprogressevent.total.md)       |           | number | The total number of bytes to be uploaded. |

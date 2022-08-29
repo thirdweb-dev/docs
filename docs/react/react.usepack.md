@@ -31,10 +31,14 @@ export default function Component() {
 }
 ```
 
+use `useContract()` instead
+
 **Signature:**
 
 ```typescript
-export declare function usePack(contractAddress?: string): Pack | undefined;
+export declare function usePack(
+  contractAddress?: string,
+): import("@thirdweb-dev/sdk").Pack | undefined;
 ```
 
 ## Parameters
@@ -45,4 +49,4 @@ export declare function usePack(contractAddress?: string): Pack | undefined;
 
 **Returns:**
 
-Pack \| undefined
+import("@thirdweb-dev/sdk").Pack \| undefined

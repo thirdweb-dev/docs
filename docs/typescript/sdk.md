@@ -163,7 +163,6 @@ displayed_sidebar: typescript
 | [ERC20Wrappable](./sdk.erc20wrappable.md)                                               | Represents a certain amount of ERC20 tokens that can be wrapped                      |
 | [ERC721Wrappable](./sdk.erc721wrappable.md)                                             | Represents a ERC721 NFT that can be wrapped                                          |
 | [ExtraPublishMetadata](./sdk.extrapublishmetadata.md)                                   |                                                                                      |
-| [FileOrBuffer](./sdk.fileorbuffer.md)                                                   |                                                                                      |
 | [FilledConditionInput](./sdk.filledconditioninput.md)                                   |                                                                                      |
 | [FilledSignature721WithQuantity](./sdk.filledsignature721withquantity.md)               |                                                                                      |
 | [FilledSignaturePayload1155](./sdk.filledsignaturepayload1155.md)                       |                                                                                      |

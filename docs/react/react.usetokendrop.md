@@ -31,12 +31,14 @@ export default function Component() {
 }
 ```
 
+use `useContract()` instead
+
 **Signature:**
 
 ```typescript
 export declare function useTokenDrop(
   contractAddress?: string,
-): TokenDrop | undefined;
+): import("@thirdweb-dev/sdk").TokenDrop | undefined;
 ```
 
 ## Parameters
@@ -47,4 +49,4 @@ export declare function useTokenDrop(
 
 **Returns:**
 
-TokenDrop \| undefined
+import("@thirdweb-dev/sdk").TokenDrop \| undefined

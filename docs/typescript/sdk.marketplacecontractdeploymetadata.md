@@ -19,12 +19,12 @@ export interface MarketplaceContractDeployMetadata
 
 ## Properties
 
-| Property                                                                                           | Type               | Description                                                                     |
-| -------------------------------------------------------------------------------------------------- | ------------------ | ------------------------------------------------------------------------------- |
-| [description?](./sdk.marketplacecontractdeploymetadata.description.md)                             | string             | <i>(Optional)</i> Optional description of the contract                          |
-| [external_link?](./sdk.marketplacecontractdeploymetadata.external_link.md)                         | string             | <i>(Optional)</i> Optional url for the contract                                 |
-| [image?](./sdk.marketplacecontractdeploymetadata.image.md)                                         | FileBufferOrString | <i>(Optional)</i> Optional image for the contract                               |
-| [name](./sdk.marketplacecontractdeploymetadata.name.md)                                            | string             | name of the contract                                                            |
-| [platform_fee_basis_points?](./sdk.marketplacecontractdeploymetadata.platform_fee_basis_points.md) | number             | <i>(Optional)</i> The percentage (in basis points) of platform fees             |
-| [platform_fee_recipient?](./sdk.marketplacecontractdeploymetadata.platform_fee_recipient.md)       | string             | <i>(Optional)</i> The address that will receive the proceeds from platform fees |
-| [trusted_forwarders?](./sdk.marketplacecontractdeploymetadata.trusted_forwarders.md)               | string\[\]         | <i>(Optional)</i> Custom gasless trusted forwarder addresses                    |
+| Property                                                                                           | Modifiers | Type               | Description                                                                     |
+| -------------------------------------------------------------------------------------------------- | --------- | ------------------ | ------------------------------------------------------------------------------- |
+| [description?](./sdk.marketplacecontractdeploymetadata.description.md)                             |           | string             | <i>(Optional)</i> Optional description of the contract                          |
+| [external_link?](./sdk.marketplacecontractdeploymetadata.external_link.md)                         |           | string             | <i>(Optional)</i> Optional url for the contract                                 |
+| [image?](./sdk.marketplacecontractdeploymetadata.image.md)                                         |           | FileBufferOrString | <i>(Optional)</i> Optional image for the contract                               |
+| [name](./sdk.marketplacecontractdeploymetadata.name.md)                                            |           | string             | name of the contract                                                            |
+| [platform_fee_basis_points?](./sdk.marketplacecontractdeploymetadata.platform_fee_basis_points.md) |           | number             | <i>(Optional)</i> The percentage (in basis points) of platform fees             |
+| [platform_fee_recipient?](./sdk.marketplacecontractdeploymetadata.platform_fee_recipient.md)       |           | string             | <i>(Optional)</i> The address that will receive the proceeds from platform fees |
+| [trusted_forwarders?](./sdk.marketplacecontractdeploymetadata.trusted_forwarders.md)               |           | string\[\]         | <i>(Optional)</i> Custom gasless trusted forwarder addresses                    |
