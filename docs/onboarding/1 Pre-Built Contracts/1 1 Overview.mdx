@@ -50,17 +50,20 @@ Pre-built contracts are written by the thirdweb team, and cover the most common 
 Each contract makes use of the contract extensions that are available in [Extensions](/extensions),
 and all come with a standard set of features that enable fine-grained control over the contract's behavior, such as:
 
-- [Contract metadata](/sdk/advanced-features/contract-settings#contract-metadata)
-- [Permission controls](/sdk/advanced-features/permission-controls)
-- [Royalties and platform fees](/sdk/advanced-features/contract-settings#royalty-fees)
+- [Contract metadata](/dashboard/contract-settings#contract-metadata)
+- [Permission controls](/dashboard/permission-controls)
+- [Royalties and platform fees](/dashboard/contract-settings#royalty-fees)
 
-When you deploy one, under the hood you are creating a **proxy contract**, which reduces the gas cost of deploying smart contracts by **~90%** for you.
+When you deploy a prebuilt contract, under the hood you are creating a **proxy contract**;
+which reduces the gas cost for you by **~90%**!
 
 This works by having our smart contracts run the underlying logic, meaning you only deploy the code that is unique to _your_ contract.
-This is possible since all of the contracts deployed using our prebuilt contracts run the same logic for things
+This is possible since all prebuilt contracts run the same logic for things
 like minting, transferring, and burning tokens.
 
-For _example_, your contract stores knowledge of its metadata and state, such as its name, and what NFTs have been minted so far.
-For any logic (such as minting an NFT), it delegates this to our underlying smart contract to handle.
+Your contract stores knowledge of its metadata and state, for example; its name, and what NFTs have been minted so far.
+For any logic (such as minting an NFT), it delegates this to our underlying smart contract to handle, since this logic is the same for every NFT collection.
+
+You still maintain 100% ownership of the contract.
 
 ![Proxy Contract Flow](./assets/delegating-calls.png)

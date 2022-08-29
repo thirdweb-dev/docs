@@ -1,4 +1,83 @@
 {
+  "ThirdwebSDK": {
+    "name": "ThirdwebSDK",
+    "summary": "The main entry point for the thirdweb SDK\n\n\n",
+    "examples": {},
+    "methods": [
+      {
+        "name": "fromPrivateKey",
+        "summary": "Get an instance of the thirdweb SDK based on a private key.\n\n",
+        "remarks": "\n\nThis should only be used for backend services or scripts, with the private key stored in a secure way. **NEVER** expose your private key to the public in any way.\n\n",
+        "examples": {
+          "javascript": "const sdk = ThirdwebSDK.fromPrivateKey(\"SecretPrivateKey\", \"mainnet\");",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\nconst sdk = ThirdwebSDK.fromPrivateKey(\"SecretPrivateKey\", \"mainnet\");"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.fromprivatekey",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "fromSigner",
+        "summary": "Get an instance of the thirdweb SDK based on an existing ethers signer\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// get a signer from somewhere (createRandom is being used purely for example purposes)\nconst signer = ethers.Wallet.createRandom();\n\n// get an instance of the SDK with the signer already setup\nconst sdk = ThirdwebSDK.fromSigner(signer, \"mainnet\");",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\n// get a signer from somewhere (createRandom is being used purely for example purposes)\nconst signer = ethers.Wallet.createRandom();\n\n// get an instance of the SDK with the signer already setup\nconst sdk = ThirdwebSDK.fromSigner(signer, \"mainnet\");"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.fromsigner",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "getBalance",
+        "summary": "Get the native balance of a given address (wallet or contract)\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const balance = await sdk.getBalance(\"0x...\");\nconsole.log(balance.displayValue);",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\nconst balance = await sdk.getBalance(\"0x...\");\nconsole.log(balance.displayValue);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getbalance",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "getContractFromAbi",
+        "summary": "Get an instance of a Custom contract from a json ABI\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// Import your ABI from a JSON file\nimport myABI from \"./path/to/myABI.json\";\n\nconst contract = sdk.getContractFromAbi(\n  \"{{contract_address}}\",\n  // Pass in the \"abi\" field from the JSON file\n  myABI.abi\n);",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\n// Import your ABI from a JSON file\nimport myABI from \"./path/to/myABI.json\";\n\nconst contract = sdk.getContractFromAbi(\n  \"{{contract_address}}\",\n  // Pass in the \"abi\" field from the JSON file\n  myABI.abi\n);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getcontractfromabi",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.ThirdwebSDK"
+    }
+  },
   "NFTCollection": {
     "name": "NFTCollection",
     "summary": "Create a collection of one-of-one NFTs.\n\n",
@@ -3455,6 +3534,104 @@
       "typescript": "https://docs.thirdweb.com/typescript/sdk.WalletAuthenticator",
       "python": "https://docs.thirdweb.com/python/wallet-authenticator",
       "go": "https://docs.thirdweb.com/go/wallet_authenticator"
+    }
+  },
+  "UserWallet": {
+    "name": "UserWallet",
+    "summary": "Connect and Interact with a user wallet\n\n",
+    "examples": {
+      "javascript": "const balance = await sdk.wallet.balance();"
+    },
+    "methods": [
+      {
+        "name": "balance",
+        "summary": "Fetch the native or ERC20 token balance of this wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// native currency balance\nconst balance = await sdk.wallet.balance();\n// ERC20 token balance\nconst erc20balance = await sdk.wallet.balance(tokenContractAddress);\n",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\n// native currency balance\nconst balance = await sdk.wallet.balance();\n// ERC20 token balance\nconst erc20balance = await sdk.wallet.balance(tokenContractAddress);\n"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.userwallet.balance",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "getAddress",
+        "summary": "Get the currently connected address\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const address = await sdk.wallet.getAddress();",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\nconst address = await sdk.wallet.getAddress();"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.userwallet.getaddress",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "recoverAddress",
+        "summary": "Recover the signing address from a signed message\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const message = \"Sign this message...\";\nconst signature = await sdk.wallet.sign(message);\n\n// Now we can recover the signing address\nconst address = sdk.wallet.recoverAddress(message, signature);",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\nconst message = \"Sign this message...\";\nconst signature = await sdk.wallet.sign(message);\n\n// Now we can recover the signing address\nconst address = sdk.wallet.recoverAddress(message, signature);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.userwallet.recoveraddress",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "sign",
+        "summary": "Sign any message with the connected wallet private key\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// This is the message to be signed\nconst message = \"Sign this message...\";\n\n// Now we can sign the message with the connected wallet\nconst signature = await sdk.wallet.sign(message);",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\n// This is the message to be signed\nconst message = \"Sign this message...\";\n\n// Now we can sign the message with the connected wallet\nconst signature = await sdk.wallet.sign(message);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.userwallet.sign",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "transfer",
+        "summary": "Transfer native or ERC20 tokens from this wallet to another wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": " // transfer 0.8 ETH\nawait sdk.wallet.transfer(\"0x...\", 0.8);\n // transfer 0.8 tokens of `tokenContractAddress`\nawait sdk.wallet.transfer(\"0x...\", 0.8, tokenContractAddress);",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\n // transfer 0.8 ETH\nawait sdk.wallet.transfer(\"0x...\", 0.8);\n // transfer 0.8 tokens of `tokenContractAddress`\nawait sdk.wallet.transfer(\"0x...\", 0.8, tokenContractAddress);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.userwallet.transfer",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "typescript": "https://docs.thirdweb.com/typescript/sdk.UserWallet"
     }
   }
 }

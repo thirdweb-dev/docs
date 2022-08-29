@@ -2,6 +2,7 @@ import fs from "fs";
 import createReactSnippet from "./helper/create-react-snippet-from-mapping.mjs";
 
 const CLASSES = [
+  "ThirdwebSDK",
   "NFTCollection",
   "Edition",
   "TokenDrop",
@@ -26,6 +27,7 @@ const CLASSES = [
   "SignatureDrop",
   "SmartContract",
   "WalletAuthenticator",
+  "UserWallet",
 ];
 
 const typescript = JSON.parse(
