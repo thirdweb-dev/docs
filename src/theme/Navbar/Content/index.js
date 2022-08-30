@@ -56,20 +56,23 @@ export default function NavbarContent() {
           <DocBreadcrumbs />
 
           {/* Right we have toggle, search, go to app button */}
-          <NavbarItems items={rightItems} />
-          <NavbarColorModeToggle className={styles.colorModeToggle} />
-          {!searchBarItem && (
-            <NavbarSearch>
-              <SearchBar />
-            </NavbarSearch>
-          )}
+          {/* Somehow, this div doesn't exist when the url has wrong capitalization...? */}
+          <div className="right-side-navbar-container">
+            <NavbarItems items={rightItems} />
+            <NavbarColorModeToggle className={styles.colorModeToggle} />
+            {!searchBarItem && (
+              <NavbarSearch>
+                <SearchBar />
+              </NavbarSearch>
+            )}
 
-          <a
-            className={styles.goToAppButton}
-            href="https://thirdweb.com/dashboard"
-          >
-            Dashboard
-          </a>
+            <a
+              className={styles.goToAppButton}
+              href="https://thirdweb.com/dashboard"
+            >
+              Dashboard
+            </a>
+          </div>
         </>
       }
     />
