@@ -27,6 +27,7 @@ export default function CodeSnippetWithSummary({
           name={name}
           isFeatureSnippet={isFeatureSnippet}
           isGetContractCode={isGetContractCode}
+          showHr={showHr}
         />
       )}
 

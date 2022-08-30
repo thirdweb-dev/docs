@@ -281,6 +281,13 @@ const reactMapping = {
       call: "useContractCall",
     },
   },
+  UserWallet: {
+    mainHook: "useContract",
+    subHooks: {
+      // methods
+      getAddress: "useAddress",
+    },
+  },
 };
 
 export default function createReactSnippet(contractName, methodName) {
