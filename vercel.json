@@ -389,7 +389,7 @@
     },
     {
       "source": "/guides",
-      "destination": "https://blog.thirdweb.com",
+      "destination": "https://blog.thirdweb.com/guides",
       "permanent": true
     },
     {
