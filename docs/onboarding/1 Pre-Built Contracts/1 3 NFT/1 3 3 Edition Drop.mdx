@@ -99,11 +99,15 @@ This is useful for when you want _other_ wallets to mint NFTs from your drop int
 
 To lazy mint NFT(s), click **Create** to lazy-mint a single NFT, or **Batch Upload** to lazy-mint multiple NFTs at once.
 
-![Create or Batch Upload Buttons](../assets/lazy-minting.png)
+![Create or Batch Upload Buttons](../assets/edition-drop-create.png)
 
 To get started, you can use one of our example files for [CSV](https://thirdweb.com/example.csv) or [JSON](https://nightly.thirdweb.com/example.json) metadata.
 
 ### Setting Claim Phases
+
+On the Edition Drop contract, you set claim phases for each NFT, by clicking the **Claim Phases** button
+
+![Claim Phases](../assets/edition-drop-claim-phases.png)
 
 A claim phase is a set of conditions that define when and how your users can claim an NFT from your drop.
 
@@ -119,9 +123,9 @@ Within a claim phase, you can define:
 - How many NFTs can be claimed per transaction
 - How many seconds do wallets have to wait between claims
 
-To configure the claim phase, click the **Claim Phases** tab and **Add Claim Phase**.
+To add a claim phase to a token, click **Add Initial Claim Phase**:
 
-![Add Claim Phase Button](../assets/add-claim-phase.png)
+![Add Initial Claim Phase](../assets/edition-drop-claim-phase-add.png)
 
 ### Airdrop NFTs
 
@@ -136,10 +140,12 @@ You can download our example [CSV File](https://thirdweb.com/airdrop.csv) to get
 
 To configure the image, name, and description of the contract, click the **Settings** tab:
 
-![Contract Metadata](../assets/contract-metadata.png)
+![Contract Metadata](../assets/edition-drop-settings.png)
 
 ### Royalty & Platform Fees
 
-From the **Settings** tab, you also configure both the [royalty fee](/dashboard/contract-settings) and [platform fee](/dashboard/contract-settings).
+From the **Settings** tab, you also configure the [royalty fee](/dashboard/contract-settings),
+[primary sales recipient](/dashboard/contract-settings#primary-sales-recipient)
+and [platform fee](/dashboard/contract-settings).
 
-![Royalty and Platform Fee](../assets/royalty-and-platform-fee.png)
+![Royalty and Platform Fee](../assets/more-settings.png)
