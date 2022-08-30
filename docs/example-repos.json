@@ -561,6 +561,32 @@
     "homepage": null
   },
   {
+    "name": "thirdweb-auth-fiber",
+    "html_url": "https://github.com/thirdweb-example/thirdweb-auth-fiber",
+    "description": "Enable users to login to your backend with their wallet",
+    "created_at": "2022-08-30T00:08:03Z",
+    "updated_at": "2022-08-30T00:10:13Z",
+    "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-fiber.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
+    "name": "thirdweb-auth-flask",
+    "html_url": "https://github.com/thirdweb-example/thirdweb-auth-flask",
+    "description": "Enable users to login to your backend with their wallet",
+    "created_at": "2022-08-30T00:17:55Z",
+    "updated_at": "2022-08-30T00:33:52Z",
+    "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-flask.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "thirdweb-auth-next",
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-next",
     "description": "Enable users to login to your backend with their wallet",
