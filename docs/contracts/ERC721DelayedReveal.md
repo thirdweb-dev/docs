@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # ERC721DelayedReveal
 
-BASE: ERC721Base EXTENSION: LazyMint, DelayedReveal The `ERC721DelayedReveal` contract uses the `ERC721Base` contract, along with the `LazyMint` and `DelayedReveal` extension. &#39;Lazy minting&#39; means defining the metadata of NFTs without minting it to an address. Regular &#39;minting&#39; of NFTs means actually assigning an owner to an NFT. As a contract admin, this lets you prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs. &#39;Delayed reveal&#39; is a mechanism by which you can distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact. You can read more about how the `DelayedReveal` extension works, here: https://blog.thirdweb.com/delayed-reveal-nfts
+BASE: ERC721LazyMint EXTENSION: DelayedReveal The `ERC721DelayedReveal` contract uses the `ERC721LazyMint` contract, along with `DelayedReveal` extension. &#39;Lazy minting&#39; means defining the metadata of NFTs without minting it to an address. Regular &#39;minting&#39; of NFTs means actually assigning an owner to an NFT. As a contract admin, this lets you prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs. &#39;Delayed reveal&#39; is a mechanism by which you can distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact. You can read more about how the `DelayedReveal` extension works, here: https://blog.thirdweb.com/delayed-reveal-nfts
 
 ## Methods
 
@@ -46,25 +46,6 @@ _See {IERC721-balanceOf}._
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
 
-### batchMintTo
-
-```solidity
-function batchMintTo(address _to, uint256 _quantity, string, bytes _data) external nonpayable
-```
-
-Lets an authorized address mint multiple lazy minted NFTs at once to a recipient.
-
-_The logic in the `_canMint` function determines whether the caller is authorized to mint NFTs._
-
-#### Parameters
-
-| Name       | Type    | Description                                                  |
-| ---------- | ------- | ------------------------------------------------------------ |
-| \_to       | address | The recipient of the NFT to mint.                            |
-| \_quantity | uint256 | The number of NFTs to mint.                                  |
-| \_2        | string  | undefined                                                    |
-| \_data     | bytes   | Additional data to pass along during the minting of the NFT. |
-
 ### burn
 
 ```solidity
@@ -80,6 +61,23 @@ _ERC721A&#39;s `_burn(uint256,bool)` internally checks for token approvals._
 | Name      | Type    | Description                     |
 | --------- | ------- | ------------------------------- |
 | \_tokenId | uint256 | The tokenId of the NFT to burn. |
+
+### claim
+
+```solidity
+function claim(address _receiver, uint256 _quantity) external payable
+```
+
+Lets an address claim multiple lazy minted NFTs at once to a recipient. Contract creators should override this function to create custom logic for claiming, for e.g. price collection, allowlist, max quantity, etc.
+
+_The logic in the `verifyClaim` function determines whether the caller is authorized to mint NFTs._
+
+#### Parameters
+
+| Name       | Type    | Description                       |
+| ---------- | ------- | --------------------------------- |
+| \_receiver | address | The recipient of the NFT to mint. |
+| \_quantity | uint256 | The number of NFTs to mint.       |
 
 ### contractURI
 
@@ -276,27 +274,6 @@ _See {IERC721-isApprovedForAll}._
 | ---- | ---- | ----------- |
 | \_0  | bool | undefined   |
 
-### isApprovedOrOwner
-
-```solidity
-function isApprovedOrOwner(address _operator, uint256 _tokenId) external view returns (bool isApprovedOrOwnerOf)
-```
-
-Returns whether a given address is the owner, or approved to transfer an NFT.
-
-#### Parameters
-
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_operator | address | undefined   |
-| \_tokenId  | uint256 | undefined   |
-
-#### Returns
-
-| Name                | Type | Description |
-| ------------------- | ---- | ----------- |
-| isApprovedOrOwnerOf | bool | undefined   |
-
 ### isEncryptedBatch
 
 ```solidity
@@ -341,23 +318,6 @@ Lets an authorized address lazy mint a given amount of NFTs.
 | ------- | ------- | ----------------------------------------------------------------------- |
 | batchId | uint256 | A unique integer identifier for the batch of NFTs lazy minted together. |
 
-### mintTo
-
-```solidity
-function mintTo(address _to, string) external nonpayable
-```
-
-Lets an authorized address mint a lazy minted NFT to a recipient.
-
-_The logic in the `_canMint` function determines whether the caller is authorized to mint NFTs._
-
-#### Parameters
-
-| Name | Type    | Description                       |
-| ---- | ------- | --------------------------------- |
-| \_to | address | The recipient of the NFT to mint. |
-| \_1  | string  | undefined                         |
-
 ### multicall
 
 ```solidity
@@ -393,6 +353,20 @@ _See {IERC721Metadata-name}._
 | Name | Type   | Description |
 | ---- | ------ | ----------- |
 | \_0  | string | undefined   |
+
+### nextTokenIdToClaim
+
+```solidity
+function nextTokenIdToClaim() external view returns (uint256)
+```
+
+The tokenId assigned to the next new NFT to be claimed.
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### nextTokenIdToMint
 
@@ -685,6 +659,23 @@ _See {IERC721-transferFrom}._
 | from    | address | undefined   |
 | to      | address | undefined   |
 | tokenId | uint256 | undefined   |
+
+### verifyClaim
+
+```solidity
+function verifyClaim(address _claimer, uint256 _quantity) external view
+```
+
+Override this function to add logic for claim verification, based on conditions such as allowlist, price, max quantity etc.
+
+_Checks a request to claim NFTs against a custom condition._
+
+#### Parameters
+
+| Name       | Type    | Description                       |
+| ---------- | ------- | --------------------------------- |
+| \_claimer  | address | Caller of the claim function.     |
+| \_quantity | uint256 | The number of NFTs being claimed. |
 
 ## Events
 
