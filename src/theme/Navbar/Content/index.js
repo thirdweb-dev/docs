@@ -56,28 +56,20 @@ export default function NavbarContent() {
           <DocBreadcrumbs />
 
           {/* Right we have toggle, search, go to app button */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
-            <NavbarItems items={rightItems} />
-            <NavbarColorModeToggle className={styles.colorModeToggle} />
-            {!searchBarItem && (
-              <NavbarSearch>
-                <SearchBar />
-              </NavbarSearch>
-            )}
+          <NavbarItems items={rightItems} />
+          <NavbarColorModeToggle className={styles.colorModeToggle} />
+          {!searchBarItem && (
+            <NavbarSearch>
+              <SearchBar />
+            </NavbarSearch>
+          )}
 
-            <a
-              className={styles.goToAppButton}
-              href="https://thirdweb.com/dashboard"
-            >
-              Dashboard
-            </a>
-          </div>
+          <a
+            className={styles.goToAppButton}
+            href="https://thirdweb.com/dashboard"
+          >
+            Dashboard
+          </a>
         </>
       }
     />
