@@ -26,6 +26,74 @@
     "message": "Abra ou feche o menu lateral da categoria '{label}'",
     "description": "The ARIA label to toggle the collapsible sidebar category"
   },
+  "theme.DocSidebarItems.homeLabel": {
+    "message": "Início",
+    "description": "Home category label"
+  },
+  "theme.DocSidebarItems.platformOverviewLabel": {
+    "message": "Visão Geral",
+    "description": "Platform Overview category label"
+  },
+  "theme.DocSidebarItems.gettingStartedLabel": {
+    "message": "Primeiros Passos",
+    "description": "Getting Started category label"
+  },
+  "theme.DocSidebarItems.createProjectLabel": {
+    "message": "Criando um projeto",
+    "description": "Create A Project category label"
+  },
+  "theme.DocSidebarItems.buildContractsLabel": {
+    "message": "Construindo Contratos",
+    "description": "Build Contracts category label"
+  },
+  "theme.DocSidebarItems.prebuiltLabel": {
+    "message": "Pré-configurados",
+    "description": "Prebuilt sidebar item"
+  },
+  "theme.DocSidebarItems.extensionsLabel": {
+    "message": "Extensões",
+    "description": "Extensions sidebar item"
+  },
+  "theme.DocSidebarItems.shipProjectsLabel": {
+    "message": "Entregue Projetos",
+    "description": "Ship Projects category label"
+  },
+  "theme.DocSidebarItems.releaseLabel": {
+    "message": "Distribua",
+    "description": "Release sidebar item"
+  },
+  "theme.DocSidebarItems.createAppsLabel": {
+    "message": "Crie Apps",
+    "description": "Create Apps category label"
+  },
+  "theme.DocSidebarItems.sdkLabel": {
+    "message": "SDK",
+    "description": "SDK sidebar item"
+  },
+  "theme.DocSidebarItems.authLabel": {
+    "message": "Autenticação",
+    "description": "Auth sidebar item"
+  },
+  "theme.DocSidebarItems.manageProjectsLabel": {
+    "message": "Gerencie Projetos",
+    "description": "Manage Projects category label"
+  },
+  "theme.DocSidebarItems.dashboardLabel": {
+    "message": "Dashboard",
+    "description": "Dashboard sidebar item"
+  },
+  "theme.DocSidebarItems.templatesLabel": {
+    "message": "Modelos",
+    "description": "Templates sidebar item"
+  },
+  "theme.DocSidebarItems.guidesLabel": {
+    "message": "Guias",
+    "description": "Guides sidebar item"
+  },
+  "theme.DocSidebarItems.sdkReferencesLabel": {
+    "message": "Manuais do SDK",
+    "description": "SDK References sidebar item"
+  },
   "theme.ErrorPageContent.title": {
     "message": "Esta página travou.",
     "description": "The title of the fallback page when the page crashed"
