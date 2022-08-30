@@ -3551,13 +3551,13 @@
           "javascript": "const address = await sdk.wallet.getAddress();",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst address = await sdk.wallet.getAddress();"
+          "react": "import { useAddress } from \"@thirdweb-dev/react\"\n\nconst App = () => {\n  const address = useAddress()\n\n  return <div>{address}</div>\n}"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.userwallet.getaddress",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.useaddress"
         }
       },
       {
