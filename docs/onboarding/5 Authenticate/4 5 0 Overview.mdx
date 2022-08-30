@@ -5,81 +5,91 @@ title: Overview
 
 import QuickstartCard from "../../../src/components/QuickstartCard";
 
-Our authentication SDK lets you securely enable users to interact with any server-side/backend services by providing the following abilities:
+Auth lets you **integrate web3 flows into any backend setup or web2 service.**
 
-- Verify the connected client-side wallet address on the backend using the [Sign-in with Ethereum](https://eips.ethereum.org/EIPS/eip-4361) (EIP-4361) standard.
-- Issue [JSON Web Tokens (JWTs)](https://jwt.io) to client-side users and allow users to make authenticated requests
+More specifically, Auth makes use of the [Sign-in with Ethereum](https://eips.ethereum.org/EIPS/eip-4361) standard to enable:
 
-This functionality opens the door to a new suite of possibilities involving the integration of the web3 stack into all applications, including the following use-cases:
+- Securely sending the connected client-side wallet address to any backend
+- Standard authentication flows for wallet-based login
 
-- Allow users to securely login to any backend with just their wallet (no third-party dependencies)
-- Securely verify existing users' wallet addresses to use for reading associated on-chain data
-- Connect pre-existing user accounts to wallet addresses to send users digital assets
-- Integration of any web2 infrastructure into web3 applications including payments, databases, and other services
+### What can you do with Auth?
 
-### Learn More
+Auth enables all use cases that require user wallet addresses on the backend. These include:
 
-Learn more about how to use our authentication SDK to use web3 functionality on the backend.
+- **Authentication:** Allow users to login to your backends and services with just their wallet
+- **Subscriptions & Payments:** Allow users to make subscriptions and payments tied to their on-chain identity
+- **Verify On-chain Identities:** Verify the on-chain identities of your existing users to unlock web3 experiences
+- **Token Gating:** Securely gate content and only give access to users with necessary access (like token ownership)
 
-<div className="row">
+### Framework Examples
 
-<div className="col col--6" style={{ padding: 8 }}>
-  <QuickstartCard
-    name="Quickstart"
-    link="/auth/quickstart"
-    description="Learn by example by building a simple web app with wallet authentication."
-  />
-</div>
+Example GitHub repositories implementing thirdweb Auth with different backend frameworks.
 
-<div className="col col--6" style={{ padding: 8 }}>
-  <QuickstartCard
-    name="Server-side User Verification"
-    link="/auth/sign-in-with-web3"
-    description="Learn how to verify the connected wallet on your backend"
-    image="/assets/icons/drop.png"
-  />
-</div>
-
-<div className="col col--6" style={{ padding: 8 }}>
-  <QuickstartCard
-    name="Wallet Authentication"
-    link="/auth/remember-the-user"
-    description="Learn how to authenticate users to a backend and enable authenticated requests without a third-party."
-    image="/assets/icons/vote.png"
-  />
-</div>
-
-<div className="col col--6" style={{ padding: 8 }}>
-  <QuickstartCard
-    name="Security & Advanced Usage"
-    link="/auth/security-and-advanced-usage"
-    description="Learn about security and advanced usage of the authentication SDK"
-    image="/assets/icons/split.png"
-  />
-</div>
-
-</div>
-
-### Example Repositories
-
-Example GitHub repositories to get you started coding with the authentication SDK.
 
 <div className="row" style={{ marginTop: 24 }}>
 
 <div className="col col--6" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Basic Authentication"
-    link="https://github.com/thirdweb-example/login-with-wallet"
-    description="A basic authentication example showing how to setup a client and server with the authentication SDK."
+    name="Auth + Next"
+    link="https://github.com/thirdweb-example/thirdweb-auth-next"
+    description="Implement thirdweb Auth with NextJS"
     image="/assets/icons/nft.png"
   />
 </div>
 
 <div className="col col--6" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Thirdweb Stripe"
+    name="Auth + Express"
+    link="https://github.com/thirdweb-example/thirdweb-auth-next"
+    description="Implement thirdweb Auth with Express"
+    image="/assets/icons/drop.png"
+  />
+</div>
+
+</div>
+
+<div className="row" style={{ marginTop: 24 }}>
+
+<div className="col col--6" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Auth + Flask"
+    link="https://github.com/thirdweb-example/thirdweb-auth-flask"
+    description="Implement thirdweb Auth with Flask"
+    image="/assets/icons/edition.png"
+  />
+</div>
+
+<div className="col col--6" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Auth + Fiber"
+    link="https://github.com/thirdweb-example/thirdweb-auth-fiber"
+    description="Implement thirdweb Auth with Fiber"
+    image="/assets/icons/general.png"
+  />
+</div>
+
+</div>
+
+### Usage Examples
+
+Example GitHub repositories for use-case specific applications of thirdweb Auth
+
+<div className="row" style={{ marginTop: 24 }}>
+
+<div className="col col--6" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Token Gating"
+    link="https://github.com/thirdweb-example/nft-gated-website"
+    description="An example of how to make a token gated website with thirdweb Auth."
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+<div className="col col--6" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Payments"
     link="https://github.com/thirdweb-example/thirdweb-stripe"
-    description="An example of how to setup Stripe subscriptions with the authentication SDK."
+    description="An example of how to setup Stripe subscriptions with thirdweb Auth"
     image="/assets/icons/token.png"
   />
 </div>
