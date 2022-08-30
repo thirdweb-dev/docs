@@ -4,13 +4,15 @@ import DocSidebarItem from "@theme/DocSidebarItem";
 // TODO this item should probably not receive the "activePath" props
 // TODO this triggers whole sidebar re-renders on navigation
 function DocSidebarItems({ items, ...props }) {
-  const showCategories =
-    props?.level === 1 &&
-    !props?.activePath.startsWith("/python") &&
-    !props?.activePath.startsWith("/typescript") &&
-    !props?.activePath.startsWith("/react") &&
-    !props?.activePath.startsWith("/go") &&
-    !props?.activePath.startsWith("/contracts");
+  const pathsToHideCategories = ['python', 'typescript', 'react', 'go', 'contracts'];
+  const basePath = ['/pt-BR/', '/'].find((path) => {
+    props?.activePath.startsWith(path)
+  });
+
+  const showCategories = props?.level === 1 &&
+    pathsToHideCategories.some((path, idx) => {
+      !props?.activePath.startsWith(`${basePath}${path}`)
+    });
 
   const sidebarItems = [
     {
