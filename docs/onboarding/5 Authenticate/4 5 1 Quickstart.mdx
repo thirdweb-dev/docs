@@ -104,12 +104,11 @@ Finally, if you try clicking the `Logout` button, the authentication token will 
 
 So just like that, we have a **full login-flow where you can login to a backend with just a wallet!**
 
-
 ### Understanding the Code
 
 Now that we've seen the basics of what this login flow can do, let's take a look at the important code to try to understand what's going on.
 
-The first file we can take a look at is the `pages/api/auth/[...thirdweb].ts` file, where we setup our entire authentication backend API. 
+The first file we can take a look at is the `pages/api/auth/[...thirdweb].ts` file, where we setup our entire authentication backend API.
 
 ```typescript
 import { ThirdwebAuth } from "@thirdweb-dev/auth/next";
@@ -143,7 +142,7 @@ const user = await getUser(req);
 if (!user) {
   return res.status(401).json({
     message: "Not authorized.",
-  })
+  });
 }
 ```
 
@@ -153,7 +152,7 @@ Next, we can take a look at the `/pages/_app.ts` file with the `ThirdwebProvider
 
 ```jsx
 <ThirdwebProvider
-  desiredChainId={activeChainId} 
+  desiredChainId={activeChainId}
   authConfig={{
     domain: "localhost:3000",
     authUrl: "/api/auth",
@@ -173,6 +172,7 @@ const login = useLogin();
 const logout = useLogout();
 const { user } = useUser();
 ```
+
 ```jsx
 <button onClick={() => login()}>Login with Wallet</button>
 <button onClick={logout}>Logout</button>
