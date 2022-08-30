@@ -7,17 +7,17 @@ Let's take a look at a quick example of how to use the authentication SDK to all
 
 ## Setup the Project
 
-We'll start by cloning the [Basic Authentication](https://github.com/thirdweb-example/login-with-wallet) example project using the [thirdweb CLI](https://github.com/thirdweb-dev/thirdweb-cli)
+We'll start by cloning the [Thirdweb Auth Next](https://github.com/thirdweb-example/thirdweb-auth-next) example project using the [thirdweb CLI](https://github.com/thirdweb-dev/thirdweb-cli)
 
 ```bash
-npx thirdweb create --template login-with-wallet
+npx thirdweb create --template thirdweb-auth-next
 ```
 
 We also need to set up our backend with an admin private key (we'll explore what this means later).
 To do this, we need to create a new file at the top level of our project called `.env.local` and add our private key to the file:
 
 ```
-PRIVATE_KEY=your-private-key-here
+ADMIN_PRIVATE_KEY=your-private-key-here
 ```
 
 :::warning Private Key Best Practices
@@ -38,9 +38,7 @@ npm run dev
 yarn dev
 ```
 
-You can navigate to [http://localhost:3000](http://localhost:3000) and you should see a page that looks like the following (assuming your wallet isn't already connected to the page).
-
-![Connect Wallet](./assets/connect-wallet.png)
+You can navigate to [http://localhost:3000](http://localhost:3000) and you should see a page with just a connect wallet button (assuming your wallet isn't already connected to the page).
 
 The first thing to do is to connect your MetaMask wallet to the page by clicking the `Connect Wallet` button.
 
@@ -50,7 +48,7 @@ If you don't already have one, you can follow our guide on [creating a MetaMask 
 
 :::
 
-Once you connect your wallet, the page should update to the following, and show you your wallet address in the `Connect Address` section.
+Once you connect your wallet, the page should update to the following, and show you your wallet address in the `Your address` section.
 
 ![Login with Wallet](./assets/login-with-wallet.png)
 
@@ -88,102 +86,99 @@ Once you sign the message, it will get sent to the backend where the backend wil
 
 :::tip
 
-For those curious, you can actually see the authentication token by clicking `Inspect` > `Application` > `Cookies` and you'll see it under the `access_token` cookie in this case.
+For those curious, you can actually see the authentication token by clicking `Inspect` > `Application` > `Cookies` and you'll see it under the `thirdweb_auth_token` cookie in this case.
 
 :::
 
-Now that you're logged in, your page should update to the following with the correct `Logged In Address`.
+Now that you're logged in, your page should update to the following with the correct address in the `User` object displayed.
 
-![Authenticate](./assets/authenticate.png)
+![User](./assets/login-user.png)
 
 Our authentication token is now stored securely on the frontend, so if we make any future requests to the backend, the backend will still know the wallet address that we are logged in as.
 
-You can try this out by clicking the `Authenticate` button, which just makes a request to the backend and returns `true` if your wallet address is still authenticated.
+You can try this out by clicking the `Get Secret` button, which makes a request to the backend for some secret content that can only be accessed by authenticated users. You should receive a secret back as below:
 
-Finally, if you try clicking the `Logout` button, the authentication token will be removed from the frontend, which means you will no longer be able to make authenticated requests. If try the `Authenticate` button, it should now show `false` for the `Authenticated` value, reflecting that you are no longer logged in.
+![Secret](./assets/login-secret.png)
+
+Finally, if you try clicking the `Logout` button, the authentication token will be removed from the frontend, which means the `User` on the frontend should update to be empty again. Additionally, if you try clicking the `Get Secret` button, it will return you an unauthorized error.
 
 So just like that, we have a **full login-flow where you can login to a backend with just a wallet!**
+
 
 ### Understanding the Code
 
 Now that we've seen the basics of what this login flow can do, let's take a look at the important code to try to understand what's going on.
 
-The first file we can take a look at is the `hooks/useAuthenticate.ts` file, which will have functions called `login`, `authenticate`, and `logout`. Notice that all of these functions are simply making API requests to the backend, which we'll take a look at soon. However,
-if we take a closer look at the `login` function, you'll notice that's it's also doing something else:
+The first file we can take a look at is the `pages/api/auth/[...thirdweb].ts` file, where we setup our entire authentication backend API. 
 
 ```typescript
-async function login() {
-  // Here, we call the authentication SDK login method to generate a payload we can send to the backend
-  const payload = await sdk?.auth.login(domain);
-  await fetch("/api/login", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({ payload }),
-  });
+import { ThirdwebAuth } from "@thirdweb-dev/auth/next";
+
+// Configure thirdweb Auth with a private key and domain
+export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
+  privateKey: process.env.THIRDWEB_AUTH_PRIVATE_KEY || "",
+  domain: "localhost:3000",
+});
+
+// Export the thirdweb Auth API endpoints
+export default ThirdwebAuthHandler();
+```
+
+Note that we are making use of the `@thirdweb-dev/auth` package.
+
+Here, we configure thirdweb Auth, and export an API handler called the `ThirdwebAuthHandler` which automatically handles all requests to any `/api/auth` route. This will handle all login and logout requests, as well as requests to get the current user.
+
+:::tip
+
+This internally uses the `sdk.auth` interface from the `ThirdwebSDK` to handle wallet based login and logout.
+To learn more about the details of this flow, you can checkout the [Advanced Usage](/auth/advanced-usage) section.
+
+:::
+
+Now that Auth is setup, we can take advantage of it in another endpoint. We can take a look at an example of this in this snippet from the `/pages/api/secret.ts` file:
+
+```typescript
+const user = await getUser(req);
+
+if (!user) {
+  return res.status(401).json({
+    message: "Not authorized.",
+  })
 }
 ```
 
-In this function, we importantly call the `sdk.auth.login()` function which is what prompts the connected wallet to sign a message, which is then used to generate a payload to send to the backend.
+Here, we use the `getUser` function we exported from the previous file to obtain the user making a request. If there is an authenticated user (meaning that a JWT has been issued by our Auth API), then the `getUser` function will return the user data, and we can return the user some secret data. Otherwise, `user` will be `null` and we can reject them as unauthorized.
 
-Now we can take a look at all the API functions which enable these flows. First, let's look at `pages/api/login.tsx`, which is where the login request is made. The most crucial line in this function is the following:
+Next, we can take a look at the `/pages/_app.ts` file with the `ThirdwebProvider` configuration. In order to use Auth on the frontend, we need to set the `authConfig` object on the provider as follows:
 
-```typescript
-const token = await sdk.auth.generateAuthToken(domain, payload);
+```jsx
+<ThirdwebProvider
+  desiredChainId={activeChainId} 
+  authConfig={{
+    domain: "localhost:3000",
+    authUrl: "/api/auth",
+    loginRedirect: "/",
+  }}
+>
+  <Component {...pageProps} />
+</ThirdwebProvider>
 ```
 
-Here, we take the payload generated and send from the frontend and use it to create an authentication token that the frontend can use to make authenticated requests. We then send this token back to the frontend as a secure cookie with the following code:
+The configuration specifies the relative URL of our Auth API (which we setup at `/api/auth` in this case), the domain of our website (used to prevent phishing attacks), and the URL to redirect to after a successful login.
 
-```typescript
-res.setHeader(
-  "Set-Cookie",
-  serialize("access_token", token, {
-    path: "/",
-    httpOnly: true,
-    secure: true,
-    sameSite: "strict",
-  }),
-);
+This allows us to use the `useLogin`, `useLogout`, and `useUser` react hooks throughout our frontend which will let us easily interact with our Auth API, as we can see in the `/pages/index.tsx` file:
+
+```jsx
+const login = useLogin();
+const logout = useLogout();
+const { user } = useUser();
+```
+```jsx
+<button onClick={() => login()}>Login with Wallet</button>
+<button onClick={logout}>Logout</button>
+<pre>User: {JSON.stringify(user || null)}</pre>
 ```
 
-Next, let's look at the `pages/api/authenticate.tsx` file, which showcases a separate API endpoint where we can verify is a user is logged in or not. The most important code here is the following:
+These functions let us easily make login and logout requests with just a single button click!
 
-```typescript
-// Get access token off cookies
-const token = req.cookies.access_token;
-if (!token) {
-  res.status(401).json({
-    error: "Must provide an access token to authenticate",
-  });
-}
-
-const sdk = ThirdwebSDK.fromPrivateKey(
-  // Learn more about securely accessing your private key: https://portal.thirdweb.com/sdk/set-up-the-sdk/securing-your-private-key
-  "<your-private-key-here>"
-  "mainnet",
-);
-
-// Authenticate token with the SDK
-const domain = "thirdweb.com";
-const address = await sdk.auth.authenticate(domain, token);
-```
-
-Here, we extract the authentication token of the request cookies and verify it with the `sdk.auth.authenticate` method. If the authentication token is valid, the function will return us the address of the authenticated wallet, otherwise this function will throw an error.
-
-Finally, let's look at the `pages/api/logout.tsx` file, which demonstrates how to logout a user. All we have to do is remove the cookie with the authentication token from the frontend (which we can specify on the request with the following):
-
-```typescript
-// Set the access token to 'none' and expire in 5 seconds
-res.setHeader(
-  "Set-Cookie",
-  serialize("access_token", "none", {
-    path: "/",
-    expires: new Date(Date.now() + 5 * 1000),
-  }),
-);
-```
-
-And with this, the user will be logged out after 5 seconds.
-
-And just like that, user authentication with the authentication SDK is made possible!
+Just like that, we've setup user authentication with thirdweb Auth!

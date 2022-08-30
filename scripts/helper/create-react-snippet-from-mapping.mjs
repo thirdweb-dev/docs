@@ -281,6 +281,12 @@ const reactMapping = {
       call: "useContractCall",
     },
   },
+  WalletAuthenticator: {
+    mainHook: "useLogin",
+    subHooks: {
+      login: "useLogin",
+    }
+  }
 };
 
 export default function createReactSnippet(contractName, methodName) {
