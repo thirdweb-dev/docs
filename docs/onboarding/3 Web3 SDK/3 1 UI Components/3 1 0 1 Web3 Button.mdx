@@ -89,6 +89,7 @@ call that from the button like so:
 
 ```jsx
 import { Web3Button } from "@thirdweb-dev/react";
+import myFile from "../path/to/my/file.png";
 
 <Web3Button
   // The contract address
@@ -99,7 +100,7 @@ import { Web3Button } from "@thirdweb-dev/react";
       name: "Hello world!",
       // This way, you get the benefits of the SDK
       // such as having your file uploaded and pinned to IPFS automatically.
-      image: myFile, // Here you can pass a File rather than a URL.
+      image: new File([myFile], "myFile.png"),
       description: "Your awesome NFT",
     })
   }
