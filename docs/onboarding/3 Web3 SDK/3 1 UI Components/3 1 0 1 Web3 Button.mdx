@@ -89,7 +89,6 @@ call that from the button like so:
 
 ```jsx
 import { Web3Button } from "@thirdweb-dev/react";
-import myFile from "../path/to/my/file.png";
 
 <Web3Button
   // The contract address
@@ -99,8 +98,8 @@ import myFile from "../path/to/my/file.png";
     contract.nft.mint.to(address, {
       name: "Hello world!",
       // This way, you get the benefits of the SDK
-      // such as having your file uploaded and pinned to IPFS automatically.
-      image: new File([myFile], "myFile.png"),
+      // Image can be of type File, or any url that points to a file.
+      image: "ipfs://Qmf9csTfndWRgH2z35WUBm9jTuQKfSv1dJC9YKW6iTZkDP/0",
       description: "Your awesome NFT",
     })
   }
