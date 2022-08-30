@@ -11,12 +11,15 @@ export default function ThirdwebCodeSnippet({
   isFeatureSnippet = false,
   isGetContractCode = false,
   showHr = true,
+  groupId = "thirdweb-code-snippet",
+  languages = {},
 }) {
   const languagesToShow = {
     react: true,
     javascript: true,
     python: true,
     go: true,
+    ...languages
   };
 
   if (!contract || !name) {
@@ -66,7 +69,7 @@ export default function ThirdwebCodeSnippet({
 
   return (
     <>
-      <Tabs groupId="thirdweb-code-snippet" defaultValue={"react"}>
+      <Tabs groupId={groupId} defaultValue={"react"}>
         {Object.entries(languagesToShow).map(([language, alwaysShow]) => {
           const example = examples[language];
           const reference = references[language];
@@ -75,24 +78,24 @@ export default function ThirdwebCodeSnippet({
           const languageName =
             language.charAt(0).toUpperCase() + language.slice(1);
 
+          if (!alwaysShow) {
+            return (
+              <TabItem
+                key={language}
+                attributes={{
+                  style: { display: "none" },
+                }}
+                hidden={true}
+                value={language}
+                label={languageName}
+              >
+                {null}
+              </TabItem>
+            );
+          }
+
           // If the example is empty, return null
           if (!example) {
-            if (!alwaysShow) {
-              return (
-                <TabItem
-                  key={language}
-                  attributes={{
-                    style: { display: "none" },
-                  }}
-                  hidden={true}
-                  value={language}
-                  label={languageName}
-                >
-                  {null}
-                </TabItem>
-              );
-            }
-
             return (
               <TabItem key={language} value={language} label={languageName}>
                 <CodeBlock language={languageToHighlightMapping[language]}>
