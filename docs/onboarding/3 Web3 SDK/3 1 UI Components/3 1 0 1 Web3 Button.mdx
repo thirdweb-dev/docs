@@ -27,11 +27,6 @@ Below is an example of the button before and after the user connects their walle
   <img src={"/assets/web3button.png"} style={{ maxHeight: 240 }} />
 </div>
 
-The button has two required props:
-
-- `contractAddress`: The address of the contract to call.
-- `functionName`: The name of the function to call (as it is on the contract itself)
-
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
     <QuickstartCard
@@ -42,7 +37,20 @@ The button has two required props:
   </div>
 </div>
 
-## Example
+## How To Use It
+
+There are two ways you can use the button effectively.
+
+1. Use `functionName` and `params` to call the contract function directly.
+2. Use the `action` field to interact with the contract object and run any logic.
+
+### Calling Contract Functions Directly
+
+Pass in the contract address and the name of the function you want to call, by providing:
+
+- `contractAddress`: The address of the contract to call.
+- `functionName`: The name of the function to call (as it is on the contract itself).
+- `params`: An array of parameters to pass to the function.
 
 ```jsx
 import { Web3Button } from "@thirdweb-dev/react";
@@ -63,6 +71,38 @@ import { Web3Button } from "@thirdweb-dev/react";
     "ipfs://Qmf9csTfndWRgH2z35WUBm9jTuQKfSv1dJC9YKW6iTZkDP/0",
   ]}
   // If the function is successful, we can do something here.
+  onSuccess={(result) => console.log(result)}
+  // If the function fails, we can do something here.
+  onError={(error) => console.error(error)}
+>
+  Mint NFT
+</Web3Button>;
+```
+
+### Using `action` to Access The Contract
+
+If your contract is a [prebuilt contract](/pre-built-contracts) or implements [extensions](/extensions), you can use the features
+you unlock in the SDK by accessing the contract directly within the `action`.
+
+In the below example, our NFT contract implements `ERC721Base`, so we unlock the `contract.nft.mint.to` functionality, and can
+call that from the button like so:
+
+```jsx
+import { Web3Button } from "@thirdweb-dev/react";
+
+<Web3Button
+  // The contract address
+  contractAddress="0x424037abd63d32595bD843791ab015C31c87Cb6d"
+  // Access the contract itself, perform any action you want on it:
+  action={(contract) =>
+    contract.nft.mint.to(address, {
+      name: "Hello world!",
+      // This way, you get the benefits of the SDK
+      // such as having your file uploaded and pinned to IPFS automatically.
+      image: myFile, // Here you can pass a File rather than a URL.
+      description: "Your awesome NFT",
+    })
+  }
   onSuccess={(result) => console.log(result)}
   // If the function fails, we can do something here.
   onError={(error) => console.error(error)}
