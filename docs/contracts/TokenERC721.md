@@ -726,20 +726,6 @@ _See {IERC721Metadata-symbol}._
 | ---- | ------ | ----------- |
 | \_0  | string | undefined   |
 
-### thirdwebFee
-
-```solidity
-function thirdwebFee() external view returns (contract ITWFee)
-```
-
-_The thirdweb contract with fee related information._
-
-#### Returns
-
-| Name | Type            | Description |
-| ---- | --------------- | ----------- |
-| \_0  | contract ITWFee | undefined   |
-
 ### tokenByIndex
 
 ```solidity

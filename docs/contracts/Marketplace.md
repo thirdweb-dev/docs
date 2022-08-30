@@ -567,20 +567,6 @@ function supportsInterface(bytes4 interfaceId) external view returns (bool)
 | ---- | ---- | ----------- |
 | \_0  | bool | undefined   |
 
-### thirdwebFee
-
-```solidity
-function thirdwebFee() external view returns (contract ITWFee)
-```
-
-_The thirdweb contract with fee related information._
-
-#### Returns
-
-| Name | Type            | Description |
-| ---- | --------------- | ----------- |
-| \_0  | contract ITWFee | undefined   |
-
 ### timeBuffer
 
 ```solidity
