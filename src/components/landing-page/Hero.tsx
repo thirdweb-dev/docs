@@ -19,7 +19,7 @@ export default function Hero() {
           <div className="hero-right-image-container">
             <ThemedImage
               sources={{
-                light: "/assets/docs-hero-light.png",
+                light: "/assets/docs-hero-light-2.png",
                 dark: "/assets/docs-hero.png",
               }}
               className="hero-right-image"
