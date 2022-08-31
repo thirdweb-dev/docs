@@ -29,6 +29,12 @@ html[data-theme="dark"] .DocSearch {
   padding-bottom: 24px;
 }
 
+div .theme-doc-breadcrumbs .breadcrumbsContainer_Alpn {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}
+
 @media (min-width: 996px) {
   .navbar__items--right {
     position: fixed;
