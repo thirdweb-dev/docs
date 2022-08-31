@@ -30,6 +30,13 @@
   padding-bottom: 0px;
 }
 
+/* Second child of navbar__items navbar__items--right */
+.navbar__items--right:nth-child(2) {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}
+
 html[data-theme="dark"] .breadcrumbs__link {
   color: rgba(255, 255, 255, 0.8) !important;
 }
