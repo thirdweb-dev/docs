@@ -33,6 +33,28 @@ function NATIVE_TOKEN() external view returns (address)
 | ---- | ------- | ----------- |
 | \_0  | address | undefined   |
 
+### addPackContents
+
+```solidity
+function addPackContents(uint256 _packId, ITokenBundle.Token[] _contents, uint256[] _numOfRewardUnits, address _recipient) external payable returns (uint256 packTotalSupply, uint256 newSupplyAdded)
+```
+
+#### Parameters
+
+| Name               | Type                 | Description |
+| ------------------ | -------------------- | ----------- |
+| \_packId           | uint256              | undefined   |
+| \_contents         | ITokenBundle.Token[] | undefined   |
+| \_numOfRewardUnits | uint256[]            | undefined   |
+| \_recipient        | address              | undefined   |
+
+#### Returns
+
+| Name            | Type    | Description |
+| --------------- | ------- | ----------- |
+| packTotalSupply | uint256 | undefined   |
+| newSupplyAdded  | uint256 | undefined   |
+
 ### balanceOf
 
 ```solidity
@@ -74,6 +96,26 @@ _See {IERC1155-balanceOfBatch}. Requirements: - `accounts` and `ids` must have t
 | Name | Type      | Description |
 | ---- | --------- | ----------- |
 | \_0  | uint256[] | undefined   |
+
+### canUpdatePack
+
+```solidity
+function canUpdatePack(uint256) external view returns (bool)
+```
+
+_Checks if pack-creator allowed to add more tokens to a packId; set to false after first transfer_
+
+#### Parameters
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### contractType
 
@@ -120,7 +162,7 @@ _Returns the version of the contract._
 ### createPack
 
 ```solidity
-function createPack(ITokenBundle.Token[] _contents, uint256[] _numOfRewardUnits, string _packUri, uint128 _openStartTimestamp, uint128 _amountDistributedPerOpen, address _recipient) external payable returns (uint256 packId, uint256 packTotalSupply)
+function createPack(ITokenBundle.Token[] _contents, uint256[] _numOfRewardUnits, string _packUri, uint128 _openStartTimestamp, uint128 _amountDistributedPerOpen, uint256 _expirationTimestamp, address _recipient) external payable returns (uint256 packId, uint256 packTotalSupply)
 ```
 
 #### Parameters
@@ -176,6 +218,27 @@ _Returns the underlying contents of a pack._
 | -------------- | -------------------- | ----------- |
 | contents       | ITokenBundle.Token[] | undefined   |
 | perUnitAmounts | uint256[]            | undefined   |
+
+### getPackTimestamps
+
+```solidity
+function getPackTimestamps(uint256 _packId) external view returns (uint128 openStartTimestamp, uint256 expirationTimestamp)
+```
+
+_Returns opening and expiration timestamps of a pack._
+
+#### Parameters
+
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| \_packId | uint256 | undefined   |
+
+#### Returns
+
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| openStartTimestamp  | uint128 | undefined   |
+| expirationTimestamp | uint256 | undefined   |
 
 ### getRoleAdmin
 
@@ -394,22 +457,33 @@ _Returns `true` if `account` has been granted `role`. Role restrictions can be s
 ### initialize
 
 ```solidity
-function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
+function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
 ```
 
 _Initiliazes the contract, like a constructor._
 
 #### Parameters
 
-| Name                | Type      | Description |
-| ------------------- | --------- | ----------- |
-| \_defaultAdmin      | address   | undefined   |
-| \_name              | string    | undefined   |
-| \_symbol            | string    | undefined   |
-| \_contractURI       | string    | undefined   |
-| \_trustedForwarders | address[] | undefined   |
-| \_royaltyRecipient  | address   | undefined   |
-| \_royaltyBps        | uint256   | undefined   |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+
+<<<<<<< HEAD
+| \_defaultAdmin | address | undefined
+| \_name | string | undefined
+| \_symbol | string | undefined
+| \_contractURI | string | undefined
+| \_royaltyRecipient | address | undefined
+| \_royaltyBps | uint256 | undefined
+=======
+| \_defaultAdmin | address | undefined |
+| \_name | string | undefined |
+| \_symbol | string | undefined |
+| \_contractURI | string | undefined |
+| \_trustedForwarders | address[] | undefined |
+| \_royaltyRecipient | address | undefined |
+| \_royaltyBps | uint256 | undefined |
+
+> > > > > > > main
 
 ### isApprovedForAll
 
@@ -858,6 +932,18 @@ _Returns the URI for a given tokenId._
 | ---- | ------ | ----------- |
 | \_0  | string | undefined   |
 
+### withdrawUnclaimedAssets
+
+```solidity
+function withdrawUnclaimedAssets(uint256 _packId) external nonpayable
+```
+
+#### Parameters
+
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| \_packId | uint256 | undefined   |
+
 ## Events
 
 ### ApprovalForAll
@@ -946,6 +1032,23 @@ Emitted when a pack is opened.
 | opener `indexed`       | address              | undefined   |
 | numOfPacksOpened       | uint256              | undefined   |
 | rewardUnitsDistributed | ITokenBundle.Token[] | undefined   |
+
+### PackUpdated
+
+```solidity
+event PackUpdated(uint256 indexed packId, address indexed packCreator, address recipient, uint256 totalPacksCreated)
+```
+
+Emitted when more packs are minted for a packId.
+
+#### Parameters
+
+| Name                  | Type    | Description |
+| --------------------- | ------- | ----------- |
+| packId `indexed`      | uint256 | undefined   |
+| packCreator `indexed` | address | undefined   |
+| recipient             | address | undefined   |
+| totalPacksCreated     | uint256 | undefined   |
 
 ### Paused
 
