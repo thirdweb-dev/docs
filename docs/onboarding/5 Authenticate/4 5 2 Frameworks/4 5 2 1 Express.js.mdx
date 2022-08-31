@@ -1,0 +1,120 @@
+---
+slug: /auth/frameworks/express
+title: Express.js
+---
+
+import QuickstartCard from "../../../../src/components/QuickstartCard";
+
+Auth can be integrated into [Express.js](https://expressjs.com/) apps to enable wallet-based login. We'll go over the necessary setup below.
+
+:::tip
+
+You can explore a working example here:
+
+<div className="col col--6">
+  <QuickstartCard
+    name="Auth + Express"
+    link="https://github.com/thirdweb-example/thirdweb-auth-express"
+    description="Implement thirdweb Auth with Express"
+    image="/assets/icons/drop.png"
+  />
+</div>
+
+:::
+
+## Installation
+
+First, we need to install the `@thirdweb-dev/auth` package as follows:
+
+```bash npm2yarn
+npm install @thirdweb-dev/auth
+```
+
+## Setup
+
+We need to setup an admin private key used to secure our authentication. We can do this by creating a new `.env` file at the top level of the project and adding a private key to the file:
+
+```
+ADMIN_PRIVATE_KEY=your-private-key-here
+```
+
+:::warning Private Key Best Practices
+
+It is not secure to store your private key in an environment variable.
+
+[Learn how to use a secret manager as we recommend here](/sdk/set-up-the-sdk/securing-your-private-key)
+
+:::
+
+Next, we'll want to setup the Auth endpoints to enable users to login and logout with their wallet.
+
+We can do this by passing our Express app into the `ThirdwebAuth` function, which will configure all the endpoints we need:
+
+```js
+import express from "express";
+import { getUser, ThirdwebAuth } from "@thirdweb-dev/auth/express";
+import { config } from "dotenv";
+
+// Here we use dotenv to import environment variables
+config();
+
+const app = express();
+const PORT = 5000;
+
+// Now we can configure our endpoints with Auth
+ThirdwebAuth(app, {
+  // Pass in the private key we want to use
+  privateKey: process.env.ADMIN_PRIVATE_KEY || "",
+  // Pass in the domain to use (which must match the domain we use on the frontend)
+  domain: "localhost:3000",
+});
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+})
+```
+
+Here, we configure Auth with the ThirdwebAuth function, passing in our private key and domain (used to prevent phishing attacks).
+
+:::info
+
+Importantly, the domain value here must match the domain that we use on the frontend when calling the login function.
+
+:::
+
+This is all it takes to setup Auth for your Express.js backends. Now let's take a look at what you can do with this.
+
+## Usage
+
+Once we setup Auth, the following endpoints will be added to our backend:
+
+**GET - `/api/auth/login`** - Sets a JWT token for the user, allowing them to login with their wallet
+
+**GET - `/api/auth/user`** - Gets the address of the user making a request (by accessing their JWT token)
+
+**GET - `/api/auth/logout`** - Destroys the JWT token, logging out the user
+
+### getUser
+
+Additionally, you will be able to use the `getUser` function to get the authenticated user off the request object from any other endpoint as follows:
+
+```js
+import { getUser } from "@thirdweb-dev/auth/express"
+
+app.get("/secret", (req, res) => {
+  // Get the user off the request object
+  const user = getUser(req);
+
+  // If there is not authenticated user, the user value will be null
+  if (!user) {
+    return res.status(401).json({
+      message: "Not authorized.",
+    })
+  }
+
+  // Otherwise, user.address will be defined
+  return res.status(200).json({
+    message: user.address
+  });
+})
+```
