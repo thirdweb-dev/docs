@@ -48,7 +48,7 @@ function DocSidebarItems({ items, ...props }) {
     return (
       <DocSidebarItemsExpandedStateProvider>
         {sidebarItems.map((section, index) => (
-          <div key={section.title} className="sidebar-section-container">
+          <div key={index} className="sidebar-section-container">
             {section.title && (
               <p className="sidebar-section-title">{section.title}</p>
             )}
