@@ -40,6 +40,13 @@ Hide color mode toggle in small viewports
   align-items: center;
 }
 
+/* Second child of navbar__items navbar__items--right */
+.navbar__items navbar__items--right .navbar__item:nth-child(2) {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+}
+
 html[data-theme="light"] .goToAppButton {
   text-decoration: none;
   color: #fff !important;
