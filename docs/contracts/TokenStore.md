@@ -15,19 +15,24 @@ _See {CurrencyTransferLib}_
 
 ## Methods
 
-### NATIVE_TOKEN
+### bundle
 
 ```solidity
-function NATIVE_TOKEN() external view returns (address)
+function bundle(uint256) external view returns (uint256 count, string uri)
 ```
 
-_The address interpreted as native token of the chain._
-
-#### Returns
+#### Parameters
 
 | Name | Type    | Description |
 | ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| \_0  | uint256 | undefined   |
+
+#### Returns
+
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| count | uint256 | undefined   |
+| uri   | string  | undefined   |
 
 ### getTokenCountOfBundle
 

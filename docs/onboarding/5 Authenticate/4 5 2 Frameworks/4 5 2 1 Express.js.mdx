@@ -71,7 +71,7 @@ ThirdwebAuth(app, {
 
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
-})
+});
 ```
 
 Here, we configure Auth with the ThirdwebAuth function, passing in our private key and domain (used to prevent phishing attacks).
@@ -99,7 +99,7 @@ Once we setup Auth, the following endpoints will be added to our backend:
 Additionally, you will be able to use the `getUser` function to get the authenticated user off the request object from any other endpoint as follows:
 
 ```js
-import { getUser } from "@thirdweb-dev/auth/express"
+import { getUser } from "@thirdweb-dev/auth/express";
 
 app.get("/secret", (req, res) => {
   // Get the user off the request object
@@ -109,12 +109,12 @@ app.get("/secret", (req, res) => {
   if (!user) {
     return res.status(401).json({
       message: "Not authorized.",
-    })
+    });
   }
 
   // Otherwise, user.address will be defined
   return res.status(200).json({
-    message: user.address
+    message: user.address,
   });
-})
+});
 ```

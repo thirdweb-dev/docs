@@ -61,19 +61,18 @@ Lets a pack owner open a pack and receive the pack&#39;s reward unit.
 ### PackCreated
 
 ```solidity
-event PackCreated(uint256 indexed packId, address indexed packCreator, address recipient, uint256 totalPacksCreated)
+event PackCreated(uint256 indexed packId, address recipient, uint256 totalPacksCreated)
 ```
 
 Emitted when a set of packs is created.
 
 #### Parameters
 
-| Name                  | Type    | Description |
-| --------------------- | ------- | ----------- |
-| packId `indexed`      | uint256 | undefined   |
-| packCreator `indexed` | address | undefined   |
-| recipient             | address | undefined   |
-| totalPacksCreated     | uint256 | undefined   |
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| packId `indexed`  | uint256 | undefined   |
+| recipient         | address | undefined   |
+| totalPacksCreated | uint256 | undefined   |
 
 ### PackOpened
 
@@ -91,3 +90,19 @@ Emitted when a pack is opened.
 | opener `indexed`       | address              | undefined   |
 | numOfPacksOpened       | uint256              | undefined   |
 | rewardUnitsDistributed | ITokenBundle.Token[] | undefined   |
+
+### PackUpdated
+
+```solidity
+event PackUpdated(uint256 indexed packId, address recipient, uint256 totalPacksCreated)
+```
+
+Emitted when more packs are minted for a packId.
+
+#### Parameters
+
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| packId `indexed`  | uint256 | undefined   |
+| recipient         | address | undefined   |
+| totalPacksCreated | uint256 | undefined   |

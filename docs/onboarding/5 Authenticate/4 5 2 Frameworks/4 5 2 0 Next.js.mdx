@@ -64,7 +64,7 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
 export default ThirdwebAuthHandler();
 ```
 
-Here, we configure Auth with the `ThirdwebAuth` function, passing in our private key and domain (used to prevent phishing attacks). 
+Here, we configure Auth with the `ThirdwebAuth` function, passing in our private key and domain (used to prevent phishing attacks).
 
 :::info
 
@@ -106,14 +106,14 @@ const handler = async (req, res) => {
   if (!user) {
     return res.status(401).json({
       message: "Not authorized.",
-    })
+    });
   }
 
   // Otherwise, user.address will be set
   return res.status(200).json({
-    address: user.address
+    address: user.address,
   });
-}
+};
 
 export default handler;
 ```
@@ -136,7 +136,7 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 export default function MyApp({ Component, pageProps }) {
   return (
     <ThirdwebProvider
-      desiredChainId={1} 
+      desiredChainId={1}
       authConfig={{
         domain: "localhost:3000",
         authUrl: "/api/auth",
@@ -158,10 +158,8 @@ Now, we can use the `ConnectWallet` button to enable a simple login flow for our
 import { ConnectWallet } from "@thirdweb-dev/react";
 
 const Home = () => {
-  return (
-    <ConnectWallet />
-  )
-}
+  return <ConnectWallet />;
+};
 
 export default Home;
 ```
@@ -175,7 +173,13 @@ Alternatively, we can use the `useLogin`, `useUser`, and `useLogout` hooks to en
 For example, I can create the following component to allow users to login, logout, and view their address:
 
 ```jsx
-import { useAddress, useUser, useLogin, useLogout, useMetamask } from '@thirdweb-dev/react';
+import {
+  useAddress,
+  useUser,
+  useLogin,
+  useLogout,
+  useMetamask,
+} from "@thirdweb-dev/react";
 
 const Home = () => {
   const address = useAddress();
