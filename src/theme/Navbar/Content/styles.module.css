@@ -34,6 +34,12 @@ Hide color mode toggle in small viewports
   color: #fff;
 }
 
+.rightSideContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
 html[data-theme="light"] .goToAppButton {
   text-decoration: none;
   color: #fff !important;

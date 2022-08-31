@@ -56,13 +56,7 @@ export default function NavbarContent() {
           <DocBreadcrumbs />
 
           {/* Right we have toggle, search, go to app button */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-            }}
-          >
+          <div className={styles.rightSideContainer}>
             <NavbarItems items={rightItems} />
             <NavbarColorModeToggle className={styles.colorModeToggle} />
             {!searchBarItem && (
