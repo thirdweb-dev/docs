@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-metadata: ContractMetadata<SplitContract, typeof Split.schema>;
+metadata: ContractMetadata<Split$1, typeof Split.schema>;
 ```

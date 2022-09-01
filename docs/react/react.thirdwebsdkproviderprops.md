@@ -12,10 +12,10 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export interface ThirdwebSDKProviderProps extends Omit<ThirdwebSDKProviderWagmiWrapper, "queryClient">
+interface ThirdwebSDKProviderProps extends Omit<ThirdwebSDKProviderWagmiWrapper, "queryClient">
 ```
 
-**Extends:** Omit&lt;[ThirdwebSDKProviderWagmiWrapper](./react.thirdwebsdkproviderwagmiwrapper.md), "queryClient"&gt;
+**Extends:** Omit&lt;ThirdwebSDKProviderWagmiWrapper, "queryClient"&gt;
 
 ## Properties
 

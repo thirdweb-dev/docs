@@ -19,7 +19,7 @@ constructor(contractWrapper: ContractWrapper<TContract>, metadata: ContractMetad
 
 ## Parameters
 
-| Parameter       | Type                                                                    | Description |
-| --------------- | ----------------------------------------------------------------------- | ----------- |
-| contractWrapper | ContractWrapper&lt;TContract&gt;                                        |             |
-| metadata        | [ContractMetadata](./sdk.contractmetadata.md)&lt;TContract, TSchema&gt; |             |
+| Parameter       | Type                                       | Description |
+| --------------- | ------------------------------------------ | ----------- |
+| contractWrapper | ContractWrapper&lt;TContract&gt;           |             |
+| metadata        | ContractMetadata&lt;TContract, TSchema&gt; |             |

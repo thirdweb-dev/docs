@@ -30,21 +30,21 @@ const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract?.nft, <Owner
 **Signature:**
 
 ```typescript
-export declare function useOwnedNFTs<TContract extends NFTContract>(
+declare function useOwnedNFTs<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
   ownerWalletAddress: RequiredParam<WalletAddress>,
-): import("@tanstack/react-query").UseQueryResult<NFT<TContract>[], unknown>;
+): _tanstack_react_query.UseQueryResult<NFT<TContract>[], unknown>;
 ```
 
 ## Parameters
 
-| Parameter          | Type                                                                                       | Description                                            |
-| ------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
-| contract           | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt;                                 | an instance of a [NFTContract](./react.nftcontract.md) |
-| ownerWalletAddress | [RequiredParam](./react.requiredparam.md)&lt;[WalletAddress](./react.walletaddress.md)&gt; | the wallet adress to get owned tokens for              |
+| Parameter          | Type                               | Description                                            |
+| ------------------ | ---------------------------------- | ------------------------------------------------------ |
+| contract           | RequiredParam&lt;TContract&gt;     | an instance of a [NFTContract](./react.nftcontract.md) |
+| ownerWalletAddress | RequiredParam&lt;WalletAddress&gt; | the wallet adress to get owned tokens for              |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;TContract&gt;\[\], unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;NFT&lt;TContract&gt;\[\], unknown&gt;
 
 a response object that includes the list of owned tokens

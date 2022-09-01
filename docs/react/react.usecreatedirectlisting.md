@@ -41,10 +41,10 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-export declare function useCreateDirectListing(
+declare function useCreateDirectListing(
   contract: RequiredParam<Marketplace>,
-): import("@tanstack/react-query").UseMutationResult<
-  import("@thirdweb-dev/sdk").TransactionResultWithId<never>,
+): _tanstack_react_query.UseMutationResult<
+  _thirdweb_dev_sdk.TransactionResultWithId<never>,
   unknown,
   NewDirectListing,
   unknown
@@ -53,12 +53,12 @@ export declare function useCreateDirectListing(
 
 ## Parameters
 
-| Parameter | Type                                                         | Description                           |
-| --------- | ------------------------------------------------------------ | ------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a Marketplace contract |
+| Parameter | Type                             | Description                           |
+| --------- | -------------------------------- | ------------------------------------- |
+| contract  | RequiredParam&lt;Marketplace&gt; | an instance of a Marketplace contract |
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;never&gt;, unknown, NewDirectListing, unknown&gt;
+\_tanstack_react_query.UseMutationResult&lt;\_thirdweb_dev_sdk.TransactionResultWithId&lt;never&gt;, unknown, NewDirectListing, unknown&gt;
 
 a mutation object that can be used to create a new direct listing

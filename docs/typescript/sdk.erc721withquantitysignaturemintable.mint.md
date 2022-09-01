@@ -31,13 +31,13 @@ mint(signedPayload: SignedPayload721WithQuantitySignature): Promise<TransactionR
 
 ## Parameters
 
-| Parameter     | Type                                                                                    | Description                                                                                                                                                 |
-| ------------- | --------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| signedPayload | [SignedPayload721WithQuantitySignature](./sdk.signedpayload721withquantitysignature.md) | the previously generated payload and signature with [Erc721WithQuantitySignatureMintable.generate()](./sdk.erc721withquantitysignaturemintable.generate.md) |
+| Parameter     | Type                                  | Description                                                                                                                                                 |
+| ------------- | ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| signedPayload | SignedPayload721WithQuantitySignature | the previously generated payload and signature with [Erc721WithQuantitySignatureMintable.generate()](./sdk.erc721withquantitysignaturemintable.generate.md) |
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&gt;
+Promise&lt;TransactionResultWithId&gt;
 
 ## Remarks
 

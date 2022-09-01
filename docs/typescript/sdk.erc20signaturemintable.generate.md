@@ -38,13 +38,13 @@ generate(mintRequest: PayloadToSign20): Promise<SignedPayload20>;
 
 ## Parameters
 
-| Parameter   | Type                                        | Description         |
-| ----------- | ------------------------------------------- | ------------------- |
-| mintRequest | [PayloadToSign20](./sdk.payloadtosign20.md) | the payload to sign |
+| Parameter   | Type            | Description         |
+| ----------- | --------------- | ------------------- |
+| mintRequest | PayloadToSign20 | the payload to sign |
 
 **Returns:**
 
-Promise&lt;[SignedPayload20](./sdk.signedpayload20.md)&gt;
+Promise&lt;SignedPayload20&gt;
 
 the signed payload and the corresponding signature
 

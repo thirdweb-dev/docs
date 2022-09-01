@@ -34,4 +34,4 @@ unwrap(wrappedTokenId: BigNumberish, recipientAddress?: string): Promise<Transac
 
 **Returns:**
 
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+Promise&lt;TransactionResult&gt;

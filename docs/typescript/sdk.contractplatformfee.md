@@ -44,7 +44,7 @@ await contract.platformFee.set({
 **Signature:**
 
 ```typescript
-export declare class ContractPlatformFee<TContract extends IPlatformFee> implements DetectableFeature
+declare class ContractPlatformFee<TContract extends IPlatformFee> implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

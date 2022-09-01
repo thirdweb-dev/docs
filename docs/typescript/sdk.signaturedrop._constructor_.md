@@ -14,15 +14,15 @@ Constructs a new instance of the `SignatureDrop` class
 **Signature:**
 
 ```typescript
-constructor(network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: SDKOptions, contractWrapper?: ContractWrapper<SignatureDropContract>);
+constructor(network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: SDKOptions, contractWrapper?: ContractWrapper<SignatureDrop$1>);
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                            | Description       |
-| --------------- | --------------------------------------------------------------- | ----------------- |
-| network         | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) |                   |
-| address         | string                                                          |                   |
-| storage         | IStorage                                                        |                   |
-| options         | [SDKOptions](./sdk.sdkoptions.md)                               | <i>(Optional)</i> |
-| contractWrapper | ContractWrapper&lt;SignatureDropContract&gt;                    | <i>(Optional)</i> |
+| Parameter       | Type                                   | Description       |
+| --------------- | -------------------------------------- | ----------------- |
+| network         | NetworkOrSignerOrProvider              |                   |
+| address         | string                                 |                   |
+| storage         | IStorage                               |                   |
+| options         | SDKOptions                             | <i>(Optional)</i> |
+| contractWrapper | ContractWrapper&lt;SignatureDrop$1&gt; | <i>(Optional)</i> |

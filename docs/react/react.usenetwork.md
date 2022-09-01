@@ -32,7 +32,7 @@ It's important to note that some wallet apps do not support programmatic network
 **Signature:**
 
 ```typescript
-export declare function useNetwork(): readonly [
+declare function useNetwork(): readonly [
   {
     readonly data: {
       readonly chain:
@@ -57,7 +57,7 @@ export declare function useNetwork(): readonly [
             testnet?: boolean | undefined;
           }
         | undefined;
-      readonly chains: import("wagmi").Chain[];
+      readonly chains: wagmi.Chain[];
     };
     readonly error: Error | undefined;
     readonly loading: boolean | undefined;
@@ -66,10 +66,10 @@ export declare function useNetwork(): readonly [
     | ((chainId: number) => Promise<
         | {
             data: undefined;
-            error: import("wagmi").SwitchChainError;
+            error: wagmi.SwitchChainError;
           }
         | {
-            data: import("wagmi").Chain | undefined;
+            data: wagmi.Chain | undefined;
             error: undefined;
           }
       >)
@@ -80,4 +80,4 @@ export declare function useNetwork(): readonly [
 
 **Returns:**
 
-readonly \[{ readonly data: { readonly chain: { id: number; unsupported: boolean \| undefined; name?: string \| undefined; nativeCurrency?: { name: string; symbol: string; decimals: 18; } \| undefined; rpcUrls?: string\[\] \| undefined; blockExplorers?: { name: string; url: string; }\[\] \| undefined; testnet?: boolean \| undefined; } \| undefined; readonly chains: import("wagmi").Chain\[\]; }; readonly error: Error \| undefined; readonly loading: boolean \| undefined; }, ((chainId: number) =&gt; Promise&lt;{ data: undefined; error: import("wagmi").SwitchChainError; } \| { data: import("wagmi").Chain \| undefined; error: undefined; }&gt;) \| undefined\]
+readonly \[{ readonly data: { readonly chain: { id: number; unsupported: boolean \| undefined; name?: string \| undefined; nativeCurrency?: { name: string; symbol: string; decimals: 18; } \| undefined; rpcUrls?: string\[\] \| undefined; blockExplorers?: { name: string; url: string; }\[\] \| undefined; testnet?: boolean \| undefined; } \| undefined; readonly chains: wagmi.Chain\[\]; }; readonly error: Error \| undefined; readonly loading: boolean \| undefined; }, ((chainId: number) =&gt; Promise&lt;{ data: undefined; error: wagmi.SwitchChainError; } \| { data: wagmi.Chain \| undefined; error: undefined; }&gt;) \| undefined\]

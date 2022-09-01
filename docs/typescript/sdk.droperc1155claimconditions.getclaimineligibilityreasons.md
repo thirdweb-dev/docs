@@ -27,4 +27,4 @@ getClaimIneligibilityReasons(tokenId: BigNumberish, quantity: BigNumberish, addr
 
 **Returns:**
 
-Promise&lt;[ClaimEligibility](./sdk.claimeligibility.md)\[\]&gt;
+Promise&lt;ClaimEligibility\[\]&gt;

@@ -30,21 +30,21 @@ const { data: nfts, isLoading, error } = useNFTs(contract?.nft, { start: 0, coun
 **Signature:**
 
 ```typescript
-export declare function useNFTs<TContract extends NFTContract>(
+declare function useNFTs<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
   queryParams?: QueryAllParams,
-): import("@tanstack/react-query").UseQueryResult<NFT<TContract>[], unknown>;
+): _tanstack_react_query.UseQueryResult<NFT<TContract>[], unknown>;
 ```
 
 ## Parameters
 
-| Parameter   | Type                                                       | Description                                                                    |
-| ----------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| contract    | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md)                         |
-| queryParams | QueryAllParams                                             | <i>(Optional)</i> query params to pass to the query for the sake of pagination |
+| Parameter   | Type                           | Description                                                                    |
+| ----------- | ------------------------------ | ------------------------------------------------------------------------------ |
+| contract    | RequiredParam&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md)                         |
+| queryParams | QueryAllParams                 | <i>(Optional)</i> query params to pass to the query for the sake of pagination |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;TContract&gt;\[\], unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;NFT&lt;TContract&gt;\[\], unknown&gt;
 
 a response object that includes an array of NFTs

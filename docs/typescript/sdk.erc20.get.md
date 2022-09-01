@@ -25,6 +25,6 @@ get(): Promise<Currency>;
 
 **Returns:**
 
-Promise&lt;[Currency](./sdk.currency.md)&gt;
+Promise&lt;Currency&gt;
 
 The token metadata

@@ -25,6 +25,6 @@ getEditionDrop(address: string): EditionDrop;
 
 **Returns:**
 
-[EditionDrop](./sdk.editiondrop.md)
+EditionDrop
 
 the contract

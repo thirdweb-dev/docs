@@ -45,7 +45,7 @@ await contract.metadata.set({
 **Signature:**
 
 ```typescript
-export declare class ContractMetadata<TContract extends BaseContract, TSchema extends IGenericSchemaType> implements DetectableFeature
+declare class ContractMetadata<TContract extends BaseContract, TSchema extends IGenericSchemaType> implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

@@ -30,14 +30,14 @@ login(domain: string, options?: LoginOptions): Promise<LoginPayload>;
 
 ## Parameters
 
-| Parameter | Type                                  | Description                                                            |
-| --------- | ------------------------------------- | ---------------------------------------------------------------------- |
-| domain    | string                                | The domain of the server-side application to login to                  |
-| options   | [LoginOptions](./sdk.loginoptions.md) | <i>(Optional)</i> Optional configuration options for the login request |
+| Parameter | Type         | Description                                                            |
+| --------- | ------------ | ---------------------------------------------------------------------- |
+| domain    | string       | The domain of the server-side application to login to                  |
+| options   | LoginOptions | <i>(Optional)</i> Optional configuration options for the login request |
 
 **Returns:**
 
-Promise&lt;[LoginPayload](./sdk.loginpayload.md)&gt;
+Promise&lt;LoginPayload&gt;
 
 Login payload that can be used on the server-side to verify the login request or authenticate
 

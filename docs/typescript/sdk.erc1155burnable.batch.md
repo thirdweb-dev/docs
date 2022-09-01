@@ -37,7 +37,7 @@ batch(tokenIds: BigNumberish[], amounts: BigNumberish[]): Promise<TransactionRes
 
 **Returns:**
 
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+Promise&lt;TransactionResult&gt;
 
 ## Remarks
 

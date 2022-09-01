@@ -19,12 +19,12 @@ update(tokenId: BigNumberish, index: number, claimConditionInput: ClaimCondition
 
 ## Parameters
 
-| Parameter           | Type                                                | Description                                                                                                |
-| ------------------- | --------------------------------------------------- | ---------------------------------------------------------------------------------------------------------- |
-| tokenId             | BigNumberish                                        | the token id to update                                                                                     |
-| index               | number                                              | the index of the claim condition to update, as given by the index from the result of <code>getAll()</code> |
-| claimConditionInput | [ClaimConditionInput](./sdk.claimconditioninput.md) | the new data to update, previous data will be retained                                                     |
+| Parameter           | Type                | Description                                                                                                |
+| ------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------- |
+| tokenId             | BigNumberish        | the token id to update                                                                                     |
+| index               | number              | the index of the claim condition to update, as given by the index from the result of <code>getAll()</code> |
+| claimConditionInput | ClaimConditionInput | the new data to update, previous data will be retained                                                     |
 
 **Returns:**
 
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+Promise&lt;TransactionResult&gt;

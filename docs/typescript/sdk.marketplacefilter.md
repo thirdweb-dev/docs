@@ -12,10 +12,10 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export interface MarketplaceFilter extends QueryAllParams
+interface MarketplaceFilter extends QueryAllParams
 ```
 
-**Extends:** [QueryAllParams](./sdk.queryallparams.md)
+**Extends:** QueryAllParams
 
 ## Properties
 

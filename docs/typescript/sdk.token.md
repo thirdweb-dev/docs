@@ -28,19 +28,19 @@ const contract = sdk.getToken("{{contract_address}}");
 
 ## Properties
 
-| Property                                      | Modifiers           | Type                                                                                                                            | Description       |
-| --------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| [contractAbi](./sdk.token.contractabi.md)     | <code>static</code> | any                                                                                                                             |                   |
-| [contractRoles](./sdk.token.contractroles.md) | <code>static</code> | readonly \["admin", "minter", "transfer"\]                                                                                      |                   |
-| [contractType](./sdk.token.contracttype.md)   | <code>static</code> | "token"                                                                                                                         |                   |
-| [encoder](./sdk.token.encoder.md)             |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;TokenERC20&gt;                                                                   |                   |
-| [estimator](./sdk.token.estimator.md)         |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;TokenERC20&gt;                                                                 |                   |
-| [events](./sdk.token.events.md)               |                     | [ContractEvents](./sdk.contractevents.md)&lt;TokenERC20&gt;                                                                     |                   |
-| [history](./sdk.token.history.md)             |                     | [TokenERC20History](./sdk.tokenerc20history.md)                                                                                 |                   |
-| [metadata](./sdk.token.metadata.md)           |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;TokenERC20, typeof Token.schema&gt;                                            |                   |
-| [platformFees](./sdk.token.platformfees.md)   |                     | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;TokenERC20&gt;                                                           |                   |
-| [roles](./sdk.token.roles.md)                 |                     | [ContractRoles](./sdk.contractroles.md)&lt;TokenERC20, typeof [Token.contractRoles](./sdk.token.contractroles.md)\[number\]&gt; |                   |
-| [signature](./sdk.token.signature.md)         |                     | [Erc20SignatureMintable](./sdk.erc20signaturemintable.md)                                                                       | Signature Minting |
+| Property                                      | Modifiers           | Type                                                                  | Description       |
+| --------------------------------------------- | ------------------- | --------------------------------------------------------------------- | ----------------- |
+| [contractAbi](./sdk.token.contractabi.md)     | <code>static</code> | any                                                                   |                   |
+| [contractRoles](./sdk.token.contractroles.md) | <code>static</code> | readonly \["admin", "minter", "transfer"\]                            |                   |
+| [contractType](./sdk.token.contracttype.md)   | <code>static</code> | "token"                                                               |                   |
+| [encoder](./sdk.token.encoder.md)             |                     | ContractEncoder&lt;TokenERC20&gt;                                     |                   |
+| [estimator](./sdk.token.estimator.md)         |                     | GasCostEstimator&lt;TokenERC20&gt;                                    |                   |
+| [events](./sdk.token.events.md)               |                     | ContractEvents&lt;TokenERC20&gt;                                      |                   |
+| [history](./sdk.token.history.md)             |                     | TokenERC20History                                                     |                   |
+| [metadata](./sdk.token.metadata.md)           |                     | ContractMetadata&lt;TokenERC20, typeof Token.schema&gt;               |                   |
+| [platformFees](./sdk.token.platformfees.md)   |                     | ContractPlatformFee&lt;TokenERC20&gt;                                 |                   |
+| [roles](./sdk.token.roles.md)                 |                     | ContractRoles&lt;TokenERC20, typeof Token.contractRoles\[number\]&gt; |                   |
+| [signature](./sdk.token.signature.md)         |                     | Erc20SignatureMintable                                                | Signature Minting |
 
 ## Methods
 
@@ -60,7 +60,7 @@ const contract = sdk.getToken("{{contract_address}}");
 **Signature:**
 
 ```typescript
-export declare class Token extends Erc20<TokenERC20>
+declare class Token extends Erc20<TokenERC20>
 ```
 
-**Extends:** [Erc20](./sdk.erc20.md)&lt;TokenERC20&gt;
+**Extends:** Erc20&lt;TokenERC20&gt;

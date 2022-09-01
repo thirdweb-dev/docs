@@ -19,13 +19,13 @@ mintToSelf(amount: Amount): Promise<TransactionResult>;
 
 ## Parameters
 
-| Parameter | Type                      | Description |
-| --------- | ------------------------- | ----------- |
-| amount    | [Amount](./sdk.amount.md) |             |
+| Parameter | Type   | Description |
+| --------- | ------ | ----------- |
+| amount    | Amount |             |
 
 **Returns:**
 
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+Promise&lt;TransactionResult&gt;
 
 ## Remarks
 

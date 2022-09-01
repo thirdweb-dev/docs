@@ -19,9 +19,9 @@ verify(signedPayload: SignedPayload1155): Promise<boolean>;
 
 ## Parameters
 
-| Parameter     | Type                                            | Description           |
-| ------------- | ----------------------------------------------- | --------------------- |
-| signedPayload | [SignedPayload1155](./sdk.signedpayload1155.md) | the payload to verify |
+| Parameter     | Type              | Description           |
+| ------------- | ----------------- | --------------------- |
+| signedPayload | SignedPayload1155 | the payload to verify |
 
 **Returns:**
 

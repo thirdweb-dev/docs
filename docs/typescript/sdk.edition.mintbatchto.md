@@ -51,14 +51,14 @@ mintBatchTo(to: string, metadataWithSupply: EditionMetadataOrUri[]): Promise<Tra
 
 ## Parameters
 
-| Parameter          | Type                                                      | Description |
-| ------------------ | --------------------------------------------------------- | ----------- |
-| to                 | string                                                    |             |
-| metadataWithSupply | [EditionMetadataOrUri](./sdk.editionmetadataoruri.md)\[\] |             |
+| Parameter          | Type                     | Description |
+| ------------------ | ------------------------ | ----------- |
+| to                 | string                   |             |
+| metadataWithSupply | EditionMetadataOrUri\[\] |             |
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;\[\]&gt;
+Promise&lt;TransactionResultWithId&lt;EditionMetadata&gt;\[\]&gt;
 
 ## Remarks
 

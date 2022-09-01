@@ -47,13 +47,13 @@ generateFromTokenId(payloadToSign: PayloadToSign1155WithTokenId): Promise<Signed
 
 ## Parameters
 
-| Parameter     | Type                                                                  | Description         |
-| ------------- | --------------------------------------------------------------------- | ------------------- |
-| payloadToSign | [PayloadToSign1155WithTokenId](./sdk.payloadtosign1155withtokenid.md) | the payload to sign |
+| Parameter     | Type                         | Description         |
+| ------------- | ---------------------------- | ------------------- |
+| payloadToSign | PayloadToSign1155WithTokenId | the payload to sign |
 
 **Returns:**
 
-Promise&lt;[SignedPayload1155](./sdk.signedpayload1155.md)&gt;
+Promise&lt;SignedPayload1155&gt;
 
 the signed payload and the corresponding signature
 

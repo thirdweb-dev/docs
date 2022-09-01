@@ -14,7 +14,7 @@ Handles direct listings
 **Signature:**
 
 ```typescript
-export declare class MarketplaceDirect
+declare class MarketplaceDirect
 ```
 
 ## Constructors

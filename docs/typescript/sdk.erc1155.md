@@ -26,17 +26,17 @@ await contract.edition.transfer(walletAddress, tokenId, quantity);
 
 ## Properties
 
-| Property                                            | Modifiers              | Type                                                                           | Description |
-| --------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------ | ----------- |
-| [burn](./sdk.erc1155.burn.md)                       |                        | [Erc1155Burnable](./sdk.erc1155burnable.md) &#124; undefined                   |             |
-| [contractWrapper](./sdk.erc1155.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;                                                       |             |
-| [drop](./sdk.erc1155.drop.md)                       |                        | [Erc1155Droppable](./sdk.erc1155droppable.md) &#124; undefined                 |             |
-| [featureName](./sdk.erc1155.featurename.md)         |                        | "ERC1155"                                                                      |             |
-| [mint](./sdk.erc1155.mint.md)                       |                        | [Erc1155Mintable](./sdk.erc1155mintable.md) &#124; undefined                   |             |
-| [options](./sdk.erc1155.options.md)                 | <code>protected</code> | [SDKOptions](./sdk.sdkoptions.md)                                              |             |
-| [query](./sdk.erc1155.query.md)                     |                        | [Erc1155Enumerable](./sdk.erc1155enumerable.md) &#124; undefined               |             |
-| [signature](./sdk.erc1155.signature.md)             |                        | [Erc1155SignatureMintable](./sdk.erc1155signaturemintable.md) &#124; undefined |             |
-| [storage](./sdk.erc1155.storage.md)                 | <code>protected</code> | IStorage                                                                       |             |
+| Property                                            | Modifiers              | Type                                      | Description |
+| --------------------------------------------------- | ---------------------- | ----------------------------------------- | ----------- |
+| [burn](./sdk.erc1155.burn.md)                       |                        | Erc1155Burnable &#124; undefined          |             |
+| [contractWrapper](./sdk.erc1155.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;                  |             |
+| [drop](./sdk.erc1155.drop.md)                       |                        | Erc1155Droppable &#124; undefined         |             |
+| [featureName](./sdk.erc1155.featurename.md)         |                        | "ERC1155"                                 |             |
+| [mint](./sdk.erc1155.mint.md)                       |                        | Erc1155Mintable &#124; undefined          |             |
+| [options](./sdk.erc1155.options.md)                 | <code>protected</code> | SDKOptions                                |             |
+| [query](./sdk.erc1155.query.md)                     |                        | Erc1155Enumerable &#124; undefined        |             |
+| [signature](./sdk.erc1155.signature.md)             |                        | Erc1155SignatureMintable &#124; undefined |             |
+| [storage](./sdk.erc1155.storage.md)                 | <code>protected</code> | IStorage                                  |             |
 
 ## Methods
 
@@ -54,7 +54,7 @@ await contract.edition.transfer(walletAddress, tokenId, quantity);
 **Signature:**
 
 ```typescript
-export declare class Erc1155<T extends DropERC1155 | TokenERC1155 | BaseERC1155 = BaseERC1155 | BaseSignatureMintERC1155> implements UpdateableNetwork, DetectableFeature
+declare class Erc1155<T extends DropERC1155 | TokenERC1155 | BaseERC1155 = BaseERC1155 | BaseSignatureMintERC1155> implements UpdateableNetwork, DetectableFeature
 ```
 
 **Implements:** UpdateableNetwork, DetectableFeature

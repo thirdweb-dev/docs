@@ -41,7 +41,5 @@ All these configuration options are optional with sane defaults:
 **Signature:**
 
 ```typescript
-export declare type SDKOptions = z.input<typeof SDKOptionsSchema>;
+declare type SDKOptions = z.input<typeof SDKOptionsSchema>;
 ```
-
-**References:** [SDKOptionsSchema](./sdk.sdkoptionsschema.md)

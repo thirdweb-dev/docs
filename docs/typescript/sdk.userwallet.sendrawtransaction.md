@@ -25,4 +25,4 @@ sendRawTransaction(transactionRequest: providers.TransactionRequest): Promise<Tr
 
 **Returns:**
 
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+Promise&lt;TransactionResult&gt;

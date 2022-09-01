@@ -32,13 +32,13 @@ getAllEvents(filters?: EventQueryFilter): Promise<ContractEvent[]>;
 
 ## Parameters
 
-| Parameter | Type                                          | Description                                                                                       |
-| --------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| filters   | [EventQueryFilter](./sdk.eventqueryfilter.md) | <i>(Optional)</i> Specify the from and to block numbers to get events for, defaults to all blocks |
+| Parameter | Type             | Description                                                                                       |
+| --------- | ---------------- | ------------------------------------------------------------------------------------------------- |
+| filters   | EventQueryFilter | <i>(Optional)</i> Specify the from and to block numbers to get events for, defaults to all blocks |
 
 **Returns:**
 
-Promise&lt;[ContractEvent](./sdk.contractevent.md)\[\]&gt;
+Promise&lt;ContractEvent\[\]&gt;
 
 The event objects of the events emitted with event names and data for each event
 

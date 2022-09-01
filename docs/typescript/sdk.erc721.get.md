@@ -32,6 +32,6 @@ get(tokenId: BigNumberish): Promise<NFTMetadataOwner>;
 
 **Returns:**
 
-Promise&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;
+Promise&lt;NFTMetadataOwner&gt;
 
 The NFT metadata

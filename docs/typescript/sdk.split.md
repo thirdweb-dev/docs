@@ -28,14 +28,14 @@ const contract = sdk.getSplit("{{contract_address}}");
 
 ## Properties
 
-| Property                                    | Modifiers           | Type                                                                                    | Description |
-| ------------------------------------------- | ------------------- | --------------------------------------------------------------------------------------- | ----------- |
-| [contractAbi](./sdk.split.contractabi.md)   | <code>static</code> | any                                                                                     |             |
-| [contractType](./sdk.split.contracttype.md) | <code>static</code> | "split"                                                                                 |             |
-| [encoder](./sdk.split.encoder.md)           |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;SplitContract&gt;                        |             |
-| [estimator](./sdk.split.estimator.md)       |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;SplitContract&gt;                      |             |
-| [events](./sdk.split.events.md)             |                     | [ContractEvents](./sdk.contractevents.md)&lt;SplitContract&gt;                          |             |
-| [metadata](./sdk.split.metadata.md)         |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;SplitContract, typeof Split.schema&gt; |             |
+| Property                                    | Modifiers           | Type                                                 | Description |
+| ------------------------------------------- | ------------------- | ---------------------------------------------------- | ----------- |
+| [contractAbi](./sdk.split.contractabi.md)   | <code>static</code> | any                                                  |             |
+| [contractType](./sdk.split.contracttype.md) | <code>static</code> | "split"                                              |             |
+| [encoder](./sdk.split.encoder.md)           |                     | ContractEncoder&lt;Split$1&gt;                       |             |
+| [estimator](./sdk.split.estimator.md)       |                     | GasCostEstimator&lt;Split$1&gt;                      |             |
+| [events](./sdk.split.events.md)             |                     | ContractEvents&lt;Split$1&gt;                        |             |
+| [metadata](./sdk.split.metadata.md)         |                     | ContractMetadata&lt;Split$1, typeof Split.schema&gt; |             |
 
 ## Methods
 
@@ -57,7 +57,7 @@ const contract = sdk.getSplit("{{contract_address}}");
 **Signature:**
 
 ```typescript
-export declare class Split implements UpdateableNetwork
+declare class Split implements UpdateableNetwork
 ```
 
 **Implements:** UpdateableNetwork

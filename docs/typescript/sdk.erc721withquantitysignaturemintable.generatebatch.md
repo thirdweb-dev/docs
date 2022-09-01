@@ -19,13 +19,13 @@ generateBatch(payloadsToSign: PayloadToSign721withQuantity[]): Promise<SignedPay
 
 ## Parameters
 
-| Parameter      | Type                                                                      | Description          |
-| -------------- | ------------------------------------------------------------------------- | -------------------- |
-| payloadsToSign | [PayloadToSign721withQuantity](./sdk.payloadtosign721withquantity.md)\[\] | the payloads to sign |
+| Parameter      | Type                             | Description          |
+| -------------- | -------------------------------- | -------------------- |
+| payloadsToSign | PayloadToSign721withQuantity\[\] | the payloads to sign |
 
 **Returns:**
 
-Promise&lt;[SignedPayload721WithQuantitySignature](./sdk.signedpayload721withquantitysignature.md)\[\]&gt;
+Promise&lt;SignedPayload721WithQuantitySignature\[\]&gt;
 
 an array of payloads and signatures
 

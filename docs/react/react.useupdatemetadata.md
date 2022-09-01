@@ -48,16 +48,16 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-export declare function useUpdateMetadata(
+declare function useUpdateMetadata(
   contract: RequiredParam<SmartContract | ValidContractInstance>,
-): import("@tanstack/react-query").UseMutationResult<
+): _tanstack_react_query.UseMutationResult<
   {
-    receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+    receipt: _ethersproject_abstract_provider.TransactionReceipt;
     data: () => Promise<any>;
   },
   unknown,
   {
-    [x: string]: import("@thirdweb-dev/sdk").Json;
+    [x: string]: _thirdweb_dev_sdk.Json;
     description?: string | undefined;
     image?: any;
     external_link?: string | undefined;
@@ -69,12 +69,12 @@ export declare function useUpdateMetadata(
 
 ## Parameters
 
-| Parameter | Type                                                                                        | Description      |
-| --------- | ------------------------------------------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
+| Parameter | Type                                                            | Description      |
+| --------- | --------------------------------------------------------------- | ---------------- |
+| contract  | RequiredParam&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;any&gt;; }, unknown, { \[x: string\]: import("@thirdweb-dev/sdk").Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
+\_tanstack_react_query.UseMutationResult&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;any&gt;; }, unknown, { \[x: string\]: \_thirdweb_dev_sdk.Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
 
 a mutation object that can be used to update the metadata

@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-metadata: ContractMetadata<SignatureDropContract, typeof SignatureDrop.schema>;
+metadata: ContractMetadata<SignatureDrop$1, typeof SignatureDrop.schema>;
 ```

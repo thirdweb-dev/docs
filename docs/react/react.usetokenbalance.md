@@ -22,13 +22,13 @@ const { data: balance, isLoading, error } = useTokenBalance(<YourTokenContractIn
 **Signature:**
 
 ```typescript
-export declare function useTokenBalance(
+declare function useTokenBalance(
   contract: RequiredParam<Erc20>,
   walletAddress: RequiredParam<WalletAddress>,
-): import("@tanstack/react-query").UseQueryResult<
+): _tanstack_react_query.UseQueryResult<
   {
     symbol: string;
-    value: import("ethers").BigNumber;
+    value: ethers.BigNumber;
     name: string;
     decimals: number;
     displayValue: string;
@@ -39,13 +39,13 @@ export declare function useTokenBalance(
 
 ## Parameters
 
-| Parameter     | Type                                                                                       | Description                      |
-| ------------- | ------------------------------------------------------------------------------------------ | -------------------------------- |
-| contract      | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt;                                     | an instance of a Token contract. |
-| walletAddress | [RequiredParam](./react.requiredparam.md)&lt;[WalletAddress](./react.walletaddress.md)&gt; |                                  |
+| Parameter     | Type                               | Description                      |
+| ------------- | ---------------------------------- | -------------------------------- |
+| contract      | RequiredParam&lt;Erc20&gt;         | an instance of a Token contract. |
+| walletAddress | RequiredParam&lt;WalletAddress&gt; |                                  |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }, unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;{ symbol: string; value: ethers.BigNumber; name: string; decimals: number; displayValue: string; }, unknown&gt;
 
 a response object that includes the balance of the address

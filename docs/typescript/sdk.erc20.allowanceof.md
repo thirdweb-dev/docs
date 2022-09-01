@@ -36,7 +36,7 @@ allowanceOf(owner: string, spender: string): Promise<CurrencyValue>;
 
 **Returns:**
 
-Promise&lt;[CurrencyValue](./sdk.currencyvalue.md)&gt;
+Promise&lt;CurrencyValue&gt;
 
 The allowance of one wallet over anothers funds.
 

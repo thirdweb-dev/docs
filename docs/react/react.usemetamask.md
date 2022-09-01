@@ -34,9 +34,9 @@ Here, we use the `useMetamask` hook to handle metamask connection. When a user c
 **Signature:**
 
 ```typescript
-export declare function useMetamask(): () => Promise<
+declare function useMetamask(): () => Promise<
   | {
-      data?: import("wagmi-core").ConnectorData<any> | undefined;
+      data?: wagmi_core.ConnectorData<any> | undefined;
       error?: Error | undefined;
     }
   | {
@@ -47,4 +47,4 @@ export declare function useMetamask(): () => Promise<
 
 **Returns:**
 
-() =&gt; Promise&lt;{ data?: import("wagmi-core").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; } \| { error: Error; }&gt;
+() =&gt; Promise&lt;{ data?: wagmi_core.ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; } \| { error: Error; }&gt;

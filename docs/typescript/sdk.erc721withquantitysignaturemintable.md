@@ -14,7 +14,7 @@ Enables generating dynamic ERC721 NFTs with rules and an associated signature, w
 **Signature:**
 
 ```typescript
-export declare class Erc721WithQuantitySignatureMintable implements DetectableFeature
+declare class Erc721WithQuantitySignatureMintable implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

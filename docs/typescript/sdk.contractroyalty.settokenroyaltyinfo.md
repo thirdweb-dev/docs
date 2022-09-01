@@ -15,7 +15,7 @@ Set the royalty recipient and fee for a particular token
 
 ```typescript
 setTokenRoyaltyInfo(tokenId: BigNumberish, royaltyData: z.input<typeof CommonRoyaltySchema>): Promise<{
-        receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+        receipt: _ethersproject_abstract_provider.TransactionReceipt;
         data: () => Promise<{
             seller_fee_basis_points: number;
             fee_recipient: string;
@@ -32,4 +32,4 @@ setTokenRoyaltyInfo(tokenId: BigNumberish, royaltyData: z.input<typeof CommonRoy
 
 **Returns:**
 
-Promise&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;{ seller_fee_basis_points: number; fee_recipient: string; }&gt;; }&gt;
+Promise&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;{ seller_fee_basis_points: number; fee_recipient: string; }&gt;; }&gt;

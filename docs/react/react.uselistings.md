@@ -22,27 +22,24 @@ const { data: listings, isLoading, error } = useListings(<YourMarketplaceContrac
 **Signature:**
 
 ```typescript
-export declare function useListings(
+declare function useListings(
   contract: RequiredParam<Marketplace>,
   filter?: MarketplaceFilter,
-): import("@tanstack/react-query").UseQueryResult<
-  (
-    | import("@thirdweb-dev/sdk").AuctionListing
-    | import("@thirdweb-dev/sdk").DirectListing
-  )[],
+): _tanstack_react_query.UseQueryResult<
+  (_thirdweb_dev_sdk.AuctionListing | _thirdweb_dev_sdk.DirectListing)[],
   unknown
 >;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                         | Description                                                                              |
-| --------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a marketplace contract                                                    |
-| filter    | MarketplaceFilter                                            | <i>(Optional)</i> filter to pass to the query for the sake of pagination &amp; filtering |
+| Parameter | Type                             | Description                                                                              |
+| --------- | -------------------------------- | ---------------------------------------------------------------------------------------- |
+| contract  | RequiredParam&lt;Marketplace&gt; | an instance of a marketplace contract                                                    |
+| filter    | MarketplaceFilter                | <i>(Optional)</i> filter to pass to the query for the sake of pagination &amp; filtering |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;(import("@thirdweb-dev/sdk").AuctionListing \| import("@thirdweb-dev/sdk").DirectListing)\[\], unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;(\_thirdweb_dev_sdk.AuctionListing \| \_thirdweb_dev_sdk.DirectListing)\[\], unknown&gt;
 
 a response object that includes an array of listings

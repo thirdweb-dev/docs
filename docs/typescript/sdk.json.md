@@ -12,7 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type Json = JsonLiteralOrFileOrBuffer | JsonObject | Json[];
+declare type Json = JsonLiteralOrFileOrBuffer | JsonObject | Json[];
 ```
-
-**References:** [JsonObject](./sdk.jsonobject.md), [Json](./sdk.json.md)

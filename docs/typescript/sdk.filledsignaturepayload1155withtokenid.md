@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type FilledSignaturePayload1155WithTokenId = z.output<
+declare type FilledSignaturePayload1155WithTokenId = z.output<
   typeof Signature1155PayloadInputWithTokenId
 >;
 ```

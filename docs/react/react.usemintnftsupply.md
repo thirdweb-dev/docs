@@ -68,13 +68,12 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-export declare function useMintNFTSupply(
+declare function useMintNFTSupply(
   contract: Erc1155,
-): import("@tanstack/react-query").UseMutationResult<
-  import("@thirdweb-dev/sdk").TransactionResultWithId<{
-    supply: BigNumber;
+): _tanstack_react_query.UseMutationResult<
+  _thirdweb_dev_sdk.TransactionResultWithId<{
     metadata: {
-      [x: string]: import("@thirdweb-dev/sdk").Json;
+      [x: string]: _thirdweb_dev_sdk.Json;
       name?: string | number | undefined;
       description?: string | null | undefined;
       image?: string | null | undefined;
@@ -83,6 +82,7 @@ export declare function useMintNFTSupply(
       uri: string;
       id: BigNumber;
     };
+    supply: BigNumber;
   }>,
   unknown,
   MintNFTSupplyParams,
@@ -98,6 +98,6 @@ export declare function useMintNFTSupply(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;{ supply: BigNumber; metadata: { \[x: string\]: import("@thirdweb-dev/sdk").Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: BigNumber; }; }&gt;, unknown, [MintNFTSupplyParams](./react.mintnftsupplyparams.md), unknown&gt;
+\_tanstack_react_query.UseMutationResult&lt;\_thirdweb_dev_sdk.TransactionResultWithId&lt;{ metadata: { \[x: string\]: \_thirdweb_dev_sdk.Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: BigNumber; }; supply: BigNumber; }&gt;, unknown, MintNFTSupplyParams, unknown&gt;
 
 a mutation object that can be used to mint a more supply of a token id to the provided wallet

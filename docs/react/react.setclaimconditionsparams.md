@@ -16,7 +16,7 @@ The params for the [useSetClaimConditions()](./react.usesetclaimconditions.md) h
 **Signature:**
 
 ```typescript
-export declare type SetClaimConditionsParams = {
+declare type SetClaimConditionsParams = {
   phases: ClaimConditionInput[];
   reset?: boolean;
 };

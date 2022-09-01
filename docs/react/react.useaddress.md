@@ -34,7 +34,7 @@ The `address` variable will hold the address of the connected wallet if a user h
 **Signature:**
 
 ```typescript
-export declare function useAddress(): string | undefined;
+declare function useAddress(): string | undefined;
 ```
 
 **Returns:**

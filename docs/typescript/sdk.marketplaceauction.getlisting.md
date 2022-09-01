@@ -25,6 +25,6 @@ getListing(listingId: BigNumberish): Promise<AuctionListing>;
 
 **Returns:**
 
-Promise&lt;[AuctionListing](./sdk.auctionlisting.md)&gt;
+Promise&lt;AuctionListing&gt;
 
 the Auction listing object

@@ -36,9 +36,9 @@ use `useContract()` instead
 **Signature:**
 
 ```typescript
-export declare function usePack(
+declare function usePack(
   contractAddress?: string,
-): import("@thirdweb-dev/sdk").Pack | undefined;
+): _thirdweb_dev_sdk.Pack | undefined;
 ```
 
 ## Parameters
@@ -49,4 +49,4 @@ export declare function usePack(
 
 **Returns:**
 
-import("@thirdweb-dev/sdk").Pack \| undefined
+\_thirdweb_dev_sdk.Pack \| undefined

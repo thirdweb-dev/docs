@@ -29,14 +29,14 @@ transfer(to: string, amount: Amount): Promise<TransactionResult>;
 
 ## Parameters
 
-| Parameter | Type                      | Description |
-| --------- | ------------------------- | ----------- |
-| to        | string                    |             |
-| amount    | [Amount](./sdk.amount.md) |             |
+| Parameter | Type   | Description |
+| --------- | ------ | ----------- |
+| to        | string |             |
+| amount    | Amount |             |
 
 **Returns:**
 
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+Promise&lt;TransactionResult&gt;
 
 ## Remarks
 

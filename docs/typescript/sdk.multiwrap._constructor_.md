@@ -16,15 +16,15 @@ Constructs a new instance of the `Multiwrap` class
 **Signature:**
 
 ```typescript
-constructor(network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: SDKOptions, contractWrapper?: ContractWrapper<MultiwrapContract>);
+constructor(network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: SDKOptions, contractWrapper?: ContractWrapper<Multiwrap$1>);
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                            | Description       |
-| --------------- | --------------------------------------------------------------- | ----------------- |
-| network         | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) |                   |
-| address         | string                                                          |                   |
-| storage         | IStorage                                                        |                   |
-| options         | [SDKOptions](./sdk.sdkoptions.md)                               | <i>(Optional)</i> |
-| contractWrapper | ContractWrapper&lt;MultiwrapContract&gt;                        | <i>(Optional)</i> |
+| Parameter       | Type                               | Description       |
+| --------------- | ---------------------------------- | ----------------- |
+| network         | NetworkOrSignerOrProvider          |                   |
+| address         | string                             |                   |
+| storage         | IStorage                           |                   |
+| options         | SDKOptions                         | <i>(Optional)</i> |
+| contractWrapper | ContractWrapper&lt;Multiwrap$1&gt; | <i>(Optional)</i> |

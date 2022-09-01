@@ -26,9 +26,9 @@ const {
 **Signature:**
 
 ```typescript
-export declare function useContractType(
+declare function useContractType(
   contractAddress: RequiredParam<ContractAddress>,
-): import("@tanstack/react-query").UseQueryResult<
+): _tanstack_react_query.UseQueryResult<
   | "split"
   | "custom"
   | "nft-drop"
@@ -49,12 +49,12 @@ export declare function useContractType(
 
 ## Parameters
 
-| Parameter       | Type                                                                                           | Description                          |
-| --------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------ |
-| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;[ContractAddress](./react.contractaddress.md)&gt; | the address of the deployed contract |
+| Parameter       | Type                                 | Description                          |
+| --------------- | ------------------------------------ | ------------------------------------ |
+| contractAddress | RequiredParam&lt;ContractAddress&gt; | the address of the deployed contract |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;"split" \| "custom" \| "nft-drop" \| "signature-drop" \| "nft-collection" \| "edition-drop" \| "edition" \| "token-drop" \| "token" \| "vote" \| "marketplace" \| "pack" \| "multiwrap" \| undefined, unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;"split" \| "custom" \| "nft-drop" \| "signature-drop" \| "nft-collection" \| "edition-drop" \| "edition" \| "token-drop" \| "token" \| "vote" \| "marketplace" \| "pack" \| "multiwrap" \| undefined, unknown&gt;
 
 a response object that includes the contract type of the contract

@@ -36,9 +36,9 @@ use `useContract()` instead
 **Signature:**
 
 ```typescript
-export declare function useSplit(
+declare function useSplit(
   contractAddress?: string,
-): import("@thirdweb-dev/sdk").Split | undefined;
+): _thirdweb_dev_sdk.Split | undefined;
 ```
 
 ## Parameters
@@ -49,4 +49,4 @@ export declare function useSplit(
 
 **Returns:**
 
-import("@thirdweb-dev/sdk").Split \| undefined
+\_thirdweb_dev_sdk.Split \| undefined

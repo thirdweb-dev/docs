@@ -28,17 +28,17 @@ const contract = sdk.getPack("{{contract_address}}");
 
 ## Properties
 
-| Property                                     | Modifiers           | Type                                                                                                                            | Description         |
-| -------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| [contractAbi](./sdk.pack.contractabi.md)     | <code>static</code> | any                                                                                                                             |                     |
-| [contractRoles](./sdk.pack.contractroles.md) | <code>static</code> | readonly \["admin", "minter", "pauser", "transfer"\]                                                                            |                     |
-| [contractType](./sdk.pack.contracttype.md)   | <code>static</code> | "pack"                                                                                                                          |                     |
-| [encoder](./sdk.pack.encoder.md)             |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;PackContract&gt;                                                                 |                     |
-| [estimator](./sdk.pack.estimator.md)         |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;PackContract&gt;                                                               |                     |
-| [events](./sdk.pack.events.md)               |                     | [ContractEvents](./sdk.contractevents.md)&lt;PackContract&gt;                                                                   |                     |
-| [metadata](./sdk.pack.metadata.md)           |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;PackContract, typeof Pack.schema&gt;                                           |                     |
-| [roles](./sdk.pack.roles.md)                 |                     | [ContractRoles](./sdk.contractroles.md)&lt;PackContract, typeof [Pack.contractRoles](./sdk.pack.contractroles.md)\[number\]&gt; |                     |
-| [royalties](./sdk.pack.royalties.md)         |                     | [ContractRoyalty](./sdk.contractroyalty.md)&lt;PackContract, typeof Pack.schema&gt;                                             | Configure royalties |
+| Property                                     | Modifiers           | Type                                                             | Description         |
+| -------------------------------------------- | ------------------- | ---------------------------------------------------------------- | ------------------- |
+| [contractAbi](./sdk.pack.contractabi.md)     | <code>static</code> | any                                                              |                     |
+| [contractRoles](./sdk.pack.contractroles.md) | <code>static</code> | readonly \["admin", "minter", "pauser", "transfer"\]             |                     |
+| [contractType](./sdk.pack.contracttype.md)   | <code>static</code> | "pack"                                                           |                     |
+| [encoder](./sdk.pack.encoder.md)             |                     | ContractEncoder&lt;Pack$1&gt;                                    |                     |
+| [estimator](./sdk.pack.estimator.md)         |                     | GasCostEstimator&lt;Pack$1&gt;                                   |                     |
+| [events](./sdk.pack.events.md)               |                     | ContractEvents&lt;Pack$1&gt;                                     |                     |
+| [metadata](./sdk.pack.metadata.md)           |                     | ContractMetadata&lt;Pack$1, typeof Pack.schema&gt;               |                     |
+| [roles](./sdk.pack.roles.md)                 |                     | ContractRoles&lt;Pack$1, typeof Pack.contractRoles\[number\]&gt; |                     |
+| [royalties](./sdk.pack.royalties.md)         |                     | ContractRoyalty&lt;Pack$1, typeof Pack.schema&gt;                | Configure royalties |
 
 ## Methods
 
@@ -56,7 +56,7 @@ const contract = sdk.getPack("{{contract_address}}");
 **Signature:**
 
 ```typescript
-export declare class Pack extends Erc1155<PackContract>
+declare class Pack extends Erc1155<Pack$1>
 ```
 
-**Extends:** [Erc1155](./sdk.erc1155.md)&lt;PackContract&gt;
+**Extends:** Erc1155&lt;Pack$1&gt;

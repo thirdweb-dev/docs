@@ -12,7 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type ProfileMetadata = z.infer<typeof ProfileSchemaOutput>;
+declare type ProfileMetadata = z.infer<typeof ProfileSchemaOutput>;
 ```
-
-**References:** [ProfileSchemaOutput](./sdk.profileschemaoutput.md)

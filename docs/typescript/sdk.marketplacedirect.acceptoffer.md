@@ -37,7 +37,7 @@ acceptOffer(listingId: BigNumberish, addressOfOfferor: string): Promise<Transact
 
 **Returns:**
 
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+Promise&lt;TransactionResult&gt;
 
 ## Remarks
 

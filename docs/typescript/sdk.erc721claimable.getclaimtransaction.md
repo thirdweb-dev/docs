@@ -20,12 +20,12 @@ getClaimTransaction(destinationAddress: string, quantity: BigNumberish, checkERC
 
 ## Parameters
 
-| Parameter           | Type                                            | Description       |
-| ------------------- | ----------------------------------------------- | ----------------- |
-| destinationAddress  | string                                          |                   |
-| quantity            | BigNumberish                                    |                   |
-| checkERC20Allowance | boolean                                         | <i>(Optional)</i> |
-| claimData           | [ClaimVerification](./sdk.claimverification.md) | <i>(Optional)</i> |
+| Parameter           | Type              | Description       |
+| ------------------- | ----------------- | ----------------- |
+| destinationAddress  | string            |                   |
+| quantity            | BigNumberish      |                   |
+| checkERC20Allowance | boolean           | <i>(Optional)</i> |
+| claimData           | ClaimVerification | <i>(Optional)</i> |
 
 **Returns:**
 

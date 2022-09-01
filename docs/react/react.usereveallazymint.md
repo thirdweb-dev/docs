@@ -16,12 +16,12 @@ Use this to reveal a batch of delayed reveal NFTs on your [DropContract](./react
 **Signature:**
 
 ```typescript
-export declare function useRevealLazyMint<TContract extends NFTContract>(
+declare function useRevealLazyMint<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
-): import("@tanstack/react-query").UseMutationResult<
+): _tanstack_react_query.UseMutationResult<
   Omit<
     {
-      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+      receipt: _ethersproject_abstract_provider.TransactionReceipt;
       data: () => Promise<unknown>;
     },
     "data"
@@ -34,12 +34,12 @@ export declare function useRevealLazyMint<TContract extends NFTContract>(
 
 ## Parameters
 
-| Parameter | Type                                                       | Description                                                                    |
-| --------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) with the drop extension |
+| Parameter | Type                           | Description                                                                    |
+| --------- | ------------------------------ | ------------------------------------------------------------------------------ |
+| contract  | RequiredParam&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) with the drop extension |
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [RevealLazyMintInput](./react.reveallazymintinput.md), unknown&gt;
+\_tanstack_react_query.UseMutationResult&lt;Omit&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, RevealLazyMintInput, unknown&gt;
 
 a mutation object that can be used to reveal a batch of delayed reveal NFTs

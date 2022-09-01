@@ -12,9 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type JsonObject = {
+declare type JsonObject = {
   [key: string]: Json;
 };
 ```
-
-**References:** [Json](./sdk.json.md)

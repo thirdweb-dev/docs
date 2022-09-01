@@ -28,19 +28,19 @@ const contract = sdk.getMarketplace("{{contract_address}}");
 
 ## Properties
 
-| Property                                            | Modifiers           | Type                                                                                                                                                 | Description     |
-| --------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
-| [auction](./sdk.marketplace.auction.md)             |                     | [MarketplaceAuction](./sdk.marketplaceauction.md)                                                                                                    | Auctions        |
-| [contractAbi](./sdk.marketplace.contractabi.md)     | <code>static</code> | any                                                                                                                                                  |                 |
-| [contractRoles](./sdk.marketplace.contractroles.md) | <code>static</code> | readonly \["admin", "lister", "asset"\]                                                                                                              |                 |
-| [contractType](./sdk.marketplace.contracttype.md)   | <code>static</code> | "marketplace"                                                                                                                                        |                 |
-| [direct](./sdk.marketplace.direct.md)               |                     | [MarketplaceDirect](./sdk.marketplacedirect.md)                                                                                                      | Direct listings |
-| [encoder](./sdk.marketplace.encoder.md)             |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;MarketplaceContract&gt;                                                                               |                 |
-| [estimator](./sdk.marketplace.estimator.md)         |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;MarketplaceContract&gt;                                                                             |                 |
-| [events](./sdk.marketplace.events.md)               |                     | [ContractEvents](./sdk.contractevents.md)&lt;MarketplaceContract&gt;                                                                                 |                 |
-| [metadata](./sdk.marketplace.metadata.md)           |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;MarketplaceContract, typeof Marketplace.schema&gt;                                                  |                 |
-| [platformFees](./sdk.marketplace.platformfees.md)   |                     | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;MarketplaceContract&gt;                                                                       |                 |
-| [roles](./sdk.marketplace.roles.md)                 |                     | [ContractRoles](./sdk.contractroles.md)&lt;MarketplaceContract, typeof [Marketplace.contractRoles](./sdk.marketplace.contractroles.md)\[number\]&gt; |                 |
+| Property                                            | Modifiers           | Type                                                                           | Description     |
+| --------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------ | --------------- |
+| [auction](./sdk.marketplace.auction.md)             |                     | MarketplaceAuction                                                             | Auctions        |
+| [contractAbi](./sdk.marketplace.contractabi.md)     | <code>static</code> | any                                                                            |                 |
+| [contractRoles](./sdk.marketplace.contractroles.md) | <code>static</code> | readonly \["admin", "lister", "asset"\]                                        |                 |
+| [contractType](./sdk.marketplace.contracttype.md)   | <code>static</code> | "marketplace"                                                                  |                 |
+| [direct](./sdk.marketplace.direct.md)               |                     | MarketplaceDirect                                                              | Direct listings |
+| [encoder](./sdk.marketplace.encoder.md)             |                     | ContractEncoder&lt;Marketplace$1&gt;                                           |                 |
+| [estimator](./sdk.marketplace.estimator.md)         |                     | GasCostEstimator&lt;Marketplace$1&gt;                                          |                 |
+| [events](./sdk.marketplace.events.md)               |                     | ContractEvents&lt;Marketplace$1&gt;                                            |                 |
+| [metadata](./sdk.marketplace.metadata.md)           |                     | ContractMetadata&lt;Marketplace$1, typeof Marketplace.schema&gt;               |                 |
+| [platformFees](./sdk.marketplace.platformfees.md)   |                     | ContractPlatformFee&lt;Marketplace$1&gt;                                       |                 |
+| [roles](./sdk.marketplace.roles.md)                 |                     | ContractRoles&lt;Marketplace$1, typeof Marketplace.contractRoles\[number\]&gt; |                 |
 
 ## Methods
 
@@ -64,7 +64,7 @@ const contract = sdk.getMarketplace("{{contract_address}}");
 **Signature:**
 
 ```typescript
-export declare class Marketplace implements UpdateableNetwork
+declare class Marketplace implements UpdateableNetwork
 ```
 
 **Implements:** UpdateableNetwork

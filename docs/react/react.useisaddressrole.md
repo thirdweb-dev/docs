@@ -26,7 +26,7 @@ const {
 **Signature:**
 
 ```typescript
-export declare function useIsAddressRole<TContract extends ContractWithRoles>(
+declare function useIsAddressRole<TContract extends ContractWithRoles>(
   contract: RequiredParam<TContract>,
   role: RolesForContract<TContract>,
   walletAddress: RequiredParam<WalletAddress>,
@@ -35,11 +35,11 @@ export declare function useIsAddressRole<TContract extends ContractWithRoles>(
 
 ## Parameters
 
-| Parameter     | Type                                                                                       | Description                               |
-| ------------- | ------------------------------------------------------------------------------------------ | ----------------------------------------- |
-| contract      | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt;                                 | an instance of a                          |
-| role          | RolesForContract&lt;TContract&gt;                                                          | the role to check the member against, see |
-| walletAddress | [RequiredParam](./react.requiredparam.md)&lt;[WalletAddress](./react.walletaddress.md)&gt; | the address to check                      |
+| Parameter     | Type                               | Description                               |
+| ------------- | ---------------------------------- | ----------------------------------------- |
+| contract      | RequiredParam&lt;TContract&gt;     | an instance of a                          |
+| role          | RolesForContract&lt;TContract&gt;  | the role to check the member against, see |
+| walletAddress | RequiredParam&lt;WalletAddress&gt; | the address to check                      |
 
 **Returns:**
 

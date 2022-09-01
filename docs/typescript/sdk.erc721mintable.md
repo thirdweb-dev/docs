@@ -26,10 +26,10 @@ await contract.nft.mint.to(walletAddress, nftMetadata);
 
 ## Properties
 
-| Property                                           | Modifiers | Type                                                                 | Description |
-| -------------------------------------------------- | --------- | -------------------------------------------------------------------- | ----------- |
-| [batch](./sdk.erc721mintable.batch.md)             |           | [Erc721BatchMintable](./sdk.erc721batchmintable.md) &#124; undefined |             |
-| [featureName](./sdk.erc721mintable.featurename.md) |           | "ERC721Mintable"                                                     |             |
+| Property                                           | Modifiers | Type                                 | Description |
+| -------------------------------------------------- | --------- | ------------------------------------ | ----------- |
+| [batch](./sdk.erc721mintable.batch.md)             |           | Erc721BatchMintable &#124; undefined |             |
+| [featureName](./sdk.erc721mintable.featurename.md) |           | "ERC721Mintable"                     |             |
 
 ## Methods
 
@@ -40,7 +40,7 @@ await contract.nft.mint.to(walletAddress, nftMetadata);
 **Signature:**
 
 ```typescript
-export declare class Erc721Mintable implements DetectableFeature
+declare class Erc721Mintable implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

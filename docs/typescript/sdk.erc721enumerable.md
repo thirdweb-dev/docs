@@ -41,7 +41,7 @@ const ownedNFTs = await contract.nft.query.owned.all(walletAddress);
 **Signature:**
 
 ```typescript
-export declare class Erc721Enumerable implements DetectableFeature
+declare class Erc721Enumerable implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

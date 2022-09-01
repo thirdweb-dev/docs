@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type ContractType = keyof typeof CONTRACTS_MAP;
+declare type ContractType = keyof typeof CONTRACTS_MAP;
 ```

@@ -40,7 +40,7 @@ from(account: string, tokenId: BigNumberish, amount: BigNumberish): Promise<Tran
 
 **Returns:**
 
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+Promise&lt;TransactionResult&gt;
 
 ## Remarks
 

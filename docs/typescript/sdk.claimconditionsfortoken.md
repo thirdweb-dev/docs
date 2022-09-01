@@ -12,10 +12,8 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type ClaimConditionsForToken = {
+declare type ClaimConditionsForToken = {
   tokenId: BigNumberish;
   claimConditions: ClaimConditionInput[];
 };
 ```
-
-**References:** [ClaimConditionInput](./sdk.claimconditioninput.md)

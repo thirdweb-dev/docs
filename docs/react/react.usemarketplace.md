@@ -36,9 +36,9 @@ use `useContract()` instead
 **Signature:**
 
 ```typescript
-export declare function useMarketplace(
+declare function useMarketplace(
   contractAddress?: string,
-): import("@thirdweb-dev/sdk").Marketplace | undefined;
+): _thirdweb_dev_sdk.Marketplace | undefined;
 ```
 
 ## Parameters
@@ -49,4 +49,4 @@ export declare function useMarketplace(
 
 **Returns:**
 
-import("@thirdweb-dev/sdk").Marketplace \| undefined
+\_thirdweb_dev_sdk.Marketplace \| undefined

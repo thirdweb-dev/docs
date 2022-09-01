@@ -27,23 +27,23 @@ const { data, isLoading, error } = useContractData(
 **Signature:**
 
 ```typescript
-export declare function useContractData(
+declare function useContractData(
   contract: RequiredParam<ReturnType<typeof useContract>["contract"]>,
   functionName: RequiredParam<string>,
   ...args: unknown[] | [...unknown[], CallOverrides]
-): import("@tanstack/react-query").UseQueryResult<any, unknown>;
+): _tanstack_react_query.UseQueryResult<any, unknown>;
 ```
 
 ## Parameters
 
-| Parameter    | Type                                                                                                | Description                                                                                        |
-| ------------ | --------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| contract     | [RequiredParam](./react.requiredparam.md)&lt;ReturnType&lt;typeof useContract&gt;\["contract"\]&gt; | the contract instance of the contract to call a function on                                        |
-| functionName | [RequiredParam](./react.requiredparam.md)&lt;string&gt;                                             | the name of the function to call                                                                   |
-| args         | unknown\[\] &#124; \[...unknown\[\], CallOverrides\]                                                | The arguments to pass to the function (if any), with optional call arguments as the last parameter |
+| Parameter    | Type                                                                    | Description                                                                                        |
+| ------------ | ----------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| contract     | RequiredParam&lt;ReturnType&lt;typeof useContract&gt;\["contract"\]&gt; | the contract instance of the contract to call a function on                                        |
+| functionName | RequiredParam&lt;string&gt;                                             | the name of the function to call                                                                   |
+| args         | unknown\[\] &#124; \[...unknown\[\], CallOverrides\]                    | The arguments to pass to the function (if any), with optional call arguments as the last parameter |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;any, unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;any, unknown&gt;
 
 a response object that includes the data returned by the function call

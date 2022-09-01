@@ -26,19 +26,19 @@ Use this to get the primary sales recipient of your
 **Signature:**
 
 ```typescript
-export declare function usePrimarySaleRecipient(
+declare function usePrimarySaleRecipient(
   contract: RequiredParam<SmartContract | ValidContractInstance>,
-): import("@tanstack/react-query").UseQueryResult<string, unknown>;
+): _tanstack_react_query.UseQueryResult<string, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                                                        | Description      |
-| --------- | ------------------------------------------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
+| Parameter | Type                                                            | Description      |
+| --------- | --------------------------------------------------------------- | ---------------- |
+| contract  | RequiredParam&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;string, unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;string, unknown&gt;
 
 the wallet address of the primary sales recipient

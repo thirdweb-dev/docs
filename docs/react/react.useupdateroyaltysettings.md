@@ -48,11 +48,11 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-export declare function useUpdateRoyaltySettings(
+declare function useUpdateRoyaltySettings(
   contract: RequiredParam<SmartContract | ValidContractInstance>,
-): import("@tanstack/react-query").UseMutationResult<
+): _tanstack_react_query.UseMutationResult<
   {
-    receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+    receipt: _ethersproject_abstract_provider.TransactionReceipt;
     data: () => Promise<{
       seller_fee_basis_points: number;
       fee_recipient: string;
@@ -69,12 +69,12 @@ export declare function useUpdateRoyaltySettings(
 
 ## Parameters
 
-| Parameter | Type                                                                                        | Description      |
-| --------- | ------------------------------------------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
+| Parameter | Type                                                            | Description      |
+| --------- | --------------------------------------------------------------- | ---------------- |
+| contract  | RequiredParam&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;{ seller_fee_basis_points: number; fee_recipient: string; }&gt;; }, unknown, { seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; }, unknown&gt;
+\_tanstack_react_query.UseMutationResult&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;{ seller_fee_basis_points: number; fee_recipient: string; }&gt;; }, unknown, { seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; }, unknown&gt;
 
 a mutation object that can be used to update the royalty settings

@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare enum ProposalState
+declare enum ProposalState
 ```
 
 ## Enumeration Members

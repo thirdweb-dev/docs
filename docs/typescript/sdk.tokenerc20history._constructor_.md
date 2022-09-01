@@ -19,7 +19,7 @@ constructor(contractWrapper: ContractWrapper<TokenERC20>, events: ContractEvents
 
 ## Parameters
 
-| Parameter       | Type                                                        | Description |
-| --------------- | ----------------------------------------------------------- | ----------- |
-| contractWrapper | ContractWrapper&lt;TokenERC20&gt;                           |             |
-| events          | [ContractEvents](./sdk.contractevents.md)&lt;TokenERC20&gt; |             |
+| Parameter       | Type                              | Description |
+| --------------- | --------------------------------- | ----------- |
+| contractWrapper | ContractWrapper&lt;TokenERC20&gt; |             |
+| events          | ContractEvents&lt;TokenERC20&gt;  |             |

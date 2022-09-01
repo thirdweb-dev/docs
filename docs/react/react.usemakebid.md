@@ -41,12 +41,12 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-export declare function useMakeBid(
+declare function useMakeBid(
   contract: RequiredParam<Marketplace>,
-): import("@tanstack/react-query").UseMutationResult<
+): _tanstack_react_query.UseMutationResult<
   Omit<
     {
-      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+      receipt: _ethersproject_abstract_provider.TransactionReceipt;
       data: () => Promise<unknown>;
     },
     "data"
@@ -59,12 +59,12 @@ export declare function useMakeBid(
 
 ## Parameters
 
-| Parameter | Type                                                         | Description                           |
-| --------- | ------------------------------------------------------------ | ------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a Marketplace contract |
+| Parameter | Type                             | Description                           |
+| --------- | -------------------------------- | ------------------------------------- |
+| contract  | RequiredParam&lt;Marketplace&gt; | an instance of a Marketplace contract |
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [MakeBidParams](./react.makebidparams.md), unknown&gt;
+\_tanstack_react_query.UseMutationResult&lt;Omit&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, MakeBidParams, unknown&gt;
 
 a mutation object that can be used to make a bid on an auction listing

@@ -12,7 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type ValidContractClass = ValueOf<typeof KNOWN_CONTRACTS_MAP>;
+declare type ValidContractClass = ValueOf<typeof KNOWN_CONTRACTS_MAP>;
 ```
-
-**References:** [ValueOf](./sdk.valueof.md)

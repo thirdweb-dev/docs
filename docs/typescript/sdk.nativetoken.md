@@ -12,10 +12,10 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export interface NativeToken extends Currency
+interface NativeToken extends Currency
 ```
 
-**Extends:** [Currency](./sdk.currency.md)
+**Extends:** Currency
 
 ## Properties
 

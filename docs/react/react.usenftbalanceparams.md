@@ -16,7 +16,7 @@ The params to pass to `useNftBalance`.
 **Signature:**
 
 ```typescript
-export declare type useNFTBalanceParams<TContract> = TContract extends Erc1155
+declare type useNFTBalanceParams<TContract> = TContract extends Erc1155
   ? [
       contract: RequiredParam<TContract>,
       ownerWalletAddress: RequiredParam<WalletAddress>,
@@ -27,5 +27,3 @@ export declare type useNFTBalanceParams<TContract> = TContract extends Erc1155
       ownerWalletAddress: RequiredParam<WalletAddress>,
     ];
 ```
-
-**References:** [RequiredParam](./react.requiredparam.md), [WalletAddress](./react.walletaddress.md)

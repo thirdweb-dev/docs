@@ -179,6 +179,7 @@ displayed_sidebar: typescript
 | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md)                         |                                                                                      |
 | [NFTMetadata](./sdk.nftmetadata.md)                                                     |                                                                                      |
 | [NFTMetadataInput](./sdk.nftmetadatainput.md)                                           |                                                                                      |
+| [NFTMetadataOrUri](./sdk.nftmetadataoruri.md)                                           |                                                                                      |
 | [NFTMetadataOwner](./sdk.nftmetadataowner.md)                                           |                                                                                      |
 | [PayloadToSign1155](./sdk.payloadtosign1155.md)                                         |                                                                                      |
 | [PayloadToSign1155WithTokenId](./sdk.payloadtosign1155withtokenid.md)                   |                                                                                      |

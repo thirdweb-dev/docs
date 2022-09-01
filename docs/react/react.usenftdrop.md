@@ -35,9 +35,9 @@ use `useContract()` instead
 **Signature:**
 
 ```typescript
-export declare function useNFTDrop(
+declare function useNFTDrop(
   contractAddress?: string,
-): import("@thirdweb-dev/sdk").NFTDrop | undefined;
+): _thirdweb_dev_sdk.NFTDrop | undefined;
 ```
 
 ## Parameters
@@ -48,4 +48,4 @@ export declare function useNFTDrop(
 
 **Returns:**
 
-import("@thirdweb-dev/sdk").NFTDrop \| undefined
+\_thirdweb_dev_sdk.NFTDrop \| undefined

@@ -25,7 +25,7 @@ getAllHolderBalances(): Promise<TokenHolderBalance[]>;
 
 **Returns:**
 
-Promise&lt;[TokenHolderBalance](./sdk.tokenholderbalance.md)\[\]&gt;
+Promise&lt;TokenHolderBalance\[\]&gt;
 
 - A JSON object of all token holders and their corresponding balances
 

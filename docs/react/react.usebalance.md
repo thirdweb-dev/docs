@@ -16,12 +16,12 @@ A hook to get the native or (optional) ERC20 token balance of the connected wall
 **Signature:**
 
 ```typescript
-export declare function useBalance(
+declare function useBalance(
   tokenAddress?: ContractAddress,
-): import("@tanstack/react-query").UseQueryResult<
+): _tanstack_react_query.UseQueryResult<
   | {
       symbol: string;
-      value: import("ethers").BigNumber;
+      value: ethers.BigNumber;
       name: string;
       decimals: number;
       displayValue: string;
@@ -33,12 +33,12 @@ export declare function useBalance(
 
 ## Parameters
 
-| Parameter    | Type                                          | Description                                                                                     |
-| ------------ | --------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| tokenAddress | [ContractAddress](./react.contractaddress.md) | <i>(Optional)</i> the address of the token contract, if empty will use the chain's native token |
+| Parameter    | Type            | Description                                                                                     |
+| ------------ | --------------- | ----------------------------------------------------------------------------------------------- |
+| tokenAddress | ContractAddress | <i>(Optional)</i> the address of the token contract, if empty will use the chain's native token |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; } \| undefined, unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;{ symbol: string; value: ethers.BigNumber; name: string; decimals: number; displayValue: string; } \| undefined, unknown&gt;
 
 the balance of the connected wallet (native or ERC20)

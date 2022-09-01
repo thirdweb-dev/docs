@@ -12,7 +12,7 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export interface LoginConfig
+interface LoginConfig
 ```
 
 ## Properties

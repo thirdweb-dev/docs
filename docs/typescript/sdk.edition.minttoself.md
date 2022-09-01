@@ -19,13 +19,13 @@ mintToSelf(metadataWithSupply: EditionMetadataOrUri): Promise<TransactionResultW
 
 ## Parameters
 
-| Parameter          | Type                                                  | Description |
-| ------------------ | ----------------------------------------------------- | ----------- |
-| metadataWithSupply | [EditionMetadataOrUri](./sdk.editionmetadataoruri.md) |             |
+| Parameter          | Type                 | Description |
+| ------------------ | -------------------- | ----------- |
+| metadataWithSupply | EditionMetadataOrUri |             |
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;&gt;
+Promise&lt;TransactionResultWithId&lt;EditionMetadata&gt;&gt;
 
 ## Remarks
 

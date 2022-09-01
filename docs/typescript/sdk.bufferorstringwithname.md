@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type BufferOrStringWithName = {
+declare type BufferOrStringWithName = {
   data: Buffer | string;
   name?: string;
 };

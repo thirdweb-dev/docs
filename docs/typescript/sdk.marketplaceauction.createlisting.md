@@ -47,13 +47,13 @@ createListing(listing: NewAuctionListing): Promise<TransactionResultWithId>;
 
 ## Parameters
 
-| Parameter | Type                                            | Description |
-| --------- | ----------------------------------------------- | ----------- |
-| listing   | [NewAuctionListing](./sdk.newauctionlisting.md) |             |
+| Parameter | Type              | Description |
+| --------- | ----------------- | ----------- |
+| listing   | NewAuctionListing |             |
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&gt;
+Promise&lt;TransactionResultWithId&gt;
 
 ## Remarks
 

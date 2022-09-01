@@ -12,9 +12,6 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type ContractForContractType<
-  TContractType extends ContractType,
-> = Instance<typeof CONTRACTS_MAP[TContractType]>;
+declare type ContractForContractType<TContractType extends ContractType> =
+  Instance<typeof CONTRACTS_MAP[TContractType]>;
 ```
-
-**References:** [ContractType](./sdk.contracttype.md)

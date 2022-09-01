@@ -32,21 +32,19 @@ const { data: totalSupply, isLoading, error } = useNFTSupply(contract?.nft);
 **Signature:**
 
 ```typescript
-export declare function useTotalCirculatingSupply<
-  TContract extends NFTContract,
->(
+declare function useTotalCirculatingSupply<TContract extends NFTContract>(
   ...[contract, tokenId]: useTotalCirculatingSupplyParams<TContract>
-): import("@tanstack/react-query").UseQueryResult<BigNumber, unknown>;
+): _tanstack_react_query.UseQueryResult<BigNumber, unknown>;
 ```
 
 ## Parameters
 
-| Parameter             | Type                                                                                           | Description |
-| --------------------- | ---------------------------------------------------------------------------------------------- | ----------- |
-| \[contract, tokenId\] | [useTotalCirculatingSupplyParams](./react.usetotalcirculatingsupplyparams.md)&lt;TContract&gt; |             |
+| Parameter             | Type                                             | Description |
+| --------------------- | ------------------------------------------------ | ----------- |
+| \[contract, tokenId\] | useTotalCirculatingSupplyParams&lt;TContract&gt; |             |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;BigNumber, unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;BigNumber, unknown&gt;
 
 a response object that incudes the total minted supply

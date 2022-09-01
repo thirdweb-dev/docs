@@ -14,7 +14,7 @@ transaction message contains information that's needed to execute a gasless tran
 **Signature:**
 
 ```typescript
-export interface GaslessTransaction
+interface GaslessTransaction
 ```
 
 ## Properties

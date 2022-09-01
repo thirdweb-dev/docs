@@ -56,12 +56,12 @@ wrap(contents: TokensToWrap, wrappedTokenMetadata: NFTMetadataOrUri, recipientAd
 
 ## Parameters
 
-| Parameter            | Type                                  | Description                                                                 |
-| -------------------- | ------------------------------------- | --------------------------------------------------------------------------- |
-| contents             | [TokensToWrap](./sdk.tokenstowrap.md) | the contents to wrap                                                        |
-| wrappedTokenMetadata | NFTMetadataOrUri                      | metadata to represent the wrapped token bundle                              |
-| recipientAddress     | string                                | <i>(Optional)</i> Optional. The address to send the wrapped token bundle to |
+| Parameter            | Type             | Description                                                                 |
+| -------------------- | ---------------- | --------------------------------------------------------------------------- |
+| contents             | TokensToWrap     | the contents to wrap                                                        |
+| wrappedTokenMetadata | NFTMetadataOrUri | metadata to represent the wrapped token bundle                              |
+| recipientAddress     | string           | <i>(Optional)</i> Optional. The address to send the wrapped token bundle to |
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;&gt;
+Promise&lt;TransactionResultWithId&lt;NFTMetadataOwner&gt;&gt;

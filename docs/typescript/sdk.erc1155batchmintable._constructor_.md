@@ -21,6 +21,6 @@ constructor(erc1155: Erc1155, contractWrapper: ContractWrapper<IMintableERC1155 
 
 | Parameter       | Type                                                     | Description |
 | --------------- | -------------------------------------------------------- | ----------- |
-| erc1155         | [Erc1155](./sdk.erc1155.md)                              |             |
+| erc1155         | Erc1155                                                  |             |
 | contractWrapper | ContractWrapper&lt;IMintableERC1155 &amp; IMulticall&gt; |             |
 | storage         | IStorage                                                 |             |

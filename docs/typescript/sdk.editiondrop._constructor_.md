@@ -19,10 +19,10 @@ constructor(network: NetworkOrSignerOrProvider, address: string, storage: IStora
 
 ## Parameters
 
-| Parameter       | Type                                                            | Description       |
-| --------------- | --------------------------------------------------------------- | ----------------- |
-| network         | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) |                   |
-| address         | string                                                          |                   |
-| storage         | IStorage                                                        |                   |
-| options         | [SDKOptions](./sdk.sdkoptions.md)                               | <i>(Optional)</i> |
-| contractWrapper | ContractWrapper&lt;DropERC1155&gt;                              | <i>(Optional)</i> |
+| Parameter       | Type                               | Description       |
+| --------------- | ---------------------------------- | ----------------- |
+| network         | NetworkOrSignerOrProvider          |                   |
+| address         | string                             |                   |
+| storage         | IStorage                           |                   |
+| options         | SDKOptions                         | <i>(Optional)</i> |
+| contractWrapper | ContractWrapper&lt;DropERC1155&gt; | <i>(Optional)</i> |

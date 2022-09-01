@@ -14,7 +14,7 @@ Filters for querying past events
 **Signature:**
 
 ```typescript
-export interface EventQueryFilter
+interface EventQueryFilter
 ```
 
 ## Properties

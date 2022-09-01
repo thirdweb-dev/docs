@@ -38,9 +38,9 @@ deploySplit(metadata: SplitContractDeployMetadata): Promise<string>;
 
 ## Parameters
 
-| Parameter | Type                                                                | Description           |
-| --------- | ------------------------------------------------------------------- | --------------------- |
-| metadata  | [SplitContractDeployMetadata](./sdk.splitcontractdeploymetadata.md) | the contract metadata |
+| Parameter | Type                        | Description           |
+| --------- | --------------------------- | --------------------- |
+| metadata  | SplitContractDeployMetadata | the contract metadata |
 
 **Returns:**
 

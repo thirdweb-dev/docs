@@ -14,7 +14,7 @@ Encodes and decodes Contract functions
 **Signature:**
 
 ```typescript
-export declare class ContractEncoder<TContract extends BaseContract>
+declare class ContractEncoder<TContract extends BaseContract>
 ```
 
 ## Constructors

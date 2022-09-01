@@ -21,5 +21,5 @@ constructor(erc20: Erc20, contractWrapper: ContractWrapper<IBurnableERC20>);
 
 | Parameter       | Type                                  | Description |
 | --------------- | ------------------------------------- | ----------- |
-| erc20           | [Erc20](./sdk.erc20.md)               |             |
+| erc20           | Erc20                                 |             |
 | contractWrapper | ContractWrapper&lt;IBurnableERC20&gt; |             |

@@ -26,10 +26,10 @@ await contract.nft.drop.claim.to("0x...", quantity);
 
 ## Properties
 
-| Property                                            | Modifiers | Type                                                                                | Description                |
-| --------------------------------------------------- | --------- | ----------------------------------------------------------------------------------- | -------------------------- |
-| [conditions](./sdk.erc721claimable.conditions.md)   |           | [DropClaimConditions](./sdk.dropclaimconditions.md)&lt;BaseClaimConditionERC721&gt; | Configure claim conditions |
-| [featureName](./sdk.erc721claimable.featurename.md) |           | "ERC721Claimable"                                                                   |                            |
+| Property                                            | Modifiers | Type                                                | Description                |
+| --------------------------------------------------- | --------- | --------------------------------------------------- | -------------------------- |
+| [conditions](./sdk.erc721claimable.conditions.md)   |           | DropClaimConditions&lt;BaseClaimConditionERC721&gt; | Configure claim conditions |
+| [featureName](./sdk.erc721claimable.featurename.md) |           | "ERC721Claimable"                                   |                            |
 
 ## Methods
 
@@ -41,7 +41,7 @@ await contract.nft.drop.claim.to("0x...", quantity);
 **Signature:**
 
 ```typescript
-export declare class Erc721Claimable implements DetectableFeature
+declare class Erc721Claimable implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

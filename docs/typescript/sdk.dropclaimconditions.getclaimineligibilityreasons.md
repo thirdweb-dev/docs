@@ -19,11 +19,11 @@ getClaimIneligibilityReasons(quantity: Amount, addressToCheck?: string): Promise
 
 ## Parameters
 
-| Parameter      | Type                      | Description                                                             |
-| -------------- | ------------------------- | ----------------------------------------------------------------------- |
-| quantity       | [Amount](./sdk.amount.md) | The desired quantity that would be claimed.                             |
-| addressToCheck | string                    | <i>(Optional)</i> The wallet address, defaults to the connected wallet. |
+| Parameter      | Type   | Description                                                             |
+| -------------- | ------ | ----------------------------------------------------------------------- |
+| quantity       | Amount | The desired quantity that would be claimed.                             |
+| addressToCheck | string | <i>(Optional)</i> The wallet address, defaults to the connected wallet. |
 
 **Returns:**
 
-Promise&lt;[ClaimEligibility](./sdk.claimeligibility.md)\[\]&gt;
+Promise&lt;ClaimEligibility\[\]&gt;

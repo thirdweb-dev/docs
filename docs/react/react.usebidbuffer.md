@@ -22,19 +22,19 @@ const { data: auctionWinner, isLoading, error } = useBidBuffer(<YourMarketplaceC
 **Signature:**
 
 ```typescript
-export declare function useBidBuffer(
+declare function useBidBuffer(
   contract: RequiredParam<Marketplace>,
-): import("@tanstack/react-query").UseQueryResult<BigNumber, unknown>;
+): _tanstack_react_query.UseQueryResult<BigNumber, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                         | Description                           |
-| --------- | ------------------------------------------------------------ | ------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a marketplace contract |
+| Parameter | Type                             | Description                           |
+| --------- | -------------------------------- | ------------------------------------- |
+| contract  | RequiredParam&lt;Marketplace&gt; | an instance of a marketplace contract |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;BigNumber, unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;BigNumber, unknown&gt;
 
 a response object that includes an array of listings

@@ -26,7 +26,7 @@ getAll(): Promise<Proposal[]>;
 
 **Returns:**
 
-Promise&lt;[Proposal](./sdk.proposal.md)\[\]&gt;
+Promise&lt;Proposal\[\]&gt;
 
 - All the proposals in the contract.
 

@@ -23,7 +23,7 @@ resolveContractType(contractAddress: string): Promise<Exclude<ContractType, "cus
 
 **Returns:**
 
-Promise&lt;Exclude&lt;[ContractType](./sdk.contracttype.md), "custom"&gt;&gt;
+Promise&lt;Exclude&lt;ContractType, "custom"&gt;&gt;
 
 the [ContractType](./sdk.contracttype.md) for the given contract address
 

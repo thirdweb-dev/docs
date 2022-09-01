@@ -41,7 +41,7 @@ mintToSelf(metadata: NFTMetadataOrUri): Promise<TransactionResultWithId<NFTMetad
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;&gt;
+Promise&lt;TransactionResultWithId&lt;NFTMetadataOwner&gt;&gt;
 
 ## Remarks
 

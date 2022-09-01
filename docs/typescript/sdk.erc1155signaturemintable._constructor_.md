@@ -19,8 +19,8 @@ constructor(contractWrapper: ContractWrapper<BaseSignatureMintERC1155 | TokenERC
 
 ## Parameters
 
-| Parameter       | Type                                                                                                                                              | Description       |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| contractWrapper | ContractWrapper&lt;BaseSignatureMintERC1155 &#124; TokenERC1155&gt;                                                                               |                   |
-| storage         | IStorage                                                                                                                                          |                   |
-| roles           | [ContractRoles](./sdk.contractroles.md)&lt;TokenERC1155, typeof [NFTCollection.contractRoles](./sdk.nftcollection.contractroles.md)\[number\]&gt; | <i>(Optional)</i> |
+| Parameter       | Type                                                                            | Description       |
+| --------------- | ------------------------------------------------------------------------------- | ----------------- |
+| contractWrapper | ContractWrapper&lt;BaseSignatureMintERC1155 &#124; TokenERC1155&gt;             |                   |
+| storage         | IStorage                                                                        |                   |
+| roles           | ContractRoles&lt;TokenERC1155, typeof NFTCollection.contractRoles\[number\]&gt; | <i>(Optional)</i> |

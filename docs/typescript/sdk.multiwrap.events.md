@@ -14,5 +14,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-events: ContractEvents<MultiwrapContract>;
+events: ContractEvents<Multiwrap$1>;
 ```

@@ -25,6 +25,6 @@ getEdition(address: string): Edition;
 
 **Returns:**
 
-[Edition](./sdk.edition.md)
+Edition
 
 the contract

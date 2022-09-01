@@ -16,19 +16,19 @@ Use this to lazy mint a batch of NFTs on your [DropContract](./react.dropcontrac
 **Signature:**
 
 ```typescript
-export declare function useLazyMint<TContract extends NFTContract>(
+declare function useLazyMint<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
   onProgress?: (progress: UploadProgressEvent) => void,
-): import("@tanstack/react-query").UseMutationResult<
-  import("@thirdweb-dev/sdk").TransactionResultWithId<{
-    [x: string]: import("@thirdweb-dev/sdk").Json;
+): _tanstack_react_query.UseMutationResult<
+  _thirdweb_dev_sdk.TransactionResultWithId<{
+    [x: string]: _thirdweb_dev_sdk.Json;
     name?: string | number | undefined;
     description?: string | null | undefined;
     image?: string | null | undefined;
     external_url?: string | null | undefined;
     animation_url?: string | null | undefined;
     uri: string;
-    id: import("ethers").BigNumber;
+    id: ethers.BigNumber;
   }>[],
   unknown,
   {
@@ -40,13 +40,13 @@ export declare function useLazyMint<TContract extends NFTContract>(
 
 ## Parameters
 
-| Parameter  | Type                                                       | Description                                                                                |
-| ---------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| contract   | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) with the drop extension             |
-| onProgress | (progress: UploadProgressEvent) =&gt; void                 | <i>(Optional)</i> an optional callback that will be called with the progress of the upload |
+| Parameter  | Type                                       | Description                                                                                |
+| ---------- | ------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| contract   | RequiredParam&lt;TContract&gt;             | an instance of a [NFTContract](./react.nftcontract.md) with the drop extension             |
+| onProgress | (progress: UploadProgressEvent) =&gt; void | <i>(Optional)</i> an optional callback that will be called with the progress of the upload |
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;{ \[x: string\]: import("@thirdweb-dev/sdk").Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: import("ethers").BigNumber; }&gt;\[\], unknown, { metadatas: NFTMetadataInput\[\]; }, unknown&gt;
+\_tanstack_react_query.UseMutationResult&lt;\_thirdweb_dev_sdk.TransactionResultWithId&lt;{ \[x: string\]: \_thirdweb_dev_sdk.Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: ethers.BigNumber; }&gt;\[\], unknown, { metadatas: NFTMetadataInput\[\]; }, unknown&gt;
 
 a mutation object that can be used to lazy mint a batch of NFTs

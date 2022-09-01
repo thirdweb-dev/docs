@@ -12,22 +12,19 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export declare function useClaimedNFTSupply(
+declare function useClaimedNFTSupply(
   contract: RequiredParam<DropContract>,
-): import("@tanstack/react-query").UseQueryResult<
-  import("ethers").BigNumber,
-  unknown
->;
+): _tanstack_react_query.UseQueryResult<ethers.BigNumber, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                                                     | Description                                              |
-| --------- | ---------------------------------------------------------------------------------------- | -------------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;[DropContract](./react.dropcontract.md)&gt; | an instance of a [DropContract](./react.dropcontract.md) |
+| Parameter | Type                              | Description                                              |
+| --------- | --------------------------------- | -------------------------------------------------------- |
+| contract  | RequiredParam&lt;DropContract&gt; | an instance of a [DropContract](./react.dropcontract.md) |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;import("ethers").BigNumber, unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;ethers.BigNumber, unknown&gt;
 
 a response object that includes the number of NFTs that are claimed

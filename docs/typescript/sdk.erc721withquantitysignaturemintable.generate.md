@@ -47,13 +47,13 @@ generate(mintRequest: PayloadToSign721withQuantity): Promise<SignedPayload721Wit
 
 ## Parameters
 
-| Parameter   | Type                                                                  | Description         |
-| ----------- | --------------------------------------------------------------------- | ------------------- |
-| mintRequest | [PayloadToSign721withQuantity](./sdk.payloadtosign721withquantity.md) | the payload to sign |
+| Parameter   | Type                         | Description         |
+| ----------- | ---------------------------- | ------------------- |
+| mintRequest | PayloadToSign721withQuantity | the payload to sign |
 
 **Returns:**
 
-Promise&lt;[SignedPayload721WithQuantitySignature](./sdk.signedpayload721withquantitysignature.md)&gt;
+Promise&lt;SignedPayload721WithQuantitySignature&gt;
 
 the signed payload and the corresponding signature
 

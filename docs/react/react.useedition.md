@@ -36,9 +36,9 @@ use `useContract()` instead
 **Signature:**
 
 ```typescript
-export declare function useEdition(
+declare function useEdition(
   contractAddress?: string,
-): import("@thirdweb-dev/sdk").Edition | undefined;
+): _thirdweb_dev_sdk.Edition | undefined;
 ```
 
 ## Parameters
@@ -49,4 +49,4 @@ export declare function useEdition(
 
 **Returns:**
 
-import("@thirdweb-dev/sdk").Edition \| undefined
+\_thirdweb_dev_sdk.Edition \| undefined

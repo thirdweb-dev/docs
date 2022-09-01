@@ -34,14 +34,14 @@ getEvents(eventName: string, filters?: EventQueryFilter): Promise<ContractEvent[
 
 ## Parameters
 
-| Parameter | Type                                          | Description                                                                                        |
-| --------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| eventName | string                                        | The name of the event to get logs for                                                              |
-| filters   | [EventQueryFilter](./sdk.eventqueryfilter.md) | <i>(Optional)</i> Specify the from and to block numbers to get events for, defaults to all blocks. |
+| Parameter | Type             | Description                                                                                        |
+| --------- | ---------------- | -------------------------------------------------------------------------------------------------- |
+| eventName | string           | The name of the event to get logs for                                                              |
+| filters   | EventQueryFilter | <i>(Optional)</i> Specify the from and to block numbers to get events for, defaults to all blocks. |
 
 **Returns:**
 
-Promise&lt;[ContractEvent](./sdk.contractevent.md)\[\]&gt;
+Promise&lt;ContractEvent\[\]&gt;
 
 The requested event objects with event data
 

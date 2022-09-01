@@ -45,7 +45,7 @@ to(to: string, metadata: NFTMetadataOrUri): Promise<TransactionResultWithId<NFTM
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;&gt;
+Promise&lt;TransactionResultWithId&lt;NFTMetadataOwner&gt;&gt;
 
 ## Remarks
 

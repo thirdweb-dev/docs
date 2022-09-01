@@ -14,7 +14,7 @@ Options for deploying a Token contract
 **Signature:**
 
 ```typescript
-export interface TokenContractDeployMetadata
+interface TokenContractDeployMetadata
 ```
 
 ## Properties

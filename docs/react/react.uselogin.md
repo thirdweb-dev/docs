@@ -16,16 +16,16 @@ Hook to securely login to a backend with the connected wallet. The backend authe
 **Signature:**
 
 ```typescript
-export declare function useLogin(
+declare function useLogin(
   config?: LoginConfig,
 ): (cfg?: LoginOptions) => Promise<void>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                  | Description                                    |
-| --------- | ------------------------------------- | ---------------------------------------------- |
-| config    | [LoginConfig](./react.loginconfig.md) | <i>(Optional)</i> Configuration for the login. |
+| Parameter | Type        | Description                                    |
+| --------- | ----------- | ---------------------------------------------- |
+| config    | LoginConfig | <i>(Optional)</i> Configuration for the login. |
 
 **Returns:**
 

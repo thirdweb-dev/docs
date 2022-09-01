@@ -46,9 +46,9 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-export declare function useTransferBatchToken(
+declare function useTransferBatchToken(
   contract: RequiredParam<Erc20>,
-): import("@tanstack/react-query").UseMutationResult<
+): _tanstack_react_query.UseMutationResult<
   void,
   unknown,
   TokenParams[],
@@ -58,12 +58,12 @@ export declare function useTransferBatchToken(
 
 ## Parameters
 
-| Parameter | Type                                                   | Description                                                                                                            |
-| --------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instance of a contract that extends the ERC20 spec (token, token drop, custom contract that follows the ERC20 spec) |
+| Parameter | Type                       | Description                                                                                                            |
+| --------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| contract  | RequiredParam&lt;Erc20&gt; | an instance of a contract that extends the ERC20 spec (token, token drop, custom contract that follows the ERC20 spec) |
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;void, unknown, [TokenParams](./react.tokenparams.md)\[\], unknown&gt;
+\_tanstack_react_query.UseMutationResult&lt;void, unknown, TokenParams\[\], unknown&gt;
 
 a mutation object that can be used to transfer batch tokens

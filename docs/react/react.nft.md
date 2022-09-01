@@ -16,7 +16,7 @@ A single NFT token
 **Signature:**
 
 ```typescript
-export declare type NFT<TContract extends NFTContract> = {
+declare type NFT<TContract extends NFTContract> = {
   metadata: NFTMetadata;
   owner: string;
   type: TContract extends Erc721 ? "ERC721" : "ERC1155";
@@ -24,5 +24,3 @@ export declare type NFT<TContract extends NFTContract> = {
   [key: string]: unknown;
 };
 ```
-
-**References:** [NFTContract](./react.nftcontract.md)

@@ -14,7 +14,7 @@ Standardized return type for contract events that returns event arguments
 **Signature:**
 
 ```typescript
-export declare type ContractEvent = {
+declare type ContractEvent = {
   eventName: string;
   data: Record<string, unknown>;
   transaction: {

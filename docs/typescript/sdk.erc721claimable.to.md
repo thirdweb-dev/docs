@@ -31,16 +31,16 @@ to(destinationAddress: string, quantity: BigNumberish, checkERC20Allowance?: boo
 
 ## Parameters
 
-| Parameter           | Type                                            | Description                                                                                                                      |
-| ------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| destinationAddress  | string                                          | Address you want to send the token to                                                                                            |
-| quantity            | BigNumberish                                    | Quantity of the tokens you want to claim                                                                                         |
-| checkERC20Allowance | boolean                                         | <i>(Optional)</i> Optional, check if the wallet has enough ERC20 allowance to claim the tokens, and if not, approve the transfer |
-| claimData           | [ClaimVerification](./sdk.claimverification.md) | <i>(Optional)</i> Optional claim verification data (e.g. price, allowlist proof, etc...)                                         |
+| Parameter           | Type              | Description                                                                                                                      |
+| ------------------- | ----------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| destinationAddress  | string            | Address you want to send the token to                                                                                            |
+| quantity            | BigNumberish      | Quantity of the tokens you want to claim                                                                                         |
+| checkERC20Allowance | boolean           | <i>(Optional)</i> Optional, check if the wallet has enough ERC20 allowance to claim the tokens, and if not, approve the transfer |
+| claimData           | ClaimVerification | <i>(Optional)</i> Optional claim verification data (e.g. price, allowlist proof, etc...)                                         |
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;\[\]&gt;
+Promise&lt;TransactionResultWithId&lt;NFTMetadataOwner&gt;\[\]&gt;
 
 - an array of results containing the id of the token claimed, the transaction receipt and a promise to optionally fetch the nft metadata
 

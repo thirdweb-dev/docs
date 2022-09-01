@@ -14,7 +14,7 @@ Listen to Contract events in real time
 **Signature:**
 
 ```typescript
-export declare class ContractEvents<TContract extends BaseContract>
+declare class ContractEvents<TContract extends BaseContract>
 ```
 
 ## Constructors

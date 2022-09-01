@@ -16,26 +16,26 @@ Use this to query (and subscribe) to a specific event on a contract.
 **Signature:**
 
 ```typescript
-export declare function useContractEvents(
+declare function useContractEvents(
   contract: RequiredParam<ReturnType<typeof useContract>["contract"]>,
   eventName: string,
   options?: {
     queryFilter?: EventQueryFilter;
     subscribe?: boolean;
   },
-): import("@tanstack/react-query").UseQueryResult<ContractEvent[], unknown>;
+): _tanstack_react_query.UseQueryResult<ContractEvent[], unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                                                                | Description                                                                                                                              |
-| --------- | --------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;ReturnType&lt;typeof useContract&gt;\["contract"\]&gt; | the contract instance of the contract to call a function on                                                                              |
-| eventName | string                                                                                              |                                                                                                                                          |
-| options   | { queryFilter?: EventQueryFilter; subscribe?: boolean; }                                            | <i>(Optional)</i> options incldues the filters () for the query as well as if you want to subscribe to real-time updates (default: true) |
+| Parameter | Type                                                                    | Description                                                                                                                              |
+| --------- | ----------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
+| contract  | RequiredParam&lt;ReturnType&lt;typeof useContract&gt;\["contract"\]&gt; | the contract instance of the contract to call a function on                                                                              |
+| eventName | string                                                                  |                                                                                                                                          |
+| options   | { queryFilter?: EventQueryFilter; subscribe?: boolean; }                | <i>(Optional)</i> options incldues the filters () for the query as well as if you want to subscribe to real-time updates (default: true) |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;ContractEvent\[\], unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;ContractEvent\[\], unknown&gt;
 
 a response object that includes the contract events

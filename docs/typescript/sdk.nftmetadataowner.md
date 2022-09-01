@@ -12,10 +12,8 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type NFTMetadataOwner = {
+declare type NFTMetadataOwner = {
   metadata: NFTMetadata;
   owner: string;
 };
 ```
-
-**References:** [NFTMetadata](./sdk.nftmetadata.md)

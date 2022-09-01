@@ -68,14 +68,12 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-export declare function useResetClaimConditions<
-  TContract extends NFTContract | Erc20,
->(
+declare function useResetClaimConditions<TContract extends NFTContract | Erc20>(
   ...[contract, tokenId]: ClaimConditionsInputParams<TContract>
-): import("@tanstack/react-query").UseMutationResult<
+): _tanstack_react_query.UseMutationResult<
   | Omit<
       {
-        receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+        receipt: _ethersproject_abstract_provider.TransactionReceipt;
         data: () => Promise<unknown>;
       },
       "data"
@@ -95,6 +93,6 @@ export declare function useResetClaimConditions<
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt; \| undefined, unknown, void, unknown&gt;
+\_tanstack_react_query.UseMutationResult&lt;Omit&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt; \| undefined, unknown, void, unknown&gt;
 
 a mutation object that can be used to reset claim conditions

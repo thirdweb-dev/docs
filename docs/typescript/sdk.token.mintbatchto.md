@@ -37,13 +37,13 @@ mintBatchTo(args: TokenMintInput[]): Promise<TransactionResult>;
 
 ## Parameters
 
-| Parameter | Type                                          | Description |
-| --------- | --------------------------------------------- | ----------- |
-| args      | [TokenMintInput](./sdk.tokenmintinput.md)\[\] |             |
+| Parameter | Type               | Description |
+| --------- | ------------------ | ----------- |
+| args      | TokenMintInput\[\] |             |
 
 **Returns:**
 
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+Promise&lt;TransactionResult&gt;
 
 ## Remarks
 

@@ -19,10 +19,10 @@ updateListing(listing: AuctionListing): Promise<TransactionResult>;
 
 ## Parameters
 
-| Parameter | Type                                      | Description              |
-| --------- | ----------------------------------------- | ------------------------ |
-| listing   | [AuctionListing](./sdk.auctionlisting.md) | the listing id to update |
+| Parameter | Type           | Description              |
+| --------- | -------------- | ------------------------ |
+| listing   | AuctionListing | the listing id to update |
 
 **Returns:**
 
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+Promise&lt;TransactionResult&gt;

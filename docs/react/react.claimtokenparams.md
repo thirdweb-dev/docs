@@ -12,11 +12,9 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export declare type ClaimTokenParams = {
+declare type ClaimTokenParams = {
   to: WalletAddress;
   amount: Amount;
   checkERC20Allowance?: boolean;
 };
 ```
-
-**References:** [WalletAddress](./react.walletaddress.md)

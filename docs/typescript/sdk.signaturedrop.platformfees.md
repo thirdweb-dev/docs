@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-platformFees: ContractPlatformFee<SignatureDropContract>;
+platformFees: ContractPlatformFee<SignatureDrop$1>;
 ```

@@ -19,13 +19,13 @@ mintBatch(signedPayloads: SignedPayload721WithQuantitySignature[]): Promise<Tran
 
 ## Parameters
 
-| Parameter      | Type                                                                                        | Description                          |
-| -------------- | ------------------------------------------------------------------------------------------- | ------------------------------------ |
-| signedPayloads | [SignedPayload721WithQuantitySignature](./sdk.signedpayload721withquantitysignature.md)\[\] | the array of signed payloads to mint |
+| Parameter      | Type                                      | Description                          |
+| -------------- | ----------------------------------------- | ------------------------------------ |
+| signedPayloads | SignedPayload721WithQuantitySignature\[\] | the array of signed payloads to mint |
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)\[\]&gt;
+Promise&lt;TransactionResultWithId\[\]&gt;
 
 ## Remarks
 

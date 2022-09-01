@@ -29,11 +29,11 @@ setAllowance(spender: string, amount: Amount): Promise<TransactionResult>;
 
 ## Parameters
 
-| Parameter | Type                      | Description |
-| --------- | ------------------------- | ----------- |
-| spender   | string                    |             |
-| amount    | [Amount](./sdk.amount.md) |             |
+| Parameter | Type   | Description |
+| --------- | ------ | ----------- |
+| spender   | string |             |
+| amount    | Amount |             |
 
 **Returns:**
 
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+Promise&lt;TransactionResult&gt;

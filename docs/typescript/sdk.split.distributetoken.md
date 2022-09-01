@@ -33,7 +33,7 @@ distributeToken(tokenAddress: string): Promise<TransactionResult>;
 
 **Returns:**
 
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+Promise&lt;TransactionResult&gt;
 
 ## Remarks
 

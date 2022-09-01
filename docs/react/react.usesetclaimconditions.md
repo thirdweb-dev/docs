@@ -68,14 +68,12 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-export declare function useSetClaimConditions<
-  TContract extends NFTContract | Erc20,
->(
+declare function useSetClaimConditions<TContract extends NFTContract | Erc20>(
   ...[contract, tokenId]: ClaimConditionsInputParams<TContract>
-): import("@tanstack/react-query").UseMutationResult<
+): _tanstack_react_query.UseMutationResult<
   | Omit<
       {
-        receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+        receipt: _ethersproject_abstract_provider.TransactionReceipt;
         data: () => Promise<unknown>;
       },
       "data"
@@ -95,6 +93,6 @@ export declare function useSetClaimConditions<
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt; \| undefined, unknown, [SetClaimConditionsParams](./react.setclaimconditionsparams.md), unknown&gt;
+\_tanstack_react_query.UseMutationResult&lt;Omit&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt; \| undefined, unknown, SetClaimConditionsParams, unknown&gt;
 
 a mutation object that can be used to set claim conditions

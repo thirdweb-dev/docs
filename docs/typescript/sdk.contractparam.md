@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type ContractParam = z.infer<typeof AbiTypeSchema>;
+declare type ContractParam = z.infer<typeof AbiTypeSchema>;
 ```

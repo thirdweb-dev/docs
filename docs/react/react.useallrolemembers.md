@@ -22,9 +22,9 @@ const { data: roles, isLoading, error } = useAllRoleMembers(SmartContract);
 **Signature:**
 
 ```typescript
-export declare function useAllRoleMembers<TContract extends ContractWithRoles>(
+declare function useAllRoleMembers<TContract extends ContractWithRoles>(
   contract: RequiredParam<TContract>,
-): import("@tanstack/react-query").UseQueryResult<
+): _tanstack_react_query.UseQueryResult<
   Awaited<Record<RolesForContract<TContract>, string[]>>,
   unknown
 >;
@@ -32,12 +32,12 @@ export declare function useAllRoleMembers<TContract extends ContractWithRoles>(
 
 ## Parameters
 
-| Parameter | Type                                                       | Description      |
-| --------- | ---------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a |
+| Parameter | Type                           | Description      |
+| --------- | ------------------------------ | ---------------- |
+| contract  | RequiredParam&lt;TContract&gt; | an instance of a |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;Awaited&lt;Record&lt;RolesForContract&lt;TContract&gt;, string\[\]&gt;&gt;, unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;Awaited&lt;Record&lt;RolesForContract&lt;TContract&gt;, string\[\]&gt;&gt;, unknown&gt;
 
 a list of addresses for all supported roles on the contract.

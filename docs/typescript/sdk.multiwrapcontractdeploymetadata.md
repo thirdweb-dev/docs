@@ -14,7 +14,7 @@ Options for deploying an Multiwrap contract
 **Signature:**
 
 ```typescript
-export interface MultiwrapContractDeployMetadata
+interface MultiwrapContractDeployMetadata
 ```
 
 ## Properties

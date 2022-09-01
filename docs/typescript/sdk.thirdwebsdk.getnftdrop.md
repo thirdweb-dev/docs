@@ -25,6 +25,6 @@ getNFTDrop(contractAddress: string): NFTDrop;
 
 **Returns:**
 
-[NFTDrop](./sdk.nftdrop.md)
+NFTDrop
 
 the contract

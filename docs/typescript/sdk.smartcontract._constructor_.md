@@ -21,11 +21,11 @@ constructor(network: NetworkOrSignerOrProvider, address: string, abi: ContractIn
 
 ## Parameters
 
-| Parameter       | Type                                                            | Description       |
-| --------------- | --------------------------------------------------------------- | ----------------- |
-| network         | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) |                   |
-| address         | string                                                          |                   |
-| abi             | ContractInterface                                               |                   |
-| storage         | IStorage                                                        |                   |
-| options         | [SDKOptions](./sdk.sdkoptions.md)                               | <i>(Optional)</i> |
-| contractWrapper | ContractWrapper&lt;TContract&gt;                                | <i>(Optional)</i> |
+| Parameter       | Type                             | Description       |
+| --------------- | -------------------------------- | ----------------- |
+| network         | NetworkOrSignerOrProvider        |                   |
+| address         | string                           |                   |
+| abi             | ContractInterface                |                   |
+| storage         | IStorage                         |                   |
+| options         | SDKOptions                       | <i>(Optional)</i> |
+| contractWrapper | ContractWrapper&lt;TContract&gt; | <i>(Optional)</i> |

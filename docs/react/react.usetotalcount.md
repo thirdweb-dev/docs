@@ -30,20 +30,20 @@ const { data: totalCount, isLoading, error } = useTotalCount(contract?.nft);
 **Signature:**
 
 ```typescript
-export declare function useTotalCount(
+declare function useTotalCount(
   contract: RequiredParam<NFTContract>,
-): import("@tanstack/react-query").UseQueryResult<BigNumber, unknown>;
+): _tanstack_react_query.UseQueryResult<BigNumber, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                                                   | Description                                            |
-| --------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;[NFTContract](./react.nftcontract.md)&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
+| Parameter | Type                             | Description                                            |
+| --------- | -------------------------------- | ------------------------------------------------------ |
+| contract  | RequiredParam&lt;NFTContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;BigNumber, unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;BigNumber, unknown&gt;
 
 a response object that incudes the total number of tokens in the contract
 

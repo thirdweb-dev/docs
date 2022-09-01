@@ -12,22 +12,19 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export declare function useUnclaimedNFTSupply(
+declare function useUnclaimedNFTSupply(
   contract: RequiredParam<NFTDrop | SignatureDrop>,
-): import("@tanstack/react-query").UseQueryResult<
-  import("ethers").BigNumber,
-  unknown
->;
+): _tanstack_react_query.UseQueryResult<ethers.BigNumber, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                                          | Description      |
-| --------- | ----------------------------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;NFTDrop &#124; SignatureDrop&gt; | an instance of a |
+| Parameter | Type                                              | Description      |
+| --------- | ------------------------------------------------- | ---------------- |
+| contract  | RequiredParam&lt;NFTDrop &#124; SignatureDrop&gt; | an instance of a |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;import("ethers").BigNumber, unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;ethers.BigNumber, unknown&gt;
 
 a response object that includes the number of NFTs that are unclaimed

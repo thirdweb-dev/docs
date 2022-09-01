@@ -14,7 +14,7 @@ Estimates the gas cost of Contract calls
 **Signature:**
 
 ```typescript
-export declare class GasCostEstimator<TContract extends BaseContract>
+declare class GasCostEstimator<TContract extends BaseContract>
 ```
 
 ## Constructors

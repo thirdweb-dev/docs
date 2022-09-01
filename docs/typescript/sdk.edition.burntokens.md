@@ -32,4 +32,4 @@ burnTokens(tokenId: BigNumberish, amount: BigNumberish): Promise<TransactionResu
 
 **Returns:**
 
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+Promise&lt;TransactionResult&gt;

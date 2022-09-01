@@ -22,12 +22,12 @@ const { data: totalSupply, isLoading, error } = useTokenSupply(<YourTokenContrac
 **Signature:**
 
 ```typescript
-export declare function useTokenSupply(
+declare function useTokenSupply(
   contract: RequiredParam<Erc20>,
-): import("@tanstack/react-query").UseQueryResult<
+): _tanstack_react_query.UseQueryResult<
   {
     symbol: string;
-    value: import("ethers").BigNumber;
+    value: ethers.BigNumber;
     name: string;
     decimals: number;
     displayValue: string;
@@ -38,12 +38,12 @@ export declare function useTokenSupply(
 
 ## Parameters
 
-| Parameter | Type                                                   | Description                      |
-| --------- | ------------------------------------------------------ | -------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instance of a Token contract. |
+| Parameter | Type                       | Description                      |
+| --------- | -------------------------- | -------------------------------- |
+| contract  | RequiredParam&lt;Erc20&gt; | an instance of a Token contract. |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }, unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;{ symbol: string; value: ethers.BigNumber; name: string; decimals: number; displayValue: string; }, unknown&gt;
 
 a response object that incudes the total minted supply

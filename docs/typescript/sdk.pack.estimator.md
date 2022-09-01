@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-estimator: GasCostEstimator<PackContract>;
+estimator: GasCostEstimator<Pack$1>;
 ```

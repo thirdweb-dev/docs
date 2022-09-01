@@ -36,9 +36,9 @@ use `useContract()` instead
 **Signature:**
 
 ```typescript
-export declare function useToken(
+declare function useToken(
   contractAddress?: string,
-): import("@thirdweb-dev/sdk").Token | undefined;
+): _thirdweb_dev_sdk.Token | undefined;
 ```
 
 ## Parameters
@@ -49,4 +49,4 @@ export declare function useToken(
 
 **Returns:**
 
-import("@thirdweb-dev/sdk").Token \| undefined
+\_thirdweb_dev_sdk.Token \| undefined

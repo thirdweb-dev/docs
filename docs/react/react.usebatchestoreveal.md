@@ -12,22 +12,22 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export declare function useBatchesToReveal<TContract extends NFTContract>(
+declare function useBatchesToReveal<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
-): import("@tanstack/react-query").UseQueryResult<
-  import("@thirdweb-dev/sdk").BatchToReveal[],
+): _tanstack_react_query.UseQueryResult<
+  _thirdweb_dev_sdk.BatchToReveal[],
   unknown
 >;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                       | Description                                            |
-| --------- | ---------------------------------------------------------- | ------------------------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
+| Parameter | Type                           | Description                                            |
+| --------- | ------------------------------ | ------------------------------------------------------ |
+| contract  | RequiredParam&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk").BatchToReveal\[\], unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;\_thirdweb_dev_sdk.BatchToReveal\[\], unknown&gt;
 
 a response object that gets the batches to still be revealed

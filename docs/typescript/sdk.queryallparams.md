@@ -14,7 +14,7 @@ Pagination Parameters
 **Signature:**
 
 ```typescript
-export interface QueryAllParams
+interface QueryAllParams
 ```
 
 ## Properties

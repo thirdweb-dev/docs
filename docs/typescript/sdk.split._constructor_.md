@@ -14,15 +14,15 @@ Constructs a new instance of the `Split` class
 **Signature:**
 
 ```typescript
-constructor(network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: SDKOptions, contractWrapper?: ContractWrapper<SplitContract>);
+constructor(network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: SDKOptions, contractWrapper?: ContractWrapper<Split$1>);
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                            | Description       |
-| --------------- | --------------------------------------------------------------- | ----------------- |
-| network         | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) |                   |
-| address         | string                                                          |                   |
-| storage         | IStorage                                                        |                   |
-| options         | [SDKOptions](./sdk.sdkoptions.md)                               | <i>(Optional)</i> |
-| contractWrapper | ContractWrapper&lt;SplitContract&gt;                            | <i>(Optional)</i> |
+| Parameter       | Type                           | Description       |
+| --------------- | ------------------------------ | ----------------- |
+| network         | NetworkOrSignerOrProvider      |                   |
+| address         | string                         |                   |
+| storage         | IStorage                       |                   |
+| options         | SDKOptions                     | <i>(Optional)</i> |
+| contractWrapper | ContractWrapper&lt;Split$1&gt; | <i>(Optional)</i> |

@@ -22,25 +22,24 @@ const { data: listing, isLoading, error } = useListing(<YourMarketplaceContractI
 **Signature:**
 
 ```typescript
-export declare function useListing(
+declare function useListing(
   contract: RequiredParam<Marketplace>,
   listingId: RequiredParam<BigNumberish>,
-): import("@tanstack/react-query").UseQueryResult<
-  | import("@thirdweb-dev/sdk").AuctionListing
-  | import("@thirdweb-dev/sdk").DirectListing,
+): _tanstack_react_query.UseQueryResult<
+  _thirdweb_dev_sdk.AuctionListing | _thirdweb_dev_sdk.DirectListing,
   unknown
 >;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                          | Description                           |
-| --------- | ------------------------------------------------------------- | ------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt;  | an instance of a marketplace contract |
-| listingId | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt; | the listing id to check               |
+| Parameter | Type                              | Description                           |
+| --------- | --------------------------------- | ------------------------------------- |
+| contract  | RequiredParam&lt;Marketplace&gt;  | an instance of a marketplace contract |
+| listingId | RequiredParam&lt;BigNumberish&gt; | the listing id to check               |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk").AuctionListing \| import("@thirdweb-dev/sdk").DirectListing, unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;\_thirdweb_dev_sdk.AuctionListing \| \_thirdweb_dev_sdk.DirectListing, unknown&gt;
 
 a response object that includes an array of listings

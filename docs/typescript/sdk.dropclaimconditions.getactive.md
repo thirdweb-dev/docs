@@ -19,6 +19,6 @@ getActive(): Promise<ClaimCondition>;
 
 **Returns:**
 
-Promise&lt;[ClaimCondition](./sdk.claimcondition.md)&gt;
+Promise&lt;ClaimCondition&gt;
 
 the claim condition metadata

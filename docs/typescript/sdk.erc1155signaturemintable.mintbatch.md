@@ -19,13 +19,13 @@ mintBatch(signedPayloads: SignedPayload1155[]): Promise<TransactionResultWithId[
 
 ## Parameters
 
-| Parameter      | Type                                                | Description                          |
-| -------------- | --------------------------------------------------- | ------------------------------------ |
-| signedPayloads | [SignedPayload1155](./sdk.signedpayload1155.md)\[\] | the array of signed payloads to mint |
+| Parameter      | Type                  | Description                          |
+| -------------- | --------------------- | ------------------------------------ |
+| signedPayloads | SignedPayload1155\[\] | the array of signed payloads to mint |
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)\[\]&gt;
+Promise&lt;TransactionResultWithId\[\]&gt;
 
 ## Remarks
 

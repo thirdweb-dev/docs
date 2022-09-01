@@ -23,7 +23,10 @@ import { Web3Button } from "@thirdweb-dev/react";
 const App = () => {
   return (
     <div>
-      <Web3Button contractAddress="0x..." functionName="mint" />
+      <Web3Button
+        contractAddress="0x..."
+        action={(contract) => contract.erc721.transfer("0x...", 1)}
+      />
     </div>
   );
 };
@@ -32,7 +35,7 @@ const App = () => {
 **Signature:**
 
 ```typescript
-Web3Button: <TExecutableFn extends ExecutableFn>({
+Web3Button: <TAction extends ActionFn>({
   contractAddress,
   overrides,
   onSuccess,
@@ -40,9 +43,7 @@ Web3Button: <TExecutableFn extends ExecutableFn>({
   onSubmit,
   isDisabled,
   children,
-  functionName,
-  params,
   action,
   ...themeProps
-}: PropsWithChildren<Web3ButtonProps<TExecutableFn>>) => JSX.Element;
+}: PropsWithChildren<Web3ButtonProps<TAction>>) => JSX.Element;
 ```

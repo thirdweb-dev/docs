@@ -21,5 +21,5 @@ constructor(erc20: Erc20, contractWrapper: ContractWrapper<IMintableERC20>);
 
 | Parameter       | Type                                  | Description |
 | --------------- | ------------------------------------- | ----------- |
-| erc20           | [Erc20](./sdk.erc20.md)               |             |
+| erc20           | Erc20                                 |             |
 | contractWrapper | ContractWrapper&lt;IMintableERC20&gt; |             |

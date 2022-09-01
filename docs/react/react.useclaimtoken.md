@@ -41,12 +41,12 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-export declare function useClaimToken<TContract extends TokenDrop>(
+declare function useClaimToken<TContract extends TokenDrop>(
   contract: RequiredParam<TContract>,
-): import("@tanstack/react-query").UseMutationResult<
+): _tanstack_react_query.UseMutationResult<
   Omit<
     {
-      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+      receipt: _ethersproject_abstract_provider.TransactionReceipt;
       data: () => Promise<unknown>;
     },
     "data"
@@ -59,12 +59,12 @@ export declare function useClaimToken<TContract extends TokenDrop>(
 
 ## Parameters
 
-| Parameter | Type                                                       | Description      |
-| --------- | ---------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a |
+| Parameter | Type                           | Description      |
+| --------- | ------------------------------ | ---------------- |
+| contract  | RequiredParam&lt;TContract&gt; | an instance of a |
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [ClaimTokenParams](./react.claimtokenparams.md), unknown&gt;
+\_tanstack_react_query.UseMutationResult&lt;Omit&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, ClaimTokenParams, unknown&gt;
 
 a mutation object that can be used to tokens to the wallet specificed in the params

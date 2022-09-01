@@ -25,7 +25,7 @@ totalSupply(): Promise<CurrencyValue>;
 
 **Returns:**
 
-Promise&lt;[CurrencyValue](./sdk.currencyvalue.md)&gt;
+Promise&lt;CurrencyValue&gt;
 
 ## Remarks
 

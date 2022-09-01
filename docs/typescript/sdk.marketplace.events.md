@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-events: ContractEvents<MarketplaceContract>;
+events: ContractEvents<Marketplace$1>;
 ```

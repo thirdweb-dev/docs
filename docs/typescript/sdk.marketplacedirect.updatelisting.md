@@ -21,10 +21,10 @@ updateListing(listing: DirectListing): Promise<TransactionResult>;
 
 ## Parameters
 
-| Parameter | Type                                    | Description                 |
-| --------- | --------------------------------------- | --------------------------- |
-| listing   | [DirectListing](./sdk.directlisting.md) | the new listing information |
+| Parameter | Type          | Description                 |
+| --------- | ------------- | --------------------------- |
+| listing   | DirectListing | the new listing information |
 
 **Returns:**
 
-Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+Promise&lt;TransactionResult&gt;

@@ -30,19 +30,19 @@ const { data: ownerBalance, isLoading, error } = useNFTBalance(contract?.nft, <O
 **Signature:**
 
 ```typescript
-export declare function useNFTBalance<TContract extends NFTContract>(
+declare function useNFTBalance<TContract extends NFTContract>(
   ...[contract, ownerWalletAddress, tokenId]: useNFTBalanceParams<TContract>
-): import("@tanstack/react-query").UseQueryResult<BigNumber, unknown>;
+): _tanstack_react_query.UseQueryResult<BigNumber, unknown>;
 ```
 
 ## Parameters
 
-| Parameter                                 | Type                                                                   | Description |
-| ----------------------------------------- | ---------------------------------------------------------------------- | ----------- |
-| \[contract, ownerWalletAddress, tokenId\] | [useNFTBalanceParams](./react.usenftbalanceparams.md)&lt;TContract&gt; |             |
+| Parameter                                 | Type                                 | Description |
+| ----------------------------------------- | ------------------------------------ | ----------- |
+| \[contract, ownerWalletAddress, tokenId\] | useNFTBalanceParams&lt;TContract&gt; |             |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;BigNumber, unknown&gt;
+\_tanstack_react_query.UseQueryResult&lt;BigNumber, unknown&gt;
 
 a response object that includes the total balance of the owner

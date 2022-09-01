@@ -14,7 +14,7 @@ Options for deploying a Vote contract
 **Signature:**
 
 ```typescript
-export interface VoteContractDeployMetadata
+interface VoteContractDeployMetadata
 ```
 
 ## Properties
