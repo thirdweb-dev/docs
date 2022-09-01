@@ -4,6 +4,7 @@ import featureJsonData from "../../docs/feature_snippets.json";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import { CodeSnippet, Language } from '@devbookhq/react'
 
 export default function ThirdwebCodeSnippet({
   contract,
@@ -15,11 +16,11 @@ export default function ThirdwebCodeSnippet({
   languages = {},
 }) {
   const languagesToShow = {
-    react: true,
+    // react: true,
     javascript: true,
-    python: true,
-    go: true,
-    ...languages
+    // python: true,
+    // go: true,
+    // ...languages
   };
 
   if (!contract || !name) {
@@ -58,7 +59,11 @@ export default function ThirdwebCodeSnippet({
     codeObjectToUse = propertyOrMethodFallback;
   }
 
-  const { examples, reference: references } = codeObjectToUse;
+  const {
+    examples,
+    reference: references,
+    codeSnippet,
+  } = codeObjectToUse;
 
   const languageToHighlightMapping = {
     javascript: "typescript",
@@ -69,7 +74,7 @@ export default function ThirdwebCodeSnippet({
 
   return (
     <>
-      <Tabs groupId={groupId} defaultValue={"react"}>
+      <Tabs groupId={groupId} defaultValue={"javascript"}>
         {Object.entries(languagesToShow).map(([language, alwaysShow]) => {
           const example = examples[language];
           const reference = references[language];
@@ -114,11 +119,42 @@ export default function ThirdwebCodeSnippet({
             );
           }
 
+          let codeSnippetID: string | undefined;
+          let connectCodeSnippetIDs: string[] | undefined;
+
+          if (isGetContractCode && contractObject.codeSnippet) {
+            codeSnippetID = contractObject.codeSnippet[language];
+          } else if (!isGetContractCode && codeSnippet) {
+            codeSnippetID = codeSnippet[language];
+            if (contractObject.codeSnippet) {
+              const contractCodeSnippetID = contractObject.codeSnippet[language];
+              if (contractCodeSnippetID) {
+                connectCodeSnippetIDs = [contractCodeSnippetID];
+              }
+            }
+          }
+
+          let fallbackLanguage: Language;
+
+          if (languageName === "javascript") {
+            fallbackLanguage = "Typescript";
+          } else if (languageName === "go") {
+            fallbackLanguage = "Go";
+          } else if (languageName === 'react') {
+            fallbackLanguage = "Typescript";
+          } else if (languageName === 'python') {
+            fallbackLanguage = "Python3";
+          }
+
           return (
             <TabItem key={language} value={language} label={languageName}>
-              <CodeBlock language={languageToHighlightMapping[language]}>
-                {example}
-              </CodeBlock>
+              <CodeSnippet
+                id={codeSnippetID}
+                connectIDs={connectCodeSnippetIDs}
+                isEditable={!!codeSnippetID}
+                fallbackContent={example}
+                fallbackLanguage={fallbackLanguage}
+              />
 
               {reference && (
                 <a
