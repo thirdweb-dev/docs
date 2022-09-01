@@ -16,7 +16,7 @@ Hook to logout the connected wallet from the backend. The backend logout URL mus
 **Signature:**
 
 ```typescript
-declare function useLogout(): () => void;
+export declare function useLogout(): () => void;
 ```
 
 **Returns:**

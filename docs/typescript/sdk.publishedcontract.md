@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type PublishedContract = z.infer<typeof PublishedContractSchema>;
+export declare type PublishedContract = z.infer<typeof PublishedContractSchema>;
 ```

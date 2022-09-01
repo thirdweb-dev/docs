@@ -14,7 +14,7 @@ Options for deploying a Marketplace contract
 **Signature:**
 
 ```typescript
-interface MarketplaceContractDeployMetadata
+export interface MarketplaceContractDeployMetadata
 ```
 
 ## Properties

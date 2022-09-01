@@ -38,12 +38,12 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-declare function useBurnToken(
+export declare function useBurnToken(
   contract: RequiredParam<Erc20>,
-): _tanstack_react_query.UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
-      receipt: _ethersproject_abstract_provider.TransactionReceipt;
+      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
       data: () => Promise<unknown>;
     },
     "data"
@@ -56,12 +56,12 @@ declare function useBurnToken(
 
 ## Parameters
 
-| Parameter | Type                       | Description                                                                                                            |
-| --------- | -------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
-| contract  | RequiredParam&lt;Erc20&gt; | an instance of a contract that extends the ERC20 spec (token, token drop, custom contract that follows the ERC20 spec) |
+| Parameter | Type                                                   | Description                                                                                                            |
+| --------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instance of a contract that extends the ERC20 spec (token, token drop, custom contract that follows the ERC20 spec) |
 
 **Returns:**
 
-\_tanstack_react_query.UseMutationResult&lt;Omit&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, TokenBurnParams, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [TokenBurnParams](./react.tokenburnparams.md), unknown&gt;
 
 a mutation object that can be used to burn tokens from the connected wallet

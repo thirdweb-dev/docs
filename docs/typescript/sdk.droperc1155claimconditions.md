@@ -14,7 +14,7 @@ Manages claim conditions for Edition Drop contracts
 **Signature:**
 
 ```typescript
-declare class DropErc1155ClaimConditions<TContract extends DropERC1155 | BaseClaimConditionERC1155>
+export declare class DropErc1155ClaimConditions<TContract extends DropERC1155 | BaseClaimConditionERC1155>
 ```
 
 ## Constructors

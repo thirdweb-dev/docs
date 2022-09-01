@@ -29,7 +29,7 @@ contract.royalties.setTokenRoyaltyInfo(packId, {
 **Signature:**
 
 ```typescript
-royalties: ContractRoyalty<Pack$1, typeof Pack.schema>;
+royalties: ContractRoyalty<PackContract, typeof Pack.schema>;
 ```
 
 ## Remarks

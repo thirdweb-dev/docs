@@ -21,8 +21,8 @@ constructor(network: NetworkOrSignerOrProvider, wallet: UserWallet, options: SDK
 
 ## Parameters
 
-| Parameter | Type                      | Description |
-| --------- | ------------------------- | ----------- |
-| network   | NetworkOrSignerOrProvider |             |
-| wallet    | UserWallet                |             |
-| options   | SDKOptions                |             |
+| Parameter | Type                                                            | Description |
+| --------- | --------------------------------------------------------------- | ----------- |
+| network   | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) |             |
+| wallet    | [UserWallet](./sdk.userwallet.md)                               |             |
+| options   | [SDKOptions](./sdk.sdkoptions.md)                               |             |

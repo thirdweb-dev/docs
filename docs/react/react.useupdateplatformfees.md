@@ -48,12 +48,12 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-declare function useUpdatePlatformFees(
+export declare function useUpdatePlatformFees(
   contract: RequiredParam<SmartContract | ValidContractInstance>,
-): _tanstack_react_query.UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
-      receipt: _ethersproject_abstract_provider.TransactionReceipt;
+      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
       data: () => Promise<unknown>;
     },
     "data"
@@ -69,12 +69,12 @@ declare function useUpdatePlatformFees(
 
 ## Parameters
 
-| Parameter | Type                                                            | Description      |
-| --------- | --------------------------------------------------------------- | ---------------- |
-| contract  | RequiredParam&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
+| Parameter | Type                                                                                        | Description      |
+| --------- | ------------------------------------------------------------------------------------------- | ---------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
 
 **Returns:**
 
-\_tanstack_react_query.UseMutationResult&lt;Omit&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, { platform_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, { platform_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; }, unknown&gt;
 
 a mutation object that can be used to update the platform fees settings

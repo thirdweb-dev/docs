@@ -37,9 +37,9 @@ transferBatch(args: TokenMintInput[]): Promise<void>;
 
 ## Parameters
 
-| Parameter | Type               | Description |
-| --------- | ------------------ | ----------- |
-| args      | TokenMintInput\[\] |             |
+| Parameter | Type                                          | Description |
+| --------- | --------------------------------------------- | ----------- |
+| args      | [TokenMintInput](./sdk.tokenmintinput.md)\[\] |             |
 
 **Returns:**
 

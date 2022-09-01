@@ -26,4 +26,4 @@ mintAdditionalSupply(tokenId: BigNumberish, additionalSupply: BigNumberish): Pro
 
 **Returns:**
 
-Promise&lt;TransactionResultWithId&lt;EditionMetadata&gt;&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;&gt;

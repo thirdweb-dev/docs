@@ -12,7 +12,7 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-interface ThirdwebAuthUser
+export interface ThirdwebAuthUser
 ```
 
 ## Properties

@@ -32,7 +32,7 @@ const App = () => {
 **Signature:**
 
 ```typescript
-declare function useChainId(): number | undefined;
+export declare function useChainId(): number | undefined;
 ```
 
 **Returns:**

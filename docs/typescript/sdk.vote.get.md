@@ -25,6 +25,6 @@ get(proposalId: BigNumberish): Promise<Proposal>;
 
 **Returns:**
 
-Promise&lt;Proposal&gt;
+Promise&lt;[Proposal](./sdk.proposal.md)&gt;
 
 - The proposal.

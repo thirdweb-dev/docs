@@ -25,4 +25,4 @@ set(platformFeeInfo: z.input<typeof CommonPlatformFeeSchema>): Promise<Transacti
 
 **Returns:**
 
-Promise&lt;TransactionResult&gt;
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;

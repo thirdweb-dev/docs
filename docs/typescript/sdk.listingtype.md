@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare enum ListingType
+export declare enum ListingType
 ```
 
 ## Enumeration Members

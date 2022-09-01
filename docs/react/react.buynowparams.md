@@ -12,7 +12,7 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-declare type BuyNowParams<TListingType = ListingType> =
+export declare type BuyNowParams<TListingType = ListingType> =
   TListingType extends ListingType.Direct
     ? {
         id: BigNumberish;
@@ -25,3 +25,5 @@ declare type BuyNowParams<TListingType = ListingType> =
         type: ListingType.Auction;
       };
 ```
+
+**References:** [WalletAddress](./react.walletaddress.md)

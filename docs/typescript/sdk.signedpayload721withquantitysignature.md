@@ -12,8 +12,10 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type SignedPayload721WithQuantitySignature = {
+export declare type SignedPayload721WithQuantitySignature = {
   payload: PayloadWithUri721withQuantity;
   signature: string;
 };
 ```
+
+**References:** [PayloadWithUri721withQuantity](./sdk.payloadwithuri721withquantity.md)

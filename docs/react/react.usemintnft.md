@@ -68,9 +68,9 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-declare function useMintNFT<TContract extends NFTContract>(
+export declare function useMintNFT<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
-): _tanstack_react_query.UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   MintNFTReturnType<TContract>,
   unknown,
   MintNFTParams<TContract>,
@@ -80,12 +80,12 @@ declare function useMintNFT<TContract extends NFTContract>(
 
 ## Parameters
 
-| Parameter | Type                           | Description                                            |
-| --------- | ------------------------------ | ------------------------------------------------------ |
-| contract  | RequiredParam&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
+| Parameter | Type                                                       | Description                                            |
+| --------- | ---------------------------------------------------------- | ------------------------------------------------------ |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
 
 **Returns:**
 
-\_tanstack_react_query.UseMutationResult&lt;MintNFTReturnType&lt;TContract&gt;, unknown, MintNFTParams&lt;TContract&gt;, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;[MintNFTReturnType](./react.mintnftreturntype.md)&lt;TContract&gt;, unknown, [MintNFTParams](./react.mintnftparams.md)&lt;TContract&gt;, unknown&gt;
 
 a mutation object that can be used to mint a new NFT token to the connected wallet

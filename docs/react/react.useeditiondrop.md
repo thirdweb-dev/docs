@@ -35,9 +35,9 @@ use `useContract()` instead
 **Signature:**
 
 ```typescript
-declare function useEditionDrop(
+export declare function useEditionDrop(
   contractAddress?: string,
-): _thirdweb_dev_sdk.EditionDrop | undefined;
+): import("@thirdweb-dev/sdk").EditionDrop | undefined;
 ```
 
 ## Parameters
@@ -48,4 +48,4 @@ declare function useEditionDrop(
 
 **Returns:**
 
-\_thirdweb_dev_sdk.EditionDrop \| undefined
+import("@thirdweb-dev/sdk").EditionDrop \| undefined

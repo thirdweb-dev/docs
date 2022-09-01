@@ -38,7 +38,7 @@ transfer(to: string, tokenId: BigNumberish, amount: BigNumberish, data?: BytesLi
 
 **Returns:**
 
-Promise&lt;TransactionResult&gt;
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 
 ## Remarks
 

@@ -14,5 +14,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-metadata: ContractMetadata<Multiwrap$1, typeof Multiwrap.schema>;
+metadata: ContractMetadata<MultiwrapContract, typeof Multiwrap.schema>;
 ```

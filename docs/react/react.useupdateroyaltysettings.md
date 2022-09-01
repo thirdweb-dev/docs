@@ -48,11 +48,11 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-declare function useUpdateRoyaltySettings(
+export declare function useUpdateRoyaltySettings(
   contract: RequiredParam<SmartContract | ValidContractInstance>,
-): _tanstack_react_query.UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   {
-    receipt: _ethersproject_abstract_provider.TransactionReceipt;
+    receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
     data: () => Promise<{
       seller_fee_basis_points: number;
       fee_recipient: string;
@@ -69,12 +69,12 @@ declare function useUpdateRoyaltySettings(
 
 ## Parameters
 
-| Parameter | Type                                                            | Description      |
-| --------- | --------------------------------------------------------------- | ---------------- |
-| contract  | RequiredParam&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
+| Parameter | Type                                                                                        | Description      |
+| --------- | ------------------------------------------------------------------------------------------- | ---------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
 
 **Returns:**
 
-\_tanstack_react_query.UseMutationResult&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;{ seller_fee_basis_points: number; fee_recipient: string; }&gt;; }, unknown, { seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;{ seller_fee_basis_points: number; fee_recipient: string; }&gt;; }, unknown, { seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; }, unknown&gt;
 
 a mutation object that can be used to update the royalty settings

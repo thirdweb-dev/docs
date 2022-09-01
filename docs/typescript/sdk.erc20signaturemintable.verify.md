@@ -19,9 +19,9 @@ verify(signedPayload: SignedPayload20): Promise<boolean>;
 
 ## Parameters
 
-| Parameter     | Type            | Description           |
-| ------------- | --------------- | --------------------- |
-| signedPayload | SignedPayload20 | the payload to verify |
+| Parameter     | Type                                        | Description           |
+| ------------- | ------------------------------------------- | --------------------- |
+| signedPayload | [SignedPayload20](./sdk.signedpayload20.md) | the payload to verify |
 
 **Returns:**
 

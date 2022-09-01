@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type PreDeployMetadataFetched = z.infer<
+export declare type PreDeployMetadataFetched = z.infer<
   typeof PreDeployMetadataFetchedSchema
 >;
 ```

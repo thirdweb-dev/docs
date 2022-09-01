@@ -19,9 +19,9 @@ onNetworkUpdated(network: NetworkOrSignerOrProvider): void;
 
 ## Parameters
 
-| Parameter | Type                      | Description |
-| --------- | ------------------------- | ----------- |
-| network   | NetworkOrSignerOrProvider |             |
+| Parameter | Type                                                            | Description |
+| --------- | --------------------------------------------------------------- | ----------- |
+| network   | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) |             |
 
 **Returns:**
 

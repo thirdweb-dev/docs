@@ -16,5 +16,5 @@ A contract address.
 **Signature:**
 
 ```typescript
-declare type ContractAddress = string;
+export declare type ContractAddress = string;
 ```

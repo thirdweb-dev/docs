@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-sales: ContractPrimarySale<SignatureDrop$1>;
+sales: ContractPrimarySale<SignatureDropContract>;
 ```

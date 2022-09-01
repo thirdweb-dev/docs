@@ -37,9 +37,9 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-declare function useClaimNFT<TContract extends DropContract>(
+export declare function useClaimNFT<TContract extends DropContract>(
   contract: RequiredParam<TContract>,
-): _tanstack_react_query.UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   ClaimNFTReturnType<TContract>,
   unknown,
   ClaimNFTParams<TContract>,
@@ -49,12 +49,12 @@ declare function useClaimNFT<TContract extends DropContract>(
 
 ## Parameters
 
-| Parameter | Type                           | Description                                              |
-| --------- | ------------------------------ | -------------------------------------------------------- |
-| contract  | RequiredParam&lt;TContract&gt; | an instance of a [DropContract](./react.dropcontract.md) |
+| Parameter | Type                                                       | Description                                              |
+| --------- | ---------------------------------------------------------- | -------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [DropContract](./react.dropcontract.md) |
 
 **Returns:**
 
-\_tanstack_react_query.UseMutationResult&lt;ClaimNFTReturnType&lt;TContract&gt;, unknown, ClaimNFTParams&lt;TContract&gt;, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;[ClaimNFTReturnType](./react.claimnftreturntype.md)&lt;TContract&gt;, unknown, [ClaimNFTParams](./react.claimnftparams.md)&lt;TContract&gt;, unknown&gt;
 
 a mutation object that can be used to claim a NFT to the wallet specificed in the params

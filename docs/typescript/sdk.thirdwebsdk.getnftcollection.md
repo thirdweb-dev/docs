@@ -25,6 +25,6 @@ getNFTCollection(address: string): NFTCollection;
 
 **Returns:**
 
-NFTCollection
+[NFTCollection](./sdk.nftcollection.md)
 
 the contract

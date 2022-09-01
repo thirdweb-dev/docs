@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-encoder: ContractEncoder<SignatureDrop$1>;
+encoder: ContractEncoder<SignatureDropContract>;
 ```

@@ -28,13 +28,13 @@ burnTokens(amount: Amount): Promise<TransactionResult>;
 
 ## Parameters
 
-| Parameter | Type   | Description |
-| --------- | ------ | ----------- |
-| amount    | Amount |             |
+| Parameter | Type                      | Description |
+| --------- | ------------------------- | ----------- |
+| amount    | [Amount](./sdk.amount.md) |             |
 
 **Returns:**
 
-Promise&lt;TransactionResult&gt;
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 
 ## Remarks
 

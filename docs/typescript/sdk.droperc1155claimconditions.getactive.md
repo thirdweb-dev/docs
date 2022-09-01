@@ -25,6 +25,6 @@ getActive(tokenId: BigNumberish): Promise<ClaimCondition>;
 
 **Returns:**
 
-Promise&lt;ClaimCondition&gt;
+Promise&lt;[ClaimCondition](./sdk.claimcondition.md)&gt;
 
 the claim condition metadata

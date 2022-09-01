@@ -19,7 +19,7 @@ constructor(network: NetworkOrSignerOrProvider, options: SDKOptions);
 
 ## Parameters
 
-| Parameter | Type                      | Description |
-| --------- | ------------------------- | ----------- |
-| network   | NetworkOrSignerOrProvider |             |
-| options   | SDKOptions                |             |
+| Parameter | Type                                                            | Description |
+| --------- | --------------------------------------------------------------- | ----------- |
+| network   | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) |             |
+| options   | [SDKOptions](./sdk.sdkoptions.md)                               |             |

@@ -31,15 +31,15 @@ static fromSigner(signer: Signer, network?: ChainOrRpc, options?: SDKOptions, st
 
 ## Parameters
 
-| Parameter | Type       | Description                                                                                                                       |
-| --------- | ---------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| signer    | Signer     | a ethers Signer to be used for transactions                                                                                       |
-| network   | ChainOrRpc | <i>(Optional)</i> the network (chain) to connect to (e.g. "mainnet", "rinkeby", "polygon", "mumbai"...) or a fully formed RPC url |
-| options   | SDKOptions | <i>(Optional)</i> the SDK options to use                                                                                          |
-| storage   | IStorage   | <i>(Optional)</i> optional storage implementation to use                                                                          |
+| Parameter | Type                              | Description                                                                                                                       |
+| --------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| signer    | Signer                            | a ethers Signer to be used for transactions                                                                                       |
+| network   | ChainOrRpc                        | <i>(Optional)</i> the network (chain) to connect to (e.g. "mainnet", "rinkeby", "polygon", "mumbai"...) or a fully formed RPC url |
+| options   | [SDKOptions](./sdk.sdkoptions.md) | <i>(Optional)</i> the SDK options to use                                                                                          |
+| storage   | IStorage                          | <i>(Optional)</i> optional storage implementation to use                                                                          |
 
 **Returns:**
 
-ThirdwebSDK
+[ThirdwebSDK](./sdk.thirdwebsdk.md)
 
 an instance of the SDK

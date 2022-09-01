@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type ClaimVerification = {
+export declare type ClaimVerification = {
   overrides: CallOverrides;
   proofs: BytesLike[];
   maxQuantityPerTransaction: BigNumber;

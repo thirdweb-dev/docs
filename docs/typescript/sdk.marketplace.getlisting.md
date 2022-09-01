@@ -32,7 +32,7 @@ getListing(listingId: BigNumberish): Promise<AuctionListing | DirectListing>;
 
 **Returns:**
 
-Promise&lt;AuctionListing \| DirectListing&gt;
+Promise&lt;[AuctionListing](./sdk.auctionlisting.md) \| [DirectListing](./sdk.directlisting.md)&gt;
 
 either a direct or auction listing
 

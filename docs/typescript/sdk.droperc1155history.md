@@ -14,7 +14,7 @@ Manages history for Edition Drop contracts
 **Signature:**
 
 ```typescript
-declare class DropErc1155History
+export declare class DropErc1155History
 ```
 
 ## Constructors

@@ -30,14 +30,14 @@ makeBid(listingId: BigNumberish, pricePerToken: Price): Promise<TransactionResul
 
 ## Parameters
 
-| Parameter     | Type         | Description |
-| ------------- | ------------ | ----------- |
-| listingId     | BigNumberish |             |
-| pricePerToken | Price        |             |
+| Parameter     | Type                    | Description |
+| ------------- | ----------------------- | ----------- |
+| listingId     | BigNumberish            |             |
+| pricePerToken | [Price](./sdk.price.md) |             |
 
 **Returns:**
 
-Promise&lt;TransactionResult&gt;
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 
 ## Remarks
 

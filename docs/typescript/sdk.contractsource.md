@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type ContractSource = {
+export declare type ContractSource = {
   filename: string;
   source: string;
 };

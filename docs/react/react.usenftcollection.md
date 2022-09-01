@@ -36,9 +36,9 @@ use `useContract()` instead
 **Signature:**
 
 ```typescript
-declare function useNFTCollection(
+export declare function useNFTCollection(
   contractAddress?: string,
-): _thirdweb_dev_sdk.NFTCollection | undefined;
+): import("@thirdweb-dev/sdk").NFTCollection | undefined;
 ```
 
 ## Parameters
@@ -49,4 +49,4 @@ declare function useNFTCollection(
 
 **Returns:**
 
-\_thirdweb_dev_sdk.NFTCollection \| undefined
+import("@thirdweb-dev/sdk").NFTCollection \| undefined

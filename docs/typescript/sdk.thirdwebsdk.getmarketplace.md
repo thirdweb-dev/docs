@@ -25,6 +25,6 @@ getMarketplace(address: string): Marketplace;
 
 **Returns:**
 
-Marketplace
+[Marketplace](./sdk.marketplace.md)
 
 the contract

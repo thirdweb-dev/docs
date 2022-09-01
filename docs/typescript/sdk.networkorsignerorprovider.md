@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type NetworkOrSignerOrProvider =
+export declare type NetworkOrSignerOrProvider =
   | providers.Networkish
   | Signer
   | providers.Provider;

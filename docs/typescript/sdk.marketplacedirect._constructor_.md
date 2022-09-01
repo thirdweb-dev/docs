@@ -14,12 +14,12 @@ Constructs a new instance of the `MarketplaceDirect` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<Marketplace$1>, storage: IStorage);
+constructor(contractWrapper: ContractWrapper<Marketplace>, storage: IStorage);
 ```
 
 ## Parameters
 
-| Parameter       | Type                                 | Description |
-| --------------- | ------------------------------------ | ----------- |
-| contractWrapper | ContractWrapper&lt;Marketplace$1&gt; |             |
-| storage         | IStorage                             |             |
+| Parameter       | Type                               | Description |
+| --------------- | ---------------------------------- | ----------- |
+| contractWrapper | ContractWrapper&lt;Marketplace&gt; |             |
+| storage         | IStorage                           |             |

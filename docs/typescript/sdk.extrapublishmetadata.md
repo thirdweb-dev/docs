@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type ExtraPublishMetadata = z.input<
+export declare type ExtraPublishMetadata = z.input<
   typeof ExtraPublishMetadataSchemaInput
 >;
 ```

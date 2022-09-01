@@ -16,12 +16,12 @@ Use this to reveal a batch of delayed reveal NFTs on your [DropContract](./react
 **Signature:**
 
 ```typescript
-declare function useRevealLazyMint<TContract extends NFTContract>(
+export declare function useRevealLazyMint<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
-): _tanstack_react_query.UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
-      receipt: _ethersproject_abstract_provider.TransactionReceipt;
+      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
       data: () => Promise<unknown>;
     },
     "data"
@@ -34,12 +34,12 @@ declare function useRevealLazyMint<TContract extends NFTContract>(
 
 ## Parameters
 
-| Parameter | Type                           | Description                                                                    |
-| --------- | ------------------------------ | ------------------------------------------------------------------------------ |
-| contract  | RequiredParam&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) with the drop extension |
+| Parameter | Type                                                       | Description                                                                    |
+| --------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) with the drop extension |
 
 **Returns:**
 
-\_tanstack_react_query.UseMutationResult&lt;Omit&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, RevealLazyMintInput, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [RevealLazyMintInput](./react.reveallazymintinput.md), unknown&gt;
 
 a mutation object that can be used to reveal a batch of delayed reveal NFTs

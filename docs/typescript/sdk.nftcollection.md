@@ -28,20 +28,20 @@ const contract = sdk.getNFTCollection("{{contract_address}}");
 
 ## Properties
 
-| Property                                              | Modifiers           | Type                                                                           | Description         |
-| ----------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------ | ------------------- |
-| [contractAbi](./sdk.nftcollection.contractabi.md)     | <code>static</code> | any                                                                            |                     |
-| [contractRoles](./sdk.nftcollection.contractroles.md) | <code>static</code> | readonly \["admin", "minter", "transfer"\]                                     |                     |
-| [contractType](./sdk.nftcollection.contracttype.md)   | <code>static</code> | "nft-collection"                                                               |                     |
-| [encoder](./sdk.nftcollection.encoder.md)             |                     | ContractEncoder&lt;TokenERC721&gt;                                             |                     |
-| [estimator](./sdk.nftcollection.estimator.md)         |                     | GasCostEstimator&lt;TokenERC721&gt;                                            |                     |
-| [events](./sdk.nftcollection.events.md)               |                     | ContractEvents&lt;TokenERC721&gt;                                              |                     |
-| [metadata](./sdk.nftcollection.metadata.md)           |                     | ContractMetadata&lt;TokenERC721, typeof NFTCollection.schema&gt;               |                     |
-| [platformFees](./sdk.nftcollection.platformfees.md)   |                     | ContractPlatformFee&lt;TokenERC721&gt;                                         |                     |
-| [roles](./sdk.nftcollection.roles.md)                 |                     | ContractRoles&lt;TokenERC721, typeof NFTCollection.contractRoles\[number\]&gt; |                     |
-| [royalties](./sdk.nftcollection.royalties.md)         |                     | ContractRoyalty&lt;TokenERC721, typeof NFTCollection.schema&gt;                | Configure royalties |
-| [sales](./sdk.nftcollection.sales.md)                 |                     | ContractPrimarySale&lt;TokenERC721&gt;                                         |                     |
-| [signature](./sdk.nftcollection.signature.md)         |                     | Erc721WithQuantitySignatureMintable                                            | Signature Minting   |
+| Property                                              | Modifiers           | Type                                                                                                                                             | Description         |
+| ----------------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------- |
+| [contractAbi](./sdk.nftcollection.contractabi.md)     | <code>static</code> | any                                                                                                                                              |                     |
+| [contractRoles](./sdk.nftcollection.contractroles.md) | <code>static</code> | readonly \["admin", "minter", "transfer"\]                                                                                                       |                     |
+| [contractType](./sdk.nftcollection.contracttype.md)   | <code>static</code> | "nft-collection"                                                                                                                                 |                     |
+| [encoder](./sdk.nftcollection.encoder.md)             |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;TokenERC721&gt;                                                                                   |                     |
+| [estimator](./sdk.nftcollection.estimator.md)         |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;TokenERC721&gt;                                                                                 |                     |
+| [events](./sdk.nftcollection.events.md)               |                     | [ContractEvents](./sdk.contractevents.md)&lt;TokenERC721&gt;                                                                                     |                     |
+| [metadata](./sdk.nftcollection.metadata.md)           |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;TokenERC721, typeof NFTCollection.schema&gt;                                                    |                     |
+| [platformFees](./sdk.nftcollection.platformfees.md)   |                     | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;TokenERC721&gt;                                                                           |                     |
+| [roles](./sdk.nftcollection.roles.md)                 |                     | [ContractRoles](./sdk.contractroles.md)&lt;TokenERC721, typeof [NFTCollection.contractRoles](./sdk.nftcollection.contractroles.md)\[number\]&gt; |                     |
+| [royalties](./sdk.nftcollection.royalties.md)         |                     | [ContractRoyalty](./sdk.contractroyalty.md)&lt;TokenERC721, typeof NFTCollection.schema&gt;                                                      | Configure royalties |
+| [sales](./sdk.nftcollection.sales.md)                 |                     | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;TokenERC721&gt;                                                                           |                     |
+| [signature](./sdk.nftcollection.signature.md)         |                     | [Erc721WithQuantitySignatureMintable](./sdk.erc721withquantitysignaturemintable.md)                                                              | Signature Minting   |
 
 ## Methods
 
@@ -61,7 +61,7 @@ const contract = sdk.getNFTCollection("{{contract_address}}");
 **Signature:**
 
 ```typescript
-declare class NFTCollection extends Erc721<TokenERC721>
+export declare class NFTCollection extends Erc721<TokenERC721>
 ```
 
-**Extends:** Erc721&lt;TokenERC721&gt;
+**Extends:** [Erc721](./sdk.erc721.md)&lt;TokenERC721&gt;

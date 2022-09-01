@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare enum EventType
+export declare enum EventType
 ```
 
 ## Enumeration Members

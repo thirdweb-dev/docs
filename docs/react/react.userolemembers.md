@@ -26,21 +26,21 @@ const {
 **Signature:**
 
 ```typescript
-declare function useRoleMembers<TContract extends ContractWithRoles>(
+export declare function useRoleMembers<TContract extends ContractWithRoles>(
   contract: RequiredParam<TContract>,
   role: RolesForContract<TContract>,
-): _tanstack_react_query.UseQueryResult<string[], unknown>;
+): import("@tanstack/react-query").UseQueryResult<string[], unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                              | Description                         |
-| --------- | --------------------------------- | ----------------------------------- |
-| contract  | RequiredParam&lt;TContract&gt;    | an instance of a                    |
-| role      | RolesForContract&lt;TContract&gt; | the role to get the members of, see |
+| Parameter | Type                                                       | Description                         |
+| --------- | ---------------------------------------------------------- | ----------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a                    |
+| role      | RolesForContract&lt;TContract&gt;                          | the role to get the members of, see |
 
 **Returns:**
 
-\_tanstack_react_query.UseQueryResult&lt;string\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;string\[\], unknown&gt;
 
 a list of addresses that are members of the role

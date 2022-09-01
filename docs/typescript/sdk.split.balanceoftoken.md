@@ -37,7 +37,7 @@ balanceOfToken(walletAddress: string, tokenAddress: string): Promise<CurrencyVal
 
 **Returns:**
 
-Promise&lt;CurrencyValue&gt;
+Promise&lt;[CurrencyValue](./sdk.currencyvalue.md)&gt;
 
 ## Remarks
 

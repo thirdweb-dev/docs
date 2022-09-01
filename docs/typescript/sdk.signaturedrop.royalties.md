@@ -29,7 +29,7 @@ contract.royalties.setTokenRoyaltyInfo(tokenId, {
 **Signature:**
 
 ```typescript
-royalties: ContractRoyalty<SignatureDrop$1, typeof SignatureDrop.schema>;
+royalties: ContractRoyalty<SignatureDropContract, typeof SignatureDrop.schema>;
 ```
 
 ## Remarks

@@ -43,14 +43,14 @@ createBatch(metadatas: NFTMetadataOrUri[], options?: {
 
 ## Parameters
 
-| Parameter | Type                                                     | Description                                         |
-| --------- | -------------------------------------------------------- | --------------------------------------------------- |
-| metadatas | NFTMetadataOrUri\[\]                                     | The metadata to include in the batch.               |
-| options   | { onProgress: (event: UploadProgressEvent) =&gt; void; } | <i>(Optional)</i> optional upload progress callback |
+| Parameter | Type                                                                                     | Description                                         |
+| --------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| metadatas | [NFTMetadataOrUri](./sdk.nftmetadataoruri.md)\[\]                                        | The metadata to include in the batch.               |
+| options   | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | <i>(Optional)</i> optional upload progress callback |
 
 **Returns:**
 
-Promise&lt;TransactionResultWithId&lt;NFTMetadata&gt;\[\]&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadata](./sdk.nftmetadata.md)&gt;\[\]&gt;
 
 ## Remarks
 

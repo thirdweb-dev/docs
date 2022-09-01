@@ -38,5 +38,5 @@ const balance = await sdk.wallet.balance();
 **Signature:**
 
 ```typescript
-declare class UserWallet
+export declare class UserWallet
 ```

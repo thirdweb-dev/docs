@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type FilledSignature721WithQuantity = z.output<
+export declare type FilledSignature721WithQuantity = z.output<
   typeof Signature721WithQuantityInput
 >;
 ```

@@ -19,6 +19,6 @@ constructor(events: ContractEvents<DropERC1155>);
 
 ## Parameters
 
-| Parameter | Type                              | Description |
-| --------- | --------------------------------- | ----------- |
-| events    | ContractEvents&lt;DropERC1155&gt; |             |
+| Parameter | Type                                                         | Description |
+| --------- | ------------------------------------------------------------ | ----------- |
+| events    | [ContractEvents](./sdk.contractevents.md)&lt;DropERC1155&gt; |             |

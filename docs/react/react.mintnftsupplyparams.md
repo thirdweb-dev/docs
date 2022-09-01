@@ -16,9 +16,11 @@ The params to pass to `useMintNFTSupply`.
 **Signature:**
 
 ```typescript
-declare type MintNFTSupplyParams = {
+export declare type MintNFTSupplyParams = {
   tokenId: BigNumberish;
   additionalSupply: Amount;
   to: WalletAddress;
 };
 ```
+
+**References:** [WalletAddress](./react.walletaddress.md)

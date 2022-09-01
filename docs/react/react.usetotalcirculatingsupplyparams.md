@@ -16,8 +16,10 @@ The params to pass to `useTotalCirculatingSupply`.
 **Signature:**
 
 ```typescript
-declare type useTotalCirculatingSupplyParams<TContract> =
+export declare type useTotalCirculatingSupplyParams<TContract> =
   TContract extends Erc1155
     ? [contract: RequiredParam<TContract>, tokenId: BigNumberish]
     : [contract: RequiredParam<TContract>];
 ```
+
+**References:** [RequiredParam](./react.requiredparam.md)

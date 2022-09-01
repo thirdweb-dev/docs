@@ -33,7 +33,7 @@ owned(walletAddress?: string): Promise<EditionMetadataOwner[]>;
 
 **Returns:**
 
-Promise&lt;EditionMetadataOwner\[\]&gt;
+Promise&lt;[EditionMetadataOwner](./sdk.editionmetadataowner.md)\[\]&gt;
 
 The NFT metadata for all NFTs in the contract.
 

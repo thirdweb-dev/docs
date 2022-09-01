@@ -27,6 +27,6 @@ getMultiwrap(address: string): Multiwrap;
 
 **Returns:**
 
-Multiwrap
+[Multiwrap](./sdk.multiwrap.md)
 
 the contract

@@ -16,7 +16,7 @@ Get an instance of a Custom ThirdwebContract
 **Signature:**
 
 ```typescript
-getContract(address: string): Promise<SmartContract<ethers$1.BaseContract>>;
+getContract(address: string): Promise<SmartContract<ethers.BaseContract>>;
 ```
 
 ## Parameters
@@ -27,6 +27,6 @@ getContract(address: string): Promise<SmartContract<ethers$1.BaseContract>>;
 
 **Returns:**
 
-Promise&lt;SmartContract&lt;ethers$1.BaseContract&gt;&gt;
+Promise&lt;[SmartContract](./sdk.smartcontract.md)&lt;ethers.BaseContract&gt;&gt;
 
 the contract

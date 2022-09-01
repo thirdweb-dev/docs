@@ -21,5 +21,5 @@ constructor(erc721: Erc721, contractWrapper: ContractWrapper<BaseERC721 & IERC72
 
 | Parameter       | Type                                                  | Description |
 | --------------- | ----------------------------------------------------- | ----------- |
-| erc721          | Erc721                                                |             |
+| erc721          | [Erc721](./sdk.erc721.md)                             |             |
 | contractWrapper | ContractWrapper&lt;BaseERC721 &amp; IERC721Supply&gt; |             |

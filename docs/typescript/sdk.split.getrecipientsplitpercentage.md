@@ -25,4 +25,4 @@ getRecipientSplitPercentage(address: string): Promise<SplitRecipient>;
 
 **Returns:**
 
-Promise&lt;SplitRecipient&gt;
+Promise&lt;[SplitRecipient](./sdk.splitrecipient.md)&gt;

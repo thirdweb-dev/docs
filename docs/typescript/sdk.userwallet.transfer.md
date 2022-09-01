@@ -28,12 +28,12 @@ transfer(to: string, amount: Amount, currencyAddress?: string): Promise<Transact
 
 ## Parameters
 
-| Parameter       | Type   | Description                                                                  |
-| --------------- | ------ | ---------------------------------------------------------------------------- |
-| to              | string | the account to send funds to                                                 |
-| amount          | Amount | the amount in tokens                                                         |
-| currencyAddress | string | <i>(Optional)</i> Optional - ERC20 contract address of the token to transfer |
+| Parameter       | Type                      | Description                                                                  |
+| --------------- | ------------------------- | ---------------------------------------------------------------------------- |
+| to              | string                    | the account to send funds to                                                 |
+| amount          | [Amount](./sdk.amount.md) | the amount in tokens                                                         |
+| currencyAddress | string                    | <i>(Optional)</i> Optional - ERC20 contract address of the token to transfer |
 
 **Returns:**
 
-Promise&lt;TransactionResult&gt;
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;

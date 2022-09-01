@@ -28,14 +28,14 @@ const contract = sdk.getVote("{{contract_address}}");
 
 ## Properties
 
-| Property                                   | Modifiers           | Type                                                  | Description |
-| ------------------------------------------ | ------------------- | ----------------------------------------------------- | ----------- |
-| [contractAbi](./sdk.vote.contractabi.md)   | <code>static</code> | any                                                   |             |
-| [contractType](./sdk.vote.contracttype.md) | <code>static</code> | "vote"                                                |             |
-| [encoder](./sdk.vote.encoder.md)           |                     | ContractEncoder&lt;VoteERC20&gt;                      |             |
-| [estimator](./sdk.vote.estimator.md)       |                     | GasCostEstimator&lt;VoteERC20&gt;                     |             |
-| [events](./sdk.vote.events.md)             |                     | ContractEvents&lt;VoteERC20&gt;                       |             |
-| [metadata](./sdk.vote.metadata.md)         |                     | ContractMetadata&lt;VoteERC20, typeof Vote.schema&gt; |             |
+| Property                                   | Modifiers           | Type                                                                               | Description |
+| ------------------------------------------ | ------------------- | ---------------------------------------------------------------------------------- | ----------- |
+| [contractAbi](./sdk.vote.contractabi.md)   | <code>static</code> | any                                                                                |             |
+| [contractType](./sdk.vote.contracttype.md) | <code>static</code> | "vote"                                                                             |             |
+| [encoder](./sdk.vote.encoder.md)           |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;VoteERC20&gt;                       |             |
+| [estimator](./sdk.vote.estimator.md)       |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;VoteERC20&gt;                     |             |
+| [events](./sdk.vote.events.md)             |                     | [ContractEvents](./sdk.contractevents.md)&lt;VoteERC20&gt;                         |             |
+| [metadata](./sdk.vote.metadata.md)         |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;VoteERC20, typeof Vote.schema&gt; |             |
 
 ## Methods
 
@@ -58,7 +58,7 @@ const contract = sdk.getVote("{{contract_address}}");
 **Signature:**
 
 ```typescript
-declare class Vote implements UpdateableNetwork
+export declare class Vote implements UpdateableNetwork
 ```
 
 **Implements:** UpdateableNetwork

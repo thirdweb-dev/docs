@@ -39,7 +39,7 @@ await contract.token.mint.batch.to(walletAddress, [nftMetadata1, nftMetadata2, .
 **Signature:**
 
 ```typescript
-declare class Erc20BatchMintable implements DetectableFeature
+export declare class Erc20BatchMintable implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

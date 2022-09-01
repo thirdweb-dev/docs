@@ -31,7 +31,7 @@ contract.royalties.setTokenRoyaltyInfo(tokenId, {
 **Signature:**
 
 ```typescript
-royalties: ContractRoyalty<Multiwrap$1, typeof Multiwrap.schema>;
+royalties: ContractRoyalty<MultiwrapContract, typeof Multiwrap.schema>;
 ```
 
 ## Remarks

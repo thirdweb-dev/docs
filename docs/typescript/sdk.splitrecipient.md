@@ -14,7 +14,7 @@ The SplitRecipient type represents a recipient of some royalty, indicated by the
 **Signature:**
 
 ```typescript
-interface SplitRecipient
+export interface SplitRecipient
 ```
 
 ## Properties

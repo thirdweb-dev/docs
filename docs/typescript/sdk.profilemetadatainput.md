@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type ProfileMetadataInput = z.infer<typeof ProfileSchemaInput>;
+export declare type ProfileMetadataInput = z.infer<typeof ProfileSchemaInput>;
 ```

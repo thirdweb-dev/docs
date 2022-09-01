@@ -33,7 +33,7 @@ all(walletAddress?: string): Promise<NFTMetadataOwner[]>;
 
 **Returns:**
 
-Promise&lt;NFTMetadataOwner\[\]&gt;
+Promise&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)\[\]&gt;
 
 The NFT metadata for all NFTs in the contract.
 

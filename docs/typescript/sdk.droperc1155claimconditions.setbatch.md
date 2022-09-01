@@ -44,20 +44,20 @@ await dropContract.claimConditions.setBatch(claimConditionsForTokens);
 
 ```typescript
 setBatch(claimConditionsForToken: ClaimConditionsForToken[], resetClaimEligibilityForAll?: boolean): Promise<{
-        receipt: ethers$1.providers.TransactionReceipt;
+        receipt: ethers.providers.TransactionReceipt;
     }>;
 ```
 
 ## Parameters
 
-| Parameter                   | Type                        | Description                                                                         |
-| --------------------------- | --------------------------- | ----------------------------------------------------------------------------------- |
-| claimConditionsForToken     | ClaimConditionsForToken\[\] | The claim conditions for each NFT                                                   |
-| resetClaimEligibilityForAll | boolean                     | <i>(Optional)</i> Whether to reset the state of who already claimed NFTs previously |
+| Parameter                   | Type                                                            | Description                                                                         |
+| --------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| claimConditionsForToken     | [ClaimConditionsForToken](./sdk.claimconditionsfortoken.md)\[\] | The claim conditions for each NFT                                                   |
+| resetClaimEligibilityForAll | boolean                                                         | <i>(Optional)</i> Whether to reset the state of who already claimed NFTs previously |
 
 **Returns:**
 
-Promise&lt;{ receipt: ethers$1.providers.TransactionReceipt; }&gt;
+Promise&lt;{ receipt: ethers.providers.TransactionReceipt; }&gt;
 
 ## Remarks
 

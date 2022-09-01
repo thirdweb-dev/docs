@@ -43,15 +43,15 @@ airdrop(tokenId: BigNumberish, addresses: AirdropInput, data?: BytesLike): Promi
 
 ## Parameters
 
-| Parameter | Type         | Description       |
-| --------- | ------------ | ----------------- |
-| tokenId   | BigNumberish |                   |
-| addresses | AirdropInput |                   |
-| data      | BytesLike    | <i>(Optional)</i> |
+| Parameter | Type                                  | Description       |
+| --------- | ------------------------------------- | ----------------- |
+| tokenId   | BigNumberish                          |                   |
+| addresses | [AirdropInput](./sdk.airdropinput.md) |                   |
+| data      | BytesLike                             | <i>(Optional)</i> |
 
 **Returns:**
 
-Promise&lt;TransactionResult&gt;
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 
 ## Remarks
 

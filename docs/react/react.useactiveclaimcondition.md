@@ -34,9 +34,11 @@ const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition
 **Signature:**
 
 ```typescript
-declare function useActiveClaimCondition<TContract extends NFTContract | Erc20>(
+export declare function useActiveClaimCondition<
+  TContract extends NFTContract | Erc20,
+>(
   ...[contract, tokenId]: ClaimConditionsInputParams<TContract>
-): _tanstack_react_query.UseQueryResult<
+): import("@tanstack/react-query").UseQueryResult<
   {
     snapshot?:
       | {
@@ -46,16 +48,16 @@ declare function useActiveClaimCondition<TContract extends NFTContract | Erc20>(
       | undefined;
     startTime: Date;
     currencyAddress: string;
-    price: ethers.BigNumber;
+    price: import("ethers").BigNumber;
     maxQuantity: string;
     quantityLimitPerTransaction: string;
-    waitInSeconds: ethers.BigNumber;
+    waitInSeconds: import("ethers").BigNumber;
     merkleRootHash: string | number[];
     availableSupply: string;
     currentMintSupply: string;
     currencyMetadata: {
       symbol: string;
-      value: ethers.BigNumber;
+      value: import("ethers").BigNumber;
       name: string;
       decimals: number;
       displayValue: string;
@@ -73,6 +75,6 @@ declare function useActiveClaimCondition<TContract extends NFTContract | Erc20>(
 
 **Returns:**
 
-\_tanstack_react_query.UseQueryResult&lt;{ snapshot?: { address: string; maxClaimable: string; }\[\] \| undefined; startTime: Date; currencyAddress: string; price: ethers.BigNumber; maxQuantity: string; quantityLimitPerTransaction: string; waitInSeconds: ethers.BigNumber; merkleRootHash: string \| number\[\]; availableSupply: string; currentMintSupply: string; currencyMetadata: { symbol: string; value: ethers.BigNumber; name: string; decimals: number; displayValue: string; }; }, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ snapshot?: { address: string; maxClaimable: string; }\[\] \| undefined; startTime: Date; currencyAddress: string; price: import("ethers").BigNumber; maxQuantity: string; quantityLimitPerTransaction: string; waitInSeconds: import("ethers").BigNumber; merkleRootHash: string \| number\[\]; availableSupply: string; currentMintSupply: string; currencyMetadata: { symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }; }, unknown&gt;
 
 a response object with the currently active claim condition

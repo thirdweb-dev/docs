@@ -28,22 +28,22 @@ const contract = sdk.getSignatureDrop("{{contract_address}}");
 
 ## Properties
 
-| Property                                                  | Modifiers           | Type                                                                               | Description                |
-| --------------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------- | -------------------------- |
-| [claimConditions](./sdk.signaturedrop.claimconditions.md) |                     | DropClaimConditions&lt;SignatureDrop$1&gt;                                         | Configure claim conditions |
-| [contractAbi](./sdk.signaturedrop.contractabi.md)         | <code>static</code> | any                                                                                |                            |
-| [contractRoles](./sdk.signaturedrop.contractroles.md)     | <code>static</code> | readonly \["admin", "minter", "transfer"\]                                         |                            |
-| [contractType](./sdk.signaturedrop.contracttype.md)       | <code>static</code> | "signature-drop"                                                                   |                            |
-| [encoder](./sdk.signaturedrop.encoder.md)                 |                     | ContractEncoder&lt;SignatureDrop$1&gt;                                             |                            |
-| [estimator](./sdk.signaturedrop.estimator.md)             |                     | GasCostEstimator&lt;SignatureDrop$1&gt;                                            |                            |
-| [events](./sdk.signaturedrop.events.md)                   |                     | ContractEvents&lt;SignatureDrop$1&gt;                                              |                            |
-| [metadata](./sdk.signaturedrop.metadata.md)               |                     | ContractMetadata&lt;SignatureDrop$1, typeof SignatureDrop.schema&gt;               |                            |
-| [platformFees](./sdk.signaturedrop.platformfees.md)       |                     | ContractPlatformFee&lt;SignatureDrop$1&gt;                                         |                            |
-| [revealer](./sdk.signaturedrop.revealer.md)               |                     | DelayedReveal&lt;SignatureDrop$1&gt;                                               | Delayed reveal             |
-| [roles](./sdk.signaturedrop.roles.md)                     |                     | ContractRoles&lt;SignatureDrop$1, typeof SignatureDrop.contractRoles\[number\]&gt; |                            |
-| [royalties](./sdk.signaturedrop.royalties.md)             |                     | ContractRoyalty&lt;SignatureDrop$1, typeof SignatureDrop.schema&gt;                | Configure royalties        |
-| [sales](./sdk.signaturedrop.sales.md)                     |                     | ContractPrimarySale&lt;SignatureDrop$1&gt;                                         |                            |
-| [signature](./sdk.signaturedrop.signature.md)             |                     | Erc721WithQuantitySignatureMintable                                                | Signature Minting          |
+| Property                                                  | Modifiers           | Type                                                                                                                                                       | Description                |
+| --------------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| [claimConditions](./sdk.signaturedrop.claimconditions.md) |                     | [DropClaimConditions](./sdk.dropclaimconditions.md)&lt;SignatureDropContract&gt;                                                                           | Configure claim conditions |
+| [contractAbi](./sdk.signaturedrop.contractabi.md)         | <code>static</code> | any                                                                                                                                                        |                            |
+| [contractRoles](./sdk.signaturedrop.contractroles.md)     | <code>static</code> | readonly \["admin", "minter", "transfer"\]                                                                                                                 |                            |
+| [contractType](./sdk.signaturedrop.contracttype.md)       | <code>static</code> | "signature-drop"                                                                                                                                           |                            |
+| [encoder](./sdk.signaturedrop.encoder.md)                 |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;SignatureDropContract&gt;                                                                                   |                            |
+| [estimator](./sdk.signaturedrop.estimator.md)             |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;SignatureDropContract&gt;                                                                                 |                            |
+| [events](./sdk.signaturedrop.events.md)                   |                     | [ContractEvents](./sdk.contractevents.md)&lt;SignatureDropContract&gt;                                                                                     |                            |
+| [metadata](./sdk.signaturedrop.metadata.md)               |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;SignatureDropContract, typeof SignatureDrop.schema&gt;                                                    |                            |
+| [platformFees](./sdk.signaturedrop.platformfees.md)       |                     | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;SignatureDropContract&gt;                                                                           |                            |
+| [revealer](./sdk.signaturedrop.revealer.md)               |                     | [DelayedReveal](./sdk.delayedreveal.md)&lt;SignatureDropContract&gt;                                                                                       | Delayed reveal             |
+| [roles](./sdk.signaturedrop.roles.md)                     |                     | [ContractRoles](./sdk.contractroles.md)&lt;SignatureDropContract, typeof [SignatureDrop.contractRoles](./sdk.signaturedrop.contractroles.md)\[number\]&gt; |                            |
+| [royalties](./sdk.signaturedrop.royalties.md)             |                     | [ContractRoyalty](./sdk.contractroyalty.md)&lt;SignatureDropContract, typeof SignatureDrop.schema&gt;                                                      | Configure royalties        |
+| [sales](./sdk.signaturedrop.sales.md)                     |                     | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;SignatureDropContract&gt;                                                                           |                            |
+| [signature](./sdk.signaturedrop.signature.md)             |                     | [Erc721WithQuantitySignatureMintable](./sdk.erc721withquantitysignaturemintable.md)                                                                        | Signature Minting          |
 
 ## Methods
 
@@ -67,7 +67,7 @@ const contract = sdk.getSignatureDrop("{{contract_address}}");
 **Signature:**
 
 ```typescript
-declare class SignatureDrop extends Erc721<SignatureDrop$1>
+export declare class SignatureDrop extends Erc721<SignatureDropContract>
 ```
 
-**Extends:** Erc721&lt;SignatureDrop$1&gt;
+**Extends:** [Erc721](./sdk.erc721.md)&lt;SignatureDropContract&gt;

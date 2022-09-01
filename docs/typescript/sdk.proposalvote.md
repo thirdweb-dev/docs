@@ -12,13 +12,13 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-interface ProposalVote
+export interface ProposalVote
 ```
 
 ## Properties
 
-| Property                             | Modifiers | Type      | Description |
-| ------------------------------------ | --------- | --------- | ----------- |
-| [count](./sdk.proposalvote.count.md) |           | BigNumber |             |
-| [label](./sdk.proposalvote.label.md) |           | string    |             |
-| [type](./sdk.proposalvote.type.md)   |           | VoteType  |             |
+| Property                             | Modifiers | Type                          | Description |
+| ------------------------------------ | --------- | ----------------------------- | ----------- |
+| [count](./sdk.proposalvote.count.md) |           | BigNumber                     |             |
+| [label](./sdk.proposalvote.label.md) |           | string                        |             |
+| [type](./sdk.proposalvote.type.md)   |           | [VoteType](./sdk.votetype.md) |             |

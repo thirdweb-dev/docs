@@ -28,9 +28,9 @@ deployTokenDrop(metadata: TokenContractDeployMetadata): Promise<string>;
 
 ## Parameters
 
-| Parameter | Type                        | Description           |
-| --------- | --------------------------- | --------------------- |
-| metadata  | TokenContractDeployMetadata | the contract metadata |
+| Parameter | Type                                                                | Description           |
+| --------- | ------------------------------------------------------------------- | --------------------- |
+| metadata  | [TokenContractDeployMetadata](./sdk.tokencontractdeploymetadata.md) | the contract metadata |
 
 **Returns:**
 

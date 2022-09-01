@@ -28,9 +28,9 @@ deployMarketplace(metadata: MarketplaceContractDeployMetadata): Promise<string>;
 
 ## Parameters
 
-| Parameter | Type                              | Description           |
-| --------- | --------------------------------- | --------------------- |
-| metadata  | MarketplaceContractDeployMetadata | the contract metadata |
+| Parameter | Type                                                                            | Description           |
+| --------- | ------------------------------------------------------------------------------- | --------------------- |
+| metadata  | [MarketplaceContractDeployMetadata](./sdk.marketplacecontractdeploymetadata.md) | the contract metadata |
 
 **Returns:**
 

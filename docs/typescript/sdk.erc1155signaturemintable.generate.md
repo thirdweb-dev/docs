@@ -47,13 +47,13 @@ generate(payloadToSign: PayloadToSign1155): Promise<SignedPayload1155>;
 
 ## Parameters
 
-| Parameter     | Type              | Description         |
-| ------------- | ----------------- | ------------------- |
-| payloadToSign | PayloadToSign1155 | the payload to sign |
+| Parameter     | Type                                            | Description         |
+| ------------- | ----------------------------------------------- | ------------------- |
+| payloadToSign | [PayloadToSign1155](./sdk.payloadtosign1155.md) | the payload to sign |
 
 **Returns:**
 
-Promise&lt;SignedPayload1155&gt;
+Promise&lt;[SignedPayload1155](./sdk.signedpayload1155.md)&gt;
 
 the signed payload and the corresponding signature
 

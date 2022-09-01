@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type FullPublishMetadata = z.infer<
+export declare type FullPublishMetadata = z.infer<
   typeof FullPublishMetadataSchemaOutput
 >;
 ```

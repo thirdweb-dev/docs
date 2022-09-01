@@ -41,9 +41,11 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-declare function useSetAllRoleMembers<TContract extends ContractWithRoles>(
+export declare function useSetAllRoleMembers<
+  TContract extends ContractWithRoles,
+>(
   contract: RequiredParam<TContract>,
-): _tanstack_react_query.UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   void,
   unknown,
   { [role in RolesForContract<TContract>]: string[] },
@@ -53,12 +55,12 @@ declare function useSetAllRoleMembers<TContract extends ContractWithRoles>(
 
 ## Parameters
 
-| Parameter | Type                           | Description      |
-| --------- | ------------------------------ | ---------------- |
-| contract  | RequiredParam&lt;TContract&gt; | an instance of a |
+| Parameter | Type                                                       | Description      |
+| --------- | ---------------------------------------------------------- | ---------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a |
 
 **Returns:**
 
-\_tanstack_react_query.UseMutationResult&lt;void, unknown, { \[role in RolesForContract&lt;TContract&gt;\]: string\[\]; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;void, unknown, { \[role in RolesForContract&lt;TContract&gt;\]: string\[\]; }, unknown&gt;
 
 a mutation object that can be used to overwrite all roles on the contract

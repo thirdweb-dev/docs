@@ -14,7 +14,7 @@ The main entry point for the thirdweb SDK
 **Signature:**
 
 ```typescript
-declare class ThirdwebSDK extends RPCConnectionHandler
+export declare class ThirdwebSDK extends RPCConnectionHandler
 ```
 
 **Extends:** RPCConnectionHandler
@@ -27,12 +27,12 @@ declare class ThirdwebSDK extends RPCConnectionHandler
 
 ## Properties
 
-| Property                                  | Modifiers | Type                | Description                                                          |
-| ----------------------------------------- | --------- | ------------------- | -------------------------------------------------------------------- |
-| [auth](./sdk.thirdwebsdk.auth.md)         |           | WalletAuthenticator | Enable authentication with the connected wallet                      |
-| [deployer](./sdk.thirdwebsdk.deployer.md) |           | ContractDeployer    | New contract deployer                                                |
-| [storage](./sdk.thirdwebsdk.storage.md)   |           | RemoteStorage       | Upload and download files from IPFS or from your own storage service |
-| [wallet](./sdk.thirdwebsdk.wallet.md)     |           | UserWallet          | Interact with the connected wallet                                   |
+| Property                                  | Modifiers | Type                                                | Description                                                          |
+| ----------------------------------------- | --------- | --------------------------------------------------- | -------------------------------------------------------------------- |
+| [auth](./sdk.thirdwebsdk.auth.md)         |           | [WalletAuthenticator](./sdk.walletauthenticator.md) | Enable authentication with the connected wallet                      |
+| [deployer](./sdk.thirdwebsdk.deployer.md) |           | [ContractDeployer](./sdk.contractdeployer.md)       | New contract deployer                                                |
+| [storage](./sdk.thirdwebsdk.storage.md)   |           | RemoteStorage                                       | Upload and download files from IPFS or from your own storage service |
+| [wallet](./sdk.thirdwebsdk.wallet.md)     |           | [UserWallet](./sdk.userwallet.md)                   | Interact with the connected wallet                                   |
 
 ## Methods
 

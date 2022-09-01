@@ -14,7 +14,7 @@ Handles deploying new contracts
 **Signature:**
 
 ```typescript
-declare class ContractDeployer extends RPCConnectionHandler
+export declare class ContractDeployer extends RPCConnectionHandler
 ```
 
 **Extends:** RPCConnectionHandler

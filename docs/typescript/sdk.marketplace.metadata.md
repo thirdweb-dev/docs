@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-metadata: ContractMetadata<Marketplace$1, typeof Marketplace.schema>;
+metadata: ContractMetadata<MarketplaceContract, typeof Marketplace.schema>;
 ```

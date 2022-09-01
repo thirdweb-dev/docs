@@ -22,19 +22,19 @@ const { data: unclaimedNfts, isLoading, error } = useUnclaimedNFTs(<YourERC721Dr
 **Signature:**
 
 ```typescript
-declare function useUnclaimedNFTs(
+export declare function useUnclaimedNFTs(
   contract: RequiredParam<NFTDrop>,
   queryParams?: QueryAllParams,
-): _tanstack_react_query.UseQueryResult<
+): import("@tanstack/react-query").UseQueryResult<
   {
-    [x: string]: _thirdweb_dev_sdk.Json;
+    [x: string]: import("@thirdweb-dev/sdk").Json;
     name?: string | number | undefined;
     description?: string | null | undefined;
     image?: string | null | undefined;
     external_url?: string | null | undefined;
     animation_url?: string | null | undefined;
     uri: string;
-    id: ethers.BigNumber;
+    id: import("ethers").BigNumber;
   }[],
   unknown
 >;
@@ -42,13 +42,13 @@ declare function useUnclaimedNFTs(
 
 ## Parameters
 
-| Parameter   | Type                         | Description                                                                                                                |
-| ----------- | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| contract    | RequiredParam&lt;NFTDrop&gt; | an instance of a contract that extends the Erc721 spec (nft drop, custom contract that follows the Erc721 &amp; drop spec) |
-| queryParams | QueryAllParams               | <i>(Optional)</i> query params to pass to the query for the sake of pagination                                             |
+| Parameter   | Type                                                     | Description                                                                                                                |
+| ----------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| contract    | [RequiredParam](./react.requiredparam.md)&lt;NFTDrop&gt; | an instance of a contract that extends the Erc721 spec (nft drop, custom contract that follows the Erc721 &amp; drop spec) |
+| queryParams | QueryAllParams                                           | <i>(Optional)</i> query params to pass to the query for the sake of pagination                                             |
 
 **Returns:**
 
-\_tanstack_react_query.UseQueryResult&lt;{ \[x: string\]: \_thirdweb_dev_sdk.Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: ethers.BigNumber; }\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk").Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: import("ethers").BigNumber; }\[\], unknown&gt;
 
 a response object that includes an array of NFTs that are unclaimed

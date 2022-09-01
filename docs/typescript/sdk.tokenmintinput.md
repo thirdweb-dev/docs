@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type TokenMintInput = z.input<typeof TokenMintInputSchema>;
+export declare type TokenMintInput = z.input<typeof TokenMintInputSchema>;
 ```

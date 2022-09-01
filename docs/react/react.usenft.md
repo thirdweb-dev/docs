@@ -30,21 +30,21 @@ const { data: nft, isLoading, error } = useNFT(contract?.nft, <tokenId>);
 **Signature:**
 
 ```typescript
-declare function useNFT<TContract extends NFTContract>(
+export declare function useNFT<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
   tokenId: RequiredParam<BigNumberish>,
-): _tanstack_react_query.UseQueryResult<NFT<TContract>, unknown>;
+): import("@tanstack/react-query").UseQueryResult<NFT<TContract>, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                              | Description                                            |
-| --------- | --------------------------------- | ------------------------------------------------------ |
-| contract  | RequiredParam&lt;TContract&gt;    | an instance of a [NFTContract](./react.nftcontract.md) |
-| tokenId   | RequiredParam&lt;BigNumberish&gt; | the tokenId to look up                                 |
+| Parameter | Type                                                          | Description                                            |
+| --------- | ------------------------------------------------------------- | ------------------------------------------------------ |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt;    | an instance of a [NFTContract](./react.nftcontract.md) |
+| tokenId   | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt; | the tokenId to look up                                 |
 
 **Returns:**
 
-\_tanstack_react_query.UseQueryResult&lt;NFT&lt;TContract&gt;, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;TContract&gt;, unknown&gt;
 
 a response object that includes the metadata for the given tokenId

@@ -73,12 +73,12 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-declare function useAirdropNFT(
+export declare function useAirdropNFT(
   contract: Erc1155,
-): _tanstack_react_query.UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
-      receipt: _ethersproject_abstract_provider.TransactionReceipt;
+      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
       data: () => Promise<unknown>;
     },
     "data"
@@ -97,6 +97,6 @@ declare function useAirdropNFT(
 
 **Returns:**
 
-\_tanstack_react_query.UseMutationResult&lt;Omit&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, AirdropNFTParams, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [AirdropNFTParams](./react.airdropnftparams.md), unknown&gt;
 
 a mutation object that can be used to transfer batch NFTs

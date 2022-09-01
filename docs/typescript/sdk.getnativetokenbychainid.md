@@ -14,15 +14,15 @@ Returns the native token for a given chain
 **Signature:**
 
 ```typescript
-declare function getNativeTokenByChainId(chainId: ChainId): NativeToken;
+export declare function getNativeTokenByChainId(chainId: ChainId): NativeToken;
 ```
 
 ## Parameters
 
-| Parameter | Type    | Description  |
-| --------- | ------- | ------------ |
-| chainId   | ChainId | the chain id |
+| Parameter | Type                        | Description  |
+| --------- | --------------------------- | ------------ |
+| chainId   | [ChainId](./sdk.chainid.md) | the chain id |
 
 **Returns:**
 
-NativeToken
+[NativeToken](./sdk.nativetoken.md)

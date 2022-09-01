@@ -14,7 +14,7 @@ Options for deploying an NFT contract
 **Signature:**
 
 ```typescript
-interface NFTContractDeployMetadata
+export interface NFTContractDeployMetadata
 ```
 
 ## Properties

@@ -23,4 +23,4 @@ getVoteBalanceOf(account: string): Promise<CurrencyValue>;
 
 **Returns:**
 
-Promise&lt;CurrencyValue&gt;
+Promise&lt;[CurrencyValue](./sdk.currencyvalue.md)&gt;

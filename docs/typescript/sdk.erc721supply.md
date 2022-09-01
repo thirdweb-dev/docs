@@ -26,10 +26,10 @@ const nfts = await contract.nft.query.all();
 
 ## Properties
 
-| Property                                         | Modifiers | Type                              | Description |
-| ------------------------------------------------ | --------- | --------------------------------- | ----------- |
-| [featureName](./sdk.erc721supply.featurename.md) |           | "ERC721Supply"                    |             |
-| [owned](./sdk.erc721supply.owned.md)             |           | Erc721Enumerable &#124; undefined |             |
+| Property                                         | Modifiers | Type                                                           | Description |
+| ------------------------------------------------ | --------- | -------------------------------------------------------------- | ----------- |
+| [featureName](./sdk.erc721supply.featurename.md) |           | "ERC721Supply"                                                 |             |
+| [owned](./sdk.erc721supply.owned.md)             |           | [Erc721Enumerable](./sdk.erc721enumerable.md) &#124; undefined |             |
 
 ## Methods
 
@@ -42,7 +42,7 @@ const nfts = await contract.nft.query.all();
 **Signature:**
 
 ```typescript
-declare class Erc721Supply implements DetectableFeature
+export declare class Erc721Supply implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

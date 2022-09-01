@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-metadata: ContractMetadata<Pack$1, typeof Pack.schema>;
+metadata: ContractMetadata<PackContract, typeof Pack.schema>;
 ```

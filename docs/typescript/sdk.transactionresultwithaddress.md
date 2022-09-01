@@ -12,7 +12,10 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type TransactionResultWithAddress<T = never> = TransactionResult<T> & {
-  address: string;
-};
+export declare type TransactionResultWithAddress<T = never> =
+  TransactionResult<T> & {
+    address: string;
+  };
 ```
+
+**References:** [TransactionResult](./sdk.transactionresult.md)

@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-interface UploadProgressEvent
+export interface UploadProgressEvent
 ```
 
 ## Properties

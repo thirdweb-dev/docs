@@ -16,7 +16,7 @@ The configuration to use the react SDK with an \[auth\](https://portal.thirdweb.
 **Signature:**
 
 ```typescript
-interface ThirdwebAuthConfig
+export interface ThirdwebAuthConfig
 ```
 
 ## Properties

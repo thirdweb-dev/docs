@@ -21,6 +21,6 @@ constructor(erc1155: Erc1155, contractWrapper: ContractWrapper<BaseDropERC1155>,
 
 | Parameter       | Type                                   | Description |
 | --------------- | -------------------------------------- | ----------- |
-| erc1155         | Erc1155                                |             |
+| erc1155         | [Erc1155](./sdk.erc1155.md)            |             |
 | contractWrapper | ContractWrapper&lt;BaseDropERC1155&gt; |             |
 | storage         | IStorage                               |             |

@@ -45,14 +45,14 @@ to(to: string, metadatas: NFTMetadataOrUri[]): Promise<TransactionResultWithId<N
 
 ## Parameters
 
-| Parameter | Type                 | Description |
-| --------- | -------------------- | ----------- |
-| to        | string               |             |
-| metadatas | NFTMetadataOrUri\[\] |             |
+| Parameter | Type                                              | Description |
+| --------- | ------------------------------------------------- | ----------- |
+| to        | string                                            |             |
+| metadatas | [NFTMetadataOrUri](./sdk.nftmetadataoruri.md)\[\] |             |
 
 **Returns:**
 
-Promise&lt;TransactionResultWithId&lt;NFTMetadataOwner&gt;\[\]&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;\[\]&gt;
 
 ## Remarks
 

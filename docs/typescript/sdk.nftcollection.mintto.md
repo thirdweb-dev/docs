@@ -38,14 +38,14 @@ mintTo(walletAddress: string, metadata: NFTMetadataOrUri): Promise<TransactionRe
 
 ## Parameters
 
-| Parameter     | Type             | Description |
-| ------------- | ---------------- | ----------- |
-| walletAddress | string           |             |
-| metadata      | NFTMetadataOrUri |             |
+| Parameter     | Type                                          | Description |
+| ------------- | --------------------------------------------- | ----------- |
+| walletAddress | string                                        |             |
+| metadata      | [NFTMetadataOrUri](./sdk.nftmetadataoruri.md) |             |
 
 **Returns:**
 
-Promise&lt;TransactionResultWithId&lt;NFTMetadataOwner&gt;&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;&gt;
 
 ## Remarks
 

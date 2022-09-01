@@ -37,13 +37,13 @@ to(args: TokenMintInput[]): Promise<TransactionResult>;
 
 ## Parameters
 
-| Parameter | Type               | Description |
-| --------- | ------------------ | ----------- |
-| args      | TokenMintInput\[\] |             |
+| Parameter | Type                                          | Description |
+| --------- | --------------------------------------------- | ----------- |
+| args      | [TokenMintInput](./sdk.tokenmintinput.md)\[\] |             |
 
 **Returns:**
 
-Promise&lt;TransactionResult&gt;
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 
 ## Remarks
 

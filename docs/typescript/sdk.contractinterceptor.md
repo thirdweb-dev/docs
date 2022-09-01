@@ -14,7 +14,7 @@ Allows overriding transaction behavior for this contract
 **Signature:**
 
 ```typescript
-declare class ContractInterceptor<TContract extends BaseContract>
+export declare class ContractInterceptor<TContract extends BaseContract>
 ```
 
 ## Constructors

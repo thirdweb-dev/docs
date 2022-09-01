@@ -14,5 +14,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-estimator: GasCostEstimator<Multiwrap$1>;
+estimator: GasCostEstimator<MultiwrapContract>;
 ```

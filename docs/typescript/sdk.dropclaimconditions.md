@@ -14,7 +14,7 @@ Manages claim conditions for NFT Drop contracts
 **Signature:**
 
 ```typescript
-declare class DropClaimConditions<TContract extends DropERC721 | DropERC20 | BaseClaimConditionERC721 | BaseDropERC20 | SignatureDrop$1>
+export declare class DropClaimConditions<TContract extends DropERC721 | DropERC20 | BaseClaimConditionERC721 | BaseDropERC20 | SignatureDrop>
 ```
 
 ## Constructors

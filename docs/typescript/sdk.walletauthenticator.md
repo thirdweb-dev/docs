@@ -51,7 +51,7 @@ const address = sdk.auth.authenticate(domain, token);
 **Signature:**
 
 ```typescript
-declare class WalletAuthenticator extends RPCConnectionHandler
+export declare class WalletAuthenticator extends RPCConnectionHandler
 ```
 
 **Extends:** RPCConnectionHandler

@@ -14,5 +14,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-roles: ContractRoles<Multiwrap$1, typeof Multiwrap.contractRoles[number]>;
+roles: ContractRoles<MultiwrapContract, typeof Multiwrap.contractRoles[number]>;
 ```

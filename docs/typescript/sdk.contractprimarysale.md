@@ -41,7 +41,7 @@ await contract.roles.setRecipient(recipientWalletAddress);
 **Signature:**
 
 ```typescript
-declare class ContractPrimarySale<TContract extends IPrimarySale> implements DetectableFeature
+export declare class ContractPrimarySale<TContract extends IPrimarySale> implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

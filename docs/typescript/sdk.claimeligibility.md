@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare enum ClaimEligibility
+export declare enum ClaimEligibility
 ```
 
 ## Enumeration Members

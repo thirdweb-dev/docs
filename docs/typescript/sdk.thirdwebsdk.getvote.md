@@ -25,6 +25,6 @@ getVote(address: string): Vote;
 
 **Returns:**
 
-Vote
+[Vote](./sdk.vote.md)
 
 the contract

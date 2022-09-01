@@ -47,5 +47,5 @@ const nftContract = contract?.nft;
 **Signature:**
 
 ```typescript
-declare type NFTContract = Erc721 | Erc1155;
+export declare type NFTContract = Erc721 | Erc1155;
 ```

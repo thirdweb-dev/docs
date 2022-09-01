@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type Snapshot = z.output<typeof SnapshotSchema>;
+export declare type Snapshot = z.output<typeof SnapshotSchema>;
 ```

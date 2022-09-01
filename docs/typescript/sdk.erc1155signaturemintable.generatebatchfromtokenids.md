@@ -19,13 +19,13 @@ generateBatchFromTokenIds(payloadsToSign: PayloadToSign1155WithTokenId[]): Promi
 
 ## Parameters
 
-| Parameter      | Type                             | Description                                  |
-| -------------- | -------------------------------- | -------------------------------------------- |
-| payloadsToSign | PayloadToSign1155WithTokenId\[\] | the payloads to sign with tokenIds specified |
+| Parameter      | Type                                                                      | Description                                  |
+| -------------- | ------------------------------------------------------------------------- | -------------------------------------------- |
+| payloadsToSign | [PayloadToSign1155WithTokenId](./sdk.payloadtosign1155withtokenid.md)\[\] | the payloads to sign with tokenIds specified |
 
 **Returns:**
 
-Promise&lt;SignedPayload1155\[\]&gt;
+Promise&lt;[SignedPayload1155](./sdk.signedpayload1155.md)\[\]&gt;
 
 an array of payloads and signatures
 

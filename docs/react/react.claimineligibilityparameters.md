@@ -16,8 +16,10 @@ The options to be passed as the second parameter to the `useClaimIneligibilityRe
 **Signature:**
 
 ```typescript
-declare type ClaimIneligibilityParameters = {
+export declare type ClaimIneligibilityParameters = {
   walletAddress: WalletAddress;
   quantity: string | number;
 };
 ```
+
+**References:** [WalletAddress](./react.walletaddress.md)

@@ -19,9 +19,9 @@ verify(signedPayload: SignedPayload721WithQuantitySignature): Promise<boolean>;
 
 ## Parameters
 
-| Parameter     | Type                                  | Description           |
-| ------------- | ------------------------------------- | --------------------- |
-| signedPayload | SignedPayload721WithQuantitySignature | the payload to verify |
+| Parameter     | Type                                                                                    | Description           |
+| ------------- | --------------------------------------------------------------------------------------- | --------------------- |
+| signedPayload | [SignedPayload721WithQuantitySignature](./sdk.signedpayload721withquantitysignature.md) | the payload to verify |
 
 **Returns:**
 

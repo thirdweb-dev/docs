@@ -14,5 +14,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-encoder: ContractEncoder<Multiwrap$1>;
+encoder: ContractEncoder<MultiwrapContract>;
 ```

@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type EditionMetadataOwner = z.output<
+export declare type EditionMetadataOwner = z.output<
   typeof EditionMetadataWithOwnerOutputSchema
 >;
 ```

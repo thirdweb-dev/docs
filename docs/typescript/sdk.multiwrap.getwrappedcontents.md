@@ -36,4 +36,4 @@ getWrappedContents(wrappedTokenId: BigNumberish): Promise<WrappedTokens>;
 
 **Returns:**
 
-Promise&lt;WrappedTokens&gt;
+Promise&lt;[WrappedTokens](./sdk.wrappedtokens.md)&gt;

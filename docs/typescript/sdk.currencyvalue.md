@@ -14,5 +14,5 @@ Currency metadata &amp; value.
 **Signature:**
 
 ```typescript
-declare type CurrencyValue = z.infer<typeof CurrencyValueSchema>;
+export declare type CurrencyValue = z.infer<typeof CurrencyValueSchema>;
 ```

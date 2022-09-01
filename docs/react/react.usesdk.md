@@ -18,7 +18,7 @@ const sdk = useSDK();
 **Signature:**
 
 ```typescript
-declare function useSDK(): ThirdwebSDK | undefined;
+export declare function useSDK(): ThirdwebSDK | undefined;
 ```
 
 **Returns:**

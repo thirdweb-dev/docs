@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type VerifyOptions = z.input<typeof VerifyOptionsSchema>;
+export declare type VerifyOptions = z.input<typeof VerifyOptionsSchema>;
 ```

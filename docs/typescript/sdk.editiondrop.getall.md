@@ -25,13 +25,13 @@ getAll(queryParams?: QueryAllParams): Promise<EditionMetadata[]>;
 
 ## Parameters
 
-| Parameter   | Type           | Description                                                             |
-| ----------- | -------------- | ----------------------------------------------------------------------- |
-| queryParams | QueryAllParams | <i>(Optional)</i> optional filtering to only fetch a subset of results. |
+| Parameter   | Type                                      | Description                                                             |
+| ----------- | ----------------------------------------- | ----------------------------------------------------------------------- |
+| queryParams | [QueryAllParams](./sdk.queryallparams.md) | <i>(Optional)</i> optional filtering to only fetch a subset of results. |
 
 **Returns:**
 
-Promise&lt;EditionMetadata\[\]&gt;
+Promise&lt;[EditionMetadata](./sdk.editionmetadata.md)\[\]&gt;
 
 The NFT metadata for all NFTs queried.
 

@@ -27,7 +27,7 @@ claim(tokenId: BigNumberish, quantity: BigNumberish, checkERC20Allowance?: boole
 
 **Returns:**
 
-Promise&lt;TransactionResult&gt;
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 
 - Receipt for the transaction
 

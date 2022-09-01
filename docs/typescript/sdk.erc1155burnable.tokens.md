@@ -37,7 +37,7 @@ tokens(tokenId: BigNumberish, amount: BigNumberish): Promise<TransactionResult>;
 
 **Returns:**
 
-Promise&lt;TransactionResult&gt;
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 
 ## Remarks
 

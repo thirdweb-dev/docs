@@ -26,13 +26,13 @@ getAllListings(filter?: MarketplaceFilter): Promise<(AuctionListing | DirectList
 
 ## Parameters
 
-| Parameter | Type              | Description                                  |
-| --------- | ----------------- | -------------------------------------------- |
-| filter    | MarketplaceFilter | <i>(Optional)</i> optional filter parameters |
+| Parameter | Type                                            | Description                                  |
+| --------- | ----------------------------------------------- | -------------------------------------------- |
+| filter    | [MarketplaceFilter](./sdk.marketplacefilter.md) | <i>(Optional)</i> optional filter parameters |
 
 **Returns:**
 
-Promise&lt;(AuctionListing \| DirectListing)\[\]&gt;
+Promise&lt;([AuctionListing](./sdk.auctionlisting.md) \| [DirectListing](./sdk.directlisting.md))\[\]&gt;
 
 ## Remarks
 

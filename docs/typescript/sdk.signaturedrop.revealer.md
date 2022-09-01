@@ -46,7 +46,7 @@ await contract.revealer.reveal(batchId, "my secret password");
 **Signature:**
 
 ```typescript
-revealer: DelayedReveal<SignatureDrop$1>;
+revealer: DelayedReveal<SignatureDropContract>;
 ```
 
 ## Remarks

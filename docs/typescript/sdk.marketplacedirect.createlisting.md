@@ -45,13 +45,13 @@ createListing(listing: NewDirectListing): Promise<TransactionResultWithId>;
 
 ## Parameters
 
-| Parameter | Type             | Description |
-| --------- | ---------------- | ----------- |
-| listing   | NewDirectListing |             |
+| Parameter | Type                                          | Description |
+| --------- | --------------------------------------------- | ----------- |
+| listing   | [NewDirectListing](./sdk.newdirectlisting.md) |             |
 
 **Returns:**
 
-Promise&lt;TransactionResultWithId&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&gt;
 
 ## Remarks
 

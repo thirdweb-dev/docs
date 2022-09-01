@@ -29,9 +29,9 @@ deployVote(metadata: VoteContractDeployMetadata): Promise<string>;
 
 ## Parameters
 
-| Parameter | Type                       | Description           |
-| --------- | -------------------------- | --------------------- |
-| metadata  | VoteContractDeployMetadata | the contract metadata |
+| Parameter | Type                                                              | Description           |
+| --------- | ----------------------------------------------------------------- | --------------------- |
+| metadata  | [VoteContractDeployMetadata](./sdk.votecontractdeploymetadata.md) | the contract metadata |
 
 **Returns:**
 

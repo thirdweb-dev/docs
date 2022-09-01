@@ -22,24 +22,24 @@ const { data: winningBid, isLoading, error } = useWinningBid(<YourMarketplaceCon
 **Signature:**
 
 ```typescript
-declare function useWinningBid(
+export declare function useWinningBid(
   contract: RequiredParam<Marketplace>,
   listingId: RequiredParam<BigNumberish>,
-): _tanstack_react_query.UseQueryResult<
-  _thirdweb_dev_sdk.Offer | undefined,
+): import("@tanstack/react-query").UseQueryResult<
+  import("@thirdweb-dev/sdk").Offer | undefined,
   unknown
 >;
 ```
 
 ## Parameters
 
-| Parameter | Type                              | Description                           |
-| --------- | --------------------------------- | ------------------------------------- |
-| contract  | RequiredParam&lt;Marketplace&gt;  | an instance of a marketplace contract |
-| listingId | RequiredParam&lt;BigNumberish&gt; | the listing id to check               |
+| Parameter | Type                                                          | Description                           |
+| --------- | ------------------------------------------------------------- | ------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt;  | an instance of a marketplace contract |
+| listingId | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt; | the listing id to check               |
 
 **Returns:**
 
-\_tanstack_react_query.UseQueryResult&lt;\_thirdweb_dev_sdk.Offer \| undefined, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk").Offer \| undefined, unknown&gt;
 
 a response object that includes the that is winning the auction

@@ -27,6 +27,6 @@ prepareClaim(tokenId: BigNumberish, quantity: BigNumberish, checkERC20Allowance:
 
 **Returns:**
 
-Promise&lt;ClaimVerification&gt;
+Promise&lt;[ClaimVerification](./sdk.claimverification.md)&gt;
 
 - `overrides` and `proofs` as an object.

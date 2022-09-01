@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-interface ProposalExecutable
+export interface ProposalExecutable
 ```
 
 ## Properties

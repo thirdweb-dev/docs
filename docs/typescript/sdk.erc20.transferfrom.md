@@ -32,15 +32,15 @@ transferFrom(from: string, to: string, amount: Amount): Promise<TransactionResul
 
 ## Parameters
 
-| Parameter | Type   | Description |
-| --------- | ------ | ----------- |
-| from      | string |             |
-| to        | string |             |
-| amount    | Amount |             |
+| Parameter | Type                      | Description |
+| --------- | ------------------------- | ----------- |
+| from      | string                    |             |
+| to        | string                    |             |
+| amount    | [Amount](./sdk.amount.md) |             |
 
 **Returns:**
 
-Promise&lt;TransactionResult&gt;
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 
 ## Remarks
 

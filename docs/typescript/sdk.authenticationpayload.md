@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type AuthenticationPayload = z.output<
+export declare type AuthenticationPayload = z.output<
   typeof AuthenticationPayloadSchema
 >;
 ```

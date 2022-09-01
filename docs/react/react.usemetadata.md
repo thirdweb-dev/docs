@@ -22,11 +22,11 @@ const { data: metadata, isLoading, error } = useMetadata(SmartContract);
 **Signature:**
 
 ```typescript
-declare function useMetadata(
+export declare function useMetadata(
   contract: RequiredParam<SmartContract | ValidContractInstance>,
-): _tanstack_react_query.UseQueryResult<
+): import("@tanstack/react-query").UseQueryResult<
   {
-    [x: string]: _thirdweb_dev_sdk.Json;
+    [x: string]: import("@thirdweb-dev/sdk").Json;
     description?: string | undefined;
     image?: any;
     external_link?: string | undefined;
@@ -38,12 +38,12 @@ declare function useMetadata(
 
 ## Parameters
 
-| Parameter | Type                                                            | Description      |
-| --------- | --------------------------------------------------------------- | ---------------- |
-| contract  | RequiredParam&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
+| Parameter | Type                                                                                        | Description      |
+| --------- | ------------------------------------------------------------------------------------------- | ---------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
 
 **Returns:**
 
-\_tanstack_react_query.UseQueryResult&lt;{ \[x: string\]: \_thirdweb_dev_sdk.Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk").Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
 
 a object containing the metadata

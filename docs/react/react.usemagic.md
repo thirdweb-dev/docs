@@ -71,14 +71,14 @@ const LoginWithMagicLink = () => {
 **Signature:**
 
 ```typescript
-declare function useMagic(): (
+export declare function useMagic(): (
   configuration: LoginWithMagicLinkConfiguration,
 ) => Promise<{
-  data?: wagmi_core.ConnectorData<any> | undefined;
+  data?: import("wagmi-core").ConnectorData<any> | undefined;
   error?: Error | undefined;
 }>;
 ```
 
 **Returns:**
 
-(configuration: LoginWithMagicLinkConfiguration) =&gt; Promise&lt;{ data?: wagmi_core.ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;
+(configuration: LoginWithMagicLinkConfiguration) =&gt; Promise&lt;{ data?: import("wagmi-core").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;

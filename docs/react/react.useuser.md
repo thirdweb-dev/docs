@@ -16,7 +16,7 @@ Hook to get the currently logged in user.
 **Signature:**
 
 ```typescript
-declare function useUser(): {
+export declare function useUser(): {
   user: ThirdwebAuthUser | undefined;
   isLoading: boolean;
 };
@@ -24,6 +24,6 @@ declare function useUser(): {
 
 **Returns:**
 
-{ user: ThirdwebAuthUser \| undefined; isLoading: boolean; }
+{ user: [ThirdwebAuthUser](./react.thirdwebauthuser.md) \| undefined; isLoading: boolean; }
 
 - The currently logged in user or null if not logged in, as well as a loading state.

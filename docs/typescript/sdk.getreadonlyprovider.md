@@ -12,10 +12,10 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare function getReadOnlyProvider(
+export declare function getReadOnlyProvider(
   network: string,
   chainId?: number,
-): ethers$1.providers.BaseProvider;
+): ethers.providers.BaseProvider;
 ```
 
 ## Parameters
@@ -27,6 +27,6 @@ declare function getReadOnlyProvider(
 
 **Returns:**
 
-ethers$1.providers.BaseProvider
+ethers.providers.BaseProvider
 
 the provider

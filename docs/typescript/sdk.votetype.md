@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare enum VoteType
+export declare enum VoteType
 ```
 
 ## Enumeration Members

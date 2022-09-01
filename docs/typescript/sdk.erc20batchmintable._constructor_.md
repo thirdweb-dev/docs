@@ -21,5 +21,5 @@ constructor(erc20: Erc20, contractWrapper: ContractWrapper<IMintableERC20 & IMul
 
 | Parameter       | Type                                                   | Description |
 | --------------- | ------------------------------------------------------ | ----------- |
-| erc20           | Erc20                                                  |             |
+| erc20           | [Erc20](./sdk.erc20.md)                                |             |
 | contractWrapper | ContractWrapper&lt;IMintableERC20 &amp; IMulticall&gt; |             |

@@ -34,7 +34,7 @@ From here, you can prompt users to switch their network using the `useNetwork` h
 **Signature:**
 
 ```typescript
-declare function useNetworkMismatch(): boolean;
+export declare function useNetworkMismatch(): boolean;
 ```
 
 **Returns:**

@@ -12,7 +12,10 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare function isDowngradeVersion(current: string, next: string): boolean;
+export declare function isDowngradeVersion(
+  current: string,
+  next: string,
+): boolean;
 ```
 
 ## Parameters

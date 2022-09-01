@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-encoder: ContractEncoder<Split$1>;
+encoder: ContractEncoder<SplitContract>;
 ```

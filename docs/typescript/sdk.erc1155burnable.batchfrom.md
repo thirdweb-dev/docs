@@ -44,7 +44,7 @@ batchFrom(account: string, tokenIds: BigNumberish[], amounts: BigNumberish[]): P
 
 **Returns:**
 
-Promise&lt;TransactionResult&gt;
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 
 ## Remarks
 

@@ -28,20 +28,20 @@ const contract = sdk.getEdition("{{contract_address}}");
 
 ## Properties
 
-| Property                                        | Modifiers           | Type                                                                      | Description         |
-| ----------------------------------------------- | ------------------- | ------------------------------------------------------------------------- | ------------------- |
-| [contractAbi](./sdk.edition.contractabi.md)     | <code>static</code> | any                                                                       |                     |
-| [contractRoles](./sdk.edition.contractroles.md) | <code>static</code> | readonly \["admin", "minter", "transfer"\]                                |                     |
-| [contractType](./sdk.edition.contracttype.md)   | <code>static</code> | "edition"                                                                 |                     |
-| [encoder](./sdk.edition.encoder.md)             |                     | ContractEncoder&lt;TokenERC1155&gt;                                       |                     |
-| [estimator](./sdk.edition.estimator.md)         |                     | GasCostEstimator&lt;TokenERC1155&gt;                                      |                     |
-| [events](./sdk.edition.events.md)               |                     | ContractEvents&lt;TokenERC1155&gt;                                        |                     |
-| [metadata](./sdk.edition.metadata.md)           |                     | ContractMetadata&lt;TokenERC1155, typeof Edition.schema&gt;               |                     |
-| [platformFees](./sdk.edition.platformfees.md)   |                     | ContractPlatformFee&lt;TokenERC1155&gt;                                   |                     |
-| [roles](./sdk.edition.roles.md)                 |                     | ContractRoles&lt;TokenERC1155, typeof Edition.contractRoles\[number\]&gt; |                     |
-| [royalties](./sdk.edition.royalties.md)         |                     | ContractRoyalty&lt;TokenERC1155, typeof Edition.schema&gt;                | Configure royalties |
-| [sales](./sdk.edition.sales.md)                 |                     | ContractPrimarySale&lt;TokenERC1155&gt;                                   |                     |
-| [signature](./sdk.edition.signature.md)         |                     | Erc1155SignatureMintable                                                  | Signature Minting   |
+| Property                                        | Modifiers           | Type                                                                                                                                  | Description         |
+| ----------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
+| [contractAbi](./sdk.edition.contractabi.md)     | <code>static</code> | any                                                                                                                                   |                     |
+| [contractRoles](./sdk.edition.contractroles.md) | <code>static</code> | readonly \["admin", "minter", "transfer"\]                                                                                            |                     |
+| [contractType](./sdk.edition.contracttype.md)   | <code>static</code> | "edition"                                                                                                                             |                     |
+| [encoder](./sdk.edition.encoder.md)             |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;TokenERC1155&gt;                                                                       |                     |
+| [estimator](./sdk.edition.estimator.md)         |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;TokenERC1155&gt;                                                                     |                     |
+| [events](./sdk.edition.events.md)               |                     | [ContractEvents](./sdk.contractevents.md)&lt;TokenERC1155&gt;                                                                         |                     |
+| [metadata](./sdk.edition.metadata.md)           |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;TokenERC1155, typeof Edition.schema&gt;                                              |                     |
+| [platformFees](./sdk.edition.platformfees.md)   |                     | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;TokenERC1155&gt;                                                               |                     |
+| [roles](./sdk.edition.roles.md)                 |                     | [ContractRoles](./sdk.contractroles.md)&lt;TokenERC1155, typeof [Edition.contractRoles](./sdk.edition.contractroles.md)\[number\]&gt; |                     |
+| [royalties](./sdk.edition.royalties.md)         |                     | [ContractRoyalty](./sdk.contractroyalty.md)&lt;TokenERC1155, typeof Edition.schema&gt;                                                | Configure royalties |
+| [sales](./sdk.edition.sales.md)                 |                     | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;TokenERC1155&gt;                                                               |                     |
+| [signature](./sdk.edition.signature.md)         |                     | [Erc1155SignatureMintable](./sdk.erc1155signaturemintable.md)                                                                         | Signature Minting   |
 
 ## Methods
 
@@ -62,7 +62,7 @@ const contract = sdk.getEdition("{{contract_address}}");
 **Signature:**
 
 ```typescript
-declare class Edition extends Erc1155<TokenERC1155>
+export declare class Edition extends Erc1155<TokenERC1155>
 ```
 
-**Extends:** Erc1155&lt;TokenERC1155&gt;
+**Extends:** [Erc1155](./sdk.erc1155.md)&lt;TokenERC1155&gt;

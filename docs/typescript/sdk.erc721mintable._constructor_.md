@@ -21,6 +21,6 @@ constructor(erc721: Erc721, contractWrapper: ContractWrapper<IMintableERC721>, s
 
 | Parameter       | Type                                   | Description |
 | --------------- | -------------------------------------- | ----------- |
-| erc721          | Erc721                                 |             |
+| erc721          | [Erc721](./sdk.erc721.md)              |             |
 | contractWrapper | ContractWrapper&lt;IMintableERC721&gt; |             |
 | storage         | IStorage                               |             |

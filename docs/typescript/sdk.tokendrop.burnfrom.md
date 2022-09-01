@@ -31,14 +31,14 @@ burnFrom(holder: string, amount: Amount): Promise<TransactionResult>;
 
 ## Parameters
 
-| Parameter | Type   | Description |
-| --------- | ------ | ----------- |
-| holder    | string |             |
-| amount    | Amount |             |
+| Parameter | Type                      | Description |
+| --------- | ------------------------- | ----------- |
+| holder    | string                    |             |
+| amount    | [Amount](./sdk.amount.md) |             |
 
 **Returns:**
 
-Promise&lt;TransactionResult&gt;
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 
 ## Remarks
 

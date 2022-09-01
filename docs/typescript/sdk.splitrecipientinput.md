@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-interface SplitRecipientInput
+export interface SplitRecipientInput
 ```
 
 ## Properties

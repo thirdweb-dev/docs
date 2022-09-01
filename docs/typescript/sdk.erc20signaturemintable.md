@@ -14,7 +14,7 @@ Enables generating ERC20 Tokens with rules and an associated signature, which ca
 **Signature:**
 
 ```typescript
-declare class Erc20SignatureMintable implements DetectableFeature
+export declare class Erc20SignatureMintable implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

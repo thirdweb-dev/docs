@@ -25,6 +25,6 @@ getSplit(address: string): Split;
 
 **Returns:**
 
-Split
+[Split](./sdk.split.md)
 
 the contract

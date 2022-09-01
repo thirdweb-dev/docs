@@ -12,13 +12,13 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-interface BatchToReveal
+export interface BatchToReveal
 ```
 
 ## Properties
 
-| Property                                                          | Modifiers | Type        | Description |
-| ----------------------------------------------------------------- | --------- | ----------- | ----------- |
-| [batchId](./sdk.batchtoreveal.batchid.md)                         |           | BigNumber   |             |
-| [batchUri](./sdk.batchtoreveal.batchuri.md)                       |           | string      |             |
-| [placeholderMetadata](./sdk.batchtoreveal.placeholdermetadata.md) |           | NFTMetadata |             |
+| Property                                                          | Modifiers | Type                                | Description |
+| ----------------------------------------------------------------- | --------- | ----------------------------------- | ----------- |
+| [batchId](./sdk.batchtoreveal.batchid.md)                         |           | BigNumber                           |             |
+| [batchUri](./sdk.batchtoreveal.batchuri.md)                       |           | string                              |             |
+| [placeholderMetadata](./sdk.batchtoreveal.placeholdermetadata.md) |           | [NFTMetadata](./sdk.nftmetadata.md) |             |

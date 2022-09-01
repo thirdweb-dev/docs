@@ -26,10 +26,10 @@ await contract.edition.mint.to(walletAddress, nftMetadata);
 
 ## Properties
 
-| Property                                            | Modifiers | Type                                  | Description                         |
-| --------------------------------------------------- | --------- | ------------------------------------- | ----------------------------------- |
-| [batch](./sdk.erc1155mintable.batch.md)             |           | Erc1155BatchMintable &#124; undefined | Batch mint Tokens to many addresses |
-| [featureName](./sdk.erc1155mintable.featurename.md) |           | "ERC1155Mintable"                     |                                     |
+| Property                                            | Modifiers | Type                                                                   | Description                         |
+| --------------------------------------------------- | --------- | ---------------------------------------------------------------------- | ----------------------------------- |
+| [batch](./sdk.erc1155mintable.batch.md)             |           | [Erc1155BatchMintable](./sdk.erc1155batchmintable.md) &#124; undefined | Batch mint Tokens to many addresses |
+| [featureName](./sdk.erc1155mintable.featurename.md) |           | "ERC1155Mintable"                                                      |                                     |
 
 ## Methods
 
@@ -41,7 +41,7 @@ await contract.edition.mint.to(walletAddress, nftMetadata);
 **Signature:**
 
 ```typescript
-declare class Erc1155Mintable implements DetectableFeature
+export declare class Erc1155Mintable implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

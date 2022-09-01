@@ -30,17 +30,17 @@ const contract = sdk.getMultiwrap("{{contract_address}}");
 
 ## Properties
 
-| Property                                          | Modifiers           | Type                                                                       | Description                           |
-| ------------------------------------------------- | ------------------- | -------------------------------------------------------------------------- | ------------------------------------- |
-| [contractAbi](./sdk.multiwrap.contractabi.md)     | <code>static</code> | any                                                                        | **<i>(BETA)</i>**                     |
-| [contractRoles](./sdk.multiwrap.contractroles.md) | <code>static</code> | readonly \["transfer", "minter", "unwrap", "asset"\]                       | **<i>(BETA)</i>**                     |
-| [contractType](./sdk.multiwrap.contracttype.md)   | <code>static</code> | "multiwrap"                                                                | **<i>(BETA)</i>**                     |
-| [encoder](./sdk.multiwrap.encoder.md)             |                     | ContractEncoder&lt;Multiwrap$1&gt;                                         | **<i>(BETA)</i>**                     |
-| [estimator](./sdk.multiwrap.estimator.md)         |                     | GasCostEstimator&lt;Multiwrap$1&gt;                                        | **<i>(BETA)</i>**                     |
-| [events](./sdk.multiwrap.events.md)               |                     | ContractEvents&lt;Multiwrap$1&gt;                                          | **<i>(BETA)</i>**                     |
-| [metadata](./sdk.multiwrap.metadata.md)           |                     | ContractMetadata&lt;Multiwrap$1, typeof Multiwrap.schema&gt;               | **<i>(BETA)</i>**                     |
-| [roles](./sdk.multiwrap.roles.md)                 |                     | ContractRoles&lt;Multiwrap$1, typeof Multiwrap.contractRoles\[number\]&gt; | **<i>(BETA)</i>**                     |
-| [royalties](./sdk.multiwrap.royalties.md)         |                     | ContractRoyalty&lt;Multiwrap$1, typeof Multiwrap.schema&gt;                | **<i>(BETA)</i>** Configure royalties |
+| Property                                          | Modifiers           | Type                                                                                                                                           | Description                           |
+| ------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
+| [contractAbi](./sdk.multiwrap.contractabi.md)     | <code>static</code> | any                                                                                                                                            | **<i>(BETA)</i>**                     |
+| [contractRoles](./sdk.multiwrap.contractroles.md) | <code>static</code> | readonly \["transfer", "minter", "unwrap", "asset"\]                                                                                           | **<i>(BETA)</i>**                     |
+| [contractType](./sdk.multiwrap.contracttype.md)   | <code>static</code> | "multiwrap"                                                                                                                                    | **<i>(BETA)</i>**                     |
+| [encoder](./sdk.multiwrap.encoder.md)             |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;MultiwrapContract&gt;                                                                           | **<i>(BETA)</i>**                     |
+| [estimator](./sdk.multiwrap.estimator.md)         |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;MultiwrapContract&gt;                                                                         | **<i>(BETA)</i>**                     |
+| [events](./sdk.multiwrap.events.md)               |                     | [ContractEvents](./sdk.contractevents.md)&lt;MultiwrapContract&gt;                                                                             | **<i>(BETA)</i>**                     |
+| [metadata](./sdk.multiwrap.metadata.md)           |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;MultiwrapContract, typeof Multiwrap.schema&gt;                                                | **<i>(BETA)</i>**                     |
+| [roles](./sdk.multiwrap.roles.md)                 |                     | [ContractRoles](./sdk.contractroles.md)&lt;MultiwrapContract, typeof [Multiwrap.contractRoles](./sdk.multiwrap.contractroles.md)\[number\]&gt; | **<i>(BETA)</i>**                     |
+| [royalties](./sdk.multiwrap.royalties.md)         |                     | [ContractRoyalty](./sdk.contractroyalty.md)&lt;MultiwrapContract, typeof Multiwrap.schema&gt;                                                  | **<i>(BETA)</i>** Configure royalties |
 
 ## Methods
 
@@ -54,7 +54,7 @@ const contract = sdk.getMultiwrap("{{contract_address}}");
 **Signature:**
 
 ```typescript
-declare class Multiwrap extends Erc721<Multiwrap$1>
+export declare class Multiwrap extends Erc721<MultiwrapContract>
 ```
 
-**Extends:** Erc721&lt;Multiwrap$1&gt;
+**Extends:** [Erc721](./sdk.erc721.md)&lt;MultiwrapContract&gt;

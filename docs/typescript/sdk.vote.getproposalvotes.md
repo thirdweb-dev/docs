@@ -25,4 +25,4 @@ getProposalVotes(proposalId: BigNumber): Promise<ProposalVote[]>;
 
 **Returns:**
 
-Promise&lt;ProposalVote\[\]&gt;
+Promise&lt;[ProposalVote](./sdk.proposalvote.md)\[\]&gt;

@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare class Erc1155Burnable implements DetectableFeature
+export declare class Erc1155Burnable implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

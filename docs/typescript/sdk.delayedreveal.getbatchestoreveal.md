@@ -25,7 +25,7 @@ getBatchesToReveal(): Promise<BatchToReveal[]>;
 
 **Returns:**
 
-Promise&lt;BatchToReveal\[\]&gt;
+Promise&lt;[BatchToReveal](./sdk.batchtoreveal.md)\[\]&gt;
 
 ## Remarks
 

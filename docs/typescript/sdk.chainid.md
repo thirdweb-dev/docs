@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare enum ChainId
+export declare enum ChainId
 ```
 
 ## Enumeration Members

@@ -27,7 +27,7 @@ await contract.claimConditions.set([claimCondition]);
 **Signature:**
 
 ```typescript
-claimConditions: DropClaimConditions<SignatureDrop$1>;
+claimConditions: DropClaimConditions<SignatureDropContract>;
 ```
 
 ## Remarks

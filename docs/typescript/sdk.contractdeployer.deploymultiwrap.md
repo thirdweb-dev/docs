@@ -29,9 +29,9 @@ deployMultiwrap(metadata: MultiwrapContractDeployMetadata): Promise<string>;
 
 ## Parameters
 
-| Parameter | Type                            | Description           |
-| --------- | ------------------------------- | --------------------- |
-| metadata  | MultiwrapContractDeployMetadata | the contract metadata |
+| Parameter | Type                                                                        | Description           |
+| --------- | --------------------------------------------------------------------------- | --------------------- |
+| metadata  | [MultiwrapContractDeployMetadata](./sdk.multiwrapcontractdeploymetadata.md) | the contract metadata |
 
 **Returns:**
 

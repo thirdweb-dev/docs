@@ -46,7 +46,7 @@ await contract.roles.setTokenRoyaltyInfo(tokenId, {
 **Signature:**
 
 ```typescript
-declare class ContractRoyalty<TContract extends IRoyalty, TSchema extends IGenericSchemaType> implements DetectableFeature
+export declare class ContractRoyalty<TContract extends IRoyalty, TSchema extends IGenericSchemaType> implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

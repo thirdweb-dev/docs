@@ -42,7 +42,7 @@ const nfts = await contract.edition.query.all();
 **Signature:**
 
 ```typescript
-declare class Erc1155Enumerable implements DetectableFeature
+export declare class Erc1155Enumerable implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

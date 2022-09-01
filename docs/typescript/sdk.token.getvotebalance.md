@@ -19,6 +19,6 @@ getVoteBalance(): Promise<CurrencyValue>;
 
 **Returns:**
 
-Promise&lt;CurrencyValue&gt;
+Promise&lt;[CurrencyValue](./sdk.currencyvalue.md)&gt;
 
 the amount of voting power in tokens

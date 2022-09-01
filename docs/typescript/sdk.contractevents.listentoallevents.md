@@ -28,9 +28,9 @@ listenToAllEvents(listener: (event: ContractEvent) => void): () => void;
 
 ## Parameters
 
-| Parameter | Type                              | Description                                                  |
-| --------- | --------------------------------- | ------------------------------------------------------------ |
-| listener  | (event: ContractEvent) =&gt; void | the callback function that will be called on every new event |
+| Parameter | Type                                                        | Description                                                  |
+| --------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
+| listener  | (event: [ContractEvent](./sdk.contractevent.md)) =&gt; void | the callback function that will be called on every new event |
 
 **Returns:**
 

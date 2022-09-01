@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type AbiEvent = {
+export declare type AbiEvent = {
   name: string;
   inputs: z.infer<typeof AbiTypeSchema>[];
   outputs: z.infer<typeof AbiTypeSchema>[];

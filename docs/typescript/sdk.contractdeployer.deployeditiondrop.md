@@ -28,9 +28,9 @@ deployEditionDrop(metadata: NFTContractDeployMetadata): Promise<string>;
 
 ## Parameters
 
-| Parameter | Type                      | Description           |
-| --------- | ------------------------- | --------------------- |
-| metadata  | NFTContractDeployMetadata | the contract metadata |
+| Parameter | Type                                                            | Description           |
+| --------- | --------------------------------------------------------------- | --------------------- |
+| metadata  | [NFTContractDeployMetadata](./sdk.nftcontractdeploymetadata.md) | the contract metadata |
 
 **Returns:**
 

@@ -34,12 +34,12 @@ const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibil
 **Signature:**
 
 ```typescript
-declare function useClaimIneligibilityReasons<
+export declare function useClaimIneligibilityReasons<
   TContract extends NFTContract | Erc20,
 >(
   ...[contract, params, tokenId]: ClaimIneligibilityInputParams<TContract>
-): _tanstack_react_query.UseQueryResult<
-  _thirdweb_dev_sdk.ClaimEligibility[],
+): import("@tanstack/react-query").UseQueryResult<
+  import("@thirdweb-dev/sdk").ClaimEligibility[],
   unknown
 >;
 ```
@@ -52,6 +52,6 @@ declare function useClaimIneligibilityReasons<
 
 **Returns:**
 
-\_tanstack_react_query.UseQueryResult&lt;\_thirdweb_dev_sdk.ClaimEligibility\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk").ClaimEligibility\[\], unknown&gt;
 
 a response object with the resons for the claim ineligibility

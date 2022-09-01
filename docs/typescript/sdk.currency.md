@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare type Currency = z.infer<typeof CurrencySchema>;
+export declare type Currency = z.infer<typeof CurrencySchema>;
 ```

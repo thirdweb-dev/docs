@@ -26,11 +26,11 @@ const {
 **Signature:**
 
 ```typescript
-declare function useContractMetadata(
+export declare function useContractMetadata(
   contractAddress: RequiredParam<ContractAddress>,
-): _tanstack_react_query.UseQueryResult<
+): import("@tanstack/react-query").UseQueryResult<
   {
-    [x: string]: _thirdweb_dev_sdk.Json;
+    [x: string]: import("@thirdweb-dev/sdk").Json;
     description?: string | undefined;
     image?: any;
     external_link?: string | undefined;
@@ -42,12 +42,12 @@ declare function useContractMetadata(
 
 ## Parameters
 
-| Parameter       | Type                                 | Description                          |
-| --------------- | ------------------------------------ | ------------------------------------ |
-| contractAddress | RequiredParam&lt;ContractAddress&gt; | the address of the deployed contract |
+| Parameter       | Type                                                                                           | Description                          |
+| --------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------ |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;[ContractAddress](./react.contractaddress.md)&gt; | the address of the deployed contract |
 
 **Returns:**
 
-\_tanstack_react_query.UseQueryResult&lt;{ \[x: string\]: \_thirdweb_dev_sdk.Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk").Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
 
 a response object that includes the contract metadata of the deployed contract

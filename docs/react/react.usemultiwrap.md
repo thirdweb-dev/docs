@@ -35,9 +35,9 @@ use `useContract()` instead
 **Signature:**
 
 ```typescript
-declare function useMultiwrap(
+export declare function useMultiwrap(
   contractAddress?: string,
-): _thirdweb_dev_sdk.Multiwrap | undefined;
+): import("@thirdweb-dev/sdk").Multiwrap | undefined;
 ```
 
 ## Parameters
@@ -48,4 +48,4 @@ declare function useMultiwrap(
 
 **Returns:**
 
-\_thirdweb_dev_sdk.Multiwrap \| undefined
+import("@thirdweb-dev/sdk").Multiwrap \| undefined

@@ -16,10 +16,12 @@ The return type of the [useClaimNFT()](./react.useclaimnft.md) hook.
 **Signature:**
 
 ```typescript
-declare type ClaimNFTReturnType<TContract extends DropContract> =
+export declare type ClaimNFTReturnType<TContract extends DropContract> =
   TContract extends Erc721
     ? Awaited<ReturnType<TContract["claimTo"]>>
     : TContract extends Erc1155
     ? Awaited<ReturnType<TContract["claimTo"]>>
     : never;
 ```
+
+**References:** [DropContract](./react.dropcontract.md)

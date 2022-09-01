@@ -26,7 +26,7 @@ claim(quantity: BigNumberish, checkERC20Allowance?: boolean): Promise<Transactio
 
 **Returns:**
 
-Promise&lt;TransactionResultWithId&lt;NFTMetadataOwner&gt;\[\]&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;\[\]&gt;
 
 - an array of results containing the id of the token claimed, the transaction receipt and a promise to optionally fetch the nft metadata
 

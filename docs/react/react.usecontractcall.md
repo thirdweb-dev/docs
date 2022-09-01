@@ -30,10 +30,10 @@ const {
 **Signature:**
 
 ```typescript
-declare function useContractCall(
+export declare function useContractCall(
   contract: RequiredParam<ReturnType<typeof useContract>["contract"]>,
   functionName: RequiredParam<string>,
-): _tanstack_react_query.UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   any,
   unknown,
   unknown[] | [...unknown[], CallOverrides] | undefined,
@@ -43,13 +43,13 @@ declare function useContractCall(
 
 ## Parameters
 
-| Parameter    | Type                                                                    | Description                                                 |
-| ------------ | ----------------------------------------------------------------------- | ----------------------------------------------------------- |
-| contract     | RequiredParam&lt;ReturnType&lt;typeof useContract&gt;\["contract"\]&gt; | the contract instance of the contract to call a function on |
-| functionName | RequiredParam&lt;string&gt;                                             | the name of the function to call                            |
+| Parameter    | Type                                                                                                | Description                                                 |
+| ------------ | --------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| contract     | [RequiredParam](./react.requiredparam.md)&lt;ReturnType&lt;typeof useContract&gt;\["contract"\]&gt; | the contract instance of the contract to call a function on |
+| functionName | [RequiredParam](./react.requiredparam.md)&lt;string&gt;                                             | the name of the function to call                            |
 
 **Returns:**
 
-\_tanstack_react_query.UseMutationResult&lt;any, unknown, unknown\[\] \| \[...unknown\[\], CallOverrides\] \| undefined, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;any, unknown, unknown\[\] \| \[...unknown\[\], CallOverrides\] \| undefined, unknown&gt;
 
 a response object that includes the write function to call

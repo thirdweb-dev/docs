@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-declare class TransactionError extends Error
+export declare class TransactionError extends Error
 ```
 
 **Extends:** Error

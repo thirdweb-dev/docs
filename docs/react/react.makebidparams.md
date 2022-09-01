@@ -12,7 +12,7 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-declare type MakeBidParams = {
+export declare type MakeBidParams = {
   listingId: BigNumberish;
   bid: Price;
 };

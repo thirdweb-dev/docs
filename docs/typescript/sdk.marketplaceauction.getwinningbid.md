@@ -37,7 +37,7 @@ getWinningBid(listingId: BigNumberish): Promise<Offer | undefined>;
 
 **Returns:**
 
-Promise&lt;Offer \| undefined&gt;
+Promise&lt;[Offer](./sdk.offer.md) \| undefined&gt;
 
 ## Remarks
 

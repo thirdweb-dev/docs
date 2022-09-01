@@ -25,6 +25,6 @@ getToken(address: string): Token;
 
 **Returns:**
 
-Token
+[Token](./sdk.token.md)
 
 the contract

@@ -68,12 +68,12 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-declare function useBurnNFT<TContract extends NFTContract>(
+export declare function useBurnNFT<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
-): _tanstack_react_query.UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
-      receipt: _ethersproject_abstract_provider.TransactionReceipt;
+      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
       data: () => Promise<unknown>;
     },
     "data"
@@ -86,12 +86,12 @@ declare function useBurnNFT<TContract extends NFTContract>(
 
 ## Parameters
 
-| Parameter | Type                           | Description                                            |
-| --------- | ------------------------------ | ------------------------------------------------------ |
-| contract  | RequiredParam&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
+| Parameter | Type                                                       | Description                                            |
+| --------- | ---------------------------------------------------------- | ------------------------------------------------------ |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
 
 **Returns:**
 
-\_tanstack_react_query.UseMutationResult&lt;Omit&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, BurnNFTParams&lt;TContract&gt;, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [BurnNFTParams](./react.burnnftparams.md)&lt;TContract&gt;, unknown&gt;
 
 a mutation object that can be used to burn an NFT token from the connected wallet

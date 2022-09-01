@@ -14,15 +14,15 @@ Constructs a new instance of the `Marketplace` class
 **Signature:**
 
 ```typescript
-constructor(network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: SDKOptions, contractWrapper?: ContractWrapper<Marketplace$1>);
+constructor(network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: SDKOptions, contractWrapper?: ContractWrapper<MarketplaceContract>);
 ```
 
 ## Parameters
 
-| Parameter       | Type                                 | Description       |
-| --------------- | ------------------------------------ | ----------------- |
-| network         | NetworkOrSignerOrProvider            |                   |
-| address         | string                               |                   |
-| storage         | IStorage                             |                   |
-| options         | SDKOptions                           | <i>(Optional)</i> |
-| contractWrapper | ContractWrapper&lt;Marketplace$1&gt; | <i>(Optional)</i> |
+| Parameter       | Type                                                            | Description       |
+| --------------- | --------------------------------------------------------------- | ----------------- |
+| network         | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) |                   |
+| address         | string                                                          |                   |
+| storage         | IStorage                                                        |                   |
+| options         | [SDKOptions](./sdk.sdkoptions.md)                               | <i>(Optional)</i> |
+| contractWrapper | ContractWrapper&lt;MarketplaceContract&gt;                      | <i>(Optional)</i> |

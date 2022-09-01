@@ -38,7 +38,7 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-declare function useResolvedMediaType(uri?: string): {
+export declare function useResolvedMediaType(uri?: string): {
   url: string | undefined;
   mimeType: string | undefined;
 };

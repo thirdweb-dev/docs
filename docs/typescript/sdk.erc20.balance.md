@@ -25,7 +25,7 @@ balance(): Promise<CurrencyValue>;
 
 **Returns:**
 
-Promise&lt;CurrencyValue&gt;
+Promise&lt;[CurrencyValue](./sdk.currencyvalue.md)&gt;
 
 The balance of a specific wallet.
 

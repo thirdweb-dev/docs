@@ -34,7 +34,7 @@ closeListing(listingId: BigNumberish, closeFor?: string): Promise<TransactionRes
 
 **Returns:**
 
-Promise&lt;TransactionResult&gt;
+Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 
 ## Remarks
 

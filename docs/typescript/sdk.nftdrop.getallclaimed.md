@@ -26,13 +26,13 @@ getAllClaimed(queryParams?: QueryAllParams): Promise<NFTMetadataOwner[]>;
 
 ## Parameters
 
-| Parameter   | Type           | Description                                                             |
-| ----------- | -------------- | ----------------------------------------------------------------------- |
-| queryParams | QueryAllParams | <i>(Optional)</i> optional filtering to only fetch a subset of results. |
+| Parameter   | Type                                      | Description                                                             |
+| ----------- | ----------------------------------------- | ----------------------------------------------------------------------- |
+| queryParams | [QueryAllParams](./sdk.queryallparams.md) | <i>(Optional)</i> optional filtering to only fetch a subset of results. |
 
 **Returns:**
 
-Promise&lt;NFTMetadataOwner\[\]&gt;
+Promise&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)\[\]&gt;
 
 The NFT metadata and their ownersfor all NFTs queried.
 

@@ -41,12 +41,12 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-declare function useBuyNow(
+export declare function useBuyNow(
   contract: RequiredParam<Marketplace>,
-): _tanstack_react_query.UseMutationResult<
+): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
-      receipt: _ethersproject_abstract_provider.TransactionReceipt;
+      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
       data: () => Promise<unknown>;
     },
     "data"
@@ -68,12 +68,12 @@ declare function useBuyNow(
 
 ## Parameters
 
-| Parameter | Type                             | Description                           |
-| --------- | -------------------------------- | ------------------------------------- |
-| contract  | RequiredParam&lt;Marketplace&gt; | an instance of a Marketplace contract |
+| Parameter | Type                                                         | Description                           |
+| --------- | ------------------------------------------------------------ | ------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a Marketplace contract |
 
 **Returns:**
 
-\_tanstack_react_query.UseMutationResult&lt;Omit&lt;{ receipt: \_ethersproject_abstract_provider.TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, { id: BigNumberish; type: ListingType.Direct; buyAmount: BigNumberish; buyForWallet?: string \| undefined; } \| { id: BigNumberish; type: ListingType.Auction; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, { id: BigNumberish; type: ListingType.Direct; buyAmount: BigNumberish; buyForWallet?: string \| undefined; } \| { id: BigNumberish; type: ListingType.Auction; }, unknown&gt;
 
 a mutation object that can be used to buy out an auction listing

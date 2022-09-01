@@ -14,7 +14,7 @@ Manages history for Token contracts
 **Signature:**
 
 ```typescript
-declare class TokenERC20History
+export declare class TokenERC20History
 ```
 
 ## Constructors
