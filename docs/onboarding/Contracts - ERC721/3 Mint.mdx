@@ -1,0 +1,36 @@
+---
+slug: /extensions/erc-721/mintable
+title: Mint
+---
+
+import ViewContractCodeButton from "../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../src/components/QuickstartCard";
+import ImportSnippet from "../../../src/components/ImportSnippet";
+
+# ERC721Mintable
+
+ERC721Mintable allows you to mint new NFTs into your ERC721 NFT collection contract.
+
+## Implementing The Contract
+
+TODO
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/eip/ERC721A.sol";
+import "@thirdweb-dev/contracts/extension/interface/IMintableERC721.sol";
+
+contract Contract is ERC721A, IMintableERC721 {
+    // TODO
+}
+```
+
+## Unlocked Features
+
+By implementing the ERC721Mintable contract, you unlock the following features in the SDK and dashboard:
+
+| SDK Usage                                                                           | Description                          |
+| ----------------------------------------------------------------------------------- | ------------------------------------ |
+| [Mint NFT](/sdk/interacting-with-contracts/erc721/ERC721Mintable#mint-a-unique-nft) | Mint a new NFT into your collection. |

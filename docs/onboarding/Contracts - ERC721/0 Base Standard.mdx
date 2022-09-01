@@ -11,10 +11,13 @@ import ImportSnippet from "../../../src/components/ImportSnippet";
 
 ERC721 is the standard for representing NFTs (non-fungible tokens).
 
+:::tip ERC721 Starter Kit
+For a full implementation of ERC721A with several useful extensions, check out the [ERC721Base Starter Kit](/extensions/base-contracts/erc-721/erc721base).
+:::
+
 ## Implementing The Contract
 
-We recommend implementing the ERC721A standard to build your NFT smart contracts; which is
-a gas-optimized variation of the ERC721 standard.
+We recommend implementing the [ERC721A](https://www.erc721a.org/) standard to add NFT functionality to your contract.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -37,30 +40,10 @@ contract Contract is ERC721A {
 
 ## Unlocked Features
 
-When you deploy your contract using thirdweb, you unlock the features of the dashboard
-and the SDK to easily interact with your smart contract. You can check which features your contract
-has successfully implemented by running:
+By implementing the ERC721A standard, you unlock the following features in the SDK and dashboard:
 
-```bash
-npx thirdweb detect
-```
-
-### SDK Features
-
-By implementing the ERC721A standard, you unlock the following features in the SDK:
-
-| SDK Usage              | Description                                                  | Contract Function Name            |
-| ---------------------- | ------------------------------------------------------------ | --------------------------------- |
-| [Transfer]             | Transfer an NFT to another address                           | `safeTransferFrom`                |
-| [Set Approval]         | Provide an address permission to control your NFT            | `setApprovalForAll`               |
-| [Transfer From]        | Transfer an NFT you have approval of from another wallet     | `transferFrom`                    |
-| [Balance]              | View how many tokens a wallet owns from this collection      | `balanceOf`                       |
-| [View Approval Status] | View approval information for an NFT                         | `getApproved`, `isApprovedForAll` |
-| Contract Metadata      | View the metadata of the smart contract                      | `name`, `symbol`                  |
-| Token Owner            | View the wallet address that currently owns an NFT           | `ownerOf`                         |
-| [Get]                  | View the metadata of an NFT                                  | `tokenURI`                        |
-| [Supply]               | Read the total amount of tokens ever minted on this contract | `totalSupply`                     |
-
-### Dashboard Features
-
-By implementing the ERC721A standard, you unlock the following features in the Dashboard:
+| SDK Feature                                                                                  | Description                                         |
+| -------------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| [Get NFT Balance](/sdk/interacting-with-contracts/erc721/ERC721#get-nft-balance)             | View the number of NFTs owned by a wallet address   |
+| [View NFT Metadata](/sdk/interacting-with-contracts/erc721/ERC721#get-a-single-nft-metadata) | View the token URI and fetch the metadata from IPFS |
+| [Transfer](/sdk/interacting-with-contracts/erc721/ERC721#transfer-a-single-nft)              | Transfer this NFT from one wallet to another        |

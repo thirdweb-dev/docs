@@ -1,0 +1,39 @@
+---
+slug: /extensions/erc-721/claim
+title: Claim
+---
+
+import ViewContractCodeButton from "../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../src/components/QuickstartCard";
+import ImportSnippet from "../../../src/components/ImportSnippet";
+
+# ERC721Claimable
+
+ERC721Claimable allows a wallet to claim NFTs that you have lazy minted (using [ERC721Droppable](/extensions/erc-721/droppable)).
+
+:::tip ERC721Drop Starter Kit
+For a fully implemented ERC721Drop with lazy minting, delayed reveals, and claiming configured,
+check out the [ERC721Drop Starter Kit](/extensions/base-contracts/erc-721/erc721drop).
+:::
+
+## Implementing The Contract
+
+TODO
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+
+contract Contract is TODO {
+    // TODO
+}
+```
+
+## Unlocked Features
+
+By implementing the ERC721Claimable contract, you unlock the following features in the SDK and dashboard:
+
+| SDK Usage                                                                                                   | Description                                                                       |
+| ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [Claim NFTs](/sdk/interacting-with-contracts/erc721/ERC721Claimable#claim-unique-nfts-to-a-specific-wallet) | Mints a quantity of lazy-minted NFTs from the drop to a specified wallet address. |

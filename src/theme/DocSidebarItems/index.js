@@ -24,7 +24,14 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Build Contracts",
-      items: ["Overview", "Starter Kits", "ERC721"],
+      items: [
+        "Overview",
+        "Starter Kits",
+        "ERC721",
+        "ERC1155",
+        "ERC20",
+        "Features",
+      ],
     },
     {
       title: "Ship Projects",

@@ -1,14 +1,28 @@
 ---
-slug: /sdk/interacting-with-contracts/erc721/ERC721Droppable
+slug: /sdk/interacting-with-contracts/erc721/erc721droppable
 title: Drop
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
 import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC721Droppable
 
-more information on this coming soon.
+
+
+You can utilise these features of the SDK on your contract if it implements [ERC721Droppable](/extensions/erc-721/erc721droppable).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC721Droppable"
+      link={"/extensions/erc-721/erc721droppable"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
 
 
 ### Create a batch of unique NFTs to be claimed in the future
@@ -27,6 +41,46 @@ Create batch allows you to create a batch of many unique NFTs in one transaction
       isFeatureSnippet={true}
       isGetContractCode={false}
       showHr={false}
+      dontShowSummary
+    />
+  
+
+### Claim tokens and configure claim conditions
+
+
+
+
+
+Let users claim NFTs. Define who can claim NFTs in the collection, when and how many.
+
+
+
+<CodeSnippetWithSummary
+      contract={`ERC721Droppable`}
+      name={`claim`}
+      isFeatureSnippet={true}
+      isGetContractCode={false}
+      showHr={true}
+      dontShowSummary
+    />
+  
+
+### Delayed reveal
+
+
+
+
+
+Create a batch of encrypted NFTs that can be revealed at a later time.
+
+
+
+<CodeSnippetWithSummary
+      contract={`ERC721Droppable`}
+      name={`revealer`}
+      isFeatureSnippet={true}
+      isGetContractCode={false}
+      showHr={true}
       dontShowSummary
     />
   

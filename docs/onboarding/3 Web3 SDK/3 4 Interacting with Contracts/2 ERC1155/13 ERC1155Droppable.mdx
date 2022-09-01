@@ -1,34 +1,61 @@
 ---
-slug: /sdk/interacting-with-contracts/erc721/ERC1155Droppable
+slug: /sdk/interacting-with-contracts/erc721/erc1155droppable
 title: Drop
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
 import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC1155Droppable
 
-more information on this coming soon.
+You can utilise these features of the SDK on your contract if it implements [ERC1155Droppable](/extensions/erc-1155/erc1155droppable).
 
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC1155Droppable"
+      link={"/extensions/erc-1155/erc1155droppable"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
 
 ### Create a batch of NFTs to be claimed in the future
 
-
-
-
-
 Create batch allows you to create a batch of many NFTs in one transaction.
 
+<CodeSnippetWithSummary
+  contract={`ERC1155Droppable`}
+  name={`lazyMint`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>
 
+### Claim tokens and configure claim conditions
+
+Let users claim NFTs. Define who can claim NFTs in the collection, when and how many.
 
 <CodeSnippetWithSummary
-      contract={`ERC1155Droppable`}
-      name={`lazyMint`}
-      isFeatureSnippet={true}
-      isGetContractCode={false}
-      showHr={false}
-      dontShowSummary
-    />
-  
+  contract={`ERC1155Droppable`}
+  name={`claim`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>
 
+### Delayed reveal
 
+Create a batch of encrypted NFTs that can be revealed at a later time.
+
+<CodeSnippetWithSummary
+  contract={`ERC1155Droppable`}
+  name={`revealer`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>

@@ -1,14 +1,28 @@
 ---
-slug: /sdk/interacting-with-contracts/erc721/ERC721Claimable
+slug: /sdk/interacting-with-contracts/erc721/erc721claimable
 title: Claim
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
 import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC721Claimable
 
-more information on this coming soon.
+
+
+You can utilise these features of the SDK on your contract if it implements [ERC721Claimable](/extensions/erc-721/erc721claimable).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC721Claimable"
+      link={"/extensions/erc-721/erc721claimable"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
 
 
 ### Claim unique NFTs to a specific Wallet
@@ -27,6 +41,26 @@ Let the specified wallet claim NFTs.
       isFeatureSnippet={true}
       isGetContractCode={false}
       showHr={false}
+      dontShowSummary
+    />
+  
+
+### Configure claim conditions
+
+
+
+
+
+Define who can claim NFTs in the collection, when and how many.
+
+
+
+<CodeSnippetWithSummary
+      contract={`ERC721Claimable`}
+      name={`conditions`}
+      isFeatureSnippet={true}
+      isGetContractCode={false}
+      showHr={true}
       dontShowSummary
     />
   
