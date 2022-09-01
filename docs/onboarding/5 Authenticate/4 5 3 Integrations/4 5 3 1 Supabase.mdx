@@ -43,7 +43,15 @@ If you don't already have a Supabase account, you can set one up [here](https://
 
 We'll need to create a new table on the Supabase dashboard to hold our user data, so navigate to the `Table Editor`, make sure you're on the `public` schema and `Create a new table`.
 
-Call the table `users`, make sure `Row Level Security` is enabled, and create 3 columns - `id`, `created_at`, and `address`.
+![Create Table](./assets/create-table.png)
+
+Call the table `users`, make sure `Row Level Security` is enabled. There should already be an `id` and `created_at` column - you'll want to add an `address` column as well, make sure the type is set to text, and the value is non-nullable and unique. Once you have this setup, you can create the table.
+
+![Edit Table](./assets/edit-table.png)
+
+Next, you'll need to create a [Row Level Security policy](https://supabase.com/docs/learn/auth-deep-dive/auth-row-level-security) to make sure thatn only authenticated users can access the data from our database. You can achieve this by navigating to `Authentication` > `Policies` > `New policy` for the table we just created, and creating a policy that looks like the following:
+
+![Create Policy](./assets/create-policy.png)
 
 Finally, we'll need to get the `SUPABASE_SERVICE_ROLE` and `SUPABASE_URL` from the Supabase dashboard and add them to our `.env.local` file in the top level of our project:
 
