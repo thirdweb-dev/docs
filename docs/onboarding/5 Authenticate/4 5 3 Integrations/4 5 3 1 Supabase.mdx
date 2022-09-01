@@ -32,7 +32,6 @@ First, we need to install the `@thirdweb-dev/auth` and `@supabase/supabase-js` p
 npm install @thirdweb-dev/auth @supabase/supabase-js
 ```
 
-
 ## Setup
 
 ### Supabase
@@ -93,17 +92,18 @@ export default ThirdwebAuthHandler();
 ```
 
 Then, we'll add callback functions for the `login` and `user` callbacks so that we can do the following:
+
 - Create a user in our Supabase database whenever a user logs in with their wallet
 - Get the user data from Supabase associated with the wallet address whenever user data is requested
 
 First, we'll need to instantiate the Firebase SDK in our project as follows:
 
 ```javascript
-import { createClient } from '@supabase/supabase-js';
+import { createClient } from "@supabase/supabase-js";
 
 const supabase = createClient(
-  process.env.SUPABASE_URL || "", 
-  process.env.SUPABASE_SERVICE_ROLE || ""
+  process.env.SUPABASE_URL || "",
+  process.env.SUPABASE_SERVICE_ROLE || "",
 );
 ```
 
@@ -112,25 +112,24 @@ Now, we need to define a login callback function that creates a user in our data
 ```javascript
 const login = async (address: string) => {
   // Check if there's already a user in our DB with the specified address
-  const { data: user } = 
-    await supabase
-      .from("users")
-      .select("*")
-      .eq("address", address.toLowerCase())
-      .single()
+  const { data: user } = await supabase
+    .from("users")
+    .select("*")
+    .eq("address", address.toLowerCase())
+    .single();
 
   // If not, create a user in the database
   if (!user) {
     const res = await supabase
-      .from('users')
+      .from("users")
       .insert({ address: address.toLowerCase() })
       .single();
-    
+
     if (res.error) {
-      throw new Error("Failed to create user!")
+      throw new Error("Failed to create user!");
     }
   }
-}
+};
 ```
 
 And we can also define a user callback to fill in the user data whenver someone requests a user:
@@ -138,15 +137,14 @@ And we can also define a user callback to fill in the user data whenver someone 
 ```javascript
 const user = async (address: string) => {
   // Fetch the user data in our DB associated with the specified address
-  const { data: user } = 
-    await supabase
-      .from("users")
-      .select("*")
-      .eq("address", address.toLowerCase())
-      .single()
+  const { data: user } = await supabase
+    .from("users")
+    .select("*")
+    .eq("address", address.toLowerCase())
+    .single();
 
   return user;
-}
+};
 ```
 
 And finally, we can pass these callback functions into our Auth config as follows:
@@ -155,7 +153,7 @@ And finally, we can pass these callback functions into our Auth config as follow
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
   privateKey: process.env.ADMIN_PRIVATE_KEY || "",
   domain: "localhost:3000",
-  callbacks: { login, user }
+  callbacks: { login, user },
 });
 ```
 
