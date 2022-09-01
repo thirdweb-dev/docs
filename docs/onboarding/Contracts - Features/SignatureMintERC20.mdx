@@ -1,0 +1,108 @@
+---
+slug: /extensions/features/signatureminterc20
+title: Signature Mint ERC20
+---
+
+import ViewContractCodeButton from "../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../src/components/QuickstartCard";
+import ImportSnippet from "../../../src/components/ImportSnippet";
+
+# SignatureMint ERC20
+
+The `SignatureMintERC20` smart contract extension is meant to be used with any ERC20 smart contract.
+
+The 'signature minting' mechanism in the `SignatureMintERC20` extension uses EIP 712, and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract.
+
+At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/SignatureMintERC20.sol"
+  name="SignatureMintERC20"
+/>
+
+## Import
+
+<ImportSnippet
+  type="extension"
+  category="extension"
+  name="SignatureMintERC20"
+/>
+
+## Available functionality
+
+| Functionality         | Description                                                                                       |
+| --------------------- | ------------------------------------------------------------------------------------------------- |
+| `mintWithSignature`   | Mints tokens according to a given mint request, signed off i.e. approved by an authorized wallet. |
+| `_canSignMintRequest` | Defines the criteria a wallet must meet to be able to sign off on mint requests.                  |
+
+## Implementing the Contract extension.
+
+Import the contract extension and make your contract inherit it.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC20Base.sol";
+import "@thirdweb-dev/contracts/extension/SignatureMintERC20.sol";
+
+contract MyToken is ERC20Base, SignatureMintERC20 {
+    constructor(
+        string memory _name,
+        string memory _symbol,
+        string memory _contractURI,
+    ) ERC20Base(_name, _symbol, _contractURI) {}
+
+    /**
+     *  @notice           Mints tokens according to the provided mint request.
+     *
+     *  @param _req       The mint request.
+     *  @param _signature The signature produced by an account signing the mint request.
+     *
+     *  You MUST complete the body of this function to use the `SignatureMintERC20` extension.
+     */
+    function mintWithSignature(
+        MintRequest calldata _req,
+        bytes calldata _signature
+    ) external payable virtual override returns (address signer) {
+        require(_req.quantity > 0, "Minting zero tokens.");
+
+        // Verify and process payload.
+        signer = _processRequest(_req, _signature);
+
+        // Mint tokens according to the mint request via `mintTo` made available by `ERC20Base`.
+        mintTo(_req.to, _req.uri);
+    }
+
+    /**
+     *  This function returns who is authorized to sign off on mint requests.
+     *
+     *  As an EXAMPLE, we'll only allow the contract's current owner to sign off on mint requests.
+     *
+     *  You MUST complete the body of this function to use the `SignatureMintERC20` extension.
+     */
+    function _canSignMintRequest(address _signer)
+        internal
+        view
+        virtual
+        override
+        returns (bool)
+    {
+        return _signer == owner();
+    }
+}
+```
+
+## Unlocked Features
+
+From the SDK you'll now be able to generate mint signatures and mint tokens with them.
+
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ marginTop: 16 }}>
+    <QuickstartCard
+      name="Signature Minting in the SDK"
+      link="/sdk/advanced-features/on-demand-minting"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>

@@ -1,9 +1,7 @@
 import React from "react";
 // @ts-ignore
 import jsonData from "../../docs/feature_snippets.json";
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
+import CodeSnippetWithSummary from "./CodeSnippetWithSummary";
 import Heading from "@theme/Heading";
 
 export default function FeatureCodeSnippets({ featureName }) {
@@ -21,78 +19,20 @@ export default function FeatureCodeSnippets({ featureName }) {
 
   return (
     <>
-      <CodeSnippet examples={examples} references={references} />
       {methods.map((method, index) => (
-        <>
-          <Heading as="h4">{method.name}</Heading>
-          <p>{method.summary}</p>
-          <CodeSnippet
-            examples={method.examples}
-            references={method.reference}
+        <div key={index}>
+          <Heading as="h3">{method.summary}</Heading>
+          <p>{method.remarks}</p>
+          <CodeSnippetWithSummary
+            contract={featureName}
+            name={method.name}
+            isFeatureSnippet
+            dontShowSummary
+            showHr={index !== methods.length - 1}
+            isGetContractCode={false}
           />
-        </>
+        </div>
       ))}
-    </>
-  );
-}
-
-function CodeSnippet({ examples, references }) {
-  const languageToHighlightMapping = {
-    javascript: "typescript",
-    python: "python",
-    react: "jsx",
-    go: "go",
-  };
-
-  return (
-    <>
-      <Tabs
-        groupId="thirdweb-code-snippet"
-        defaultValue={Object.keys(examples)[0]}
-      >
-        {Object.keys(examples).map((language) => {
-          const example = examples[language];
-          const reference = references[language];
-          // Capitalize first letter for language name
-          const languageName =
-            language.charAt(0).toUpperCase() + language.slice(1);
-
-          // If the example is empty, return null
-          if (!example) {
-            // @ts-ignore
-            return <TabItem value={""}></TabItem>;
-          }
-
-          return (
-            <TabItem key={language} value={language} label={languageName}>
-              {/* <b>{summary}</b> */}
-              <CodeBlock language={languageToHighlightMapping[language]}>
-                {example}
-              </CodeBlock>
-
-              {reference && (
-                <a
-                  href={reference}
-                  style={{
-                    display: "block",
-                    marginTop: "1rem",
-                    textDecoration: "none",
-                  }}
-                >
-                  View in {languageName} SDK Documentation
-                </a>
-              )}
-            </TabItem>
-          );
-        })}
-      </Tabs>
-
-      <hr
-        style={{
-          marginTop: 32,
-          backgroundColor: "var(--ifm-toc-border-color)",
-        }}
-      />
     </>
   );
 }

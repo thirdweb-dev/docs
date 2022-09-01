@@ -1,0 +1,54 @@
+---
+slug: /sdk/interacting-with-contracts/erc721/ERC20SignatureMintable
+title: Signature-Based Minting
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+
+# ERC20SignatureMintable
+
+more information on this coming soon.
+
+
+### Generate a signature that can be used to mint a certain amount of tokens
+
+
+
+
+
+Takes in a quantity of tokens, some conditions for how it can be minted and signs it with your private key. The generated signature can then be used to mint those tokens using the exact payload and signature generated.
+
+
+
+<CodeSnippetWithSummary
+      contract={`ERC20SignatureMintable`}
+      name={`generate`}
+      isFeatureSnippet={true}
+      isGetContractCode={false}
+      showHr={true}
+      dontShowSummary
+    />
+  
+
+### Mint tokens from a signature
+
+
+
+
+
+Mint a certain amount of tokens from a previously generated signature.
+
+
+
+<CodeSnippetWithSummary
+      contract={`ERC20SignatureMintable`}
+      name={`mint`}
+      isFeatureSnippet={true}
+      isGetContractCode={false}
+      showHr={false}
+      dontShowSummary
+    />
+  
+
+

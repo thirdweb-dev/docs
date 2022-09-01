@@ -1,0 +1,74 @@
+---
+slug: /sdk/interacting-with-contracts/erc721/ERC1155SignatureMintable
+title: Signature-Based Minting
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+
+# ERC1155SignatureMint
+
+more information on this coming soon.
+
+
+### Generate a signature that can be used to mint an NFT dynamically.
+
+
+
+
+
+Takes in an NFT and some information about how it can be minted, uploads the metadata and signs it with your private key. The generated signature can then be used to mint an NFT using the exact payload and signature generated.
+
+
+
+<CodeSnippetWithSummary
+      contract={`ERC1155SignatureMintable`}
+      name={`generate`}
+      isFeatureSnippet={true}
+      isGetContractCode={false}
+      showHr={true}
+      dontShowSummary
+    />
+  
+
+### Generate a signature that can be used to mint additionaly supply to an existing NFT.
+
+
+
+
+
+Takes in a payload with the token ID of an existing NFT, and signs it with your private key. The generated signature can then be used to mint additional supply to the NFT using the exact payload and signature generated.
+
+
+
+<CodeSnippetWithSummary
+      contract={`ERC1155SignatureMintable`}
+      name={`generateFromTokenId`}
+      isFeatureSnippet={true}
+      isGetContractCode={false}
+      showHr={true}
+      dontShowSummary
+    />
+  
+
+### Mint a dynamically generated NFT
+
+
+
+
+
+Mint a dynamic NFT with a previously generated signature.
+
+
+
+<CodeSnippetWithSummary
+      contract={`ERC1155SignatureMintable`}
+      name={`mint`}
+      isFeatureSnippet={true}
+      isGetContractCode={false}
+      showHr={false}
+      dontShowSummary
+    />
+  
+
+
