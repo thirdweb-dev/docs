@@ -55,8 +55,7 @@ const { mutate: myFunction, isLoading, error } = useContractCall(contract, "myFu
 
 // Now you can call the function with the arguments you want.
 myFunction(
-  arg1, // The arguments to pass to the function (if you have any)
-  arg2,
+  [arg1, arg2] // The arguments to pass to the function (if you have any) // The arguments to pass to the function (if you have any)
   // Optional overrides for the transaction
   {
     gasLimit: 1000000, // override default gas limit
