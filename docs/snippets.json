@@ -2437,9 +2437,6 @@
     "name": "ContractDeployer",
     "summary": "Handles deploying new contracts\n\n\n",
     "examples": {},
-    "codeSnippet": {
-      "javascript": "2quu7XPcHpmB"
-    },
     "methods": [
       {
         "name": "deployEdition",
@@ -2562,7 +2559,7 @@
       },
       {
         "codeSnippet": {
-          "javascript": "VUSQyKVLudnM"
+          "javascript": "Hq0FmpRimr2k"
         },
         "name": "deploySignatureDrop",
         "summary": "Deploys a new SignatureDrop contract\n\n",
@@ -3125,13 +3122,13 @@
   },
   "SignatureDrop": {
     "name": "SignatureDrop",
-    "summary": "Setup a collection of NFTs wheref when it comes to minting, you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party..\n\n",
+    "summary": "Setup a collection of NFTs where when it comes to minting, you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party..\n\n",
     "examples": {
-      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(process.env.chain_name);\nconst contract = sdk.getSignatureDrop(process.env.contract_address);",
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getSignatureDrop(\"{{contract_address}}\");",
       "react": "import { useSignatureDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const signatureDrop = useSignatureDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the Signature drop contract in the rest of the component\n}"
     },
     "codeSnippet": {
-      "javascript": "iuj78ZjwlEcv"
+      "javascript": "dtZiJZbEqHzZ"
     },
     "methods": [
       {
@@ -3170,7 +3167,7 @@
       },
       {
         "codeSnippet": {
-          "javascript": "zP712rSHdkQ3"
+          "javascript": "M7ZkiT8z1b4K"
         },
         "name": "createBatch",
         "summary": "Create a batch of unique NFTs to be claimed in the future\n\n",
@@ -3344,6 +3341,9 @@
     ],
     "properties": [
       {
+        "codeSnippet": {
+          "javascript": "gpJJOkEMvwTm"
+        },
         "name": "claimConditions",
         "summary": "Configure claim conditions\n\n",
         "remarks": "\n\nDefine who can claim NFTs in the collection, when and how many.\n\n",
@@ -3361,6 +3361,9 @@
         }
       },
       {
+        "codeSnippet": {
+          "javascript": "a5HSDvbAI44c"
+        },
         "name": "revealer",
         "summary": "Delayed reveal\n\n",
         "remarks": "\n\nCreate a batch of encrypted NFTs that can be revealed at a later time.\n\n",

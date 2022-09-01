@@ -120,7 +120,7 @@ export default function ThirdwebCodeSnippet({
           }
 
           let codeSnippetID: string | undefined;
-          let connectCodeSnippetIDs: string[] | undefined;
+          let connectCodeSnippetIDs: string[] = [];
 
           if (isGetContractCode && contractObject.codeSnippet) {
             codeSnippetID = contractObject.codeSnippet[language];
@@ -129,10 +129,16 @@ export default function ThirdwebCodeSnippet({
             if (contractObject.codeSnippet) {
               const contractCodeSnippetID = contractObject.codeSnippet[language];
               if (contractCodeSnippetID) {
-                connectCodeSnippetIDs = [contractCodeSnippetID];
+                connectCodeSnippetIDs.push(contractCodeSnippetID);
               }
             }
           }
+
+          const baseCodeSnippetID = 'Hq0FmpRimr2k';
+          if (codeSnippetID !== baseCodeSnippetID) {
+            connectCodeSnippetIDs.unshift(baseCodeSnippetID);
+          }
+
 
           let fallbackLanguage: Language;
 
@@ -150,8 +156,8 @@ export default function ThirdwebCodeSnippet({
             <TabItem key={language} value={language} label={languageName}>
               <CodeSnippet
                 id={codeSnippetID}
+                // isEditable={!!codeSnippetID}
                 connectIDs={connectCodeSnippetIDs}
-                isEditable={!!codeSnippetID}
                 fallbackContent={example}
                 fallbackLanguage={fallbackLanguage}
               />
