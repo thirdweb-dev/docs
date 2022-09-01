@@ -1,0 +1,212 @@
+---
+slug: /auth/integrations/next-auth
+title: Next Auth
+---
+
+import QuickstartCard from "../../../../src/components/QuickstartCard";
+
+Auth can be integrated with [Next Auth](https://next-auth.js.org/) to add wallet-based login along with standard OAuth flows. Next Auth enables plugins to over 40 OAuth providers and over 10 different types of databases, enabling many plugins for your wallet-based apps.
+
+We'll go over the necessary setup below.
+
+:::tip
+
+You can explore a working example here:
+
+<div className="col col--6" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Auth + Next Auth"
+    link="https://github.com/thirdweb-example/thirdweb-auth-next-auth"
+    description="Implement thirdweb Auth with Next Auth"
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+:::
+
+## Installation
+
+First, we need to install the `@thirdweb-dev/auth` and `next-auth` packages as follows:
+
+```bash npm2yarn
+npm install @thirdweb-dev/auth next-auth
+```
+
+## Setup
+
+We need to setup an admin private key used to secure our authentication. We can do this by creating a new `.env.local` file at the top level of the project and adding a private key to the file:
+
+```
+ADMIN_PRIVATE_KEY=your-private-key-here
+```
+
+:::warning Private Key Best Practices
+
+It is not secure to store your private key in an environment variable.
+
+[Learn how to use a secret manager as we recommend here](/sdk/set-up-the-sdk/securing-your-private-key)
+
+:::
+
+Next, we'll want to setup the Next Auth endpoints to enable users to login and logout with their wallet, along with whatever other OAuth providers and configuration we want to setup for Next Auth. We need to do this by adding the proper configuration to the `/pages/api/auth/[...nextauth].js` file.
+
+Here, we can see an example of setting up our backend to support login with Google as well as wallet login.
+
+```js
+import GoogleProvider from "next-auth/providers/google";
+import { ThirdwebNextAuth } from "@thirdweb-dev/auth/next-auth";
+
+export const { NextAuthHandler, getUser } = ThirdwebNextAuth({
+  // Add the private key we want to use to validate wallet login
+  privateKey: process.env.ADMIN_PRIVATE_KEY || "",
+  // Configure the domain we want to use for login (must match the domain used on the frontend)
+  domain: "localhost:3000",
+  // And we can add in any additional next auth configuration we want to use
+  nextOptions: {
+    // In this case, we'll enable Google OAuth login as well
+    providers: [
+      GoogleProvider({
+        clientId: process.env.GOOGLE_CLIENT_ID || "",
+        clientSecret: process.env.GOOGLE_CLIENT_SECRET || "",
+      }),
+    ],
+  },
+});
+
+export default NextAuthHandler();
+```
+
+Here, we configure Auth with the `ThirdwebNextAuth` function, passing in our private key and domain (used to prevent phishing attacks).
+
+:::info
+
+Importantly, the `domain` value here must match the `domain` that we use on the frontend when calling the `login` function.
+
+:::
+
+This is all it takes to setup Auth with Next Auth. Now let's take a look at what you can do with this.
+
+## Usage
+
+Once we setup Auth, we get two functions:
+
+### NextAuthHandler
+
+The `NextAuthHandler` handles configuration of all the Next Auth endpoints used for login, logout, and other authentication concerns. It should be exported as the default export from the `pages/api/auth/[...nextauth].js` file.
+
+### getUser
+
+The `getUser` function lets you get the user data of the authenticated user making a request to any other endpoint you may want to setup, including their `address`. You can use it in another endpoint as follows:
+
+```javascript
+// Import getUser from wherever you created the config
+import { getUser } from "/pages/api/auth/[...thirdweb]";
+
+const handler = async (req, res) => {
+  // Get the authenticated user from the request
+  const user = await getUser(req);
+
+  // If the user is not authenticated, user will be null
+  if (!user) {
+    return res.status(401).json({
+      message: "Not authorized.",
+    });
+  }
+
+  // Otherwise, user.address will be set
+  return res.status(200).json({
+    address: user.address,
+  });
+};
+
+export default handler;
+```
+
+## Frontend
+
+Now that our Next Auth backend setup, we can easily setup our React frontend (automatically included in Next.js) with a few hooks and buttons to enable login with wallet.
+
+First, we'll need to install the `@thirdweb-dev/react` package:
+
+```bash npm2yarn
+npm install @thirdweb-dev/react
+```
+
+Now, in the `_app.js` file, we'll need to wrap our app with the `ThirdwebProvider` and provide some configuration for Auth, as well as the Next Auth `SessionProvider`:
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { SessionProvider } from "next-auth/react";
+
+export default function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
+  return (
+    <SessionProvider session={session}>
+      <ThirdwebProvider desiredChainId={1}>
+        <Component {...pageProps} />
+      </ThirdwebProvider>
+    </SessionProvider>
+  );
+}
+```
+
+Now we can use Auth to create a button on the frontend that will let users login with their wallet:
+
+```jsx
+import { useSDK, useAddress, useMetamask } from "@thirdweb-dev/react";
+import { signIn } from "next-auth/react";
+
+const Home = () => {
+  const sdk = useSDK();
+  const address = useAddress();
+  const connect = useMetamask();
+
+  const loginWithWallet = async () => {
+    // We use the sdk.auth.login function and pass in the proper domain configured on the backend
+    const payload = await sdk?.auth.login("localhost:3000");
+    // And then we pass it into the next-auth signIn function
+    await signIn("credentials", { payload: JSON.stringify(payload) });
+  };
+
+  return (
+    <>
+      {address ? (
+        <button onClick={loginWithWallet}>Login with Wallet</button>
+      ) : (
+        <button onClick={connect}>Connect Wallet</button>
+      )}
+    </>
+  );
+};
+
+export default Home;
+```
+
+You can also access the current session data for the current user through Next Auth's `useSession` hook:
+
+```jsx
+import { useSession } from "next-auth/react";
+const Home = () => {
+  const { data: session } = useSession();
+
+  // Now we can render the current session object, including the session.user field
+  return <pre>{JSON.stringify(session || null)}</pre>;
+};
+```
+
+:::tip
+
+Checkout the example project to view a full example featuring login and logout with both wallets and Google OAuth:
+
+<div className="col col--6" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Auth + Next Auth"
+    link="https://github.com/thirdweb-example/thirdweb-auth-next-auth"
+    description="Implement thirdweb Auth with Next Auth"
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+:::
