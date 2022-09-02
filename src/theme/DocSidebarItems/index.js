@@ -34,11 +34,11 @@ function DocSidebarItems({ items, ...props }) {
       ],
     },
     {
-      title: "Ship Projects",
-      items: ["Release", "Deploy"],
+      title: "Deploy Contracts",
+      items: ["Release", "Deploy", "Prebuilt Contracts"],
     },
     {
-      title: "Create Apps",
+      title: "Build Apps",
       items: ["SDK", "Auth"],
     },
     {

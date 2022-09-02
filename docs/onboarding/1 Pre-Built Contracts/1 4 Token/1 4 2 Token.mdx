@@ -1,0 +1,100 @@
+---
+title: Token
+slug: /pre-built-contracts/token
+---
+
+import DeployThisContractButton from "../../../../src/components/DeployThisContractButton";
+import QuickstartCard from "../../../../src/components/QuickstartCard";
+
+# Token
+
+<div className="deployContractBtnContainer" style={{ marginTop: -70 }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/token/token"}
+    contractType="token"
+  />
+</div>
+
+The Token contract is suited for creating a digital currency and is compliant with the [ERC20](https://eips.ethereum.org/EIPS/eip-20) standard.
+It can be purchased and traded between users on an exchange, utilized to buy and sell NFTs in a marketplace, etc.
+
+Unlike the [Token Drop](/pre-built-contracts/token-drop) contract, the Token contract does not allow users to claim tokens under the
+criteria of claim conditions.
+
+## Use Cases & Examples
+
+You could use the Token contract to:
+
+- Create your own cryptocurrency
+- Sell your NFTs on the [Marketplace](/pre-built-contracts/marketplace) in your custom token
+- Reward users with tokens for some action they take
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--6" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Guide: Create A Token Contract & Mint Supply Using the SDK"
+      link="https://blog.thirdweb.com/guides/create-your-currency-with-typescript-sdk"
+      image="/assets/icons/education.png"
+    />
+  </div>
+  <div className="col col--6" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Guide: Check Token Balance using the SDK"
+      link="https://blog.thirdweb.com/guides/token-button-react"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
+
+<!-- ## Smart Contract Design
+
+For a detailed exploration of how our drop smart contracts work, why they were built,
+and their limitations, visit our [Drop Design Doc](/contracts/design/Drop)!
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Drop Smart Contract Design Document"
+      link="/contracts/design/Drop"
+      image="/assets/icons/drop.png"
+    />
+  </div>
+</div> -->
+
+## Using the Contract in the SDK
+
+This page outlines how you can create and configure your token contract using the [dashboard](https://thirdweb.com/dashboard).
+
+You can also use our [SDK](/sdk) to create and interact with your contract.
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Using the Token Drop Contract in the SDK"
+      link="/sdk/interacting-with-contracts/token"
+      image="/assets/icons/token.png"
+    />
+  </div>
+</div>
+
+## Creating & Configuring the Token
+
+Learn how to create and configure your smart contract using the [dashboard](https://thirdweb.com/dashboard).
+
+### Creating a Token Contract
+
+Deploy the token contract to any of our
+[supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use) using the button below.
+
+<div style={{ width: "fit-content" }}>
+  <DeployThisContractButton
+    link={"https://thirdweb.com/contracts/new/pre-built/token/token"}
+    contractType="token"
+  />
+</div>
+
+### Minting Tokens
+
+You can mint new tokens on the [dashboard](https://thirdweb.com/dashboard) by clicking the **Mint** button.
+
+![Token Dashboard](../assets/token-dashboard.png)
