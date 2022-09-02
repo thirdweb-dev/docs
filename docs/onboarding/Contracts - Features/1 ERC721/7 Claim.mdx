@@ -1,0 +1,98 @@
+---
+slug: /extensions/erc-721/claim
+title: Claim
+---
+
+import ViewContractCodeButton from "../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../src/components/QuickstartCard";
+import ImportSnippet from "../../../src/components/ImportSnippet";
+
+# ERC721Claimable
+
+ERC721Claimable allows you to set up **claim conditions** that define the criteria of how the NFTs that you have lazy
+minted (using [ERC721Droppable](/extensions/erc-721/droppable)) can be claimed.
+
+## Base Contracts Implementing This Feature
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC721 Lazy Mint"
+      link="/extensions/base-contracts/erc-721/erc721lazymint"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC721 Delayed Reveal"
+      link="/extensions/base-contracts/erc-721/erc721delayedreveal"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC721 Drop"
+      link="/extensions/base-contracts/erc-721/erc721drop"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Unlocked Features
+
+By implementing `ERC721Claimable`, you unlock the following features in the SDK and dashboard:
+
+| SDK Usage                                                                                             | Description                                                                       |
+| ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [Claim Conditions](/sdk/interacting-with-contracts/erc721/ERC721Claimable#configure-claim-conditions) | Mints a quantity of lazy-minted NFTs from the drop to a specified wallet address. |
+
+## Implementing It Yourself
+
+This section is meant for advanced users who want to write the functionality from scratch.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/eip/ERC721A.sol";
+import "@thirdweb-dev/contracts/extension/LazyMint.sol";
+import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
+
+contract Contract is ERC721A, LazyMint, DropSinglePhase {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC721A(
+            _name,
+            _symbol
+        )
+    {}
+
+    function _canLazyMint() internal view override returns (bool) {
+        // Your custom implementation here
+    }
+
+    function _canSetClaimConditions() internal view override returns (bool) {
+        // Your custom implementation here
+    }
+
+    function collectPriceOnClaim(
+        address _primarySaleRecipient,
+        uint256 _quantityToClaim,
+        address _currency,
+        uint256 _pricePerToken
+    ) internal virtual override {
+        // Your custom implementation here
+    }
+
+    function transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
+        internal
+        virtual
+        override
+        returns (uint256 startTokenId)
+    {
+        // Your custom implementation here
+    }
+}
+```

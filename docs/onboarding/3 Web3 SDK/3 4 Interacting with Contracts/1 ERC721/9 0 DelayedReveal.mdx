@@ -1,0 +1,35 @@
+---
+slug: /sdk/interacting-with-contracts/erc721/erc721delayedreveal
+title: Delayed Reveal
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# ERC721 - Delayed Reveal
+
+You can utilise these features of the SDK on your contract if it implements [ERC721Revealable](/extensions/erc-721/delayed-reveal).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC721Burnable"
+      link={"/extensions/erc-721/delayed-reveal"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+### Create a batch of NFTs with a delayed reveal
+
+Burn NFTs held by the connected wallet
+
+<CodeSnippetWithSummary
+  contract={`ERC721Droppable`}
+  name={`revealer`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>

@@ -1,88 +1,48 @@
 ---
 slug: /sdk/interacting-with-contracts/erc721/erc721droppable
-title: Drop
+title: Lazy Mint
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
 import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
-# ERC721Droppable
+# ERC721 - Lazy Mint & Claim NFTs
 
-
-
-You can utilise these features of the SDK on your contract if it implements [ERC721Droppable](/extensions/erc-721/erc721droppable).
+You can utilise these features of the SDK on your contract if it implements [ERC721Droppable](/extensions/erc-721/lazy-mint).
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
     <QuickstartCard
       name="Learn how to implement ERC721Droppable"
-      link={"/extensions/erc-721/erc721droppable"}
+      link={"/extensions/erc-721/lazy-mint"}
       image="/assets/icons/general.png"
     />
   </div>
 </div>
 
-
-
 ### Create a batch of unique NFTs to be claimed in the future
-
-
-
-
 
 Create batch allows you to create a batch of many unique NFTs in one transaction.
 
+<CodeSnippetWithSummary
+  contract={`ERC721Droppable`}
+  name={`lazyMint`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>
 
+### Claim a lazy minted NFT
+
+Claim the next available NFT(s) from the lazy minted batch.
 
 <CodeSnippetWithSummary
-      contract={`ERC721Droppable`}
-      name={`lazyMint`}
-      isFeatureSnippet={true}
-      isGetContractCode={false}
-      showHr={false}
-      dontShowSummary
-    />
-  
-
-### Claim tokens and configure claim conditions
-
-
-
-
-
-Let users claim NFTs. Define who can claim NFTs in the collection, when and how many.
-
-
-
-<CodeSnippetWithSummary
-      contract={`ERC721Droppable`}
-      name={`claim`}
-      isFeatureSnippet={true}
-      isGetContractCode={false}
-      showHr={true}
-      dontShowSummary
-    />
-  
-
-### Delayed reveal
-
-
-
-
-
-Create a batch of encrypted NFTs that can be revealed at a later time.
-
-
-
-<CodeSnippetWithSummary
-      contract={`ERC721Droppable`}
-      name={`revealer`}
-      isFeatureSnippet={true}
-      isGetContractCode={false}
-      showHr={true}
-      dontShowSummary
-    />
-  
-
-
+  contract={`ERC721Claimable`}
+  name={`to`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>

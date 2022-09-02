@@ -26,7 +26,7 @@ function DocSidebarItems({ items, ...props }) {
       title: "Build Contracts",
       items: [
         "Overview",
-        "Starter Kits",
+        "Base Contracts",
         "ERC721",
         "ERC1155",
         "ERC20",

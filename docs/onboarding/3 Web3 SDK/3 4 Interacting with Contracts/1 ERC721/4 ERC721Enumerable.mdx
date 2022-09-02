@@ -1,48 +1,35 @@
 ---
 slug: /sdk/interacting-with-contracts/erc721/erc721enumerable
-title: View All
+title: View Owned By Address
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
 import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
-# ERC721Enumerable
+# ERC721 - View Owned NFTs
 
-
-
-You can utilise these features of the SDK on your contract if it implements [ERC721Enumerable](/extensions/erc-721/erc721enumerable).
+You can utilise these features of the SDK on your contract if it implements [ERC721Enumerable](/extensions/erc-721/enumerable).
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
     <QuickstartCard
       name="Learn how to implement ERC721Enumerable"
-      link={"/extensions/erc-721/erc721enumerable"}
+      link={"/extensions/erc-721/enumerable"}
       image="/assets/icons/general.png"
     />
   </div>
 </div>
 
-
-
 ### Get Owned NFTs
-
-
-
-
 
 Get all the data associated with the NFTs owned by a specific wallet.
 
-
-
 <CodeSnippetWithSummary
-      contract={`ERC721Enumerable`}
-      name={`all`}
-      isFeatureSnippet={true}
-      isGetContractCode={false}
-      showHr={false}
-      dontShowSummary
-    />
-  
-
-
+  contract={`ERC721Enumerable`}
+  name={`all`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>

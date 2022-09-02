@@ -39,7 +39,7 @@ import jsonData from "../docs/feature_snippets.json" assert { type: "json" };
 
     let output = ``;
 
-    for (const method of [...methods, ...properties]) {
+    for (const method of [...methods]) {
       const {
         name: methodName,
         summary: methodSummary,

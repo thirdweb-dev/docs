@@ -20,9 +20,76 @@ As a contract admin, this lets you prepare the metadata for NFTs that will be mi
   name="ERC721LazyMint"
 />
 
-## Import
+## Unlocked Features
 
-<ImportSnippet type="base" category="ERC721" name="ERC721LazyMint" />
+Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
+
+<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
+<div className="col col--4" style={{padding:8}} >
+  <QuickstartCard
+    name="ERC721A"
+    link="/extensions/erc-721/standard"
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+<div className="col col--4" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Mintable"
+    link="/extensions/erc-721/mintable#unlocked-features"
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+<div className="col col--4" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Batch Minting"
+    link="/extensions/erc-721/batch-mintable#unlocked-features"
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+<div className="col col--4" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Royalty"
+    link="/extensions/features/royalty#unlocked-features"
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+<div className="col col--4" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Lazy Minting"
+    link="/extensions/erc-721/drop#unlocked-features"
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+<div className="col col--4" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Contract Metadata"
+    link="/extensions/features/contractmetadata#unlocked-features"
+    image="/assets/icons/general.png"
+  />
+</div>
+
+<div className="col col--4" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Multicall"
+    link="/extensions/features/multicall#unlocked-features"
+    image="/assets/icons/general.png"
+  />
+</div>
+
+<div className="col col--4" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Ownable"
+    link="/extensions/features/ownable#unlocked-features"
+    image="/assets/icons/general.png"
+  />
+</div>
+
+</div>
 
 ## Available functionality
 
@@ -50,26 +117,3 @@ contract MyNFT is ERC721LazyMint {
     ) ERC721LazyMint(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
 }
 ```
-
-## Unlocked Features
-
-Once deployed, you'll be able to access the following contract extensions' features on the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
-<div className="col col--6" style={{marginTop:16}} >
-  <QuickstartCard
-    name="ERC721Base"
-    link="/extensions/base-contracts/erc-721/erc721base#unlocked-features"
-    image="/assets/icons/nft.png"
-  />
-</div>
-
-<div className="col col--6" style={{ marginTop: 16 }}>
-  <QuickstartCard
-    name="LazyMint"
-    link="/extensions/features/lazymint#unlocked-features"
-    image="/assets/icons/general.png"
-  />
-</div>
-
-</div>
