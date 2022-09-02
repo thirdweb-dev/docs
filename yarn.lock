@@ -1324,10 +1324,10 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
-"@devbookhq/react@^1.1.5":
-  version "1.1.5"
-  resolved "https://registry.yarnpkg.com/@devbookhq/react/-/react-1.1.5.tgz#2ce20875614272dcfba9fdf3ce4ec49a3a7a10e9"
-  integrity sha512-OAMeBOeFZ2zMjN1+T5yNcRbTkGvmfkyU/V8x/u2zzJTbOQRyg1j2RAyJ4z4wqbZtPh0hAyOi9onrap2k7/qSew==
+"@devbookhq/react@^1.1.7":
+  version "1.1.7"
+  resolved "https://registry.yarnpkg.com/@devbookhq/react/-/react-1.1.7.tgz#1da3c2f4ba77fd34aea904ed43b81045c1c93380"
+  integrity sha512-KP6324mc+5ZwqPrGOq/BDKqSFB5ECOblkKc4rtjoa3YFGGbzaT4HWfx+pwHIZSpntVjmfKICyC1Tkv5Pngq8+A==
   dependencies:
     "@codemirror/closebrackets" "^0.19.1"
     "@codemirror/commands" "^0.19.8"
