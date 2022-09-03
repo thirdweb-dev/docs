@@ -26,7 +26,7 @@
     "prettier": "prettier --write '(docs|guides|blog)/**/*.{js,jsx,ts,tsx,md,mdx}'"
   },
   "dependencies": {
-    "@devbookhq/react": "^1.1.7",
+    "@devbookhq/react": "^1.1.9",
     "@docusaurus/core": "^2.0.1",
     "@docusaurus/plugin-content-docs": "^2.0.1",
     "@docusaurus/plugin-ideal-image": "^2.0.1",

@@ -1324,10 +1324,10 @@
   resolved "https://registry.yarnpkg.com/@colors/colors/-/colors-1.5.0.tgz#bb504579c1cae923e6576a4f5da43d25f97bdbd9"
   integrity sha512-ooWCrlZP11i8GImSjTHYHLkvFDP48nS4+204nGb1RiX/WXYHmJA2III9/e2DWVabCESdW7hBAEzHRqUn9OUVvQ==
 
-"@devbookhq/react@^1.1.7":
-  version "1.1.7"
-  resolved "https://registry.yarnpkg.com/@devbookhq/react/-/react-1.1.7.tgz#1da3c2f4ba77fd34aea904ed43b81045c1c93380"
-  integrity sha512-KP6324mc+5ZwqPrGOq/BDKqSFB5ECOblkKc4rtjoa3YFGGbzaT4HWfx+pwHIZSpntVjmfKICyC1Tkv5Pngq8+A==
+"@devbookhq/react@^1.1.9":
+  version "1.1.9"
+  resolved "https://registry.yarnpkg.com/@devbookhq/react/-/react-1.1.9.tgz#97d854a2a5c57ff164029aae0f455c47446a7d5c"
+  integrity sha512-KHkKUxj+OvTblIiDTSliwEts0CzWAb2M5jucX7GSNCsthjHgcVWZYqRzr9NzdCy8x1sFGe/Ha+O1KceHyZhrdQ==
   dependencies:
     "@codemirror/closebrackets" "^0.19.1"
     "@codemirror/commands" "^0.19.8"
@@ -1342,14 +1342,14 @@
     "@codemirror/state" "^0.19.9"
     "@codemirror/stream-parser" "^0.19.7"
     "@codemirror/view" "^0.19.47"
-    "@devbookhq/sdk" "^2.4.4"
+    "@devbookhq/sdk" "^2.4.5"
     classnames "^2.3.1"
     react-idle-timer "^5.4.1"
 
-"@devbookhq/sdk@^2.4.4":
-  version "2.4.4"
-  resolved "https://registry.yarnpkg.com/@devbookhq/sdk/-/sdk-2.4.4.tgz#dc168dba48f075904fc461c2074e6b3ce4922352"
-  integrity sha512-hbLKhRYoQ+QUdMeHMtqX3EA/nsg8TSv+Lfd+m8XW55zM+Coy6e8FF01l7RWSX9a1SxNpIEFuz/b5fQQrRAxNkg==
+"@devbookhq/sdk@^2.4.5":
+  version "2.4.5"
+  resolved "https://registry.yarnpkg.com/@devbookhq/sdk/-/sdk-2.4.5.tgz#be5919289b3b5d8eff541da899b75840afb927e3"
+  integrity sha512-CCkFc90XdIIUOklXq7GAAvWm5Y/17grLWYTepD7UOfrre0jtJPvZx3BCBxZo1pFIchWxGaDoPyWgP9ZYqHhrQw==
   dependencies:
     cross-fetch "^3.1.5"
     openapi-typescript-fetch "^1.1.3"

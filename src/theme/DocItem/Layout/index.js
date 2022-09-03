@@ -10,6 +10,7 @@ import DocItemTOCMobile from "@theme/DocItem/TOC/Mobile";
 import DocItemTOCDesktop from "@theme/DocItem/TOC/Desktop";
 import DocItemContent from "@theme/DocItem/Content";
 import DocBreadcrumbs from "@theme/DocBreadcrumbs";
+import { SharedSessionProvider as DevbookSessionProvider } from "@devbookhq/react"
 import styles from "./styles.module.css";
 /**
  * Decide if the toc should be rendered, on mobile or desktop viewports
@@ -31,6 +32,9 @@ function useDocTOC() {
     desktop,
   };
 }
+
+const baseCodeSnippetID = "Hq0FmpRimr2k"
+
 export default function DocItemLayout({ children }) {
   const docTOC = useDocTOC();
   return (
@@ -42,7 +46,9 @@ export default function DocItemLayout({ children }) {
             {/* <DocBreadcrumbs /> */}
             <DocVersionBadge />
             {docTOC.mobile}
-            <DocItemContent>{children}</DocItemContent>
+            <DevbookSessionProvider opts={{ codeSnippetID: baseCodeSnippetID }}>
+              <DocItemContent>{children}</DocItemContent>
+            </DevbookSessionProvider>
             <DocItemFooter />
           </article>
           <DocItemPaginator />
