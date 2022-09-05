@@ -38,9 +38,6 @@ await contract.revealer.createDelayedRevealBatch(
   realNFTs,
   "my secret password",
 );
-// Whenever you're ready, reveal your NFTs at any time!
-const batchId = 0; // the batch to reveal
-await contract.revealer.reveal(batchId, "my secret password");
 ```
 
 **Signature:**
