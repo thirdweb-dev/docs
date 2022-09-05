@@ -173,10 +173,10 @@ _Atomically increases the allowance granted to `spender` by the caller. This is 
 | ---- | ---- | ----------- |
 | \_0  | bool | undefined   |
 
-### mint
+### mintTo
 
 ```solidity
-function mint(address _to, uint256 _amount) external nonpayable
+function mintTo(address _to, uint256 _amount) external nonpayable
 ```
 
 Lets an authorized address mint tokens to a recipient.
