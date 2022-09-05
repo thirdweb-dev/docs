@@ -384,6 +384,17 @@
     },
     "methods": [
       {
+        "name": "additionalSupplyTo",
+        "summary": "Increase the supply of an existing NFT and mint it to a given wallet address\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// Address of the wallet you want to mint the NFT to\nconst toAddress = \"{{wallet_address}}\"\nconst tokenId = 0;\nconst additionalSupply = 1000;\n\nconst tx = await contract.edition.mint.additionalSupplyTo(toAddress, tokenId, additionalSupply);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155Mintable.additionalSupplyTo"
+        }
+      },
+      {
         "name": "to",
         "summary": "Mint an NFT with a limited supply\n\n",
         "remarks": "\n\nMint an NFT with a limited supply to a specified wallet.\n\n",
