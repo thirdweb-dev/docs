@@ -1,0 +1,154 @@
+---
+slug: /sdk/interacting-with-contracts/erc20/erc20
+title: Standard
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# ERC20
+
+You can utilize these features of the SDK on your contract if it implements [ERC20](/extensions/erc-20/erc20).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC20 in your smart contract"
+      link={"/extensions/erc-20/erc20"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Get Token Metadata
+
+<CodeSnippetWithSummary
+  contract={`ERC20`}
+  name={`get`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>
+
+## Total Supply
+
+Get how much supply has been minted
+
+<CodeSnippetWithSummary
+  contract={`ERC20`}
+  name={`totalSupply`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>
+
+## View Token Balance
+
+Get the balance of this token for the given address.
+
+<CodeSnippetWithSummary
+  contract={`ERC20`}
+  name={`balanceOf`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>
+
+### Connected Wallet Balance
+
+Alternatively, you can get the currently connected wallet's balance:
+
+<CodeSnippetWithSummary
+  contract={`ERC20`}
+  name={`balance`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>
+
+## Transfer
+
+Transfer tokens from one wallet to another
+
+<CodeSnippetWithSummary
+  contract={`ERC20`}
+  name={`transferFrom`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>
+
+### Connected Wallet Transfer
+
+Alternatively, transfer tokens from the connected wallet:
+
+<CodeSnippetWithSummary
+  contract={`ERC20`}
+  name={`transfer`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>
+
+## Batch Transfer
+
+Transfer tokens from the connected wallet to many wallets in one transaction.
+
+<CodeSnippetWithSummary
+  contract={`ERC20`}
+  name={`transferBatch`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>
+
+## Token Allowance
+
+Allowance refers to the number of tokens that a wallet is allowed to transfer on behalf of another wallet.
+
+### Grant Allowance
+
+Allows the specified `spender` wallet to transfer the given `amount` of tokens to another wallet
+
+<CodeSnippetWithSummary
+  contract={`ERC20`}
+  name={`setAllowance`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>
+
+### View Token Allowance
+
+Get the allowance of one wallet over another wallet's funds - the allowance of a different address for a token is the amount of tokens that the wallet is allowed to spend on behalf of the specified wallet.
+
+<CodeSnippetWithSummary
+  contract={`ERC20`}
+  name={`allowanceOf`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>
+
+### Connected Wallet Allowance
+
+Get the allowance of a 'spender' wallet over the connected wallet's funds - the allowance of a different address for a token is the amount of tokens that the `spender` wallet is allowed to spend on behalf of the connected wallet.
+
+<CodeSnippetWithSummary
+  contract={`ERC20`}
+  name={`allowance`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>

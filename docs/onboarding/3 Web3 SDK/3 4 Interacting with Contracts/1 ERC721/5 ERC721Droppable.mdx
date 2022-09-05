@@ -9,21 +9,24 @@ import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC721 - Lazy Mint & Claim NFTs
 
-You can utilise these features of the SDK on your contract if it implements [ERC721Droppable](/extensions/erc-721/lazy-mint).
+You can utilize these features of the SDK on your contract if it implements [ERC721Droppable](/extensions/erc-721/lazy-mint).
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
     <QuickstartCard
-      name="Learn how to implement ERC721Droppable"
+      name="Learn how to implement ERC721Droppable in your smart contract"
       link={"/extensions/erc-721/lazy-mint"}
       image="/assets/icons/general.png"
     />
   </div>
 </div>
 
-### Create a batch of unique NFTs to be claimed in the future
+## Batch Lazy-Mint NFTs
 
-Create batch allows you to create a batch of many unique NFTs in one transaction.
+Batch upload NFT metadata to be lazy-minted to the contract.
+
+You can provide metadata objects to have them uploaded and [pinned](https://blog.thirdweb.com/guides/securing-pinning-your-nft-with-ipfs/)
+to IPFS, or provide your own URLs.
 
 <CodeSnippetWithSummary
   contract={`ERC721Droppable`}
@@ -31,18 +34,5 @@ Create batch allows you to create a batch of many unique NFTs in one transaction
   isFeatureSnippet={true}
   isGetContractCode={false}
   showHr={true}
-  dontShowSummary
-/>
-
-### Claim a lazy minted NFT
-
-Claim the next available NFT(s) from the lazy minted batch.
-
-<CodeSnippetWithSummary
-  contract={`ERC721Claimable`}
-  name={`to`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={false}
   dontShowSummary
 />

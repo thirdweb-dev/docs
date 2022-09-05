@@ -9,23 +9,31 @@ import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC721 Signature-Based Minting
 
-You can utilise these features of the SDK on your contract if it implements [ERC721SignatureMint](/extensions/erc-721/erc721signaturemint).
+Use [signature-based minting](/sdk/advanced-features/on-demand-minting) of NFTs in your smart contract.
+
+You can utilize these features of the SDK on your contract if it implements [ERC721SignatureMint](/extensions/erc-721/erc721signaturemint).
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
     <QuickstartCard
-      name="Learn how to implement ERC721SignatureMint"
+      name="Learn how to implement ERC721SignatureMint in your smart contract"
       link={"/extensions/erc-721/erc721signaturemint"}
       image="/assets/icons/general.png"
     />
   </div>
 </div>
 
-### Generate a signature
+## Generate a signature
 
-Takes in an NFT and some information about how it can be minted, uploads the metadata and signs it with your private key. The generated signature can then be used to mint an NFT using the exact payload and signature generated.
+Generate a signature that can be utilized to mint an NFT by another wallet.
 
-This operation should be performed on the server-side.
+The signature specifies any information about the NFT such as the metadata and price.
+
+:::info Admin Operation
+
+The generation of signatures requires the wallet to have the `MINTER` role on the contract by default.
+
+:::
 
 <CodeSnippetWithSummary
   contract={`ERC721SignatureMint`}
@@ -36,9 +44,9 @@ This operation should be performed on the server-side.
   dontShowSummary
 />
 
-### Use the signature to mint
+## Use a signature to mint an NFT
 
-Mint a dynamic NFT with a previously generated signature.
+Mint an NFT using a previously generated signature.
 
 <CodeSnippetWithSummary
   contract={`ERC721SignatureMint`}

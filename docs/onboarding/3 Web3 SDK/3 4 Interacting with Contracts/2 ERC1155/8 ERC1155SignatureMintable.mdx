@@ -1,0 +1,58 @@
+---
+slug: /sdk/interacting-with-contracts/erc1155/erc1155signaturemint
+title: Signature-Based Minting
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# ERC1155 Signature-Based Minting
+
+Use [signature-based minting](/sdk/advanced-features/on-demand-minting) of NFTs in your smart contract.
+
+You can utilize these features of the SDK on your contract if it implements [ERC1155SignatureMint](/extensions/erc-1155/erc1155signaturemint).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC1155SignatureMint in your smart contract"
+      link={"/extensions/erc-1155/erc1155signaturemint"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Generate a signature
+
+Generate a signature that can be utilized to mint an NFT by another wallet.
+
+The signature specifies any information about the NFT such as the metadata and price.
+
+:::info Admin Operation
+
+The generation of signatures requires the wallet to have the `MINTER` role on the contract by default.
+
+:::
+
+<CodeSnippetWithSummary
+  contract={`ERC1155SignatureMintable`}
+  name={`generate`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>
+
+## Use a signature to mint an NFT
+
+Use a signature to mint NFTs.
+
+<CodeSnippetWithSummary
+  contract={`ERC1155SignatureMintable`}
+  name={`mint`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>

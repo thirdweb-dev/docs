@@ -14,5 +14,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-roles: ContractRoles<IPermissionsEnumerable, any> | undefined;
+roles: ContractRoles<IPermissions, any> | undefined;
 ```

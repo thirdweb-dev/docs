@@ -1,0 +1,57 @@
+---
+slug: /extensions/erc-20/batchmintable
+title: Batch Mint
+---
+
+import ViewContractCodeButton from "../../../../src/components/ViewContractCodeButton";
+import QuickstartCard from "../../../../src/components/QuickstartCard";
+
+# ERC20BatchMintable
+
+ERC20 is the standard for representing fungible tokens; where each token is of equal valuable and interchangeable.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Multicall.sol"
+  name="Multicall"
+/>
+
+## Base Contracts Implementing This Feature
+
+No base contracts implement this functionality by default.
+
+## Unlocked Features
+
+By implementing the `ERC20` standard, you unlock the following features in the SDK and dashboard:
+
+| SDK Feature                                                                                                | Description                                          |
+| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| [Batch Mint Tokens](/sdk/interacting-with-contracts/erc721/erc20batchmintable#mint-tokens-to-many-wallets) | Mint tokens to many wallets in a single transaction. |
+
+## Implementing It Yourself
+
+This section is meant for advanced users who want to write the functionality from scratch.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/openzeppelin-presets/token/ERC20/ERC20.sol";
+import "@thirdweb-dev/contracts/extension/interface/IMintableERC20.sol";
+import "@thirdweb-dev/contracts/extension/Multicall.sol";
+
+contract Contract is ERC20, IMintableERC20, Multicall {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC20(
+            _name,
+            _symbol
+        )
+    {}
+
+    function mintTo(address to, uint256 amount) external override {
+        // Your custom implementation here
+    }
+}
+```

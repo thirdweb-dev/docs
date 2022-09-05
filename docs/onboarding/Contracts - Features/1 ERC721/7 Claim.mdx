@@ -8,8 +8,8 @@ import QuickstartCard from "../../../../src/components/QuickstartCard";
 
 # ERC721Claimable
 
-ERC721Claimable allows you to set up **claim conditions** that define the criteria of how the NFTs that you have lazy
-minted (using [ERC721Droppable](/extensions/erc-721/droppable)) can be claimed.
+Allow other wallets to **claim** NFTs that you have lazy-minted using (using [ERC721Droppable](/extensions/erc-721/droppable))
+under the criteria of **claim conditions** by implementing `ERC721A`, `LazyMint`, and `DropSinglePhase`.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DropSinglePhase.sol"
@@ -19,13 +19,6 @@ minted (using [ERC721Droppable](/extensions/erc-721/droppable)) can be claimed.
 ## Base Contracts Implementing This Feature
 
 <div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--6" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="ERC721 Lazy Mint"
-      link="/extensions/base-contracts/erc-721/erc721lazymint"
-      image="/assets/icons/general.png"
-    />
-  </div>
   <div className="col col--6" style={{ padding: 8 }}>
     <QuickstartCard
       name="ERC721 Delayed Reveal"
@@ -48,6 +41,7 @@ By implementing `ERC721Claimable`, you unlock the following features in the SDK 
 
 | SDK Usage                                                                                             | Description                                                                       |
 | ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [Claim NFT](/sdk/interacting-with-contracts/erc721/erc721droppable#claim-a-lazy-minted-nft)           | Claim (mint) a lazy-minted NFT to a wallet address.                               |
 | [Claim Conditions](/sdk/interacting-with-contracts/erc721/ERC721Claimable#configure-claim-conditions) | Mints a quantity of lazy-minted NFTs from the drop to a specified wallet address. |
 
 ## Implementing It Yourself

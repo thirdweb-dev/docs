@@ -9,21 +9,23 @@ import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC721 - View Owned NFTs
 
-You can utilise these features of the SDK on your contract if it implements [ERC721Enumerable](/extensions/erc-721/enumerable).
+You can utilize these features of the SDK on your contract if it implements [ERC721Enumerable](/extensions/erc-721/enumerable).
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
     <QuickstartCard
-      name="Learn how to implement ERC721Enumerable"
+      name="Learn how to implement ERC721Enumerable in your smart contract"
       link={"/extensions/erc-721/enumerable"}
       image="/assets/icons/general.png"
     />
   </div>
 </div>
 
-### Get Owned NFTs
+## Get Owned NFTs
 
-Get all the data associated with the NFTs owned by a specific wallet.
+Get all of the NFTs owned by a specific wallet address at this current point in time.
+
+Automatically fetches the metadata for each NFT.
 
 <CodeSnippetWithSummary
   contract={`ERC721Enumerable`}

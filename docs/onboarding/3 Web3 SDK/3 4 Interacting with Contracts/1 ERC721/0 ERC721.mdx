@@ -9,21 +9,21 @@ import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC721 Standard
 
-You can utilize these features of the SDK if your contract implements [ERC721](/extensions/erc-721/standard).
+You can utilize these features of the SDK if your contract implements the [ERC721](/extensions/erc-721/standard) standard.
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
     <QuickstartCard
-      name="Learn how to implement ERC721"
+      name="Learn how to implement ERC721 in your smart contract"
       link={"/extensions/erc-721/standard"}
       image="/assets/icons/general.png"
     />
   </div>
 </div>
 
-### Get NFT Balance
+## View NFT Balance
 
-Get a wallets NFT balance (number of NFTs in this contract owned by the wallet).
+Get a wallet's NFT balance (number of NFTs in this contract owned by the wallet).
 
 <CodeSnippetWithSummary
   contract={`ERC721`}
@@ -34,7 +34,11 @@ Get a wallets NFT balance (number of NFTs in this contract owned by the wallet).
   dontShowSummary
 />
 
-### Get a single NFT Metadata
+## Get NFT Metadata
+
+Read the URI this NFT points to and fetch that data automatically.
+
+If the metadata is stored on IPFS, this function uses our IPFS gateway (or the one you specify) to read the data.
 
 <CodeSnippetWithSummary
   contract={`ERC721`}
@@ -45,7 +49,7 @@ Get a wallets NFT balance (number of NFTs in this contract owned by the wallet).
   dontShowSummary
 />
 
-### Transfer a single NFT
+## Transfer NFT
 
 Transfer an NFT from the connected wallet to another wallet.
 

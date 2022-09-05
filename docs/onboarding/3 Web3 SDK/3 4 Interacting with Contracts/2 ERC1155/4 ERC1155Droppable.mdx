@@ -1,0 +1,38 @@
+---
+slug: /sdk/interacting-with-contracts/erc721/erc1155droppable
+title: Drop
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# ERC1155Droppable
+
+You can utilize these features of the SDK on your contract if it implements [ERC1155Droppable](/extensions/erc-1155/erc1155droppable).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC1155Droppable in your smart contract"
+      link={"/extensions/erc-1155/erc1155droppable"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Batch Lazy Mint NFTs
+
+Batch upload NFT metadata to be lazy-minted to the contract.
+
+You can provide metadata objects to have them uploaded and [pinned](https://blog.thirdweb.com/guides/securing-pinning-your-nft-with-ipfs/)
+to IPFS, or provide your own URLs.
+
+<CodeSnippetWithSummary
+  contract={`ERC1155Droppable`}
+  name={`lazyMint`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>

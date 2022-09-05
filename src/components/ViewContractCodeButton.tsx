@@ -62,7 +62,7 @@ export default function ViewContractCodeButton({
           }}
         >
           <div style={{ marginRight: 14, fontWeight: 600 }}>
-            {isInterface ? "View Smart Contract" : "View Interface"}
+            {isInterface ? "View Interface" : "View Smart Contract"}
           </div>
         </div>
       </a>
