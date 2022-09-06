@@ -13,6 +13,19 @@ displayed_sidebar: typescript
 
 Get an instance of a Custom contract from a json ABI
 
+## Example
+
+```javascript
+// Import your ABI from a JSON file
+import myABI from "./path/to/myABI.json";
+
+const contract = sdk.getContractFromAbi(
+  "{{contract_address}}",
+  // Pass in the "abi" field from the JSON file
+  myABI.abi,
+);
+```
+
 **Signature:**
 
 ```typescript

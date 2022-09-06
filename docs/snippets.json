@@ -54,6 +54,23 @@
           "go": "",
           "react": ""
         }
+      },
+      {
+        "name": "getContractFromAbi",
+        "summary": "Get an instance of a Custom contract from a json ABI\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// Import your ABI from a JSON file\nimport myABI from \"./path/to/myABI.json\";\n\nconst contract = sdk.getContractFromAbi(\n  \"{{contract_address}}\",\n  // Pass in the \"abi\" field from the JSON file\n  myABI.abi\n);",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\n// Import your ABI from a JSON file\nimport myABI from \"./path/to/myABI.json\";\n\nconst contract = sdk.getContractFromAbi(\n  \"{{contract_address}}\",\n  // Pass in the \"abi\" field from the JSON file\n  myABI.abi\n);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getcontractfromabi",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
       }
     ],
     "properties": [],
