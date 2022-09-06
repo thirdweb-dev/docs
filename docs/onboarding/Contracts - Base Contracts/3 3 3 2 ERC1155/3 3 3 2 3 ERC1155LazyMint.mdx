@@ -9,27 +9,67 @@ import ImportSnippet from "../../../../src/components/ImportSnippet";
 
 # ERC1155 Lazy Mint
 
-The `ERC1155LazyMint` smart contract uses the [ERC1155Base](/extensions/base-contracts/erc-1155/erc1155base) base contract along with the `LazyMint` contract extension.
+`ERC1155LazyMint` adds the [Lazy Mint](/extensions/base-contracts/erc-1155/erc1155lazymint) feature to the [ERC1155Base](/extensions/base-contracts/erc-1155/erc1155base) contract.
 
-'Lazy minting' means defining the metadata of NFTs without minting it to an address. Regular 'minting' of  NFTs means actually assigning an owner to an NFT.
-
-As a contract admin, this lets you prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs.
+Lazy minting allows you to define the metadata of NFTs without minting it to an address.
+As a contract admin, this lets you prepare the metadata for NFTs that will be minted by other wallets,
+without paying the gas cost for actually minting the NFTs.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155LazyMint.sol"
   name="ERC1155LazyMint"
 />
 
-## Import
+## Unlocked Features
 
-<ImportSnippet type="base" category="ERC1155" name="ERC1155LazyMint" />
+Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
 
-## Available functionality
+Click on each feature to learn more about what functions are available.
 
-| Functionality                                                  | Description                                                                                                                        |
-| -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| [ERC1155Base](/extensions/base-contracts/erc-1155/erc1155base) | See the portal page for ERC1155Base.                                                                                               |
-| [LazyMint](/extensions/features/lazymint)                      | Prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs. |
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC1155 Standard"
+      link="/extensions/erc-1155/standard#unlocked-features"
+      image="/assets/icons/edition.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Lazy Minting"
+      link="/extensions/erc-1155/drop#unlocked-features"
+      image="/assets/icons/edition-drop.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Enumerable"
+      link="/extensions/erc-1155/enumerable#unlocked-features"
+      image="/assets/icons/edition.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Burnable"
+      link="/extensions/erc-1155/burnable#unlocked-features"
+      image="/assets/icons/edition.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Contract Metadata"
+      link="/extensions/features/contractmetadata#unlocked-features"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Royalties"
+      link="/extensions/features/royalty#unlocked-features"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
 
 ## Implementing the Contract
 
@@ -50,26 +90,3 @@ contract MyNFT is ERC1155LazyMint {
     ) ERC1155LazyMint(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
 }
 ```
-
-## Unlocked Features
-
-Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
-<div className="col col--6" style={{marginTop:16}} >
-  <QuickstartCard
-    name="ERC1155Base"
-    link="/extensions/base-contracts/erc-1155/erc1155base#unlocked-features"
-    image="/assets/icons/nft.png"
-  />
-</div>
-
-<div className="col col--6" style={{ marginTop: 16 }}>
-  <QuickstartCard
-    name="LazyMint"
-    link="/extensions/features/lazymint#unlocked-features"
-    image="/assets/icons/general.png"
-  />
-</div>
-
-</div>

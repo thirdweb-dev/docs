@@ -9,16 +9,26 @@ import ImportSnippet from "../../../../src/components/ImportSnippet";
 
 # ERC721 Delayed Reveal
 
-The `ERC721DelayedReveal` smart contract uses the [ERC721LazyMint](/extensions/base-contracts/erc-721/erc721lazymint) base contract along with the `DelayedReveal`contract extension.
+`ERC721DelayedReveal` adds the [Delayed Reveal](/extensions/erc-721/delayed-reveal) feature to the [ERC721LazyMint](/extensions/base-contracts/erc-721/erc721lazymint) base contract.
 
-'Delayed reveal' is a mechanism by which you can distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact.
+<div style={{ marginBottom: 24 }}>
+  <ViewContractCodeButton
+    link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721DelayedReveal.sol"
+    name="ERC721DelayedReveal"
+  />
+</div>
 
-You can read more about how the `DelayedReveal` extension works, [here](https://blog.thirdweb.com/delayed-reveal-nfts).
+Delayed reveal allows you to distribute NFTs to your audience with placeholder metadata, and reveal the real metadata of the distributed NFTs at a later time using a password.
 
-<ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721DelayedReveal.sol"
-  name="ERC721DelayedReveal"
-/>
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn more about delayed reveal"
+      link="https://blog.thirdweb.com/delayed-reveal-nfts"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>
 
 ## Unlocked Features
 
@@ -27,7 +37,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
 <div className="col col--4" style={{padding:8}} >
   <QuickstartCard
-    name="ERC721A"
+    name="ERC721 Standard"
     link="/extensions/erc-721/standard#unlocked-features"
     image="/assets/icons/nft.png"
   />
@@ -43,7 +53,7 @@ Once deployed, you can use the features made available by these contracts on the
 
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Batch Minting"
+    name="Batch Mintable"
     link="/extensions/erc-721/batch-mintable#unlocked-features"
     image="/assets/icons/nft.png"
   />
@@ -75,14 +85,6 @@ Once deployed, you can use the features made available by these contracts on the
 
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Multicall"
-    link="/extensions/features/multicall#unlocked-features"
-    image="/assets/icons/general.png"
-  />
-</div>
-
-<div className="col col--4" style={{ padding: 8 }}>
-  <QuickstartCard
     name="Ownable"
     link="/extensions/features/ownable#unlocked-features"
     image="/assets/icons/general.png"
@@ -91,7 +93,7 @@ Once deployed, you can use the features made available by these contracts on the
 
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Royalty"
+    name="Royalties"
     link="/extensions/features/royalty#unlocked-features"
     image="/assets/icons/general.png"
   />

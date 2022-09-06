@@ -9,11 +9,11 @@ import ImportSnippet from "../../../../src/components/ImportSnippet";
 
 # ERC721 Drop
 
-The `ERC721Drop` smart contract implements the [ERC721](https://eips.ethereum.org/EIPS/eip-721) NFT standard, along with the [ERC721A](https://www.erc721a.org/) optimization to the standard. It also uses `LazyMint`, `DelayedReveal` and `DropSinglePhase` contract extension.
+The `ERC721Drop` base contract is a foundation for an NFT Drop that other wallets can claim.
 
-The `drop` mechanism in the `DropSinglePhase` extension is a distribution mechanism for lazy minted tokens. It lets you set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint lazy minted tokens.
-
-The `ERC721Drop` contract lets you lazy mint tokens, and distribute those lazy minted tokens via the drop mechanism.
+It implements the [ERC721A standard](/extensions/erc-721/standard) with [Lazy Mint](/extensions/erc-721/lazy-mint),
+[Delayed Reveal](/extensions/erc-721/delayed-reveal) and [Drop](/extensions/erc-721/claim) features;
+allowing you to batch lazy-mint NFTs, and allow other wallets to claim them under the criteria of claim conditions, with an optional delayed reveal.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Drop.sol"
@@ -27,7 +27,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
 <div className="col col--4" style={{padding:8}} >
   <QuickstartCard
-    name="ERC721A"
+    name="ERC721 Standard"
     link="/extensions/erc-721/standard#unlocked-features"
     image="/assets/icons/nft.png"
   />
@@ -35,24 +35,8 @@ Once deployed, you can use the features made available by these contracts on the
 
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Mintable"
-    link="/extensions/erc-721/mintable#unlocked-features"
-    image="/assets/icons/nft.png"
-  />
-</div>
-
-<div className="col col--4" style={{ padding: 8 }}>
-  <QuickstartCard
-    name="Batch Minting"
-    link="/extensions/erc-721/batch-mintable#unlocked-features"
-    image="/assets/icons/nft.png"
-  />
-</div>
-
-<div className="col col--4" style={{ padding: 8 }}>
-  <QuickstartCard
     name="Lazy Minting"
-    link="/extensions/erc-721/drop#unlocked-features"
+    link="/extensions/erc-721/lazy-mint#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -83,14 +67,6 @@ Once deployed, you can use the features made available by these contracts on the
 
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Multicall"
-    link="/extensions/features/multicall#unlocked-features"
-    image="/assets/icons/general.png"
-  />
-</div>
-
-<div className="col col--4" style={{ padding: 8 }}>
-  <QuickstartCard
     name="Ownable"
     link="/extensions/features/ownable#unlocked-features"
     image="/assets/icons/general.png"
@@ -99,8 +75,16 @@ Once deployed, you can use the features made available by these contracts on the
 
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Royalty"
+    name="Royalties"
     link="/extensions/features/royalty#unlocked-features"
+    image="/assets/icons/general.png"
+  />
+</div>
+
+<div className="col col--4" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Primary Sale"
+    link="/extensions/features/primarysale#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>
@@ -135,62 +119,3 @@ contract MyNFT is ERC721Drop {
     {}
 }
 ```
-
-## Unlocked Features
-
-Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
-<div className="col col--4" style={{marginTop:16}} >
-  <QuickstartCard
-    name="Contract Metadata"
-    link="/extensions/features/contractmetadata#unlocked-features"
-    image="/assets/icons/general.png"
-  />
-</div>
-
-<div className="col col--4" style={{ marginTop: 16 }}>
-  <QuickstartCard
-    name="Royalties"
-    link="/extensions/features/royalty#unlocked-features"
-    image="/assets/icons/general.png"
-  />
-</div>
-<div className="col col--4" style={{ marginTop: 16 }}>
-  <QuickstartCard
-    name="Ownable"
-    link="/extensions/features/ownable#unlocked-features"
-    image="/assets/icons/general.png"
-  />
-</div>
-<div className="col col--4" style={{ marginTop: 16 }}>
-  <QuickstartCard
-    name="Burnable"
-    link="/pre-built-contracts/nft-collection#burning-nfts"
-    image="/assets/icons/nft.png"
-  />
-</div>
-<div className="col col--4" style={{ marginTop: 16 }}>
-  <QuickstartCard
-    name="LazyMint"
-    link="/extensions/features/lazymint#unlocked-features"
-    image="/assets/icons/general.png"
-  />
-</div>
-<div className="col col--4" style={{ marginTop: 16 }}>
-  <QuickstartCard
-    name="Delayed Reveal"
-    link="/extensions/features/delayedreveal#unlocked-features"
-    image="/assets/icons/nft.png"
-  />
-</div>
-
-<div className="col col--4" style={{ marginTop: 16 }}>
-  <QuickstartCard
-    name="Drop"
-    link="/extensions/features/drop#unlocked-features"
-    image="/assets/icons/general.png"
-  />
-</div>
-
-</div>

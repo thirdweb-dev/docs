@@ -9,28 +9,85 @@ import ImportSnippet from "../../../../src/components/ImportSnippet";
 
 # ERC1155DelayedReveal
 
-The `ERC1155DelayedReveal` smart contract uses the [ERC1155LazyMint](/extensions/base-contracts/erc-1155/erc1155lazymint) base contract along with the `DelayedReveal`contract extension.
+`ERC1155DelayedReveal` adds the [Delayed Reveal](/extensions/erc-1155/delayed-reveal) feature to the
+[ERC1155LazyMint](/extensions/base-contracts/erc-1155/erc1155lazymint) base contract.
 
-'Delayed reveal' is a mechanism by which you can distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact.
+<div style={{ marginBottom: 24 }}>
+  <ViewContractCodeButton
+    link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155DelayedReveal.sol"
+    name="ERC1155DelayedReveal"
+  />
+</div>
 
-You can read more about how the `DelayedReveal` extension works, [here](https://blog.thirdweb.com/delayed-reveal-nfts).
+Delayed reveal allows you to distribute NFTs to your audience with placeholder metadata, and reveal the real metadata of the distributed NFTs at a later time using a password.
 
-<ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155DelayedReveal.sol"
-  name="ERC1155DelayedReveal"
-/>
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn more about delayed reveal"
+      link="https://blog.thirdweb.com/delayed-reveal-nfts"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>
 
-## Import
+## Unlocked Features
 
-<ImportSnippet type="base" category="ERC1155" name="ERC1155DelayedReveal" />
+Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
 
-## Available functionality
+Click on each feature to learn more about what functions are available.
 
-| Functionality                                                  | Description                                                                                                                        |
-| -------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| [ERC1155Base](/extensions/base-contracts/erc-1155/erc1155base) | See the portal page for ERC1155Base.                                                                                               |
-| [LazyMint](/extensions/features/lazymint)                      | Prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs. |
-| [DelayedReveal](/extensions/features/delayedreveal)            | Distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact.                                  |
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC1155 Standard"
+      link="/extensions/erc-1155/standard#unlocked-features"
+      image="/assets/icons/edition.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Lazy Minting"
+      link="/extensions/erc-1155/drop#unlocked-features"
+      image="/assets/icons/edition-drop.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Delayed Reveal"
+      link="/extensions/erc-1155/delayed-reveal#unlocked-features"
+      image="/assets/icons/edition-drop.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Enumerable"
+      link="/extensions/erc-1155/enumerable#unlocked-features"
+      image="/assets/icons/edition.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Burnable"
+      link="/extensions/erc-1155/burnable#unlocked-features"
+      image="/assets/icons/edition.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Contract Metadata"
+      link="/extensions/features/contractmetadata#unlocked-features"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Royalties"
+      link="/extensions/features/royalty#unlocked-features"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
 
 ## Implementing the Contract
 
@@ -51,25 +108,3 @@ contract MyNFT is ERC1155DelayedReveal {
     ) ERC1155DelayedReveal(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
 }
 ```
-
-## Unlocked Features
-
-Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
-<div className="col col--6" style={{marginTop:16}} >
-  <QuickstartCard
-    name="ERC1155LazyMint"
-    link="/extensions/base-contracts/erc-1155/erc1155lazymint#unlocked-features"
-    image="/assets/icons/nft.png"
-  />
-</div>
-
-<div className="col col--6" style={{ marginTop: 16 }}>
-  <QuickstartCard
-    name="DelayedReveal"
-    link="/extensions/features/delayedreveal#unlocked-features"
-    image="/assets/icons/general.png"
-  />
-</div>
-</div>

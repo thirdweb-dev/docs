@@ -9,35 +9,88 @@ import ImportSnippet from "../../../../src/components/ImportSnippet";
 
 # ERC1155Drop
 
-The `ERC1155Drop` smart contract implements the [ERC1155](https://eips.ethereum.org/EIPS/eip-1155) NFT standard along with `LazyMint`, `DelayedReveal` and `DropSinglePhase1155` contract extensions.
+The `ERC1155Drop` base contract is a foundation for an Edition (ERC1155) NFT Drop that other wallets can claim.
 
-The `drop` mechanism in the `DropSinglePhase1155` extension is a distribution mechanism for lazy minted tokens. It lets you set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint lazy minted tokens.
-
-The `ERC1155Drop` contract lets you lazy mint tokens, and distribute those lazy minted tokens via the drop mechanism.
+It implements the [ERC1155 standard](/extensions/erc-1155/standard) with [Lazy Mint](/extensions/erc-721/lazy-mint),
+[Delayed Reveal](/extensions/erc-721/delayed-reveal) and [Drop](/extensions/erc-721/claim) features;
+allowing you to batch lazy-mint NFTs, and allow other wallets to claim them under the criteria of claim conditions, with an optional delayed reveal.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155Drop.sol"
   name="ERC1155Drop"
 />
 
-## Import
+## Unlocked Features
 
-<ImportSnippet type="base" category="ERC1155" name="ERC1155Drop" />
+Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
 
-## Availability functionality
+Click on each feature to learn more about what functions are available.
 
-| Functionality                                                                            | Description                                                                                                                                                                       |
-| ---------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [ERC1155](https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC1155.sol) | See the portal page for ERC1155SignatureMint.                                                                                                                                     |
-| Multicall                                                                                | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call.                                             |
-| [Ownable](/extensions/features/ownable)                                                  | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
-| Burnable                                                                                 | Ability for the owner of a token to transfer their NFT to a null address (cannot be recovered).                                                                                   |
-| [Primary Sale](/extensions/features/primarysale)                                         | Accept a price in the currency of your choice from wallets minting your collection’s NFTs.                                                                                        |
-| [Royalty](/extensions/features/royalty)                                                  | Full royalty support on marketplaces like OpenSea, and EIP 2981 NFT Royalty Standard compliance.                                                                                  |
-| [ContractMetadata](/extensions/features/contractmetadata)                                | Set a metadata URI on the contract, to give your collection a name, image, description and symbol.                                                                                |
-| [LazyMint](/extensions/features/lazymint)                                                | Prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs.                                                |
-| [DelayedReveal](/extensions/features/delayedreveal)                                      | Distribute NFTs to your audience and reveal the metadata of the distributed NFTs, after the fact.                                                                                 |
-| [DropSinglePhase1155](/extensions/features/drop)                                         | Set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint lazy minted tokens.                                                                |
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC1155 Standard"
+      link="/extensions/erc-1155/standard#unlocked-features"
+      image="/assets/icons/edition.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Lazy Minting"
+      link="/extensions/erc-1155/drop#unlocked-features"
+      image="/assets/icons/edition-drop.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Claimable"
+      link="/extensions/erc-1155/claim#unlocked-features"
+      image="/assets/icons/edition-drop.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Delayed Reveal"
+      link="/extensions/erc-1155/delayed-reveal#unlocked-features"
+      image="/assets/icons/edition-drop.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Enumerable"
+      link="/extensions/erc-1155/enumerable#unlocked-features"
+      image="/assets/icons/edition.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Burnable"
+      link="/extensions/erc-1155/burnable#unlocked-features"
+      image="/assets/icons/edition.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Contract Metadata"
+      link="/extensions/features/contractmetadata#unlocked-features"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Royalties"
+      link="/extensions/features/royalty#unlocked-features"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Primary Sale"
+      link="/extensions/features/primarysale#unlocked-features"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
 
 ## Implementing the Contract
 
@@ -67,60 +120,3 @@ contract MyNFT is ERC1155Drop {
     {}
 }
 ```
-
-## Unlocked Features
-
-Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
-  <div className="col col--4" style={{marginTop:16}} >
-    <QuickstartCard
-        name="Contract Metadata"
-        link="/extensions/features/contractmetadata#unlocked-features"
-        image="/assets/icons/general.png"
-    />
-</div>
-
-<div className="col col--4" style={{marginTop:16}}>
-    <QuickstartCard
-        name="Royalties"
-        link="/extensions/features/royalty#unlocked-features"
-        image="/assets/icons/general.png"
-    />
-</div>
-<div className="col col--4" style={{marginTop:16}}>
-    <QuickstartCard
-        name="Ownable"
-        link="/extensions/features/ownable#unlocked-features"
-        image="/assets/icons/general.png"
-    />
-</div>
-<div className="col col--4" style={{marginTop:16}}>
-    <QuickstartCard
-        name="Burnable"
-        link="/pre-built-contracts/nft-collection#burning-nfts"
-        image="/assets/icons/nft.png"
-    />
-</div>
-  <div className="col col--4" style={{ marginTop: 16 }}>
-    <QuickstartCard
-      name="LazyMint"
-      link="/extensions/features/lazymint#unlocked-features"
-      image="/assets/icons/general.png"
-    />
-  </div>
-  <div className="col col--4" style={{ marginTop: 16 }}>
-    <QuickstartCard
-      name="Delayed Reveal"
-      link="/extensions/features/delayedreveal#unlocked-features"
-      image="/assets/icons/nft.png"
-    />
-  </div>
-  <div className="col col--4" style={{ marginTop: 16 }}>
-    <QuickstartCard
-      name="Drop"
-      link="/extensions/features/drop#unlocked-features"
-      image="/assets/icons/general.png"
-    />
-  </div>
-</div>

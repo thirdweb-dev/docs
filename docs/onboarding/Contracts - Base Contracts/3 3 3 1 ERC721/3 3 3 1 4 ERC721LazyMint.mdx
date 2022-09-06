@@ -9,11 +9,11 @@ import ImportSnippet from "../../../../src/components/ImportSnippet";
 
 # ERC721 Lazy Mint
 
-The `ERC721LazyMint` smart contract uses the [ERC721Base](/extensions/base-contracts/erc-721/erc721base) base contract along with the `LazyMint` contract extension.
+`ERC721LazyMint` adds the `LazyMint` feature to the [ERC721Base](/extensions/base-contracts/erc-721/erc721base) contract.
 
-'Lazy minting' means defining the metadata of NFTs without minting it to an address. Regular 'minting' of  NFTs means actually assigning an owner to an NFT.
-
-As a contract admin, this lets you prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs.
+Lazy minting allows you to define the metadata of NFTs without minting it to an address.
+As a contract admin, this lets you prepare the metadata for NFTs that will be minted by other wallets,
+without paying the gas cost for actually minting the NFTs.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721LazyMint.sol"
@@ -27,7 +27,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
 <div className="col col--4" style={{padding:8}} >
   <QuickstartCard
-    name="ERC721A"
+    name="ERC721 Standard"
     link="/extensions/erc-721/standard"
     image="/assets/icons/nft.png"
   />
@@ -43,16 +43,8 @@ Once deployed, you can use the features made available by these contracts on the
 
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Batch Minting"
+    name="Batch Mintable"
     link="/extensions/erc-721/batch-mintable#unlocked-features"
-    image="/assets/icons/nft.png"
-  />
-</div>
-
-<div className="col col--4" style={{ padding: 8 }}>
-  <QuickstartCard
-    name="Royalty"
-    link="/extensions/features/royalty#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -75,8 +67,8 @@ Once deployed, you can use the features made available by these contracts on the
 
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Multicall"
-    link="/extensions/features/multicall#unlocked-features"
+    name="Royalties"
+    link="/extensions/features/royalty#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>
@@ -90,13 +82,6 @@ Once deployed, you can use the features made available by these contracts on the
 </div>
 
 </div>
-
-## Available functionality
-
-| Functionality                                               | Description                                                                                                                        |
-| ----------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
-| [ERC721Base](/extensions/base-contracts/erc-721/erc721base) | See the portal page for ERC721Base, here.                                                                                          |
-| [LazyMint](/extensions/features/lazymint)                   | Prepare the metadata for NFTs that will be minted by an external party, without paying the gas cost for actually minting the NFTs. |
 
 ## Implementing the Contract
 
