@@ -5,7 +5,6 @@ title: Contract Metadata
 
 import ViewContractCodeButton from "../../../../src/components/ViewContractCodeButton";
 import QuickstartCard from "../../../../src/components/QuickstartCard";
-import ImportSnippet from "../../../../src/components/ImportSnippet";
 
 # Contract Metadata
 
@@ -16,23 +15,21 @@ The `ContractMetadata` smart contract is an extension usable with any base smart
   name="ContractMetadata"
 />
 
-## Import
+## Unlocked Features
 
-<ImportSnippet type="extension" category="extension" name="ContractMetadata" />
+Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
 
-## Available functionality
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Contract Metadata"
+      link="/sdk/advanced-features/contract-settings#contract-metadata"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
 
-| Functionality        | Description                                                                         |
-| -------------------- | ----------------------------------------------------------------------------------- |
-| `contractURI`        | Returns the metadata associated with your smart contract.                           |
-| `setContractURI`     | Lets an authorized wallet set the metadata for your smart contract.                 |
-| `_canSetContractURI` | Defines the criteria a wallet must meet to be able to set your contract’s metadata. |
-
-Using the `ContractMetadata` extension on your contract lets you to add information about your contract (image, description, etc). This information is stored in IPFS and linked to your contract using the standard `contractURI()` method made available on your smart contract.
-
-For an ERC721 or ERC1155 NFT smart contract, storing royalty information using the `ContractMetadata` extension is necessary for royalty support on Opensea.
-
-## Implementing the Contract extension
+## Implementing the Contract
 
 Import the contract extension and make your contract inherit it.
 
@@ -68,23 +65,3 @@ contract MyContract is ContractMetadata {
     }
 }
 ```
-
-## Unlocked Features
-
-Read, write, and update metadata on the contract itself using the dashboard or the SDK.
-
-If you use [deploy](/deploy), you'll unlock the `Settings` tab to easily modify the contract's metadata:
-
-![Settings Tab.png](../../assets/settings-tab.png)
-
-You can also edit the contract metadata programmatically using the [SDK](/sdk):
-
-<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
-  <div className="col col--12" style={{ marginTop: 16 }}>
-    <QuickstartCard
-      name="Contract Metadata in the SDK"
-      link="/sdk/advanced-features/contract-settings#contract-metadata"
-      image="/assets/icons/sdks.png"
-    />
-  </div>
-</div>

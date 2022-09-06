@@ -9,24 +9,26 @@ import ImportSnippet from "../../../../src/components/ImportSnippet";
 
 # Platform Fee
 
-The `PlatformFee` smart contract extension is usable with any base smart contract. “Platform fee” is a generic fee that you can choose to charge in your smart contract, wherever there is a transfer of currency. The `PlatformFee` extension lets you set a recipient and a % for this generic fee.
+`PlatformFee` allows you to charge a percentage fee wherever there is a transfer of currency in your contract.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/PlatformFee.sol"
   name="PlatformFee"
 />
 
-## Import
+## Unlocked Features
 
-<ImportSnippet type="extension" category="extension" name="PlatformFee" />
+Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
 
-## Available functionality
-
-| Functionality            | Description                                                                                          |
-| ------------------------ | ---------------------------------------------------------------------------------------------------- |
-| `getPlatformFeeInfo`     | Returns the platform fee recipient and % of a currency transfer to take as platform fee.             |
-| `setPlatformFeeInfo`     | Lets an authorized wallet set platform fee percentage and recipient.                                 |
-| `_canSetPlatformFeeInfo` | Defines the criteria a wallet must meet to be able to set any platform fee percentage and recipient. |
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ marginTop: 16 }}>
+    <QuickstartCard
+      name="Platform Fee"
+      link="/sdk/advanced-features/contract-settings#platform-fees"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
 
 ## Implementing the Contract extension
 
@@ -63,21 +65,3 @@ contract MyContract is PlatformFee {
     }
 }
 ```
-
-## Unlocked Features
-
-On the dashboard, you'll be able to set the wallet address and percentage of the platform fee under the `Settings` tab:
-
-![Batch Upload](../../assets/platform-fee.png)
-
-Within the SDK, you can `get` and `set` the platform fee (if you have the necessary permissions).
-
-<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
-  <div className="col col--12" style={{ marginTop: 16 }}>
-    <QuickstartCard
-      name="Platform Fees in the SDK"
-      link="/sdk/advanced-features/contract-settings#platform-fees"
-      image="/assets/icons/sdks.png"
-    />
-  </div>
-</div>

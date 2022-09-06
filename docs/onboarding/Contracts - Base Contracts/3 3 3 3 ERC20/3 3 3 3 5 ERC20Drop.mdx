@@ -9,32 +9,50 @@ import ImportSnippet from "../../../../src/components/ImportSnippet";
 
 # ERC20Drop
 
-The `ERC20Drop` smart contract implements the [ERC20](https://eips.ethereum.org/EIPS/eip-20) standard, along with `DropSinglePhase` extension . Additionally, it supports [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612), allowing approvals to be made via signatures.
-
-The `drop` mechanism in the `DropSinglePhase` extension is a distribution mechanism for tokens. It lets you set restrictions such as a price to charge, an allowlist etc. when an address atttempts to mint tokens.
-
-The tokens can be distributed via either signature minting or drop mechanism.
+The `ERC20Drop` base contract adds the [Drop](/extensions/erc-20/drop) extension to the [ERC20](/extensions/base-contracts/erc-20)
+to allow you to distribute your tokens under the criteria of claim conditions.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC20Drop.sol"
   name="ERC20Drop"
 />
 
-## Import
+## Unlocked Features
 
-<ImportSnippet type="base" category="ERC20" name="ERC20Drop" />
+Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
 
-## Available Functionality
+Click on each feature to learn more about what functions are available.
 
-| Functionality                                                                                                                       | Description                                                                                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [ERC20](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/ERC20.sol)                   | ERC20 token base contract.                                                                                                                                                        |
-| Multicall                                                                                                                           | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call.                                             |
-| [Ownable](/extensions/features/ownable)                                                                                             | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
-| Burnable                                                                                                                            | Ability for the owner of tokens to transfer their tokens to a null address (cannot be recovered).                                                                                 |
-| [ContractMetadata](/extensions/features/contractmetadata)                                                                           | Set a metadata URI on the contract.                                                                                                                                               |
-| [Permit](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Permit.sol) | Allowing token approvals to be made via signatures.                                                                                                                               |
-| [DropSinglePhase](/extensions/features/drop)                                                                                        | Set restrictions such as a price to charge, an allowlist etc. when an address attempts to mint tokens.                                                                            |
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC20 Standard"
+      link="/extensions/erc-20/standard#unlocked-features"
+      image="/assets/icons/token.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Droppable"
+      link="/extensions/erc-20/drop#unlocked-features"
+      image="/assets/icons/token.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Contract Metadata"
+      link="/extensions/features/contractmetadata#unlocked-features"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Primary Sale"
+      link="/extensions/features/primarysale#unlocked-features"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
 
 ## Implementing the Contract Extension
 
@@ -47,7 +65,6 @@ pragma solidity ^0.8.0;
 import "@thirdweb-dev/contracts/base/ERC20Drop.sol";
 
 contract MyToken is ERC20Drop {
-
 	  constructor(
         string memory _name,
         string memory _symbol,
@@ -59,43 +76,5 @@ contract MyToken is ERC20Drop {
             _primarySaleRecipient
         )
     {}
-
 }
 ```
-
-## Unlocked Features
-
-Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
-  <div className="col col--4" style={{marginTop:16}} >
-    <QuickstartCard
-        name="Contract Metadata"
-        link="/extensions/features/contractmetadata#unlocked-features"
-        image="/assets/icons/general.png"
-    />
-</div>
-
-<div className="col col--4" style={{ marginTop: 16 }}>
-  <QuickstartCard
-    name="Ownable"
-    link="/extensions/features/ownable#unlocked-features"
-    image="/assets/icons/general.png"
-  />
-</div>
-<div className="col col--4" style={{ marginTop: 16 }}>
-  <QuickstartCard
-    name="Burnable"
-    link="/pre-built-contracts/token"
-    image="/assets/icons/nft.png"
-  />
-</div>
-
-<div className="col col--4" style={{ marginTop: 16 }}>
-  <QuickstartCard
-    name="Drop"
-    link="/extensions/features/drop#unlocked-features"
-    image="/assets/icons/general.png"
-  />
-</div>
-</div>

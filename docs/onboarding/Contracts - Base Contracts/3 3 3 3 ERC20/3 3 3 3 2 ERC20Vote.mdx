@@ -5,35 +5,55 @@ title: Vote
 
 import ViewContractCodeButton from "../../../../src/components/ViewContractCodeButton";
 import QuickstartCard from "../../../../src/components/QuickstartCard";
-import ImportSnippet from "../../../../src/components/ImportSnippet";
 
 # ERC20Vote
 
-The `ERC20Vote` smart contract implements the [ERC20](https://eips.ethereum.org/EIPS/eip-20) standard. Additionally, it supports [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612), allowing approvals to be made via signatures.
-
-Moreover, it implements [ERC20Votes](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Votes.sol), which provides voting and delegation functionality, along with delegation by signature.
+The `ERC20Vote` smart contract implements the [ERC20](https://eips.ethereum.org/EIPS/eip-20) standard.
+It also supports [EIP-2612](https://eips.ethereum.org/EIPS/eip-2612); allowing approvals to be made via signatures, and
+[ERC20Votes](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Votes.sol);
+which provides voting and delegation functionality, along with delegation by signature.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC20Vote.sol"
   name="ERC20Vote"
 />
 
-## Import
+## Unlocked Features
 
-<ImportSnippet type="base" category="ERC20" name="ERC20Vote" />
+Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
 
-## Available Functionality
+Click on each feature to learn more about what functions are available.
 
-| Functionality                                                                                                                       | Description                                                                                                                                                                       |
-| ----------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [ERC20](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/ERC20.sol)                   | ERC20 token base contract.                                                                                                                                                        |
-| Mintable                                                                                                                            | Mint functionality (only callable by the owner, by default).                                                                                                                      |
-| Multicall                                                                                                                           | Capability for better developer experience for your contract; the ability to batch together multiple contract calls in a single call.                                             |
-| [Ownable](/extensions/features/ownable)                                                                                             | Ownership of the contract for the contract deployer, and (1) the ability to transfer this ownership, and (2) restrict functions to be callable only by the owner of the contract. |
-| Burnable                                                                                                                            | Ability for the owner of tokens to transfer their tokens to a null address (cannot be recovered).                                                                                 |
-| [ContractMetadata](/extensions/features/contractmetadata)                                                                           | Set a metadata URI on the contract.                                                                                                                                               |
-| [Permit](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Permit.sol) | Allowing token approvals to be made via signatures.                                                                                                                               |
-| [Voting](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Votes.sol)  | Voting and delegation functionality (incl. delegation via signature). Records each account’s vote power in form of checkpoints                                                    |
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC20 Standard"
+      link="/extensions/erc-20/standard#unlocked-features"
+      image="/assets/icons/token.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Mintable"
+      link="/extensions/erc-20/mintable#unlocked-features"
+      image="/assets/icons/token.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Batch Mintable"
+      link="/extensions/erc-20/batchmintable#unlocked-features"
+      image="/assets/icons/token.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Contract Metadata"
+      link="/extensions/features/contractmetadata#unlocked-features"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
 
 ## Implementing the Contract Extension
 
@@ -46,7 +66,6 @@ pragma solidity ^0.8.0;
 import "@thirdweb-dev/contracts/base/ERC20Vote.sol";
 
 contract MyToken is ERC20Vote {
-
 	  constructor(
         string memory _name,
         string memory _symbol
@@ -56,41 +75,5 @@ contract MyToken is ERC20Vote {
             _symbol
         )
     {}
-
 }
 ```
-
-## Unlocked Features
-
-Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
-<div className="col col--4" style={{marginTop:16}} >
-    <QuickstartCard
-        name="Contract Metadata"
-        link="/extensions/features/contractmetadata#unlocked-features"
-        image="/assets/icons/general.png"
-    />
-</div>
-
-<div className="col col--4" style={{marginTop:16}}>
-    <QuickstartCard
-        name="Ownable"
-        link="/extensions/features/ownable#unlocked-features"
-        image="/assets/icons/general.png"
-    />
-</div>
-<div className="col col--4" style={{marginTop:16}}>
-    <QuickstartCard
-        name="Mintable"
-        link="/pre-built-contracts/token"
-        image="/assets/icons/nft.png"
-    />
-</div><div className="col col--4" style={{marginTop:16}}>
-    <QuickstartCard
-        name="Burnable"
-        link="/pre-built-contracts/token"
-        image="/assets/icons/nft.png"
-    />
-</div>
-</div>

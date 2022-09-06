@@ -9,24 +9,26 @@ import ImportSnippet from "../../../../src/components/ImportSnippet";
 
 # Primary Sale
 
-The `PrimarySale` smart contract extension is usable with any base smart contract. It lets you set a recipient for any sale value you collect in your smart contract.
+`PrimarySale` lets you set a recipient for any sale value you collect in your smart contract.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/PrimarySale.sol"
   name="PrimarySale"
 />
 
-## Import
+## Unlocked Features
 
-<ImportSnippet type="extension" category="extension" name="PrimarySale" />
+Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
 
-## Available functionality
-
-| Functionality                 | Description                                                                               |
-| ----------------------------- | ----------------------------------------------------------------------------------------- |
-| `primarySaleRecipient`        | Returns the primary sale recipient’s address.                                             |
-| `setPrimarySaleRecipient`     | Lets an authorized wallet set primary sale recipient address.                             |
-| `_canSetPrimarySaleRecipient` | Defines the criteria a wallet must meet to be able to set primary sale recipient address. |
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ marginTop: 16 }}>
+    <QuickstartCard
+      name="Primary Sale"
+      link="/sdk/advanced-features/contract-settings#primary-sale"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
 
 ## Implementing the Contract extension
 
@@ -68,9 +70,3 @@ contract MyContract is PrimarySale {
     }
 }
 ```
-
-## Unlocked Features
-
-On the dashboard, you'll be able to set the wallet address for the primary sale recipient under the `Settings` tab:
-
-![Batch Upload](../../assets/platform-fee.png)

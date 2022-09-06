@@ -9,31 +9,70 @@ import ImportSnippet from "../../../../src/components/ImportSnippet";
 
 # ERC20SignatureMintVote
 
-The `ERC20SignatureMintVote` smart contract uses the [ERC20Vote](/extensions/base-contracts/erc-20/erc20vote) contract along with `SignatureMintERC20` contract extension.
+The `ERC20SignatureMintVote` smart contract adds [signature-based minting](/extensions/erc-20/signaturemint)
+to the [ERC20Vote](/extensions/base-contracts/erc-20/erc20vote) base contract.
+It also implements [ERC20Votes](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Votes.sol), which provides voting and delegation functionality, along with delegation by signature.
 
-The 'signature minting' mechanism in the `SignatureMintERC20` extension uses [EIP 712](https://eips.ethereum.org/EIPS/eip-712), and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract.
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn more about signature-based minting"
+      link="/sdk/advanced-features/on-demand-minting"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>
 
-At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
+## Unlocked Features
 
-Moreover, it implements [ERC20Votes](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Votes.sol), which provides voting and delegation functionality, along with delegation by signature.
+Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
 
-<ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC20SignatureMintVote.sol"
-  name="ERC20SignatureMintVote"
-/>
+Click on each feature to learn more about what functions are available.
 
-## Import
-
-<ImportSnippet type="base" category="ERC20" name="ERC20SignatureMintVote" />
-
-## Available Functionality
-
-| Functionality                                                                                                                      | Description                                                                                                                     |
-| ---------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| [ERC20Base](/extensions/base-contracts/erc-20/erc20base)                                                                           | Portal page for ERC20Base.                                                                                                      |
-| [Signature Minting](/extensions/features/signatureminterc20)                                                                       | Authorize an external party to mint tokens on your contract, and specify minting details in a mint-request signed by the owner. |
-| [Primary Sale](/extensions/features/primarysale)                                                                                   | Accept a price in the currency of your choice from wallets minting tokens on your contract.                                     |
-| [Voting](https://github.com/thirdweb-dev/contracts/blob/main/contracts/openzeppelin-presets/token/ERC20/extensions/ERC20Votes.sol) | Voting and delegation functionality (incl. delegation via signature). Records each account’s vote power in form of checkpoints  |
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC20 Standard"
+      link="/extensions/erc-20/standard#unlocked-features"
+      image="/assets/icons/token.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Mintable"
+      link="/extensions/erc-20/mintable#unlocked-features"
+      image="/assets/icons/token.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Batch Mintable"
+      link="/extensions/erc-20/batchmintable#unlocked-features"
+      image="/assets/icons/token.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Signature Minting"
+      link="/extensions/erc-20/signaturemint#unlocked-features"
+      image="/assets/icons/token.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Contract Metadata"
+      link="/extensions/features/contractmetadata#unlocked-features"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Primary Sale"
+      link="/extensions/features/primarysale#unlocked-features"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
 
 ## Implementing the Contract Extension
 
@@ -46,7 +85,6 @@ pragma solidity ^0.8.0;
 import "@thirdweb-dev/contracts/base/ERC20SignatureMintVote.sol";
 
 contract MyToken is ERC20SignatureMintVote {
-
 	  constructor(
         string memory _name,
         string memory _symbol,
@@ -58,29 +96,5 @@ contract MyToken is ERC20SignatureMintVote {
             _primarySaleRecipient
         )
     {}
-
 }
 ```
-
-## Unlocked Features
-
-Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: 'wrap' }}>
-<div className="col col--6" style={{marginTop:16}} >
-  <QuickstartCard
-    name="ERC20Vote"
-    link="/extensions/base-contracts/erc-20/erc20vote#unlocked-features"
-    image="/assets/icons/nft.png"
-  />
-</div>
-
-<div className="col col--6" style={{ marginTop: 16 }}>
-  <QuickstartCard
-    name="SignatureMint"
-    link="/extensions/features/signatureminterc20#unlocked-features"
-    image="/assets/icons/general.png"
-  />
-</div>
-
-</div>
