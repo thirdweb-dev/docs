@@ -59,13 +59,13 @@ SDKOptionsSchema: z.ZodDefault<
                 openzeppelin: z.ZodObject<
                   {
                     relayerUrl: z.ZodString;
-                    relayerForwarderAddress: z.ZodDefault<z.ZodString>;
+                    relayerForwarderAddress: z.ZodOptional<z.ZodString>;
                   },
                   "strip",
                   z.ZodTypeAny,
                   {
+                    relayerForwarderAddress?: string | undefined;
                     relayerUrl: string;
-                    relayerForwarderAddress: string;
                   },
                   {
                     relayerForwarderAddress?: string | undefined;
@@ -77,8 +77,8 @@ SDKOptionsSchema: z.ZodDefault<
               z.ZodTypeAny,
               {
                 openzeppelin: {
+                  relayerForwarderAddress?: string | undefined;
                   relayerUrl: string;
-                  relayerForwarderAddress: string;
                 };
               },
               {
@@ -143,8 +143,8 @@ SDKOptionsSchema: z.ZodDefault<
       gasless?:
         | {
             openzeppelin: {
+              relayerForwarderAddress?: string | undefined;
               relayerUrl: string;
-              relayerForwarderAddress: string;
             };
           }
         | {
