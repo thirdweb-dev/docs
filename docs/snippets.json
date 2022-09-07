@@ -54,6 +54,57 @@
           "go": "",
           "react": ""
         }
+      },
+      {
+        "name": "getContract",
+        "summary": "Get an instance of a Custom ThirdwebContract\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const contract = sdk.getContract(\"{{contract_address}}\");",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\nconst contract = sdk.getContract(\"{{contract_address}}\");"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getcontract",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "getContractFromAbi",
+        "summary": "Get an instance of a Custom contract from a json ABI\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// Import your ABI from a JSON file\nimport myABI from \"./path/to/myABI.json\";\n\nconst contract = sdk.getContractFromAbi(\n  \"{{contract_address}}\",\n  // Pass in the \"abi\" field from the JSON file\n  myABI.abi\n);",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\n// Import your ABI from a JSON file\nimport myABI from \"./path/to/myABI.json\";\n\nconst contract = sdk.getContractFromAbi(\n  \"{{contract_address}}\",\n  // Pass in the \"abi\" field from the JSON file\n  myABI.abi\n);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getcontractfromabi",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
+      },
+      {
+        "name": "getContractList",
+        "summary": "Return all the contracts deployed by the specified address\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const contracts = sdk.getContractList(\"{{wallet_address}}\");",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\nconst contracts = sdk.getContractList(\"{{wallet_address}}\");"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getcontractlist",
+          "python": "",
+          "go": "",
+          "react": ""
+        }
       }
     ],
     "properties": [],

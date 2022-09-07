@@ -39,53 +39,9 @@ Below is an example of the button before and after the user connects their walle
 
 ## How To Use It
 
-There are two ways you can use the button effectively.
+Pass in the `contractAddress` and an `action` to call where you can access your contract directly.
 
-1. Use `functionName` and `params` to call the contract function directly.
-2. Use the `action` field to interact with the contract object and run any logic.
-
-### Calling Contract Functions Directly
-
-Pass in the contract address and the name of the function you want to call, by providing:
-
-- `contractAddress`: The address of the contract to call.
-- `functionName`: The name of the function to call (as it is on the contract itself).
-- `params`: An array of parameters to pass to the function.
-
-```jsx
-import { Web3Button } from "@thirdweb-dev/react";
-
-<Web3Button
-  // The contract address
-  contractAddress="0xe0F5f8Bb09627B0A886D4CBd300Ba36cd9E522c6"
-  // The name of the function to call on the contract
-  functionName="mintTo"
-  // Some customization of the button style
-  colorMode="light"
-  accentColor="#F213A4"
-  // The mintTo Function on this contract accepts two parameters, we can pass them in an array here.
-  params={[
-    // First parameter of mintTo is the address to mint to
-    "0xb371d1C5629C70ACd726B20a045D197c256E1054",
-    // Second parameter of mintTo is the metadata URI
-    "ipfs://Qmf9csTfndWRgH2z35WUBm9jTuQKfSv1dJC9YKW6iTZkDP/0",
-  ]}
-  // If the function is successful, we can do something here.
-  onSuccess={(result) => console.log(result)}
-  // If the function fails, we can do something here.
-  onError={(error) => console.error(error)}
->
-  Mint NFT
-</Web3Button>;
-```
-
-### Using `action` to Access The Contract
-
-If your contract is a [prebuilt contract](/pre-built-contracts) or implements [extensions](/extensions), you can use the features
-you unlock in the SDK by accessing the contract directly within the `action`.
-
-In the below example, our NFT contract implements `ERC721Base`, so we unlock the `contract.nft.mint.to` functionality, and can
-call that from the button like so:
+In the below example, we mint an NFT on our contract inside the action:
 
 ```jsx
 import { Web3Button } from "@thirdweb-dev/react";
