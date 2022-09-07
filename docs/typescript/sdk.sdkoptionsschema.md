@@ -72,6 +72,7 @@ SDKOptionsSchema: z.ZodDefault<
                     relayerUrl: string;
                   }
                 >;
+                experimentalChainlessSupport: z.ZodDefault<z.ZodBoolean>;
               },
               "strip",
               z.ZodTypeAny,
@@ -80,8 +81,10 @@ SDKOptionsSchema: z.ZodDefault<
                   relayerForwarderAddress?: string | undefined;
                   relayerUrl: string;
                 };
+                experimentalChainlessSupport: boolean;
               },
               {
+                experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                   relayerForwarderAddress?: string | undefined;
                   relayerUrl: string;
@@ -146,6 +149,7 @@ SDKOptionsSchema: z.ZodDefault<
               relayerForwarderAddress?: string | undefined;
               relayerUrl: string;
             };
+            experimentalChainlessSupport: boolean;
           }
         | {
             biconomy: {
@@ -175,6 +179,7 @@ SDKOptionsSchema: z.ZodDefault<
         | undefined;
       gasless?:
         | {
+            experimentalChainlessSupport?: boolean | undefined;
             openzeppelin: {
               relayerForwarderAddress?: string | undefined;
               relayerUrl: string;
