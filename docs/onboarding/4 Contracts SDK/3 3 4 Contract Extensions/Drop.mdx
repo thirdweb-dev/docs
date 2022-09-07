@@ -87,10 +87,11 @@ contract MyNFT is ERC721LazyMint, DropSinglePhase {
      *  This function collect the price, if any, of claiming tokens, from the calling wallet.
      */
     function collectPriceOnClaim(
+        address _primarySaleRecipient,
         uint256 _quantityToClaim,
         address _currency,
         uint256 _pricePerToken
-    ) internal override(DropSinglePhase) {
+    ) internal override {
         if (_pricePerToken == 0) {
             return;
         }
@@ -106,7 +107,7 @@ contract MyNFT is ERC721LazyMint, DropSinglePhase {
         CurrencyTransferLib.transferCurrency(
             _currency,
             msg.sender,
-            owner(),
+            _primarySaleRecipient,
             totalPrice
         );
     }
