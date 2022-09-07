@@ -111,14 +111,14 @@
     "html_url": "https://github.com/thirdweb-example/cra-javascript-starter",
     "description": "thirdweb starter project with Create React App & JavaScript",
     "created_at": "2022-03-18T00:31:36Z",
-    "updated_at": "2022-08-29T02:47:44Z",
+    "updated_at": "2022-09-05T13:01:34Z",
     "clone_url": "https://github.com/thirdweb-example/cra-javascript-starter.git",
     "topics": [
       "javascript",
       "react",
       "starter-kit"
     ],
-    "language": "HTML",
+    "language": "JavaScript",
     "stargazers_count": 13,
     "is_template": true,
     "homepage": "https://cra-javascript-starter.thirdweb-example.com"
@@ -423,7 +423,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-09-01T12:58:38Z",
+    "updated_at": "2022-09-06T22:42:03Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "authentication",
@@ -433,7 +433,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 45,
+    "stargazers_count": 46,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -474,13 +474,13 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2022-08-17T11:24:01Z",
+    "updated_at": "2022-09-06T08:13:05Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 15,
+    "stargazers_count": 16,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },
@@ -645,11 +645,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2022-08-23T10:21:47Z",
+    "updated_at": "2022-09-05T16:30:53Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 12,
+    "stargazers_count": 13,
     "is_template": false,
     "homepage": null
   },
@@ -711,13 +711,13 @@
     "html_url": "https://github.com/thirdweb-example/web3button",
     "description": "Learn how to use the Web3Button component from the thirdweb React SDK!",
     "created_at": "2022-08-20T00:27:11Z",
-    "updated_at": "2022-09-03T12:45:07Z",
+    "updated_at": "2022-09-06T00:23:56Z",
     "clone_url": "https://github.com/thirdweb-example/web3button.git",
     "topics": [
       "ui-components"
     ],
     "language": "JavaScript",
-    "stargazers_count": 6,
+    "stargazers_count": 7,
     "is_template": false,
     "homepage": "https://web3button.thirdweb-example.com/"
   },
