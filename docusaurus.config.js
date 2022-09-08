@@ -6,6 +6,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/oceanicNext");
 
 const npm2yarn = require("@docusaurus/remark-plugin-npm2yarn");
 const disableCachePlugin = require("./plugins/disable-cache-plugin");
+const path = require("path");
 
 const baseUrl = process.env.BASE_URL || "/";
 
@@ -53,18 +54,6 @@ const config = {
           routeBasePath: "/",
           remarkPlugins: [[npm2yarn, { sync: true }]],
           sidebarCollapsed: false,
-          editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
-        },
-        blog: {
-          path: "guides",
-          routeBasePath: "guides",
-          tagsBasePath: "tag",
-          showReadingTime: true,
-          remarkPlugins: [[npm2yarn, { sync: true }]],
-          blogDescription: "Guides for thirdweb developers",
-          blogTitle: "Guides",
-          postsPerPage: 10,
-          blogSidebarTitle: "Recently added",
           editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
         },
         sitemap: {
@@ -148,6 +137,14 @@ const config = {
     ],
     "posthog-docusaurus",
     "docusaurus-plugin-sass",
+    [
+      "docusaurus-plugin-module-alias",
+      {
+        alias: {
+          "@components": path.resolve(__dirname, "./src/components/"),
+        },
+      },
+    ],
   ],
 
   themeConfig:

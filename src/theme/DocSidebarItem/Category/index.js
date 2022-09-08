@@ -92,7 +92,7 @@ export default function DocSidebarItemCategory({
       if (!collapsible) {
         return false;
       }
-      return true;
+      return isActive ? false : item.collapsed;
     },
   });
   const { expandedItem, setExpandedItem } = useDocSidebarItemsExpandedState();
@@ -140,7 +140,7 @@ export default function DocSidebarItemCategory({
               ? (e) => {
                   onItemClick?.(item);
                   if (href) {
-                    updateCollapsed();
+                    updateCollapsed(false);
                   } else {
                     e.preventDefault();
                     updateCollapsed();
@@ -157,15 +157,6 @@ export default function DocSidebarItemCategory({
         >
           {label}
         </Link>
-        {/* {href && collapsible && (
-          <CollapseButton
-            categoryLabel={label}
-            onClick={(e) => {
-              e.preventDefault();
-              updateCollapsed();
-            }}
-          />
-        )} */}
       </div>
 
       <Collapsible lazy as="ul" className="menu__list" collapsed={collapsed}>

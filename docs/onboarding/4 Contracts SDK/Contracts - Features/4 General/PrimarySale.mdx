@@ -1,0 +1,72 @@
+---
+slug: /extensions/features/primarysale
+title: Primary Sale
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+import ImportSnippet from "../../../../src/components/ImportSnippet";
+
+# Primary Sale
+
+`PrimarySale` lets you set a recipient for any sale value you collect in your smart contract.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/PrimarySale.sol"
+  name="PrimarySale"
+/>
+
+## Unlocked Features
+
+Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
+
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ marginTop: 16 }}>
+    <QuickstartCard
+      name="Primary Sale"
+      link="/sdk/advanced-features/contract-settings#primary-sale"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Implementing the Contract extension
+
+Import the contract extension and make your contract inherit it.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/extension/PrimarySale.sol";
+
+contract MyContract is PrimarySale {
+    /**
+     *  We store the contract deployer's address only for the purposes of the example
+     *  in the code comment below.
+     *
+     *  Doing this is not necessary to use the `PrimarySale` extension.
+     */
+    address public deployer;
+
+    constructor() {
+        deployer = msg.sender;
+    }
+
+    /**
+     *  This function returns who is authorized to set primary sale recipient address for your contract.
+     *
+     *  As an EXAMPLE, we'll only allow the contract deployer to set the primary sale recipient address.
+     *
+     *  You MUST complete the body of this function to use the `PrimarySale` extension.
+     */
+    function _canSetPrimarySaleRecipient()
+        internal
+        virtual
+        override
+        returns (bool)
+    {
+        return msg.sender == deployer;
+    }
+}
+```

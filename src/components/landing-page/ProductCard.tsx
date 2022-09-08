@@ -1,18 +1,13 @@
 import React from "react";
 
 type Props = {
-  gradient: string;
+  image: string;
   name: string;
   description: string;
   link: string;
 };
 
-export default function ProductCard({
-  gradient,
-  name,
-  description,
-  link,
-}: Props) {
+export default function ProductCard({ image, name, description, link }: Props) {
   return (
     <a
       className="tw-card"
@@ -41,17 +36,9 @@ export default function ProductCard({
       data-card-link={link}
     >
       <div className="tw-card-text-container">
-        {/* Make a circle with a gradient fill */}
-        <svg
-          width={24}
-          height={24}
-          style={{
-            background: gradient,
-            borderRadius: 20,
-          }}
-        />
+        <img width={24} height={24} src={image} />
 
-        <p className="tw-card-title" style={{ marginTop: 12 }}>
+        <p className="tw-card-title" style={{ marginTop: 8 }}>
           {name}
         </p>
         <p className="tw-card-description" style={{ marginTop: 4 }}>
