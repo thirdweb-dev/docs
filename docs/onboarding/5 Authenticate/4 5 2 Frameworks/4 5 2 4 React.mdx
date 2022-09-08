@@ -1,0 +1,112 @@
+---
+slug: /auth/frameworks/react
+title: React
+---
+
+import QuickstartCard from "../../../../src/components/QuickstartCard";
+
+Assuming you've setup your backend with one of our Auth plugins, you can add support for wallet login to your React frontends. We'll go over the necessary setup below.
+
+:::tip
+
+You can explore a working example in the frontend of this project:
+
+<div className="col col--6">
+  <QuickstartCard
+    name="Auth + React"
+    link="https://github.com/thirdweb-example/thirdweb-auth-next"
+    description="Implement thirdweb Auth with React"
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+:::
+
+### Installation
+
+First, we need to install the `@thirdweb-dev/react` package as follows:
+
+```bash npm2yarn
+npm install @thirdweb-dev/react
+```
+
+Now, we'll need to wrap the top-level of our app with the `ThirdwebProvider` and provide some configuration for Auth:
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+export default function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ThirdwebProvider
+      desiredChainId={1}
+      authConfig={{
+        domain: "localhost:3000",
+        authUrl: "/api/auth",
+      }}
+    >
+      <Component {...pageProps} />
+    </ThirdwebProvider>
+  );
+}
+```
+
+Here, we specify in the `authConfig` that our Auth backend is setup at the `/api/auth` URL, and that the domain we expect (which must match the domain we selected on the backend) is `localhost:3000`.
+
+### Login Button
+
+Now, we can use the `ConnectWallet` button to enable a simple login flow for our users:
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+const Home = () => {
+  return <ConnectWallet />;
+};
+
+export default Home;
+```
+
+This button will allow user to connect their wallet via MetaMask, WalletConnect, and CoinbaseWallet, and then login to the backend with Auth.
+
+### Hooks
+
+Alternatively, we can use the `useLogin`, `useUser`, and `useLogout` hooks to enable Auth functionality in the rest of our app.
+
+For example, I can create the following component to allow users to login, logout, and view their address:
+
+```jsx
+import {
+  useAddress,
+  useUser,
+  useLogin,
+  useLogout,
+  useMetamask,
+} from "@thirdweb-dev/react";
+
+const Home = () => {
+  const address = useAddress();
+  const connect = useMetamask();
+
+  const login = useLogin();
+  const logout = useLogout();
+  const { user } = useUser();
+
+  return (
+    <div>
+      {address ? (
+        <>
+          <button onClick={() => login()}>Login with Wallet</button>
+          <button onClick={logout}>Logout</button>
+          <pre>User: {JSON.stringify(user || null)}</pre>
+        </>
+      ) : (
+        <button onClick={connect}>Connect Wallet</button>
+      )}
+    </div>
+  );
+};
+
+export default Home;
+```
+
+Here, we use the `useLogin`, `useUser`, and `useLogout` to enable a secure wallet based login flow for users on our frontend.

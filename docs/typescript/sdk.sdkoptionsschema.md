@@ -59,29 +59,32 @@ SDKOptionsSchema: z.ZodDefault<
                 openzeppelin: z.ZodObject<
                   {
                     relayerUrl: z.ZodString;
-                    relayerForwarderAddress: z.ZodDefault<z.ZodString>;
+                    relayerForwarderAddress: z.ZodOptional<z.ZodString>;
                   },
                   "strip",
                   z.ZodTypeAny,
                   {
+                    relayerForwarderAddress?: string | undefined;
                     relayerUrl: string;
-                    relayerForwarderAddress: string;
                   },
                   {
                     relayerForwarderAddress?: string | undefined;
                     relayerUrl: string;
                   }
                 >;
+                experimentalChainlessSupport: z.ZodDefault<z.ZodBoolean>;
               },
               "strip",
               z.ZodTypeAny,
               {
                 openzeppelin: {
+                  relayerForwarderAddress?: string | undefined;
                   relayerUrl: string;
-                  relayerForwarderAddress: string;
                 };
+                experimentalChainlessSupport: boolean;
               },
               {
+                experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                   relayerForwarderAddress?: string | undefined;
                   relayerUrl: string;
@@ -143,9 +146,10 @@ SDKOptionsSchema: z.ZodDefault<
       gasless?:
         | {
             openzeppelin: {
+              relayerForwarderAddress?: string | undefined;
               relayerUrl: string;
-              relayerForwarderAddress: string;
             };
+            experimentalChainlessSupport: boolean;
           }
         | {
             biconomy: {
@@ -175,6 +179,7 @@ SDKOptionsSchema: z.ZodDefault<
         | undefined;
       gasless?:
         | {
+            experimentalChainlessSupport?: boolean | undefined;
             openzeppelin: {
               relayerForwarderAddress?: string | undefined;
               relayerUrl: string;

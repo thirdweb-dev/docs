@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Return all the contracts deployed by the specified address
 
+## Example
+
+```javascript
+const contracts = sdk.getContractList("{{wallet_address}}");
+```
+
 **Signature:**
 
 ```typescript

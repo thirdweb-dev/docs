@@ -19,10 +19,7 @@
     "created_at": "2022-05-22T23:33:24Z",
     "updated_at": "2022-09-03T09:38:53Z",
     "clone_url": "https://github.com/thirdweb-example/community-rewards.git",
-    "topics": [
-      "nft-collection",
-      "signature-based-minting"
-    ],
+    "topics": ["nft-collection", "signature-based-minting"],
     "language": "JavaScript",
     "stargazers_count": 10,
     "is_template": false,
@@ -70,9 +67,7 @@
     "created_at": "2022-06-16T01:35:06Z",
     "updated_at": "2022-08-22T00:03:21Z",
     "clone_url": "https://github.com/thirdweb-example/contracts-sdk-with-extensions.git",
-    "topics": [
-      "thirdweb-deploy"
-    ],
+    "topics": ["thirdweb-deploy"],
     "language": "JavaScript",
     "stargazers_count": 0,
     "is_template": false,
@@ -85,9 +80,7 @@
     "created_at": "2022-06-15T06:28:28Z",
     "updated_at": "2022-08-22T00:03:04Z",
     "clone_url": "https://github.com/thirdweb-example/contracts-sdk-with-web3-sdk.git",
-    "topics": [
-      "thirdweb-deploy"
-    ],
+    "topics": ["thirdweb-deploy"],
     "language": "JavaScript",
     "stargazers_count": 1,
     "is_template": false,
@@ -111,14 +104,10 @@
     "html_url": "https://github.com/thirdweb-example/cra-javascript-starter",
     "description": "thirdweb starter project with Create React App & JavaScript",
     "created_at": "2022-03-18T00:31:36Z",
-    "updated_at": "2022-08-29T02:47:44Z",
+    "updated_at": "2022-09-05T13:01:34Z",
     "clone_url": "https://github.com/thirdweb-example/cra-javascript-starter.git",
-    "topics": [
-      "javascript",
-      "react",
-      "starter-kit"
-    ],
-    "language": "HTML",
+    "topics": ["javascript", "react", "starter-kit"],
+    "language": "JavaScript",
     "stargazers_count": 13,
     "is_template": true,
     "homepage": "https://cra-javascript-starter.thirdweb-example.com"
@@ -130,11 +119,7 @@
     "created_at": "2022-03-17T23:44:42Z",
     "updated_at": "2022-08-29T02:48:04Z",
     "clone_url": "https://github.com/thirdweb-example/cra-typescript-starter.git",
-    "topics": [
-      "react",
-      "starter-kit",
-      "typescript"
-    ],
+    "topics": ["react", "starter-kit", "typescript"],
     "language": "HTML",
     "stargazers_count": 4,
     "is_template": true,
@@ -147,10 +132,7 @@
     "created_at": "2022-05-11T05:41:53Z",
     "updated_at": "2022-08-24T05:32:20Z",
     "clone_url": "https://github.com/thirdweb-example/custom-dashboard.git",
-    "topics": [
-      "contracts",
-      "sdk-deployer"
-    ],
+    "topics": ["contracts", "sdk-deployer"],
     "language": "TypeScript",
     "stargazers_count": 3,
     "is_template": false,
@@ -163,11 +145,7 @@
     "created_at": "2022-05-17T11:42:42Z",
     "updated_at": "2022-08-24T02:18:43Z",
     "clone_url": "https://github.com/thirdweb-example/dao.git",
-    "topics": [
-      "edition-drop",
-      "token",
-      "vote"
-    ],
+    "topics": ["edition-drop", "token", "vote"],
     "language": "JavaScript",
     "stargazers_count": 9,
     "is_template": false,
@@ -180,10 +158,7 @@
     "created_at": "2022-07-22T03:52:48Z",
     "updated_at": "2022-07-28T21:04:22Z",
     "clone_url": "https://github.com/thirdweb-example/discord-role-granter.git",
-    "topics": [
-      "authentication",
-      "wallet-connection"
-    ],
+    "topics": ["authentication", "wallet-connection"],
     "language": "TypeScript",
     "stargazers_count": 1,
     "is_template": false,
@@ -196,9 +171,7 @@
     "created_at": "2022-07-05T01:19:38Z",
     "updated_at": "2022-08-24T01:56:44Z",
     "clone_url": "https://github.com/thirdweb-example/edition-drop.git",
-    "topics": [
-      "edition-drop"
-    ],
+    "topics": ["edition-drop"],
     "language": "TypeScript",
     "stargazers_count": 2,
     "is_template": false,
@@ -211,9 +184,7 @@
     "created_at": "2022-06-20T23:31:31Z",
     "updated_at": "2022-07-06T04:36:58Z",
     "clone_url": "https://github.com/thirdweb-example/filebase-metadata.git",
-    "topics": [
-      "nft-collection"
-    ],
+    "topics": ["nft-collection"],
     "language": "JavaScript",
     "stargazers_count": 2,
     "is_template": false,
@@ -278,9 +249,7 @@
     "created_at": "2022-06-03T16:04:25Z",
     "updated_at": "2022-08-25T18:13:31Z",
     "clone_url": "https://github.com/thirdweb-example/login-with-wallet.git",
-    "topics": [
-      "wallet-connection"
-    ],
+    "topics": ["wallet-connection"],
     "language": "TypeScript",
     "stargazers_count": 10,
     "is_template": false,
@@ -293,11 +262,7 @@
     "created_at": "2022-04-27T07:03:18Z",
     "updated_at": "2022-07-01T23:16:35Z",
     "clone_url": "https://github.com/thirdweb-example/magic-link.git",
-    "topics": [
-      "nextjs",
-      "typescript",
-      "wallet-connection"
-    ],
+    "topics": ["nextjs", "typescript", "wallet-connection"],
     "language": "TypeScript",
     "stargazers_count": 5,
     "is_template": false,
@@ -323,11 +288,7 @@
     "created_at": "2022-04-27T23:59:14Z",
     "updated_at": "2022-08-24T04:05:16Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-next-ts.git",
-    "topics": [
-      "marketplace",
-      "nextjs",
-      "typescript"
-    ],
+    "topics": ["marketplace", "nextjs", "typescript"],
     "language": "TypeScript",
     "stargazers_count": 21,
     "is_template": false,
@@ -340,9 +301,7 @@
     "created_at": "2022-07-26T07:48:49Z",
     "updated_at": "2022-07-27T10:06:51Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-with-signature-based-minting.git",
-    "topics": [
-      "marketplace"
-    ],
+    "topics": ["marketplace"],
     "language": "JavaScript",
     "stargazers_count": 1,
     "is_template": false,
@@ -355,9 +314,7 @@
     "created_at": "2022-06-03T00:27:59Z",
     "updated_at": "2022-07-24T12:20:57Z",
     "clone_url": "https://github.com/thirdweb-example/multiwrap.git",
-    "topics": [
-      "multiwrap"
-    ],
+    "topics": ["multiwrap"],
     "language": "JavaScript",
     "stargazers_count": 4,
     "is_template": false,
@@ -370,12 +327,7 @@
     "created_at": "2022-03-17T23:05:32Z",
     "updated_at": "2022-08-25T12:02:52Z",
     "clone_url": "https://github.com/thirdweb-example/next-javascript-starter.git",
-    "topics": [
-      "javascript",
-      "nextjs",
-      "react",
-      "starter-kit"
-    ],
+    "topics": ["javascript", "nextjs", "react", "starter-kit"],
     "language": "JavaScript",
     "stargazers_count": 14,
     "is_template": true,
@@ -410,9 +362,7 @@
     "created_at": "2022-05-16T01:17:47Z",
     "updated_at": "2022-08-24T05:32:45Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
-    "topics": [
-      "nft-drop"
-    ],
+    "topics": ["nft-drop"],
     "language": "TypeScript",
     "stargazers_count": 35,
     "is_template": false,
@@ -423,7 +373,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-09-01T12:58:38Z",
+    "updated_at": "2022-09-06T22:42:03Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "authentication",
@@ -433,7 +383,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 45,
+    "stargazers_count": 46,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -444,11 +394,7 @@
     "created_at": "2022-05-31T05:09:19Z",
     "updated_at": "2022-09-01T14:39:52Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
-    "topics": [
-      "nft-drop",
-      "thirdweb-deploy",
-      "token"
-    ],
+    "topics": ["nft-drop", "thirdweb-deploy", "token"],
     "language": "TypeScript",
     "stargazers_count": 34,
     "is_template": false,
@@ -461,9 +407,7 @@
     "created_at": "2022-06-21T07:50:46Z",
     "updated_at": "2022-07-07T18:31:31Z",
     "clone_url": "https://github.com/thirdweb-example/packs.git",
-    "topics": [
-      "pack"
-    ],
+    "topics": ["pack"],
     "language": "TypeScript",
     "stargazers_count": 2,
     "is_template": false,
@@ -474,13 +418,11 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2022-08-17T11:24:01Z",
+    "updated_at": "2022-09-06T08:13:05Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
-    "topics": [
-      "thirdweb-deploy"
-    ],
+    "topics": ["thirdweb-deploy"],
     "language": "TypeScript",
-    "stargazers_count": 15,
+    "stargazers_count": 16,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },
@@ -491,9 +433,7 @@
     "created_at": "2022-07-20T02:15:59Z",
     "updated_at": "2022-08-31T07:47:59Z",
     "clone_url": "https://github.com/thirdweb-example/quiz.git",
-    "topics": [
-      "edition"
-    ],
+    "topics": ["edition"],
     "language": "TypeScript",
     "stargazers_count": 1,
     "is_template": false,
@@ -524,9 +464,7 @@
     "created_at": "2022-07-14T23:58:52Z",
     "updated_at": "2022-08-24T05:32:04Z",
     "clone_url": "https://github.com/thirdweb-example/signature-drop.git",
-    "topics": [
-      "signature-drop"
-    ],
+    "topics": ["signature-drop"],
     "language": "TypeScript",
     "stargazers_count": 3,
     "is_template": false,
@@ -539,9 +477,7 @@
     "created_at": "2022-06-15T00:12:56Z",
     "updated_at": "2022-08-22T00:02:30Z",
     "clone_url": "https://github.com/thirdweb-example/solidity-hello-world.git",
-    "topics": [
-      "thirdweb-deploy"
-    ],
+    "topics": ["thirdweb-deploy"],
     "language": "JavaScript",
     "stargazers_count": 0,
     "is_template": false,
@@ -632,9 +568,7 @@
     "created_at": "2022-06-03T00:54:26Z",
     "updated_at": "2022-06-30T15:08:03Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-deploy-hello-world.git",
-    "topics": [
-      "thirdweb-deploy"
-    ],
+    "topics": ["thirdweb-deploy"],
     "language": "JavaScript",
     "stargazers_count": 2,
     "is_template": false,
@@ -645,11 +579,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2022-08-23T10:21:47Z",
+    "updated_at": "2022-09-05T16:30:53Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 12,
+    "stargazers_count": 13,
     "is_template": false,
     "homepage": null
   },
@@ -660,9 +594,7 @@
     "created_at": "2022-05-25T04:05:25Z",
     "updated_at": "2022-08-24T04:06:04Z",
     "clone_url": "https://github.com/thirdweb-example/token-drop.git",
-    "topics": [
-      "token-drop"
-    ],
+    "topics": ["token-drop"],
     "language": "JavaScript",
     "stargazers_count": 2,
     "is_template": false,
@@ -675,13 +607,7 @@
     "created_at": "2022-03-18T17:33:24Z",
     "updated_at": "2022-07-29T21:29:58Z",
     "clone_url": "https://github.com/thirdweb-example/vite-javascript-starter.git",
-    "topics": [
-      "javascript",
-      "react",
-      "reactjs",
-      "starter-kit",
-      "vite"
-    ],
+    "topics": ["javascript", "react", "reactjs", "starter-kit", "vite"],
     "language": "JavaScript",
     "stargazers_count": 1,
     "is_template": true,
@@ -694,13 +620,7 @@
     "created_at": "2022-03-18T00:47:03Z",
     "updated_at": "2022-08-31T15:13:33Z",
     "clone_url": "https://github.com/thirdweb-example/vite-typescript-starter.git",
-    "topics": [
-      "react",
-      "reactjs",
-      "starter-kit",
-      "typescript",
-      "vite"
-    ],
+    "topics": ["react", "reactjs", "starter-kit", "typescript", "vite"],
     "language": "TypeScript",
     "stargazers_count": 3,
     "is_template": true,
@@ -711,13 +631,11 @@
     "html_url": "https://github.com/thirdweb-example/web3button",
     "description": "Learn how to use the Web3Button component from the thirdweb React SDK!",
     "created_at": "2022-08-20T00:27:11Z",
-    "updated_at": "2022-09-03T12:45:07Z",
+    "updated_at": "2022-09-06T00:23:56Z",
     "clone_url": "https://github.com/thirdweb-example/web3button.git",
-    "topics": [
-      "ui-components"
-    ],
+    "topics": ["ui-components"],
     "language": "JavaScript",
-    "stargazers_count": 6,
+    "stargazers_count": 7,
     "is_template": false,
     "homepage": "https://web3button.thirdweb-example.com/"
   },
