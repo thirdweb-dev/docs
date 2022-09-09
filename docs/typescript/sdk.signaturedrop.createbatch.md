@@ -45,7 +45,7 @@ createBatch(metadatas: NFTMetadataOrUri[], options?: {
 
 | Parameter | Type                                                                                     | Description                                         |
 | --------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| metadatas | [NFTMetadataOrUri](./sdk.nftmetadataoruri.md)\[\]                                        | The metadata to include in the batch.               |
+| metadatas | NFTMetadataOrUri\[\]                                                                     | The metadata to include in the batch.               |
 | options   | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | <i>(Optional)</i> optional upload progress callback |
 
 **Returns:**

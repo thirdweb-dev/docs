@@ -45,10 +45,10 @@ mintBatchTo(walletAddress: string, metadata: NFTMetadataOrUri[]): Promise<Transa
 
 ## Parameters
 
-| Parameter     | Type                                              | Description |
-| ------------- | ------------------------------------------------- | ----------- |
-| walletAddress | string                                            |             |
-| metadata      | [NFTMetadataOrUri](./sdk.nftmetadataoruri.md)\[\] |             |
+| Parameter     | Type                 | Description |
+| ------------- | -------------------- | ----------- |
+| walletAddress | string               |             |
+| metadata      | NFTMetadataOrUri\[\] |             |
 
 **Returns:**
 

@@ -35,9 +35,9 @@ mintToSelf(metadata: NFTMetadataOrUri): Promise<TransactionResultWithId<NFTMetad
 
 ## Parameters
 
-| Parameter | Type                                          | Description |
-| --------- | --------------------------------------------- | ----------- |
-| metadata  | [NFTMetadataOrUri](./sdk.nftmetadataoruri.md) |             |
+| Parameter | Type             | Description |
+| --------- | ---------------- | ----------- |
+| metadata  | NFTMetadataOrUri |             |
 
 **Returns:**
 

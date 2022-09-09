@@ -21,6 +21,5 @@ export declare type ForwardRequestMessage = {
   gas: string;
   nonce: string;
   data: BytesLike;
-  chainid?: string;
 };
 ```
