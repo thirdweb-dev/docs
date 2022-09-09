@@ -11,21 +11,6 @@ displayed_sidebar: typescript
 
 Increase the supply of an existing NFT and mint it to a given wallet address
 
-## Example
-
-```javascript
-// Address of the wallet you want to mint the NFT to
-const toAddress = "{{wallet_address}}";
-const tokenId = 0;
-const additionalSupply = 1000;
-
-const tx = await contract.edition.mint.additionalSupplyTo(
-  toAddress,
-  tokenId,
-  additionalSupply,
-);
-```
-
 **Signature:**
 
 ```typescript

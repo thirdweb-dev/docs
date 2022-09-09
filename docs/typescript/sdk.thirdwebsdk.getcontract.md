@@ -13,12 +13,6 @@ displayed_sidebar: typescript
 
 Get an instance of a Custom ThirdwebContract
 
-## Example
-
-```javascript
-const contract = sdk.getContract("{{contract_address}}");
-```
-
 **Signature:**
 
 ```typescript

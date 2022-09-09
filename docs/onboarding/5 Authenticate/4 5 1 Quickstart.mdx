@@ -73,7 +73,7 @@ which the backend will then use to verify that we do in fact own the address we 
 You can do this step by clicking the `Login with Wallet` button, and you should be prompted to sign a message that looks something like the following (with different addresses, times, and nonce).
 
 ```
-thirdweb.com wants you to sign in with your account:
+example.com wants you to sign in with your account:
 0x9e1b8A86fFEE4a7175DAE4bDB1cC12d111Dcb3D6
 
 Make sure that the requesting domain above matches the URL of the current website.
@@ -116,7 +116,7 @@ import { ThirdwebAuth } from "@thirdweb-dev/auth/next";
 // Configure thirdweb Auth with a private key and domain
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
   privateKey: process.env.THIRDWEB_AUTH_PRIVATE_KEY || "",
-  domain: "localhost:3000",
+  domain: "example.com",
 });
 
 // Export the thirdweb Auth API endpoints
@@ -154,7 +154,7 @@ Next, we can take a look at the `/pages/_app.ts` file with the `ThirdwebProvider
 <ThirdwebProvider
   desiredChainId={activeChainId}
   authConfig={{
-    domain: "localhost:3000",
+    domain: "example.com",
     authUrl: "/api/auth",
     loginRedirect: "/",
   }}

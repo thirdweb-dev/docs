@@ -39,9 +39,9 @@ mintBatch(metadata: NFTMetadataOrUri[]): Promise<TransactionResultWithId<NFTMeta
 
 ## Parameters
 
-| Parameter | Type                                              | Description |
-| --------- | ------------------------------------------------- | ----------- |
-| metadata  | [NFTMetadataOrUri](./sdk.nftmetadataoruri.md)\[\] |             |
+| Parameter | Type                 | Description |
+| --------- | -------------------- | ----------- |
+| metadata  | NFTMetadataOrUri\[\] |             |
 
 **Returns:**
 
