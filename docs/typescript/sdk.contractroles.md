@@ -44,7 +44,7 @@ await contract.roles.grantRole("admin", "0x...");
 **Signature:**
 
 ```typescript
-export declare class ContractRoles<TContract extends IPermissionsEnumerable, TRole extends Role> implements DetectableFeature
+export declare class ContractRoles<TContract extends IPermissions, TRole extends Role> implements DetectableFeature
 ```
 
 **Implements:** DetectableFeature

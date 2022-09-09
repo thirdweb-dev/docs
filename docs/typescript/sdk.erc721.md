@@ -30,7 +30,7 @@ await contract.nft.transfer(walletAddress, tokenId);
 | -------------------------------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------- | ----------- |
 | [burn](./sdk.erc721.burn.md)                       |                        | [Erc721Burnable](./sdk.erc721burnable.md) &#124; undefined                                           |             |
 | [contractWrapper](./sdk.erc721.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;                                                                             |             |
-| [drop](./sdk.erc721.drop.md)                       |                        | [Erc721Droppable](./sdk.erc721droppable.md) &#124; undefined                                         |             |
+| [drop](./sdk.erc721.drop.md)                       |                        | [Erc721LazyMintable](./sdk.erc721lazymintable.md) &#124; undefined                                   |             |
 | [featureName](./sdk.erc721.featurename.md)         |                        | "ERC721"                                                                                             |             |
 | [mint](./sdk.erc721.mint.md)                       |                        | [Erc721Mintable](./sdk.erc721mintable.md) &#124; undefined                                           |             |
 | [options](./sdk.erc721.options.md)                 | <code>protected</code> | [SDKOptions](./sdk.sdkoptions.md)                                                                    |             |
