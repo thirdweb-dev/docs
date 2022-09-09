@@ -57,7 +57,7 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
   // Configure Auth with your private key
   privateKey: process.env.ADMIN_PRIVATE_KEY || "",
   // Add in the domain of your app
-  domain: "http://localhost:3000",
+  domain: "example.com",
 });
 
 // Export the handler to setup all your endpoints
@@ -138,7 +138,7 @@ export default function MyApp({ Component, pageProps }) {
     <ThirdwebProvider
       desiredChainId={1}
       authConfig={{
-        domain: "localhost:3000",
+        domain: "example.com",
         authUrl: "/api/auth",
       }}
     >
@@ -148,7 +148,7 @@ export default function MyApp({ Component, pageProps }) {
 }
 ```
 
-Here, we specify in the `authConfig` that our Auth backend is setup at the `/api/auth` URL, and that the domain we expect (which must match the domain we selected on the backend) is `localhost:3000`.
+Here, we specify in the `authConfig` that our Auth backend is setup at the `/api/auth` URL, and that the domain we expect (which must match the domain we selected on the backend) is `example.com` (you would change this to your own domain).
 
 ### Login Button
 
