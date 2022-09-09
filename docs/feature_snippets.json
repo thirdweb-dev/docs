@@ -293,52 +293,6 @@
       "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155Burnable"
     }
   },
-  "ERC1155Droppable": {
-    "name": "Erc1155Droppable",
-    "summary": "",
-    "remarks": null,
-    "examples": {},
-    "methods": [
-      {
-        "name": "lazyMint",
-        "summary": "Create a batch of NFTs to be claimed in the future\n\n",
-        "remarks": "\n\nCreate batch allows you to create a batch of many NFTs in one transaction.\n\n",
-        "examples": {
-          "javascript": "// Custom metadata of the NFTs to create\nconst metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nconst results = await contract.edition.drop.lazyMint(metadatas); // uploads and creates the NFTs on chain\nconst firstTokenId = results[0].id; // token id of the first created NFT\nconst firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT"
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155Droppable.lazyMint"
-        }
-      }
-    ],
-    "properties": [
-      {
-        "name": "claim",
-        "summary": "Claim tokens and configure claim conditions\n\n",
-        "remarks": "\n\nLet users claim NFTs. Define who can claim NFTs in the collection, when and how many.\n\n",
-        "examples": {
-          "javascript": "const quantity = 10;\nconst tokenId = 0;\nawait contract.edition.drop.claim.to(\"0x...\", 0, quantity);"
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.erc1155claimable"
-        }
-      },
-      {
-        "name": "revealer",
-        "summary": "Delayed reveal\n\n",
-        "remarks": "\n\nCreate a batch of encrypted NFTs that can be revealed at a later time.\n\n",
-        "examples": {
-          "javascript": "// the real NFTs, these will be encrypted until you reveal them\nconst realNFTs = [{\n  name: \"Common NFT #1\",\n  description: \"Common NFT, one of many.\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}, {\n  name: \"Super Rare NFT #2\",\n  description: \"You got a Super Rare NFT!\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n// A placeholder NFT that people will get immediately in their wallet, and will be converted to the real NFT at reveal time\nconst placeholderNFT = {\n  name: \"Hidden NFT\",\n  description: \"Will be revealed next week!\"\n};\n// Create and encrypt the NFTs\nawait contract.edition.drop.revealer.createDelayedRevealBatch(\n  placeholderNFT,\n  realNFTs,\n  \"my secret password\",\n);\n// Whenever you're ready, reveal your NFTs at any time\nconst batchId = 0; // the batch to reveal\nawait contract.edition.drop.revealer.reveal(batchId, \"my secret password\");"
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.delayedreveal"
-        }
-      }
-    ],
-    "reference": {
-      "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155Droppable"
-    }
-  },
   "ERC1155Enumerable": {
     "name": "Erc1155Enumerable",
     "summary": "List ERC1155 NFTs\n\n",
@@ -373,6 +327,52 @@
     "properties": [],
     "reference": {
       "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155Enumerable"
+    }
+  },
+  "ERC1155LazyMintable": {
+    "name": "Erc1155LazyMintable",
+    "summary": "",
+    "remarks": null,
+    "examples": {},
+    "methods": [
+      {
+        "name": "lazyMint",
+        "summary": "Create a batch of NFTs to be claimed in the future\n\n",
+        "remarks": "\n\nCreate batch allows you to create a batch of many NFTs in one transaction.\n\n",
+        "examples": {
+          "javascript": "// Custom metadata of the NFTs to create\nconst metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nconst results = await contract.edition.drop.lazyMint(metadatas); // uploads and creates the NFTs on chain\nconst firstTokenId = results[0].id; // token id of the first created NFT\nconst firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155LazyMintable.lazyMint"
+        }
+      }
+    ],
+    "properties": [
+      {
+        "name": "claim",
+        "summary": "Claim tokens and configure claim conditions\n\n",
+        "remarks": "\n\nLet users claim NFTs. Define who can claim NFTs in the collection, when and how many.\n\n",
+        "examples": {
+          "javascript": "const quantity = 10;\nconst tokenId = 0;\nawait contract.edition.drop.claim.to(\"0x...\", 0, quantity);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.erc1155claimable"
+        }
+      },
+      {
+        "name": "revealer",
+        "summary": "Delayed reveal\n\n",
+        "remarks": "\n\nCreate a batch of encrypted NFTs that can be revealed at a later time.\n\n",
+        "examples": {
+          "javascript": "// the real NFTs, these will be encrypted until you reveal them\nconst realNFTs = [{\n  name: \"Common NFT #1\",\n  description: \"Common NFT, one of many.\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}, {\n  name: \"Super Rare NFT #2\",\n  description: \"You got a Super Rare NFT!\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n// A placeholder NFT that people will get immediately in their wallet, and will be converted to the real NFT at reveal time\nconst placeholderNFT = {\n  name: \"Hidden NFT\",\n  description: \"Will be revealed next week!\"\n};\n// Create and encrypt the NFTs\nawait contract.edition.drop.revealer.createDelayedRevealBatch(\n  placeholderNFT,\n  realNFTs,\n  \"my secret password\",\n);\n// Whenever you're ready, reveal your NFTs at any time\nconst batchId = 0; // the batch to reveal\nawait contract.edition.drop.revealer.reveal(batchId, \"my secret password\");"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.delayedreveal"
+        }
+      }
+    ],
+    "reference": {
+      "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc1155LazyMintable"
     }
   },
   "ERC1155Mintable": {
@@ -793,7 +793,7 @@
       "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721Burnable"
     }
   },
-  "ERC721Claimable": {
+  "ERC721ClaimableWithConditions": {
     "name": "Erc721Claimable",
     "summary": "Configure and claim ERC721 NFTs\n\n",
     "remarks": "\n\nManage claim phases and claim ERC721 NFTs that have been lazily minted.\n\n",
@@ -830,8 +830,33 @@
       "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721Claimable"
     }
   },
-  "ERC721Droppable": {
-    "name": "Erc721Droppable",
+  "ERC721Enumerable": {
+    "name": "Erc721Enumerable",
+    "summary": "List owned ERC721 NFTs\n\n",
+    "remarks": "\n\nEasily list all the NFTs from a ERC721 contract, owned by a certain wallet.\n\n",
+    "examples": {
+      "javascript": "const contract = await sdk.getContract(\"{{contract_address}}\");\nconst walletAddress = \"0x...\";\nconst ownedNFTs = await contract.nft.query.owned.all(walletAddress);"
+    },
+    "methods": [
+      {
+        "name": "all",
+        "summary": "Get Owned NFTs\n\n",
+        "remarks": "\n\nGet all the data associated with the NFTs owned by a specific wallet.\n\n",
+        "examples": {
+          "javascript": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.nft.query.owned.all(address);"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721Enumerable.all"
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721Enumerable"
+    }
+  },
+  "ERC721LazyMintable": {
+    "name": "Erc721LazyMintable",
     "summary": "Lazily mint and claim ERC721 NFTs\n\n",
     "remarks": "\n\nManage claim phases and claim ERC721 NFTs that have been lazily minted.\n\n",
     "examples": {
@@ -846,7 +871,7 @@
           "javascript": "// Custom metadata of the NFTs to create\nconst metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nconst results = await contract.nft.lazy.mint(metadatas); // uploads and creates the NFTs on chain\nconst firstTokenId = results[0].id; // token id of the first created NFT\nconst firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT"
         },
         "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721Droppable.lazyMint"
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721LazyMintable.lazyMint"
         }
       }
     ],
@@ -875,32 +900,7 @@
       }
     ],
     "reference": {
-      "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721Droppable"
-    }
-  },
-  "ERC721Enumerable": {
-    "name": "Erc721Enumerable",
-    "summary": "List owned ERC721 NFTs\n\n",
-    "remarks": "\n\nEasily list all the NFTs from a ERC721 contract, owned by a certain wallet.\n\n",
-    "examples": {
-      "javascript": "const contract = await sdk.getContract(\"{{contract_address}}\");\nconst walletAddress = \"0x...\";\nconst ownedNFTs = await contract.nft.query.owned.all(walletAddress);"
-    },
-    "methods": [
-      {
-        "name": "all",
-        "summary": "Get Owned NFTs\n\n",
-        "remarks": "\n\nGet all the data associated with the NFTs owned by a specific wallet.\n\n",
-        "examples": {
-          "javascript": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.nft.query.owned.all(address);"
-        },
-        "reference": {
-          "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721Enumerable.all"
-        }
-      }
-    ],
-    "properties": [],
-    "reference": {
-      "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721Enumerable"
+      "javascript": "https://docs.thirdweb.com/typescript/sdk.Erc721LazyMintable"
     }
   },
   "ERC721Mintable": {

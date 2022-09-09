@@ -30,7 +30,7 @@ await contract.edition.transfer(walletAddress, tokenId, quantity);
 | --------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------ | ----------- |
 | [burn](./sdk.erc1155.burn.md)                       |                        | [Erc1155Burnable](./sdk.erc1155burnable.md) &#124; undefined                   |             |
 | [contractWrapper](./sdk.erc1155.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;                                                       |             |
-| [drop](./sdk.erc1155.drop.md)                       |                        | [Erc1155Droppable](./sdk.erc1155droppable.md) &#124; undefined                 |             |
+| [drop](./sdk.erc1155.drop.md)                       |                        | [Erc1155LazyMintable](./sdk.erc1155lazymintable.md) &#124; undefined           |             |
 | [featureName](./sdk.erc1155.featurename.md)         |                        | "ERC1155"                                                                      |             |
 | [mint](./sdk.erc1155.mint.md)                       |                        | [Erc1155Mintable](./sdk.erc1155mintable.md) &#124; undefined                   |             |
 | [options](./sdk.erc1155.options.md)                 | <code>protected</code> | [SDKOptions](./sdk.sdkoptions.md)                                              |             |

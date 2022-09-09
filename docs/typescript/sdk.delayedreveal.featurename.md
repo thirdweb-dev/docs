@@ -24,17 +24,19 @@ featureName: "ERC20" |
   "ERC721Enumerable" |
   "ERC721Mintable" |
   "ERC721BatchMintable" |
-  "ERC721Droppable" |
+  "ERC721LazyMintable" |
   "ERC721Revealable" |
   "ERC721Claimable" |
+  "ERC721ClaimableWithConditions" |
   "ERC721SignatureMint" |
   "ERC1155" |
   "ERC1155Burnable" |
   "ERC1155Enumerable" |
   "ERC1155Mintable" |
   "ERC1155BatchMintable" |
-  "ERC1155Droppable" |
+  "ERC1155LazyMintable" |
   "ERC1155Claimable" |
+  "ERC1155ClaimableWithConditions" |
   "ERC1155Revealable" |
   "ERC1155SignatureMintable" |
   "Royalty" |
