@@ -36,7 +36,7 @@ export default function ProductCard({ image, name, description, link }: Props) {
       data-card-link={link}
     >
       <div className="tw-card-text-container">
-        <img width={24} height={24} src={image} />
+        <img width={36} height={36} src={image} />
 
         <p className="tw-card-title" style={{ marginTop: 8 }}>
           {name}
