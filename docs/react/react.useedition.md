@@ -17,7 +17,7 @@ Hook for getting an instance of an `Edition` contract. This contract is used to 
 import { useEdition } from '@thirdweb-dev/react'
 
 export default function Component() {
-  const edition = useEdition("<YOUR-CONTRACT-ADDRESS>")
+  const edition = await useEdition("<YOUR-CONTRACT-ADDRESS>")
 
   // Now you can use the edition contract in the rest of the component
 

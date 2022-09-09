@@ -9,22 +9,8 @@ displayed_sidebar: typescript
 
 ## Erc1155LazyMintable.claim property
 
-Claim tokens and configure claim conditions
-
-## Example
-
-```javascript
-const quantity = 10;
-const tokenId = 0;
-await contract.edition.drop.claim.to("0x...", 0, quantity);
-```
-
 **Signature:**
 
 ```typescript
-claim: Erc1155Claimable | undefined;
+claim: ERC1155Claimable | undefined;
 ```
-
-## Remarks
-
-Let users claim NFTs. Define who can claim NFTs in the collection, when and how many.

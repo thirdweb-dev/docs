@@ -17,7 +17,7 @@ Hook for getting an instance of an `SignatureDrop` contract. This contract is me
 import { useSignatureDrop } from '@thirdweb-dev/react'
 
 export default function Component() {
-  const signatureDrop = useSignatureDrop("<YOUR-CONTRACT-ADDRESS>")
+  const signatureDrop = await useSignatureDrop("<YOUR-CONTRACT-ADDRESS>")
 
   // Now you can use the Signature drop contract in the rest of the component
 

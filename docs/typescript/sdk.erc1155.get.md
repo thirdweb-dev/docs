@@ -14,7 +14,7 @@ Get a single NFT Metadata
 ## Example
 
 ```javascript
-const nft = await contract.get("0");
+const nft = await contract.edition.get("0");
 ```
 
 **Signature:**

@@ -17,17 +17,17 @@ The params for the [useClaimNFT()](./react.useclaimnft.md) hook mutation.
 
 ```typescript
 export declare type ClaimNFTParams<TContract extends DropContract> =
-  TContract extends Erc1155
+  keyof TContract extends Erc1155
     ? {
         to: WalletAddress;
         tokenId: BigNumberish;
         quantity: BigNumberish;
-        checkERC20Allowance?: boolean;
+        options?: ClaimOptions;
       }
     : {
         to: WalletAddress;
         quantity: BigNumberish;
-        checkERC20Allowance?: boolean;
+        options?: ClaimOptions;
       };
 ```
 

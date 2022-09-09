@@ -14,16 +14,16 @@ Construct a claim transaction without executing it. This is useful for estimatin
 **Signature:**
 
 ```typescript
-getClaimTransaction(destinationAddress: string, quantity: BigNumberish, checkERC20Allowance?: boolean): Promise<TransactionTask>;
+getClaimTransaction(destinationAddress: string, quantity: BigNumberish, options?: ClaimOptions): Promise<TransactionTask>;
 ```
 
 ## Parameters
 
-| Parameter           | Type         | Description       |
-| ------------------- | ------------ | ----------------- |
-| destinationAddress  | string       |                   |
-| quantity            | BigNumberish |                   |
-| checkERC20Allowance | boolean      | <i>(Optional)</i> |
+| Parameter          | Type                                  | Description       |
+| ------------------ | ------------------------------------- | ----------------- |
+| destinationAddress | string                                |                   |
+| quantity           | BigNumberish                          |                   |
+| options            | [ClaimOptions](./sdk.claimoptions.md) | <i>(Optional)</i> |
 
 **Returns:**
 

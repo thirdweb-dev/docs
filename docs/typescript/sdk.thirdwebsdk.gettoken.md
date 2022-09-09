@@ -14,7 +14,7 @@ Get an instance of a Token contract
 **Signature:**
 
 ```typescript
-getToken(address: string): Token;
+getToken(address: string): Promise<Token>;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ getToken(address: string): Token;
 
 **Returns:**
 
-[Token](./sdk.token.md)
+Promise&lt;[Token](./sdk.token.md)&gt;
 
 the contract

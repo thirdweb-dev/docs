@@ -34,47 +34,48 @@ const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition
 **Signature:**
 
 ```typescript
-export declare function useActiveClaimCondition<
-  TContract extends NFTContract | Erc20,
->(
-  ...[contract, tokenId]: ClaimConditionsInputParams<TContract>
+export declare function useActiveClaimCondition(
+  contract: RequiredParam<DropContract>,
+  tokenId?: BigNumberish,
 ): import("@tanstack/react-query").UseQueryResult<
-  {
-    snapshot?:
-      | {
-          address: string;
-          maxClaimable: string;
-        }[]
-      | undefined;
-    startTime: Date;
-    currencyAddress: string;
-    price: import("ethers").BigNumber;
-    maxQuantity: string;
-    quantityLimitPerTransaction: string;
-    waitInSeconds: import("ethers").BigNumber;
-    merkleRootHash: string | number[];
-    availableSupply: string;
-    currentMintSupply: string;
-    currencyMetadata: {
-      symbol: string;
-      value: import("ethers").BigNumber;
-      name: string;
-      decimals: number;
-      displayValue: string;
-    };
-  },
+  | {
+      snapshot?:
+        | {
+            address: string;
+            maxClaimable: string;
+          }[]
+        | undefined;
+      startTime: Date;
+      currencyAddress: string;
+      price: import("ethers").BigNumber;
+      maxQuantity: string;
+      quantityLimitPerTransaction: string;
+      waitInSeconds: import("ethers").BigNumber;
+      merkleRootHash: string | number[];
+      availableSupply: string;
+      currentMintSupply: string;
+      currencyMetadata: {
+        symbol: string;
+        value: import("ethers").BigNumber;
+        name: string;
+        decimals: number;
+        displayValue: string;
+      };
+    }
+  | undefined,
   unknown
 >;
 ```
 
 ## Parameters
 
-| Parameter             | Type                                        | Description |
-| --------------------- | ------------------------------------------- | ----------- |
-| \[contract, tokenId\] | ClaimConditionsInputParams&lt;TContract&gt; |             |
+| Parameter | Type                                                                                     | Description                                                                                                                  |
+| --------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;[DropContract](./react.dropcontract.md)&gt; | an instance of a contract that extends the ERC721 or ERC1155 spec and implements the <code>claimConditions</code> extension. |
+| tokenId   | BigNumberish                                                                             | <i>(Optional)</i> the id of the token to fetch the claim conditions for (if the contract is an ERC1155 contract)             |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ snapshot?: { address: string; maxClaimable: string; }\[\] \| undefined; startTime: Date; currencyAddress: string; price: import("ethers").BigNumber; maxQuantity: string; quantityLimitPerTransaction: string; waitInSeconds: import("ethers").BigNumber; merkleRootHash: string \| number\[\]; availableSupply: string; currentMintSupply: string; currencyMetadata: { symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }; }, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ snapshot?: { address: string; maxClaimable: string; }\[\] \| undefined; startTime: Date; currencyAddress: string; price: import("ethers").BigNumber; maxQuantity: string; quantityLimitPerTransaction: string; waitInSeconds: import("ethers").BigNumber; merkleRootHash: string \| number\[\]; availableSupply: string; currentMintSupply: string; currencyMetadata: { symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }; } \| undefined, unknown&gt;
 
 a response object with the currently active claim condition

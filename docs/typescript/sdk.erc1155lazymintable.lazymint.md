@@ -28,7 +28,7 @@ const metadatas = [
   },
 ];
 
-const results = await contract.edition.drop.lazyMint(metadatas); // uploads and creates the NFTs on chain
+const results = await contract.erc1155.lazyMint(metadatas); // uploads and creates the NFTs on chain
 const firstTokenId = results[0].id; // token id of the first created NFT
 const firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT
 ```

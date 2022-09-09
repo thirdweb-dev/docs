@@ -13,33 +13,30 @@ displayed_sidebar: react
 
 Use this to get a the total balance of a [NFTContract](./react.nftcontract.md) and wallet address.
 
-## Example 1
-
-```javascript
-const nftDrop = useNFTDrop(<ContractAddress>);
-const { data: ownerBalance, isLoading, error } = useNFTBalance(nftDrop, <OwnerWalletAddress>);
-```
-
-## Example 2
+## Example
 
 ```javascript
 const { contract } = useContract(<ContractAddress>);
-const { data: ownerBalance, isLoading, error } = useNFTBalance(contract?.nft, <OwnerWalletAddress>);
+const { data: ownerBalance, isLoading, error } = useNFTBalance(contract, <OwnerWalletAddress>);
 ```
 
 **Signature:**
 
 ```typescript
-export declare function useNFTBalance<TContract extends NFTContract>(
-  ...[contract, ownerWalletAddress, tokenId]: useNFTBalanceParams<TContract>
+export declare function useNFTBalance(
+  contract: RequiredParam<NFTContract>,
+  ownerWalletAddress: RequiredParam<WalletAddress>,
+  tokenId: RequiredParam<BigNumberish>,
 ): import("@tanstack/react-query").UseQueryResult<BigNumber, unknown>;
 ```
 
 ## Parameters
 
-| Parameter                                 | Type                                                                   | Description |
-| ----------------------------------------- | ---------------------------------------------------------------------- | ----------- |
-| \[contract, ownerWalletAddress, tokenId\] | [useNFTBalanceParams](./react.usenftbalanceparams.md)&lt;TContract&gt; |             |
+| Parameter          | Type                                                                                       | Description                                            |
+| ------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------ |
+| contract           | [RequiredParam](./react.requiredparam.md)&lt;[NFTContract](./react.nftcontract.md)&gt;     | an instance of a [NFTContract](./react.nftcontract.md) |
+| ownerWalletAddress | [RequiredParam](./react.requiredparam.md)&lt;[WalletAddress](./react.walletaddress.md)&gt; | the wallet adress to check the balance of              |
+| tokenId            | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt;                              |                                                        |
 
 **Returns:**
 

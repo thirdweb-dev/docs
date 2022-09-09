@@ -26,16 +26,16 @@ const claimedNFT = await tx.data(); // (optional) get the claimed NFT metadata
 **Signature:**
 
 ```typescript
-claimTo(destinationAddress: string, quantity: BigNumberish, checkERC20Allowance?: boolean): Promise<TransactionResultWithId<NFTMetadataOwner>[]>;
+claimTo(destinationAddress: string, quantity: BigNumberish, options?: ClaimOptions): Promise<TransactionResultWithId<NFTMetadataOwner>[]>;
 ```
 
 ## Parameters
 
-| Parameter           | Type         | Description                                                                                                                      |
-| ------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| destinationAddress  | string       | Address you want to send the token to                                                                                            |
-| quantity            | BigNumberish | Quantity of the tokens you want to claim                                                                                         |
-| checkERC20Allowance | boolean      | <i>(Optional)</i> Optional, check if the wallet has enough ERC20 allowance to claim the tokens, and if not, approve the transfer |
+| Parameter          | Type                                  | Description                              |
+| ------------------ | ------------------------------------- | ---------------------------------------- |
+| destinationAddress | string                                | Address you want to send the token to    |
+| quantity           | BigNumberish                          | Quantity of the tokens you want to claim |
+| options            | [ClaimOptions](./sdk.claimoptions.md) | <i>(Optional)</i>                        |
 
 **Returns:**
 
