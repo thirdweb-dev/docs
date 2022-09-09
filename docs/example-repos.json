@@ -224,13 +224,15 @@
     "html_url": "https://github.com/thirdweb-example/firebase-auth",
     "description": "Integrate sign in with Ethereum using thirdweb Auth into your Firebase application",
     "created_at": "2022-09-09T03:34:01Z",
-    "updated_at": "2022-09-09T03:34:01Z",
+    "updated_at": "2022-09-09T05:48:50Z",
     "clone_url": "https://github.com/thirdweb-example/firebase-auth.git",
-    "topics": [],
-    "language": null,
+    "topics": [
+      "auth"
+    ],
+    "language": "TypeScript",
     "stargazers_count": 0,
     "is_template": false,
-    "homepage": null
+    "homepage": "https://firebase-auth.thirdweb-example.com/"
   },
   {
     "name": "forge-starter",
