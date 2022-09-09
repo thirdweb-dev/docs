@@ -52,7 +52,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Build Apps",
-      items: ["SDK", "Auth"],
+      items: ["SDK", "UI Components", "Auth"],
     },
     {
       title: "Manage Projects",
