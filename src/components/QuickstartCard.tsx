@@ -86,9 +86,11 @@ export default function QuickstartCard({
               {name}
             </h5>
           </div>
-          <p style={{ opacity: 0.9, marginTop: 6, pointerEvents: "none" }}>
-            {description}
-          </p>
+          {description && (
+            <p style={{ opacity: 0.9, marginTop: 6, pointerEvents: "none" }}>
+              {description}
+            </p>
+          )}
         </div>
       </div>
     </a>
