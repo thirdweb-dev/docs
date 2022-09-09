@@ -78,6 +78,11 @@ const sidebars = {
     },
     {
       type: "link",
+      label: "UI Components",
+      href: "/sdk/ui-components/web3button",
+    },
+    {
+      type: "link",
       label: "Auth",
       href: "/auth",
     },
