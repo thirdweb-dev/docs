@@ -49,10 +49,30 @@ const desiredChainId = ChainId.Mumbai;
 export const MyApp = () => {
   return (
     <ThirdwebProvider desiredChainId={desiredChainId}>
-      {/*
-          Your App Goes Here
-      */}
+      {/* Your App Goes Here */}
     </ThirdwebProvider>
   );
 };
+```
+
+### From a Signer / Provider
+
+```jsx
+import { ChainId, ThirdwebSDKProvider, useProvider } from "@thirdweb-dev/react";
+
+// This is the chainId your dApp will work on.
+const activeChainId = ChainId.Mainnet;
+
+function MyApp({ Component, pageProps }) {
+  // If you want to use any custom provider, you can add it here.
+  const provider = useProvider();
+
+  return (
+    <ThirdwebSDKProvider desiredChainId={activeChainId} provider={provider}>
+      {/* Your App Goes Here */}
+    </ThirdwebSDKProvider>
+  );
+}
+
+export default MyApp;
 ```
