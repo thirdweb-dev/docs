@@ -16,7 +16,9 @@ Use this to lazy mint a batch of delayed reveal NFTs on your [DropContract](./re
 **Signature:**
 
 ```typescript
-export declare function useDelayedRevealLazyMint<TContract extends NFTContract>(
+export declare function useDelayedRevealLazyMint<
+  TContract extends RevealableContract,
+>(
   contract: RequiredParam<TContract>,
   onProgress?: (progress: UploadProgressEvent) => void,
 ): import("@tanstack/react-query").UseMutationResult<
@@ -31,7 +33,7 @@ export declare function useDelayedRevealLazyMint<TContract extends NFTContract>(
 
 | Parameter  | Type                                                       | Description                                                                                |
 | ---------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
-| contract   | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) with the drop extension             |
+| contract   | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [DropContract](./react.dropcontract.md)                                   |
 | onProgress | (progress: UploadProgressEvent) =&gt; void                 | <i>(Optional)</i> an optional callback that will be called with the progress of the upload |
 
 **Returns:**

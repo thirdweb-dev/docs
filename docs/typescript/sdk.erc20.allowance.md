@@ -16,7 +16,7 @@ Get Token Allowance
 ```javascript
 // Address of the wallet to check token allowance
 const spenderAddress = "0x...";
-const allowance = await contract.token.allowance(spenderAddress);
+const allowance = await contract.erc20.allowance(spenderAddress);
 ```
 
 **Signature:**

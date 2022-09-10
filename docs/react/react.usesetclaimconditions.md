@@ -11,35 +11,9 @@ displayed_sidebar: react
 
 > This feature is currently in beta and may change based on feedback that we receive.
 
-Use this to set claim conditions on your [NFTContract](./react.nftcontract.md)
+Use this to set claim conditions on your [DropContract](./react.dropcontract.md)
 
-## Example 1
-
-```jsx
-const Component = () => {
-  const nftDrop = useNFTDrop(<ContractAddress>);
-  const {
-    mutate: setClaimConditions,
-    isLoading,
-    error,
-  } = useSetClaimConditions(nftDrop);
-
-  if (error) {
-    console.error("failed to set claim conditions", error);
-  }
-
-  return (
-    <button
-      disabled={isLoading}
-      onClick={() => setClaimConditions({ phases: [{ price: 2, maxQuantity: 100 }] })}
-    >
-      Set Claim Conditions!
-    </button>
-  );
-};
-```
-
-## Example 2
+## Example
 
 ```jsx
 const Component = () => {
@@ -48,7 +22,7 @@ const Component = () => {
     mutate: setClaimConditions,
     isLoading,
     error,
-  } = useSetClaimConditions(contract?.nft);
+  } = useSetClaimConditions(contract);
 
   if (error) {
     console.error("failed to set claim conditions", error);
@@ -68,10 +42,9 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-export declare function useSetClaimConditions<
-  TContract extends NFTContract | Erc20,
->(
-  ...[contract, tokenId]: ClaimConditionsInputParams<TContract>
+export declare function useSetClaimConditions(
+  contract: RequiredParam<DropContract>,
+  tokenId?: BigNumberish,
 ): import("@tanstack/react-query").UseMutationResult<
   | Omit<
       {
@@ -89,9 +62,10 @@ export declare function useSetClaimConditions<
 
 ## Parameters
 
-| Parameter             | Type                                        | Description |
-| --------------------- | ------------------------------------------- | ----------- |
-| \[contract, tokenId\] | ClaimConditionsInputParams&lt;TContract&gt; |             |
+| Parameter | Type                                                                                     | Description                                              |
+| --------- | ---------------------------------------------------------------------------------------- | -------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;[DropContract](./react.dropcontract.md)&gt; | an instance of a [DropContract](./react.dropcontract.md) |
+| tokenId   | BigNumberish                                                                             | <i>(Optional)</i>                                        |
 
 **Returns:**
 

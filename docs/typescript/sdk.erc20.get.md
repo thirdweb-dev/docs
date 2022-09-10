@@ -14,7 +14,7 @@ Get the token Metadata (name, symbol, etc...)
 ## Example
 
 ```javascript
-const token = await contract.token.get();
+const token = await contract.erc20.get();
 ```
 
 **Signature:**

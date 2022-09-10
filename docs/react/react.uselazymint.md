@@ -16,7 +16,7 @@ Use this to lazy mint a batch of NFTs on your [DropContract](./react.dropcontrac
 **Signature:**
 
 ```typescript
-export declare function useLazyMint<TContract extends NFTContract>(
+export declare function useLazyMint<TContract extends DropContract>(
   contract: RequiredParam<TContract>,
   onProgress?: (progress: UploadProgressEvent) => void,
 ): import("@tanstack/react-query").UseMutationResult<

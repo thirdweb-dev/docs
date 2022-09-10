@@ -19,7 +19,7 @@ export default function ThirdwebCodeSnippet({
     javascript: true,
     python: true,
     go: true,
-    ...languages
+    ...languages,
   };
 
   if (!contract || !name) {
@@ -34,8 +34,10 @@ export default function ThirdwebCodeSnippet({
     return null;
   }
 
-  const methods = contractObject.methods;
+  const methods = isFeatureSnippet ? contractObject : contractObject.methods;
   const properties = contractObject.properties;
+
+  console.log("methods:", methods);
 
   if (!methods && !properties) {
     return null;
@@ -46,10 +48,10 @@ export default function ThirdwebCodeSnippet({
     codeObjectToUse = contractObject;
   } else {
     // Try find in methods
-    const method = methods.find((m) => m.name === name);
+    const method = methods?.find((m) => m.name === name);
     // Try find in properties if not found in methods
     const propertyOrMethodFallback =
-      method === undefined ? properties.find((p) => p.name === name) : method;
+      method === undefined ? properties?.find((p) => p.name === name) : method;
 
     if (!propertyOrMethodFallback) {
       return null;

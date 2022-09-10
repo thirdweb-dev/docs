@@ -16,17 +16,11 @@ The params for the [useMintNFT()](./react.usemintnft.md) hook mutation.
 **Signature:**
 
 ```typescript
-export declare type MintNFTParams<TContract extends NFTContract> =
-  TContract extends Erc1155
-    ? {
-        metadata: NFTMetadataOrUri;
-        supply: BigNumberish;
-        to: WalletAddress;
-      }
-    : {
-        metadata: NFTMetadataOrUri;
-        to: WalletAddress;
-      };
+export declare type MintNFTParams = {
+  metadata: NFTMetadataOrUri;
+  to: WalletAddress;
+  supply?: Amount;
+};
 ```
 
-**References:** [NFTContract](./react.nftcontract.md), [WalletAddress](./react.walletaddress.md)
+**References:** [WalletAddress](./react.walletaddress.md)

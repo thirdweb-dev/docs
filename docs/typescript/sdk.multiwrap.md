@@ -46,7 +46,6 @@ const contract = sdk.getMultiwrap("{{contract_address}}");
 
 | Method                                                                            | Modifiers | Description                                                                                  |
 | --------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------- |
-| [getAll(queryParams)](./sdk.multiwrap.getall.md)                                  |           | **<i>(BETA)</i>** Get All Wrapped Token Bundles                                              |
 | [getWrappedContents(wrappedTokenId)](./sdk.multiwrap.getwrappedcontents.md)       |           | **<i>(BETA)</i>** Get the contents of a wrapped token bundle                                 |
 | [unwrap(wrappedTokenId, recipientAddress)](./sdk.multiwrap.unwrap.md)             |           | **<i>(BETA)</i>** Unwrap a wrapped token bundle, and retrieve its contents                   |
 | [wrap(contents, wrappedTokenMetadata, recipientAddress)](./sdk.multiwrap.wrap.md) |           | **<i>(BETA)</i>** Wrap any number of ERC20/ERC721/ERC1155 tokens into a single wrapped token |
@@ -54,7 +53,7 @@ const contract = sdk.getMultiwrap("{{contract_address}}");
 **Signature:**
 
 ```typescript
-export declare class Multiwrap extends Erc721<MultiwrapContract>
+export declare class Multiwrap extends StandardErc721<MultiwrapContract>
 ```
 
-**Extends:** [Erc721](./sdk.erc721.md)&lt;MultiwrapContract&gt;
+**Extends:** StandardErc721&lt;MultiwrapContract&gt;

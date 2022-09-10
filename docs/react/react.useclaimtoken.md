@@ -41,7 +41,7 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-export declare function useClaimToken<TContract extends TokenDrop>(
+export declare function useClaimToken<TContract extends Erc20>(
   contract: RequiredParam<TContract>,
 ): import("@tanstack/react-query").UseMutationResult<
   Omit<

@@ -14,7 +14,7 @@ Get an instance of an Edition contract
 **Signature:**
 
 ```typescript
-getEdition(address: string): Edition;
+getEdition(address: string): Promise<Edition>;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ getEdition(address: string): Edition;
 
 **Returns:**
 
-[Edition](./sdk.edition.md)
+Promise&lt;[Edition](./sdk.edition.md)&gt;
 
 the contract
