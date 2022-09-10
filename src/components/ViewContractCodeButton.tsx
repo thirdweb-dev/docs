@@ -6,9 +6,14 @@ import React from "react";
 type Props = {
   link: string;
   name: string;
+  isInterface: boolean;
 };
 
-export default function ViewContractCodeButton({ link, name }: Props) {
+export default function ViewContractCodeButton({
+  link,
+  name,
+  isInterface = false,
+}: Props) {
   return (
     <div style={{ width: "fit-content" }}>
       <a
@@ -57,7 +62,7 @@ export default function ViewContractCodeButton({ link, name }: Props) {
           }}
         >
           <div style={{ marginRight: 14, fontWeight: 600 }}>
-            View Smart Contract
+            {isInterface ? "View Interface" : "View Smart Contract"}
           </div>
         </div>
       </a>

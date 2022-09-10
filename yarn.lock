@@ -3585,6 +3585,13 @@ dns-packet@^5.2.2:
   dependencies:
     "@leichtgewicht/ip-codec" "^2.0.1"
 
+docusaurus-plugin-module-alias@^0.0.2:
+  version "0.0.2"
+  resolved "https://registry.yarnpkg.com/docusaurus-plugin-module-alias/-/docusaurus-plugin-module-alias-0.0.2.tgz#02df8e5287006adf8ef7c15d3423c6abdeb211ef"
+  integrity sha512-y0PXqIQUEZm8WXCr/FufIM7EvZGe0JVUSOTavDQzs0xGPA6XGqcT/b0Shwub5x1st5kAwwmsDqcsCGpm8PAwrA==
+  dependencies:
+    joi "^17.3.0"
+
 docusaurus-plugin-sass@^0.2.2:
   version "0.2.2"
   resolved "https://registry.yarnpkg.com/docusaurus-plugin-sass/-/docusaurus-plugin-sass-0.2.2.tgz#9b7f8c6fbe833677064ec05b09b98d90b50be324"
@@ -4923,7 +4930,7 @@ jest-worker@^27.4.5, jest-worker@^27.5.1:
     merge-stream "^2.0.0"
     supports-color "^8.0.0"
 
-joi@^17.6.0:
+joi@^17.3.0, joi@^17.6.0:
   version "17.6.0"
   resolved "https://registry.yarnpkg.com/joi/-/joi-17.6.0.tgz#0bb54f2f006c09a96e75ce687957bd04290054b2"
   integrity sha512-OX5dG6DTbcr/kbMFj0KGYxuew69HPcAE3K/sZpEV2nP6e/j/C0HV+HNiBPCASxdx5T7DMoa0s8UeHWMnb6n2zw==

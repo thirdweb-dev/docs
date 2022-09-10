@@ -1,0 +1,41 @@
+---
+slug: /sdk/interacting-with-contracts/erc721/erc721burnable
+title: Burn
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# ERC721 - Burn NFTs
+
+You can utilise these features of the SDK on your contract if it implements [ERC721Burnable](/extensions/erc-721/burn).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC721Burnable in your smart contract"
+      link={"/extensions/erc-721/burn"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Burn NFTs
+
+Burn (transfer to a non-recoverable address) an NFT.
+
+:::info Burning
+
+Burning does not "delete" the NFT; the token ID and metadata will still be available on-chain.
+
+:::
+
+<CodeSnippetWithSummary
+  contract={`ERC721Burnable`}
+  name={`burn`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>

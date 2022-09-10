@@ -1,0 +1,73 @@
+---
+slug: /sdk/interacting-with-contracts/erc721/erc721delayedreveal
+title: Delayed Reveal
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# ERC721 - Delayed Reveal
+
+You can utilize these features of the SDK on your contract if it implements [ERC721Revealable](/extensions/erc-721/delayed-reveal).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC721Burnable in your smart contract"
+      link={"/extensions/erc-721/delayed-reveal"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Create Delayed Reveal Batch
+
+Create a batch of lazy-minted NFTs that have placeholder metadata you can reveal later.
+
+This function encrypts the metadata and requires a **password** that is used to reveal it.
+
+:::warning Password Management
+
+This password is the **only** method you have to reveal the metadata of your NFTs.
+
+thirdweb does not have any servers that can view or recover this password for you.
+
+Ensure you remember this password and keep it safe.
+
+:::
+
+<CodeSnippetWithSummary
+  contract={`DelayedReveal`}
+  name={`createDelayedRevealBatch`}
+  isFeatureSnippet={false}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>
+
+## View Batches Available to Reveal
+
+Get a list of all delayed reveal batches that have been created and not yet revealed.
+
+<CodeSnippetWithSummary
+  contract={`DelayedReveal`}
+  name={`getBatchesToReveal`}
+  isFeatureSnippet={false}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>
+
+## Create Delayed Reveal Batch
+
+Use your password to reveal the metadata of a batch of NFTs created with delayed reveal.
+
+<CodeSnippetWithSummary
+  contract={`DelayedReveal`}
+  name={`reveal`}
+  isFeatureSnippet={false}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>

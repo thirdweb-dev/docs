@@ -1,0 +1,47 @@
+---
+slug: /sdk/interacting-with-contracts/custom-contracts/getting-a-contract
+title: Getting a Contract
+---
+
+import CodeSnippetWithSummary from "../../../../src/components/CodeSnippetWithSummary";
+
+# Getting a Contract
+
+The SDK is capable of getting **any** smart contract deployed to one of our [supported blockchains](https://blog.thirdweb.com/guides/which-network-should-you-use).
+
+When you deploy one of our [prebuilt contracts](/pre-built-contracts), or your contract implements a [contract extension](/extensions),
+you unlock specific features of the SDK that help you interact with your contract and its functions more easily.
+
+## Get Any Contract Instance
+
+Using the React SDK's [useContract](/react/react.usecontract) hook
+or the TypeScript SDK's [getContract](/typescript/sdk.thirdwebsdk.getcontract) method,
+you can get an instance of any custom contract using its contract address.
+
+<!-- TODO: Create code snippet for this + more react  -->
+
+**React:**
+
+```jsx
+const { contract } = useContract("{{contract_address}}");
+```
+
+<!-- TODO: Create code snippet for this + more react  -->
+
+**TypeScript:**
+
+```javascript
+const contract = await sdk.getContract("{{contract_address}}");
+```
+
+## Get Contract From ABI
+
+If you have compiled your Solidity code into an [ABI](https://docs.soliditylang.org/en/v0.8.13/abi-spec.html#contract-abi-specification),
+you use this value to get a contract instance.
+
+<CodeSnippetWithSummary
+  contract={"ThirdwebSDK"}
+  name={"getContractFromAbi"}
+  dontShowSummary
+  showHr={false}
+/>

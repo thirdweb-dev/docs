@@ -1,0 +1,40 @@
+---
+slug: /sdk/interacting-with-contracts/erc721/erc721supply
+title: View All
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# ERC721 - View All NFTs
+
+You can utilise these features of the SDK on your contract if it implements [ERC721Supply](/extensions/erc-721/supply).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC721Supply in your smart contract"
+      link={"/extensions/erc-721/supply"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Get All Minted NFTs
+
+Get all the data associated with every NFT in this contract.
+
+This function automatically fetches the metadata for each NFT in parallel.
+
+By default, it loads the first `100` NFTs; an optional [`QueryAllParams`](https://portal.thirdweb.com/typescript/sdk.queryallparams)
+object can be provided to specify a `count` and `start` value.
+
+<CodeSnippetWithSummary
+  contract={`ERC721Supply`}
+  name={`getAll`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>

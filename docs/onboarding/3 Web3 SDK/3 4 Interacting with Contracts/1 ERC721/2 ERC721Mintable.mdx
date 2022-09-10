@@ -1,0 +1,40 @@
+---
+slug: /sdk/interacting-with-contracts/erc721/erc721mintable
+title: Mint
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# ERC721 - Mint NFTs
+
+You can utilize these features of the SDK on your contract if it implements [ERC721Mintable](/extensions/erc-721/mintable).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC721Mintable in your smart contract"
+      link={"/extensions/erc-721/mintable"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Mint a unique NFT
+
+Provide a metadata object to mint a unique NFT.
+
+This function automatically uploads and [pins](https://blog.thirdweb.com/guides/securing-pinning-your-nft-with-ipfs/) your metadata to IPFS.
+
+If you _already_ have your metadata uploaded to IPFS (or any URL that points to valid metadata),
+you can directly pass the `URI` as the second argument; rather than a metadata object.
+
+<CodeSnippetWithSummary
+  contract={`ERC721Mintable`}
+  name={`mintTo`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>

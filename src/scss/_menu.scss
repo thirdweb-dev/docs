@@ -195,3 +195,8 @@ html[data-theme="light"] {
     padding-bottom: 0px !important;
   }
 }
+
+.back-home-link {
+  font-size: 14px;
+  padding-left: calc(var(--ifm-menu-link-padding-horizontal) - 12px);
+}

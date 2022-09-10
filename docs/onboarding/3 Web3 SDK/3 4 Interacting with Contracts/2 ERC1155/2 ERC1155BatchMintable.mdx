@@ -1,0 +1,35 @@
+---
+slug: /sdk/interacting-with-contracts/erc721/erc1155batchmintable
+title: Batch Mint
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# ERC1155BatchMintable
+
+You can utilise these features of the SDK on your contract if it implements [ERC1155BatchMintable](/extensions/erc-1155/batchmintable).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC1155BatchMintable in your smart contract"
+      link={"/extensions/erc-1155/batchmintable"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Mint Many NFTs with limited supplies
+
+Mint many NFTs to a specified wallet.
+
+<CodeSnippetWithSummary
+  contract={`ERC1155BatchMintable`}
+  name={`mintBatchTo`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>

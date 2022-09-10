@@ -1,0 +1,74 @@
+---
+slug: /sdk/interacting-with-contracts/erc721/erc1155burnable
+title: Burn
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# ERC1155Burnable
+
+You can utilise these features of the SDK on your contract if it implements [ERC1155Burnable](/extensions/erc-1155/burnable).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC1155Burnable"
+      link={"/extensions/erc-1155/burnable"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Burn NFTs
+
+Burn a specified quantity of an NFT.
+
+<CodeSnippetWithSummary
+  contract={`ERC1155Burnable`}
+  name={`burn`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>
+
+## Burn A Batch Of NFTs
+
+Burn a specified quantity of multiple NFTs at once.
+
+<CodeSnippetWithSummary
+  contract={`ERC1155Burnable`}
+  name={`burnBatch`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>
+
+## Burn NFTs From Another Wallet
+
+Burn a specified quantity of an NFT from another wallet.
+
+<CodeSnippetWithSummary
+  contract={`ERC1155Burnable`}
+  name={`burnFrom`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>
+
+## Burn a batch of NFTs
+
+Burn a specified quantity of multiple NFTs at once from another wallet.
+
+<CodeSnippetWithSummary
+  contract={`ERC1155Burnable`}
+  name={`burnBatchFrom`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={true}
+  dontShowSummary
+/>

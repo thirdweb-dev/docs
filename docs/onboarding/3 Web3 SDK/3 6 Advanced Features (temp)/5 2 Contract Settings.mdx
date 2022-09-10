@@ -6,19 +6,12 @@ import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet"
 
 # Contract Settings
 
-You can change the settings of your contract using the SDK, including:
-
-- Contract Metadata
-- Royalty Fees
-- Platform Fees
+Configure the settings of your smart contract.
 
 ## Contract Metadata
 
-You can directly read, write, and update the metadata of a smart contract using the SDK, such as the:
-
-- Image
-- Name
-- Description
+Read, write, and update the metadata of a smart contract using the SDK,
+such as the name, description and image.
 
 ### Read
 
@@ -59,6 +52,15 @@ This will **overwrite** the existing metadata.
 />
 
 ## Platform Fees
+
+<ThirdwebCodeSnippet
+  contract={"PlatformFee"}
+  name={"base"}
+  isFeatureSnippet={true}
+  isGetContractCode={true}
+/>
+
+## Contract Owner
 
 <ThirdwebCodeSnippet
   contract={"PlatformFee"}

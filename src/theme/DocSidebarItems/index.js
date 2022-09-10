@@ -1,16 +1,36 @@
 import React, { memo } from "react";
 import { DocSidebarItemsExpandedStateProvider } from "@docusaurus/theme-common/internal";
 import DocSidebarItem from "@theme/DocSidebarItem";
+import IconHome from "@theme/Icon/Home";
+import Link from "@docusaurus/Link";
+
 // TODO this item should probably not receive the "activePath" props
 // TODO this triggers whole sidebar re-renders on navigation
 function DocSidebarItems({ items, ...props }) {
+  console.log(items);
+  console.log(props);
+
+  // Category logic (i.e. "Build contracts", etc.)
+  const showCategoryPages = [
+    "/platform-overview",
+    "/getting-started",
+    "/create",
+    "/release",
+    "/deploy",
+    "/templates",
+  ];
+  const checkIfShowCategoryPages = (item) => {
+    // check if starts with
+    return (
+      item === "/" || showCategoryPages.some((page) => item.startsWith(page))
+    );
+  };
   const showCategories =
-    props?.level === 1 &&
-    !props?.activePath.startsWith("/python") &&
-    !props?.activePath.startsWith("/typescript") &&
-    !props?.activePath.startsWith("/react") &&
-    !props?.activePath.startsWith("/go") &&
-    !props?.activePath.startsWith("/contracts");
+    props?.level === 1 && checkIfShowCategoryPages(props?.activePath);
+
+  // Back to home logic = if not on show category pages, show back to home
+  const showBackToHome =
+    props?.level === 1 && !checkIfShowCategoryPages(props?.activePath);
 
   const sidebarItems = [
     {
@@ -24,15 +44,15 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Build Contracts",
-      items: ["Prebuilt", "Extensions"],
+      items: ["Extensions"],
     },
     {
-      title: "Ship Projects",
-      items: ["Release", "Deploy"],
+      title: "Deploy Contracts",
+      items: ["Release", "Deploy", "Prebuilt Contracts"],
     },
     {
-      title: "Create Apps",
-      items: ["SDK", "Auth"],
+      title: "Build Apps",
+      items: ["SDK", "UI Components", "Auth"],
     },
     {
       title: "Manage Projects",
@@ -88,6 +108,27 @@ function DocSidebarItems({ items, ...props }) {
 
   return (
     <DocSidebarItemsExpandedStateProvider>
+      {showBackToHome && (
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            paddingBottom: "1rem",
+          }}
+        >
+          <Link href="/" className="menu__list-item back-home-link">
+            <IconHome
+              style={{
+                height: 19,
+                marginBottom: "-3px",
+                marginRight: "0.5rem",
+              }}
+            />
+            {"All Docs"}
+          </Link>
+        </div>
+      )}
+
       {items.map((item, index) => (
         <DocSidebarItem key={index} item={item} index={index} {...props} />
       ))}

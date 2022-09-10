@@ -1,0 +1,39 @@
+---
+slug: /sdk/interacting-with-contracts/erc1155/erc1155claimable
+title: Claim
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# ERC1155 - Claim
+
+ERC1155Claimable is an extension of [ERC1155LazyMint](/sdk/interacting-with-contracts/erc721/erc1155lazymintable) that allows users to claim lazy minted NFTs.
+
+You can utilize these features of the SDK on your contract if it implements [ERC1155Claimable](/extensions/erc-1155/claim).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC1155Claimable in your smart contract"
+      link={"/extensions/erc-1155/claim"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Claim A Lazy-Minted NFT
+
+Claim the next available NFT(s) from the lazy minted batch.
+
+Unless otherwise specified in your contract, the default is to claim the next available token IDs; starting from `0`.
+
+<CodeSnippetWithSummary
+  contract={`ERC1155Claimable`}
+  name={`claimTo`}
+  isFeatureSnippet={true}
+  isGetContractCode={false}
+  showHr={false}
+  dontShowSummary
+/>

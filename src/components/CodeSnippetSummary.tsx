@@ -38,10 +38,10 @@ export default function CodeSnippetRemark({
     codeObjectToUse = contractObject;
   } else {
     // Try find in methods
-    const method = methods.find((m) => m.name === name);
+    const method = methods?.find((m) => m.name === name);
     // Try find in properties if not found in methods
     const propertyOrMethodFallback =
-      method === undefined ? properties.find((p) => p.name === name) : method;
+      method === undefined ? properties?.find((p) => p.name === name) : method;
 
     if (!propertyOrMethodFallback) {
       return null;
