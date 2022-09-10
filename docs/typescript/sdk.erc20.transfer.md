@@ -18,7 +18,7 @@ Transfer Tokens
 const toAddress = "0x...";
 // The amount of tokens you want to send
 const amount = 0.1;
-await contract.token.transfer(toAddress, amount);
+await contract.erc20.transfer(toAddress, amount);
 ```
 
 **Signature:**

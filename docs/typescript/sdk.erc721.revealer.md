@@ -33,14 +33,14 @@ const placeholderNFT = {
   description: "Will be revealed next week!",
 };
 // Create and encrypt the NFTs
-await contract.nft.revealer.createDelayedRevealBatch(
+await contract.erc721.revealer.createDelayedRevealBatch(
   placeholderNFT,
   realNFTs,
   "my secret password",
 );
 // Whenever you're ready, reveal your NFTs at any time
 const batchId = 0; // the batch to reveal
-await contract.nft.revealer.reveal(batchId, "my secret password");
+await contract.erc721.revealer.reveal(batchId, "my secret password");
 ```
 
 **Signature:**

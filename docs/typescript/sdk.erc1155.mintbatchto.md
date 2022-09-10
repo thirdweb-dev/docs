@@ -37,7 +37,7 @@ const metadataWithSupply = [
   },
 ];
 
-const tx = await contract.edition.mintBatchTo(toAddress, metadataWithSupply);
+const tx = await contract.erc1155.mintBatchTo(toAddress, metadataWithSupply);
 const receipt = tx[0].receipt; // same transaction receipt for all minted NFTs
 const firstTokenId = tx[0].id; // token id of the first minted NFT
 const firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT

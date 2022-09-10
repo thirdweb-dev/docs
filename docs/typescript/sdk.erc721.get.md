@@ -15,7 +15,7 @@ Get a single NFT Metadata
 
 ```javascript
 const tokenId = 0;
-const nft = await contract.nft.get(tokenId);
+const nft = await contract.erc721.get(tokenId);
 ```
 
 **Signature:**

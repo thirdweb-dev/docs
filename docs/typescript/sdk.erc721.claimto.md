@@ -17,7 +17,7 @@ Claim unique NFTs to a specific Wallet
 const address = "{{wallet_address}}"; // address of the wallet you want to claim the NFTs
 const quantity = 1; // how many unique NFTs you want to claim
 
-const tx = await contract.nft.claimTo(address, quantity);
+const tx = await contract.erc721.claimTo(address, quantity);
 const receipt = tx.receipt; // the transaction receipt
 const claimedTokenId = tx.id; // the id of the NFT claimed
 const claimedNFT = await tx.data(); // (optional) get the claimed NFT metadata

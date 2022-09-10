@@ -21,7 +21,7 @@ const toAddress = "0x...";
 // The number of tokens you want to send
 const amount = 1.2;
 // Note that the connected wallet must have approval to transfer the tokens of the fromAddress
-await contract.token.transferFrom(fromAddress, toAddress, amount);
+await contract.erc20.transferFrom(fromAddress, toAddress, amount);
 ```
 
 **Signature:**

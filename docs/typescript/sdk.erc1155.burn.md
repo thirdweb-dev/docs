@@ -19,7 +19,7 @@ const tokenId = 0;
 // The amount of the NFT you want to burn
 const amount = 2;
 
-const result = await contract.edition.burn(tokenId, amount);
+const result = await contract.erc1155.burn(tokenId, amount);
 ```
 
 **Signature:**

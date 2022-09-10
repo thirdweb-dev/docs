@@ -14,7 +14,7 @@ Burn a single NFT
 ## Example
 
 ```javascript
-const result = await contract.nft.burn(tokenId);
+const result = await contract.erc721.burn(tokenId);
 ```
 
 **Signature:**

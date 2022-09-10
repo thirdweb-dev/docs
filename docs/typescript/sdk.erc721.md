@@ -15,7 +15,7 @@ Standard ERC721 NFT functions
 
 ```javascript
 const contract = await sdk.getContract("{{contract_address}}");
-await contract.nft.transfer(walletAddress, tokenId);
+await contract.erc721.transfer(walletAddress, tokenId);
 ```
 
 ## Constructors
@@ -51,7 +51,7 @@ await contract.nft.transfer(walletAddress, tokenId);
 | [getOwned(walletAddress)](./sdk.erc721.getowned.md)                                               |           | Get Owned NFTs                                                                                                                                                                                                        |
 | [getOwnedTokenIds(walletAddress)](./sdk.erc721.getownedtokenids.md)                               |           | Get all token ids of NFTs owned by a specific wallet.                                                                                                                                                                 |
 | [isApproved(address, operator)](./sdk.erc721.isapproved.md)                                       |           | Get whether this wallet has approved transfers from the given operator                                                                                                                                                |
-| [lazyMint(metadatas, options)](./sdk.erc721.lazymint.md)                                          |           |                                                                                                                                                                                                                       |
+| [lazyMint(metadatas, options)](./sdk.erc721.lazymint.md)                                          |           | Create a batch of unique NFTs to be claimed in the future                                                                                                                                                             |
 | [mint(metadata)](./sdk.erc721.mint.md)                                                            |           | Mint a unique NFT                                                                                                                                                                                                     |
 | [mintBatch(metadatas)](./sdk.erc721.mintbatch.md)                                                 |           | Mint Many unique NFTs                                                                                                                                                                                                 |
 | [mintBatchTo(receiver, metadatas)](./sdk.erc721.mintbatchto.md)                                   |           | Mint Many unique NFTs                                                                                                                                                                                                 |

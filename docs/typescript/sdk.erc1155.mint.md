@@ -29,7 +29,7 @@ const metadataWithSupply = {
   supply: 1000, // The number of this NFT you want to mint
 };
 
-const tx = await contract.edition.mint(toAddress, metadataWithSupply);
+const tx = await contract.erc1155.mint(toAddress, metadataWithSupply);
 const receipt = tx.receipt; // the transaction receipt
 const tokenId = tx.id; // the id of the NFT minted
 const nft = await tx.data(); // (optional) fetch details of minted NFT

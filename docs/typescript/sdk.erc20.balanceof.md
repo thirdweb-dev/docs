@@ -16,7 +16,7 @@ Get Token Balance
 ```javascript
 // Address of the wallet to check token balance
 const walletAddress = "{{wallet_address}}";
-const balance = await contract.token.balanceOf(walletAddress);
+const balance = await contract.erc20.balanceOf(walletAddress);
 ```
 
 **Signature:**

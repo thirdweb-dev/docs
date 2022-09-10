@@ -20,7 +20,7 @@ const holderAddress = "{{wallet_address}}";
 // The amount of this token you want to burn
 const amount = 1.2;
 
-await contract.token.burnFrom(holderAddress, amount);
+await contract.erc20.burnFrom(holderAddress, amount);
 ```
 
 **Signature:**

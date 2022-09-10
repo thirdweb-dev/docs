@@ -28,7 +28,7 @@ const claimConditions = [
     price: 0.08, // public sale price
   }
 ]);
-await contract.token.claimConditions.set(claimConditions);
+await contract.erc20.claimConditions.set(claimConditions);
 ```
 
 **Signature:**

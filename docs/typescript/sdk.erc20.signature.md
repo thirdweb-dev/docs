@@ -18,7 +18,7 @@ Signature Minting
 const signedPayload = contract.signature().generate(payload);
 
 // now anyone can mint the NFT
-const tx = contract.signature.mint(signedPayload);
+const tx = contract.erc20.signature.mint(signedPayload);
 const receipt = tx.receipt; // the mint transaction receipt
 const mintedId = tx.id; // the id of the NFT minted
 ```
