@@ -68,4 +68,4 @@ const contract = sdk.getEdition("{{contract_address}}");
 export declare class Edition extends StandardErc1155<TokenERC1155>
 ```
 
-**Extends:** StandardErc1155&lt;TokenERC1155&gt;
+**Extends:** [StandardErc1155](./sdk.standarderc1155.md)&lt;TokenERC1155&gt;

@@ -69,4 +69,4 @@ const contract = sdk.getSignatureDrop("{{contract_address}}");
 export declare class SignatureDrop extends StandardErc721<SignatureDropContract>
 ```
 
-**Extends:** StandardErc721&lt;SignatureDropContract&gt;
+**Extends:** [StandardErc721](./sdk.standarderc721.md)&lt;SignatureDropContract&gt;

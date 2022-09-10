@@ -62,4 +62,4 @@ const contract = sdk.getNFTCollection("{{contract_address}}");
 export declare class NFTCollection extends StandardErc721<TokenERC721>
 ```
 
-**Extends:** StandardErc721&lt;TokenERC721&gt;
+**Extends:** [StandardErc721](./sdk.standarderc721.md)&lt;TokenERC721&gt;
