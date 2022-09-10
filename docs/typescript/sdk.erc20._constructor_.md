@@ -14,13 +14,12 @@ Constructs a new instance of the `Erc20` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<T>, storage: IStorage, options?: SDKOptions);
+constructor(contractWrapper: ContractWrapper<T>, storage: IStorage);
 ```
 
 ## Parameters
 
-| Parameter       | Type                              | Description       |
-| --------------- | --------------------------------- | ----------------- |
-| contractWrapper | ContractWrapper&lt;T&gt;          |                   |
-| storage         | IStorage                          |                   |
-| options         | [SDKOptions](./sdk.sdkoptions.md) | <i>(Optional)</i> |
+| Parameter       | Type                     | Description |
+| --------------- | ------------------------ | ----------- |
+| contractWrapper | ContractWrapper&lt;T&gt; |             |
+| storage         | IStorage                 |             |

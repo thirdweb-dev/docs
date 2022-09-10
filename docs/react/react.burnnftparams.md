@@ -16,15 +16,8 @@ The params for the [useBurnNFT()](./react.useburnnft.md) hook mutation.
 **Signature:**
 
 ```typescript
-export declare type BurnNFTParams<TContract extends NFTContract> =
-  TContract extends Erc1155
-    ? {
-        tokenId: BigNumberish;
-        amount: Amount;
-      }
-    : {
-        tokenId: BigNumberish;
-      };
+export declare type BurnNFTParams = {
+  tokenId: BigNumberish;
+  amount?: Amount;
+};
 ```
-
-**References:** [NFTContract](./react.nftcontract.md)

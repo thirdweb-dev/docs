@@ -11,12 +11,12 @@ displayed_sidebar: react
 
 > This feature is currently in beta and may change based on feedback that we receive.
 
-Use this to reveal a batch of delayed reveal NFTs on your [DropContract](./react.dropcontract.md)
+Use this to reveal a batch of delayed reveal NFTs on your [RevealableContract](./react.revealablecontract.md)
 
 **Signature:**
 
 ```typescript
-export declare function useRevealLazyMint<TContract extends NFTContract>(
+export declare function useRevealLazyMint<TContract extends RevealableContract>(
   contract: RequiredParam<TContract>,
 ): import("@tanstack/react-query").UseMutationResult<
   Omit<
@@ -34,9 +34,9 @@ export declare function useRevealLazyMint<TContract extends NFTContract>(
 
 ## Parameters
 
-| Parameter | Type                                                       | Description                                                                    |
-| --------- | ---------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) with the drop extension |
+| Parameter | Type                                                       | Description                                                          |
+| --------- | ---------------------------------------------------------- | -------------------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [RevealableContract](./react.revealablecontract.md) |
 
 **Returns:**
 

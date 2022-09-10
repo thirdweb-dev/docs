@@ -80,7 +80,7 @@ import { ThirdwebAuth } from "@thirdweb-dev/auth/next";
 
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
   privateKey: process.env.ADMIN_PRIVATE_KEY || "",
-  domain: "localhost:3000",
+  domain: "example.com",
 });
 
 // Export the handler to setup all your endpoints
@@ -148,7 +148,7 @@ And finally, we can pass these callback functions into our Auth config as follow
 ```javascript
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
   privateKey: process.env.ADMIN_PRIVATE_KEY || "",
-  domain: "localhost:3000",
+  domain: "example.com",
   callbacks: { login, user },
 });
 ```

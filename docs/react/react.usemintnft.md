@@ -11,13 +11,13 @@ displayed_sidebar: react
 
 > This feature is currently in beta and may change based on feedback that we receive.
 
-Use this to mint a new NFT on your [NFTContract](./react.nftcontract.md)
+Use this to mint a new NFT on your [Erc721OrErc1155](./react.erc721orerc1155.md)
 
 ## Example 1
 
 ```jsx
 const Component = () => {
-  const nftDrop = useNFTDrop(<ContractAddress>);
+  const nftDrop = await useNFTDrop(<ContractAddress>);
   const {
     mutate: mintNft,
     isLoading,
@@ -48,7 +48,7 @@ const Component = () => {
     mutate: mintNft,
     isLoading,
     error,
-  } = useMintNFT(contract?.nft);
+  } = useMintNFT(contract);
 
   if (error) {
     console.error("failed to mint nft", error);
@@ -73,7 +73,7 @@ export declare function useMintNFT<TContract extends NFTContract>(
 ): import("@tanstack/react-query").UseMutationResult<
   MintNFTReturnType<TContract>,
   unknown,
-  MintNFTParams<TContract>,
+  MintNFTParams,
   unknown
 >;
 ```
@@ -86,6 +86,6 @@ export declare function useMintNFT<TContract extends NFTContract>(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;[MintNFTReturnType](./react.mintnftreturntype.md)&lt;TContract&gt;, unknown, [MintNFTParams](./react.mintnftparams.md)&lt;TContract&gt;, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;[MintNFTReturnType](./react.mintnftreturntype.md)&lt;TContract&gt;, unknown, [MintNFTParams](./react.mintnftparams.md), unknown&gt;
 
 a mutation object that can be used to mint a new NFT token to the connected wallet

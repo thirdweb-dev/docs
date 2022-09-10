@@ -35,9 +35,11 @@ const contract = sdk.getEditionDrop("{{contract_address}}");
 | [contractRoles](./sdk.editiondrop.contractroles.md)     | <code>static</code> | readonly \["admin", "minter", "transfer"\]                                                                                                   |                                         |
 | [contractType](./sdk.editiondrop.contracttype.md)       | <code>static</code> | "edition-drop"                                                                                                                               |                                         |
 | [encoder](./sdk.editiondrop.encoder.md)                 |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;DropERC1155&gt;                                                                               |                                         |
+| [erc1155](./sdk.editiondrop.erc1155.md)                 |                     | [Erc1155](./sdk.erc1155.md)&lt;DropERC1155&gt;                                                                                               |                                         |
 | [estimator](./sdk.editiondrop.estimator.md)             |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;DropERC1155&gt;                                                                             |                                         |
 | [events](./sdk.editiondrop.events.md)                   |                     | [ContractEvents](./sdk.contractevents.md)&lt;DropERC1155&gt;                                                                                 |                                         |
 | [history](./sdk.editiondrop.history.md)                 |                     | [DropErc1155History](./sdk.droperc1155history.md)                                                                                            |                                         |
+| [interceptor](./sdk.editiondrop.interceptor.md)         |                     | [ContractInterceptor](./sdk.contractinterceptor.md)&lt;DropERC1155&gt;                                                                       |                                         |
 | [metadata](./sdk.editiondrop.metadata.md)               |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;DropERC1155, typeof EditionDrop.schema&gt;                                                  |                                         |
 | [platformFees](./sdk.editiondrop.platformfees.md)       |                     | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;DropERC1155&gt;                                                                       |                                         |
 | [roles](./sdk.editiondrop.roles.md)                     |                     | [ContractRoles](./sdk.contractroles.md)&lt;DropERC1155, typeof [EditionDrop.contractRoles](./sdk.editiondrop.contractroles.md)\[number\]&gt; |                                         |
@@ -52,6 +54,7 @@ const contract = sdk.getEditionDrop("{{contract_address}}");
 | [claim(tokenId, quantity, checkERC20Allowance)](./sdk.editiondrop.claim.md)                                                 |           | Claim a token to the connected wallet                                                                                                                                                                                 |
 | [claimTo(destinationAddress, tokenId, quantity, checkERC20Allowance)](./sdk.editiondrop.claimto.md)                         |           | Claim NFTs to a specific Wallet                                                                                                                                                                                       |
 | [createBatch(metadatas, options)](./sdk.editiondrop.createbatch.md)                                                         |           | Create a batch of NFTs to be claimed in the future                                                                                                                                                                    |
+| [getAddress()](./sdk.editiondrop.getaddress.md)                                                                             |           |                                                                                                                                                                                                                       |
 | [getAll(queryParams)](./sdk.editiondrop.getall.md)                                                                          |           | Get All Minted NFTs                                                                                                                                                                                                   |
 | [getClaimTransaction(destinationAddress, tokenId, quantity, checkERC20Allowance)](./sdk.editiondrop.getclaimtransaction.md) |           | Construct a claim transaction without executing it. This is useful for estimating the gas cost of a claim transaction, overriding transaction options and having fine grained control over the transaction execution. |
 | [getOwned(walletAddress)](./sdk.editiondrop.getowned.md)                                                                    |           | Get Owned NFTs                                                                                                                                                                                                        |
@@ -61,7 +64,7 @@ const contract = sdk.getEditionDrop("{{contract_address}}");
 **Signature:**
 
 ```typescript
-export declare class EditionDrop extends Erc1155<DropERC1155>
+export declare class EditionDrop extends StandardErc1155<DropERC1155>
 ```
 
-**Extends:** [Erc1155](./sdk.erc1155.md)&lt;DropERC1155&gt;
+**Extends:** StandardErc1155&lt;DropERC1155&gt;

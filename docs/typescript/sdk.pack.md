@@ -34,6 +34,7 @@ const contract = sdk.getPack("{{contract_address}}");
 | [contractRoles](./sdk.pack.contractroles.md) | <code>static</code> | readonly \["admin", "minter", "pauser", "transfer"\]                                                                            |                     |
 | [contractType](./sdk.pack.contracttype.md)   | <code>static</code> | "pack"                                                                                                                          |                     |
 | [encoder](./sdk.pack.encoder.md)             |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;PackContract&gt;                                                                 |                     |
+| [erc1155](./sdk.pack.erc1155.md)             |                     | [Erc1155](./sdk.erc1155.md)&lt;PackContract&gt;                                                                                 |                     |
 | [estimator](./sdk.pack.estimator.md)         |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;PackContract&gt;                                                               |                     |
 | [events](./sdk.pack.events.md)               |                     | [ContractEvents](./sdk.contractevents.md)&lt;PackContract&gt;                                                                   |                     |
 | [metadata](./sdk.pack.metadata.md)           |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;PackContract, typeof Pack.schema&gt;                                           |                     |
@@ -46,6 +47,8 @@ const contract = sdk.getPack("{{contract_address}}");
 | ------------------------------------------------------------ | --------- | ------------------------------------------------------- |
 | [create(metadataWithRewards)](./sdk.pack.create.md)          |           | Create Pack                                             |
 | [createTo(to, metadataWithRewards)](./sdk.pack.createto.md)  |           | Create Pack To Wallet                                   |
+| [get(tokenId)](./sdk.pack.get.md)                            |           | Get a single Pack                                       |
+| [getAddress()](./sdk.pack.getaddress.md)                     |           |                                                         |
 | [getAll(queryParams)](./sdk.pack.getall.md)                  |           | Get All Packs                                           |
 | [getOwned(walletAddress)](./sdk.pack.getowned.md)            |           | Get Owned Packs                                         |
 | [getPackContents(packId)](./sdk.pack.getpackcontents.md)     |           | Get Pack Contents                                       |
@@ -56,7 +59,7 @@ const contract = sdk.getPack("{{contract_address}}");
 **Signature:**
 
 ```typescript
-export declare class Pack extends Erc1155<PackContract>
+export declare class Pack extends StandardErc1155<PackContract>
 ```
 
-**Extends:** [Erc1155](./sdk.erc1155.md)&lt;PackContract&gt;
+**Extends:** StandardErc1155&lt;PackContract&gt;

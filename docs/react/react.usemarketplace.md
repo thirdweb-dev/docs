@@ -17,7 +17,7 @@ Hook for getting an instance of a `Marketplace` contract. This contract is used 
 import { useMarketplace } from '@thirdweb-dev/react'
 
 export default function Component() {
-  const marketplace = useMarketplace("<YOUR-CONTRACT-ADDRESS>")
+  const marketplace = await useMarketplace("<YOUR-CONTRACT-ADDRESS>")
 
   // Now you can use the marketplace contract in the rest of the component
 

@@ -56,7 +56,7 @@ export const { NextAuthHandler, getUser } = ThirdwebNextAuth({
   // Add the private key we want to use to validate wallet login
   privateKey: process.env.ADMIN_PRIVATE_KEY || "",
   // Configure the domain we want to use for login (must match the domain used on the frontend)
-  domain: "localhost:3000",
+  domain: "example.com",
   // And we can add in any additional next auth configuration we want to use
   nextOptions: {
     // In this case, we'll enable Google OAuth login as well
@@ -161,7 +161,8 @@ const Home = () => {
 
   const loginWithWallet = async () => {
     // We use the sdk.auth.login function and pass in the proper domain configured on the backend
-    const payload = await sdk?.auth.login("localhost:3000");
+    const domain = "example.com";
+    const payload = await sdk?.auth.login(domain);
     // And then we pass it into the next-auth signIn function
     await signIn("credentials", { payload: JSON.stringify(payload) });
   };

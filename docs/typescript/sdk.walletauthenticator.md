@@ -17,7 +17,7 @@ Wallet Authenticator
 
 ```javascript
 // We specify the domain of the application to authenticate to
-const domain = "thirdweb.com";
+const domain = "example.com";
 
 // On the client side, we can generate a payload for the connected wallet to login
 const loginPayload = await sdk.auth.login(domain);

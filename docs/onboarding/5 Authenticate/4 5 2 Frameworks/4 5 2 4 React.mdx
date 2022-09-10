@@ -36,7 +36,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <ThirdwebProvider
       desiredChainId={1}
       authConfig={{
-        domain: "localhost:3000",
+        domain: "example.com",
         authUrl: "/api/auth",
       }}
     >
@@ -46,7 +46,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
 }
 ```
 
-Here, we specify in the `authConfig` that our Auth backend is setup at the `/api/auth` URL, and that the domain we expect (which must match the domain we selected on the backend) is `localhost:3000`.
+Here, we specify in the `authConfig` that our Auth backend is setup at the `/api/auth` URL, and that the domain we expect (which must match the domain we selected on the backend) is `example.com` (you would replace this with your own domain).
 
 ### Login Button
 

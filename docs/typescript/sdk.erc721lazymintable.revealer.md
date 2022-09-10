@@ -40,7 +40,7 @@ await contract.nft.drop.revealer.createDelayedRevealBatch(
 );
 // Whenever you're ready, reveal your NFTs at any time
 const batchId = 0; // the batch to reveal
-await contract.nft.drop.revealer.reveal(batchId, "my secret password");
+await contract.erc721.revealer.reveal(batchId, "my secret password");
 ```
 
 **Signature:**

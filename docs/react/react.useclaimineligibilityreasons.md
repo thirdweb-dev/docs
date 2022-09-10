@@ -34,24 +34,26 @@ const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibil
 **Signature:**
 
 ```typescript
-export declare function useClaimIneligibilityReasons<
-  TContract extends NFTContract | Erc20,
->(
-  ...[contract, params, tokenId]: ClaimIneligibilityInputParams<TContract>
+export declare function useClaimIneligibilityReasons(
+  contract: RequiredParam<DropContract>,
+  params: ClaimIneligibilityParams,
+  tokenId?: BigNumberish,
 ): import("@tanstack/react-query").UseQueryResult<
-  import("@thirdweb-dev/sdk").ClaimEligibility[],
+  import("@thirdweb-dev/sdk").ClaimEligibility[] | undefined,
   unknown
 >;
 ```
 
 ## Parameters
 
-| Parameter                     | Type                                           | Description |
-| ----------------------------- | ---------------------------------------------- | ----------- |
-| \[contract, params, tokenId\] | ClaimIneligibilityInputParams&lt;TContract&gt; |             |
+| Parameter | Type                                                                                     | Description                                                                                                                         |
+| --------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;[DropContract](./react.dropcontract.md)&gt; | an instance of a contract that extends the ERC20, ERC721 or ERC1155 spec and implements the <code>claimConditions</code> extension. |
+| params    | [ClaimIneligibilityParams](./react.claimineligibilityparams.md)                          |                                                                                                                                     |
+| tokenId   | BigNumberish                                                                             | <i>(Optional)</i> the id of the token to fetch the claim conditions for (if the contract is an ERC1155 contract)                    |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk").ClaimEligibility\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk").ClaimEligibility\[\] \| undefined, unknown&gt;
 
 a response object with the resons for the claim ineligibility

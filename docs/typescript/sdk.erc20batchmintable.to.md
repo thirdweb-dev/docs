@@ -26,7 +26,7 @@ const data = [
   },
 ];
 
-await contract.mintBatchTo(data);
+await contract.token.mint.batch(data);
 ```
 
 **Signature:**

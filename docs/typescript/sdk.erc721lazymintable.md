@@ -26,11 +26,12 @@ await contract.drop.claim(quantity);
 
 ## Properties
 
-| Property                                               | Modifiers | Type                                                                                    | Description                                 |
-| ------------------------------------------------------ | --------- | --------------------------------------------------------------------------------------- | ------------------------------------------- |
-| [claim](./sdk.erc721lazymintable.claim.md)             |           | [Erc721Claimable](./sdk.erc721claimable.md) &#124; undefined                            | Claim tokens and configure claim conditions |
-| [featureName](./sdk.erc721lazymintable.featurename.md) |           | "ERC721LazyMintable"                                                                    |                                             |
-| [revealer](./sdk.erc721lazymintable.revealer.md)       |           | [DelayedReveal](./sdk.delayedreveal.md)&lt;BaseDelayedRevealERC721&gt; &#124; undefined | Delayed reveal                              |
+| Property                                                               | Modifiers | Type                                                                                     | Description                                 |
+| ---------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------- | ------------------------------------------- |
+| [claim](./sdk.erc721lazymintable.claim.md)                             |           | Erc721Claimable &#124; undefined                                                         |                                             |
+| [claimWithConditions](./sdk.erc721lazymintable.claimwithconditions.md) |           | [Erc721ClaimableWithConditions](./sdk.erc721claimablewithconditions.md) &#124; undefined | Claim tokens and configure claim conditions |
+| [featureName](./sdk.erc721lazymintable.featurename.md)                 |           | "ERC721LazyMintable"                                                                     |                                             |
+| [revealer](./sdk.erc721lazymintable.revealer.md)                       |           | [DelayedReveal](./sdk.delayedreveal.md)&lt;BaseDelayedRevealERC721&gt; &#124; undefined  | Delayed reveal                              |
 
 ## Methods
 

@@ -13,18 +13,11 @@ displayed_sidebar: react
 
 Use this to get a list of NFT tokens of your [NFTContract](./react.nftcontract.md).
 
-## Example 1
-
-```javascript
-const nftDrop = useNFTDrop(<ContractAddress>);
-const { data: nfts, isLoading, error } = useNFTs(nftDrop, { start: 0, count: 100 });
-```
-
-## Example 2
+## Example
 
 ```javascript
 const { contract } = useContract(<ContractAddress>);
-const { data: nfts, isLoading, error } = useNFTs(contract?.nft, { start: 0, count: 100 });
+const { data: nfts, isLoading, error } = useNFTs(contract, { start: 0, count: 100 });
 ```
 
 **Signature:**
@@ -33,7 +26,10 @@ const { data: nfts, isLoading, error } = useNFTs(contract?.nft, { start: 0, coun
 export declare function useNFTs<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
   queryParams?: QueryAllParams,
-): import("@tanstack/react-query").UseQueryResult<NFT<TContract>[], unknown>;
+): import("@tanstack/react-query").UseQueryResult<
+  NFT<Erc721OrErc1155>[],
+  unknown
+>;
 ```
 
 ## Parameters
@@ -45,6 +41,6 @@ export declare function useNFTs<TContract extends NFTContract>(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;TContract&gt;\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;[Erc721OrErc1155](./react.erc721orerc1155.md)&gt;\[\], unknown&gt;
 
 a response object that includes an array of NFTs

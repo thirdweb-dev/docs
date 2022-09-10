@@ -17,7 +17,12 @@ Use this to claim a NFT on your [DropContract](./react.dropcontract.md)
 
 ```jsx
 const Component = () => {
-  const { mutate: claimNft, isLoading, error } = useClaimNFT(DropContract);
+  const { contract } = useContract(<ContractAddress>);
+  const {
+    mutate: claimNft,
+    isLoading,
+    error,
+  } = useClaimNFT(contract);
 
   if (error) {
     console.error("failed to claim nft", error);
@@ -40,7 +45,14 @@ const Component = () => {
 export declare function useClaimNFT<TContract extends DropContract>(
   contract: RequiredParam<TContract>,
 ): import("@tanstack/react-query").UseMutationResult<
-  ClaimNFTReturnType<TContract>,
+  | Omit<
+      {
+        receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+        data: () => Promise<unknown>;
+      },
+      "data"
+    >
+  | ClaimNFTReturnType<TContract>,
   unknown,
   ClaimNFTParams<TContract>,
   unknown
@@ -55,6 +67,6 @@ export declare function useClaimNFT<TContract extends DropContract>(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;[ClaimNFTReturnType](./react.claimnftreturntype.md)&lt;TContract&gt;, unknown, [ClaimNFTParams](./react.claimnftparams.md)&lt;TContract&gt;, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt; \| [ClaimNFTReturnType](./react.claimnftreturntype.md)&lt;TContract&gt;, unknown, [ClaimNFTParams](./react.claimnftparams.md)&lt;TContract&gt;, unknown&gt;
 
 a mutation object that can be used to claim a NFT to the wallet specificed in the params

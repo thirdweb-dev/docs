@@ -12,7 +12,9 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export declare function useBatchesToReveal<TContract extends NFTContract>(
+export declare function useBatchesToReveal<
+  TContract extends RevealableContract,
+>(
   contract: RequiredParam<TContract>,
 ): import("@tanstack/react-query").UseQueryResult<
   import("@thirdweb-dev/sdk").BatchToReveal[],
@@ -22,9 +24,9 @@ export declare function useBatchesToReveal<TContract extends NFTContract>(
 
 ## Parameters
 
-| Parameter | Type                                                       | Description                                            |
-| --------- | ---------------------------------------------------------- | ------------------------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
+| Parameter | Type                                                       | Description                                                          |
+| --------- | ---------------------------------------------------------- | -------------------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [RevealableContract](./react.revealablecontract.md) |
 
 **Returns:**
 

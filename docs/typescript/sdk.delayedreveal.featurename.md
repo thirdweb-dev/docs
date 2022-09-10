@@ -16,7 +16,7 @@ featureName: "ERC20" |
   "ERC20Burnable" |
   "ERC20Mintable" |
   "ERC20BatchMintable" |
-  "ERC20Droppable" |
+  "ERC20ClaimableWithConditions" |
   "ERC20SignatureMintable" |
   "ERC721" |
   "ERC721Burnable" |
