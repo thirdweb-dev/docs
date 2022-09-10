@@ -14,7 +14,7 @@ The total supply for this Token
 ## Example
 
 ```javascript
-const balance = await contract.token.totalSupply();
+const balance = await contract.erc20.totalSupply();
 ```
 
 **Signature:**

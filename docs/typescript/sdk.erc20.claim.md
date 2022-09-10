@@ -17,7 +17,7 @@ Claim a certain amount of tokens to the connected Wallet
 const address = "{{wallet_address}}"; // address of the wallet you want to claim the NFTs
 const quantity = 42.69; // how many tokens you want to claim
 
-const tx = await contract.token.claim(address, quantity);
+const tx = await contract.erc20.claim(address, quantity);
 const receipt = tx.receipt; // the transaction receipt
 ```
 

@@ -14,7 +14,7 @@ Get All Minted NFTs
 ## Example
 
 ```javascript
-const nfts = await contract.nft.getAll();
+const nfts = await contract.erc721.getAll();
 console.log(nfts);
 ```
 

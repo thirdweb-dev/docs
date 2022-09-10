@@ -15,7 +15,7 @@ Standard ERC1155 NFT functions
 
 ```javascript
 const contract = await sdk.getContract("{{contract_address}}");
-await contract.edition.transfer(walletAddress, tokenId, quantity);
+await contract.erc1155.transfer(walletAddress, tokenId, quantity);
 ```
 
 ## Constructors
@@ -56,7 +56,7 @@ await contract.edition.transfer(walletAddress, tokenId, quantity);
 | [isApproved(address, operator)](./sdk.erc1155.isapproved.md)                                                |           | Get whether this wallet has approved transfers from the given operator                                                                                                                                                |
 | [lazyMint(metadatas, options)](./sdk.erc1155.lazymint.md)                                                   |           | Create a batch of NFTs to be claimed in the future                                                                                                                                                                    |
 | [mint(metadataWithSupply)](./sdk.erc1155.mint.md)                                                           |           | Mint an NFT with a limited supply                                                                                                                                                                                     |
-| [mintAdditionalSupply(tokenId, additionalSupply)](./sdk.erc1155.mintadditionalsupply.md)                    |           | Increase the supply of an existing NFT and mint it to the connected wallet address                                                                                                                                    |
+| [mintAdditionalSupply(tokenId, additionalSupply)](./sdk.erc1155.mintadditionalsupply.md)                    |           | Increase the supply of an existing NFT                                                                                                                                                                                |
 | [mintAdditionalSupplyTo(receiver, tokenId, additionalSupply)](./sdk.erc1155.mintadditionalsupplyto.md)      |           | Increase the supply of an existing NFT and mint it to a given wallet address                                                                                                                                          |
 | [mintBatch(metadataWithSupply)](./sdk.erc1155.mintbatch.md)                                                 |           | Mint Many NFTs with limited supplies                                                                                                                                                                                  |
 | [mintBatchTo(receiver, metadataWithSupply)](./sdk.erc1155.mintbatchto.md)                                   |           | Mint Many NFTs with limited supplies                                                                                                                                                                                  |

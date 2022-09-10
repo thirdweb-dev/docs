@@ -13,7 +13,7 @@ Mint a unique NFT
 
 ## Example
 
-```javascript*
+```javascript
 // Custom metadata of the NFT, note that you can fully customize this metadata with other properties.
 const metadata = {
   name: "Cool NFT",
@@ -21,7 +21,7 @@ const metadata = {
   image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
 };
 
-const tx = await contract.nft.mint(metadata);
+const tx = await contract.erc721.mint(metadata);
 const receipt = tx.receipt; // the transaction receipt
 const tokenId = tx.id; // the id of the NFT minted
 const nft = await tx.data(); // (optional) fetch details of minted NFT
@@ -45,4 +45,4 @@ Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMe
 
 ## Remarks
 
-Mint a unique NFT to a specified wallet.
+Mint a unique NFT to the connected wallet.

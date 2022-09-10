@@ -19,7 +19,7 @@ const tokenIds = [0, 1];
 // The amounts of each NFT you want to burn
 const amounts = [2, 2];
 
-const result = await contract.edition.burnBatch(tokenIds, amounts);
+const result = await contract.erc1155.burnBatch(tokenIds, amounts);
 ```
 
 **Signature:**

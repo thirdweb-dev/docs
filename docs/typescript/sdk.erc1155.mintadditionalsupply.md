@@ -9,7 +9,15 @@ displayed_sidebar: typescript
 
 ## Erc1155.mintAdditionalSupply() method
 
-Increase the supply of an existing NFT and mint it to the connected wallet address
+Increase the supply of an existing NFT
+
+## Example
+
+```javascript
+const tokenId = 0;
+const additionalSupply = 1000;
+await contract.erc1155.mintAdditionalSupply(tokenId, additionalSupply);
+```
 
 **Signature:**
 
@@ -27,3 +35,7 @@ mintAdditionalSupply(tokenId: BigNumberish, additionalSupply: BigNumberish): Pro
 **Returns:**
 
 Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;&gt;
+
+## Remarks
+
+Increase the supply of an existing NFT and mint it to the connected wallet address

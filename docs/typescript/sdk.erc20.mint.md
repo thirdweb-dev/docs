@@ -15,7 +15,7 @@ Mint Tokens
 
 ```javascript
 const amount = "1.5"; // The amount of this token you want to mint
-await contract.token.mint(toAddress, amount);
+await contract.erc20.mint(toAddress, amount);
 ```
 
 **Signature:**

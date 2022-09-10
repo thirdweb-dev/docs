@@ -16,7 +16,7 @@ Get Owned NFTs
 ```javascript
 // Address of the wallet to get the NFTs of
 const address = "{{wallet_address}}";
-const nfts = await contract.nft.getOwned(address);
+const nfts = await contract.erc721.getOwned(address);
 console.log(nfts);
 ```
 

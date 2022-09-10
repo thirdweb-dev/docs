@@ -17,7 +17,7 @@ Burn Tokens
 // The amount of this token you want to burn
 const amount = 1.2;
 
-await contract.token.burn(amount);
+await contract.erc20.burn(amount);
 ```
 
 **Signature:**

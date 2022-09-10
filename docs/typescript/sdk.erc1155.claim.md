@@ -17,7 +17,7 @@ Claim NFTs
 const tokenId = 0; // the id of the NFT you want to claim
 const quantity = 1; // how many NFTs you want to claim
 
-const tx = await contract.edition.claim(tokenId, quantity);
+const tx = await contract.erc1155.claim(tokenId, quantity);
 const receipt = tx.receipt; // the transaction receipt
 ```
 

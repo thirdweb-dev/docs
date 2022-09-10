@@ -28,7 +28,7 @@ const claimConditions = [
     price: 0.08, // public sale price
   }
 ]);
-await contract.nft.claimConditions.set(claimConditions);
+await contract.erc721.claimConditions.set(claimConditions);
 ```
 
 **Signature:**

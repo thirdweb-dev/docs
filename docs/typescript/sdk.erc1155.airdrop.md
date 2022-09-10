@@ -32,7 +32,7 @@ await contract.airdrop(tokenId, addresses);
 // You can also pass an array of addresses, it will airdrop 1 NFT per address
 const tokenId = "0";
 const addresses = ["0x...", "0x...", "0x..."];
-await contract.edition.airdrop(tokenId, addresses);
+await contract.erc1155.airdrop(tokenId, addresses);
 ```
 
 **Signature:**

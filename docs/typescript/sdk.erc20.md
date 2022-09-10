@@ -15,7 +15,7 @@ Standard ERC20 Token functions
 
 ```javascript
 const contract = await sdk.getContract("{{contract_address}}");
-await contract.token.transfer(walletAddress, amount);
+await contract.erc20.transfer(walletAddress, amount);
 ```
 
 ## Constructors

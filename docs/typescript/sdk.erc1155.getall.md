@@ -14,7 +14,7 @@ Get All NFTs
 ## Example
 
 ```javascript
-const nfts = await contract.edition.getAll();
+const nfts = await contract.erc1155.getAll();
 ```
 
 **Signature:**
