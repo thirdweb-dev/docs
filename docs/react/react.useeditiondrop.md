@@ -17,7 +17,7 @@ Hook for getting an instance of an `EditionDrop` contract. This conract is used 
 import { useEditionDrop } from '@thirdweb-dev/react'
 
 export default function Component() {
-  const editionDrop = await useEditionDrop("<YOUR-CONTRACT-ADDRESS>")
+  const editionDrop = useEditionDrop("<YOUR-CONTRACT-ADDRESS>")
 
   // Now you can use the edition drop contract in the rest of the component
 

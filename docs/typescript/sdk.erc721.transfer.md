@@ -16,7 +16,7 @@ Transfer a single NFT
 ```javascript
 const walletAddress = "{{wallet_address}}";
 const tokenId = 0;
-await contract.erc721.transfer(walletAddress, tokenId);
+await contract.nft.transfer(walletAddress, tokenId);
 ```
 
 **Signature:**

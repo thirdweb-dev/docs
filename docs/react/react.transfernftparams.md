@@ -16,11 +16,16 @@ The params to pass to `useTransferNFT`.
 **Signature:**
 
 ```typescript
-export declare type TransferNFTParams = {
-  to: WalletAddress;
-  tokenId: BigNumberish;
-  amount?: Amount;
-};
+export declare type TransferNFTParams<TContract> = TContract extends Erc1155
+  ? {
+      to: WalletAddress;
+      tokenId: BigNumberish;
+      amount: Amount;
+    }
+  : {
+      to: WalletAddress;
+      tokenId: BigNumberish;
+    };
 ```
 
 **References:** [WalletAddress](./react.walletaddress.md)

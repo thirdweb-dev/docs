@@ -58,7 +58,7 @@ const contract = sdk.getTokenDrop("{{contract_address}}");
 **Signature:**
 
 ```typescript
-export declare class TokenDrop extends StandardErc20<DropERC20>
+export declare class TokenDrop extends Erc20<DropERC20>
 ```
 
-**Extends:** StandardErc20&lt;DropERC20&gt;
+**Extends:** [Erc20](./sdk.erc20.md)&lt;DropERC20&gt;

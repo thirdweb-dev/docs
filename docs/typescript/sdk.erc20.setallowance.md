@@ -18,7 +18,7 @@ Allows the specified `spender` wallet to transfer the given `amount` of tokens t
 const spenderAddress = "0x...";
 // The number of tokens to give as allowance
 const amount = 100;
-await contract.erc20.setAllowance(spenderAddress, amount);
+await contract.token.setAllowance(spenderAddress, amount);
 ```
 
 **Signature:**

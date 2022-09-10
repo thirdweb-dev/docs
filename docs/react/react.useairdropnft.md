@@ -17,7 +17,7 @@ Use this to transfer tokens on your
 
 ```jsx
 const Component = () => {
-  const editionDrop = await useEditionDrop(<ContractAddress>);
+  const editionDrop = useEditionDrop(<ContractAddress>);
   const {
     mutate: airdropNFT,
     isLoading,
@@ -50,7 +50,7 @@ const Component = () => {
     mutate: airdropNFT,
     isLoading,
     error,
-  } = useAirdropNFT(contract);
+  } = useAirdropNFT(contract?.nft);
 
   if (error) {
     console.error("failed to transfer batch NFTs", error);

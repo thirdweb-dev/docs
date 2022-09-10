@@ -14,7 +14,7 @@ Get Token Balance for the currently connected wallet
 ## Example
 
 ```javascript
-const balance = await contract.erc20.balance();
+const balance = await contract.token.balance();
 ```
 
 **Signature:**

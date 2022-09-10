@@ -13,19 +13,39 @@ displayed_sidebar: react
 
 The possible NFT contract types.
 
-## Example
+## Example 1
+
+```javascript
+const nftDrop = useNFTDrop(<ContractAddress>);
+```
+
+## Example 2
+
+```javascript
+const editionDrop = useEditionDrop(<ContractAddress>);
+```
+
+## Example 3
+
+```javascript
+const nftCollection = useNFTCollection(<ContractAddress>);
+```
+
+## Example 4
+
+```javascript
+const edition = useEdition(<ContractAddress>);
+```
+
+## Example 5
 
 ```javascript
 const { contract } = useContract(<ContractAddress>);
+const nftContract = contract?.nft;
 ```
 
 **Signature:**
 
 ```typescript
-export declare type NFTContract =
-  | NFTCollection
-  | Edition
-  | Exclude<DropContract, "TokenDrop">;
+export declare type NFTContract = Erc721 | Erc1155;
 ```
-
-**References:** [DropContract](./react.dropcontract.md)

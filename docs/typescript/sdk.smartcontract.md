@@ -27,8 +27,8 @@ await contract.call("myCustomFunction", param1, param2);
 // if your contract follows the ERC721 standard, contract.nft will be present
 const allNFTs = await contract.nft.query.all();
 
-// if your contract extends IMintableERC721, contract.nft.mint() will be available
-const tx = await contract.nft.mint({
+// if your contract extends IMintableERC721, contract.nft.mint will be present
+const tx = await contract.nft.mint.to("0x...", {
   name: "Cool NFT",
   image: readFileSync("some_image.png"),
 });
@@ -42,23 +42,23 @@ const tx = await contract.nft.mint({
 
 ## Properties
 
-| Property                                                      | Modifiers             | Type                                                                                     | Description                                                |
-| ------------------------------------------------------------- | --------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [abi](./sdk.smartcontract.abi.md)                             |                       | ContractInterface                                                                        | **<i>(BETA)</i>**                                          |
-| [contractType](./sdk.smartcontract.contracttype.md)           | <code>static</code>   | "custom"                                                                                 | **<i>(BETA)</i>**                                          |
-| [encoder](./sdk.smartcontract.encoder.md)                     |                       | [ContractEncoder](./sdk.contractencoder.md)&lt;TContract&gt;                             | **<i>(BETA)</i>**                                          |
-| [erc1155](./sdk.smartcontract.erc1155.md)                     | <code>readonly</code> | [Erc1155](./sdk.erc1155.md)                                                              | **<i>(BETA)</i>** Auto-detects ERC1155 standard functions. |
-| [erc20](./sdk.smartcontract.erc20.md)                         | <code>readonly</code> | [Erc20](./sdk.erc20.md)                                                                  | **<i>(BETA)</i>** Auto-detects ERC20 standard functions.   |
-| [erc721](./sdk.smartcontract.erc721.md)                       | <code>readonly</code> | [Erc721](./sdk.erc721.md)                                                                | **<i>(BETA)</i>** Auto-detects ERC721 standard functions.  |
-| [estimator](./sdk.smartcontract.estimator.md)                 |                       | [GasCostEstimator](./sdk.gascostestimator.md)&lt;TContract&gt;                           | **<i>(BETA)</i>**                                          |
-| [events](./sdk.smartcontract.events.md)                       |                       | [ContractEvents](./sdk.contractevents.md)&lt;TContract&gt;                               | **<i>(BETA)</i>**                                          |
-| [interceptor](./sdk.smartcontract.interceptor.md)             |                       | [ContractInterceptor](./sdk.contractinterceptor.md)&lt;TContract&gt;                     | **<i>(BETA)</i>**                                          |
-| [metadata](./sdk.smartcontract.metadata.md)                   |                       | [ContractMetadata](./sdk.contractmetadata.md)&lt;BaseContract, any&gt;                   | **<i>(BETA)</i>**                                          |
-| [platformFees](./sdk.smartcontract.platformfees.md)           |                       | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;IPlatformFee&gt; &#124; undefined | **<i>(BETA)</i>**                                          |
-| [publishedMetadata](./sdk.smartcontract.publishedmetadata.md) |                       | ContractPublishedMetadata&lt;TContract&gt;                                               | **<i>(BETA)</i>**                                          |
-| [roles](./sdk.smartcontract.roles.md)                         |                       | [ContractRoles](./sdk.contractroles.md)&lt;IPermissions, any&gt; &#124; undefined        | **<i>(BETA)</i>**                                          |
-| [royalties](./sdk.smartcontract.royalties.md)                 |                       | [ContractRoyalty](./sdk.contractroyalty.md)&lt;IRoyalty, any&gt; &#124; undefined        | **<i>(BETA)</i>**                                          |
-| [sales](./sdk.smartcontract.sales.md)                         |                       | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;IPrimarySale&gt; &#124; undefined | **<i>(BETA)</i>**                                          |
+| Property                                                      | Modifiers           | Type                                                                                     | Description                                                |
+| ------------------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| [abi](./sdk.smartcontract.abi.md)                             |                     | ContractInterface                                                                        | **<i>(BETA)</i>**                                          |
+| [contractType](./sdk.smartcontract.contracttype.md)           | <code>static</code> | "custom"                                                                                 | **<i>(BETA)</i>**                                          |
+| [edition](./sdk.smartcontract.edition.md)                     |                     | [Erc1155](./sdk.erc1155.md) &#124; undefined                                             | **<i>(BETA)</i>** Auto-detects ERC1155 standard functions. |
+| [encoder](./sdk.smartcontract.encoder.md)                     |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;TContract&gt;                             | **<i>(BETA)</i>**                                          |
+| [estimator](./sdk.smartcontract.estimator.md)                 |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;TContract&gt;                           | **<i>(BETA)</i>**                                          |
+| [events](./sdk.smartcontract.events.md)                       |                     | [ContractEvents](./sdk.contractevents.md)&lt;TContract&gt;                               | **<i>(BETA)</i>**                                          |
+| [interceptor](./sdk.smartcontract.interceptor.md)             |                     | [ContractInterceptor](./sdk.contractinterceptor.md)&lt;TContract&gt;                     | **<i>(BETA)</i>**                                          |
+| [metadata](./sdk.smartcontract.metadata.md)                   |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;BaseContract, any&gt;                   | **<i>(BETA)</i>**                                          |
+| [nft](./sdk.smartcontract.nft.md)                             |                     | [Erc721](./sdk.erc721.md) &#124; undefined                                               | **<i>(BETA)</i>** Auto-detects ERC721 standard functions.  |
+| [platformFees](./sdk.smartcontract.platformfees.md)           |                     | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;IPlatformFee&gt; &#124; undefined | **<i>(BETA)</i>**                                          |
+| [publishedMetadata](./sdk.smartcontract.publishedmetadata.md) |                     | ContractPublishedMetadata&lt;TContract&gt;                                               | **<i>(BETA)</i>**                                          |
+| [roles](./sdk.smartcontract.roles.md)                         |                     | [ContractRoles](./sdk.contractroles.md)&lt;IPermissions, any&gt; &#124; undefined        | **<i>(BETA)</i>**                                          |
+| [royalties](./sdk.smartcontract.royalties.md)                 |                     | [ContractRoyalty](./sdk.contractroyalty.md)&lt;IRoyalty, any&gt; &#124; undefined        | **<i>(BETA)</i>**                                          |
+| [sales](./sdk.smartcontract.sales.md)                         |                     | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;IPrimarySale&gt; &#124; undefined | **<i>(BETA)</i>**                                          |
+| [token](./sdk.smartcontract.token.md)                         |                     | [Erc20](./sdk.erc20.md) &#124; undefined                                                 | **<i>(BETA)</i>** Auto-detects ERC20 standard functions.   |
 
 ## Methods
 

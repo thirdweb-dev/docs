@@ -9,26 +9,8 @@ displayed_sidebar: typescript
 
 ## Erc20.signature property
 
-Signature Minting
-
-## Example
-
-```javascript
-// see how to craft a payload to sign in the `contract.signature.generate()` documentation
-const signedPayload = contract.signature().generate(payload);
-
-// now anyone can mint the NFT
-const tx = contract.erc20.signature.mint(signedPayload);
-const receipt = tx.receipt; // the mint transaction receipt
-const mintedId = tx.id; // the id of the NFT minted
-```
-
 **Signature:**
 
 ```typescript
-get signature(): Erc20SignatureMintable;
+signature: Erc20SignatureMintable | undefined;
 ```
-
-## Remarks
-
-Generate dynamic NFTs with your own signature, and let others mint them using that signature.

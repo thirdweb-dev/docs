@@ -16,7 +16,7 @@ Generate Authentication Token
 ## Example
 
 ```javascript
-const domain = "example.com";
+const domain = "thirdweb.com";
 const loginPayload = await sdk.auth.login(domain);
 
 // Generate a JWT token that can be sent to the client-side wallet and used for authentication

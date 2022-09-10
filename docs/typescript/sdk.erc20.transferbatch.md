@@ -26,7 +26,7 @@ const data = [
   },
 ];
 
-await contract.erc20.transferBatch(data);
+await contract.token.transferBatch(data);
 ```
 
 **Signature:**

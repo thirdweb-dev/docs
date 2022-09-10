@@ -41,7 +41,7 @@ export declare function useTokenBalance(
 
 | Parameter     | Type                                                                                       | Description                      |
 | ------------- | ------------------------------------------------------------------------------------------ | -------------------------------- |
-| contract      | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt;                                     | an instance of a ERC20 contract. |
+| contract      | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt;                                     | an instance of a Token contract. |
 | walletAddress | [RequiredParam](./react.requiredparam.md)&lt;[WalletAddress](./react.walletaddress.md)&gt; |                                  |
 
 **Returns:**

@@ -40,7 +40,7 @@ export declare function useTokenSupply(
 
 | Parameter | Type                                                   | Description                      |
 | --------- | ------------------------------------------------------ | -------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instance of a ERC20 contract. |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instance of a Token contract. |
 
 **Returns:**
 

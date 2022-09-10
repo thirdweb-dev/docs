@@ -17,7 +17,7 @@ Hook for getting an instance of a `Pack` contract. This contract supports the cr
 import { usePack } from '@thirdweb-dev/react'
 
 export default function Component() {
-  const pack = await usePack("<YOUR-CONTRACT-ADDRESS>")
+  const pack = usePack("<YOUR-CONTRACT-ADDRESS>")
 
   // Now you can use the pack contract in the rest of the component
 

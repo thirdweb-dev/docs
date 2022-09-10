@@ -9,7 +9,8 @@ import ImportSnippet from "@components/ImportSnippet";
 
 # ERC721 Lazy Mint
 
-`ERC721LazyMint` adds the `LazyMint` feature to the [ERC721Base](/extensions/base-contracts/erc-721/erc721base) contract.
+`ERC721LazyMint` adds the [LazyMint](/extensions/erc-721/lazy-mint)
+feature to the [ERC721Base](/extensions/base-contracts/erc-721/erc721base) contract.
 
 Lazy minting allows you to define the metadata of NFTs without minting it to an address.
 As a contract admin, this lets you prepare the metadata for NFTs that will be minted by other wallets,
@@ -35,16 +36,16 @@ Once deployed, you can use the features made available by these contracts on the
 
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Mintable"
-    link="/extensions/erc-721/mintable#unlocked-features"
+    name="Supply"
+    link="/extensions/erc-721/supply"
     image="/assets/icons/nft.png"
   />
 </div>
 
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Batch Mintable"
-    link="/extensions/erc-721/batch-mintable#unlocked-features"
+    name="Burnable"
+    link="/extensions/erc-721/burn"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -69,14 +70,6 @@ Once deployed, you can use the features made available by these contracts on the
   <QuickstartCard
     name="Royalties"
     link="/extensions/features/royalty#unlocked-features"
-    image="/assets/icons/general.png"
-  />
-</div>
-
-<div className="col col--4" style={{ padding: 8 }}>
-  <QuickstartCard
-    name="Ownable"
-    link="/extensions/features/ownable#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>

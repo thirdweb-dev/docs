@@ -17,7 +17,7 @@ Get NFT Balance
 // Address of the wallet to check NFT balance
 const walletAddress = "{{wallet_address}}";
 const tokenId = 0; // Id of the NFT to check
-const balance = await contract.erc1155.balanceOf(walletAddress, tokenId);
+const balance = await contract.balanceOf(walletAddress, tokenId);
 ```
 
 **Signature:**

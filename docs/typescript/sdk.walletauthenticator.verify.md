@@ -16,7 +16,7 @@ Verify Logged In Address
 ## Example
 
 ```javascript
-const domain = "example.com";
+const domain = "thirdweb.com";
 const loginPayload = await sdk.auth.login(domain);
 
 // Verify the login request

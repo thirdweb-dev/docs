@@ -11,13 +11,20 @@ displayed_sidebar: react
 
 > This feature is currently in beta and may change based on feedback that we receive.
 
-Use this to get a the owned NFTs for a specific [Erc721OrErc1155](./react.erc721orerc1155.md) and wallet address.
+Use this to get a the owned NFTs for a specific [NFTContract](./react.nftcontract.md) and wallet address.
 
-## Example
+## Example 1
+
+```javascript
+const nftDrop = useNFTDrop(<ContractAddress>);
+const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(nftDrop, <OwnerWalletAddress>);
+```
+
+## Example 2
 
 ```javascript
 const { contract } = useContract(<ContractAddress>);
-const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, <OwnerWalletAddress>);
+const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract?.nft, <OwnerWalletAddress>);
 ```
 
 **Signature:**
@@ -26,10 +33,7 @@ const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, <OwnerWalle
 export declare function useOwnedNFTs<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
   ownerWalletAddress: RequiredParam<WalletAddress>,
-): import("@tanstack/react-query").UseQueryResult<
-  NFT<Erc721OrErc1155>[],
-  unknown
->;
+): import("@tanstack/react-query").UseQueryResult<NFT<TContract>[], unknown>;
 ```
 
 ## Parameters
@@ -41,6 +45,6 @@ export declare function useOwnedNFTs<TContract extends NFTContract>(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;[Erc721OrErc1155](./react.erc721orerc1155.md)&gt;\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;TContract&gt;\[\], unknown&gt;
 
 a response object that includes the list of owned tokens

@@ -15,46 +15,42 @@ Standard ERC20 Token functions
 
 ```javascript
 const contract = await sdk.getContract("{{contract_address}}");
-await contract.erc20.transfer(walletAddress, amount);
+await contract.token.transfer(walletAddress, amount);
 ```
 
 ## Constructors
 
-| Constructor                                                             | Modifiers | Description                                               |
-| ----------------------------------------------------------------------- | --------- | --------------------------------------------------------- |
-| [(constructor)(contractWrapper, storage)](./sdk.erc20._constructor_.md) |           | Constructs a new instance of the <code>Erc20</code> class |
+| Constructor                                                                      | Modifiers | Description                                               |
+| -------------------------------------------------------------------------------- | --------- | --------------------------------------------------------- |
+| [(constructor)(contractWrapper, storage, options)](./sdk.erc20._constructor_.md) |           | Constructs a new instance of the <code>Erc20</code> class |
 
 ## Properties
 
-| Property                                          | Modifiers              | Type                                                                                                       | Description                |
-| ------------------------------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------- |
-| [claimConditions](./sdk.erc20.claimconditions.md) | <code>readonly</code>  | import("./drop-claim-conditions").[DropClaimConditions](./sdk.dropclaimconditions.md)&lt;BaseDropERC20&gt; | Configure claim conditions |
-| [contractWrapper](./sdk.erc20.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;                                                                                   |                            |
-| [featureName](./sdk.erc20.featurename.md)         |                        | "ERC20"                                                                                                    |                            |
-| [signature](./sdk.erc20.signature.md)             | <code>readonly</code>  | [Erc20SignatureMintable](./sdk.erc20signaturemintable.md)                                                  | Signature Minting          |
-| [storage](./sdk.erc20.storage.md)                 | <code>protected</code> | IStorage                                                                                                   |                            |
+| Property                                          | Modifiers              | Type                                                                       | Description |
+| ------------------------------------------------- | ---------------------- | -------------------------------------------------------------------------- | ----------- |
+| [burn](./sdk.erc20.burn.md)                       |                        | [Erc20Burnable](./sdk.erc20burnable.md) &#124; undefined                   |             |
+| [contractWrapper](./sdk.erc20.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;                                                   |             |
+| [drop](./sdk.erc20.drop.md)                       |                        | Erc20Droppable &#124; undefined                                            |             |
+| [featureName](./sdk.erc20.featurename.md)         |                        | "ERC20"                                                                    |             |
+| [mint](./sdk.erc20.mint.md)                       |                        | [Erc20Mintable](./sdk.erc20mintable.md) &#124; undefined                   | Mint tokens |
+| [options](./sdk.erc20.options.md)                 | <code>protected</code> | [SDKOptions](./sdk.sdkoptions.md)                                          |             |
+| [signature](./sdk.erc20.signature.md)             |                        | [Erc20SignatureMintable](./sdk.erc20signaturemintable.md) &#124; undefined |             |
+| [storage](./sdk.erc20.storage.md)                 | <code>protected</code> | IStorage                                                                   |             |
 
 ## Methods
 
-| Method                                                                                        | Modifiers | Description                                                                                                            |
-| --------------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------- |
-| [allowance(spender)](./sdk.erc20.allowance.md)                                                |           | Get Token Allowance                                                                                                    |
-| [allowanceOf(owner, spender)](./sdk.erc20.allowanceof.md)                                     |           | Get Token Allowance                                                                                                    |
-| [balance()](./sdk.erc20.balance.md)                                                           |           | Get Token Balance for the currently connected wallet                                                                   |
-| [balanceOf(address)](./sdk.erc20.balanceof.md)                                                |           | Get Token Balance                                                                                                      |
-| [burn(amount)](./sdk.erc20.burn.md)                                                           |           | Burn Tokens                                                                                                            |
-| [burnFrom(holder, amount)](./sdk.erc20.burnfrom.md)                                           |           | Burn Tokens                                                                                                            |
-| [claim(amount, checkERC20Allowance, claimData)](./sdk.erc20.claim.md)                         |           | Claim a certain amount of tokens to the connected Wallet                                                               |
-| [claimTo(destinationAddress, amount, checkERC20Allowance, claimData)](./sdk.erc20.claimto.md) |           | Claim a certain amount of tokens to a specific Wallet                                                                  |
-| [get()](./sdk.erc20.get.md)                                                                   |           | Get the token Metadata (name, symbol, etc...)                                                                          |
-| [mint(amount)](./sdk.erc20.mint.md)                                                           |           | Mint Tokens                                                                                                            |
-| [mintBatchTo(args)](./sdk.erc20.mintbatchto.md)                                               |           | Mint Tokens To Many Wallets                                                                                            |
-| [mintTo(receiver, amount)](./sdk.erc20.mintto.md)                                             |           | Mint Tokens                                                                                                            |
-| [setAllowance(spender, amount)](./sdk.erc20.setallowance.md)                                  |           | Allows the specified <code>spender</code> wallet to transfer the given <code>amount</code> of tokens to another wallet |
-| [totalSupply()](./sdk.erc20.totalsupply.md)                                                   |           | The total supply for this Token                                                                                        |
-| [transfer(to, amount)](./sdk.erc20.transfer.md)                                               |           | Transfer Tokens                                                                                                        |
-| [transferBatch(args)](./sdk.erc20.transferbatch.md)                                           |           | Transfer Tokens To Many Wallets                                                                                        |
-| [transferFrom(from, to, amount)](./sdk.erc20.transferfrom.md)                                 |           | Transfer Tokens From Address                                                                                           |
+| Method                                                        | Modifiers | Description                                                                                                            |
+| ------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------- |
+| [allowance(spender)](./sdk.erc20.allowance.md)                |           | Get Token Allowance                                                                                                    |
+| [allowanceOf(owner, spender)](./sdk.erc20.allowanceof.md)     |           | Get Token Allowance                                                                                                    |
+| [balance()](./sdk.erc20.balance.md)                           |           | Get Token Balance for the currently connected wallet                                                                   |
+| [balanceOf(address)](./sdk.erc20.balanceof.md)                |           | Get Token Balance                                                                                                      |
+| [get()](./sdk.erc20.get.md)                                   |           | Get the token Metadata (name, symbol, etc...)                                                                          |
+| [setAllowance(spender, amount)](./sdk.erc20.setallowance.md)  |           | Allows the specified <code>spender</code> wallet to transfer the given <code>amount</code> of tokens to another wallet |
+| [totalSupply()](./sdk.erc20.totalsupply.md)                   |           | The total supply for this Token                                                                                        |
+| [transfer(to, amount)](./sdk.erc20.transfer.md)               |           | Transfer Tokens                                                                                                        |
+| [transferBatch(args)](./sdk.erc20.transferbatch.md)           |           | Transfer Tokens To Many Wallets                                                                                        |
+| [transferFrom(from, to, amount)](./sdk.erc20.transferfrom.md) |           | Transfer Tokens From Address                                                                                           |
 
 **Signature:**
 

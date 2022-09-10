@@ -18,7 +18,7 @@ Transfer a single NFT
 const toAddress = "{{wallet_address}}";
 const tokenId = "0"; // The token ID of the NFT you want to send
 const amount = 3; // How many copies of the NFTs to transfer
-await contract.erc1155.transfer(toAddress, tokenId, amount);
+await contract.transfer(toAddress, tokenId, amount);
 ```
 
 **Signature:**

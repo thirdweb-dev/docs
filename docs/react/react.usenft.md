@@ -13,11 +13,18 @@ displayed_sidebar: react
 
 Use this to get an individual NFT token of your [NFTContract](./react.nftcontract.md).
 
-## Example
+## Example 1
+
+```javascript
+const nftDrop = useNFTDrop(<ContractAddress>);
+const { data: nft, isLoading, error } = useNFT(nftDrop, <tokenId>);
+```
+
+## Example 2
 
 ```javascript
 const { contract } = useContract(<ContractAddress>);
-const { data: nft, isLoading, error } = useNFT(contract, <tokenId>);
+const { data: nft, isLoading, error } = useNFT(contract?.nft, <tokenId>);
 ```
 
 **Signature:**
@@ -26,10 +33,7 @@ const { data: nft, isLoading, error } = useNFT(contract, <tokenId>);
 export declare function useNFT<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
   tokenId: RequiredParam<BigNumberish>,
-): import("@tanstack/react-query").UseQueryResult<
-  NFT<Erc721OrErc1155>,
-  unknown
->;
+): import("@tanstack/react-query").UseQueryResult<NFT<TContract>, unknown>;
 ```
 
 ## Parameters
@@ -41,6 +45,6 @@ export declare function useNFT<TContract extends NFTContract>(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;[Erc721OrErc1155](./react.erc721orerc1155.md)&gt;, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;TContract&gt;, unknown&gt;
 
 a response object that includes the metadata for the given tokenId

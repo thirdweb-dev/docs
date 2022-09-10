@@ -15,7 +15,7 @@ Get NFT Balance
 
 ```javascript
 const walletAddress = "{{wallet_address}}";
-const balance = await contract.erc721.balanceOf(walletAddress);
+const balance = await contract.nft.balanceOf(walletAddress);
 console.log(balance);
 ```
 

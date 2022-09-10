@@ -34,7 +34,6 @@ const contract = sdk.getNFTCollection("{{contract_address}}");
 | [contractRoles](./sdk.nftcollection.contractroles.md) | <code>static</code> | readonly \["admin", "minter", "transfer"\]                                                                                                       |                     |
 | [contractType](./sdk.nftcollection.contracttype.md)   | <code>static</code> | "nft-collection"                                                                                                                                 |                     |
 | [encoder](./sdk.nftcollection.encoder.md)             |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;TokenERC721&gt;                                                                                   |                     |
-| [erc721](./sdk.nftcollection.erc721.md)               |                     | [Erc721](./sdk.erc721.md)&lt;TokenERC721&gt;                                                                                                     |                     |
 | [estimator](./sdk.nftcollection.estimator.md)         |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;TokenERC721&gt;                                                                                 |                     |
 | [events](./sdk.nftcollection.events.md)               |                     | [ContractEvents](./sdk.contractevents.md)&lt;TokenERC721&gt;                                                                                     |                     |
 | [metadata](./sdk.nftcollection.metadata.md)           |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;TokenERC721, typeof NFTCollection.schema&gt;                                                    |                     |
@@ -48,18 +47,21 @@ const contract = sdk.getNFTCollection("{{contract_address}}");
 
 | Method                                                                     | Modifiers | Description                                            |
 | -------------------------------------------------------------------------- | --------- | ------------------------------------------------------ |
-| [burn(tokenId)](./sdk.nftcollection.burn.md)                               |           | Burn a single NFT                                      |
-| [getAddress()](./sdk.nftcollection.getaddress.md)                          |           |                                                        |
+| [burnToken(tokenId)](./sdk.nftcollection.burntoken.md)                     |           | Burn a single NFT                                      |
+| [getAll(queryParams)](./sdk.nftcollection.getall.md)                       |           | Get All Minted NFTs                                    |
+| [getOwned(walletAddress)](./sdk.nftcollection.getowned.md)                 |           | Get Owned NFTs                                         |
+| [getOwnedTokenIds(walletAddress)](./sdk.nftcollection.getownedtokenids.md) |           | Get all token ids of NFTs owned by a specific wallet.  |
 | [isTransferRestricted()](./sdk.nftcollection.istransferrestricted.md)      |           | Get whether users can transfer NFTs from this contract |
-| [mint(metadata)](./sdk.nftcollection.mint.md)                              |           | Mint a unique NFT                                      |
 | [mintBatch(metadata)](./sdk.nftcollection.mintbatch.md)                    |           | Mint Many unique NFTs                                  |
 | [mintBatchTo(walletAddress, metadata)](./sdk.nftcollection.mintbatchto.md) |           | Mint Many unique NFTs                                  |
 | [mintTo(walletAddress, metadata)](./sdk.nftcollection.mintto.md)           |           | Mint a unique NFT                                      |
+| [mintToSelf(metadata)](./sdk.nftcollection.minttoself.md)                  |           | Mint a unique NFT                                      |
+| [totalSupply()](./sdk.nftcollection.totalsupply.md)                        |           | Get the total count NFTs minted in this contract       |
 
 **Signature:**
 
 ```typescript
-export declare class NFTCollection extends StandardErc721<TokenERC721>
+export declare class NFTCollection extends Erc721<TokenERC721>
 ```
 
-**Extends:** StandardErc721&lt;TokenERC721&gt;
+**Extends:** [Erc721](./sdk.erc721.md)&lt;TokenERC721&gt;

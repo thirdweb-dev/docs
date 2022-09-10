@@ -11,31 +11,42 @@ displayed_sidebar: react
 
 > This feature is currently in beta and may change based on feedback that we receive.
 
-Use this to get the total count of NFT tokens of your [NFTContract](./react.nftcontract.md).
+Use this to get a the number of tokens in your [NFTContract](./react.nftcontract.md).
 
-## Example
+## Example 1
+
+```javascript
+const nftDrop = useNFTDrop(<ContractAddress>);
+const { data: totalCount, isLoading, error } = useTotalCount(nftDrop);
+```
+
+## Example 2
 
 ```javascript
 const { contract } = useContract(<ContractAddress>);
-const { data: count, isLoading, error } = useTotalCount(contract);
+const { data: totalCount, isLoading, error } = useTotalCount(contract?.nft);
 ```
 
 **Signature:**
 
 ```typescript
-export declare function useTotalCount<TContract extends NFTContract>(
-  contract: RequiredParam<TContract>,
+export declare function useTotalCount(
+  contract: RequiredParam<NFTContract>,
 ): import("@tanstack/react-query").UseQueryResult<BigNumber, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                       | Description                                            |
-| --------- | ---------------------------------------------------------- | ------------------------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
+| Parameter | Type                                                                                   | Description                                            |
+| --------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------ |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;[NFTContract](./react.nftcontract.md)&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
 
 **Returns:**
 
 import("@tanstack/react-query").UseQueryResult&lt;BigNumber, unknown&gt;
 
-a response object that includes the total count of NFTs
+a response object that incudes the total number of tokens in the contract
+
+## Remarks
+
+The `total count` and `total supply` are the same for based contracts. For the `total count` is the number of NFTs that exist on the contract, \*\*not\*\* the sum of all supply of each token. (Since ERC1155 can have multiple owners per token.)

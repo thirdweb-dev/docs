@@ -11,13 +11,13 @@ displayed_sidebar: react
 
 > This feature is currently in beta and may change based on feedback that we receive.
 
-Use this to burn an NFT on your [Erc721OrErc1155](./react.erc721orerc1155.md)
+Use this to burn an NFT on your [NFTContract](./react.nftcontract.md)
 
 ## Example 1
 
 ```jsx
 const Component = () => {
-  const nftDrop = await useNFTDrop(<ContractAddress>);
+  const nftDrop = useNFTDrop(<ContractAddress>);
   const {
     mutate: burnNft,
     isLoading,
@@ -48,7 +48,7 @@ const Component = () => {
     mutate: burnNft,
     isLoading,
     error,
-  } = useBurnNFT(contract);
+  } = useBurnNFT(contract?.nft);
 
   if (error) {
     console.error("failed to burn nft", error);
@@ -79,7 +79,7 @@ export declare function useBurnNFT<TContract extends NFTContract>(
     "data"
   >,
   unknown,
-  BurnNFTParams,
+  BurnNFTParams<TContract>,
   unknown
 >;
 ```
@@ -92,6 +92,6 @@ export declare function useBurnNFT<TContract extends NFTContract>(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [BurnNFTParams](./react.burnnftparams.md), unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [BurnNFTParams](./react.burnnftparams.md)&lt;TContract&gt;, unknown&gt;
 
 a mutation object that can be used to burn an NFT token from the connected wallet

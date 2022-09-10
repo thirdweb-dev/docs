@@ -17,7 +17,7 @@ Login With Connected Wallet
 
 ```javascript
 // Add the domain of the application users will login to, this will be used throughout the login process
-const domain = "example.com";
+const domain = "thirdweb.com";
 // Generate a signed login payload for the connected wallet to authenticate with
 const loginPayload = await sdk.auth.login(domain);
 ```

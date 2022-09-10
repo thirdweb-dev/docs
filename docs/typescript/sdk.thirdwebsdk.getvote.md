@@ -14,7 +14,7 @@ Get an instance of a Vote contract
 **Signature:**
 
 ```typescript
-getVote(address: string): Promise<Vote>;
+getVote(address: string): Vote;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ getVote(address: string): Promise<Vote>;
 
 **Returns:**
 
-Promise&lt;[Vote](./sdk.vote.md)&gt;
+[Vote](./sdk.vote.md)
 
 the contract

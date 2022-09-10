@@ -13,28 +13,37 @@ displayed_sidebar: react
 
 Use this to get a the total (minted) supply of your [NFTContract](./react.nftcontract.md).
 
-## Example
+\*
+
+## Example 1
+
+```javascript
+const nftDrop = useNFTDrop(<ContractAddress>);
+const { data: totalSupply, isLoading, error } = useNFTSupply(nftDrop);
+```
+
+## Example 2
 
 ```javascript
 const { contract } = useContract(<ContractAddress>);
-const { data: totalCirculatingSupply, isLoading, error } = useTotalCirculatingSupply(contract);
+const { data: totalSupply, isLoading, error } = useNFTSupply(contract?.nft);
 ```
 
 **Signature:**
 
 ```typescript
-export declare function useTotalCirculatingSupply(
-  contract: RequiredParam<NFTContract>,
-  tokenId: BigNumberish,
+export declare function useTotalCirculatingSupply<
+  TContract extends NFTContract,
+>(
+  ...[contract, tokenId]: useTotalCirculatingSupplyParams<TContract>
 ): import("@tanstack/react-query").UseQueryResult<BigNumber, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                                                   | Description                                            |
-| --------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------ |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;[NFTContract](./react.nftcontract.md)&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
-| tokenId   | BigNumberish                                                                           |                                                        |
+| Parameter             | Type                                                                                           | Description |
+| --------------------- | ---------------------------------------------------------------------------------------------- | ----------- |
+| \[contract, tokenId\] | [useTotalCirculatingSupplyParams](./react.usetotalcirculatingsupplyparams.md)&lt;TContract&gt; |             |
 
 **Returns:**
 

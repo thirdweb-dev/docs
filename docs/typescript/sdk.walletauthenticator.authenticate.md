@@ -16,7 +16,7 @@ Authenticate With Token
 ## Example
 
 ```javascript
-const domain = "example.com";
+const domain = "thirdweb.com";
 const loginPayload = await sdk.auth.login(domain);
 const token = await sdk.auth.generateAuthToken(domain, loginPayload);
 

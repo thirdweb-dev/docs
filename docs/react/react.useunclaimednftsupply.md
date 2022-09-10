@@ -13,7 +13,7 @@ displayed_sidebar: react
 
 ```typescript
 export declare function useUnclaimedNFTSupply(
-  contract: RequiredParam<DropContract>,
+  contract: RequiredParam<NFTDrop | SignatureDrop>,
 ): import("@tanstack/react-query").UseQueryResult<
   import("ethers").BigNumber,
   unknown
@@ -22,9 +22,9 @@ export declare function useUnclaimedNFTSupply(
 
 ## Parameters
 
-| Parameter | Type                                                                                     | Description      |
-| --------- | ---------------------------------------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;[DropContract](./react.dropcontract.md)&gt; | an instance of a |
+| Parameter | Type                                                                          | Description      |
+| --------- | ----------------------------------------------------------------------------- | ---------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;NFTDrop &#124; SignatureDrop&gt; | an instance of a |
 
 **Returns:**
 

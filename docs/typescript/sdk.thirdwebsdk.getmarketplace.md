@@ -14,7 +14,7 @@ Get an instance of a Marketplace contract
 **Signature:**
 
 ```typescript
-getMarketplace(address: string): Promise<Marketplace>;
+getMarketplace(address: string): Marketplace;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ getMarketplace(address: string): Promise<Marketplace>;
 
 **Returns:**
 
-Promise&lt;[Marketplace](./sdk.marketplace.md)&gt;
+[Marketplace](./sdk.marketplace.md)
 
 the contract

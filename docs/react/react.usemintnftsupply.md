@@ -11,9 +11,35 @@ displayed_sidebar: react
 
 > This feature is currently in beta and may change based on feedback that we receive.
 
-Use this to mint a new NFT on your
+Use this to mint a new NFT on your [NFTContract](./react.nftcontract.md)
 
-## Example
+## Example 1
+
+```jsx
+const Component = () => {
+  const nftDrop = useNFTDrop(<ContractAddress>);
+  const {
+    mutate: mintNftSupply,
+    isLoading,
+    error,
+  } = useMintNFTSupply(nftDrop);
+
+  if (error) {
+    console.error("failed to mint additional supply", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() => mintNftSupply({ tokenId: 0, additionalSupply: 100, to: "0x..."})}
+    >
+      Mint Additional Supply!
+    </button>
+  );
+};
+```
+
+## Example 2
 
 ```jsx
 const Component = () => {
@@ -22,7 +48,7 @@ const Component = () => {
     mutate: mintNftSupply,
     isLoading,
     error,
-  } = useMintNFTSupply(contract);
+  } = useMintNFTSupply(contract?.nft);
 
   if (error) {
     console.error("failed to mint additional supply", error);

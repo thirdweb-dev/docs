@@ -13,7 +13,33 @@ displayed_sidebar: react
 
 Use this to transfer tokens on your [NFTContract](./react.nftcontract.md)
 
-## Example
+## Example 1
+
+```jsx
+const Component = () => {
+  const nftDrop = useNFTDrop(<ContractAddress>);
+  const {
+    mutate: transferNFT,
+    isLoading,
+    error,
+  } = useTransferNFT(nftDrop);
+
+  if (error) {
+    console.error("failed to transfer nft", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading}
+      onClick={() => transferNFT({ to: "0x...", tokenId: 2 })}
+    >
+      Transfer NFT!
+    </button>
+  );
+};
+```
+
+## Example 2
 
 ```jsx
 const Component = () => {
@@ -22,7 +48,7 @@ const Component = () => {
     mutate: transferNFT,
     isLoading,
     error,
-  } = useTransferNFT(contract);
+  } = useTransferNFT(contract?.nft);
 
   if (error) {
     console.error("failed to transfer nft", error);
@@ -53,7 +79,7 @@ export declare function useTransferNFT<TContract extends NFTContract>(
     "data"
   >,
   unknown,
-  TransferNFTParams,
+  TransferNFTParams<TContract>,
   unknown
 >;
 ```
@@ -66,6 +92,6 @@ export declare function useTransferNFT<TContract extends NFTContract>(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [TransferNFTParams](./react.transfernftparams.md), unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, [TransferNFTParams](./react.transfernftparams.md)&lt;TContract&gt;, unknown&gt;
 
 a mutation object that can be used to transfer NFTs
