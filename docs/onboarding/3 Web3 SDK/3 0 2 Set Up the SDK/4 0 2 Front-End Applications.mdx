@@ -58,17 +58,23 @@ export const MyApp = () => {
 ### From a Signer / Provider
 
 ```jsx
-import { ChainId, ThirdwebSDKProvider, useProvider } from "@thirdweb-dev/react";
+import { ChainId, ThirdwebSDKProvider } from "@thirdweb-dev/react";
 
 // This is the chainId your dApp will work on.
 const activeChainId = ChainId.Mainnet;
 
 function MyApp({ Component, pageProps }) {
-  // If you want to use any custom provider, you can add it here.
-  const provider = useProvider();
+  // If you want to use any custom provider or signer, add it here.
+  const myProvider = ...;
+  const mySigner = ...;
+
 
   return (
-    <ThirdwebSDKProvider desiredChainId={activeChainId} provider={provider}>
+    <ThirdwebSDKProvider
+      desiredChainId={activeChainId}
+      signer={mySigner}
+      provider={myProvider}
+    >
       {/* Your App Goes Here */}
     </ThirdwebSDKProvider>
   );
