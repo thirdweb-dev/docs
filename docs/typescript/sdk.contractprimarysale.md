@@ -16,7 +16,7 @@ Handle primary sales recipients
 ```javascript
 const contract = await sdk.getContract("{{contract_address}}");
 const salesRecipient = await contract.sales.getRecipient();
-await contract.roles.setRecipient(recipientWalletAddress);
+await contract.sales.setRecipient(recipientWalletAddress);
 ```
 
 ## Constructors

@@ -224,13 +224,13 @@
     "html_url": "https://github.com/thirdweb-example/firebase-auth",
     "description": "Integrate sign in with Ethereum using thirdweb Auth into your Firebase application",
     "created_at": "2022-09-09T03:34:01Z",
-    "updated_at": "2022-09-09T05:48:50Z",
+    "updated_at": "2022-09-10T23:43:09Z",
     "clone_url": "https://github.com/thirdweb-example/firebase-auth.git",
     "topics": [
       "auth"
     ],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": "https://firebase-auth.thirdweb-example.com/"
   },
@@ -306,7 +306,7 @@
     "html_url": "https://github.com/thirdweb-example/magic-link",
     "description": "Connect users to your dApp using just their email using thirdweb's useMagic hook!",
     "created_at": "2022-04-27T07:03:18Z",
-    "updated_at": "2022-07-01T23:16:35Z",
+    "updated_at": "2022-09-10T23:45:51Z",
     "clone_url": "https://github.com/thirdweb-example/magic-link.git",
     "topics": [
       "nextjs",
@@ -314,7 +314,7 @@
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 5,
+    "stargazers_count": 6,
     "is_template": false,
     "homepage": "https://magic-link.thirdweb-example.com"
   },
@@ -336,7 +336,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-next-ts",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2022-09-09T09:56:31Z",
+    "updated_at": "2022-09-10T23:46:00Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-next-ts.git",
     "topics": [
       "marketplace",
@@ -344,7 +344,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 22,
+    "stargazers_count": 21,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
@@ -368,13 +368,13 @@
     "html_url": "https://github.com/thirdweb-example/multiwrap",
     "description": "Wrap ERC-1155, ERC-721 and ERC-20 tokens in to one ERC-721 token",
     "created_at": "2022-06-03T00:27:59Z",
-    "updated_at": "2022-07-24T12:20:57Z",
+    "updated_at": "2022-09-10T23:46:45Z",
     "clone_url": "https://github.com/thirdweb-example/multiwrap.git",
     "topics": [
       "multiwrap"
     ],
     "language": "JavaScript",
-    "stargazers_count": 4,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": ""
   },
@@ -457,7 +457,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-09-10T09:26:04Z",
+    "updated_at": "2022-09-10T23:54:49Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "nft-drop",
@@ -465,7 +465,7 @@
       "token"
     ],
     "language": "TypeScript",
-    "stargazers_count": 36,
+    "stargazers_count": 37,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -474,13 +474,13 @@
     "html_url": "https://github.com/thirdweb-example/packs",
     "description": "Bundle NFTs and Tokens together in Packs that users can open and receive randomly selected tokens from those that were bundled!",
     "created_at": "2022-06-21T07:50:46Z",
-    "updated_at": "2022-07-07T18:31:31Z",
+    "updated_at": "2022-09-10T23:46:42Z",
     "clone_url": "https://github.com/thirdweb-example/packs.git",
     "topics": [
       "pack"
     ],
     "language": "TypeScript",
-    "stargazers_count": 2,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": "https://packs.thirdweb-example.com"
   },
@@ -504,13 +504,13 @@
     "html_url": "https://github.com/thirdweb-example/quiz",
     "description": "Reward users who pass a set of questions with an ERC-1155 NFT!",
     "created_at": "2022-07-20T02:15:59Z",
-    "updated_at": "2022-08-31T07:47:59Z",
+    "updated_at": "2022-09-10T23:46:22Z",
     "clone_url": "https://github.com/thirdweb-example/quiz.git",
     "topics": [
       "edition"
     ],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://quiz.thirdweb-example.com"
   },
@@ -519,7 +519,7 @@
     "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2022-09-10T18:04:40Z",
+    "updated_at": "2022-09-10T23:45:39Z",
     "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
@@ -528,7 +528,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 17,
+    "stargazers_count": 18,
     "is_template": false,
     "homepage": "https://signature-based-minting.thirdweb-example.com"
   },
@@ -645,11 +645,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-supabase",
     "description": "Enable users to login to your backend with their wallet, and store users in supabase. ",
     "created_at": "2022-08-19T19:02:16Z",
-    "updated_at": "2022-09-01T00:17:48Z",
+    "updated_at": "2022-09-10T23:42:54Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-supabase.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": null
   },
@@ -739,13 +739,13 @@
     "html_url": "https://github.com/thirdweb-example/web3button",
     "description": "Learn how to use the Web3Button component from the thirdweb React SDK!",
     "created_at": "2022-08-20T00:27:11Z",
-    "updated_at": "2022-09-10T12:02:18Z",
+    "updated_at": "2022-09-10T23:43:56Z",
     "clone_url": "https://github.com/thirdweb-example/web3button.git",
     "topics": [
       "ui-components"
     ],
     "language": "JavaScript",
-    "stargazers_count": 8,
+    "stargazers_count": 9,
     "is_template": false,
     "homepage": "https://web3button.thirdweb-example.com/"
   },

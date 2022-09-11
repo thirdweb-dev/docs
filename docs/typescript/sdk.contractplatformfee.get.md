@@ -9,7 +9,13 @@ displayed_sidebar: typescript
 
 ## ContractPlatformFee.get() method
 
-Get the platform fee recipient and basis points
+Get the platform fee recipient and basis points \*
+
+## Example
+
+```javascript
+const feeInfo = await contract.platformFee.get();
+```
 
 **Signature:**
 
@@ -23,5 +29,3 @@ get(): Promise<{
 **Returns:**
 
 Promise&lt;{ platform_fee_basis_points: number; platform_fee_recipient: string; }&gt;
-
-the wallet address.

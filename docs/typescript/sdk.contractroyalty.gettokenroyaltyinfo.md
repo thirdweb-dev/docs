@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Gets the royalty recipient and BPS (basis points) of a particular token
 
+## Example
+
+```javascript
+const royaltyInfo = await contract.royalties.getDefaultRoyaltyInfo();
+```
+
 **Signature:**
 
 ```typescript
