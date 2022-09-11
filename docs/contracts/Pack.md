@@ -424,21 +424,22 @@ _Returns `true` if `account` has been granted `role`. Role restrictions can be s
 ### initialize
 
 ```solidity
-function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
+function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
 ```
 
 _Initiliazes the contract, like a constructor._
 
 #### Parameters
 
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| \_defaultAdmin     | address | undefined   |
-| \_name             | string  | undefined   |
-| \_symbol           | string  | undefined   |
-| \_contractURI      | string  | undefined   |
-| \_royaltyRecipient | address | undefined   |
-| \_royaltyBps       | uint256 | undefined   |
+| Name                | Type      | Description |
+| ------------------- | --------- | ----------- |
+| \_defaultAdmin      | address   | undefined   |
+| \_name              | string    | undefined   |
+| \_symbol            | string    | undefined   |
+| \_contractURI       | string    | undefined   |
+| \_trustedForwarders | address[] | undefined   |
+| \_royaltyRecipient  | address   | undefined   |
+| \_royaltyBps        | uint256   | undefined   |
 
 ### isApprovedForAll
 
