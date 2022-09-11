@@ -37,8 +37,6 @@ export default function ThirdwebCodeSnippet({
   const methods = isFeatureSnippet ? contractObject : contractObject.methods;
   const properties = contractObject.properties;
 
-  console.log("methods:", methods);
-
   if (!methods && !properties) {
     return null;
   }
