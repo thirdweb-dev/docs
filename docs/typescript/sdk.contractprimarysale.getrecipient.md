@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Get the primary sale recipient.
 
+## Example
+
+```javascript
+const salesRecipient = await contract.sales.getRecipient();
+```
+
 **Signature:**
 
 ```typescript

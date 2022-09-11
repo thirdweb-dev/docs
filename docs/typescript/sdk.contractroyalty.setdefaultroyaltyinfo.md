@@ -11,6 +11,15 @@ displayed_sidebar: typescript
 
 Set the royalty recipient and fee for a contract
 
+## Example
+
+```javascript
+await contract.roles.setDefaultRoyaltyInfo({
+  seller_fee_basis_points: 100, // 1% royalty fee
+  fee_recipient: "0x...", // the fee recipient
+});
+```
+
 **Signature:**
 
 ```typescript
