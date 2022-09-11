@@ -1,4 +1,179 @@
 {
+  "ContractMetadata": [
+    {
+      "name": "get",
+      "summary": "Get the metadata of a contract\n\n",
+      "remarks": "\n\nGet the metadata of a contract\n\n",
+      "examples": {
+        "javascript": "const metadata = await contract.metadata.get();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractmetadata.get"
+      }
+    },
+    {
+      "name": "set",
+      "summary": "Set the metadata of a contract\n\n",
+      "remarks": "\n\nOVERWRITE the metadata of a contract\n\n",
+      "examples": {
+        "javascript": "await contract.metadata.set({\n name: \"My Contract\",\n description: \"My contract description\"\n})"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractmetadata.set"
+      }
+    },
+    {
+      "name": "update",
+      "summary": "Update the metadata of a contract\n\n",
+      "remarks": "\n\nUpdate the metadata of a contract\n\n",
+      "examples": {
+        "javascript": "await contract.metadata.update({\n  name: \"My Contract\",\n  description: \"My contract description\"\n})"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractmetadata.update"
+      }
+    }
+  ],
+  "PlatformFee": [
+    {
+      "name": "get",
+      "summary": "Get the platform fee recipient and basis points *\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const feeInfo = await contract.platformFee.get();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractplatformfee.get"
+      }
+    }
+  ],
+  "PrimarySale": [
+    {
+      "name": "getRecipient",
+      "summary": "Get the primary sale recipient.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const salesRecipient = await contract.sales.getRecipient();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractprimarysale.getrecipient"
+      }
+    },
+    {
+      "name": "setRecipient",
+      "summary": "Set the primary sale recipient\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "await contract.sales.setRecipient(recipientWalletAddress);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractprimarysale.setrecipient"
+      }
+    }
+  ],
+  "Permissions": [
+    {
+      "name": "get",
+      "summary": "Call this to get a list of addresses that are members of a specific role.\n\n",
+      "remarks": "\n\nSee {@link ContractRoles.getAll} to get get a list of addresses for all supported roles on the contract.\n\n",
+      "examples": {
+        "javascript": "const minterAddresses = await contract.roles.get(\"minter\");"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.get"
+      }
+    },
+    {
+      "name": "getAll",
+      "summary": "Call this to get get a list of addresses for all supported roles on the contract.\n\n",
+      "remarks": "\n\nSee {@link ContractRoles.get} to get a list of addresses that are members of a specific role.\n\n",
+      "examples": {
+        "javascript": "const rolesAndMembers = await contract.roles.getAll();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.getall"
+      }
+    },
+    {
+      "name": "grant",
+      "summary": "Call this to grant a role to a specific address.\n\n",
+      "remarks": "\n\nMake sure you are sure you want to grant the role to the address.\n\n",
+      "examples": {
+        "javascript": "await contract.roles.grant(\"minter\", \"0x1234567890123456789012345678901234567890\");"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.grant"
+      }
+    },
+    {
+      "name": "revoke",
+      "summary": "Call this to revoke a role from a specific address.\n\n",
+      "remarks": "\n\n-- Caution --\n\nThis will let you remove yourself from the role, too. If you remove yourself from the admin role, you will no longer be able to administer the contract. There is no way to recover from this.\n\n",
+      "examples": {
+        "javascript": "await contract.roles.revoke(\"minter\", \"0x1234567890123456789012345678901234567890\");"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.revoke"
+      }
+    },
+    {
+      "name": "setAll",
+      "summary": "Call this to OVERWRITE the list of addresses that are members of specific roles.\n\nEvery role in the list will be overwritten with the new list of addresses provided with them. If you want to add or remove addresses for a single address use {@link ContractRoles.grant} and {@link ContractRoles.revoke} respectively instead.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const minterAddresses = await contract.roles.get(\"minter\");\nawait contract.roles.setAll({\n minter: []\n});\nconsole.log(await contract.roles.get(\"minter\")); // No matter what members had the role before, the new list will be set to []"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.setall"
+      }
+    }
+  ],
+  "Royalty": [
+    {
+      "name": "getDefaultRoyaltyInfo",
+      "summary": "Gets the royalty recipient and BPS (basis points) of the contract\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const royaltyInfo = await contract.royalties.getDefaultRoyaltyInfo();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty.getdefaultroyaltyinfo"
+      }
+    },
+    {
+      "name": "getTokenRoyaltyInfo",
+      "summary": "Gets the royalty recipient and BPS (basis points) of a particular token\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const royaltyInfo = await contract.royalties.getDefaultRoyaltyInfo();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty.gettokenroyaltyinfo"
+      }
+    },
+    {
+      "name": "setDefaultRoyaltyInfo",
+      "summary": "Set the royalty recipient and fee for a contract\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "await contract.roles.setDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1% royalty fee\n  fee_recipient: \"0x...\", // the fee recipient\n});"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty.setdefaultroyaltyinfo"
+      }
+    },
+    {
+      "name": "setTokenRoyaltyInfo",
+      "summary": "Set the royalty recipient and fee for a particular token\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "await contract.roles.setTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 100, // 1% royalty fee\n  fee_recipient: \"0x...\", // the fee recipient\n});"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty.settokenroyaltyinfo"
+      }
+    }
+  ],
   "ERC1155ClaimableWithConditions": [
     {
       "name": "claimConditions",

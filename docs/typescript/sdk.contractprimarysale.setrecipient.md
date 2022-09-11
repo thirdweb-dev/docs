@@ -11,6 +11,12 @@ displayed_sidebar: typescript
 
 Set the primary sale recipient
 
+## Example
+
+```javascript
+await contract.sales.setRecipient(recipientWalletAddress);
+```
+
 **Signature:**
 
 ```typescript

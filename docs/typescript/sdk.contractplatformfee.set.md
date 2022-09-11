@@ -19,9 +19,18 @@ set(platformFeeInfo: z.input<typeof CommonPlatformFeeSchema>): Promise<Transacti
 
 ## Parameters
 
-| Parameter       | Type                                          | Description                  |
-| --------------- | --------------------------------------------- | ---------------------------- |
-| platformFeeInfo | z.input&lt;typeof CommonPlatformFeeSchema&gt; | the platform fee information |
+| Parameter       | Type                                          | Description                         |
+| --------------- | --------------------------------------------- | ----------------------------------- |
+| platformFeeInfo | z.input&lt;typeof CommonPlatformFeeSchema&gt; | <p>the platform fee information</p> |
+
+```javascript
+await contract.platformFee.set({
+  platform_fee_basis_points: 100, // 1% fee
+  platform_fee_recipient: "0x...", // the fee recipient
+});
+```
+
+|
 
 **Returns:**
 
