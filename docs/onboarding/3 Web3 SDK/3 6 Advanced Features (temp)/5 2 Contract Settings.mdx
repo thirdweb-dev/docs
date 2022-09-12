@@ -2,7 +2,7 @@
 slug: /sdk/advanced-features/contract-settings
 ---
 
-import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet";
+import CodeSnippetWithSummary from "../../../../src/components/CodeSnippetWithSummary";
 
 # Contract Settings
 
@@ -15,11 +15,7 @@ such as the name, description and image.
 
 ### Read
 
-<ThirdwebCodeSnippet
-  contract={"ContractMetadata"}
-  name={"get"}
-  isFeatureSnippet={true}
-/>
+<CodeSnippetWithSummary contract={"ContractMetadata"} name={"get"} />
 
 ### Write (Overwrite)
 
@@ -27,44 +23,76 @@ such as the name, description and image.
 This will **overwrite** the existing metadata.
 :::
 
-<ThirdwebCodeSnippet
-  contract={"ContractMetadata"}
-  name={"set"}
+<CodeSnippetWithSummary contract={"ContractMetadata"} name={"set"} />
+
+### Update
+
+<CodeSnippetWithSummary contract={"ContractMetadata"} name={"update"} />
+
+## Royalty Fees
+
+Read and update the royalty fees of a collection or a specific token.
+
+### Read
+
+<CodeSnippetWithSummary
+  contract={"Royalty"}
+  name={"getDefaultRoyaltyInfo"}
+  isFeatureSnippet={true}
+/>
+
+### Read Specific Token
+
+<CodeSnippetWithSummary
+  contract={"Royalty"}
+  name={"getTokenRoyaltyInfo"}
   isFeatureSnippet={true}
 />
 
 ### Update
 
-<ThirdwebCodeSnippet
-  contract={"ContractMetadata"}
-  name={"update"}
+<CodeSnippetWithSummary
+  contract={"Royalty"}
+  name={"setDefaultRoyaltyInfo"}
   isFeatureSnippet={true}
-  isGetContractCode={true}
 />
 
-## Royalty Fees
+### Update Specific Token
 
-<ThirdwebCodeSnippet
+<CodeSnippetWithSummary
   contract={"Royalty"}
-  name={"base"}
+  name={"setTokenRoyaltyInfo"}
   isFeatureSnippet={true}
-  isGetContractCode={true}
 />
 
 ## Platform Fees
 
-<ThirdwebCodeSnippet
+Platform fees allow you to charge a percentage fee wherever there is a transfer of currency in your contract.
+
+<CodeSnippetWithSummary
   contract={"PlatformFee"}
-  name={"base"}
+  name={"get"}
   isFeatureSnippet={true}
-  isGetContractCode={true}
 />
 
-## Contract Owner
+## Primary Sale
 
-<ThirdwebCodeSnippet
-  contract={"PlatformFee"}
-  name={"base"}
+Configure the recipient of the primary sale fees.
+
+### Read
+
+<CodeSnippetWithSummary
+  contract={"PrimarySale"}
+  name={"getRecipient"}
   isFeatureSnippet={true}
-  isGetContractCode={true}
+  showHr={false}
+/>
+
+### Update
+
+<CodeSnippetWithSummary
+  contract={"PrimarySale"}
+  name={"setRecipient"}
+  isFeatureSnippet={true}
+  showHr={false}
 />
