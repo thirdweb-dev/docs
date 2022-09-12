@@ -682,6 +682,19 @@
     "homepage": null
   },
   {
+    "name": "todo-list",
+    "html_url": "https://github.com/thirdweb-example/todo-list",
+    "description": "Build a simple todo list by building and interacting with a smart contract!",
+    "created_at": "2022-09-12T01:57:30Z",
+    "updated_at": "2022-09-12T01:57:30Z",
+    "clone_url": "https://github.com/thirdweb-example/todo-list.git",
+    "topics": [],
+    "language": null,
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "token-drop",
     "html_url": "https://github.com/thirdweb-example/token-drop",
     "description": "Release your token with claim conditions for a price using thirdweb's Token Drop contract",
