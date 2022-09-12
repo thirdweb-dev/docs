@@ -36,6 +36,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
     <ThirdwebProvider
       desiredChainId={1}
       authConfig={{
+        // Set this to your domain to prevent signature malleability attacks.
         domain: "example.com",
         authUrl: "/api/auth",
       }}

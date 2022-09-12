@@ -41,7 +41,7 @@ type LoginPayload = {
   signature: string;
 };
 
-const payload = await sdk.auth.login("thirdweb.com");
+const payload = await sdk.auth.login("example.com");
 ```
 
 The message that gets signed by this function follows the EIP-4361 compliant format specified below:
@@ -71,10 +71,10 @@ Next, the verify function is used on the backend to verify a login payload. If t
 
 ```tsx
 // Generate a payload from the connected wallet on the client side
-const payload = await sdk.auth.login("thirdweb.com");
+const payload = await sdk.auth.login("example.com");
 
 // Check if the login payload is valid and get the address
-const address = sdk.auth.verify("thirdweb.com", payload);
+const address = sdk.auth.verify("example.com", payload);
 ```
 
 The verification makes a few key checks to ensure the validity of the payload:
@@ -104,13 +104,10 @@ type AuthenticationOptions = {
 };
 
 // Generate a payload from the connected wallet on the client side
-const loginPayload = await sdk.auth.login("thirdweb.com");
+const loginPayload = await sdk.auth.login("example.com");
 
 // Generate an authentication payload with the login payload
-const authToken = await sdk.auth.generateAuthToken(
-  "thirdweb.com",
-  loginPayload,
-);
+const authToken = await sdk.auth.generateAuthToken("example.com", loginPayload);
 ```
 
 The authenticate function takes the following steps
@@ -124,7 +121,7 @@ The JWT payload to be signed will take the following structure
 {
   "iss": "0x...", // address of the admin wallet generating the payload
   "sub": "0x...", // Address of the user wallet logging in
-  "aud": "thirdweb.com", // Domain that the payload was intended for
+  "aud": "example.com", // Domain that the payload was intended for
   "iat": 1653884584, // Unix time (epoch seconds) when payload was issued
   "exp": 1653884613, // Unix time (epoch seconds) when payload expires
   "nbf": 1653884584, // Time before which payload is invalid, should default to iat
@@ -161,13 +158,13 @@ This function authenticates a JWT token generated with the `generateAuthToken` f
 
 ```tsx
 // Generate a payload from the connected wallet on the client side
-const loginPayload = await sdk.auth.login("thirdweb.com");
+const loginPayload = await sdk.auth.login("example.com");
 
 // Generate a JWT token
-const token = await sdk.auth.generateAuthToken("thirdweb.com", loginPayload);
+const token = await sdk.auth.generateAuthToken("example.com", loginPayload);
 
 // Verify the auth token and extract the authenticating address
-const address = sdk.auth.authenticate("thirdweb.com", token);
+const address = sdk.auth.authenticate("example.com", token);
 ```
 
 The verification step should verify all of the following:

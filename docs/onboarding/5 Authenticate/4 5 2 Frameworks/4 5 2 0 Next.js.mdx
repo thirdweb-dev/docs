@@ -50,9 +50,11 @@ We can setup all the necessary endpoints by creating a `/pages/api/auth/[...thir
 import { ThirdwebAuth } from "@thirdweb-dev/auth/next";
 
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
-  // Configure Auth with your private key
+  // Using environment variables to secure your private key is a security vulnerability.
+  // Learn how to store your private key securely:
+  // https://portal.thirdweb.com/sdk/set-up-the-sdk/securing-your-private-key
   privateKey: process.env.ADMIN_PRIVATE_KEY || "",
-  // Add in the domain of your app
+  // Set this to your domain to prevent signature malleability attacks.
   domain: "example.com",
 });
 
@@ -134,6 +136,7 @@ export default function MyApp({ Component, pageProps }) {
     <ThirdwebProvider
       desiredChainId={1}
       authConfig={{
+        // Set this to your domain to prevent signature malleability attacks.
         domain: "example.com",
         authUrl: "/api/auth",
       }}

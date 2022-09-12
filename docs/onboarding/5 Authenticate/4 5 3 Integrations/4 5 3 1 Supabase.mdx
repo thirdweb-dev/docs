@@ -5,7 +5,7 @@ title: Supabase
 
 import QuickstartCard from "../../../../src/components/QuickstartCard";
 
-Auth can be integrated with [Supabase](https://supabase.com/) to manage authenticated user within a database.
+Auth can be integrated with [Supabase](https://supabase.com/) to manage authenticated users within a database.
 
 We'll go over the necessary setup to store users that logged in with their wallets in your Supabase database below. We'll be using Next.js as an example.
 
@@ -32,7 +32,7 @@ npm install @thirdweb-dev/auth @supabase/supabase-js
 
 ### Supabase
 
-Before we dive into the code, we'll need to setup a Supabase database so that we can store our user data.
+Before we dive into the code, we'll need to set up a Supabase database so that we can store our user data.
 
 If you don't already have a Supabase account, you can set one up [here](https://app.supabase.com/).
 
@@ -40,7 +40,7 @@ We'll need to create a new table on the Supabase dashboard to hold our user data
 
 ![Create Table](./assets/create-table.png)
 
-Call the table `users`, make sure `Row Level Security` is enabled. There should already be an `id` and `created_at` column - you'll want to add an `address` column as well, make sure the type is set to text, and the value is non-nullable and unique. Once you have this setup, you can create the table.
+Call the table `users`, and ensure `Row Level Security` is enabled. There should already be an `id` and `created_at` column - you'll want to add an `address` column as well, make sure the type is set to text, and the value is non-nullable and unique. Once you have this setup, you can create the table.
 
 ![Edit Table](./assets/edit-table.png)
 
@@ -57,9 +57,9 @@ SUPABASE_SERVICE_ROLE=your-service-role-here
 
 ### App
 
-Now that Supabase is setup, we can dive into the actual app setup to integrate Auth.
+Now that Supabase is set up, we can dive into the actual app setup to integrate Auth.
 
-First, we need to setup an admin private key used to secure our authentication. We can do this by creating a new `.env.local` file at the top level of the project and adding a private key to the file:
+First, we need to set up an admin private key used to secure our authentication. We can do this by creating a new `.env.local` file at the top level of the project and adding a private key to the file:
 
 ```
 ADMIN_PRIVATE_KEY=your-private-key-here
@@ -79,7 +79,11 @@ We'll start with the basic Next.js setup for Auth in the `/pages/api/auth/[...th
 import { ThirdwebAuth } from "@thirdweb-dev/auth/next";
 
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
+  // Using environment variables to secure your private key is a security vulnerability.
+  // Learn how to store your private key securely:
+  // https://portal.thirdweb.com/sdk/set-up-the-sdk/securing-your-private-key
   privateKey: process.env.ADMIN_PRIVATE_KEY || "",
+  // Set this to your domain to prevent signature malleability attacks.
   domain: "example.com",
 });
 
@@ -147,17 +151,21 @@ And finally, we can pass these callback functions into our Auth config as follow
 
 ```javascript
 export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
+  // Using environment variables to secure your private key is a security vulnerability.
+  // Learn how to store your private key securely:
+  // https://portal.thirdweb.com/sdk/set-up-the-sdk/securing-your-private-key
   privateKey: process.env.ADMIN_PRIVATE_KEY || "",
+  // Set this to your domain to prevent signature malleability attacks.
   domain: "example.com",
   callbacks: { login, user },
 });
 ```
 
-Now our backend should be setup and ready-to-go with Supabase - it will create a new user everytime someone new logs in with their wallet, and will fill in user data on request.
+Now our backend should be setup and ready to go with Supabase - it will create a new user every time someone new logs in with their wallet, and will fill in user data on request.
 
 :::tip
 
-To see and interact with a full working example, checkout this example project:
+To see and interact with a full working example, check out this example project:
 
 <div className="col col--6" style={{ padding: 8 }}>
   <QuickstartCard

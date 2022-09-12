@@ -102,7 +102,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         // The backend URL of the authentication endoints.
         authUrl: "/api/auth",
         // Set this to your domain to prevent signature malleability attacks.
-        domain: "http://localhost:3000",
+        domain: "example.com",
         // The redirect URL after a successful login.
         loginRedirect: "/",
       }}
@@ -158,7 +158,7 @@ The `signIn` function:
 // Note: This function lives inside the Login component above.
 async function signIn() {
   // Use the same address as the one specified in _app.tsx.
-  const payload = await sdk?.auth.login("http://localhost:3000");
+  const payload = await sdk?.auth.login("example.com");
 
   // Make a request to the API with the payload.
   const res = await fetch("/api/auth/login", {
@@ -215,7 +215,7 @@ export default async function login(req: NextApiRequest, res: NextApiResponse) {
   // Grab the login payload the user sent us with their request.
   const loginPayload = req.body.payload;
   // Set this to your domain to prevent signature malleability attacks.
-  const domain = "http://localhost:3000";
+  const domain = "example.com";
 
   const sdk = ThirdwebSDK.fromPrivateKey(
     // Using environment variables to secure your private key is a security vulnerability.
