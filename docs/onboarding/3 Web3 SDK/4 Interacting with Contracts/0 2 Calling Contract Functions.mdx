@@ -1,0 +1,33 @@
+---
+slug: /sdk/interacting-with-contracts/custom-contracts/using-contracts
+title: Calling Contract Functions
+---
+
+import CodeSnippetWithSummary from "@components/CodeSnippetWithSummary";
+
+Read data and make transactions on your contract from the connected wallet.
+
+## Read Contract Data
+
+Use the name of the function, view, or mapping, and provide any required arguments.
+
+<CodeSnippetWithSummary
+  contract={"SmartContract"}
+  name={"call"}
+  dontShowSummary
+  showHr={false}
+  snippetOverrides={{
+    react: `const { contract } = useContract(\"{{contract_address}}\");\nconst { data, isLoading, error } = useContractData(contract, \"functionName\", ...args);`,
+  }}
+/>
+
+## Write Transactions
+
+Transactions are made using the connected wallet (or the wallet you instantiated the SDK with).
+
+<CodeSnippetWithSummary
+  contract={"SmartContract"}
+  name={"call"}
+  dontShowSummary
+  showHr={false}
+/>

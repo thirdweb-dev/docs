@@ -27,7 +27,7 @@ const sidebars = {
     {
       type: "category",
       label: "UI Components",
-      collapsed: true,
+      collapsed: false,
       items: [
         {
           type: "doc",

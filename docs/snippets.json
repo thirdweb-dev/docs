@@ -18,7 +18,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.fromprivatekey",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.fromprivatekey"
         }
       },
       {
@@ -35,7 +35,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.fromsigner",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.fromsigner"
         }
       },
       {
@@ -52,7 +52,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getbalance",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getbalance"
         }
       },
       {
@@ -63,13 +63,13 @@
           "javascript": "const contract = sdk.getContract(\"{{contract_address}}\");",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst contract = sdk.getContract(\"{{contract_address}}\");"
+          "react": "const { contract, isLoading, error } = useContract(\"{{contract_address}}\");"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getcontract",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://portal.thirdweb.com/react/react.usecontract"
         }
       },
       {
@@ -86,7 +86,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getcontractfromabi",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getcontractfromabi"
         }
       },
       {
@@ -103,7 +103,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getcontractlist",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getcontractlist"
         }
       }
     ],
@@ -136,7 +136,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.nftcollection.burn",
           "python": "",
           "go": "https://docs.thirdweb.com/go/nft_collection#func-nftcollection-burn",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.nftcollection.burn"
         }
       },
       {
@@ -153,7 +153,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.nftcollection.mintbatchto",
           "python": "https://docs.thirdweb.com/python/nft-collection#mint_batch_to",
           "go": "https://docs.thirdweb.com/go/nft_collection#func-nftcollection-mintbatchto",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.nftcollection.mintbatchto"
         }
       },
       {
@@ -255,7 +255,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc721.transfer",
           "python": "https://docs.thirdweb.com/python/erc721#transfer",
           "go": "https://docs.thirdweb.com/go/nft_collection#func-nftcollection-transfer",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc721.transfer"
         }
       }
     ],
@@ -274,7 +274,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractroyalty"
         }
       },
       {
@@ -291,7 +291,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.erc721withquantitysignaturemintable",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.erc721withquantitysignaturemintable"
         }
       }
     ],
@@ -325,7 +325,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.edition.burn",
           "python": "",
           "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-burn",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.edition.burn"
         }
       },
       {
@@ -376,7 +376,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.edition.mintbatchto",
           "python": "https://docs.thirdweb.com/python/edition#mint_batch_to",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.edition.mintbatchto"
         }
       },
       {
@@ -410,7 +410,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc1155.airdrop",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc1155.airdrop"
         }
       },
       {
@@ -461,7 +461,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc1155.transfer",
           "python": "https://docs.thirdweb.com/python/erc1155#transfer",
           "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-transfer",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc1155.transfer"
         }
       }
     ],
@@ -480,7 +480,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractroyalty"
         }
       },
       {
@@ -497,7 +497,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.erc1155signaturemintable",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.erc1155signaturemintable"
         }
       }
     ],
@@ -529,7 +529,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.tokendrop.burnfrom",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.tokendrop.burnfrom"
         }
       },
       {
@@ -546,7 +546,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.tokendrop.burntokens",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.tokendrop.burntokens"
         }
       },
       {
@@ -563,7 +563,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.tokendrop.claimto",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.tokendrop.claimto"
         }
       },
       {
@@ -580,7 +580,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.allowance",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.allowance"
         }
       },
       {
@@ -597,7 +597,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.allowanceof",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.allowanceof"
         }
       },
       {
@@ -614,7 +614,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.balance",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.balance"
         }
       },
       {
@@ -648,7 +648,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.get",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.get"
         }
       },
       {
@@ -665,7 +665,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.setallowance",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.setallowance"
         }
       },
       {
@@ -682,7 +682,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.totalsupply",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.totalsupply"
         }
       },
       {
@@ -699,7 +699,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.transfer",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.transfer"
         }
       },
       {
@@ -716,7 +716,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.transferbatch",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.transferbatch"
         }
       },
       {
@@ -733,7 +733,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.transferfrom",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.transferfrom"
         }
       }
     ],
@@ -752,7 +752,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.dropclaimconditions",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.dropclaimconditions"
         }
       }
     ],
@@ -784,7 +784,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.token.burn",
           "python": "https://docs.thirdweb.com/python/erc20#burn",
           "go": "https://docs.thirdweb.com/go/token#func-token-burn",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.token.burn"
         }
       },
       {
@@ -801,7 +801,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.token.burnfrom",
           "python": "https://docs.thirdweb.com/python/erc20#burn_from",
           "go": "https://docs.thirdweb.com/go/token#func-token-burnfrom",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.token.burnfrom"
         }
       },
       {
@@ -818,7 +818,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.token.mintbatchto",
           "python": "https://docs.thirdweb.com/python/token#mint_batch_to",
           "go": "https://docs.thirdweb.com/go/token#func-token-mintbatchto",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.token.mintbatchto"
         }
       },
       {
@@ -835,7 +835,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.token.mintto",
           "python": "https://docs.thirdweb.com/python/token#mint_to",
           "go": "https://docs.thirdweb.com/go/token#func-token-mintto",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.token.mintto"
         }
       },
       {
@@ -852,7 +852,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.allowance",
           "python": "https://docs.thirdweb.com/python/erc20#allowance",
           "go": "https://docs.thirdweb.com/go/token#func-token-allowance",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.allowance"
         }
       },
       {
@@ -869,7 +869,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.allowanceof",
           "python": "https://docs.thirdweb.com/python/erc20#allowance_of",
           "go": "https://docs.thirdweb.com/go/token#func-token-allowanceof",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.allowanceof"
         }
       },
       {
@@ -886,7 +886,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.balance",
           "python": "https://docs.thirdweb.com/python/erc20#balance",
           "go": "https://docs.thirdweb.com/go/token#func-token-balance",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.balance"
         }
       },
       {
@@ -920,7 +920,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.get",
           "python": "https://docs.thirdweb.com/python/erc20#get",
           "go": "https://docs.thirdweb.com/go/token#func-token-get",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.get"
         }
       },
       {
@@ -937,7 +937,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.setallowance",
           "python": "https://docs.thirdweb.com/python/erc20#set_allowance",
           "go": "https://docs.thirdweb.com/go/token#func-token-setallowance",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.setallowance"
         }
       },
       {
@@ -954,7 +954,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.totalsupply",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.totalsupply"
         }
       },
       {
@@ -971,7 +971,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.transfer",
           "python": "https://docs.thirdweb.com/python/erc20#transfer",
           "go": "https://docs.thirdweb.com/go/token#func-token-transfer",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.transfer"
         }
       },
       {
@@ -988,7 +988,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.transferbatch",
           "python": "https://docs.thirdweb.com/python/erc20#transfer_batch",
           "go": "https://docs.thirdweb.com/go/token#func-token-transferbatch",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.transferbatch"
         }
       },
       {
@@ -1005,7 +1005,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc20.transferfrom",
           "python": "https://docs.thirdweb.com/python/erc20#transfer_from",
           "go": "https://docs.thirdweb.com/go/token#func-token-transferfrom",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc20.transferfrom"
         }
       }
     ],
@@ -1024,7 +1024,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.erc20signaturemintable",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.erc20signaturemintable"
         }
       }
     ],
@@ -1075,7 +1075,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.nftdrop.burn",
           "python": "",
           "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-burn",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.nftdrop.burn"
         }
       },
       {
@@ -1109,7 +1109,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.nftdrop.createbatch",
           "python": "https://docs.thirdweb.com/python/nft-drop#create_batch",
           "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-createbatch",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.nftdrop.createbatch"
         }
       },
       {
@@ -1211,7 +1211,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.nftdrop.transfer",
           "python": "https://docs.thirdweb.com/python/erc721#transfer",
           "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-transfer",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.nftdrop.transfer"
         }
       },
       {
@@ -1296,7 +1296,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.nftdrop.transfer",
           "python": "https://docs.thirdweb.com/python/erc721#transfer",
           "go": "https://docs.thirdweb.com/go/nft_drop#func-nftdrop-transfer",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.nftdrop.transfer"
         }
       }
     ],
@@ -1315,7 +1315,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.dropclaimconditions",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.dropclaimconditions"
         }
       },
       {
@@ -1332,7 +1332,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.delayedreveal",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.delayedreveal"
         }
       },
       {
@@ -1349,7 +1349,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractroyalty"
         }
       }
     ],
@@ -1383,7 +1383,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.editiondrop.burntokens",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.editiondrop.burntokens"
         }
       },
       {
@@ -1417,7 +1417,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.editiondrop.createbatch",
           "python": "https://docs.thirdweb.com/python/edition-drop#create_batch",
           "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-createbatch",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.editiondrop.createbatch"
         }
       },
       {
@@ -1451,7 +1451,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.editiondrop.getowned",
           "python": "https://docs.thirdweb.com/python/erc1155#get_owned",
           "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-getowned",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.editiondrop.getowned"
         }
       },
       {
@@ -1468,7 +1468,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc1155.airdrop",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc1155.airdrop"
         }
       },
       {
@@ -1502,7 +1502,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc1155.get",
           "python": "https://docs.thirdweb.com/python/erc1155#get",
           "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-get",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc1155.get"
         }
       },
       {
@@ -1519,7 +1519,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc1155.transfer",
           "python": "https://docs.thirdweb.com/python/erc1155#transfer",
           "go": "https://docs.thirdweb.com/go/edition_drop#func-editiondrop-transfer",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc1155.transfer"
         }
       }
     ],
@@ -1538,7 +1538,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.droperc1155claimconditions",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.droperc1155claimconditions"
         }
       },
       {
@@ -1555,7 +1555,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractroyalty"
         }
       }
     ],
@@ -1589,7 +1589,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplace.buyoutlisting",
           "python": "https://docs.thirdweb.com/python/marketplace#buyout_listing",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplace.buyoutlisting"
         }
       },
       {
@@ -1657,7 +1657,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplace.setbidbufferbps",
           "python": "https://docs.thirdweb.com/python/marketplace#set_bid_buffer_bps",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplace.setbidbufferbps"
         }
       },
       {
@@ -1674,7 +1674,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplace.settimebufferinseconds",
           "python": "https://docs.thirdweb.com/python/marketplace#set_time_buffer_in_seconds",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplace.settimebufferinseconds"
         }
       }
     ],
@@ -1693,7 +1693,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplaceauction",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplaceauction"
         }
       },
       {
@@ -1710,7 +1710,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacedirect",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplacedirect"
         }
       }
     ],
@@ -1739,7 +1739,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacedirect.acceptoffer",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplacedirect.acceptoffer"
         }
       },
       {
@@ -1773,7 +1773,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacedirect.cancellisting",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplacedirect.cancellisting"
         }
       },
       {
@@ -1790,7 +1790,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacedirect.createlisting",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplacedirect.createlisting"
         }
       },
       {
@@ -1807,7 +1807,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacedirect.makeoffer",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplacedirect.makeoffer"
         }
       }
     ],
@@ -1835,7 +1835,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplaceauction.buyoutlisting",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplaceauction.buyoutlisting"
         }
       },
       {
@@ -1852,7 +1852,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplaceauction.cancellisting",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplaceauction.cancellisting"
         }
       },
       {
@@ -1869,7 +1869,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplaceauction.closelisting",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplaceauction.closelisting"
         }
       },
       {
@@ -1886,7 +1886,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplaceauction.createlisting",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplaceauction.createlisting"
         }
       },
       {
@@ -1903,7 +1903,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplaceauction.getwinner",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplaceauction.getwinner"
         }
       },
       {
@@ -1968,7 +1968,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.split.balanceof",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.split.balanceof"
         }
       },
       {
@@ -1985,7 +1985,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.split.balanceoftoken",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.split.balanceoftoken"
         }
       },
       {
@@ -2002,7 +2002,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.split.distribute",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.split.distribute"
         }
       },
       {
@@ -2019,7 +2019,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.split.distributetoken",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.split.distributetoken"
         }
       },
       {
@@ -2036,7 +2036,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.split.getallrecipients",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.split.getallrecipients"
         }
       },
       {
@@ -2053,7 +2053,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.split.withdraw",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.split.withdraw"
         }
       }
     ],
@@ -2084,7 +2084,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.pack.create",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.pack.create"
         }
       },
       {
@@ -2101,7 +2101,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.pack.createto",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.pack.createto"
         }
       },
       {
@@ -2169,7 +2169,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.pack.getpackcontents",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.pack.getpackcontents"
         }
       },
       {
@@ -2186,7 +2186,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.pack.open",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.pack.open"
         }
       },
       {
@@ -2203,7 +2203,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc1155.airdrop",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc1155.airdrop"
         }
       },
       {
@@ -2254,7 +2254,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc1155.transfer",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc1155.transfer"
         }
       }
     ],
@@ -2273,7 +2273,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractroyalty"
         }
       }
     ],
@@ -2303,7 +2303,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.vote.canexecute",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.vote.canexecute"
         }
       },
       {
@@ -2320,7 +2320,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.vote.execute",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.vote.execute"
         }
       },
       {
@@ -2337,7 +2337,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.vote.getall",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.vote.getall"
         }
       },
       {
@@ -2354,7 +2354,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.vote.hasvoted",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.vote.hasvoted"
         }
       },
       {
@@ -2371,7 +2371,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.vote.propose",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.vote.propose"
         }
       },
       {
@@ -2388,7 +2388,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.vote.vote",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.vote.vote"
         }
       }
     ],
@@ -2421,7 +2421,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.multiwrap.getwrappedcontents",
           "python": "https://docs.thirdweb.com/python/multiwrap#get_wrapped_contents",
           "go": "https://docs.thirdweb.com/go/multiwrap#func-multiwrap-getwrappedcontents",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.multiwrap.getwrappedcontents"
         }
       },
       {
@@ -2438,7 +2438,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.multiwrap.unwrap",
           "python": "https://docs.thirdweb.com/python/multiwrap#unwrap",
           "go": "https://docs.thirdweb.com/go/multiwrap#func-multiwrap-unwrap",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.multiwrap.unwrap"
         }
       },
       {
@@ -2455,7 +2455,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.multiwrap.wrap",
           "python": "https://docs.thirdweb.com/python/multiwrap#wrap",
           "go": "https://docs.thirdweb.com/go/multiwrap#func-multiwrap-wrap",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.multiwrap.wrap"
         }
       },
       {
@@ -2523,7 +2523,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc721.getowned",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc721.getowned"
         }
       },
       {
@@ -2540,7 +2540,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc721.transfer",
           "python": "https://docs.thirdweb.com/python/erc721#transfer",
           "go": "https://docs.thirdweb.com/go/multiwrap#func-multiwrap-transfer",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc721.transfer"
         }
       }
     ],
@@ -2559,7 +2559,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractroyalty"
         }
       }
     ],
@@ -2588,7 +2588,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deployedition",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deployedition"
         }
       },
       {
@@ -2605,7 +2605,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deployeditiondrop",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deployeditiondrop"
         }
       },
       {
@@ -2622,7 +2622,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploymarketplace",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploymarketplace"
         }
       },
       {
@@ -2639,7 +2639,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploymultiwrap",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploymultiwrap"
         }
       },
       {
@@ -2656,7 +2656,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploynftcollection",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploynftcollection"
         }
       },
       {
@@ -2673,7 +2673,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploynftdrop",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploynftdrop"
         }
       },
       {
@@ -2690,7 +2690,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploypack",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploypack"
         }
       },
       {
@@ -2707,7 +2707,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploysignaturedrop",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploysignaturedrop"
         }
       },
       {
@@ -2724,7 +2724,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploysplit",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploysplit"
         }
       },
       {
@@ -2741,7 +2741,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploytoken",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploytoken"
         }
       },
       {
@@ -2758,7 +2758,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploytokendrop",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deploytokendrop"
         }
       },
       {
@@ -2775,7 +2775,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deployvote",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractdeployer.deployvote"
         }
       }
     ],
@@ -2803,7 +2803,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractevents.addeventlistener",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractevents.addeventlistener"
         }
       },
       {
@@ -2820,7 +2820,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractevents.addtransactionlistener",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractevents.addtransactionlistener"
         }
       },
       {
@@ -2837,7 +2837,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractevents.getallevents",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractevents.getallevents"
         }
       },
       {
@@ -2854,7 +2854,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractevents.getevents",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractevents.getevents"
         }
       },
       {
@@ -2871,7 +2871,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractevents.listentoallevents",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractevents.listentoallevents"
         }
       },
       {
@@ -2888,7 +2888,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractevents.removealllisteners",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractevents.removealllisteners"
         }
       },
       {
@@ -2905,7 +2905,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractevents.removeeventlistener",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractevents.removeeventlistener"
         }
       },
       {
@@ -2922,7 +2922,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractevents.removetransactionlistener",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractevents.removetransactionlistener"
         }
       }
     ],
@@ -2950,7 +2950,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.delayedreveal.createdelayedrevealbatch",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.delayedreveal.createdelayedrevealbatch"
         }
       },
       {
@@ -2967,7 +2967,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.delayedreveal.getbatchestoreveal",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.delayedreveal.getbatchestoreveal"
         }
       },
       {
@@ -2984,7 +2984,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.delayedreveal.reveal",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.delayedreveal.reveal"
         }
       }
     ],
@@ -3012,7 +3012,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.gascostestimator.currentgaspriceingwei",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.gascostestimator.currentgaspriceingwei"
         }
       },
       {
@@ -3029,7 +3029,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.gascostestimator.gascostof",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.gascostestimator.gascostof"
         }
       },
       {
@@ -3046,7 +3046,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.gascostestimator.gaslimitof",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.gascostestimator.gaslimitof"
         }
       }
     ],
@@ -3082,7 +3082,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractinterceptor.overridenexttransaction",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractinterceptor.overridenexttransaction"
         }
       }
     ],
@@ -3112,7 +3112,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractmetadata.get",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractmetadata.get"
         }
       },
       {
@@ -3129,7 +3129,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractmetadata.set",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractmetadata.set"
         }
       },
       {
@@ -3146,7 +3146,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractmetadata.update",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractmetadata.update"
         }
       }
     ],
@@ -3176,7 +3176,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.get",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractroles.get"
         }
       },
       {
@@ -3193,7 +3193,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.getall",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractroles.getall"
         }
       },
       {
@@ -3210,7 +3210,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.grant",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractroles.grant"
         }
       },
       {
@@ -3227,7 +3227,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.revoke",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractroles.revoke"
         }
       },
       {
@@ -3244,7 +3244,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroles.setall",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractroles.setall"
         }
       }
     ],
@@ -3275,7 +3275,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.signaturedrop.burn",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.signaturedrop.burn"
         }
       },
       {
@@ -3309,7 +3309,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.signaturedrop.createbatch",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.signaturedrop.createbatch"
         }
       },
       {
@@ -3462,7 +3462,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.standarderc721.transfer",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.standarderc721.transfer"
         }
       }
     ],
@@ -3481,7 +3481,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.dropclaimconditions",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.dropclaimconditions"
         }
       },
       {
@@ -3498,7 +3498,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.delayedreveal",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.delayedreveal"
         }
       },
       {
@@ -3515,7 +3515,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.contractroyalty",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.contractroyalty"
         }
       },
       {
@@ -3532,7 +3532,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.erc721withquantitysignaturemintable",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.erc721withquantitysignaturemintable"
         }
       }
     ],
@@ -3593,7 +3593,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.walletauthenticator.authenticate",
           "python": "https://docs.thirdweb.com/python/wallet-authenticator#authenticate",
           "go": "https://docs.thirdweb.com/go/wallet_authenticator#func-walletauthenticator-authenticate",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.walletauthenticator.authenticate"
         }
       },
       {
@@ -3610,7 +3610,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.walletauthenticator.generateauthtoken",
           "python": "https://docs.thirdweb.com/python/wallet-authenticator#generate_auth_token",
           "go": "https://docs.thirdweb.com/go/wallet_authenticator#func-walletauthenticator-generateauthtoken",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.walletauthenticator.generateauthtoken"
         }
       },
       {
@@ -3627,7 +3627,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.walletauthenticator.login",
           "python": "https://docs.thirdweb.com/python/wallet-authenticator#login",
           "go": "https://docs.thirdweb.com/go/wallet_authenticator#func-walletauthenticator-login",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.walletauthenticator.login"
         }
       },
       {
@@ -3644,7 +3644,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.walletauthenticator.verify",
           "python": "https://docs.thirdweb.com/python/wallet-authenticator#verify",
           "go": "https://docs.thirdweb.com/go/wallet_authenticator#func-walletauthenticator-verify",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.walletauthenticator.verify"
         }
       }
     ],
@@ -3676,7 +3676,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.userwallet.balance",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.userwallet.balance"
         }
       },
       {
@@ -3710,7 +3710,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.userwallet.recoveraddress",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.userwallet.recoveraddress"
         }
       },
       {
@@ -3727,7 +3727,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.userwallet.sign",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.userwallet.sign"
         }
       },
       {
@@ -3744,7 +3744,7 @@
           "javascript": "https://docs.thirdweb.com/typescript/sdk.userwallet.transfer",
           "python": "",
           "go": "",
-          "react": ""
+          "react": "https://docs.thirdweb.com/typescript/sdk.userwallet.transfer"
         }
       }
     ],

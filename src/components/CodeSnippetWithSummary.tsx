@@ -9,6 +9,9 @@ type Props = {
   isGetContractCode: boolean;
   showHr: boolean;
   dontShowSummary: boolean;
+  snippetOverrides: {
+    [key: string]: string;
+  };
 };
 
 export default function CodeSnippetWithSummary({
@@ -18,6 +21,7 @@ export default function CodeSnippetWithSummary({
   isGetContractCode = false,
   showHr = true,
   dontShowSummary = false,
+  snippetOverrides = {},
 }: Props) {
   return (
     <>
@@ -37,6 +41,7 @@ export default function CodeSnippetWithSummary({
         isFeatureSnippet={isFeatureSnippet}
         isGetContractCode={isGetContractCode}
         showHr={showHr}
+        snippetOverrides={snippetOverrides}
       />
     </>
   );
