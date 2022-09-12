@@ -40,7 +40,7 @@ ADMIN_PRIVATE_KEY=your-private-key-here
 
 It is not secure to store your private key in an environment variable.
 
-[Learn how to use a secret manager as we recommend here](/sdk/set-up-the-sdk/securing-your-private-key)
+[Learn how to use a secret manager as we recommend here](/sdk/set-up-the-sdk/securing-your-private-key).
 
 :::
 
@@ -53,9 +53,10 @@ import GoogleProvider from "next-auth/providers/google";
 import { ThirdwebNextAuth } from "@thirdweb-dev/auth/next-auth";
 
 export const { NextAuthHandler, getUser } = ThirdwebNextAuth({
-  // Add the private key we want to use to validate wallet login
+  // Learn how to store your private key securely:
+  // https://portal.thirdweb.com/sdk/set-up-the-sdk/securing-your-private-key
   privateKey: process.env.ADMIN_PRIVATE_KEY || "",
-  // Configure the domain we want to use for login (must match the domain used on the frontend)
+  // Set this to your domain to prevent signature malleability attacks.
   domain: "example.com",
   // And we can add in any additional next auth configuration we want to use
   nextOptions: {
@@ -160,7 +161,7 @@ const Home = () => {
   const connect = useMetamask();
 
   const loginWithWallet = async () => {
-    // We use the sdk.auth.login function and pass in the proper domain configured on the backend
+    // Set this to your domain to prevent signature malleability attacks.
     const domain = "example.com";
     const payload = await sdk?.auth.login(domain);
     // And then we pass it into the next-auth signIn function
