@@ -39,7 +39,7 @@ In this file, we configure:
 <ThirdwebProvider
   desiredChainId={activeChainId}
   authConfig={{
-    domain: "localhost:3000",
+    domain: "example.com",
     authUrl: "/api/auth",
     loginRedirect: "/",
   }}
@@ -67,7 +67,7 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
   // https://portal.thirdweb.com/sdk/set-up-the-sdk/securing-your-private-key
   privateKey: process.env.ADMIN_PRIVATE_KEY,
   // Set this to your domain to prevent signature malleability attacks.
-  domain: "http://localhost:3000",
+  domain: "example.com",
 });
 
 export default ThirdwebAuthHandler();
