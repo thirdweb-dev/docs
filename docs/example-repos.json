@@ -13,6 +13,19 @@
     "homepage": null
   },
   {
+    "name": "burn1155-mint721",
+    "html_url": "https://github.com/thirdweb-example/burn1155-mint721",
+    "description": "Similar to the MAYC collection, allow users who hold an NFT from your original NFT Collection to burn an ERC-1155 NFT collection to claim an NFT from your new NFT Collection!",
+    "created_at": "2022-09-12T11:18:00Z",
+    "updated_at": "2022-09-12T11:46:15Z",
+    "clone_url": "https://github.com/thirdweb-example/burn1155-mint721.git",
+    "topics": [],
+    "language": "Solidity",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "community-rewards",
     "html_url": "https://github.com/thirdweb-example/community-rewards",
     "description": "Reward your community using NFTs and thirdweb's signature based minting.",
@@ -224,13 +237,13 @@
     "html_url": "https://github.com/thirdweb-example/firebase-auth",
     "description": "Integrate sign in with Ethereum using thirdweb Auth into your Firebase application",
     "created_at": "2022-09-09T03:34:01Z",
-    "updated_at": "2022-09-10T23:43:09Z",
+    "updated_at": "2022-09-12T16:20:33Z",
     "clone_url": "https://github.com/thirdweb-example/firebase-auth.git",
     "topics": [
       "auth"
     ],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://firebase-auth.thirdweb-example.com/"
   },
@@ -252,11 +265,11 @@
     "html_url": "https://github.com/thirdweb-example/github-contributor-nft-rewards",
     "description": "Use signature-based minting to allow users who have contributed to your github repositories to claim an NFT!",
     "created_at": "2022-08-29T23:19:26Z",
-    "updated_at": "2022-08-31T07:48:05Z",
+    "updated_at": "2022-09-12T07:09:11Z",
     "clone_url": "https://github.com/thirdweb-example/github-contributor-nft-rewards.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": "github-contributor-nft-rewards.vercel.app"
   },
@@ -686,13 +699,13 @@
     "html_url": "https://github.com/thirdweb-example/todo-list",
     "description": "Build a simple todo list by building and interacting with a smart contract!",
     "created_at": "2022-09-12T01:57:30Z",
-    "updated_at": "2022-09-12T01:57:30Z",
+    "updated_at": "2022-09-12T07:17:38Z",
     "clone_url": "https://github.com/thirdweb-example/todo-list.git",
     "topics": [],
-    "language": null,
-    "stargazers_count": 0,
+    "language": "TypeScript",
+    "stargazers_count": 1,
     "is_template": false,
-    "homepage": null
+    "homepage": "https://todo-list.thirdweb-example.com/"
   },
   {
     "name": "token-drop",
