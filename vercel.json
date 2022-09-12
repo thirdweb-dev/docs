@@ -413,6 +413,10 @@
     {
       "source": "/sdk/switching-networks",
       "destination": "/react/react.usenetwork"
+    },
+    {
+      "source": "/contracts/signature-drop",
+      "destination": "/pre-built-contracts/signature-drop"
     }
   ]
 }
