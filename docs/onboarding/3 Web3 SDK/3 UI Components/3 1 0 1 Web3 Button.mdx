@@ -51,7 +51,7 @@ import { Web3Button } from "@thirdweb-dev/react";
   contractAddress="0x424037abd63d32595bD843791ab015C31c87Cb6d"
   // Access the contract itself, perform any action you want on it:
   action={(contract) =>
-    contract.nft.mint.to(address, {
+    contract.erc721.mint({
       name: "Hello world!",
       // This way, you get the benefits of the SDK
       // Image can be of type File, or any url that points to a file.
