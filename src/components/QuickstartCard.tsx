@@ -70,7 +70,7 @@ export default function QuickstartCard({
             <img
               src={image}
               style={{
-                width: "36px",
+                maxHeight: "36px",
                 marginRight: 12,
                 pointerEvents: "none",
               }}
