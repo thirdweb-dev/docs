@@ -17,7 +17,7 @@ Use this to transfer tokens on your
 
 ```jsx
 const Component = () => {
-  const editionDrop = await useEditionDrop(<ContractAddress>);
+  const editionDrop = useEditionDrop(<ContractAddress>);
   const {
     mutate: airdropNFT,
     isLoading,

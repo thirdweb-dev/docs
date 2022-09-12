@@ -17,7 +17,7 @@ Hook for getting an instance of an `NFTCollection` contract. This contract is me
 import { useNFTCollection } from '@thirdweb-dev/react'
 
 export default function Component() {
-  const nftCollection = await useNFTCollection("<YOUR-CONTRACT-ADDRESS>")
+  const nftCollection = useNFTCollection("<YOUR-CONTRACT-ADDRESS>")
 
   // Now you can use the nftCollection contract in the rest of the component
 

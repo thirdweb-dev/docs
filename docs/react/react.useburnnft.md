@@ -17,7 +17,7 @@ Use this to burn an NFT on your [Erc721OrErc1155](./react.erc721orerc1155.md)
 
 ```jsx
 const Component = () => {
-  const nftDrop = await useNFTDrop(<ContractAddress>);
+  const nftDrop = useNFTDrop(<ContractAddress>);
   const {
     mutate: burnNft,
     isLoading,
