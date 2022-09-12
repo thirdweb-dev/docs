@@ -133,7 +133,12 @@ const snippets = CLASSES.reduce((acc, contractName) => {
           goExample?.methods?.find(
             (m) => m.name.toLowerCase() === method.name.toLowerCase(),
           )?.reference || "",
-        react: createReactSnippet(contractName, method.name).reference || ``,
+        react:
+          createReactSnippet(contractName, method.name).reference ||
+          tsExample?.methods
+            ?.find((m) => m.name.toLowerCase() === method.name.toLowerCase())
+            ?.reference?.toLowerCase() ||
+          "",
       },
     })) || [];
 
@@ -188,7 +193,12 @@ const snippets = CLASSES.reduce((acc, contractName) => {
           goExample?.properties?.find(
             (p) => p.name.toLowerCase() === property.name.toLowerCase(),
           )?.reference || "",
-        react: createReactSnippet(contractName, property.name).reference || ``,
+        react:
+          createReactSnippet(contractName, property.name).reference ||
+          tsExample?.properties
+            ?.find((p) => p.name.toLowerCase() === property.name.toLowerCase())
+            ?.reference?.toLowerCase() ||
+          "",
       },
     })) || [];
 

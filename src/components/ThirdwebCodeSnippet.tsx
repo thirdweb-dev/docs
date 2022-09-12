@@ -13,6 +13,7 @@ export default function ThirdwebCodeSnippet({
   showHr = true,
   groupId = "thirdweb-code-snippet",
   languages = {},
+  snippetOverrides,
 }) {
   const languagesToShow = {
     react: true,
@@ -117,7 +118,7 @@ export default function ThirdwebCodeSnippet({
           return (
             <TabItem key={language} value={language} label={languageName}>
               <CodeBlock language={languageToHighlightMapping[language]}>
-                {example}
+                {snippetOverrides?.[language] || example}
               </CodeBlock>
 
               {reference && (

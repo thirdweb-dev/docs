@@ -405,6 +405,14 @@
     {
       "source": "/cli",
       "destination": "https://github.com/thirdweb-dev/thirdweb-cli"
+    },
+    {
+      "source": "/sdk/connecting-to-a-wallet",
+      "destination": "/sdk/ui-components/connectwalletbutton"
+    },
+    {
+      "source": "/sdk/switching-networks",
+      "destination": "/react/react.usenetwork"
     }
   ]
 }

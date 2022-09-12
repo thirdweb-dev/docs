@@ -288,6 +288,20 @@ const reactMapping = {
       getAddress: "useAddress",
     },
   },
+  ThirdwebSDK: {
+    mainHook: "useContract",
+    subHooks: {
+      // methods
+      getContract: "useContract",
+    },
+  },
+  SmartContract: {
+    mainHook: "useContract",
+    subHooks: {
+      // methods
+      call: "useContractCall",
+    },
+  },
 };
 
 export default function createReactSnippet(contractName, methodName) {
