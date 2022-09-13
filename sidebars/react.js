@@ -388,12 +388,12 @@ const sidebars = {
             {
               type: "doc",
               label: "Read a Contract's View/Mapping",
-              id: "react.usecontractdata",
+              id: "react.usecontractread",
             },
             {
               type: "doc",
               label: "Read All Contract Events",
-              id: "react.useallcontractevents",
+              id: "react.usecontractevents",
             },
             {
               type: "doc",
@@ -419,7 +419,7 @@ const sidebars = {
             {
               type: "doc",
               label: "Call a Contract's Function",
-              id: "react.usecontractcall",
+              id: "react.usecontractwrite",
             },
           ],
         },
