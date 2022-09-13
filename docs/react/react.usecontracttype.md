@@ -9,52 +9,36 @@ displayed_sidebar: react
 
 ## useContractType() function
 
-> This feature is currently in beta and may change based on feedback that we receive.
-
-Use this to get the contract type for a (built-in or custom) contract.
-
-## Example
-
-```javascript
-const {
-  data: contractType,
-  isLoading,
-  error,
-} = useContractType("{{contract_address}}");
-```
-
 **Signature:**
 
 ```typescript
 export declare function useContractType(
   contractAddress: RequiredParam<ContractAddress>,
-): import("@tanstack/react-query").UseQueryResult<
+): UseQueryResult<
   | "split"
   | "custom"
-  | "nft-drop"
-  | "signature-drop"
-  | "nft-collection"
   | "edition-drop"
   | "edition"
+  | "marketplace"
+  | "multiwrap"
+  | "nft-collection"
+  | "nft-drop"
+  | "pack"
+  | "signature-drop"
   | "token-drop"
   | "token"
   | "vote"
-  | "marketplace"
-  | "pack"
-  | "multiwrap"
-  | undefined,
+  | null,
   unknown
 >;
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                                                           | Description                          |
-| --------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------ |
-| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;[ContractAddress](./react.contractaddress.md)&gt; | the address of the deployed contract |
+| Parameter       | Type                                                                                           | Description |
+| --------------- | ---------------------------------------------------------------------------------------------- | ----------- |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;[ContractAddress](./react.contractaddress.md)&gt; |             |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;"split" \| "custom" \| "nft-drop" \| "signature-drop" \| "nft-collection" \| "edition-drop" \| "edition" \| "token-drop" \| "token" \| "vote" \| "marketplace" \| "pack" \| "multiwrap" \| undefined, unknown&gt;
-
-a response object that includes the contract type of the contract
+UseQueryResult&lt;"split" \| "custom" \| "edition-drop" \| "edition" \| "marketplace" \| "multiwrap" \| "nft-collection" \| "nft-drop" \| "pack" \| "signature-drop" \| "token-drop" \| "token" \| "vote" \| null, unknown&gt;

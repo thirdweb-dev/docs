@@ -23,7 +23,7 @@ const { data: platformFees, isLoading, error } = usePlatformFees(SmartContract);
 
 ```typescript
 export declare function usePlatformFees(
-  contract: RequiredParam<SmartContract | ValidContractInstance>,
+  contract: RequiredParam<ValidContractInstance>,
 ): import("@tanstack/react-query").UseQueryResult<
   {
     platform_fee_basis_points: number;
@@ -35,9 +35,9 @@ export declare function usePlatformFees(
 
 ## Parameters
 
-| Parameter | Type                                                                                        | Description      |
-| --------- | ------------------------------------------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
+| Parameter | Type                                                                   | Description      |
+| --------- | ---------------------------------------------------------------------- | ---------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;ValidContractInstance&gt; | an instance of a |
 
 **Returns:**
 

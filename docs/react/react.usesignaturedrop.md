@@ -37,7 +37,7 @@ use `useContract()` instead
 ```typescript
 export declare function useSignatureDrop(
   contractAddress?: string,
-): import("@thirdweb-dev/sdk").SignatureDrop | undefined;
+): SignatureDropImpl | undefined;
 ```
 
 ## Parameters
@@ -48,4 +48,4 @@ export declare function useSignatureDrop(
 
 **Returns:**
 
-import("@thirdweb-dev/sdk").SignatureDrop \| undefined
+SignatureDropImpl \| undefined

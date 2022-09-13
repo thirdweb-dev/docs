@@ -38,7 +38,7 @@ use `useContract()` instead
 ```typescript
 export declare function useMarketplace(
   contractAddress?: string,
-): import("@thirdweb-dev/sdk").Marketplace | undefined;
+): MarketplaceImpl | undefined;
 ```
 
 ## Parameters
@@ -49,4 +49,4 @@ export declare function useMarketplace(
 
 **Returns:**
 
-import("@thirdweb-dev/sdk").Marketplace \| undefined
+MarketplaceImpl \| undefined

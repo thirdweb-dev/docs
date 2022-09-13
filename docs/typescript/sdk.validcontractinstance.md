@@ -12,7 +12,9 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type ValidContractInstance = Instance<ValidContractClass>;
+export declare type ValidContractInstance =
+  | Awaited<ReturnType<ContractsMap[keyof PrebuiltContractsMap]["initialize"]>>
+  | SmartContract;
 ```
 
-**References:** [ValidContractClass](./sdk.validcontractclass.md)
+**References:** [ContractsMap](./sdk.contractsmap.md), [PrebuiltContractsMap](./sdk.prebuiltcontractsmap.md)

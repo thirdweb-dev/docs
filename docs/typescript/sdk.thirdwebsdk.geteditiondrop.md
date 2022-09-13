@@ -14,7 +14,7 @@ Get an instance of a Edition Drop contract
 **Signature:**
 
 ```typescript
-getEditionDrop(address: string): Promise<EditionDrop>;
+getEditionDrop(address: string): Promise<import("../contracts/prebuilt-implementations/edition-drop").EditionDropImpl>;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ getEditionDrop(address: string): Promise<EditionDrop>;
 
 **Returns:**
 
-Promise&lt;[EditionDrop](./sdk.editiondrop.md)&gt;
+Promise&lt;import("../contracts/prebuilt-implementations/edition-drop").EditionDropImpl&gt;
 
 the contract

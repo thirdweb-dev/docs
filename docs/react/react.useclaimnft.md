@@ -45,16 +45,9 @@ const Component = () => {
 export declare function useClaimNFT<TContract extends DropContract>(
   contract: RequiredParam<TContract>,
 ): import("@tanstack/react-query").UseMutationResult<
-  | Omit<
-      {
-        receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
-        data: () => Promise<unknown>;
-      },
-      "data"
-    >
-  | ClaimNFTReturnType<TContract>,
+  ClaimNFTReturnType,
   unknown,
-  ClaimNFTParams<TContract>,
+  ClaimNFTParams,
   unknown
 >;
 ```
@@ -67,6 +60,6 @@ export declare function useClaimNFT<TContract extends DropContract>(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt; \| [ClaimNFTReturnType](./react.claimnftreturntype.md)&lt;TContract&gt;, unknown, [ClaimNFTParams](./react.claimnftparams.md)&lt;TContract&gt;, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;[ClaimNFTReturnType](./react.claimnftreturntype.md), unknown, [ClaimNFTParams](./react.claimnftparams.md), unknown&gt;
 
 a mutation object that can be used to claim a NFT to the wallet specificed in the params

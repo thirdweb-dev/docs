@@ -13,7 +13,7 @@ displayed_sidebar: react
 
 ```typescript
 export declare function getErcs(
-  contract: RequiredParam<ValidContractInstance | SmartContract | null>,
+  contract: RequiredParam<ValidContractInstance | null>,
 ): {
   erc1155:
     | Erc1155<
@@ -37,9 +37,9 @@ export declare function getErcs(
 
 ## Parameters
 
-| Parameter | Type                                                                                                    | Description |
-| --------- | ------------------------------------------------------------------------------------------------------- | ----------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;ValidContractInstance &#124; SmartContract &#124; null&gt; |             |
+| Parameter | Type                                                                               | Description |
+| --------- | ---------------------------------------------------------------------------------- | ----------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;ValidContractInstance &#124; null&gt; |             |
 
 **Returns:**
 

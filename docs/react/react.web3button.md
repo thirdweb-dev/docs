@@ -37,7 +37,6 @@ const App = () => {
 ```typescript
 Web3Button: <TAction extends ActionFn>({
   contractAddress,
-  overrides,
   onSuccess,
   onError,
   onSubmit,

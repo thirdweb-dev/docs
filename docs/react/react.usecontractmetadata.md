@@ -16,38 +16,25 @@ Use this to get the contract metadata for a (built-in or custom) contract.
 ## Example
 
 ```javascript
-const {
-  data: contractMetadata,
-  isLoading,
-  error,
-} = useContractMetadata("{{contract_address}}");
+const { data: contractMetadata, isLoading, error } = useContractMetadata(>);
 ```
 
 **Signature:**
 
 ```typescript
 export declare function useContractMetadata(
-  contractAddress: RequiredParam<ContractAddress>,
-): import("@tanstack/react-query").UseQueryResult<
-  {
-    [x: string]: import("@thirdweb-dev/sdk").Json;
-    description?: string | undefined;
-    image?: any;
-    external_link?: string | undefined;
-    name: string;
-  },
-  unknown
->;
+  contract: RequiredParam<ValidContractInstance>,
+): UseQueryResult<any, unknown>;
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                                                           | Description                          |
-| --------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------ |
-| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;[ContractAddress](./react.contractaddress.md)&gt; | the address of the deployed contract |
+| Parameter | Type                                                                   | Description                                          |
+| --------- | ---------------------------------------------------------------------- | ---------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;ValidContractInstance&gt; | the instance of the contract to get the metadata for |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/sdk").Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
+UseQueryResult&lt;any, unknown&gt;
 
 a response object that includes the contract metadata of the deployed contract

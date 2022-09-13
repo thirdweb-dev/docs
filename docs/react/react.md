@@ -27,7 +27,6 @@ import { useAddress } from "@thirdweb-dev/react";
 
 |
 | [useAirdropNFT(contract)](./react.useairdropnft.md) | **<i>(BETA)</i>** Use this to transfer tokens on your |
-| [useAllContractEvents(contract, options)](./react.useallcontractevents.md) | **<i>(BETA)</i>** Use this to query (and subscribe) to all events on a contract. |
 | [useAllRoleMembers(contract)](./react.useallrolemembers.md) | **<i>(BETA)</i>** Use this to get the roles of a |
 | [useAuctionWinner(contract, listingId)](./react.useauctionwinner.md) | **<i>(BETA)</i>** Use this to get the winner of an auction listing from your marketplace contract. |
 | [useBalance(tokenAddress)](./react.usebalance.md) | **<i>(BETA)</i>** A hook to get the native or (optional) ERC20 token balance of the connected wallet. |
@@ -36,6 +35,7 @@ import { useAddress } from "@thirdweb-dev/react";
 | [useBurnNFT(contract)](./react.useburnnft.md) | **<i>(BETA)</i>** Use this to burn an NFT on your [Erc721OrErc1155](./react.erc721orerc1155.md) |
 | [useBurnToken(contract)](./react.useburntoken.md) | **<i>(BETA)</i>** Use this to burn tokens on your contract |
 | [useBuyNow(contract)](./react.usebuynow.md) | **<i>(BETA)</i>** Use this to buy out an auction listing from your marketplace contract. |
+| [useCancelListing(contract)](./react.usecancellisting.md) | **<i>(BETA)</i>** Use this to cancel a listing on your marketplace contract. |
 | [useChainId()](./react.usechainid.md) | <p>Hook for accessing the chain ID of the network the current wallet is connected to</p>
 
 ```javascript
@@ -56,13 +56,13 @@ import { useCoinbaseWallet } from "@thirdweb-dev/react";
 ```
 
 |
-| [useContract(contractAddress)](./react.usecontract.md) | Use this resolve a contract address to a smart contract instance. |
-| [useContractCall(contract, functionName)](./react.usecontractcall.md) | **<i>(BETA)</i>** Use this to get a function to make a write call to your contract |
-| [useContractCompilerMetadata(contractAddress)](./react.usecontractcompilermetadata.md) | **<i>(BETA)</i>** Use this to get the publish metadata for a deployed contract. |
-| [useContractData(contract, functionName, args)](./react.usecontractdata.md) | **<i>(BETA)</i>** Use this to get data from a contract read-function call. |
-| [useContractEvents(contract, eventName, options)](./react.usecontractevents.md) | **<i>(BETA)</i>** Use this to query (and subscribe) to a specific event on a contract. |
-| [useContractMetadata(contractAddress)](./react.usecontractmetadata.md) | **<i>(BETA)</i>** Use this to get the contract metadata for a (built-in or custom) contract. |
-| [useContractType(contractAddress)](./react.usecontracttype.md) | **<i>(BETA)</i>** Use this to get the contract type for a (built-in or custom) contract. |
+| [useCompilerMetadata(contractAddress)](./react.usecompilermetadata.md) | |
+| [useContract(contractAddress)](./react.usecontract.md) | |
+| [useContractEvents(contract, eventName, options)](./react.usecontractevents.md) | **<i>(BETA)</i>** Use this to query (and subscribe) to events or a specific event on a contract. |
+| [useContractMetadata(contract)](./react.usecontractmetadata.md) | **<i>(BETA)</i>** Use this to get the contract metadata for a (built-in or custom) contract. |
+| [useContractRead(contract, functionName, args)](./react.usecontractread.md) | **<i>(BETA)</i>** Use this to get data from a contract read-function call. |
+| [useContractType(contractAddress)](./react.usecontracttype.md) | |
+| [useContractWrite(contract, functionName)](./react.usecontractwrite.md) | **<i>(BETA)</i>** Use this to get a function to make a write call to your contract |
 | [useCreateAuctionListing(contract)](./react.usecreateauctionlisting.md) | **<i>(BETA)</i>** Use this to create a new Auction Listing on your marketplace contract. |
 | [useCreateDirectListing(contract)](./react.usecreatedirectlisting.md) | **<i>(BETA)</i>** Use this to create a new Direct Listing on your marketplace contract. |
 | [useDelayedRevealLazyMint(contract, onProgress)](./react.usedelayedreveallazymint.md) | **<i>(BETA)</i>** Use this to lazy mint a batch of delayed reveal NFTs on your [DropContract](./react.dropcontract.md) |
@@ -87,6 +87,7 @@ import { useGnosis } from "@thirdweb-dev/react";
 | [useLazyMint(contract, onProgress)](./react.uselazymint.md) | **<i>(BETA)</i>** Use this to lazy mint a batch of NFTs on your [DropContract](./react.dropcontract.md) |
 | [useListing(contract, listingId)](./react.uselisting.md) | **<i>(BETA)</i>** Use this to get a specific listing from the marketplace. |
 | [useListings(contract, filter)](./react.uselistings.md) | **<i>(BETA)</i>** Use this to get a list all listings from your marketplace contract. |
+| [useListingsCount(contract)](./react.uselistingscount.md) | **<i>(BETA)</i>** Use this to get a count of all listings on your marketplace contract. |
 | [useLogin(config)](./react.uselogin.md) | **<i>(BETA)</i>** Hook to securely login to a backend with the connected wallet. The backend authentication URL must be configured on the ThirdwebProvider. |
 | [useLogout()](./react.uselogout.md) | **<i>(BETA)</i>** Hook to logout the connected wallet from the backend. The backend logout URL must be configured on the ThirdwebProvider. |
 | [useMagic()](./react.usemagic.md) | <p>Hook for connecting to an email wallet using magic link. This enables users without their own wallets to connect to your application and sign transactions securely using their email.</p>
@@ -185,7 +186,9 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 
 | Variable                                              | Description                                                                                                                                                                                                                                                                                                                                             |
 | ----------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [compilerMetadata](./react.compilermetadata.md)       |                                                                                                                                                                                                                                                                                                                                                         |
 | [ConnectWallet](./react.connectwallet.md)             | <p>**<i>(BETA)</i>** A component that allows the user to connect their wallet.</p><p>The button has to be wrapped in a <code>ThirdwebProvider</code> in order to function.</p>                                                                                                                                                                          |
+| [contractType](./react.contracttype.md)               |                                                                                                                                                                                                                                                                                                                                                         |
 | [MediaRenderer](./react.mediarenderer.md)             | <p>This component can be used to render any media type, including image, audio, video, and html files. Its convenient for rendering NFT media files, as these can be a variety of different types. The component falls back to a external link if the media type is not supported.</p><p>Props: [MediaRendererProps](./react.mediarendererprops.md)</p> |
 | [ThirdwebNftMedia](./react.thirdwebnftmedia.md)       | **<i>(BETA)</i>**                                                                                                                                                                                                                                                                                                                                       |
 | [ThirdwebProvider](./react.thirdwebprovider.md)       | The <code>&lt;ThirdwebProvider /&gt;</code> component lets you control what networks you want users to connect to, what types of wallets can connect to your app, and the settings for the \[Typescript SDK\](https://docs.thirdweb.com/typescript).                                                                                                    |
@@ -220,4 +223,5 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 | [TokenBurnParams](./react.tokenburnparams.md)                       | **<i>(BETA)</i>** The parameters to pass to the burn function.                                                                                              |
 | [TokenParams](./react.tokenparams.md)                               | **<i>(BETA)</i>** The parameters to pass to the mint and transfer functions.                                                                                |
 | [TransferNFTParams](./react.transfernftparams.md)                   | **<i>(BETA)</i>** The params to pass to <code>useTransferNFT</code>.                                                                                        |
+| [UseContractResult](./react.usecontractresult.md)                   |                                                                                                                                                             |
 | [WalletAddress](./react.walletaddress.md)                           | **<i>(BETA)</i>** A wallet address.                                                                                                                         |

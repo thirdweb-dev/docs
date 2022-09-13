@@ -49,7 +49,7 @@ const Component = () => {
 
 ```typescript
 export declare function useUpdatePlatformFees(
-  contract: RequiredParam<SmartContract | ValidContractInstance>,
+  contract: RequiredParam<ValidContractInstance>,
 ): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
@@ -69,9 +69,9 @@ export declare function useUpdatePlatformFees(
 
 ## Parameters
 
-| Parameter | Type                                                                                        | Description      |
-| --------- | ------------------------------------------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
+| Parameter | Type                                                                   | Description      |
+| --------- | ---------------------------------------------------------------------- | ---------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;ValidContractInstance&gt; | an instance of a |
 
 **Returns:**
 

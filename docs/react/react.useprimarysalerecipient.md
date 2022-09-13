@@ -27,15 +27,15 @@ Use this to get the primary sales recipient of your
 
 ```typescript
 export declare function usePrimarySaleRecipient(
-  contract: RequiredParam<SmartContract | ValidContractInstance>,
+  contract: RequiredParam<ValidContractInstance>,
 ): import("@tanstack/react-query").UseQueryResult<string, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                                                        | Description      |
-| --------- | ------------------------------------------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
+| Parameter | Type                                                                   | Description      |
+| --------- | ---------------------------------------------------------------------- | ---------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;ValidContractInstance&gt; | an instance of a |
 
 **Returns:**
 

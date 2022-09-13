@@ -23,26 +23,23 @@ const { data: listings, isLoading, error } = useListings(<YourMarketplaceContrac
 
 ```typescript
 export declare function useListings(
-  contract: RequiredParam<Marketplace>,
+  contract: RequiredParam<MarketplaceImpl>,
   filter?: MarketplaceFilter,
 ): import("@tanstack/react-query").UseQueryResult<
-  (
-    | import("@thirdweb-dev/sdk").AuctionListing
-    | import("@thirdweb-dev/sdk").DirectListing
-  )[],
+  (AuctionListing | DirectListing)[],
   unknown
 >;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                         | Description                                                                              |
-| --------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a marketplace contract                                                    |
-| filter    | MarketplaceFilter                                            | <i>(Optional)</i> filter to pass to the query for the sake of pagination &amp; filtering |
+| Parameter | Type                                                             | Description                                                                              |
+| --------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;MarketplaceImpl&gt; | an instance of a marketplace contract                                                    |
+| filter    | MarketplaceFilter                                                | <i>(Optional)</i> filter to pass to the query for the sake of pagination &amp; filtering |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;(import("@thirdweb-dev/sdk").AuctionListing \| import("@thirdweb-dev/sdk").DirectListing)\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;(AuctionListing \| DirectListing)\[\], unknown&gt;
 
 a response object that includes an array of listings

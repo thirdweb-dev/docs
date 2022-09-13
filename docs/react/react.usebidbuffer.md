@@ -23,15 +23,15 @@ const { data: auctionWinner, isLoading, error } = useBidBuffer(<YourMarketplaceC
 
 ```typescript
 export declare function useBidBuffer(
-  contract: RequiredParam<Marketplace>,
+  contract: RequiredParam<MarketplaceImpl>,
 ): import("@tanstack/react-query").UseQueryResult<BigNumber, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                         | Description                           |
-| --------- | ------------------------------------------------------------ | ------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a marketplace contract |
+| Parameter | Type                                                             | Description                           |
+| --------- | ---------------------------------------------------------------- | ------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;MarketplaceImpl&gt; | an instance of a marketplace contract |
 
 **Returns:**
 

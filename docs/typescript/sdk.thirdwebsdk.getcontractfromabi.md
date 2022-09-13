@@ -41,6 +41,6 @@ getContractFromAbi(address: string, abi: ContractInterface): SmartContract<ether
 
 **Returns:**
 
-[SmartContract](./sdk.smartcontract.md)&lt;ethers.BaseContract&gt;
+SmartContract&lt;ethers.BaseContract&gt;
 
 the contract

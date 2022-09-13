@@ -14,5 +14,5 @@ The minimum amount in governance token owned to be able to create a proposal
 **Signature:**
 
 ```typescript
-proposal_token_threshold?: BigNumberish;
+proposal_token_threshold?: Exclude<BigNumberish, Bytes>;
 ```

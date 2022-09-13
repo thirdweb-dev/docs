@@ -34,8 +34,6 @@ You can try switching out the `src` prop to different types of URLs and media ty
 
 ```typescript
 MediaRenderer: React.ForwardRefExoticComponent<
-  MediaRendererProps & {
-    children?: React.ReactNode;
-  } & React.RefAttributes<HTMLMediaElement>
+  MediaRendererProps & React.RefAttributes<HTMLMediaElement>
 >;
 ```
