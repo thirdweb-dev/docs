@@ -21,7 +21,7 @@ Learn how to interact with your [Token Drop](/pre-built-contracts/token-drop) co
 To start using your Token Drop contract inside your application, you need to use its contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <CodeSnippetWithSummary
-  contract={"TokenDrop"}
+  contract={"TokenDropImpl"}
   name={"initializing the SDK"}
   isGetContractCode
   dontShowSummary
@@ -29,14 +29,14 @@ To start using your Token Drop contract inside your application, you need to use
 
 ## Setting Claim Phases
 
-<CodeSnippetWithSummary contract={"TokenDrop"} name={"claimConditions"} />
+<CodeSnippetWithSummary contract={"TokenDropImpl"} name={"claimConditions"} />
 
 ## Claiming Tokens
 
 Your users can claim tokens if their wallet address meets the criteria included in the current claim phase.
 
 <CodeSnippetWithSummary
-  contract={"TokenDrop"}
+  contract={"TokenDropImpl"}
   name={"claimTo"}
   dontShowSummary
 />
@@ -46,7 +46,7 @@ Your users can claim tokens if their wallet address meets the criteria included 
 Get the metadata about the token itself, such as the name, symbol, and decimals.
 
 <CodeSnippetWithSummary
-  contract={"TokenDrop"}
+  contract={"TokenDropImpl"}
   name={"get"}
   dontShowSummary
   showHr={false}
@@ -55,7 +55,7 @@ Get the metadata about the token itself, such as the name, symbol, and decimals.
 You can get the total supply of the token too:
 
 <CodeSnippetWithSummary
-  contract={"TokenDrop"}
+  contract={"TokenDropImpl"}
   name={"totalSupply"}
   dontShowSummary
 />
@@ -64,11 +64,11 @@ You can get the total supply of the token too:
 
 ### Balance of the connected wallet
 
-<CodeSnippetWithSummary contract={"TokenDrop"} name={"balance"} />
+<CodeSnippetWithSummary contract={"TokenDropImpl"} name={"balance"} />
 
 ### Balance of a specified wallet
 
-<CodeSnippetWithSummary contract={"TokenDrop"} name={"balanceOf"} />
+<CodeSnippetWithSummary contract={"TokenDropImpl"} name={"balanceOf"} />
 
 ## Token Allowance
 
@@ -81,7 +81,7 @@ For example, our [Marketplace](/pre-built-contracts/marketplace) contract asks y
 Get the number of tokens that another wallet can spend on behalf of the connected wallet.
 
 <CodeSnippetWithSummary
-  contract={"TokenDrop"}
+  contract={"TokenDropImpl"}
   name={"allowance"}
   dontShowSummary
 />
@@ -91,7 +91,7 @@ Get the number of tokens that another wallet can spend on behalf of the connecte
 Get the number of tokens that another wallet can spend on behalf of the specified wallet.
 
 <CodeSnippetWithSummary
-  contract={"TokenDrop"}
+  contract={"TokenDropImpl"}
   name={"allowanceOf"}
   dontShowSummary
 />
@@ -101,7 +101,7 @@ Get the number of tokens that another wallet can spend on behalf of the specifie
 Specify how many tokens another wallet is allowed to spend on behalf of the connected wallet.
 
 <CodeSnippetWithSummary
-  contract={"TokenDrop"}
+  contract={"TokenDropImpl"}
   name={"setAllowance"}
   dontShowSummary
 />
@@ -113,18 +113,18 @@ You can transfer tokens from one wallet to another or send tokens to a smart con
 ### Transfer from the connected wallet
 
 <CodeSnippetWithSummary
-  contract={"TokenDrop"}
+  contract={"TokenDropImpl"}
   name={"transfer"}
   dontShowSummary
 />
 
 ### Transfer from the connected wallet in batch
 
-<CodeSnippetWithSummary contract={"TokenDrop"} name={"transferBatch"} />
+<CodeSnippetWithSummary contract={"TokenDropImpl"} name={"transferBatch"} />
 
 ### Transfer from a specified wallet
 
-<CodeSnippetWithSummary contract={"TokenDrop"} name={"transferFrom"} />
+<CodeSnippetWithSummary contract={"TokenDropImpl"} name={"transferFrom"} />
 
 ## Burning Tokens
 
@@ -133,11 +133,15 @@ Burning tokens takes a specified amount of tokens out of the circulating supply.
 ### Burn from the connected wallet
 
 <CodeSnippetWithSummary
-  contract={"TokenDrop"}
+  contract={"TokenDropImpl"}
   name={"burnTokens"}
   dontShowSummary
 />
 
 ### Burn from a specified wallet
 
-<CodeSnippetWithSummary contract={"TokenDrop"} name={"burnFrom"} />
+<CodeSnippetWithSummary
+  contract={"TokenDropImpl"}
+  name={"burnFrom"}
+  showHr={false}
+/>

@@ -22,7 +22,7 @@ Learn how to interact with your [Signature Drop](/pre-built-contracts/signature-
 To start using your Signature Drop contract inside your application, you need to use its contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <CodeSnippetWithSummary
-  contract={"SignatureDrop"}
+  contract={"SignatureDropImpl"}
   name={"initializing the SDK"}
   isGetContractCode
   dontShowSummary
@@ -30,74 +30,84 @@ To start using your Signature Drop contract inside your application, you need to
 
 ## Lazy Minting Your NFTs
 
-<CodeSnippetWithSummary contract={"SignatureDrop"} name={"createBatch"} />
+<CodeSnippetWithSummary contract={"SignatureDropImpl"} name={"createBatch"} />
 
 ## Setting Claim Phases
 
-<CodeSnippetWithSummary contract={"SignatureDrop"} name={"claimConditions"} />
+<CodeSnippetWithSummary
+  contract={"SignatureDropImpl"}
+  name={"claimConditions"}
+/>
 
 ## Delayed Reveals
 
-<CodeSnippetWithSummary contract={"SignatureDrop"} name={"revealer"} />
+<CodeSnippetWithSummary contract={"SignatureDropImpl"} name={"revealer"} />
 
 ## Setting Royalty Fees
 
-<CodeSnippetWithSummary contract={"SignatureDrop"} name={"royalties"} />
+<CodeSnippetWithSummary contract={"SignatureDropImpl"} name={"royalties"} />
 
 ## Minting / Claiming NFTs
 
-<CodeSnippetWithSummary contract={"SignatureDrop"} name={"claimTo"} />
+<CodeSnippetWithSummary contract={"SignatureDropImpl"} name={"claimTo"} />
 
 ## Signature Minting
 
-<CodeSnippetWithSummary contract={"SignatureDrop"} name={"signature"} />
+<CodeSnippetWithSummary contract={"SignatureDropImpl"} name={"signature"} />
 
 ## Viewing NFTs
 
 ### One NFT
 
-<CodeSnippetWithSummary contract={"SignatureDrop"} name={"get"} />
+<CodeSnippetWithSummary contract={"SignatureDropImpl"} name={"get"} />
 
 ### All NFTs
 
-<CodeSnippetWithSummary contract={"SignatureDrop"} name={"getAll"} />
+<CodeSnippetWithSummary contract={"SignatureDropImpl"} name={"getAll"} />
 
 ### Claimed NFTs
 
-<CodeSnippetWithSummary contract={"SignatureDrop"} name={"getAllClaimed"} />
+<CodeSnippetWithSummary contract={"SignatureDropImpl"} name={"getAllClaimed"} />
 
 ### Unclaimed NFTs
 
-<CodeSnippetWithSummary contract={"SignatureDrop"} name={"getAllUnclaimed"} />
+<CodeSnippetWithSummary
+  contract={"SignatureDropImpl"}
+  name={"getAllUnclaimed"}
+/>
 
 ### NFTs owned by a specific wallet
 
-<CodeSnippetWithSummary contract={"SignatureDrop"} name={"getOwned"} />
+<CodeSnippetWithSummary contract={"SignatureDropImpl"} name={"getOwned"} />
 
 ### Balance of a specific wallet
 
-<CodeSnippetWithSummary contract={"SignatureDrop"} name={"balanceOf"} />
+<CodeSnippetWithSummary contract={"SignatureDropImpl"} name={"balanceOf"} />
 
 ## Viewing Supply
 
 ### Claimed supply
 
 <CodeSnippetWithSummary
-  contract={"SignatureDrop"}
+  contract={"SignatureDropImpl"}
   name={"totalClaimedSupply"}
 />
 
 ### Unclaimed supply
 
 <CodeSnippetWithSummary
-  contract={"SignatureDrop"}
+  contract={"SignatureDropImpl"}
   name={"totalUnclaimedSupply"}
 />
 
 ## Transferring NFTs
 
-<CodeSnippetWithSummary contract={"SignatureDrop"} name={"transfer"} />
+<CodeSnippetWithSummary contract={"SignatureDropImpl"} name={"transfer"} />
 
 ## Burning NFTs
 
-<CodeSnippetWithSummary contract={"SignatureDrop"} name={"burnToken"} />
+<CodeSnippetWithSummary
+  contract={"SignatureDropImpl"}
+  name={"burn"}
+  showHr={false}
+/>

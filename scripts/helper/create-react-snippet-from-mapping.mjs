@@ -7,7 +7,7 @@ import reactSnippets from "../../submodules/js/packages/react/docs/snippets.json
 // that way it is more maintainable.
 
 const reactMapping = {
-  NFTCollection: {
+  NFTCollectionImpl: {
     mainHook: "useNFTCollection",
     subHooks: {
       // methods
@@ -24,7 +24,7 @@ const reactMapping = {
       signature: "",
     },
   },
-  Edition: {
+  EditionImpl: {
     mainHook: "useEdition",
     subHooks: {
       // methods
@@ -42,7 +42,7 @@ const reactMapping = {
       signature: "",
     },
   },
-  TokenDrop: {
+  TokenDropImpl: {
     mainHook: "useTokenDrop",
     subHooks: {
       // methods
@@ -62,7 +62,7 @@ const reactMapping = {
       claimConditions: "",
     },
   },
-  Token: {
+  TokenImpl: {
     mainHook: "useToken",
     subHooks: {
       // methods
@@ -84,7 +84,7 @@ const reactMapping = {
       signature: "",
     },
   },
-  NFTDrop: {
+  NFTDropImpl: {
     mainHook: "useNFTDrop",
     subHooks: {
       // methods
@@ -106,7 +106,7 @@ const reactMapping = {
       royalties: "",
     },
   },
-  EditionDrop: {
+  EditionDropImpl: {
     mainHook: "useEditionDrop",
     subHooks: {
       // methods
@@ -124,7 +124,7 @@ const reactMapping = {
       royalties: "",
     },
   },
-  Marketplace: {
+  MarketplaceImpl: {
     mainHook: "useMarketplace",
     subHooks: {
       // methods
@@ -163,7 +163,7 @@ const reactMapping = {
       makeBid: "useMakeBid",
     },
   },
-  Split: {
+  SplitImpl: {
     mainHook: "useSplit",
     subHooks: {
       // methods
@@ -175,7 +175,7 @@ const reactMapping = {
       withdraw: "",
     },
   },
-  Pack: {
+  PackImpl: {
     mainHook: "usePack",
     subHooks: {
       // methods
@@ -204,7 +204,7 @@ const reactMapping = {
       vote: "",
     },
   },
-  Multiwrap: {
+  MultiwrapImpl: {
     mainHook: "useMultiwrap",
     subHooks: {
       // methods
@@ -217,7 +217,7 @@ const reactMapping = {
       transfer: "",
     },
   },
-  SignatureDrop: {
+  SignatureDropImpl: {
     mainHook: "useSignatureDrop",
     subHooks: {
       // methods
