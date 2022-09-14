@@ -686,11 +686,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2022-09-10T12:02:20Z",
+    "updated_at": "2022-09-14T17:17:45Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 14,
+    "stargazers_count": 17,
     "is_template": false,
     "homepage": null
   },
