@@ -22,7 +22,7 @@ Learn how to interact with your [NFT Drop](/pre-built-contracts/nft-drop) contra
 To start using your NFT Drop contract inside your application, you need to use its contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <CodeSnippetWithSummary
-  contract={"NFTDrop"}
+  contract={"NFTDropImpl"}
   name={"initializing the SDK"}
   isGetContractCode
   dontShowSummary
@@ -30,60 +30,63 @@ To start using your NFT Drop contract inside your application, you need to use i
 
 ## Lazy Minting Your NFTs
 
-<CodeSnippetWithSummary contract={"NFTDrop"} name={"createBatch"} />
+<CodeSnippetWithSummary contract={"NFTDropImpl"} name={"createBatch"} />
 
 ## Setting Claim Phases
 
-<CodeSnippetWithSummary contract={"NFTDrop"} name={"claimConditions"} />
+<CodeSnippetWithSummary contract={"NFTDropImpl"} name={"claimConditions"} />
 
 ## Delayed Reveals
 
-<CodeSnippetWithSummary contract={"NFTDrop"} name={"revealer"} />
+<CodeSnippetWithSummary contract={"NFTDropImpl"} name={"revealer"} />
 
 ## Setting Royalty Fees
 
-<CodeSnippetWithSummary contract={"NFTDrop"} name={"royalties"} />
+<CodeSnippetWithSummary contract={"NFTDropImpl"} name={"royalties"} />
 
 ## Minting / Claiming NFTs
 
-<CodeSnippetWithSummary contract={"NFTDrop"} name={"claimTo"} />
+<CodeSnippetWithSummary contract={"NFTDropImpl"} name={"claimTo"} />
 
 ## Viewing NFTs
 
 ### One NFT
 
-<CodeSnippetWithSummary contract={"NFTDrop"} name={"get"} />
+<CodeSnippetWithSummary contract={"NFTDropImpl"} name={"get"} />
 
 ### All NFTs
 
-<CodeSnippetWithSummary contract={"NFTDrop"} name={"getAll"} />
+<CodeSnippetWithSummary contract={"NFTDropImpl"} name={"getAll"} />
 
 ### Claimed NFTs
 
-<CodeSnippetWithSummary contract={"NFTDrop"} name={"getAllClaimed"} />
+<CodeSnippetWithSummary contract={"NFTDropImpl"} name={"getAllClaimed"} />
 
 ### Unclaimed NFTs
 
-<CodeSnippetWithSummary contract={"NFTDrop"} name={"getAllUnclaimed"} />
+<CodeSnippetWithSummary contract={"NFTDropImpl"} name={"getAllUnclaimed"} />
 
 ### NFTs owned by a specific wallet
 
-<CodeSnippetWithSummary contract={"NFTDrop"} name={"getOwned"} />
+<CodeSnippetWithSummary contract={"NFTDropImpl"} name={"getOwned"} />
 
 ## Viewing Supply
 
 ### Claimed supply
 
-<CodeSnippetWithSummary contract={"NFTDrop"} name={"totalClaimedSupply"} />
+<CodeSnippetWithSummary contract={"NFTDropImpl"} name={"totalClaimedSupply"} />
 
 ### Unclaimed supply
 
-<CodeSnippetWithSummary contract={"NFTDrop"} name={"totalUnclaimedSupply"} />
+<CodeSnippetWithSummary
+  contract={"NFTDropImpl"}
+  name={"totalUnclaimedSupply"}
+/>
 
 ## Transferring NFTs
 
-<CodeSnippetWithSummary contract={"NFTDrop"} name={"transfer"} />
+<CodeSnippetWithSummary contract={"NFTDropImpl"} name={"transfer"} />
 
 ## Burning NFTs
 
-<CodeSnippetWithSummary contract={"NFTDrop"} name={"burnToken"} />
+<CodeSnippetWithSummary contract={"NFTDropImpl"} name={"burn"} showHr={false} />

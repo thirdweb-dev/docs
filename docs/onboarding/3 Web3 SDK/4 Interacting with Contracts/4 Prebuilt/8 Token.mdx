@@ -19,7 +19,7 @@ To start using your Token contract inside your application, you need to use its 
 You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <CodeSnippetWithSummary
-  contract={"Token"}
+  contract={"TokenImpl"}
   name={"initializing the SDK"}
   isGetContractCode
   dontShowSummary
@@ -29,18 +29,22 @@ You can get the contract address from the [dashboard](https://thirdweb.com/dashb
 
 ### Mint tokens to a specified wallet
 
-<CodeSnippetWithSummary contract={"Token"} name={"mintTo"} dontShowSummary />
+<CodeSnippetWithSummary
+  contract={"TokenImpl"}
+  name={"mintTo"}
+  dontShowSummary
+/>
 
 ### Mint tokens to many wallets in one transaction (batch)
 
-<CodeSnippetWithSummary contract={"Token"} name={"mintBatchTo"} />
+<CodeSnippetWithSummary contract={"TokenImpl"} name={"mintBatchTo"} />
 
 ## Token Metadata
 
 Get the metadata about the token itself, such as the name, symbol, and decimals.
 
 <CodeSnippetWithSummary
-  contract={"Token"}
+  contract={"TokenImpl"}
   name={"get"}
   dontShowSummary
   showHr={false}
@@ -58,11 +62,11 @@ You can get the total supply of the token too.
 
 ### Balance of the connected wallet
 
-<CodeSnippetWithSummary contract={"Token"} name={"balance"} />
+<CodeSnippetWithSummary contract={"TokenImpl"} name={"balance"} />
 
 ### Balance of a specified wallet
 
-<CodeSnippetWithSummary contract={"Token"} name={"balanceOf"} />
+<CodeSnippetWithSummary contract={"TokenImpl"} name={"balanceOf"} />
 
 ## Token Allowance
 
@@ -74,14 +78,18 @@ For example, our [Marketplace](/pre-built-contracts/marketplace) contract asks y
 
 Get the number of tokens that another wallet can spend on behalf of the connected wallet.
 
-<CodeSnippetWithSummary contract={"Token"} name={"allowance"} dontShowSummary />
+<CodeSnippetWithSummary
+  contract={"TokenImpl"}
+  name={"allowance"}
+  dontShowSummary
+/>
 
 ### Get allowance for a specified wallet
 
 Get the number of tokens that another wallet can spend on behalf of the specified wallet.
 
 <CodeSnippetWithSummary
-  contract={"Token"}
+  contract={"TokenImpl"}
   name={"allowanceOf"}
   dontShowSummary
 />
@@ -91,7 +99,7 @@ Get the number of tokens that another wallet can spend on behalf of the specifie
 Specify how many tokens another wallet is allowed to spend on behalf of the connected wallet.
 
 <CodeSnippetWithSummary
-  contract={"Token"}
+  contract={"TokenImpl"}
   name={"setAllowance"}
   dontShowSummary
 />
@@ -102,15 +110,19 @@ You can transfer tokens from one wallet to another or send tokens to a smart con
 
 ### Transfer from the connected wallet
 
-<CodeSnippetWithSummary contract={"Token"} name={"transfer"} dontShowSummary />
+<CodeSnippetWithSummary
+  contract={"TokenImpl"}
+  name={"transfer"}
+  dontShowSummary
+/>
 
 ### Transfer from the connected wallet in batch
 
-<CodeSnippetWithSummary contract={"Token"} name={"transferBatch"} />
+<CodeSnippetWithSummary contract={"TokenImpl"} name={"transferBatch"} />
 
 ### Transfer from a specified wallet
 
-<CodeSnippetWithSummary contract={"Token"} name={"transferFrom"} />
+<CodeSnippetWithSummary contract={"TokenImpl"} name={"transferFrom"} />
 
 ## Burning Tokens
 
@@ -118,8 +130,12 @@ Burning tokens takes a specified amount of tokens out of the circulating supply.
 
 ### Burn from the connected wallet
 
-<CodeSnippetWithSummary contract={"Token"} name={"burnTokens"} />
+<CodeSnippetWithSummary contract={"TokenImpl"} name={"burn"} />
 
 ### Burn from a specified wallet
 
-<CodeSnippetWithSummary contract={"Token"} name={"burnFrom"} />
+<CodeSnippetWithSummary
+  contract={"TokenImpl"}
+  name={"burnFrom"}
+  showHr={false}
+/>
