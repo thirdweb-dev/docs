@@ -14,7 +14,7 @@ Get an instance of a Marketplace contract
 **Signature:**
 
 ```typescript
-getMarketplace(address: string): Promise<import("../contracts/prebuilt-implementations/marketplace").MarketplaceImpl>;
+getMarketplace(address: string): Promise<import("..").MarketplaceImpl>;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ getMarketplace(address: string): Promise<import("../contracts/prebuilt-implement
 
 **Returns:**
 
-Promise&lt;import("../contracts/prebuilt-implementations/marketplace").MarketplaceImpl&gt;
+Promise&lt;import("..").[MarketplaceImpl](./sdk.marketplaceimpl.md)&gt;
 
 the contract

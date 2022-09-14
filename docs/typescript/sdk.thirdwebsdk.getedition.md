@@ -14,7 +14,7 @@ Get an instance of an Edition contract
 **Signature:**
 
 ```typescript
-getEdition(address: string): Promise<import("../contracts/prebuilt-implementations/edition").EditionImpl>;
+getEdition(address: string): Promise<import("..").EditionImpl>;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ getEdition(address: string): Promise<import("../contracts/prebuilt-implementatio
 
 **Returns:**
 
-Promise&lt;import("../contracts/prebuilt-implementations/edition").EditionImpl&gt;
+Promise&lt;import("..").[EditionImpl](./sdk.editionimpl.md)&gt;
 
 the contract

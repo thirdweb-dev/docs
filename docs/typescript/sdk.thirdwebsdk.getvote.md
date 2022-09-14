@@ -14,7 +14,7 @@ Get an instance of a Vote contract
 **Signature:**
 
 ```typescript
-getVote(address: string): Promise<import("../contracts/prebuilt-implementations/vote").VoteImpl>;
+getVote(address: string): Promise<import("..").VoteImpl>;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ getVote(address: string): Promise<import("../contracts/prebuilt-implementations/
 
 **Returns:**
 
-Promise&lt;import("../contracts/prebuilt-implementations/vote").VoteImpl&gt;
+Promise&lt;import("..").[VoteImpl](./sdk.voteimpl.md)&gt;
 
 the contract

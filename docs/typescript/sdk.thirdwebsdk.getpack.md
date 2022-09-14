@@ -14,7 +14,7 @@ Get an instance of a Pack contract
 **Signature:**
 
 ```typescript
-getPack(address: string): Promise<import("../contracts/prebuilt-implementations/pack").PackImpl>;
+getPack(address: string): Promise<import("..").PackImpl>;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ getPack(address: string): Promise<import("../contracts/prebuilt-implementations/
 
 **Returns:**
 
-Promise&lt;import("../contracts/prebuilt-implementations/pack").PackImpl&gt;
+Promise&lt;import("..").[PackImpl](./sdk.packimpl.md)&gt;
 
 the contract
