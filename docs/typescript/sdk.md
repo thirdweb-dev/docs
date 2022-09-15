@@ -26,8 +26,8 @@ displayed_sidebar: typescript
 | [DropClaimConditions](./sdk.dropclaimconditions.md)                                 | Manages claim conditions for NFT Drop contracts                                                                                                                                                    |
 | [DropErc1155ClaimConditions](./sdk.droperc1155claimconditions.md)                   | Manages claim conditions for Edition Drop contracts                                                                                                                                                |
 | [DropErc1155History](./sdk.droperc1155history.md)                                   | Manages history for Edition Drop contracts                                                                                                                                                         |
-| [Edition](./sdk.edition.md)                                                         | Create a collection of NFTs that lets you mint multiple copies of each NFT.                                                                                                                        |
-| [EditionDrop](./sdk.editiondrop.md)                                                 | Setup a collection of NFTs with a customizable number of each NFT that are minted as users claim them.                                                                                             |
+| [EditionDropImpl](./sdk.editiondropimpl.md)                                         | Setup a collection of NFTs with a customizable number of each NFT that are minted as users claim them.                                                                                             |
+| [EditionImpl](./sdk.editionimpl.md)                                                 | Create a collection of NFTs that lets you mint multiple copies of each NFT.                                                                                                                        |
 | [Erc1155](./sdk.erc1155.md)                                                         | Standard ERC1155 NFT functions                                                                                                                                                                     |
 | [Erc1155BatchMintable](./sdk.erc1155batchmintable.md)                               | Mint Many ERC1155 NFTs at once                                                                                                                                                                     |
 | [Erc1155Burnable](./sdk.erc1155burnable.md)                                         |                                                                                                                                                                                                    |
@@ -50,26 +50,25 @@ displayed_sidebar: typescript
 | [Erc721Supply](./sdk.erc721supply.md)                                               | List ERC721 NFTs                                                                                                                                                                                   |
 | [Erc721WithQuantitySignatureMintable](./sdk.erc721withquantitysignaturemintable.md) | Enables generating dynamic ERC721 NFTs with rules and an associated signature, which can then be minted by anyone securely                                                                         |
 | [GasCostEstimator](./sdk.gascostestimator.md)                                       | Estimates the gas cost of Contract calls                                                                                                                                                           |
-| [Marketplace](./sdk.marketplace.md)                                                 | Create your own whitelabel marketplace that enables users to buy and sell any digital assets.                                                                                                      |
 | [MarketplaceAuction](./sdk.marketplaceauction.md)                                   | Handles auction listings                                                                                                                                                                           |
 | [MarketplaceDirect](./sdk.marketplacedirect.md)                                     | Handles direct listings                                                                                                                                                                            |
-| [Multiwrap](./sdk.multiwrap.md)                                                     | **<i>(BETA)</i>** Multiwrap lets you wrap any number of ERC20, ERC721 and ERC1155 tokens you own into a single wrapped token bundle.                                                               |
-| [NFTCollection](./sdk.nftcollection.md)                                             | Create a collection of one-of-one NFTs.                                                                                                                                                            |
-| [NFTDrop](./sdk.nftdrop.md)                                                         | Setup a collection of one-of-one NFTs that are minted as users claim them.                                                                                                                         |
-| [Pack](./sdk.pack.md)                                                               | Create lootboxes of NFTs with rarity based open mechanics.                                                                                                                                         |
-| [SignatureDrop](./sdk.signaturedrop.md)                                             | Setup a collection of NFTs where when it comes to minting, you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.. |
-| [SmartContract](./sdk.smartcontract.md)                                             | **<i>(BETA)</i>** Custom contract dynamic class with feature detection                                                                                                                             |
-| [Split](./sdk.split.md)                                                             | Create custom royalty splits to distribute funds.                                                                                                                                                  |
+| [MarketplaceImpl](./sdk.marketplaceimpl.md)                                         | Create your own whitelabel marketplace that enables users to buy and sell any digital assets.                                                                                                      |
+| [MultiwrapImpl](./sdk.multiwrapimpl.md)                                             | **<i>(BETA)</i>** Multiwrap lets you wrap any number of ERC20, ERC721 and ERC1155 tokens you own into a single wrapped token bundle.                                                               |
+| [NFTCollectionImpl](./sdk.nftcollectionimpl.md)                                     | Create a collection of one-of-one NFTs.                                                                                                                                                            |
+| [NFTDropImpl](./sdk.nftdropimpl.md)                                                 | Setup a collection of one-of-one NFTs that are minted as users claim them.                                                                                                                         |
+| [PackImpl](./sdk.packimpl.md)                                                       | Create lootboxes of NFTs with rarity based open mechanics.                                                                                                                                         |
+| [SignatureDropImpl](./sdk.signaturedropimpl.md)                                     | Setup a collection of NFTs where when it comes to minting, you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.. |
+| [SplitImpl](./sdk.splitimpl.md)                                                     | Create custom royalty splits to distribute funds.                                                                                                                                                  |
 | [StandardErc1155](./sdk.standarderc1155.md)                                         | Standard ERC1155 NFT functions                                                                                                                                                                     |
 | [StandardErc20](./sdk.standarderc20.md)                                             | Standard ERC20 Token functions                                                                                                                                                                     |
 | [StandardErc721](./sdk.standarderc721.md)                                           | Standard ERC721 NFT functions                                                                                                                                                                      |
 | [ThirdwebSDK](./sdk.thirdwebsdk.md)                                                 | The main entry point for the thirdweb SDK                                                                                                                                                          |
-| [Token](./sdk.token.md)                                                             | Create a standard crypto token or cryptocurrency.                                                                                                                                                  |
-| [TokenDrop](./sdk.tokendrop.md)                                                     | Create a Drop contract for a standard crypto token or cryptocurrency.                                                                                                                              |
+| [TokenDropImpl](./sdk.tokendropimpl.md)                                             | Create a Drop contract for a standard crypto token or cryptocurrency.                                                                                                                              |
 | [TokenERC20History](./sdk.tokenerc20history.md)                                     | Manages history for Token contracts                                                                                                                                                                |
+| [TokenImpl](./sdk.tokenimpl.md)                                                     | Create a standard crypto token or cryptocurrency.                                                                                                                                                  |
 | [TransactionError](./sdk.transactionerror.md)                                       |                                                                                                                                                                                                    |
 | [UserWallet](./sdk.userwallet.md)                                                   | Connect and Interact with a user wallet                                                                                                                                                            |
-| [Vote](./sdk.vote.md)                                                               | Create a decentralized organization for token holders to vote on proposals.                                                                                                                        |
+| [VoteImpl](./sdk.voteimpl.md)                                                       | Create a decentralized organization for token holders to vote on proposals.                                                                                                                        |
 | [WalletAuthenticator](./sdk.walletauthenticator.md)                                 | **<i>(BETA)</i>** Wallet Authenticator                                                                                                                                                             |
 
 ## Enumerations
@@ -125,15 +124,28 @@ displayed_sidebar: typescript
 | Variable                                                          | Description |
 | ----------------------------------------------------------------- | ----------- |
 | [ALL_ROLES](./sdk.all_roles.md)                                   |             |
+| [CONTRACTS_MAP](./sdk.contracts_map.md)                           |             |
+| [Edition](./sdk.edition.md)                                       |             |
+| [EditionDrop](./sdk.editiondrop.md)                               |             |
+| [Marketplace](./sdk.marketplace.md)                               |             |
 | [MintRequest1155](./sdk.mintrequest1155.md)                       |             |
 | [MintRequest20](./sdk.mintrequest20.md)                           |             |
 | [MintRequest721](./sdk.mintrequest721.md)                         |             |
 | [MintRequest721withQuantity](./sdk.mintrequest721withquantity.md) |             |
+| [Multiwrap](./sdk.multiwrap.md)                                   |             |
 | [NATIVE_TOKEN_ADDRESS](./sdk.native_token_address.md)             |             |
 | [NATIVE_TOKENS](./sdk.native_tokens.md)                           |             |
+| [NFTCollection](./sdk.nftcollection.md)                           |             |
+| [NFTDrop](./sdk.nftdrop.md)                                       |             |
+| [Pack](./sdk.pack.md)                                             |             |
 | [ProfileSchemaOutput](./sdk.profileschemaoutput.md)               |             |
 | [SDKOptionsSchema](./sdk.sdkoptionsschema.md)                     |             |
+| [SignatureDrop](./sdk.signaturedrop.md)                           |             |
+| [Split](./sdk.split.md)                                           |             |
 | [SUPPORTED_CHAIN_IDS](./sdk.supported_chain_ids.md)               |             |
+| [Token](./sdk.token.md)                                           |             |
+| [TokenDrop](./sdk.tokendrop.md)                                   |             |
+| [Vote](./sdk.vote.md)                                             |             |
 
 ## Type Aliases
 
@@ -152,13 +164,16 @@ displayed_sidebar: typescript
 | [ClaimConditionsForToken](./sdk.claimconditionsfortoken.md)                             |                                                                                      |
 | [ClaimOptions](./sdk.claimoptions.md)                                                   |                                                                                      |
 | [ClaimVerification](./sdk.claimverification.md)                                         |                                                                                      |
+| [CommonContractSchemaInput](./sdk.commoncontractschemainput.md)                         |                                                                                      |
 | [ContractEvent](./sdk.contractevent.md)                                                 | Standardized return type for contract events that returns event arguments            |
-| [ContractForContractType](./sdk.contractforcontracttype.md)                             |                                                                                      |
+| [ContractForPrebuiltContractType](./sdk.contractforprebuiltcontracttype.md)             |                                                                                      |
 | [ContractParam](./sdk.contractparam.md)                                                 |                                                                                      |
+| [ContractsMap](./sdk.contractsmap.md)                                                   |                                                                                      |
 | [ContractSource](./sdk.contractsource.md)                                               |                                                                                      |
 | [ContractType](./sdk.contracttype.md)                                                   |                                                                                      |
 | [Currency](./sdk.currency.md)                                                           |                                                                                      |
 | [CurrencyValue](./sdk.currencyvalue.md)                                                 | Currency metadata &amp; value.                                                       |
+| [DeploySchemaForPrebuiltContractType](./sdk.deployschemaforprebuiltcontracttype.md)     |                                                                                      |
 | [EditionMetadata](./sdk.editionmetadata.md)                                             |                                                                                      |
 | [EditionMetadataInput](./sdk.editionmetadatainput.md)                                   |                                                                                      |
 | [EditionMetadataOrUri](./sdk.editionmetadataoruri.md)                                   |                                                                                      |
@@ -195,6 +210,8 @@ displayed_sidebar: typescript
 | [PayloadWithUri721](./sdk.payloadwithuri721.md)                                         |                                                                                      |
 | [PayloadWithUri721withQuantity](./sdk.payloadwithuri721withquantity.md)                 |                                                                                      |
 | [PermitRequestMessage](./sdk.permitrequestmessage.md)                                   | EIP-2612 token permit message for gasless transaction                                |
+| [PrebuiltContractsMap](./sdk.prebuiltcontractsmap.md)                                   |                                                                                      |
+| [PrebuiltContractType](./sdk.prebuiltcontracttype.md)                                   |                                                                                      |
 | [PreDeployMetadataFetched](./sdk.predeploymetadatafetched.md)                           |                                                                                      |
 | [Price](./sdk.price.md)                                                                 | Represents a currency price already formatted. ie. "1" for 1 ether.                  |
 | [ProfileMetadata](./sdk.profilemetadata.md)                                             |                                                                                      |
@@ -203,6 +220,7 @@ displayed_sidebar: typescript
 | [PublishedContractFetched](./sdk.publishedcontractfetched.md)                           |                                                                                      |
 | [PublishedMetadata](./sdk.publishedmetadata.md)                                         |                                                                                      |
 | [Role](./sdk.role.md)                                                                   |                                                                                      |
+| [SchemaForPrebuiltContractType](./sdk.schemaforprebuiltcontracttype.md)                 |                                                                                      |
 | [SDKOptions](./sdk.sdkoptions.md)                                                       | All these configuration options are optional with sane defaults:                     |
 | [SignedPayload1155](./sdk.signedpayload1155.md)                                         |                                                                                      |
 | [SignedPayload20](./sdk.signedpayload20.md)                                             |                                                                                      |
@@ -219,7 +237,6 @@ displayed_sidebar: typescript
 | [TransactionResult](./sdk.transactionresult.md)                                         |                                                                                      |
 | [TransactionResultWithAddress](./sdk.transactionresultwithaddress.md)                   |                                                                                      |
 | [TransactionResultWithId](./sdk.transactionresultwithid.md)                             |                                                                                      |
-| [ValidContractClass](./sdk.validcontractclass.md)                                       |                                                                                      |
 | [ValidContractInstance](./sdk.validcontractinstance.md)                                 |                                                                                      |
 | [ValueOf](./sdk.valueof.md)                                                             |                                                                                      |
 | [VerifyOptions](./sdk.verifyoptions.md)                                                 |                                                                                      |

@@ -45,19 +45,19 @@ export declare function useActiveClaimCondition(
             maxClaimable: string;
           }[]
         | undefined;
-      startTime: Date;
-      currencyAddress: string;
-      price: import("ethers").BigNumber;
-      maxQuantity: string;
       quantityLimitPerTransaction: string;
+      startTime: Date;
+      price: import("ethers").BigNumber;
+      currencyAddress: string;
+      maxQuantity: string;
       waitInSeconds: import("ethers").BigNumber;
       merkleRootHash: string | number[];
       availableSupply: string;
       currentMintSupply: string;
       currencyMetadata: {
         symbol: string;
-        value: import("ethers").BigNumber;
         name: string;
+        value: import("ethers").BigNumber;
         decimals: number;
         displayValue: string;
       };
@@ -76,6 +76,6 @@ export declare function useActiveClaimCondition(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ snapshot?: { address: string; maxClaimable: string; }\[\] \| undefined; startTime: Date; currencyAddress: string; price: import("ethers").BigNumber; maxQuantity: string; quantityLimitPerTransaction: string; waitInSeconds: import("ethers").BigNumber; merkleRootHash: string \| number\[\]; availableSupply: string; currentMintSupply: string; currencyMetadata: { symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }; } \| undefined, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ snapshot?: { address: string; maxClaimable: string; }\[\] \| undefined; quantityLimitPerTransaction: string; startTime: Date; price: import("ethers").BigNumber; currencyAddress: string; maxQuantity: string; waitInSeconds: import("ethers").BigNumber; merkleRootHash: string \| number\[\]; availableSupply: string; currentMintSupply: string; currencyMetadata: { symbol: string; name: string; value: import("ethers").BigNumber; decimals: number; displayValue: string; }; } \| undefined, unknown&gt;
 
 a response object with the currently active claim condition

@@ -36,9 +36,7 @@ use `useContract()` instead
 **Signature:**
 
 ```typescript
-export declare function useVote(
-  contractAddress?: string,
-): import("@thirdweb-dev/sdk").Vote | undefined;
+export declare function useVote(contractAddress?: string): VoteImpl | undefined;
 ```
 
 ## Parameters
@@ -49,4 +47,4 @@ export declare function useVote(
 
 **Returns:**
 
-import("@thirdweb-dev/sdk").Vote \| undefined
+VoteImpl \| undefined

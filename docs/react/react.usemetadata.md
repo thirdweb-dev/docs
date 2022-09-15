@@ -23,7 +23,7 @@ const { data: metadata, isLoading, error } = useMetadata(SmartContract);
 
 ```typescript
 export declare function useMetadata(
-  contract: RequiredParam<SmartContract | ValidContractInstance>,
+  contract: RequiredParam<ValidContractInstance>,
 ): import("@tanstack/react-query").UseQueryResult<
   {
     [x: string]: import("@thirdweb-dev/sdk").Json;
@@ -38,9 +38,9 @@ export declare function useMetadata(
 
 ## Parameters
 
-| Parameter | Type                                                                                        | Description      |
-| --------- | ------------------------------------------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;SmartContract &#124; ValidContractInstance&gt; | an instance of a |
+| Parameter | Type                                                                   | Description      |
+| --------- | ---------------------------------------------------------------------- | ---------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;ValidContractInstance&gt; | an instance of a |
 
 **Returns:**
 

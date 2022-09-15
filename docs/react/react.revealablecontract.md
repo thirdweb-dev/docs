@@ -17,8 +17,8 @@ The possible revealable contract types.
 
 ```typescript
 export declare type RevealableContract =
-  | NFTDrop
-  | SignatureDrop
+  | NFTDropImpl
+  | SignatureDropImpl
   | SmartContract
   | null;
 ```

@@ -54,8 +54,8 @@ export declare function useMintNFTSupply(
       image?: string | null | undefined;
       external_url?: string | null | undefined;
       animation_url?: string | null | undefined;
-      uri: string;
       id: BigNumber;
+      uri: string;
     };
   }>,
   unknown,
@@ -72,6 +72,6 @@ export declare function useMintNFTSupply(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;{ supply: BigNumber; metadata: { \[x: string\]: import("@thirdweb-dev/sdk").Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: BigNumber; }; }&gt;, unknown, [MintNFTSupplyParams](./react.mintnftsupplyparams.md), unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;{ supply: BigNumber; metadata: { \[x: string\]: import("@thirdweb-dev/sdk").Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; id: BigNumber; uri: string; }; }&gt;, unknown, [MintNFTSupplyParams](./react.mintnftsupplyparams.md), unknown&gt;
 
 a mutation object that can be used to mint a more supply of a token id to the provided wallet

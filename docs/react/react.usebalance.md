@@ -21,8 +21,8 @@ export declare function useBalance(
 ): import("@tanstack/react-query").UseQueryResult<
   | {
       symbol: string;
-      value: import("ethers").BigNumber;
       name: string;
+      value: import("ethers").BigNumber;
       decimals: number;
       displayValue: string;
     }
@@ -39,6 +39,6 @@ export declare function useBalance(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; } \| undefined, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ symbol: string; name: string; value: import("ethers").BigNumber; decimals: number; displayValue: string; } \| undefined, unknown&gt;
 
 the balance of the connected wallet (native or ERC20)

@@ -19,7 +19,7 @@ To start using your Split contract inside your application, you'll need to use i
 You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <CodeSnippetWithSummary
-  contract={"Split"}
+  contract={"SplitImpl"}
   name={"initializing the SDK"}
   isGetContractCode
   dontShowSummary
@@ -27,7 +27,7 @@ You can get the contract address from the [dashboard](https://thirdweb.com/dashb
 
 ## View Recipients
 
-<CodeSnippetWithSummary contract={"Split"} name={"getAllRecipients"} />
+<CodeSnippetWithSummary contract={"SplitImpl"} name={"getAllRecipients"} />
 
 ## View Balance
 
@@ -35,13 +35,13 @@ You can get the contract address from the [dashboard](https://thirdweb.com/dashb
 
 Use this if you have been tokens native to the network (e.g., `Ether` on the Ethereum network).
 
-<CodeSnippetWithSummary contract={"Split"} name={"balanceOf"} />
+<CodeSnippetWithSummary contract={"SplitImpl"} name={"balanceOf"} />
 
 ### Non-Native Token Balance
 
 Use this if you have been sent custom tokens to the address.
 
-<CodeSnippetWithSummary contract={"Split"} name={"balanceOfToken"} />
+<CodeSnippetWithSummary contract={"SplitImpl"} name={"balanceOfToken"} />
 
 ## Distribute funds
 
@@ -50,7 +50,7 @@ This distributes funds held by the contract to **all recipients**.
 ### Native Token
 
 <CodeSnippetWithSummary
-  contract={"Split"}
+  contract={"SplitImpl"}
   name={"distribute"}
   dontShowSummary
 />
@@ -58,11 +58,16 @@ This distributes funds held by the contract to **all recipients**.
 ### Non-Native Token
 
 <CodeSnippetWithSummary
-  contract={"Split"}
+  contract={"SplitImpl"}
   name={"distributeToken"}
   dontShowSummary
 />
 
 ## Withdraw Funds
 
-<CodeSnippetWithSummary contract={"Split"} name={"withdraw"} dontShowSummary />
+<CodeSnippetWithSummary
+  contract={"SplitImpl"}
+  name={"withdraw"}
+  dontShowSummary
+  showHr={false}
+/>

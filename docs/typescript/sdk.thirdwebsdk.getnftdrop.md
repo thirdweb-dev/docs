@@ -14,7 +14,7 @@ Get an instance of a Drop contract
 **Signature:**
 
 ```typescript
-getNFTDrop(contractAddress: string): Promise<NFTDrop>;
+getNFTDrop(contractAddress: string): Promise<import("..").NFTDropImpl>;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ getNFTDrop(contractAddress: string): Promise<NFTDrop>;
 
 **Returns:**
 
-Promise&lt;[NFTDrop](./sdk.nftdrop.md)&gt;
+Promise&lt;import("..").[NFTDropImpl](./sdk.nftdropimpl.md)&gt;
 
 the contract

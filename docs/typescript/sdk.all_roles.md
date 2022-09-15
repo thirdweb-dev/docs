@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-ALL_ROLES: ("transfer" | "unwrap" | "admin" | "minter" | "pauser" | "lister" | "asset" | "factory")[]
+ALL_ROLES: ("admin" | "minter" | "transfer" | "lister" | "asset" | "unwrap" | "pauser" | "factory")[]
 ```

@@ -14,12 +14,12 @@ Constructs a new instance of the `Erc20SignatureMintable` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<TokenERC20>, roles?: ContractRoles<TokenERC20, typeof Token.contractRoles[number]>);
+constructor(contractWrapper: ContractWrapper<TokenERC20>, roles?: ContractRoles<TokenERC20, typeof Token.roles[number]>);
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                                                                                            | Description       |
-| --------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| contractWrapper | ContractWrapper&lt;TokenERC20&gt;                                                                                               |                   |
-| roles           | [ContractRoles](./sdk.contractroles.md)&lt;TokenERC20, typeof [Token.contractRoles](./sdk.token.contractroles.md)\[number\]&gt; | <i>(Optional)</i> |
+| Parameter       | Type                                                                                    | Description       |
+| --------------- | --------------------------------------------------------------------------------------- | ----------------- |
+| contractWrapper | ContractWrapper&lt;TokenERC20&gt;                                                       |                   |
+| roles           | [ContractRoles](./sdk.contractroles.md)&lt;TokenERC20, typeof Token.roles\[number\]&gt; | <i>(Optional)</i> |

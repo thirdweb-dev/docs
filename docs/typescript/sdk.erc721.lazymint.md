@@ -45,8 +45,8 @@ lazyMint(metadatas: NFTMetadataOrUri[], options?: {
         image?: string | null | undefined;
         external_url?: string | null | undefined;
         animation_url?: string | null | undefined;
-        uri: string;
         id: BigNumber;
+        uri: string;
     }>[]>;
 ```
 
@@ -59,7 +59,7 @@ lazyMint(metadatas: NFTMetadataOrUri[], options?: {
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;{ \[x: string\]: import("../types").[Json](./sdk.json.md); name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; uri: string; id: BigNumber; }&gt;\[\]&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;{ \[x: string\]: import("../types").[Json](./sdk.json.md); name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; id: BigNumber; uri: string; }&gt;\[\]&gt;
 
 ## Remarks
 

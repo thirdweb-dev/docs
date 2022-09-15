@@ -13,15 +13,15 @@ displayed_sidebar: react
 
 ```typescript
 export declare function getErc20(
-  contract: RequiredParam<ValidContractInstance | SmartContract | null>,
+  contract: RequiredParam<ValidContractInstance | null>,
 ): Erc20 | undefined;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                                                                    | Description |
-| --------- | ------------------------------------------------------------------------------------------------------- | ----------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;ValidContractInstance &#124; SmartContract &#124; null&gt; |             |
+| Parameter | Type                                                                               | Description |
+| --------- | ---------------------------------------------------------------------------------- | ----------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;ValidContractInstance &#124; null&gt; |             |
 
 **Returns:**
 

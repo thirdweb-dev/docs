@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-resolveContractType(contractAddress: string): Promise<Exclude<ContractType, "custom">>;
+resolveContractType(contractAddress: string): Promise<ContractType>;
 ```
 
 ## Parameters
@@ -23,10 +23,6 @@ resolveContractType(contractAddress: string): Promise<Exclude<ContractType, "cus
 
 **Returns:**
 
-Promise&lt;Exclude&lt;[ContractType](./sdk.contracttype.md), "custom"&gt;&gt;
+Promise&lt;[ContractType](./sdk.contracttype.md)&gt;
 
 the [ContractType](./sdk.contracttype.md) for the given contract address
-
-## Exceptions
-
-if the contract type cannot be determined (is not a valid thirdweb contract)

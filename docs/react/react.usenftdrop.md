@@ -37,7 +37,7 @@ use `useContract()` instead
 ```typescript
 export declare function useNFTDrop(
   contractAddress?: string,
-): import("@thirdweb-dev/sdk").NFTDrop | undefined;
+): NFTDropImpl | undefined;
 ```
 
 ## Parameters
@@ -48,4 +48,4 @@ export declare function useNFTDrop(
 
 **Returns:**
 
-import("@thirdweb-dev/sdk").NFTDrop \| undefined
+NFTDropImpl \| undefined

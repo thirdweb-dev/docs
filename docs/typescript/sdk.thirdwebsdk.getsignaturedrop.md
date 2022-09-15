@@ -14,7 +14,7 @@ Get an instance of a SignatureDrop contract
 **Signature:**
 
 ```typescript
-getSignatureDrop(contractAddress: string): Promise<SignatureDrop>;
+getSignatureDrop(contractAddress: string): Promise<import("..").SignatureDropImpl>;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ getSignatureDrop(contractAddress: string): Promise<SignatureDrop>;
 
 **Returns:**
 
-Promise&lt;[SignatureDrop](./sdk.signaturedrop.md)&gt;
+Promise&lt;import("..").[SignatureDropImpl](./sdk.signaturedropimpl.md)&gt;
 
 the contract

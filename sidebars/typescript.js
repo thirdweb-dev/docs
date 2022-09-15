@@ -34,11 +34,6 @@ const sidebars = {
       id: "sdk.contractdeployer",
     },
     {
-      type: "doc",
-      label: "Custom Contracts",
-      id: "sdk.smartcontract",
-    },
-    {
       type: "category",
       label: "Prebuilt Contracts",
       collapsed: false,

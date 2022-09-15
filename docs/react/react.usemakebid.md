@@ -42,7 +42,7 @@ const Component = () => {
 
 ```typescript
 export declare function useMakeBid(
-  contract: RequiredParam<Marketplace>,
+  contract: RequiredParam<MarketplaceImpl>,
 ): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
@@ -59,9 +59,9 @@ export declare function useMakeBid(
 
 ## Parameters
 
-| Parameter | Type                                                         | Description                           |
-| --------- | ------------------------------------------------------------ | ------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a Marketplace contract |
+| Parameter | Type                                                             | Description                           |
+| --------- | ---------------------------------------------------------------- | ------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;MarketplaceImpl&gt; | an instance of a Marketplace contract |
 
 **Returns:**
 
