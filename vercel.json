@@ -417,6 +417,18 @@
     {
       "source": "/contracts/signature-drop",
       "destination": "/pre-built-contracts/signature-drop"
+    },
+    {
+      "source": "/getting-started/deploying-contracts",
+      "destination": "/getting-started/creating-custom-contracts"
+    },
+    {
+      "source": "/getting-started/configuring-contracts",
+      "destination": "/getting-started/creating-custom-contracts"
+    },
+    {
+      "source": "/getting-started/creating-nfts",
+      "destination": "/getting-started/creating-custom-contracts"
     }
   ]
 }
