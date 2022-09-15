@@ -261,6 +261,19 @@
     "homepage": null
   },
   {
+    "name": "getting-started",
+    "html_url": "https://github.com/thirdweb-example/getting-started",
+    "description": "Get started with thirdweb by building and deploying a full project including a smart contract and react application.",
+    "created_at": "2022-09-15T05:36:12Z",
+    "updated_at": "2022-09-15T05:48:20Z",
+    "clone_url": "https://github.com/thirdweb-example/getting-started.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "github-contributor-nft-rewards",
     "html_url": "https://github.com/thirdweb-example/github-contributor-nft-rewards",
     "description": "Use signature-based minting to allow users who have contributed to your github repositories to claim an NFT!",
