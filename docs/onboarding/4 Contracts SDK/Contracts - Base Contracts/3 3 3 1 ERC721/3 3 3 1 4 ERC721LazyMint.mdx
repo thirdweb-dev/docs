@@ -9,8 +9,8 @@ import ImportSnippet from "@components/ImportSnippet";
 
 # ERC721 Lazy Mint
 
-`ERC721LazyMint` adds the [LazyMint](/extensions/erc-721/lazy-mint)
-feature to the [ERC721Base](/extensions/base-contracts/erc-721/erc721base) contract.
+`ERC721LazyMint` allows you to lazy-mint ERC-721 tokens, and by default allows any wallet to claim a lazy-minted NFT.
+It exposes a `verifyClaim` function that you can override to add your claim-restriction logic.
 
 Lazy minting allows you to define the metadata of NFTs without minting it to an address.
 As a contract admin, this lets you prepare the metadata for NFTs that will be minted by other wallets,
@@ -29,7 +29,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{padding:8}} >
   <QuickstartCard
     name="ERC721 Standard"
-    link="/extensions/erc-721/standard"
+    link="/extensions/erc721"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -37,7 +37,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Supply"
-    link="/extensions/erc-721/supply"
+    link="/extensions/erc721supply"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -45,7 +45,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Burnable"
-    link="/extensions/erc-721/burn"
+    link="/extensions/erc721burnable"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -53,7 +53,15 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Lazy Minting"
-    link="/extensions/erc-721/lazy-mint#unlocked-features"
+    link="/extensions/erc721lazymintable#unlocked-features"
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+<div className="col col--4" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Claimable"
+    link="/extensions/erc721claimable#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -93,5 +101,9 @@ contract MyNFT is ERC721LazyMint {
         address _royaltyRecipient,
         uint128 _royaltyBps
     ) ERC721LazyMint(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+
+    function verifyClaim(address _claimer, uint256 _quantity) public view virtual override {
+      // Your custom claim restriction logic
+    }
 }
 ```

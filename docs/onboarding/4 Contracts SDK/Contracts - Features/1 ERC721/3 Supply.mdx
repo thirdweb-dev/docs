@@ -1,5 +1,5 @@
 ---
-slug: /extensions/erc-721/supply
+slug: /extensions/erc721supply
 title: View All
 ---
 
@@ -59,15 +59,15 @@ View all of the NFTs from the collection by implementing the `totalSupply` funct
 
 By implementing `ERC721Supply`, you unlock the following features in the SDK and dashboard:
 
-| SDK Usage                                                                               | Description                                                |
-| --------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [Get All NFTs](/sdk/interacting-with-contracts/erc721/ERC721Supply#get-all-minted-nfts) | Load the metadata of all the minted NFTs in this contract. |
+| SDK Usage                                                                        | Description                                                |
+| -------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| [Get All NFTs](/sdk/interacting-with-contracts/erc721Supply#get-all-minted-nfts) | Load the metadata of all the minted NFTs in this contract. |
 
 ## Implementing It Yourself
 
 This section is meant for advanced users who want to write the functionality from scratch.
 
-The [ERC721A](/extensions/erc-721/standard) contract comes with a `totalSupply`
+The [ERC721A](/extensions/erc721) contract comes with a `totalSupply`
 function that returns the total number of NFTs that have been minted in the collection (including tokens that have been burned).
 
 This means you can already view the total supply of NFTs in the collection by implementing the `ERC721A` contract.
