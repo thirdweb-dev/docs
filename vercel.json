@@ -417,6 +417,30 @@
     {
       "source": "/contracts/signature-drop",
       "destination": "/pre-built-contracts/signature-drop"
+    },
+    {
+      "source": "/extensions/features/contractmetadata",
+      "destination": "/extensions/contractmetadata"
+    },
+    {
+      "source": "/extensions/features/ownable",
+      "destination": "/extensions/ownable"
+    },
+    {
+      "source": "/extensions/features/permissions",
+      "destination": "/extensions/permissions"
+    },
+    {
+      "source": "/extensions/features/platformfee",
+      "destination": "/extensions/platformfee"
+    },
+    {
+      "source": "/extensions/features/primarysale",
+      "destination": "/extensions/primarysale"
+    },
+    {
+      "source": "/extensions/features/primarysale",
+      "destination": "/extensions/primarysale"
     }
   ]
 }
