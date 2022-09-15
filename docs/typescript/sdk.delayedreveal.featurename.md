@@ -43,5 +43,6 @@ featureName: "ERC20" |
   "PlatformFee" |
   "PrimarySale" |
   "Permissions" |
-  "ContractMetadata";
+  "ContractMetadata" |
+  "Ownable";
 ```
