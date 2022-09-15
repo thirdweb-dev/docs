@@ -9,6 +9,14 @@ displayed_sidebar: react
 
 ## useContract() function
 
+Use this resolve a contract address to a smart contract instance.
+
+## Example
+
+```javascript
+const { contract, isLoading, error } = useContract("{{contract_address}}");
+```
+
 **Signature:**
 
 ```typescript
@@ -21,10 +29,12 @@ export declare function useContract<
 
 ## Parameters
 
-| Parameter       | Type                                                                                           | Description |
-| --------------- | ---------------------------------------------------------------------------------------------- | ----------- |
-| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;[ContractAddress](./react.contractaddress.md)&gt; |             |
+| Parameter       | Type                                                                                           | Description                          |
+| --------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------ |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;[ContractAddress](./react.contractaddress.md)&gt; | the address of the deployed contract |
 
 **Returns:**
 
 [UseContractResult](./react.usecontractresult.md)&lt;TContract&gt;
+
+a response object that includes the contract once it is resolved

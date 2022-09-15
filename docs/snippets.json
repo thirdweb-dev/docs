@@ -63,13 +63,13 @@
           "javascript": "const contract = sdk.getContract(\"{{contract_address}}\");",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst contract = sdk.getContract(\"{{contract_address}}\");"
+          "react": "const { contract, isLoading, error } = useContract(\"{{contract_address}}\");"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getcontract",
           "python": "",
           "go": "",
-          "react": "https://docs.thirdweb.com/typescript/sdk.thirdwebsdk.getcontract"
+          "react": "https://portal.thirdweb.com/react/react.usecontract"
         }
       },
       {
@@ -3642,13 +3642,13 @@
           "javascript": "const address = await sdk.wallet.getAddress();",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst address = await sdk.wallet.getAddress();"
+          "react": "import { useAddress } from \"@thirdweb-dev/react\"\n\nconst App = () => {\n  const address = useAddress()\n\n  return <div>{address}</div>\n}"
         },
         "reference": {
           "javascript": "https://docs.thirdweb.com/typescript/sdk.userwallet.getaddress",
           "python": "",
           "go": "",
-          "react": "https://docs.thirdweb.com/typescript/sdk.userwallet.getaddress"
+          "react": "https://portal.thirdweb.com/react/react.useaddress"
         }
       },
       {
