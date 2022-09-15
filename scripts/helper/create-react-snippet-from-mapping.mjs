@@ -278,7 +278,7 @@ const reactMapping = {
     mainHook: "useContract",
     subHooks: {
       // methods
-      call: "useContractCall",
+      call: "useContractWrite",
     },
   },
   UserWallet: {
@@ -293,13 +293,14 @@ const reactMapping = {
     subHooks: {
       // methods
       getContract: "useContract",
+      call: "useContractWrite",
     },
   },
   SmartContract: {
     mainHook: "useContract",
     subHooks: {
       // methods
-      call: "useContractCall",
+      call: "useContractWrite",
     },
   },
 };
