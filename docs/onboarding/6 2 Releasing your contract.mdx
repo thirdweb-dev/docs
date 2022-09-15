@@ -8,7 +8,7 @@ import QuickstartCard from "../../src/components/QuickstartCard";
 # Release
 
 Using the [CLI](https://github.com/thirdweb-dev/thirdweb-cli),
-run the following command to publish your smart contract to the world's first **on-chain smart contract registry**;
+run the following command to publish a new version of your smart contract to our **on-chain registry**,
 where anyone can view and deploy it from the [dashboard](https://thirdweb.com/dashboard).
 
 ```bash
@@ -27,12 +27,21 @@ npx thirdweb release
 
 ## Releasing Contracts
 
-By releasing your contract onto the thirdweb registry, you unlock a way of creating **versioned deployments** of your contracts.
+By releasing your contract onto the thirdweb registry, you unlock a way of creating **versioned deployments**
+of your contracts and have your contract source code stored on the blockchain.
+
 When you publish a new version, you can easily deploy it to any of our [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use)
 in one click, without exposing your private key at any point.
 
 We also create a public landing page for both your **wallet** and your **smart contract**, where the metadata, author, release notes, and
 source code is all publicly available and stored on-chain.
+
+### What is a Registry?
+
+A **registry** is a way of storing all the versions of your code over time, in a way
+that is publicly available to other users who might want to use it. For example,
+each new release of our [React SDK](https://www.npmjs.com/package/@thirdweb-dev/react) is
+available for our community to install via `npm`.
 
 These pages are accessible by anyone and allow users who visit them to:
 
