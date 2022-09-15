@@ -11,8 +11,8 @@ import ImportSnippet from "@components/ImportSnippet";
 
 The `ERC1155Drop` base contract is a foundation for an Edition (ERC1155) NFT Drop that other wallets can claim.
 
-It implements the [ERC1155 standard](/extensions/erc-1155/standard) with [Lazy Mint](/extensions/erc-721/lazy-mint),
-[Delayed Reveal](/extensions/erc-721/delayed-reveal) and [Drop](/extensions/erc-721/claim) features;
+It implements the [ERC1155 standard](/extensions/erc1155) with [Lazy Mint](/extensions/erc721lazymintable),
+[Delayed Reveal](/extensions/erc721revealable) and [Drop](/extensions/erc721claimable) features;
 allowing you to batch lazy-mint NFTs, and allow other wallets to claim them under the criteria of claim conditions, with an optional delayed reveal.
 
 <ViewContractCodeButton
@@ -30,42 +30,49 @@ Click on each feature to learn more about what functions are available.
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
       name="ERC1155 Standard"
-      link="/extensions/erc-1155/standard#unlocked-features"
+      link="/extensions/erc1155#unlocked-features"
       image="/assets/icons/edition.png"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
       name="Lazy Minting"
-      link="/extensions/erc-1155/drop#unlocked-features"
+      link="/extensions/erc1155lazymintable#unlocked-features"
       image="/assets/icons/edition-drop.png"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
       name="Claimable"
-      link="/extensions/erc-1155/claim#unlocked-features"
+      link="/extensions/erc1155claimable#unlocked-features"
+      image="/assets/icons/edition-drop.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Claimable With Conditions"
+      link="/extensions/erc1155claimablewithconditions#unlocked-features"
       image="/assets/icons/edition-drop.png"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
       name="Delayed Reveal"
-      link="/extensions/erc-1155/delayed-reveal#unlocked-features"
+      link="/extensions/erc1155revealable#unlocked-features"
       image="/assets/icons/edition-drop.png"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
       name="Enumerable"
-      link="/extensions/erc-1155/enumerable#unlocked-features"
+      link="/extensions/erc1155enumerable#unlocked-features"
       image="/assets/icons/edition.png"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
       name="Burnable"
-      link="/extensions/erc-1155/burnable#unlocked-features"
+      link="/extensions/erc1155burnable#unlocked-features"
       image="/assets/icons/edition.png"
     />
   </div>

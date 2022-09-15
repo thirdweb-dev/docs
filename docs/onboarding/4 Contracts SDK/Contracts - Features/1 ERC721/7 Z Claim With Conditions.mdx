@@ -1,15 +1,15 @@
 ---
-slug: /extensions/erc-20/drop
-title: Drop
+slug: /extensions/erc721claimablewithconditions
+title: Claim with Conditions
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 
-# ERC20Drop
+# ERC721ClaimableWithConditions
 
-Allow other wallets to claim/mint tokens from the contract under the criteria of claim conditions by
-implementing `ERC20` and `DropSinglePhase`.
+Allow other wallets to **claim** NFTs that you have lazy-minted using (using [ERC721LazyMintable](/extensions/erc721lazymintable))
+under the criteria of **claim conditions** by implementing `ERC721A`, `LazyMint`, and `DropSinglePhase`.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DropSinglePhase.sol"
@@ -21,15 +21,15 @@ implementing `ERC20` and `DropSinglePhase`.
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--6" style={{ padding: 8 }}>
     <QuickstartCard
-      name="ERC20 Drop"
-      link="/extensions/base-contracts/erc-20/erc20drop"
+      name="ERC721 Delayed Reveal"
+      link="/extensions/base-contracts/erc-721/erc721delayedreveal"
       image="/assets/icons/general.png"
     />
   </div>
   <div className="col col--6" style={{ padding: 8 }}>
     <QuickstartCard
-      name="ERC20 Vote Drop"
-      link="/extensions/base-contracts/erc-20/erc20drop-vote"
+      name="ERC721 Drop"
+      link="/extensions/base-contracts/erc-721/erc721drop"
       image="/assets/icons/general.png"
     />
   </div>
@@ -37,12 +37,12 @@ implementing `ERC20` and `DropSinglePhase`.
 
 ## Unlocked Features
 
-By implementing the `ERC20` standard, you unlock the following features in the SDK and dashboard:
+By implementing `ERC721Claimable`, you unlock the following features in the SDK and dashboard:
 
-| SDK Feature                                                                                           | Description                                                                       |
-| ----------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| [Claim Tokens](/sdk/interacting-with-contracts/erc721/erc721droppable#claim-a-lazy-minted-nft)        | Claim (mint) a lazy-minted NFT to a wallet address.                               |
-| [Claim Conditions](/sdk/interacting-with-contracts/erc721/ERC721Claimable#configure-claim-conditions) | Mints a quantity of lazy-minted NFTs from the drop to a specified wallet address. |
+| SDK Usage                                                                                      | Description                                                                       |
+| ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [Claim NFT](/sdk/interacting-with-contracts/erc721lazymintable#claim-a-lazy-minted-nft)        | Claim (mint) a lazy-minted NFT to a wallet address.                               |
+| [Claim Conditions](/sdk/interacting-with-contracts/erc721Claimable#configure-claim-conditions) | Mints a quantity of lazy-minted NFTs from the drop to a specified wallet address. |
 
 ## Implementing It Yourself
 
@@ -52,19 +52,24 @@ This section is meant for advanced users who want to write the functionality fro
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@thirdweb-dev/contracts/openzeppelin-presets/token/ERC20/ERC20.sol";
+import "@thirdweb-dev/contracts/eip/ERC721A.sol";
+import "@thirdweb-dev/contracts/extension/LazyMint.sol";
 import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
 
-contract Contract is ERC20, DropSinglePhase {
+contract Contract is ERC721A, LazyMint, DropSinglePhase {
     constructor(
         string memory _name,
         string memory _symbol
     )
-        ERC20(
+        ERC721A(
             _name,
             _symbol
         )
     {}
+
+    function _canLazyMint() internal view override returns (bool) {
+        // Your custom implementation here
+    }
 
     function _canSetClaimConditions() internal view override returns (bool) {
         // Your custom implementation here
