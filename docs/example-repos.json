@@ -619,11 +619,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-flask",
     "description": "Enable wallet-based login with thirdweb Auth & Flask",
     "created_at": "2022-08-30T00:17:55Z",
-    "updated_at": "2022-08-30T21:43:41Z",
+    "updated_at": "2022-09-16T02:59:20Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-flask.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": ""
   },
