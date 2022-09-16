@@ -142,15 +142,8 @@ TokenDrop: {
         }
       >,
       "strip",
-      import("zod").ZodLazy<
-        import("zod").ZodType<
-          import("../core/types").Json,
-          import("zod").ZodTypeDef,
-          import("../core/types").Json
-        >
-      >,
+      import("zod").ZodTypeAny,
       {
-        [x: string]: import("../core/types").Json;
         description?: string | undefined;
         image?: string | undefined;
         external_link?: string | undefined;
@@ -159,7 +152,6 @@ TokenDrop: {
         merkle: Record<string, string>;
       },
       {
-        [x: string]: import("../core/types").Json;
         symbol?: string | undefined;
         description?: string | undefined;
         image?: string | undefined;

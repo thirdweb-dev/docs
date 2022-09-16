@@ -67,8 +67,7 @@ Vote: {
             proposal_token_threshold: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodEffects<import("zod").ZodUnion<[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType<import("ethers").BigNumber, import("zod").ZodTypeDef, import("ethers").BigNumber>]>, import("ethers").BigNumber, string | number | bigint | import("ethers").BigNumber>, string, string | number | bigint | import("ethers").BigNumber>>;
         }, {
             proposal_token_threshold: import("zod").ZodEffects<import("zod").ZodUnion<[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType<import("ethers").BigNumber, import("zod").ZodTypeDef, import("ethers").BigNumber>]>, import("ethers").BigNumber, string | number | bigint | import("ethers").BigNumber>;
-        }>>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-            [x: string]: import("../core/types").Json;
+        }>>, "strip", import("zod").ZodTypeAny, {
             description?: string | undefined;
             image?: string | undefined;
             external_link?: string | undefined;
@@ -79,7 +78,6 @@ Vote: {
             voting_quorum_fraction: number;
             proposal_token_threshold: import("ethers").BigNumber;
         }, {
-            [x: string]: import("../core/types").Json;
             description?: string | undefined;
             image?: string | undefined;
             external_link?: string | undefined;

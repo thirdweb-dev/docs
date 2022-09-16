@@ -32,8 +32,7 @@ CONTRACTS_MAP: {
                 platform_fee_recipient: import("zod").ZodOptional<import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>>;
                 primary_sale_recipient: import("zod").ZodOptional<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
                 trusted_forwarders: import("zod").ZodOptional<import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>>;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>, "strip", import("zod").ZodTypeAny, {
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: any;
@@ -47,7 +46,6 @@ CONTRACTS_MAP: {
                 trusted_forwarders?: string[] | undefined;
                 name: string;
             }, {
-                [x: string]: import("../core/types").Json;
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: any;
@@ -73,8 +71,7 @@ CONTRACTS_MAP: {
                 fee_recipient: import("zod").ZodOptional<import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>>;
                 merkle: import("zod").ZodOptional<import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>>;
                 symbol: import("zod").ZodOptional<import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>>;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>, "strip", import("zod").ZodTypeAny, {
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: string | undefined;
@@ -84,7 +81,6 @@ CONTRACTS_MAP: {
                 merkle?: Record<string, string> | undefined;
                 name: string;
             }, {
-                [x: string]: import("../core/types").Json;
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: string | undefined;
@@ -104,8 +100,7 @@ CONTRACTS_MAP: {
                 fee_recipient: import("zod").ZodOptional<import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>>;
                 merkle: import("zod").ZodOptional<import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>>;
                 symbol: import("zod").ZodOptional<import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>>;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>, "strip", import("zod").ZodTypeAny, {
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: any;
@@ -115,7 +110,6 @@ CONTRACTS_MAP: {
                 merkle?: Record<string, string> | undefined;
                 name: string;
             }, {
-                [x: string]: import("../core/types").Json;
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: any;
@@ -192,8 +186,7 @@ CONTRACTS_MAP: {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
             }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -203,7 +196,6 @@ CONTRACTS_MAP: {
                 fee_recipient: string;
                 merkle: Record<string, string>;
             }, {
-                [x: string]: import("../core/types").Json;
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: string | undefined;
@@ -415,8 +407,7 @@ CONTRACTS_MAP: {
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
             }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -425,7 +416,6 @@ CONTRACTS_MAP: {
                 seller_fee_basis_points: number;
                 fee_recipient: string;
             }, {
-                [x: string]: import("../core/types").Json;
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: string | undefined;
@@ -756,8 +746,7 @@ CONTRACTS_MAP: {
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
             }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -766,7 +755,6 @@ CONTRACTS_MAP: {
                 seller_fee_basis_points: number;
                 fee_recipient: string;
             }, {
-                [x: string]: import("../core/types").Json;
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: string | undefined;
@@ -973,8 +961,7 @@ CONTRACTS_MAP: {
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
             }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -983,7 +970,6 @@ CONTRACTS_MAP: {
                 seller_fee_basis_points: number;
                 fee_recipient: string;
             }, {
-                [x: string]: import("../core/types").Json;
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: string | undefined;
@@ -1165,8 +1151,7 @@ CONTRACTS_MAP: {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
             }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -1176,7 +1161,6 @@ CONTRACTS_MAP: {
                 fee_recipient: string;
                 merkle: Record<string, string>;
             }, {
-                [x: string]: import("../core/types").Json;
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: string | undefined;
@@ -1390,8 +1374,7 @@ CONTRACTS_MAP: {
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
             }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -1400,7 +1383,6 @@ CONTRACTS_MAP: {
                 seller_fee_basis_points: number;
                 fee_recipient: string;
             }, {
-                [x: string]: import("../core/types").Json;
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: string | undefined;
@@ -1618,8 +1600,7 @@ CONTRACTS_MAP: {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
             }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -1629,7 +1610,6 @@ CONTRACTS_MAP: {
                 fee_recipient: string;
                 merkle: Record<string, string>;
             }, {
-                [x: string]: import("../core/types").Json;
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: string | undefined;
@@ -2028,8 +2008,7 @@ CONTRACTS_MAP: {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
             }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -2037,7 +2016,6 @@ CONTRACTS_MAP: {
                 name: string;
                 merkle: Record<string, string>;
             }, {
-                [x: string]: import("../core/types").Json;
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: string | undefined;
@@ -2236,15 +2214,13 @@ CONTRACTS_MAP: {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
             }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
                 symbol: string;
                 name: string;
             }, {
-                [x: string]: import("../core/types").Json;
                 symbol?: string | undefined;
                 description?: string | undefined;
                 image?: string | undefined;
@@ -2428,8 +2404,7 @@ CONTRACTS_MAP: {
                 proposal_token_threshold: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodEffects<import("zod").ZodUnion<[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType<import("ethers").BigNumber, import("zod").ZodTypeDef, import("ethers").BigNumber>]>, import("ethers").BigNumber, string | number | bigint | import("ethers").BigNumber>, string, string | number | bigint | import("ethers").BigNumber>>;
             }, {
                 proposal_token_threshold: import("zod").ZodEffects<import("zod").ZodUnion<[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType<import("ethers").BigNumber, import("zod").ZodTypeDef, import("ethers").BigNumber>]>, import("ethers").BigNumber, string | number | bigint | import("ethers").BigNumber>;
-            }>>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>>, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -2440,7 +2415,6 @@ CONTRACTS_MAP: {
                 voting_quorum_fraction: number;
                 proposal_token_threshold: import("ethers").BigNumber;
             }, {
-                [x: string]: import("../core/types").Json;
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
