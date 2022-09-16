@@ -52,7 +52,7 @@ export const MyApp = () => {
 };
 ```
 
-On the [`index.jsx`](https://github.com/thirdweb-example/next-javascript-starter/blob/main/pages/index.js#L5)
+On the [`index.jsx`](https://github.com/thirdweb-example/next-javascript-starter/blob/main/pages/index.js#L5) page,
 you'll find a [Connect Wallet button](/sdk/ui-components/connectwalletbutton) that allows users to connect their wallet to our application.
 
 ```jsx title="pages/index.jsx"
@@ -68,8 +68,6 @@ export default function Home() {
 Now that we have a project set up, let's start interacting with our smart contract.
 
 ### Connecting to the Contract
-
-First, let's connect to our smart contract.
 
 To do that, we'll need our contract address; which you can get from the dashboard:
 
@@ -126,10 +124,10 @@ That's a lot of work. Now's a good time to introduce our **specialized functions
 For each of the [extensions](/extensions) you implemented in your smart contract,
 you unlock a way to use that in your application.
 
-Let's look at an example. The contract we built implements the [ERC721](/extensions/erc-721/standard)
-and [ERC721Supply](/extensions/erc-721/supply) extensions.
+Let's look at an example. The contract we built implements the [ERC721](/extensions/erc721)
+and [ERC721Supply](/extensions/erc721supply) extensions.
 
-By doing so, we can use the [View All](/sdk/interacting-with-contracts/erc721/erc721supply)
+By doing so, we can use the [View All](/sdk/interacting-with-contracts/erc721supply)
 functionality in our application! In React, that is the [`useNFTs`](/react/react.usenfts) hook:
 
 ```jsx title="pages/index.jsx"
@@ -167,8 +165,8 @@ you'll want to use the [`Web3Button`](/sdk/ui-components/web3button) component t
 has their wallet connected and is on the right network before calling the function.
 
 As we described above, you also gain access to a specialized function for each extension you implement in Solidity,
-such as the [Mint](/sdk/interacting-with-contracts/erc721/erc721mintable) feature enabled by
-implementing [ERC721Mintable](/extensions/erc-721/mintable#unlocked-features) in our smart contract.
+such as the [Mint](/sdk/interacting-with-contracts/erc721mintable) feature enabled by
+implementing [ERC721Mintable](/extensions/erc721mintable#unlocked-features) in our smart contract.
 
 Now we know how to read and write to our smart contract, let's build the UI for our app! 💅
 
@@ -259,7 +257,7 @@ Deploy your app to [Netlify](https://www.netlify.com/blog/2020/11/30/how-to-depl
 or [Vercel](https://vercel.com/guides/deploying-nextjs-with-vercel) for free to share it with the world!
 :::
 
-Congratulations! We're so excited to see what you build. 🚀 Let us know what you think so far:
+We're so excited to see what you build. 🚀 Let us know what you've shipped so far:
 
 <TwitterCard
   text={`I just built a full NFT minting dapp with @thirdweb_ 🔥 Check it out: <share your deployment url to the world!>`}
