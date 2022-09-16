@@ -23,14 +23,14 @@ contract.events.listenToAllEvents((event) => {
 **Signature:**
 
 ```typescript
-listenToAllEvents(listener: (event: ContractEvent) => void): () => void;
+listenToAllEvents<TEvent extends Record<string, any>>(listener: (event: ContractEvent<TEvent>) => void): () => void;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                        | Description                                                  |
-| --------- | ----------------------------------------------------------- | ------------------------------------------------------------ |
-| listener  | (event: [ContractEvent](./sdk.contractevent.md)) =&gt; void | the callback function that will be called on every new event |
+| Parameter | Type                                                                      | Description                                                  |
+| --------- | ------------------------------------------------------------------------- | ------------------------------------------------------------ |
+| listener  | (event: [ContractEvent](./sdk.contractevent.md)&lt;TEvent&gt;) =&gt; void | the callback function that will be called on every new event |
 
 **Returns:**
 

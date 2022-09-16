@@ -29,7 +29,7 @@ console.log(events[0].data);
 **Signature:**
 
 ```typescript
-getEvents(eventName: string, filters?: EventQueryFilter): Promise<ContractEvent[]>;
+getEvents<TEvent extends Record<string, any>>(eventName: string, filters?: EventQueryFilter): Promise<ContractEvent<TEvent>[]>;
 ```
 
 ## Parameters
@@ -41,7 +41,7 @@ getEvents(eventName: string, filters?: EventQueryFilter): Promise<ContractEvent[
 
 **Returns:**
 
-Promise&lt;[ContractEvent](./sdk.contractevent.md)\[\]&gt;
+Promise&lt;[ContractEvent](./sdk.contractevent.md)&lt;TEvent&gt;\[\]&gt;
 
 The requested event objects with event data
 

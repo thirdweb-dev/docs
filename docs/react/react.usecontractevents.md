@@ -23,7 +23,7 @@ export declare function useContractEvents(
     queryFilter?: EventQueryFilter;
     subscribe?: boolean;
   },
-): UseQueryResult<ContractEvent[], unknown>;
+): UseQueryResult<ContractEvent<Record<string, any>>[], unknown>;
 ```
 
 ## Parameters
@@ -36,6 +36,6 @@ export declare function useContractEvents(
 
 **Returns:**
 
-UseQueryResult&lt;ContractEvent\[\], unknown&gt;
+UseQueryResult&lt;ContractEvent&lt;Record&lt;string, any&gt;&gt;\[\], unknown&gt;
 
 a response object that includes the contract events
