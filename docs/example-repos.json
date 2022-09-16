@@ -17,11 +17,11 @@
     "html_url": "https://github.com/thirdweb-example/burn1155-mint721",
     "description": "Similar to the MAYC collection, allow users who hold an NFT from your original NFT Collection to burn an ERC-1155 NFT collection to claim an NFT from your new NFT Collection!",
     "created_at": "2022-09-12T11:18:00Z",
-    "updated_at": "2022-09-14T04:42:31Z",
+    "updated_at": "2022-09-15T10:36:11Z",
     "clone_url": "https://github.com/thirdweb-example/burn1155-mint721.git",
     "topics": [],
     "language": "CSS",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": null
   },
@@ -379,13 +379,13 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-with-signature-based-minting",
     "description": "Mint and list NFTs on to a marketplace using signature-based minting",
     "created_at": "2022-07-26T07:48:49Z",
-    "updated_at": "2022-09-07T18:09:28Z",
+    "updated_at": "2022-09-15T19:21:49Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-with-signature-based-minting.git",
     "topics": [
       "marketplace"
     ],
     "language": "JavaScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": "https://marketplace-with-signature-based-minting.thirdweb-example.com/"
   },
@@ -464,7 +464,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-09-12T17:41:04Z",
+    "updated_at": "2022-09-15T19:23:37Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "authentication",
@@ -474,7 +474,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 49,
+    "stargazers_count": 50,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -699,11 +699,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2022-09-15T01:05:01Z",
+    "updated_at": "2022-09-15T12:16:52Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 19,
+    "stargazers_count": 20,
     "is_template": false,
     "homepage": null
   },
@@ -725,13 +725,13 @@
     "html_url": "https://github.com/thirdweb-example/token-drop",
     "description": "Release your token with claim conditions for a price using thirdweb's Token Drop contract",
     "created_at": "2022-05-25T04:05:25Z",
-    "updated_at": "2022-08-24T04:06:04Z",
+    "updated_at": "2022-09-15T19:19:20Z",
     "clone_url": "https://github.com/thirdweb-example/token-drop.git",
     "topics": [
       "token-drop"
     ],
     "language": "JavaScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": "https://token-drop.thirdweb-example.com"
   },

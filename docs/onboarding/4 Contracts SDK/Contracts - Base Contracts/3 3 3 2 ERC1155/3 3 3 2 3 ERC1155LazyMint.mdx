@@ -9,7 +9,8 @@ import ImportSnippet from "@components/ImportSnippet";
 
 # ERC1155 Lazy Mint
 
-`ERC1155LazyMint` adds the [Lazy Mint](/extensions/base-contracts/erc-1155/erc1155lazymint) feature to the [ERC1155Base](/extensions/base-contracts/erc-1155/erc1155base) contract.
+`ERC1155LazyMint` allows you to [Lazy Mint](/extensions/base-contracts/erc-1155/erc1155lazymint) in your contract.
+It exposes a `verifyClaim` function that you can override to add your claim-restriction logic.
 
 Lazy minting allows you to define the metadata of NFTs without minting it to an address.
 As a contract admin, this lets you prepare the metadata for NFTs that will be minted by other wallets,
@@ -30,42 +31,49 @@ Click on each feature to learn more about what functions are available.
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
       name="ERC1155 Standard"
-      link="/extensions/erc-1155/standard#unlocked-features"
+      link="/extensions/erc1155#unlocked-features"
       image="/assets/icons/edition.png"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
       name="Lazy Minting"
-      link="/extensions/erc-1155/drop#unlocked-features"
+      link="/extensions/erc1155lazymintable#unlocked-features"
+      image="/assets/icons/edition-drop.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Claimable"
+      link="/extensions/erc1155claimable#unlocked-features"
       image="/assets/icons/edition-drop.png"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
       name="Enumerable"
-      link="/extensions/erc-1155/enumerable#unlocked-features"
+      link="/extensions/erc1155enumerable#unlocked-features"
       image="/assets/icons/edition.png"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
       name="Burnable"
-      link="/extensions/erc-1155/burnable#unlocked-features"
+      link="/extensions/erc1155burnable#unlocked-features"
       image="/assets/icons/edition.png"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
       name="Contract Metadata"
-      link="/extensions/features/contractmetadata#unlocked-features"
+      link="/extensions/contractmetadata#unlocked-features"
       image="/assets/icons/general.png"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
       name="Royalties"
-      link="/extensions/features/royalty#unlocked-features"
+      link="/extensions/royalty#unlocked-features"
       image="/assets/icons/general.png"
     />
   </div>
@@ -88,5 +96,9 @@ contract MyNFT is ERC1155LazyMint {
         address _royaltyRecipient,
         uint128 _royaltyBps
     ) ERC1155LazyMint(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+
+    function verifyClaim(address _claimer, uint256 _tokenId, uint256 _quantity) public view virtual override {
+      // Your custom claim restriction logic
+    }
 }
 ```

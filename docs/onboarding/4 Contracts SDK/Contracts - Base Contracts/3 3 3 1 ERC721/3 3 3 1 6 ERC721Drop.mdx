@@ -11,8 +11,8 @@ import ImportSnippet from "@components/ImportSnippet";
 
 The `ERC721Drop` base contract is a foundation for an NFT Drop that other wallets can claim.
 
-It implements the [ERC721A standard](/extensions/erc-721/standard) with [Lazy Mint](/extensions/erc-721/lazy-mint),
-[Delayed Reveal](/extensions/erc-721/delayed-reveal) and [Drop](/extensions/erc-721/claim) features;
+It implements the [ERC721A standard](/extensions/erc721) with [Lazy Mint](/extensions/erc721lazymintable),
+[Delayed Reveal](/extensions/erc721revealable) and [Drop](/extensions/erc721claimable) features;
 allowing you to batch lazy-mint NFTs, and allow other wallets to claim them under the criteria of claim conditions, with an optional delayed reveal.
 
 <ViewContractCodeButton
@@ -28,7 +28,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{padding:8}} >
   <QuickstartCard
     name="ERC721 Standard"
-    link="/extensions/erc-721/standard#unlocked-features"
+    link="/extensions/erc721#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -36,7 +36,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Supply"
-    link="/extensions/erc-721/supply"
+    link="/extensions/erc721supply#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -44,7 +44,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Burnable"
-    link="/extensions/erc-721/burn"
+    link="/extensions/erc721burnable#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -52,7 +52,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Lazy Minting"
-    link="/extensions/erc-721/lazy-mint#unlocked-features"
+    link="/extensions/erc721lazymintable#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -60,7 +60,15 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Delayed Reveal"
-    link="/extensions/erc-721/delayed-reveal#unlocked-features"
+    link="/extensions/erc721revealable#unlocked-features"
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+<div className="col col--4" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Claimable"
+    link="/extensions/erc721claimable#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -68,7 +76,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Claimable With Conditions"
-    link="/extensions/erc-721/claim#unlocked-features"
+    link="/extensions/erc721claimablewithconditions#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -76,7 +84,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Contract Metadata"
-    link="/extensions/features/contractmetadata#unlocked-features"
+    link="/extensions/contractmetadata#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>
@@ -84,7 +92,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Royalties"
-    link="/extensions/features/royalty#unlocked-features"
+    link="/extensions/royalty#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>
@@ -92,7 +100,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Primary Sale"
-    link="/extensions/features/primarysale#unlocked-features"
+    link="/extensions/primarysale#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>

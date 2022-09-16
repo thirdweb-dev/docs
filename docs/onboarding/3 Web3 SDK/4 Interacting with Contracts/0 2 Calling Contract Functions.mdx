@@ -4,6 +4,9 @@ title: Calling Contract Functions
 ---
 
 import CodeSnippetWithSummary from "@components/CodeSnippetWithSummary";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
 
 Read data and make transactions on your contract from the connected wallet.
 
@@ -11,23 +14,41 @@ Read data and make transactions on your contract from the connected wallet.
 
 Use the name of the function, view, or mapping, and provide any required arguments.
 
-<CodeSnippetWithSummary
-  contract={"SmartContract"}
-  name={"call"}
-  dontShowSummary
-  showHr={false}
-  snippetOverrides={{
-    react: `const { contract } = useContract(\"{{contract_address}}\");\nconst { data, isLoading, error } = useContractData(contract, \"functionName\", ...args);`,
-  }}
-/>
+<Tabs groupId={"thirdweb-code-snippet"} defaultValue={"react"}>
+  <TabItem key={"react"} value={"react"} label={"React"}>
+    <CodeBlock language={"javascript"}>{`const { contract } = useContract("{{contract_address}}");
+const { data: myData, isLoading } = useContractRead(contract, "myFunction");`}
+</CodeBlock>
+
+  </TabItem>
+  <TabItem key={"javascript"} value={"javascript"} label={"JavaScript"}>
+    <CodeBlock language={"javascript"}>{`// read functions will return the data from the contract
+const myValue = await contract.call("myReadFunction");
+console.log(myValue);`}</CodeBlock>
+  </TabItem>
+</Tabs>
 
 ## Write Transactions
 
 Transactions are made using the connected wallet (or the wallet you instantiated the SDK with).
 
-<CodeSnippetWithSummary
-  contract={"SmartContract"}
-  name={"call"}
-  dontShowSummary
-  showHr={false}
-/>
+<Tabs groupId={"thirdweb-code-snippet"} defaultValue={"react"}>
+  <TabItem key={"react"} value={"react"} label={"React"}>
+    <CodeBlock language={"javascript"}>{`const { contract } = useContract("{{contract_address}}");
+const { mutate: myFunction, isLoading, error } = useContractWrite(contract, "myFunction");
+myFunction(...) // Call the function
+`}
+</CodeBlock>
+
+  </TabItem>
+  <TabItem key={"javascript"} value={"javascript"} label={"JavaScript"}>
+    <CodeBlock language={"javascript"}>{`// write functions will return the transaction receipt
+const tx = await contract.call("myWriteFunction", arg1, arg2);
+const receipt = tx.receipt;
+// Optionally override transaction options
+await contract.call("myWriteFunction", arg1, arg2, {
+  gasLimit: 1000000, // override default gas limit
+  value: ethers.utils.parseEther("0.1"), // send 0.1 ether with the contract call
+};`}</CodeBlock>
+  </TabItem>
+</Tabs>

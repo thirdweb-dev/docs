@@ -155,8 +155,8 @@ ${generateTextForFeatureFunctions(name)}
         folder: "1 ERC721",
       },
       {
-        name: "ERC721Droppable",
-        displayName: "ERC721Droppable",
+        name: "ERC721LazyMintable",
+        displayName: "ERC721LazyMintable",
         sidebarName: "Drop",
         description: "",
         folder: "1 ERC721",
@@ -212,8 +212,8 @@ ${generateTextForFeatureFunctions(name)}
         folder: "2 ERC1155",
       },
       {
-        name: "ERC1155Droppable",
-        displayName: "ERC1155Droppable",
+        name: "ERC1155LazyMintable",
+        displayName: "ERC1155LazyMintable",
         sidebarName: "Drop",
         description: "",
         folder: "2 ERC1155",

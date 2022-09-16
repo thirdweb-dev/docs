@@ -9,7 +9,8 @@ import ImportSnippet from "@components/ImportSnippet";
 
 # ERC721 Delayed Reveal
 
-`ERC721DelayedReveal` adds the [Delayed Reveal](/extensions/erc-721/delayed-reveal) feature to the [ERC721LazyMint](/extensions/base-contracts/erc-721/erc721lazymint) base contract.
+`ERC721DelayedReveal` adds the [Delayed Reveal](/extensions/erc721revealable) feature to
+the [ERC721LazyMint](/extensions/base-contracts/erc-721/erc721lazymint) base contract.
 
 <div style={{ marginBottom: 24 }}>
   <ViewContractCodeButton
@@ -38,7 +39,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{padding:8}} >
   <QuickstartCard
     name="ERC721 Standard"
-    link="/extensions/erc-721/standard"
+    link="/extensions/erc721#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -46,7 +47,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Supply"
-    link="/extensions/erc-721/supply"
+    link="/extensions/erc721supply#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -54,7 +55,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Burnable"
-    link="/extensions/erc-721/burn"
+    link="/extensions/erc721burnable#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -62,7 +63,15 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Lazy Minting"
-    link="/extensions/erc-721/lazy-mint#unlocked-features"
+    link="/extensions/erc721lazymintable#unlocked-features"
+    image="/assets/icons/nft.png"
+  />
+</div>
+
+<div className="col col--4" style={{ padding: 8 }}>
+  <QuickstartCard
+    name="Claimable"
+    link="/extensions/erc721claimable#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -70,7 +79,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Delayed Reveal"
-    link="/extensions/erc-721/delayed-reveal#unlocked-features"
+    link="/extensions/erc721revealable#unlocked-features"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -78,7 +87,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Contract Metadata"
-    link="/extensions/features/contractmetadata#unlocked-features"
+    link="/extensions/contractmetadata#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>
@@ -86,7 +95,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Royalties"
-    link="/extensions/features/royalty#unlocked-features"
+    link="/extensions/royalty#unlocked-features"
     image="/assets/icons/general.png"
   />
 </div>
@@ -110,5 +119,9 @@ contract MyNFT is ERC721DelayedReveal {
         address _royaltyRecipient,
         uint128 _royaltyBps
     ) ERC721DelayedReveal(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+
+    function verifyClaim(address _claimer, uint256 _quantity) public view virtual override {
+      // Your custom claim restriction logic
+    }
 }
 ```
