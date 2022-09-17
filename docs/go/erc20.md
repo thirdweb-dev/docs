@@ -13,7 +13,7 @@ This interface is currently support by the Token contract\. You can access all o
 type ERC20 struct {}
 ```
 
-### func \(\*ERC20\) [Allowance](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L103)
+### func \(\*ERC20\) [Allowance](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L104)
 
 ```go
 func (erc20 *ERC20) Allowance(spender string) (*CurrencyValue, error)
@@ -34,7 +34,7 @@ allowance, err := contract.Allowance(spender)
 allowanceValue := allowance.DisplayValue
 ```
 
-### func \(\*ERC20\) [AllowanceOf](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L122)
+### func \(\*ERC20\) [AllowanceOf](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L123)
 
 ```go
 func (erc20 *ERC20) AllowanceOf(owner string, spender string) (*CurrencyValue, error)
@@ -58,7 +58,7 @@ allowance, err := contract.AllowanceOf(address, spender)
 allowanceValue := allowance.DisplayValue
 ```
 
-### func \(\*ERC20\) [Balance](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L55)
+### func \(\*ERC20\) [Balance](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L56)
 
 ```go
 func (erc20 *ERC20) Balance() (*CurrencyValue, error)
@@ -72,11 +72,10 @@ returns: balance of the connected wallet
 
 ```
 balance, err := contract.Balance()
+ balanceValue := balance.DisplayValue
 ```
 
-balanceValue := balance\.DisplayValue
-
-### func \(\*ERC20\) [BalanceOf](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L70)
+### func \(\*ERC20\) [BalanceOf](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L71)
 
 ```go
 func (erc20 *ERC20) BalanceOf(address string) (*CurrencyValue, error)
@@ -92,15 +91,14 @@ returns: balance of the specified wallet
 
 ```
 address := "{{wallet_address}}"
-balance, err := contract.BalanceOf()
+	balance, err := contract.BalanceOf()
+ balanceValue := balance.DisplayValue
 ```
 
-balanceValue := balance\.DisplayValue
-
-### func \(\*ERC20\) [Burn](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L293)
+### func \(\*ERC20\) [Burn](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L294)
 
 ```go
-func (erc20 *ERC20) Burn(amount float64) (*types.Transaction, error)
+func (erc20 *ERC20) Burn(ctx context.Context, amount float64) (*types.Transaction, error)
 ```
 
 Burn a specified amount of tokens from the connected wallet\.
@@ -113,13 +111,13 @@ returns: transaction receipt of the burn
 
 ```
 amount := 1
-tx, err := contract.Burn(amount)
+tx, err := contract.Burn(context.Background(), amount)
 ```
 
-### func \(\*ERC20\) [BurnFrom](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L325)
+### func \(\*ERC20\) [BurnFrom](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L326)
 
 ```go
-func (erc20 *ERC20) BurnFrom(holder string, amount float64) (*types.Transaction, error)
+func (erc20 *ERC20) BurnFrom(ctx context.Context, holder string, amount float64) (*types.Transaction, error)
 ```
 
 Burn a specified amount of tokens from a specific wallet\.
@@ -136,10 +134,10 @@ returns: transaction receipt of the burn
 holder := "0x..."
 amount := 1
 
-tx, err := contract.BurnFrom(holder, amount)
+tx, err := contract.BurnFrom(context.Background(), holder, amount)
 ```
 
-### func \(\*ERC20\) [Get](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L43)
+### func \(\*ERC20\) [Get](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L44)
 
 ```go
 func (erc20 *ERC20) Get() (*Currency, error)
@@ -156,10 +154,10 @@ currency, err := contract.Get()
 symbol := currency.Symbol
 ```
 
-### func \(\*ERC20\) [SetAllowance](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L212)
+### func \(\*ERC20\) [SetAllowance](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L213)
 
 ```go
-func (erc20 *ERC20) SetAllowance(spender string, amount float64) (*types.Transaction, error)
+func (erc20 *ERC20) SetAllowance(ctx context.Context, spender string, amount float64) (*types.Transaction, error)
 ```
 
 Sets the allowance of a wallet to spend the connected wallets funds\.
@@ -176,10 +174,10 @@ returns: transaction receipt of the allowance set
 spender := "0x..."
 amount := 1
 
-tx, err := contract.SetAllowance(spender, amount)
+tx, err := contract.SetAllowance(context.Background(), spender, amount)
 ```
 
-### func \(\*ERC20\) [TotalSupply](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L82)
+### func \(\*ERC20\) [TotalSupply](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L83)
 
 ```go
 func (erc20 *ERC20) TotalSupply() (*CurrencyValue, error)
@@ -189,10 +187,10 @@ Get the total minted supply of the token\.
 
 returns: total minted supply of the token
 
-### func \(\*ERC20\) [Transfer](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L145)
+### func \(\*ERC20\) [Transfer](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L146)
 
 ```go
-func (erc20 *ERC20) Transfer(to string, amount float64) (*types.Transaction, error)
+func (erc20 *ERC20) Transfer(ctx context.Context, to string, amount float64) (*types.Transaction, error)
 ```
 
 Transfer a specified amount of tokens from the connected wallet to a specified address\.
@@ -209,13 +207,13 @@ returns: transaction receipt of the transfer
 to := "0x..."
 amount := 1
 
-tx, err := contract.Transfer(to, amount)
+tx, err := contract.Transfer(context.Background(), to, amount)
 ```
 
-### func \(\*ERC20\) [TransferBatch](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L250)
+### func \(\*ERC20\) [TransferBatch](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L251)
 
 ```go
-func (erc20 *ERC20) TransferBatch(args []*TokenAmount) (*types.Transaction, error)
+func (erc20 *ERC20) TransferBatch(ctx context.Context, args []*TokenAmount) (*types.Transaction, error)
 ```
 
 Transfer tokens from the connected wallet to many wallets\.
@@ -238,13 +236,13 @@ args = []*thirdweb.TokenAmount{
 	}
 }
 
-tx, err := contract.TransferBatch(args)
+tx, err := contract.TransferBatch(context.Background(), args)
 ```
 
-### func \(\*ERC20\) [TransferFrom](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L180)
+### func \(\*ERC20\) [TransferFrom](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc20.go#L181)
 
 ```go
-func (erc20 *ERC20) TransferFrom(from string, to string, amount float64) (*types.Transaction, error)
+func (erc20 *ERC20) TransferFrom(ctx context.Context, from string, to string, amount float64) (*types.Transaction, error)
 ```
 
 Transfer a specified amount of tokens from one specified address to another\.
@@ -264,5 +262,5 @@ from := "{{wallet_address}}"
 to := "0x..."
 amount := 1
 
-tx, err := contract.TransferFrom(from, to, amount)
+tx, err := contract.TransferFrom(context.Background(), from, to, amount)
 ```
