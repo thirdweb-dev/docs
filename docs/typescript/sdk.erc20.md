@@ -32,7 +32,7 @@ await contract.erc20.transfer(walletAddress, amount);
 | [contractWrapper](./sdk.erc20.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;                                                                                   |                            |
 | [featureName](./sdk.erc20.featurename.md)         |                        | "ERC20"                                                                                                    |                            |
 | [signature](./sdk.erc20.signature.md)             | <code>readonly</code>  | [Erc20SignatureMintable](./sdk.erc20signaturemintable.md)                                                  | Signature Minting          |
-| [storage](./sdk.erc20.storage.md)                 | <code>protected</code> | IStorage                                                                                                   |                            |
+| [storage](./sdk.erc20.storage.md)                 | <code>protected</code> | ThirdwebStorage                                                                                            |                            |
 
 ## Methods
 

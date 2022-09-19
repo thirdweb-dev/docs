@@ -14,7 +14,7 @@ Constructs a new instance of the `Erc721BatchMintable` class
 **Signature:**
 
 ```typescript
-constructor(erc721: Erc721, contractWrapper: ContractWrapper<IMintableERC721 & IMulticall>, storage: IStorage);
+constructor(erc721: Erc721, contractWrapper: ContractWrapper<IMintableERC721 & IMulticall>, storage: ThirdwebStorage);
 ```
 
 ## Parameters
@@ -23,4 +23,4 @@ constructor(erc721: Erc721, contractWrapper: ContractWrapper<IMintableERC721 & I
 | --------------- | ------------------------------------------------------- | ----------- |
 | erc721          | [Erc721](./sdk.erc721.md)                               |             |
 | contractWrapper | ContractWrapper&lt;IMintableERC721 &amp; IMulticall&gt; |             |
-| storage         | IStorage                                                |             |
+| storage         | ThirdwebStorage                                         |             |

@@ -30,7 +30,7 @@ await contract.edition.transfer(walletAddress, tokenId, quantity);
 | ----------------------------------------------------------- | ---------------------- | --------------------------- | ----------- |
 | [contractWrapper](./sdk.standarderc1155.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;    |             |
 | [erc1155](./sdk.standarderc1155.erc1155.md)                 |                        | [Erc1155](./sdk.erc1155.md) |             |
-| [storage](./sdk.standarderc1155.storage.md)                 | <code>protected</code> | IStorage                    |             |
+| [storage](./sdk.standarderc1155.storage.md)                 | <code>protected</code> | ThirdwebStorage             |             |
 
 ## Methods
 

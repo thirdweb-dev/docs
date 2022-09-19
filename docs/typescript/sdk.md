@@ -159,7 +159,6 @@ displayed_sidebar: typescript
 | [AuthenticationOptions](./sdk.authenticationoptions.md)                                 |                                                                                      |
 | [AuthenticationPayload](./sdk.authenticationpayload.md)                                 |                                                                                      |
 | [AuthenticationPayloadData](./sdk.authenticationpayloaddata.md)                         |                                                                                      |
-| [BufferOrStringWithName](./sdk.bufferorstringwithname.md)                               |                                                                                      |
 | [ClaimCondition](./sdk.claimcondition.md)                                               | Represents a claim condition fetched from the SDK                                    |
 | [ClaimConditionInput](./sdk.claimconditioninput.md)                                     | Input model to create a claim condition with optional snapshot of wallets            |
 | [ClaimConditionsForToken](./sdk.claimconditionsfortoken.md)                             |                                                                                      |
@@ -191,8 +190,6 @@ displayed_sidebar: typescript
 | [FilledSignaturePayload721](./sdk.filledsignaturepayload721.md)                         |                                                                                      |
 | [ForwardRequestMessage](./sdk.forwardrequestmessage.md)                                 | Forward Request Message that's used for gasless transaction                          |
 | [FullPublishMetadata](./sdk.fullpublishmetadata.md)                                     |                                                                                      |
-| [Json](./sdk.json.md)                                                                   |                                                                                      |
-| [JsonObject](./sdk.jsonobject.md)                                                       |                                                                                      |
 | [LoginOptions](./sdk.loginoptions.md)                                                   |                                                                                      |
 | [LoginPayload](./sdk.loginpayload.md)                                                   |                                                                                      |
 | [LoginPayloadData](./sdk.loginpayloaddata.md)                                           |                                                                                      |

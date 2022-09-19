@@ -14,7 +14,7 @@ Constructs a new instance of the `ContractMetadata` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<TContract>, schema: TSchema, storage: IStorage);
+constructor(contractWrapper: ContractWrapper<TContract>, schema: TSchema, storage: ThirdwebStorage);
 ```
 
 ## Parameters
@@ -23,4 +23,4 @@ constructor(contractWrapper: ContractWrapper<TContract>, schema: TSchema, storag
 | --------------- | -------------------------------- | ----------- |
 | contractWrapper | ContractWrapper&lt;TContract&gt; |             |
 | schema          | TSchema                          |             |
-| storage         | IStorage                         |             |
+| storage         | ThirdwebStorage                  |             |

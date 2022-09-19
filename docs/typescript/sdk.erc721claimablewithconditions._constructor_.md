@@ -14,7 +14,7 @@ Constructs a new instance of the `Erc721ClaimableWithConditions` class
 **Signature:**
 
 ```typescript
-constructor(erc721: Erc721, contractWrapper: ContractWrapper<BaseClaimConditionERC721>, storage: IStorage);
+constructor(erc721: Erc721, contractWrapper: ContractWrapper<BaseClaimConditionERC721>, storage: ThirdwebStorage);
 ```
 
 ## Parameters
@@ -23,4 +23,4 @@ constructor(erc721: Erc721, contractWrapper: ContractWrapper<BaseClaimConditionE
 | --------------- | ----------------------------------------------- | ----------- |
 | erc721          | [Erc721](./sdk.erc721.md)                       |             |
 | contractWrapper | ContractWrapper&lt;BaseClaimConditionERC721&gt; |             |
-| storage         | IStorage                                        |             |
+| storage         | ThirdwebStorage                                 |             |

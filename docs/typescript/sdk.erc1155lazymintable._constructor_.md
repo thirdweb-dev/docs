@@ -14,7 +14,7 @@ Constructs a new instance of the `Erc1155LazyMintable` class
 **Signature:**
 
 ```typescript
-constructor(erc1155: Erc1155, contractWrapper: ContractWrapper<BaseDropERC1155>, storage: IStorage);
+constructor(erc1155: Erc1155, contractWrapper: ContractWrapper<BaseDropERC1155>, storage: ThirdwebStorage);
 ```
 
 ## Parameters
@@ -23,4 +23,4 @@ constructor(erc1155: Erc1155, contractWrapper: ContractWrapper<BaseDropERC1155>,
 | --------------- | -------------------------------------- | ----------- |
 | erc1155         | [Erc1155](./sdk.erc1155.md)            |             |
 | contractWrapper | ContractWrapper&lt;BaseDropERC1155&gt; |             |
-| storage         | IStorage                               |             |
+| storage         | ThirdwebStorage                        |             |

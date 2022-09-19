@@ -20,7 +20,16 @@ CONTRACTS_MAP: {
             deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodOptional<import("zod").ZodDefault<import("zod").ZodNumber>>;
@@ -62,7 +71,16 @@ CONTRACTS_MAP: {
             output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
@@ -93,7 +111,16 @@ CONTRACTS_MAP: {
             input: import("zod").ZodObject<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodOptional<import("zod").ZodDefault<import("zod").ZodNumber>>;
@@ -129,7 +156,16 @@ CONTRACTS_MAP: {
             deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -175,7 +211,16 @@ CONTRACTS_MAP: {
             output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
@@ -208,7 +253,16 @@ CONTRACTS_MAP: {
             input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -238,7 +292,7 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "minter", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: {
+        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -356,7 +410,16 @@ CONTRACTS_MAP: {
             deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -398,7 +461,16 @@ CONTRACTS_MAP: {
             output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
@@ -427,7 +499,16 @@ CONTRACTS_MAP: {
             input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -453,7 +534,7 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "minter", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: {
+        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -540,7 +621,16 @@ CONTRACTS_MAP: {
             deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 platform_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -567,18 +657,27 @@ CONTRACTS_MAP: {
             output: import("zod").ZodObject<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("@thirdweb-dev/storage").Json, import("zod").ZodTypeDef, import("@thirdweb-dev/storage").Json>>, {
+                [x: string]: import("@thirdweb-dev/storage").Json;
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
                 name: string;
             }, {
-                [x: string]: import("../core/types").Json;
+                [x: string]: import("@thirdweb-dev/storage").Json;
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -587,7 +686,16 @@ CONTRACTS_MAP: {
             input: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
@@ -602,7 +710,7 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "lister", "asset"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: {
+        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -706,7 +814,16 @@ CONTRACTS_MAP: {
             deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -737,7 +854,16 @@ CONTRACTS_MAP: {
             output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
@@ -766,7 +892,16 @@ CONTRACTS_MAP: {
             input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -792,7 +927,7 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["transfer", "minter", "unwrap", "asset"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: {
+        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -910,7 +1045,16 @@ CONTRACTS_MAP: {
             deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -952,7 +1096,16 @@ CONTRACTS_MAP: {
             output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
@@ -981,7 +1134,16 @@ CONTRACTS_MAP: {
             input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -1007,7 +1169,7 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "minter", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: {
+        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -1094,7 +1256,16 @@ CONTRACTS_MAP: {
             deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -1140,7 +1311,16 @@ CONTRACTS_MAP: {
             output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
@@ -1173,7 +1353,16 @@ CONTRACTS_MAP: {
             input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -1203,7 +1392,7 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "minter", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: {
+        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -1327,7 +1516,16 @@ CONTRACTS_MAP: {
             deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -1365,7 +1563,16 @@ CONTRACTS_MAP: {
             output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
@@ -1394,7 +1601,16 @@ CONTRACTS_MAP: {
             input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -1420,7 +1636,7 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "minter", "pauser", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: {
+        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -1543,7 +1759,16 @@ CONTRACTS_MAP: {
             deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -1589,7 +1814,16 @@ CONTRACTS_MAP: {
             output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
@@ -1622,7 +1856,16 @@ CONTRACTS_MAP: {
             input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -1652,7 +1895,7 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "minter", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: {
+        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -1739,7 +1982,16 @@ CONTRACTS_MAP: {
             deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 recipients: import("zod").ZodEffects<import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodObject<{
@@ -1761,7 +2013,16 @@ CONTRACTS_MAP: {
             }>, import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 recipients: import("zod").ZodEffects<import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodObject<{
@@ -1806,7 +2067,16 @@ CONTRACTS_MAP: {
             output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
@@ -1824,8 +2094,8 @@ CONTRACTS_MAP: {
                     address: string;
                     sharesBps: number;
                 }>, "many">;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("../core/types").Json, import("zod").ZodTypeDef, import("../core/types").Json>>, {
-                [x: string]: import("../core/types").Json;
+            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("@thirdweb-dev/storage").Json, import("zod").ZodTypeDef, import("@thirdweb-dev/storage").Json>>, {
+                [x: string]: import("@thirdweb-dev/storage").Json;
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -1835,7 +2105,7 @@ CONTRACTS_MAP: {
                     sharesBps: number;
                 }[];
             }, {
-                [x: string]: import("../core/types").Json;
+                [x: string]: import("@thirdweb-dev/storage").Json;
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -1848,7 +2118,16 @@ CONTRACTS_MAP: {
             input: import("zod").ZodObject<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 recipients: import("zod").ZodEffects<import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodObject<{
@@ -1888,7 +2167,7 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: {
+        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -1961,7 +2240,16 @@ CONTRACTS_MAP: {
             deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
@@ -2000,7 +2288,16 @@ CONTRACTS_MAP: {
             output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
@@ -2026,7 +2323,16 @@ CONTRACTS_MAP: {
             input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
@@ -2049,7 +2355,7 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: {
+        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -2173,7 +2479,16 @@ CONTRACTS_MAP: {
             deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
@@ -2208,7 +2523,16 @@ CONTRACTS_MAP: {
             output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
@@ -2230,7 +2554,16 @@ CONTRACTS_MAP: {
             input: import("zod").ZodObject<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
@@ -2249,7 +2582,7 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "minter", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: {
+        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -2356,7 +2689,16 @@ CONTRACTS_MAP: {
             deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 voting_delay_in_blocks: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -2392,7 +2734,16 @@ CONTRACTS_MAP: {
             output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
@@ -2428,7 +2779,16 @@ CONTRACTS_MAP: {
             input: import("zod").ZodObject<import("zod").extendShape<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>>;
+                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
+                    data: import("zod").ZodTypeAny;
+                    name: import("zod").ZodString;
+                }, "strip", import("zod").ZodTypeAny, {
+                    data?: any;
+                    name: string;
+                }, {
+                    data?: any;
+                    name: string;
+                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 voting_delay_in_blocks: import("zod").ZodDefault<import("zod").ZodNumber>;
@@ -2459,7 +2819,7 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly [];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: IStorage, options?: {
+        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;

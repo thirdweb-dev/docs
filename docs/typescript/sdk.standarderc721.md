@@ -30,7 +30,7 @@ await contract.nft.transfer(walletAddress, tokenId);
 | ---------------------------------------------------------- | ---------------------- | ---------------------------------- | ----------- |
 | [contractWrapper](./sdk.standarderc721.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;           |             |
 | [erc721](./sdk.standarderc721.erc721.md)                   |                        | [Erc721](./sdk.erc721.md)&lt;T&gt; |             |
-| [storage](./sdk.standarderc721.storage.md)                 | <code>protected</code> | IStorage                           |             |
+| [storage](./sdk.standarderc721.storage.md)                 | <code>protected</code> | ThirdwebStorage                    |             |
 
 ## Methods
 

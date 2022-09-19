@@ -18,7 +18,34 @@ ProfileSchemaOutput: z.ZodObject<
       name: z.ZodOptional<z.ZodString>;
       bio: z.ZodOptional<z.ZodString>;
       avatar: z.ZodOptional<
-        z.ZodNullable<z.ZodUnion<[z.ZodTypeAny, z.ZodString]>>
+        z.ZodNullable<
+          z.ZodUnion<
+            [
+              z.ZodUnion<
+                [
+                  z.ZodTypeAny,
+                  z.ZodObject<
+                    {
+                      data: z.ZodTypeAny;
+                      name: z.ZodString;
+                    },
+                    "strip",
+                    z.ZodTypeAny,
+                    {
+                      data?: any;
+                      name: string;
+                    },
+                    {
+                      data?: any;
+                      name: string;
+                    }
+                  >,
+                ]
+              >,
+              z.ZodString,
+            ]
+          >
+        >
       >;
       website: z.ZodOptional<z.ZodString>;
       twitter: z.ZodOptional<z.ZodString>;

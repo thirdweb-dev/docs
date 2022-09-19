@@ -33,7 +33,7 @@ await contract.erc1155.transfer(walletAddress, tokenId, quantity);
 | [featureName](./sdk.erc1155.featurename.md)         |                        | "ERC1155"                                                                                                                                                               |                            |
 | [revealer](./sdk.erc1155.revealer.md)               | <code>readonly</code>  | import("./delayed-reveal").[DelayedReveal](./sdk.delayedreveal.md)&lt;import("../../types/eips").BaseDelayedRevealERC1155&gt;                                           | Delayed reveal             |
 | [signature](./sdk.erc1155.signature.md)             | <code>readonly</code>  | [Erc1155SignatureMintable](./sdk.erc1155signaturemintable.md)                                                                                                           | Signature Minting          |
-| [storage](./sdk.erc1155.storage.md)                 | <code>protected</code> | IStorage                                                                                                                                                                |                            |
+| [storage](./sdk.erc1155.storage.md)                 | <code>protected</code> | ThirdwebStorage                                                                                                                                                         |                            |
 
 ## Methods
 

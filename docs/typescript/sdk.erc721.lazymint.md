@@ -39,7 +39,7 @@ const firstNFT = await results[0].data(); // (optional) fetch details of the fir
 lazyMint(metadatas: NFTMetadataOrUri[], options?: {
         onProgress: (event: UploadProgressEvent) => void;
     }): Promise<TransactionResultWithId<{
-        [x: string]: import("../types").Json;
+        [x: string]: import("@thirdweb-dev/storage").Json;
         name?: string | number | undefined;
         description?: string | null | undefined;
         image?: string | null | undefined;
@@ -59,7 +59,7 @@ lazyMint(metadatas: NFTMetadataOrUri[], options?: {
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;{ \[x: string\]: import("../types").[Json](./sdk.json.md); name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; id: BigNumber; uri: string; }&gt;\[\]&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;{ \[x: string\]: import("@thirdweb-dev/storage").Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; id: BigNumber; uri: string; }&gt;\[\]&gt;
 
 ## Remarks
 

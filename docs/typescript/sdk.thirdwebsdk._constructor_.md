@@ -14,7 +14,7 @@ Constructs a new instance of the `ThirdwebSDK` class
 **Signature:**
 
 ```typescript
-constructor(network: ChainOrRpc | SignerOrProvider, options?: SDKOptions, storage?: IStorage);
+constructor(network: ChainOrRpc | SignerOrProvider, options?: SDKOptions, storage?: ThirdwebStorage);
 ```
 
 ## Parameters
@@ -23,4 +23,4 @@ constructor(network: ChainOrRpc | SignerOrProvider, options?: SDKOptions, storag
 | --------- | --------------------------------------------------------------- | ----------------- |
 | network   | ChainOrRpc &#124; [SignerOrProvider](./sdk.signerorprovider.md) |                   |
 | options   | [SDKOptions](./sdk.sdkoptions.md)                               | <i>(Optional)</i> |
-| storage   | IStorage                                                        | <i>(Optional)</i> |
+| storage   | ThirdwebStorage                                                 | <i>(Optional)</i> |

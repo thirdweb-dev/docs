@@ -59,7 +59,7 @@ const tx = await contract.create(pack);
 create(metadataWithRewards: PackMetadataInput): Promise<TransactionResultWithId<{
         supply: BigNumber;
         metadata: {
-            [x: string]: import("../../core/types").Json;
+            [x: string]: import("@thirdweb-dev/storage").Json;
             name?: string | number | undefined;
             description?: string | null | undefined;
             image?: string | null | undefined;
@@ -79,7 +79,7 @@ create(metadataWithRewards: PackMetadataInput): Promise<TransactionResultWithId<
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;{ supply: BigNumber; metadata: { \[x: string\]: import("../../core/types").[Json](./sdk.json.md); name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; id: BigNumber; uri: string; }; }&gt;&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;{ supply: BigNumber; metadata: { \[x: string\]: import("@thirdweb-dev/storage").Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; id: BigNumber; uri: string; }; }&gt;&gt;
 
 ## Remarks
 

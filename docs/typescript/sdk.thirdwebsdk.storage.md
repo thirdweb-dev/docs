@@ -14,5 +14,5 @@ Upload and download files from IPFS or from your own storage service
 **Signature:**
 
 ```typescript
-storage: RemoteStorage;
+storage: ThirdwebStorage;
 ```

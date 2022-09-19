@@ -14,7 +14,7 @@ Constructs a new instance of the `MarketplaceAuction` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<Marketplace>, storage: IStorage);
+constructor(contractWrapper: ContractWrapper<Marketplace>, storage: ThirdwebStorage);
 ```
 
 ## Parameters
@@ -22,4 +22,4 @@ constructor(contractWrapper: ContractWrapper<Marketplace>, storage: IStorage);
 | Parameter       | Type                               | Description |
 | --------------- | ---------------------------------- | ----------- |
 | contractWrapper | ContractWrapper&lt;Marketplace&gt; |             |
-| storage         | IStorage                           |             |
+| storage         | ThirdwebStorage                    |             |

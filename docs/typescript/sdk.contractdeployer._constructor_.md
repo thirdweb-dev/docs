@@ -14,7 +14,7 @@ Constructs a new instance of the `ContractDeployer` class
 **Signature:**
 
 ```typescript
-constructor(network: NetworkOrSignerOrProvider, options: SDKOptions, storage: IStorage);
+constructor(network: NetworkOrSignerOrProvider, options: SDKOptions, storage: ThirdwebStorage);
 ```
 
 ## Parameters
@@ -23,4 +23,4 @@ constructor(network: NetworkOrSignerOrProvider, options: SDKOptions, storage: IS
 | --------- | --------------------------------------------------------------- | ----------- |
 | network   | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) |             |
 | options   | [SDKOptions](./sdk.sdkoptions.md)                               |             |
-| storage   | IStorage                                                        |             |
+| storage   | ThirdwebStorage                                                 |             |

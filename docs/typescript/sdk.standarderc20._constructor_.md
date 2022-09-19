@@ -14,7 +14,7 @@ Constructs a new instance of the `StandardErc20` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<T>, storage: IStorage);
+constructor(contractWrapper: ContractWrapper<T>, storage: ThirdwebStorage);
 ```
 
 ## Parameters
@@ -22,4 +22,4 @@ constructor(contractWrapper: ContractWrapper<T>, storage: IStorage);
 | Parameter       | Type                     | Description |
 | --------------- | ------------------------ | ----------- |
 | contractWrapper | ContractWrapper&lt;T&gt; |             |
-| storage         | IStorage                 |             |
+| storage         | ThirdwebStorage          |             |

@@ -24,7 +24,30 @@ Marketplace: {
             description: import("zod").ZodOptional<import("zod").ZodString>;
             image: import("zod").ZodOptional<
               import("zod").ZodUnion<
-                [import("zod").ZodTypeAny, import("zod").ZodString]
+                [
+                  import("zod").ZodUnion<
+                    [
+                      import("zod").ZodTypeAny,
+                      import("zod").ZodObject<
+                        {
+                          data: import("zod").ZodTypeAny;
+                          name: import("zod").ZodString;
+                        },
+                        "strip",
+                        import("zod").ZodTypeAny,
+                        {
+                          data?: any;
+                          name: string;
+                        },
+                        {
+                          data?: any;
+                          name: string;
+                        }
+                      >,
+                    ]
+                  >,
+                  import("zod").ZodString,
+                ]
               >
             >;
             external_link: import("zod").ZodOptional<import("zod").ZodString>;
@@ -75,7 +98,30 @@ Marketplace: {
           description: import("zod").ZodOptional<import("zod").ZodString>;
           image: import("zod").ZodOptional<
             import("zod").ZodUnion<
-              [import("zod").ZodTypeAny, import("zod").ZodString]
+              [
+                import("zod").ZodUnion<
+                  [
+                    import("zod").ZodTypeAny,
+                    import("zod").ZodObject<
+                      {
+                        data: import("zod").ZodTypeAny;
+                        name: import("zod").ZodString;
+                      },
+                      "strip",
+                      import("zod").ZodTypeAny,
+                      {
+                        data?: any;
+                        name: string;
+                      },
+                      {
+                        data?: any;
+                        name: string;
+                      }
+                    >,
+                  ]
+                >,
+                import("zod").ZodString,
+              ]
             >
           >;
           external_link: import("zod").ZodOptional<import("zod").ZodString>;
@@ -87,20 +133,20 @@ Marketplace: {
       "strip",
       import("zod").ZodLazy<
         import("zod").ZodType<
-          import("../core/types").Json,
+          import("@thirdweb-dev/storage").Json,
           import("zod").ZodTypeDef,
-          import("../core/types").Json
+          import("@thirdweb-dev/storage").Json
         >
       >,
       {
-        [x: string]: import("../core/types").Json;
+        [x: string]: import("@thirdweb-dev/storage").Json;
         description?: string | undefined;
         image?: string | undefined;
         external_link?: string | undefined;
         name: string;
       },
       {
-        [x: string]: import("../core/types").Json;
+        [x: string]: import("@thirdweb-dev/storage").Json;
         description?: string | undefined;
         image?: string | undefined;
         external_link?: string | undefined;
@@ -113,7 +159,30 @@ Marketplace: {
         description: import("zod").ZodOptional<import("zod").ZodString>;
         image: import("zod").ZodOptional<
           import("zod").ZodUnion<
-            [import("zod").ZodTypeAny, import("zod").ZodString]
+            [
+              import("zod").ZodUnion<
+                [
+                  import("zod").ZodTypeAny,
+                  import("zod").ZodObject<
+                    {
+                      data: import("zod").ZodTypeAny;
+                      name: import("zod").ZodString;
+                    },
+                    "strip",
+                    import("zod").ZodTypeAny,
+                    {
+                      data?: any;
+                      name: string;
+                    },
+                    {
+                      data?: any;
+                      name: string;
+                    }
+                  >,
+                ]
+              >,
+              import("zod").ZodString,
+            ]
           >
         >;
         external_link: import("zod").ZodOptional<import("zod").ZodString>;
@@ -138,7 +207,9 @@ Marketplace: {
   initialize: (
     network: NetworkOrSignerOrProvider,
     address: string,
-    storage: IStorage,
+    storage: ThirdwebStorage<
+      import("@thirdweb-dev/storage").IpfsUploadBatchOptions
+    >,
     options?:
       | {
           readonlySettings?:

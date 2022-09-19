@@ -14,5 +14,5 @@ Optional image for the contract
 **Signature:**
 
 ```typescript
-image?: FileBufferOrString;
+image?: FileOrBufferOrString;
 ```

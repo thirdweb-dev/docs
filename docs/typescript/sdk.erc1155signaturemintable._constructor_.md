@@ -14,7 +14,7 @@ Constructs a new instance of the `Erc1155SignatureMintable` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<BaseSignatureMintERC1155 | TokenERC1155>, storage: IStorage, roles?: ContractRoles<TokenERC1155, typeof NFTCollection.roles[number]>);
+constructor(contractWrapper: ContractWrapper<BaseSignatureMintERC1155 | TokenERC1155>, storage: ThirdwebStorage, roles?: ContractRoles<TokenERC1155, typeof NFTCollection.roles[number]>);
 ```
 
 ## Parameters
@@ -22,5 +22,5 @@ constructor(contractWrapper: ContractWrapper<BaseSignatureMintERC1155 | TokenERC
 | Parameter       | Type                                                                                              | Description       |
 | --------------- | ------------------------------------------------------------------------------------------------- | ----------------- |
 | contractWrapper | ContractWrapper&lt;BaseSignatureMintERC1155 &#124; TokenERC1155&gt;                               |                   |
-| storage         | IStorage                                                                                          |                   |
+| storage         | ThirdwebStorage                                                                                   |                   |
 | roles           | [ContractRoles](./sdk.contractroles.md)&lt;TokenERC1155, typeof NFTCollection.roles\[number\]&gt; | <i>(Optional)</i> |

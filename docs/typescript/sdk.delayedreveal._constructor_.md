@@ -14,7 +14,7 @@ Constructs a new instance of the `DelayedReveal` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<T>, storage: IStorage, fetureName: FeatureName, nextTokenIdToMintFn: () => Promise<BigNumber>);
+constructor(contractWrapper: ContractWrapper<T>, storage: ThirdwebStorage, fetureName: FeatureName, nextTokenIdToMintFn: () => Promise<BigNumber>);
 ```
 
 ## Parameters
@@ -22,6 +22,6 @@ constructor(contractWrapper: ContractWrapper<T>, storage: IStorage, fetureName: 
 | Parameter           | Type                              | Description |
 | ------------------- | --------------------------------- | ----------- |
 | contractWrapper     | ContractWrapper&lt;T&gt;          |             |
-| storage             | IStorage                          |             |
+| storage             | ThirdwebStorage                   |             |
 | fetureName          | FeatureName                       |             |
 | nextTokenIdToMintFn | () =&gt; Promise&lt;BigNumber&gt; |             |

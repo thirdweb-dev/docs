@@ -30,7 +30,7 @@ await contract.token.transfer(walletAddress, amount);
 | --------------------------------------------------------- | ---------------------- | -------------------------------- | ----------- |
 | [contractWrapper](./sdk.standarderc20.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;         |             |
 | [erc20](./sdk.standarderc20.erc20.md)                     |                        | [Erc20](./sdk.erc20.md)&lt;T&gt; |             |
-| [storage](./sdk.standarderc20.storage.md)                 | <code>protected</code> | IStorage                         |             |
+| [storage](./sdk.standarderc20.storage.md)                 | <code>protected</code> | ThirdwebStorage                  |             |
 
 ## Methods
 

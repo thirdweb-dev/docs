@@ -33,7 +33,7 @@ await contract.erc721.transfer(walletAddress, tokenId);
 | [featureName](./sdk.erc721.featurename.md)         |                        | "ERC721"                                                                                                                                         |                            |
 | [revealer](./sdk.erc721.revealer.md)               | <code>readonly</code>  | import("./delayed-reveal").[DelayedReveal](./sdk.delayedreveal.md)&lt;import("../../types/eips").BaseDelayedRevealERC721&gt;                     | Delayed reveal             |
 | [signature](./sdk.erc721.signature.md)             | <code>readonly</code>  | [Erc721WithQuantitySignatureMintable](./sdk.erc721withquantitysignaturemintable.md)                                                              | Signature Minting          |
-| [storage](./sdk.erc721.storage.md)                 | <code>protected</code> | IStorage                                                                                                                                         |                            |
+| [storage](./sdk.erc721.storage.md)                 | <code>protected</code> | ThirdwebStorage                                                                                                                                  |                            |
 
 ## Methods
 

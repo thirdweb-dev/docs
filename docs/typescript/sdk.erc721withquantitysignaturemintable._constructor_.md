@@ -14,7 +14,7 @@ Constructs a new instance of the `Erc721WithQuantitySignatureMintable` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<SignatureMintERC721 | TokenERC721>, storage: IStorage);
+constructor(contractWrapper: ContractWrapper<SignatureMintERC721 | TokenERC721>, storage: ThirdwebStorage);
 ```
 
 ## Parameters
@@ -22,4 +22,4 @@ constructor(contractWrapper: ContractWrapper<SignatureMintERC721 | TokenERC721>,
 | Parameter       | Type                                                          | Description |
 | --------------- | ------------------------------------------------------------- | ----------- |
 | contractWrapper | ContractWrapper&lt;SignatureMintERC721 &#124; TokenERC721&gt; |             |
-| storage         | IStorage                                                      |             |
+| storage         | ThirdwebStorage                                               |             |

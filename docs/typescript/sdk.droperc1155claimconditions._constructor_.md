@@ -14,7 +14,7 @@ Constructs a new instance of the `DropErc1155ClaimConditions` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<TContract>, metadata: ContractMetadata<TContract, any>, storage: IStorage);
+constructor(contractWrapper: ContractWrapper<TContract>, metadata: ContractMetadata<TContract, any>, storage: ThirdwebStorage);
 ```
 
 ## Parameters
@@ -23,4 +23,4 @@ constructor(contractWrapper: ContractWrapper<TContract>, metadata: ContractMetad
 | --------------- | ------------------------------------------------------------------- | ----------- |
 | contractWrapper | ContractWrapper&lt;TContract&gt;                                    |             |
 | metadata        | [ContractMetadata](./sdk.contractmetadata.md)&lt;TContract, any&gt; |             |
-| storage         | IStorage                                                            |             |
+| storage         | ThirdwebStorage                                                     |             |

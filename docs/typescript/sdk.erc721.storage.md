@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-protected storage: IStorage;
+protected storage: ThirdwebStorage;
 ```

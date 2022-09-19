@@ -26,7 +26,30 @@ Token: {
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<
                   import("zod").ZodUnion<
-                    [import("zod").ZodTypeAny, import("zod").ZodString]
+                    [
+                      import("zod").ZodUnion<
+                        [
+                          import("zod").ZodTypeAny,
+                          import("zod").ZodObject<
+                            {
+                              data: import("zod").ZodTypeAny;
+                              name: import("zod").ZodString;
+                            },
+                            "strip",
+                            import("zod").ZodTypeAny,
+                            {
+                              data?: any;
+                              name: string;
+                            },
+                            {
+                              data?: any;
+                              name: string;
+                            }
+                          >,
+                        ]
+                      >,
+                      import("zod").ZodString,
+                    ]
                   >
                 >;
                 external_link: import("zod").ZodOptional<
@@ -102,7 +125,30 @@ Token: {
             description: import("zod").ZodOptional<import("zod").ZodString>;
             image: import("zod").ZodOptional<
               import("zod").ZodUnion<
-                [import("zod").ZodTypeAny, import("zod").ZodString]
+                [
+                  import("zod").ZodUnion<
+                    [
+                      import("zod").ZodTypeAny,
+                      import("zod").ZodObject<
+                        {
+                          data: import("zod").ZodTypeAny;
+                          name: import("zod").ZodString;
+                        },
+                        "strip",
+                        import("zod").ZodTypeAny,
+                        {
+                          data?: any;
+                          name: string;
+                        },
+                        {
+                          data?: any;
+                          name: string;
+                        }
+                      >,
+                    ]
+                  >,
+                  import("zod").ZodString,
+                ]
               >
             >;
             external_link: import("zod").ZodOptional<import("zod").ZodString>;
@@ -141,7 +187,30 @@ Token: {
           description: import("zod").ZodOptional<import("zod").ZodString>;
           image: import("zod").ZodOptional<
             import("zod").ZodUnion<
-              [import("zod").ZodTypeAny, import("zod").ZodString]
+              [
+                import("zod").ZodUnion<
+                  [
+                    import("zod").ZodTypeAny,
+                    import("zod").ZodObject<
+                      {
+                        data: import("zod").ZodTypeAny;
+                        name: import("zod").ZodString;
+                      },
+                      "strip",
+                      import("zod").ZodTypeAny,
+                      {
+                        data?: any;
+                        name: string;
+                      },
+                      {
+                        data?: any;
+                        name: string;
+                      }
+                    >,
+                  ]
+                >,
+                import("zod").ZodString,
+              ]
             >
           >;
           external_link: import("zod").ZodOptional<import("zod").ZodString>;
@@ -174,7 +243,9 @@ Token: {
   initialize: (
     network: NetworkOrSignerOrProvider,
     address: string,
-    storage: IStorage,
+    storage: ThirdwebStorage<
+      import("@thirdweb-dev/storage").IpfsUploadBatchOptions
+    >,
     options?:
       | {
           readonlySettings?:

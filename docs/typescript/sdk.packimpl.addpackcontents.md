@@ -54,7 +54,7 @@ addPackContents(packId: BigNumberish, packContents: PackRewards): Promise<{
         data: () => Promise<{
             supply: BigNumber;
             metadata: {
-                [x: string]: import("../../core/types").Json;
+                [x: string]: import("@thirdweb-dev/storage").Json;
                 name?: string | number | undefined;
                 description?: string | null | undefined;
                 image?: string | null | undefined;
@@ -76,7 +76,7 @@ addPackContents(packId: BigNumberish, packContents: PackRewards): Promise<{
 
 **Returns:**
 
-Promise&lt;{ id: BigNumber; receipt: ethers.providers.TransactionReceipt; data: () =&gt; Promise&lt;{ supply: BigNumber; metadata: { \[x: string\]: import("../../core/types").[Json](./sdk.json.md); name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; id: BigNumber; uri: string; }; }&gt;; }&gt;
+Promise&lt;{ id: BigNumber; receipt: ethers.providers.TransactionReceipt; data: () =&gt; Promise&lt;{ supply: BigNumber; metadata: { \[x: string\]: import("@thirdweb-dev/storage").Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; id: BigNumber; uri: string; }; }&gt;; }&gt;
 
 ## Remarks
 

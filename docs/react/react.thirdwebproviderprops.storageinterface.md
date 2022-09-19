@@ -14,5 +14,5 @@ The storage interface to use with the sdk.
 **Signature:**
 
 ```typescript
-storageInterface?: IStorage;
+storageInterface?: ThirdwebStorage;
 ```
