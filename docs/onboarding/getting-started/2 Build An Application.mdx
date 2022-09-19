@@ -89,9 +89,10 @@ export default function Home() {
 ### Reading Data
 
 The [`useContractRead`](/sdk/interacting-with-contracts/custom-contracts/using-contracts) hook
-let's you read any data from your smart contract.
+lets you read any data from your smart contract using the `contract` as the first parameter, and the name of the
+function/view/mapping, etc. as the second parameter.
 
-For example, we can read the `name` of our contract like so:
+For example, we can read the `name` value stored in our contract like so:
 
 ```jsx title="pages/index.jsx"
 import { useContract, useContractRead } from "@thirdweb-dev/react";
