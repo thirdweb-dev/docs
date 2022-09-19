@@ -41,6 +41,18 @@ When you create a pack, it is minted as a new NFT in the smart contract.
   dontShowSummary
 />
 
+## Add more contents to an existing Pack
+
+You can add ERC20, ERC721, or ERC1155 tokens to a an existing packId, up till the first transfer of those packs.
+
+When you add contents, an additional supply of ERC1155 pack NFTs is minted for a packId.
+
+<CodeSnippetWithSummary
+  contract={"PackImpl"}
+  name={"addPackContents"}
+  dontShowSummary
+/>
+
 ## Airdrop a Pack
 
 <CodeSnippetWithSummary contract={"PackImpl"} name={"airdrop"} />

@@ -60,6 +60,11 @@ const sidebars = {
           label: "Signature Drop",
           id: "design/SignatureDrop",
         },
+        {
+          type: "doc",
+          label: "Pack",
+          id: "design/Pack",
+        },
       ],
     },
 
