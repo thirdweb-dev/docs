@@ -23,13 +23,19 @@ const balance = await sdk.wallet.balance();
 | -------------------------------------------------------------------- | --------- | -------------------------------------------------------------- |
 | [(constructor)(network, options)](./sdk.userwallet._constructor_.md) |           | Constructs a new instance of the <code>UserWallet</code> class |
 
+## Properties
+
+| Property                             | Modifiers | Type                                                                   | Description |
+| ------------------------------------ | --------- | ---------------------------------------------------------------------- | ----------- |
+| [events](./sdk.userwallet.events.md) |           | EventEmitter&lt;[UserWalletEvents](./sdk.userwalletevents.md), any&gt; |             |
+
 ## Methods
 
 | Method                                                                           | Modifiers | Description                                                        |
 | -------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------ |
 | [balance(currencyAddress)](./sdk.userwallet.balance.md)                          |           | Fetch the native or ERC20 token balance of this wallet             |
+| [connect(network)](./sdk.userwallet.connect.md)                                  |           |                                                                    |
 | [getAddress()](./sdk.userwallet.getaddress.md)                                   |           | Get the currently connected address                                |
-| [onNetworkUpdated(network)](./sdk.userwallet.onnetworkupdated.md)                |           |                                                                    |
 | [recoverAddress(message, signature)](./sdk.userwallet.recoveraddress.md)         |           | Recover the signing address from a signed message                  |
 | [sendRawTransaction(transactionRequest)](./sdk.userwallet.sendrawtransaction.md) |           | Send a raw transaction to the blockchain from the connected wallet |
 | [sign(message)](./sdk.userwallet.sign.md)                                        |           | Sign any message with the connected wallet private key             |

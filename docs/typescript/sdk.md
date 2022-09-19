@@ -93,32 +93,33 @@ displayed_sidebar: typescript
 
 ## Interfaces
 
-| Interface                                                                       | Description                                                                                          |
-| ------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------- |
-| [AuctionListing](./sdk.auctionlisting.md)                                       | Represents a new marketplace auction listing.                                                        |
-| [BatchToReveal](./sdk.batchtoreveal.md)                                         |                                                                                                      |
-| [DirectListing](./sdk.directlisting.md)                                         | Represents a marketplace direct listing.                                                             |
-| [EventQueryFilter](./sdk.eventqueryfilter.md)                                   | Filters for querying past events                                                                     |
-| [GaslessTransaction](./sdk.gaslesstransaction.md)                               | transaction message contains information that's needed to execute a gasless transaction              |
-| [MarketplaceContractDeployMetadata](./sdk.marketplacecontractdeploymetadata.md) | Options for deploying a Marketplace contract                                                         |
-| [MarketplaceFilter](./sdk.marketplacefilter.md)                                 |                                                                                                      |
-| [MultiwrapContractDeployMetadata](./sdk.multiwrapcontractdeploymetadata.md)     | Options for deploying an Multiwrap contract                                                          |
-| [NativeToken](./sdk.nativetoken.md)                                             |                                                                                                      |
-| [NewAuctionListing](./sdk.newauctionlisting.md)                                 | Represents a new marketplace auction listing.                                                        |
-| [NewDirectListing](./sdk.newdirectlisting.md)                                   | Represents a new marketplace direct listing.                                                         |
-| [NFTContractDeployMetadata](./sdk.nftcontractdeploymetadata.md)                 | Options for deploying an NFT contract                                                                |
-| [Offer](./sdk.offer.md)                                                         |                                                                                                      |
-| [Proposal](./sdk.proposal.md)                                                   |                                                                                                      |
-| [ProposalExecutable](./sdk.proposalexecutable.md)                               |                                                                                                      |
-| [ProposalVote](./sdk.proposalvote.md)                                           |                                                                                                      |
-| [QueryAllParams](./sdk.queryallparams.md)                                       | Pagination Parameters                                                                                |
-| [SplitContractDeployMetadata](./sdk.splitcontractdeploymetadata.md)             | Options for deploying Split contract                                                                 |
-| [SplitRecipient](./sdk.splitrecipient.md)                                       | The SplitRecipient type represents a recipient of some royalty, indicated by their split percentage. |
-| [SplitRecipientInput](./sdk.splitrecipientinput.md)                             |                                                                                                      |
-| [TokenContractDeployMetadata](./sdk.tokencontractdeploymetadata.md)             | Options for deploying a Token contract                                                               |
-| [UploadProgressEvent](./sdk.uploadprogressevent.md)                             |                                                                                                      |
-| [VoteContractDeployMetadata](./sdk.votecontractdeploymetadata.md)               | Options for deploying a Vote contract                                                                |
-| [VoteSettings](./sdk.votesettings.md)                                           |                                                                                                      |
+| Interface                                                                       | Description                                                                                              |
+| ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
+| [AuctionListing](./sdk.auctionlisting.md)                                       | Represents a new marketplace auction listing.                                                            |
+| [BatchToReveal](./sdk.batchtoreveal.md)                                         |                                                                                                          |
+| [DirectListing](./sdk.directlisting.md)                                         | Represents a marketplace direct listing.                                                                 |
+| [EventQueryFilter](./sdk.eventqueryfilter.md)                                   | Filters for querying past events                                                                         |
+| [GaslessTransaction](./sdk.gaslesstransaction.md)                               | transaction message contains information that's needed to execute a gasless transaction                  |
+| [MarketplaceContractDeployMetadata](./sdk.marketplacecontractdeploymetadata.md) | Options for deploying a Marketplace contract                                                             |
+| [MarketplaceFilter](./sdk.marketplacefilter.md)                                 |                                                                                                          |
+| [MultiwrapContractDeployMetadata](./sdk.multiwrapcontractdeploymetadata.md)     | Options for deploying an Multiwrap contract                                                              |
+| [NativeToken](./sdk.nativetoken.md)                                             |                                                                                                          |
+| [NewAuctionListing](./sdk.newauctionlisting.md)                                 | Represents a new marketplace auction listing.                                                            |
+| [NewDirectListing](./sdk.newdirectlisting.md)                                   | Represents a new marketplace direct listing.                                                             |
+| [NFTContractDeployMetadata](./sdk.nftcontractdeploymetadata.md)                 | Options for deploying an NFT contract                                                                    |
+| [Offer](./sdk.offer.md)                                                         |                                                                                                          |
+| [Proposal](./sdk.proposal.md)                                                   |                                                                                                          |
+| [ProposalExecutable](./sdk.proposalexecutable.md)                               |                                                                                                          |
+| [ProposalVote](./sdk.proposalvote.md)                                           |                                                                                                          |
+| [QueryAllParams](./sdk.queryallparams.md)                                       | Pagination Parameters                                                                                    |
+| [SplitContractDeployMetadata](./sdk.splitcontractdeploymetadata.md)             | Options for deploying Split contract                                                                     |
+| [SplitRecipient](./sdk.splitrecipient.md)                                       | The SplitRecipient type represents a recipient of some royalty, indicated by their split percentage.     |
+| [SplitRecipientInput](./sdk.splitrecipientinput.md)                             |                                                                                                          |
+| [TokenContractDeployMetadata](./sdk.tokencontractdeploymetadata.md)             | Options for deploying a Token contract                                                                   |
+| [UploadProgressEvent](./sdk.uploadprogressevent.md)                             |                                                                                                          |
+| [UserWalletEvents](./sdk.userwalletevents.md)                                   | [UserWallet](./sdk.userwallet.md) events that you can subscribe to using <code>sdk.wallet.events</code>. |
+| [VoteContractDeployMetadata](./sdk.votecontractdeploymetadata.md)               | Options for deploying a Vote contract                                                                    |
+| [VoteSettings](./sdk.votesettings.md)                                           |                                                                                                          |
 
 ## Variables
 
