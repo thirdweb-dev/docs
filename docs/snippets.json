@@ -112,7 +112,7 @@
       "typescript": "https://docs.thirdweb.com/typescript/sdk.ThirdwebSDK"
     }
   },
-  "NFTCollectionImpl": {
+  "NFTCollection": {
     "name": "NFTCollectionImpl",
     "summary": "Create a collection of one-of-one NFTs.\n\n",
     "examples": {
@@ -296,7 +296,7 @@
       "typescript": "https://docs.thirdweb.com/typescript/sdk.NFTCollectionImpl"
     }
   },
-  "EditionImpl": {
+  "Edition": {
     "name": "EditionImpl",
     "summary": "Create a collection of NFTs that lets you mint multiple copies of each NFT.\n\n",
     "examples": {
@@ -497,7 +497,7 @@
       "typescript": "https://docs.thirdweb.com/typescript/sdk.EditionImpl"
     }
   },
-  "TokenDropImpl": {
+  "TokenDrop": {
     "name": "TokenDropImpl",
     "summary": "Create a Drop contract for a standard crypto token or cryptocurrency.\n\n",
     "examples": {
@@ -749,7 +749,7 @@
       "typescript": "https://docs.thirdweb.com/typescript/sdk.TokenDropImpl"
     }
   },
-  "TokenImpl": {
+  "Token": {
     "name": "TokenImpl",
     "summary": "Create a standard crypto token or cryptocurrency.\n\n",
     "examples": {
@@ -1018,7 +1018,7 @@
       "typescript": "https://docs.thirdweb.com/typescript/sdk.TokenImpl"
     }
   },
-  "NFTDropImpl": {
+  "NFTDrop": {
     "name": "NFTDropImpl",
     "summary": "Setup a collection of one-of-one NFTs that are minted as users claim them.\n\n",
     "examples": {
@@ -1338,7 +1338,7 @@
       "typescript": "https://docs.thirdweb.com/typescript/sdk.NFTDropImpl"
     }
   },
-  "EditionDropImpl": {
+  "EditionDrop": {
     "name": "EditionDropImpl",
     "summary": "Setup a collection of NFTs with a customizable number of each NFT that are minted as users claim them.\n\n",
     "examples": {
@@ -1539,7 +1539,7 @@
       "typescript": "https://docs.thirdweb.com/typescript/sdk.EditionDropImpl"
     }
   },
-  "MarketplaceImpl": {
+  "Marketplace": {
     "name": "MarketplaceImpl",
     "summary": "Create your own whitelabel marketplace that enables users to buy and sell any digital assets.\n\n",
     "examples": {
@@ -1915,7 +1915,7 @@
       "typescript": "https://docs.thirdweb.com/typescript/sdk.MarketplaceAuction"
     }
   },
-  "SplitImpl": {
+  "Split": {
     "name": "SplitImpl",
     "summary": "Create custom royalty splits to distribute funds.\n\n",
     "examples": {
@@ -2030,7 +2030,7 @@
       "typescript": "https://docs.thirdweb.com/typescript/sdk.SplitImpl"
     }
   },
-  "PackImpl": {
+  "Pack": {
     "name": "PackImpl",
     "summary": "Create lootboxes of NFTs with rarity based open mechanics.\n\n",
     "examples": {
@@ -2265,7 +2265,7 @@
       "typescript": "https://docs.thirdweb.com/typescript/sdk.PackImpl"
     }
   },
-  "VoteImpl": {
+  "Vote": {
     "name": "VoteImpl",
     "summary": "Create a decentralized organization for token holders to vote on proposals.\n\n",
     "examples": {
@@ -2380,7 +2380,7 @@
       "typescript": "https://docs.thirdweb.com/typescript/sdk.VoteImpl"
     }
   },
-  "MultiwrapImpl": {
+  "Multiwrap": {
     "name": "MultiwrapImpl",
     "summary": "Multiwrap lets you wrap any number of ERC20, ERC721 and ERC1155 tokens you own into a single wrapped token bundle.\n\n",
     "examples": {
@@ -3231,7 +3231,7 @@
       "typescript": "https://docs.thirdweb.com/typescript/sdk.ContractRoles"
     }
   },
-  "SignatureDropImpl": {
+  "SignatureDrop": {
     "name": "SignatureDropImpl",
     "summary": "Setup a collection of NFTs where when it comes to minting, you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party..\n\n",
     "examples": {

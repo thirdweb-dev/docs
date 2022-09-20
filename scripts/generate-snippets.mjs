@@ -227,7 +227,7 @@ const snippets = CLASSES.reduce((acc, contractName) => {
     ...(goExample?.example ? { go: goExample.example } : {}),
   };
 
-  acc[contractName] = data;
+  acc[contractName.replace("Impl", "")] = data;
 
   return acc;
 }, {});

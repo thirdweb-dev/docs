@@ -423,6 +423,19 @@
     "homepage": "https://next-javascript-starter.thirdweb-example.com"
   },
   {
+    "name": "next-typescript-solana-starter",
+    "html_url": "https://github.com/thirdweb-example/next-typescript-solana-starter",
+    "description": "Starter Kit for Next.js + TypeScript",
+    "created_at": "2022-09-20T06:27:03Z",
+    "updated_at": "2022-09-20T06:47:05Z",
+    "clone_url": "https://github.com/thirdweb-example/next-typescript-solana-starter.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "next-ts-solana-starter.vercel.app"
+  },
+  {
     "name": "next-typescript-starter",
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",

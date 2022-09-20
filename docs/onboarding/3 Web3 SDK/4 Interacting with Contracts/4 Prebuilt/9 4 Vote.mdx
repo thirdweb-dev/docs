@@ -18,7 +18,7 @@ Learn how to interact with your [Vote](/pre-built-contracts/vote) contract in th
 To start using your Vote contract inside your application, you'll need to use its contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <ThirdwebCodeSnippet
-  contract={"VoteImpl"}
+  contract={"Vote"}
   name={"initializing the SDK"}
   isGetContractCode
   dontShowSummary
@@ -26,40 +26,36 @@ To start using your Vote contract inside your application, you'll need to use it
 
 ## Creating A Proposal
 
-<ThirdwebCodeSnippet contract={"VoteImpl"} name={"propose"} />
+<ThirdwebCodeSnippet contract={"Vote"} name={"propose"} />
 
 ## Viewing Proposals
 
 View all of the proposals that have been created in this Vote smart contract.
 
-<ThirdwebCodeSnippet contract={"VoteImpl"} name={"getAll"} dontShowSummary />
+<ThirdwebCodeSnippet contract={"Vote"} name={"getAll"} dontShowSummary />
 
 ## Check if a wallet has voted
 
 Check if a wallet address has voted on a specific proposal.
 
-<ThirdwebCodeSnippet contract={"VoteImpl"} name={"hasVoted"} dontShowSummary />
+<ThirdwebCodeSnippet contract={"Vote"} name={"hasVoted"} dontShowSummary />
 
 ## Vote on a Proposal
 
-<ThirdwebCodeSnippet contract={"VoteImpl"} name={"vote"} />
+<ThirdwebCodeSnippet contract={"Vote"} name={"vote"} />
 
 ## Check if a proposal can be executed
 
 Check to see if the amount of votes required for the proposal to be executed has been met.
 
-<ThirdwebCodeSnippet
-  contract={"VoteImpl"}
-  name={"canExecute"}
-  dontShowSummary
-/>
+<ThirdwebCodeSnippet contract={"Vote"} name={"canExecute"} dontShowSummary />
 
 ## Execute a proposal
 
 Execute a proposal that has a sufficient amount of votes.
 
 <ThirdwebCodeSnippet
-  contract={"VoteImpl"}
+  contract={"Vote"}
   name={"execute"}
   dontShowSummary
   showHr={false}
