@@ -21,7 +21,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -72,7 +72,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -112,7 +112,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -157,7 +157,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -212,7 +212,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -254,7 +254,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -411,7 +411,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -462,7 +462,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -500,7 +500,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -622,7 +622,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -658,7 +658,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -687,7 +687,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -815,7 +815,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -855,7 +855,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -893,7 +893,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -1046,7 +1046,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -1097,7 +1097,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -1135,7 +1135,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -1257,7 +1257,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -1312,7 +1312,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -1354,7 +1354,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -1517,7 +1517,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -1564,7 +1564,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -1602,7 +1602,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -1760,7 +1760,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -1815,7 +1815,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -1857,7 +1857,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -1983,7 +1983,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -2014,7 +2014,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -2068,7 +2068,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -2119,7 +2119,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -2241,7 +2241,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -2289,7 +2289,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -2324,7 +2324,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -2480,7 +2480,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -2524,7 +2524,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -2555,7 +2555,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -2690,7 +2690,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -2735,7 +2735,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;
@@ -2780,7 +2780,7 @@ CONTRACTS_MAP: {
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodTypeAny;
+                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
                     name: import("zod").ZodString;
                 }, "strip", import("zod").ZodTypeAny, {
                     data?: any;

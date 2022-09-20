@@ -26,7 +26,7 @@ ProfileSchemaOutput: z.ZodObject<
                   z.ZodTypeAny,
                   z.ZodObject<
                     {
-                      data: z.ZodTypeAny;
+                      data: z.ZodUnion<[z.ZodTypeAny, z.ZodString]>;
                       name: z.ZodString;
                     },
                     "strip",

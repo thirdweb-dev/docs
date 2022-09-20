@@ -36,7 +36,12 @@ NFTDrop: {
                               import("zod").ZodTypeAny,
                               import("zod").ZodObject<
                                 {
-                                  data: import("zod").ZodTypeAny;
+                                  data: import("zod").ZodUnion<
+                                    [
+                                      import("zod").ZodTypeAny,
+                                      import("zod").ZodString,
+                                    ]
+                                  >;
                                   name: import("zod").ZodString;
                                 },
                                 "strip",
@@ -165,7 +170,12 @@ NFTDrop: {
                           import("zod").ZodTypeAny,
                           import("zod").ZodObject<
                             {
-                              data: import("zod").ZodTypeAny;
+                              data: import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodTypeAny,
+                                  import("zod").ZodString,
+                                ]
+                              >;
                               name: import("zod").ZodString;
                             },
                             "strip",
@@ -259,7 +269,12 @@ NFTDrop: {
                         import("zod").ZodTypeAny,
                         import("zod").ZodObject<
                           {
-                            data: import("zod").ZodTypeAny;
+                            data: import("zod").ZodUnion<
+                              [
+                                import("zod").ZodTypeAny,
+                                import("zod").ZodString,
+                              ]
+                            >;
                             name: import("zod").ZodString;
                           },
                           "strip",
