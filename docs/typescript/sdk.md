@@ -199,6 +199,7 @@ displayed_sidebar: typescript
 | [NFTMetadataInput](./sdk.nftmetadatainput.md)                                           |                                                                                      |
 | [NFTMetadataOrUri](./sdk.nftmetadataoruri.md)                                           |                                                                                      |
 | [NFTMetadataOwner](./sdk.nftmetadataowner.md)                                           |                                                                                      |
+| [PaperCreateCheckoutLinkShardParams](./sdk.papercreatecheckoutlinkshardparams.md)       | The parameters for creating a paper.xyz checkout link.                               |
 | [PayloadToSign1155](./sdk.payloadtosign1155.md)                                         |                                                                                      |
 | [PayloadToSign1155WithTokenId](./sdk.payloadtosign1155withtokenid.md)                   |                                                                                      |
 | [PayloadToSign20](./sdk.payloadtosign20.md)                                             |                                                                                      |
