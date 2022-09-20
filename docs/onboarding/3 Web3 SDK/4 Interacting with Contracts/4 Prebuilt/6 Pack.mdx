@@ -19,7 +19,7 @@ To start using your Pack contract inside your application, you'll need to use it
 You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <CodeSnippetWithSummary
-  contract={"PackImpl"}
+  contract={"Pack"}
   name={"initializing the SDK"}
   isGetContractCode
   dontShowSummary
@@ -27,7 +27,7 @@ You can get the contract address from the [dashboard](https://thirdweb.com/dashb
 
 ## Setting Royalty Fees
 
-<CodeSnippetWithSummary contract={"PackImpl"} name={"royalties"} />
+<CodeSnippetWithSummary contract={"Pack"} name={"royalties"} />
 
 ## Create a Pack
 
@@ -35,11 +35,7 @@ You can bundle any number of ERC20, ERC721, or ERC1155 tokens into a set quantit
 
 When you create a pack, it is minted as a new NFT in the smart contract.
 
-<CodeSnippetWithSummary
-  contract={"PackImpl"}
-  name={"createTo"}
-  dontShowSummary
-/>
+<CodeSnippetWithSummary contract={"Pack"} name={"createTo"} dontShowSummary />
 
 ## Add more contents to an existing Pack
 
@@ -48,39 +44,39 @@ You can add ERC20, ERC721, or ERC1155 tokens to a an existing packId, up till th
 When you add contents, an additional supply of ERC1155 pack NFTs is minted for a packId.
 
 <CodeSnippetWithSummary
-  contract={"PackImpl"}
+  contract={"Pack"}
   name={"addPackContents"}
   dontShowSummary
 />
 
 ## Airdrop a Pack
 
-<CodeSnippetWithSummary contract={"PackImpl"} name={"airdrop"} />
+<CodeSnippetWithSummary contract={"Pack"} name={"airdrop"} />
 
 ## View Packs
 
 ### One
 
-<CodeSnippetWithSummary contract={"PackImpl"} name={"get"} />
+<CodeSnippetWithSummary contract={"Pack"} name={"get"} />
 
 ### All
 
-<CodeSnippetWithSummary contract={"PackImpl"} name={"getAll"} />
+<CodeSnippetWithSummary contract={"Pack"} name={"getAll"} />
 
 ### Owned by a specific wallet
 
-<CodeSnippetWithSummary contract={"PackImpl"} name={"getOwned"} />
+<CodeSnippetWithSummary contract={"Pack"} name={"getOwned"} />
 
 ### Amount owned by a specific wallet
 
-<CodeSnippetWithSummary contract={"PackImpl"} name={"balanceOf"} />
+<CodeSnippetWithSummary contract={"Pack"} name={"balanceOf"} />
 
 ## View Pack Contents
 
 You can view all of the rewards that were bundled to create the packs, but not the contents of each individual pack.
 
 <CodeSnippetWithSummary
-  contract={"PackImpl"}
+  contract={"Pack"}
   name={"getPackContents"}
   dontShowSummary
 />
@@ -93,14 +89,14 @@ Only the owner of a pack can open it.
 
 Multiple of the same pack can be opened at once.
 
-<CodeSnippetWithSummary contract={"PackImpl"} name={"open"} dontShowSummary />
+<CodeSnippetWithSummary contract={"Pack"} name={"open"} dontShowSummary />
 
 ## Transferring NFTs
 
 You must be the owner of the pack you're trying to transfer for this to be successful.
 
 <CodeSnippetWithSummary
-  contract={"PackImpl"}
+  contract={"Pack"}
   name={"transfer"}
   dontShowSummary
   showHr={false}

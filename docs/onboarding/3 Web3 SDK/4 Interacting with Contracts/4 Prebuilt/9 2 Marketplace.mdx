@@ -22,7 +22,7 @@ To start using your Marketplace contract inside your application, you'll need to
 You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
 
 <CodeSnippetWithSummary
-  contract={"MarketplaceImpl"}
+  contract={"Marketplace"}
   name={"initializing the SDK"}
   isGetContractCode
   dontShowSummary
@@ -45,18 +45,15 @@ You can get the contract address from the [dashboard](https://thirdweb.com/dashb
 
 ### One Listing
 
-<CodeSnippetWithSummary contract={"MarketplaceImpl"} name={"getListing"} />
+<CodeSnippetWithSummary contract={"Marketplace"} name={"getListing"} />
 
 ### All Listings
 
-<CodeSnippetWithSummary contract={"MarketplaceImpl"} name={"getAllListings"} />
+<CodeSnippetWithSummary contract={"Marketplace"} name={"getAllListings"} />
 
 ### Active Listings
 
-<CodeSnippetWithSummary
-  contract={"MarketplaceImpl"}
-  name={"getActiveListings"}
-/>
+<CodeSnippetWithSummary contract={"Marketplace"} name={"getActiveListings"} />
 
 ## Creating Offers / Bids
 
@@ -92,7 +89,7 @@ Buying a listing is the same for both direct listings and auction listings.
 When a `buyout` is made, the NFT is transferred to the buyer, and the seller receives the funds immediately.
 
 <CodeSnippetWithSummary
-  contract={"MarketplaceImpl"}
+  contract={"Marketplace"}
   name={"buyoutListing"}
   dontShowSummary
 />
@@ -162,14 +159,14 @@ We made a few important considerations for auctions in our smart contract.
 ### Set Time Buffer
 
 <CodeSnippetWithSummary
-  contract={"MarketplaceImpl"}
+  contract={"Marketplace"}
   name={"setTimeBufferInSeconds"}
 />
 
 ### Set Bid Buffer
 
 <CodeSnippetWithSummary
-  contract={"MarketplaceImpl"}
+  contract={"Marketplace"}
   name={"setBidBufferBps"}
   showHr={false}
 />
