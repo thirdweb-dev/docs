@@ -130,6 +130,16 @@ const sidebars = {
         },
         {
           type: "link",
+          label: "Storage",
+          href: "/storage",
+        },
+        {
+          type: "link",
+          label: "Solana",
+          href: "/solana",
+        },
+        {
+          type: "link",
           label: "Python",
           href: "/python",
         },

@@ -20,6 +20,14 @@ mkdir ./etc
 yarn api-extractor run --local
 yarn api-documenter markdown -i ./temp -o ./docs
 node ./scripts/generate-snippets.mjs
+# generate storage docs
+cd ../storage
+mkdir ./etc
+yarn generate-docs
+# generate solana docs
+cd ../solana
+mkdir ./etc
+yarn generate-docs
 # done with doc creation, back to root
 cd ../../../..
 yarn make-docs
