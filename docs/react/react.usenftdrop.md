@@ -9,6 +9,10 @@ displayed_sidebar: react
 
 ## useNFTDrop() function
 
+> Warning: This API is now obsolete.
+>
+> use `useContract()` instead
+
 Hook for getting an instance of an `NFTDrop` contract. This contract is meant to interface with ERC721 compliant NFTs that can be lazily minted.
 
 ## Example
@@ -29,8 +33,6 @@ export default function Component() {
   ...
 }
 ```
-
-use `useContract()` instead
 
 **Signature:**
 

@@ -9,6 +9,10 @@ displayed_sidebar: react
 
 ## useEditionDrop() function
 
+> Warning: This API is now obsolete.
+>
+> use `useContract()` instead
+
 Hook for getting an instance of an `EditionDrop` contract. This conract is used to interface with ERC1155 compliant NFTs that can be lazily minted.
 
 ## Example
@@ -29,8 +33,6 @@ export default function Component() {
   ...
 }
 ```
-
-use `useContract()` instead
 
 **Signature:**
 

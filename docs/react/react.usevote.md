@@ -9,6 +9,10 @@ displayed_sidebar: react
 
 ## useVote() function
 
+> Warning: This API is now obsolete.
+>
+> use `useContract()` instead
+
 Hook for getting an instance of an `Vote` contract. This contract enables fully featured voting-based decentralized governance systems.
 
 ## Example
@@ -30,8 +34,6 @@ export default function Component() {
   ...
 }
 ```
-
-use `useContract()` instead
 
 **Signature:**
 

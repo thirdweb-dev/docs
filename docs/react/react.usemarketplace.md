@@ -9,6 +9,10 @@ displayed_sidebar: react
 
 ## useMarketplace() function
 
+> Warning: This API is now obsolete.
+>
+> use `useContract()` instead
+
 Hook for getting an instance of a `Marketplace` contract. This contract is used to support marketplace for purchase and sale of on-chain assets.
 
 ## Example
@@ -30,8 +34,6 @@ export default function Component() {
   ...
 }
 ```
-
-use `useContract()` instead
 
 **Signature:**
 

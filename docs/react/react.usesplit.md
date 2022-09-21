@@ -9,6 +9,10 @@ displayed_sidebar: react
 
 ## useSplit() function
 
+> Warning: This API is now obsolete.
+>
+> use `useContract()` instead
+
 Hook for getting an instance of a `Split` contract. This contract supports fund distribution to multiple parties.
 
 ## Example
@@ -30,8 +34,6 @@ export default function Component() {
   ...
 }
 ```
-
-use `useContract()` instead
 
 **Signature:**
 
