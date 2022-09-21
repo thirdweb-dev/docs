@@ -114,6 +114,17 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
+        id: "solana",
+        path: "docs/solana",
+        routeBasePath: "solana",
+        sidebarPath: require.resolve("./sidebars/solana.js"),
+        remarkPlugins: [[npm2yarn, { sync: true }]],
+        // ... other options
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
         id: "contracts",
         path: "docs/contracts",
         routeBasePath: "contracts",

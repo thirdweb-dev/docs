@@ -20,6 +20,7 @@
     "make-docs:typescript": "node scripts/make-typescript-docs.mjs",
     "make-docs:react": "node scripts/make-react-docs.mjs",
     "make-docs:storage": "node scripts/make-storage-docs.mjs",
+    "make-docs:solana": "node scripts/make-solana-docs.mjs",
     "make-docs:contracts": "node scripts/make-contracts-docs.mjs",
     "make-docs:python": "node scripts/make-python-docs.mjs",
     "make-docs:go": "node scripts/make-go-docs.mjs",
