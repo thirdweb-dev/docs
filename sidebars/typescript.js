@@ -23,181 +23,405 @@ const sidebars = {
       label: "Getting Started",
       id: "index",
     },
-    {
-      type: "doc",
-      label: "ThirdwebSDK",
-      id: "sdk.thirdwebsdk",
-    },
-    {
-      type: "doc",
-      label: "Deploying Contracts",
-      id: "sdk.contractdeployer",
-    },
+
+    // === Initializing the SDK ===
     {
       type: "category",
-      label: "Prebuilt Contracts",
-      collapsed: false,
-      link: {
-        type: "generated-index",
-        title: "Pre-Built Contracts",
-        description: "Interfaces for on-chain contracts.",
-        keywords: ["contracts"],
-      },
+      label: "Initializing the SDK",
       items: [
         {
           type: "doc",
-          label: "Edition",
-          id: "sdk.edition",
+          label: "From Private Key (Backend)",
+          id: "sdk.thirdwebsdk.fromprivatekey",
         },
         {
           type: "doc",
-          label: "Edition Drop",
-          id: "sdk.editiondrop",
+          label: "From Signer",
+          id: "sdk.thirdwebsdk.fromsigner",
         },
         {
           type: "doc",
-          label: "Marketplace",
-          id: "sdk.marketplace",
-        },
-        {
-          type: "doc",
-          label: "NFT Collection",
-          id: "sdk.nftcollection",
-        },
-        {
-          type: "doc",
-          label: "NFT Drop",
-          id: "sdk.nftdrop",
-        },
-        {
-          type: "doc",
-          label: "Pack",
-          id: "sdk.pack",
-        },
-        {
-          type: "doc",
-          label: "Split",
-          id: "sdk.split",
-        },
-        {
-          type: "doc",
-          label: "Token",
-          id: "sdk.token",
-        },
-        {
-          type: "doc",
-          label: "Vote",
-          id: "sdk.vote",
-        },
-        {
-          type: "doc",
-          label: "Multiwrap",
-          id: "sdk.multiwrap",
-        },
-        {
-          type: "doc",
-          label: "Signature Drop",
-          id: "sdk.signaturedrop",
+          label: "All SDK Options",
+          id: "sdk.sdkoptions",
         },
       ],
     },
+    // === Deploying A Contract ===
     {
       type: "category",
-      label: "Contract Interfaces",
-      collapsed: true,
-      link: {
-        type: "generated-index",
-        title: "Contract Interfaces",
-        description:
-          "Contract interfaces that extend the functionality of contracts",
-        keywords: ["contracts", "shared-interfaces"],
-      },
+      label: "Deploying Contracts",
       items: [
         {
           type: "doc",
-          label: "ERC 20",
-          id: "sdk.erc20",
+          label: "Contract Deployer",
+          id: "sdk.contractdeployer",
         },
         {
           type: "doc",
-          label: "ERC 721",
+          label: "Deploy A Released Contract",
+          id: "sdk.contractdeployer.deployreleasedcontract",
+        },
+        {
+          type: "doc",
+          label: "Deploy Via Factory (Proxy)",
+          id: "sdk.contractdeployer.deployviafactory",
+        },
+        {
+          type: "category",
+          label: "Prebuilt Contracts",
+          items: [
+            {
+              type: "doc",
+              label: "Edition",
+              id: "sdk.contractdeployer.deployedition",
+            },
+            {
+              type: "doc",
+              label: "Edition Drop",
+              id: "sdk.contractdeployer.deployeditiondrop",
+            },
+            {
+              type: "doc",
+              label: "Marketplace",
+              id: "sdk.contractdeployer.deploymarketplace",
+            },
+            {
+              type: "doc",
+              label: "Multiwrap",
+              id: "sdk.contractdeployer.deploymultiwrap",
+            },
+            {
+              type: "doc",
+              label: "NFT Collection",
+              id: "sdk.contractdeployer.deploynftcollection",
+            },
+            {
+              type: "doc",
+              label: "NFT Drop",
+              id: "sdk.contractdeployer.deploynftdrop",
+            },
+            {
+              type: "doc",
+              label: "Pack",
+              id: "sdk.contractdeployer.deploypack",
+            },
+            {
+              type: "doc",
+              label: "Signature Drop",
+              id: "sdk.contractdeployer.deploysignaturedrop",
+            },
+            {
+              type: "doc",
+              label: "Split",
+              id: "sdk.contractdeployer.deploysplit",
+            },
+            {
+              type: "doc",
+              label: "Token",
+              id: "sdk.contractdeployer.deploytoken",
+            },
+            {
+              type: "doc",
+              label: "Token Drop",
+              id: "sdk.contractdeployer.deploytokendrop",
+            },
+            {
+              type: "doc",
+              label: "Vote",
+              id: "sdk.contractdeployer.deployvote",
+            },
+          ],
+        },
+      ],
+    },
+    // === Getting A Contract ===
+    {
+      type: "category",
+      label: "Getting a Contract",
+      items: [
+        {
+          type: "doc",
+          label: "Get A Contract",
+          id: "sdk.thirdwebsdk.getcontract",
+        },
+        {
+          type: "doc",
+          label: "Get Contract From ABI",
+          id: "sdk.thirdwebsdk.getcontractfromabi",
+        },
+        {
+          type: "doc",
+          label: "Get All Deployed Contracts",
+          id: "sdk.thirdwebsdk.getcontractlist",
+        },
+        {
+          type: "category",
+          label: "Prebuilt Contracts",
+          items: [
+            {
+              type: "doc",
+              label: "Edition",
+              id: "sdk.thirdwebsdk.getedition",
+            },
+            {
+              type: "doc",
+              label: "Edition Drop",
+              id: "sdk.thirdwebsdk.geteditiondrop",
+            },
+            {
+              type: "doc",
+              label: "Marketplace",
+              id: "sdk.thirdwebsdk.getmarketplace",
+            },
+            {
+              type: "doc",
+              label: "Multiwrap",
+              id: "sdk.thirdwebsdk.getmultiwrap",
+            },
+            {
+              type: "doc",
+              label: "NFT Collection",
+              id: "sdk.thirdwebsdk.getnftcollection",
+            },
+            {
+              type: "doc",
+              label: "NFT Drop",
+              id: "sdk.thirdwebsdk.getnftdrop",
+            },
+            {
+              type: "doc",
+              label: "Pack",
+              id: "sdk.thirdwebsdk.getpack",
+            },
+            {
+              type: "doc",
+              label: "Signature Drop",
+              id: "sdk.thirdwebsdk.getsignaturedrop",
+            },
+            {
+              type: "doc",
+              label: "Split",
+              id: "sdk.thirdwebsdk.getsplit",
+            },
+            {
+              type: "doc",
+              label: "Token",
+              id: "sdk.thirdwebsdk.gettoken",
+            },
+            {
+              type: "doc",
+              label: "Token Drop",
+              id: "sdk.thirdwebsdk.gettokendrop",
+            },
+            {
+              type: "doc",
+              label: "Vote",
+              id: "sdk.thirdwebsdk.getvote",
+            },
+          ],
+        },
+      ],
+    },
+    // === Interacting with Contracts ===
+    {
+      type: "category",
+      label: "Interacting with Contracts",
+      items: [
+        {
+          type: "doc",
+          label: "ERC721",
           id: "sdk.erc721",
         },
         {
           type: "doc",
-          label: "ERC 1155",
+          label: "ERC1155",
           id: "sdk.erc1155",
         },
         {
           type: "doc",
-          label: "Direct Listing",
-          id: "sdk.marketplacedirect",
+          label: "ERC20",
+          id: "sdk.erc20",
         },
+        // === Detectable Features ===
         {
-          type: "doc",
-          label: "Auction Listing",
-          id: "sdk.marketplaceauction",
+          type: "category",
+          label: "Detectable Features",
+          items: [
+            {
+              type: "category",
+              label: "ERC721",
+              items: [
+                {
+                  type: "doc",
+                  label: "ERC721Mintable",
+                  id: "sdk.erc721mintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC721BatchMintable",
+                  id: "sdk.erc721batchmintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC721Enumerable",
+                  id: "sdk.erc721enumerable",
+                },
+                { type: "doc", label: "ERC721Supply", id: "sdk.erc721supply" },
+                {
+                  type: "doc",
+                  label: "ERC721LazyMintable",
+                  id: "sdk.erc721lazymintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC721Claimable",
+                  id: "sdk.erc721lazymintable.claim",
+                },
+                {
+                  type: "doc",
+                  label: "ERC721ClaimableWithConditions",
+                  id: "sdk.erc721lazymintable.claimwithconditions",
+                },
+                {
+                  type: "doc",
+                  label: "ERC721Burnable",
+                  id: "sdk.erc721burnable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC721Delayedreveal",
+                  id: "sdk.erc721lazymintable.revealer",
+                },
+                {
+                  type: "doc",
+                  label: "ERC721SignatureMint",
+                  id: "sdk.erc721withquantitysignaturemintable",
+                },
+              ],
+            },
+            {
+              type: "category",
+              label: "ERC1155",
+              items: [
+                {
+                  type: "doc",
+                  label: "ERC1155Mintable",
+                  id: "sdk.erc1155mintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155BatchMintable",
+                  id: "sdk.erc1155batchmintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155Enumerable",
+                  id: "sdk.erc1155enumerable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155LazyMintable",
+                  id: "sdk.erc1155lazymintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155Claimable",
+                  id: "sdk.erc1155lazymintable.claim",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155ClaimableWithConditions",
+                  id: "sdk.erc1155lazymintable.claimwithconditions",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155Burnable",
+                  id: "sdk.erc1155burnable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155Revealable",
+                  id: "sdk.erc1155lazymintable.revealer",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155SignatureMintable",
+                  id: "sdk.erc1155signaturemintable",
+                },
+              ],
+            },
+            {
+              type: "category",
+              label: "ERC20",
+              items: [
+                {
+                  type: "doc",
+                  label: "ERC20Mintable",
+                  id: "sdk.erc20mintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC20BatchMintable",
+                  id: "sdk.erc20batchmintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC20ClaimableWithConditions",
+                  id: "sdk.erc20.claim",
+                },
+                {
+                  type: "doc",
+                  label: "ERC20Burnable",
+                  id: "sdk.erc20burnable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC20SignatureMintable",
+                  id: "sdk.erc20signaturemintable",
+                },
+              ],
+            },
+          ],
         },
+
+        // === Prebuilt Contracts ===
         {
-          type: "doc",
-          label: "NFT Drop Claim Conditions",
-          id: "sdk.dropclaimconditions",
-        },
-        {
-          type: "doc",
-          label: "Edition Drop Claim Conditions",
-          id: "sdk.droperc1155claimconditions",
+          type: "category",
+          label: "Prebuilt Contracts",
+          items: [
+            { type: "doc", label: "Edition", id: "sdk.editionimpl" },
+            { type: "doc", label: "Edition Drop", id: "sdk.editiondropimpl" },
+            { type: "doc", label: "Marketplace", id: "sdk.marketplaceimpl" },
+            { type: "doc", label: "Multiwrap", id: "sdk.multiwrapimpl" },
+            {
+              type: "doc",
+              label: "NFT Collection",
+              id: "sdk.nftcollectionimpl",
+            },
+            { type: "doc", label: "NFT Drop", id: "sdk.nftdropimpl" },
+            { type: "doc", label: "Pack", id: "sdk.packimpl" },
+            {
+              type: "doc",
+              label: "Signature Drop",
+              id: "sdk.signaturedropimpl",
+            },
+            { type: "doc", label: "Split", id: "sdk.splitimpl" },
+            { type: "doc", label: "Token", id: "sdk.tokenimpl" },
+            { type: "doc", label: "Token Drop", id: "sdk.tokendropimpl" },
+            { type: "doc", label: "Vote", id: "sdk.voteimpl" },
+          ],
         },
       ],
     },
-    {
-      type: "category",
-      label: "Signature Minting",
-      collapsed: true,
-      link: {
-        type: "generated-index",
-        title: "Signature Minting",
-        description: "Signature based minting for contracts.",
-        keywords: ["contracts", "signature-minting"],
-      },
-      items: [
-        {
-          type: "doc",
-          label: "ERC 20 Signature Minting",
-          id: "sdk.erc20signaturemintable",
-        },
-        {
-          type: "doc",
-          label: "ERC 721 Signature Minting",
-          id: "sdk.erc721withquantitysignaturemintable",
-        },
-        {
-          type: "doc",
-          label: "ERC 1155 Signature Minting",
-          id: "sdk.erc1155signaturemintable",
-        },
-      ],
-    },
+    // === Contract Settings
     {
       type: "category",
       label: "Contract Settings",
-      collapsed: true,
-      link: {
-        type: "generated-index",
-        title: "Contract Settings",
-        description: "Interfaces to manage contract settings.",
-        keywords: ["contracts", "settings"],
-      },
       items: [
         {
           type: "doc",
-          label: "Contract Metadata",
-          id: "sdk.contractmetadata",
-        },
-        {
-          type: "doc",
-          label: "Contract Roles",
-          id: "sdk.contractroles",
+          label: "Contract Owner",
+          id: "sdk.contractowner",
         },
         {
           type: "doc",
@@ -206,31 +430,121 @@ const sidebars = {
         },
         {
           type: "doc",
-          label: "Royalties",
-          id: "sdk.contractroyalty",
-        },
-        {
-          type: "doc",
           label: "Primary Sales",
           id: "sdk.contractprimarysale",
         },
+        {
+          type: "doc",
+          label: "Permission Controls",
+          id: "sdk.contractroles",
+        },
+        {
+          type: "doc",
+          label: "Royalties",
+          id: "sdk.contractroyalty",
+        },
       ],
     },
+    // === Wallet Actions ===
     {
-      type: "doc",
-      label: "Remote Storage",
-      id: "sdk.thirdwebsdk.storage",
+      type: "category",
+      label: "Wallet Information",
+      items: [
+        {
+          type: "doc",
+          label: "Wallet Actions",
+          id: "sdk.userwallet",
+        },
+        {
+          type: "doc",
+          label: "Wallet Events",
+          id: "sdk.userwalletevents",
+        },
+      ],
     },
+
+    // === Signature Based Minting ===
     {
-      type: "doc",
-      label: "Wallet Authentication",
-      id: "sdk.walletauthenticator",
+      type: "category",
+      label: "Signature Based Minting",
+      items: [
+        {
+          type: "doc",
+          label: "ERC721",
+          id: "sdk.erc721withquantitysignaturemintable",
+        },
+        {
+          type: "doc",
+          label: "ERC1155",
+          id: "sdk.erc1155signaturemintable",
+        },
+        {
+          type: "doc",
+          label: "ERC20",
+          id: "sdk.erc20signaturemintable",
+        },
+      ],
     },
+
+    // === Contract Events ===
     {
       type: "doc",
       label: "Contract Events",
       id: "sdk.contractevents",
     },
+
+    // === Advanced Features ===
+    {
+      type: "category",
+      label: "Advanced Features",
+      items: [
+        {
+          type: "doc",
+          label: "Gasless Transactions",
+          id: "sdk.gaslesstransaction",
+        },
+        {
+          type: "doc",
+          label: "Gas Cost Estimator",
+          id: "sdk.gascostestimator",
+        },
+        {
+          type: "doc",
+          label: "Contract Interceptor",
+          id: "sdk.contractinterceptor",
+        },
+      ],
+    },
+
+    // === Utilities ===
+    {
+      type: "category",
+      label: "Utilities",
+      items: [
+        {
+          type: "category",
+          label: "Native Token Info",
+          items: [
+            {
+              type: "doc",
+              label: "Get Native Token By Chain",
+              id: "sdk.getnativetokenbychainid",
+            },
+            {
+              type: "doc",
+              label: "Native Token Address",
+              id: "sdk.native_token_address",
+            },
+          ],
+        },
+        {
+          type: "doc",
+          label: "Chain ID Enum",
+          id: "sdk.chainid",
+        },
+      ],
+    },
+
     {
       className: "hidden-category",
       type: "category",

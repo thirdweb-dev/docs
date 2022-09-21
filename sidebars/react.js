@@ -24,21 +24,60 @@ const sidebars = {
       id: "index",
     },
 
+    // === Initializing the SDK ===
     {
       type: "category",
-      label: "UI Components",
-      collapsed: false,
+      label: "Initializing the SDK",
       items: [
         {
           type: "doc",
-          label: "Web3 Button",
-          id: "react.web3button",
+          label: "ThirdwebProvider",
+          id: "react.thirdwebprovider",
         },
+        {
+          type: "doc",
+          label: "Custom Signer/Provider",
+          id: "react.thirdwebsdkprovider",
+        },
+        {
+          type: "doc",
+          label: "Using Wagmi",
+          id: "react.thirdwebsdkproviderwagmiwrapper",
+        },
+        {
+          type: "doc",
+          label: "Configuring App Metadata",
+          id: "react.dappmetadata",
+        },
+        {
+          type: "doc",
+          label: "All SDK Options",
+          id: "react.thirdwebproviderprops",
+        },
+      ],
+    },
+    // === useSDK ===
+    {
+      type: "doc",
+      label: "useSDK",
+      id: "react.usesdk",
+    },
+    // === UI Components ===
+    {
+      type: "category",
+      label: "UI Components",
+      items: [
         {
           type: "doc",
           label: "Connect Wallet Button",
           id: "react.connectwallet",
         },
+        {
+          type: "doc",
+          label: "Web3 Button",
+          id: "react.web3button",
+        },
+
         {
           type: "doc",
           label: "NFT Renderer",
@@ -51,11 +90,10 @@ const sidebars = {
         },
       ],
     },
-
+    // === Wallet connection ===
     {
       type: "category",
       label: "Wallet Connection",
-      collapsed: true,
       items: [
         {
           type: "doc",
@@ -94,9 +132,42 @@ const sidebars = {
         },
       ],
     },
+    // === Interact with contracts ===
     {
       type: "category",
-      label: "Network Info",
+      label: "Interact With Contracts",
+      items: [
+        {
+          type: "doc",
+          label: "useContract",
+          id: "react.usecontract",
+        },
+        {
+          type: "doc",
+          label: "useContractRead",
+          id: "react.usecontractread",
+        },
+        {
+          type: "doc",
+          label: "useContractWrite",
+          id: "react.usecontractwrite",
+        },
+        {
+          type: "doc",
+          label: "useContractMetadata",
+          id: "react.usecontractmetadata",
+        },
+        {
+          type: "doc",
+          label: "useContractEvents",
+          id: "react.usecontractevents",
+        },
+      ],
+    },
+    // === Networks ===
+    {
+      type: "category",
+      label: "Network Connection",
       items: [
         {
           type: "doc",
@@ -115,452 +186,304 @@ const sidebars = {
         },
       ],
     },
+    // === NFTs ===
     {
       type: "category",
-      label: "Get a Contract",
-      collapsed: true,
+      label: "NFT",
       items: [
         {
           type: "doc",
-          label: "Custom Contract",
-          id: "react.usecontract",
+          label: "useNFT",
+          id: "react.usenft",
         },
         {
           type: "doc",
-          label: "Edition",
-          id: "react.useedition",
+          label: "useNFTs",
+          id: "react.usenfts",
         },
         {
           type: "doc",
-          label: "Edition Drop",
-          id: "react.useeditiondrop",
+          label: "useTotalCirculatingSupply",
+          id: "react.usetotalcirculatingsupply",
         },
         {
           type: "doc",
-          label: "Marketplace",
-          id: "react.usemarketplace",
+          label: "useOwnedNFTs",
+          id: "react.useownednfts",
         },
         {
           type: "doc",
-          label: "Multiwrap",
-          id: "react.usemultiwrap",
+          label: "useNFTBalance",
+          id: "react.usenftbalance",
         },
         {
           type: "doc",
-          label: "NFT Collection",
-          id: "react.usenftcollection",
+          label: "useTotalCount",
+          id: "react.usetotalcount",
         },
         {
           type: "doc",
-          label: "NFT Drop",
-          id: "react.usenftdrop",
+          label: "useMintNFT",
+          id: "react.usemintnft",
         },
         {
           type: "doc",
-          label: "Pack",
-          id: "react.usepack",
+          label: "useMintNFTSupply",
+          id: "react.usemintnftsupply",
         },
         {
           type: "doc",
-          label: "Signature Drop",
-          id: "react.usesignaturedrop",
+          label: "useTransferNFT",
+          id: "react.usetransfernft",
         },
         {
           type: "doc",
-          label: "Split",
-          id: "react.usesplit",
+          label: "useAirdropNFT",
+          id: "react.useairdropnft",
         },
         {
           type: "doc",
-          label: "Token",
-          id: "react.usetoken",
-        },
-        {
-          type: "doc",
-          label: "Token Drop",
-          id: "react.usetokendrop",
-        },
-        {
-          type: "doc",
-          label: "Vote",
-          id: "react.usevote",
+          label: "useBurnNFT",
+          id: "react.useburnnft",
         },
       ],
     },
-    {
-      type: "category",
-      label: "NFT & Edition",
-      collapsed: true,
-      items: [
-        {
-          type: "category",
-          label: "Read Hooks",
-          items: [
-            {
-              type: "doc",
-              label: "NFT by Token ID",
-              id: "react.usenft",
-            },
-            {
-              type: "doc",
-              label: "All NFTs",
-              id: "react.usenfts",
-            },
-            {
-              type: "doc",
-              label: "Unclaimed NFTs",
-              id: "react.useunclaimednfts",
-            },
-            {
-              type: "doc",
-              label: "Claimed NFTs",
-              id: "react.useclaimednfts",
-            },
-            {
-              type: "doc",
-              label: "Total Supply",
-              id: "react.usetotalcirculatingsupply",
-            },
-            {
-              type: "doc",
-              label: "Unclaimed Supply",
-              id: "react.useunclaimednftsupply",
-            },
-            {
-              type: "doc",
-              label: "Claimed Supply",
-              id: "react.useclaimednftsupply",
-            },
-            {
-              type: "doc",
-              label: "Owned NFTs",
-              id: "react.useownednfts",
-            },
-            {
-              type: "doc",
-              label: "NFT Balance",
-              id: "react.usenftbalance",
-            },
-            {
-              type: "doc",
-              label: "Number of NFTs (ERC1155)",
-              id: "react.usetotalcount",
-            },
-          ],
-        },
-        {
-          type: "category",
-          label: "Write Hooks",
-          items: [
-            {
-              type: "doc",
-              label: "Mint an NFT",
-              id: "react.usemintnft",
-            },
-            {
-              type: "doc",
-              label: "Claim an NFT",
-              id: "react.useclaimnft",
-            },
-          ],
-        },
-      ],
-    },
+    // === Tokens ===
     {
       type: "category",
       label: "Token",
-      collapsed: true,
-
       items: [
         {
-          type: "category",
-          label: "Read Hooks",
-          items: [
-            {
-              type: "doc",
-              label: "Total Supply",
-              id: "react.usetokensupply",
-            },
-            {
-              type: "doc",
-              label: "Token Balance",
-              id: "react.usetokenbalance",
-            },
-          ],
+          type: "doc",
+          label: "useTokenSupply",
+          id: "react.usetokensupply",
         },
         {
-          type: "category",
-          label: "Write Hooks",
-          items: [
-            {
-              type: "doc",
-              label: "Mint Tokens",
-              id: "react.useminttoken",
-            },
-            {
-              type: "doc",
-              label: "Claim Tokens (Token Drop)",
-              id: "react.useclaimtoken",
-            },
-          ],
+          type: "doc",
+          label: "useTokenBalance",
+          id: "react.usetokenbalance",
+        },
+        {
+          type: "doc",
+          label: "useTokenDecimals",
+          id: "react.usetokendecimals",
+        },
+        {
+          type: "doc",
+          label: "useMintToken",
+          id: "react.useminttoken",
+        },
+        {
+          type: "doc",
+          label: "useClaimToken",
+          id: "react.useclaimtoken",
+        },
+        {
+          type: "doc",
+          label: "useTransferToken",
+          id: "react.usetransfertoken",
+        },
+        {
+          type: "doc",
+          label: "useTransferBatchToken",
+          id: "react.usetransferbatchtoken",
+        },
+        {
+          type: "doc",
+          label: "useBurnToken",
+          id: "react.useburntoken",
         },
       ],
     },
+    // === Marketplace ===
     {
       type: "category",
       label: "Marketplace",
-      collapsed: true,
       items: [
         {
-          type: "category",
-          label: "Read Hooks",
-          items: [
-            {
-              type: "doc",
-              label: "Listing by ID",
-              id: "react.uselisting",
-            },
-            {
-              type: "doc",
-              label: "All Listings",
-              id: "react.uselistings",
-            },
-            {
-              type: "doc",
-              label: "Active Listings",
-              id: "react.useactivelistings",
-            },
-            {
-              type: "doc",
-              label: "Winning Bid (Auction)",
-              id: "react.usewinningbid",
-            },
-            {
-              type: "doc",
-              label: "Auction Winner (Auction)",
-              id: "react.useauctionwinner",
-            },
-            {
-              type: "doc",
-              label: "Bid Buffer (Auction)",
-              id: "react.usebidbuffer",
-            },
-          ],
+          type: "doc",
+          label: "useListing",
+          id: "react.uselisting",
         },
         {
-          type: "category",
-          label: "Write Hooks",
-          items: [
-            {
-              type: "doc",
-              label: "Create Direct Listing",
-              id: "react.usecreatedirectlisting",
-            },
-            {
-              type: "doc",
-              label: "Create Auction Listing",
-              id: "react.usecreateauctionlisting",
-            },
-            {
-              type: "doc",
-              label: "Make a Bid",
-              id: "react.usemakebid",
-            },
-            {
-              type: "doc",
-              label: "Buyout a Listing",
-              id: "react.usebuynow",
-            },
-          ],
+          type: "doc",
+          label: "useListings",
+          id: "react.uselistings",
+        },
+        {
+          type: "doc",
+          label: "useListingsCount",
+          id: "react.uselistingscount",
+        },
+        {
+          type: "doc",
+          label: "useActiveListings",
+          id: "react.useactivelistings",
+        },
+        {
+          type: "doc",
+          label: "useWinningBid",
+          id: "react.usewinningbid",
+        },
+        {
+          type: "doc",
+          label: "useAuctionWinner",
+          id: "react.useauctionwinner",
+        },
+        {
+          type: "doc",
+          label: "useBidBuffer",
+          id: "react.usebidbuffer",
+        },
+        {
+          type: "doc",
+          label: "useCreateDirectListing",
+          id: "react.usecreatedirectlisting",
+        },
+        {
+          type: "doc",
+          label: "useCreateAuctionListing",
+          id: "react.usecreateauctionlisting",
+        },
+        {
+          type: "doc",
+          label: "useCancelListing",
+          id: "react.usecancellisting",
+        },
+        {
+          type: "doc",
+          label: "useMakeBid",
+          id: "react.usemakebid",
+        },
+        {
+          type: "doc",
+          label: "useBuyNow",
+          id: "react.usebuynow",
         },
       ],
     },
-
+    // === Permission Controls ===
     {
       type: "category",
-      label: "Custom Contracts",
-      collapsed: true,
+      label: "Permission Controls",
       items: [
         {
-          type: "category",
-          label: "Read Hooks",
-          items: [
-            {
-              type: "doc",
-              label: "Read a Contract's View/Mapping",
-              id: "react.usecontractread",
-            },
-            {
-              type: "doc",
-              label: "Read All Contract Events",
-              id: "react.usecontractevents",
-            },
-            {
-              type: "doc",
-              label: "Read A Specific Contract Event",
-              id: "react.usecontractevents",
-            },
-            {
-              type: "doc",
-              label: "Contract Type",
-              id: "react.usecontracttype",
-            },
-            {
-              type: "doc",
-              label: "Contract Metadata",
-              id: "react.usecontractmetadata",
-            },
-          ],
+          type: "doc",
+          label: "useAllRoleMembers",
+          id: "react.useallrolemembers",
         },
         {
-          type: "category",
-          label: "Write Hooks",
-          items: [
-            {
-              type: "doc",
-              label: "Call a Contract's Function",
-              id: "react.usecontractwrite",
-            },
-          ],
+          type: "doc",
+          label: "useRoleMembers",
+          id: "react.userolemembers",
+        },
+        {
+          type: "doc",
+          label: "useIsAddressRole",
+          id: "react.useisaddressrole",
+        },
+        {
+          type: "doc",
+          label: "useSetAllRoleMembers",
+          id: "react.usesetallrolemembers",
+        },
+        {
+          type: "doc",
+          label: "useGrantRole",
+          id: "react.usegrantrole",
+        },
+        {
+          type: "doc",
+          label: "useRevokeRole",
+          id: "react.userevokerole",
         },
       ],
     },
-
+    // === Drops ===
     {
       type: "category",
-      label: "Claim Conditions",
-      collapsed: true,
+      label: "Drop",
       items: [
         {
           type: "doc",
-          label: "Active Claim Condition",
-          id: "react.useactiveclaimcondition",
+          label: "useUnclaimedNFTs",
+          id: "react.useunclaimednfts",
         },
         {
           type: "doc",
-          label: "All Claim Conditions",
-          id: "react.useclaimconditions",
+          label: "useClaimedNFTs",
+          id: "react.useclaimednfts",
         },
         {
           type: "doc",
-          label: "Claim Inelibility Reasons",
-          id: "react.useclaimineligibilityreasons",
+          label: "useUnclaimedNFTSupply",
+          id: "react.useunclaimednftsupply",
         },
-      ],
-    },
-
-    {
-      type: "category",
-      label: "Delayed Reveal",
-      collapsed: true,
-      items: [
         {
           type: "doc",
-          label: "View Unrevealed Batches",
+          label: "useClaimedNFTSupply",
+          id: "react.useclaimednftsupply",
+        },
+        {
+          type: "doc",
+          label: "useBatchesToReveal",
           id: "react.usebatchestoreveal",
         },
         {
           type: "doc",
-          label: "Lazy Mint with Delayed Reveal",
+          label: "useClaimNFT",
+          id: "react.useclaimnft",
+        },
+        {
+          type: "doc",
+          label: "useLazyMint",
+          id: "react.uselazymint",
+        },
+        {
+          type: "doc",
+          label: "useDelayedRevealLazyMint",
           id: "react.usedelayedreveallazymint",
         },
         {
           type: "doc",
-          label: "Reveal Batch",
+          label: "useRevealLazyMint",
           id: "react.usereveallazymint",
         },
       ],
     },
-
+    // === Claim Conditions ===
     {
       type: "category",
-      label: "Configuration",
-      collapsed: true,
+      label: "Claim Conditions",
       items: [
         {
-          type: "category",
-          label: "Contract Settings",
-          items: [
-            {
-              type: "doc",
-              label: "Read Contract Metadata",
-              id: "react.usemetadata",
-            },
-            {
-              type: "doc",
-              label: "Update Contract Metadata",
-              id: "react.useupdatemetadata",
-            },
-            {
-              type: "doc",
-              label: "Read Primary Sale Recipient",
-              id: "react.useprimarysalerecipient",
-            },
-            {
-              type: "doc",
-              label: "Update Primary Sale Recipient",
-              id: "react.useupdateprimarysalerecipient",
-            },
-            {
-              type: "doc",
-              label: "Read Royalty Settings",
-              id: "react.useroyaltysettings",
-            },
-            {
-              type: "doc",
-              label: "Update Royalty Settings",
-              id: "react.useupdateroyaltysettings",
-            },
-            {
-              type: "doc",
-              label: "Read Platform Fees",
-              id: "react.useplatformfees",
-            },
-            {
-              type: "doc",
-              label: "Update Platform Fees",
-              id: "react.useupdateplatformfees",
-            },
-          ],
+          type: "doc",
+          label: "useActiveClaimCondition",
+          id: "react.useactiveclaimcondition",
         },
         {
-          type: "category",
-          label: "Roles",
-          items: [
-            {
-              type: "doc",
-              label: "All Members of All Roles",
-              id: "react.useallrolemembers",
-            },
-            {
-              type: "doc",
-              label: "All Members of One Role",
-              id: "react.userolemembers",
-            },
-            {
-              type: "doc",
-              label: "Check if Address is Role",
-              id: "react.useisaddressrole",
-            },
-            {
-              type: "doc",
-              label: "Overwrite All Role Members",
-              id: "react.usesetallrolemembers",
-            },
-            {
-              type: "doc",
-              label: "Grant Role",
-              id: "react.usegrantrole",
-            },
-            {
-              type: "doc",
-              label: "Revoke Role",
-              id: "react.userevokerole",
-            },
-          ],
+          type: "doc",
+          label: "useClaimConditions",
+          id: "react.useclaimconditions",
+        },
+        {
+          type: "doc",
+          label: "useClaimIneligibilityReasons",
+          id: "react.useclaimineligibilityreasons",
+        },
+        {
+          type: "doc",
+          label: "useSetClaimConditions",
+          id: "react.usesetclaimconditions",
+        },
+        {
+          type: "doc",
+          label: "useResetClaimConditions",
+          id: "react.useresetclaimconditions",
         },
       ],
     },
+    // === SDK References ===
     {
       className: "hidden-category",
       type: "category",

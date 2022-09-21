@@ -7,6 +7,7 @@ import Link from "@docusaurus/Link";
 // TODO this item should probably not receive the "activePath" props
 // TODO this triggers whole sidebar re-renders on navigation
 function DocSidebarItems({ items, ...props }) {
+  console.log(props);
   // Category logic (i.e. "Build contracts", etc.)
   const showCategoryPages = [
     "/platform-overview",
@@ -61,6 +62,36 @@ function DocSidebarItems({ items, ...props }) {
     },
   ];
 
+  const categoryNameToIcon = {
+    Auth: "auth.png",
+    Extensions: "extensions.png",
+    "Prebuilt Contracts": "contracts.png",
+    Dashboard: "dashboard.png",
+    Deploy: "deploy.png",
+    Release: "release.png",
+    SDK: "sdk.png",
+  };
+
+  const formatCategoryName = (name) => {
+    const formatted =
+      name.split("/")[1].charAt(0).toUpperCase() + name.split("/")[1].slice(1);
+
+    if (formatted === "Sdk") {
+      return "SDK";
+    }
+    // If not the word pre-built, split by dash and capitalize each word
+    if (formatted !== "Pre-built-contracts") {
+      return formatted
+        .split("-")
+        .map((word) => {
+          return word.charAt(0).toUpperCase() + word.slice(1);
+        })
+        .join(" ");
+    } else {
+      return "Prebuilt Contracts";
+    }
+  };
+
   if (showCategories) {
     return (
       <DocSidebarItemsExpandedStateProvider>
@@ -106,13 +137,7 @@ function DocSidebarItems({ items, ...props }) {
   return (
     <DocSidebarItemsExpandedStateProvider>
       {showBackToHome && (
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            paddingBottom: "1rem",
-          }}
-        >
+        <div className="sub-sidebar-category">
           <Link href="/" className="menu__list-item back-home-link">
             <IconHome
               style={{
@@ -123,6 +148,17 @@ function DocSidebarItems({ items, ...props }) {
             />
             {"All Docs"}
           </Link>
+
+          {categoryNameToIcon[formatCategoryName(props?.activePath)] && (
+            <div>
+              <img
+                src={`/assets/product/${
+                  categoryNameToIcon[formatCategoryName(props?.activePath)]
+                }`}
+              />
+              <p>{formatCategoryName(props?.activePath)}</p>
+            </div>
+          )}
         </div>
       )}
 
