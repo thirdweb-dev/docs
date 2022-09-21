@@ -242,6 +242,148 @@ const sidebars = {
           label: "ERC20",
           id: "sdk.erc20",
         },
+        // === Detectable Features ===
+        {
+          type: "category",
+          label: "Detectable Features",
+          items: [
+            {
+              type: "category",
+              label: "ERC721",
+              items: [
+                {
+                  type: "doc",
+                  label: "ERC721Mintable",
+                  id: "sdk.erc721mintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC721BatchMintable",
+                  id: "sdk.erc721batchmintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC721Enumerable",
+                  id: "sdk.erc721enumerable",
+                },
+                { type: "doc", label: "ERC721Supply", id: "sdk.erc721supply" },
+                {
+                  type: "doc",
+                  label: "ERC721LazyMintable",
+                  id: "sdk.erc721lazymintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC721Claimable",
+                  id: "sdk.erc721lazymintable.claim",
+                },
+                {
+                  type: "doc",
+                  label: "ERC721ClaimableWithConditions",
+                  id: "sdk.erc721lazymintable.claimwithconditions",
+                },
+                {
+                  type: "doc",
+                  label: "ERC721Burnable",
+                  id: "sdk.erc721burnable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC721Delayedreveal",
+                  id: "sdk.erc721lazymintable.revealer",
+                },
+                {
+                  type: "doc",
+                  label: "ERC721SignatureMint",
+                  id: "sdk.erc721withquantitysignaturemintable",
+                },
+              ],
+            },
+            {
+              type: "category",
+              label: "ERC1155",
+              items: [
+                {
+                  type: "doc",
+                  label: "ERC1155Mintable",
+                  id: "sdk.erc1155mintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155BatchMintable",
+                  id: "sdk.erc1155batchmintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155Enumerable",
+                  id: "sdk.erc1155enumerable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155LazyMintable",
+                  id: "sdk.erc1155lazymintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155Claimable",
+                  id: "sdk.erc1155lazymintable.claim",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155ClaimableWithConditions",
+                  id: "sdk.erc1155lazymintable.claimwithconditions",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155Burnable",
+                  id: "sdk.erc1155burnable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155Revealable",
+                  id: "sdk.erc1155lazymintable.revealer",
+                },
+                {
+                  type: "doc",
+                  label: "ERC1155SignatureMintable",
+                  id: "sdk.erc1155signaturemintable",
+                },
+              ],
+            },
+            {
+              type: "category",
+              label: "ERC20",
+              items: [
+                {
+                  type: "doc",
+                  label: "ERC20Mintable",
+                  id: "sdk.erc20mintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC20BatchMintable",
+                  id: "sdk.erc20batchmintable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC20ClaimableWithConditions",
+                  id: "sdk.erc20.claim",
+                },
+                {
+                  type: "doc",
+                  label: "ERC20Burnable",
+                  id: "sdk.erc20burnable",
+                },
+                {
+                  type: "doc",
+                  label: "ERC20SignatureMintable",
+                  id: "sdk.erc20signaturemintable",
+                },
+              ],
+            },
+          ],
+        },
+
         // === Prebuilt Contracts ===
         {
           type: "category",
