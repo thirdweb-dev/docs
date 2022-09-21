@@ -26,7 +26,7 @@ standard.
 
 ```python
 # We specify the domain of the application to authenticate to
-domain = "example.com"
+domain = "thirdweb.com"
 
 # We can then generate a payload for the connected wallet to login
 # This can also be done on the client side with the thirdweb TypeScript SDK
@@ -57,7 +57,7 @@ Generates a login payload that can be sent to the server-side for verification o
 
 ```python
 # Add the domain of the application that you want to log in to
-domain = "example.com"
+domain = "thirdweb.com"
 
 # Generate a signed login payload for the connected wallet to authenticate with
 payload = sdk.auth.login(domain)
@@ -88,7 +88,7 @@ Server-side function to securely verify the address of the logged in client-side
 by validating the provided client-side login request.
 
 ```python
-domain = "example.com"
+domain = "thirdweb.com"
 payload = sdk.auth.login(domain)
 
 # Verify the login request
@@ -121,7 +121,7 @@ Server-side function that generates a JWT token from the provided login request 
 client-side wallet can use to authenticate to the server-side application.
 
 ```python
-domain = "example.com"
+domain = "thirdweb.com"
 payload = sdk.auth.login(domain)
 
 # Generate an authentication token for the logged in wallet
@@ -151,7 +151,7 @@ Server-side function that authenticates the provided JWT token. This function ve
 the provided authentication token is valid and returns the address of the authenticated wallet.
 
 ```python
-domain = "example.com"
+domain = "thirdweb.com"
 payload = sdk.auth.login(domain)
 token = sdk.auth.generate_auth_token(domain, payload)
 
