@@ -4,7 +4,7 @@ title: Claim with Conditions
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC721 - Claim Conditions
@@ -37,11 +37,11 @@ Each claim phase can define:
 - How many NFTs can be claimed per transaction
 - How many seconds do wallets have to wait between claims
 
-<CodeSnippetWithSummary
-  contract={`ERC721ClaimableWithConditions`}
-  name={`claimConditions`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721ClaimableWithConditions"}
+  languageFunctionMapping={{
+    javascript: "claimConditions",
+    react: "useClaimConditions",
+  }}
   showHr={false}
-  dontShowSummary
 />

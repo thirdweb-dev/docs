@@ -4,7 +4,7 @@ title: Claim
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC1155 - Claim
@@ -29,11 +29,11 @@ Claim the next available NFT(s) from the lazy minted batch.
 
 Unless otherwise specified in your contract, the default is to claim the next available token IDs; starting from `0`.
 
-<CodeSnippetWithSummary
-  contract={`ERC1155Claimable`}
-  name={`claimTo`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155Claimable"}
+  languageFunctionMapping={{
+    javascript: "claimTo",
+    react: "useClaimNFT",
+  }}
   showHr={false}
-  dontShowSummary
 />

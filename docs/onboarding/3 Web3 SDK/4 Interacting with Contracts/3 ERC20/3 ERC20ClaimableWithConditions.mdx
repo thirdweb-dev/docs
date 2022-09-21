@@ -4,7 +4,7 @@ title: Drop
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC20 - Claim Conditions
@@ -25,13 +25,11 @@ You can utilize these features of the SDK on your contract if it implements [ERC
 
 Mint tokens to a specified address.
 
-<CodeSnippetWithSummary
-  contract={`ERC20ClaimableWithConditions`}
-  name={`claimTo`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={false}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC20BatchMintable"}
+  languageFunctionMapping={{
+    javascript: "mintBatchTo",
+  }}
 />
 
 ## Configure claim conditions
@@ -48,11 +46,10 @@ Each claim phase can define:
 - How many tokens can be claimed per transaction
 - How many seconds do wallets have to wait between claims
 
-<CodeSnippetWithSummary
-  contract={`ERC20ClaimableWithConditions`}
-  name={`claimConditions`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC20BatchMintable"}
+  languageFunctionMapping={{
+    javascript: "mintBatchTo",
+  }}
   showHr={false}
-  dontShowSummary
 />

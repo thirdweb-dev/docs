@@ -23,11 +23,15 @@ export default function ThirdwebFeatureCodeSnippet({
 }: Props) {
   function createSnippetsObject() {
     return {
-      react: reactSnippets[featureName].find(
-        (s) => s.name === languageFunctionMapping["react"],
-      ),
-      javascript: typescriptSnippets[featureName].find(
-        (s) => s.name === languageFunctionMapping["javascript"],
+      react:
+        reactSnippets?.[featureName]?.find(
+          (s) => s.name === languageFunctionMapping["react"],
+        ) ||
+        typescriptSnippets?.[featureName]?.find(
+          (s) => s.name === languageFunctionMapping?.["javascript"],
+        ),
+      javascript: typescriptSnippets?.[featureName]?.find(
+        (s) => s.name === languageFunctionMapping?.["javascript"],
       ),
     };
   }
@@ -39,21 +43,25 @@ export default function ThirdwebFeatureCodeSnippet({
       label: "React",
       key: "javascript",
       syntax: "jsx",
+      docsLink: "https://portal.thirdweb.com/react",
     },
     javascript: {
-      label: "JavaScript",
+      label: "Javascript",
       key: "javascript",
       syntax: "javascript",
+      docsLink: "https://portal.thirdweb.com/typescript",
     },
     python: {
       label: "Python",
       key: "python",
       syntax: "python",
+      docsLink: "https://portal.thirdweb.com/python",
     },
     go: {
       label: "Go",
       key: "go",
       syntax: "go",
+      docsLink: "https://portal.thirdweb.com/go",
     },
   };
 
@@ -73,7 +81,7 @@ export default function ThirdwebFeatureCodeSnippet({
                 </CodeBlock>
 
                 <a
-                  href={`https://portal.thirdweb.com/${languageInfo.key}`}
+                  href={languageInfo.docsLink}
                   style={{
                     display: "block",
                     marginTop: "1rem",
@@ -87,10 +95,9 @@ export default function ThirdwebFeatureCodeSnippet({
           }
 
           // Grab the example snippet
-          const example = snippetsObject[language].examples[languageInfo.key];
+          let example = snippetsObject[language].examples[languageInfo.key];
           // Grabthe reference URL
-          const reference =
-            snippetsObject[language].reference[languageInfo.key];
+          let reference = snippetsObject[language].reference[languageInfo.key];
 
           return (
             <TabItem key={language} value={language} label={languageInfo.label}>

@@ -4,7 +4,7 @@ title: Mint
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC1155 - Mint NFTs
@@ -30,24 +30,23 @@ This function automatically uploads and [pins](https://blog.thirdweb.com/guides/
 If you _already_ have your metadata uploaded to IPFS (or any URL that points to valid metadata),
 you can directly pass the `URI` as the second argument; rather than a metadata object.
 
-<CodeSnippetWithSummary
-  contract={`ERC1155Mintable`}
-  name={`mintTo`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155Mintable"}
+  languageFunctionMapping={{
+    javascript: "mint",
+    react: "useMintNFT",
+  }}
 />
 
 ## Mint Additional Supply of an NFT
 
 Make additional copies of an NFT that already exists.
 
-<CodeSnippetWithSummary
-  contract={`ERC1155Mintable`}
-  name={`mintAdditionalSupply`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155Mintable"}
+  languageFunctionMapping={{
+    javascript: "mintAdditionalSupply",
+    react: "useMintNFTSupply",
+  }}
   showHr={false}
-  dontShowSummary
 />

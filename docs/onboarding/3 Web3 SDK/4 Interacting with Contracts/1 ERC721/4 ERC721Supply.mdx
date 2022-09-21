@@ -4,7 +4,7 @@ title: View All
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC721 - View All NFTs
@@ -30,11 +30,11 @@ This function automatically fetches the metadata for each NFT in parallel.
 By default, it loads the first `100` NFTs; an optional [`QueryAllParams`](https://portal.thirdweb.com/typescript/sdk.queryallparams)
 object can be provided to specify a `count` and `start` value.
 
-<CodeSnippetWithSummary
-  contract={`ERC721Supply`}
-  name={`getAll`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721Supply"}
+  languageFunctionMapping={{
+    javascript: "getAll",
+    react: "useNFTs",
+  }}
   showHr={false}
-  dontShowSummary
 />

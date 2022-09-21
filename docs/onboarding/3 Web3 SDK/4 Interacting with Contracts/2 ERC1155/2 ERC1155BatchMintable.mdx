@@ -4,7 +4,7 @@ title: Batch Mint
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC1155 - Batch Mint NFTs
@@ -25,11 +25,10 @@ You can utilise these features of the SDK on your contract if it implements [ERC
 
 Mint many NFTs to a specified wallet.
 
-<CodeSnippetWithSummary
-  contract={`ERC1155BatchMintable`}
-  name={`mintBatchTo`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155BatchMintable"}
+  languageFunctionMapping={{
+    javascript: "mintBatch",
+  }}
   showHr={false}
-  dontShowSummary
 />

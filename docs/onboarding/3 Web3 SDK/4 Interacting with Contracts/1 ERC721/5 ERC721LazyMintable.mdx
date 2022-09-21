@@ -4,7 +4,7 @@ title: Lazy Mint
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC721 - Lazy Mint & Claim NFTs
@@ -28,11 +28,11 @@ Batch upload NFT metadata to be lazy-minted to the contract.
 You can provide metadata objects to have them uploaded and [pinned](https://blog.thirdweb.com/guides/securing-pinning-your-nft-with-ipfs/)
 to IPFS, or provide your own URLs.
 
-<CodeSnippetWithSummary
-  contract={`ERC721LazyMint`}
-  name={`lazyMint`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721LazyMintable"}
+  languageFunctionMapping={{
+    javascript: "lazyMint",
+    react: "useLazyMint",
+  }}
+  showHr={false}
 />

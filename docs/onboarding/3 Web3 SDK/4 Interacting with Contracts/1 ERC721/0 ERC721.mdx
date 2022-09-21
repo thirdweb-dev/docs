@@ -39,24 +39,23 @@ Read the URI this NFT points to and fetch that data automatically.
 
 If the metadata is stored on IPFS, this function uses our IPFS gateway (or the one you specify) to read the data.
 
-<CodeSnippetWithSummary
-  contract={`ERC721`}
-  name={`get`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721"}
+  languageFunctionMapping={{
+    react: "useNFT",
+    javascript: "get",
+  }}
 />
 
 ## Transfer NFT
 
 Transfer an NFT from the connected wallet to another wallet.
 
-<CodeSnippetWithSummary
-  contract={`ERC721`}
-  name={`transfer`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721"}
+  languageFunctionMapping={{
+    react: "useTransferNFT",
+    javascript: "transfer",
+  }}
   showHr={false}
-  dontShowSummary
 />
