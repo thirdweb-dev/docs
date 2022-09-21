@@ -9,6 +9,10 @@ displayed_sidebar: react
 
 ## useTokenDrop() function
 
+> Warning: This API is now obsolete.
+>
+> use `useContract()` instead
+
 Hook for getting an instance of a `Token Drop` contract.
 
 ## Example
@@ -30,8 +34,6 @@ export default function Component() {
   ...
 }
 ```
-
-use `useContract()` instead
 
 **Signature:**
 

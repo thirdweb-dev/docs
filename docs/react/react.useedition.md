@@ -9,6 +9,10 @@ displayed_sidebar: react
 
 ## useEdition() function
 
+> Warning: This API is now obsolete.
+>
+> use `useContract()` instead
+
 Hook for getting an instance of an `Edition` contract. This contract is used to interface with ERC1155 compliant NFTs.
 
 ## Example
@@ -30,8 +34,6 @@ export default function Component() {
   ...
 }
 ```
-
-use `useContract()` instead
 
 **Signature:**
 

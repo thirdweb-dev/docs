@@ -9,6 +9,10 @@ displayed_sidebar: react
 
 ## useToken() function
 
+> Warning: This API is now obsolete.
+>
+> use `useContract()` instead
+
 Hook for getting an instance of a `Token` contract. This contract supports ERC20 compliant tokens.
 
 ## Example
@@ -30,8 +34,6 @@ export default function Component() {
   ...
 }
 ```
-
-use `useContract()` instead
 
 **Signature:**
 
