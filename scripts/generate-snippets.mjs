@@ -237,10 +237,20 @@ fs.writeFileSync(
   JSON.stringify(snippets, null, 2),
 );
 
+// feature_snippets_sdk
 fs.writeFileSync(
-  `${process.cwd()}/docs/feature_snippets.json`,
+  `${process.cwd()}/docs/feature_snippets_sdk.json`,
   fs.readFileSync(
     `${process.cwd()}/submodules/js/packages/sdk/docs/feature_snippets.json`,
+    "utf8",
+  ),
+);
+
+// feature_snippets_react
+fs.writeFileSync(
+  `${process.cwd()}/docs/feature_snippets_react.json`,
+  fs.readFileSync(
+    `${process.cwd()}/submodules/js/packages/react/docs/feature_snippets.json`,
     "utf8",
   ),
 );
