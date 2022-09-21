@@ -4,7 +4,7 @@ title: View Owned By Address
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC721 - View Owned NFTs
@@ -27,11 +27,11 @@ Get all of the NFTs owned by a specific wallet address at this current point in 
 
 Automatically fetches the metadata for each NFT.
 
-<CodeSnippetWithSummary
-  contract={`ERC721Enumerable`}
-  name={`getOwned`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721Enumerable"}
+  languageFunctionMapping={{
+    javascript: "getOwned",
+    react: "useOwnedNFTs",
+  }}
   showHr={false}
-  dontShowSummary
 />

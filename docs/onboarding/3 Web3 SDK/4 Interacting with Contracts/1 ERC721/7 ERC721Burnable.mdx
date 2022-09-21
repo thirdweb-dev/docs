@@ -4,7 +4,7 @@ title: Burn
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC721 - Burn NFTs
@@ -31,11 +31,11 @@ Burning does not "delete" the NFT; the token ID and metadata will still be avail
 
 :::
 
-<CodeSnippetWithSummary
-  contract={`ERC721Burnable`}
-  name={`burn`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721Burnable"}
+  languageFunctionMapping={{
+    javascript: "burn",
+    react: "useBurnNFT",
+  }}
   showHr={false}
-  dontShowSummary
 />

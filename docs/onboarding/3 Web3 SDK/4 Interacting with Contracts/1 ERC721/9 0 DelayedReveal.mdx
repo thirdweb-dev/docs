@@ -4,7 +4,7 @@ title: Delayed Reveal
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC721 - Delayed Reveal
@@ -21,8 +21,6 @@ You can utilize these features of the SDK on your contract if it implements [ERC
   </div>
 </div>
 
-## Create Delayed Reveal Batch
-
 Create a batch of lazy-minted NFTs that have placeholder metadata you can reveal later.
 
 This function encrypts the metadata and requires a **password** that is used to reveal it.
@@ -37,37 +35,10 @@ Ensure you remember this password and keep it safe.
 
 :::
 
-<CodeSnippetWithSummary
-  contract={`DelayedReveal`}
-  name={`createDelayedRevealBatch`}
-  isFeatureSnippet={false}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
-/>
-
-## View Batches Available to Reveal
-
-Get a list of all delayed reveal batches that have been created and not yet revealed.
-
-<CodeSnippetWithSummary
-  contract={`DelayedReveal`}
-  name={`getBatchesToReveal`}
-  isFeatureSnippet={false}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
-/>
-
-## Create Delayed Reveal Batch
-
-Use your password to reveal the metadata of a batch of NFTs created with delayed reveal.
-
-<CodeSnippetWithSummary
-  contract={`DelayedReveal`}
-  name={`reveal`}
-  isFeatureSnippet={false}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721Revealable"}
+  languageFunctionMapping={{
+    javascript: "revealer",
+  }}
   showHr={false}
-  dontShowSummary
 />

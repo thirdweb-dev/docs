@@ -2,7 +2,7 @@
 slug: /sdk/advanced-features/permission-controls
 ---
 
-import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet";
+import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
 
 # Permission Controls
 
@@ -10,36 +10,42 @@ import ThirdwebCodeSnippet from "../../../../src/components/ThirdwebCodeSnippet"
 
 Get all roles and all the members of each role.
 
-<ThirdwebCodeSnippet
-  contract={"Permissions"}
-  name={"getAll"}
-  isFeatureSnippet={true}
+<ThirdwebFeatureCodeSnippet
+  featureName={"Permissions"}
+  languageFunctionMapping={{
+    javascript: "getAll",
+  }}
 />
 
 ### Read Members of a Role
 
 Get the wallet addresses of a specific role.
 
-<ThirdwebCodeSnippet
-  contract={"Permissions"}
-  name={"get"}
-  isFeatureSnippet={true}
+<ThirdwebFeatureCodeSnippet
+  featureName={"Permissions"}
+  languageFunctionMapping={{
+    javascript: "get",
+  }}
 />
 
 ### Grant Role
 
-<ThirdwebCodeSnippet
-  contract={"Permissions"}
-  name={"grant"}
-  isFeatureSnippet={true}
+<ThirdwebFeatureCodeSnippet
+  featureName={"Permissions"}
+  languageFunctionMapping={{
+    javascript: "grant",
+    react: "useGrantRole",
+  }}
 />
 
 ### Revoke Role
 
-<ThirdwebCodeSnippet
-  contract={"Permissions"}
-  name={"revoke"}
-  isFeatureSnippet={true}
+<ThirdwebFeatureCodeSnippet
+  featureName={"Permissions"}
+  languageFunctionMapping={{
+    javascript: "revoke",
+    react: "useRevokeRole",
+  }}
 />
 
 ### Set All Roles (Overwrite)
@@ -56,10 +62,11 @@ Only proceed if you know what you are doing.
 
 :::
 
-<ThirdwebCodeSnippet
-  contract={"Permissions"}
-  name={"setAll"}
-  isFeatureSnippet={true}
+<ThirdwebFeatureCodeSnippet
+  featureName={"Permissions"}
+  languageFunctionMapping={{
+    javascript: "setAll",
+  }}
 />
 
 ### Update Roles

@@ -4,7 +4,7 @@ title: Mint
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC20 - Mint Tokens
@@ -25,11 +25,11 @@ You can utilize these features of the SDK on your contract if it implements [ERC
 
 Mint tokens to a specified address.
 
-<CodeSnippetWithSummary
-  contract={`ERC20Mintable`}
-  name={`mintTo`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC20Mintable"}
+  languageFunctionMapping={{
+    javascript: "mint",
+    react: "useMintToken",
+  }}
   showHr={false}
-  dontShowSummary
 />

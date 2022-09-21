@@ -4,7 +4,7 @@ title: Signature-Based Minting
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC721 Signature-Based Minting
@@ -35,24 +35,21 @@ The generation of signatures requires the wallet to have the `MINTER` role on th
 
 :::
 
-<CodeSnippetWithSummary
-  contract={`ERC721SignatureMint`}
-  name={`signature`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721SignatureMint"}
+  languageFunctionMapping={{
+    javascript: "signature",
+  }}
 />
 
 ## Use a signature to mint an NFT
 
 Mint an NFT using a previously generated signature.
 
-<CodeSnippetWithSummary
-  contract={`ERC721SignatureMint`}
-  name={`signature`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721SignatureMint"}
+  languageFunctionMapping={{
+    javascript: "signature",
+  }}
   showHr={false}
-  dontShowSummary
 />

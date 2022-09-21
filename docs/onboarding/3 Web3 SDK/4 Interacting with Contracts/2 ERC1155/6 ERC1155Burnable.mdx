@@ -4,7 +4,7 @@ title: Burn
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC1155 - Burn NFTs
@@ -25,50 +25,44 @@ You can utilise these features of the SDK on your contract if it implements [ERC
 
 Burn a specified quantity of an NFT.
 
-<CodeSnippetWithSummary
-  contract={`ERC1155Burnable`}
-  name={`burn`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={false}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155Burnable"}
+  languageFunctionMapping={{
+    javascript: "burn",
+    react: "useBurnNFT",
+  }}
 />
 
 ## Burn A Batch Of NFTs
 
 Burn a specified quantity of multiple NFTs at once.
 
-<CodeSnippetWithSummary
-  contract={`ERC1155Burnable`}
-  name={`burnBatch`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155Burnable"}
+  languageFunctionMapping={{
+    javascript: "burnBatch",
+  }}
 />
 
 ## Burn NFTs From Another Wallet
 
 Burn a specified quantity of an NFT from another wallet.
 
-<CodeSnippetWithSummary
-  contract={`ERC1155Burnable`}
-  name={`burnFrom`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155Burnable"}
+  languageFunctionMapping={{
+    javascript: "burnFrom",
+  }}
 />
 
 ## Burn a batch of NFTs
 
 Burn a specified quantity of multiple NFTs at once from another wallet.
 
-<CodeSnippetWithSummary
-  contract={`ERC1155Burnable`}
-  name={`burnBatchFrom`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155Burnable"}
+  languageFunctionMapping={{
+    javascript: "burnBatchFrom",
+  }}
+  showHr={false}
 />

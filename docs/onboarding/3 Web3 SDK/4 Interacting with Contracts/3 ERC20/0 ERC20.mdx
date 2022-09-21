@@ -4,7 +4,7 @@ title: Standard
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC20 Standard
@@ -23,92 +23,59 @@ You can utilize these features of the SDK on your contract if it implements [ERC
 
 ## Get Token Metadata
 
-<CodeSnippetWithSummary
-  contract={`ERC20`}
-  name={`get`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC20"}
+  languageFunctionMapping={{
+    javascript: "get",
+  }}
 />
 
 ## Total Supply
 
 Get how much supply has been minted
 
-<CodeSnippetWithSummary
-  contract={`ERC20`}
-  name={`totalSupply`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC20"}
+  languageFunctionMapping={{
+    javascript: "totalSupply",
+    react: "useTokenSupply",
+  }}
 />
 
 ## View Token Balance
 
 Get the balance of this token for the given address.
 
-<CodeSnippetWithSummary
-  contract={`ERC20`}
-  name={`balanceOf`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={false}
-  dontShowSummary
-/>
-
-### Connected Wallet Balance
-
-Alternatively, you can get the currently connected wallet's balance:
-
-<CodeSnippetWithSummary
-  contract={`ERC20`}
-  name={`balance`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC20"}
+  languageFunctionMapping={{
+    javascript: "balanceOf",
+    react: "useTokenBalance",
+  }}
 />
 
 ## Transfer
 
 Transfer tokens from one wallet to another
 
-<CodeSnippetWithSummary
-  contract={`ERC20`}
-  name={`transferFrom`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={false}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC20"}
+  languageFunctionMapping={{
+    javascript: "transfer",
+    react: "useTransferToken",
+  }}
 />
 
-### Connected Wallet Transfer
-
-Alternatively, transfer tokens from the connected wallet:
-
-<CodeSnippetWithSummary
-  contract={`ERC20`}
-  name={`transfer`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
-/>
-
-<!-- ## Batch Transfer
+## Batch Transfer
 
 Transfer tokens from the connected wallet to many wallets in one transaction.
 
-<CodeSnippetWithSummary
-  contract={`ERC20`}
-  name={`transferBatch`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
-/> -->
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC20"}
+  languageFunctionMapping={{
+    react: "useTransferBatchToken",
+  }}
+/>
 
 ## Token Allowance
 
@@ -118,37 +85,21 @@ Allowance refers to the number of tokens that a wallet is allowed to transfer on
 
 Allows the specified `spender` wallet to transfer the given `amount` of tokens to another wallet
 
-<CodeSnippetWithSummary
-  contract={`ERC20`}
-  name={`setAllowance`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC20"}
+  languageFunctionMapping={{
+    javascript: "setAllowance",
+  }}
 />
 
 ### View Token Allowance
 
 Get the allowance of one wallet over another wallet's funds - the allowance of a different address for a token is the amount of tokens that the wallet is allowed to spend on behalf of the specified wallet.
 
-<CodeSnippetWithSummary
-  contract={`ERC20`}
-  name={`allowanceOf`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
-/>
-
-### Connected Wallet Allowance
-
-Get the allowance of a 'spender' wallet over the connected wallet's funds - the allowance of a different address for a token is the amount of tokens that the `spender` wallet is allowed to spend on behalf of the connected wallet.
-
-<CodeSnippetWithSummary
-  contract={`ERC20`}
-  name={`allowance`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC20"}
+  languageFunctionMapping={{
+    javascript: "allowanceOf",
+  }}
+  showHr={false}
 />

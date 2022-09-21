@@ -4,7 +4,7 @@ title: Burn
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC20 - Burn Tokens
@@ -25,24 +25,22 @@ You can utilise these features of the SDK on your contract if it implements [ERC
 
 Burn tokens held by the specified wallet
 
-<CodeSnippetWithSummary
-  contract={`ERC20Burnable`}
-  name={`burnFrom`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC20Burnable"}
+  languageFunctionMapping={{
+    javascript: "burn",
+    react: "useBurnToken",
+  }}
 />
 
 ## Burn Tokens
 
 Burn tokens held by the connected wallet
 
-<CodeSnippetWithSummary
-  contract={`ERC20Burnable`}
-  name={`burn`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC20Burnable"}
+  languageFunctionMapping={{
+    javascript: "burnFrom",
+  }}
   showHr={false}
-  dontShowSummary
 />

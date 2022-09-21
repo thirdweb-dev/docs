@@ -4,7 +4,7 @@ title: Standard
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC1155 Standard
@@ -25,13 +25,12 @@ You can utilize these features of the SDK if your contract implements the [ERC11
 
 Get a wallet's NFT balance (number of NFTs in this contract owned by the wallet) for a specific token ID.
 
-<CodeSnippetWithSummary
-  contract={`ERC1155`}
-  name={`balanceOf`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155"}
+  languageFunctionMapping={{
+    javascript: "balanceOf",
+    react: "useNFTBalance",
+  }}
 />
 
 ## Get NFT Metadata
@@ -40,37 +39,35 @@ Read the URI this NFT points to and fetch that data automatically.
 
 If the metadata is stored on IPFS, this function uses our IPFS gateway (or the one you specify) to read the data.
 
-<CodeSnippetWithSummary
-  contract={`ERC1155`}
-  name={`get`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={true}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155"}
+  languageFunctionMapping={{
+    javascript: "get",
+    react: "useNFT",
+  }}
 />
 
 ## Transfer NFTs
 
 Transfer an NFT from the connected wallet to another wallet.
 
-<CodeSnippetWithSummary
-  contract={`ERC1155`}
-  name={`transfer`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
-  showHr={false}
-  dontShowSummary
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155"}
+  languageFunctionMapping={{
+    javascript: "transfer",
+    react: "useTransferNFT",
+  }}
 />
 
-<!-- ## Airdrop NFTs
+## Airdrop NFTs
 
 Transfer NFTs to a list of wallets in one transaction.
 
-<CodeSnippetWithSummary
-  contract={`ERC1155`}
-  name={`airdrop`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155"}
+  languageFunctionMapping={{
+    javascript: "airdrop",
+    react: "useAirdropNFT",
+  }}
   showHr={false}
-  dontShowSummary
-/> -->
+/>

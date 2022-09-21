@@ -4,7 +4,7 @@ title: Mint
 ---
 
 import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
-import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "../../../../../src/components/QuickstartCard";
 
 # ERC721 - Mint NFTs
@@ -30,11 +30,11 @@ This function automatically uploads and [pins](https://blog.thirdweb.com/guides/
 If you _already_ have your metadata uploaded to IPFS (or any URL that points to valid metadata),
 you can directly pass the `URI` as the second argument; rather than a metadata object.
 
-<CodeSnippetWithSummary
-  contract={`ERC721Mintable`}
-  name={`mintTo`}
-  isFeatureSnippet={true}
-  isGetContractCode={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721Mintable"}
+  languageFunctionMapping={{
+    react: "useMintNFT",
+    javascript: "mintTo",
+  }}
   showHr={false}
-  dontShowSummary
 />

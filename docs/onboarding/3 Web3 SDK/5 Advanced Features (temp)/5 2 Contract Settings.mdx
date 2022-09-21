@@ -2,7 +2,7 @@
 slug: /sdk/advanced-features/contract-settings
 ---
 
-import CodeSnippetWithSummary from "../../../../src/components/CodeSnippetWithSummary";
+import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
 
 # Contract Settings
 
@@ -15,7 +15,13 @@ such as the name, description and image.
 
 ### Read
 
-<CodeSnippetWithSummary contract={"ContractMetadata"} name={"get"} />
+<ThirdwebFeatureCodeSnippet
+  featureName={"ContractMetadata"}
+  languageFunctionMapping={{
+    javascript: "get",
+    react: "useContractMetadata",
+  }}
+/>
 
 ### Write (Overwrite)
 
@@ -23,11 +29,23 @@ such as the name, description and image.
 This will **overwrite** the existing metadata.
 :::
 
-<CodeSnippetWithSummary contract={"ContractMetadata"} name={"set"} />
+<ThirdwebFeatureCodeSnippet
+  featureName={"ContractMetadata"}
+  languageFunctionMapping={{
+    javascript: "set",
+    react: "useUpdateMetadata",
+  }}
+/>
 
 ### Update
 
-<CodeSnippetWithSummary contract={"ContractMetadata"} name={"update"} />
+<ThirdwebFeatureCodeSnippet
+  featureName={"ContractMetadata"}
+  languageFunctionMapping={{
+    javascript: "update",
+    react: "useUpdateMetadata",
+  }}
+/>
 
 ## Royalty Fees
 
@@ -35,44 +53,64 @@ Read and update the royalty fees of a collection or a specific token.
 
 ### Read
 
-<CodeSnippetWithSummary
-  contract={"Royalty"}
-  name={"getDefaultRoyaltyInfo"}
-  isFeatureSnippet={true}
-/>
-
-### Read Specific Token
-
-<CodeSnippetWithSummary
-  contract={"Royalty"}
-  name={"getTokenRoyaltyInfo"}
-  isFeatureSnippet={true}
+<ThirdwebFeatureCodeSnippet
+  featureName={"Royalty"}
+  languageFunctionMapping={{
+    javascript: "getDefaultRoyaltyInfo",
+    react: "useRoyaltySettings",
+  }}
 />
 
 ### Update
 
-<CodeSnippetWithSummary
-  contract={"Royalty"}
-  name={"setDefaultRoyaltyInfo"}
-  isFeatureSnippet={true}
+<ThirdwebFeatureCodeSnippet
+  featureName={"Royalty"}
+  languageFunctionMapping={{
+    javascript: "setDefaultRoyaltyInfo",
+    react: "useUpdateRoyaltySettings",
+  }}
+/>
+
+### Read Specific Token
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"Royalty"}
+  languageFunctionMapping={{
+    javascript: "getTokenRoyaltyInfo",
+  }}
 />
 
 ### Update Specific Token
 
-<CodeSnippetWithSummary
-  contract={"Royalty"}
-  name={"setTokenRoyaltyInfo"}
-  isFeatureSnippet={true}
+<ThirdwebFeatureCodeSnippet
+  featureName={"Royalty"}
+  languageFunctionMapping={{
+    javascript: "setTokenRoyaltyInfo",
+  }}
 />
 
 ## Platform Fees
 
 Platform fees allow you to charge a percentage fee wherever there is a transfer of currency in your contract.
 
-<CodeSnippetWithSummary
-  contract={"PlatformFee"}
-  name={"get"}
-  isFeatureSnippet={true}
+### Read
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"PlatformFee"}
+  languageFunctionMapping={{
+    javascript: "get",
+    react: "usePlatformFees",
+  }}
+/>
+
+### Update
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"PlatformFee"}
+  languageFunctionMapping={{
+    javascript: "set",
+    react: "useUpdatePlatformFees",
+  }}
 />
 
 ## Primary Sale
@@ -81,18 +119,20 @@ Configure the recipient of the primary sale fees.
 
 ### Read
 
-<CodeSnippetWithSummary
-  contract={"PrimarySale"}
-  name={"getRecipient"}
-  isFeatureSnippet={true}
-  showHr={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"PrimarySale"}
+  languageFunctionMapping={{
+    javascript: "getRecipient",
+    react: "usePrimarySaleRecipient",
+  }}
 />
 
 ### Update
 
-<CodeSnippetWithSummary
-  contract={"PrimarySale"}
-  name={"setRecipient"}
-  isFeatureSnippet={true}
-  showHr={false}
+<ThirdwebFeatureCodeSnippet
+  featureName={"PrimarySale"}
+  languageFunctionMapping={{
+    javascript: "setRecipient",
+    react: "useUpdatePrimarySaleRecipient",
+  }}
 />
