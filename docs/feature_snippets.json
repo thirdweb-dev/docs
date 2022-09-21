@@ -187,7 +187,7 @@
       }
     }
   ],
-  "ERC1155Reavealable": [
+  "ERC1155Revealable": [
     {
       "name": "revealer",
       "summary": "Delayed reveal\n\n",
@@ -761,7 +761,7 @@
       }
     }
   ],
-  "ERC721LazyMint": [
+  "ERC721LazyMintable": [
     {
       "name": "lazyMint",
       "summary": "Create a batch of unique NFTs to be claimed in the future\n\n",
