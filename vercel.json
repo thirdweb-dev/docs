@@ -453,6 +453,10 @@
     {
       "source": "/extensions/features/primarysale",
       "destination": "/extensions/primarysale"
+    },
+    {
+      "source": "/create",
+      "destination": "/sdk"
     }
   ]
 }
