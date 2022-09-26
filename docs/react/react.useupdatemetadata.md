@@ -57,7 +57,7 @@ export declare function useUpdateMetadata(
   },
   unknown,
   {
-    [x: string]: import("@thirdweb-dev/storage").Json;
+    [x: string]: unknown;
     description?: string | undefined;
     image?: any;
     external_link?: string | undefined;
@@ -75,6 +75,6 @@ export declare function useUpdateMetadata(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;any&gt;; }, unknown, { \[x: string\]: import("@thirdweb-dev/storage").Json; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;any&gt;; }, unknown, { \[x: string\]: unknown; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, unknown&gt;
 
 a mutation object that can be used to update the metadata

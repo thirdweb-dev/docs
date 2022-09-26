@@ -38,9 +38,7 @@ export default function Component() {
 **Signature:**
 
 ```typescript
-export declare function useSplit(
-  contractAddress?: string,
-): SplitImpl | undefined;
+export declare function useSplit(contractAddress?: string): Split | undefined;
 ```
 
 ## Parameters
@@ -51,4 +49,4 @@ export declare function useSplit(
 
 **Returns:**
 
-SplitImpl \| undefined
+Split \| undefined

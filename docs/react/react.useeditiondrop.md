@@ -39,7 +39,7 @@ export default function Component() {
 ```typescript
 export declare function useEditionDrop(
   contractAddress?: string,
-): EditionDropImpl | undefined;
+): EditionDrop | undefined;
 ```
 
 ## Parameters
@@ -50,4 +50,4 @@ export declare function useEditionDrop(
 
 **Returns:**
 
-EditionDropImpl \| undefined
+EditionDrop \| undefined

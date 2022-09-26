@@ -15,12 +15,10 @@ Mint tokens from a signature
 
 ```javascript
 // see how to craft a payload to sign in the `generate()` documentation
-const signedPayload = contract.signature.generate(payload);
+const signedPayload = contract.erc20.signature.generate(payload);
 
-// now anyone can mint the NFT
-const tx = contract.signature.mint(signedPayload);
-const receipt = tx.receipt; // the mint transaction receipt
-const mintedId = tx.id; // the id of the NFT minted
+// Use the signed payload to mint the tokens
+const tx = contract.erc20.signature.mint(signedPayload);
 ```
 
 **Signature:**

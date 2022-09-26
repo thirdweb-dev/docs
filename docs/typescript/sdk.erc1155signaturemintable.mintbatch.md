@@ -11,6 +11,16 @@ displayed_sidebar: typescript
 
 Mint any number of dynamically generated NFT at once
 
+## Example
+
+```javascript
+// see how to craft a batch of payloads to sign in the `generateBatch()` documentation
+const signedPayloads = contract.erc1155.signature.generateBatch(payloads);
+
+// now anyone can mint the NFT
+const tx = contract.erc1155.signature.mintBatch(signedPayloads);
+```
+
 **Signature:**
 
 ```typescript

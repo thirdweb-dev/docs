@@ -23,17 +23,17 @@ const { data: auctionWinner, isLoading, error } = useAuctionWinner(<YourMarketpl
 
 ```typescript
 export declare function useAuctionWinner(
-  contract: RequiredParam<MarketplaceImpl>,
+  contract: RequiredParam<Marketplace>,
   listingId: RequiredParam<BigNumberish>,
 ): import("@tanstack/react-query").UseQueryResult<string | undefined, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                             | Description                           |
-| --------- | ---------------------------------------------------------------- | ------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;MarketplaceImpl&gt; | an instance of a marketplace contract |
-| listingId | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt;    | the listing id to check               |
+| Parameter | Type                                                          | Description                           |
+| --------- | ------------------------------------------------------------- | ------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt;  | an instance of a marketplace contract |
+| listingId | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt; | the listing id to check               |
 
 **Returns:**
 

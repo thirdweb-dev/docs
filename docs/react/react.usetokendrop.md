@@ -40,7 +40,7 @@ export default function Component() {
 ```typescript
 export declare function useTokenDrop(
   contractAddress?: string,
-): TokenDropImpl | undefined;
+): TokenDrop | undefined;
 ```
 
 ## Parameters
@@ -51,4 +51,4 @@ export declare function useTokenDrop(
 
 **Returns:**
 
-TokenDropImpl \| undefined
+TokenDrop \| undefined

@@ -46,14 +46,13 @@ export declare function useResetClaimConditions(
   contract: RequiredParam<DropContract>,
   tokenId?: BigNumberish,
 ): import("@tanstack/react-query").UseMutationResult<
-  | Omit<
-      {
-        receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
-        data: () => Promise<unknown>;
-      },
-      "data"
-    >
-  | undefined,
+  Omit<
+    {
+      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+      data: () => Promise<unknown>;
+    },
+    "data"
+  >,
   unknown,
   void,
   unknown
@@ -69,6 +68,6 @@ export declare function useResetClaimConditions(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt; \| undefined, unknown, void, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, void, unknown&gt;
 
 a mutation object that can be used to reset claim conditions

@@ -60,15 +60,18 @@ SDKOptionsSchema: z.ZodDefault<
                   {
                     relayerUrl: z.ZodString;
                     relayerForwarderAddress: z.ZodOptional<z.ZodString>;
+                    useEOAForwarder: z.ZodDefault<z.ZodBoolean>;
                   },
                   "strip",
                   z.ZodTypeAny,
                   {
                     relayerForwarderAddress?: string | undefined;
                     relayerUrl: string;
+                    useEOAForwarder: boolean;
                   },
                   {
                     relayerForwarderAddress?: string | undefined;
+                    useEOAForwarder?: boolean | undefined;
                     relayerUrl: string;
                   }
                 >;
@@ -80,6 +83,7 @@ SDKOptionsSchema: z.ZodDefault<
                 openzeppelin: {
                   relayerForwarderAddress?: string | undefined;
                   relayerUrl: string;
+                  useEOAForwarder: boolean;
                 };
                 experimentalChainlessSupport: boolean;
               },
@@ -87,6 +91,7 @@ SDKOptionsSchema: z.ZodDefault<
                 experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                   relayerForwarderAddress?: string | undefined;
+                  useEOAForwarder?: boolean | undefined;
                   relayerUrl: string;
                 };
               }
@@ -148,6 +153,7 @@ SDKOptionsSchema: z.ZodDefault<
             openzeppelin: {
               relayerForwarderAddress?: string | undefined;
               relayerUrl: string;
+              useEOAForwarder: boolean;
             };
             experimentalChainlessSupport: boolean;
           }
@@ -182,6 +188,7 @@ SDKOptionsSchema: z.ZodDefault<
             experimentalChainlessSupport?: boolean | undefined;
             openzeppelin: {
               relayerForwarderAddress?: string | undefined;
+              useEOAForwarder?: boolean | undefined;
               relayerUrl: string;
             };
           }

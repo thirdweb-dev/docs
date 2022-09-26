@@ -17,10 +17,10 @@ The possible DROP contract types.
 
 ```typescript
 export declare type DropContract =
-  | NFTDropImpl
-  | EditionDropImpl
-  | SignatureDropImpl
-  | TokenDropImpl
+  | NFTDrop
+  | EditionDrop
+  | SignatureDrop
+  | TokenDrop
   | SmartContract
   | null;
 ```

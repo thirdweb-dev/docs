@@ -14,7 +14,7 @@ Get an instance of a Splits contract
 **Signature:**
 
 ```typescript
-getSplit(address: string): Promise<import("..").SplitImpl>;
+getSplit(address: string): Promise<import("..").Split>;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ getSplit(address: string): Promise<import("..").SplitImpl>;
 
 **Returns:**
 
-Promise&lt;import("..").[SplitImpl](./sdk.splitimpl.md)&gt;
+Promise&lt;import("..").[Split](./sdk.split.md)&gt;
 
 the contract

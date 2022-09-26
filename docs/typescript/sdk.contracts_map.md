@@ -305,6 +305,7 @@ CONTRACTS_MAP: {
                 experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                     relayerForwarderAddress?: string | undefined;
+                    useEOAForwarder?: boolean | undefined;
                     relayerUrl: string;
                 };
             } | {
@@ -314,7 +315,7 @@ CONTRACTS_MAP: {
                     apiKey: string;
                 };
             } | undefined;
-        } | undefined) => Promise<import("./prebuilt-implementations/edition-drop").EditionDropImpl>;
+        } | undefined) => Promise<import("./prebuilt-implementations/edition-drop").EditionDrop>;
         getAbi: () => Promise<({
             inputs: never[];
             stateMutability: string;
@@ -547,6 +548,7 @@ CONTRACTS_MAP: {
                 experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                     relayerForwarderAddress?: string | undefined;
+                    useEOAForwarder?: boolean | undefined;
                     relayerUrl: string;
                 };
             } | {
@@ -556,7 +558,7 @@ CONTRACTS_MAP: {
                     apiKey: string;
                 };
             } | undefined;
-        } | undefined) => Promise<import("./prebuilt-implementations/edition").EditionImpl>;
+        } | undefined) => Promise<import("./prebuilt-implementations/edition").Edition>;
         getAbi: () => Promise<({
             inputs: never[];
             stateMutability: string;
@@ -670,14 +672,14 @@ CONTRACTS_MAP: {
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
             }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("@thirdweb-dev/storage").Json, import("zod").ZodTypeDef, import("@thirdweb-dev/storage").Json>>, {
-                [x: string]: import("@thirdweb-dev/storage").Json;
+            }>, "strip", import("zod").ZodUnknown, {
+                [x: string]: unknown;
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
                 name: string;
             }, {
-                [x: string]: import("@thirdweb-dev/storage").Json;
+                [x: string]: unknown;
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -723,6 +725,7 @@ CONTRACTS_MAP: {
                 experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                     relayerForwarderAddress?: string | undefined;
+                    useEOAForwarder?: boolean | undefined;
                     relayerUrl: string;
                 };
             } | {
@@ -732,7 +735,7 @@ CONTRACTS_MAP: {
                     apiKey: string;
                 };
             } | undefined;
-        } | undefined) => Promise<import("./prebuilt-implementations/marketplace").MarketplaceImpl>;
+        } | undefined) => Promise<import("./prebuilt-implementations/marketplace").Marketplace>;
         getAbi: () => Promise<({
             inputs: {
                 internalType: string;
@@ -926,7 +929,7 @@ CONTRACTS_MAP: {
                 name: string;
             }>;
         };
-        roles: readonly ["transfer", "minter", "unwrap", "asset"];
+        roles: readonly ["admin", "transfer", "minter", "unwrap", "asset"];
         initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             readonlySettings?: {
                 chainId?: number | undefined;
@@ -940,6 +943,7 @@ CONTRACTS_MAP: {
                 experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                     relayerForwarderAddress?: string | undefined;
+                    useEOAForwarder?: boolean | undefined;
                     relayerUrl: string;
                 };
             } | {
@@ -949,7 +953,7 @@ CONTRACTS_MAP: {
                     apiKey: string;
                 };
             } | undefined;
-        } | undefined) => Promise<import("./prebuilt-implementations/multiwrap").MultiwrapImpl>;
+        } | undefined) => Promise<import("./prebuilt-implementations/multiwrap").Multiwrap>;
         getAbi: () => Promise<({
             inputs: {
                 internalType: string;
@@ -1182,6 +1186,7 @@ CONTRACTS_MAP: {
                 experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                     relayerForwarderAddress?: string | undefined;
+                    useEOAForwarder?: boolean | undefined;
                     relayerUrl: string;
                 };
             } | {
@@ -1191,7 +1196,7 @@ CONTRACTS_MAP: {
                     apiKey: string;
                 };
             } | undefined;
-        } | undefined) => Promise<import("./prebuilt-implementations/nft-collection").NFTCollectionImpl>;
+        } | undefined) => Promise<import("./prebuilt-implementations/nft-collection").NFTCollection>;
         getAbi: () => Promise<({
             inputs: never[];
             stateMutability: string;
@@ -1405,6 +1410,7 @@ CONTRACTS_MAP: {
                 experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                     relayerForwarderAddress?: string | undefined;
+                    useEOAForwarder?: boolean | undefined;
                     relayerUrl: string;
                 };
             } | {
@@ -1414,7 +1420,7 @@ CONTRACTS_MAP: {
                     apiKey: string;
                 };
             } | undefined;
-        } | undefined) => Promise<import("./prebuilt-implementations/nft-drop").NFTDropImpl>;
+        } | undefined) => Promise<import("./prebuilt-implementations/nft-drop").NFTDrop>;
         getAbi: () => Promise<({
             inputs: never[];
             stateMutability: string;
@@ -1635,7 +1641,7 @@ CONTRACTS_MAP: {
                 name: string;
             }>;
         };
-        roles: readonly ["admin", "minter", "pauser", "transfer"];
+        roles: readonly ["admin", "minter", "asset", "transfer"];
         initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
             readonlySettings?: {
                 chainId?: number | undefined;
@@ -1649,6 +1655,7 @@ CONTRACTS_MAP: {
                 experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                     relayerForwarderAddress?: string | undefined;
+                    useEOAForwarder?: boolean | undefined;
                     relayerUrl: string;
                 };
             } | {
@@ -1658,7 +1665,7 @@ CONTRACTS_MAP: {
                     apiKey: string;
                 };
             } | undefined;
-        } | undefined) => Promise<import("./prebuilt-implementations/pack").PackImpl>;
+        } | undefined) => Promise<import("./prebuilt-implementations/pack").Pack>;
         getAbi: () => Promise<({
             inputs: {
                 internalType: string;
@@ -1908,6 +1915,7 @@ CONTRACTS_MAP: {
                 experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                     relayerForwarderAddress?: string | undefined;
+                    useEOAForwarder?: boolean | undefined;
                     relayerUrl: string;
                 };
             } | {
@@ -1917,7 +1925,7 @@ CONTRACTS_MAP: {
                     apiKey: string;
                 };
             } | undefined;
-        } | undefined) => Promise<import("./prebuilt-implementations/signature-drop").SignatureDropImpl>;
+        } | undefined) => Promise<import("./prebuilt-implementations/signature-drop").SignatureDrop>;
         getAbi: () => Promise<({
             inputs: never[];
             name: string;
@@ -2094,8 +2102,8 @@ CONTRACTS_MAP: {
                     address: string;
                     sharesBps: number;
                 }>, "many">;
-            }>, "strip", import("zod").ZodLazy<import("zod").ZodType<import("@thirdweb-dev/storage").Json, import("zod").ZodTypeDef, import("@thirdweb-dev/storage").Json>>, {
-                [x: string]: import("@thirdweb-dev/storage").Json;
+            }>, "strip", import("zod").ZodUnknown, {
+                [x: string]: unknown;
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -2105,7 +2113,7 @@ CONTRACTS_MAP: {
                     sharesBps: number;
                 }[];
             }, {
-                [x: string]: import("@thirdweb-dev/storage").Json;
+                [x: string]: unknown;
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -2180,6 +2188,7 @@ CONTRACTS_MAP: {
                 experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                     relayerForwarderAddress?: string | undefined;
+                    useEOAForwarder?: boolean | undefined;
                     relayerUrl: string;
                 };
             } | {
@@ -2189,7 +2198,7 @@ CONTRACTS_MAP: {
                     apiKey: string;
                 };
             } | undefined;
-        } | undefined) => Promise<import("./prebuilt-implementations/split").SplitImpl>;
+        } | undefined) => Promise<import("./prebuilt-implementations/split").Split>;
         getAbi: () => Promise<({
             inputs: never[];
             stateMutability: string;
@@ -2368,6 +2377,7 @@ CONTRACTS_MAP: {
                 experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                     relayerForwarderAddress?: string | undefined;
+                    useEOAForwarder?: boolean | undefined;
                     relayerUrl: string;
                 };
             } | {
@@ -2377,7 +2387,7 @@ CONTRACTS_MAP: {
                     apiKey: string;
                 };
             } | undefined;
-        } | undefined) => Promise<import("./prebuilt-implementations/token-drop").TokenDropImpl>;
+        } | undefined) => Promise<import("./prebuilt-implementations/token-drop").TokenDrop>;
         getAbi: () => Promise<({
             inputs: never[];
             stateMutability: string;
@@ -2595,6 +2605,7 @@ CONTRACTS_MAP: {
                 experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                     relayerForwarderAddress?: string | undefined;
+                    useEOAForwarder?: boolean | undefined;
                     relayerUrl: string;
                 };
             } | {
@@ -2604,7 +2615,7 @@ CONTRACTS_MAP: {
                     apiKey: string;
                 };
             } | undefined;
-        } | undefined) => Promise<import("./prebuilt-implementations/token").TokenImpl>;
+        } | undefined) => Promise<import("./prebuilt-implementations/token").Token>;
         getAbi: () => Promise<({
             inputs: never[];
             stateMutability: string;
@@ -2832,6 +2843,7 @@ CONTRACTS_MAP: {
                 experimentalChainlessSupport?: boolean | undefined;
                 openzeppelin: {
                     relayerForwarderAddress?: string | undefined;
+                    useEOAForwarder?: boolean | undefined;
                     relayerUrl: string;
                 };
             } | {
@@ -2841,7 +2853,7 @@ CONTRACTS_MAP: {
                     apiKey: string;
                 };
             } | undefined;
-        } | undefined) => Promise<import("./prebuilt-implementations/vote").VoteImpl>;
+        } | undefined) => Promise<import("./prebuilt-implementations/vote").Vote>;
         getAbi: () => Promise<({
             inputs: never[];
             stateMutability: string;

@@ -39,7 +39,7 @@ export default function Component() {
 ```typescript
 export declare function useNFTDrop(
   contractAddress?: string,
-): NFTDropImpl | undefined;
+): NFTDrop | undefined;
 ```
 
 ## Parameters
@@ -50,4 +50,4 @@ export declare function useNFTDrop(
 
 **Returns:**
 
-NFTDropImpl \| undefined
+NFTDrop \| undefined

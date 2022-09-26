@@ -40,7 +40,7 @@ export default function Component() {
 ```typescript
 export declare function useEdition(
   contractAddress?: string,
-): EditionImpl | undefined;
+): Edition | undefined;
 ```
 
 ## Parameters
@@ -51,4 +51,4 @@ export declare function useEdition(
 
 **Returns:**
 
-EditionImpl \| undefined
+Edition \| undefined

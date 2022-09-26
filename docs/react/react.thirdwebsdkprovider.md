@@ -9,9 +9,7 @@ displayed_sidebar: react
 
 ## ThirdwebSDKProvider variable
 
-> This feature is currently in beta and may change based on feedback that we receive.
-
-A barebones wrapper around the Thirdweb SDK.
+A basic wrapper around the Thirdweb SDK.
 
 You can use this in order to be able to pass a provider &amp; signer directly to the SDK.
 

@@ -39,7 +39,7 @@ export default function Component() {
 ```typescript
 export declare function useSignatureDrop(
   contractAddress?: string,
-): SignatureDropImpl | undefined;
+): SignatureDrop | undefined;
 ```
 
 ## Parameters
@@ -50,4 +50,4 @@ export declare function useSignatureDrop(
 
 **Returns:**
 
-SignatureDropImpl \| undefined
+SignatureDrop \| undefined

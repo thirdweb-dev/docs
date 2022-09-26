@@ -40,7 +40,7 @@ export default function Component() {
 ```typescript
 export declare function useNFTCollection(
   contractAddress?: string,
-): NFTCollectionImpl | undefined;
+): NFTCollection | undefined;
 ```
 
 ## Parameters
@@ -51,4 +51,4 @@ export declare function useNFTCollection(
 
 **Returns:**
 
-NFTCollectionImpl \| undefined
+NFTCollection \| undefined

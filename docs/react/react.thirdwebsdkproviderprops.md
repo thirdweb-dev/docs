@@ -12,13 +12,17 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export interface ThirdwebSDKProviderProps extends Omit<ThirdwebSDKProviderWagmiWrapper, "queryClient">
+export interface ThirdwebSDKProviderProps
 ```
-
-**Extends:** Omit&lt;[ThirdwebSDKProviderWagmiWrapper](./react.thirdwebsdkproviderwagmiwrapper.md), "queryClient"&gt;
 
 ## Properties
 
-| Property                                                        | Modifiers | Type        | Description       |
-| --------------------------------------------------------------- | --------- | ----------- | ----------------- |
-| [queryClient?](./react.thirdwebsdkproviderprops.queryclient.md) |           | QueryClient | <i>(Optional)</i> |
+| Property                                                                  | Modifiers | Type                                                                | Description       |
+| ------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------- | ----------------- |
+| [authConfig?](./react.thirdwebsdkproviderprops.authconfig.md)             |           | [ThirdwebAuthConfig](./react.thirdwebauthconfig.md)                 | <i>(Optional)</i> |
+| [desiredChainId](./react.thirdwebsdkproviderprops.desiredchainid.md)      |           | [RequiredParam](./react.requiredparam.md)&lt;SUPPORTED_CHAIN_ID&gt; |                   |
+| [provider](./react.thirdwebsdkproviderprops.provider.md)                  |           | ChainOrRpc &#124; SignerOrProvider                                  |                   |
+| [queryClient?](./react.thirdwebsdkproviderprops.queryclient.md)           |           | QueryClient                                                         | <i>(Optional)</i> |
+| [sdkOptions?](./react.thirdwebsdkproviderprops.sdkoptions.md)             |           | SDKOptions                                                          | <i>(Optional)</i> |
+| [signer?](./react.thirdwebsdkproviderprops.signer.md)                     |           | Signer                                                              | <i>(Optional)</i> |
+| [storageInterface?](./react.thirdwebsdkproviderprops.storageinterface.md) |           | ThirdwebStorage                                                     | <i>(Optional)</i> |

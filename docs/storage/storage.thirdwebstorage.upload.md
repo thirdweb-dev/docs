@@ -14,15 +14,15 @@ Upload arbitrary file or JSON data using the configured decentralized storage sy
 **Signature:**
 
 ```typescript
-upload(data: Json | FileOrBuffer, options?: T): Promise<string>;
+upload(data: unknown, options?: T): Promise<string>;
 ```
 
 ## Parameters
 
-| Parameter | Type                     | Description                                                             |
-| --------- | ------------------------ | ----------------------------------------------------------------------- |
-| data      | Json &#124; FileOrBuffer | Arbitrary file or JSON data to upload                                   |
-| options   | T                        | <i>(Optional)</i> Options to pass through to the storage uploader class |
+| Parameter | Type    | Description                                                             |
+| --------- | ------- | ----------------------------------------------------------------------- |
+| data      | unknown | Arbitrary file or JSON data to upload                                   |
+| options   | T       | <i>(Optional)</i> Options to pass through to the storage uploader class |
 
 **Returns:**
 

@@ -23,8 +23,8 @@ const { contract } = useContract(<ContractAddress>);
 
 ```typescript
 export declare type NFTContract =
-  | NFTCollectionImpl
-  | EditionImpl
+  | NFTCollection
+  | Edition
   | Exclude<DropContract, "TokenDrop">;
 ```
 

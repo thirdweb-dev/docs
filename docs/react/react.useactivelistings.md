@@ -23,7 +23,7 @@ const { data: listings, isLoading, error } = useActiveListings(<YourMarketplaceC
 
 ```typescript
 export declare function useActiveListings(
-  contract: RequiredParam<MarketplaceImpl>,
+  contract: RequiredParam<Marketplace>,
   filter?: MarketplaceFilter,
 ): import("@tanstack/react-query").UseQueryResult<
   (AuctionListing | DirectListing)[],
@@ -33,10 +33,10 @@ export declare function useActiveListings(
 
 ## Parameters
 
-| Parameter | Type                                                             | Description                                                                              |
-| --------- | ---------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;MarketplaceImpl&gt; | an instance of a marketplace contract                                                    |
-| filter    | MarketplaceFilter                                                | <i>(Optional)</i> filter to pass to the query for the sake of pagination &amp; filtering |
+| Parameter | Type                                                         | Description                                                                              |
+| --------- | ------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a marketplace contract                                                    |
+| filter    | MarketplaceFilter                                            | <i>(Optional)</i> filter to pass to the query for the sake of pagination &amp; filtering |
 
 **Returns:**
 
