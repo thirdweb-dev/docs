@@ -38,7 +38,16 @@ The generation of signatures requires the wallet to have the `MINTER` role on th
 <ThirdwebFeatureCodeSnippet
   featureName={"ERC1155SignatureMintable"}
   languageFunctionMapping={{
-    javascript: "signature",
+    javascript: "generate",
+  }}
+/>
+
+### Generate From Token ID
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155SignatureMintable"}
+  languageFunctionMapping={{
+    javascript: "generateFromTokenId",
   }}
 />
 
@@ -49,7 +58,7 @@ Use a signature to mint NFTs.
 <ThirdwebFeatureCodeSnippet
   featureName={"ERC1155SignatureMintable"}
   languageFunctionMapping={{
-    javascript: "signature",
+    javascript: "mint",
   }}
   showHr={false}
 />
