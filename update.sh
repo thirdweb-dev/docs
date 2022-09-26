@@ -25,10 +25,12 @@ node ./scripts/generate-feature-snippets.mjs
 # generate storage docs
 cd ../storage
 mkdir ./etc
+yarn build
 yarn generate-docs
 # generate solana docs
 cd ../solana
 mkdir ./etc
+yarn build
 yarn generate-docs
 # done with doc creation, back to root
 cd ../../../..
