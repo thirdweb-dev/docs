@@ -41,11 +41,6 @@ const sidebars = {
         },
         {
           type: "doc",
-          label: "Using Wagmi",
-          id: "react.thirdwebsdkproviderwagmiwrapper",
-        },
-        {
-          type: "doc",
           label: "Configuring App Metadata",
           id: "react.dappmetadata",
         },
