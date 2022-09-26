@@ -74,7 +74,7 @@ const sidebars = {
     {
       type: "link",
       label: "UI Components",
-      href: "/sdk/ui-components/web3button",
+      href: "/sdk/ui-components",
     },
     {
       type: "link",
@@ -89,6 +89,11 @@ const sidebars = {
       href: "/dashboard",
     },
     // === Bottom Section ===
+    {
+      type: "doc",
+      label: "CLI",
+      id: "6 CLI",
+    },
     {
       type: "category",
       label: "Templates",
