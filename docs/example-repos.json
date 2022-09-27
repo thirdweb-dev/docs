@@ -619,10 +619,10 @@
     "html_url": "https://github.com/thirdweb-example/solana-token-deploy",
     "description": null,
     "created_at": "2022-09-27T08:25:47Z",
-    "updated_at": "2022-09-27T08:25:47Z",
+    "updated_at": "2022-09-27T10:35:32Z",
     "clone_url": "https://github.com/thirdweb-example/solana-token-deploy.git",
     "topics": [],
-    "language": null,
+    "language": "JavaScript",
     "stargazers_count": 0,
     "is_template": false,
     "homepage": null
