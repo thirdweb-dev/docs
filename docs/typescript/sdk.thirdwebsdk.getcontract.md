@@ -16,7 +16,7 @@ Get an instance of a Custom ThirdwebContract
 ## Example
 
 ```javascript
-const contract = sdk.getContract("{{contract_address}}");
+const contract = await sdk.getContract("{{contract_address}}");
 ```
 
 **Signature:**

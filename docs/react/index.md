@@ -1,5 +1,5 @@
 ---
-title: Thirdweb React SDK
+title: thirdweb React SDK
 hide_title: true
 displayed_sidebar: react
 ---

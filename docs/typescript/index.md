@@ -1,5 +1,5 @@
 ---
-title: Thirdweb Typescript SDK
+title: thirdweb TypeScript SDK
 hide_title: true
 displayed_sidebar: typescript
 ---

@@ -50,7 +50,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Build Apps",
-      items: ["Ethereum SDK", "Solana SDK", "UI Components", "Auth"],
+      items: ["Ethereum SDK", "Solana SDK", "UI Components", "Auth", "Storage"],
     },
     {
       title: "Manage Projects",
@@ -70,6 +70,7 @@ function DocSidebarItems({ items, ...props }) {
     Deploy: "deploy.png",
     Release: "release.png",
     SDK: "sdk.png",
+    Storage: "sdk.png",
   };
 
   const formatCategoryName = (name) => {

@@ -23,6 +23,11 @@ const sidebars = {
       label: "Getting Started",
       id: "index",
     },
+    {
+      type: "doc",
+      label: "Migration Guide",
+      id: "migration-guide",
+    },
 
     // === Initializing the SDK ===
     {
