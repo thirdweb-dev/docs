@@ -490,7 +490,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-09-24T03:09:52Z",
+    "updated_at": "2022-09-27T08:48:39Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "authentication",
@@ -500,7 +500,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 55,
+    "stargazers_count": 56,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -613,6 +613,19 @@
     "stargazers_count": 3,
     "is_template": false,
     "homepage": "https://solana-hub.thirdweb-example.com/"
+  },
+  {
+    "name": "solana-token-deploy",
+    "html_url": "https://github.com/thirdweb-example/solana-token-deploy",
+    "description": null,
+    "created_at": "2022-09-27T08:25:47Z",
+    "updated_at": "2022-09-27T08:25:47Z",
+    "clone_url": "https://github.com/thirdweb-example/solana-token-deploy.git",
+    "topics": [],
+    "language": null,
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
   },
   {
     "name": "solidity-hello-world",
