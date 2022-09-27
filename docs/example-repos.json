@@ -475,13 +475,13 @@
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2022-09-26T16:13:46Z",
+    "updated_at": "2022-09-27T02:27:33Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 39,
+    "stargazers_count": 42,
     "is_template": false,
     "homepage": "https://custom-minting-page.thirdweb-example.com"
   },
@@ -509,7 +509,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-09-25T11:12:39Z",
+    "updated_at": "2022-09-27T01:51:36Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "nft-drop",
@@ -517,7 +517,7 @@
       "token"
     ],
     "language": "TypeScript",
-    "stargazers_count": 46,
+    "stargazers_count": 47,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
