@@ -16,6 +16,7 @@ function DocSidebarItems({ items, ...props }) {
     "/release",
     "/deploy",
     "/templates",
+    "/cli",
   ];
   const checkIfShowCategoryPages = (item) => {
     // check if starts with
