@@ -41,6 +41,7 @@ const program = await sdk.getNFTCollection("{{contract_address}}");
 | ------------------------------------------------------ | --------- | --------------- | ----------- |
 | [accountType](./solana.nftdrop.accounttype.md)         |           | "nft-drop"      |             |
 | [claimConditions](./solana.nftdrop.claimconditions.md) |           | ClaimConditions |             |
+| [metaplex](./solana.nftdrop.metaplex.md)               |           | Metaplex        |             |
 | [publicKey](./solana.nftdrop.publickey.md)             |           | PublicKey       |             |
 
 ## Methods

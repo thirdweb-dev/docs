@@ -40,6 +40,7 @@ const program = await sdk.getToken("{{contract_address}}");
 | Property                                     | Modifiers | Type      | Description |
 | -------------------------------------------- | --------- | --------- | ----------- |
 | [accountType](./solana.token.accounttype.md) |           | "token"   |             |
+| [metaplex](./solana.token.metaplex.md)       |           | Metaplex  |             |
 | [publicKey](./solana.token.publickey.md)     |           | PublicKey |             |
 
 ## Methods
