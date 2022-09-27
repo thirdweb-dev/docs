@@ -52,6 +52,12 @@ const products: Product[] = [
     description: "Easily analyze and manage your smart contracts",
     link: "/dashboard",
   },
+  {
+    image: "/assets/product/sdk.png",
+    name: "Storage",
+    description: "Easily store your data using decentralized storage systems",
+    link: "/storage",
+  },
 ];
 
 export default function ExploreProductsSection() {
