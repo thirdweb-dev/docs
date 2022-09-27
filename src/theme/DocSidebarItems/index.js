@@ -42,7 +42,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Build Contracts",
-      items: ["Extensions"],
+      items: ["Contract Kit"],
     },
     {
       title: "Deploy Contracts",

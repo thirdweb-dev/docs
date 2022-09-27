@@ -44,8 +44,8 @@ const sidebars = {
     // === Build Contracts ===
     {
       type: "link",
-      label: "Extensions",
-      href: "/extensions",
+      label: "Contract Kit",
+      href: "/contract-kit",
     },
 
     // === Deploy Contracts ===
