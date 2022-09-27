@@ -39,7 +39,7 @@ export declare function useClaimIneligibilityReasons(
   params: ClaimIneligibilityParams,
   tokenId?: BigNumberish,
 ): import("@tanstack/react-query").UseQueryResult<
-  import("@thirdweb-dev/sdk").ClaimEligibility[] | undefined,
+  import("@thirdweb-dev/sdk").ClaimEligibility[],
   unknown
 >;
 ```
@@ -54,6 +54,6 @@ export declare function useClaimIneligibilityReasons(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk").ClaimEligibility\[\] \| undefined, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk").ClaimEligibility\[\], unknown&gt;
 
 a response object with the resons for the claim ineligibility

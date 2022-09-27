@@ -12,7 +12,7 @@ const products: Product[] = [
   {
     image: "/assets/product/contracts.png",
     name: "Prebuilt contracts",
-    description: "Contract templates for common use-cases",
+    description: "Prebuilt and audited contracts",
     link: "/pre-built-contracts",
   },
   {

@@ -14,15 +14,15 @@ Batch upload arbitrary file or JSON data using the configured decentralized stor
 **Signature:**
 
 ```typescript
-uploadBatch(data: Json[] | FileOrBuffer[], options?: T): Promise<string[]>;
+uploadBatch(data: unknown[], options?: T): Promise<string[]>;
 ```
 
 ## Parameters
 
-| Parameter | Type                             | Description                                                             |
-| --------- | -------------------------------- | ----------------------------------------------------------------------- |
-| data      | Json\[\] &#124; FileOrBuffer\[\] | Array of arbitrary file or JSON data to upload                          |
-| options   | T                                | <i>(Optional)</i> Options to pass through to the storage uploader class |
+| Parameter | Type        | Description                                                             |
+| --------- | ----------- | ----------------------------------------------------------------------- |
+| data      | unknown\[\] | Array of arbitrary file or JSON data to upload                          |
+| options   | T           | <i>(Optional)</i> Options to pass through to the storage uploader class |
 
 **Returns:**
 

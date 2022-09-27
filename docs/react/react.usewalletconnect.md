@@ -37,11 +37,11 @@ When users click this button, a popup will appear on the screen prompting them t
 
 ```typescript
 export declare function useWalletConnect(): () => Promise<{
-  data?: import("wagmi-core").ConnectorData<any> | undefined;
+  data?: import("wagmi").ConnectorData<any> | undefined;
   error?: Error | undefined;
 }>;
 ```
 
 **Returns:**
 
-() =&gt; Promise&lt;{ data?: import("wagmi-core").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;
+() =&gt; Promise&lt;{ data?: import("wagmi").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;

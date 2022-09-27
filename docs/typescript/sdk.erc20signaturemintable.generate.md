@@ -26,8 +26,8 @@ const payload = {
   primarySaleRecipient: "0x...", // custom sale recipient for this token mint
 };
 
-const signedPayload = contract.signature.generate(payload);
-// now anyone can use these to mint the NFT using `contract.signature.mint(signedPayload)`
+const signedPayload = contract.erc20.signature.generate(payload);
+// now anyone can use these to mint the NFT using `contract.erc20.signature.mint(signedPayload)`
 ```
 
 **Signature:**

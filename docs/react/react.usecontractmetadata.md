@@ -22,19 +22,26 @@ const { data: contractMetadata, isLoading, error } = useContractMetadata(>);
 **Signature:**
 
 ```typescript
-export declare function useContractMetadata(
-  contract: RequiredParam<ValidContractInstance>,
-): UseQueryResult<any, unknown>;
+export declare function useContractMetadata<
+  TContract extends ValidContractInstance,
+>(
+  contract: RequiredParam<TContract>,
+): UseQueryResult<
+  RequiredParam<TContract> extends undefined
+    ? undefined
+    : Awaited<ReturnType<TContract["metadata"]["get"]>>,
+  unknown
+>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                                   | Description                                          |
-| --------- | ---------------------------------------------------------------------- | ---------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;ValidContractInstance&gt; | the instance of the contract to get the metadata for |
+| Parameter | Type                                                       | Description                                          |
+| --------- | ---------------------------------------------------------- | ---------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | the instance of the contract to get the metadata for |
 
 **Returns:**
 
-UseQueryResult&lt;any, unknown&gt;
+UseQueryResult&lt;[RequiredParam](./react.requiredparam.md)&lt;TContract&gt; extends undefined ? undefined : Awaited&lt;ReturnType&lt;TContract\["metadata"\]\["get"\]&gt;&gt;, unknown&gt;
 
 a response object that includes the contract metadata of the deployed contract

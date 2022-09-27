@@ -39,7 +39,7 @@ export default function Component() {
 ```typescript
 export declare function useMultiwrap(
   contractAddress?: string,
-): MultiwrapImpl | undefined;
+): Multiwrap | undefined;
 ```
 
 ## Parameters
@@ -50,4 +50,4 @@ export declare function useMultiwrap(
 
 **Returns:**
 
-MultiwrapImpl \| undefined
+Multiwrap \| undefined

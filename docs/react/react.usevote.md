@@ -38,7 +38,7 @@ export default function Component() {
 **Signature:**
 
 ```typescript
-export declare function useVote(contractAddress?: string): VoteImpl | undefined;
+export declare function useVote(contractAddress?: string): Vote | undefined;
 ```
 
 ## Parameters
@@ -49,4 +49,4 @@ export declare function useVote(contractAddress?: string): VoteImpl | undefined;
 
 **Returns:**
 
-VoteImpl \| undefined
+Vote \| undefined

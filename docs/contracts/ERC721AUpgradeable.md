@@ -283,6 +283,18 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 | operator `indexed` | address | undefined   |
 | approved           | bool    | undefined   |
 
+### Initialized
+
+```solidity
+event Initialized(uint8 version)
+```
+
+#### Parameters
+
+| Name    | Type  | Description |
+| ------- | ----- | ----------- |
+| version | uint8 | undefined   |
+
 ### Transfer
 
 ```solidity

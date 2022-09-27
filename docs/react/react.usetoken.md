@@ -38,9 +38,7 @@ export default function Component() {
 **Signature:**
 
 ```typescript
-export declare function useToken(
-  contractAddress?: string,
-): TokenImpl | undefined;
+export declare function useToken(contractAddress?: string): Token | undefined;
 ```
 
 ## Parameters
@@ -51,4 +49,4 @@ export declare function useToken(
 
 **Returns:**
 
-TokenImpl \| undefined
+Token \| undefined

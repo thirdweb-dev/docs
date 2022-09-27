@@ -40,11 +40,6 @@ const sidebars = {
         },
       ],
     },
-    {
-      type: "doc",
-      label: "Create A Project",
-      id: "6 1 Create",
-    },
 
     // === Build Contracts ===
     {

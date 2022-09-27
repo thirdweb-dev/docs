@@ -39,7 +39,7 @@ const Component = () => {
 
 ```typescript
 export declare function useCancelListing(
-  contract: RequiredParam<MarketplaceImpl>,
+  contract: RequiredParam<Marketplace>,
 ): import("@tanstack/react-query").UseMutationResult<
   | Omit<
       {
@@ -57,9 +57,9 @@ export declare function useCancelListing(
 
 ## Parameters
 
-| Parameter | Type                                                             | Description                           |
-| --------- | ---------------------------------------------------------------- | ------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;MarketplaceImpl&gt; | an instance of a Marketplace contract |
+| Parameter | Type                                                         | Description                           |
+| --------- | ------------------------------------------------------------ | ------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a Marketplace contract |
 
 **Returns:**
 

@@ -23,11 +23,11 @@ const { data: unclaimedNfts, isLoading, error } = useUnclaimedNFTs(<YourERC721Dr
 
 ```typescript
 export declare function useUnclaimedNFTs(
-  contract: RequiredParam<NFTDropImpl>,
+  contract: RequiredParam<NFTDrop>,
   queryParams?: QueryAllParams,
 ): import("@tanstack/react-query").UseQueryResult<
   {
-    [x: string]: import("@thirdweb-dev/storage").Json;
+    [x: string]: unknown;
     name?: string | number | undefined;
     description?: string | null | undefined;
     image?: string | null | undefined;
@@ -42,13 +42,13 @@ export declare function useUnclaimedNFTs(
 
 ## Parameters
 
-| Parameter   | Type                                                         | Description                                                                                                                |
-| ----------- | ------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------- |
-| contract    | [RequiredParam](./react.requiredparam.md)&lt;NFTDropImpl&gt; | an instance of a contract that extends the Erc721 spec (nft drop, custom contract that follows the Erc721 &amp; drop spec) |
-| queryParams | QueryAllParams                                               | <i>(Optional)</i> query params to pass to the query for the sake of pagination                                             |
+| Parameter   | Type                                                     | Description                                                                                                                |
+| ----------- | -------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
+| contract    | [RequiredParam](./react.requiredparam.md)&lt;NFTDrop&gt; | an instance of a contract that extends the Erc721 spec (nft drop, custom contract that follows the Erc721 &amp; drop spec) |
+| queryParams | QueryAllParams                                           | <i>(Optional)</i> query params to pass to the query for the sake of pagination                                             |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ \[x: string\]: import("@thirdweb-dev/storage").Json; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; id: import("ethers").BigNumber; uri: string; }\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ \[x: string\]: unknown; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; id: import("ethers").BigNumber; uri: string; }\[\], unknown&gt;
 
 a response object that includes an array of NFTs that are unclaimed

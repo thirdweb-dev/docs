@@ -43,6 +43,7 @@ Web3Button: <TAction extends ActionFn>({
   isDisabled,
   children,
   action,
+  className,
   ...themeProps
 }: PropsWithChildren<Web3ButtonProps<TAction>>) => JSX.Element;
 ```

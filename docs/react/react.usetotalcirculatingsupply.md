@@ -25,7 +25,7 @@ const { data: totalCirculatingSupply, isLoading, error } = useTotalCirculatingSu
 ```typescript
 export declare function useTotalCirculatingSupply(
   contract: RequiredParam<NFTContract>,
-  tokenId: BigNumberish,
+  tokenId: RequiredParam<BigNumberish>,
 ): import("@tanstack/react-query").UseQueryResult<BigNumber, unknown>;
 ```
 
@@ -34,7 +34,7 @@ export declare function useTotalCirculatingSupply(
 | Parameter | Type                                                                                   | Description                                            |
 | --------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------ |
 | contract  | [RequiredParam](./react.requiredparam.md)&lt;[NFTContract](./react.nftcontract.md)&gt; | an instance of a [NFTContract](./react.nftcontract.md) |
-| tokenId   | BigNumberish                                                                           |                                                        |
+| tokenId   | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt;                          |                                                        |
 
 **Returns:**
 

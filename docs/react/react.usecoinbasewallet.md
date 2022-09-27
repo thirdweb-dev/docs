@@ -37,11 +37,11 @@ Upon clicking this button, users will be prompted with a popup asking them scan 
 
 ```typescript
 export declare function useCoinbaseWallet(): () => Promise<{
-  data?: import("wagmi-core").ConnectorData<any> | undefined;
+  data?: import("wagmi").ConnectorData<any> | undefined;
   error?: Error | undefined;
 }>;
 ```
 
 **Returns:**
 
-() =&gt; Promise&lt;{ data?: import("wagmi-core").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;
+() =&gt; Promise&lt;{ data?: import("wagmi").ConnectorData&lt;any&gt; \| undefined; error?: Error \| undefined; }&gt;

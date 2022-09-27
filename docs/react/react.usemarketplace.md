@@ -40,7 +40,7 @@ export default function Component() {
 ```typescript
 export declare function useMarketplace(
   contractAddress?: string,
-): MarketplaceImpl | undefined;
+): Marketplace | undefined;
 ```
 
 ## Parameters
@@ -51,4 +51,4 @@ export declare function useMarketplace(
 
 **Returns:**
 
-MarketplaceImpl \| undefined
+Marketplace \| undefined

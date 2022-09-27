@@ -39,6 +39,7 @@ sdk.wallet.connect(signer);
 | Property                                     | Modifiers | Type                                 | Description                                                               |
 | -------------------------------------------- | --------- | ------------------------------------ | ------------------------------------------------------------------------- |
 | [deployer](./solana.thirdwebsdk.deployer.md) |           | [Deployer](./solana.deployer.md)     | Deploy new programs                                                       |
+| [metaplex](./solana.thirdwebsdk.metaplex.md) |           | Metaplex                             |                                                                           |
 | [registry](./solana.thirdwebsdk.registry.md) |           | Registry                             | Handles getting data about accounts and programs associated with a wallet |
 | [wallet](./solana.thirdwebsdk.wallet.md)     |           | [UserWallet](./solana.userwallet.md) | Manage and get info about the connected wallet                            |
 

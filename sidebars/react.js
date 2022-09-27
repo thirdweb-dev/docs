@@ -23,6 +23,11 @@ const sidebars = {
       label: "Getting Started",
       id: "index",
     },
+    {
+      type: "doc",
+      label: "Migration Guide",
+      id: "migration-guide",
+    },
 
     // === Initializing the SDK ===
     {
@@ -38,11 +43,6 @@ const sidebars = {
           type: "doc",
           label: "Custom Signer/Provider",
           id: "react.thirdwebsdkprovider",
-        },
-        {
-          type: "doc",
-          label: "Using Wagmi",
-          id: "react.thirdwebsdkproviderwagmiwrapper",
         },
         {
           type: "doc",

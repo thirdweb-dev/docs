@@ -14,13 +14,13 @@ Constructs a new instance of the `Erc1155SignatureMintable` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<BaseSignatureMintERC1155 | TokenERC1155>, storage: ThirdwebStorage, roles?: ContractRoles<TokenERC1155, typeof NFTCollection.roles[number]>);
+constructor(contractWrapper: ContractWrapper<BaseSignatureMintERC1155 | TokenERC1155>, storage: ThirdwebStorage, roles?: ContractRoles<TokenERC1155, typeof NFTCollectionInitializer.roles[number]>);
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                                                              | Description       |
-| --------------- | ------------------------------------------------------------------------------------------------- | ----------------- |
-| contractWrapper | ContractWrapper&lt;BaseSignatureMintERC1155 &#124; TokenERC1155&gt;                               |                   |
-| storage         | ThirdwebStorage                                                                                   |                   |
-| roles           | [ContractRoles](./sdk.contractroles.md)&lt;TokenERC1155, typeof NFTCollection.roles\[number\]&gt; | <i>(Optional)</i> |
+| Parameter       | Type                                                                                                         | Description       |
+| --------------- | ------------------------------------------------------------------------------------------------------------ | ----------------- |
+| contractWrapper | ContractWrapper&lt;BaseSignatureMintERC1155 &#124; TokenERC1155&gt;                                          |                   |
+| storage         | ThirdwebStorage                                                                                              |                   |
+| roles           | [ContractRoles](./sdk.contractroles.md)&lt;TokenERC1155, typeof NFTCollectionInitializer.roles\[number\]&gt; | <i>(Optional)</i> |

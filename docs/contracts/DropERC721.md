@@ -415,7 +415,7 @@ _Returns the royalty recipient and bps for a particular token Id._
 function grantRole(bytes32 role, address account) external nonpayable
 ```
 
-_Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have `role`&#39;s admin role._
+_Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have `role`&#39;s admin role. May emit a {RoleGranted} event._
 
 #### Parameters
 
@@ -667,7 +667,7 @@ _The address that receives all primary sales value._
 function renounceRole(bytes32 role, address account) external nonpayable
 ```
 
-_Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function&#39;s purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`._
+_Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function&#39;s purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`. May emit a {RoleRevoked} event._
 
 #### Parameters
 
@@ -703,7 +703,7 @@ _Lets an account with `MINTER_ROLE` reveal the URI for a batch of &#39;delayed-r
 function revokeRole(bytes32 role, address account) external nonpayable
 ```
 
-_Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have `role`&#39;s admin role._
+_Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have `role`&#39;s admin role. May emit a {RoleRevoked} event._
 
 #### Parameters
 
@@ -753,7 +753,7 @@ _See {IERC721-safeTransferFrom}._
 ### safeTransferFrom
 
 ```solidity
-function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data) external nonpayable
+function safeTransferFrom(address from, address to, uint256 tokenId, bytes data) external nonpayable
 ```
 
 _See {IERC721-safeTransferFrom}._
@@ -765,7 +765,7 @@ _See {IERC721-safeTransferFrom}._
 | from    | address | undefined   |
 | to      | address | undefined   |
 | tokenId | uint256 | undefined   |
-| \_data  | bytes   | undefined   |
+| data    | bytes   | undefined   |
 
 ### setApprovalForAll
 
@@ -1169,6 +1169,18 @@ event DefaultRoyalty(address indexed newRoyaltyRecipient, uint256 newRoyaltyBps)
 | ----------------------------- | ------- | ----------- |
 | newRoyaltyRecipient `indexed` | address | undefined   |
 | newRoyaltyBps                 | uint256 | undefined   |
+
+### Initialized
+
+```solidity
+event Initialized(uint8 version)
+```
+
+#### Parameters
+
+| Name    | Type  | Description |
+| ------- | ----- | ----------- |
+| version | uint8 | undefined   |
 
 ### MaxTotalSupplyUpdated
 

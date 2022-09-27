@@ -33,3 +33,17 @@ _See {IERC721Receiver-onERC721Received}. Always returns `IERC721Receiver.onERC72
 | Name | Type   | Description |
 | ---- | ------ | ----------- |
 | \_0  | bytes4 | undefined   |
+
+## Events
+
+### Initialized
+
+```solidity
+event Initialized(uint8 version)
+```
+
+#### Parameters
+
+| Name    | Type  | Description |
+| ------- | ----- | ----------- |
+| version | uint8 | undefined   |

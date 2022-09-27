@@ -38,7 +38,7 @@ export default function Component() {
 **Signature:**
 
 ```typescript
-export declare function usePack(contractAddress?: string): PackImpl | undefined;
+export declare function usePack(contractAddress?: string): Pack | undefined;
 ```
 
 ## Parameters
@@ -49,4 +49,4 @@ export declare function usePack(contractAddress?: string): PackImpl | undefined;
 
 **Returns:**
 
-PackImpl \| undefined
+Pack \| undefined

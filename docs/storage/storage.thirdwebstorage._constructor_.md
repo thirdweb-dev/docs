@@ -14,13 +14,11 @@ Constructs a new instance of the `ThirdwebStorage` class
 **Signature:**
 
 ```typescript
-constructor(uploader?: IStorageUploader<T>, downloader?: IStorageDownloader, gatewayUrls?: GatewayUrls);
+constructor(options?: ThirdwebStorageOptions<T>);
 ```
 
 ## Parameters
 
-| Parameter   | Type                                                       | Description       |
-| ----------- | ---------------------------------------------------------- | ----------------- |
-| uploader    | [IStorageUploader](./storage.istorageuploader.md)&lt;T&gt; | <i>(Optional)</i> |
-| downloader  | [IStorageDownloader](./storage.istoragedownloader.md)      | <i>(Optional)</i> |
-| gatewayUrls | [GatewayUrls](./storage.gatewayurls.md)                    | <i>(Optional)</i> |
+| Parameter | Type                                                                   | Description       |
+| --------- | ---------------------------------------------------------------------- | ----------------- |
+| options   | [ThirdwebStorageOptions](./storage.thirdwebstorageoptions.md)&lt;T&gt; | <i>(Optional)</i> |

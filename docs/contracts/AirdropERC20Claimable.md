@@ -264,6 +264,18 @@ _Checks a request to claim tokens against the active claim condition&#39;s crite
 
 ## Events
 
+### Initialized
+
+```solidity
+event Initialized(uint8 version)
+```
+
+#### Parameters
+
+| Name    | Type  | Description |
+| ------- | ----- | ----------- |
+| version | uint8 | undefined   |
+
 ### OwnerUpdated
 
 ```solidity

@@ -38,14 +38,14 @@ const gatewayUrls = {
 };
 const downloader = new StorageDownloader();
 const uploader = new IpfsUploader();
-const storage = new ThirdwebStorage(uploader, downloader, gatewayUrls);
+const storage = new ThirdwebStorage({ uploader, downloader, gatewayUrls });
 ```
 
 ## Constructors
 
-| Constructor                                                                                    | Modifiers | Description                                                         |
-| ---------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------- |
-| [(constructor)(uploader, downloader, gatewayUrls)](./storage.thirdwebstorage._constructor_.md) |           | Constructs a new instance of the <code>ThirdwebStorage</code> class |
+| Constructor                                                          | Modifiers | Description                                                         |
+| -------------------------------------------------------------------- | --------- | ------------------------------------------------------------------- |
+| [(constructor)(options)](./storage.thirdwebstorage._constructor_.md) |           | Constructs a new instance of the <code>ThirdwebStorage</code> class |
 
 ## Properties
 

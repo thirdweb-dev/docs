@@ -23,15 +23,15 @@ const { data: listings, isLoading, error } = useListings(<YourMarketplaceContrac
 
 ```typescript
 export declare function useListingsCount(
-  contract: RequiredParam<MarketplaceImpl>,
+  contract: RequiredParam<Marketplace>,
 ): import("@tanstack/react-query").UseQueryResult<BigNumber, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                             | Description                           |
-| --------- | ---------------------------------------------------------------- | ------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;MarketplaceImpl&gt; | an instance of a marketplace contract |
+| Parameter | Type                                                         | Description                           |
+| --------- | ------------------------------------------------------------ | ------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a marketplace contract |
 
 **Returns:**
 

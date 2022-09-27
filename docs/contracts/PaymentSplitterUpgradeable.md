@@ -47,6 +47,47 @@ _Get the number of payees_
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
 
+### releasable
+
+```solidity
+function releasable(address account) external view returns (uint256)
+```
+
+_Getter for the amount of payee&#39;s releasable Ether._
+
+#### Parameters
+
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| account | address | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### releasable
+
+```solidity
+function releasable(contract IERC20Upgradeable token, address account) external view returns (uint256)
+```
+
+_Getter for the amount of payee&#39;s releasable `token` tokens. `token` should be the address of an IERC20 contract._
+
+#### Parameters
+
+| Name    | Type                       | Description |
+| ------- | -------------------------- | ----------- |
+| token   | contract IERC20Upgradeable | undefined   |
+| account | address                    | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
 ### release
 
 ```solidity
@@ -200,6 +241,18 @@ event ERC20PaymentReleased(contract IERC20Upgradeable indexed token, address to,
 | token `indexed` | contract IERC20Upgradeable | undefined   |
 | to              | address                    | undefined   |
 | amount          | uint256                    | undefined   |
+
+### Initialized
+
+```solidity
+event Initialized(uint8 version)
+```
+
+#### Parameters
+
+| Name    | Type  | Description |
+| ------- | ----- | ----------- |
+| version | uint8 | undefined   |
 
 ### PayeeAdded
 

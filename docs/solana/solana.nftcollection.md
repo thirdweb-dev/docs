@@ -40,6 +40,7 @@ const program = await sdk.getNFTCollection("{{contract_address}}");
 | Property                                             | Modifiers | Type             | Description |
 | ---------------------------------------------------- | --------- | ---------------- | ----------- |
 | [accountType](./solana.nftcollection.accounttype.md) |           | "nft-collection" |             |
+| [metaplex](./solana.nftcollection.metaplex.md)       |           | Metaplex         |             |
 | [publicKey](./solana.nftcollection.publickey.md)     |           | PublicKey        |             |
 
 ## Methods

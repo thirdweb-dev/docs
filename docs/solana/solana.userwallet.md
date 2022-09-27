@@ -42,10 +42,11 @@ const address = sdk.wallet.getAddress();
 
 ## Methods
 
-| Method                                            | Modifiers | Description                                                                  |
-| ------------------------------------------------- | --------- | ---------------------------------------------------------------------------- |
-| [connect(wallet)](./solana.userwallet.connect.md) |           | Connect a signer to the SDK. Can pass in a keypair or browser wallet adapter |
-| [disconnect()](./solana.userwallet.disconnect.md) |           | Disconnect the connect wallet from the SDK                                   |
-| [getAddress()](./solana.userwallet.getaddress.md) |           | Get the address of the connected wallet                                      |
-| [getBalance()](./solana.userwallet.getbalance.md) |           | Get the native balance of the connected wallet                               |
-| [getSigner()](./solana.userwallet.getsigner.md)   |           | Get the connected signer                                                     |
+| Method                                              | Modifiers | Description                                                                  |
+| --------------------------------------------------- | --------- | ---------------------------------------------------------------------------- |
+| [connect(wallet)](./solana.userwallet.connect.md)   |           | Connect a signer to the SDK. Can pass in a keypair or browser wallet adapter |
+| [disconnect()](./solana.userwallet.disconnect.md)   |           | Disconnect the connect wallet from the SDK                                   |
+| [getAddress()](./solana.userwallet.getaddress.md)   |           | Get the address of the connected wallet                                      |
+| [getBalance()](./solana.userwallet.getbalance.md)   |           | Get the native balance of the connected wallet                               |
+| [getSigner()](./solana.userwallet.getsigner.md)     |           | Get the connected signer                                                     |
+| [isConnected()](./solana.userwallet.isconnected.md) |           | Return whether a wallet is connected                                         |

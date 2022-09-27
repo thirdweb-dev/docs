@@ -17,6 +17,12 @@ displayed_sidebar: storage
 | [StorageDownloader](./storage.storagedownloader.md) | Default downloader used - handles downloading from all schemes specified in the gateway URLs configuration. |
 | [ThirdwebStorage](./storage.thirdwebstorage.md)     | Upload and download files from decentralized storage systems.                                               |
 
+## Functions
+
+| Function                                            | Description |
+| --------------------------------------------------- | ----------- |
+| [isFileOrBuffer(data)](./storage.isfileorbuffer.md) |             |
+
 ## Interfaces
 
 | Interface                                             | Description |
@@ -31,5 +37,6 @@ displayed_sidebar: storage
 | [GatewayUrls](./storage.gatewayurls.md)                       |             |
 | [IpfsUploadBatchOptions](./storage.ipfsuploadbatchoptions.md) |             |
 | [IpfsUploaderOptions](./storage.ipfsuploaderoptions.md)       |             |
+| [ThirdwebStorageOptions](./storage.thirdwebstorageoptions.md) |             |
 | [UploadOptions](./storage.uploadoptions.md)                   |             |
 | [UploadProgressEvent](./storage.uploadprogressevent.md)       |             |

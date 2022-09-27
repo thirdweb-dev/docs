@@ -14,7 +14,7 @@ Get an instance of a Token contract
 **Signature:**
 
 ```typescript
-getToken(address: string): Promise<import("..").TokenImpl>;
+getToken(address: string): Promise<import("..").Token>;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ getToken(address: string): Promise<import("..").TokenImpl>;
 
 **Returns:**
 
-Promise&lt;import("..").[TokenImpl](./sdk.tokenimpl.md)&gt;
+Promise&lt;import("..").[Token](./sdk.token.md)&gt;
 
 the contract

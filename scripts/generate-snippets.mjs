@@ -3,19 +3,19 @@ import createReactSnippet from "./helper/create-react-snippet-from-mapping.mjs";
 
 const CLASSES = [
   "ThirdwebSDK",
-  "NFTCollectionImpl",
-  "EditionImpl",
-  "TokenDropImpl",
-  "TokenImpl",
-  "NFTDropImpl",
-  "EditionDropImpl",
-  "MarketplaceImpl",
+  "NFTCollection",
+  "Edition",
+  "TokenDrop",
+  "Token",
+  "NFTDrop",
+  "EditionDrop",
+  "Marketplace",
   "MarketplaceDirect",
   "MarketplaceAuction",
-  "SplitImpl",
-  "PackImpl",
-  "VoteImpl",
-  "MultiwrapImpl",
+  "Split",
+  "Pack",
+  "Vote",
+  "Multiwrap",
   "ContractDeployer",
   "ContractEvents",
   "DelayedReveal",
@@ -24,7 +24,7 @@ const CLASSES = [
   "ContractInterceptor",
   "ContractMetadata",
   "ContractRoles",
-  "SignatureDropImpl",
+  "SignatureDrop",
   "SmartContract",
   "WalletAuthenticator",
   "UserWallet",
@@ -227,7 +227,7 @@ const snippets = CLASSES.reduce((acc, contractName) => {
     ...(goExample?.example ? { go: goExample.example } : {}),
   };
 
-  acc[contractName.replace("Impl", "")] = data;
+  acc[contractName.replace("", "")] = data;
 
   return acc;
 }, {});

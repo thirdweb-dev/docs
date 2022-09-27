@@ -24,14 +24,15 @@ export declare class IpfsUploader implements IStorageUploader<IpfsUploadBatchOpt
 ```jsx
 // Can instantiate the uploader with default configuration
 const uploader = new StorageUploader();
-const storage = new ThirdwebStorage(uploader);
+const storage = new ThirdwebStorage({ uploader });
 
 // Or optionally, can pass configuration
 const options = {
   // Upload objects with resolvable URLs
   uploadWithGatewayUrl: true,
 };
-const storage = new ThirdwebStorage(options);
+const uploader = new StorageUploader(options);
+const storage = new ThirdwebStorage({ uploader });
 ```
 
 ## Constructors

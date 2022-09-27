@@ -24,7 +24,7 @@ export declare class StorageDownloader implements IStorageDownloader
 ```jsx
 // Can instantiate the downloader with the default gateway URLs
 const downloader = new StorageDownloader();
-const storage = new ThirdwebStorage(undefined, downloader);
+const storage = new ThirdwebStorage({ downloader });
 ```
 
 ## Methods

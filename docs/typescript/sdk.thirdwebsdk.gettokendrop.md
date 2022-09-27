@@ -14,7 +14,7 @@ Get an instance of a Token Drop contract
 **Signature:**
 
 ```typescript
-getTokenDrop(address: string): Promise<import("..").TokenDropImpl>;
+getTokenDrop(address: string): Promise<import("..").TokenDrop>;
 ```
 
 ## Parameters
@@ -25,6 +25,6 @@ getTokenDrop(address: string): Promise<import("..").TokenDropImpl>;
 
 **Returns:**
 
-Promise&lt;import("..").[TokenDropImpl](./sdk.tokendropimpl.md)&gt;
+Promise&lt;import("..").[TokenDrop](./sdk.tokendrop.md)&gt;
 
 the contract
