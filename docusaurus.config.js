@@ -105,7 +105,7 @@ const config = {
       {
         id: "storage",
         path: "docs/storage",
-        routeBasePath: "storage",
+        routeBasePath: "storage-sdk",
         sidebarPath: require.resolve("./sidebars/storage.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
         // ... other options
