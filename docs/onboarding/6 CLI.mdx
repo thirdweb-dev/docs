@@ -4,3 +4,143 @@ title: CLI
 ---
 
 import QuickstartCard from "@components/QuickstartCard";
+import ThemedImage from "@theme/ThemedImage";
+
+# CLI
+
+Create, build and deploy your smart contracts and apps with our interactive command line interface.
+
+To see all of the available commands, run the following:
+
+```bash
+npx thirdweb@latest
+```
+
+## Create
+
+<div className="heroGrid">
+  
+  <div>
+Create a new project with thirdweb installed and configured.
+
+Select the frameworks you know and love to get started quickly, by providing:
+
+- A name for your project
+- A framework to build with
+- A language to write in
+
+</div>
+
+<div className="heroGridImageContainer">
+  <ThemedImage
+    sources={{
+      light: "/assets/create.png",
+      dark: "/assets/create.png",
+    }}
+    className="heroGridImage"
+    alt="thirdweb dashboard"
+  />
+</div>
+
+</div>
+
+```bash
+npx thirdweb@latest create
+```
+
+## Build
+
+<div className="heroGrid">
+  
+  <div>
+
+<p>
+  Compile your smart contracts and detect any{" "}
+  <a href="/extensions/features">features</a> you have implemented. This
+  command:
+</p>
+
+- Detects the framework you're using
+- Compiles all of your smart contracts
+- Prints out the [features](/extensions/features) you have implemented for each contract
+
+</div>
+
+<div className="heroGridImageContainer">
+  <ThemedImage
+    sources={{
+      light: "/assets/detect.png",
+      dark: "/assets/detect.png",
+    }}
+    className="heroGridImage"
+    alt="thirdweb dashboard"
+  />
+</div>
+
+</div>
+
+```bash
+npx thirdweb@latest detect
+```
+
+## Release
+
+<div className="heroGrid">
+  
+  <div>
+
+Creates a versioned [release](/release) of your contract onto our registry:
+
+- Compiles your smart contracts
+- Uploads the contract [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)s to IPFS
+- Allows you to [release](/release) them through the dashboard
+
+</div>
+
+<div className="heroGridImageContainer">
+  <ThemedImage
+    sources={{
+      light: "/assets/release.png",
+      dark: "/assets/release.png",
+    }}
+    className="heroGridImage"
+    alt="thirdweb dashboard"
+  />
+</div>
+
+</div>
+
+```bash
+npx thirdweb@latest release
+```
+
+## Deploy
+
+<div className="heroGrid">
+  
+  <div>
+
+[Deploy](/deploy) your smart contracts to one of our [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use/) using the dashboard:
+
+- Compiles your smart contracts
+- Uploads the contract [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)s to IPFS
+- Allows you to [deploy](/deploy) them through the dashboard
+
+</div>
+
+<div className="heroGridImageContainer">
+  <ThemedImage
+    sources={{
+      light: "/assets/deploy.png",
+      dark: "/assets/deploy.png",
+    }}
+    className="heroGridImage"
+    alt="thirdweb dashboard"
+  />
+</div>
+
+</div>
+
+```bash
+npx thirdweb@latest release
+```
