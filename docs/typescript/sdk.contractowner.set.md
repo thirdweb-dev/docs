@@ -9,7 +9,13 @@ displayed_sidebar: typescript
 
 ## ContractOwner.set() method
 
-set tje new owner of the contract
+Set the new owner of the contract
+
+## Example
+
+```javascript
+await contract.owner.set("0x1234567890123456789012345678901234567890");
+```
 
 **Signature:**
 
@@ -19,10 +25,14 @@ set(address: string): Promise<TransactionResult>;
 
 ## Parameters
 
-| Parameter | Type   | Description |
-| --------- | ------ | ----------- |
-| address   | string |             |
+| Parameter | Type   | Description                  |
+| --------- | ------ | ---------------------------- |
+| address   | string | the address of the new owner |
 
 **Returns:**
 
 Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+
+## Remarks
+
+Can only be called by the current owner.
