@@ -1,0 +1,103 @@
+---
+slug: /storage/download
+title: Download
+---
+
+You can download arbitrary data from any URL scheme (`https://`, `ipfs://`, etc.) using the Storage SDK, including JSON metadata and files - everything necessary to access your data from the URL will be handled for you.
+
+### JSON
+
+We can use the `downloadJSON` function to access and parse JSON data at any URL. The SDK will automatically handle any recursive uploads within the metadata, resolving any URLs with schemes inside the retrieved objects with retrievable gateway URLs.
+
+For example, we can download and parse JSON data from this IPFS URL `ipfs://QmWgbcjKWCXhaLzMz4gNBxQpAHktQK6MkLvBkKXbsoWEEy/0` with the following code:
+
+```jsx
+import { ThirdwebStorage } from "@thirdweb-dev/storage";
+
+const uri = "ipfs://QmWgbcjKWCXhaLzMz4gNBxQpAHktQK6MkLvBkKXbsoWEEy/0";
+
+const storage = new ThirdwebStorage();
+const data = await storage.downloadJSON(uri);
+console.log(data);
+```
+
+### Files
+
+Alternatively, you can also download raw file data with the SDK using the simple `download` method:
+
+```jsx
+const fileUri = "ipfs://QmamvVM5kvsYjQJYs7x8LXKYGFkwtGvuRvqZsuzvpHmQq9/0";
+
+// Here we get the raw response object from downloading the file
+const res = await storage.download(fileUri);
+
+// Now you can access the file data in all the traditional ways you could interact with a response object
+const data = await res.text();
+// Or instead...
+const data = await res.blob();
+// etc...
+```
+
+## Gateway URLs
+
+:::tip
+
+URLs commonly start with the `https://` and are easily accessible to download and to access from the browser. However, decentralized storage systems have introduced the usage of new protocol schemes like `ipfs://` which are not readily accessible from all browsers and can't be easily downloaded. For this reason, we can use something called a `Gateway URL` to access data from a non-traditional scheme in an ordinary way.
+
+For example, if I'm trying to access data at the following URL:
+
+`ipfs://QmWgbcjKWCXhaLzMz4gNBxQpAHktQK6MkLvBkKXbsoWEEy/0`
+
+I won't be able to directly in many browsers (you can try opening it to see what happens). However, if I use the gateway URL `https://gateway.ipfscdn.io/ipfs/` in front of it instead of the `ipfs://` scheme, you'll see that the URL is in fact accessible at:
+
+[`https://gateway.ipfscdn.io/ipfs/QmWgbcjKWCXhaLzMz4gNBxQpAHktQK6MkLvBkKXbsoWEEy/0`](https://gateway.ipfscdn.io/ipfs/QmWgbcjKWCXhaLzMz4gNBxQpAHktQK6MkLvBkKXbsoWEEy/0)
+
+:::
+
+### Setup
+
+We can configure gateway URLs for any URL scheme with the SDK, which will enable us to easily download data from these storage systems. By default when we instantiate the SDK, it already comes preconfigured with gateway URLs for the `ipfs://` scheme, meaning that it already knows how to handle download from these URLs.
+
+For example, the following code snippet will work (you can try it yourself to see what happens!):
+
+```jsx
+import { ThirdwebStorage } from "@thirdweb-dev/storage";
+
+const uri = "ipfs://QmWgbcjKWCXhaLzMz4gNBxQpAHktQK6MkLvBkKXbsoWEEy/0";
+
+const storage = new ThirdwebStorage();
+// Here, the SDK automatically resolves the gateway of the ipfs:// URL for us and retrieves the data
+const res = await storage.download(uri);
+```
+
+However, you may want to deal with other URL schemes besides just `https://` and `ipfs://`. In this case, you have the option to configure your own additional gateway URLs for this case.
+
+Let's say I want to configure a gateway URL for the `example://` scheme, and use the gateway URL of `https://example.com` instead. We can set this up with the SDK as follows:
+
+```jsx
+const gatewayUrls = {
+  // Here we set the gateway URLs for this scheme, and we include a backup in case the first one fails
+  "example://": ["https://example.com", "https://example-backup.com"],
+};
+
+// Now we can pass the gateway URLs into the SDK and they will be added to the defaults
+const storage = new ThirdwebStorage({ gatewayUrls });
+
+// Now we'll be able to access a URL with the example:// scheme
+const uri = "example://QmWgbcjKWCXhaLzMz4gNBxQpAHktQK6MkLvBkKXbsoWEEy/0";
+// This will try download from the gateway URLs instead
+const res = await storage.download(uri);
+```
+
+### Resolving Gateway URLs
+
+If you already have a URL with a specific scheme, and you just want to resolve the URL to a URL that you can use yourself, you can also do this with the SDK with the `resolveScheme` function:
+
+```jsx
+const uri1 = "ipfs://QmWgbcjKWCXhaLzMz4gNBxQpAHktQK6MkLvBkKXbsoWEEy/0";
+const uri2 = "example://QmWgbcjKWCXhaLzMz4gNBxQpAHktQK6MkLvBkKXbsoWEEy/0";
+
+// The SDK will resolve any recognized scheme in the URLs to use a gateway URL instead
+const resolvedUri1 = storage.resolveScheme(uri1);
+const resolvedUri2 = storage.resolveScheme(uri2);
+```
