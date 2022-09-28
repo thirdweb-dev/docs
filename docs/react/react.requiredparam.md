@@ -11,10 +11,10 @@ displayed_sidebar: react
 
 > This feature is currently in beta and may change based on feedback that we receive.
 
-Makes a parameter required to be passed, but still allowes it to be undefined.
+Makes a parameter required to be passed, but still allowes it to be null or undefined.
 
 **Signature:**
 
 ```typescript
-export declare type RequiredParam<T> = T | undefined;
+export declare type RequiredParam<T> = T | null | undefined;
 ```

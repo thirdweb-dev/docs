@@ -1,0 +1,75 @@
+---
+slug: /storage/upload/ipfs
+title: Upload to IPFS
+---
+
+You can upload arbitrary files and JSON data to [IPFS](https://ipfs.io) using the Storage SDK.
+
+### Files
+
+We can easily upload files with the `upload` function using only a few lines of code:
+
+```jsx
+import { readFileSync } from "fs";
+
+// First we load a file from our local file system
+const file = readFileSync("path/to/file.jpg");
+
+// And now we can upload it to IPFS with a single line of code
+const uri = await storage.upload(file);
+```
+
+### JSON
+
+We can upload JSON metadata with the `upload` function, and the SDK will automatically handle parsing any recognized gateway URLs to proper decentralized URL schemes and will recursively upload files to IPFS and replace them with URL schemes.
+
+For example, let's say that we want to upload the following JSON object:
+
+```jsx
+// We define metadata for an NFT
+const metadata = {
+  name: "NFT #1",
+  description: "This is my first NFT",
+  // Here we add a file into the image property of our metadata
+  image: readFileSync("path/to/file.jpg"),
+  properties: [
+    {
+      name: "coolness",
+      value: "very cool",
+    },
+  ],
+};
+```
+
+And now we can upload it to IPFS with the SDK with a single line of code:
+
+```jsx
+// Here we get the IPFS URI of where our metadata has been uploaded
+const uri = await storage.upload(metadata);
+// This will log a URL like ipfs://QmWgbcjKWCXhaLzMz4gNBxQpAHktQK6MkLvBkKXbsoWEEy/0
+console.log(uri);
+```
+
+If you navigate to the URL with the resolved scheme, you'll see that the data will look something like the following (you can see an example metadata upload in the browser [here](https://gateway.ipfscdn.io/ipfs/QmWgbcjKWCXhaLzMz4gNBxQpAHktQK6MkLvBkKXbsoWEEy/0)):
+
+![Upload](../assets/upload.png)
+
+Notice that in addition to uploading the metadata for us, the SDK has also automatically detected the image file within the object, uploaded it to its own IPFS URL, and linked the URL back in our object as well - you can take look at the image uploaded in the above metadata [here](https://gateway.ipfscdn.io/ipfs/QmamvVM5kvsYjQJYs7x8LXKYGFkwtGvuRvqZsuzvpHmQq9/0).
+
+### Bulk Upload
+
+You can also bulk upload a group of files or a group JSON objects together and they will be uploaded to a single directory.
+
+For example, we can upload several files together as follows:
+
+```jsx
+const files = [
+  readFileSync("path/to/file1.jpg"),
+  readFileSync("path/tp/file2.jpg"),
+];
+
+const uris = await storage.uploadBatch(files);
+
+// And now we can get the URIs for each file
+console.log(uris);
+```

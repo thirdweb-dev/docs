@@ -11,6 +11,7 @@ const outDir = "./docs/react";
 const packageRoot = "./submodules/js/packages/react";
 const inDir = packageRoot + "/docs";
 const readmePath = packageRoot + "/README.md";
+const migrationGuidePath = packageRoot + "/MIGRATION_GUIDE.md";
 
 pkg.rmdirSync(outDir, { recursive: true, force: true });
 
@@ -124,17 +125,26 @@ async function main() {
 }
 
 async function copyReadMe() {
-  const header = [
-    "---",
-    `title: Thirdweb React SDK`,
-    `hide_title: true`,
-    `displayed_sidebar: react`,
-    "---",
-  ];
+  function generateHeader(title) {
+    return [
+      "---",
+      `title: ${title}`,
+      `hide_title: true`,
+      `displayed_sidebar: react`,
+      "---",
+    ];
+  }
+
   const fileContents = await readFile(readmePath, "utf8");
   await writeFile(
     join(outDir, "index.md"),
-    header.join("\n") + "\n" + fileContents,
+    generateHeader("thirdweb React SDK").join("\n") + "\n" + fileContents,
+  );
+
+  const migrationGuide = await readFile(migrationGuidePath, "utf8");
+  await writeFile(
+    join(outDir, "migration-guide.md"),
+    generateHeader("Migration Guide").join("\n") + "\n" + migrationGuide,
   );
 }
 

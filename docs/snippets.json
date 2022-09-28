@@ -60,7 +60,7 @@
         "summary": "Get an instance of a Custom ThirdwebContract\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "const contract = sdk.getContract(\"{{contract_address}}\");",
+          "javascript": "const contract = await sdk.getContract(\"{{contract_address}}\");",
           "python": "",
           "go": "",
           "react": "const { contract, isLoading, error } = useContract(\"{{contract_address}}\");"
