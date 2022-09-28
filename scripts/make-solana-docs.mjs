@@ -5,8 +5,8 @@ import fs from "fs-extra";
 const { readdir, createReadStream, writeFile, readFile } = fs;
 
 const outDir = "./docs/solana";
-const packageRoot = "./submodules/js/packages/solana";
-const inDir = packageRoot + "/docs";
+const packageRoot = "./submodules/js/packages/sdk";
+const inDir = packageRoot + "/docs/solana";
 const readmePath = packageRoot + "/README.md";
 
 fs.rmdirSync(outDir, { recursive: true, force: true });
@@ -86,6 +86,7 @@ async function main() {
   }
   await copyReadMe();
 }
+
 async function copyReadMe() {
   const header = [
     "---",

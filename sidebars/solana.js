@@ -26,22 +26,22 @@ const sidebars = {
     {
       type: "doc",
       label: "ThirdwebSDK",
-      id: "solana.thirdwebsdk",
+      id: "sdk.thirdwebsdk",
     },
     {
       type: "doc",
       label: "Wallet Actions",
-      id: "solana.userwallet",
+      id: "sdk.userwallet",
     },
     {
       type: "doc",
       label: "Deploying Programs",
-      id: "solana.deployer",
+      id: "sdk.deployer",
     },
     {
       type: "doc",
       label: "Custom Programs",
-      id: "solana.program",
+      id: "sdk.program",
     },
     {
       type: "category",
@@ -57,17 +57,17 @@ const sidebars = {
         {
           type: "doc",
           label: "NFT Collection",
-          id: "solana.nftcollection",
+          id: "sdk.nftcollection",
         },
         {
           type: "doc",
           label: "NFT Drop",
-          id: "solana.nftdrop",
+          id: "sdk.nftdrop",
         },
         {
           type: "doc",
           label: "Token",
-          id: "solana.token",
+          id: "sdk.token",
         },
       ],
     },
