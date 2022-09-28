@@ -14,17 +14,24 @@ Claim an NFT from the drop with connected wallet
 **Signature:**
 
 ```typescript
-claim(): Promise<string>;
+claim(quantity: number): Promise<string[]>;
 ```
+
+## Parameters
+
+| Parameter | Type   | Description |
+| --------- | ------ | ----------- |
+| quantity  | number |             |
 
 **Returns:**
 
-Promise&lt;string&gt;
+Promise&lt;string\[\]&gt;
 
 - the mint address of the claimed NFT
 
 ## Example
 
 ```jsx
-const address = await program.claim();
+const claimedAddresses = await program.claim(1);
+console.log("Claimed NFT at address", claimedAddresses[0]);
 ```

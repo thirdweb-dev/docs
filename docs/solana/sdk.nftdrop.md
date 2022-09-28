@@ -37,25 +37,26 @@ const program = await sdk.getNFTCollection("{{contract_address}}");
 
 ## Properties
 
-| Property                                            | Modifiers             | Type            | Description |
-| --------------------------------------------------- | --------------------- | --------------- | ----------- |
-| [accountType](./sdk.nftdrop.accounttype.md)         |                       | "nft-drop"      |             |
-| [claimConditions](./sdk.nftdrop.claimconditions.md) |                       | ClaimConditions |             |
-| [network](./sdk.nftdrop.network.md)                 | <code>readonly</code> | Cluster         |             |
-| [publicKey](./sdk.nftdrop.publickey.md)             |                       | PublicKey       |             |
+| Property                                            | Modifiers             | Type                                      | Description |
+| --------------------------------------------------- | --------------------- | ----------------------------------------- | ----------- |
+| [accountType](./sdk.nftdrop.accounttype.md)         |                       | "nft-drop"                                |             |
+| [claimConditions](./sdk.nftdrop.claimconditions.md) |                       | ClaimConditions                           |             |
+| [network](./sdk.nftdrop.network.md)                 | <code>readonly</code> | import("@metaplex-foundation/js").Cluster |             |
+| [publicKey](./sdk.nftdrop.publickey.md)             |                       | PublicKey                                 |             |
 
 ## Methods
 
-| Method                                                              | Modifiers | Description                                            |
-| ------------------------------------------------------------------- | --------- | ------------------------------------------------------ |
-| [balance(mintAddress)](./sdk.nftdrop.balance.md)                    |           | Get the NFT balance of the connected wallet            |
-| [balanceOf(walletAddress, mintAddress)](./sdk.nftdrop.balanceof.md) |           | Get the NFT balance of the specified wallet            |
-| [claim()](./sdk.nftdrop.claim.md)                                   |           | Claim an NFT from the drop with connected wallet       |
-| [get(mintAddress)](./sdk.nftdrop.get.md)                            |           | Get the metadata for a specific NFT                    |
-| [getAll()](./sdk.nftdrop.getall.md)                                 |           | Get the metadata for all NFTs on this drop             |
-| [getAllClaimed()](./sdk.nftdrop.getallclaimed.md)                   |           | Get the metadata for all the claimed NFTs on this drop |
-| [getMetadata()](./sdk.nftdrop.getmetadata.md)                       |           | Get the metadata for this program.                     |
-| [lazyMint(metadatas)](./sdk.nftdrop.lazymint.md)                    |           | Lazy mint NFTs to be claimed later                     |
-| [totalClaimedSupply()](./sdk.nftdrop.totalclaimedsupply.md)         |           | Get the total claimed supply of this drop              |
-| [totalUnclaimedSupply()](./sdk.nftdrop.totalunclaimedsupply.md)     |           | Get the total unclaimed supply of this drop            |
-| [transfer(receiverAddress, mintAddress)](./sdk.nftdrop.transfer.md) |           | Transfer the specified NFTs to another wallet          |
+| Method                                                             | Modifiers | Description                                            |
+| ------------------------------------------------------------------ | --------- | ------------------------------------------------------ |
+| [balance(nftAddress)](./sdk.nftdrop.balance.md)                    |           | Get the NFT balance of the connected wallet            |
+| [balanceOf(walletAddress, nftAddress)](./sdk.nftdrop.balanceof.md) |           | Get the NFT balance of the specified wallet            |
+| [claim(quantity)](./sdk.nftdrop.claim.md)                          |           | Claim an NFT from the drop with connected wallet       |
+| [claimTo(receiverAddress, quantity)](./sdk.nftdrop.claimto.md)     |           | Claim an NFT from the drop for the specified wallet    |
+| [get(nftAddress)](./sdk.nftdrop.get.md)                            |           | Get the metadata for a specific NFT                    |
+| [getAll()](./sdk.nftdrop.getall.md)                                |           | Get the metadata for all NFTs on this drop             |
+| [getAllClaimed()](./sdk.nftdrop.getallclaimed.md)                  |           | Get the metadata for all the claimed NFTs on this drop |
+| [getMetadata()](./sdk.nftdrop.getmetadata.md)                      |           | Get the metadata for this program.                     |
+| [lazyMint(metadatas)](./sdk.nftdrop.lazymint.md)                   |           | Lazy mint NFTs to be claimed later                     |
+| [totalClaimedSupply()](./sdk.nftdrop.totalclaimedsupply.md)        |           | Get the total claimed supply of this drop              |
+| [totalUnclaimedSupply()](./sdk.nftdrop.totalunclaimedsupply.md)    |           | Get the total unclaimed supply of this drop            |
+| [transfer(receiverAddress, nftAddress)](./sdk.nftdrop.transfer.md) |           | Transfer the specified NFTs to another wallet          |

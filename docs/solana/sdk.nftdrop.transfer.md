@@ -14,7 +14,7 @@ Transfer the specified NFTs to another wallet
 **Signature:**
 
 ```typescript
-transfer(receiverAddress: string, mintAddress: string): Promise<TransactionResult>;
+transfer(receiverAddress: string, nftAddress: string): Promise<TransactionResult>;
 ```
 
 ## Parameters
@@ -22,7 +22,7 @@ transfer(receiverAddress: string, mintAddress: string): Promise<TransactionResul
 | Parameter       | Type   | Description                             |
 | --------------- | ------ | --------------------------------------- |
 | receiverAddress | string | The address to send the tokens to       |
-| mintAddress     | string | The mint address of the NFT to transfer |
+| nftAddress      | string | The mint address of the NFT to transfer |
 
 **Returns:**
 

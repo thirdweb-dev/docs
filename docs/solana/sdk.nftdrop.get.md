@@ -14,14 +14,14 @@ Get the metadata for a specific NFT
 **Signature:**
 
 ```typescript
-get(mintAddress: string): Promise<NFTMetadata>;
+get(nftAddress: string): Promise<NFTMetadata>;
 ```
 
 ## Parameters
 
-| Parameter   | Type   | Description                        |
-| ----------- | ------ | ---------------------------------- |
-| mintAddress | string | the mint address of the NFT to get |
+| Parameter  | Type   | Description                        |
+| ---------- | ------ | ---------------------------------- |
+| nftAddress | string | the mint address of the NFT to get |
 
 **Returns:**
 

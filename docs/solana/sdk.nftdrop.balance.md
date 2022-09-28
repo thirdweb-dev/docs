@@ -14,14 +14,14 @@ Get the NFT balance of the connected wallet
 **Signature:**
 
 ```typescript
-balance(mintAddress: string): Promise<number>;
+balance(nftAddress: string): Promise<number>;
 ```
 
 ## Parameters
 
-| Parameter   | Type   | Description |
-| ----------- | ------ | ----------- |
-| mintAddress | string |             |
+| Parameter  | Type   | Description |
+| ---------- | ------ | ----------- |
+| nftAddress | string |             |
 
 **Returns:**
 

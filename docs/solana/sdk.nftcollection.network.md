@@ -12,5 +12,5 @@ displayed_sidebar: solana
 **Signature:**
 
 ```typescript
-get network(): Cluster;
+get network(): import("@metaplex-foundation/js").Cluster;
 ```
