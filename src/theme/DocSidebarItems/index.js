@@ -50,7 +50,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Build Apps",
-      items: ["Ethereum SDK", "Solana SDK", "UI Components", "Auth", "Storage"],
+      items: ["EVM SDK", "Solana SDK", "UI Components", "Auth", "Storage"],
     },
     {
       title: "Manage Projects",

@@ -3,13 +3,15 @@ slug: /solana-sdk/set-up-the-sdk/frontend
 title: Frontend Applications
 ---
 
+import QuickstartCard from "@components/QuickstartCard";
+
 # Building Frontend Applications
 
-You can build front-end applications by using our [React](/react) and [Solana](/solana) SDKs!
+You can build front-end applications by using our [React](/react) and [TypeScript](/typescript) SDKs!
 
 Front-end applications are best-suited when you want users to connect their wallets to your web application and interact with your programs using their wallet.
 
-#### ➡️ Learn by example with our [Live Demos](https://solana-hub.thirdweb-example.com/)
+#### Learn by example with our [Live Demos](https://solana-hub.thirdweb-example.com/)
 
 - [Minting page for NFT drops](https://solana-hub.thirdweb-example.com/nft-drop)
 - [Mint and Display NFTs](https://solana-hub.thirdweb-example.com/nft-collection)
@@ -25,7 +27,11 @@ npx thirdweb create --template next-typescript-solana-starter
 
 You're project is ready to start interacting with your programs, tokens and NFTs on Solana.
 
-#### ➡️ Continue to the [Interact with Programs](/solana-sdk/interacting-with-programs) section
+<QuickstartCard
+  name="Continue to the Interact with Programs section"
+  link="/solana-sdk/interacting-with-programs"
+  image="/assets/icons/education.png"
+/>
 
 ## Adding the SDK to an existing React project
 
@@ -59,7 +65,13 @@ This provider will handle Wallet management + SDK functionality. This gives you 
 - `useProgram()` - Get any deployed program instance
 - and many more
 
-#### ➡️ Continue to the [Interact with Programs](/solana-sdk/interacting-with-programs) section
+This setup is compatible with the Solana Wallet Adapter library. You can use any of the supported wallets.
+
+<QuickstartCard
+  name="Continue to the Interact with Programs section"
+  link="/solana-sdk/interacting-with-programs"
+  image="/assets/icons/education.png"
+/>
 
 ### Using the SDK with an existing Solana project
 
@@ -85,4 +97,8 @@ export const MyApp({ Component, pageProps }) {
 }
 ```
 
-#### ➡️ Continue to the [Interact with Programs](/solana-sdk/interacting-with-programs) section
+<QuickstartCard
+  name="Continue to the Interact with Programs section"
+  link="/solana-sdk/interacting-with-programs"
+  image="/assets/icons/education.png"
+/>

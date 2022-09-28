@@ -3,12 +3,31 @@ slug: /solana-sdk/
 title: Overview
 ---
 
-#### Build web3 apps on Solana using the JavaScript/TypeScript and React SDKs
+import QuickstartCard from "@components/QuickstartCard";
 
-- Interact with any Solana program.
-- Create your own Token, NFTs and Drops.
-- Interact with any existing Token, NFT or Drop.
-- Do wallet actions like transfer, sign, and verify.
+<div className="heroGrid" style={{ alignItems: "flex-start" }}>
+  <div style={{ width: "86%" }}>
+    <p style={{ marginTop: "8px", fontWeight: "bold" }}>
+      Build Web and Backend applications on Solana with the JavaScript,
+      TypeScript and React SDKs.
+    </p>
+    <ul>
+      <li>Interact with any Solana program.</li>
+      <li>Create your own Token, NFTs and Drops.</li>
+      <li>Interact with any existing Token, NFT or Drop.</li>
+      <li>Do wallet actions like transfer, sign, and verify.</li>
+    </ul>
+  </div>
+  <p style={{ marginTop: "-16px" }}>
+    <div className="col col--12">
+      <img
+        src="/assets/solana_tw.png"
+        alt="Solana SDK"
+        style={{ width: "400px" }}
+      />
+    </div>
+  </p>
+</div>
 
 ## Web apps
 
@@ -20,7 +39,11 @@ npx thirdweb create --template next-typescript-solana-starter
 
 This creates a barebones Next.js application with the Solana and React SDKs already set up. Includes wallet connection logic and the SDK ready to use.
 
-#### Continue to the [Frontend Applications](/solana-sdk/set-up-the-sdk/frontend) section.
+<QuickstartCard
+  name="Continue to the Frontend Applications section"
+  link="/solana-sdk/set-up-the-sdk/frontend"
+  image="/assets/icons/education.png"
+/>
 
 ## Backend services and scripts
 
@@ -30,4 +53,8 @@ npm install @thirdweb-dev/solana
 
 This installs the Solana SDK for Node.js. You can use this to build backend services and scripts that interact with Solana programs.
 
-#### Continue to the [Backend & Scripting](/solanasdk/set-up-the-sdk/backend) section.
+<QuickstartCard
+  name="Continue to the Backend & Scripting section"
+  link="/solana-sdk/set-up-the-sdk/backend"
+  image="/assets/icons/education.png"
+/>

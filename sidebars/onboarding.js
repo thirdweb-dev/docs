@@ -68,7 +68,7 @@ const sidebars = {
     // === Build Apps ===
     {
       type: "link",
-      label: "Ethereum SDK",
+      label: "EVM SDK",
       href: "/sdk",
     },
     {
