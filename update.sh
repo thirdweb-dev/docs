@@ -10,10 +10,7 @@ yarn build
 # generate sdk docs
 cd ./packages/sdk
 mkdir ./etc
-yarn api-extractor run --local
-yarn api-documenter markdown -i ./temp -o ./docs
-node ./scripts/generate-snippets.mjs
-node ./scripts/generate-feature-snippets.mjs
+yarn generate-docs
 # generate react docs
 cd ../react
 mkdir ./etc
@@ -24,11 +21,6 @@ node ./scripts/generate-snippets.mjs
 node ./scripts/generate-feature-snippets.mjs
 # generate storage docs
 cd ../storage
-mkdir ./etc
-yarn build
-yarn generate-docs
-# generate solana docs
-cd ../solana
 mkdir ./etc
 yarn build
 yarn generate-docs

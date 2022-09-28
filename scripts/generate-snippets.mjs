@@ -32,7 +32,7 @@ const CLASSES = [
 
 const typescript = JSON.parse(
   fs.readFileSync(
-    `${process.cwd()}/submodules/js/packages/sdk/docs/snippets.json`,
+    `${process.cwd()}/submodules/js/packages/sdk/docs/evm/snippets.json`,
     "utf8",
   ),
 );

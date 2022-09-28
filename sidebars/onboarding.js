@@ -74,7 +74,7 @@ const sidebars = {
     {
       type: "link",
       label: "Solana SDK",
-      href: "/solana-sdk",
+      href: "/solana",
     },
     {
       type: "link",
@@ -141,7 +141,7 @@ const sidebars = {
         {
           type: "link",
           label: "Solana",
-          href: "/solana",
+          href: "/solana-sdk",
         },
         {
           type: "link",
