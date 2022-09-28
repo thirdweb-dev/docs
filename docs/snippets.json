@@ -1644,6 +1644,23 @@
         }
       },
       {
+        "name": "getOffers",
+        "summary": "Get all the offers for a listing\n\n",
+        "remarks": "\n\nFetch all the offers for a specified direct or auction listing.\n\n",
+        "examples": {
+          "javascript": "const offers = await marketplaceContract.getOffers(listingId);\nconst firstOffer = offers[0];",
+          "python": "",
+          "go": "",
+          "react": "const offers = await marketplaceContract.getOffers(listingId);\nconst firstOffer = offers[0];"
+        },
+        "reference": {
+          "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplace.getoffers",
+          "python": "",
+          "go": "",
+          "react": "https://docs.thirdweb.com/typescript/sdk.marketplace.getoffers"
+        }
+      },
+      {
         "name": "setBidBufferBps",
         "summary": "Set the Auction bid buffer\n\n",
         "remarks": "\n\nA percentage (e.g. 5%) in basis points (5% = 500, 100% = 10000). A new bid is considered to be a winning bid only if its bid amount is at least the bid buffer (e.g. 5%) greater than the previous winning bid. This prevents buyers from making very slightly higher bids to win the auctioned items.\n\n",

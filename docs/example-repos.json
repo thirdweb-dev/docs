@@ -141,14 +141,14 @@
     "html_url": "https://github.com/thirdweb-example/cra-typescript-starter",
     "description": "thirdweb starter project with Create React App & TypeScript",
     "created_at": "2022-03-17T23:44:42Z",
-    "updated_at": "2022-08-29T02:48:04Z",
+    "updated_at": "2022-09-28T05:00:41Z",
     "clone_url": "https://github.com/thirdweb-example/cra-typescript-starter.git",
     "topics": [
       "react",
       "starter-kit",
       "typescript"
     ],
-    "language": "HTML",
+    "language": "TypeScript",
     "stargazers_count": 4,
     "is_template": true,
     "homepage": "https://cra-typescript-starter.thirdweb-example.com"
@@ -422,7 +422,7 @@
     "html_url": "https://github.com/thirdweb-example/next-javascript-starter",
     "description": "thirdweb starter project with Next.js & JavaScript",
     "created_at": "2022-03-17T23:05:32Z",
-    "updated_at": "2022-09-24T19:17:57Z",
+    "updated_at": "2022-09-28T04:37:25Z",
     "clone_url": "https://github.com/thirdweb-example/next-javascript-starter.git",
     "topics": [
       "javascript",
@@ -430,7 +430,7 @@
       "react",
       "starter-kit"
     ],
-    "language": "JavaScript",
+    "language": "CSS",
     "stargazers_count": 16,
     "is_template": true,
     "homepage": "https://next-javascript-starter.thirdweb-example.com"
@@ -453,7 +453,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2022-09-25T10:36:41Z",
+    "updated_at": "2022-09-28T04:40:46Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -465,7 +465,7 @@
       "web3-react",
       "web3js"
     ],
-    "language": "TypeScript",
+    "language": "CSS",
     "stargazers_count": 23,
     "is_template": true,
     "homepage": "https://next-typescript-starter.thirdweb-example.com"
@@ -813,7 +813,7 @@
     "html_url": "https://github.com/thirdweb-example/vite-typescript-starter",
     "description": "thirdweb starter project with Vite & TypeScript",
     "created_at": "2022-03-18T00:47:03Z",
-    "updated_at": "2022-08-31T15:13:33Z",
+    "updated_at": "2022-09-28T05:19:20Z",
     "clone_url": "https://github.com/thirdweb-example/vite-typescript-starter.git",
     "topics": [
       "react",
@@ -822,7 +822,7 @@
       "typescript",
       "vite"
     ],
-    "language": "TypeScript",
+    "language": "CSS",
     "stargazers_count": 3,
     "is_template": true,
     "homepage": "https://vite-typescript-starter.thirdweb-example.com"
