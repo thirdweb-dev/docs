@@ -99,9 +99,6 @@ If you already have a connection and wallet setup using solana's web3js, you can
 import { ThirdwebSDKProvider } from "@thirdweb-dev/react/solana";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
 
-// This is the chainId your dApp will work on.
-const activeChainId = ChainId.Mainnet;
-
 export const MyApp({ Component, pageProps }) {
   // If you want to use any custom provider or signer, add it here.
   const { connection } = useConnection();
