@@ -121,7 +121,7 @@ We want to display a button for users to connect their wallet if they aren't alr
 ```jsx
 import { useWallet } from "@solana/wallet-adapter-react";
 import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
-import { useSDK } from "@thirdweb-dev/react/solana";
+import { useProgram, useClaimNFT } from "@thirdweb-dev/react/solana";
 
 export default function NFTDrop() {
   const wallet = useWallet();
