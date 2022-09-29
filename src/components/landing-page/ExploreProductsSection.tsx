@@ -47,16 +47,22 @@ const products: Product[] = [
     link: "/auth",
   },
   {
+    image: "/assets/product/ui.png",
+    name: "UI Components",
+    description: "Plug and play components to build functional interfaces",
+    link: "/sdk/ui-components",
+  },
+  {
+    image: "/assets/product/storage.png",
+    name: "Storage",
+    description: "Store off-chain data using decentralized storage systems",
+    link: "/storage",
+  },
+  {
     image: "/assets/product/dashboard.png",
     name: "Dashboard",
     description: "Easily analyze and manage your smart contracts",
     link: "/dashboard",
-  },
-  {
-    image: "/assets/product/sdk.png",
-    name: "Storage",
-    description: "Easily store your data using decentralized storage systems",
-    link: "/storage",
   },
 ];
 
