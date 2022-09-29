@@ -49,9 +49,9 @@ You can use Contract Kit to build out your smart contract project _end-to-end_, 
 
 ### Using Base Contracts
 
-Contract Kit gives you **base contracts** that you can use as the foundation of your smart contract.
+Contract Kit gives you [**base contracts**](/extension/base-contracts) that you can use as the foundation of your smart contract.
 
-**1.** To start, import and inherit the base contract that is right for your project.
+**1.** To start, import and inherit the base contract that is right for your project. You can find the list of all available base contracts [here](/extensions/base-contracts#list-of-base-contracts).
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -86,9 +86,9 @@ contract MyNFT is ERC721Base {
 
 ### Using Extension Contracts
 
-With the foundation for your smart contract ready, you can now plug-in additional features to your smart contract using **extension contracts**.
+With the foundation for your smart contract ready, you can now plug-in additional features to your smart contract using [**extension contracts**](/extensions/features).
 
-**1.** To start, import and inherit the extension contract that is right for your project.
+**1.** To start, import and inherit the extension contract that is right for your project. You can find the list of all available extensions [here](/extensions/features#list-of-features).
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -107,7 +107,7 @@ contract MyNFT is ERC721Base, Permissions {
 }
 ```
 
-**Note:** for some extension contracts (e.g. `LazyMint`) you may see the following error at this step: `Contract "MyNFT" should be marked as abstract.`
+**Note:** for some extension contracts (e.g. [`LazyMint`](/extensions/erc721lazymintable)) you may see the following error at this step: `Contract "MyNFT" should be marked as abstract.`
 No problem! To resolve this error, look at the usage guide for the particular extension contract you're using.
 
 **2.** Use the functions provided by the extension contract to change the behaviour of your smart contract.
