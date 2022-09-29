@@ -8,12 +8,22 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # Contract Metadata
 
-The `ContractMetadata` smart contract is an extension usable with any base smart contract. It lets you associate arbitrary metadata with your smart contract.
+```solidity
+import "@thirdweb-dev/contracts/extension/ContractMetadata.sol";
+```
+
+The `ContractMetadata` smart contract is an extension usable with any base smart contract. It lets you associate arbitrary metadata with your smart contract. Additionally, `ContractMetadata` is necessary for NFT contracts that want royalties to get distributed on OpenSea.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/ContractMetadata.sol"
   name="ContractMetadata"
 />
+
+## Availability in base contracts
+
+The `ContractMetadata` extension is _already_ available in the following [base contracts](/extensions/base-contracts):
+
+- All ERC20, ERC721 and ERC1155 base contracts.
 
 ## Unlocked Features
 
@@ -31,7 +41,11 @@ Once deployed, you can use the features made available by these contracts on the
 
 ## Implementing the Contract
 
-Import the contract extension and make your contract inherit it.
+The `ContractMetadata` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
+
+| Name                 | Type                    | Parameters | Returns | Description                                                                                                                             |
+| -------------------- | ----------------------- | ---------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| `_canSetContractURI` | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the metadata of the contract. Returns whether contract metadata can be set in the given execution context. |
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -65,3 +79,42 @@ contract MyContract is ContractMetadata {
     }
 }
 ```
+
+## Full API reference
+
+### contractURI
+
+```solidity
+function contractURI() external view returns (string memory);
+```
+
+- Returns the URI for the metadata associated with the smart contract. Generally, an IPFS URI.
+- Set this value using the `setContractURI` function.
+
+### setContractURI
+
+```solidity
+function setContractURI(string calldata _uri) external;
+```
+
+- Sets the metadata of the smart contract. This value can be read from the `contractURI` function.
+- The `_canSetContractURI` function is run on every call to this function. If the return value of `_canSetContractURI` is `false`, the `setContractURI` call will revert.
+
+### \_setupContractURI
+
+```solidity
+function _setupContractURI(string memory _uri) internal;
+```
+
+- Sets the metadata of the smart contract. This value can be read from the `contractURI` function.
+- The `_canSetContractURI` function is _not_ run on a call to this function.
+
+### \_canSetContractURI
+
+```solidity
+function _canSetContractURI() internal view virtual returns (bool);
+```
+
+- Runs on every `setContractURI` function call.
+- Returns whether contract metadata can be set in the given execution context.
+- For example, this function can check whether the wallet calling `setContractURI` is the contract owner, and enforce that only the owner should be able to successfully call `setContractURI`.
