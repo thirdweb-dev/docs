@@ -173,3 +173,25 @@ html[data-theme="dark"] .view-code-btn:hover {
   flex-wrap: wrap;
   flex-direction: row !important;
 }
+
+.transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.transition-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.3s ease-in-out;
+}
+
+.transition-exit {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.transition-exit-active {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease-in-out;
+}

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import TemplateCard from "../templates/components/TemplateCard";
 import ExampleRepo from "../templates/types/ExampleRepo";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 
 type Props = {
   repos: ExampleRepo[];
@@ -41,7 +42,7 @@ export default function AllTemplatesContainer({ repos }: Props) {
   };
 
   return (
-    <div>
+    <>
       {/* Filters */}
       <ul
         className="pills"
@@ -94,7 +95,10 @@ export default function AllTemplatesContainer({ repos }: Props) {
           ))}
       </ul>
 
-      <div className="row" style={{ marginBottom: 24 }}>
+      <TransitionGroup
+        className="row"
+        style={{ marginBottom: 24, transition: "all 1s" }}
+      >
         {repos
           .filter((e) =>
             // any of the selected categories
@@ -110,9 +114,11 @@ export default function AllTemplatesContainer({ repos }: Props) {
               parseInt(b.stargazers_count) - parseInt(a.stargazers_count),
           )
           .map((t) => (
-            <TemplateCard t={t} key={t.name} />
+            <CSSTransition key={t.name} timeout={300} classNames="transition">
+              <TemplateCard t={t} />
+            </CSSTransition>
           ))}
-      </div>
-    </div>
+      </TransitionGroup>
+    </>
   );
 }

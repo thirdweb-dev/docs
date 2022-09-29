@@ -23,8 +23,8 @@ export default function ExamplesContainer() {
           dark: "/assets/ui-components.png",
         }}
         links={{
-          github: solanaHub.html_url,
-          demo: solanaHub.homepage,
+          github: contractHub.html_url,
+          demo: contractHub.homepage,
         }}
         whichFirst={"image"}
       />
