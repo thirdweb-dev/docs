@@ -14,7 +14,7 @@ Get an SDK interface for a deployed program
 **Signature:**
 
 ```typescript
-getProgramWithIdl(address: string, idl: Idl): Promise<Program>;
+getProgramWithIdl(address: string, idl: Idl): Promise<import("./contracts/program").Program>;
 ```
 
 ## Parameters
@@ -26,6 +26,6 @@ getProgramWithIdl(address: string, idl: Idl): Promise<Program>;
 
 **Returns:**
 
-Promise&lt;[Program](./sdk.program.md)&gt;
+Promise&lt;import("./contracts/program").[Program](./sdk.program.md)&gt;
 
 SDK interface for the program
