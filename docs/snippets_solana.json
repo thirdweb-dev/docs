@@ -69,7 +69,7 @@
         "summary": "Get the metadata for a specific NFT\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "const mintAddress = \"...\";\nconst nft = await program.get(mintAddress);"
+          "javascript": "const nftAddress = \"...\";\nconst nft = await program.get(nftAddress);"
         },
         "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.get"
       },
@@ -114,7 +114,7 @@
         "summary": "Mint additional supply of an NFT to the connected wallet\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "const mintAddress = \"...\"\nconst address = await program.mintAdditionalSupply(mintAddress);"
+          "javascript": "const nftAddress = \"...\"\nconst address = await program.mintAdditionalSupply(nftAddress);"
         },
         "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.mintAdditionalSupply"
       },
@@ -123,7 +123,7 @@
         "summary": "Mint additional supply of an NFT to the specified wallet\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "const to = \"...\"\nconst mintAddress = \"...\"\nconst address = await program.mintAdditionalSupplyTo(to, mintAddress);"
+          "javascript": "const to = \"...\"\nconst nftAddress = \"...\"\nconst address = await program.mintAdditionalSupplyTo(to, nftAddress);"
         },
         "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.mintAdditionalSupplyTo"
       },

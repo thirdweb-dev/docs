@@ -31,9 +31,9 @@ const program = await sdk.getNFTCollection("{{contract_address}}");
 
 ## Constructors
 
-| Constructor                                                                                     | Modifiers | Description                                                       |
-| ----------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------- |
-| [(constructor)(collectionMintAddress, metaplex, storage)](./sdk.nftcollection._constructor_.md) |           | Constructs a new instance of the <code>NFTCollection</code> class |
+| Constructor                                                                                 | Modifiers | Description                                                       |
+| ------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------- |
+| [(constructor)(collectionAddress, metaplex, storage)](./sdk.nftcollection._constructor_.md) |           | Constructs a new instance of the <code>NFTCollection</code> class |
 
 ## Properties
 
@@ -45,17 +45,18 @@ const program = await sdk.getNFTCollection("{{contract_address}}");
 
 ## Methods
 
-| Method                                                                                   | Modifiers | Description                                               |
-| ---------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------- |
-| [balance(mintAddress)](./sdk.nftcollection.balance.md)                                   |           | Get the NFT balance of the connected wallet               |
-| [balanceOf(walletAddress, mintAddress)](./sdk.nftcollection.balanceof.md)                |           | Get the NFT balance of the specified wallet               |
-| [get(mintAddress)](./sdk.nftcollection.get.md)                                           |           | Get the metadata for a specific NFT                       |
-| [getAll()](./sdk.nftcollection.getall.md)                                                |           | Get the metadata for all NFTs on this collection          |
-| [getAllNFTAddresses()](./sdk.nftcollection.getallnftaddresses.md)                        |           | Get the mint addresses for all NFTs on this collection    |
-| [getMetadata()](./sdk.nftcollection.getmetadata.md)                                      |           | Get the metadata for this program.                        |
-| [mint(metadata)](./sdk.nftcollection.mint.md)                                            |           | Mint NFTs to the connected wallet                         |
-| [mintAdditionalSupply(mintAddress)](./sdk.nftcollection.mintadditionalsupply.md)         |           | Mint additional supply of an NFT to the connected wallet  |
-| [mintAdditionalSupplyTo(to, mintAddress)](./sdk.nftcollection.mintadditionalsupplyto.md) |           | Mint additional supply of an NFT to the specified wallet  |
-| [mintTo(to, metadata)](./sdk.nftcollection.mintto.md)                                    |           | Mint an NFT to the specified wallet                       |
-| [supplyOf(mintAddress)](./sdk.nftcollection.supplyof.md)                                 |           | Get the supply of NFT editions minted from a specific NFT |
-| [transfer(receiverAddress, mintAddress)](./sdk.nftcollection.transfer.md)                |           | Transfer the specified NFTs to another wallet             |
+| Method                                                                                  | Modifiers | Description                                               |
+| --------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------- |
+| [balance(nftAddress)](./sdk.nftcollection.balance.md)                                   |           | Get the NFT balance of the connected wallet               |
+| [balanceOf(walletAddress, nftAddress)](./sdk.nftcollection.balanceof.md)                |           | Get the NFT balance of the specified wallet               |
+| [burn(nftAddress)](./sdk.nftcollection.burn.md)                                         |           | Burn an NFT                                               |
+| [get(nftAddress)](./sdk.nftcollection.get.md)                                           |           | Get the metadata for a specific NFT                       |
+| [getAll()](./sdk.nftcollection.getall.md)                                               |           | Get the metadata for all NFTs on this collection          |
+| [getAllNFTAddresses()](./sdk.nftcollection.getallnftaddresses.md)                       |           | Get the mint addresses for all NFTs on this collection    |
+| [getMetadata()](./sdk.nftcollection.getmetadata.md)                                     |           | Get the metadata for this program.                        |
+| [mint(metadata)](./sdk.nftcollection.mint.md)                                           |           | Mint NFTs to the connected wallet                         |
+| [mintAdditionalSupply(nftAddress)](./sdk.nftcollection.mintadditionalsupply.md)         |           | Mint additional supply of an NFT to the connected wallet  |
+| [mintAdditionalSupplyTo(to, nftAddress)](./sdk.nftcollection.mintadditionalsupplyto.md) |           | Mint additional supply of an NFT to the specified wallet  |
+| [mintTo(to, metadata)](./sdk.nftcollection.mintto.md)                                   |           | Mint an NFT to the specified wallet                       |
+| [supplyOf(nftAddress)](./sdk.nftcollection.supplyof.md)                                 |           | Get the supply of NFT editions minted from a specific NFT |
+| [transfer(receiverAddress, nftAddress)](./sdk.nftcollection.transfer.md)                |           | Transfer the specified NFTs to another wallet             |

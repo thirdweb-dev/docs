@@ -14,15 +14,15 @@ Get the NFT balance of the specified wallet
 **Signature:**
 
 ```typescript
-balanceOf(walletAddress: string, mintAddress: string): Promise<number>;
+balanceOf(walletAddress: string, nftAddress: string): Promise<number>;
 ```
 
 ## Parameters
 
-| Parameter     | Type   | Description                                       |
-| ------------- | ------ | ------------------------------------------------- |
-| walletAddress | string | the wallet address to get the balance of          |
-| mintAddress   | string | the mint address of the NFT to get the balance of |
+| Parameter     | Type   | Description                              |
+| ------------- | ------ | ---------------------------------------- |
+| walletAddress | string | the wallet address to get the balance of |
+| nftAddress    | string |                                          |
 
 **Returns:**
 
