@@ -1,354 +1,112 @@
 import React, { useState } from "react";
 // @ts-ignore import the json github examples
 import exampleRepos from "../../docs/example-repos.json";
+import FeaturedExample from "../templates/components/FeaturedExample";
+import TemplateCard from "../templates/components/TemplateCard";
+import ExampleRepo from "../templates/types/ExampleRepo";
+import AllTemplatesContainer from "./AllTemplatesContainer";
 
-type ExampleRepo = {
-  name: string;
-  html_url: string;
-  description: string;
-  created_at: string;
-  updated_at: string;
-  clone_url: string;
-  topics: string[];
-  language: string;
-  stargazers_count: string;
-  is_template: boolean;
-};
-
-const iconMapping = {
-  nft: "/assets/icons/nft.png",
-  "nft-drop": "/assets/icons/drop.png",
-  "nft-collection": "/assets/icons/nft.png",
-  "edition-drop": "/assets/icons/edition-drop.png",
-  edition: "/assets/icons/edition.png",
-  token: "/assets/icons/token.png",
-  "token-drop": "/assets/icons/token.png",
-  marketplace: "/assets/icons/marketplace.png",
-  pack: "/assets/icons/pack.png",
-  split: "/assets/icons/split.png",
-  vote: "/assets/icons/vote.png",
-  "getting-started": "/assets/icons/sdks.png",
-  general: "/assets/icons/general.png",
-  "wallet-connection": "/assets/icons/vote.png",
-  "thirdweb-deploy": "/assets/icons/tw-publish.webp",
-};
-
-const categories = {
-  "nft-drop": "NFT Drop",
-  "nft-collection": "NFT Collection",
-  "edition-drop": "Edition Drop",
-  edition: "Edition",
-  multiwrap: "Multiwrap",
-  pack: "Pack",
-  "signature-drop": "Signature Drop",
-  token: "Token",
-  "token-drop": "Token Drop",
-  marketplace: "Marketplace",
-  split: "Split",
-  vote: "Vote",
-  "thirdweb-deploy": "Extensions",
-  "wallet-connection": "Wallets",
-};
-
-const starterKitToDisplayNameMapping = {
-  "cra-javascript-starter": "Create React App - JavaScript",
-  "cra-typescript-starter": "Create React App - TypeScript",
-  "next-javascript-starter": "Next.js - JavaScript",
-  "next-typescript-starter": "Next.js - TypeScript",
-  "vite-javascript-starter": "Vite - JavaScript",
-  "vite-typescript-starter": "Vite - TypeScript",
-};
-
-const starterKitToIconMapping = {
-  "cra-javascript-starter": [
-    "/assets/languages/javascript.png",
-    "/assets/languages/react.png",
-  ],
-  "cra-typescript-starter": [
-    "/assets/languages/typescript.png",
-    "/assets/languages/react.png",
-  ],
-  "next-javascript-starter": [
-    "/assets/languages/javascript.png",
-    "/assets/languages/nextjs.png",
-  ],
-  "next-typescript-starter": [
-    "/assets/languages/typescript.png",
-    "/assets/languages/nextjs.png",
-  ],
-  "vite-javascript-starter": [
-    "/assets/languages/javascript.png",
-    "/assets/languages/vite.webp",
-  ],
-  "vite-typescript-starter": [
-    "/assets/languages/typescript.png",
-    "/assets/languages/vite.webp",
-  ],
-};
-
-const repoToExampleGuideMapping = {
-  // "marketplace-next-ts": "/templates/marketplace",
-  // "custom-minting-page": "/templates/nft-drop",
-  // "nft-gated-website": "/templates/token-gated-membership",
-};
-
-function transformName(name: string) {
-  const capitalizeWords = ["nft", "ts", "dao"];
-  const lowercaseWords = ["thirdweb"];
-
-  return name
-    .split("-")
-    .map((word) => {
-      if (capitalizeWords.includes(word)) {
-        return word.toUpperCase();
-      }
-
-      if (lowercaseWords.includes(word)) {
-        return word.toLowerCase();
-      }
-
-      return word[0].toUpperCase() + word.slice(1);
-    })
-    .join(" ");
-}
+const solanaHub = exampleRepos.filter((t) => t.name === "solana-hub")[0];
+const contractHub = exampleRepos.filter((t) => t.name === "contract-hub")[0];
 
 export default function ExamplesContainer() {
-  const examples = exampleRepos as ExampleRepo[];
-
-  // Type this as any string thats in categories array
-  const [selectedCategory, setSelectedCategory] = useState<string>();
-
-  function decideIcon(e: ExampleRepo) {
-    let icon = "";
-
-    for (let i = 0; i < e.topics.length; i++) {
-      const topic = e.topics[i];
-      if (iconMapping[topic]) {
-        if (icon !== "") {
-          // If there's more than one topic, use general icon
-          return iconMapping["general"];
-        } else {
-          // Otherwise use the topic icon
-          icon = iconMapping[topic];
-          continue;
-        }
-      }
-    }
-
-    return icon || iconMapping["general"];
-  }
-
-  function sendPosthogEvent(name: string) {
-    const posthog = window?.posthog;
-    if (posthog) {
-      posthog.capture("Template Select", {
-        name: name,
-      });
-    }
-  }
-
   return (
     <>
-      {/* Starter Kits */}
-      <h2>Starter Kits</h2>
-
-      <div className="row">
-        {examples
-          .filter((e) => e.is_template === true)
-          .map((repo) => (
-            <a
-              href={repo.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="col col--6"
-              style={{
-                marginBottom: 24,
-                color: "inherit",
-                textDecoration: "none",
-              }}
-              data-example={"example"} // Generic flag to capture all events
-              data-example-name={repo.name}
-              data-example-category={"starter-kit"}
-              data-example-url={repo.html_url}
-              onClick={() => sendPosthogEvent(repo.name)}
-            >
-              <div
-                className="tw-card"
-                style={{
-                  cursor: "pointer",
-                  width: "100%",
-                  alignItems: "center",
-                }}
-              >
-                <div
-                  className="card__header"
-                  style={{
-                    display: "flex",
-                    flexDirection: "row",
-                    alignItems: "center",
-                    pointerEvents: "none",
-                  }}
-                >
-                  <img
-                    src={starterKitToIconMapping[repo.name][0]}
-                    style={{
-                      marginRight: 8,
-                      pointerEvents: "none",
-                      width: 42,
-                    }}
-                  />
-                  <img
-                    src={starterKitToIconMapping[repo.name][1]}
-                    style={{
-                      pointerEvents: "none",
-                      width: 42,
-                    }}
-                  />
-                  <h3
-                    style={{
-                      fontWeight: 600,
-                      fontSize: "1.1rem",
-                      pointerEvents: "none",
-                      marginLeft: 16,
-                    }}
-                  >
-                    {starterKitToDisplayNameMapping[repo.name]}
-                  </h3>
-                </div>
-              </div>
-            </a>
-          ))}
-      </div>
-      <h2>Feature Examples</h2>
-
-      {/* Filters */}
-      <ul
-        className="pills"
-        style={{
-          // wrap
-          display: "flex",
-          flexWrap: "wrap",
+      <h2>Explore What's Possible</h2>
+      {/* Featured Example 1 */}
+      <FeaturedExample
+        id={contractHub.name}
+        title="Contract Hub"
+        description="Explore what you can do with the SDK by interacting with prebuilt contracts and viewing code snippets."
+        image={{
+          light: "/assets/ui-components.png",
+          dark: "/assets/ui-components.png",
         }}
-      >
-        <li
-          className={`pills__item ${
-            selectedCategory === undefined ? "pills__item--active" : ""
-          }`}
-          style={{
-            minWidth: "fit-content",
-            maxHeight: 48,
-            marginTop: 4,
-            marginBottom: 4,
-          }}
-          onClick={() => {
-            setSelectedCategory(undefined);
-          }}
-          role="button"
-        >
-          All
-        </li>
-        {Object.entries(categories)
-          .filter(([name, displayName]) =>
-            // if name is in any of the repo's topics
-            examples.some((e) => e.topics.includes(name)),
-          )
-          .map(([name, displayName]) => (
-            <li
-              className={`pills__item ${
-                selectedCategory === name ? "pills__item--active" : ""
-              }`}
-              style={{
-                minWidth: "fit-content",
-                maxHeight: 48,
-                marginTop: 4,
-                marginBottom: 4,
-              }}
-              onClick={() =>
-                setSelectedCategory(
-                  name === selectedCategory ? undefined : name,
-                )
-              }
-              role="button"
-            >
-              {displayName}
-            </li>
-          ))}
-      </ul>
+        links={{
+          github: solanaHub.html_url,
+          demo: solanaHub.homepage,
+        }}
+        whichFirst={"image"}
+      />
+      {/* Featured Example (Solana TODO) */}
+      {/* <FeaturedExample
+        id={solanaHub.name}
+        title="Solana Showcase"
+        description="Discover the power of our Solana SDK by interacting with real programs and viewing code snippets."
+        image={{
+          light: "/assets/solana_tw.png",
+          dark: "/assets/solana_tw.png",
+        }}
+        links={{
+          github: solanaHub.html_url,
+          demo: solanaHub.homepage,
+        }}
+        whichFirst={"text"}
+      /> */}
 
-      {/* Repos */}
-      <div className="row">
-        {examples
-          .filter((e) => e.is_template === false)
-          .filter((e) =>
-            // any of the selected categories
+      <h2>Featured Templates</h2>
+      <p>Start building your own app on top of one of our templates.</p>
 
-            // if undefined, retuen all
-            selectedCategory === undefined
-              ? true
-              : // otherwise, check if the selected category is in the topics
-                e.topics.includes(selectedCategory),
-          )
-          .sort(
-            (a, b) =>
-              parseInt(b.stargazers_count) - parseInt(a.stargazers_count),
-          )
-          .map((repo) => (
-            <a
-              // Prefer to show internal guide but fallback to github url
-              href={repoToExampleGuideMapping[repo.name] || repo.html_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="col col--4"
-              style={{
-                marginBottom: 24,
-                color: "inherit",
-                textDecoration: "none",
-              }}
-              data-example={"example"} // Generic flag to capture all events
-              data-example-name={repo.name}
-              data-example-category={"feature-example"}
-              data-example-url={repo.html_url}
-              onClick={() => sendPosthogEvent(repo.name)}
-            >
-              <div
-                className="tw-card"
-                style={{
-                  padding: 0,
-                  paddingTop: 8,
-                  cursor: "pointer",
-                  height: "100%",
-                  width: "100%",
-                }}
-              >
-                <div
-                  className="card__header"
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
-                    justifyContent: "space-evenly",
-                    textAlign: "center",
-                    height: "100%",
-                    pointerEvents: "none",
-                    width: "100%",
-                  }}
-                >
-                  <img
-                    src={decideIcon(repo)}
-                    style={{ pointerEvents: "none", width: 48 }}
-                  />
-                  <div className="card__body" style={{ pointerEvents: "none" }}>
-                    <h3 style={{ fontWeight: 600, pointerEvents: "none" }}>
-                      {transformName(repo.name)}
-                    </h3>
+      {/* Getting Started ???  */}
 
-                    <code>{repo.name}</code>
-                  </div>
-                </div>
-              </div>
-            </a>
-          ))}
+      {/* Create Utility */}
+      <h3>Create Utility</h3>
+
+      <div className="row" style={{ marginBottom: 24 }}>
+        <TemplateCard
+          t={exampleRepos.filter((t) => t.name === "nft-gated-website")[0]}
+        />
+        <TemplateCard
+          t={exampleRepos.filter((t) => t.name === "nft-staking-app")[0]}
+        />
+        <TemplateCard
+          t={exampleRepos.filter((t) => t.name === "play-to-earn-game")[0]}
+        />
+        <TemplateCard
+          t={exampleRepos.filter((t) => t.name === "community-rewards")[0]}
+        />
       </div>
+
+      {/* Drop NFTs */}
+      <h3>Build Drops</h3>
+
+      <div className="row" style={{ marginBottom: 24 }}>
+        <TemplateCard
+          t={exampleRepos.filter((t) => t.name === "signature-drop")[0]}
+        />
+        <TemplateCard
+          t={exampleRepos.filter((t) => t.name === "nft-drop")[0]}
+        />
+        <TemplateCard
+          t={exampleRepos.filter((t) => t.name === "edition-drop")[0]}
+        />
+        <TemplateCard
+          t={exampleRepos.filter((t) => t.name === "token-drop")[0]}
+        />
+      </div>
+
+      {/* UI Components */}
+      <h3>Create Interfaces</h3>
+
+      <div className="row" style={{ marginBottom: 24 }}>
+        <TemplateCard
+          t={exampleRepos.filter((t) => t.name === "connect-wallet-button")[0]}
+        />
+        <TemplateCard
+          t={exampleRepos.filter((t) => t.name === "web3button")[0]}
+        />
+      </div>
+
+      {/* Login With Wallet */}
+      {/* Stripe */}
+      {/* Firebase */}
+
+      {/* Prebuilt Contracts */}
+
+      {/* All Templates */}
+      <h3>All Templates</h3>
+
+      <AllTemplatesContainer repos={exampleRepos} />
     </>
   );
 }
