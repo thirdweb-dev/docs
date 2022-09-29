@@ -3,6 +3,8 @@ slug: /solana/creating-programs
 title: Creating Programs
 ---
 
+import CodeSnippetWithSummary from "../../../src/components/CodeSnippetWithSummary";
+
 The SDK makes it easy to deploy new Solana programs with just a few lines of code.
 
 More specifically, you can deploy any of the following programs programmatically:
@@ -15,6 +17,16 @@ Let's take a look at how we can do this!
 
 ### Deploying an NFT Collection
 
+<CodeSnippetWithSummary
+  contract={"Deployer"}
+  name={"createNftCollection"}
+  isSolana
+/>
+
 ### Deploying a Token
 
+<CodeSnippetWithSummary contract={"Deployer"} name={"createToken"} isSolana />
+
 ### Deploying an NFT Drop
+
+<CodeSnippetWithSummary contract={"Deployer"} name={"createNftDrop"} isSolana />

@@ -1,0 +1,445 @@
+{
+  "Deployer": {
+    "name": "Deployer",
+    "summary": "Deploy new programs\n\n",
+    "remarks": null,
+    "examples": {
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\n// Instantiate the SDK and pass in a signer\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Define the metadata for your program\nconst metadata = {\n  name: \"NFT Contract\",\n  image: readFileSync(\"files/image.jpg\"),\n};\n\n// And deploy a new program from the connected wallet\nconst address = await sdk.deployer.createNftCollection(metadata);"
+    },
+    "methods": [
+      {
+        "name": "createNftCollection",
+        "summary": "Create a new NFT collection program\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const metadata = {\n  name: \"NFT\",\n  symbol: \"NFT\",\n};\n\nconst address = await sdk.deployer.createNftCollection(metadata);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.Deployer.createNftCollection"
+      },
+      {
+        "name": "createNftDrop",
+        "summary": "Create a new NFT drop program\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const metadata = {\n  name: \"NFT\",\n  symbol: \"NFT\",\n  price: 0,\n  sellerFeeBasisPoints: 0,\n  itemsAvailable: 5,\n};\n\nconst address = await sdk.deployer.createNftDrop(metadata);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.Deployer.createNftDrop"
+      },
+      {
+        "name": "createToken",
+        "summary": "Create a new token program\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const metadata = {\n  name: \"Token\",\n  symbol: \"TKN\",\n  initialSupply: 100,\n};\n\nconst address = await sdk.deployer.createToken(metadata);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.Deployer.createToken"
+      }
+    ],
+    "properties": [],
+    "reference": "https://portal.thirdweb.com/typescript/sdk.Deployer"
+  },
+  "NFTCollection": {
+    "name": "NFTCollection",
+    "summary": "A collection of associated NFTs\n\n",
+    "remarks": null,
+    "examples": {
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your NFT collection program\nconst program = await sdk.getNFTCollection(\"{{contract_address}}\");"
+    },
+    "methods": [
+      {
+        "name": "balance",
+        "summary": "Get the NFT balance of the connected wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const balance = await program.balance();"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.balance"
+      },
+      {
+        "name": "balanceOf",
+        "summary": "Get the NFT balance of the specified wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const walletAddress = \"...\"\nconst mintAddress = \"...\"\nconst balance = await program.balanceOf(walletAddress, mintAddress);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.balanceOf"
+      },
+      {
+        "name": "get",
+        "summary": "Get the metadata for a specific NFT\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const mintAddress = \"...\";\nconst nft = await program.get(mintAddress);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.get"
+      },
+      {
+        "name": "getAll",
+        "summary": "Get the metadata for all NFTs on this collection\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const nfts = await program.getAll();"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.getAll"
+      },
+      {
+        "name": "getAllNFTAddresses",
+        "summary": "Get the mint addresses for all NFTs on this collection\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const nfts = await program.getAllNFTAddresses();"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.getAllNFTAddresses"
+      },
+      {
+        "name": "getMetadata",
+        "summary": "Get the metadata for this program.\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const metadata = await program.getMetadata();\nconsole.log(metadata.name);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.getMetadata"
+      },
+      {
+        "name": "mint",
+        "summary": "Mint NFTs to the connected wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const metadata = {\n  name: \"NFT #1\",\n  image: readFileSync(\"files/image.jpg\"),\n}\nconst address = await program.mint(metadata);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.mint"
+      },
+      {
+        "name": "mintAdditionalSupply",
+        "summary": "Mint additional supply of an NFT to the connected wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const mintAddress = \"...\"\nconst address = await program.mintAdditionalSupply(mintAddress);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.mintAdditionalSupply"
+      },
+      {
+        "name": "mintAdditionalSupplyTo",
+        "summary": "Mint additional supply of an NFT to the specified wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const to = \"...\"\nconst mintAddress = \"...\"\nconst address = await program.mintAdditionalSupplyTo(to, mintAddress);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.mintAdditionalSupplyTo"
+      },
+      {
+        "name": "mintTo",
+        "summary": "Mint an NFT to the specified wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const to = \"...\"\nconst metadata = {\n  name: \"NFT #1\",\n  image: readFileSync(\"files/image.jpg\"),\n}\nconst address = await program.mintTo(to, metadata);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.mintTo"
+      },
+      {
+        "name": "supplyOf",
+        "summary": "Get the supply of NFT editions minted from a specific NFT\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const address = \"...\";\nconst supply = await program.supplyOf(addres);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.supplyOf"
+      },
+      {
+        "name": "transfer",
+        "summary": "Transfer the specified NFTs to another wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const to = \"...\";\nconst mintAddress = \"...\";\nconst tx = await program.transfer(to, mintAddress);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.transfer"
+      }
+    ],
+    "properties": [],
+    "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection"
+  },
+  "NFTDrop": {
+    "name": "NFTDrop",
+    "summary": "A collection of NFTs that can be lazy minted and claimed\n\n",
+    "remarks": null,
+    "examples": {
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your NFT collection program\nconst program = await sdk.getNFTCollection(\"{{contract_address}}\");"
+    },
+    "methods": [
+      {
+        "name": "balance",
+        "summary": "Get the NFT balance of the connected wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const balance = await program.balance();"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.balance"
+      },
+      {
+        "name": "balanceOf",
+        "summary": "Get the NFT balance of the specified wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const walletAddress = \"...\"\nconst mintAddress = \"...\"\nconst balance = await program.balanceOf(walletAddress, mintAddress);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.balanceOf"
+      },
+      {
+        "name": "claim",
+        "summary": "Claim an NFT from the drop with connected wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const claimedAddresses = await program.claim(1);\nconsole.log(\"Claimed NFT at address\", claimedAddresses[0]);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.claim"
+      },
+      {
+        "name": "claimTo",
+        "summary": "Claim an NFT from the drop for the specified wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const receiverAddress =  \"...\";\nconst claimedAddresses = await program.claimTo(receiverAddress, 1);\nconsole.log(\"Claimed NFT at address\", claimedAddresses[0]);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.claimTo"
+      },
+      {
+        "name": "get",
+        "summary": "Get the metadata for a specific NFT\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const mintAddress = \"...\";\nconst nft = await program.get(mintAddress);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.get"
+      },
+      {
+        "name": "getAll",
+        "summary": "Get the metadata for all NFTs on this drop\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const nfts = await program.getAll();"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.getAll"
+      },
+      {
+        "name": "getAllClaimed",
+        "summary": "Get the metadata for all the claimed NFTs on this drop\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const nfts = await program.getAllClaimed();"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.getAllClaimed"
+      },
+      {
+        "name": "getMetadata",
+        "summary": "Get the metadata for this program.\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const metadata = await program.getMetadata();\nconsole.log(metadata.name);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.getMetadata"
+      },
+      {
+        "name": "lazyMint",
+        "summary": "Lazy mint NFTs to be claimed later\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const metadatas = [\n  {\n    name: \"NFT #1\",\n    image: readFileSync(\"test/file.jpg\"),\n  }\n]\n\nconst tx = await program.lazyMint(metadatas);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.lazyMint"
+      },
+      {
+        "name": "totalClaimedSupply",
+        "summary": "Get the total claimed supply of this drop\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const supply = await program.totalClaimedSupply();"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.totalClaimedSupply"
+      },
+      {
+        "name": "totalUnclaimedSupply",
+        "summary": "Get the total unclaimed supply of this drop\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const supply = await program.totalUnclaimedSupply();"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.totalUnclaimedSupply"
+      },
+      {
+        "name": "transfer",
+        "summary": "Transfer the specified NFTs to another wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const to = \"...\";\nconst mintAddress = \"...\";\nconst tx = await program.transfer(to, mintAddress);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.transfer"
+      }
+    ],
+    "properties": [],
+    "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop"
+  },
+  "Program": {
+    "name": "Program",
+    "summary": "Dynamic interface for interacting with Solana programs.\n\n",
+    "remarks": null,
+    "examples": {
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your program\nconst program = await sdk.getProgram(\"{{contract_address}}\");"
+    },
+    "methods": [
+      {
+        "name": "call",
+        "summary": "Call a function on this program\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const counterAccount = Keypair.generate();\nawait program.call(\"increment\", {\n  accounts: {\n    counterAccount: counterAccount.publicKey.toBase58(),\n  },\n  data: [\"...\"],\n  signers: [counterAccount]\n})"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.Program.call"
+      }
+    ],
+    "properties": [],
+    "reference": "https://portal.thirdweb.com/typescript/sdk.Program"
+  },
+  "ThirdwebSDK": {
+    "name": "ThirdwebSDK",
+    "summary": "The main entry-point for the thirdweb Solana SDK.\n\n",
+    "remarks": null,
+    "examples": {
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\n// Create SDK on specified network, and then pass a signer\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\n// Signer can be a keypair or browser wallet adapter\nsdk.wallet.connect(signer);"
+    },
+    "methods": [],
+    "properties": [],
+    "reference": "https://portal.thirdweb.com/typescript/sdk.ThirdwebSDK"
+  },
+  "Token": {
+    "name": "Token",
+    "summary": "Standard token or cryptocurrency.\n\n",
+    "remarks": null,
+    "examples": {
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your token program\nconst program = await sdk.getToken(\"{{contract_address}}\");"
+    },
+    "methods": [
+      {
+        "name": "balance",
+        "summary": "Get the token balance of the connected wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const balance = await program.balance();\nconsole.log(balance.displayValue);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.Token.balance"
+      },
+      {
+        "name": "balanceOf",
+        "summary": "Get the token balance of the specified wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const address = \"...\"\nconst balance = await program.balanceOf(address);\nconsole.log(balance.displayValue);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.Token.balanceOf"
+      },
+      {
+        "name": "getMetadata",
+        "summary": "Get the metadata for this token including the name, supply, and decimals.\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const metadata = await program.getMetadata();\nconsole.log(metadata.supply);\nconsole.log(metadata.decimals);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.Token.getMetadata"
+      },
+      {
+        "name": "mint",
+        "summary": "Mints the specified amount of new tokens to the connected wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const tx = await program.mint(1);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.Token.mint"
+      },
+      {
+        "name": "mintTo",
+        "summary": "Mints the specified amount of new tokens to a specific wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const address = \"{{wallet_address}}\"\";\nconst tx = await program.mintTo(address, 1);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.Token.mintTo"
+      },
+      {
+        "name": "totalSupply",
+        "summary": "Get the total minted supply of this token\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const supply = await program.totalSupply();"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.Token.totalSupply"
+      },
+      {
+        "name": "transfer",
+        "summary": "Transfer the specified amount of tokens to another wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const to = \"...\";\nconst amount = 1;\nconst tx = await program.transfer(to, amount);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.Token.transfer"
+      }
+    ],
+    "properties": [],
+    "reference": "https://portal.thirdweb.com/typescript/sdk.Token"
+  },
+  "UserWallet": {
+    "name": "UserWallet",
+    "summary": "Handle and view info about the wallet connected to the SDK.\n\n",
+    "remarks": null,
+    "examples": {
+      "javascript": "// Connect a wallet to the SDK, pass in a keypair or browser wallet adapter\nsdk.wallet.connect(signer)\n\n// Then you can read data about the connected wallet\nconst address = sdk.wallet.getAddress();"
+    },
+    "methods": [
+      {
+        "name": "connect",
+        "summary": "Connect a signer to the SDK. Can pass in a keypair or browser wallet adapter\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const signer = Keypair.generate();\nsdk.wallet.connect(signer);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.UserWallet.connect"
+      },
+      {
+        "name": "disconnect",
+        "summary": "Disconnect the connect wallet from the SDK\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "sdk.wallet.disconnect();"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.UserWallet.disconnect"
+      },
+      {
+        "name": "getAddress",
+        "summary": "Get the address of the connected wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const address = sdk.wallet.getAddress()"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.UserWallet.getAddress"
+      },
+      {
+        "name": "getBalance",
+        "summary": "Get the native balance of the connected wallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const balance = await sdk.wallet.getBalance();\nconsole.log(balance.displayValue);"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.UserWallet.getBalance"
+      },
+      {
+        "name": "getSigner",
+        "summary": "Get the connected signer\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const signer = sdk.wallet.getSigner()"
+        },
+        "reference": "https://portal.thirdweb.com/typescript/sdk.UserWallet.getSigner"
+      }
+    ],
+    "properties": [],
+    "reference": "https://portal.thirdweb.com/typescript/sdk.UserWallet"
+  }
+}

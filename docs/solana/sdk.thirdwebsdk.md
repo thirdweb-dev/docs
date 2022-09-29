@@ -20,7 +20,7 @@ export declare class ThirdwebSDK
 ## Example
 
 ```jsx
-import { ThirdwebSDK } from "@thirdweb-dev/solana";
+import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 
 // Create SDK on specified network, and then pass a signer
 const sdk = ThirdwebSDK.fromNetwork("devnet");

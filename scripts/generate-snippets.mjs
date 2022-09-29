@@ -237,11 +237,20 @@ fs.writeFileSync(
   JSON.stringify(snippets, null, 2),
 );
 
+// snippets_solana
+fs.writeFileSync(
+  `${process.cwd()}/docs/snippets_solana.json`,
+  fs.readFileSync(
+    `${process.cwd()}/submodules/js/packages/sdk/docs/solana/snippets.json`,
+    "utf8",
+  ),
+);
+
 // feature_snippets_sdk
 fs.writeFileSync(
   `${process.cwd()}/docs/feature_snippets_sdk.json`,
   fs.readFileSync(
-    `${process.cwd()}/submodules/js/packages/sdk/docs/feature_snippets.json`,
+    `${process.cwd()}/submodules/js/packages/sdk/docs/evm/feature_snippets.json`,
     "utf8",
   ),
 );
