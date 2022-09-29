@@ -43,9 +43,9 @@ Once deployed, you can use the features made available by these contracts on the
 
 The `ContractMetadata` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                 | Type                    | Parameters | Returns | Description                                                                                                                             |
-| -------------------- | ----------------------- | ---------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| `_canSetContractURI` | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the metadata of the contract. Returns whether contract metadata can be set in the given execution context. |
+| Name                                                                    | Type                    | Parameters | Returns | Description                                                                                                                             |
+| ----------------------------------------------------------------------- | ----------------------- | ---------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSetContractURI`](/extensions/contractmetadata#_cansetcontracturi) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the metadata of the contract. Returns whether contract metadata can be set in the given execution context. |
 
 ```solidity
 // SPDX-License-Identifier: MIT
