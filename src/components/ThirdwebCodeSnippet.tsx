@@ -36,6 +36,10 @@ export default function ThirdwebCodeSnippet({
     return null;
   }
 
+  if (isSolana) {
+    groupId = "solana-snippet";
+  }
+
   const contractObject = isFeatureSnippet
     ? featureJsonData[contract]
     : isSolana
