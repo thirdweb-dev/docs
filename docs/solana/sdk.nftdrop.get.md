@@ -14,7 +14,7 @@ Get the metadata for a specific NFT
 **Signature:**
 
 ```typescript
-get(nftAddress: string): Promise<NFTMetadata>;
+get(nftAddress: string): Promise<NFTMetadata | undefined>;
 ```
 
 ## Parameters
@@ -25,7 +25,7 @@ get(nftAddress: string): Promise<NFTMetadata>;
 
 **Returns:**
 
-Promise&lt;[NFTMetadata](./sdk.nftmetadata.md)&gt;
+Promise&lt;[NFTMetadata](./sdk.nftmetadata.md) \| undefined&gt;
 
 the metadata of the NFT
 

@@ -14,13 +14,13 @@ Constructs a new instance of the `NFTCollection` class
 **Signature:**
 
 ```typescript
-constructor(collectionMintAddress: string, metaplex: Metaplex, storage: ThirdwebStorage);
+constructor(collectionAddress: string, metaplex: Metaplex, storage: ThirdwebStorage);
 ```
 
 ## Parameters
 
-| Parameter             | Type            | Description |
-| --------------------- | --------------- | ----------- |
-| collectionMintAddress | string          |             |
-| metaplex              | Metaplex        |             |
-| storage               | ThirdwebStorage |             |
+| Parameter         | Type            | Description |
+| ----------------- | --------------- | ----------- |
+| collectionAddress | string          |             |
+| metaplex          | Metaplex        |             |
+| storage           | ThirdwebStorage |             |

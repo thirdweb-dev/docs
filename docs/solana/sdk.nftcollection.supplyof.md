@@ -14,14 +14,14 @@ Get the supply of NFT editions minted from a specific NFT
 **Signature:**
 
 ```typescript
-supplyOf(mintAddress: string): Promise<bigint>;
+supplyOf(nftAddress: string): Promise<bigint>;
 ```
 
 ## Parameters
 
-| Parameter   | Type   | Description                                        |
-| ----------- | ------ | -------------------------------------------------- |
-| mintAddress | string | the mint address of the NFT to check the supply of |
+| Parameter  | Type   | Description                                        |
+| ---------- | ------ | -------------------------------------------------- |
+| nftAddress | string | the mint address of the NFT to check the supply of |
 
 **Returns:**
 

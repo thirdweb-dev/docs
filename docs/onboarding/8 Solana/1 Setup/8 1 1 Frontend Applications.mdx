@@ -1,11 +1,9 @@
 ---
-slug: /solana/set-up-the-sdk/frontend
+slug: /solana/setup/frontend
 title: Frontend Applications
 ---
 
 import QuickstartCard from "@components/QuickstartCard";
-
-# Building Frontend Applications
 
 You can build front-end applications by using our [React](/react) and [TypeScript](/typescript) SDKs!
 
@@ -13,9 +11,29 @@ Front-end applications are best-suited when you want users to connect their wall
 
 #### Learn by example with our [Live Demos](https://solana-hub.thirdweb-example.com/)
 
-- [Minting page for NFT drops](https://solana-hub.thirdweb-example.com/nft-drop)
-- [Mint and Display NFTs](https://solana-hub.thirdweb-example.com/nft-collection)
-- [Mint and Display Tokens](https://solana-hub.thirdweb-example.com/token)
+<div className="row" style={{ marginTop: 24 }}>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Claim an NFT Drop"
+      link="https://solana-hub.thirdweb-example.com/nft-drop"
+      image="/assets/icons/drop.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Mint & Display NFTs"
+      link="https://solana-hub.thirdweb-example.com/nft-collection"
+      image="/assets/icons/nft.png"
+    />
+  </div>
+  <div className="col col--4" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Mint & Display Tokens"
+      link="https://solana-hub.thirdweb-example.com/token"
+      image="/assets/icons/token.png"
+    />
+  </div>
+</div>
 
 ## Creating a new project
 
@@ -29,7 +47,7 @@ You're project is ready to start interacting with your programs, tokens and NFTs
 
 <QuickstartCard
   name="Continue to the Interact with Programs section"
-  link="/solana-sdk/interacting-with-programs"
+  link="/solana/programs"
   image="/assets/icons/education.png"
 />
 
@@ -69,7 +87,7 @@ This setup is compatible with the Solana Wallet Adapter library. You can use any
 
 <QuickstartCard
   name="Continue to the Interact with Programs section"
-  link="/solana-sdk/interacting-with-programs"
+  link="/solana/programs"
   image="/assets/icons/education.png"
 />
 
@@ -80,9 +98,6 @@ If you already have a connection and wallet setup using solana's web3js, you can
 ```jsx
 import { ThirdwebSDKProvider } from "@thirdweb-dev/react/solana";
 import { useConnection, useWallet } from "@solana/wallet-adapter-react";
-
-// This is the chainId your dApp will work on.
-const activeChainId = ChainId.Mainnet;
 
 export const MyApp({ Component, pageProps }) {
   // If you want to use any custom provider or signer, add it here.
@@ -99,6 +114,6 @@ export const MyApp({ Component, pageProps }) {
 
 <QuickstartCard
   name="Continue to the Interact with Programs section"
-  link="/solana-sdk/interacting-with-programs"
+  link="/solana/programs"
   image="/assets/icons/education.png"
 />

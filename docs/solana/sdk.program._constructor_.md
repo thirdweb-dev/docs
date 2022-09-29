@@ -14,13 +14,14 @@ Constructs a new instance of the `Program` class
 **Signature:**
 
 ```typescript
-constructor(programAddress: string, idl: Idl, provider?: AnchorProvider);
+constructor(programAddress: string, idl: Idl, connection: Connection, wallet: UserWallet);
 ```
 
 ## Parameters
 
-| Parameter      | Type           | Description       |
-| -------------- | -------------- | ----------------- |
-| programAddress | string         |                   |
-| idl            | Idl            |                   |
-| provider       | AnchorProvider | <i>(Optional)</i> |
+| Parameter      | Type                              | Description |
+| -------------- | --------------------------------- | ----------- |
+| programAddress | string                            |             |
+| idl            | Idl                               |             |
+| connection     | Connection                        |             |
+| wallet         | [UserWallet](./sdk.userwallet.md) |             |
