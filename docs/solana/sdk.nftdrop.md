@@ -20,7 +20,7 @@ export declare class NFTDrop
 ## Example
 
 ```jsx
-import { ThirdwebSDK } from "@thirdweb-dev/solana";
+import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 
 const sdk = ThirdwebSDK.fromNetwork("devnet");
 sdk.wallet.connect(signer);
