@@ -25,15 +25,17 @@ export declare class MarketplaceAuction
 
 ## Methods
 
-| Method                                                                        | Modifiers | Description                                 |
-| ----------------------------------------------------------------------------- | --------- | ------------------------------------------- |
-| [buyoutListing(listingId)](./sdk.marketplaceauction.buyoutlisting.md)         |           | Buyout Auction                              |
-| [cancelListing(listingId)](./sdk.marketplaceauction.cancellisting.md)         |           | Cancel Auction Listing                      |
-| [closeListing(listingId, closeFor)](./sdk.marketplaceauction.closelisting.md) |           | Close the Auction                           |
-| [createListing(listing)](./sdk.marketplaceauction.createlisting.md)           |           | Create Auction                              |
-| [getAddress()](./sdk.marketplaceauction.getaddress.md)                        |           |                                             |
-| [getListing(listingId)](./sdk.marketplaceauction.getlisting.md)               |           | Get an Auction listing by id                |
-| [getWinner(listingId)](./sdk.marketplaceauction.getwinner.md)                 |           | Get Auction Winner                          |
-| [getWinningBid(listingId)](./sdk.marketplaceauction.getwinningbid.md)         |           | Get Highest Bid                             |
-| [makeBid(listingId, pricePerToken)](./sdk.marketplaceauction.makebid.md)      |           | Bid On Auction                              |
-| [updateListing(listing)](./sdk.marketplaceauction.updatelisting.md)           |           | Update an Auction listing with new metadata |
+| Method                                                                        | Modifiers | Description                                                                 |
+| ----------------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------- |
+| [buyoutListing(listingId)](./sdk.marketplaceauction.buyoutlisting.md)         |           | Buyout Auction                                                              |
+| [cancelListing(listingId)](./sdk.marketplaceauction.cancellisting.md)         |           | Cancel Auction Listing                                                      |
+| [closeListing(listingId, closeFor)](./sdk.marketplaceauction.closelisting.md) |           | Close the Auction                                                           |
+| [createListing(listing)](./sdk.marketplaceauction.createlisting.md)           |           | Create Auction                                                              |
+| [getAddress()](./sdk.marketplaceauction.getaddress.md)                        |           |                                                                             |
+| [getBidBufferBps()](./sdk.marketplaceauction.getbidbufferbps.md)              |           | Get the buffer in basis points between offers                               |
+| [getListing(listingId)](./sdk.marketplaceauction.getlisting.md)               |           | Get an Auction listing by id                                                |
+| [getMinimumNextBid(listingId)](./sdk.marketplaceauction.getminimumnextbid.md) |           | returns the minimum bid a user can place to outbid the previous highest bid |
+| [getWinner(listingId)](./sdk.marketplaceauction.getwinner.md)                 |           | Get Auction Winner                                                          |
+| [getWinningBid(listingId)](./sdk.marketplaceauction.getwinningbid.md)         |           | Get Highest Bid                                                             |
+| [makeBid(listingId, pricePerToken)](./sdk.marketplaceauction.makebid.md)      |           | Bid On Auction                                                              |
+| [updateListing(listing)](./sdk.marketplaceauction.updatelisting.md)           |           | Update an Auction listing with new metadata                                 |

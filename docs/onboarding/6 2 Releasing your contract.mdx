@@ -44,7 +44,6 @@ These pages are accessible by anyone and allow users who visit them to:
 
 ![Release Page](./assets/release-page.png)
 
-
 ## Advanced Features
 
 ### Cheaper deploys using EIP-1967 Proxy contracts
@@ -58,7 +57,7 @@ Here's the step by step flow to create a release with proxy deploys enabled:
 1. Your contract needs to implement the [upgradeable pattern](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable), generally means it has an "initialize" function instead of a regular constructo
 2. Run `npx thirdweb release` from you project
 3. On the create release page, check "Deployable via proxy"
-4. This will reveal a new section, where you can deploy your implementations on any supported chain in one click. 
+4. This will reveal a new section, where you can deploy your implementations on any supported chain in one click.
 5. Deploy your implementations on your desired chains (addresses are saved automatically)
 6. Create your release
 

@@ -20,7 +20,7 @@ export declare class Program
 ## Example
 
 ```jsx
-import { ThirdwebSDK } from "@thirdweb-dev/solana";
+import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 
 const sdk = ThirdwebSDK.fromNetwork("devnet");
 sdk.wallet.connect(signer);
@@ -31,9 +31,17 @@ const program = await sdk.getProgram("{{contract_address}}");
 
 ## Constructors
 
-| Constructor                                                                    | Modifiers | Description                                                 |
-| ------------------------------------------------------------------------------ | --------- | ----------------------------------------------------------- |
-| [(constructor)(programAddress, idl, provider)](./sdk.program._constructor_.md) |           | Constructs a new instance of the <code>Program</code> class |
+| Constructor                                                                              | Modifiers | Description                                                 |
+| ---------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------- |
+| [(constructor)(programAddress, idl, connection, wallet)](./sdk.program._constructor_.md) |           | Constructs a new instance of the <code>Program</code> class |
+
+## Properties
+
+| Property                                    | Modifiers | Type      | Description |
+| ------------------------------------------- | --------- | --------- | ----------- |
+| [accountType](./sdk.program.accounttype.md) |           | "program" |             |
+| [network](./sdk.program.network.md)         |           | Cluster   |             |
+| [publicKey](./sdk.program.publickey.md)     |           | PublicKey |             |
 
 ## Methods
 
