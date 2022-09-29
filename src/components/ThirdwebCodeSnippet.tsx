@@ -1,5 +1,6 @@
 import React from "react";
 import jsonData from "../../docs/snippets.json";
+import solanaData from "../../docs/snippets_solana.json";
 import featureJsonData from "../../docs/feature_snippets.json";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
@@ -9,26 +10,40 @@ export default function ThirdwebCodeSnippet({
   contract,
   name,
   isFeatureSnippet = false,
+  isSolana = false,
   isGetContractCode = false,
   showHr = true,
   groupId = "thirdweb-code-snippet",
   languages = {},
   snippetOverrides,
 }) {
-  const languagesToShow = {
-    react: true,
-    javascript: true,
-    python: true,
-    go: true,
-    ...languages,
-  };
+  const languagesToShow = isSolana
+    ? {
+        react: false,
+        javascript: true,
+        python: false,
+        go: false,
+      }
+    : {
+        react: true,
+        javascript: true,
+        python: true,
+        go: true,
+        ...languages,
+      };
 
-  if (!contract || !name) {
+  if (!contract) {
     return null;
+  }
+
+  if (isSolana) {
+    groupId = "solana-snippet";
   }
 
   const contractObject = isFeatureSnippet
     ? featureJsonData[contract]
+    : isSolana
+    ? solanaData[contract]
     : jsonData[contract];
 
   if (!contractObject) {
@@ -67,6 +82,8 @@ export default function ThirdwebCodeSnippet({
     react: "jsx",
     go: "go",
   };
+
+  console.log(languagesToShow);
 
   return (
     <>

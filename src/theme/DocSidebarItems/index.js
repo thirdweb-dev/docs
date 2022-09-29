@@ -16,6 +16,7 @@ function DocSidebarItems({ items, ...props }) {
     "/release",
     "/deploy",
     "/templates",
+    "/cli",
   ];
   const checkIfShowCategoryPages = (item) => {
     // check if starts with
@@ -50,7 +51,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Build Apps",
-      items: ["SDK", "UI Components", "Auth"],
+      items: ["EVM SDK", "Solana SDK", "UI Components", "Auth", "Storage"],
     },
     {
       title: "Manage Projects",
@@ -58,7 +59,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "",
-      items: ["Templates", "Guides", "SDK References"],
+      items: ["CLI", "Templates", "Guides", "SDK References"],
     },
   ];
 
@@ -70,6 +71,7 @@ function DocSidebarItems({ items, ...props }) {
     Deploy: "deploy.png",
     Release: "release.png",
     SDK: "sdk.png",
+    Storage: "sdk.png",
   };
 
   const formatCategoryName = (name) => {

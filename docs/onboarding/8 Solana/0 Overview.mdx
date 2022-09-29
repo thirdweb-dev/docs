@@ -1,0 +1,113 @@
+---
+slug: /solana
+title: Overview
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+<div className="heroGrid" style={{ alignItems: "flex-start" }}>
+  <div style={{ width: "86%" }}>
+    <p style={{ marginTop: "8px" }}>
+      The Solana SDK lets you {" "}
+      <strong>build web and backend applications on Solana</strong> using
+      JavaScript, TypeScript, and React.
+    </p>
+    <p>
+      These tools enable you to easily build apps and scripts to:
+    </p>
+    <ul>
+      <li>Interact with any Solana program from any website or backend</li>
+      <li>Create your own tokens, NFTs, and drops</li>
+      <li>Interact with any existing tokens, NFTs, and drops</li>
+      <li>Make wallet actions like transfer, sign, and verify</li>
+    </ul>
+
+  </div>
+  <p style={{ marginTop: "-16px" }}>
+    <div className="col col--12">
+      <img
+        src="/assets/solana_tw.png"
+        alt="Solana SDK"
+        style={{ width: "400px" }}
+      />
+    </div>
+  </p>
+</div>
+
+```bash npm2yarn
+npm install @thirdweb-dev/sdk
+```
+
+## Getting Started
+
+The best way to learn the power of the what you can build with the Solana SDK is to get started building! If you want a good building based introduction to the SDK, continue to the Quickstart guide below:
+
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Quickstart"
+      link="/solana/quickstart"
+      description="A quick building-based introduction to the Solana SDK"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
+
+Alternatively, if you have something specific you want to build, you can checkout our application specific setup guides for **Frontend** and **Backend** applications.
+
+### Frontend Applications
+
+Using our React SDK, you can build full frontend applications integrated with Solana functionality. You can clone our ready-to-go React + Solana app template with the following command:
+
+```bash
+npx thirdweb create --template next-typescript-solana-starter
+```
+
+To learn more about building frontend applications with the Solana SDK, check the our setup guide:
+
+<div className="row">
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Frontend Setup"
+      link="/solana/setup/frontend"
+      description="A simple setup guide for building frontend apps using the Solana SDK with React"
+      image="/assets/languages/react.png"
+    />
+  </div>
+</div>
+
+### Backend Applications
+
+You can easily build backend applications and scripts with our Solana SDK. Check out this setup guide ot learn more:
+
+<div className="row">
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Backend & Scripting Setup"
+      link="/solana/setup/backend"
+      description="A simple setup guide for building backend apps and scripts with the Solana SDK"
+      image="/assets/languages/javascript.png"
+    />
+  </div>
+</div>
+
+## Learn More
+
+<div className="row" style={{ marginTop: 24 }}>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Usage Examples"
+      link="https://solana-hub.thirdweb-example.com/"
+      description="View full applications built with the Solana SDK at our Solana Hub"
+      image="/assets/icons/nft.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="API Reference"
+      link="https://portal.thirdweb.com/solana-sdk"
+      description="View the full API Reference for our TypeScript Solana SDK"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>

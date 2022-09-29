@@ -105,7 +105,7 @@ const config = {
       {
         id: "storage",
         path: "docs/storage",
-        routeBasePath: "storage",
+        routeBasePath: "storage-sdk",
         sidebarPath: require.resolve("./sidebars/storage.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
         // ... other options
@@ -116,7 +116,7 @@ const config = {
       {
         id: "solana",
         path: "docs/solana",
-        routeBasePath: "solana",
+        routeBasePath: "solana-sdk",
         sidebarPath: require.resolve("./sidebars/solana.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
         // ... other options

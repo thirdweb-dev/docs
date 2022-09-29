@@ -116,6 +116,7 @@ displayed_sidebar: typescript
 | [SplitRecipient](./sdk.splitrecipient.md)                                       | The SplitRecipient type represents a recipient of some royalty, indicated by their split percentage.     |
 | [SplitRecipientInput](./sdk.splitrecipientinput.md)                             |                                                                                                          |
 | [TokenContractDeployMetadata](./sdk.tokencontractdeploymetadata.md)             | Options for deploying a Token contract                                                                   |
+| [UnmappedOffer](./sdk.unmappedoffer.md)                                         |                                                                                                          |
 | [UploadProgressEvent](./sdk.uploadprogressevent.md)                             |                                                                                                          |
 | [UserWalletEvents](./sdk.userwalletevents.md)                                   | [UserWallet](./sdk.userwallet.md) events that you can subscribe to using <code>sdk.wallet.events</code>. |
 | [VoteContractDeployMetadata](./sdk.votecontractdeploymetadata.md)               | Options for deploying a Vote contract                                                                    |

@@ -17,19 +17,19 @@ export declare function getErcs(
 ): {
   erc1155:
     | Erc1155<
-        | import("@thirdweb-dev/sdk/dist/declarations/src/types/eips").BaseERC1155
-        | import("@thirdweb-dev/sdk/dist/declarations/src/types/eips").BaseSignatureMintERC1155
+        | import("@thirdweb-dev/sdk/dist/declarations/src/evm/types/eips").BaseERC1155
+        | import("@thirdweb-dev/sdk/dist/declarations/src/evm/types/eips").BaseSignatureMintERC1155
       >
     | undefined;
   erc721:
     | Erc721<
-        import("@thirdweb-dev/sdk/dist/declarations/src/types/eips").BaseERC721
+        import("@thirdweb-dev/sdk/dist/declarations/src/evm/types/eips").BaseERC721
       >
     | undefined;
   erc20:
     | Erc20<
-        | import("@thirdweb-dev/sdk/dist/declarations/src/types/eips").BaseERC20
-        | import("@thirdweb-dev/sdk/dist/declarations/src/types/eips").BaseSignatureMintERC20
+        | import("@thirdweb-dev/sdk/dist/declarations/src/evm/types/eips").BaseERC20
+        | import("@thirdweb-dev/sdk/dist/declarations/src/evm/types/eips").BaseSignatureMintERC20
       >
     | undefined;
 };
@@ -43,4 +43,4 @@ export declare function getErcs(
 
 **Returns:**
 
-{ erc1155: Erc1155&lt;import("@thirdweb-dev/sdk/dist/declarations/src/types/eips").BaseERC1155 \| import("@thirdweb-dev/sdk/dist/declarations/src/types/eips").BaseSignatureMintERC1155&gt; \| undefined; erc721: Erc721&lt;import("@thirdweb-dev/sdk/dist/declarations/src/types/eips").BaseERC721&gt; \| undefined; erc20: Erc20&lt;import("@thirdweb-dev/sdk/dist/declarations/src/types/eips").BaseERC20 \| import("@thirdweb-dev/sdk/dist/declarations/src/types/eips").BaseSignatureMintERC20&gt; \| undefined; }
+{ erc1155: Erc1155&lt;import("@thirdweb-dev/sdk/dist/declarations/src/evm/types/eips").BaseERC1155 \| import("@thirdweb-dev/sdk/dist/declarations/src/evm/types/eips").BaseSignatureMintERC1155&gt; \| undefined; erc721: Erc721&lt;import("@thirdweb-dev/sdk/dist/declarations/src/evm/types/eips").BaseERC721&gt; \| undefined; erc20: Erc20&lt;import("@thirdweb-dev/sdk/dist/declarations/src/evm/types/eips").BaseERC20 \| import("@thirdweb-dev/sdk/dist/declarations/src/evm/types/eips").BaseSignatureMintERC20&gt; \| undefined; }

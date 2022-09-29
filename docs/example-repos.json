@@ -4,26 +4,34 @@
     "html_url": "https://github.com/thirdweb-example/artblocks",
     "description": "Create Generative Art NFTs with centralized metadata using the Contracts SDK",
     "created_at": "2022-08-23T02:16:31Z",
-    "updated_at": "2022-09-01T04:46:13Z",
+    "updated_at": "2022-09-29T01:23:41Z",
     "clone_url": "https://github.com/thirdweb-example/artblocks.git",
-    "topics": [],
+    "topics": [
+      "contract-kit",
+      "extensions"
+    ],
     "language": "JavaScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
   },
   {
     "name": "burn1155-mint721",
     "html_url": "https://github.com/thirdweb-example/burn1155-mint721",
     "description": "Similar to the MAYC collection, allow users who hold an NFT from your original NFT Collection to burn an ERC-1155 NFT collection to claim an NFT from your new NFT Collection!",
     "created_at": "2022-09-12T11:18:00Z",
-    "updated_at": "2022-09-23T23:28:14Z",
+    "updated_at": "2022-09-29T01:19:49Z",
     "clone_url": "https://github.com/thirdweb-example/burn1155-mint721.git",
-    "topics": [],
+    "topics": [
+      "contract-kit",
+      "erc1155",
+      "erc721",
+      "extensions"
+    ],
     "language": "CSS",
     "stargazers_count": 5,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
   },
   {
     "name": "community-rewards",
@@ -46,30 +54,26 @@
     "html_url": "https://github.com/thirdweb-example/connect-wallet-button",
     "description": "Learn how to use the ConnectWallet Button component from the React SDK!",
     "created_at": "2022-08-23T04:29:36Z",
-    "updated_at": "2022-08-26T22:25:59Z",
+    "updated_at": "2022-09-29T01:23:28Z",
     "clone_url": "https://github.com/thirdweb-example/connect-wallet-button.git",
-    "topics": [],
+    "topics": [
+      "ui-components"
+    ],
     "language": "JavaScript",
     "stargazers_count": 1,
     "is_template": false,
-    "homepage": "connect-wallet-button-kappa.vercel.app"
+    "homepage": "https://connectwallet.thirdweb-example.com/"
   },
   {
     "name": "contract-hub",
     "html_url": "https://github.com/thirdweb-example/contract-hub",
     "description": "Demonstration of all thirdweb's pre-built contracts with TypeScript + Getting started snippets",
     "created_at": "2022-05-03T10:20:11Z",
-    "updated_at": "2022-08-30T13:15:33Z",
+    "updated_at": "2022-09-29T06:54:59Z",
     "clone_url": "https://github.com/thirdweb-example/contract-hub.git",
     "topics": [
-      "edition",
-      "edition-drop",
-      "marketplace",
-      "nextjs",
-      "nft-collection",
-      "nft-drop",
-      "token",
-      "typescript"
+      "demo",
+      "thirdweb"
     ],
     "language": "TypeScript",
     "stargazers_count": 8,
@@ -81,9 +85,11 @@
     "html_url": "https://github.com/thirdweb-example/contracts-sdk-with-extensions",
     "description": "Build your own NFT Collection with Solidity using thirdweb deploy and the thirdweb SDK",
     "created_at": "2022-06-16T01:35:06Z",
-    "updated_at": "2022-08-22T00:03:21Z",
+    "updated_at": "2022-09-29T01:22:59Z",
     "clone_url": "https://github.com/thirdweb-example/contracts-sdk-with-extensions.git",
     "topics": [
+      "contract-kit",
+      "extensions",
       "thirdweb-deploy"
     ],
     "language": "JavaScript",
@@ -92,28 +98,15 @@
     "homepage": ""
   },
   {
-    "name": "contracts-sdk-with-web3-sdk",
-    "html_url": "https://github.com/thirdweb-example/contracts-sdk-with-web3-sdk",
-    "description": "Build an application on top of a custom contract using the thirdweb SDK",
-    "created_at": "2022-06-15T06:28:28Z",
-    "updated_at": "2022-08-22T00:03:04Z",
-    "clone_url": "https://github.com/thirdweb-example/contracts-sdk-with-web3-sdk.git",
-    "topics": [
-      "thirdweb-deploy"
-    ],
-    "language": "JavaScript",
-    "stargazers_count": 1,
-    "is_template": false,
-    "homepage": ""
-  },
-  {
     "name": "covalent",
     "html_url": "https://github.com/thirdweb-example/covalent",
     "description": "Load the tokens a wallet owns using the covalent API",
     "created_at": "2022-07-07T07:04:15Z",
-    "updated_at": "2022-08-07T11:25:51Z",
+    "updated_at": "2022-09-29T01:31:51Z",
     "clone_url": "https://github.com/thirdweb-example/covalent.git",
-    "topics": [],
+    "topics": [
+      "wallets"
+    ],
     "language": "JavaScript",
     "stargazers_count": 1,
     "is_template": false,
@@ -141,14 +134,14 @@
     "html_url": "https://github.com/thirdweb-example/cra-typescript-starter",
     "description": "thirdweb starter project with Create React App & TypeScript",
     "created_at": "2022-03-17T23:44:42Z",
-    "updated_at": "2022-08-29T02:48:04Z",
+    "updated_at": "2022-09-28T05:00:41Z",
     "clone_url": "https://github.com/thirdweb-example/cra-typescript-starter.git",
     "topics": [
       "react",
       "starter-kit",
       "typescript"
     ],
-    "language": "HTML",
+    "language": "TypeScript",
     "stargazers_count": 4,
     "is_template": true,
     "homepage": "https://cra-typescript-starter.thirdweb-example.com"
@@ -158,23 +151,28 @@
     "html_url": "https://github.com/thirdweb-example/creator-platform",
     "description": "Authenticate users into a web2 database to build a hybrid web2+web3 creator platform!",
     "created_at": "2022-09-23T01:22:38Z",
-    "updated_at": "2022-09-26T05:10:08Z",
+    "updated_at": "2022-09-29T01:15:28Z",
     "clone_url": "https://github.com/thirdweb-example/creator-platform.git",
-    "topics": [],
+    "topics": [
+      "auth",
+      "prisma",
+      "web2"
+    ],
     "language": "TypeScript",
     "stargazers_count": 2,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
   },
   {
     "name": "custom-dashboard",
     "html_url": "https://github.com/thirdweb-example/custom-dashboard",
     "description": "Use thirdweb's sdk.deployer to deploy any pre-built contract dynamically with no private keys!",
     "created_at": "2022-05-11T05:41:53Z",
-    "updated_at": "2022-08-24T05:32:20Z",
+    "updated_at": "2022-09-29T01:22:48Z",
     "clone_url": "https://github.com/thirdweb-example/custom-dashboard.git",
     "topics": [
       "contracts",
+      "sdk",
       "sdk-deployer"
     ],
     "language": "TypeScript",
@@ -204,9 +202,10 @@
     "html_url": "https://github.com/thirdweb-example/discord-role-granter",
     "description": "Grant users who own NFTs a role in your Discord server!",
     "created_at": "2022-07-22T03:52:48Z",
-    "updated_at": "2022-09-19T06:21:15Z",
+    "updated_at": "2022-09-29T01:24:38Z",
     "clone_url": "https://github.com/thirdweb-example/discord-role-granter.git",
     "topics": [
+      "auth",
       "authentication",
       "wallet-connection"
     ],
@@ -235,9 +234,11 @@
     "html_url": "https://github.com/thirdweb-example/filebase-metadata",
     "description": "Use Filebase to upload your metadata and thirdweb to mint NFTs with that metadata!",
     "created_at": "2022-06-20T23:31:31Z",
-    "updated_at": "2022-07-06T04:36:58Z",
+    "updated_at": "2022-09-29T01:37:44Z",
     "clone_url": "https://github.com/thirdweb-example/filebase-metadata.git",
     "topics": [
+      "filebase",
+      "metadata",
       "nft-collection"
     ],
     "language": "JavaScript",
@@ -250,10 +251,12 @@
     "html_url": "https://github.com/thirdweb-example/firebase-auth",
     "description": "Integrate sign in with Ethereum using thirdweb Auth into your Firebase application",
     "created_at": "2022-09-09T03:34:01Z",
-    "updated_at": "2022-09-24T14:41:06Z",
+    "updated_at": "2022-09-29T01:15:08Z",
     "clone_url": "https://github.com/thirdweb-example/firebase-auth.git",
     "topics": [
-      "auth"
+      "auth",
+      "firebase",
+      "web2"
     ],
     "language": "TypeScript",
     "stargazers_count": 4,
@@ -265,61 +268,97 @@
     "html_url": "https://github.com/thirdweb-example/forge-starter",
     "description": "thirdweb contracts starter project for Forge",
     "created_at": "2022-08-02T21:35:35Z",
-    "updated_at": "2022-08-03T02:45:31Z",
+    "updated_at": "2022-09-29T01:29:55Z",
     "clone_url": "https://github.com/thirdweb-example/forge-starter.git",
-    "topics": [],
+    "topics": [
+      "forge",
+      "solidity",
+      "starter-kit"
+    ],
     "language": "Solidity",
     "stargazers_count": 1,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
+  },
+  {
+    "name": "full-stack-web3-app",
+    "html_url": "https://github.com/thirdweb-example/full-stack-web3-app",
+    "description": "Build an application on top of a custom contract using the thirdweb SDK",
+    "created_at": "2022-06-15T06:28:28Z",
+    "updated_at": "2022-09-29T06:47:10Z",
+    "clone_url": "https://github.com/thirdweb-example/full-stack-web3-app.git",
+    "topics": [
+      "contract-kit",
+      "extensions",
+      "thirdweb-deploy"
+    ],
+    "language": "JavaScript",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": ""
   },
   {
     "name": "getting-started",
     "html_url": "https://github.com/thirdweb-example/getting-started",
     "description": "Get started with thirdweb by building and deploying a full project including a smart contract and react application.",
     "created_at": "2022-09-15T05:36:12Z",
-    "updated_at": "2022-09-15T05:48:20Z",
+    "updated_at": "2022-09-29T06:38:49Z",
     "clone_url": "https://github.com/thirdweb-example/getting-started.git",
-    "topics": [],
+    "topics": [
+      "contract-kit",
+      "extensions",
+      "ui-components"
+    ],
     "language": "JavaScript",
     "stargazers_count": 0,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
   },
   {
     "name": "github-contributor-nft-rewards",
     "html_url": "https://github.com/thirdweb-example/github-contributor-nft-rewards",
     "description": "Use signature-based minting to allow users who have contributed to your github repositories to claim an NFT!",
     "created_at": "2022-08-29T23:19:26Z",
-    "updated_at": "2022-09-14T19:43:10Z",
+    "updated_at": "2022-09-29T01:24:27Z",
     "clone_url": "https://github.com/thirdweb-example/github-contributor-nft-rewards.git",
-    "topics": [],
+    "topics": [
+      "auth",
+      "signature-based-minting"
+    ],
     "language": "TypeScript",
     "stargazers_count": 6,
     "is_template": false,
-    "homepage": "github-contributor-nft-rewards.vercel.app"
+    "homepage": "https://github-contributor-nft-rewards.thirdweb-example.com/"
   },
   {
     "name": "hardhat-javascript-starter",
     "html_url": "https://github.com/thirdweb-example/hardhat-javascript-starter",
     "description": "thirdweb contracts starter project for Hardhat & TypeScript",
     "created_at": "2022-07-29T02:19:53Z",
-    "updated_at": "2022-08-23T19:48:15Z",
+    "updated_at": "2022-09-29T01:30:17Z",
     "clone_url": "https://github.com/thirdweb-example/hardhat-javascript-starter.git",
-    "topics": [],
+    "topics": [
+      "hardhat",
+      "solidity",
+      "starter-kit"
+    ],
     "language": "JavaScript",
     "stargazers_count": 2,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
   },
   {
     "name": "hardhat-typescript-starter",
     "html_url": "https://github.com/thirdweb-example/hardhat-typescript-starter",
     "description": "thirdweb contracts starter project for Hardhat & TypeScript",
     "created_at": "2022-07-29T01:58:49Z",
-    "updated_at": "2022-08-24T05:31:26Z",
+    "updated_at": "2022-09-29T01:32:03Z",
     "clone_url": "https://github.com/thirdweb-example/hardhat-typescript-starter.git",
-    "topics": [],
+    "topics": [
+      "hardhat",
+      "solidity",
+      "starter-kit"
+    ],
     "language": "TypeScript",
     "stargazers_count": 2,
     "is_template": false,
@@ -328,11 +367,12 @@
   {
     "name": "login-with-wallet",
     "html_url": "https://github.com/thirdweb-example/login-with-wallet",
-    "description": "Authenticate to a backend using a wallet",
+    "description": "Authenticate to a backend using the sign in with ethereum standard provided by thirdweb auth",
     "created_at": "2022-06-03T16:04:25Z",
-    "updated_at": "2022-08-25T18:13:31Z",
+    "updated_at": "2022-09-29T01:31:19Z",
     "clone_url": "https://github.com/thirdweb-example/login-with-wallet.git",
     "topics": [
+      "auth",
       "wallet-connection"
     ],
     "language": "TypeScript",
@@ -360,23 +400,25 @@
   {
     "name": "makeswift",
     "html_url": "https://github.com/thirdweb-example/makeswift",
-    "description": null,
+    "description": "Use Makeswift to build a web3 application using a drag-and-drop web builder",
     "created_at": "2022-07-25T21:35:43Z",
-    "updated_at": "2022-09-12T17:53:41Z",
+    "updated_at": "2022-09-29T01:31:00Z",
     "clone_url": "https://github.com/thirdweb-example/makeswift.git",
-    "topics": [],
+    "topics": [
+      "no-code"
+    ],
     "language": "TypeScript",
     "stargazers_count": 2,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
   },
   {
-    "name": "marketplace-next-ts",
-    "html_url": "https://github.com/thirdweb-example/marketplace-next-ts",
+    "name": "marketplace",
+    "html_url": "https://github.com/thirdweb-example/marketplace",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2022-09-23T11:20:10Z",
-    "clone_url": "https://github.com/thirdweb-example/marketplace-next-ts.git",
+    "updated_at": "2022-09-29T06:40:57Z",
+    "clone_url": "https://github.com/thirdweb-example/marketplace.git",
     "topics": [
       "marketplace",
       "nextjs",
@@ -422,7 +464,7 @@
     "html_url": "https://github.com/thirdweb-example/next-javascript-starter",
     "description": "thirdweb starter project with Next.js & JavaScript",
     "created_at": "2022-03-17T23:05:32Z",
-    "updated_at": "2022-09-24T19:17:57Z",
+    "updated_at": "2022-09-28T04:37:25Z",
     "clone_url": "https://github.com/thirdweb-example/next-javascript-starter.git",
     "topics": [
       "javascript",
@@ -430,7 +472,7 @@
       "react",
       "starter-kit"
     ],
-    "language": "JavaScript",
+    "language": "CSS",
     "stargazers_count": 16,
     "is_template": true,
     "homepage": "https://next-javascript-starter.thirdweb-example.com"
@@ -440,20 +482,22 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-solana-starter",
     "description": "Starter Kit for Next.js + TypeScript",
     "created_at": "2022-09-20T06:27:03Z",
-    "updated_at": "2022-09-23T23:28:20Z",
+    "updated_at": "2022-09-29T01:14:41Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-solana-starter.git",
-    "topics": [],
+    "topics": [
+      "solana"
+    ],
     "language": "TypeScript",
     "stargazers_count": 1,
     "is_template": false,
-    "homepage": "next-ts-solana-starter.vercel.app"
+    "homepage": "https://next-ts-solana-starter.thirdweb-example.com/"
   },
   {
     "name": "next-typescript-starter",
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2022-09-25T10:36:41Z",
+    "updated_at": "2022-09-28T20:22:46Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -465,8 +509,8 @@
       "web3-react",
       "web3js"
     ],
-    "language": "TypeScript",
-    "stargazers_count": 23,
+    "language": "CSS",
+    "stargazers_count": 24,
     "is_template": true,
     "homepage": "https://next-typescript-starter.thirdweb-example.com"
   },
@@ -475,13 +519,13 @@
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2022-09-27T02:27:33Z",
+    "updated_at": "2022-09-29T05:57:23Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 42,
+    "stargazers_count": 44,
     "is_template": false,
     "homepage": "https://custom-minting-page.thirdweb-example.com"
   },
@@ -490,9 +534,10 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-09-27T08:48:39Z",
+    "updated_at": "2022-09-29T01:21:33Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
+      "auth",
       "authentication",
       "edition-drop",
       "javascript",
@@ -509,15 +554,20 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-09-27T01:51:36Z",
+    "updated_at": "2022-09-29T06:54:40Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
-      "nft-drop",
-      "thirdweb-deploy",
-      "token"
+      "contract-kit",
+      "erc20",
+      "erc721",
+      "ethereum",
+      "nft-staking",
+      "solidity",
+      "staking",
+      "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 47,
+    "stargazers_count": 49,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -541,13 +591,18 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2022-09-06T08:13:05Z",
+    "updated_at": "2022-09-29T02:26:45Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [
+      "contract-kit",
+      "erc1155",
+      "erc20",
+      "erc721",
+      "extensions",
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 16,
+    "stargazers_count": 17,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },
@@ -617,24 +672,31 @@
   {
     "name": "solana-token-deploy",
     "html_url": "https://github.com/thirdweb-example/solana-token-deploy",
-    "description": null,
+    "description": "Deploy a token program using the TypeScript SDK",
     "created_at": "2022-09-27T08:25:47Z",
-    "updated_at": "2022-09-27T10:35:32Z",
+    "updated_at": "2022-09-29T01:12:08Z",
     "clone_url": "https://github.com/thirdweb-example/solana-token-deploy.git",
-    "topics": [],
+    "topics": [
+      "solana"
+    ],
     "language": "JavaScript",
     "stargazers_count": 0,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
   },
   {
     "name": "solidity-hello-world",
     "html_url": "https://github.com/thirdweb-example/solidity-hello-world",
-    "description": null,
+    "description": "Build and deploy a simple hello world smart contract using our contract kit!",
     "created_at": "2022-06-15T00:12:56Z",
-    "updated_at": "2022-08-22T00:02:30Z",
+    "updated_at": "2022-09-29T01:33:09Z",
     "clone_url": "https://github.com/thirdweb-example/solidity-hello-world.git",
     "topics": [
+      "blockchain",
+      "contract-kit",
+      "ethereum",
+      "extensions",
+      "solidity",
       "thirdweb-deploy"
     ],
     "language": "JavaScript",
@@ -647,9 +709,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-express",
     "description": "Enable wallet-based login with thirdweb Auth & Express",
     "created_at": "2022-08-19T15:40:00Z",
-    "updated_at": "2022-08-30T21:44:30Z",
+    "updated_at": "2022-09-29T01:26:31Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-express.git",
-    "topics": [],
+    "topics": [
+      "auth"
+    ],
     "language": "TypeScript",
     "stargazers_count": 1,
     "is_template": false,
@@ -660,9 +724,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-fiber",
     "description": "Enable wallet-based login with thirdweb Auth & Fiber",
     "created_at": "2022-08-30T00:08:03Z",
-    "updated_at": "2022-08-31T07:47:54Z",
+    "updated_at": "2022-09-29T01:26:37Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-fiber.git",
-    "topics": [],
+    "topics": [
+      "auth"
+    ],
     "language": "TypeScript",
     "stargazers_count": 1,
     "is_template": false,
@@ -673,9 +739,13 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-flask",
     "description": "Enable wallet-based login with thirdweb Auth & Flask",
     "created_at": "2022-08-30T00:17:55Z",
-    "updated_at": "2022-09-16T02:59:20Z",
+    "updated_at": "2022-09-29T01:26:46Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-flask.git",
-    "topics": [],
+    "topics": [
+      "auth",
+      "flask",
+      "python"
+    ],
     "language": "TypeScript",
     "stargazers_count": 1,
     "is_template": false,
@@ -686,9 +756,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-next",
     "description": "Enable wallet-based login with thirdweb Auth & Next",
     "created_at": "2022-08-18T20:13:40Z",
-    "updated_at": "2022-09-19T05:25:41Z",
+    "updated_at": "2022-09-29T01:26:54Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-next.git",
-    "topics": [],
+    "topics": [
+      "auth"
+    ],
     "language": "TypeScript",
     "stargazers_count": 1,
     "is_template": false,
@@ -699,76 +771,78 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-next-auth",
     "description": "Enable wallet-based login with thirdweb Auth & Next Auth",
     "created_at": "2022-08-30T21:44:52Z",
-    "updated_at": "2022-08-31T07:47:42Z",
+    "updated_at": "2022-09-29T01:27:04Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-next-auth.git",
-    "topics": [],
+    "topics": [
+      "auth",
+      "nextauth"
+    ],
     "language": "TypeScript",
     "stargazers_count": 1,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
   },
   {
     "name": "thirdweb-auth-postgres",
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-postgres",
     "description": "Enable users to login to your backend with their wallet, and store users in postgres",
     "created_at": "2022-09-07T20:07:34Z",
-    "updated_at": "2022-09-18T15:46:05Z",
+    "updated_at": "2022-09-29T01:27:13Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-postgres.git",
-    "topics": [],
+    "topics": [
+      "auth",
+      "postgres",
+      "web2"
+    ],
     "language": "TypeScript",
     "stargazers_count": 1,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
   },
   {
     "name": "thirdweb-auth-supabase",
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-supabase",
     "description": "Enable users to login to your backend with their wallet, and store users in supabase. ",
     "created_at": "2022-08-19T19:02:16Z",
-    "updated_at": "2022-09-20T04:02:50Z",
+    "updated_at": "2022-09-29T01:27:21Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-supabase.git",
-    "topics": [],
+    "topics": [
+      "auth",
+      "supabase",
+      "web2"
+    ],
     "language": "TypeScript",
     "stargazers_count": 3,
     "is_template": false,
-    "homepage": null
-  },
-  {
-    "name": "thirdweb-deploy-hello-world",
-    "html_url": "https://github.com/thirdweb-example/thirdweb-deploy-hello-world",
-    "description": "A starter project for using thirdweb deploy with the thirdweb SDKs",
-    "created_at": "2022-06-03T00:54:26Z",
-    "updated_at": "2022-06-30T15:08:03Z",
-    "clone_url": "https://github.com/thirdweb-example/thirdweb-deploy-hello-world.git",
-    "topics": [
-      "thirdweb-deploy"
-    ],
-    "language": "JavaScript",
-    "stargazers_count": 2,
-    "is_template": false,
-    "homepage": "https://thirdweb-deploy-hello-world.thirdweb-example.com"
+    "homepage": ""
   },
   {
     "name": "thirdweb-stripe",
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2022-09-21T00:52:39Z",
+    "updated_at": "2022-09-29T01:23:50Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
-    "topics": [],
+    "topics": [
+      "auth",
+      "stripe"
+    ],
     "language": "TypeScript",
     "stargazers_count": 22,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
   },
   {
     "name": "todo-list",
     "html_url": "https://github.com/thirdweb-example/todo-list",
     "description": "Build a simple todo list by building and interacting with a smart contract!",
     "created_at": "2022-09-12T01:57:30Z",
-    "updated_at": "2022-09-12T07:17:38Z",
+    "updated_at": "2022-09-29T01:19:40Z",
     "clone_url": "https://github.com/thirdweb-example/todo-list.git",
-    "topics": [],
+    "topics": [
+      "contract-kit",
+      "extensions"
+    ],
     "language": "TypeScript",
     "stargazers_count": 1,
     "is_template": false,
@@ -813,7 +887,7 @@
     "html_url": "https://github.com/thirdweb-example/vite-typescript-starter",
     "description": "thirdweb starter project with Vite & TypeScript",
     "created_at": "2022-03-18T00:47:03Z",
-    "updated_at": "2022-08-31T15:13:33Z",
+    "updated_at": "2022-09-28T05:19:20Z",
     "clone_url": "https://github.com/thirdweb-example/vite-typescript-starter.git",
     "topics": [
       "react",
@@ -822,7 +896,7 @@
       "typescript",
       "vite"
     ],
-    "language": "TypeScript",
+    "language": "CSS",
     "stargazers_count": 3,
     "is_template": true,
     "homepage": "https://vite-typescript-starter.thirdweb-example.com"
@@ -841,18 +915,5 @@
     "stargazers_count": 9,
     "is_template": false,
     "homepage": "https://web3button.thirdweb-example.com/"
-  },
-  {
-    "name": "web3sf-demo",
-    "html_url": "https://github.com/thirdweb-example/web3sf-demo",
-    "description": "Demo project used in web3sf",
-    "created_at": "2022-08-27T06:40:44Z",
-    "updated_at": "2022-08-27T19:23:52Z",
-    "clone_url": "https://github.com/thirdweb-example/web3sf-demo.git",
-    "topics": [],
-    "language": "TypeScript",
-    "stargazers_count": 1,
-    "is_template": false,
-    "homepage": "web3sf-demo.vercel.app"
   }
 ]

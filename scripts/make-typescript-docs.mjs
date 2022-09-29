@@ -9,7 +9,7 @@ const { readdir, createReadStream, writeFile, readFile } = pkg;
 
 const outDir = "./docs/typescript";
 const packageRoot = "./submodules/js/packages/sdk";
-const inDir = packageRoot + "/docs";
+const inDir = packageRoot + "/docs/evm";
 const readmePath = packageRoot + "/README.md";
 const migrationGuidePath = packageRoot + "/MIGRATION_GUIDE.md";
 
