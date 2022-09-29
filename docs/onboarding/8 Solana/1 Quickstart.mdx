@@ -125,20 +125,16 @@ import { useSDK } from "@thirdweb-dev/react/solana";
 
 export default function NFTDrop() {
   const wallet = useWallet();
-  const sdk = useSDK();
-
-  const claimNft = async () => {
-    const contract = await sdk?.getNFTDrop(
-      "B62y5Gazcjt9mFMeWXVSYexGjvX6TbbKz3htnf9oTapR",
-    );
-    const tx = await contract?.claim();
-    console.log(tx);
-  };
+  const program = useProgram("your_nft_drop_address", "nft-drop");
+  const claim = useClaimNFT(program.data);
+  const quantityToClaim = 1;
 
   return (
     <div>
       {wallet.connected ? (
-        <button onClick={claimNft}>Claim NFT</button>
+        <button onClick={() => claim.mutate(quantityToClaim)}>
+          {claim.isLoading ? "Claiming..." : "Claim NFT"}
+        </button>
       ) : (
         <WalletMultiButton />
       )}
