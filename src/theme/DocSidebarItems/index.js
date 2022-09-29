@@ -16,6 +16,7 @@ function DocSidebarItems({ items, ...props }) {
     "/release",
     "/deploy",
     "/templates",
+    "/cli",
   ];
   const checkIfShowCategoryPages = (item) => {
     // check if starts with
@@ -58,7 +59,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "",
-      items: ["Templates", "Guides", "SDK References"],
+      items: ["CLI", "Templates", "Guides", "SDK References"],
     },
   ];
 

@@ -37,11 +37,11 @@ const program = await sdk.getNFTCollection("{{contract_address}}");
 
 ## Properties
 
-| Property                                          | Modifiers             | Type             | Description |
-| ------------------------------------------------- | --------------------- | ---------------- | ----------- |
-| [accountType](./sdk.nftcollection.accounttype.md) |                       | "nft-collection" |             |
-| [network](./sdk.nftcollection.network.md)         | <code>readonly</code> | Cluster          |             |
-| [publicKey](./sdk.nftcollection.publickey.md)     |                       | PublicKey        |             |
+| Property                                          | Modifiers             | Type                                      | Description |
+| ------------------------------------------------- | --------------------- | ----------------------------------------- | ----------- |
+| [accountType](./sdk.nftcollection.accounttype.md) |                       | "nft-collection"                          |             |
+| [network](./sdk.nftcollection.network.md)         | <code>readonly</code> | import("@metaplex-foundation/js").Cluster |             |
+| [publicKey](./sdk.nftcollection.publickey.md)     |                       | PublicKey                                 |             |
 
 ## Methods
 

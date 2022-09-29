@@ -37,11 +37,11 @@ const program = await sdk.getToken("{{contract_address}}");
 
 ## Properties
 
-| Property                                  | Modifiers             | Type      | Description |
-| ----------------------------------------- | --------------------- | --------- | ----------- |
-| [accountType](./sdk.token.accounttype.md) |                       | "token"   |             |
-| [network](./sdk.token.network.md)         | <code>readonly</code> | Cluster   |             |
-| [publicKey](./sdk.token.publickey.md)     |                       | PublicKey |             |
+| Property                                  | Modifiers             | Type                                      | Description |
+| ----------------------------------------- | --------------------- | ----------------------------------------- | ----------- |
+| [accountType](./sdk.token.accounttype.md) |                       | "token"                                   |             |
+| [network](./sdk.token.network.md)         | <code>readonly</code> | import("@metaplex-foundation/js").Cluster |             |
+| [publicKey](./sdk.token.publickey.md)     |                       | PublicKey                                 |             |
 
 ## Methods
 

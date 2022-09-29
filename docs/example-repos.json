@@ -17,13 +17,18 @@
     "html_url": "https://github.com/thirdweb-example/burn1155-mint721",
     "description": "Similar to the MAYC collection, allow users who hold an NFT from your original NFT Collection to burn an ERC-1155 NFT collection to claim an NFT from your new NFT Collection!",
     "created_at": "2022-09-12T11:18:00Z",
-    "updated_at": "2022-09-23T23:28:14Z",
+    "updated_at": "2022-09-29T01:19:49Z",
     "clone_url": "https://github.com/thirdweb-example/burn1155-mint721.git",
-    "topics": [],
+    "topics": [
+      "contract-kit",
+      "erc1155",
+      "erc721",
+      "extensions"
+    ],
     "language": "CSS",
     "stargazers_count": 5,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
   },
   {
     "name": "community-rewards",
@@ -158,13 +163,17 @@
     "html_url": "https://github.com/thirdweb-example/creator-platform",
     "description": "Authenticate users into a web2 database to build a hybrid web2+web3 creator platform!",
     "created_at": "2022-09-23T01:22:38Z",
-    "updated_at": "2022-09-26T05:10:08Z",
+    "updated_at": "2022-09-29T01:15:28Z",
     "clone_url": "https://github.com/thirdweb-example/creator-platform.git",
-    "topics": [],
+    "topics": [
+      "auth",
+      "prisma",
+      "web2"
+    ],
     "language": "TypeScript",
     "stargazers_count": 2,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
   },
   {
     "name": "custom-dashboard",
@@ -250,10 +259,12 @@
     "html_url": "https://github.com/thirdweb-example/firebase-auth",
     "description": "Integrate sign in with Ethereum using thirdweb Auth into your Firebase application",
     "created_at": "2022-09-09T03:34:01Z",
-    "updated_at": "2022-09-24T14:41:06Z",
+    "updated_at": "2022-09-29T01:15:08Z",
     "clone_url": "https://github.com/thirdweb-example/firebase-auth.git",
     "topics": [
-      "auth"
+      "auth",
+      "firebase",
+      "web2"
     ],
     "language": "TypeScript",
     "stargazers_count": 4,
@@ -440,13 +451,15 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-solana-starter",
     "description": "Starter Kit for Next.js + TypeScript",
     "created_at": "2022-09-20T06:27:03Z",
-    "updated_at": "2022-09-23T23:28:20Z",
+    "updated_at": "2022-09-29T01:14:41Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-solana-starter.git",
-    "topics": [],
+    "topics": [
+      "solana"
+    ],
     "language": "TypeScript",
     "stargazers_count": 1,
     "is_template": false,
-    "homepage": "next-ts-solana-starter.vercel.app"
+    "homepage": "https://next-ts-solana-starter.thirdweb-example.com/"
   },
   {
     "name": "next-typescript-starter",
@@ -475,13 +488,13 @@
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2022-09-27T02:27:33Z",
+    "updated_at": "2022-09-28T22:28:54Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 42,
+    "stargazers_count": 43,
     "is_template": false,
     "homepage": "https://custom-minting-page.thirdweb-example.com"
   },
@@ -490,9 +503,10 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-09-27T08:48:39Z",
+    "updated_at": "2022-09-29T01:21:33Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
+      "auth",
       "authentication",
       "edition-drop",
       "javascript",
@@ -617,15 +631,17 @@
   {
     "name": "solana-token-deploy",
     "html_url": "https://github.com/thirdweb-example/solana-token-deploy",
-    "description": null,
+    "description": "Deploy a token program using the TypeScript SDK",
     "created_at": "2022-09-27T08:25:47Z",
-    "updated_at": "2022-09-27T10:35:32Z",
+    "updated_at": "2022-09-29T01:12:08Z",
     "clone_url": "https://github.com/thirdweb-example/solana-token-deploy.git",
-    "topics": [],
+    "topics": [
+      "solana"
+    ],
     "language": "JavaScript",
     "stargazers_count": 0,
     "is_template": false,
-    "homepage": null
+    "homepage": ""
   },
   {
     "name": "solidity-hello-world",
@@ -766,9 +782,12 @@
     "html_url": "https://github.com/thirdweb-example/todo-list",
     "description": "Build a simple todo list by building and interacting with a smart contract!",
     "created_at": "2022-09-12T01:57:30Z",
-    "updated_at": "2022-09-12T07:17:38Z",
+    "updated_at": "2022-09-29T01:19:40Z",
     "clone_url": "https://github.com/thirdweb-example/todo-list.git",
-    "topics": [],
+    "topics": [
+      "contract-kit",
+      "extensions"
+    ],
     "language": "TypeScript",
     "stargazers_count": 1,
     "is_template": false,
