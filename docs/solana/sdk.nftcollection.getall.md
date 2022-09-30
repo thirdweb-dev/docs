@@ -36,6 +36,6 @@ metadata for all minted NFTs
 ```jsx
 // Get all the NFTs that have been minted on this contract
 const nfts = await program.getAll();
-
-console.log(nfts[0].name);
+console.log(nfts[0].metadata.name);
+console.log(nfts[0].owner);
 ```

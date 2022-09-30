@@ -51,7 +51,7 @@
         "summary": "Get the NFT balance of the connected wallet\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// The mint address of the NFT to check the balance of\nconst mintAddress = \"...\"\n// Get the NFT balance of the currently connected wallet\nconst balance = await program.balance(mintAddress);\nconsole.log(balance);"
+          "javascript": "// The mint address of the NFT to check the balance of\nconst nftAddress = \"...\"\n// Get the NFT balance of the currently connected wallet\nconst balance = await program.balance(nftAddress);\nconsole.log(balance);"
         },
         "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.balance"
       },
@@ -60,7 +60,7 @@
         "summary": "Get the NFT balance of the specified wallet\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// Specify the address of the wallet to get the balance of\nconst walletAddress = \"...\"\n// Specify the mint address of the NFT to get the balance of\nconst mintAddress = \"...\"\nconst balance = await program.balanceOf(walletAddress, mintAddress);"
+          "javascript": "// Specify the address of the wallet to get the balance of\nconst walletAddress = \"...\"\n// Specify the mint address of the NFT to get the balance of\nconst nftAddress = \"...\"\nconst balance = await program.balanceOf(walletAddress, nftAddress);"
         },
         "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.balanceOf"
       },
@@ -78,7 +78,7 @@
         "summary": "Get the metadata for a specific NFT\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// Specify the mint address of the NFT to get the data of\nconst nftAddress = \"...\";\n// And get the data for the NFT\nconst nft = await program.get(nftAddress);\n\nconsole.log(nft.name);"
+          "javascript": "// Specify the mint address of the NFT to get the data of\nconst nftAddress = \"...\";\n// And get the data for the NFT\nconst nft = await program.get(nftAddress);\nconsole.log(nft.metadata.name);\nconsole.log(nft.owner);"
         },
         "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.get"
       },
@@ -87,7 +87,7 @@
         "summary": "Get the metadata for all NFTs on this collection\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// Get all the NFTs that have been minted on this contract\nconst nfts = await program.getAll();\n\nconsole.log(nfts[0].name);"
+          "javascript": "// Get all the NFTs that have been minted on this contract\nconst nfts = await program.getAll();\nconsole.log(nfts[0].metadata.name);\nconsole.log(nfts[0].owner);"
         },
         "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.getAll"
       },
@@ -96,7 +96,7 @@
         "summary": "Get the mint addresses for all NFTs on this collection\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// Get just the addresses of the minted NFTs on this contract\nconst nfts = await program.getAllNFTAddresses();\n\nconsole.log(nfts);"
+          "javascript": "// Get just the addresses of the minted NFTs on this contract\nconst nftsAdresses = await program.getAllNFTAddresses();\nconsole.log(nftsAdresses);"
         },
         "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.getAllNFTAddresses"
       },
@@ -159,7 +159,7 @@
         "summary": "Transfer the specified NFTs to another wallet\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// The wallet address to transfer the NFTs to\nconst to = \"...\";\n// The mint address of the NFT to transfer\nconst mintAddress = \"...\";\nconst tx = await program.transfer(to, mintAddress);"
+          "javascript": "// The wallet address to transfer the NFTs to\nconst to = \"...\";\n// The mint address of the NFT to transfer\nconst nftAddress = \"...\";\nconst tx = await program.transfer(to, nftAddress);"
         },
         "reference": "https://portal.thirdweb.com/typescript/sdk.NFTCollection.transfer"
       }
@@ -180,7 +180,7 @@
         "summary": "Get the NFT balance of the connected wallet\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// The mint address of the NFT to check the balance of\nconst mintAddress = \"...\"\n// Get the NFT balance of the currently connected wallet\nconst balance = await program.balance(mintAddress);\nconsole.log(balance);"
+          "javascript": "// The mint address of the NFT to check the balance of\nconst nftAddress = \"...\"\n// Get the NFT balance of the currently connected wallet\nconst balance = await program.balance(nftAddress);\nconsole.log(balance);"
         },
         "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.balance"
       },
@@ -189,7 +189,7 @@
         "summary": "Get the NFT balance of the specified wallet\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// The address of the wallet to check the balance of\nconst walletAddress = \"...\"\n// The mint address of the NFT to check the balance of\nconst mintAddress = \"...\"\n// Get the actual NFT balance of the specified wallet\nconst balance = await program.balanceOf(walletAddress, mintAddress);"
+          "javascript": "// The address of the wallet to check the balance of\nconst walletAddress = \"...\"\n// The mint address of the NFT to check the balance of\nconst nftAddress = \"...\"\n// Get the actual NFT balance of the specified wallet\nconst balance = await program.balanceOf(walletAddress, nftAddress);"
         },
         "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.balanceOf"
       },
@@ -225,7 +225,7 @@
         "summary": "Get the metadata for all NFTs on this drop\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// Get all the NFTs that have been minted on this contract\nconst nfts = await program.getAll();\n\nconsole.log(nfts[0].name);"
+          "javascript": "// Get all the NFTs that have been minted on this contract\nconst nfts = await program.getAll();\n\nconsole.log(nfts[0].metadata.name);"
         },
         "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.getAll"
       },
@@ -279,7 +279,7 @@
         "summary": "Transfer the specified NFTs to another wallet\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// The wallet address to transfer the NFTs to\nconst to = \"...\";\n// The mint address of the NFT to transfer\nconst mintAddress = \"...\";\nconst tx = await program.transfer(to, mintAddress);"
+          "javascript": "// The wallet address to transfer the NFTs to\nconst to = \"...\";\n// The mint address of the NFT to transfer\nconst nftAddress = \"...\";\nconst tx = await program.transfer(to, nftAddress);"
         },
         "reference": "https://portal.thirdweb.com/typescript/sdk.NFTDrop.transfer"
       }

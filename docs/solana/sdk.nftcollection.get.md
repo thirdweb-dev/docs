@@ -36,6 +36,6 @@ the metadata of the NFT
 const nftAddress = "...";
 // And get the data for the NFT
 const nft = await program.get(nftAddress);
-
-console.log(nft.name);
+console.log(nft.metadata.name);
+console.log(nft.owner);
 ```

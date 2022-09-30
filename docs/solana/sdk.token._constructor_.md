@@ -14,13 +14,13 @@ Constructs a new instance of the `Token` class
 **Signature:**
 
 ```typescript
-constructor(tokenMintAddress: string, metaplex: Metaplex, storage: ThirdwebStorage);
+constructor(tokenAddress: string, metaplex: Metaplex, storage: ThirdwebStorage);
 ```
 
 ## Parameters
 
-| Parameter        | Type            | Description |
-| ---------------- | --------------- | ----------- |
-| tokenMintAddress | string          |             |
-| metaplex         | Metaplex        |             |
-| storage          | ThirdwebStorage |             |
+| Parameter    | Type            | Description |
+| ------------ | --------------- | ----------- |
+| tokenAddress | string          |             |
+| metaplex     | Metaplex        |             |
+| storage      | ThirdwebStorage |             |

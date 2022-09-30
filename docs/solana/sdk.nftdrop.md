@@ -31,9 +31,9 @@ const program = await sdk.getNFTDrop("{{contract_address}}");
 
 ## Constructors
 
-| Constructor                                                                         | Modifiers | Description                                                 |
-| ----------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------- |
-| [(constructor)(dropMintAddress, metaplex, storage)](./sdk.nftdrop._constructor_.md) |           | Constructs a new instance of the <code>NFTDrop</code> class |
+| Constructor                                                                     | Modifiers | Description                                                 |
+| ------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------- |
+| [(constructor)(dropAddress, metaplex, storage)](./sdk.nftdrop._constructor_.md) |           | Constructs a new instance of the <code>NFTDrop</code> class |
 
 ## Properties
 

@@ -36,7 +36,7 @@ the NFT balance
 // The address of the wallet to check the balance of
 const walletAddress = "...";
 // The mint address of the NFT to check the balance of
-const mintAddress = "...";
+const nftAddress = "...";
 // Get the actual NFT balance of the specified wallet
-const balance = await program.balanceOf(walletAddress, mintAddress);
+const balance = await program.balanceOf(walletAddress, nftAddress);
 ```

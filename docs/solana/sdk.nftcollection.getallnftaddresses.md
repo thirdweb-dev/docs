@@ -27,7 +27,6 @@ mint addresses for all minted NFTs
 
 ```jsx
 // Get just the addresses of the minted NFTs on this contract
-const nfts = await program.getAllNFTAddresses();
-
-console.log(nfts);
+const nftsAdresses = await program.getAllNFTAddresses();
+console.log(nftsAdresses);
 ```

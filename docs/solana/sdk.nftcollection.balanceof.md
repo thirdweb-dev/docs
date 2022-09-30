@@ -19,10 +19,10 @@ balanceOf(walletAddress: string, nftAddress: string): Promise<number>;
 
 ## Parameters
 
-| Parameter     | Type   | Description                              |
-| ------------- | ------ | ---------------------------------------- |
-| walletAddress | string | the wallet address to get the balance of |
-| nftAddress    | string |                                          |
+| Parameter     | Type   | Description                                       |
+| ------------- | ------ | ------------------------------------------------- |
+| walletAddress | string | the wallet address to get the balance of          |
+| nftAddress    | string | the mint address of the NFT to get the balance of |
 
 **Returns:**
 
@@ -36,6 +36,6 @@ the NFT balance
 // Specify the address of the wallet to get the balance of
 const walletAddress = "...";
 // Specify the mint address of the NFT to get the balance of
-const mintAddress = "...";
-const balance = await program.balanceOf(walletAddress, mintAddress);
+const nftAddress = "...";
+const balance = await program.balanceOf(walletAddress, nftAddress);
 ```
