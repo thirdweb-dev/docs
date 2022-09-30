@@ -83,8 +83,6 @@ export default function ThirdwebCodeSnippet({
     go: "go",
   };
 
-  console.log(languagesToShow);
-
   return (
     <>
       <Tabs groupId={groupId} defaultValue={isSolana ? "javascript" : "react"}>

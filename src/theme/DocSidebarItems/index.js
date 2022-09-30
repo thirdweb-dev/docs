@@ -7,7 +7,6 @@ import Link from "@docusaurus/Link";
 // TODO this item should probably not receive the "activePath" props
 // TODO this triggers whole sidebar re-renders on navigation
 function DocSidebarItems({ items, ...props }) {
-  console.log(props);
   // Category logic (i.e. "Build contracts", etc.)
   const showCategoryPages = [
     "/platform-overview",

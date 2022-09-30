@@ -51,7 +51,7 @@ export default function ViewCodeButton({ link, name }: Props) {
           whiteSpace: "nowrap",
         }}
       >
-        <div style={{ marginRight: 14, fontWeight: 600 }}>View Code</div>
+        <div style={{ marginRight: 14, fontWeight: 600 }}>Source Code</div>
       </div>
     </a>
   );
