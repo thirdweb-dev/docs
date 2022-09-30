@@ -196,6 +196,11 @@ export default function TemplateCard({ t }: Props) {
           </div>
         </div>
 
+        <CodeBlock
+          language={"console"}
+          className="template-code"
+        >{`npx thirdweb create -t ${t.name}`}</CodeBlock>
+
         <div
           className="button-container always-row"
           style={{ width: "100%", marginLeft: 16, marginTop: 8 }}
@@ -225,9 +230,9 @@ export default function TemplateCard({ t }: Props) {
               View Code
             </a>
           )}
-          <CopyTemplateButton
+          {/* <CopyTemplateButton
             copyText={`npx thirdweb@latest create --template ${t.name}`}
-          />
+          /> */}
         </div>
       </div>
     </div>

@@ -224,12 +224,13 @@ html[data-theme="light"] {
 }
 
 .template-code {
-  font-style: normal;
-  font-size: 14px;
-  line-height: 100%;
-  margin-top: 8px;
-  margin-right: 16px;
-  padding: 0px;
-  flex-wrap: wrap;
-  word-wrap: break-word;
+  margin: 0px;
+  max-width: 100%;
+  min-width: 100%;
+  text-align: left;
+  margin-bottom: 0px !important;
+
+  div > pre {
+    font-size: 14px !important;
+  }
 }
