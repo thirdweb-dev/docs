@@ -26,7 +26,7 @@ export declare function useClaimedNFTs(
   contract: RequiredParam<NFTContract>,
   queryParams?: QueryAllParams,
 ): import("@tanstack/react-query").UseQueryResult<
-  import("../../types").NFT<import("../../types").Erc721OrErc1155>[],
+  import("@thirdweb-dev/sdk").NFT[],
   unknown
 >;
 ```
@@ -40,7 +40,7 @@ export declare function useClaimedNFTs(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;import("../../types").[NFT](./react.nft.md)&lt;import("../../types").[Erc721OrErc1155](./react.erc721orerc1155.md)&gt;\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;import("@thirdweb-dev/sdk").NFT\[\], unknown&gt;
 
 a response object that includes an array of NFTs that are claimed
 

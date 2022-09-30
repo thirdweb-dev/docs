@@ -14,15 +14,15 @@ Mint an NFT to the specified wallet
 **Signature:**
 
 ```typescript
-mintTo(to: string, metadata: NFTMetadataInput): Promise<string>;
+mintTo(to: string, metadata: NFTMetadataOrUri): Promise<string>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                          | Description                     |
-| --------- | --------------------------------------------- | ------------------------------- |
-| to        | string                                        | the address to mint the NFT to  |
-| metadata  | [NFTMetadataInput](./sdk.nftmetadatainput.md) | the metadata of the NFT to mint |
+| Parameter | Type             | Description                     |
+| --------- | ---------------- | ------------------------------- |
+| to        | string           | the address to mint the NFT to  |
+| metadata  | NFTMetadataOrUri | the metadata of the NFT to mint |
 
 **Returns:**
 
@@ -33,10 +33,23 @@ the mint address of the minted NFT
 ## Example
 
 ```jsx
+// Specify who to mint the NFT to
 const to = "...";
+
+// Add the metadata of your NFT
 const metadata = {
   name: "NFT #1",
+  description: "My first NFT!",
   image: readFileSync("files/image.jpg"),
+  properties: [
+    {
+      name: "coolness",
+      value: "very cool!",
+    },
+  ],
 };
+
+// Then mint the new NFT and get its address
 const address = await program.mintTo(to, metadata);
+console.log(address);
 ```

@@ -21,7 +21,7 @@ const firstOwner = claimedNFTs[0].owner;
 **Signature:**
 
 ```typescript
-getAllClaimed(queryParams?: QueryAllParams): Promise<NFTMetadataOwner[]>;
+getAllClaimed(queryParams?: QueryAllParams): Promise<NFT[]>;
 ```
 
 ## Parameters
@@ -32,7 +32,7 @@ getAllClaimed(queryParams?: QueryAllParams): Promise<NFTMetadataOwner[]>;
 
 **Returns:**
 
-Promise&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)\[\]&gt;
+Promise&lt;[NFT](./sdk.nft.md)\[\]&gt;
 
 The NFT metadata and their ownersfor all NFTs queried.
 

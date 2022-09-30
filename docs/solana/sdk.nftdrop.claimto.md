@@ -33,7 +33,9 @@ Promise&lt;string\[\]&gt;
 ## Example
 
 ```jsx
+// Specify which address to claim the NFTs to
 const receiverAddress = "...";
+// Claim the NFTs to the specified wallet and get the mint addresses of the NFTs
 const claimedAddresses = await program.claimTo(receiverAddress, 1);
 console.log("Claimed NFT at address", claimedAddresses[0]);
 ```

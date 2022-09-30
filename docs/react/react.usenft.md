@@ -26,10 +26,7 @@ const { data: nft, isLoading, error } = useNFT(contract, <tokenId>);
 export declare function useNFT<TContract extends NFTContract>(
   contract: RequiredParam<TContract>,
   tokenId: RequiredParam<BigNumberish>,
-): import("@tanstack/react-query").UseQueryResult<
-  NFT<Erc721OrErc1155>,
-  unknown
->;
+): import("@tanstack/react-query").UseQueryResult<NFT, unknown>;
 ```
 
 ## Parameters
@@ -41,6 +38,6 @@ export declare function useNFT<TContract extends NFTContract>(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;[NFT](./react.nft.md)&lt;[Erc721OrErc1155](./react.erc721orerc1155.md)&gt;, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;NFT, unknown&gt;
 
 a response object that includes the metadata for the given tokenId

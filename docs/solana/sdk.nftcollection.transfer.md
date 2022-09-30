@@ -33,7 +33,9 @@ the transaction result of the transfer
 ## Example
 
 ```jsx
+// The wallet address to transfer the NFTs to
 const to = "...";
+// The mint address of the NFT to transfer
 const mintAddress = "...";
 const tx = await program.transfer(to, mintAddress);
 ```

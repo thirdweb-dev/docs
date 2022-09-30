@@ -33,7 +33,10 @@ the transaction result of the transfer
 ## Example
 
 ```jsx
+// Specify the address to transfer tokens to
 const to = "...";
+// And the amount of tokens to transfer
 const amount = 1;
+// And then you can make the transfer transaction
 const tx = await program.transfer(to, amount);
 ```

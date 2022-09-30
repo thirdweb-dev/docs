@@ -87,7 +87,7 @@ export default function ThirdwebCodeSnippet({
 
   return (
     <>
-      <Tabs groupId={groupId} defaultValue={"react"}>
+      <Tabs groupId={groupId} defaultValue={isSolana ? "javascript" : "react"}>
         {Object.entries(languagesToShow).map(([language, alwaysShow]) => {
           const example = examples[language];
           const reference = references[language];

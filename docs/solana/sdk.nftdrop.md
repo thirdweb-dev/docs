@@ -25,8 +25,8 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 const sdk = ThirdwebSDK.fromNetwork("devnet");
 sdk.wallet.connect(signer);
 
-// Get the interface for your NFT collection program
-const program = await sdk.getNFTCollection("{{contract_address}}");
+// Get the interface for your NFT Drop program
+const program = await sdk.getNFTDrop("{{contract_address}}");
 ```
 
 ## Constructors

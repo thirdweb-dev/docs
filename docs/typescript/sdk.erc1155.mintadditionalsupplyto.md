@@ -14,7 +14,7 @@ Increase the supply of an existing NFT and mint it to a given wallet address
 **Signature:**
 
 ```typescript
-mintAdditionalSupplyTo(receiver: string, tokenId: BigNumberish, additionalSupply: BigNumberish): Promise<TransactionResultWithId<EditionMetadata>>;
+mintAdditionalSupplyTo(receiver: string, tokenId: BigNumberish, additionalSupply: BigNumberish): Promise<TransactionResultWithId<NFT>>;
 ```
 
 ## Parameters
@@ -27,4 +27,4 @@ mintAdditionalSupplyTo(receiver: string, tokenId: BigNumberish, additionalSupply
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFT](./sdk.nft.md)&gt;&gt;

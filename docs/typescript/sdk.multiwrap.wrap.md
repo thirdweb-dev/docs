@@ -51,7 +51,7 @@ const wrappedTokenId = tx.id; // the id of the wrapped token bundle
 **Signature:**
 
 ```typescript
-wrap(contents: TokensToWrap, wrappedTokenMetadata: NFTMetadataOrUri, recipientAddress?: string): Promise<TransactionResultWithId<NFTMetadataOwner>>;
+wrap(contents: TokensToWrap, wrappedTokenMetadata: NFTMetadataOrUri, recipientAddress?: string): Promise<TransactionResultWithId<NFT>>;
 ```
 
 ## Parameters
@@ -64,4 +64,4 @@ wrap(contents: TokensToWrap, wrappedTokenMetadata: NFTMetadataOrUri, recipientAd
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFT](./sdk.nft.md)&gt;&gt;
