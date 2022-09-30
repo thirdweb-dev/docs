@@ -122,11 +122,11 @@ That's a lot of work. Now's a good time to introduce our **specialized functions
 
 ### Solidity Extension -> JavaScript Function
 
-For each of the [extensions](/extensions) you implemented in your smart contract,
+For each of the [extensions](/contract-kit/features) you implemented in your smart contract,
 you unlock a way to use that in your application.
 
-Let's look at an example. The contract we built implements the [ERC721](/extensions/erc721)
-and [ERC721Supply](/extensions/erc721supply) extensions.
+Let's look at an example. The contract we built implements the [ERC721](/contract-kit/erc721)
+and [ERC721Supply](/contract-kit/erc721supply) extensions.
 
 By doing so, we can use the [View All](/sdk/interacting-with-contracts/erc721supply)
 functionality in our application! In React, that is the [`useNFTs`](/react/react.usenfts) hook:
@@ -167,7 +167,7 @@ has their wallet connected and is on the right network before calling the functi
 
 As we described above, you also gain access to a specialized function for each extension you implement in Solidity,
 such as the [Mint](/sdk/interacting-with-contracts/erc721mintable) feature enabled by
-implementing [ERC721Mintable](/extensions/erc721mintable#unlocked-features) in our smart contract.
+implementing [ERC721Mintable](/contract-kit/erc721mintable#unlocked-features) in our smart contract.
 
 Now we know how to read and write to our smart contract, let's build the UI for our app! 💅
 
