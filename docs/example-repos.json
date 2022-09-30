@@ -554,14 +554,17 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-09-29T01:24:54Z",
+    "updated_at": "2022-09-29T06:54:40Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "contract-kit",
-      "nft-drop",
+      "erc20",
+      "erc721",
+      "ethereum",
+      "nft-staking",
       "solidity",
-      "thirdweb-deploy",
-      "token"
+      "staking",
+      "thirdweb-deploy"
     ],
     "language": "TypeScript",
     "stargazers_count": 49,
