@@ -28,3 +28,12 @@ burn(nftAddress: string): Promise<TransactionResult>;
 Promise&lt;TransactionResult&gt;
 
 the transaction signature
+
+## Example
+
+```jsx
+// Specify the address of the NFT to burn
+const nftAddress = "...";
+// And send the actual burn transaction
+const tx = await program.burn(nftAddress);
+```

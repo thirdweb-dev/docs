@@ -21,7 +21,7 @@ console.log(nfts);
 **Signature:**
 
 ```typescript
-getAll(queryParams?: QueryAllParams): Promise<NFTMetadataOwner[]>;
+getAll(queryParams?: QueryAllParams): Promise<NFT[]>;
 ```
 
 ## Parameters
@@ -32,7 +32,7 @@ getAll(queryParams?: QueryAllParams): Promise<NFTMetadataOwner[]>;
 
 **Returns:**
 
-Promise&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)\[\]&gt;
+Promise&lt;[NFT](./sdk.nft.md)\[\]&gt;
 
 The NFT metadata for all NFTs queried.
 

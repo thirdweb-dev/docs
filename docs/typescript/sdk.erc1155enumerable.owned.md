@@ -22,7 +22,7 @@ const nfts = await contract.edition.query.owned(address);
 **Signature:**
 
 ```typescript
-owned(walletAddress?: string): Promise<EditionMetadataOwner[]>;
+owned(walletAddress?: string): Promise<NFT[]>;
 ```
 
 ## Parameters
@@ -33,7 +33,7 @@ owned(walletAddress?: string): Promise<EditionMetadataOwner[]>;
 
 **Returns:**
 
-Promise&lt;[EditionMetadataOwner](./sdk.editionmetadataowner.md)\[\]&gt;
+Promise&lt;[NFT](./sdk.nft.md)\[\]&gt;
 
 The NFT metadata for all NFTs in the contract.
 

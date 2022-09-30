@@ -33,7 +33,7 @@ const nft = await tx.data(); // (optional) fetch details of minted NFT
 **Signature:**
 
 ```typescript
-mintTo(receiver: string, metadata: NFTMetadataOrUri): Promise<TransactionResultWithId<NFTMetadataOwner>>;
+mintTo(receiver: string, metadata: NFTMetadataOrUri): Promise<TransactionResultWithId<NFT>>;
 ```
 
 ## Parameters
@@ -45,7 +45,7 @@ mintTo(receiver: string, metadata: NFTMetadataOrUri): Promise<TransactionResultW
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFT](./sdk.nft.md)&gt;&gt;
 
 ## Remarks
 

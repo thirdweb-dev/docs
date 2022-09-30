@@ -32,5 +32,8 @@ the transaction result of the mint
 ## Example
 
 ```jsx
-const tx = await program.mint(1);
+// Specify the amount of tokens to mint
+const amount = 1;
+// And then you can mint the tokens
+const tx = await program.mint(amount);
 ```

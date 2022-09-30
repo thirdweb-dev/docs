@@ -14,17 +14,28 @@ Get the metadata for all NFTs on this collection
 **Signature:**
 
 ```typescript
-getAll(): Promise<NFTMetadata[]>;
+getAll(options?: {
+        filterBurnedTokens: boolean;
+    }): Promise<NFT[]>;
 ```
+
+## Parameters
+
+| Parameter | Type                             | Description       |
+| --------- | -------------------------------- | ----------------- |
+| options   | { filterBurnedTokens: boolean; } | <i>(Optional)</i> |
 
 **Returns:**
 
-Promise&lt;[NFTMetadata](./sdk.nftmetadata.md)\[\]&gt;
+Promise&lt;NFT\[\]&gt;
 
 metadata for all minted NFTs
 
 ## Example
 
 ```jsx
+// Get all the NFTs that have been minted on this contract
 const nfts = await program.getAll();
+
+console.log(nfts[0].name);
 ```

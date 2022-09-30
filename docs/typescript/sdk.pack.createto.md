@@ -56,7 +56,7 @@ const tx = await contract.createTo("0x...", pack);
 **Signature:**
 
 ```typescript
-createTo(to: string, metadataWithRewards: PackMetadataInput): Promise<TransactionResultWithId<EditionMetadata>>;
+createTo(to: string, metadataWithRewards: PackMetadataInput): Promise<TransactionResultWithId<NFT>>;
 ```
 
 ## Parameters
@@ -68,7 +68,7 @@ createTo(to: string, metadataWithRewards: PackMetadataInput): Promise<Transactio
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFT](./sdk.nft.md)&gt;&gt;
 
 ## Remarks
 

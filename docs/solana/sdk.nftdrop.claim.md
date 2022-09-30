@@ -32,6 +32,9 @@ Promise&lt;string\[\]&gt;
 ## Example
 
 ```jsx
-const claimedAddresses = await program.claim(1);
+// Specify the quantity of NFTs to claim
+const quantity = 1;
+// Claim NFTs and get their mint addresses
+const claimedAddresses = await program.claim(quantity);
 console.log("Claimed NFT at address", claimedAddresses[0]);
 ```

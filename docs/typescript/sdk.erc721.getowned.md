@@ -23,7 +23,7 @@ console.log(nfts);
 **Signature:**
 
 ```typescript
-getOwned(walletAddress?: string): Promise<NFTMetadataOwner[]>;
+getOwned(walletAddress?: string): Promise<NFT[]>;
 ```
 
 ## Parameters
@@ -34,7 +34,7 @@ getOwned(walletAddress?: string): Promise<NFTMetadataOwner[]>;
 
 **Returns:**
 
-Promise&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)\[\]&gt;
+Promise&lt;[NFT](./sdk.nft.md)\[\]&gt;
 
 The NFT metadata for all NFTs in the contract.
 

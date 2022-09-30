@@ -19,9 +19,9 @@ lazyMint(metadatas: NFTMetadataInput[]): Promise<TransactionResult>;
 
 ## Parameters
 
-| Parameter | Type                                              | Description                           |
-| --------- | ------------------------------------------------- | ------------------------------------- |
-| metadatas | [NFTMetadataInput](./sdk.nftmetadatainput.md)\[\] | The metadata of the NFTs to lazy mint |
+| Parameter | Type                 | Description                           |
+| --------- | -------------------- | ------------------------------------- |
+| metadatas | NFTMetadataInput\[\] | The metadata of the NFTs to lazy mint |
 
 **Returns:**
 
@@ -32,12 +32,21 @@ the transaction result of the lazy mint
 ## Example
 
 ```jsx
-const metadatas = [
+// Add the metadata of your NFTs
+const metadata = [
   {
     name: "NFT #1",
-    image: readFileSync("test/file.jpg"),
+    description: "My first NFT!",
+    image: readFileSync("files/image.jpg"),
+    properties: [
+      {
+        name: "coolness",
+        value: "very cool!",
+      },
+    ],
   },
 ];
 
+// And lazy mint NFTs to your program
 const tx = await program.lazyMint(metadatas);
 ```

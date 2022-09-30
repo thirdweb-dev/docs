@@ -28,8 +28,8 @@ export declare function useTokenBalance(
 ): import("@tanstack/react-query").UseQueryResult<
   {
     symbol: string;
-    name: string;
     value: import("ethers").BigNumber;
+    name: string;
     decimals: number;
     displayValue: string;
   },
@@ -46,6 +46,6 @@ export declare function useTokenBalance(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ symbol: string; name: string; value: import("ethers").BigNumber; decimals: number; displayValue: string; }, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }, unknown&gt;
 
 a response object that includes the balance of the address

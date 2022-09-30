@@ -9,10 +9,10 @@ displayed_sidebar: typescript
 
 ## CurrencyValue type
 
-Currency metadata &amp; value.
+Currency value and display value
 
 **Signature:**
 
 ```typescript
-export declare type CurrencyValue = z.infer<typeof CurrencyValueSchema>;
+export declare type CurrencyValue = z.input<typeof CurrencyValueSchema>;
 ```

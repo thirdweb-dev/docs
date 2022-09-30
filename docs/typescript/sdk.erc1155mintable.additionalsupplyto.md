@@ -29,7 +29,7 @@ const tx = await contract.edition.mint.additionalSupplyTo(
 **Signature:**
 
 ```typescript
-additionalSupplyTo(to: string, tokenId: BigNumberish, additionalSupply: BigNumberish): Promise<TransactionResultWithId<EditionMetadata>>;
+additionalSupplyTo(to: string, tokenId: BigNumberish, additionalSupply: BigNumberish): Promise<TransactionResultWithId<NFT>>;
 ```
 
 ## Parameters
@@ -42,4 +42,4 @@ additionalSupplyTo(to: string, tokenId: BigNumberish, additionalSupply: BigNumbe
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFT](./sdk.nft.md)&gt;&gt;

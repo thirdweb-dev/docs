@@ -45,7 +45,7 @@ const program = await sdk.getProgram("{{contract_address}}");
 
 ## Methods
 
-| Method                                                | Modifiers | Description                     |
-| ----------------------------------------------------- | --------- | ------------------------------- |
-| [call(functionName, args)](./sdk.program.call.md)     |           | Call a function on this program |
-| [fetch(accountName, address)](./sdk.program.fetch.md) |           |                                 |
+| Method                                                | Modifiers | Description                                    |
+| ----------------------------------------------------- | --------- | ---------------------------------------------- |
+| [call(functionName, args)](./sdk.program.call.md)     |           | Call a function on this program                |
+| [fetch(accountName, address)](./sdk.program.fetch.md) |           | Read account data associated with this program |
