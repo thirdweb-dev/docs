@@ -233,4 +233,8 @@ html[data-theme="light"] {
   div > pre {
     font-size: 14px !important;
   }
+
+  div > div > button {
+    margin-top: 5px;
+  }
 }
