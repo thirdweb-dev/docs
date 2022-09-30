@@ -72,7 +72,7 @@ function DocSidebarItems({ items, ...props }) {
     SDK: "sdk.png",
     Solana: "sdk.png",
     Storage: "storage.png",
-    "Ui Components": "ui.png",
+    "UI Components": "ui.png",
   };
 
   const formatCategoryName = (name) => {
@@ -82,6 +82,11 @@ function DocSidebarItems({ items, ...props }) {
     if (formatted === "Sdk") {
       return "SDK";
     }
+
+    if (formatted === "Ui-components") {
+      return "UI Components";
+    }
+
     // If not the word pre-built, split by dash and capitalize each word
     if (formatted !== "Pre-built-contracts") {
       return formatted
