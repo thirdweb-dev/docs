@@ -49,7 +49,8 @@ const products: Product[] = [
   {
     image: "/assets/product/ui.png",
     name: "UI Components",
-    description: "Plug and play components to build functional interfaces",
+    description:
+      "Plug and play UI components to easily add web3 functionality to your apps",
     link: "/sdk/ui-components",
   },
   {
