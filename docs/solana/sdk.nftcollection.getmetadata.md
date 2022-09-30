@@ -14,12 +14,12 @@ Get the metadata for this program.
 **Signature:**
 
 ```typescript
-getMetadata(): Promise<NFT>;
+getMetadata(): Promise<NFTMetadata>;
 ```
 
 **Returns:**
 
-Promise&lt;NFT&gt;
+Promise&lt;NFTMetadata&gt;
 
 program metadata
 
