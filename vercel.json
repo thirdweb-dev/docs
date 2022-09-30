@@ -404,7 +404,7 @@
     },
     {
       "source": "/sdk/connecting-to-a-wallet",
-      "destination": "/sdk/ui-components/connectwalletbutton"
+      "destination": "/ui-components/connectwalletbutton"
     },
     {
       "source": "/sdk/switching-networks",
@@ -461,6 +461,10 @@
     {
       "source": "/extensions/:match*",
       "destination": "/contractkit/:match*"
+    },
+    {
+      "source": "/sdk/ui-components",
+      "destination": "/ui-components"
     }
   ]
 }

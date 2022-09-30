@@ -70,7 +70,9 @@ function DocSidebarItems({ items, ...props }) {
     Deploy: "deploy.png",
     Release: "release.png",
     SDK: "sdk.png",
-    Storage: "sdk.png",
+    Solana: "sdk.png",
+    Storage: "storage.png",
+    "Ui Components": "ui.png",
   };
 
   const formatCategoryName = (name) => {
@@ -134,6 +136,8 @@ function DocSidebarItems({ items, ...props }) {
       </DocSidebarItemsExpandedStateProvider>
     );
   }
+
+  console.log(formatCategoryName(props?.activePath));
 
   return (
     <DocSidebarItemsExpandedStateProvider>

@@ -53,7 +53,7 @@ export const MyApp = () => {
 ```
 
 On the [`index.jsx`](https://github.com/thirdweb-example/next-javascript-starter/blob/main/pages/index.js#L5) page,
-you'll find a [Connect Wallet button](/sdk/ui-components/connectwalletbutton) that allows users to connect their wallet to our application.
+you'll find a [Connect Wallet button](/ui-components/connectwalletbutton) that allows users to connect their wallet to our application.
 
 ```jsx title="pages/index.jsx"
 import { ConnectWallet } from "@thirdweb-dev/react";
@@ -147,7 +147,7 @@ By using the `useNFTs` hook, here's what we get:
 - All of the NFTs in our contract with their metadata and current owner
 - An `isLoading` state you can use to show a loading indicator
 - **Cached** results - so you don't have to worry about re-fetching the same data again
-- **Real-time** updates - so you can see the latest data as it changes (if you use [`Web3Button`](/sdk/ui-components/web3button) or our write-hooks)
+- **Real-time** updates - so you can see the latest data as it changes (if you use [`Web3Button`](/ui-components/web3button) or our write-hooks)
 - An `isError` flag, pagination options, automatic retries, and more!
 
 :::tip React Query
@@ -162,7 +162,7 @@ Now that we have a query to get all of our NFTs, let's mint one and display them
 
 You can call any function on your smart contract with the
 [`useContractWrite`](/sdk/interacting-with-contracts/custom-contracts/using-contracts) hook, but for most use cases,
-you'll want to use the [`Web3Button`](/sdk/ui-components/web3button) component to write transactions; which ensures the user
+you'll want to use the [`Web3Button`](/ui-components/web3button) component to write transactions; which ensures the user
 has their wallet connected and is on the right network before calling the function.
 
 As we described above, you also gain access to a specialized function for each extension you implement in Solidity,
@@ -173,7 +173,7 @@ Now we know how to read and write to our smart contract, let's build the UI for 
 
 ### UI Components
 
-Let's render each of the NFTs using the [`NFT Media Renderer`](/sdk/ui-components/nft-renderer)
+Let's render each of the NFTs using the [`NFT Media Renderer`](/ui-components/nft-renderer)
 component, making use of the loading state from `useNFTs`:
 
 ```jsx title="pages/index.jsx"
@@ -210,7 +210,7 @@ export default function Home() {
 }
 ```
 
-Next, let's add a button to mint an NFT, using the [`Web3Button`](/sdk/ui-components/web3button) component:
+Next, let's add a button to mint an NFT, using the [`Web3Button`](/ui-components/web3button) component:
 
 ```jsx title="pages/index.jsx"
 import {
