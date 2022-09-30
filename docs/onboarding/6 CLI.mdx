@@ -48,7 +48,71 @@ Select the frameworks you know and love to get started quickly, by providing:
 npx thirdweb@latest create
 ```
 
-## Build
+## Deploy
+
+<div className="heroGrid">
+  
+  <div>
+
+[Deploy](/deploy) your smart contracts to one of our [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use/) using the dashboard:
+
+- Compiles your smart contracts
+- Uploads the contract [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)s to IPFS
+- Allows you to [deploy](/deploy) them through the dashboard
+
+</div>
+
+<div className="heroGridImageContainer">
+  <ThemedImage
+    sources={{
+      light: "/assets/deploy.png",
+      dark: "/assets/deploy.png",
+    }}
+    className="heroGridImage"
+    alt="thirdweb dashboard"
+  />
+</div>
+
+</div>
+
+```bash
+npx thirdweb@latest deploy
+```
+
+## Release
+
+<div className="heroGrid">
+  
+  <div>
+
+Creates a versioned [release](/release) of your contract onto our registry:
+
+- Compiles your smart contracts
+- Uploads the contract [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)s to IPFS
+- Allows you to [release](/release) them through the dashboard
+
+</div>
+
+<div className="heroGridImageContainer">
+  <ThemedImage
+    sources={{
+      light: "/assets/release.png",
+      dark: "/assets/release.png",
+    }}
+    className="heroGridImage"
+    alt="thirdweb dashboard"
+  />
+</div>
+
+</div>
+
+```bash
+npx thirdweb@latest release
+```
+
+## Additional commands
+
+### Detect
 
 <div className="heroGrid">
   
@@ -83,64 +147,4 @@ npx thirdweb@latest create
 npx thirdweb@latest detect
 ```
 
-## Release
-
-<div className="heroGrid">
-  
-  <div>
-
-Creates a versioned [release](/release) of your contract onto our registry:
-
-- Compiles your smart contracts
-- Uploads the contract [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)s to IPFS
-- Allows you to [release](/release) them through the dashboard
-
-</div>
-
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/release.png",
-      dark: "/assets/release.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb dashboard"
-  />
-</div>
-
-</div>
-
-```bash
-npx thirdweb@latest release
-```
-
-## Deploy
-
-<div className="heroGrid">
-  
-  <div>
-
-[Deploy](/deploy) your smart contracts to one of our [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use/) using the dashboard:
-
-- Compiles your smart contracts
-- Uploads the contract [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)s to IPFS
-- Allows you to [deploy](/deploy) them through the dashboard
-
-</div>
-
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/deploy.png",
-      dark: "/assets/deploy.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb dashboard"
-  />
-</div>
-
-</div>
-
-```bash
-npx thirdweb@latest deploy
-```
+<!-- ### Install CI -->
