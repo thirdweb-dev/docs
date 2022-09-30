@@ -13,7 +13,7 @@ export default function AllTemplatesContainer({ repos }: Props) {
   const categories = {
     "Starter Templates": ["starter-kit"],
 
-    "Contract Kit": ["contract-kit"],
+    ContractKit: ["contract-kit"],
     Prebuilt: [
       "nft-drop",
       "nft-collection",
