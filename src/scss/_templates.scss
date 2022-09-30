@@ -195,3 +195,41 @@ html[data-theme="dark"] .view-code-btn:hover {
   transform: translateY(20px);
   transition: all 0.3s ease-in-out;
 }
+
+.no-hover-effect:hover {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2);
+}
+
+// Landing page light mode
+html[data-theme="light"] {
+  .no-hover-effect:hover {
+    border: 1px solid rgba(0, 0, 0, 0.07);
+  }
+}
+
+.template-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.template-description {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  opacity: 0.75;
+  margin-bottom: 0px;
+}
+
+.template-code {
+  font-style: normal;
+  font-size: 14px;
+  line-height: 100%;
+  margin-top: 8px;
+  margin-right: 16px;
+  padding: 0px;
+  flex-wrap: wrap;
+  word-wrap: break-word;
+}

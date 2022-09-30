@@ -1,6 +1,7 @@
 import CopyTemplateButton from "@site/src/components/CopyTemplateButton";
 import React from "react";
 import type ExampleRepo from "../types/ExampleRepo";
+import CodeBlock from "@theme/CodeBlock";
 
 type Props = { t: ExampleRepo };
 
@@ -155,7 +156,7 @@ export default function TemplateCard({ t }: Props) {
       }}
     >
       <div
-        className="tw-card"
+        className="tw-card no-hover-effect"
         style={{
           display: "flex",
           flexDirection: "column",
@@ -179,7 +180,7 @@ export default function TemplateCard({ t }: Props) {
             style={{ pointerEvents: "none", height: 48 }}
           />
 
-          <div>
+          <div className="template-info-container">
             <h3
               style={{
                 fontWeight: 600,
@@ -189,6 +190,8 @@ export default function TemplateCard({ t }: Props) {
             >
               {transformName(t.name)}
             </h3>
+
+            <p className="template-description">{t.description}</p>
             {/* <code>{t.name}</code> */}
           </div>
         </div>
