@@ -26,7 +26,7 @@ const claimedNFT = await tx[0].data(); // (optional) get the first claimed NFT m
 **Signature:**
 
 ```typescript
-to(destinationAddress: string, quantity: BigNumberish, options?: ClaimOptions): Promise<TransactionResultWithId<NFTMetadataOwner>[]>;
+to(destinationAddress: string, quantity: BigNumberish, options?: ClaimOptions): Promise<TransactionResultWithId<NFT>[]>;
 ```
 
 ## Parameters
@@ -39,7 +39,7 @@ to(destinationAddress: string, quantity: BigNumberish, options?: ClaimOptions): 
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;\[\]&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFT](./sdk.nft.md)&gt;\[\]&gt;
 
 - an array of results containing the id of the token claimed, the transaction receipt and a promise to optionally fetch the nft metadata
 

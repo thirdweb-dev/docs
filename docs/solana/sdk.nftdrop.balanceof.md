@@ -33,7 +33,10 @@ the NFT balance
 ## Example
 
 ```jsx
+// The address of the wallet to check the balance of
 const walletAddress = "...";
+// The mint address of the NFT to check the balance of
 const mintAddress = "...";
+// Get the actual NFT balance of the specified wallet
 const balance = await program.balanceOf(walletAddress, mintAddress);
 ```

@@ -33,7 +33,10 @@ the mint address of the minted NFT
 ## Example
 
 ```jsx
+// Specify who to mint the additional NFT to
 const to = "...";
+// The address of the already minted NFT
 const nftAddress = "...";
+// Mint an additional NFT of the original NFT
 const address = await program.mintAdditionalSupplyTo(to, nftAddress);
 ```

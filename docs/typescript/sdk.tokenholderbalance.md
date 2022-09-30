@@ -19,5 +19,3 @@ export declare type TokenHolderBalance = {
   balance: CurrencyValue;
 };
 ```
-
-**References:** [CurrencyValue](./sdk.currencyvalue.md)

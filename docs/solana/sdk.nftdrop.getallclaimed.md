@@ -14,17 +14,19 @@ Get the metadata for all the claimed NFTs on this drop
 **Signature:**
 
 ```typescript
-getAllClaimed(): Promise<NFTMetadata[]>;
+getAllClaimed(): Promise<NFT[]>;
 ```
 
 **Returns:**
 
-Promise&lt;[NFTMetadata](./sdk.nftmetadata.md)\[\]&gt;
+Promise&lt;NFT\[\]&gt;
 
 metadata for all claimed NFTs
 
 ## Example
 
 ```jsx
+// Get all the NFTs that have already been claimed from this drop
 const nfts = await program.getAllClaimed();
+console.log(nfts[0].name);
 ```

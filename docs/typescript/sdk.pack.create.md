@@ -56,19 +56,7 @@ const tx = await contract.create(pack);
 **Signature:**
 
 ```typescript
-create(metadataWithRewards: PackMetadataInput): Promise<TransactionResultWithId<{
-        supply: BigNumber;
-        metadata: {
-            [x: string]: unknown;
-            name?: string | number | undefined;
-            description?: string | null | undefined;
-            image?: string | null | undefined;
-            external_url?: string | null | undefined;
-            animation_url?: string | null | undefined;
-            id: BigNumber;
-            uri: string;
-        };
-    }>>;
+create(metadataWithRewards: PackMetadataInput): Promise<TransactionResultWithId<NFT>>;
 ```
 
 ## Parameters
@@ -79,7 +67,7 @@ create(metadataWithRewards: PackMetadataInput): Promise<TransactionResultWithId<
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;{ supply: BigNumber; metadata: { \[x: string\]: unknown; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; id: BigNumber; uri: string; }; }&gt;&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFT](./sdk.nft.md)&gt;&gt;
 
 ## Remarks
 

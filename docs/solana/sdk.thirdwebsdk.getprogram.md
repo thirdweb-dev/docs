@@ -14,7 +14,7 @@ Get an SDK interface for a deployed program
 **Signature:**
 
 ```typescript
-getProgram(address: string): Promise<import("./contracts/program").Program>;
+getProgram(address: string): Promise<import("./programs/program").Program>;
 ```
 
 ## Parameters
@@ -25,6 +25,13 @@ getProgram(address: string): Promise<import("./contracts/program").Program>;
 
 **Returns:**
 
-Promise&lt;import("./contracts/program").[Program](./sdk.program.md)&gt;
+Promise&lt;import("./programs/program").[Program](./sdk.program.md)&gt;
 
 SDK interface for the program
+
+## Example
+
+```jsx
+// Get the interface for your anchor program
+const program = await sdk.getProgram("{{contract_address}}");
+```

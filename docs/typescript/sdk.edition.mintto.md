@@ -38,7 +38,7 @@ const nft = await tx.data(); // (optional) fetch details of minted NFT
 **Signature:**
 
 ```typescript
-mintTo(to: string, metadataWithSupply: EditionMetadataOrUri): Promise<TransactionResultWithId<EditionMetadata>>;
+mintTo(to: string, metadataWithSupply: EditionMetadataOrUri): Promise<TransactionResultWithId<NFT>>;
 ```
 
 ## Parameters
@@ -50,7 +50,7 @@ mintTo(to: string, metadataWithSupply: EditionMetadataOrUri): Promise<Transactio
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFT](./sdk.nft.md)&gt;&gt;
 
 ## Remarks
 

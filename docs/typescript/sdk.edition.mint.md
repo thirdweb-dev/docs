@@ -14,7 +14,7 @@ Mint NFT for the connected wallet
 **Signature:**
 
 ```typescript
-mint(metadataWithSupply: EditionMetadataOrUri): Promise<TransactionResultWithId<EditionMetadata>>;
+mint(metadataWithSupply: EditionMetadataOrUri): Promise<TransactionResultWithId<NFT>>;
 ```
 
 ## Parameters
@@ -25,7 +25,7 @@ mint(metadataWithSupply: EditionMetadataOrUri): Promise<TransactionResultWithId<
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFT](./sdk.nft.md)&gt;&gt;
 
 ## Remarks
 

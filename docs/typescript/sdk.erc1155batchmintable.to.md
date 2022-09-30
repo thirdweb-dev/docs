@@ -46,7 +46,7 @@ const firstNFT = await tx[0].data(); // (optional) fetch details of the first mi
 **Signature:**
 
 ```typescript
-to(to: string, metadataWithSupply: EditionMetadataOrUri[]): Promise<TransactionResultWithId<EditionMetadata>[]>;
+to(to: string, metadataWithSupply: EditionMetadataOrUri[]): Promise<TransactionResultWithId<NFT>[]>;
 ```
 
 ## Parameters
@@ -58,7 +58,7 @@ to(to: string, metadataWithSupply: EditionMetadataOrUri[]): Promise<TransactionR
 
 **Returns:**
 
-Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;\[\]&gt;
+Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFT](./sdk.nft.md)&gt;\[\]&gt;
 
 ## Remarks
 

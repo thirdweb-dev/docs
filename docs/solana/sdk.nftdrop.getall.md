@@ -14,17 +14,20 @@ Get the metadata for all NFTs on this drop
 **Signature:**
 
 ```typescript
-getAll(): Promise<NFTMetadata[]>;
+getAll(): Promise<NFT[]>;
 ```
 
 **Returns:**
 
-Promise&lt;[NFTMetadata](./sdk.nftmetadata.md)\[\]&gt;
+Promise&lt;NFT\[\]&gt;
 
 metadata for all minted NFTs
 
 ## Example
 
 ```jsx
+// Get all the NFTs that have been minted on this contract
 const nfts = await program.getAll();
+
+console.log(nfts[0].name);
 ```
