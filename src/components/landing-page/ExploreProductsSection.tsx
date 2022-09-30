@@ -24,7 +24,7 @@ const products: Product[] = [
   },
   {
     image: "/assets/product/extensions.png",
-    name: "Contract Kit",
+    name: "ContractKit",
     description: "Build and extend smart contracts using our Solidity SDK",
     link: "/contract-kit",
   },
