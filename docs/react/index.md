@@ -77,7 +77,7 @@ Below are examples of where to set this up in your application:
 
 ### Connect to a User's Wallet
 
-Now the provider is set up, we can use all of the hooks and UI components available in the SDK, such as the [ConnectWallet](https://portal.thirdweb.com/sdk/ui-components/connectwalletbutton) component.
+Now the provider is set up, we can use all of the hooks and UI components available in the SDK, such as the [ConnectWallet](https://portal.thirdweb.com/ui-components/connectwalletbutton) component.
 
 Once the user has connected their wallet, all the calls we make to interact with contracts using the SDK will be on behalf of the user.
 
@@ -178,7 +178,7 @@ export default function Home() {
 
 The SDK provides many UI components to help you build your application.
 
-For example, we can render each of the NFTs using the [`NFT Media Renderer`](https://portal.thirdweb.com/sdk/ui-components/nft-renderer)
+For example, we can render each of the NFTs using the [`NFT Media Renderer`](https://portal.thirdweb.com/ui-components/nft-renderer)
 component, making use of the loading state from `useNFTs`:
 
 ```jsx title="pages/index.jsx"
@@ -209,7 +209,7 @@ export default function Home() {
 }
 ```
 
-The [`Web3Button`](https://portal.thirdweb.com/sdk/ui-components/web3button) component ensures the user has connected their wallet and is currently configured to the same network as your smart contract before calling the function. It also has access to the `contract` directly, allowing you to perform any action on your smart contract when the button is clicked.
+The [`Web3Button`](https://portal.thirdweb.com/ui-components/web3button) component ensures the user has connected their wallet and is currently configured to the same network as your smart contract before calling the function. It also has access to the `contract` directly, allowing you to perform any action on your smart contract when the button is clicked.
 
 For example, we can mint an NFT like so:
 
