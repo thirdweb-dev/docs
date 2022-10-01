@@ -1,5 +1,5 @@
 ---
-slug: /react.usetokenbalance
+slug: /solana/react.usetokenbalance
 title: useTokenBalance() function
 hide_title: true
 displayed_sidebar: react

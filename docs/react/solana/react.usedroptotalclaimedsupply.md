@@ -1,5 +1,5 @@
 ---
-slug: /react.usedroptotalclaimedsupply
+slug: /solana/react.usedroptotalclaimedsupply
 title: useDropTotalClaimedSupply() function
 hide_title: true
 displayed_sidebar: react

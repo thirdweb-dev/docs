@@ -1,5 +1,4 @@
 import fs from "fs";
-import createReactSnippet from "./helper/create-react-snippet-from-mapping.mjs";
 import createReactSnippetSolana from "./helper/create-react-snippet-solana.mjs";
 
 const CLASSES = [
@@ -7,19 +6,14 @@ const CLASSES = [
   "NFTCollection",
   "Token",
   "NFTDrop",
+  "Program",
   "UserWallet",
+  "Deployer",
 ];
 
 const typescript = JSON.parse(
   fs.readFileSync(
     `${process.cwd()}/submodules/js/packages/sdk/docs/solana/snippets.json`,
-    "utf8",
-  ),
-);
-
-const react = JSON.parse(
-  fs.readFileSync(
-    `${process.cwd()}/submodules/js/packages/react/docs/solana/snippets.json`,
     "utf8",
   ),
 );
@@ -38,9 +32,18 @@ const snippets = CLASSES.reduce((acc, contractName) => {
   const tsExample = Object.values(typescript).find(
     (snippet) => snippet.name.toLowerCase() === contractName.toLowerCase(),
   );
-  const reactExample = Object.values(react).find((snippet) =>
-    snippet.name.toLowerCase().includes(contractName.toLowerCase()),
-  );
+  const reactExample = [
+    "Program",
+    "NFTCollection",
+    "NFTDrop",
+    "Token",
+  ].includes(contractName)
+    ? {
+        examples: {
+          javascript: `import { useProgram } from "@thirdweb-dev/sdk/solana"\n\nexport default function Component() {\n  const program = useProgram("{{contract_address}}")\n  ...\n}`,
+        },
+      }
+    : {};
 
   // Get contract summary from typescript docs
   data.summary = tsExample?.summary || "";

@@ -1,5 +1,5 @@
 ---
-slug: /react.programquery
+slug: /solana/react.programquery
 title: programQuery() function
 hide_title: true
 displayed_sidebar: react

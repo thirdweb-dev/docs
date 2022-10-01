@@ -1,5 +1,5 @@
 ---
-slug: /react.useminttoken
+slug: /solana/react.useminttoken
 title: useMintToken() function
 hide_title: true
 displayed_sidebar: react

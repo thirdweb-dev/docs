@@ -1,5 +1,5 @@
 ---
-slug: /react.dropunclaimedsupplyquery
+slug: /solana/react.dropunclaimedsupplyquery
 title: dropUnclaimedSupplyQuery() function
 hide_title: true
 displayed_sidebar: react

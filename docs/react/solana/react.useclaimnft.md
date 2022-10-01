@@ -1,5 +1,5 @@
 ---
-slug: /react.useclaimnft
+slug: /solana/react.useclaimnft
 title: useClaimNFT() function
 hide_title: true
 displayed_sidebar: react

@@ -1,5 +1,5 @@
 ---
-slug: /react.useprogramresult
+slug: /solana/react.useprogramresult
 title: UseProgramResult type
 hide_title: true
 displayed_sidebar: react

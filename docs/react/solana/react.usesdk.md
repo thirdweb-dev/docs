@@ -1,5 +1,5 @@
 ---
-slug: /react.usesdk
+slug: /solana/react.usesdk
 title: useSDK() function
 hide_title: true
 displayed_sidebar: react

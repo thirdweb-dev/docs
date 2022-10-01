@@ -1,5 +1,5 @@
 ---
-slug: /react.programaccounttypequery
+slug: /solana/react.programaccounttypequery
 title: programAccountTypeQuery() function
 hide_title: true
 displayed_sidebar: react

@@ -1,5 +1,5 @@
 ---
-slug: /react.transfernftmutationparams
+slug: /solana/react.transfernftmutationparams
 title: TransferNFTMutationParams type
 hide_title: true
 displayed_sidebar: react

@@ -42,7 +42,8 @@
     "name": "NFTCollection",
     "summary": "A collection of associated NFTs\n\n",
     "examples": {
-      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your NFT collection program\nconst program = await sdk.getNFTCollection(\"{{contract_address}}\");"
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your NFT collection program\nconst program = await sdk.getNFTCollection(\"{{contract_address}}\");",
+      "react": "import { useProgram } from \"@thirdweb-dev/sdk/solana\"\n\nexport default function Component() {\n  const program = useProgram(\"{{contract_address}}\")\n  ...\n}"
     },
     "methods": [
       {
@@ -224,7 +225,8 @@
     "name": "Token",
     "summary": "Standard token or cryptocurrency.\n\n",
     "examples": {
-      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your token program\nconst program = await sdk.getToken(\"{{contract_address}}\");"
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your token program\nconst program = await sdk.getToken(\"{{contract_address}}\");",
+      "react": "import { useProgram } from \"@thirdweb-dev/sdk/solana\"\n\nexport default function Component() {\n  const program = useProgram(\"{{contract_address}}\")\n  ...\n}"
     },
     "methods": [
       {
@@ -328,7 +330,8 @@
     "name": "NFTDrop",
     "summary": "A collection of NFTs that can be lazy minted and claimed\n\n",
     "examples": {
-      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your NFT Drop program\nconst program = await sdk.getNFTDrop(\"{{contract_address}}\");"
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your NFT Drop program\nconst program = await sdk.getNFTDrop(\"{{contract_address}}\");",
+      "react": "import { useProgram } from \"@thirdweb-dev/sdk/solana\"\n\nexport default function Component() {\n  const program = useProgram(\"{{contract_address}}\")\n  ...\n}"
     },
     "methods": [
       {
@@ -493,6 +496,46 @@
       "typescript": "https://portal.thirdweb.com/typescript/sdk.NFTDrop"
     }
   },
+  "Program": {
+    "name": "Program",
+    "summary": "Dynamic interface for interacting with Solana programs.\n\n",
+    "examples": {
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your program\nconst program = await sdk.getProgram(\"{{contract_address}}\");",
+      "react": "import { useProgram } from \"@thirdweb-dev/sdk/solana\"\n\nexport default function Component() {\n  const program = useProgram(\"{{contract_address}}\")\n  ...\n}"
+    },
+    "methods": [
+      {
+        "name": "call",
+        "summary": "Call a function on this program\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const counterAccount = Keypair.generate();\nawait program.call(\"increment\", {\n  // We need to pass in the public keys of any accounts to interact with\n  accounts: {\n    counterAccount: counterAccount.publicKey.toBase58(),\n  },\n  // As well as the arguments to pass to the data parameters\n  data: [\"...\"],\n  // And the signer of the account that will be signing the message\n  signers: [counterAccount]\n})",
+          "react": "const counterAccount = Keypair.generate();\nawait program.call(\"increment\", {\n  // We need to pass in the public keys of any accounts to interact with\n  accounts: {\n    counterAccount: counterAccount.publicKey.toBase58(),\n  },\n  // As well as the arguments to pass to the data parameters\n  data: [\"...\"],\n  // And the signer of the account that will be signing the message\n  signers: [counterAccount]\n})"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.program.call",
+          "react": "https://portal.thirdweb.com/typescript/sdk.program.call"
+        }
+      },
+      {
+        "name": "fetch",
+        "summary": "Read account data associated with this program\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const accountAddress = \"...\";\n// Get the counterAccount at specified address\nconst counterAccount = await program.fetch(\"counterAccount\", accountaddress);",
+          "react": "const accountAddress = \"...\";\n// Get the counterAccount at specified address\nconst counterAccount = await program.fetch(\"counterAccount\", accountaddress);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.program.fetch",
+          "react": "https://portal.thirdweb.com/typescript/sdk.program.fetch"
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "typescript": "https://portal.thirdweb.com/typescript/sdk.Program"
+    }
+  },
   "UserWallet": {
     "name": "UserWallet",
     "summary": "Handle and view info about the wallet connected to the SDK.\n\n",
@@ -569,6 +612,58 @@
     "properties": [],
     "reference": {
       "typescript": "https://portal.thirdweb.com/typescript/sdk.UserWallet"
+    }
+  },
+  "Deployer": {
+    "name": "Deployer",
+    "summary": "Deploy new programs\n\n",
+    "examples": {
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\n// Instantiate the SDK and pass in a signer\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Define the metadata for your program\nconst metadata = {\n  name: \"NFT Contract\",\n  image: readFileSync(\"files/image.jpg\"),\n};\n\n// And deploy a new program from the connected wallet\nconst address = await sdk.deployer.createNftCollection(metadata);"
+    },
+    "methods": [
+      {
+        "name": "createNftCollection",
+        "summary": "Create a new NFT collection program\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const metadata = {\n  name: \"NFT\",\n  symbol: \"NFT\",\n};\n\nconst address = await sdk.deployer.createNftCollection(metadata);",
+          "react": "const sdk = useSDK();\n\nconst metadata = {\n  name: \"NFT\",\n  symbol: \"NFT\",\n};\n\nconst address = await sdk.deployer.createNftCollection(metadata);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.deployer.createnftcollection",
+          "react": "https://portal.thirdweb.com/typescript/sdk.deployer.createnftcollection"
+        }
+      },
+      {
+        "name": "createNftDrop",
+        "summary": "Create a new NFT drop program\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const metadata = {\n  name: \"NFT\",\n  symbol: \"NFT\",\n  price: 0,\n  sellerFeeBasisPoints: 0,\n  itemsAvailable: 5,\n};\n\nconst address = await sdk.deployer.createNftDrop(metadata);",
+          "react": "const sdk = useSDK();\n\nconst metadata = {\n  name: \"NFT\",\n  symbol: \"NFT\",\n  price: 0,\n  sellerFeeBasisPoints: 0,\n  itemsAvailable: 5,\n};\n\nconst address = await sdk.deployer.createNftDrop(metadata);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.deployer.createnftdrop",
+          "react": "https://portal.thirdweb.com/typescript/sdk.deployer.createnftdrop"
+        }
+      },
+      {
+        "name": "createToken",
+        "summary": "Create a new token program\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const metadata = {\n  name: \"Token\",\n  symbol: \"TKN\",\n  initialSupply: 100,\n};\n\nconst address = await sdk.deployer.createToken(metadata);",
+          "react": "const sdk = useSDK();\n\nconst metadata = {\n  name: \"Token\",\n  symbol: \"TKN\",\n  initialSupply: 100,\n};\n\nconst address = await sdk.deployer.createToken(metadata);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.deployer.createtoken",
+          "react": "https://portal.thirdweb.com/typescript/sdk.deployer.createtoken"
+        }
+      }
+    ],
+    "properties": [],
+    "reference": {
+      "typescript": "https://portal.thirdweb.com/typescript/sdk.Deployer"
     }
   }
 }

@@ -1,5 +1,5 @@
 ---
-slug: /react.usetransfertoken
+slug: /solana/react.usetransfertoken
 title: useTransferToken() function
 hide_title: true
 displayed_sidebar: react

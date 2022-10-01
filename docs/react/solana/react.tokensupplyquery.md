@@ -1,5 +1,5 @@
 ---
-slug: /react.tokensupplyquery
+slug: /solana/react.tokensupplyquery
 title: tokenSupplyQuery() function
 hide_title: true
 displayed_sidebar: react

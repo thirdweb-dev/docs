@@ -1,5 +1,5 @@
 ---
-slug: /react.thirdwebprovider
+slug: /solana/react.thirdwebprovider
 title: ThirdwebProvider variable
 hide_title: true
 displayed_sidebar: react

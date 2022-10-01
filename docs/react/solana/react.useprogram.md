@@ -1,5 +1,5 @@
 ---
-slug: /react.useprogram
+slug: /solana/react.useprogram
 title: useProgram() function
 hide_title: true
 displayed_sidebar: react

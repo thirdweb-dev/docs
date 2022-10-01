@@ -1,5 +1,5 @@
 ---
-slug: /react.usedropunclaimedsupply
+slug: /solana/react.usedropunclaimedsupply
 title: useDropUnclaimedSupply() function
 hide_title: true
 displayed_sidebar: react

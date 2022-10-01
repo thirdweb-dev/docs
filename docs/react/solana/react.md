@@ -1,5 +1,5 @@
 ---
-slug: /react
+slug: /solana/react
 title: react package
 hide_title: true
 displayed_sidebar: react

@@ -1,5 +1,5 @@
 ---
-slug: /react.uselazymintnft
+slug: /solana/react.uselazymintnft
 title: useLazyMintNFT() function
 hide_title: true
 displayed_sidebar: react

@@ -1,5 +1,5 @@
 ---
-slug: /react.usenft
+slug: /solana/react.usenft
 title: useNFT() function
 hide_title: true
 displayed_sidebar: react

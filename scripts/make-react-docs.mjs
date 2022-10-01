@@ -13,6 +13,8 @@ async function makeDocs({ outDir, inDir, readmePath, migrationGuidePath }) {
   pkg.ensureDirSync(outDir);
 
   async function generate() {
+    const isSolana = inDir.includes("solana");
+
     const docFiles = await readdir(inDir);
     for (const docFile of docFiles) {
       try {
@@ -73,7 +75,7 @@ async function makeDocs({ outDir, inDir, readmePath, migrationGuidePath }) {
 
         const header = [
           "---",
-          `slug: /${id}`,
+          `slug: /${isSolana ? `solana/${id}` : id}`,
           `title: ${title}`,
           `hide_title: true`,
           `displayed_sidebar: react`,
@@ -165,6 +167,7 @@ async function main() {
   await makeDocs({
     outDir: "./docs/react/solana",
     inDir: packageRoot + "/docs/solana",
+    readmePath: packageRoot + "/README.md",
   });
 }
 

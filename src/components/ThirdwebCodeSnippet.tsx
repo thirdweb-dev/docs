@@ -19,7 +19,7 @@ export default function ThirdwebCodeSnippet({
 }) {
   const languagesToShow = isSolana
     ? {
-        react: false,
+        react: true,
         javascript: true,
         python: false,
         go: false,

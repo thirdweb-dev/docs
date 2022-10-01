@@ -1,5 +1,5 @@
 ---
-slug: /react.programmetadataquery
+slug: /solana/react.programmetadataquery
 title: programMetadataQuery() function
 hide_title: true
 displayed_sidebar: react

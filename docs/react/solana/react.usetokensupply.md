@@ -1,5 +1,5 @@
 ---
-slug: /react.usetokensupply
+slug: /solana/react.usetokensupply
 title: useTokenSupply() function
 hide_title: true
 displayed_sidebar: react

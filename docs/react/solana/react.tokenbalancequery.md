@@ -1,5 +1,5 @@
 ---
-slug: /react.tokenbalancequery
+slug: /solana/react.tokenbalancequery
 title: tokenBalanceQuery() function
 hide_title: true
 displayed_sidebar: react

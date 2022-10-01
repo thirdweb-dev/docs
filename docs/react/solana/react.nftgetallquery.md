@@ -1,5 +1,5 @@
 ---
-slug: /react.nftgetallquery
+slug: /solana/react.nftgetallquery
 title: nftGetAllQuery() function
 hide_title: true
 displayed_sidebar: react

@@ -1,5 +1,5 @@
 ---
-slug: /react.transfertokenmutationparams
+slug: /solana/react.transfertokenmutationparams
 title: TransferTokenMutationParams type
 hide_title: true
 displayed_sidebar: react
