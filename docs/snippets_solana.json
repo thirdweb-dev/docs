@@ -361,6 +361,19 @@
         }
       },
       {
+        "name": "burn",
+        "summary": "Burn an NFT\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// Specify the address of the NFT to burn\nconst nftAddress = \"...\"\n// And send the actual burn transaction\nconst tx = await program.burn(nftAddress);",
+          "react": "// Specify the address of the NFT to burn\nconst nftAddress = \"...\"\n// And send the actual burn transaction\nconst tx = await program.burn(nftAddress);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.burn",
+          "react": "https://portal.thirdweb.com/typescript/sdk.nftdrop.burn"
+        }
+      },
+      {
         "name": "claim",
         "summary": "Claim an NFT from the drop with connected wallet\n\n",
         "remarks": null,

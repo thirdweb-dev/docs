@@ -22,6 +22,7 @@ displayed_sidebar: react
 | [programQuery(queryClient, sdk, address, type)](./react.programquery.md)       |                                                             |
 | [tokenBalanceQuery(program, walletAddress)](./react.tokenbalancequery.md)      |                                                             |
 | [tokenSupplyQuery(program)](./react.tokensupplyquery.md)                       |                                                             |
+| [useBurnNFT(program)](./react.useburnnft.md)                                   | Burn an NFT owned by the connected wallet                   |
 | [useClaimNFT(program)](./react.useclaimnft.md)                                 | Claim NFTs from an NFT Drop program                         |
 | [useDropTotalClaimedSupply(program)](./react.usedroptotalclaimedsupply.md)     | Get the total claimed supply of NFTs on an NFT Drop         |
 | [useDropUnclaimedSupply(program)](./react.usedropunclaimedsupply.md)           | Get the total unclaimed supply of NFTs on an NFT Drop       |

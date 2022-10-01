@@ -50,6 +50,7 @@ const program = await sdk.getNFTDrop("{{contract_address}}");
 | ------------------------------------------------------------------ | --------- | ------------------------------------------------------ |
 | [balance(nftAddress)](./sdk.nftdrop.balance.md)                    |           | Get the NFT balance of the connected wallet            |
 | [balanceOf(walletAddress, nftAddress)](./sdk.nftdrop.balanceof.md) |           | Get the NFT balance of the specified wallet            |
+| [burn(nftAddress)](./sdk.nftdrop.burn.md)                          |           | Burn an NFT                                            |
 | [claim(quantity)](./sdk.nftdrop.claim.md)                          |           | Claim an NFT from the drop with connected wallet       |
 | [claimTo(receiverAddress, quantity)](./sdk.nftdrop.claimto.md)     |           | Claim an NFT from the drop for the specified wallet    |
 | [get(nftAddress)](./sdk.nftdrop.get.md)                            |           | Get the metadata for a specific NFT                    |

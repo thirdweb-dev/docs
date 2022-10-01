@@ -39,7 +39,7 @@ export default function Component() {
 
 ```typescript
 export declare function useTransferNFT(
-  program: RequiredParam<NFTCollection>,
+  program: RequiredParam<NFTCollection | NFTDrop>,
 ): import("@tanstack/react-query").UseMutationResult<
   import("@thirdweb-dev/sdk/solana").TransactionResult,
   unknown,
@@ -50,9 +50,9 @@ export declare function useTransferNFT(
 
 ## Parameters
 
-| Parameter | Type                               | Description                                  |
-| --------- | ---------------------------------- | -------------------------------------------- |
-| program   | RequiredParam&lt;NFTCollection&gt; | The NFT program instance to transfer NFTs on |
+| Parameter | Type                                              | Description                                  |
+| --------- | ------------------------------------------------- | -------------------------------------------- |
+| program   | RequiredParam&lt;NFTCollection &#124; NFTDrop&gt; | The NFT program instance to transfer NFTs on |
 
 **Returns:**
 
