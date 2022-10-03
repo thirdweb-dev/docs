@@ -14,11 +14,7 @@ yarn generate-docs
 # generate react docs
 cd ../react
 mkdir ./etc
-yarn build
-yarn api-extractor run --local
-yarn api-documenter markdown -i ./temp -o ./docs
-node ./scripts/generate-snippets.mjs
-node ./scripts/generate-feature-snippets.mjs
+yarn generate-docs
 # generate storage docs
 cd ../storage
 mkdir ./etc

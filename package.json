@@ -14,7 +14,7 @@
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
-    "generate-snippets": "node ./scripts/generate-snippets.mjs",
+    "generate-snippets": "node ./scripts/generate-snippets.mjs && node  ./scripts/generate-snippets-solana.mjs",
     "generate-github-examples": "node scripts/fetch-github-example-repos.mjs",
     "generate-example-pages": "node scripts/make-example-pages.mjs",
     "make-docs:typescript": "node scripts/make-typescript-docs.mjs",
@@ -41,6 +41,7 @@
     "prism-react-renderer": "^1.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-transition-group": "^4.4.5",
     "sass": "^1.52.1"
   },
   "devDependencies": {

@@ -21,7 +21,7 @@ console.log(packs;
 **Signature:**
 
 ```typescript
-get(tokenId: BigNumberish): Promise<EditionMetadata>;
+get(tokenId: BigNumberish): Promise<NFT>;
 ```
 
 ## Parameters
@@ -32,7 +32,7 @@ get(tokenId: BigNumberish): Promise<EditionMetadata>;
 
 **Returns:**
 
-Promise&lt;[EditionMetadata](./sdk.editionmetadata.md)&gt;
+Promise&lt;[NFT](./sdk.nft.md)&gt;
 
 ## Remarks
 

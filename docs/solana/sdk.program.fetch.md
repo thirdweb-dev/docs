@@ -9,6 +9,8 @@ displayed_sidebar: solana
 
 ## Program.fetch() method
 
+Read account data associated with this program
+
 **Signature:**
 
 ```typescript
@@ -17,11 +19,21 @@ fetch(accountName: string, address: string): Promise<import("@project-serum/anch
 
 ## Parameters
 
-| Parameter   | Type   | Description |
-| ----------- | ------ | ----------- |
-| accountName | string |             |
-| address     | string |             |
+| Parameter   | Type   | Description                                       |
+| ----------- | ------ | ------------------------------------------------- |
+| accountName | string | The name of the account type to fetch the data of |
+| address     | string | The address of the specific account to fetch      |
 
 **Returns:**
 
 Promise&lt;import("@project-serum/anchor/dist/cjs/program/namespace/types").TypeDef&lt;import("@project-serum/anchor/dist/cjs/idl").IdlAccountDef, import("@project-serum/anchor").IdlTypes&lt;Idl&gt;&gt;&gt;
+
+- The data of the requested account
+
+## Example
+
+```jsx
+const accountAddress = "...";
+// Get the counterAccount at specified address
+const counterAccount = await program.fetch("counterAccount", accountaddress);
+```

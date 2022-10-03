@@ -29,12 +29,9 @@ displayed_sidebar: solana
 
 ## Type Aliases
 
-| Type Alias                                              | Description                                   |
-| ------------------------------------------------------- | --------------------------------------------- |
-| [Network](./sdk.network.md)                             | Supported Solana networks to use the SDK with |
-| [NFTCollectionMetadata](./sdk.nftcollectionmetadata.md) |                                               |
-| [NFTMetadata](./sdk.nftmetadata.md)                     |                                               |
-| [NFTMetadataInput](./sdk.nftmetadatainput.md)           |                                               |
-| [NFTMetadataOrUri](./sdk.nftmetadataoruri.md)           |                                               |
-| [NFTMetadataOwner](./sdk.nftmetadataowner.md)           |                                               |
-| [TokenMetadata](./sdk.tokenmetadata.md)                 |                                               |
+| Type Alias                                                | Description                                   |
+| --------------------------------------------------------- | --------------------------------------------- |
+| [Network](./sdk.network.md)                               | Supported Solana networks to use the SDK with |
+| [NFTDropConditions](./sdk.nftdropconditions.md)           |                                               |
+| [NFTDropConditionsInput](./sdk.nftdropconditionsinput.md) |                                               |
+| [NFTDropContractInput](./sdk.nftdropcontractinput.md)     |                                               |

@@ -1,0 +1,240 @@
+.featured-template-card {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  box-sizing: border-box;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  border-radius: 8px;
+  min-height: 320px;
+  gap: 3%;
+  padding: 16px;
+  margin-bottom: 32px;
+}
+
+.featured-template-left {
+  img {
+    max-height: 360px;
+  }
+}
+
+.featured-template-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  .button-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 16px;
+    margin-top: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .featured-template-card {
+    flex-direction: column;
+    align-items: flex-start;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0px;
+
+    img {
+      max-height: 200px;
+    }
+  }
+
+  .featured-template-left {
+    width: 100%;
+  }
+
+  .featured-template-right {
+    width: 100%;
+  }
+}
+
+@media (min-width: 997px) and (max-width: 1399px) {
+  .featured-template-right .button-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+}
+
+// And on less than 641px screens
+@media (max-width: 832px) {
+  .featured-template-right .button-container {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+}
+
+html[data-theme="light"] {
+  .featured-template-card {
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.07);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.05);
+  }
+}
+
+.view-demo-btn {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 32px;
+  background: linear-gradient(86.62deg, #c643f4 0%, #8b43f4 82.93%);
+  border-radius: 6px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 100%;
+  text-decoration: none;
+  color: #fff;
+}
+
+html[data-theme="light"] .view-demo-btn {
+  text-decoration: none;
+  color: #fff !important;
+}
+
+html[data-theme="light"] .view-demo-btn:hover {
+  color: #fff !important;
+  opacity: 0.9;
+  transition: all 0.2s ease-in-out;
+}
+
+html[data-theme="dark"] .view-demo-btn {
+  /* background: linear-gradient(83.27deg, #c29afe 17.16%, #fe9aee 99.87%); */
+  /* color: #000; */
+  text-decoration: none;
+}
+
+html[data-theme="dark"] .view-demo-btn:hover {
+  color: #fff !important;
+  opacity: 0.9;
+  transition: all 0.2s ease-in-out;
+}
+
+.view-code-btn {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  padding-left: 16px;
+  padding-right: 16px;
+  height: 32px;
+  border: 1px solid #8b43f4;
+  border-radius: 6px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 100%;
+  text-decoration: none;
+  color: #fff;
+}
+
+html[data-theme="light"] .view-code-btn {
+  text-decoration: none;
+  color: #000 !important;
+}
+
+html[data-theme="light"] .view-code-btn:hover {
+  color: #000 !important;
+  opacity: 0.9;
+  transition: all 0.2s ease-in-out;
+}
+
+html[data-theme="dark"] .view-code-btn {
+  /* background: linear-gradient(83.27deg, #c29afe 17.16%, #fe9aee 99.87%); */
+  /* color: #000; */
+  text-decoration: none;
+}
+
+html[data-theme="dark"] .view-code-btn:hover {
+  color: #fff !important;
+  opacity: 0.9;
+  transition: all 0.2s ease-in-out;
+}
+
+.always-row {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  flex-direction: row !important;
+}
+
+.transition-enter {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.transition-enter-active {
+  opacity: 1;
+  transform: translateY(0px);
+  transition: all 0.3s ease-in-out;
+}
+
+.transition-exit {
+  opacity: 1;
+  transform: translateY(0px);
+}
+
+.transition-exit-active {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease-in-out;
+}
+
+.no-hover-effect:hover {
+  border: 1px solid rgba(255, 255, 255, 0.07);
+  box-shadow: 0px 0px 10px 0px rgba(255, 255, 255, 0.2);
+}
+
+// Landing page light mode
+html[data-theme="light"] {
+  .no-hover-effect:hover {
+    border: 1px solid rgba(0, 0, 0, 0.07);
+  }
+}
+
+.template-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.template-description {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  opacity: 0.75;
+  margin-bottom: 0px;
+}
+
+.template-code {
+  margin: 0px;
+  max-width: 100%;
+  min-width: 100%;
+  text-align: left;
+  margin-bottom: 0px !important;
+
+  div > pre {
+    font-size: 14px !important;
+  }
+
+  div > div > button {
+    margin-top: 5px;
+  }
+}

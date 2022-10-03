@@ -48,29 +48,25 @@ Select the frameworks you know and love to get started quickly, by providing:
 npx thirdweb@latest create
 ```
 
-## Build
+## Deploy
 
 <div className="heroGrid">
   
   <div>
 
-<p>
-  Compile your smart contracts and detect any{" "}
-  <a href="/extensions/features">features</a> you have implemented. This
-  command:
-</p>
+[Deploy](/deploy) your smart contracts to one of our [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use/) using the dashboard:
 
-- Detects the framework you're using
-- Compiles all of your smart contracts
-- Prints out the [features](/extensions/features) you have implemented for each contract
+- Compiles your smart contracts
+- Uploads the contract [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)s to IPFS
+- Allows you to [deploy](/deploy) them through the dashboard
 
 </div>
 
 <div className="heroGridImageContainer">
   <ThemedImage
     sources={{
-      light: "/assets/detect.png",
-      dark: "/assets/detect.png",
+      light: "/assets/deploy.png",
+      dark: "/assets/deploy.png",
     }}
     className="heroGridImage"
     alt="thirdweb dashboard"
@@ -80,7 +76,7 @@ npx thirdweb@latest create
 </div>
 
 ```bash
-npx thirdweb@latest detect
+npx thirdweb@latest deploy
 ```
 
 ## Release
@@ -114,25 +110,31 @@ Creates a versioned [release](/release) of your contract onto our registry:
 npx thirdweb@latest release
 ```
 
-## Deploy
+## Additional commands
+
+### Detect
 
 <div className="heroGrid">
   
   <div>
 
-[Deploy](/deploy) your smart contracts to one of our [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use/) using the dashboard:
+<p>
+  Compile your smart contracts and detect any{" "}
+  <a href="/contractkit/features">features</a> you have implemented. This
+  command:
+</p>
 
-- Compiles your smart contracts
-- Uploads the contract [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)s to IPFS
-- Allows you to [deploy](/deploy) them through the dashboard
+- Detects the framework you're using
+- Compiles all of your smart contracts
+- Prints out the [features](/contractkit/features) you have implemented for each contract
 
 </div>
 
 <div className="heroGridImageContainer">
   <ThemedImage
     sources={{
-      light: "/assets/deploy.png",
-      dark: "/assets/deploy.png",
+      light: "/assets/detect.png",
+      dark: "/assets/detect.png",
     }}
     className="heroGridImage"
     alt="thirdweb dashboard"
@@ -142,5 +144,7 @@ npx thirdweb@latest release
 </div>
 
 ```bash
-npx thirdweb@latest deploy
+npx thirdweb@latest detect
 ```
+
+<!-- ### Install CI -->

@@ -21,7 +21,7 @@ const nft = await contract.get(tokenId);
 **Signature:**
 
 ```typescript
-get(tokenId: BigNumberish): Promise<NFTMetadataOwner>;
+get(tokenId: BigNumberish): Promise<NFT>;
 ```
 
 ## Parameters
@@ -32,6 +32,6 @@ get(tokenId: BigNumberish): Promise<NFTMetadataOwner>;
 
 **Returns:**
 
-Promise&lt;[NFTMetadataOwner](./sdk.nftmetadataowner.md)&gt;
+Promise&lt;[NFT](./sdk.nft.md)&gt;
 
 The NFT metadata

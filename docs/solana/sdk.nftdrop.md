@@ -25,15 +25,15 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 const sdk = ThirdwebSDK.fromNetwork("devnet");
 sdk.wallet.connect(signer);
 
-// Get the interface for your NFT collection program
-const program = await sdk.getNFTCollection("{{contract_address}}");
+// Get the interface for your NFT Drop program
+const program = await sdk.getNFTDrop("{{contract_address}}");
 ```
 
 ## Constructors
 
-| Constructor                                                                         | Modifiers | Description                                                 |
-| ----------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------- |
-| [(constructor)(dropMintAddress, metaplex, storage)](./sdk.nftdrop._constructor_.md) |           | Constructs a new instance of the <code>NFTDrop</code> class |
+| Constructor                                                                     | Modifiers | Description                                                 |
+| ------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------- |
+| [(constructor)(dropAddress, metaplex, storage)](./sdk.nftdrop._constructor_.md) |           | Constructs a new instance of the <code>NFTDrop</code> class |
 
 ## Properties
 
@@ -50,6 +50,7 @@ const program = await sdk.getNFTCollection("{{contract_address}}");
 | ------------------------------------------------------------------ | --------- | ------------------------------------------------------ |
 | [balance(nftAddress)](./sdk.nftdrop.balance.md)                    |           | Get the NFT balance of the connected wallet            |
 | [balanceOf(walletAddress, nftAddress)](./sdk.nftdrop.balanceof.md) |           | Get the NFT balance of the specified wallet            |
+| [burn(nftAddress)](./sdk.nftdrop.burn.md)                          |           | Burn an NFT                                            |
 | [claim(quantity)](./sdk.nftdrop.claim.md)                          |           | Claim an NFT from the drop with connected wallet       |
 | [claimTo(receiverAddress, quantity)](./sdk.nftdrop.claimto.md)     |           | Claim an NFT from the drop for the specified wallet    |
 | [get(nftAddress)](./sdk.nftdrop.get.md)                            |           | Get the metadata for a specific NFT                    |

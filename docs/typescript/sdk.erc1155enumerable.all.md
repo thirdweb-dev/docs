@@ -20,7 +20,7 @@ const nfts = await contract.edition.query.all();
 **Signature:**
 
 ```typescript
-all(queryParams?: QueryAllParams): Promise<EditionMetadata[]>;
+all(queryParams?: QueryAllParams): Promise<NFT[]>;
 ```
 
 ## Parameters
@@ -31,7 +31,7 @@ all(queryParams?: QueryAllParams): Promise<EditionMetadata[]>;
 
 **Returns:**
 
-Promise&lt;[EditionMetadata](./sdk.editionmetadata.md)\[\]&gt;
+Promise&lt;[NFT](./sdk.nft.md)\[\]&gt;
 
 The NFT metadata for all NFTs queried.
 

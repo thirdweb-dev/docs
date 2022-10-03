@@ -26,5 +26,6 @@ the total supply
 ## Example
 
 ```jsx
+// Get the total number of lazy minted NFTs that have already been claimed
 const supply = await program.totalClaimedSupply();
 ```

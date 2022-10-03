@@ -20,33 +20,33 @@ export declare function useCompilerMetadata(
     metadata: Record<string, any>;
     abi: {
       [x: string]: any;
-      name: string;
       type: string;
+      name: string;
       outputs: {
         [x: string]: any;
         components?:
           | {
               [x: string]: any;
-              name: string;
               type: string;
+              name: string;
             }[]
           | undefined;
         stateMutability?: string | undefined;
-        name: string;
         type: string;
+        name: string;
       }[];
       inputs: {
         [x: string]: any;
         components?:
           | {
               [x: string]: any;
-              name: string;
               type: string;
+              name: string;
             }[]
           | undefined;
         stateMutability?: string | undefined;
-        name: string;
         type: string;
+        name: string;
       }[];
     }[];
     info: {
@@ -69,4 +69,4 @@ export declare function useCompilerMetadata(
 
 **Returns:**
 
-UseQueryResult&lt;{ name: string; metadata: Record&lt;string, any&gt;; abi: { \[x: string\]: any; name: string; type: string; outputs: { \[x: string\]: any; components?: { \[x: string\]: any; name: string; type: string; }\[\] \| undefined; stateMutability?: string \| undefined; name: string; type: string; }\[\]; inputs: { \[x: string\]: any; components?: { \[x: string\]: any; name: string; type: string; }\[\] \| undefined; stateMutability?: string \| undefined; name: string; type: string; }\[\]; }\[\]; info: { title?: string \| undefined; author?: string \| undefined; details?: string \| undefined; notice?: string \| undefined; }; licenses: string\[\]; } \| null, unknown&gt;
+UseQueryResult&lt;{ name: string; metadata: Record&lt;string, any&gt;; abi: { \[x: string\]: any; type: string; name: string; outputs: { \[x: string\]: any; components?: { \[x: string\]: any; type: string; name: string; }\[\] \| undefined; stateMutability?: string \| undefined; type: string; name: string; }\[\]; inputs: { \[x: string\]: any; components?: { \[x: string\]: any; type: string; name: string; }\[\] \| undefined; stateMutability?: string \| undefined; type: string; name: string; }\[\]; }\[\]; info: { title?: string \| undefined; author?: string \| undefined; details?: string \| undefined; notice?: string \| undefined; }; licenses: string\[\]; } \| null, unknown&gt;

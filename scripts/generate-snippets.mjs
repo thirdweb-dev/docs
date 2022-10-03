@@ -39,7 +39,7 @@ const typescript = JSON.parse(
 
 const react = JSON.parse(
   fs.readFileSync(
-    `${process.cwd()}/submodules/js/packages/react/docs/snippets.json`,
+    `${process.cwd()}/submodules/js/packages/react/docs/evm/snippets.json`,
     "utf8",
   ),
 );
@@ -237,15 +237,6 @@ fs.writeFileSync(
   JSON.stringify(snippets, null, 2),
 );
 
-// snippets_solana
-fs.writeFileSync(
-  `${process.cwd()}/docs/snippets_solana.json`,
-  fs.readFileSync(
-    `${process.cwd()}/submodules/js/packages/sdk/docs/solana/snippets.json`,
-    "utf8",
-  ),
-);
-
 // feature_snippets_sdk
 fs.writeFileSync(
   `${process.cwd()}/docs/feature_snippets_sdk.json`,
@@ -259,7 +250,7 @@ fs.writeFileSync(
 fs.writeFileSync(
   `${process.cwd()}/docs/feature_snippets_react.json`,
   fs.readFileSync(
-    `${process.cwd()}/submodules/js/packages/react/docs/feature_snippets.json`,
+    `${process.cwd()}/submodules/js/packages/react/docs/evm/feature_snippets.json`,
     "utf8",
   ),
 );

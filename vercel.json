@@ -201,7 +201,7 @@
     },
     {
       "source": "/thirdweb-deploy/contract-features/:match*",
-      "destination": "/extensions/features/:match*"
+      "destination": "/contractkit/features/:match*"
     },
     {
       "source": "/getting-started",
@@ -307,12 +307,12 @@
     },
     {
       "source": "/thirdweb-deploy/features",
-      "destination": "/extensions",
+      "destination": "/contractkit",
       "permanent": true
     },
     {
       "source": "/thirdweb-deploy/contract-extensions/quickstart",
-      "destination": "/extensions"
+      "destination": "/contractkit"
     },
     {
       "source": "/pre-built-contracts/nfts",
@@ -357,7 +357,7 @@
     },
     {
       "source": "/contracts-sdk/contract-extensions/signatureminting",
-      "destination": "/extensions/features/signatureminterc721"
+      "destination": "/contractkit/features/signatureminterc721"
     },
     {
       "source": "/guides/sign-in-with-ethereum-using-thirdweb-connectwallet",
@@ -373,19 +373,19 @@
     },
     {
       "source": "/contracts-sdk",
-      "destination": "/extensions"
+      "destination": "/contractkit"
     },
     {
       "source": "/contracts-sdk/contract-extensions",
-      "destination": "/extensions/features"
+      "destination": "/contractkit/features"
     },
     {
       "source": "/contracts-sdk/contract-extensions/:match*",
-      "destination": "/extensions/features/:match*"
+      "destination": "/contractkit/features/:match*"
     },
     {
       "source": "/contracts-sdk/:match*",
-      "destination": "/extensions/:match*"
+      "destination": "/contractkit/:match*"
     },
     {
       "source": "/guides",
@@ -404,7 +404,7 @@
     },
     {
       "source": "/sdk/connecting-to-a-wallet",
-      "destination": "/sdk/ui-components/connectwalletbutton"
+      "destination": "/ui-components/connectwalletbutton"
     },
     {
       "source": "/sdk/switching-networks",
@@ -427,32 +427,44 @@
       "destination": "/getting-started/creating-custom-contracts"
     },
     {
-      "source": "/extensions/features/contractmetadata",
-      "destination": "/extensions/contractmetadata"
+      "source": "/contractkit/features/contractmetadata",
+      "destination": "/contractkit/contractmetadata"
     },
     {
-      "source": "/extensions/features/ownable",
-      "destination": "/extensions/ownable"
+      "source": "/contractkit/features/ownable",
+      "destination": "/contractkit/ownable"
     },
     {
-      "source": "/extensions/features/permissions",
-      "destination": "/extensions/permissions"
+      "source": "/contractkit/features/permissions",
+      "destination": "/contractkit/permissions"
     },
     {
-      "source": "/extensions/features/platformfee",
-      "destination": "/extensions/platformfee"
+      "source": "/contractkit/features/platformfee",
+      "destination": "/contractkit/platformfee"
     },
     {
-      "source": "/extensions/features/primarysale",
-      "destination": "/extensions/primarysale"
+      "source": "/contractkit/features/primarysale",
+      "destination": "/contractkit/primarysale"
     },
     {
-      "source": "/extensions/features/primarysale",
-      "destination": "/extensions/primarysale"
+      "source": "/contractkit/features/primarysale",
+      "destination": "/contractkit/primarysale"
     },
     {
       "source": "/create",
       "destination": "/sdk"
+    },
+    {
+      "source": "/extensions",
+      "destination": "/contractkit"
+    },
+    {
+      "source": "/extensions/:match*",
+      "destination": "/contractkit/:match*"
+    },
+    {
+      "source": "/sdk/ui-components",
+      "destination": "/ui-components"
     }
   ]
 }

@@ -799,7 +799,7 @@ _Lets a contract admin set the URI for contract-level metadata._
 function setMaxTotalSupply(uint256 _maxTotalSupply) external nonpayable
 ```
 
-_Lets a contract admin set the global maximum supply of tokens._
+_Set global maximum supply. Must be parsed to 18 decimals when setting, by adding 18 zeros after the desired value._
 
 #### Parameters
 
@@ -813,7 +813,7 @@ _Lets a contract admin set the global maximum supply of tokens._
 function setMaxWalletClaimCount(uint256 _count) external nonpayable
 ```
 
-_Lets a contract admin set a maximum number of tokens that can be claimed by any wallet._
+_Set a maximum number of tokens that can be claimed by any wallet. Must be parsed to 18 decimals when setting, by adding 18 zeros after the desired value._
 
 #### Parameters
 

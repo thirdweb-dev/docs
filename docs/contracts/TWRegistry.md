@@ -36,8 +36,10 @@ function OPERATOR_ROLE() external view returns (bytes32)
 ### add
 
 ```solidity
-function add(address _deployer, address _deployment) external nonpayable
+function add(address _deployer, address _deployment, uint256 _chainId) external nonpayable
 ```
+
+Add a deployment for a deployer.
 
 #### Parameters
 
@@ -45,12 +47,15 @@ function add(address _deployer, address _deployment) external nonpayable
 | ------------ | ------- | ----------- |
 | \_deployer   | address | undefined   |
 | \_deployment | address | undefined   |
+| \_chainId    | uint256 | undefined   |
 
 ### count
 
 ```solidity
-function count(address _deployer) external view returns (uint256)
+function count(address _deployer) external view returns (uint256 deploymentCount)
 ```
+
+Get the total number of deployments for a deployer.
 
 #### Parameters
 
@@ -60,15 +65,17 @@ function count(address _deployer) external view returns (uint256)
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name            | Type    | Description |
+| --------------- | ------- | ----------- |
+| deploymentCount | uint256 | undefined   |
 
 ### getAll
 
 ```solidity
-function getAll(address _deployer) external view returns (address[])
+function getAll(address _deployer) external view returns (struct ITWRegistry.Deployment[] allDeployments)
 ```
+
+Get all deployments for a deployer.
 
 #### Parameters
 
@@ -78,9 +85,9 @@ function getAll(address _deployer) external view returns (address[])
 
 #### Returns
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| \_0  | address[] | undefined   |
+| Name           | Type                     | Description |
+| -------------- | ------------------------ | ----------- |
+| allDeployments | ITWRegistry.Deployment[] | undefined   |
 
 ### getRoleAdmin
 
@@ -220,8 +227,10 @@ _Receives and executes a batch of function calls on this contract._
 ### remove
 
 ```solidity
-function remove(address _deployer, address _deployment) external nonpayable
+function remove(address _deployer, address _deployment, uint256 _chainId) external nonpayable
 ```
+
+Remove a deployment for a deployer.
 
 #### Parameters
 
@@ -229,6 +238,7 @@ function remove(address _deployer, address _deployment) external nonpayable
 | ------------ | ------- | ----------- |
 | \_deployer   | address | undefined   |
 | \_deployment | address | undefined   |
+| \_chainId    | uint256 | undefined   |
 
 ### renounceRole
 
@@ -285,7 +295,7 @@ _See {IERC165-supportsInterface}._
 ### Added
 
 ```solidity
-event Added(address indexed deployer, address indexed deployment)
+event Added(address indexed deployer, address indexed deployment, uint256 indexed chainId)
 ```
 
 #### Parameters
@@ -294,11 +304,12 @@ event Added(address indexed deployer, address indexed deployment)
 | -------------------- | ------- | ----------- |
 | deployer `indexed`   | address | undefined   |
 | deployment `indexed` | address | undefined   |
+| chainId `indexed`    | uint256 | undefined   |
 
 ### Deleted
 
 ```solidity
-event Deleted(address indexed deployer, address indexed deployment)
+event Deleted(address indexed deployer, address indexed deployment, uint256 indexed chainId)
 ```
 
 #### Parameters
@@ -307,6 +318,7 @@ event Deleted(address indexed deployer, address indexed deployment)
 | -------------------- | ------- | ----------- |
 | deployer `indexed`   | address | undefined   |
 | deployment `indexed` | address | undefined   |
+| chainId `indexed`    | uint256 | undefined   |
 
 ### RoleAdminChanged
 

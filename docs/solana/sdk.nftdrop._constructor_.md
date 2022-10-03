@@ -14,13 +14,13 @@ Constructs a new instance of the `NFTDrop` class
 **Signature:**
 
 ```typescript
-constructor(dropMintAddress: string, metaplex: Metaplex, storage: ThirdwebStorage);
+constructor(dropAddress: string, metaplex: Metaplex, storage: ThirdwebStorage);
 ```
 
 ## Parameters
 
-| Parameter       | Type            | Description |
-| --------------- | --------------- | ----------- |
-| dropMintAddress | string          |             |
-| metaplex        | Metaplex        |             |
-| storage         | ThirdwebStorage |             |
+| Parameter   | Type            | Description |
+| ----------- | --------------- | ----------- |
+| dropAddress | string          |             |
+| metaplex    | Metaplex        |             |
+| storage     | ThirdwebStorage |             |

@@ -19,7 +19,7 @@ export default function ThirdwebCodeSnippet({
 }) {
   const languagesToShow = isSolana
     ? {
-        react: false,
+        react: true,
         javascript: true,
         python: false,
         go: false,
@@ -83,11 +83,9 @@ export default function ThirdwebCodeSnippet({
     go: "go",
   };
 
-  console.log(languagesToShow);
-
   return (
     <>
-      <Tabs groupId={groupId} defaultValue={"react"}>
+      <Tabs groupId={groupId} defaultValue={isSolana ? "javascript" : "react"}>
         {Object.entries(languagesToShow).map(([language, alwaysShow]) => {
           const example = examples[language];
           const reference = references[language];

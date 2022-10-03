@@ -24,9 +24,9 @@ const products: Product[] = [
   },
   {
     image: "/assets/product/extensions.png",
-    name: "Extensions",
+    name: "ContractKit",
     description: "Build and extend smart contracts using our Solidity SDK",
-    link: "/extensions ",
+    link: "/contractkit",
   },
   {
     image: "/assets/product/release.png",
@@ -49,8 +49,9 @@ const products: Product[] = [
   {
     image: "/assets/product/ui.png",
     name: "UI Components",
-    description: "Plug and play components to build functional interfaces",
-    link: "/sdk/ui-components",
+    description:
+      "Plug and play UI components to easily add web3 functionality to your apps",
+    link: "/ui-components",
   },
   {
     image: "/assets/product/storage.png",

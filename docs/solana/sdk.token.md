@@ -31,9 +31,9 @@ const program = await sdk.getToken("{{contract_address}}");
 
 ## Constructors
 
-| Constructor                                                                        | Modifiers | Description                                               |
-| ---------------------------------------------------------------------------------- | --------- | --------------------------------------------------------- |
-| [(constructor)(tokenMintAddress, metaplex, storage)](./sdk.token._constructor_.md) |           | Constructs a new instance of the <code>Token</code> class |
+| Constructor                                                                    | Modifiers | Description                                               |
+| ------------------------------------------------------------------------------ | --------- | --------------------------------------------------------- |
+| [(constructor)(tokenAddress, metaplex, storage)](./sdk.token._constructor_.md) |           | Constructs a new instance of the <code>Token</code> class |
 
 ## Properties
 

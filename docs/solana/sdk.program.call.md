@@ -39,10 +39,13 @@ result of the contract call
 ```jsx
 const counterAccount = Keypair.generate();
 await program.call("increment", {
+  // We need to pass in the public keys of any accounts to interact with
   accounts: {
     counterAccount: counterAccount.publicKey.toBase58(),
   },
+  // As well as the arguments to pass to the data parameters
   data: ["..."],
+  // And the signer of the account that will be signing the message
   signers: [counterAccount],
 });
 ```

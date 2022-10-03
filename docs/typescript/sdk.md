@@ -174,12 +174,10 @@ displayed_sidebar: typescript
 | [ContractSource](./sdk.contractsource.md)                                               |                                                                                      |
 | [ContractType](./sdk.contracttype.md)                                                   |                                                                                      |
 | [Currency](./sdk.currency.md)                                                           |                                                                                      |
-| [CurrencyValue](./sdk.currencyvalue.md)                                                 | Currency metadata &amp; value.                                                       |
+| [CurrencyValue](./sdk.currencyvalue.md)                                                 | Currency value and display value                                                     |
 | [DeploySchemaForPrebuiltContractType](./sdk.deployschemaforprebuiltcontracttype.md)     |                                                                                      |
-| [EditionMetadata](./sdk.editionmetadata.md)                                             |                                                                                      |
 | [EditionMetadataInput](./sdk.editionmetadatainput.md)                                   |                                                                                      |
 | [EditionMetadataOrUri](./sdk.editionmetadataoruri.md)                                   |                                                                                      |
-| [EditionMetadataOwner](./sdk.editionmetadataowner.md)                                   |                                                                                      |
 | [ERC1155Wrappable](./sdk.erc1155wrappable.md)                                           | Represents a certain amount of ERC1155 NFTs that can be wrapped                      |
 | [ERC20Wrappable](./sdk.erc20wrappable.md)                                               | Represents a certain amount of ERC20 tokens that can be wrapped                      |
 | [ERC721Wrappable](./sdk.erc721wrappable.md)                                             | Represents a ERC721 NFT that can be wrapped                                          |
@@ -196,10 +194,10 @@ displayed_sidebar: typescript
 | [LoginPayload](./sdk.loginpayload.md)                                                   |                                                                                      |
 | [LoginPayloadData](./sdk.loginpayloaddata.md)                                           |                                                                                      |
 | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md)                         |                                                                                      |
+| [NFT](./sdk.nft.md)                                                                     |                                                                                      |
 | [NFTMetadata](./sdk.nftmetadata.md)                                                     |                                                                                      |
 | [NFTMetadataInput](./sdk.nftmetadatainput.md)                                           |                                                                                      |
 | [NFTMetadataOrUri](./sdk.nftmetadataoruri.md)                                           |                                                                                      |
-| [NFTMetadataOwner](./sdk.nftmetadataowner.md)                                           |                                                                                      |
 | [PaperCreateCheckoutLinkShardParams](./sdk.papercreatecheckoutlinkshardparams.md)       | The parameters for creating a paper.xyz checkout link.                               |
 | [PayloadToSign1155](./sdk.payloadtosign1155.md)                                         |                                                                                      |
 | [PayloadToSign1155WithTokenId](./sdk.payloadtosign1155withtokenid.md)                   |                                                                                      |
@@ -233,6 +231,7 @@ displayed_sidebar: typescript
 | [SnapshotInput](./sdk.snapshotinput.md)                                                 | Input model to pass a snapshot of addresses + amount claimable for a claim condition |
 | [SUPPORTED_CHAIN_ID](./sdk.supported_chain_id.md)                                       |                                                                                      |
 | [TokenHolderBalance](./sdk.tokenholderbalance.md)                                       | A token holder address and its current balance                                       |
+| [TokenMetadata](./sdk.tokenmetadata.md)                                                 | Metadata for a token                                                                 |
 | [TokenMintInput](./sdk.tokenmintinput.md)                                               |                                                                                      |
 | [TokensToWrap](./sdk.tokenstowrap.md)                                                   | Input for wrapping any number of tokens                                              |
 | [TransactionResult](./sdk.transactionresult.md)                                         |                                                                                      |

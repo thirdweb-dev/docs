@@ -11,23 +11,23 @@ import jsonData from "../docs/feature_snippets.json" assert { type: "json" };
 
   const generateContractLink = (contractName) => {
     // If it contains ERC721, then the link is :
-    // /extensions/erc-721/${contractName}
+    // /contractkit/erc-721/${contractName}
     // If it contains ERC1155, then the link is :
-    // /extensions/erc-1155/${contractName}
+    // /contractkit/erc-1155/${contractName}
     // If it contains ERC20, then the link is :
-    // /extensions/erc-20/${contractName}
+    // /contractkit/erc-20/${contractName}
     // Otherwise the link is :
-    // /extensions/features/${contractName}
+    // /contractkit/features/${contractName}
     let output = "";
 
     if (contractName.includes("ERC721")) {
-      output = `/extensions/erc-721/${contractName}`;
+      output = `/contractkit/erc-721/${contractName}`;
     } else if (contractName.includes("ERC1155")) {
-      output = `/extensions/erc-1155/${contractName}`;
+      output = `/contractkit/erc-1155/${contractName}`;
     } else if (contractName.includes("ERC20")) {
-      output = `/extensions/erc-20/${contractName}`;
+      output = `/contractkit/erc-20/${contractName}`;
     } else {
-      output = `/extensions/features/${contractName}`;
+      output = `/contractkit/features/${contractName}`;
     }
 
     return output.toLowerCase();

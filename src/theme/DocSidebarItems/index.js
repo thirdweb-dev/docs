@@ -7,7 +7,6 @@ import Link from "@docusaurus/Link";
 // TODO this item should probably not receive the "activePath" props
 // TODO this triggers whole sidebar re-renders on navigation
 function DocSidebarItems({ items, ...props }) {
-  console.log(props);
   // Category logic (i.e. "Build contracts", etc.)
   const showCategoryPages = [
     "/platform-overview",
@@ -71,7 +70,9 @@ function DocSidebarItems({ items, ...props }) {
     Deploy: "deploy.png",
     Release: "release.png",
     SDK: "sdk.png",
-    Storage: "sdk.png",
+    Solana: "sdk.png",
+    Storage: "storage.png",
+    "UI Components": "ui.png",
   };
 
   const formatCategoryName = (name) => {
@@ -81,6 +82,11 @@ function DocSidebarItems({ items, ...props }) {
     if (formatted === "Sdk") {
       return "SDK";
     }
+
+    if (formatted === "Ui-components") {
+      return "UI Components";
+    }
+
     // If not the word pre-built, split by dash and capitalize each word
     if (formatted !== "Pre-built-contracts") {
       return formatted
@@ -135,6 +141,8 @@ function DocSidebarItems({ items, ...props }) {
       </DocSidebarItemsExpandedStateProvider>
     );
   }
+
+  console.log(formatCategoryName(props?.activePath));
 
   return (
     <DocSidebarItemsExpandedStateProvider>

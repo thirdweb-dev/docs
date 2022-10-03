@@ -19,9 +19,9 @@ mint(metadata: NFTMetadataInput): Promise<string>;
 
 ## Parameters
 
-| Parameter | Type                                          | Description                     |
-| --------- | --------------------------------------------- | ------------------------------- |
-| metadata  | [NFTMetadataInput](./sdk.nftmetadatainput.md) | the metadata of the NFT to mint |
+| Parameter | Type             | Description                     |
+| --------- | ---------------- | ------------------------------- |
+| metadata  | NFTMetadataInput | the metadata of the NFT to mint |
 
 **Returns:**
 
@@ -32,9 +32,20 @@ the mint address of the minted NFT
 ## Example
 
 ```jsx
+// Add the metadata of your NFT
 const metadata = {
   name: "NFT #1",
+  description: "My first NFT!",
   image: readFileSync("files/image.jpg"),
+  properties: [
+    {
+      name: "coolness",
+      value: "very cool!",
+    },
+  ],
 };
+
+// Then mint the new NFT and get its address
 const address = await program.mint(metadata);
+console.log(address);
 ```

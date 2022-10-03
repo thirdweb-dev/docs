@@ -51,19 +51,7 @@ const tx = await contract.addPackContents(packId, packContents);
 addPackContents(packId: BigNumberish, packContents: PackRewards): Promise<{
         id: BigNumber;
         receipt: ethers.providers.TransactionReceipt;
-        data: () => Promise<{
-            supply: BigNumber;
-            metadata: {
-                [x: string]: unknown;
-                name?: string | number | undefined;
-                description?: string | null | undefined;
-                image?: string | null | undefined;
-                external_url?: string | null | undefined;
-                animation_url?: string | null | undefined;
-                id: BigNumber;
-                uri: string;
-            };
-        }>;
+        data: () => Promise<NFT>;
     }>;
 ```
 
@@ -76,7 +64,7 @@ addPackContents(packId: BigNumberish, packContents: PackRewards): Promise<{
 
 **Returns:**
 
-Promise&lt;{ id: BigNumber; receipt: ethers.providers.TransactionReceipt; data: () =&gt; Promise&lt;{ supply: BigNumber; metadata: { \[x: string\]: unknown; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; id: BigNumber; uri: string; }; }&gt;; }&gt;
+Promise&lt;{ id: BigNumber; receipt: ethers.providers.TransactionReceipt; data: () =&gt; Promise&lt;[NFT](./sdk.nft.md)&gt;; }&gt;
 
 ## Remarks
 

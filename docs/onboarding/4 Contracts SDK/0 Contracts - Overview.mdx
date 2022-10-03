@@ -1,5 +1,5 @@
 ---
-slug: /contract-kit
+slug: /contractkit
 title: Overview
 ---
 
@@ -9,8 +9,8 @@ import QuickstartCard from "@components/QuickstartCard";
 
 Build smart contracts with Solidity and unlock the features of the [dashboard](/dashboard) and [SDK](/sdk), with:
 
-- **Base Contracts** that you can build upon, such as [ERC721Base](/extensions/base-contracts/erc-721/erc721base).
-- **Extension contracts** that you can plug-in to unlock specific functionality, such as [Permission Controls](/extensions/permissions) and [Royalty Fees](/extensions/royalty).
+- **Base Contracts** that you can build upon, such as [ERC721Base](/contractkit/base-contracts/erc-721/erc721base).
+- **Extension contracts** that you can plug-in to unlock specific functionality, such as [Permission Controls](/contractkit/permissions) and [Royalty Fees](/contractkit/royalty).
 
 To get started, run the command below to create a new project with your preferences set up:
 
@@ -28,7 +28,7 @@ npm install @thirdweb-dev/contracts
 
 Each feature you implement in your smart contracts unlocks functionality in both the dashboard and SDK to help you build applications on top of them.
 
-For example, if you implement the [ERC721Base](/extensions/base-contracts/erc-721/erc721base) contract, you'll unlock the `mint` button in the dashboard and
+For example, if you implement the [ERC721Base](/contractkit/base-contracts/erc-721/erc721base) contract, you'll unlock the `mint` button in the dashboard and
 can use the [mint](/pre-built-contracts/nft-collection#using-the-thirdweb-sdk-1) function in the SDK; which automatically uploads and pins your metadata to IPFS!
 
 <div className="row" style={{marginBottom:24}}>
@@ -51,7 +51,7 @@ You can use ContractKit to build out your smart contract project _end-to-end_, o
 
 ContractKit gives you [**base contracts**](/extension/base-contracts) that you can use as the foundation of your smart contract.
 
-**1.** To start, import and inherit the base contract that is right for your project. You can find the list of all available base contracts [here](/extensions/base-contracts#list-of-base-contracts).
+**1.** To start, import and inherit the base contract that is right for your project. You can find the list of all available base contracts [here](/contractkit/base-contracts#list-of-base-contracts).
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -86,9 +86,9 @@ contract MyNFT is ERC721Base {
 
 ### Using Extension Contracts
 
-With the foundation for your smart contract ready, you can now plug-in additional features to your smart contract using [**extension contracts**](/extensions/features).
+With the foundation for your smart contract ready, you can now plug-in additional features to your smart contract using [**extension contracts**](/contractkit/features).
 
-**1.** To start, import and inherit the extension contract that is right for your project. You can find the list of all available extensions [here](/extensions/features#list-of-extensions).
+**1.** To start, import and inherit the extension contract that is right for your project. You can find the list of all available extensions [here](/contractkit/features#list-of-extensions).
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -107,7 +107,7 @@ contract MyNFT is ERC721Base, Permissions {
 }
 ```
 
-**Note:** for some extension contracts (e.g. [`LazyMint`](/extensions/erc721lazymintable)) you may see the following error at this step: `Contract "MyNFT" should be marked as abstract.`
+**Note:** for some extension contracts (e.g. [`LazyMint`](/contractkit/erc721lazymintable)) you may see the following error at this step: `Contract "MyNFT" should be marked as abstract.`
 No problem! To resolve this error, look at the usage guide for the particular extension contract you're using.
 
 **2.** Use the functions provided by the extension contract to change the behaviour of your smart contract.

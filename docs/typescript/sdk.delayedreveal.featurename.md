@@ -12,13 +12,14 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-featureName: "ERC20" |
+featureName: "ERC1155" |
+  "ERC721" |
+  "ERC20" |
   "ERC20Burnable" |
   "ERC20Mintable" |
   "ERC20BatchMintable" |
   "ERC20ClaimableWithConditions" |
   "ERC20SignatureMintable" |
-  "ERC721" |
   "ERC721Burnable" |
   "ERC721Supply" |
   "ERC721Enumerable" |
@@ -29,7 +30,6 @@ featureName: "ERC20" |
   "ERC721Claimable" |
   "ERC721ClaimableWithConditions" |
   "ERC721SignatureMint" |
-  "ERC1155" |
   "ERC1155Burnable" |
   "ERC1155Enumerable" |
   "ERC1155Mintable" |
@@ -44,5 +44,6 @@ featureName: "ERC20" |
   "PrimarySale" |
   "Permissions" |
   "ContractMetadata" |
+  "AppURI" |
   "Ownable";
 ```

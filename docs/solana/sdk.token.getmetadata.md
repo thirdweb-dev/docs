@@ -19,7 +19,7 @@ getMetadata(): Promise<TokenMetadata>;
 
 **Returns:**
 
-Promise&lt;[TokenMetadata](./sdk.tokenmetadata.md)&gt;
+Promise&lt;TokenMetadata&gt;
 
 Token metadata
 

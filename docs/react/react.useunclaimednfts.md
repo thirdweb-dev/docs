@@ -33,7 +33,24 @@ export declare function useUnclaimedNFTs(
     image?: string | null | undefined;
     external_url?: string | null | undefined;
     animation_url?: string | null | undefined;
-    id: import("ethers").BigNumber;
+    background_color?: string | undefined;
+    properties?:
+      | {
+          [x: string]: unknown;
+        }
+      | {
+          [x: string]: unknown;
+        }[]
+      | undefined;
+    attributes?:
+      | {
+          [x: string]: unknown;
+        }
+      | {
+          [x: string]: unknown;
+        }[]
+      | undefined;
+    id: string;
     uri: string;
   }[],
   unknown
@@ -49,6 +66,6 @@ export declare function useUnclaimedNFTs(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ \[x: string\]: unknown; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; id: import("ethers").BigNumber; uri: string; }\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ \[x: string\]: unknown; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: string \| null \| undefined; external_url?: string \| null \| undefined; animation_url?: string \| null \| undefined; background_color?: string \| undefined; properties?: { \[x: string\]: unknown; } \| { \[x: string\]: unknown; }\[\] \| undefined; attributes?: { \[x: string\]: unknown; } \| { \[x: string\]: unknown; }\[\] \| undefined; id: string; uri: string; }\[\], unknown&gt;
 
 a response object that includes an array of NFTs that are unclaimed

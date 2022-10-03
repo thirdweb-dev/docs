@@ -1,0 +1,56 @@
+---
+slug: /ui-components/nft-renderer
+title: NFT Metadata Renderer
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+# NFT Metadata Renderer
+
+Functions in the [TypeScript](/typescript) and [React](/react) SDKs resolve the metadata of NFTs for you automatically
+in a [standard format](http://localhost:3000/typescript/sdk.nftmetadataowner#nftmetadataowner-type),
+containing the `owner` and `metadata` (name, image, description, etc.) of each NFT returned.
+
+This allows you to easily render NFTs on the UI using the `ThirdwebNftMedia` component, which accepts this metadata format
+as a parameter and renders the NFT correctly for every media type.
+
+This removes the complexity of resolving the media type of the NFT media (such as determining whether it is a video, image, or audio) and
+provides a consistent way to render NFTs on the UI.
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Example: Render All the NFTs in an NFT Collection"
+      link="https://contract-hub.thirdweb-example.com/nft-collection"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
+
+## Example
+
+```jsx
+import {
+  useNFTCollection,
+  useNFT,
+  ThirdwebNftMedia,
+} from "@thirdweb-dev/react";
+export default function NFTCollectionRender() {
+  // Get your NFT Collection using it's contract address
+  const contract = useNFTCollection("<your-contract-address>");
+
+  // Load (and cache) the metadata for the NFT with token ID 0
+  const { data: nft, isLoading } = useNFT(contract, 0);
+
+  // Render the NFT metadata using the `ThirdwebNftMedia` component
+  return (
+    <div>
+      {!isLoading && nft ? (
+        <ThirdwebNftMedia metadata={nft.metadata} />
+      ) : (
+        <p>Loading...</p>
+      )}
+    </div>
+  );
+}
+```
