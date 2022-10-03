@@ -62,7 +62,7 @@ contract MyContract is Royalty {
      *
      *  You MUST complete the body of this function to use the `Royalty` extension.
      */
-    function _canSetRoyaltyInfo() internal virtual override returns (bool){
+    function _canSetRoyaltyInfo() internal view virtual override returns (bool){
         return msg.sender == deployer;
     }
 }
