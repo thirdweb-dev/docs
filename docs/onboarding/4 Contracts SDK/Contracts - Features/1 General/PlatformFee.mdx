@@ -9,12 +9,20 @@ import ImportSnippet from "../../../../src/components/ImportSnippet";
 
 # Platform Fee
 
-`PlatformFee` allows you to charge a percentage fee wherever there is a transfer of currency in your contract.
+```solidity
+import "@thirdweb-dev/contracts/extension/PlatformFee.sol";
+```
+
+`PlatformFee` allows you to charge a percentage fee wherever there is a transfer of currency (ERC20 tokens or native tokens) in your contract.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/PlatformFee.sol"
   name="PlatformFee"
 />
+
+## Availability in base contracts
+
+The `PlatformFee` extension is _not_ already included in any [base contracts](/extensions/base-contracts). To use this extension, check out the [implementation guide](/extensions/platformfee#implementing-the-contract-extension) and [full API reference](/extensions/platformfee#full-api-reference).
 
 ## Unlocked Features
 
@@ -65,3 +73,46 @@ contract MyContract is PlatformFee {
     }
 }
 ```
+
+## Full API reference
+
+### getPlatformFeeInfo
+
+```solidity
+function getPlatformFeeInfo() public view returns (address, uint16);
+```
+
+- Returns the platform fee recipient and bps.
+- Set this value using the `setPlatformFeeInfo` function.
+
+### setPlatformFeeInfo
+
+```solidity
+function setPlatformFeeInfo(address platformFeeRecipient, uint256 platformFeeBps) external;
+```
+
+- Lets an authorized wallet set the platform fee recipient and bps.
+- Paramter `platformFeeRecipient`: The address to set as the new platform fee recipient.
+- Paramter `platformFeeBps`: The value to set as the new platform fee BPS.
+- The `_canSetPlatformFeeInfo` function is run on every call to this function. If the return value of `_canSetPlatformFeeInfo` is `false`, the `setPlatformFeeInfo` call will revert.
+
+### \_setupPlatformFeeInfo
+
+```solidity
+function _setupPlatformFeeInfo(address platformFeeRecipient, uint256 platformFeeBps) internal;
+```
+
+- Sets the platform fee recipient and bps.
+- Paramter `platformFeeRecipient`: The address to set as the new platform fee recipient.
+- Paramter `platformFeeBps`: The value to set as the new platform fee BPS.
+- The `_canSetPlatformFeeInfo` function is _not_ run on a call to this function.
+
+### \_canSetPlatformFeeInfo
+
+```solidity
+function _canSetPlatformFeeInfo() internal view virtual returns (bool);
+```
+
+- Runs on every `setPlatformFeeInfo` function call.
+- Returns whether a new platform fee recipient or bps can be set in the given execution context.
+- For example, this function can check whether the wallet calling `setPlatformFeeInfo` is the contract owner, and enforce that only the current owner should be able to successfully call `setPlatformFeeInfo`.
