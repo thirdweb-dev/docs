@@ -44,5 +44,6 @@ featureName: "ERC1155" |
   "PrimarySale" |
   "Permissions" |
   "ContractMetadata" |
+  "AppURI" |
   "Ownable";
 ```
