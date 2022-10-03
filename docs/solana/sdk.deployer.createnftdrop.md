@@ -19,9 +19,9 @@ createNftDrop(metadata: NFTDropContractInput): Promise<string>;
 
 ## Parameters
 
-| Parameter | Type                 | Description                          |
-| --------- | -------------------- | ------------------------------------ |
-| metadata  | NFTDropContractInput | the metadata of the nft drop program |
+| Parameter | Type                                                  | Description                          |
+| --------- | ----------------------------------------------------- | ------------------------------------ |
+| metadata  | [NFTDropContractInput](./sdk.nftdropcontractinput.md) | the metadata of the nft drop program |
 
 **Returns:**
 

@@ -29,6 +29,9 @@ displayed_sidebar: solana
 
 ## Type Aliases
 
-| Type Alias                  | Description                                   |
-| --------------------------- | --------------------------------------------- |
-| [Network](./sdk.network.md) | Supported Solana networks to use the SDK with |
+| Type Alias                                                | Description                                   |
+| --------------------------------------------------------- | --------------------------------------------- |
+| [Network](./sdk.network.md)                               | Supported Solana networks to use the SDK with |
+| [NFTDropConditions](./sdk.nftdropconditions.md)           |                                               |
+| [NFTDropConditionsInput](./sdk.nftdropconditionsinput.md) |                                               |
+| [NFTDropContractInput](./sdk.nftdropcontractinput.md)     |                                               |

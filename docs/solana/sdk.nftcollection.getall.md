@@ -14,16 +14,8 @@ Get the metadata for all NFTs on this collection
 **Signature:**
 
 ```typescript
-getAll(options?: {
-        filterBurnedTokens: boolean;
-    }): Promise<NFT[]>;
+getAll(): Promise<NFT[]>;
 ```
-
-## Parameters
-
-| Parameter | Type                             | Description       |
-| --------- | -------------------------------- | ----------------- |
-| options   | { filterBurnedTokens: boolean; } | <i>(Optional)</i> |
 
 **Returns:**
 
