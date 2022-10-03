@@ -1,13 +1,17 @@
 ---
 slug: /extensions/royalty
-title: Royalties
+title: Royalty
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 import ImportSnippet from "../../../../src/components/ImportSnippet";
 
-# Royalties
+# Royalty
+
+```solidity
+import "@thirdweb-dev/contracts/extension/Royalty.sol";
+```
 
 `Royalty` implements [EIP 2981](https://eips.ethereum.org/EIPS/eip-2981) NFT royalty standard for royalty
 support on NFT marketplaces, allowing you to take a percentage fee of secondary sales of your NFTs.
@@ -16,6 +20,12 @@ support on NFT marketplaces, allowing you to take a percentage fee of secondary 
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Royalty.sol"
   name="Royalty"
 />
+
+## Availability in base contracts
+
+The `ContractMetadata` extension is _already_ available in the following [base contracts](/extensions/base-contracts):
+
+- All [ERC721](/extensions/base-contracts/erc-721/erc721base) and [ERC1155](/extensions/base-contracts/erc-1155/erc1155base) base contracts.
 
 ## Unlocked Features
 
@@ -33,7 +43,11 @@ Once deployed, you can use the features made available by these contracts on the
 
 ## Implementing the Contract extension
 
-Import the contract extension and make your contract inherit it.
+The `Royalty` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
+
+| Name                                                           | Type                    | Parameters | Returns | Description                                                                                                                       |
+| -------------------------------------------------------------- | ----------------------- | ---------- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSetRoyaltyInfo`](/extensions/royalty#_cansetroyaltyinfo) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set a new royalty recipient or BPS. Returns whether this info can be set in the given execution context. |
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -42,7 +56,6 @@ pragma solidity ^0.8.0;
 import "@thirdweb-dev/contracts/extension/Royalty.sol";
 
 contract MyContract is Royalty {
-
     /**
      *  We store the contract deployer's address only for the purposes of the example
      *  in the code comment below.
@@ -62,8 +75,107 @@ contract MyContract is Royalty {
      *
      *  You MUST complete the body of this function to use the `Royalty` extension.
      */
-    function _canSetRoyaltyInfo() internal view virtual override returns (bool){
+    function _canSetRoyaltyInfo()
+        internal
+        view
+        virtual
+        override
+        returns (bool)
+    {
         return msg.sender == deployer;
     }
 }
 ```
+
+## Full API Reference
+
+### royaltyInfo
+
+```solidity
+function royaltyInfo(uint256 tokenId, uint256 salePrice)
+    external
+    view
+    virtual
+returns (address receiver, uint256 royaltyAmount)
+```
+
+- Returns royalty recipient and amount for a given NFT and its sale price.
+- Parameter `tokenId`: The tokenID of the NFT for which to query royalty info.
+- Parameter `salePrice`: Sale price of the NFT.
+
+### getRoyaltyInfoForToken
+
+```solidity
+function getRoyaltyInfoForToken(uint256 tokenId) public view override returns (address, uint16);
+```
+
+- Returns the royalty recipient and BPS for a given NFT.
+- Parameter `tokenId`: The tokenID of the NFT for which to query royalty info.
+
+### getDefaultRoyaltyInfo
+
+```solidity
+function getDefaultRoyaltyInfo() external view override returns (address, uint16);
+```
+
+- Returns the defualt royalty recipient and BPS for the contract's NFTs.
+
+### setDefaultRoyaltyInfo
+
+```solidity
+function setDefaultRoyaltyInfo(address royaltyRecipient, uint256 royaltyBps) external;
+```
+
+- Lets an authorized wallet set the default royalty recipient and BPS for the contract's NFT.
+- Parameter `royaltyRecipient`: The address to set as the new default royalty recipient.
+- Parameter `royaltyBps`: The value to set as the new default royalty BPS.
+- The `_canSetRoyaltyInfo` function is run on every call to this function. If the return value of `_canSetRoyaltyInfo` is `false`, the `setDefaultRoyaltyInfo` call will revert.
+
+### setRoyaltyInfoForToken
+
+```solidity
+function setRoyaltyInfoForToken(
+    uint256 tokenId,
+    address recipient,
+    uint256 bps
+) external
+```
+
+- Lets an authorized wallet set the royalty recipient and BPS for a particular NFT of the contract.
+- Parameter `tokenId`: The tokenId of the NFT for which to set royalty info.
+- Parameter `recipient`: The address to set as the new royalty recipient for the NFT.
+- Parameter `bps`: The value to set as the new royalty BPS for the NFT.
+- The `_canSetRoyaltyInfo` function is run on every call to this function. If the return value of `_canSetRoyaltyInfo` is `false`, the `setRoyaltyInfoForToken` call will revert.
+
+### \_setupDefaultRoyaltyInfo
+
+```solidity
+function _setupDefaultRoyaltyInfo(address royaltyRecipient, uint256 royaltyBps) internal;
+```
+
+- Sets the default royalty recipient and BPS for the contract's NFT.
+- Parameter `royaltyRecipient`: The address to set as the new default royalty recipient.
+- Parameter `royaltyBps`: The value to set as the new default royalty BPS.
+- The `_canSetRoyaltyInfo` function is _not_ run on a call to this function.
+
+### \_setupRoyaltyInfoForToken
+
+```solidity
+function _setupDefaultRoyaltyInfo(address royaltyRecipient, uint256 royaltyBps) internal;
+```
+
+- Sets the royalty recipient and BPS for a particular NFT of the contract.
+- Parameter `tokenId`: The tokenId of the NFT for which to set royalty info.
+- Parameter `recipient`: The address to set as the new royalty recipient for the NFT.
+- Parameter `bps`: The value to set as the new royalty BPS for the NFT.
+- The `_canSetRoyaltyInfo` function is _not_ run on a call to this function.
+
+### \_canSetRoyaltyInfo
+
+```solidity
+function _canSetRoyaltyInfo() internal view virtual returns (bool);
+```
+
+- Runs on every `setDefaultRoyaltyInfo` and `setRoyaltyInfoForToken` function calls.
+- Returns whether the relevant royalty info can be set in the given execution context.
+- For example, this function can check whether the wallet calling `setDefaultRoyaltyInfo` is the contract owner, and enforce that only the owner should be able to successfully call `setDefaultRoyaltyInfo`.
