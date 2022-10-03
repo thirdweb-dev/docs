@@ -43,7 +43,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Build Contracts",
-      items: ["Contract Kit"],
+      items: ["ContractKit"],
     },
     {
       title: "Deploy Contracts",
