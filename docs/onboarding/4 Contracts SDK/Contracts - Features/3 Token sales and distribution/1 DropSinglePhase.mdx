@@ -23,7 +23,7 @@ This extension implements the 'Drop' distribution mechanism: set restrictions su
 
 ## Availability in base contracts
 
-The `ContractMetadata` extension is _already_ available in the following [base contracts](/extensions/base-contracts):
+The `DropSinglePhase` extension is _already_ available in the following [base contracts](/extensions/base-contracts):
 
 - **ERC20**: [`ERC20Drop`](/extensions/base-contracts/erc-20/erc20drop)
 - **ERC721**: [`ERC721Drop`](/extensions/base-contracts/erc-721/erc721drop)
@@ -48,11 +48,11 @@ This section is meant for advanced users who want to write functionality from sc
 
 The `DropSinglePhase` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                        | Type                    | Parameters | Returns   | Description                                                                                                                                      |
-| --------------------------------------------------------------------------- | ----------------------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [`collectPriceOnClaim`](/extensions/contractmetadata#_cansetcontracturi)    | internal _virtual_      | n/a        | n/a       | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
-| [`transferTokensOnClaim`](/extensions/contractmetadata#_cansetcontracturi)  | internal _virtual_      | n/a        | `uint256` | Transfers the NFTs being claimed.                                                                                                                |
-| [`_canSetClaimConditions`](/extensions/contractmetadata#_cansetcontracturi) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
+| Name                                                                           | Type                    | Parameters | Returns   | Description                                                                                                                                      |
+| ------------------------------------------------------------------------------ | ----------------------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [`collectPriceOnClaim`](/extensions/dropsinglephase#collectpriceonclaim)       | internal _virtual_      | n/a        | n/a       | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
+| [`transferTokensOnClaim`](/extensions/dropsinglephase#transfertokensonclaim)   | internal _virtual_      | n/a        | `uint256` | Transfers the NFTs being claimed.                                                                                                                |
+| [`_canSetClaimConditions`](/extensions/dropsinglephase#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
 
 ```solidity
 // SPDX-License-Identifier: Apache-2.0
@@ -314,5 +314,5 @@ function _canSetClaimConditions() internal view virtual returns (bool);
 ```
 
 - Runs on every `setClaimConditions` function call.
-- Returns whether contract metadata can be set in the given execution context.
+- Returns whether the claim condition can be set in the given execution context.
 - For example, this function can check whether the wallet calling `setClaimConditions` is the contract owner, and enforce that only the owner should be able to successfully call `setClaimConditions`.
