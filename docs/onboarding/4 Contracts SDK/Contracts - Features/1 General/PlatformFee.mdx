@@ -96,8 +96,8 @@ function setPlatformFeeInfo(address platformFeeRecipient, uint256 platformFeeBps
 ```
 
 - Lets an authorized wallet set the platform fee recipient and bps.
-- Paramter `platformFeeRecipient`: The address to set as the new platform fee recipient.
-- Paramter `platformFeeBps`: The value to set as the new platform fee BPS.
+- Parameter `platformFeeRecipient`: The address to set as the new platform fee recipient.
+- Parameter `platformFeeBps`: The value to set as the new platform fee BPS.
 - The `_canSetPlatformFeeInfo` function is run on every call to this function. If the return value of `_canSetPlatformFeeInfo` is `false`, the `setPlatformFeeInfo` call will revert.
 
 ### \_setupPlatformFeeInfo
@@ -107,8 +107,8 @@ function _setupPlatformFeeInfo(address platformFeeRecipient, uint256 platformFee
 ```
 
 - Sets the platform fee recipient and bps.
-- Paramter `platformFeeRecipient`: The address to set as the new platform fee recipient.
-- Paramter `platformFeeBps`: The value to set as the new platform fee BPS.
+- Parameter `platformFeeRecipient`: The address to set as the new platform fee recipient.
+- Parameter `platformFeeBps`: The value to set as the new platform fee BPS.
 - The `_canSetPlatformFeeInfo` function is _not_ run on a call to this function.
 
 ### \_canSetPlatformFeeInfo
