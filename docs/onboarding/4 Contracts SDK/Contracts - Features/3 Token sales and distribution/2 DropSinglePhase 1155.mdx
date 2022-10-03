@@ -43,7 +43,7 @@ Once deployed, you can use the features made available by these contracts on the
 
 ## Implementing the Contract
 
-This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/extensions/dropsinglephase1155#availability-in-base-contracts) that already implement delayed reveal functionlity for you!
+This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/extensions/dropsinglephase1155#availability-in-base-contracts) that already implement Drop functionlity for you!
 
 The `DropSinglePhase1155` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
@@ -57,24 +57,23 @@ The `DropSinglePhase1155` extension is an _abstract contract_, and expects you t
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.0;
 
-import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
-import "@thirdweb-dev/contracts/base/ERC20Base.sol";
-import "@thirdweb-dev/contracts/lib/CurrencyTransferLib.sol";
+import "./base/ERC1155Base.sol";
+import "./extension/DropSinglePhase1155.sol";
+import "./lib/CurrencyTransferLib.sol";
 
-/// This is an EXAMPLE of usage of `DropSinglePhase` for distributing ERC20 tokens.
+/// This is an EXAMPLE of usage of `DropSinglePhase1155` for distributing ERC1155 tokens.
 
-contract MyContract is ERC20Base, DropSinglePhase {
-    /*//////////////////////////////////////////////////////////////
-                            Constructor
-    //////////////////////////////////////////////////////////////*/
+contract ERC1155Drop is
+    ERC1155Base,
+    DropSinglePhase1155
+{
 
-    constructor(string memory _name, string memory _symbol)
-        ERC20Base(_name, _symbol)
-    {}
-
-    /*//////////////////////////////////////////////////////////////
-                        Internal (overrideable) functions
-    //////////////////////////////////////////////////////////////*/
+    constructor(
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps
+    ) ERC1155Base(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
 
     /// @dev Collects and distributes the primary sale value of NFTs being claimed.
     function collectPriceOnClaim(
@@ -87,41 +86,29 @@ contract MyContract is ERC20Base, DropSinglePhase {
             return;
         }
 
-        uint256 totalPrice = (_quantityToClaim * _pricePerToken) / 1 ether;
-        require(totalPrice > 0, "quantity too low");
+        uint256 totalPrice = _quantityToClaim * _pricePerToken;
 
         if (_currency == CurrencyTransferLib.NATIVE_TOKEN) {
-            require(msg.value == totalPrice, "Must send total price.");
+            if (msg.value != totalPrice) {
+                revert("Must send total price.");
+            }
         }
 
         address saleRecipient = _primarySaleRecipient;
-        CurrencyTransferLib.transferCurrency(
-            _currency,
-            msg.sender,
-            saleRecipient,
-            totalPrice
-        );
+        CurrencyTransferLib.transferCurrency(_currency, msg.sender, saleRecipient, totalPrice);
     }
 
     /// @dev Transfers the NFTs being claimed.
-    function transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
-        internal
-        virtual
-        override
-        returns (uint256)
-    {
-        _mint(_to, _quantityBeingClaimed);
-        return 0;
+    function transferTokensOnClaim(
+        address _to,
+        uint256 _tokenId,
+        uint256 _quantityBeingClaimed
+    ) internal virtual override {
+        _mint(_to, _tokenId, _quantityBeingClaimed, "");
     }
 
     /// @dev Checks whether platform fee info can be set in the given execution context.
-    function _canSetClaimConditions()
-        internal
-        view
-        virtual
-        override
-        returns (bool)
-    {
+    function _canSetClaimConditions() internal view virtual override returns (bool) {
         return msg.sender == owner();
     }
 }
