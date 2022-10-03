@@ -40,7 +40,11 @@ Once deployed, you can use the features made available by these contracts on the
 
 ## Implementing the Contract extension
 
-Import the contract extension and make your contract inherit it.
+The `PlatformFee` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
+
+| Name                                                                       | Type                    | Parameters | Returns | Description                                                                                                                            |
+| -------------------------------------------------------------------------- | ----------------------- | ---------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSetPlatformFeeInfo`](/extensions/platformfee#_cansetplatformfeeinfo) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set a new platform fee recipient or bps. Returns whether this info can be set in the given execution context. |
 
 ```solidity
 // SPDX-License-Identifier: MIT
