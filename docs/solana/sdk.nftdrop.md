@@ -57,7 +57,7 @@ const program = await sdk.getNFTDrop("{{contract_address}}");
 | [getAll()](./sdk.nftdrop.getall.md)                                |           | Get the metadata for all NFTs on this drop             |
 | [getAllClaimed()](./sdk.nftdrop.getallclaimed.md)                  |           | Get the metadata for all the claimed NFTs on this drop |
 | [getMetadata()](./sdk.nftdrop.getmetadata.md)                      |           | Get the metadata for this program.                     |
-| [lazyMint(metadatas)](./sdk.nftdrop.lazymint.md)                   |           | Lazy mint NFTs to be claimed later                     |
+| [lazyMint(metadatas, options)](./sdk.nftdrop.lazymint.md)          |           | Lazy mint NFTs to be claimed later                     |
 | [totalClaimedSupply()](./sdk.nftdrop.totalclaimedsupply.md)        |           | Get the total claimed supply of this drop              |
 | [totalUnclaimedSupply()](./sdk.nftdrop.totalunclaimedsupply.md)    |           | Get the total unclaimed supply of this drop            |
 | [transfer(receiverAddress, nftAddress)](./sdk.nftdrop.transfer.md) |           | Transfer the specified NFTs to another wallet          |

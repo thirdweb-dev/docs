@@ -33,7 +33,7 @@ Promise&lt;string&gt;
 
 ```jsx
 const metadata = {
-  name: "NFT",
+  name: "My NFT Collection",
   symbol: "NFT",
 };
 

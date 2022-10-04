@@ -31,7 +31,9 @@ displayed_sidebar: solana
 
 | Type Alias                                                | Description                                   |
 | --------------------------------------------------------- | --------------------------------------------- |
+| [CreatorInput](./sdk.creatorinput.md)                     |                                               |
 | [Network](./sdk.network.md)                               | Supported Solana networks to use the SDK with |
 | [NFTDropConditions](./sdk.nftdropconditions.md)           |                                               |
 | [NFTDropConditionsInput](./sdk.nftdropconditionsinput.md) |                                               |
 | [NFTDropContractInput](./sdk.nftdropcontractinput.md)     |                                               |
+| [TokenMetadataInput](./sdk.tokenmetadatainput.md)         |                                               |

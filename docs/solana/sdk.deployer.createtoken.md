@@ -19,9 +19,9 @@ createToken(tokenMetadata: TokenMetadataInput): Promise<string>;
 
 ## Parameters
 
-| Parameter     | Type               | Description                       |
-| ------------- | ------------------ | --------------------------------- |
-| tokenMetadata | TokenMetadataInput | the metadata of the token program |
+| Parameter     | Type                                              | Description                       |
+| ------------- | ------------------------------------------------- | --------------------------------- |
+| tokenMetadata | [TokenMetadataInput](./sdk.tokenmetadatainput.md) | the metadata of the token program |
 
 **Returns:**
 
@@ -33,7 +33,7 @@ Promise&lt;string&gt;
 
 ```jsx
 const metadata = {
-  name: "Token",
+  name: "My Token",
   symbol: "TKN",
   initialSupply: 100,
 };
