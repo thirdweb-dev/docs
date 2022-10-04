@@ -3,7 +3,7 @@ slug: /contractkit/features
 title: Overview
 ---
 
-# Features
+# Extensions
 
 import QuickstartCard from "@components/QuickstartCard";
 import ThemedImage from "@theme/ThemedImage";
@@ -12,15 +12,15 @@ import ThemedImage from "@theme/ThemedImage";
   
   <div>
     <p>
-        Features are individual pieces of functionality you can add to your smart contracts.
+        Extensions are individual pieces of functionality you can add to your smart contracts.
     </p>
 
-Each feature you implement in your smart contract unlocks corresponding functionality for you to utilize in the SDK.
+Each extension you implement in your smart contract unlocks the corresponding functionality for you to utilize in the SDK.
 
-There are two kinds of features:
+There are two kinds of extensions:
 
-1. **Contracts**: Fully implemented features you can import and use.
-2. **Interfaces**: Standards you must implement the required functionality to utilize.
+1. **Contracts**: Fully implemented smart contracts you can import and use.
+2. **Abstract contracts**: Smart contracts where one or more functions is defined but not implemented. They are left for you to implement in the way that makes overall sense for your smart contract.
 
 We provide several features for adding functionality to your [ERC721](/contractkit/erc721), [ERC1155](/contractkit/erc1155), and
 [ERC20](/contractkit/erc20), as well as general extension for common use cases.
@@ -40,67 +40,33 @@ We provide several features for adding functionality to your [ERC721](/contractk
 
 </div>
 
-## Detecting Features
+## Detecting Extensions
 
-You can detect all of the features your contract implements using the CLI:
+You can detect all of the extensions your contract implements using the CLI:
 
 ```bash
-npx thirdweb detect
+npx thirdweb@latest detect
 ```
 
-## List of Features
+## List of Extensions
 
-Below is a list of all the features available.
+Below is a list of all the extensions available.
 
-### ERC721
-
-| Name                                                              | Description                                                                    |
-| ----------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| [ERC721](/contractkit/erc721)                                     | Implementation of the [ERC721A](https://www.erc721a.org/) standard.            |
-| [ERC721Mintable](/contractkit/erc721mintable)                     | Mint new NFTs to your ERC721 contract.                                         |
-| [ERC721BatchMintable](/contractkit/erc721batchmintable)           | Mint multiple NFTs in a single transaction.                                    |
-| [ERC721Supply](/contractkit/erc721supply)                         | View the total number of NFTs minted.                                          |
-| [ERC721Enumerable](/contractkit/erc721enumerable)                 | View the current wallet address that owns any NFT.                             |
-| [ERC721LazyMintable](/contractkit/erc721lazymintable)             | Batch Lazy Mint NFTs.                                                          |
-| [ERC721Claimable](/contractkit/erc721claimable)                   | Allow users to claim a lazy-minted NFT under conditions you set.               |
-| [ERC721ClaimableWithConditions](/contractkit/erc721batchmintable) | Set up claim-conditions that define how your users can claim lazy minted NFTs. |
-| [ERC721Revealable](/contractkit/erc721revealable)                 | Add delayed reveal to your lazy-minted NFTs.                                   |
-| [ERC721Burnable](/contractkit/erc721burnable)                     | Allow wallets to burn NFTs.                                                    |
-| [ERC721SignatureMint](/contractkit/erc721signaturemintable)       | Add signature-based minting capability.                                        |
-
-### ERC1155
-
-| Name                                                                | Description                                                                                 |
-| ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| [ERC1155](/contractkit/erc1155)                                     | Implementation of the [ERC1155](/contractkit/base-contracts/erc-1155/erc1155base) standard. |
-| [ERC1155Mintable](/contractkit/erc1155mintable)                     | Add the capability to mint new NFTs to your ERC721 contract.                                |
-| [ERC1155BatchMintable](/contractkit/erc1155batchmintable)           | Mint multiple NFTs in a single transaction.                                                 |
-| [ERC1155Enumerable](/contractkit/erc1155enumerable)                 | View the total number of minted NFTs and the amount of NFTs owned by a wallet.              |
-| [ERC1155LazyMintable](/contractkit/erc1155lazymintable)             | Batch Lazy Mint NFTs.                                                                       |
-| [ERC1155Claimable](/contractkit/erc1155claimable)                   | Allow users to claim a lazy-minted NFT under conditions you set.                            |
-| [ERC1155ClaimableWithConditions](/contractkit/erc1155batchmintable) | Set up claim-conditions that define how your users can claim lazy minted NFTs.              |
-| [ERC1155Revealable](/contractkit/erc1155revealable)                 | Add delayed reveal to your lazy-minted NFTs.                                                |
-| [ERC1155Burnable](/contractkit/erc1155burnable)                     | Allow wallets to burn NFTs.                                                                 |
-| [ERC1155SignatureMint](/contractkit/erc1155signaturemintable)       | Add signature-based minting capability.                                                     |
-
-### ERC20
-
-| Name                                                            | Description                                                                           |
-| --------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| [ERC20](/contractkit/erc20)                                     | Implementation of the [ERC20](/contractkit/base-contracts/erc-20/erc20base) standard. |
-| [ERC20Mintable](/contractkit/erc20mintable)                     | Add the capability to mint new tokens to your ERC20 contract.                         |
-| [ERC20BatchMintable](/contractkit/erc20batchmintable)           | Mint tokens to multiple addresses in a single transaction.                            |
-| [ERC20ClaimableWithConditions](/contractkit/erc20batchmintable) | Set up claim-conditions that define how your users can claim tokens.                  |
-| [ERC20Burnable](/contractkit/erc20burnable)                     | Allow wallets to burn tokens.                                                         |
-| [ERC20SignatureMint](/contractkit/erc20signaturemintable)       | Add signature-based minting capability.                                               |
-
-### General
-
-| Name                                              | Description                                                                        |
-| ------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| [ContractMetadata](/contractkit/contractmetadata) | Add metadata such as name, description, symbol, and image to your smart contract.  |
-| [Ownable](/contractkit/ownable)                   | Set the wallet address that owns the smart contract.                               |
-| [Permissions](/contractkit/permissions)           | Add roles and restrict which roles can call functions.                             |
-| [PlatformFee](/contractkit/platformfee)           | Charge a percentage fee wherever there is a transfer of currency in your contract. |
-| [PrimarySale](/contractkit/primarysale)           | Set a recipient for any sale value you collect in your smart contract.             |
-| [Royalty](/contractkit/royalty)                   | Take a percentage fee on secondary sales of tokens.                                |
+| Name                                                                        | Description                                                                                                                                                                                              |
+| --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [ContractMetadata](/contractkit/extension-contracts/contractmetadata)       | Set metadata for your smart contract. This extension is necessary for NFT contracts that want royalties to get distributed on OpenSea.                                                                   |
+| [Multicall](/contractkit/extension-contracts/multicall)                     | Provides a function to batch together multiple calls in a single external call.                                                                                                                          |
+| [Ownable](/contractkit/extension-contracts/ownable)                         | Set an owner for your smart contract; restrict your smart contract's functions to only be callable by this owner.                                                                                        |
+| [Royalty](/contractkit/extension-contracts/royalty)                         | An [EIP 2981: NFT Royalty Standard](https://eips.ethereum.org/EIPS/eip-2981) compliant extension. Set a royalty fee and recipient for all your NFTs, or on a per NFT basis.                              |
+| [BatchMintMetadata](/contractkit/extension-contracts/batchmintmetadata)     | Set metadata for `n` number of NFTs all at once. This is enabled by storing a single base URI for a batch of `n` NFTs, where the metadata for each NFT in a relevant batch is `baseURI/tokenId`.         |
+| [LazyMint](/contractkit/extension-contracts/lazymint)                       | Lazy mint any number of NFTs at once. Here, 'lazy mint' means defining the metadata for particular tokenIds of your NFT contract, without actually minting a non-zero balance of NFTs of those tokenIds. |
+| [DelayedReveal](/contractkit/extension-contracts/delayedreveal)             | Create batches of 'delayed-reveal' NFTs. Lazy mint a batch of NFTs without initially revealing the metadata of these NFTs to spectators, and reveal it later at your discretion.                         |
+| [PlatformFee](/contractkit/extension-contracts/platformfee)                 | Charge a percentage fee wherever there is a transfer of currency (ERC20 tokens or native tokens) in your contract.                                                                                       |
+| [PrimarySale](/contractkit/extension-contracts/primarysale)                 | Set and manage a primary sale recipient for your smart contract.                                                                                                                                         |
+| [Permissions](/contractkit/extension-contracts/persmissions)                | Assign roles to wallets; restrict your smart contract's functions based on the roles held or not held by a wallet.                                                                                       |
+| [PermissionsEnumerable](/contractkit/extension-contracts/permissions)       | Same as Permissions but with added functionality - view all members with a given role, and total count of members.                                                                                       |
+| [DropSinglePhase](/contractkit/extension-contracts/dropsinglephase)         | A distribution mechanic for tokens. Set conditions - such as a price, an allowlist, etc. - under which tokens can be claimed on your smart contract.                                                     |
+| [DropSinglePhase1155](/contractkit/extension-contracts/dropsinglephase1155) | A distribution mechanic for ERC1155 tokens. Set conditions - such as a price, an allowlist, etc. - under which tokens can be claimed on your smart contract.                                             |
+| [SignatureMintERC20](/contractkit/extension-contracts/sigminterc20)         | A distribution mechanic for ERC20 tokens. Authorize a wallet to mint tokens on your smart contract on-demand; optionally, set a price and other configurables for the mint.                              |
+| [SignatureMintERC721](/contractkit/extension-contracts/sigminterc721)       | A distribution mechanic for ERC721 tokens. Authorize a wallet to mint tokens on your smart contract on-demand; optionally, set a price and other configurables for the mint.                             |
+| [SignatureMintERC1155](/contractkit/extension-contracts/sigminterc1155)     | A distribution mechanic for ERC1155 tokens. Authorize a wallet to mint tokens on your smart contract on-demand; optionally, set a price and other configurables for the mint.                            |

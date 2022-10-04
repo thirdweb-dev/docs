@@ -11,8 +11,8 @@ import ImportSnippet from "@components/ImportSnippet";
 
 The `ERC721Drop` base contract is a foundation for an NFT Drop that other wallets can claim.
 
-It implements the [ERC721A standard](/contractkit/erc721) with [Lazy Mint](/contractkit/erc721lazymintable),
-[Delayed Reveal](/contractkit/erc721revealable) and [Drop](/contractkit/erc721claimable) features;
+It implements the [ERC721A standard](/contractkit/erc721) with [Lazy Mint](/contractkit/extension-contracts/lazymint),
+[Delayed Reveal](/contractkit/extension-contracts/delayedreveal) and [Drop](/contractkit/extension-contracts/dropsinglephase) features;
 allowing you to batch lazy-mint NFTs, and allow other wallets to claim them under the criteria of claim conditions, with an optional delayed reveal.
 
 <ViewContractCodeButton
@@ -28,7 +28,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{padding:8}} >
   <QuickstartCard
     name="ERC721 Standard"
-    link="/contractkit/erc721#unlocked-features"
+    link="/sdk/interacting-with-contracts/erc721"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -36,7 +36,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Supply"
-    link="/contractkit/erc721supply#unlocked-features"
+    link="/sdk/interacting-with-contracts/erc721Supply#get-all-minted-nfts"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -44,7 +44,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Burnable"
-    link="/contractkit/erc721burnable#unlocked-features"
+    link="/sdk/interacting-with-contracts/erc721burnable"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -52,7 +52,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Lazy Minting"
-    link="/contractkit/erc721lazymintable#unlocked-features"
+    link="/sdk/interacting-with-contracts/erc721lazymintable"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -60,7 +60,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Delayed Reveal"
-    link="/contractkit/erc721revealable#unlocked-features"
+    link="/sdk/interacting-with-contracts/erc721delayedreveal"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -68,7 +68,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Claimable"
-    link="/contractkit/erc721claimable#unlocked-features"
+    link="/sdk/interacting-with-contracts/erc721claimable"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -76,7 +76,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Claimable With Conditions"
-    link="/contractkit/erc721claimablewithconditions#unlocked-features"
+    link="/sdk/interacting-with-contracts/erc721claimablewithconditions"
     image="/assets/icons/nft.png"
   />
 </div>
@@ -84,15 +84,19 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Contract Metadata"
-    link="/contractkit/contractmetadata#unlocked-features"
+    link="/sdk/advanced-features/contract-settings"
     image="/assets/icons/general.png"
   />
 </div>
 
 <div className="col col--4" style={{ padding: 8 }}>
+  <QuickstartCard name="Ownable" link="" image="/assets/icons/general.png" />
+</div>
+
+<div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Royalties"
-    link="/contractkit/royalty#unlocked-features"
+    link="/sdk/advanced-features/contract-settings#royalty-fees"
     image="/assets/icons/general.png"
   />
 </div>
@@ -100,7 +104,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Primary Sale"
-    link="/contractkit/primarysale#unlocked-features"
+    link="/sdk/advanced-features/contract-settings#primary-sale"
     image="/assets/icons/general.png"
   />
 </div>
