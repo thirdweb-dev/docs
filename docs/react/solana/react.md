@@ -26,7 +26,7 @@ displayed_sidebar: react
 | [useClaimNFT(program)](./react.useclaimnft.md)                                 | Claim NFTs from an NFT Drop program                         |
 | [useDropTotalClaimedSupply(program)](./react.usedroptotalclaimedsupply.md)     | Get the total claimed supply of NFTs on an NFT Drop         |
 | [useDropUnclaimedSupply(program)](./react.usedropunclaimedsupply.md)           | Get the total unclaimed supply of NFTs on an NFT Drop       |
-| [useLazyMintNFT(program)](./react.uselazymintnft.md)                           | Lazy mint NFTs on an NFT Drop program                       |
+| [useLazyMint(program, onProgress)](./react.uselazymint.md)                     | Lazy mint NFTs on an NFT Drop program                       |
 | [useMintNFT(program)](./react.usemintnft.md)                                   | Mint NFTs on your NFT program                               |
 | [useMintToken(program)](./react.useminttoken.md)                               | Mint tokens on your token program                           |
 | [useNFT(program, tokenAddress)](./react.usenft.md)                             | Get the metadata for a minted NFT                           |

@@ -41,6 +41,7 @@ Web3Button: <TAction extends ActionFn>({
   onError,
   onSubmit,
   isDisabled,
+  contractAbi,
   children,
   action,
   className,

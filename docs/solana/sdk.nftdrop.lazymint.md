@@ -14,14 +14,17 @@ Lazy mint NFTs to be claimed later
 **Signature:**
 
 ```typescript
-lazyMint(metadatas: NFTMetadataInput[]): Promise<TransactionResult>;
+lazyMint(metadatas: NFTMetadataInput[], options?: {
+        onProgress: (event: UploadProgressEvent) => void;
+    }): Promise<TransactionResult>;
 ```
 
 ## Parameters
 
-| Parameter | Type                 | Description                           |
-| --------- | -------------------- | ------------------------------------- |
-| metadatas | NFTMetadataInput\[\] | The metadata of the NFTs to lazy mint |
+| Parameter | Type                                                     | Description                           |
+| --------- | -------------------------------------------------------- | ------------------------------------- |
+| metadatas | NFTMetadataInput\[\]                                     | The metadata of the NFTs to lazy mint |
+| options   | { onProgress: (event: UploadProgressEvent) =&gt; void; } | <i>(Optional)</i>                     |
 
 **Returns:**
 

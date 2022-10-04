@@ -33,10 +33,8 @@ Promise&lt;string&gt;
 
 ```jsx
 const metadata = {
-  name: "NFT",
+  name: "My NFT Drop",
   symbol: "NFT",
-  price: 0,
-  sellerFeeBasisPoints: 0,
   itemsAvailable: 5,
 };
 

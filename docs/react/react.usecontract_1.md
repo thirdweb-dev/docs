@@ -1,5 +1,5 @@
 ---
-slug: /react.usecontract
+slug: /react.usecontract_1
 title: useContract() function
 hide_title: true
 displayed_sidebar: react
@@ -14,15 +14,19 @@ Use this resolve a contract address to a smart contract instance.
 ## Example
 
 ```javascript
-const { contract, isLoading, error } = useContract("{{contract_address}}");
+const { contract, isLoading, error } = useContract(
+  "{{contract_address}}",
+  "nft-drop",
+);
 ```
 
 **Signature:**
 
 ```typescript
-export declare function useContract(
+export declare function useContract<TContractType extends PrebuiltContractType>(
   contractAddress: RequiredParam<ContractAddress>,
-): UseContractResult<SmartContract>;
+  _contractType: TContractType,
+): UseContractResult<ContractForPrebuiltContractType<TContractType>>;
 ```
 
 ## Parameters
@@ -30,9 +34,10 @@ export declare function useContract(
 | Parameter       | Type                                                                                           | Description                          |
 | --------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------ |
 | contractAddress | [RequiredParam](./react.requiredparam.md)&lt;[ContractAddress](./react.contractaddress.md)&gt; | the address of the deployed contract |
+| \_contractType  | TContractType                                                                                  | the type of the contract             |
 
 **Returns:**
 
-[UseContractResult](./react.usecontractresult.md)&lt;SmartContract&gt;
+[UseContractResult](./react.usecontractresult.md)&lt;ContractForPrebuiltContractType&lt;TContractType&gt;&gt;
 
 a response object that includes the contract once it is resolved

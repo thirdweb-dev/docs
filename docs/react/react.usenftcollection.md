@@ -39,16 +39,16 @@ export default function Component() {
 
 ```typescript
 export declare function useNFTCollection(
-  contractAddress?: string,
-): NFTCollection | undefined;
+  contractAddress?: RequiredParam<string>,
+): import("@thirdweb-dev/sdk").NFTCollection | undefined;
 ```
 
 ## Parameters
 
-| Parameter       | Type   | Description                                                                                    |
-| --------------- | ------ | ---------------------------------------------------------------------------------------------- |
-| contractAddress | string | <i>(Optional)</i> the address of the NFT Collection contract, found in your thirdweb dashboard |
+| Parameter       | Type                                                    | Description                                                                                    |
+| --------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | <i>(Optional)</i> the address of the NFT Collection contract, found in your thirdweb dashboard |
 
 **Returns:**
 
-NFTCollection \| undefined
+import("@thirdweb-dev/sdk").NFTCollection \| undefined
