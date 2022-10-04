@@ -69,7 +69,7 @@ const desiredNetwork = "devnet";
 
 export const MyApp = () => {
   return (
-    <ThirdwebProvider endpoint={desiredNetwork}>
+    <ThirdwebProvider network={desiredNetwork}>
       {/* Your App Goes Here */}
     </ThirdwebProvider>
   );
@@ -97,15 +97,13 @@ If you already have a connection and wallet setup using solana's web3js, you can
 
 ```jsx
 import { ThirdwebSDKProvider } from "@thirdweb-dev/react/solana";
-import { useConnection, useWallet } from "@solana/wallet-adapter-react";
+import { useWallet } from "@solana/wallet-adapter-react";
 
 export const MyApp({ Component, pageProps }) {
-  // If you want to use any custom provider or signer, add it here.
-  const { connection } = useConnection();
   const wallet = useWallet();
 
   return (
-    <ThirdwebSDKProvider connection={connection} wallet={wallet}>
+    <ThirdwebSDKProvider network={"devnet"} wallet={wallet}>
       {/* Your App Goes Here */}
     </ThirdwebSDKProvider>
   );
