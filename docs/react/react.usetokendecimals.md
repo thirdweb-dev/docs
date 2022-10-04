@@ -16,22 +16,23 @@ Use this to get the decimals of your contract for a given address.
 ## Example
 
 ```javascript
-const { data: decimals, isLoading, error } = useTokenDecimals(<YourTokenContractInstance>);
+const { contract } = useContract(<ContractAddress>);
+const { data: decimals, isLoading, error } = useTokenDecimals(contract);
 ```
 
 **Signature:**
 
 ```typescript
 export declare function useTokenDecimals(
-  contract: RequiredParam<Erc20>,
+  contract: RequiredParam<TokenContract>,
 ): import("@tanstack/react-query").UseQueryResult<number, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                   | Description                       |
-| --------- | ------------------------------------------------------ | --------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instance of an ERC20 contract. |
+| Parameter | Type                                                                                       | Description                                                |
+| --------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;[TokenContract](./react.tokencontract.md)&gt; | an instance of a [TokenContract](./react.tokencontract.md) |
 
 **Returns:**
 

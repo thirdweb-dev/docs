@@ -17,11 +17,12 @@ Use this to transfer tokens on your contract
 
 ```jsx
 const Component = () => {
+  const { contract } = useContract(<ContractAddress>);
   const {
     mutate: transferTokens,
     isLoading,
     error,
-  } = useTransferToken(">>YourERC20ContractInstance<<");
+  } = useTransferToken(contract);
 
   if (error) {
     console.error("failed to transfer tokens", error);
@@ -42,7 +43,7 @@ const Component = () => {
 
 ```typescript
 export declare function useTransferToken(
-  contract: RequiredParam<Erc20>,
+  contract: RequiredParam<TokenContract>,
 ): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
@@ -59,9 +60,9 @@ export declare function useTransferToken(
 
 ## Parameters
 
-| Parameter | Type                                                   | Description                                                                                                            |
-| --------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instance of a contract that extends the ERC20 spec (token, token drop, custom contract that follows the ERC20 spec) |
+| Parameter | Type                                                                                       | Description                                                |
+| --------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;[TokenContract](./react.tokencontract.md)&gt; | an instance of a [TokenContract](./react.tokencontract.md) |
 
 **Returns:**
 

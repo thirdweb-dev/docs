@@ -17,11 +17,12 @@ Use this to claim tokens on your
 
 ```jsx
 const Component = () => {
+  const { contract } = useContract(<ContractAddress>);
   const {
     mutate: claimTokens,
     isLoading,
     error,
-  } = useClaimToken(TokenDropContract);
+  } = useClaimToken(contract);
 
   if (error) {
     console.error("failed to claim tokens", error);
@@ -41,8 +42,8 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-export declare function useClaimToken<TContract extends Erc20>(
-  contract: RequiredParam<TContract>,
+export declare function useClaimToken(
+  contract: RequiredParam<TokenContract>,
 ): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
@@ -59,9 +60,9 @@ export declare function useClaimToken<TContract extends Erc20>(
 
 ## Parameters
 
-| Parameter | Type                                                       | Description      |
-| --------- | ---------------------------------------------------------- | ---------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;TContract&gt; | an instance of a |
+| Parameter | Type                                                                                       | Description                                                |
+| --------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;[TokenContract](./react.tokencontract.md)&gt; | an instance of a [TokenContract](./react.tokencontract.md) |
 
 **Returns:**
 

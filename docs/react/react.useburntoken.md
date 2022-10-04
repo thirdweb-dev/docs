@@ -17,18 +17,22 @@ Use this to burn tokens on your contract
 
 ```jsx
 const Component = () => {
+  const { contract } = useContract(<ContractAddress>);
   const {
     mutate: burnTokens,
     isLoading,
     error,
-  } = useBurnToken(">>YourERC20ContractInstance<<");
+  } = useBurnToken(contract);
 
   if (error) {
     console.error("failed to burn tokens", error);
   }
 
   return (
-    <button disabled={isLoading} onClick={() => burnTokens({ amount: 1000 })}>
+    <button
+      disabled={isLoading}
+      onClick={() => burnTokens({ amount: 1000 })}
+    >
       Burn!
     </button>
   );
@@ -39,7 +43,7 @@ const Component = () => {
 
 ```typescript
 export declare function useBurnToken(
-  contract: RequiredParam<Erc20>,
+  contract: RequiredParam<TokenContract>,
 ): import("@tanstack/react-query").UseMutationResult<
   Omit<
     {
@@ -56,9 +60,9 @@ export declare function useBurnToken(
 
 ## Parameters
 
-| Parameter | Type                                                   | Description                                                                                                            |
-| --------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instance of a contract that extends the ERC20 spec (token, token drop, custom contract that follows the ERC20 spec) |
+| Parameter | Type                                                                                       | Description                                                |
+| --------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;[TokenContract](./react.tokencontract.md)&gt; | an instance of a [TokenContract](./react.tokencontract.md) |
 
 **Returns:**
 
