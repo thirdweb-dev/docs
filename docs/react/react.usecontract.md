@@ -22,9 +22,5413 @@ const { contract, isLoading, error } = useContract("{{contract_address}}");
 ```typescript
 export declare function useContract<
   TContract extends ValidContractInstance = SmartContract,
+  TContractType extends ContractType = "custom",
 >(
   contractAddress: RequiredParam<ContractAddress>,
-): UseContractResult<TContract>;
+  _contractType?: TContractType,
+): UseContractResult<
+  TContractType extends
+    | "split"
+    | "edition-drop"
+    | "edition"
+    | "marketplace"
+    | "multiwrap"
+    | "nft-collection"
+    | "nft-drop"
+    | "pack"
+    | "signature-drop"
+    | "token-drop"
+    | "token"
+    | "vote"
+    ? Awaited<
+        ReturnType<
+          {
+            readonly "edition-drop": {
+              name: "DropERC1155";
+              contractType: "edition-drop";
+              schema: {
+                deploy: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        import("zod").extendShape<
+                          import("zod").extendShape<
+                            import("zod").extendShape<
+                              {
+                                name: import("zod").ZodString;
+                                description: import("zod").ZodOptional<
+                                  import("zod").ZodString
+                                >;
+                                image: import("zod").ZodOptional<
+                                  import("zod").ZodUnion<
+                                    [
+                                      import("zod").ZodUnion<
+                                        [
+                                          import("zod").ZodTypeAny,
+                                          import("zod").ZodObject<
+                                            {
+                                              data: import("zod").ZodUnion<
+                                                [
+                                                  import("zod").ZodTypeAny,
+                                                  import("zod").ZodString,
+                                                ]
+                                              >;
+                                              name: import("zod").ZodString;
+                                            },
+                                            "strip",
+                                            import("zod").ZodTypeAny,
+                                            {
+                                              data?: any;
+                                              name: string;
+                                            },
+                                            {
+                                              data?: any;
+                                              name: string;
+                                            }
+                                          >,
+                                        ]
+                                      >,
+                                      import("zod").ZodString,
+                                    ]
+                                  >
+                                >;
+                                external_link: import("zod").ZodOptional<
+                                  import("zod").ZodString
+                                >;
+                              },
+                              {
+                                seller_fee_basis_points: import("zod").ZodDefault<
+                                  import("zod").ZodNumber
+                                >;
+                                fee_recipient: import("zod").ZodDefault<
+                                  import("zod").ZodEffects<
+                                    import("zod").ZodString,
+                                    string,
+                                    string
+                                  >
+                                >;
+                              }
+                            >,
+                            {
+                              merkle: import("zod").ZodDefault<
+                                import("zod").ZodRecord<
+                                  import("zod").ZodString,
+                                  import("zod").ZodString
+                                >
+                              >;
+                            }
+                          >,
+                          {
+                            symbol: import("zod").ZodDefault<
+                              import("zod").ZodOptional<import("zod").ZodString>
+                            >;
+                          }
+                        >,
+                        {
+                          platform_fee_basis_points: import("zod").ZodDefault<
+                            import("zod").ZodNumber
+                          >;
+                          platform_fee_recipient: import("zod").ZodDefault<
+                            import("zod").ZodEffects<
+                              import("zod").ZodString,
+                              string,
+                              string
+                            >
+                          >;
+                        }
+                      >,
+                      {
+                        primary_sale_recipient: import("zod").ZodEffects<
+                          import("zod").ZodString,
+                          string,
+                          string
+                        >;
+                      }
+                    >,
+                    {
+                      trusted_forwarders: import("zod").ZodDefault<
+                        import("zod").ZodArray<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >,
+                          "many"
+                        >
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                    merkle: Record<string, string>;
+                    platform_fee_basis_points: number;
+                    platform_fee_recipient: string;
+                    primary_sale_recipient: string;
+                    trusted_forwarders: string[];
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    merkle?: Record<string, string> | undefined;
+                    platform_fee_basis_points?: number | undefined;
+                    platform_fee_recipient?: string | undefined;
+                    trusted_forwarders?: string[] | undefined;
+                    name: string;
+                    primary_sale_recipient: string;
+                  }
+                >;
+                output: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        import("zod").extendShape<
+                          {
+                            name: import("zod").ZodString;
+                            description: import("zod").ZodOptional<
+                              import("zod").ZodString
+                            >;
+                            image: import("zod").ZodOptional<
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodUnion<
+                                    [
+                                      import("zod").ZodTypeAny,
+                                      import("zod").ZodObject<
+                                        {
+                                          data: import("zod").ZodUnion<
+                                            [
+                                              import("zod").ZodTypeAny,
+                                              import("zod").ZodString,
+                                            ]
+                                          >;
+                                          name: import("zod").ZodString;
+                                        },
+                                        "strip",
+                                        import("zod").ZodTypeAny,
+                                        {
+                                          data?: any;
+                                          name: string;
+                                        },
+                                        {
+                                          data?: any;
+                                          name: string;
+                                        }
+                                      >,
+                                    ]
+                                  >,
+                                  import("zod").ZodString,
+                                ]
+                              >
+                            >;
+                            external_link: import("zod").ZodOptional<
+                              import("zod").ZodString
+                            >;
+                          },
+                          {
+                            image: import("zod").ZodOptional<
+                              import("zod").ZodString
+                            >;
+                          }
+                        >,
+                        {
+                          seller_fee_basis_points: import("zod").ZodDefault<
+                            import("zod").ZodNumber
+                          >;
+                          fee_recipient: import("zod").ZodDefault<
+                            import("zod").ZodEffects<
+                              import("zod").ZodString,
+                              string,
+                              string
+                            >
+                          >;
+                        }
+                      >,
+                      {
+                        merkle: import("zod").ZodDefault<
+                          import("zod").ZodRecord<
+                            import("zod").ZodString,
+                            import("zod").ZodString
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                    merkle: Record<string, string>;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    merkle?: Record<string, string> | undefined;
+                    name: string;
+                  }
+                >;
+                input: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        {
+                          name: import("zod").ZodString;
+                          description: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodUnion<
+                                  [
+                                    import("zod").ZodTypeAny,
+                                    import("zod").ZodObject<
+                                      {
+                                        data: import("zod").ZodUnion<
+                                          [
+                                            import("zod").ZodTypeAny,
+                                            import("zod").ZodString,
+                                          ]
+                                        >;
+                                        name: import("zod").ZodString;
+                                      },
+                                      "strip",
+                                      import("zod").ZodTypeAny,
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      },
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      }
+                                    >,
+                                  ]
+                                >,
+                                import("zod").ZodString,
+                              ]
+                            >
+                          >;
+                          external_link: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        },
+                        {
+                          seller_fee_basis_points: import("zod").ZodDefault<
+                            import("zod").ZodNumber
+                          >;
+                          fee_recipient: import("zod").ZodDefault<
+                            import("zod").ZodEffects<
+                              import("zod").ZodString,
+                              string,
+                              string
+                            >
+                          >;
+                        }
+                      >,
+                      {
+                        merkle: import("zod").ZodDefault<
+                          import("zod").ZodRecord<
+                            import("zod").ZodString,
+                            import("zod").ZodString
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                    merkle: Record<string, string>;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    merkle?: Record<string, string> | undefined;
+                    name: string;
+                  }
+                >;
+              };
+              roles: readonly ["admin", "minter", "transfer"];
+              initialize: (
+                network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider,
+                address: string,
+                storage: import("@thirdweb-dev/storage").ThirdwebStorage<
+                  import("@thirdweb-dev/storage").IpfsUploadBatchOptions
+                >,
+                options?:
+                  | {
+                      readonlySettings?:
+                        | {
+                            chainId?: number | undefined;
+                            rpcUrl: string;
+                          }
+                        | undefined;
+                      gasSettings?:
+                        | {
+                            maxPriceInGwei?: number | undefined;
+                            speed?: "standard" | "fast" | "fastest" | undefined;
+                          }
+                        | undefined;
+                      gasless?:
+                        | {
+                            experimentalChainlessSupport?: boolean | undefined;
+                            openzeppelin: {
+                              relayerForwarderAddress?: string | undefined;
+                              useEOAForwarder?: boolean | undefined;
+                              relayerUrl: string;
+                            };
+                          }
+                        | {
+                            biconomy: {
+                              deadlineSeconds?: number | undefined;
+                              apiId: string;
+                              apiKey: string;
+                            };
+                          }
+                        | undefined;
+                    }
+                  | undefined,
+              ) => Promise<import("@thirdweb-dev/sdk").EditionDrop>;
+              getAbi: () => Promise<
+                (
+                  | {
+                      inputs: never[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      anonymous: boolean;
+                      inputs: (
+                        | {
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                      )[];
+                      name: string;
+                      type: string;
+                      stateMutability?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      outputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      outputs: {
+                        components: {
+                          internalType: string;
+                          name: string;
+                          type: string;
+                        }[];
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      inputs: (
+                        | {
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                      )[];
+                      name: string;
+                      outputs: never[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                )[]
+              >;
+            };
+            readonly edition: {
+              name: "TokenERC1155";
+              contractType: "edition";
+              schema: {
+                deploy: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        import("zod").extendShape<
+                          import("zod").extendShape<
+                            {
+                              name: import("zod").ZodString;
+                              description: import("zod").ZodOptional<
+                                import("zod").ZodString
+                              >;
+                              image: import("zod").ZodOptional<
+                                import("zod").ZodUnion<
+                                  [
+                                    import("zod").ZodUnion<
+                                      [
+                                        import("zod").ZodTypeAny,
+                                        import("zod").ZodObject<
+                                          {
+                                            data: import("zod").ZodUnion<
+                                              [
+                                                import("zod").ZodTypeAny,
+                                                import("zod").ZodString,
+                                              ]
+                                            >;
+                                            name: import("zod").ZodString;
+                                          },
+                                          "strip",
+                                          import("zod").ZodTypeAny,
+                                          {
+                                            data?: any;
+                                            name: string;
+                                          },
+                                          {
+                                            data?: any;
+                                            name: string;
+                                          }
+                                        >,
+                                      ]
+                                    >,
+                                    import("zod").ZodString,
+                                  ]
+                                >
+                              >;
+                              external_link: import("zod").ZodOptional<
+                                import("zod").ZodString
+                              >;
+                            },
+                            {
+                              seller_fee_basis_points: import("zod").ZodDefault<
+                                import("zod").ZodNumber
+                              >;
+                              fee_recipient: import("zod").ZodDefault<
+                                import("zod").ZodEffects<
+                                  import("zod").ZodString,
+                                  string,
+                                  string
+                                >
+                              >;
+                            }
+                          >,
+                          {
+                            symbol: import("zod").ZodDefault<
+                              import("zod").ZodOptional<import("zod").ZodString>
+                            >;
+                          }
+                        >,
+                        {
+                          platform_fee_basis_points: import("zod").ZodDefault<
+                            import("zod").ZodNumber
+                          >;
+                          platform_fee_recipient: import("zod").ZodDefault<
+                            import("zod").ZodEffects<
+                              import("zod").ZodString,
+                              string,
+                              string
+                            >
+                          >;
+                        }
+                      >,
+                      {
+                        primary_sale_recipient: import("zod").ZodEffects<
+                          import("zod").ZodString,
+                          string,
+                          string
+                        >;
+                      }
+                    >,
+                    {
+                      trusted_forwarders: import("zod").ZodDefault<
+                        import("zod").ZodArray<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >,
+                          "many"
+                        >
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                    platform_fee_basis_points: number;
+                    platform_fee_recipient: string;
+                    primary_sale_recipient: string;
+                    trusted_forwarders: string[];
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    platform_fee_basis_points?: number | undefined;
+                    platform_fee_recipient?: string | undefined;
+                    trusted_forwarders?: string[] | undefined;
+                    name: string;
+                    primary_sale_recipient: string;
+                  }
+                >;
+                output: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        {
+                          name: import("zod").ZodString;
+                          description: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodUnion<
+                                  [
+                                    import("zod").ZodTypeAny,
+                                    import("zod").ZodObject<
+                                      {
+                                        data: import("zod").ZodUnion<
+                                          [
+                                            import("zod").ZodTypeAny,
+                                            import("zod").ZodString,
+                                          ]
+                                        >;
+                                        name: import("zod").ZodString;
+                                      },
+                                      "strip",
+                                      import("zod").ZodTypeAny,
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      },
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      }
+                                    >,
+                                  ]
+                                >,
+                                import("zod").ZodString,
+                              ]
+                            >
+                          >;
+                          external_link: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        },
+                        {
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        }
+                      >,
+                      {
+                        seller_fee_basis_points: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        fee_recipient: import("zod").ZodDefault<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    name: string;
+                  }
+                >;
+                input: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      {
+                        name: import("zod").ZodString;
+                        description: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                        image: import("zod").ZodOptional<
+                          import("zod").ZodUnion<
+                            [
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodTypeAny,
+                                  import("zod").ZodObject<
+                                    {
+                                      data: import("zod").ZodUnion<
+                                        [
+                                          import("zod").ZodTypeAny,
+                                          import("zod").ZodString,
+                                        ]
+                                      >;
+                                      name: import("zod").ZodString;
+                                    },
+                                    "strip",
+                                    import("zod").ZodTypeAny,
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    },
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    }
+                                  >,
+                                ]
+                              >,
+                              import("zod").ZodString,
+                            ]
+                          >
+                        >;
+                        external_link: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                      },
+                      {
+                        seller_fee_basis_points: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        fee_recipient: import("zod").ZodDefault<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    name: string;
+                  }
+                >;
+              };
+              roles: readonly ["admin", "minter", "transfer"];
+              initialize: (
+                network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider,
+                address: string,
+                storage: import("@thirdweb-dev/storage").ThirdwebStorage<
+                  import("@thirdweb-dev/storage").IpfsUploadBatchOptions
+                >,
+                options?:
+                  | {
+                      readonlySettings?:
+                        | {
+                            chainId?: number | undefined;
+                            rpcUrl: string;
+                          }
+                        | undefined;
+                      gasSettings?:
+                        | {
+                            maxPriceInGwei?: number | undefined;
+                            speed?: "standard" | "fast" | "fastest" | undefined;
+                          }
+                        | undefined;
+                      gasless?:
+                        | {
+                            experimentalChainlessSupport?: boolean | undefined;
+                            openzeppelin: {
+                              relayerForwarderAddress?: string | undefined;
+                              useEOAForwarder?: boolean | undefined;
+                              relayerUrl: string;
+                            };
+                          }
+                        | {
+                            biconomy: {
+                              deadlineSeconds?: number | undefined;
+                              apiId: string;
+                              apiKey: string;
+                            };
+                          }
+                        | undefined;
+                    }
+                  | undefined,
+              ) => Promise<import("@thirdweb-dev/sdk").Edition>;
+              getAbi: () => Promise<
+                (
+                  | {
+                      inputs: never[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      anonymous: boolean;
+                      inputs: (
+                        | {
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                      )[];
+                      name: string;
+                      type: string;
+                      stateMutability?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      inputs: (
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                        | {
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                      )[];
+                      name: string;
+                      outputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                )[]
+              >;
+            };
+            readonly marketplace: {
+              name: "Marketplace";
+              contractType: "marketplace";
+              schema: {
+                deploy: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      {
+                        name: import("zod").ZodString;
+                        description: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                        image: import("zod").ZodOptional<
+                          import("zod").ZodUnion<
+                            [
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodTypeAny,
+                                  import("zod").ZodObject<
+                                    {
+                                      data: import("zod").ZodUnion<
+                                        [
+                                          import("zod").ZodTypeAny,
+                                          import("zod").ZodString,
+                                        ]
+                                      >;
+                                      name: import("zod").ZodString;
+                                    },
+                                    "strip",
+                                    import("zod").ZodTypeAny,
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    },
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    }
+                                  >,
+                                ]
+                              >,
+                              import("zod").ZodString,
+                            ]
+                          >
+                        >;
+                        external_link: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                      },
+                      {
+                        platform_fee_basis_points: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        platform_fee_recipient: import("zod").ZodDefault<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      trusted_forwarders: import("zod").ZodDefault<
+                        import("zod").ZodArray<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >,
+                          "many"
+                        >
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    name: string;
+                    platform_fee_basis_points: number;
+                    platform_fee_recipient: string;
+                    trusted_forwarders: string[];
+                  },
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    platform_fee_basis_points?: number | undefined;
+                    platform_fee_recipient?: string | undefined;
+                    trusted_forwarders?: string[] | undefined;
+                    name: string;
+                  }
+                >;
+                output: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    {
+                      name: import("zod").ZodString;
+                      description: import("zod").ZodOptional<
+                        import("zod").ZodString
+                      >;
+                      image: import("zod").ZodOptional<
+                        import("zod").ZodUnion<
+                          [
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodTypeAny,
+                                import("zod").ZodObject<
+                                  {
+                                    data: import("zod").ZodUnion<
+                                      [
+                                        import("zod").ZodTypeAny,
+                                        import("zod").ZodString,
+                                      ]
+                                    >;
+                                    name: import("zod").ZodString;
+                                  },
+                                  "strip",
+                                  import("zod").ZodTypeAny,
+                                  {
+                                    data?: any;
+                                    name: string;
+                                  },
+                                  {
+                                    data?: any;
+                                    name: string;
+                                  }
+                                >,
+                              ]
+                            >,
+                            import("zod").ZodString,
+                          ]
+                        >
+                      >;
+                      external_link: import("zod").ZodOptional<
+                        import("zod").ZodString
+                      >;
+                    },
+                    {
+                      image: import("zod").ZodOptional<import("zod").ZodString>;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodUnknown,
+                  {
+                    [x: string]: unknown;
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    name: string;
+                  },
+                  {
+                    [x: string]: unknown;
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    name: string;
+                  }
+                >;
+                input: import("zod").ZodObject<
+                  {
+                    name: import("zod").ZodString;
+                    description: import("zod").ZodOptional<
+                      import("zod").ZodString
+                    >;
+                    image: import("zod").ZodOptional<
+                      import("zod").ZodUnion<
+                        [
+                          import("zod").ZodUnion<
+                            [
+                              import("zod").ZodTypeAny,
+                              import("zod").ZodObject<
+                                {
+                                  data: import("zod").ZodUnion<
+                                    [
+                                      import("zod").ZodTypeAny,
+                                      import("zod").ZodString,
+                                    ]
+                                  >;
+                                  name: import("zod").ZodString;
+                                },
+                                "strip",
+                                import("zod").ZodTypeAny,
+                                {
+                                  data?: any;
+                                  name: string;
+                                },
+                                {
+                                  data?: any;
+                                  name: string;
+                                }
+                              >,
+                            ]
+                          >,
+                          import("zod").ZodString,
+                        ]
+                      >
+                    >;
+                    external_link: import("zod").ZodOptional<
+                      import("zod").ZodString
+                    >;
+                  },
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    name: string;
+                  },
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    name: string;
+                  }
+                >;
+              };
+              roles: readonly ["admin", "lister", "asset"];
+              initialize: (
+                network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider,
+                address: string,
+                storage: import("@thirdweb-dev/storage").ThirdwebStorage<
+                  import("@thirdweb-dev/storage").IpfsUploadBatchOptions
+                >,
+                options?:
+                  | {
+                      readonlySettings?:
+                        | {
+                            chainId?: number | undefined;
+                            rpcUrl: string;
+                          }
+                        | undefined;
+                      gasSettings?:
+                        | {
+                            maxPriceInGwei?: number | undefined;
+                            speed?: "standard" | "fast" | "fastest" | undefined;
+                          }
+                        | undefined;
+                      gasless?:
+                        | {
+                            experimentalChainlessSupport?: boolean | undefined;
+                            openzeppelin: {
+                              relayerForwarderAddress?: string | undefined;
+                              useEOAForwarder?: boolean | undefined;
+                              relayerUrl: string;
+                            };
+                          }
+                        | {
+                            biconomy: {
+                              deadlineSeconds?: number | undefined;
+                              apiId: string;
+                              apiKey: string;
+                            };
+                          }
+                        | undefined;
+                    }
+                  | undefined,
+              ) => Promise<import("@thirdweb-dev/sdk").Marketplace>;
+              getAbi: () => Promise<
+                (
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      anonymous: boolean;
+                      inputs: (
+                        | {
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                      )[];
+                      name: string;
+                      type: string;
+                      stateMutability?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      inputs: {
+                        components: {
+                          internalType: string;
+                          name: string;
+                          type: string;
+                        }[];
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      outputs: never[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      outputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      stateMutability: string;
+                      type: string;
+                      inputs?: undefined;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                )[]
+              >;
+            };
+            readonly multiwrap: {
+              name: "Multiwrap";
+              contractType: "multiwrap";
+              schema: {
+                deploy: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        {
+                          name: import("zod").ZodString;
+                          description: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodUnion<
+                                  [
+                                    import("zod").ZodTypeAny,
+                                    import("zod").ZodObject<
+                                      {
+                                        data: import("zod").ZodUnion<
+                                          [
+                                            import("zod").ZodTypeAny,
+                                            import("zod").ZodString,
+                                          ]
+                                        >;
+                                        name: import("zod").ZodString;
+                                      },
+                                      "strip",
+                                      import("zod").ZodTypeAny,
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      },
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      }
+                                    >,
+                                  ]
+                                >,
+                                import("zod").ZodString,
+                              ]
+                            >
+                          >;
+                          external_link: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        },
+                        {
+                          seller_fee_basis_points: import("zod").ZodDefault<
+                            import("zod").ZodNumber
+                          >;
+                          fee_recipient: import("zod").ZodDefault<
+                            import("zod").ZodEffects<
+                              import("zod").ZodString,
+                              string,
+                              string
+                            >
+                          >;
+                        }
+                      >,
+                      {
+                        symbol: import("zod").ZodDefault<
+                          import("zod").ZodOptional<import("zod").ZodString>
+                        >;
+                      }
+                    >,
+                    {
+                      trusted_forwarders: import("zod").ZodDefault<
+                        import("zod").ZodArray<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >,
+                          "many"
+                        >
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                    trusted_forwarders: string[];
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    trusted_forwarders?: string[] | undefined;
+                    name: string;
+                  }
+                >;
+                output: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        {
+                          name: import("zod").ZodString;
+                          description: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodUnion<
+                                  [
+                                    import("zod").ZodTypeAny,
+                                    import("zod").ZodObject<
+                                      {
+                                        data: import("zod").ZodUnion<
+                                          [
+                                            import("zod").ZodTypeAny,
+                                            import("zod").ZodString,
+                                          ]
+                                        >;
+                                        name: import("zod").ZodString;
+                                      },
+                                      "strip",
+                                      import("zod").ZodTypeAny,
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      },
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      }
+                                    >,
+                                  ]
+                                >,
+                                import("zod").ZodString,
+                              ]
+                            >
+                          >;
+                          external_link: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        },
+                        {
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        }
+                      >,
+                      {
+                        seller_fee_basis_points: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        fee_recipient: import("zod").ZodDefault<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    name: string;
+                  }
+                >;
+                input: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      {
+                        name: import("zod").ZodString;
+                        description: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                        image: import("zod").ZodOptional<
+                          import("zod").ZodUnion<
+                            [
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodTypeAny,
+                                  import("zod").ZodObject<
+                                    {
+                                      data: import("zod").ZodUnion<
+                                        [
+                                          import("zod").ZodTypeAny,
+                                          import("zod").ZodString,
+                                        ]
+                                      >;
+                                      name: import("zod").ZodString;
+                                    },
+                                    "strip",
+                                    import("zod").ZodTypeAny,
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    },
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    }
+                                  >,
+                                ]
+                              >,
+                              import("zod").ZodString,
+                            ]
+                          >
+                        >;
+                        external_link: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                      },
+                      {
+                        seller_fee_basis_points: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        fee_recipient: import("zod").ZodDefault<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    name: string;
+                  }
+                >;
+              };
+              roles: readonly [
+                "admin",
+                "transfer",
+                "minter",
+                "unwrap",
+                "asset",
+              ];
+              initialize: (
+                network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider,
+                address: string,
+                storage: import("@thirdweb-dev/storage").ThirdwebStorage<
+                  import("@thirdweb-dev/storage").IpfsUploadBatchOptions
+                >,
+                options?:
+                  | {
+                      readonlySettings?:
+                        | {
+                            chainId?: number | undefined;
+                            rpcUrl: string;
+                          }
+                        | undefined;
+                      gasSettings?:
+                        | {
+                            maxPriceInGwei?: number | undefined;
+                            speed?: "standard" | "fast" | "fastest" | undefined;
+                          }
+                        | undefined;
+                      gasless?:
+                        | {
+                            experimentalChainlessSupport?: boolean | undefined;
+                            openzeppelin: {
+                              relayerForwarderAddress?: string | undefined;
+                              useEOAForwarder?: boolean | undefined;
+                              relayerUrl: string;
+                            };
+                          }
+                        | {
+                            biconomy: {
+                              deadlineSeconds?: number | undefined;
+                              apiId: string;
+                              apiKey: string;
+                            };
+                          }
+                        | undefined;
+                    }
+                  | undefined,
+              ) => Promise<import("@thirdweb-dev/sdk").Multiwrap>;
+              getAbi: () => Promise<
+                (
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      anonymous: boolean;
+                      inputs: (
+                        | {
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                      )[];
+                      name: string;
+                      type: string;
+                      stateMutability?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      outputs: {
+                        components: {
+                          internalType: string;
+                          name: string;
+                          type: string;
+                        }[];
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      inputs: (
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                        | {
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                      )[];
+                      name: string;
+                      outputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      stateMutability: string;
+                      type: string;
+                      inputs?: undefined;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                )[]
+              >;
+            };
+            readonly "nft-collection": {
+              name: "TokenERC721";
+              contractType: "nft-collection";
+              schema: {
+                deploy: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        import("zod").extendShape<
+                          import("zod").extendShape<
+                            {
+                              name: import("zod").ZodString;
+                              description: import("zod").ZodOptional<
+                                import("zod").ZodString
+                              >;
+                              image: import("zod").ZodOptional<
+                                import("zod").ZodUnion<
+                                  [
+                                    import("zod").ZodUnion<
+                                      [
+                                        import("zod").ZodTypeAny,
+                                        import("zod").ZodObject<
+                                          {
+                                            data: import("zod").ZodUnion<
+                                              [
+                                                import("zod").ZodTypeAny,
+                                                import("zod").ZodString,
+                                              ]
+                                            >;
+                                            name: import("zod").ZodString;
+                                          },
+                                          "strip",
+                                          import("zod").ZodTypeAny,
+                                          {
+                                            data?: any;
+                                            name: string;
+                                          },
+                                          {
+                                            data?: any;
+                                            name: string;
+                                          }
+                                        >,
+                                      ]
+                                    >,
+                                    import("zod").ZodString,
+                                  ]
+                                >
+                              >;
+                              external_link: import("zod").ZodOptional<
+                                import("zod").ZodString
+                              >;
+                            },
+                            {
+                              seller_fee_basis_points: import("zod").ZodDefault<
+                                import("zod").ZodNumber
+                              >;
+                              fee_recipient: import("zod").ZodDefault<
+                                import("zod").ZodEffects<
+                                  import("zod").ZodString,
+                                  string,
+                                  string
+                                >
+                              >;
+                            }
+                          >,
+                          {
+                            symbol: import("zod").ZodDefault<
+                              import("zod").ZodOptional<import("zod").ZodString>
+                            >;
+                          }
+                        >,
+                        {
+                          platform_fee_basis_points: import("zod").ZodDefault<
+                            import("zod").ZodNumber
+                          >;
+                          platform_fee_recipient: import("zod").ZodDefault<
+                            import("zod").ZodEffects<
+                              import("zod").ZodString,
+                              string,
+                              string
+                            >
+                          >;
+                        }
+                      >,
+                      {
+                        primary_sale_recipient: import("zod").ZodEffects<
+                          import("zod").ZodString,
+                          string,
+                          string
+                        >;
+                      }
+                    >,
+                    {
+                      trusted_forwarders: import("zod").ZodDefault<
+                        import("zod").ZodArray<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >,
+                          "many"
+                        >
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                    platform_fee_basis_points: number;
+                    platform_fee_recipient: string;
+                    primary_sale_recipient: string;
+                    trusted_forwarders: string[];
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    platform_fee_basis_points?: number | undefined;
+                    platform_fee_recipient?: string | undefined;
+                    trusted_forwarders?: string[] | undefined;
+                    name: string;
+                    primary_sale_recipient: string;
+                  }
+                >;
+                output: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        {
+                          name: import("zod").ZodString;
+                          description: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodUnion<
+                                  [
+                                    import("zod").ZodTypeAny,
+                                    import("zod").ZodObject<
+                                      {
+                                        data: import("zod").ZodUnion<
+                                          [
+                                            import("zod").ZodTypeAny,
+                                            import("zod").ZodString,
+                                          ]
+                                        >;
+                                        name: import("zod").ZodString;
+                                      },
+                                      "strip",
+                                      import("zod").ZodTypeAny,
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      },
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      }
+                                    >,
+                                  ]
+                                >,
+                                import("zod").ZodString,
+                              ]
+                            >
+                          >;
+                          external_link: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        },
+                        {
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        }
+                      >,
+                      {
+                        seller_fee_basis_points: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        fee_recipient: import("zod").ZodDefault<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    name: string;
+                  }
+                >;
+                input: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      {
+                        name: import("zod").ZodString;
+                        description: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                        image: import("zod").ZodOptional<
+                          import("zod").ZodUnion<
+                            [
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodTypeAny,
+                                  import("zod").ZodObject<
+                                    {
+                                      data: import("zod").ZodUnion<
+                                        [
+                                          import("zod").ZodTypeAny,
+                                          import("zod").ZodString,
+                                        ]
+                                      >;
+                                      name: import("zod").ZodString;
+                                    },
+                                    "strip",
+                                    import("zod").ZodTypeAny,
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    },
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    }
+                                  >,
+                                ]
+                              >,
+                              import("zod").ZodString,
+                            ]
+                          >
+                        >;
+                        external_link: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                      },
+                      {
+                        seller_fee_basis_points: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        fee_recipient: import("zod").ZodDefault<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    name: string;
+                  }
+                >;
+              };
+              roles: readonly ["admin", "minter", "transfer"];
+              initialize: (
+                network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider,
+                address: string,
+                storage: import("@thirdweb-dev/storage").ThirdwebStorage<
+                  import("@thirdweb-dev/storage").IpfsUploadBatchOptions
+                >,
+                options?:
+                  | {
+                      readonlySettings?:
+                        | {
+                            chainId?: number | undefined;
+                            rpcUrl: string;
+                          }
+                        | undefined;
+                      gasSettings?:
+                        | {
+                            maxPriceInGwei?: number | undefined;
+                            speed?: "standard" | "fast" | "fastest" | undefined;
+                          }
+                        | undefined;
+                      gasless?:
+                        | {
+                            experimentalChainlessSupport?: boolean | undefined;
+                            openzeppelin: {
+                              relayerForwarderAddress?: string | undefined;
+                              useEOAForwarder?: boolean | undefined;
+                              relayerUrl: string;
+                            };
+                          }
+                        | {
+                            biconomy: {
+                              deadlineSeconds?: number | undefined;
+                              apiId: string;
+                              apiKey: string;
+                            };
+                          }
+                        | undefined;
+                    }
+                  | undefined,
+              ) => Promise<import("@thirdweb-dev/sdk").NFTCollection>;
+              getAbi: () => Promise<
+                (
+                  | {
+                      inputs: never[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      anonymous: boolean;
+                      inputs: (
+                        | {
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                      )[];
+                      name: string;
+                      type: string;
+                      stateMutability?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      inputs: (
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                        | {
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                      )[];
+                      name: string;
+                      outputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                )[]
+              >;
+            };
+            readonly "nft-drop": {
+              name: "DropERC721";
+              contractType: "nft-drop";
+              schema: {
+                deploy: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        import("zod").extendShape<
+                          import("zod").extendShape<
+                            import("zod").extendShape<
+                              {
+                                name: import("zod").ZodString;
+                                description: import("zod").ZodOptional<
+                                  import("zod").ZodString
+                                >;
+                                image: import("zod").ZodOptional<
+                                  import("zod").ZodUnion<
+                                    [
+                                      import("zod").ZodUnion<
+                                        [
+                                          import("zod").ZodTypeAny,
+                                          import("zod").ZodObject<
+                                            {
+                                              data: import("zod").ZodUnion<
+                                                [
+                                                  import("zod").ZodTypeAny,
+                                                  import("zod").ZodString,
+                                                ]
+                                              >;
+                                              name: import("zod").ZodString;
+                                            },
+                                            "strip",
+                                            import("zod").ZodTypeAny,
+                                            {
+                                              data?: any;
+                                              name: string;
+                                            },
+                                            {
+                                              data?: any;
+                                              name: string;
+                                            }
+                                          >,
+                                        ]
+                                      >,
+                                      import("zod").ZodString,
+                                    ]
+                                  >
+                                >;
+                                external_link: import("zod").ZodOptional<
+                                  import("zod").ZodString
+                                >;
+                              },
+                              {
+                                seller_fee_basis_points: import("zod").ZodDefault<
+                                  import("zod").ZodNumber
+                                >;
+                                fee_recipient: import("zod").ZodDefault<
+                                  import("zod").ZodEffects<
+                                    import("zod").ZodString,
+                                    string,
+                                    string
+                                  >
+                                >;
+                              }
+                            >,
+                            {
+                              merkle: import("zod").ZodDefault<
+                                import("zod").ZodRecord<
+                                  import("zod").ZodString,
+                                  import("zod").ZodString
+                                >
+                              >;
+                            }
+                          >,
+                          {
+                            symbol: import("zod").ZodDefault<
+                              import("zod").ZodOptional<import("zod").ZodString>
+                            >;
+                          }
+                        >,
+                        {
+                          platform_fee_basis_points: import("zod").ZodDefault<
+                            import("zod").ZodNumber
+                          >;
+                          platform_fee_recipient: import("zod").ZodDefault<
+                            import("zod").ZodEffects<
+                              import("zod").ZodString,
+                              string,
+                              string
+                            >
+                          >;
+                        }
+                      >,
+                      {
+                        primary_sale_recipient: import("zod").ZodEffects<
+                          import("zod").ZodString,
+                          string,
+                          string
+                        >;
+                      }
+                    >,
+                    {
+                      trusted_forwarders: import("zod").ZodDefault<
+                        import("zod").ZodArray<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >,
+                          "many"
+                        >
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                    merkle: Record<string, string>;
+                    platform_fee_basis_points: number;
+                    platform_fee_recipient: string;
+                    primary_sale_recipient: string;
+                    trusted_forwarders: string[];
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    merkle?: Record<string, string> | undefined;
+                    platform_fee_basis_points?: number | undefined;
+                    platform_fee_recipient?: string | undefined;
+                    trusted_forwarders?: string[] | undefined;
+                    name: string;
+                    primary_sale_recipient: string;
+                  }
+                >;
+                output: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        import("zod").extendShape<
+                          {
+                            name: import("zod").ZodString;
+                            description: import("zod").ZodOptional<
+                              import("zod").ZodString
+                            >;
+                            image: import("zod").ZodOptional<
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodUnion<
+                                    [
+                                      import("zod").ZodTypeAny,
+                                      import("zod").ZodObject<
+                                        {
+                                          data: import("zod").ZodUnion<
+                                            [
+                                              import("zod").ZodTypeAny,
+                                              import("zod").ZodString,
+                                            ]
+                                          >;
+                                          name: import("zod").ZodString;
+                                        },
+                                        "strip",
+                                        import("zod").ZodTypeAny,
+                                        {
+                                          data?: any;
+                                          name: string;
+                                        },
+                                        {
+                                          data?: any;
+                                          name: string;
+                                        }
+                                      >,
+                                    ]
+                                  >,
+                                  import("zod").ZodString,
+                                ]
+                              >
+                            >;
+                            external_link: import("zod").ZodOptional<
+                              import("zod").ZodString
+                            >;
+                          },
+                          {
+                            image: import("zod").ZodOptional<
+                              import("zod").ZodString
+                            >;
+                          }
+                        >,
+                        {
+                          seller_fee_basis_points: import("zod").ZodDefault<
+                            import("zod").ZodNumber
+                          >;
+                          fee_recipient: import("zod").ZodDefault<
+                            import("zod").ZodEffects<
+                              import("zod").ZodString,
+                              string,
+                              string
+                            >
+                          >;
+                        }
+                      >,
+                      {
+                        merkle: import("zod").ZodDefault<
+                          import("zod").ZodRecord<
+                            import("zod").ZodString,
+                            import("zod").ZodString
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                    merkle: Record<string, string>;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    merkle?: Record<string, string> | undefined;
+                    name: string;
+                  }
+                >;
+                input: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        {
+                          name: import("zod").ZodString;
+                          description: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodUnion<
+                                  [
+                                    import("zod").ZodTypeAny,
+                                    import("zod").ZodObject<
+                                      {
+                                        data: import("zod").ZodUnion<
+                                          [
+                                            import("zod").ZodTypeAny,
+                                            import("zod").ZodString,
+                                          ]
+                                        >;
+                                        name: import("zod").ZodString;
+                                      },
+                                      "strip",
+                                      import("zod").ZodTypeAny,
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      },
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      }
+                                    >,
+                                  ]
+                                >,
+                                import("zod").ZodString,
+                              ]
+                            >
+                          >;
+                          external_link: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        },
+                        {
+                          seller_fee_basis_points: import("zod").ZodDefault<
+                            import("zod").ZodNumber
+                          >;
+                          fee_recipient: import("zod").ZodDefault<
+                            import("zod").ZodEffects<
+                              import("zod").ZodString,
+                              string,
+                              string
+                            >
+                          >;
+                        }
+                      >,
+                      {
+                        merkle: import("zod").ZodDefault<
+                          import("zod").ZodRecord<
+                            import("zod").ZodString,
+                            import("zod").ZodString
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                    merkle: Record<string, string>;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    merkle?: Record<string, string> | undefined;
+                    name: string;
+                  }
+                >;
+              };
+              roles: readonly ["admin", "minter", "transfer"];
+              initialize: (
+                network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider,
+                address: string,
+                storage: import("@thirdweb-dev/storage").ThirdwebStorage<
+                  import("@thirdweb-dev/storage").IpfsUploadBatchOptions
+                >,
+                options?:
+                  | {
+                      readonlySettings?:
+                        | {
+                            chainId?: number | undefined;
+                            rpcUrl: string;
+                          }
+                        | undefined;
+                      gasSettings?:
+                        | {
+                            maxPriceInGwei?: number | undefined;
+                            speed?: "standard" | "fast" | "fastest" | undefined;
+                          }
+                        | undefined;
+                      gasless?:
+                        | {
+                            experimentalChainlessSupport?: boolean | undefined;
+                            openzeppelin: {
+                              relayerForwarderAddress?: string | undefined;
+                              useEOAForwarder?: boolean | undefined;
+                              relayerUrl: string;
+                            };
+                          }
+                        | {
+                            biconomy: {
+                              deadlineSeconds?: number | undefined;
+                              apiId: string;
+                              apiKey: string;
+                            };
+                          }
+                        | undefined;
+                    }
+                  | undefined,
+              ) => Promise<import("@thirdweb-dev/sdk").NFTDrop>;
+              getAbi: () => Promise<
+                (
+                  | {
+                      inputs: never[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      anonymous: boolean;
+                      inputs: {
+                        indexed: boolean;
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      type: string;
+                      stateMutability?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      anonymous: boolean;
+                      inputs: {
+                        components: {
+                          internalType: string;
+                          name: string;
+                          type: string;
+                        }[];
+                        indexed: boolean;
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      type: string;
+                      stateMutability?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      outputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      outputs: {
+                        components: {
+                          internalType: string;
+                          name: string;
+                          type: string;
+                        }[];
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      inputs: (
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                        | {
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                      )[];
+                      name: string;
+                      outputs: never[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                )[]
+              >;
+            };
+            readonly pack: {
+              name: "Pack";
+              contractType: "pack";
+              schema: {
+                deploy: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        import("zod").extendShape<
+                          {
+                            name: import("zod").ZodString;
+                            description: import("zod").ZodOptional<
+                              import("zod").ZodString
+                            >;
+                            image: import("zod").ZodOptional<
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodUnion<
+                                    [
+                                      import("zod").ZodTypeAny,
+                                      import("zod").ZodObject<
+                                        {
+                                          data: import("zod").ZodUnion<
+                                            [
+                                              import("zod").ZodTypeAny,
+                                              import("zod").ZodString,
+                                            ]
+                                          >;
+                                          name: import("zod").ZodString;
+                                        },
+                                        "strip",
+                                        import("zod").ZodTypeAny,
+                                        {
+                                          data?: any;
+                                          name: string;
+                                        },
+                                        {
+                                          data?: any;
+                                          name: string;
+                                        }
+                                      >,
+                                    ]
+                                  >,
+                                  import("zod").ZodString,
+                                ]
+                              >
+                            >;
+                            external_link: import("zod").ZodOptional<
+                              import("zod").ZodString
+                            >;
+                          },
+                          {
+                            seller_fee_basis_points: import("zod").ZodDefault<
+                              import("zod").ZodNumber
+                            >;
+                            fee_recipient: import("zod").ZodDefault<
+                              import("zod").ZodEffects<
+                                import("zod").ZodString,
+                                string,
+                                string
+                              >
+                            >;
+                          }
+                        >,
+                        {
+                          symbol: import("zod").ZodDefault<
+                            import("zod").ZodOptional<import("zod").ZodString>
+                          >;
+                        }
+                      >,
+                      {
+                        platform_fee_basis_points: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        platform_fee_recipient: import("zod").ZodDefault<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      trusted_forwarders: import("zod").ZodDefault<
+                        import("zod").ZodArray<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >,
+                          "many"
+                        >
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                    platform_fee_basis_points: number;
+                    platform_fee_recipient: string;
+                    trusted_forwarders: string[];
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    platform_fee_basis_points?: number | undefined;
+                    platform_fee_recipient?: string | undefined;
+                    trusted_forwarders?: string[] | undefined;
+                    name: string;
+                  }
+                >;
+                output: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        {
+                          name: import("zod").ZodString;
+                          description: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodUnion<
+                                  [
+                                    import("zod").ZodTypeAny,
+                                    import("zod").ZodObject<
+                                      {
+                                        data: import("zod").ZodUnion<
+                                          [
+                                            import("zod").ZodTypeAny,
+                                            import("zod").ZodString,
+                                          ]
+                                        >;
+                                        name: import("zod").ZodString;
+                                      },
+                                      "strip",
+                                      import("zod").ZodTypeAny,
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      },
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      }
+                                    >,
+                                  ]
+                                >,
+                                import("zod").ZodString,
+                              ]
+                            >
+                          >;
+                          external_link: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        },
+                        {
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        }
+                      >,
+                      {
+                        seller_fee_basis_points: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        fee_recipient: import("zod").ZodDefault<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    name: string;
+                  }
+                >;
+                input: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      {
+                        name: import("zod").ZodString;
+                        description: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                        image: import("zod").ZodOptional<
+                          import("zod").ZodUnion<
+                            [
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodTypeAny,
+                                  import("zod").ZodObject<
+                                    {
+                                      data: import("zod").ZodUnion<
+                                        [
+                                          import("zod").ZodTypeAny,
+                                          import("zod").ZodString,
+                                        ]
+                                      >;
+                                      name: import("zod").ZodString;
+                                    },
+                                    "strip",
+                                    import("zod").ZodTypeAny,
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    },
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    }
+                                  >,
+                                ]
+                              >,
+                              import("zod").ZodString,
+                            ]
+                          >
+                        >;
+                        external_link: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                      },
+                      {
+                        seller_fee_basis_points: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        fee_recipient: import("zod").ZodDefault<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    name: string;
+                  }
+                >;
+              };
+              roles: readonly ["admin", "minter", "asset", "transfer"];
+              initialize: (
+                network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider,
+                address: string,
+                storage: import("@thirdweb-dev/storage").ThirdwebStorage<
+                  import("@thirdweb-dev/storage").IpfsUploadBatchOptions
+                >,
+                options?:
+                  | {
+                      readonlySettings?:
+                        | {
+                            chainId?: number | undefined;
+                            rpcUrl: string;
+                          }
+                        | undefined;
+                      gasSettings?:
+                        | {
+                            maxPriceInGwei?: number | undefined;
+                            speed?: "standard" | "fast" | "fastest" | undefined;
+                          }
+                        | undefined;
+                      gasless?:
+                        | {
+                            experimentalChainlessSupport?: boolean | undefined;
+                            openzeppelin: {
+                              relayerForwarderAddress?: string | undefined;
+                              useEOAForwarder?: boolean | undefined;
+                              relayerUrl: string;
+                            };
+                          }
+                        | {
+                            biconomy: {
+                              deadlineSeconds?: number | undefined;
+                              apiId: string;
+                              apiKey: string;
+                            };
+                          }
+                        | undefined;
+                    }
+                  | undefined,
+              ) => Promise<import("@thirdweb-dev/sdk").Pack>;
+              getAbi: () => Promise<
+                (
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      anonymous: boolean;
+                      inputs: (
+                        | {
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                      )[];
+                      name: string;
+                      type: string;
+                      stateMutability?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      inputs: (
+                        | {
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                      )[];
+                      name: string;
+                      outputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      outputs: (
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                        | {
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                      )[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      stateMutability: string;
+                      type: string;
+                      inputs?: undefined;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                )[]
+              >;
+            };
+            readonly "signature-drop": {
+              name: "SignatureDrop";
+              contractType: "signature-drop";
+              schema: {
+                deploy: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        import("zod").extendShape<
+                          import("zod").extendShape<
+                            import("zod").extendShape<
+                              {
+                                name: import("zod").ZodString;
+                                description: import("zod").ZodOptional<
+                                  import("zod").ZodString
+                                >;
+                                image: import("zod").ZodOptional<
+                                  import("zod").ZodUnion<
+                                    [
+                                      import("zod").ZodUnion<
+                                        [
+                                          import("zod").ZodTypeAny,
+                                          import("zod").ZodObject<
+                                            {
+                                              data: import("zod").ZodUnion<
+                                                [
+                                                  import("zod").ZodTypeAny,
+                                                  import("zod").ZodString,
+                                                ]
+                                              >;
+                                              name: import("zod").ZodString;
+                                            },
+                                            "strip",
+                                            import("zod").ZodTypeAny,
+                                            {
+                                              data?: any;
+                                              name: string;
+                                            },
+                                            {
+                                              data?: any;
+                                              name: string;
+                                            }
+                                          >,
+                                        ]
+                                      >,
+                                      import("zod").ZodString,
+                                    ]
+                                  >
+                                >;
+                                external_link: import("zod").ZodOptional<
+                                  import("zod").ZodString
+                                >;
+                              },
+                              {
+                                seller_fee_basis_points: import("zod").ZodDefault<
+                                  import("zod").ZodNumber
+                                >;
+                                fee_recipient: import("zod").ZodDefault<
+                                  import("zod").ZodEffects<
+                                    import("zod").ZodString,
+                                    string,
+                                    string
+                                  >
+                                >;
+                              }
+                            >,
+                            {
+                              merkle: import("zod").ZodDefault<
+                                import("zod").ZodRecord<
+                                  import("zod").ZodString,
+                                  import("zod").ZodString
+                                >
+                              >;
+                            }
+                          >,
+                          {
+                            symbol: import("zod").ZodDefault<
+                              import("zod").ZodOptional<import("zod").ZodString>
+                            >;
+                          }
+                        >,
+                        {
+                          platform_fee_basis_points: import("zod").ZodDefault<
+                            import("zod").ZodNumber
+                          >;
+                          platform_fee_recipient: import("zod").ZodDefault<
+                            import("zod").ZodEffects<
+                              import("zod").ZodString,
+                              string,
+                              string
+                            >
+                          >;
+                        }
+                      >,
+                      {
+                        primary_sale_recipient: import("zod").ZodEffects<
+                          import("zod").ZodString,
+                          string,
+                          string
+                        >;
+                      }
+                    >,
+                    {
+                      trusted_forwarders: import("zod").ZodDefault<
+                        import("zod").ZodArray<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >,
+                          "many"
+                        >
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                    merkle: Record<string, string>;
+                    platform_fee_basis_points: number;
+                    platform_fee_recipient: string;
+                    primary_sale_recipient: string;
+                    trusted_forwarders: string[];
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    merkle?: Record<string, string> | undefined;
+                    platform_fee_basis_points?: number | undefined;
+                    platform_fee_recipient?: string | undefined;
+                    trusted_forwarders?: string[] | undefined;
+                    name: string;
+                    primary_sale_recipient: string;
+                  }
+                >;
+                output: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        import("zod").extendShape<
+                          {
+                            name: import("zod").ZodString;
+                            description: import("zod").ZodOptional<
+                              import("zod").ZodString
+                            >;
+                            image: import("zod").ZodOptional<
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodUnion<
+                                    [
+                                      import("zod").ZodTypeAny,
+                                      import("zod").ZodObject<
+                                        {
+                                          data: import("zod").ZodUnion<
+                                            [
+                                              import("zod").ZodTypeAny,
+                                              import("zod").ZodString,
+                                            ]
+                                          >;
+                                          name: import("zod").ZodString;
+                                        },
+                                        "strip",
+                                        import("zod").ZodTypeAny,
+                                        {
+                                          data?: any;
+                                          name: string;
+                                        },
+                                        {
+                                          data?: any;
+                                          name: string;
+                                        }
+                                      >,
+                                    ]
+                                  >,
+                                  import("zod").ZodString,
+                                ]
+                              >
+                            >;
+                            external_link: import("zod").ZodOptional<
+                              import("zod").ZodString
+                            >;
+                          },
+                          {
+                            image: import("zod").ZodOptional<
+                              import("zod").ZodString
+                            >;
+                          }
+                        >,
+                        {
+                          seller_fee_basis_points: import("zod").ZodDefault<
+                            import("zod").ZodNumber
+                          >;
+                          fee_recipient: import("zod").ZodDefault<
+                            import("zod").ZodEffects<
+                              import("zod").ZodString,
+                              string,
+                              string
+                            >
+                          >;
+                        }
+                      >,
+                      {
+                        merkle: import("zod").ZodDefault<
+                          import("zod").ZodRecord<
+                            import("zod").ZodString,
+                            import("zod").ZodString
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                    merkle: Record<string, string>;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    merkle?: Record<string, string> | undefined;
+                    name: string;
+                  }
+                >;
+                input: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        {
+                          name: import("zod").ZodString;
+                          description: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodUnion<
+                                  [
+                                    import("zod").ZodTypeAny,
+                                    import("zod").ZodObject<
+                                      {
+                                        data: import("zod").ZodUnion<
+                                          [
+                                            import("zod").ZodTypeAny,
+                                            import("zod").ZodString,
+                                          ]
+                                        >;
+                                        name: import("zod").ZodString;
+                                      },
+                                      "strip",
+                                      import("zod").ZodTypeAny,
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      },
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      }
+                                    >,
+                                  ]
+                                >,
+                                import("zod").ZodString,
+                              ]
+                            >
+                          >;
+                          external_link: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        },
+                        {
+                          seller_fee_basis_points: import("zod").ZodDefault<
+                            import("zod").ZodNumber
+                          >;
+                          fee_recipient: import("zod").ZodDefault<
+                            import("zod").ZodEffects<
+                              import("zod").ZodString,
+                              string,
+                              string
+                            >
+                          >;
+                        }
+                      >,
+                      {
+                        merkle: import("zod").ZodDefault<
+                          import("zod").ZodRecord<
+                            import("zod").ZodString,
+                            import("zod").ZodString
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    seller_fee_basis_points: number;
+                    fee_recipient: string;
+                    merkle: Record<string, string>;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    seller_fee_basis_points?: number | undefined;
+                    fee_recipient?: string | undefined;
+                    merkle?: Record<string, string> | undefined;
+                    name: string;
+                  }
+                >;
+              };
+              roles: readonly ["admin", "minter", "transfer"];
+              initialize: (
+                network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider,
+                address: string,
+                storage: import("@thirdweb-dev/storage").ThirdwebStorage<
+                  import("@thirdweb-dev/storage").IpfsUploadBatchOptions
+                >,
+                options?:
+                  | {
+                      readonlySettings?:
+                        | {
+                            chainId?: number | undefined;
+                            rpcUrl: string;
+                          }
+                        | undefined;
+                      gasSettings?:
+                        | {
+                            maxPriceInGwei?: number | undefined;
+                            speed?: "standard" | "fast" | "fastest" | undefined;
+                          }
+                        | undefined;
+                      gasless?:
+                        | {
+                            experimentalChainlessSupport?: boolean | undefined;
+                            openzeppelin: {
+                              relayerForwarderAddress?: string | undefined;
+                              useEOAForwarder?: boolean | undefined;
+                              relayerUrl: string;
+                            };
+                          }
+                        | {
+                            biconomy: {
+                              deadlineSeconds?: number | undefined;
+                              apiId: string;
+                              apiKey: string;
+                            };
+                          }
+                        | undefined;
+                    }
+                  | undefined,
+              ) => Promise<import("@thirdweb-dev/sdk").SignatureDrop>;
+              getAbi: () => Promise<
+                (
+                  | {
+                      inputs: never[];
+                      name: string;
+                      type: string;
+                      anonymous?: undefined;
+                      outputs?: undefined;
+                      stateMutability?: undefined;
+                    }
+                  | {
+                      anonymous: boolean;
+                      inputs: (
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                        | {
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                      )[];
+                      name: string;
+                      type: string;
+                      outputs?: undefined;
+                      stateMutability?: undefined;
+                    }
+                  | {
+                      inputs: (
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                        | {
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                      )[];
+                      name: string;
+                      outputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                )[]
+              >;
+            };
+            readonly split: {
+              name: "Split";
+              contractType: "split";
+              schema: {
+                deploy: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        {
+                          name: import("zod").ZodString;
+                          description: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodUnion<
+                                  [
+                                    import("zod").ZodTypeAny,
+                                    import("zod").ZodObject<
+                                      {
+                                        data: import("zod").ZodUnion<
+                                          [
+                                            import("zod").ZodTypeAny,
+                                            import("zod").ZodString,
+                                          ]
+                                        >;
+                                        name: import("zod").ZodString;
+                                      },
+                                      "strip",
+                                      import("zod").ZodTypeAny,
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      },
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      }
+                                    >,
+                                  ]
+                                >,
+                                import("zod").ZodString,
+                              ]
+                            >
+                          >;
+                          external_link: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        },
+                        {
+                          recipients: import("zod").ZodEffects<
+                            import("zod").ZodDefault<
+                              import("zod").ZodArray<
+                                import("zod").ZodObject<
+                                  {
+                                    address: import("zod").ZodEffects<
+                                      import("zod").ZodString,
+                                      string,
+                                      string
+                                    >;
+                                    sharesBps: import("zod").ZodNumber;
+                                  },
+                                  "strip",
+                                  import("zod").ZodTypeAny,
+                                  {
+                                    address: string;
+                                    sharesBps: number;
+                                  },
+                                  {
+                                    address: string;
+                                    sharesBps: number;
+                                  }
+                                >,
+                                "many"
+                              >
+                            >,
+                            {
+                              address: string;
+                              sharesBps: number;
+                            }[],
+                            | {
+                                address: string;
+                                sharesBps: number;
+                              }[]
+                            | undefined
+                          >;
+                        }
+                      >,
+                      import("zod").extendShape<
+                        {
+                          name: import("zod").ZodString;
+                          description: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodUnion<
+                                  [
+                                    import("zod").ZodTypeAny,
+                                    import("zod").ZodObject<
+                                      {
+                                        data: import("zod").ZodUnion<
+                                          [
+                                            import("zod").ZodTypeAny,
+                                            import("zod").ZodString,
+                                          ]
+                                        >;
+                                        name: import("zod").ZodString;
+                                      },
+                                      "strip",
+                                      import("zod").ZodTypeAny,
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      },
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      }
+                                    >,
+                                  ]
+                                >,
+                                import("zod").ZodString,
+                              ]
+                            >
+                          >;
+                          external_link: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        },
+                        {
+                          recipients: import("zod").ZodEffects<
+                            import("zod").ZodDefault<
+                              import("zod").ZodArray<
+                                import("zod").ZodObject<
+                                  {
+                                    address: import("zod").ZodEffects<
+                                      import("zod").ZodString,
+                                      string,
+                                      string
+                                    >;
+                                    sharesBps: import("zod").ZodNumber;
+                                  },
+                                  "strip",
+                                  import("zod").ZodTypeAny,
+                                  {
+                                    address: string;
+                                    sharesBps: number;
+                                  },
+                                  {
+                                    address: string;
+                                    sharesBps: number;
+                                  }
+                                >,
+                                "many"
+                              >
+                            >,
+                            {
+                              address: string;
+                              sharesBps: number;
+                            }[],
+                            | {
+                                address: string;
+                                sharesBps: number;
+                              }[]
+                            | undefined
+                          >;
+                        }
+                      >
+                    >,
+                    {
+                      trusted_forwarders: import("zod").ZodDefault<
+                        import("zod").ZodArray<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >,
+                          "many"
+                        >
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    name: string;
+                    trusted_forwarders: string[];
+                    recipients: {
+                      address: string;
+                      sharesBps: number;
+                    }[];
+                  },
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    trusted_forwarders?: string[] | undefined;
+                    recipients?:
+                      | {
+                          address: string;
+                          sharesBps: number;
+                        }[]
+                      | undefined;
+                    name: string;
+                  }
+                >;
+                output: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      {
+                        name: import("zod").ZodString;
+                        description: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                        image: import("zod").ZodOptional<
+                          import("zod").ZodUnion<
+                            [
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodTypeAny,
+                                  import("zod").ZodObject<
+                                    {
+                                      data: import("zod").ZodUnion<
+                                        [
+                                          import("zod").ZodTypeAny,
+                                          import("zod").ZodString,
+                                        ]
+                                      >;
+                                      name: import("zod").ZodString;
+                                    },
+                                    "strip",
+                                    import("zod").ZodTypeAny,
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    },
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    }
+                                  >,
+                                ]
+                              >,
+                              import("zod").ZodString,
+                            ]
+                          >
+                        >;
+                        external_link: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                      },
+                      {
+                        image: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                      }
+                    >,
+                    {
+                      recipients: import("zod").ZodArray<
+                        import("zod").ZodObject<
+                          import("zod").extendShape<
+                            {
+                              address: import("zod").ZodEffects<
+                                import("zod").ZodString,
+                                string,
+                                string
+                              >;
+                              sharesBps: import("zod").ZodNumber;
+                            },
+                            {
+                              address: import("zod").ZodEffects<
+                                import("zod").ZodString,
+                                string,
+                                string
+                              >;
+                              sharesBps: import("zod").ZodNumber;
+                            }
+                          >,
+                          "strip",
+                          import("zod").ZodTypeAny,
+                          {
+                            address: string;
+                            sharesBps: number;
+                          },
+                          {
+                            address: string;
+                            sharesBps: number;
+                          }
+                        >,
+                        "many"
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodUnknown,
+                  {
+                    [x: string]: unknown;
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    name: string;
+                    recipients: {
+                      address: string;
+                      sharesBps: number;
+                    }[];
+                  },
+                  {
+                    [x: string]: unknown;
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    name: string;
+                    recipients: {
+                      address: string;
+                      sharesBps: number;
+                    }[];
+                  }
+                >;
+                input: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    {
+                      name: import("zod").ZodString;
+                      description: import("zod").ZodOptional<
+                        import("zod").ZodString
+                      >;
+                      image: import("zod").ZodOptional<
+                        import("zod").ZodUnion<
+                          [
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodTypeAny,
+                                import("zod").ZodObject<
+                                  {
+                                    data: import("zod").ZodUnion<
+                                      [
+                                        import("zod").ZodTypeAny,
+                                        import("zod").ZodString,
+                                      ]
+                                    >;
+                                    name: import("zod").ZodString;
+                                  },
+                                  "strip",
+                                  import("zod").ZodTypeAny,
+                                  {
+                                    data?: any;
+                                    name: string;
+                                  },
+                                  {
+                                    data?: any;
+                                    name: string;
+                                  }
+                                >,
+                              ]
+                            >,
+                            import("zod").ZodString,
+                          ]
+                        >
+                      >;
+                      external_link: import("zod").ZodOptional<
+                        import("zod").ZodString
+                      >;
+                    },
+                    {
+                      recipients: import("zod").ZodEffects<
+                        import("zod").ZodDefault<
+                          import("zod").ZodArray<
+                            import("zod").ZodObject<
+                              {
+                                address: import("zod").ZodEffects<
+                                  import("zod").ZodString,
+                                  string,
+                                  string
+                                >;
+                                sharesBps: import("zod").ZodNumber;
+                              },
+                              "strip",
+                              import("zod").ZodTypeAny,
+                              {
+                                address: string;
+                                sharesBps: number;
+                              },
+                              {
+                                address: string;
+                                sharesBps: number;
+                              }
+                            >,
+                            "many"
+                          >
+                        >,
+                        {
+                          address: string;
+                          sharesBps: number;
+                        }[],
+                        | {
+                            address: string;
+                            sharesBps: number;
+                          }[]
+                        | undefined
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    name: string;
+                    recipients: {
+                      address: string;
+                      sharesBps: number;
+                    }[];
+                  },
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    recipients?:
+                      | {
+                          address: string;
+                          sharesBps: number;
+                        }[]
+                      | undefined;
+                    name: string;
+                  }
+                >;
+              };
+              roles: readonly ["admin"];
+              initialize: (
+                network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider,
+                address: string,
+                storage: import("@thirdweb-dev/storage").ThirdwebStorage<
+                  import("@thirdweb-dev/storage").IpfsUploadBatchOptions
+                >,
+                options?:
+                  | {
+                      readonlySettings?:
+                        | {
+                            chainId?: number | undefined;
+                            rpcUrl: string;
+                          }
+                        | undefined;
+                      gasSettings?:
+                        | {
+                            maxPriceInGwei?: number | undefined;
+                            speed?: "standard" | "fast" | "fastest" | undefined;
+                          }
+                        | undefined;
+                      gasless?:
+                        | {
+                            experimentalChainlessSupport?: boolean | undefined;
+                            openzeppelin: {
+                              relayerForwarderAddress?: string | undefined;
+                              useEOAForwarder?: boolean | undefined;
+                              relayerUrl: string;
+                            };
+                          }
+                        | {
+                            biconomy: {
+                              deadlineSeconds?: number | undefined;
+                              apiId: string;
+                              apiKey: string;
+                            };
+                          }
+                        | undefined;
+                    }
+                  | undefined,
+              ) => Promise<import("@thirdweb-dev/sdk").Split>;
+              getAbi: () => Promise<
+                (
+                  | {
+                      inputs: never[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      anonymous: boolean;
+                      inputs: {
+                        indexed: boolean;
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      type: string;
+                      stateMutability?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      outputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      stateMutability: string;
+                      type: string;
+                      inputs?: undefined;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                )[]
+              >;
+            };
+            readonly "token-drop": {
+              name: "DropERC20";
+              contractType: "token-drop";
+              schema: {
+                deploy: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        import("zod").extendShape<
+                          import("zod").extendShape<
+                            {
+                              name: import("zod").ZodString;
+                              description: import("zod").ZodOptional<
+                                import("zod").ZodString
+                              >;
+                              image: import("zod").ZodOptional<
+                                import("zod").ZodUnion<
+                                  [
+                                    import("zod").ZodUnion<
+                                      [
+                                        import("zod").ZodTypeAny,
+                                        import("zod").ZodObject<
+                                          {
+                                            data: import("zod").ZodUnion<
+                                              [
+                                                import("zod").ZodTypeAny,
+                                                import("zod").ZodString,
+                                              ]
+                                            >;
+                                            name: import("zod").ZodString;
+                                          },
+                                          "strip",
+                                          import("zod").ZodTypeAny,
+                                          {
+                                            data?: any;
+                                            name: string;
+                                          },
+                                          {
+                                            data?: any;
+                                            name: string;
+                                          }
+                                        >,
+                                      ]
+                                    >,
+                                    import("zod").ZodString,
+                                  ]
+                                >
+                              >;
+                              external_link: import("zod").ZodOptional<
+                                import("zod").ZodString
+                              >;
+                            },
+                            {
+                              merkle: import("zod").ZodDefault<
+                                import("zod").ZodRecord<
+                                  import("zod").ZodString,
+                                  import("zod").ZodString
+                                >
+                              >;
+                            }
+                          >,
+                          {
+                            symbol: import("zod").ZodDefault<
+                              import("zod").ZodOptional<import("zod").ZodString>
+                            >;
+                          }
+                        >,
+                        {
+                          platform_fee_basis_points: import("zod").ZodDefault<
+                            import("zod").ZodNumber
+                          >;
+                          platform_fee_recipient: import("zod").ZodDefault<
+                            import("zod").ZodEffects<
+                              import("zod").ZodString,
+                              string,
+                              string
+                            >
+                          >;
+                        }
+                      >,
+                      {
+                        primary_sale_recipient: import("zod").ZodEffects<
+                          import("zod").ZodString,
+                          string,
+                          string
+                        >;
+                      }
+                    >,
+                    {
+                      trusted_forwarders: import("zod").ZodDefault<
+                        import("zod").ZodArray<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >,
+                          "many"
+                        >
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    merkle: Record<string, string>;
+                    platform_fee_basis_points: number;
+                    platform_fee_recipient: string;
+                    primary_sale_recipient: string;
+                    trusted_forwarders: string[];
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    merkle?: Record<string, string> | undefined;
+                    platform_fee_basis_points?: number | undefined;
+                    platform_fee_recipient?: string | undefined;
+                    trusted_forwarders?: string[] | undefined;
+                    name: string;
+                    primary_sale_recipient: string;
+                  }
+                >;
+                output: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        {
+                          name: import("zod").ZodString;
+                          description: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodUnion<
+                                  [
+                                    import("zod").ZodTypeAny,
+                                    import("zod").ZodObject<
+                                      {
+                                        data: import("zod").ZodUnion<
+                                          [
+                                            import("zod").ZodTypeAny,
+                                            import("zod").ZodString,
+                                          ]
+                                        >;
+                                        name: import("zod").ZodString;
+                                      },
+                                      "strip",
+                                      import("zod").ZodTypeAny,
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      },
+                                      {
+                                        data?: any;
+                                        name: string;
+                                      }
+                                    >,
+                                  ]
+                                >,
+                                import("zod").ZodString,
+                              ]
+                            >
+                          >;
+                          external_link: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        },
+                        {
+                          image: import("zod").ZodOptional<
+                            import("zod").ZodString
+                          >;
+                        }
+                      >,
+                      {
+                        merkle: import("zod").ZodDefault<
+                          import("zod").ZodRecord<
+                            import("zod").ZodString,
+                            import("zod").ZodString
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    merkle: Record<string, string>;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    merkle?: Record<string, string> | undefined;
+                    name: string;
+                  }
+                >;
+                input: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      {
+                        name: import("zod").ZodString;
+                        description: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                        image: import("zod").ZodOptional<
+                          import("zod").ZodUnion<
+                            [
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodTypeAny,
+                                  import("zod").ZodObject<
+                                    {
+                                      data: import("zod").ZodUnion<
+                                        [
+                                          import("zod").ZodTypeAny,
+                                          import("zod").ZodString,
+                                        ]
+                                      >;
+                                      name: import("zod").ZodString;
+                                    },
+                                    "strip",
+                                    import("zod").ZodTypeAny,
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    },
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    }
+                                  >,
+                                ]
+                              >,
+                              import("zod").ZodString,
+                            ]
+                          >
+                        >;
+                        external_link: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                      },
+                      {
+                        merkle: import("zod").ZodDefault<
+                          import("zod").ZodRecord<
+                            import("zod").ZodString,
+                            import("zod").ZodString
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    merkle: Record<string, string>;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    merkle?: Record<string, string> | undefined;
+                    name: string;
+                  }
+                >;
+              };
+              roles: readonly ["admin", "transfer"];
+              initialize: (
+                network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider,
+                address: string,
+                storage: import("@thirdweb-dev/storage").ThirdwebStorage<
+                  import("@thirdweb-dev/storage").IpfsUploadBatchOptions
+                >,
+                options?:
+                  | {
+                      readonlySettings?:
+                        | {
+                            chainId?: number | undefined;
+                            rpcUrl: string;
+                          }
+                        | undefined;
+                      gasSettings?:
+                        | {
+                            maxPriceInGwei?: number | undefined;
+                            speed?: "standard" | "fast" | "fastest" | undefined;
+                          }
+                        | undefined;
+                      gasless?:
+                        | {
+                            experimentalChainlessSupport?: boolean | undefined;
+                            openzeppelin: {
+                              relayerForwarderAddress?: string | undefined;
+                              useEOAForwarder?: boolean | undefined;
+                              relayerUrl: string;
+                            };
+                          }
+                        | {
+                            biconomy: {
+                              deadlineSeconds?: number | undefined;
+                              apiId: string;
+                              apiKey: string;
+                            };
+                          }
+                        | undefined;
+                    }
+                  | undefined,
+              ) => Promise<import("@thirdweb-dev/sdk").TokenDrop>;
+              getAbi: () => Promise<
+                (
+                  | {
+                      inputs: never[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      anonymous: boolean;
+                      inputs: {
+                        indexed: boolean;
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      type: string;
+                      stateMutability?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      anonymous: boolean;
+                      inputs: {
+                        components: {
+                          internalType: string;
+                          name: string;
+                          type: string;
+                        }[];
+                        indexed: boolean;
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      type: string;
+                      stateMutability?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      outputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      outputs: {
+                        components: {
+                          internalType: string;
+                          name: string;
+                          type: string;
+                        }[];
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      inputs: (
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                        | {
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                      )[];
+                      name: string;
+                      outputs: never[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                )[]
+              >;
+            };
+            readonly token: {
+              name: "TokenERC20";
+              contractType: "token";
+              schema: {
+                deploy: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      import("zod").extendShape<
+                        import("zod").extendShape<
+                          {
+                            name: import("zod").ZodString;
+                            description: import("zod").ZodOptional<
+                              import("zod").ZodString
+                            >;
+                            image: import("zod").ZodOptional<
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodUnion<
+                                    [
+                                      import("zod").ZodTypeAny,
+                                      import("zod").ZodObject<
+                                        {
+                                          data: import("zod").ZodUnion<
+                                            [
+                                              import("zod").ZodTypeAny,
+                                              import("zod").ZodString,
+                                            ]
+                                          >;
+                                          name: import("zod").ZodString;
+                                        },
+                                        "strip",
+                                        import("zod").ZodTypeAny,
+                                        {
+                                          data?: any;
+                                          name: string;
+                                        },
+                                        {
+                                          data?: any;
+                                          name: string;
+                                        }
+                                      >,
+                                    ]
+                                  >,
+                                  import("zod").ZodString,
+                                ]
+                              >
+                            >;
+                            external_link: import("zod").ZodOptional<
+                              import("zod").ZodString
+                            >;
+                          },
+                          {
+                            symbol: import("zod").ZodDefault<
+                              import("zod").ZodOptional<import("zod").ZodString>
+                            >;
+                          }
+                        >,
+                        {
+                          platform_fee_basis_points: import("zod").ZodDefault<
+                            import("zod").ZodNumber
+                          >;
+                          platform_fee_recipient: import("zod").ZodDefault<
+                            import("zod").ZodEffects<
+                              import("zod").ZodString,
+                              string,
+                              string
+                            >
+                          >;
+                        }
+                      >,
+                      {
+                        primary_sale_recipient: import("zod").ZodEffects<
+                          import("zod").ZodString,
+                          string,
+                          string
+                        >;
+                      }
+                    >,
+                    {
+                      trusted_forwarders: import("zod").ZodDefault<
+                        import("zod").ZodArray<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >,
+                          "many"
+                        >
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                    platform_fee_basis_points: number;
+                    platform_fee_recipient: string;
+                    primary_sale_recipient: string;
+                    trusted_forwarders: string[];
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    platform_fee_basis_points?: number | undefined;
+                    platform_fee_recipient?: string | undefined;
+                    trusted_forwarders?: string[] | undefined;
+                    name: string;
+                    primary_sale_recipient: string;
+                  }
+                >;
+                output: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      {
+                        name: import("zod").ZodString;
+                        description: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                        image: import("zod").ZodOptional<
+                          import("zod").ZodUnion<
+                            [
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodTypeAny,
+                                  import("zod").ZodObject<
+                                    {
+                                      data: import("zod").ZodUnion<
+                                        [
+                                          import("zod").ZodTypeAny,
+                                          import("zod").ZodString,
+                                        ]
+                                      >;
+                                      name: import("zod").ZodString;
+                                    },
+                                    "strip",
+                                    import("zod").ZodTypeAny,
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    },
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    }
+                                  >,
+                                ]
+                              >,
+                              import("zod").ZodString,
+                            ]
+                          >
+                        >;
+                        external_link: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                      },
+                      {
+                        image: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                      }
+                    >,
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    name: string;
+                  }
+                >;
+                input: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    {
+                      name: import("zod").ZodString;
+                      description: import("zod").ZodOptional<
+                        import("zod").ZodString
+                      >;
+                      image: import("zod").ZodOptional<
+                        import("zod").ZodUnion<
+                          [
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodTypeAny,
+                                import("zod").ZodObject<
+                                  {
+                                    data: import("zod").ZodUnion<
+                                      [
+                                        import("zod").ZodTypeAny,
+                                        import("zod").ZodString,
+                                      ]
+                                    >;
+                                    name: import("zod").ZodString;
+                                  },
+                                  "strip",
+                                  import("zod").ZodTypeAny,
+                                  {
+                                    data?: any;
+                                    name: string;
+                                  },
+                                  {
+                                    data?: any;
+                                    name: string;
+                                  }
+                                >,
+                              ]
+                            >,
+                            import("zod").ZodString,
+                          ]
+                        >
+                      >;
+                      external_link: import("zod").ZodOptional<
+                        import("zod").ZodString
+                      >;
+                    },
+                    {
+                      symbol: import("zod").ZodDefault<
+                        import("zod").ZodOptional<import("zod").ZodString>
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    symbol: string;
+                    name: string;
+                  },
+                  {
+                    symbol?: string | undefined;
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    name: string;
+                  }
+                >;
+              };
+              roles: readonly ["admin", "minter", "transfer"];
+              initialize: (
+                network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider,
+                address: string,
+                storage: import("@thirdweb-dev/storage").ThirdwebStorage<
+                  import("@thirdweb-dev/storage").IpfsUploadBatchOptions
+                >,
+                options?:
+                  | {
+                      readonlySettings?:
+                        | {
+                            chainId?: number | undefined;
+                            rpcUrl: string;
+                          }
+                        | undefined;
+                      gasSettings?:
+                        | {
+                            maxPriceInGwei?: number | undefined;
+                            speed?: "standard" | "fast" | "fastest" | undefined;
+                          }
+                        | undefined;
+                      gasless?:
+                        | {
+                            experimentalChainlessSupport?: boolean | undefined;
+                            openzeppelin: {
+                              relayerForwarderAddress?: string | undefined;
+                              useEOAForwarder?: boolean | undefined;
+                              relayerUrl: string;
+                            };
+                          }
+                        | {
+                            biconomy: {
+                              deadlineSeconds?: number | undefined;
+                              apiId: string;
+                              apiKey: string;
+                            };
+                          }
+                        | undefined;
+                    }
+                  | undefined,
+              ) => Promise<import("@thirdweb-dev/sdk").Token>;
+              getAbi: () => Promise<
+                (
+                  | {
+                      inputs: never[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      anonymous: boolean;
+                      inputs: (
+                        | {
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            indexed: boolean;
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                      )[];
+                      name: string;
+                      type: string;
+                      stateMutability?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      outputs: {
+                        components: {
+                          internalType: string;
+                          name: string;
+                          type: string;
+                        }[];
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      inputs: (
+                        | {
+                            components: {
+                              internalType: string;
+                              name: string;
+                              type: string;
+                            }[];
+                            internalType: string;
+                            name: string;
+                            type: string;
+                          }
+                        | {
+                            internalType: string;
+                            name: string;
+                            type: string;
+                            components?: undefined;
+                          }
+                      )[];
+                      name: string;
+                      outputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                )[]
+              >;
+            };
+            readonly vote: {
+              name: "VoteERC20";
+              contractType: "vote";
+              schema: {
+                deploy: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      {
+                        name: import("zod").ZodString;
+                        description: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                        image: import("zod").ZodOptional<
+                          import("zod").ZodUnion<
+                            [
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodTypeAny,
+                                  import("zod").ZodObject<
+                                    {
+                                      data: import("zod").ZodUnion<
+                                        [
+                                          import("zod").ZodTypeAny,
+                                          import("zod").ZodString,
+                                        ]
+                                      >;
+                                      name: import("zod").ZodString;
+                                    },
+                                    "strip",
+                                    import("zod").ZodTypeAny,
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    },
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    }
+                                  >,
+                                ]
+                              >,
+                              import("zod").ZodString,
+                            ]
+                          >
+                        >;
+                        external_link: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                      },
+                      {
+                        voting_delay_in_blocks: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        voting_period_in_blocks: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        voting_token_address: import("zod").ZodEffects<
+                          import("zod").ZodString,
+                          string,
+                          string
+                        >;
+                        voting_quorum_fraction: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        proposal_token_threshold: import("zod").ZodDefault<
+                          import("zod").ZodEffects<
+                            import("zod").ZodEffects<
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodString,
+                                  import("zod").ZodNumber,
+                                  import("zod").ZodBigInt,
+                                  import("zod").ZodType<
+                                    import("ethers").BigNumber,
+                                    import("zod").ZodTypeDef,
+                                    import("ethers").BigNumber
+                                  >,
+                                ]
+                              >,
+                              import("ethers").BigNumber,
+                              | string
+                              | number
+                              | bigint
+                              | import("ethers").BigNumber
+                            >,
+                            string,
+                            | string
+                            | number
+                            | bigint
+                            | import("ethers").BigNumber
+                          >
+                        >;
+                      }
+                    >,
+                    {
+                      trusted_forwarders: import("zod").ZodDefault<
+                        import("zod").ZodArray<
+                          import("zod").ZodEffects<
+                            import("zod").ZodString,
+                            string,
+                            string
+                          >,
+                          "many"
+                        >
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    name: string;
+                    trusted_forwarders: string[];
+                    voting_delay_in_blocks: number;
+                    voting_period_in_blocks: number;
+                    voting_token_address: string;
+                    voting_quorum_fraction: number;
+                    proposal_token_threshold: string;
+                  },
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    trusted_forwarders?: string[] | undefined;
+                    voting_delay_in_blocks?: number | undefined;
+                    voting_period_in_blocks?: number | undefined;
+                    voting_quorum_fraction?: number | undefined;
+                    proposal_token_threshold?:
+                      | string
+                      | number
+                      | bigint
+                      | import("ethers").BigNumber
+                      | undefined;
+                    name: string;
+                    voting_token_address: string;
+                  }
+                >;
+                output: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    import("zod").extendShape<
+                      {
+                        name: import("zod").ZodString;
+                        description: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                        image: import("zod").ZodOptional<
+                          import("zod").ZodUnion<
+                            [
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodTypeAny,
+                                  import("zod").ZodObject<
+                                    {
+                                      data: import("zod").ZodUnion<
+                                        [
+                                          import("zod").ZodTypeAny,
+                                          import("zod").ZodString,
+                                        ]
+                                      >;
+                                      name: import("zod").ZodString;
+                                    },
+                                    "strip",
+                                    import("zod").ZodTypeAny,
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    },
+                                    {
+                                      data?: any;
+                                      name: string;
+                                    }
+                                  >,
+                                ]
+                              >,
+                              import("zod").ZodString,
+                            ]
+                          >
+                        >;
+                        external_link: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                      },
+                      {
+                        image: import("zod").ZodOptional<
+                          import("zod").ZodString
+                        >;
+                      }
+                    >,
+                    import("zod").extendShape<
+                      {
+                        voting_delay_in_blocks: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        voting_period_in_blocks: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        voting_token_address: import("zod").ZodEffects<
+                          import("zod").ZodString,
+                          string,
+                          string
+                        >;
+                        voting_quorum_fraction: import("zod").ZodDefault<
+                          import("zod").ZodNumber
+                        >;
+                        proposal_token_threshold: import("zod").ZodDefault<
+                          import("zod").ZodEffects<
+                            import("zod").ZodEffects<
+                              import("zod").ZodUnion<
+                                [
+                                  import("zod").ZodString,
+                                  import("zod").ZodNumber,
+                                  import("zod").ZodBigInt,
+                                  import("zod").ZodType<
+                                    import("ethers").BigNumber,
+                                    import("zod").ZodTypeDef,
+                                    import("ethers").BigNumber
+                                  >,
+                                ]
+                              >,
+                              import("ethers").BigNumber,
+                              | string
+                              | number
+                              | bigint
+                              | import("ethers").BigNumber
+                            >,
+                            string,
+                            | string
+                            | number
+                            | bigint
+                            | import("ethers").BigNumber
+                          >
+                        >;
+                      },
+                      {
+                        proposal_token_threshold: import("zod").ZodEffects<
+                          import("zod").ZodUnion<
+                            [
+                              import("zod").ZodString,
+                              import("zod").ZodNumber,
+                              import("zod").ZodBigInt,
+                              import("zod").ZodType<
+                                import("ethers").BigNumber,
+                                import("zod").ZodTypeDef,
+                                import("ethers").BigNumber
+                              >,
+                            ]
+                          >,
+                          import("ethers").BigNumber,
+                          string | number | bigint | import("ethers").BigNumber
+                        >;
+                      }
+                    >
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    name: string;
+                    voting_delay_in_blocks: number;
+                    voting_period_in_blocks: number;
+                    voting_token_address: string;
+                    voting_quorum_fraction: number;
+                    proposal_token_threshold: import("ethers").BigNumber;
+                  },
+                  {
+                    description?: string | undefined;
+                    image?: string | undefined;
+                    external_link?: string | undefined;
+                    voting_delay_in_blocks?: number | undefined;
+                    voting_period_in_blocks?: number | undefined;
+                    voting_quorum_fraction?: number | undefined;
+                    name: string;
+                    voting_token_address: string;
+                    proposal_token_threshold:
+                      | string
+                      | number
+                      | bigint
+                      | import("ethers").BigNumber;
+                  }
+                >;
+                input: import("zod").ZodObject<
+                  import("zod").extendShape<
+                    {
+                      name: import("zod").ZodString;
+                      description: import("zod").ZodOptional<
+                        import("zod").ZodString
+                      >;
+                      image: import("zod").ZodOptional<
+                        import("zod").ZodUnion<
+                          [
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodTypeAny,
+                                import("zod").ZodObject<
+                                  {
+                                    data: import("zod").ZodUnion<
+                                      [
+                                        import("zod").ZodTypeAny,
+                                        import("zod").ZodString,
+                                      ]
+                                    >;
+                                    name: import("zod").ZodString;
+                                  },
+                                  "strip",
+                                  import("zod").ZodTypeAny,
+                                  {
+                                    data?: any;
+                                    name: string;
+                                  },
+                                  {
+                                    data?: any;
+                                    name: string;
+                                  }
+                                >,
+                              ]
+                            >,
+                            import("zod").ZodString,
+                          ]
+                        >
+                      >;
+                      external_link: import("zod").ZodOptional<
+                        import("zod").ZodString
+                      >;
+                    },
+                    {
+                      voting_delay_in_blocks: import("zod").ZodDefault<
+                        import("zod").ZodNumber
+                      >;
+                      voting_period_in_blocks: import("zod").ZodDefault<
+                        import("zod").ZodNumber
+                      >;
+                      voting_token_address: import("zod").ZodEffects<
+                        import("zod").ZodString,
+                        string,
+                        string
+                      >;
+                      voting_quorum_fraction: import("zod").ZodDefault<
+                        import("zod").ZodNumber
+                      >;
+                      proposal_token_threshold: import("zod").ZodDefault<
+                        import("zod").ZodEffects<
+                          import("zod").ZodEffects<
+                            import("zod").ZodUnion<
+                              [
+                                import("zod").ZodString,
+                                import("zod").ZodNumber,
+                                import("zod").ZodBigInt,
+                                import("zod").ZodType<
+                                  import("ethers").BigNumber,
+                                  import("zod").ZodTypeDef,
+                                  import("ethers").BigNumber
+                                >,
+                              ]
+                            >,
+                            import("ethers").BigNumber,
+                            | string
+                            | number
+                            | bigint
+                            | import("ethers").BigNumber
+                          >,
+                          string,
+                          string | number | bigint | import("ethers").BigNumber
+                        >
+                      >;
+                    }
+                  >,
+                  "strip",
+                  import("zod").ZodTypeAny,
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    name: string;
+                    voting_delay_in_blocks: number;
+                    voting_period_in_blocks: number;
+                    voting_token_address: string;
+                    voting_quorum_fraction: number;
+                    proposal_token_threshold: string;
+                  },
+                  {
+                    description?: string | undefined;
+                    image?: any;
+                    external_link?: string | undefined;
+                    voting_delay_in_blocks?: number | undefined;
+                    voting_period_in_blocks?: number | undefined;
+                    voting_quorum_fraction?: number | undefined;
+                    proposal_token_threshold?:
+                      | string
+                      | number
+                      | bigint
+                      | import("ethers").BigNumber
+                      | undefined;
+                    name: string;
+                    voting_token_address: string;
+                  }
+                >;
+              };
+              roles: readonly [];
+              initialize: (
+                network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider,
+                address: string,
+                storage: import("@thirdweb-dev/storage").ThirdwebStorage<
+                  import("@thirdweb-dev/storage").IpfsUploadBatchOptions
+                >,
+                options?:
+                  | {
+                      readonlySettings?:
+                        | {
+                            chainId?: number | undefined;
+                            rpcUrl: string;
+                          }
+                        | undefined;
+                      gasSettings?:
+                        | {
+                            maxPriceInGwei?: number | undefined;
+                            speed?: "standard" | "fast" | "fastest" | undefined;
+                          }
+                        | undefined;
+                      gasless?:
+                        | {
+                            experimentalChainlessSupport?: boolean | undefined;
+                            openzeppelin: {
+                              relayerForwarderAddress?: string | undefined;
+                              useEOAForwarder?: boolean | undefined;
+                              relayerUrl: string;
+                            };
+                          }
+                        | {
+                            biconomy: {
+                              deadlineSeconds?: number | undefined;
+                              apiId: string;
+                              apiKey: string;
+                            };
+                          }
+                        | undefined;
+                    }
+                  | undefined,
+              ) => Promise<import("@thirdweb-dev/sdk").Vote>;
+              getAbi: () => Promise<
+                (
+                  | {
+                      inputs: never[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      anonymous: boolean;
+                      inputs: {
+                        indexed: boolean;
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      type: string;
+                      stateMutability?: undefined;
+                      outputs?: undefined;
+                    }
+                  | {
+                      inputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      name: string;
+                      outputs: {
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      inputs: never[];
+                      name: string;
+                      outputs: {
+                        components: {
+                          internalType: string;
+                          name: string;
+                          type: string;
+                        }[];
+                        internalType: string;
+                        name: string;
+                        type: string;
+                      }[];
+                      stateMutability: string;
+                      type: string;
+                      anonymous?: undefined;
+                    }
+                  | {
+                      stateMutability: string;
+                      type: string;
+                      inputs?: undefined;
+                      anonymous?: undefined;
+                      name?: undefined;
+                      outputs?: undefined;
+                    }
+                )[]
+              >;
+            };
+          }[TContractType]["initialize"]
+        >
+      >
+    : TContract
+>;
 ```
 
 ## Parameters
@@ -32,9 +5436,10 @@ export declare function useContract<
 | Parameter       | Type                                                                                           | Description                          |
 | --------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------ |
 | contractAddress | [RequiredParam](./react.requiredparam.md)&lt;[ContractAddress](./react.contractaddress.md)&gt; | the address of the deployed contract |
+| \_contractType  | TContractType                                                                                  | <i>(Optional)</i>                    |
 
 **Returns:**
 
-[UseContractResult](./react.usecontractresult.md)&lt;TContract&gt;
+[UseContractResult](./react.usecontractresult.md)&lt;TContractType extends "split" \| "edition-drop" \| "edition" \| "marketplace" \| "multiwrap" \| "nft-collection" \| "nft-drop" \| "pack" \| "signature-drop" \| "token-drop" \| "token" \| "vote" ? Awaited&lt;ReturnType&lt;{ readonly "edition-drop": { name: "DropERC1155"; contractType: "edition-drop"; schema: { deploy: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { merkle: import("zod").ZodDefault&lt;import("zod").ZodRecord&lt;import("zod").ZodString, import("zod").ZodString&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, { platform_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; platform_fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { primary_sale_recipient: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; }&gt;, { trusted_forwarders: import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;, "many"&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; merkle: Record&lt;string, string&gt;; platform_fee_basis_points: number; platform_fee_recipient: string; primary_sale_recipient: string; trusted_forwarders: string\[\]; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; merkle?: Record&lt;string, string&gt; \| undefined; platform_fee_basis_points?: number \| undefined; platform_fee_recipient?: string \| undefined; trusted_forwarders?: string\[\] \| undefined; name: string; primary_sale_recipient: string; }&gt;; output: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { image: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }&gt;, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { merkle: import("zod").ZodDefault&lt;import("zod").ZodRecord&lt;import("zod").ZodString, import("zod").ZodString&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; merkle: Record&lt;string, string&gt;; }, { symbol?: string \| undefined; description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; merkle?: Record&lt;string, string&gt; \| undefined; name: string; }&gt;; input: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { merkle: import("zod").ZodDefault&lt;import("zod").ZodRecord&lt;import("zod").ZodString, import("zod").ZodString&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; merkle: Record&lt;string, string&gt;; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; merkle?: Record&lt;string, string&gt; \| undefined; name: string; }&gt;; }; roles: readonly \["admin", "minter", "transfer"\]; initialize: (network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider, address: string, storage: import("@thirdweb-dev/storage").ThirdwebStorage&lt;import("@thirdweb-dev/storage").IpfsUploadBatchOptions&gt;, options?: { readonlySettings?: { chainId?: number \| undefined; rpcUrl: string; } \| undefined; gasSettings?: { maxPriceInGwei?: number \| undefined; speed?: "standard" \| "fast" \| "fastest" \| undefined; } \| undefined; gasless?: { experimentalChainlessSupport?: boolean \| undefined; openzeppelin: { relayerForwarderAddress?: string \| undefined; useEOAForwarder?: boolean \| undefined; relayerUrl: string; }; } \| { biconomy: { deadlineSeconds?: number \| undefined; apiId: string; apiKey: string; }; } \| undefined; } \| undefined) =&gt; Promise&lt;import("@thirdweb-dev/sdk").EditionDrop&gt;; getAbi: () =&gt; Promise&lt;({ inputs: never\[\]; stateMutability: string; type: string; anonymous?: undefined; name?: undefined; outputs?: undefined; } \| { anonymous: boolean; inputs: ({ indexed: boolean; internalType: string; name: string; type: string; components?: undefined; } \| { components: { internalType: string; name: string; type: string; }\[\]; indexed: boolean; internalType: string; name: string; type: string; })\[\]; name: string; type: string; stateMutability?: undefined; outputs?: undefined; } \| { inputs: { internalType: string; name: string; type: string; }\[\]; name: string; outputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { inputs: { internalType: string; name: string; type: string; }\[\]; name: string; outputs: { components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { inputs: ({ internalType: string; name: string; type: string; components?: undefined; } \| { components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; })\[\]; name: string; outputs: never\[\]; stateMutability: string; type: string; anonymous?: undefined; })\[\]&gt;; }; readonly edition: { name: "TokenERC1155"; contractType: "edition"; schema: { deploy: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, { platform_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; platform_fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { primary_sale_recipient: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; }&gt;, { trusted_forwarders: import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;, "many"&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; platform_fee_basis_points: number; platform_fee_recipient: string; primary_sale_recipient: string; trusted_forwarders: string\[\]; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; platform_fee_basis_points?: number \| undefined; platform_fee_recipient?: string \| undefined; trusted_forwarders?: string\[\] \| undefined; name: string; primary_sale_recipient: string; }&gt;; output: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { image: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }&gt;, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; }, { symbol?: string \| undefined; description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; name: string; }&gt;; input: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; name: string; }&gt;; }; roles: readonly \["admin", "minter", "transfer"\]; initialize: (network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider, address: string, storage: import("@thirdweb-dev/storage").ThirdwebStorage&lt;import("@thirdweb-dev/storage").IpfsUploadBatchOptions&gt;, options?: { readonlySettings?: { chainId?: number \| undefined; rpcUrl: string; } \| undefined; gasSettings?: { maxPriceInGwei?: number \| undefined; speed?: "standard" \| "fast" \| "fastest" \| undefined; } \| undefined; gasless?: { experimentalChainlessSupport?: boolean \| undefined; openzeppelin: { relayerForwarderAddress?: string \| undefined; useEOAForwarder?: boolean \| undefined; relayerUrl: string; }; } \| { biconomy: { deadlineSeconds?: number \| undefined; apiId: string; apiKey: string; }; } \| undefined; } \| undefined) =&gt; Promise&lt;import("@thirdweb-dev/sdk").Edition&gt;; getAbi: () =&gt; Promise&lt;({ inputs: never\[\]; stateMutability: string; type: string; anonymous?: undefined; name?: undefined; outputs?: undefined; } \| { anonymous: boolean; inputs: ({ indexed: boolean; internalType: string; name: string; type: string; components?: undefined; } \| { components: { internalType: string; name: string; type: string; }\[\]; indexed: boolean; internalType: string; name: string; type: string; })\[\]; name: string; type: string; stateMutability?: undefined; outputs?: undefined; } \| { inputs: ({ components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; } \| { internalType: string; name: string; type: string; components?: undefined; })\[\]; name: string; outputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; })\[\]&gt;; }; readonly marketplace: { name: "Marketplace"; contractType: "marketplace"; schema: { deploy: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { platform_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; platform_fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { trusted_forwarders: import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;, "many"&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; platform_fee_basis_points: number; platform_fee_recipient: string; trusted_forwarders: string\[\]; }, { description?: string \| undefined; image?: any; external_link?: string \| undefined; platform_fee_basis_points?: number \| undefined; platform_fee_recipient?: string \| undefined; trusted_forwarders?: string\[\] \| undefined; name: string; }&gt;; output: import("zod").ZodObject&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { image: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }&gt;, "strip", import("zod").ZodUnknown, { \[x: string\]: unknown; description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; name: string; }, { \[x: string\]: unknown; description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; name: string; }&gt;; input: import("zod").ZodObject&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }, { description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }&gt;; }; roles: readonly \["admin", "lister", "asset"\]; initialize: (network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider, address: string, storage: import("@thirdweb-dev/storage").ThirdwebStorage&lt;import("@thirdweb-dev/storage").IpfsUploadBatchOptions&gt;, options?: { readonlySettings?: { chainId?: number \| undefined; rpcUrl: string; } \| undefined; gasSettings?: { maxPriceInGwei?: number \| undefined; speed?: "standard" \| "fast" \| "fastest" \| undefined; } \| undefined; gasless?: { experimentalChainlessSupport?: boolean \| undefined; openzeppelin: { relayerForwarderAddress?: string \| undefined; useEOAForwarder?: boolean \| undefined; relayerUrl: string; }; } \| { biconomy: { deadlineSeconds?: number \| undefined; apiId: string; apiKey: string; }; } \| undefined; } \| undefined) =&gt; Promise&lt;import("@thirdweb-dev/sdk").Marketplace&gt;; getAbi: () =&gt; Promise&lt;({ inputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; name?: undefined; outputs?: undefined; } \| { anonymous: boolean; inputs: ({ indexed: boolean; internalType: string; name: string; type: string; components?: undefined; } \| { components: { internalType: string; name: string; type: string; }\[\]; indexed: boolean; internalType: string; name: string; type: string; })\[\]; name: string; type: string; stateMutability?: undefined; outputs?: undefined; } \| { inputs: { components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; }\[\]; name: string; outputs: never\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { inputs: { internalType: string; name: string; type: string; }\[\]; name: string; outputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { stateMutability: string; type: string; inputs?: undefined; anonymous?: undefined; name?: undefined; outputs?: undefined; })\[\]&gt;; }; readonly multiwrap: { name: "Multiwrap"; contractType: "multiwrap"; schema: { deploy: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, { trusted_forwarders: import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;, "many"&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; trusted_forwarders: string\[\]; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; trusted_forwarders?: string\[\] \| undefined; name: string; }&gt;; output: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { image: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }&gt;, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; }, { symbol?: string \| undefined; description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; name: string; }&gt;; input: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; name: string; }&gt;; }; roles: readonly \["admin", "transfer", "minter", "unwrap", "asset"\]; initialize: (network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider, address: string, storage: import("@thirdweb-dev/storage").ThirdwebStorage&lt;import("@thirdweb-dev/storage").IpfsUploadBatchOptions&gt;, options?: { readonlySettings?: { chainId?: number \| undefined; rpcUrl: string; } \| undefined; gasSettings?: { maxPriceInGwei?: number \| undefined; speed?: "standard" \| "fast" \| "fastest" \| undefined; } \| undefined; gasless?: { experimentalChainlessSupport?: boolean \| undefined; openzeppelin: { relayerForwarderAddress?: string \| undefined; useEOAForwarder?: boolean \| undefined; relayerUrl: string; }; } \| { biconomy: { deadlineSeconds?: number \| undefined; apiId: string; apiKey: string; }; } \| undefined; } \| undefined) =&gt; Promise&lt;import("@thirdweb-dev/sdk").Multiwrap&gt;; getAbi: () =&gt; Promise&lt;({ inputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; name?: undefined; outputs?: undefined; } \| { anonymous: boolean; inputs: ({ indexed: boolean; internalType: string; name: string; type: string; components?: undefined; } \| { components: { internalType: string; name: string; type: string; }\[\]; indexed: boolean; internalType: string; name: string; type: string; })\[\]; name: string; type: string; stateMutability?: undefined; outputs?: undefined; } \| { inputs: { internalType: string; name: string; type: string; }\[\]; name: string; outputs: { components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { inputs: ({ components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; } \| { internalType: string; name: string; type: string; components?: undefined; })\[\]; name: string; outputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { stateMutability: string; type: string; inputs?: undefined; anonymous?: undefined; name?: undefined; outputs?: undefined; })\[\]&gt;; }; readonly "nft-collection": { name: "TokenERC721"; contractType: "nft-collection"; schema: { deploy: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, { platform_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; platform_fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { primary_sale_recipient: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; }&gt;, { trusted_forwarders: import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;, "many"&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; platform_fee_basis_points: number; platform_fee_recipient: string; primary_sale_recipient: string; trusted_forwarders: string\[\]; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; platform_fee_basis_points?: number \| undefined; platform_fee_recipient?: string \| undefined; trusted_forwarders?: string\[\] \| undefined; name: string; primary_sale_recipient: string; }&gt;; output: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { image: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }&gt;, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; }, { symbol?: string \| undefined; description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; name: string; }&gt;; input: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; name: string; }&gt;; }; roles: readonly \["admin", "minter", "transfer"\]; initialize: (network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider, address: string, storage: import("@thirdweb-dev/storage").ThirdwebStorage&lt;import("@thirdweb-dev/storage").IpfsUploadBatchOptions&gt;, options?: { readonlySettings?: { chainId?: number \| undefined; rpcUrl: string; } \| undefined; gasSettings?: { maxPriceInGwei?: number \| undefined; speed?: "standard" \| "fast" \| "fastest" \| undefined; } \| undefined; gasless?: { experimentalChainlessSupport?: boolean \| undefined; openzeppelin: { relayerForwarderAddress?: string \| undefined; useEOAForwarder?: boolean \| undefined; relayerUrl: string; }; } \| { biconomy: { deadlineSeconds?: number \| undefined; apiId: string; apiKey: string; }; } \| undefined; } \| undefined) =&gt; Promise&lt;import("@thirdweb-dev/sdk").NFTCollection&gt;; getAbi: () =&gt; Promise&lt;({ inputs: never\[\]; stateMutability: string; type: string; anonymous?: undefined; name?: undefined; outputs?: undefined; } \| { anonymous: boolean; inputs: ({ indexed: boolean; internalType: string; name: string; type: string; components?: undefined; } \| { components: { internalType: string; name: string; type: string; }\[\]; indexed: boolean; internalType: string; name: string; type: string; })\[\]; name: string; type: string; stateMutability?: undefined; outputs?: undefined; } \| { inputs: ({ components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; } \| { internalType: string; name: string; type: string; components?: undefined; })\[\]; name: string; outputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; })\[\]&gt;; }; readonly "nft-drop": { name: "DropERC721"; contractType: "nft-drop"; schema: { deploy: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { merkle: import("zod").ZodDefault&lt;import("zod").ZodRecord&lt;import("zod").ZodString, import("zod").ZodString&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, { platform_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; platform_fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { primary_sale_recipient: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; }&gt;, { trusted_forwarders: import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;, "many"&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; merkle: Record&lt;string, string&gt;; platform_fee_basis_points: number; platform_fee_recipient: string; primary_sale_recipient: string; trusted_forwarders: string\[\]; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; merkle?: Record&lt;string, string&gt; \| undefined; platform_fee_basis_points?: number \| undefined; platform_fee_recipient?: string \| undefined; trusted_forwarders?: string\[\] \| undefined; name: string; primary_sale_recipient: string; }&gt;; output: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { image: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }&gt;, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { merkle: import("zod").ZodDefault&lt;import("zod").ZodRecord&lt;import("zod").ZodString, import("zod").ZodString&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; merkle: Record&lt;string, string&gt;; }, { symbol?: string \| undefined; description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; merkle?: Record&lt;string, string&gt; \| undefined; name: string; }&gt;; input: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { merkle: import("zod").ZodDefault&lt;import("zod").ZodRecord&lt;import("zod").ZodString, import("zod").ZodString&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; merkle: Record&lt;string, string&gt;; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; merkle?: Record&lt;string, string&gt; \| undefined; name: string; }&gt;; }; roles: readonly \["admin", "minter", "transfer"\]; initialize: (network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider, address: string, storage: import("@thirdweb-dev/storage").ThirdwebStorage&lt;import("@thirdweb-dev/storage").IpfsUploadBatchOptions&gt;, options?: { readonlySettings?: { chainId?: number \| undefined; rpcUrl: string; } \| undefined; gasSettings?: { maxPriceInGwei?: number \| undefined; speed?: "standard" \| "fast" \| "fastest" \| undefined; } \| undefined; gasless?: { experimentalChainlessSupport?: boolean \| undefined; openzeppelin: { relayerForwarderAddress?: string \| undefined; useEOAForwarder?: boolean \| undefined; relayerUrl: string; }; } \| { biconomy: { deadlineSeconds?: number \| undefined; apiId: string; apiKey: string; }; } \| undefined; } \| undefined) =&gt; Promise&lt;import("@thirdweb-dev/sdk").NFTDrop&gt;; getAbi: () =&gt; Promise&lt;({ inputs: never\[\]; stateMutability: string; type: string; anonymous?: undefined; name?: undefined; outputs?: undefined; } \| { anonymous: boolean; inputs: { indexed: boolean; internalType: string; name: string; type: string; }\[\]; name: string; type: string; stateMutability?: undefined; outputs?: undefined; } \| { anonymous: boolean; inputs: { components: { internalType: string; name: string; type: string; }\[\]; indexed: boolean; internalType: string; name: string; type: string; }\[\]; name: string; type: string; stateMutability?: undefined; outputs?: undefined; } \| { inputs: { internalType: string; name: string; type: string; }\[\]; name: string; outputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { inputs: { internalType: string; name: string; type: string; }\[\]; name: string; outputs: { components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { inputs: ({ components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; } \| { internalType: string; name: string; type: string; components?: undefined; })\[\]; name: string; outputs: never\[\]; stateMutability: string; type: string; anonymous?: undefined; })\[\]&gt;; }; readonly pack: { name: "Pack"; contractType: "pack"; schema: { deploy: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, { platform_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; platform_fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { trusted_forwarders: import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;, "many"&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; platform_fee_basis_points: number; platform_fee_recipient: string; trusted_forwarders: string\[\]; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; platform_fee_basis_points?: number \| undefined; platform_fee_recipient?: string \| undefined; trusted_forwarders?: string\[\] \| undefined; name: string; }&gt;; output: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { image: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }&gt;, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; }, { symbol?: string \| undefined; description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; name: string; }&gt;; input: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; name: string; }&gt;; }; roles: readonly \["admin", "minter", "asset", "transfer"\]; initialize: (network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider, address: string, storage: import("@thirdweb-dev/storage").ThirdwebStorage&lt;import("@thirdweb-dev/storage").IpfsUploadBatchOptions&gt;, options?: { readonlySettings?: { chainId?: number \| undefined; rpcUrl: string; } \| undefined; gasSettings?: { maxPriceInGwei?: number \| undefined; speed?: "standard" \| "fast" \| "fastest" \| undefined; } \| undefined; gasless?: { experimentalChainlessSupport?: boolean \| undefined; openzeppelin: { relayerForwarderAddress?: string \| undefined; useEOAForwarder?: boolean \| undefined; relayerUrl: string; }; } \| { biconomy: { deadlineSeconds?: number \| undefined; apiId: string; apiKey: string; }; } \| undefined; } \| undefined) =&gt; Promise&lt;import("@thirdweb-dev/sdk").Pack&gt;; getAbi: () =&gt; Promise&lt;({ inputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; name?: undefined; outputs?: undefined; } \| { anonymous: boolean; inputs: ({ indexed: boolean; internalType: string; name: string; type: string; components?: undefined; } \| { components: { internalType: string; name: string; type: string; }\[\]; indexed: boolean; internalType: string; name: string; type: string; })\[\]; name: string; type: string; stateMutability?: undefined; outputs?: undefined; } \| { inputs: ({ internalType: string; name: string; type: string; components?: undefined; } \| { components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; })\[\]; name: string; outputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { inputs: { internalType: string; name: string; type: string; }\[\]; name: string; outputs: ({ components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; } \| { internalType: string; name: string; type: string; components?: undefined; })\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { stateMutability: string; type: string; inputs?: undefined; anonymous?: undefined; name?: undefined; outputs?: undefined; })\[\]&gt;; }; readonly "signature-drop": { name: "SignatureDrop"; contractType: "signature-drop"; schema: { deploy: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { merkle: import("zod").ZodDefault&lt;import("zod").ZodRecord&lt;import("zod").ZodString, import("zod").ZodString&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, { platform_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; platform_fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { primary_sale_recipient: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; }&gt;, { trusted_forwarders: import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;, "many"&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; merkle: Record&lt;string, string&gt;; platform_fee_basis_points: number; platform_fee_recipient: string; primary_sale_recipient: string; trusted_forwarders: string\[\]; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; merkle?: Record&lt;string, string&gt; \| undefined; platform_fee_basis_points?: number \| undefined; platform_fee_recipient?: string \| undefined; trusted_forwarders?: string\[\] \| undefined; name: string; primary_sale_recipient: string; }&gt;; output: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { image: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }&gt;, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { merkle: import("zod").ZodDefault&lt;import("zod").ZodRecord&lt;import("zod").ZodString, import("zod").ZodString&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; merkle: Record&lt;string, string&gt;; }, { symbol?: string \| undefined; description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; merkle?: Record&lt;string, string&gt; \| undefined; name: string; }&gt;; input: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { seller_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { merkle: import("zod").ZodDefault&lt;import("zod").ZodRecord&lt;import("zod").ZodString, import("zod").ZodString&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; seller_fee_basis_points: number; fee_recipient: string; merkle: Record&lt;string, string&gt;; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; seller_fee_basis_points?: number \| undefined; fee_recipient?: string \| undefined; merkle?: Record&lt;string, string&gt; \| undefined; name: string; }&gt;; }; roles: readonly \["admin", "minter", "transfer"\]; initialize: (network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider, address: string, storage: import("@thirdweb-dev/storage").ThirdwebStorage&lt;import("@thirdweb-dev/storage").IpfsUploadBatchOptions&gt;, options?: { readonlySettings?: { chainId?: number \| undefined; rpcUrl: string; } \| undefined; gasSettings?: { maxPriceInGwei?: number \| undefined; speed?: "standard" \| "fast" \| "fastest" \| undefined; } \| undefined; gasless?: { experimentalChainlessSupport?: boolean \| undefined; openzeppelin: { relayerForwarderAddress?: string \| undefined; useEOAForwarder?: boolean \| undefined; relayerUrl: string; }; } \| { biconomy: { deadlineSeconds?: number \| undefined; apiId: string; apiKey: string; }; } \| undefined; } \| undefined) =&gt; Promise&lt;import("@thirdweb-dev/sdk").SignatureDrop&gt;; getAbi: () =&gt; Promise&lt;({ inputs: never\[\]; name: string; type: string; anonymous?: undefined; outputs?: undefined; stateMutability?: undefined; } \| { anonymous: boolean; inputs: ({ components: { internalType: string; name: string; type: string; }\[\]; indexed: boolean; internalType: string; name: string; type: string; } \| { indexed: boolean; internalType: string; name: string; type: string; components?: undefined; })\[\]; name: string; type: string; outputs?: undefined; stateMutability?: undefined; } \| { inputs: ({ components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; } \| { internalType: string; name: string; type: string; components?: undefined; })\[\]; name: string; outputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; })\[\]&gt;; }; readonly split: { name: "Split"; contractType: "split"; schema: { deploy: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { recipients: import("zod").ZodEffects&lt;import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodObject&lt;{ address: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; sharesBps: import("zod").ZodNumber; }, "strip", import("zod").ZodTypeAny, { address: string; sharesBps: number; }, { address: string; sharesBps: number; }&gt;, "many"&gt;&gt;, { address: string; sharesBps: number; }\[\], { address: string; sharesBps: number; }\[\] \| undefined&gt;; }&gt;, import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { recipients: import("zod").ZodEffects&lt;import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodObject&lt;{ address: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; sharesBps: import("zod").ZodNumber; }, "strip", import("zod").ZodTypeAny, { address: string; sharesBps: number; }, { address: string; sharesBps: number; }&gt;, "many"&gt;&gt;, { address: string; sharesBps: number; }\[\], { address: string; sharesBps: number; }\[\] \| undefined&gt;; }&gt;&gt;, { trusted_forwarders: import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;, "many"&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; trusted_forwarders: string\[\]; recipients: { address: string; sharesBps: number; }\[\]; }, { description?: string \| undefined; image?: any; external_link?: string \| undefined; trusted_forwarders?: string\[\] \| undefined; recipients?: { address: string; sharesBps: number; }\[\] \| undefined; name: string; }&gt;; output: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { image: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }&gt;, { recipients: import("zod").ZodArray&lt;import("zod").ZodObject&lt;import("zod").extendShape&lt;{ address: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; sharesBps: import("zod").ZodNumber; }, { address: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; sharesBps: import("zod").ZodNumber; }&gt;, "strip", import("zod").ZodTypeAny, { address: string; sharesBps: number; }, { address: string; sharesBps: number; }&gt;, "many"&gt;; }&gt;, "strip", import("zod").ZodUnknown, { \[x: string\]: unknown; description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; name: string; recipients: { address: string; sharesBps: number; }\[\]; }, { \[x: string\]: unknown; description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; name: string; recipients: { address: string; sharesBps: number; }\[\]; }&gt;; input: import("zod").ZodObject&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { recipients: import("zod").ZodEffects&lt;import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodObject&lt;{ address: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; sharesBps: import("zod").ZodNumber; }, "strip", import("zod").ZodTypeAny, { address: string; sharesBps: number; }, { address: string; sharesBps: number; }&gt;, "many"&gt;&gt;, { address: string; sharesBps: number; }\[\], { address: string; sharesBps: number; }\[\] \| undefined&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; recipients: { address: string; sharesBps: number; }\[\]; }, { description?: string \| undefined; image?: any; external_link?: string \| undefined; recipients?: { address: string; sharesBps: number; }\[\] \| undefined; name: string; }&gt;; }; roles: readonly \["admin"\]; initialize: (network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider, address: string, storage: import("@thirdweb-dev/storage").ThirdwebStorage&lt;import("@thirdweb-dev/storage").IpfsUploadBatchOptions&gt;, options?: { readonlySettings?: { chainId?: number \| undefined; rpcUrl: string; } \| undefined; gasSettings?: { maxPriceInGwei?: number \| undefined; speed?: "standard" \| "fast" \| "fastest" \| undefined; } \| undefined; gasless?: { experimentalChainlessSupport?: boolean \| undefined; openzeppelin: { relayerForwarderAddress?: string \| undefined; useEOAForwarder?: boolean \| undefined; relayerUrl: string; }; } \| { biconomy: { deadlineSeconds?: number \| undefined; apiId: string; apiKey: string; }; } \| undefined; } \| undefined) =&gt; Promise&lt;import("@thirdweb-dev/sdk").Split&gt;; getAbi: () =&gt; Promise&lt;({ inputs: never\[\]; stateMutability: string; type: string; anonymous?: undefined; name?: undefined; outputs?: undefined; } \| { anonymous: boolean; inputs: { indexed: boolean; internalType: string; name: string; type: string; }\[\]; name: string; type: string; stateMutability?: undefined; outputs?: undefined; } \| { inputs: { internalType: string; name: string; type: string; }\[\]; name: string; outputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { stateMutability: string; type: string; inputs?: undefined; anonymous?: undefined; name?: undefined; outputs?: undefined; })\[\]&gt;; }; readonly "token-drop": { name: "DropERC20"; contractType: "token-drop"; schema: { deploy: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { merkle: import("zod").ZodDefault&lt;import("zod").ZodRecord&lt;import("zod").ZodString, import("zod").ZodString&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, { platform_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; platform_fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { primary_sale_recipient: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; }&gt;, { trusted_forwarders: import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;, "many"&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; merkle: Record&lt;string, string&gt;; platform_fee_basis_points: number; platform_fee_recipient: string; primary_sale_recipient: string; trusted_forwarders: string\[\]; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; merkle?: Record&lt;string, string&gt; \| undefined; platform_fee_basis_points?: number \| undefined; platform_fee_recipient?: string \| undefined; trusted_forwarders?: string\[\] \| undefined; name: string; primary_sale_recipient: string; }&gt;; output: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { image: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }&gt;, { merkle: import("zod").ZodDefault&lt;import("zod").ZodRecord&lt;import("zod").ZodString, import("zod").ZodString&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; symbol: string; name: string; merkle: Record&lt;string, string&gt;; }, { symbol?: string \| undefined; description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; merkle?: Record&lt;string, string&gt; \| undefined; name: string; }&gt;; input: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { merkle: import("zod").ZodDefault&lt;import("zod").ZodRecord&lt;import("zod").ZodString, import("zod").ZodString&gt;&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; merkle: Record&lt;string, string&gt;; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; merkle?: Record&lt;string, string&gt; \| undefined; name: string; }&gt;; }; roles: readonly \["admin", "transfer"\]; initialize: (network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider, address: string, storage: import("@thirdweb-dev/storage").ThirdwebStorage&lt;import("@thirdweb-dev/storage").IpfsUploadBatchOptions&gt;, options?: { readonlySettings?: { chainId?: number \| undefined; rpcUrl: string; } \| undefined; gasSettings?: { maxPriceInGwei?: number \| undefined; speed?: "standard" \| "fast" \| "fastest" \| undefined; } \| undefined; gasless?: { experimentalChainlessSupport?: boolean \| undefined; openzeppelin: { relayerForwarderAddress?: string \| undefined; useEOAForwarder?: boolean \| undefined; relayerUrl: string; }; } \| { biconomy: { deadlineSeconds?: number \| undefined; apiId: string; apiKey: string; }; } \| undefined; } \| undefined) =&gt; Promise&lt;import("@thirdweb-dev/sdk").TokenDrop&gt;; getAbi: () =&gt; Promise&lt;({ inputs: never\[\]; stateMutability: string; type: string; anonymous?: undefined; name?: undefined; outputs?: undefined; } \| { anonymous: boolean; inputs: { indexed: boolean; internalType: string; name: string; type: string; }\[\]; name: string; type: string; stateMutability?: undefined; outputs?: undefined; } \| { anonymous: boolean; inputs: { components: { internalType: string; name: string; type: string; }\[\]; indexed: boolean; internalType: string; name: string; type: string; }\[\]; name: string; type: string; stateMutability?: undefined; outputs?: undefined; } \| { inputs: { internalType: string; name: string; type: string; }\[\]; name: string; outputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { inputs: { internalType: string; name: string; type: string; }\[\]; name: string; outputs: { components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { inputs: ({ components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; } \| { internalType: string; name: string; type: string; components?: undefined; })\[\]; name: string; outputs: never\[\]; stateMutability: string; type: string; anonymous?: undefined; })\[\]&gt;; }; readonly token: { name: "TokenERC20"; contractType: "token"; schema: { deploy: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, { platform_fee_basis_points: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; platform_fee_recipient: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;&gt;; }&gt;, { primary_sale_recipient: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; }&gt;, { trusted_forwarders: import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;, "many"&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; platform_fee_basis_points: number; platform_fee_recipient: string; primary_sale_recipient: string; trusted_forwarders: string\[\]; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; platform_fee_basis_points?: number \| undefined; platform_fee_recipient?: string \| undefined; trusted_forwarders?: string\[\] \| undefined; name: string; primary_sale_recipient: string; }&gt;; output: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { image: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }&gt;, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; symbol: string; name: string; }, { symbol?: string \| undefined; description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; name: string; }&gt;; input: import("zod").ZodObject&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { symbol: import("zod").ZodDefault&lt;import("zod").ZodOptional&lt;import("zod").ZodString&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; symbol: string; name: string; }, { symbol?: string \| undefined; description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; }&gt;; }; roles: readonly \["admin", "minter", "transfer"\]; initialize: (network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider, address: string, storage: import("@thirdweb-dev/storage").ThirdwebStorage&lt;import("@thirdweb-dev/storage").IpfsUploadBatchOptions&gt;, options?: { readonlySettings?: { chainId?: number \| undefined; rpcUrl: string; } \| undefined; gasSettings?: { maxPriceInGwei?: number \| undefined; speed?: "standard" \| "fast" \| "fastest" \| undefined; } \| undefined; gasless?: { experimentalChainlessSupport?: boolean \| undefined; openzeppelin: { relayerForwarderAddress?: string \| undefined; useEOAForwarder?: boolean \| undefined; relayerUrl: string; }; } \| { biconomy: { deadlineSeconds?: number \| undefined; apiId: string; apiKey: string; }; } \| undefined; } \| undefined) =&gt; Promise&lt;import("@thirdweb-dev/sdk").Token&gt;; getAbi: () =&gt; Promise&lt;({ inputs: never\[\]; stateMutability: string; type: string; anonymous?: undefined; name?: undefined; outputs?: undefined; } \| { anonymous: boolean; inputs: ({ indexed: boolean; internalType: string; name: string; type: string; components?: undefined; } \| { components: { internalType: string; name: string; type: string; }\[\]; indexed: boolean; internalType: string; name: string; type: string; })\[\]; name: string; type: string; stateMutability?: undefined; outputs?: undefined; } \| { inputs: { internalType: string; name: string; type: string; }\[\]; name: string; outputs: { components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { inputs: ({ components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; } \| { internalType: string; name: string; type: string; components?: undefined; })\[\]; name: string; outputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; })\[\]&gt;; }; readonly vote: { name: "VoteERC20"; contractType: "vote"; schema: { deploy: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { voting_delay_in_blocks: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; voting_period_in_blocks: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; voting_token_address: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; voting_quorum_fraction: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; proposal_token_threshold: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodEffects&lt;import("zod").ZodUnion&lt;\[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType&lt;import("ethers").BigNumber, import("zod").ZodTypeDef, import("ethers").BigNumber&gt;\]&gt;, import("ethers").BigNumber, string \| number \| bigint \| import("ethers").BigNumber&gt;, string, string \| number \| bigint \| import("ethers").BigNumber&gt;&gt;; }&gt;, { trusted_forwarders: import("zod").ZodDefault&lt;import("zod").ZodArray&lt;import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;, "many"&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; trusted_forwarders: string\[\]; voting_delay_in_blocks: number; voting_period_in_blocks: number; voting_token_address: string; voting_quorum_fraction: number; proposal_token_threshold: string; }, { description?: string \| undefined; image?: any; external_link?: string \| undefined; trusted_forwarders?: string\[\] \| undefined; voting_delay_in_blocks?: number \| undefined; voting_period_in_blocks?: number \| undefined; voting_quorum_fraction?: number \| undefined; proposal_token_threshold?: string \| number \| bigint \| import("ethers").BigNumber \| undefined; name: string; voting_token_address: string; }&gt;; output: import("zod").ZodObject&lt;import("zod").extendShape&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { image: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }&gt;, import("zod").extendShape&lt;{ voting_delay_in_blocks: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; voting_period_in_blocks: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; voting_token_address: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; voting_quorum_fraction: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; proposal_token_threshold: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodEffects&lt;import("zod").ZodUnion&lt;\[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType&lt;import("ethers").BigNumber, import("zod").ZodTypeDef, import("ethers").BigNumber&gt;\]&gt;, import("ethers").BigNumber, string \| number \| bigint \| import("ethers").BigNumber&gt;, string, string \| number \| bigint \| import("ethers").BigNumber&gt;&gt;; }, { proposal_token_threshold: import("zod").ZodEffects&lt;import("zod").ZodUnion&lt;\[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType&lt;import("ethers").BigNumber, import("zod").ZodTypeDef, import("ethers").BigNumber&gt;\]&gt;, import("ethers").BigNumber, string \| number \| bigint \| import("ethers").BigNumber&gt;; }&gt;&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; name: string; voting_delay_in_blocks: number; voting_period_in_blocks: number; voting_token_address: string; voting_quorum_fraction: number; proposal_token_threshold: import("ethers").BigNumber; }, { description?: string \| undefined; image?: string \| undefined; external_link?: string \| undefined; voting_delay_in_blocks?: number \| undefined; voting_period_in_blocks?: number \| undefined; voting_quorum_fraction?: number \| undefined; name: string; voting_token_address: string; proposal_token_threshold: string \| number \| bigint \| import("ethers").BigNumber; }&gt;; input: import("zod").ZodObject&lt;import("zod").extendShape&lt;{ name: import("zod").ZodString; description: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; image: import("zod").ZodOptional&lt;import("zod").ZodUnion&lt;\[import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodObject&lt;{ data: import("zod").ZodUnion&lt;\[import("zod").ZodTypeAny, import("zod").ZodString\]&gt;; name: import("zod").ZodString; }, "strip", import("zod").ZodTypeAny, { data?: any; name: string; }, { data?: any; name: string; }&gt;\]&gt;, import("zod").ZodString\]&gt;&gt;; external_link: import("zod").ZodOptional&lt;import("zod").ZodString&gt;; }, { voting_delay_in_blocks: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; voting_period_in_blocks: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; voting_token_address: import("zod").ZodEffects&lt;import("zod").ZodString, string, string&gt;; voting_quorum_fraction: import("zod").ZodDefault&lt;import("zod").ZodNumber&gt;; proposal_token_threshold: import("zod").ZodDefault&lt;import("zod").ZodEffects&lt;import("zod").ZodEffects&lt;import("zod").ZodUnion&lt;\[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType&lt;import("ethers").BigNumber, import("zod").ZodTypeDef, import("ethers").BigNumber&gt;\]&gt;, import("ethers").BigNumber, string \| number \| bigint \| import("ethers").BigNumber&gt;, string, string \| number \| bigint \| import("ethers").BigNumber&gt;&gt;; }&gt;, "strip", import("zod").ZodTypeAny, { description?: string \| undefined; image?: any; external_link?: string \| undefined; name: string; voting_delay_in_blocks: number; voting_period_in_blocks: number; voting_token_address: string; voting_quorum_fraction: number; proposal_token_threshold: string; }, { description?: string \| undefined; image?: any; external_link?: string \| undefined; voting_delay_in_blocks?: number \| undefined; voting_period_in_blocks?: number \| undefined; voting_quorum_fraction?: number \| undefined; proposal_token_threshold?: string \| number \| bigint \| import("ethers").BigNumber \| undefined; name: string; voting_token_address: string; }&gt;; }; roles: readonly \[\]; initialize: (network: import("@thirdweb-dev/sdk").NetworkOrSignerOrProvider, address: string, storage: import("@thirdweb-dev/storage").ThirdwebStorage&lt;import("@thirdweb-dev/storage").IpfsUploadBatchOptions&gt;, options?: { readonlySettings?: { chainId?: number \| undefined; rpcUrl: string; } \| undefined; gasSettings?: { maxPriceInGwei?: number \| undefined; speed?: "standard" \| "fast" \| "fastest" \| undefined; } \| undefined; gasless?: { experimentalChainlessSupport?: boolean \| undefined; openzeppelin: { relayerForwarderAddress?: string \| undefined; useEOAForwarder?: boolean \| undefined; relayerUrl: string; }; } \| { biconomy: { deadlineSeconds?: number \| undefined; apiId: string; apiKey: string; }; } \| undefined; } \| undefined) =&gt; Promise&lt;import("@thirdweb-dev/sdk").Vote&gt;; getAbi: () =&gt; Promise&lt;({ inputs: never\[\]; stateMutability: string; type: string; anonymous?: undefined; name?: undefined; outputs?: undefined; } \| { anonymous: boolean; inputs: { indexed: boolean; internalType: string; name: string; type: string; }\[\]; name: string; type: string; stateMutability?: undefined; outputs?: undefined; } \| { inputs: { internalType: string; name: string; type: string; }\[\]; name: string; outputs: { internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { inputs: never\[\]; name: string; outputs: { components: { internalType: string; name: string; type: string; }\[\]; internalType: string; name: string; type: string; }\[\]; stateMutability: string; type: string; anonymous?: undefined; } \| { stateMutability: string; type: string; inputs?: undefined; anonymous?: undefined; name?: undefined; outputs?: undefined; })\[\]&gt;; }; }\[TContractType\]\["initialize"\]&gt;&gt; : TContract&gt;
 
 a response object that includes the contract once it is resolved

@@ -39,16 +39,16 @@ export default function Component() {
 
 ```typescript
 export declare function useTokenDrop(
-  contractAddress?: string,
-): TokenDrop | undefined;
+  contractAddress?: RequiredParam<string>,
+): import("@thirdweb-dev/sdk").TokenDrop | undefined;
 ```
 
 ## Parameters
 
-| Parameter       | Type   | Description                                                                                |
-| --------------- | ------ | ------------------------------------------------------------------------------------------ |
-| contractAddress | string | <i>(Optional)</i> the address of the Token Drop contract, found in your thirdweb dashboard |
+| Parameter       | Type                                                    | Description                                                                                |
+| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------ |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | <i>(Optional)</i> the address of the Token Drop contract, found in your thirdweb dashboard |
 
 **Returns:**
 
-TokenDrop \| undefined
+import("@thirdweb-dev/sdk").TokenDrop \| undefined

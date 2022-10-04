@@ -38,15 +38,17 @@ export default function Component() {
 **Signature:**
 
 ```typescript
-export declare function usePack(contractAddress?: string): Pack | undefined;
+export declare function usePack(
+  contractAddress?: RequiredParam<string>,
+): import("@thirdweb-dev/sdk").Pack | undefined;
 ```
 
 ## Parameters
 
-| Parameter       | Type   | Description                                                                          |
-| --------------- | ------ | ------------------------------------------------------------------------------------ |
-| contractAddress | string | <i>(Optional)</i> the address of the Pack contract, found in your thirdweb dashboard |
+| Parameter       | Type                                                    | Description                                                                          |
+| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | <i>(Optional)</i> the address of the Pack contract, found in your thirdweb dashboard |
 
 **Returns:**
 
-Pack \| undefined
+import("@thirdweb-dev/sdk").Pack \| undefined

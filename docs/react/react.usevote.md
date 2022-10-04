@@ -38,15 +38,17 @@ export default function Component() {
 **Signature:**
 
 ```typescript
-export declare function useVote(contractAddress?: string): Vote | undefined;
+export declare function useVote(
+  contractAddress?: RequiredParam<string>,
+): import("@thirdweb-dev/sdk").Vote | undefined;
 ```
 
 ## Parameters
 
-| Parameter       | Type   | Description                                                                          |
-| --------------- | ------ | ------------------------------------------------------------------------------------ |
-| contractAddress | string | <i>(Optional)</i> the address of the Vote contract, found in your thirdweb dashboard |
+| Parameter       | Type                                                    | Description                                                                          |
+| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | <i>(Optional)</i> the address of the Vote contract, found in your thirdweb dashboard |
 
 **Returns:**
 
-Vote \| undefined
+import("@thirdweb-dev/sdk").Vote \| undefined

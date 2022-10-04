@@ -38,15 +38,17 @@ export default function Component() {
 **Signature:**
 
 ```typescript
-export declare function useSplit(contractAddress?: string): Split | undefined;
+export declare function useSplit(
+  contractAddress?: RequiredParam<string>,
+): import("@thirdweb-dev/sdk").Split | undefined;
 ```
 
 ## Parameters
 
-| Parameter       | Type   | Description                                                                           |
-| --------------- | ------ | ------------------------------------------------------------------------------------- |
-| contractAddress | string | <i>(Optional)</i> the address of the Split contract, found in your thirdweb dashboard |
+| Parameter       | Type                                                    | Description                                                                           |
+| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | <i>(Optional)</i> the address of the Split contract, found in your thirdweb dashboard |
 
 **Returns:**
 
-Split \| undefined
+import("@thirdweb-dev/sdk").Split \| undefined

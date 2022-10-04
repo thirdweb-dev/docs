@@ -38,15 +38,17 @@ export default function Component() {
 **Signature:**
 
 ```typescript
-export declare function useToken(contractAddress?: string): Token | undefined;
+export declare function useToken(
+  contractAddress: RequiredParam<string>,
+): import("@thirdweb-dev/sdk").Token | undefined;
 ```
 
 ## Parameters
 
-| Parameter       | Type   | Description                                                                           |
-| --------------- | ------ | ------------------------------------------------------------------------------------- |
-| contractAddress | string | <i>(Optional)</i> the address of the Token contract, found in your thirdweb dashboard |
+| Parameter       | Type                                                    | Description                                                         |
+| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------- |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | the address of the Token contract, found in your thirdweb dashboard |
 
 **Returns:**
 
-Token \| undefined
+import("@thirdweb-dev/sdk").Token \| undefined

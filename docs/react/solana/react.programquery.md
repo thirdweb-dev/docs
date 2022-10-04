@@ -12,7 +12,10 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export declare function programQuery<TProgramType extends ProgramType>(
+export declare function programQuery<
+  TProgram extends ValidProgram,
+  TProgramType extends ProgramType | undefined = undefined,
+>(
   queryClient: QueryClient,
   sdk: RequiredParam<ThirdwebSDK>,
   address: RequiredParam<string>,
@@ -28,7 +31,9 @@ export declare function programQuery<TProgramType extends ProgramType>(
       readonly persist: false;
     },
   ];
-  queryFn: () => Promise<ProgramMap[TProgramType]>;
+  queryFn: () => Promise<
+    TProgramType extends ProgramType ? ProgramMap[TProgramType] : TProgram
+  >;
   enabled: boolean;
   cacheTime: number;
   staleTime: number;
@@ -46,4 +51,4 @@ export declare function programQuery<TProgramType extends ProgramType>(
 
 **Returns:**
 
-{ queryKey: readonly \["\_\_tw\_\_", "sol", RequiredParam&lt;import("@thirdweb-dev/sdk/solana").Network&gt;, "program-instance", RequiredParam&lt;string&gt;, { readonly persist: false; }\]; queryFn: () =&gt; Promise&lt;ProgramMap\[TProgramType\]&gt;; enabled: boolean; cacheTime: number; staleTime: number; }
+{ queryKey: readonly \["\_\_tw\_\_", "sol", RequiredParam&lt;import("@thirdweb-dev/sdk/solana").Network&gt;, "program-instance", RequiredParam&lt;string&gt;, { readonly persist: false; }\]; queryFn: () =&gt; Promise&lt;TProgramType extends ProgramType ? ProgramMap\[TProgramType\] : TProgram&gt;; enabled: boolean; cacheTime: number; staleTime: number; }
