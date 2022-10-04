@@ -10,7 +10,7 @@ import QuickstartCard from "@components/QuickstartCard";
 Build smart contracts with Solidity and unlock the features of the [dashboard](/dashboard) and [SDK](/sdk), with:
 
 - **Base Contracts** that you can build upon, such as [ERC721Base](/contractkit/base-contracts/erc-721/erc721base).
-- **Extension contracts** that you can plug-in to unlock specific functionality, such as [Permission Controls](/contractkit/permissions) and [Royalty Fees](/contractkit/royalty).
+- **Extension contracts** that you can plug-in to unlock specific functionality, such as [Permission Controls](/contractkit/extension-contracts/permissions) and [Royalty Fees](/contractkit/extension-contracts/royalty).
 
 To get started, run the command below to create a new project with your preferences set up:
 
@@ -29,7 +29,7 @@ npm install @thirdweb-dev/contracts
 Each feature you implement in your smart contracts unlocks functionality in both the dashboard and SDK to help you build applications on top of them.
 
 For example, if you implement the [ERC721Base](/contractkit/base-contracts/erc-721/erc721base) contract, you'll unlock the `mint` button in the dashboard and
-can use the [mint](/pre-built-contracts/nft-collection#using-the-thirdweb-sdk-1) function in the SDK; which automatically uploads and pins your metadata to IPFS!
+can use the [mint](/sdk/interacting-with-contracts/erc721mintable) function in the SDK; which automatically uploads and pins your metadata to IPFS!
 
 <div className="row" style={{marginBottom:24}}>
 
@@ -49,7 +49,7 @@ You can use ContractKit to build out your smart contract project _end-to-end_, o
 
 ### Using Base Contracts
 
-ContractKit gives you [**base contracts**](/extension/base-contracts) that you can use as the foundation of your smart contract.
+ContractKit gives you [**base contracts**](/contractkit/base-contracts) that you can use as the foundation of your smart contract.
 
 **1.** To start, import and inherit the base contract that is right for your project. You can find the list of all available base contracts [here](/contractkit/base-contracts#list-of-base-contracts).
 
