@@ -33,20 +33,15 @@ export default function Component() {
 **Signature:**
 
 ```typescript
-export declare function useProgram<
-  TProgram extends ValidProgram,
-  TProgramType extends ProgramType | undefined = undefined,
->(
+export declare function useProgram<TProgramType extends ProgramType>(
   address: RequiredParam<string>,
   type?: TProgramType,
 ): import("@tanstack/react-query").UseQueryResult<
-  TProgramType extends "nft-collection" | "nft-drop" | "token"
-    ? Readonly<{
-        "nft-collection": NFTCollection;
-        "nft-drop": NFTDrop;
-        token: Token;
-      }>[TProgramType]
-    : TProgram,
+  Readonly<{
+    "nft-collection": NFTCollection;
+    "nft-drop": NFTDrop;
+    token: Token;
+  }>[TProgramType],
   unknown
 >;
 ```
@@ -60,4 +55,4 @@ export declare function useProgram<
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;TProgramType extends "nft-collection" \| "nft-drop" \| "token" ? Readonly&lt;{ "nft-collection": NFTCollection; "nft-drop": NFTDrop; token: Token; }&gt;\[TProgramType\] : TProgram, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;Readonly&lt;{ "nft-collection": NFTCollection; "nft-drop": NFTDrop; token: Token; }&gt;\[TProgramType\], unknown&gt;

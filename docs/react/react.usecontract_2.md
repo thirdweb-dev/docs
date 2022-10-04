@@ -1,5 +1,5 @@
 ---
-slug: /react.usecontract
+slug: /react.usecontract_2
 title: useContract() function
 hide_title: true
 displayed_sidebar: react
@@ -14,7 +14,7 @@ Use this resolve a contract address to a smart contract instance.
 ## Example
 
 ```javascript
-const { contract, isLoading, error } = useContract("{{contract_address}}");
+const { contract, isLoading, error } = useContract("{{contract_address}}", ABI);
 ```
 
 **Signature:**
@@ -22,6 +22,7 @@ const { contract, isLoading, error } = useContract("{{contract_address}}");
 ```typescript
 export declare function useContract(
   contractAddress: RequiredParam<ContractAddress>,
+  _abi: ContractInterface,
 ): UseContractResult<SmartContract>;
 ```
 
@@ -30,6 +31,7 @@ export declare function useContract(
 | Parameter       | Type                                                                                           | Description                          |
 | --------------- | ---------------------------------------------------------------------------------------------- | ------------------------------------ |
 | contractAddress | [RequiredParam](./react.requiredparam.md)&lt;[ContractAddress](./react.contractaddress.md)&gt; | the address of the deployed contract |
+| \_abi           | ContractInterface                                                                              | the ABI of the contract to use       |
 
 **Returns:**
 

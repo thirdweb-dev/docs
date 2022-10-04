@@ -52,4 +52,3 @@ displayed_sidebar: react
 | [TransferNFTMutationParams](./react.transfernftmutationparams.md)     |             |
 | [TransferTokenMutationParams](./react.transfertokenmutationparams.md) |             |
 | [UseProgramResult](./react.useprogramresult.md)                       |             |
-| [ValidProgram](./react.validprogram.md)                               |             |

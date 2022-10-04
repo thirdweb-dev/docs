@@ -58,7 +58,9 @@ import { useCoinbaseWallet } from "@thirdweb-dev/react";
 
 |
 | [useCompilerMetadata(contractAddress)](./react.usecompilermetadata.md) | |
-| [useContract(contractAddress, \_contractType)](./react.usecontract.md) | Use this resolve a contract address to a smart contract instance. |
+| [useContract(contractAddress)](./react.usecontract.md) | Use this resolve a contract address to a smart contract instance. |
+| [useContract(contractAddress, \_contractType)](./react.usecontract_1.md) | Use this resolve a contract address to a smart contract instance. |
+| [useContract(contractAddress, \_abi)](./react.usecontract_2.md) | Use this resolve a contract address to a smart contract instance. |
 | [useContractEvents(contract, eventName, options)](./react.usecontractevents.md) | **<i>(BETA)</i>** Use this to query (and subscribe) to events or a specific event on a contract. |
 | [useContractMetadata(contract)](./react.usecontractmetadata.md) | **<i>(BETA)</i>** Use this to get the contract metadata for a (built-in or custom) contract. |
 | [useContractRead(contract, functionName, args)](./react.usecontractread.md) | **<i>(BETA)</i>** Use this to get data from a contract read-function call. |

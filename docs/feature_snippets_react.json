@@ -282,6 +282,28 @@
       }
     },
     {
+      "name": "useContract",
+      "summary": "Use this resolve a contract address to a smart contract instance.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { contract, isLoading, error } = useContract(\"{{contract_address}}\", \"nft-drop\");"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usecontract"
+      }
+    },
+    {
+      "name": "useContract",
+      "summary": "Use this resolve a contract address to a smart contract instance.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { contract, isLoading, error } = useContract(\"{{contract_address}}\", ABI);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usecontract"
+      }
+    },
+    {
       "name": "useContractRead",
       "summary": "Use this to get data from a contract read-function call.\n\n",
       "remarks": null,
