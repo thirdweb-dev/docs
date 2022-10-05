@@ -17,14 +17,14 @@ Create a Drop contract for a standard crypto token or cryptocurrency.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getTokenDrop("{{contract_address}}");
+const contract = sdk.getContract("{{contract_address}}", "token-drop");
 ```
 
 ## Constructors
 
-| Constructor                                                                                                 | Modifiers | Description                                                   |
-| ----------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------- |
-| [(constructor)(network, address, storage, options, abi, contractWrapper)](./sdk.tokendrop._constructor_.md) |           | Constructs a new instance of the <code>TokenDrop</code> class |
+| Constructor                                                                                                          | Modifiers | Description                                                   |
+| -------------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------- |
+| [(constructor)(network, address, storage, options, abi, chainId, contractWrapper)](./sdk.tokendrop._constructor_.md) |           | Constructs a new instance of the <code>TokenDrop</code> class |
 
 ## Properties
 

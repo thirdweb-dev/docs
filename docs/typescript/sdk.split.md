@@ -17,26 +17,27 @@ Create custom royalty splits to distribute funds.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getSplit("{{contract_address}}");
+const contract = sdk.getContract("{{contract_address}}", "split");
 ```
 
 ## Constructors
 
-| Constructor                                                                                             | Modifiers | Description                                               |
-| ------------------------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------- |
-| [(constructor)(network, address, storage, options, abi, contractWrapper)](./sdk.split._constructor_.md) |           | Constructs a new instance of the <code>Split</code> class |
+| Constructor                                                                                                      | Modifiers | Description                                               |
+| ---------------------------------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------- |
+| [(constructor)(network, address, storage, options, abi, chainId, contractWrapper)](./sdk.split._constructor_.md) |           | Constructs a new instance of the <code>Split</code> class |
 
 ## Properties
 
-| Property                                      | Modifiers           | Type                                                                                                                               | Description |
-| --------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [abi](./sdk.split.abi.md)                     |                     | typeof ABI                                                                                                                         |             |
-| [contractRoles](./sdk.split.contractroles.md) | <code>static</code> | readonly \["admin"\]                                                                                                               |             |
-| [encoder](./sdk.split.encoder.md)             |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;SplitContract&gt;                                                                   |             |
-| [estimator](./sdk.split.estimator.md)         |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;SplitContract&gt;                                                                 |             |
-| [events](./sdk.split.events.md)               |                     | [ContractEvents](./sdk.contractevents.md)&lt;SplitContract&gt;                                                                     |             |
-| [metadata](./sdk.split.metadata.md)           |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;SplitContract, typeof SplitsContractSchema&gt;                                    |             |
-| [roles](./sdk.split.roles.md)                 |                     | [ContractRoles](./sdk.contractroles.md)&lt;SplitContract, typeof [Split.contractRoles](./sdk.split.contractroles.md)\[number\]&gt; |             |
+| Property                                      | Modifiers             | Type                                                                                                                               | Description |
+| --------------------------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| [abi](./sdk.split.abi.md)                     |                       | typeof ABI                                                                                                                         |             |
+| [chainId](./sdk.split.chainid.md)             | <code>readonly</code> | number                                                                                                                             |             |
+| [contractRoles](./sdk.split.contractroles.md) | <code>static</code>   | readonly \["admin"\]                                                                                                               |             |
+| [encoder](./sdk.split.encoder.md)             |                       | [ContractEncoder](./sdk.contractencoder.md)&lt;SplitContract&gt;                                                                   |             |
+| [estimator](./sdk.split.estimator.md)         |                       | [GasCostEstimator](./sdk.gascostestimator.md)&lt;SplitContract&gt;                                                                 |             |
+| [events](./sdk.split.events.md)               |                       | [ContractEvents](./sdk.contractevents.md)&lt;SplitContract&gt;                                                                     |             |
+| [metadata](./sdk.split.metadata.md)           |                       | [ContractMetadata](./sdk.contractmetadata.md)&lt;SplitContract, typeof SplitsContractSchema&gt;                                    |             |
+| [roles](./sdk.split.roles.md)                 |                       | [ContractRoles](./sdk.contractroles.md)&lt;SplitContract, typeof [Split.contractRoles](./sdk.split.contractroles.md)\[number\]&gt; |             |
 
 ## Methods
 

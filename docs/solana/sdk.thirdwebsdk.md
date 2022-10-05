@@ -52,5 +52,7 @@ sdk.wallet.connect(signer);
 | [getNFTCollection(address)](./sdk.thirdwebsdk.getnftcollection.md)                  |                     | Get an SDK interface for an NFT Collection program            |
 | [getNFTDrop(address)](./sdk.thirdwebsdk.getnftdrop.md)                              |                     | Get an SDK interface for an NFT Drop program                  |
 | [getProgram(address)](./sdk.thirdwebsdk.getprogram.md)                              |                     | Get an SDK interface for a deployed program                   |
+| [getProgram(address, programType)](./sdk.thirdwebsdk.getprogram_1.md)               |                     | Get an SDK interface for a deployed program                   |
+| [getProgram(address, Idl)](./sdk.thirdwebsdk.getprogram_2.md)                       |                     | Get an SDK interface for a deployed program                   |
 | [getProgramWithIdl(address, idl)](./sdk.thirdwebsdk.getprogramwithidl.md)           |                     | Get an SDK interface for a deployed program                   |
 | [getToken(address)](./sdk.thirdwebsdk.gettoken.md)                                  |                     | Get an SDK interface for an Token program                     |

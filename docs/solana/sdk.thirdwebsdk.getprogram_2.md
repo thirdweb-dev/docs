@@ -1,5 +1,5 @@
 ---
-slug: /sdk.thirdwebsdk.getprogram
+slug: /sdk.thirdwebsdk.getprogram_2
 title: ThirdwebSDK.getProgram() method
 hide_title: true
 displayed_sidebar: solana
@@ -14,7 +14,7 @@ Get an SDK interface for a deployed program
 **Signature:**
 
 ```typescript
-getProgram(address: string): Promise<AnchorProgram>;
+getProgram<TIdl extends Idl>(address: string, Idl: TIdl): Promise<AnchorProgram<TIdl>>;
 ```
 
 ## Parameters
@@ -22,10 +22,11 @@ getProgram(address: string): Promise<AnchorProgram>;
 | Parameter | Type   | Description            |
 | --------- | ------ | ---------------------- |
 | address   | string | Address of the program |
+| Idl       | TIdl   | the IDL of the program |
 
 **Returns:**
 
-Promise&lt;AnchorProgram&gt;
+Promise&lt;AnchorProgram&lt;TIdl&gt;&gt;
 
 SDK interface for the program
 
@@ -33,5 +34,5 @@ SDK interface for the program
 
 ```jsx
 // Get the interface for your anchor program
-const program = await sdk.getProgram("{{contract_address}}");
+const program = await sdk.getProgram("{{contract_address}}", Idl);
 ```

@@ -17,14 +17,14 @@ Create a collection of one-of-one NFTs.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getNFTCollection("{{contract_address}}");
+const contract = sdk.getContract("{{contract_address}}", "nft-collection");
 ```
 
 ## Constructors
 
-| Constructor                                                                                                     | Modifiers | Description                                                       |
-| --------------------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------- |
-| [(constructor)(network, address, storage, options, abi, contractWrapper)](./sdk.nftcollection._constructor_.md) |           | Constructs a new instance of the <code>NFTCollection</code> class |
+| Constructor                                                                                                              | Modifiers | Description                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ----------------------------------------------------------------- |
+| [(constructor)(network, address, storage, options, abi, chainId, contractWrapper)](./sdk.nftcollection._constructor_.md) |           | Constructs a new instance of the <code>NFTCollection</code> class |
 
 ## Properties
 

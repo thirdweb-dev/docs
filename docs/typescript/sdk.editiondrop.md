@@ -17,14 +17,14 @@ Setup a collection of NFTs with a customizable number of each NFT that are minte
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getEditionDrop("{{contract_address}}");
+const contract = sdk.getContract("{{contract_address}}", "edition-drop");
 ```
 
 ## Constructors
 
-| Constructor                                                                                                   | Modifiers | Description                                                     |
-| ------------------------------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------------- |
-| [(constructor)(network, address, storage, options, abi, contractWrapper)](./sdk.editiondrop._constructor_.md) |           | Constructs a new instance of the <code>EditionDrop</code> class |
+| Constructor                                                                                                            | Modifiers | Description                                                     |
+| ---------------------------------------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------------- |
+| [(constructor)(network, address, storage, options, abi, chainId, contractWrapper)](./sdk.editiondrop._constructor_.md) |           | Constructs a new instance of the <code>EditionDrop</code> class |
 
 ## Properties
 

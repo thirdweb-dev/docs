@@ -20,14 +20,15 @@ await contract.token.transfer(walletAddress, amount);
 
 ## Constructors
 
-| Constructor                                                                     | Modifiers | Description                                                       |
-| ------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------- |
-| [(constructor)(contractWrapper, storage)](./sdk.standarderc20._constructor_.md) |           | Constructs a new instance of the <code>StandardErc20</code> class |
+| Constructor                                                                              | Modifiers | Description                                                       |
+| ---------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------- |
+| [(constructor)(contractWrapper, storage, chainId)](./sdk.standarderc20._constructor_.md) |           | Constructs a new instance of the <code>StandardErc20</code> class |
 
 ## Properties
 
 | Property                                                  | Modifiers              | Type                             | Description |
 | --------------------------------------------------------- | ---------------------- | -------------------------------- | ----------- |
+| [chainId](./sdk.standarderc20.chainid.md)                 | <code>readonly</code>  | number                           |             |
 | [contractWrapper](./sdk.standarderc20.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;         |             |
 | [erc20](./sdk.standarderc20.erc20.md)                     |                        | [Erc20](./sdk.erc20.md)&lt;T&gt; |             |
 | [storage](./sdk.standarderc20.storage.md)                 | <code>protected</code> | ThirdwebStorage                  |             |

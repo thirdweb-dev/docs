@@ -20,14 +20,15 @@ await contract.nft.transfer(walletAddress, tokenId);
 
 ## Constructors
 
-| Constructor                                                                      | Modifiers | Description                                                        |
-| -------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------ |
-| [(constructor)(contractWrapper, storage)](./sdk.standarderc721._constructor_.md) |           | Constructs a new instance of the <code>StandardErc721</code> class |
+| Constructor                                                                               | Modifiers | Description                                                        |
+| ----------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------ |
+| [(constructor)(contractWrapper, storage, chainId)](./sdk.standarderc721._constructor_.md) |           | Constructs a new instance of the <code>StandardErc721</code> class |
 
 ## Properties
 
 | Property                                                   | Modifiers              | Type                               | Description |
 | ---------------------------------------------------------- | ---------------------- | ---------------------------------- | ----------- |
+| [chainId](./sdk.standarderc721.chainid.md)                 | <code>readonly</code>  | number                             |             |
 | [contractWrapper](./sdk.standarderc721.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;           |             |
 | [erc721](./sdk.standarderc721.erc721.md)                   |                        | [Erc721](./sdk.erc721.md)&lt;T&gt; |             |
 | [storage](./sdk.standarderc721.storage.md)                 | <code>protected</code> | ThirdwebStorage                    |             |

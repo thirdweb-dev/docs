@@ -17,14 +17,14 @@ Create lootboxes of NFTs with rarity based open mechanics.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getPack("{{contract_address}}");
+const contract = sdk.getContract("{{contract_address}}", "pack");
 ```
 
 ## Constructors
 
-| Constructor                                                                                            | Modifiers | Description                                              |
-| ------------------------------------------------------------------------------------------------------ | --------- | -------------------------------------------------------- |
-| [(constructor)(network, address, storage, options, abi, contractWrapper)](./sdk.pack._constructor_.md) |           | Constructs a new instance of the <code>Pack</code> class |
+| Constructor                                                                                                     | Modifiers | Description                                              |
+| --------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------- |
+| [(constructor)(network, address, storage, options, abi, chainId, contractWrapper)](./sdk.pack._constructor_.md) |           | Constructs a new instance of the <code>Pack</code> class |
 
 ## Properties
 

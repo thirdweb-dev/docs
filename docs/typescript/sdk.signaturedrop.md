@@ -17,14 +17,14 @@ Setup a collection of NFTs where when it comes to minting, you can authorize som
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getSignatureDrop("{{contract_address}}");
+const contract = sdk.getContract("{{contract_address}}", "signature-drop");
 ```
 
 ## Constructors
 
-| Constructor                                                                                                     | Modifiers | Description                                                       |
-| --------------------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------- |
-| [(constructor)(network, address, storage, options, abi, contractWrapper)](./sdk.signaturedrop._constructor_.md) |           | Constructs a new instance of the <code>SignatureDrop</code> class |
+| Constructor                                                                                                              | Modifiers | Description                                                       |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ----------------------------------------------------------------- |
+| [(constructor)(network, address, storage, options, abi, chainId, contractWrapper)](./sdk.signaturedrop._constructor_.md) |           | Constructs a new instance of the <code>SignatureDrop</code> class |
 
 ## Properties
 

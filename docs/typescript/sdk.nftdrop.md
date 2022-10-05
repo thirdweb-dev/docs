@@ -17,14 +17,14 @@ Setup a collection of one-of-one NFTs that are minted as users claim them.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getNFTDrop("{{contract_address}}");
+const contract = sdk.getContract("{{contract_address}}", "nft-drop");
 ```
 
 ## Constructors
 
-| Constructor                                                                                               | Modifiers | Description                                                 |
-| --------------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------- |
-| [(constructor)(network, address, storage, options, abi, contractWrapper)](./sdk.nftdrop._constructor_.md) |           | Constructs a new instance of the <code>NFTDrop</code> class |
+| Constructor                                                                                                        | Modifiers | Description                                                 |
+| ------------------------------------------------------------------------------------------------------------------ | --------- | ----------------------------------------------------------- |
+| [(constructor)(network, address, storage, options, abi, chainId, contractWrapper)](./sdk.nftdrop._constructor_.md) |           | Constructs a new instance of the <code>NFTDrop</code> class |
 
 ## Properties
 
