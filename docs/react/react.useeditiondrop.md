@@ -11,7 +11,12 @@ displayed_sidebar: react
 
 > Warning: This API is now obsolete.
 >
-> use `useContract()` instead
+> This hook is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const editionDrop = await sdk.useEditionDrop("0x1234...");
+> + const editionDrop = await sdk.useContract("0x1234...", "edition-drop").contract;
+> ```
 
 Hook for getting an instance of an `EditionDrop` contract. This conract is used to interface with ERC1155 compliant NFTs that can be lazily minted.
 
@@ -38,15 +43,15 @@ export default function Component() {
 
 ```typescript
 export declare function useEditionDrop(
-  contractAddress?: RequiredParam<string>,
+  contractAddress: RequiredParam<string>,
 ): import("@thirdweb-dev/sdk").EditionDrop | undefined;
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                    | Description                                                                                  |
-| --------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | <i>(Optional)</i> the address of the Edition Drop contract, found in your thirdweb dashboard |
+| Parameter       | Type                                                    | Description                                                                |
+| --------------- | ------------------------------------------------------- | -------------------------------------------------------------------------- |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | the address of the Edition Drop contract, found in your thirdweb dashboard |
 
 **Returns:**
 

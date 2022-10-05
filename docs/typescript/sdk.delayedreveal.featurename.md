@@ -43,6 +43,7 @@ featureName: "ERC1155" |
   "PlatformFee" |
   "PrimarySale" |
   "Permissions" |
+  "PermissionsEnumerable" |
   "ContractMetadata" |
   "AppURI" |
   "Ownable";

@@ -14,7 +14,7 @@ displayed_sidebar: typescript
 ```typescript
 export declare type ContractForPrebuiltContractType<
   TContractType extends PrebuiltContractType,
-> = Awaited<ReturnType<PrebuiltContractsMap[TContractType]["initialize"]>>;
+> = PrebuiltContractsInstances[TContractType];
 ```
 
-**References:** [PrebuiltContractType](./sdk.prebuiltcontracttype.md), [PrebuiltContractsMap](./sdk.prebuiltcontractsmap.md)
+**References:** [PrebuiltContractType](./sdk.prebuiltcontracttype.md), [PrebuiltContractsInstances](./sdk.prebuiltcontractsinstances.md)

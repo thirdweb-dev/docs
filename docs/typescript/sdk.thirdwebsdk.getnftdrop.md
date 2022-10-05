@@ -9,7 +9,16 @@ displayed_sidebar: typescript
 
 ## ThirdwebSDK.getNFTDrop() method
 
-Get an instance of a Drop contract
+> Warning: This API is now obsolete.
+>
+> This method is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const dropContract = await sdk.getDropContract("0x1234...");
+> + const dropContract = await sdk.getContract("0x1234...", "nft-drop");
+> ```
+
+Get an instance of a NFT Drop contract
 
 **Signature:**
 
@@ -26,5 +35,3 @@ getNFTDrop(contractAddress: string): Promise<import("..").NFTDrop>;
 **Returns:**
 
 Promise&lt;import("..").[NFTDrop](./sdk.nftdrop.md)&gt;
-
-the contract

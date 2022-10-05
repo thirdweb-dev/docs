@@ -9,8 +9,6 @@ displayed_sidebar: typescript
 
 ## ThirdwebSDK.getContract() method
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
-
 Get an instance of a Custom ThirdwebContract
 
 ## Example
@@ -22,7 +20,7 @@ const contract = await sdk.getContract("{{contract_address}}");
 **Signature:**
 
 ```typescript
-getContract(address: string): Promise<SmartContract<ethers.BaseContract>>;
+getContract(address: string): Promise<SmartContract>;
 ```
 
 ## Parameters
@@ -33,6 +31,6 @@ getContract(address: string): Promise<SmartContract<ethers.BaseContract>>;
 
 **Returns:**
 
-Promise&lt;SmartContract&lt;ethers.BaseContract&gt;&gt;
+Promise&lt;SmartContract&gt;
 
 the contract

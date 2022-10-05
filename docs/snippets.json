@@ -73,6 +73,40 @@
         }
       },
       {
+        "name": "getContract",
+        "summary": "Get an instance of a Custom ThirdwebContract\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const contract = await sdk.getContract(\"{{contract_address}}\");",
+          "python": "",
+          "go": "",
+          "react": "const { contract, isLoading, error } = useContract(\"{{contract_address}}\");"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.getcontract",
+          "python": "",
+          "go": "",
+          "react": "https://portal.thirdweb.com/react/react.usecontract"
+        }
+      },
+      {
+        "name": "getContract",
+        "summary": "Get an instance of a Custom ThirdwebContract\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const contract = await sdk.getContract(\"{{contract_address}}\");",
+          "python": "",
+          "go": "",
+          "react": "const { contract, isLoading, error } = useContract(\"{{contract_address}}\");"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.getcontract",
+          "python": "",
+          "go": "",
+          "react": "https://portal.thirdweb.com/react/react.usecontract"
+        }
+      },
+      {
         "name": "getContractFromAbi",
         "summary": "Get an instance of a Custom contract from a json ABI\n\n",
         "remarks": null,

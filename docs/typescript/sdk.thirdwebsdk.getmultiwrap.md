@@ -9,24 +9,29 @@ displayed_sidebar: typescript
 
 ## ThirdwebSDK.getMultiwrap() method
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
+> Warning: This API is now obsolete.
+>
+> This method is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const multiWrap = await sdk.getMultiwrap("0x1234...");
+> + const multiWrap = await sdk.getContract("0x1234...", "multiwrap");
+> ```
 
-Get an instance of a Multiwrap contract
+Get an instance of a Pack contract
 
 **Signature:**
 
 ```typescript
-getMultiwrap(address: string): Promise<import("..").Multiwrap>;
+getMultiwrap(contractAddress: string): Promise<import("..").Multiwrap>;
 ```
 
 ## Parameters
 
-| Parameter | Type   | Description                          |
-| --------- | ------ | ------------------------------------ |
-| address   | string | the address of the deployed contract |
+| Parameter       | Type   | Description                          |
+| --------------- | ------ | ------------------------------------ |
+| contractAddress | string | the address of the deployed contract |
 
 **Returns:**
 
 Promise&lt;import("..").[Multiwrap](./sdk.multiwrap.md)&gt;
-
-the contract

@@ -9,22 +9,29 @@ displayed_sidebar: typescript
 
 ## ThirdwebSDK.getToken() method
 
+> Warning: This API is now obsolete.
+>
+> This method is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const token = await sdk.getToken("0x1234...");
+> + const token = await sdk.getContract("0x1234...", "token");
+> ```
+
 Get an instance of a Token contract
 
 **Signature:**
 
 ```typescript
-getToken(address: string): Promise<import("..").Token>;
+getToken(contractAddress: string): Promise<import("..").Token>;
 ```
 
 ## Parameters
 
-| Parameter | Type   | Description                          |
-| --------- | ------ | ------------------------------------ |
-| address   | string | the address of the deployed contract |
+| Parameter       | Type   | Description                          |
+| --------------- | ------ | ------------------------------------ |
+| contractAddress | string | the address of the deployed contract |
 
 **Returns:**
 
 Promise&lt;import("..").[Token](./sdk.token.md)&gt;
-
-the contract

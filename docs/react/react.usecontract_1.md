@@ -23,10 +23,14 @@ const { contract, isLoading, error } = useContract(
 **Signature:**
 
 ```typescript
-export declare function useContract<TContractType extends PrebuiltContractType>(
+export declare function useContract<TContractType extends ContractType>(
   contractAddress: RequiredParam<ContractAddress>,
   _contractType: TContractType,
-): UseContractResult<ContractForPrebuiltContractType<TContractType>>;
+): UseContractResult<
+  TContractType extends PrebuiltContractType
+    ? ContractForPrebuiltContractType<TContractType>
+    : SmartContract
+>;
 ```
 
 ## Parameters
@@ -38,6 +42,6 @@ export declare function useContract<TContractType extends PrebuiltContractType>(
 
 **Returns:**
 
-[UseContractResult](./react.usecontractresult.md)&lt;ContractForPrebuiltContractType&lt;TContractType&gt;&gt;
+[UseContractResult](./react.usecontractresult.md)&lt;TContractType extends PrebuiltContractType ? ContractForPrebuiltContractType&lt;TContractType&gt; : SmartContract&gt;
 
 a response object that includes the contract once it is resolved

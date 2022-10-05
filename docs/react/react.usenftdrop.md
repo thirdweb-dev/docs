@@ -11,7 +11,12 @@ displayed_sidebar: react
 
 > Warning: This API is now obsolete.
 >
-> use `useContract()` instead
+> This hook is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const nftDrop = await sdk.useNFTDrop("0x1234...");
+> + const nftDrop = await sdk.useContract("0x1234...", "nft-drop").contract;
+> ```
 
 Hook for getting an instance of an `NFTDrop` contract. This contract is meant to interface with ERC721 compliant NFTs that can be lazily minted.
 
@@ -38,15 +43,15 @@ export default function Component() {
 
 ```typescript
 export declare function useNFTDrop(
-  contractAddress?: RequiredParam<string>,
+  contractAddress: RequiredParam<string>,
 ): import("@thirdweb-dev/sdk").NFTDrop | undefined;
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                    | Description                                                                              |
-| --------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | <i>(Optional)</i> the address of the NFT Drop contract, found in your thirdweb dashboard |
+| Parameter       | Type                                                    | Description                                                            |
+| --------------- | ------------------------------------------------------- | ---------------------------------------------------------------------- |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | the address of the NFT Drop contract, found in your thirdweb dashboard |
 
 **Returns:**
 

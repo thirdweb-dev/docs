@@ -11,7 +11,12 @@ displayed_sidebar: react
 
 > Warning: This API is now obsolete.
 >
-> use `useContract()` instead
+> This hook is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const signatureDrop = await sdk.useSignatureDrop("0x1234...");
+> + const signatureDrop = await sdk.useContract("0x1234...", "signature-drop").contract;
+> ```
 
 Hook for getting an instance of an `SignatureDrop` contract. This contract is meant to interface with ERC721 compliant NFTs that can be lazily minted.
 

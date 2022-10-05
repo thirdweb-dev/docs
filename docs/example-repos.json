@@ -134,7 +134,7 @@
     "html_url": "https://github.com/thirdweb-example/cra-typescript-starter",
     "description": "thirdweb starter project with Create React App & TypeScript",
     "created_at": "2022-03-17T23:44:42Z",
-    "updated_at": "2022-09-28T05:00:41Z",
+    "updated_at": "2022-10-04T20:54:40Z",
     "clone_url": "https://github.com/thirdweb-example/cra-typescript-starter.git",
     "topics": [
       "react",
@@ -519,13 +519,13 @@
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2022-09-29T11:14:06Z",
+    "updated_at": "2022-10-04T18:20:03Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 45,
+    "stargazers_count": 46,
     "is_template": false,
     "homepage": "https://custom-minting-page.thirdweb-example.com"
   },
@@ -534,7 +534,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-09-29T11:13:39Z",
+    "updated_at": "2022-10-04T04:58:46Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -545,7 +545,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 57,
+    "stargazers_count": 58,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -620,6 +620,19 @@
     "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://quiz.thirdweb-example.com"
+  },
+  {
+    "name": "shopify-discount-codes",
+    "html_url": "https://github.com/thirdweb-example/shopify-discount-codes",
+    "description": "Grant users who hold an NFT from your collection a discount code they can use in your Shopify store!",
+    "created_at": "2022-10-04T23:36:42Z",
+    "updated_at": "2022-10-04T23:37:36Z",
+    "clone_url": "https://github.com/thirdweb-example/shopify-discount-codes.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
   },
   {
     "name": "signature-based-minting",

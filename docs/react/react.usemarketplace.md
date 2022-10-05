@@ -11,7 +11,12 @@ displayed_sidebar: react
 
 > Warning: This API is now obsolete.
 >
-> use `useContract()` instead
+> This hook is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const marketplace = await sdk.useMarketplace("0x1234...");
+> + const marketplace = await sdk.useContract("0x1234...", "marketplace").contract;
+> ```
 
 Hook for getting an instance of a `Marketplace` contract. This contract is used to support marketplace for purchase and sale of on-chain assets.
 
@@ -39,15 +44,15 @@ export default function Component() {
 
 ```typescript
 export declare function useMarketplace(
-  contractAddress?: RequiredParam<string>,
+  contractAddress: RequiredParam<string>,
 ): import("@thirdweb-dev/sdk").Marketplace | undefined;
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                    | Description                                                                                 |
-| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | <i>(Optional)</i> the address of the Marketplace contract, found in your thirdweb dashboard |
+| Parameter       | Type                                                    | Description                                                               |
+| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------------- |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | the address of the Marketplace contract, found in your thirdweb dashboard |
 
 **Returns:**
 

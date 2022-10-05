@@ -152,7 +152,7 @@
       "summary": "Use this to claim tokens on your {@link Erc20}\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const {\n    mutate: claimTokens,\n    isLoading,\n    error,\n  } = useClaimToken(TokenDropContract);\n\n  if (error) {\n    console.error(\"failed to claim tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimTokens({ to: \"0x...\", amount: 100 })}\n    >\n      Claim Tokens!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: claimTokens,\n    isLoading,\n    error,\n  } = useClaimToken(contract);\n\n  if (error) {\n    console.error(\"failed to claim tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimTokens({ to: \"0x...\", amount: 100 })}\n    >\n      Claim Tokens!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimtoken"
@@ -747,7 +747,7 @@
       "summary": "Use this to burn tokens on your {@link Erc20} contract\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const {\n    mutate: burnTokens,\n    isLoading,\n    error,\n  } = useBurnToken(\">>YourERC20ContractInstance<<\");\n\n  if (error) {\n    console.error(\"failed to burn tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => burnTokens({ amount: 1000 })}\n    >\n      Burn!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: burnTokens,\n    isLoading,\n    error,\n  } = useBurnToken(contract);\n\n  if (error) {\n    console.error(\"failed to burn tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => burnTokens({ amount: 1000 })}\n    >\n      Burn!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useburntoken"
@@ -941,7 +941,7 @@
       "summary": "Use this to mint new tokens on your {@link Erc20} contract\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const {\n    mutate: mintTokens,\n    isLoading,\n    error,\n  } = useMintToken(\">>YourERC20ContractInstance<<\");\n\n  if (error) {\n    console.error(\"failed to mint tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => mintTokens({ to: \"0x...\", amount: 1000 })}\n    >\n      Mint!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: mintTokens,\n    isLoading,\n    error,\n  } = useMintToken(contract);\n\n  if (error) {\n    console.error(\"failed to mint tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => mintTokens({ to: \"0x...\", amount: 1000 })}\n    >\n      Mint!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useminttoken"
@@ -1155,7 +1155,7 @@
       "summary": "Use this to get the balance of your {@link Erc20} contract for a given address.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: balance, isLoading, error } = useTokenBalance(<YourTokenContractInstance>);"
+        "javascript": "const { contract } = useContract(<ContractAddress>);\nconst { data: balance, isLoading, error } = useTokenBalance(contract);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetokenbalance"
@@ -1166,7 +1166,7 @@
       "summary": "Use this to get the decimals of your {@link Erc20} contract for a given address.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: decimals, isLoading, error } = useTokenDecimals(<YourTokenContractInstance>);"
+        "javascript": "const { contract } = useContract(<ContractAddress>);\nconst { data: decimals, isLoading, error } = useTokenDecimals(contract);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetokendecimals"
@@ -1177,7 +1177,7 @@
       "summary": "Use this to get a the total supply of your {@link Erc20} contract.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: totalSupply, isLoading, error } = useTokenSupply(<YourTokenContractInstance>);"
+        "javascript": "const { contract } = useContract(<ContractAddress>);\nconst { data: totalSupply, isLoading, error } = useTokenSupply(contract);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetokensupply"
@@ -1188,7 +1188,7 @@
       "summary": "Use this to transfer batch tokens on your {@link Erc20} contract\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const {\n    mutate: transferBatchTokens,\n    isLoading,\n    error,\n  } = useTransferToken(\">>YourERC20ContractInstance<<\");\n\n  if (error) {\n    console.error(\"failed to transfer batch tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferBatchTokens([{ to: \"0x...\", amount: 1000 }, { to: \"0x...\", amount: 2000 }])}\n    >\n      Transfer Batch\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: transferBatchTokens,\n    isLoading,\n    error,\n  } = useTransferToken(contract);\n\n  if (error) {\n    console.error(\"failed to transfer batch tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferBatchTokens([{ to: \"0x...\", amount: 1000 }, { to: \"0x...\", amount: 2000 }])}\n    >\n      Transfer Batch\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetransferbatchtoken"
@@ -1199,7 +1199,7 @@
       "summary": "Use this to transfer tokens on your {@link Erc20} contract\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const {\n    mutate: transferTokens,\n    isLoading,\n    error,\n  } = useTransferToken(\">>YourERC20ContractInstance<<\");\n\n  if (error) {\n    console.error(\"failed to transfer tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferTokens({ to: \"0x...\", amount: 1000 })}\n    >\n      Transfer\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: transferTokens,\n    isLoading,\n    error,\n  } = useTransferToken(contract);\n\n  if (error) {\n    console.error(\"failed to transfer tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferTokens({ to: \"0x...\", amount: 1000 })}\n    >\n      Transfer\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetransfertoken"

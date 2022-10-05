@@ -209,6 +209,7 @@ displayed_sidebar: typescript
 | [PayloadWithUri721](./sdk.payloadwithuri721.md)                                         |                                                                                      |
 | [PayloadWithUri721withQuantity](./sdk.payloadwithuri721withquantity.md)                 |                                                                                      |
 | [PermitRequestMessage](./sdk.permitrequestmessage.md)                                   | EIP-2612 token permit message for gasless transaction                                |
+| [PrebuiltContractsInstances](./sdk.prebuiltcontractsinstances.md)                       |                                                                                      |
 | [PrebuiltContractsMap](./sdk.prebuiltcontractsmap.md)                                   |                                                                                      |
 | [PrebuiltContractType](./sdk.prebuiltcontracttype.md)                                   |                                                                                      |
 | [PreDeployMetadataFetched](./sdk.predeploymetadatafetched.md)                           |                                                                                      |

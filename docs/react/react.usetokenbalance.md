@@ -16,14 +16,15 @@ Use this to get the balance of your contract for a given address.
 ## Example
 
 ```javascript
-const { data: balance, isLoading, error } = useTokenBalance(<YourTokenContractInstance>);
+const { contract } = useContract(<ContractAddress>);
+const { data: balance, isLoading, error } = useTokenBalance(contract);
 ```
 
 **Signature:**
 
 ```typescript
 export declare function useTokenBalance(
-  contract: RequiredParam<Erc20>,
+  contract: RequiredParam<TokenContract>,
   walletAddress: RequiredParam<WalletAddress>,
 ): import("@tanstack/react-query").UseQueryResult<
   {
@@ -39,10 +40,10 @@ export declare function useTokenBalance(
 
 ## Parameters
 
-| Parameter     | Type                                                                                       | Description                      |
-| ------------- | ------------------------------------------------------------------------------------------ | -------------------------------- |
-| contract      | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt;                                     | an instance of a ERC20 contract. |
-| walletAddress | [RequiredParam](./react.requiredparam.md)&lt;[WalletAddress](./react.walletaddress.md)&gt; |                                  |
+| Parameter     | Type                                                                                       | Description                                                |
+| ------------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| contract      | [RequiredParam](./react.requiredparam.md)&lt;[TokenContract](./react.tokencontract.md)&gt; | an instance of a [TokenContract](./react.tokencontract.md) |
+| walletAddress | [RequiredParam](./react.requiredparam.md)&lt;[WalletAddress](./react.walletaddress.md)&gt; |                                                            |
 
 **Returns:**
 

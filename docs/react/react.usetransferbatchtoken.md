@@ -17,11 +17,12 @@ Use this to transfer batch tokens on your contract
 
 ```jsx
 const Component = () => {
+  const { contract } = useContract(<ContractAddress>);
   const {
     mutate: transferBatchTokens,
     isLoading,
     error,
-  } = useTransferToken(">>YourERC20ContractInstance<<");
+  } = useTransferToken(contract);
 
   if (error) {
     console.error("failed to transfer batch tokens", error);
@@ -30,12 +31,7 @@ const Component = () => {
   return (
     <button
       disabled={isLoading}
-      onClick={() =>
-        transferBatchTokens([
-          { to: "0x...", amount: 1000 },
-          { to: "0x...", amount: 2000 },
-        ])
-      }
+      onClick={() => transferBatchTokens([{ to: "0x...", amount: 1000 }, { to: "0x...", amount: 2000 }])}
     >
       Transfer Batch
     </button>
@@ -47,7 +43,7 @@ const Component = () => {
 
 ```typescript
 export declare function useTransferBatchToken(
-  contract: RequiredParam<Erc20>,
+  contract: RequiredParam<TokenContract>,
 ): import("@tanstack/react-query").UseMutationResult<
   void,
   unknown,
@@ -58,9 +54,9 @@ export declare function useTransferBatchToken(
 
 ## Parameters
 
-| Parameter | Type                                                   | Description                                                                                                            |
-| --------- | ------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instance of a contract that extends the ERC20 spec (token, token drop, custom contract that follows the ERC20 spec) |
+| Parameter | Type                                                                                       | Description                                                |
+| --------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;[TokenContract](./react.tokencontract.md)&gt; | an instance of a [TokenContract](./react.tokencontract.md) |
 
 **Returns:**
 

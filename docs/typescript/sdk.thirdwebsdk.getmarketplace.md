@@ -9,22 +9,29 @@ displayed_sidebar: typescript
 
 ## ThirdwebSDK.getMarketplace() method
 
+> Warning: This API is now obsolete.
+>
+> This method is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const marketplace = await sdk.getMarketplace("0x1234...");
+> + const marketplace = await sdk.getContract("0x1234...", "marketplace");
+> ```
+
 Get an instance of a Marketplace contract
 
 **Signature:**
 
 ```typescript
-getMarketplace(address: string): Promise<import("..").Marketplace>;
+getMarketplace(contractAddress: string): Promise<import("..").Marketplace>;
 ```
 
 ## Parameters
 
-| Parameter | Type   | Description                          |
-| --------- | ------ | ------------------------------------ |
-| address   | string | the address of the deployed contract |
+| Parameter       | Type   | Description                          |
+| --------------- | ------ | ------------------------------------ |
+| contractAddress | string | the address of the deployed contract |
 
 **Returns:**
 
 Promise&lt;import("..").[Marketplace](./sdk.marketplace.md)&gt;
-
-the contract

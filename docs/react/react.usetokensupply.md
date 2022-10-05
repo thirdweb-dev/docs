@@ -16,14 +16,15 @@ Use this to get a the total supply of your contract.
 ## Example
 
 ```javascript
-const { data: totalSupply, isLoading, error } = useTokenSupply(<YourTokenContractInstance>);
+const { contract } = useContract(<ContractAddress>);
+const { data: totalSupply, isLoading, error } = useTokenSupply(contract);
 ```
 
 **Signature:**
 
 ```typescript
 export declare function useTokenSupply(
-  contract: RequiredParam<Erc20>,
+  contract: RequiredParam<TokenContract>,
 ): import("@tanstack/react-query").UseQueryResult<
   {
     symbol: string;
@@ -38,9 +39,9 @@ export declare function useTokenSupply(
 
 ## Parameters
 
-| Parameter | Type                                                   | Description                      |
-| --------- | ------------------------------------------------------ | -------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Erc20&gt; | an instance of a ERC20 contract. |
+| Parameter | Type                                                                                       | Description                                                |
+| --------- | ------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;[TokenContract](./react.tokencontract.md)&gt; | an instance of a [TokenContract](./react.tokencontract.md) |
 
 **Returns:**
 

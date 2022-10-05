@@ -9,22 +9,29 @@ displayed_sidebar: typescript
 
 ## ThirdwebSDK.getSplit() method
 
-Get an instance of a Splits contract
+> Warning: This API is now obsolete.
+>
+> This method is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const split = await sdk.getSplit("0x1234...");
+> + const split = await sdk.getContract("0x1234...", "split");
+> ```
+
+Get an instance of a Split contract
 
 **Signature:**
 
 ```typescript
-getSplit(address: string): Promise<import("..").Split>;
+getSplit(contractAddress: string): Promise<import("..").Split>;
 ```
 
 ## Parameters
 
-| Parameter | Type   | Description                          |
-| --------- | ------ | ------------------------------------ |
-| address   | string | the address of the deployed contract |
+| Parameter       | Type   | Description                          |
+| --------------- | ------ | ------------------------------------ |
+| contractAddress | string | the address of the deployed contract |
 
 **Returns:**
 
 Promise&lt;import("..").[Split](./sdk.split.md)&gt;
-
-the contract
