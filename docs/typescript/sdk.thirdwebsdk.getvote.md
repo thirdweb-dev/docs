@@ -9,22 +9,29 @@ displayed_sidebar: typescript
 
 ## ThirdwebSDK.getVote() method
 
+> Warning: This API is now obsolete.
+>
+> This method is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const vote = await sdk.getVote("0x1234...");
+> + const vote = await sdk.getContract("0x1234...", "vote");
+> ```
+
 Get an instance of a Vote contract
 
 **Signature:**
 
 ```typescript
-getVote(address: string): Promise<import("..").Vote>;
+getVote(contractAddress: string): Promise<import("..").Vote>;
 ```
 
 ## Parameters
 
-| Parameter | Type   | Description                          |
-| --------- | ------ | ------------------------------------ |
-| address   | string | the address of the deployed contract |
+| Parameter       | Type   | Description                          |
+| --------------- | ------ | ------------------------------------ |
+| contractAddress | string | the address of the deployed contract |
 
 **Returns:**
 
 Promise&lt;import("..").[Vote](./sdk.vote.md)&gt;
-
-the contract

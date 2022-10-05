@@ -11,7 +11,12 @@ displayed_sidebar: react
 
 > Warning: This API is now obsolete.
 >
-> use `useContract()` instead
+> This hook is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const vote = await sdk.useVote("0x1234...");
+> + const vote = await sdk.useContract("0x1234...", "vote").contract;
+> ```
 
 Hook for getting an instance of an `Vote` contract. This contract enables fully featured voting-based decentralized governance systems.
 
@@ -39,15 +44,15 @@ export default function Component() {
 
 ```typescript
 export declare function useVote(
-  contractAddress?: RequiredParam<string>,
+  contractAddress: RequiredParam<string>,
 ): import("@thirdweb-dev/sdk").Vote | undefined;
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                    | Description                                                                          |
-| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | <i>(Optional)</i> the address of the Vote contract, found in your thirdweb dashboard |
+| Parameter       | Type                                                    | Description                                                        |
+| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------ |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | the address of the Vote contract, found in your thirdweb dashboard |
 
 **Returns:**
 

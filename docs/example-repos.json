@@ -134,7 +134,7 @@
     "html_url": "https://github.com/thirdweb-example/cra-typescript-starter",
     "description": "thirdweb starter project with Create React App & TypeScript",
     "created_at": "2022-03-17T23:44:42Z",
-    "updated_at": "2022-09-28T05:00:41Z",
+    "updated_at": "2022-10-04T20:54:40Z",
     "clone_url": "https://github.com/thirdweb-example/cra-typescript-starter.git",
     "topics": [
       "react",
@@ -620,6 +620,19 @@
     "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://quiz.thirdweb-example.com"
+  },
+  {
+    "name": "shopify-discount-codes",
+    "html_url": "https://github.com/thirdweb-example/shopify-discount-codes",
+    "description": "Grant users who hold an NFT from your collection a discount code they can use in your Shopify store!",
+    "created_at": "2022-10-04T23:36:42Z",
+    "updated_at": "2022-10-04T23:37:36Z",
+    "clone_url": "https://github.com/thirdweb-example/shopify-discount-codes.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
   },
   {
     "name": "signature-based-minting",

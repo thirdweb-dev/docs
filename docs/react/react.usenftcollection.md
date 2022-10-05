@@ -11,7 +11,12 @@ displayed_sidebar: react
 
 > Warning: This API is now obsolete.
 >
-> use `useContract()` instead
+> This hook is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const nftCollection = await sdk.useNFTCollection("0x1234...");
+> + const nftCollection = await sdk.useContract("0x1234...", "nft-collection").contract;
+> ```
 
 Hook for getting an instance of an `NFTCollection` contract. This contract is meant to interface with ERC721 compliant NFTs.
 
@@ -39,15 +44,15 @@ export default function Component() {
 
 ```typescript
 export declare function useNFTCollection(
-  contractAddress?: RequiredParam<string>,
+  contractAddress: RequiredParam<string>,
 ): import("@thirdweb-dev/sdk").NFTCollection | undefined;
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                    | Description                                                                                    |
-| --------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | <i>(Optional)</i> the address of the NFT Collection contract, found in your thirdweb dashboard |
+| Parameter       | Type                                                    | Description                                                                  |
+| --------------- | ------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | the address of the NFT Collection contract, found in your thirdweb dashboard |
 
 **Returns:**
 

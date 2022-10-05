@@ -11,7 +11,12 @@ displayed_sidebar: react
 
 > Warning: This API is now obsolete.
 >
-> use `useContract()` instead
+> This hook is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const pack = await sdk.usePack("0x1234...");
+> + const pack = await sdk.useContract("0x1234...", "pack").contract;
+> ```
 
 Hook for getting an instance of a `Pack` contract. This contract supports the creation of on-chain luck-based lootboxes.
 
@@ -39,15 +44,15 @@ export default function Component() {
 
 ```typescript
 export declare function usePack(
-  contractAddress?: RequiredParam<string>,
+  contractAddress: RequiredParam<string>,
 ): import("@thirdweb-dev/sdk").Pack | undefined;
 ```
 
 ## Parameters
 
-| Parameter       | Type                                                    | Description                                                                          |
-| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------------ |
-| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | <i>(Optional)</i> the address of the Pack contract, found in your thirdweb dashboard |
+| Parameter       | Type                                                    | Description                                                        |
+| --------------- | ------------------------------------------------------- | ------------------------------------------------------------------ |
+| contractAddress | [RequiredParam](./react.requiredparam.md)&lt;string&gt; | the address of the Pack contract, found in your thirdweb dashboard |
 
 **Returns:**
 

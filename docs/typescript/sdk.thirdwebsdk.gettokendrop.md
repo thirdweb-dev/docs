@@ -9,22 +9,29 @@ displayed_sidebar: typescript
 
 ## ThirdwebSDK.getTokenDrop() method
 
+> Warning: This API is now obsolete.
+>
+> This method is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const tokenDrop = await sdk.getTokenDrop("0x1234...");
+> + const tokenDrop = await sdk.getContract("0x1234...", "token-drop");
+> ```
+
 Get an instance of a Token Drop contract
 
 **Signature:**
 
 ```typescript
-getTokenDrop(address: string): Promise<import("..").TokenDrop>;
+getTokenDrop(contractAddress: string): Promise<import("..").TokenDrop>;
 ```
 
 ## Parameters
 
-| Parameter | Type   | Description                          |
-| --------- | ------ | ------------------------------------ |
-| address   | string | the address of the deployed contract |
+| Parameter       | Type   | Description                          |
+| --------------- | ------ | ------------------------------------ |
+| contractAddress | string | the address of the deployed contract |
 
 **Returns:**
 
 Promise&lt;import("..").[TokenDrop](./sdk.tokendrop.md)&gt;
-
-the contract

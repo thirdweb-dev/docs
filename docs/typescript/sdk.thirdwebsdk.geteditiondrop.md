@@ -9,22 +9,29 @@ displayed_sidebar: typescript
 
 ## ThirdwebSDK.getEditionDrop() method
 
+> Warning: This API is now obsolete.
+>
+> This method is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const editionDrop = await sdk.getEditionDrop("0x1234...");
+> + const editionDrop = await sdk.getContract("0x1234...", "edition-drop");
+> ```
+
 Get an instance of a Edition Drop contract
 
 **Signature:**
 
 ```typescript
-getEditionDrop(address: string): Promise<import("..").EditionDrop>;
+getEditionDrop(contractAddress: string): Promise<import("..").EditionDrop>;
 ```
 
 ## Parameters
 
-| Parameter | Type   | Description                          |
-| --------- | ------ | ------------------------------------ |
-| address   | string | the address of the deployed contract |
+| Parameter       | Type   | Description                          |
+| --------------- | ------ | ------------------------------------ |
+| contractAddress | string | the address of the deployed contract |
 
 **Returns:**
 
 Promise&lt;import("..").[EditionDrop](./sdk.editiondrop.md)&gt;
-
-the contract

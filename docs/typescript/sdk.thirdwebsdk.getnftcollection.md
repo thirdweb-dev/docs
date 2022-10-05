@@ -9,22 +9,29 @@ displayed_sidebar: typescript
 
 ## ThirdwebSDK.getNFTCollection() method
 
-Get an instance of a NFT Collection contract
+> Warning: This API is now obsolete.
+>
+> This method is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const signatureDrop = await sdk.getNFTCollection("0x1234...");
+> + const signatureDrop = await sdk.getContract("0x1234...", "nft-collection");
+> ```
+
+Get an instance of a NFT Collection Drop contract
 
 **Signature:**
 
 ```typescript
-getNFTCollection(address: string): Promise<import("..").NFTCollection>;
+getNFTCollection(contractAddress: string): Promise<import("..").NFTCollection>;
 ```
 
 ## Parameters
 
-| Parameter | Type   | Description                          |
-| --------- | ------ | ------------------------------------ |
-| address   | string | the address of the deployed contract |
+| Parameter       | Type   | Description                          |
+| --------------- | ------ | ------------------------------------ |
+| contractAddress | string | the address of the deployed contract |
 
 **Returns:**
 
 Promise&lt;import("..").[NFTCollection](./sdk.nftcollection.md)&gt;
-
-the contract

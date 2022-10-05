@@ -9,7 +9,16 @@ displayed_sidebar: typescript
 
 ## ThirdwebSDK.getSignatureDrop() method
 
-Get an instance of a SignatureDrop contract
+> Warning: This API is now obsolete.
+>
+> This method is deprecated and will be removed in a future major version. You should use instead.
+>
+> ```diff
+> - const signatureDrop = await sdk.getSignatureDrop("0x1234...");
+> + const signatureDrop = await sdk.getContract("0x1234...", "signature-drop");
+> ```
+
+Get an instance of a Signature Drop contract
 
 **Signature:**
 
@@ -26,5 +35,3 @@ getSignatureDrop(contractAddress: string): Promise<import("..").SignatureDrop>;
 **Returns:**
 
 Promise&lt;import("..").[SignatureDrop](./sdk.signaturedrop.md)&gt;
-
-the contract
