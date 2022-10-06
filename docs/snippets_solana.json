@@ -568,6 +568,19 @@
           "javascript": "https://portal.thirdweb.com/typescript/sdk.program.fetch",
           "react": "https://portal.thirdweb.com/typescript/sdk.program.fetch"
         }
+      },
+      {
+        "name": "fetchMultiple",
+        "summary": "Read multiple accounts data associated with this program\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const accountAddresses = [\"...\", \"...\"];\nconst counterAccounts = await program.fetchMultiple(\"counterAccount\", accountAddresses);",
+          "react": "const accountAddresses = [\"...\", \"...\"];\nconst counterAccounts = await program.fetchMultiple(\"counterAccount\", accountAddresses);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.program.fetchmultiple",
+          "react": "https://portal.thirdweb.com/typescript/sdk.program.fetchmultiple"
+        }
       }
     ],
     "properties": [],
