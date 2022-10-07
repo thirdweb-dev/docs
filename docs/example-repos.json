@@ -185,7 +185,7 @@
     "html_url": "https://github.com/thirdweb-example/dao",
     "description": "Build a DAO using thirdweb's vote, token, and edition drop contracts.",
     "created_at": "2022-05-17T11:42:42Z",
-    "updated_at": "2022-09-29T20:07:29Z",
+    "updated_at": "2022-10-07T00:51:20Z",
     "clone_url": "https://github.com/thirdweb-example/dao.git",
     "topics": [
       "edition-drop",
@@ -193,7 +193,7 @@
       "vote"
     ],
     "language": "JavaScript",
-    "stargazers_count": 12,
+    "stargazers_count": 13,
     "is_template": false,
     "homepage": "https://dao.thirdweb-example.com"
   },

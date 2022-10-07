@@ -32,15 +32,17 @@ export declare function useClaimConditions(
 ): import("@tanstack/react-query").UseQueryResult<
   {
     primarySaleRecipient: string;
+    startTime: Date | null;
     price: {
       value: string;
       displayValue: string;
     };
     currencyAddress: string | null;
+    maxClaimable: string;
     sellerFeeBasisPoints: number;
-    goLiveDate: Date | null;
     totalAvailableSupply: number;
     lazyMintedSupply: number;
+    claimedSupply: number;
     isReadyToClaim: boolean;
   },
   unknown
@@ -55,4 +57,4 @@ export declare function useClaimConditions(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ primarySaleRecipient: string; price: { value: string; displayValue: string; }; currencyAddress: string \| null; sellerFeeBasisPoints: number; goLiveDate: Date \| null; totalAvailableSupply: number; lazyMintedSupply: number; isReadyToClaim: boolean; }, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ primarySaleRecipient: string; startTime: Date \| null; price: { value: string; displayValue: string; }; currencyAddress: string \| null; maxClaimable: string; sellerFeeBasisPoints: number; totalAvailableSupply: number; lazyMintedSupply: number; claimedSupply: number; isReadyToClaim: boolean; }, unknown&gt;

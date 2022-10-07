@@ -42,10 +42,11 @@ export declare function useSetClaimConditions(
   unknown,
   {
     primarySaleRecipient?: string | undefined;
+    startTime?: Date | undefined;
     price?: string | number | undefined;
     currencyAddress?: string | null | undefined;
+    maxClaimable?: string | number | undefined;
     sellerFeeBasisPoints?: number | undefined;
-    goLiveDate?: Date | undefined;
   },
   unknown
 >;
@@ -59,4 +60,4 @@ export declare function useSetClaimConditions(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/solana").TransactionResult, unknown, { primarySaleRecipient?: string \| undefined; price?: string \| number \| undefined; currencyAddress?: string \| null \| undefined; sellerFeeBasisPoints?: number \| undefined; goLiveDate?: Date \| undefined; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/solana").TransactionResult, unknown, { primarySaleRecipient?: string \| undefined; startTime?: Date \| undefined; price?: string \| number \| undefined; currencyAddress?: string \| null \| undefined; maxClaimable?: string \| number \| undefined; sellerFeeBasisPoints?: number \| undefined; }, unknown&gt;

@@ -23,15 +23,17 @@ export declare function claimConditionsQuery(program: RequiredParam<NFTDrop>): {
   ];
   queryFn: () => Promise<{
     primarySaleRecipient: string;
+    startTime: Date | null;
     price: {
       value: string;
       displayValue: string;
     };
     currencyAddress: string | null;
+    maxClaimable: string;
     sellerFeeBasisPoints: number;
-    goLiveDate: Date | null;
     totalAvailableSupply: number;
     lazyMintedSupply: number;
+    claimedSupply: number;
     isReadyToClaim: boolean;
   }>;
   enabled: boolean;
@@ -46,4 +48,4 @@ export declare function claimConditionsQuery(program: RequiredParam<NFTDrop>): {
 
 **Returns:**
 
-{ queryKey: readonly \["\_\_tw\_\_", "sol", RequiredParam&lt;import("@thirdweb-dev/sdk/solana").Network&gt;, "program", string \| undefined, "claimConditions"\]; queryFn: () =&gt; Promise&lt;{ primarySaleRecipient: string; price: { value: string; displayValue: string; }; currencyAddress: string \| null; sellerFeeBasisPoints: number; goLiveDate: Date \| null; totalAvailableSupply: number; lazyMintedSupply: number; isReadyToClaim: boolean; }&gt;; enabled: boolean; }
+{ queryKey: readonly \["\_\_tw\_\_", "sol", RequiredParam&lt;import("@thirdweb-dev/sdk/solana").Network&gt;, "program", string \| undefined, "claimConditions"\]; queryFn: () =&gt; Promise&lt;{ primarySaleRecipient: string; startTime: Date \| null; price: { value: string; displayValue: string; }; currencyAddress: string \| null; maxClaimable: string; sellerFeeBasisPoints: number; totalAvailableSupply: number; lazyMintedSupply: number; claimedSupply: number; isReadyToClaim: boolean; }&gt;; enabled: boolean; }
