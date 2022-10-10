@@ -102,7 +102,13 @@ export default function ThirdwebFeatureCodeSnippet({
           return (
             <TabItem key={language} value={language} label={languageInfo.label}>
               <CodeBlock language={languageInfo.syntax}>{example}</CodeBlock>
-
+              <p className="code-snippet-migration-tip">
+                This snippet is for <strong>v3</strong> of the SDK.{" "}
+                <a href={`${languageInfo.docsLink}/migration-guide`}>
+                  Learn how to upgrade
+                </a>
+                .
+              </p>
               {reference && (
                 <a
                   href={reference}
@@ -119,7 +125,6 @@ export default function ThirdwebFeatureCodeSnippet({
           );
         })}
       </Tabs>
-
       {showHr && (
         <hr
           style={{
