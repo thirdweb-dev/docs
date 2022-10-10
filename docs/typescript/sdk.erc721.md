@@ -20,14 +20,15 @@ await contract.erc721.transfer(walletAddress, tokenId);
 
 ## Constructors
 
-| Constructor                                                              | Modifiers | Description                                                |
-| ------------------------------------------------------------------------ | --------- | ---------------------------------------------------------- |
-| [(constructor)(contractWrapper, storage)](./sdk.erc721._constructor_.md) |           | Constructs a new instance of the <code>Erc721</code> class |
+| Constructor                                                                       | Modifiers | Description                                                |
+| --------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------- |
+| [(constructor)(contractWrapper, storage, chainId)](./sdk.erc721._constructor_.md) |           | Constructs a new instance of the <code>Erc721</code> class |
 
 ## Properties
 
 | Property                                           | Modifiers              | Type                                                                                                                                             | Description                |
 | -------------------------------------------------- | ---------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------- |
+| [chainId](./sdk.erc721.chainid.md)                 | <code>readonly</code>  | number                                                                                                                                           |                            |
 | [claimConditions](./sdk.erc721.claimconditions.md) | <code>readonly</code>  | import("./drop-claim-conditions").[DropClaimConditions](./sdk.dropclaimconditions.md)&lt;import("../../types/eips").BaseClaimConditionERC721&gt; | Configure claim conditions |
 | [contractWrapper](./sdk.erc721.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;                                                                                                                         |                            |
 | [featureName](./sdk.erc721.featurename.md)         |                        | "ERC721"                                                                                                                                         |                            |

@@ -579,6 +579,17 @@
       }
     },
     {
+      "name": "useStorageUpload",
+      "summary": "Hook used to upload any files or JSON data to decentralized storage systems like IPFS, using the `storageInterface` configured on the `ThirdwebProvider`\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "import { useStorageUpload } from \"@thirdweb-dev/react\";\n\nexport default function Component() {\n  const { mutateAsync: upload, isLoading } = useStorageUpload();\n\n  async function uploadData() {\n    const filesToUpload = [...];\n    const uris = await upload({ data: files });\n    console.log(uris);\n  }\n\n  return (\n    <button onClick={uploadData}>\n      Upload\n    </button>\n  )\n}"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usestorageupload"
+      }
+    },
+    {
       "name": "useToken",
       "summary": "Hook for getting an instance of a `Token` contract. This contract supports ERC20 compliant tokens.\n\n",
       "remarks": null,

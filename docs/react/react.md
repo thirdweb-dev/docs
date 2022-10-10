@@ -142,6 +142,8 @@ import { useNetworkMistmatch } from "@thirdweb-dev/react";
 | [useSetClaimConditions(contract, tokenId)](./react.usesetclaimconditions.md) | **<i>(BETA)</i>** Use this to set claim conditions on your [DropContract](./react.dropcontract.md) |
 | [useSignatureDrop(contractAddress)](./react.usesignaturedrop.md) | Hook for getting an instance of an <code>SignatureDrop</code> contract. This contract is meant to interface with ERC721 compliant NFTs that can be lazily minted. |
 | [useSplit(contractAddress)](./react.usesplit.md) | Hook for getting an instance of a <code>Split</code> contract. This contract supports fund distribution to multiple parties. |
+| [useStorage()](./react.usestorage.md) | Get the configured <code>ThirdwebStorage</code> instance |
+| [useStorageUpload(uploadOptions)](./react.usestorageupload.md) | Hook used to upload any files or JSON data to decentralized storage systems like IPFS, using the <code>storageInterface</code> configured on the <code>ThirdwebProvider</code> |
 | [useToken(contractAddress)](./react.usetoken.md) | Hook for getting an instance of a <code>Token</code> contract. This contract supports ERC20 compliant tokens. |
 | [useTokenBalance(contract, walletAddress)](./react.usetokenbalance.md) | **<i>(BETA)</i>** Use this to get the balance of your contract for a given address. |
 | [useTokenDecimals(contract)](./react.usetokendecimals.md) | **<i>(BETA)</i>** Use this to get the decimals of your contract for a given address. |

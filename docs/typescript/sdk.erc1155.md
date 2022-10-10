@@ -20,14 +20,15 @@ await contract.erc1155.transfer(walletAddress, tokenId, quantity);
 
 ## Constructors
 
-| Constructor                                                               | Modifiers | Description                                                 |
-| ------------------------------------------------------------------------- | --------- | ----------------------------------------------------------- |
-| [(constructor)(contractWrapper, storage)](./sdk.erc1155._constructor_.md) |           | Constructs a new instance of the <code>Erc1155</code> class |
+| Constructor                                                                        | Modifiers | Description                                                 |
+| ---------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------- |
+| [(constructor)(contractWrapper, storage, chainId)](./sdk.erc1155._constructor_.md) |           | Constructs a new instance of the <code>Erc1155</code> class |
 
 ## Properties
 
 | Property                                            | Modifiers              | Type                                                                                                                                                                    | Description                |
 | --------------------------------------------------- | ---------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| [chainId](./sdk.erc1155.chainid.md)                 | <code>readonly</code>  | number                                                                                                                                                                  |                            |
 | [claimConditions](./sdk.erc1155.claimconditions.md) | <code>readonly</code>  | import("./drop-erc1155-claim-conditions").[DropErc1155ClaimConditions](./sdk.droperc1155claimconditions.md)&lt;import("../../types/eips").BaseClaimConditionERC1155&gt; | Configure claim conditions |
 | [contractWrapper](./sdk.erc1155.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;                                                                                                                                                |                            |
 | [featureName](./sdk.erc1155.featurename.md)         |                        | "ERC1155"                                                                                                                                                               |                            |

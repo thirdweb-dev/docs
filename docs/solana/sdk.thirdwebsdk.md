@@ -36,12 +36,13 @@ sdk.wallet.connect(signer);
 
 ## Properties
 
-| Property                                  | Modifiers             | Type                                      | Description                                                               |
-| ----------------------------------------- | --------------------- | ----------------------------------------- | ------------------------------------------------------------------------- |
-| [deployer](./sdk.thirdwebsdk.deployer.md) |                       | [Deployer](./sdk.deployer.md)             | Deploy new programs                                                       |
-| [network](./sdk.thirdwebsdk.network.md)   | <code>readonly</code> | import("@metaplex-foundation/js").Cluster | The currently connected network                                           |
-| [registry](./sdk.thirdwebsdk.registry.md) |                       | Registry                                  | Handles getting data about accounts and programs associated with a wallet |
-| [wallet](./sdk.thirdwebsdk.wallet.md)     |                       | [UserWallet](./sdk.userwallet.md)         | Manage and get info about the connected wallet                            |
+| Property                                  | Modifiers             | Type                                                | Description                                                               |
+| ----------------------------------------- | --------------------- | --------------------------------------------------- | ------------------------------------------------------------------------- |
+| [auth](./sdk.thirdwebsdk.auth.md)         |                       | [WalletAuthenticator](./sdk.walletauthenticator.md) | Enable wallet-based server-side authentication                            |
+| [deployer](./sdk.thirdwebsdk.deployer.md) |                       | [Deployer](./sdk.deployer.md)                       | Deploy new programs                                                       |
+| [network](./sdk.thirdwebsdk.network.md)   | <code>readonly</code> | import("@metaplex-foundation/js").Cluster           | The currently connected network                                           |
+| [registry](./sdk.thirdwebsdk.registry.md) |                       | Registry                                            | Handles getting data about accounts and programs associated with a wallet |
+| [wallet](./sdk.thirdwebsdk.wallet.md)     |                       | [UserWallet](./sdk.userwallet.md)                   | Manage and get info about the connected wallet                            |
 
 ## Methods
 
@@ -52,5 +53,7 @@ sdk.wallet.connect(signer);
 | [getNFTCollection(address)](./sdk.thirdwebsdk.getnftcollection.md)                  |                     | Get an SDK interface for an NFT Collection program            |
 | [getNFTDrop(address)](./sdk.thirdwebsdk.getnftdrop.md)                              |                     | Get an SDK interface for an NFT Drop program                  |
 | [getProgram(address)](./sdk.thirdwebsdk.getprogram.md)                              |                     | Get an SDK interface for a deployed program                   |
+| [getProgram(address, programType)](./sdk.thirdwebsdk.getprogram_1.md)               |                     | Get an SDK interface for a deployed program                   |
+| [getProgram(address, Idl)](./sdk.thirdwebsdk.getprogram_2.md)                       |                     | Get an SDK interface for a deployed program                   |
 | [getProgramWithIdl(address, idl)](./sdk.thirdwebsdk.getprogramwithidl.md)           |                     | Get an SDK interface for a deployed program                   |
 | [getToken(address)](./sdk.thirdwebsdk.gettoken.md)                                  |                     | Get an SDK interface for an Token program                     |

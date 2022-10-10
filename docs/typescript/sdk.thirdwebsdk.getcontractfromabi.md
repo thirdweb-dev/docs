@@ -29,7 +29,7 @@ const contract = sdk.getContractFromAbi(
 **Signature:**
 
 ```typescript
-getContractFromAbi(address: string, abi: ContractInterface): SmartContract<ethers.BaseContract>;
+getContractFromAbi(address: string, abi: ContractInterface): Promise<SmartContract<ethers.BaseContract>>;
 ```
 
 ## Parameters
@@ -41,6 +41,6 @@ getContractFromAbi(address: string, abi: ContractInterface): SmartContract<ether
 
 **Returns:**
 
-SmartContract&lt;ethers.BaseContract&gt;
+Promise&lt;SmartContract&lt;ethers.BaseContract&gt;&gt;
 
 the contract

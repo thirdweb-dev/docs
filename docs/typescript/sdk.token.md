@@ -17,14 +17,14 @@ Create a standard crypto token or cryptocurrency.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getToken("{{contract_address}}");
+const contract = sdk.getContract("{{contract_address}}", "token");
 ```
 
 ## Constructors
 
-| Constructor                                                                                             | Modifiers | Description                                               |
-| ------------------------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------- |
-| [(constructor)(network, address, storage, options, abi, contractWrapper)](./sdk.token._constructor_.md) |           | Constructs a new instance of the <code>Token</code> class |
+| Constructor                                                                                                      | Modifiers | Description                                               |
+| ---------------------------------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------- |
+| [(constructor)(network, address, storage, options, abi, chainId, contractWrapper)](./sdk.token._constructor_.md) |           | Constructs a new instance of the <code>Token</code> class |
 
 ## Properties
 

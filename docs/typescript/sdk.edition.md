@@ -17,14 +17,14 @@ Create a collection of NFTs that lets you mint multiple copies of each NFT.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getEdition("{{contract_address}}");
+const contract = sdk.getContract("{{contract_address}}", "edition");
 ```
 
 ## Constructors
 
-| Constructor                                                                                               | Modifiers | Description                                                 |
-| --------------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------- |
-| [(constructor)(network, address, storage, options, abi, contractWrapper)](./sdk.edition._constructor_.md) |           | Constructs a new instance of the <code>Edition</code> class |
+| Constructor                                                                                                        | Modifiers | Description                                                 |
+| ------------------------------------------------------------------------------------------------------------------ | --------- | ----------------------------------------------------------- |
+| [(constructor)(network, address, storage, options, abi, chainId, contractWrapper)](./sdk.edition._constructor_.md) |           | Constructs a new instance of the <code>Edition</code> class |
 
 ## Properties
 

@@ -14,7 +14,7 @@ Constructs a new instance of the `Erc721` class
 **Signature:**
 
 ```typescript
-constructor(contractWrapper: ContractWrapper<T>, storage: ThirdwebStorage);
+constructor(contractWrapper: ContractWrapper<T>, storage: ThirdwebStorage, chainId: number);
 ```
 
 ## Parameters
@@ -23,3 +23,4 @@ constructor(contractWrapper: ContractWrapper<T>, storage: ThirdwebStorage);
 | --------------- | ------------------------ | ----------- |
 | contractWrapper | ContractWrapper&lt;T&gt; |             |
 | storage         | ThirdwebStorage          |             |
+| chainId         | number                   |             |

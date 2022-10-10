@@ -17,24 +17,25 @@ Create a decentralized organization for token holders to vote on proposals.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getVote("{{contract_address}}");
+const contract = sdk.getContract("{{contract_address}}", "vote");
 ```
 
 ## Constructors
 
-| Constructor                                                                                            | Modifiers | Description                                              |
-| ------------------------------------------------------------------------------------------------------ | --------- | -------------------------------------------------------- |
-| [(constructor)(network, address, storage, options, abi, contractWrapper)](./sdk.vote._constructor_.md) |           | Constructs a new instance of the <code>Vote</code> class |
+| Constructor                                                                                                     | Modifiers | Description                                              |
+| --------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------- |
+| [(constructor)(network, address, storage, options, abi, chainId, contractWrapper)](./sdk.vote._constructor_.md) |           | Constructs a new instance of the <code>Vote</code> class |
 
 ## Properties
 
-| Property                             | Modifiers | Type                                                                                      | Description |
-| ------------------------------------ | --------- | ----------------------------------------------------------------------------------------- | ----------- |
-| [abi](./sdk.vote.abi.md)             |           | typeof ABI                                                                                |             |
-| [encoder](./sdk.vote.encoder.md)     |           | [ContractEncoder](./sdk.contractencoder.md)&lt;VoteERC20&gt;                              |             |
-| [estimator](./sdk.vote.estimator.md) |           | [GasCostEstimator](./sdk.gascostestimator.md)&lt;VoteERC20&gt;                            |             |
-| [events](./sdk.vote.events.md)       |           | [ContractEvents](./sdk.contractevents.md)&lt;VoteERC20&gt;                                |             |
-| [metadata](./sdk.vote.metadata.md)   |           | [ContractMetadata](./sdk.contractmetadata.md)&lt;VoteERC20, typeof VoteContractSchema&gt; |             |
+| Property                             | Modifiers             | Type                                                                                      | Description |
+| ------------------------------------ | --------------------- | ----------------------------------------------------------------------------------------- | ----------- |
+| [abi](./sdk.vote.abi.md)             |                       | typeof ABI                                                                                |             |
+| [chainId](./sdk.vote.chainid.md)     | <code>readonly</code> | number                                                                                    |             |
+| [encoder](./sdk.vote.encoder.md)     |                       | [ContractEncoder](./sdk.contractencoder.md)&lt;VoteERC20&gt;                              |             |
+| [estimator](./sdk.vote.estimator.md) |                       | [GasCostEstimator](./sdk.gascostestimator.md)&lt;VoteERC20&gt;                            |             |
+| [events](./sdk.vote.events.md)       |                       | [ContractEvents](./sdk.contractevents.md)&lt;VoteERC20&gt;                                |             |
+| [metadata](./sdk.vote.metadata.md)   |                       | [ContractMetadata](./sdk.contractmetadata.md)&lt;VoteERC20, typeof VoteContractSchema&gt; |             |
 
 ## Methods
 

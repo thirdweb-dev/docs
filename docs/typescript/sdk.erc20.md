@@ -20,14 +20,15 @@ await contract.erc20.transfer(walletAddress, amount);
 
 ## Constructors
 
-| Constructor                                                             | Modifiers | Description                                               |
-| ----------------------------------------------------------------------- | --------- | --------------------------------------------------------- |
-| [(constructor)(contractWrapper, storage)](./sdk.erc20._constructor_.md) |           | Constructs a new instance of the <code>Erc20</code> class |
+| Constructor                                                                      | Modifiers | Description                                               |
+| -------------------------------------------------------------------------------- | --------- | --------------------------------------------------------- |
+| [(constructor)(contractWrapper, storage, chainId)](./sdk.erc20._constructor_.md) |           | Constructs a new instance of the <code>Erc20</code> class |
 
 ## Properties
 
 | Property                                          | Modifiers              | Type                                                                                                       | Description                |
 | ------------------------------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------- | -------------------------- |
+| [chainId](./sdk.erc20.chainid.md)                 | <code>readonly</code>  | number                                                                                                     |                            |
 | [claimConditions](./sdk.erc20.claimconditions.md) | <code>readonly</code>  | import("./drop-claim-conditions").[DropClaimConditions](./sdk.dropclaimconditions.md)&lt;BaseDropERC20&gt; | Configure claim conditions |
 | [contractWrapper](./sdk.erc20.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;                                                                                   |                            |
 | [featureName](./sdk.erc20.featurename.md)         |                        | "ERC20"                                                                                                    |                            |

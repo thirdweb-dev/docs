@@ -9,8 +9,6 @@ displayed_sidebar: typescript
 
 ## WalletAuthenticator class
 
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
-
 Wallet Authenticator
 
 ## Example
@@ -35,18 +33,18 @@ const address = sdk.auth.authenticate(domain, token);
 
 ## Constructors
 
-| Constructor                                                                           | Modifiers | Description                                                                               |
-| ------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------------- |
-| [(constructor)(network, wallet, options)](./sdk.walletauthenticator._constructor_.md) |           | **<i>(BETA)</i>** Constructs a new instance of the <code>WalletAuthenticator</code> class |
+| Constructor                                                                           | Modifiers | Description                                                             |
+| ------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------- |
+| [(constructor)(network, wallet, options)](./sdk.walletauthenticator._constructor_.md) |           | Constructs a new instance of the <code>WalletAuthenticator</code> class |
 
 ## Methods
 
-| Method                                                                                        | Modifiers | Description                                     |
-| --------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------- |
-| [authenticate(domain, token)](./sdk.walletauthenticator.authenticate.md)                      |           | **<i>(BETA)</i>** Authenticate With Token       |
-| [generateAuthToken(domain, payload, options)](./sdk.walletauthenticator.generateauthtoken.md) |           | **<i>(BETA)</i>** Generate Authentication Token |
-| [login(domain, options)](./sdk.walletauthenticator.login.md)                                  |           | **<i>(BETA)</i>** Login With Connected Wallet   |
-| [verify(domain, payload, options)](./sdk.walletauthenticator.verify.md)                       |           | **<i>(BETA)</i>** Verify Logged In Address      |
+| Method                                                                                        | Modifiers | Description                   |
+| --------------------------------------------------------------------------------------------- | --------- | ----------------------------- |
+| [authenticate(domain, token)](./sdk.walletauthenticator.authenticate.md)                      |           | Authenticate With Token       |
+| [generateAuthToken(domain, payload, options)](./sdk.walletauthenticator.generateauthtoken.md) |           | Generate Authentication Token |
+| [login(domain, options)](./sdk.walletauthenticator.login.md)                                  |           | Login With Connected Wallet   |
+| [verify(domain, payload, options)](./sdk.walletauthenticator.verify.md)                       |           | Verify Logged In Address      |
 
 **Signature:**
 

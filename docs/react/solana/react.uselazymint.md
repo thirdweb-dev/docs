@@ -38,30 +38,8 @@ export declare function useLazyMint(
   import("@thirdweb-dev/sdk/solana").TransactionResult,
   unknown,
   {
-    [x: string]: unknown;
-    name?: string | number | undefined;
-    description?: string | null | undefined;
-    image?: any;
-    external_url?: any;
-    animation_url?: any;
-    background_color?: string | undefined;
-    properties?:
-      | {
-          [x: string]: unknown;
-        }
-      | {
-          [x: string]: unknown;
-        }[]
-      | undefined;
-    attributes?:
-      | {
-          [x: string]: unknown;
-        }
-      | {
-          [x: string]: unknown;
-        }[]
-      | undefined;
-  }[],
+    metadatas: NFTMetadataInput[];
+  },
   unknown
 >;
 ```
@@ -75,4 +53,4 @@ export declare function useLazyMint(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/solana").TransactionResult, unknown, { \[x: string\]: unknown; name?: string \| number \| undefined; description?: string \| null \| undefined; image?: any; external_url?: any; animation_url?: any; background_color?: string \| undefined; properties?: { \[x: string\]: unknown; } \| { \[x: string\]: unknown; }\[\] \| undefined; attributes?: { \[x: string\]: unknown; } \| { \[x: string\]: unknown; }\[\] \| undefined; }\[\], unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/solana").TransactionResult, unknown, { metadatas: NFTMetadataInput\[\]; }, unknown&gt;
