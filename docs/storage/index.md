@@ -85,5 +85,5 @@ const metadata = await storage.downloadJSON(uris);
 You can learn more about thirdweb and the Storage SDK with the following resources:
 
 - [Storage Docs](https://portal.thirdweb.com/storage)
-- [Thirdweb Twitter](https://twitter.com/thirdweb)
+- [Thirdweb Twitter](https://twitter.com/thirdweb_)
 - [Thirdweb Discord](https://discord.com/invite/thirdweb)

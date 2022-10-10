@@ -26,7 +26,7 @@ const sdk = ThirdwebSDK.fromNetwork("devnet");
 sdk.wallet.connect(signer);
 
 // Get the interface for your program
-const program = await sdk.getProgram("{{contract_address}}");
+const program = await sdk.getProgram("{{program_address}}");
 ```
 
 ## Constructors

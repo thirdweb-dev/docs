@@ -157,4 +157,4 @@ make test
 ## Get in touch
 
 - [Discord](https://discord.gg/thirdweb)
-- [Twitter](https://twitter.com/thirdweb/)
+- [Twitter](https://twitter.com/thirdweb_/)
