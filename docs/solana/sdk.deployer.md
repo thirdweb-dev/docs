@@ -38,9 +38,9 @@ const address = await sdk.deployer.createNftCollection(metadata);
 
 ## Constructors
 
-| Constructor                                                         | Modifiers | Description                                                  |
-| ------------------------------------------------------------------- | --------- | ------------------------------------------------------------ |
-| [(constructor)(metaplex, storage)](./sdk.deployer._constructor_.md) |           | Constructs a new instance of the <code>Deployer</code> class |
+| Constructor                                                                   | Modifiers | Description                                                  |
+| ----------------------------------------------------------------------------- | --------- | ------------------------------------------------------------ |
+| [(constructor)(registry, metaplex, storage)](./sdk.deployer._constructor_.md) |           | Constructs a new instance of the <code>Deployer</code> class |
 
 ## Methods
 

@@ -11,32 +11,45 @@ displayed_sidebar: react
 
 ## Functions
 
-| Function                                                                       | Description                                                 |
-| ------------------------------------------------------------------------------ | ----------------------------------------------------------- |
-| [dropTotalClaimedSupplyQuery(program)](./react.droptotalclaimedsupplyquery.md) |                                                             |
-| [dropUnclaimedSupplyQuery(program)](./react.dropunclaimedsupplyquery.md)       |                                                             |
-| [nftGetAllQuery(program)](./react.nftgetallquery.md)                           |                                                             |
-| [nftGetOneQuery(program, tokenAddress)](./react.nftgetonequery.md)             |                                                             |
-| [programAccountTypeQuery(sdk, address)](./react.programaccounttypequery.md)    |                                                             |
-| [programMetadataQuery(program)](./react.programmetadataquery.md)               |                                                             |
-| [programQuery(queryClient, sdk, address, type)](./react.programquery.md)       |                                                             |
-| [tokenBalanceQuery(program, walletAddress)](./react.tokenbalancequery.md)      |                                                             |
-| [tokenSupplyQuery(program)](./react.tokensupplyquery.md)                       |                                                             |
-| [useBurnNFT(program)](./react.useburnnft.md)                                   | Burn an NFT owned by the connected wallet                   |
-| [useClaimNFT(program)](./react.useclaimnft.md)                                 | Claim NFTs from an NFT Drop program                         |
-| [useDropTotalClaimedSupply(program)](./react.usedroptotalclaimedsupply.md)     | Get the total claimed supply of NFTs on an NFT Drop         |
-| [useDropUnclaimedSupply(program)](./react.usedropunclaimedsupply.md)           | Get the total unclaimed supply of NFTs on an NFT Drop       |
-| [useLazyMint(program, onProgress)](./react.uselazymint.md)                     | Lazy mint NFTs on an NFT Drop program                       |
-| [useMintNFT(program)](./react.usemintnft.md)                                   | Mint NFTs on your NFT program                               |
-| [useMintToken(program)](./react.useminttoken.md)                               | Mint tokens on your token program                           |
-| [useNFT(program, tokenAddress)](./react.usenft.md)                             | Get the metadata for a minted NFT                           |
-| [useNFTs(program)](./react.usenfts.md)                                         | Get the metadata for every NFT on an NFT program            |
-| [useProgram(address, type)](./react.useprogram.md)                             | Get an SDK instance to interact with any program            |
-| [useSDK()](./react.usesdk.md)                                                  |                                                             |
-| [useTokenBalance(program, walletAddress)](./react.usetokenbalance.md)          | Get the token balance of a specified wallet                 |
-| [useTokenSupply(program)](./react.usetokensupply.md)                           | Get the total circulating supply of a token                 |
-| [useTransferNFT(program)](./react.usetransfernft.md)                           | Transfer NFTs from the connected wallet to another wallet   |
-| [useTransferToken(program)](./react.usetransfertoken.md)                       | Transfer tokens from the connected wallet to another wallet |
+| Function                                                                       | Description                                                                                                                                                 |
+| ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [claimConditionsQuery(program)](./react.claimconditionsquery.md)               |                                                                                                                                                             |
+| [dropTotalClaimedSupplyQuery(program)](./react.droptotalclaimedsupplyquery.md) |                                                                                                                                                             |
+| [dropUnclaimedSupplyQuery(program)](./react.dropunclaimedsupplyquery.md)       |                                                                                                                                                             |
+| [nftGetAllQuery(program)](./react.nftgetallquery.md)                           |                                                                                                                                                             |
+| [nftGetOneQuery(program, tokenAddress)](./react.nftgetonequery.md)             |                                                                                                                                                             |
+| [programAccountTypeQuery(sdk, address)](./react.programaccounttypequery.md)    |                                                                                                                                                             |
+| [programMetadataQuery(program)](./react.programmetadataquery.md)               |                                                                                                                                                             |
+| [programQuery(queryClient, sdk, address, type)](./react.programquery.md)       |                                                                                                                                                             |
+| [tokenBalanceQuery(program, walletAddress)](./react.tokenbalancequery.md)      |                                                                                                                                                             |
+| [tokenSupplyQuery(program)](./react.tokensupplyquery.md)                       |                                                                                                                                                             |
+| [useBurnNFT(program)](./react.useburnnft.md)                                   | Burn an NFT owned by the connected wallet                                                                                                                   |
+| [useClaimConditions(program)](./react.useclaimconditions.md)                   | Get the current claim conditions on an NFT Drop                                                                                                             |
+| [useClaimNFT(program)](./react.useclaimnft.md)                                 | Claim NFTs from an NFT Drop program                                                                                                                         |
+| [useDropTotalClaimedSupply(program)](./react.usedroptotalclaimedsupply.md)     | Get the total claimed supply of NFTs on an NFT Drop                                                                                                         |
+| [useDropUnclaimedSupply(program)](./react.usedropunclaimedsupply.md)           | Get the total unclaimed supply of NFTs on an NFT Drop                                                                                                       |
+| [useLazyMint(program, onProgress)](./react.uselazymint.md)                     | Lazy mint NFTs on an NFT Drop program                                                                                                                       |
+| [useLogin(config)](./react.uselogin.md)                                        | **<i>(BETA)</i>** Hook to securely login to a backend with the connected wallet. The backend authentication URL must be configured on the ThirdwebProvider. |
+| [useLogout()](./react.uselogout.md)                                            | **<i>(BETA)</i>** Hook to logout the connected wallet from the backend. The backend logout URL must be configured on the ThirdwebProvider.                  |
+| [useMintNFT(program)](./react.usemintnft.md)                                   | Mint NFTs on your NFT program                                                                                                                               |
+| [useMintToken(program)](./react.useminttoken.md)                               | Mint tokens on your token program                                                                                                                           |
+| [useNFT(program, tokenAddress)](./react.usenft.md)                             | Get the metadata for a minted NFT                                                                                                                           |
+| [useNFTs(program)](./react.usenfts.md)                                         | Get the metadata for every NFT on an NFT program                                                                                                            |
+| [useProgram(address, type)](./react.useprogram.md)                             | Get an SDK instance to interact with any program                                                                                                            |
+| [useSDK()](./react.usesdk.md)                                                  |                                                                                                                                                             |
+| [useSetClaimConditions(program)](./react.usesetclaimconditions.md)             | Set Claim Conditions to an NFT Drop program                                                                                                                 |
+| [useTokenBalance(program, walletAddress)](./react.usetokenbalance.md)          | Get the token balance of a specified wallet                                                                                                                 |
+| [useTokenSupply(program)](./react.usetokensupply.md)                           | Get the total circulating supply of a token                                                                                                                 |
+| [useTransferNFT(program)](./react.usetransfernft.md)                           | Transfer NFTs from the connected wallet to another wallet                                                                                                   |
+| [useTransferToken(program)](./react.usetransfertoken.md)                       | Transfer tokens from the connected wallet to another wallet                                                                                                 |
+| [useUser()](./react.useuser.md)                                                | **<i>(BETA)</i>** Hook to get the currently logged in user.                                                                                                 |
+
+## Interfaces
+
+| Interface                                       | Description |
+| ----------------------------------------------- | ----------- |
+| [LoginConfig](./react.loginconfig.md)           |             |
+| [ThirdwebAuthUser](./react.thirdwebauthuser.md) |             |
 
 ## Variables
 
