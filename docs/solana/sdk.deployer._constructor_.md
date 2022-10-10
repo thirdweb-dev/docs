@@ -14,13 +14,12 @@ Constructs a new instance of the `Deployer` class
 **Signature:**
 
 ```typescript
-constructor(registry: Registry, metaplex: Metaplex, storage: ThirdwebStorage);
+constructor(metaplex: Metaplex, storage: ThirdwebStorage);
 ```
 
 ## Parameters
 
 | Parameter | Type            | Description |
 | --------- | --------------- | ----------- |
-| registry  | Registry        |             |
 | metaplex  | Metaplex        |             |
 | storage   | ThirdwebStorage |             |

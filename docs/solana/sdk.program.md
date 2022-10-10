@@ -26,7 +26,7 @@ const sdk = ThirdwebSDK.fromNetwork("devnet");
 sdk.wallet.connect(signer);
 
 // Get the interface for your program
-const program = await sdk.getProgram("{{program_address}}");
+const program = await sdk.getProgram("{{contract_address}}");
 ```
 
 ## Constructors
@@ -45,9 +45,7 @@ const program = await sdk.getProgram("{{program_address}}");
 
 ## Methods
 
-| Method                                                                  | Modifiers | Description                                              |
-| ----------------------------------------------------------------------- | --------- | -------------------------------------------------------- |
-| [call(functionName, args)](./sdk.program.call.md)                       |           | Call a function on this program                          |
-| [fetch(accountName, address)](./sdk.program.fetch.md)                   |           | Read account data associated with this program           |
-| [fetchMultiple(accountName, addresses)](./sdk.program.fetchmultiple.md) |           | Read multiple accounts data associated with this program |
-| [prepareCall(functionName, args)](./sdk.program.preparecall.md)         |           |                                                          |
+| Method                                                | Modifiers | Description                                    |
+| ----------------------------------------------------- | --------- | ---------------------------------------------- |
+| [call(functionName, args)](./sdk.program.call.md)     |           | Call a function on this program                |
+| [fetch(accountName, address)](./sdk.program.fetch.md) |           | Read account data associated with this program |

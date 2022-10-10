@@ -42,13 +42,11 @@ const address = sdk.wallet.getAddress();
 
 ## Methods
 
-| Method                                                                                | Modifiers | Description                                                                  |
-| ------------------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------- |
-| [connect(wallet)](./sdk.userwallet.connect.md)                                        |           | Connect a signer to the SDK. Can pass in a keypair or browser wallet adapter |
-| [disconnect()](./sdk.userwallet.disconnect.md)                                        |           | Disconnect the connect wallet from the SDK                                   |
-| [getAddress()](./sdk.userwallet.getaddress.md)                                        |           | Get the address of the connected wallet                                      |
-| [getBalance()](./sdk.userwallet.getbalance.md)                                        |           | Get the native balance of the connected wallet                               |
-| [getSigner()](./sdk.userwallet.getsigner.md)                                          |           | Get the connected signer                                                     |
-| [isConnected()](./sdk.userwallet.isconnected.md)                                      |           | Return whether a wallet is connected                                         |
-| [sign(message)](./sdk.userwallet.sign.md)                                             |           |                                                                              |
-| [verifySignature(message, signature, publicKey)](./sdk.userwallet.verifysignature.md) |           |                                                                              |
+| Method                                           | Modifiers | Description                                                                  |
+| ------------------------------------------------ | --------- | ---------------------------------------------------------------------------- |
+| [connect(wallet)](./sdk.userwallet.connect.md)   |           | Connect a signer to the SDK. Can pass in a keypair or browser wallet adapter |
+| [disconnect()](./sdk.userwallet.disconnect.md)   |           | Disconnect the connect wallet from the SDK                                   |
+| [getAddress()](./sdk.userwallet.getaddress.md)   |           | Get the address of the connected wallet                                      |
+| [getBalance()](./sdk.userwallet.getbalance.md)   |           | Get the native balance of the connected wallet                               |
+| [getSigner()](./sdk.userwallet.getsigner.md)     |           | Get the connected signer                                                     |
+| [isConnected()](./sdk.userwallet.isconnected.md) |           | Return whether a wallet is connected                                         |

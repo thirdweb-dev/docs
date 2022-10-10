@@ -21,6 +21,7 @@ export declare enum ChainId
 | ------------------------ | ----------------------- | ----------- |
 | Arbitrum                 | <code>42161</code>      |             |
 | ArbitrumGoerli           | <code>421613</code>     |             |
+| ArbitrumRinkeby          | <code>421611</code>     |             |
 | Avalanche                | <code>43114</code>      |             |
 | AvalancheFujiTestnet     | <code>43113</code>      |             |
 | BinanceSmartChainMainnet | <code>56</code>         |             |
@@ -35,4 +36,6 @@ export declare enum ChainId
 | Mumbai                   | <code>80001</code>      |             |
 | Optimism                 | <code>10</code>         |             |
 | OptimismGoerli           | <code>420</code>        |             |
+| OptimismKovan            | <code>69</code>         |             |
 | Polygon                  | <code>137</code>        |             |
+| Rinkeby                  | <code>4</code>          |             |

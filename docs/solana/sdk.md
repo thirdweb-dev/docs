@@ -11,16 +11,15 @@ displayed_sidebar: solana
 
 ## Classes
 
-| Class                                               | Description                                                 |
-| --------------------------------------------------- | ----------------------------------------------------------- |
-| [Deployer](./sdk.deployer.md)                       | Deploy new programs                                         |
-| [NFTCollection](./sdk.nftcollection.md)             | A collection of associated NFTs                             |
-| [NFTDrop](./sdk.nftdrop.md)                         | A collection of NFTs that can be lazy minted and claimed    |
-| [Program](./sdk.program.md)                         | Dynamic interface for interacting with Solana programs.     |
-| [ThirdwebSDK](./sdk.thirdwebsdk.md)                 | The main entry-point for the thirdweb Solana SDK.           |
-| [Token](./sdk.token.md)                             | Standard token or cryptocurrency.                           |
-| [UserWallet](./sdk.userwallet.md)                   | Handle and view info about the wallet connected to the SDK. |
-| [WalletAuthenticator](./sdk.walletauthenticator.md) | Wallet Authenticator                                        |
+| Class                                   | Description                                                 |
+| --------------------------------------- | ----------------------------------------------------------- |
+| [Deployer](./sdk.deployer.md)           | Deploy new programs                                         |
+| [NFTCollection](./sdk.nftcollection.md) | A collection of associated NFTs                             |
+| [NFTDrop](./sdk.nftdrop.md)             | A collection of NFTs that can be lazy minted and claimed    |
+| [Program](./sdk.program.md)             | Dynamic interface for interacting with Solana programs.     |
+| [ThirdwebSDK](./sdk.thirdwebsdk.md)     | The main entry-point for the thirdweb Solana SDK.           |
+| [Token](./sdk.token.md)                 | Standard token or cryptocurrency.                           |
+| [UserWallet](./sdk.userwallet.md)       | Handle and view info about the wallet connected to the SDK. |
 
 ## Interfaces
 

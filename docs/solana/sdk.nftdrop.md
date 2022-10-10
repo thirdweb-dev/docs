@@ -26,7 +26,7 @@ const sdk = ThirdwebSDK.fromNetwork("devnet");
 sdk.wallet.connect(signer);
 
 // Get the interface for your NFT Drop program
-const program = await sdk.getProgram("{{program_address}}", "nft-drop");
+const program = await sdk.getNFTDrop("{{contract_address}}");
 ```
 
 ## Constructors
