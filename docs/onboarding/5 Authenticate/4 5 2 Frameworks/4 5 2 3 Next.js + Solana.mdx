@@ -1,0 +1,199 @@
+---
+slug: /auth/frameworks/next-solana
+title: Next.js + Solana
+---
+
+import QuickstartCard from "../../../../src/components/QuickstartCard";
+
+Auth can be integrated into [Next.js](https://nextjs.org) for Solana apps to enable wallet-based login for Solana wallets. We'll go over the necessary setup below.
+
+<div className="row" style={{ marginTop: 24 }}>
+  <div className="col col--12">
+    <QuickstartCard
+      name="Example Repo: Next.js + Solana with Auth"
+      link="https://github.com/thirdweb-example/thirdweb-auth-solana-next"
+      description="Add wallet-based login to your Next.js app"
+      image="/assets/languages/nextjs.png"
+    />
+  </div>
+</div>
+
+## Installation
+
+First, we need to install the `@thirdweb-dev/auth` package as follows:
+
+```bash npm2yarn
+npm install @thirdweb-dev/auth
+```
+
+## Setup
+
+We need to setup an admin private key used to secure our authentication. We can do this by creating a new `.env.local` file at the top level of the project and adding a private key to the file:
+
+```
+THIRDWEB_AUTH_PRIVATE_KEY=your-private-key-here
+```
+
+:::warning Private Key Best Practices
+
+It is not secure to store your private key in an environment variable.
+
+[Learn how to use a secret manager as we recommend here](/sdk/set-up-the-sdk/securing-your-private-key)
+
+:::
+
+Next, we'll want to setup the Auth endpoints to enable users to login and logout with their wallet.
+
+We can setup all the necessary endpoints by creating a `/pages/api/auth/[...thirdweb].js` file:
+
+```javascript file=/pages/api/auth/[...thirdweb].js
+import { ThirdwebAuth } from "@thirdweb-dev/auth/next/solana";
+
+export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
+  // Using environment variables to secure your private key is a security vulnerability.
+  // Learn how to store your private key securely:
+  // https://portal.thirdweb.com/sdk/set-up-the-sdk/securing-your-private-key
+  privateKey: process.env.THIRDWEB_AUTH_PRIVATE_KEY || "",
+  // Set this to your domain to prevent signature malleability attacks.
+  domain: "example.com",
+});
+
+// Export the handler to setup all your endpoints
+export default ThirdwebAuthHandler();
+```
+
+Here, we configure Auth with the `ThirdwebAuth` function, passing in our private key and domain (used to prevent phishing attacks).
+
+:::info
+
+Importantly, the `domain` value here must match the `domain` that we use on the frontend when calling the `login` function.
+
+:::
+
+This is all it takes to setup Auth for your Next.js backends. Now let's take a look at what you can do with this.
+
+## Usage
+
+Once we setup Auth, we get two functions:
+
+### ThirdwebAuthHandler
+
+The `ThirdwebAuthHandler` functions automatically handles all the necessary API endpoints needed for Auth, and should be exported from the `/api/auth/[...thirdweb].js` file.
+
+More specifically, by exporting the handler we'll get the following API endpoints:
+
+**GET - `/api/auth/login`** - Sets a JWT token for the user, allowing them to login with their wallet
+
+**GET - `/api/auth/user`** - Gets the address of the user making a request (by accessing their JWT token)
+
+**GET - `/api/auth/logout`** - Destroys the JWT token, logging out the user
+
+### getUser
+
+The `getUser` function lets you get the user data of the authenticated user making a request to any other endpoint you may want to setup, including their `address`. You can use it in another endpoint as follows:
+
+```javascript
+// Import getUser from wherever you created the config
+import { getUser } from "/pages/api/auth/[...thirdweb]";
+
+const handler = async (req, res) => {
+  // Get the authenticated user from the request
+  const user = await getUser(req);
+
+  // If the user is not authenticated, user will be null
+  if (!user) {
+    return res.status(401).json({
+      message: "Not authorized.",
+    });
+  }
+
+  // Otherwise, user.address will be set
+  return res.status(200).json({
+    address: user.address,
+  });
+};
+
+export default handler;
+```
+
+## Frontend
+
+Now that our backend setup, we can easily setup our React frontend (automatically included in Next.js) with a few hooks and buttons to enable login and logout.
+
+First, we'll need to install the `@thirdweb-dev/react` package:
+
+```bash npm2yarn
+npm install @thirdweb-dev/react ethers
+```
+
+Now, in the `_app.js` file, we'll need to wrap our app with the `ThirdwebProvider` and provide some configuration for Solana + Auth:
+
+```jsx
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+import { ThirdwebProvider } from "@thirdweb-dev/react/solana";
+import { Network } from "@thirdweb-dev/sdk/solana";
+import type { AppProps } from "next/app";
+import "../styles/globals.css";
+
+// Change the network to the one you want to use: "mainnet-beta", "testnet", "devnet", "localhost" or your own RPC endpoint
+const network: Network = "mainnet-beta";
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ThirdwebProvider
+      network={network}
+      authConfig={{
+        domain: "example.com",
+        authUrl: "/api/auth",
+        loginRedirect: "/",
+      }}
+    >
+      <WalletModalProvider>
+        <Component {...pageProps} />
+      </WalletModalProvider>
+    </ThirdwebProvider>
+  );
+}
+
+export default MyApp;
+```
+
+Here, we specify in the `authConfig` that our Auth backend is setup at the `/api/auth` URL, and that the domain we expect (which must match the domain we selected on the backend) is `example.com` (you would change this to your own domain).
+
+Additionally, we import the necessary packages used for Solana wallets and we setup the `WalletModalProvider`.
+
+### Hooks
+
+Now, we can use the `useLogin`, `useUser`, and `useLogout` hooks to enable Auth functionality in the rest of our app.
+
+For example, I can create the following component to allow users to login, logout, and view the logged in user:
+
+```jsx
+import { useUser, useLogin, useLogout } from "@thirdweb-dev/react/solana";
+import { WalletMultiButton } from "@solana/wallet-adapter-react-ui";
+require("@solana/wallet-adapter-react-ui/styles.css");
+import type { NextPage } from "next";
+import { useState } from "react";
+
+const Home: NextPage = () => {
+  const login = useLogin();
+  const logout = useLogout();
+  const { user } = useUser();
+
+  return (
+    <div>
+      <WalletMultiButton />
+      <br />
+      <div>
+        <button onClick={() => login()}>Login with Wallet</button>
+        <button onClick={logout}>Logout</button>
+        <pre>User: {JSON.stringify(user || null)}</pre>
+      </div>
+    </div>
+  );
+};
+
+export default Home;
+```
+
+Here, we use the `useLogin`, `useUser`, and `useLogout` to enable a secure wallet based login flow for users on our frontend. Note that we're also using the `WalletMultiButton` from the `@solana/wallet-adapter-react-ui` package to enable users to select their wallet from the variety of supported Solana wallets.
