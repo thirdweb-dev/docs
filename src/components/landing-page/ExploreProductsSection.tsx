@@ -10,23 +10,49 @@ type Product = {
 
 const products: Product[] = [
   {
+    image: "/assets/product/extensions.png",
+    name: "ContractKit",
+    description: "Build and extend smart contracts using our Solidity SDK",
+    link: "/contractkit",
+  },
+  {
     image: "/assets/product/contracts.png",
     name: "Prebuilt contracts",
     description: "Prebuilt and audited contracts",
     link: "/pre-built-contracts",
   },
   {
+    image: "/assets/product/dashboard.png",
+    name: "Dashboard",
+    description: "Easily analyze and manage your smart contracts",
+    link: "/dashboard",
+  },
+  {
     image: "/assets/product/sdk.png",
-    name: "SDK",
+    name: "EVM SDK",
     description:
       "Components and hooks to integrate smart contracts into your apps",
     link: "/sdk",
   },
   {
-    image: "/assets/product/extensions.png",
-    name: "ContractKit",
-    description: "Build and extend smart contracts using our Solidity SDK",
-    link: "/contractkit",
+    image: "/assets/product/sdk.png",
+    name: "Solana SDK",
+    description:
+      "JavaScript interface for building web3 applications on Solana",
+    link: "/solana",
+  },
+  {
+    image: "/assets/product/ui.png",
+    name: "UI Components",
+    description:
+      "Plug and play UI components to easily add web3 functionality to your apps",
+    link: "/ui-components",
+  },
+  {
+    image: "/assets/product/auth.png",
+    name: "Auth",
+    description: "Easily integrate wallet-based login flows",
+    link: "/auth",
   },
   {
     image: "/assets/product/release.png",
@@ -41,29 +67,10 @@ const products: Product[] = [
     link: "/deploy",
   },
   {
-    image: "/assets/product/auth.png",
-    name: "Auth",
-    description: "Easily integrate wallet-based login flows",
-    link: "/auth",
-  },
-  {
-    image: "/assets/product/ui.png",
-    name: "UI Components",
-    description:
-      "Plug and play UI components to easily add web3 functionality to your apps",
-    link: "/ui-components",
-  },
-  {
     image: "/assets/product/storage.png",
     name: "Storage",
     description: "Store off-chain data using decentralized storage systems",
     link: "/storage",
-  },
-  {
-    image: "/assets/product/dashboard.png",
-    name: "Dashboard",
-    description: "Easily analyze and manage your smart contracts",
-    link: "/dashboard",
   },
 ];
 
