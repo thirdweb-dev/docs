@@ -235,7 +235,7 @@ const config = {
               },
               {
                 label: "Twitter",
-                href: "https://twitter.com/thirdweb_",
+                href: "https://twitter.com/thirdweb",
               },
               {
                 label: "GitHub",
