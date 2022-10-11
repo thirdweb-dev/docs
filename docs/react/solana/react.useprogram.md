@@ -17,7 +17,7 @@ Get an SDK instance to interact with any program
 import { useProgram } from "@thirdweb-dev/react/solana";
 
 export default function Component() {
-  const program = useProgram("{{program_address}}");
+  const program = useProgram("{{program_address}}").program;
 
   // Now you can use the program in the rest of the component
 
@@ -36,14 +36,20 @@ export default function Component() {
 export declare function useProgram<TProgramType extends ProgramType>(
   address: RequiredParam<string>,
   type?: TProgramType,
-): import("@tanstack/react-query").UseQueryResult<
+): UseQueryResult<
   Readonly<{
     "nft-collection": NFTCollection;
     "nft-drop": NFTDrop;
     token: Token;
   }>[TProgramType],
   unknown
->;
+> & {
+  program: Readonly<{
+    "nft-collection": NFTCollection;
+    "nft-drop": NFTDrop;
+    token: Token;
+  }>[TProgramType];
+};
 ```
 
 ## Parameters
@@ -55,4 +61,4 @@ export declare function useProgram<TProgramType extends ProgramType>(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;Readonly&lt;{ "nft-collection": NFTCollection; "nft-drop": NFTDrop; token: Token; }&gt;\[TProgramType\], unknown&gt;
+UseQueryResult&lt;Readonly&lt;{ "nft-collection": NFTCollection; "nft-drop": NFTDrop; token: Token; }&gt;\[TProgramType\], unknown&gt; &amp; { program: Readonly&lt;{ "nft-collection": NFTCollection; "nft-drop": NFTDrop; token: Token; }&gt;\[TProgramType\]; }
