@@ -32,7 +32,7 @@ export declare function useClaimNFT(
 ): import("@tanstack/react-query").UseMutationResult<
   string[],
   unknown,
-  number,
+  ClaimNFTParams,
   unknown
 >;
 ```
@@ -45,4 +45,4 @@ export declare function useClaimNFT(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;string\[\], unknown, number, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;string\[\], unknown, ClaimNFTParams, unknown&gt;

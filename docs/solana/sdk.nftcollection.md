@@ -26,7 +26,7 @@ const sdk = ThirdwebSDK.fromNetwork("devnet");
 sdk.wallet.connect(signer);
 
 // Get the interface for your NFT collection program
-const program = await sdk.getNFTCollection("{{contract_address}}");
+const program = await sdk.getProgram("{{program_address}}", "nft-collection");
 ```
 
 ## Constructors
@@ -51,8 +51,7 @@ const program = await sdk.getNFTCollection("{{contract_address}}");
 | [balanceOf(walletAddress, nftAddress)](./sdk.nftcollection.balanceof.md)                |           | Get the NFT balance of the specified wallet               |
 | [burn(nftAddress)](./sdk.nftcollection.burn.md)                                         |           | Burn an NFT                                               |
 | [get(nftAddress)](./sdk.nftcollection.get.md)                                           |           | Get the metadata for a specific NFT                       |
-| [getAll()](./sdk.nftcollection.getall.md)                                               |           | Get the metadata for all NFTs on this collection          |
-| [getAllNFTAddresses()](./sdk.nftcollection.getallnftaddresses.md)                       |           | Get the mint addresses for all NFTs on this collection    |
+| [getAll(queryParams)](./sdk.nftcollection.getall.md)                                    |           | Get the metadata for all NFTs on this collection          |
 | [getMetadata()](./sdk.nftcollection.getmetadata.md)                                     |           | Get the metadata for this program.                        |
 | [mint(metadata)](./sdk.nftcollection.mint.md)                                           |           | Mint NFTs to the connected wallet                         |
 | [mintAdditionalSupply(nftAddress)](./sdk.nftcollection.mintadditionalsupply.md)         |           | Mint additional supply of an NFT to the connected wallet  |

@@ -116,14 +116,11 @@ export default function ThirdwebCodeSnippet({
               <TabItem key={language} value={language} label={languageName}>
                 <CodeBlock language={languageToHighlightMapping[language]}>
                   <p>
-                    <b>{languageName} SDK</b> support for <b>{name}</b> is
-                    coming soon.{" "}
-                  </p>
-                  <p>
-                    Want this feature sooner?{" "}
-                    <a href="https://discord.com/invite/thirdweb">
-                      Let us know in Discord!
-                    </a>
+                    Check out the{" "}
+                    <a href={`/${languageName}`}>
+                      {languageName} SDK Reference
+                    </a>{" "}
+                    for more information.
                   </p>
                 </CodeBlock>
               </TabItem>

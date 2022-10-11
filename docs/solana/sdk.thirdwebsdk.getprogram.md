@@ -33,5 +33,5 @@ SDK interface for the program
 
 ```jsx
 // Get the interface for your anchor program
-const program = await sdk.getProgram("{{contract_address}}");
+const program = await sdk.getProgram("{{program_address}}");
 ```

@@ -33,6 +33,6 @@ SDK interface for the program
 ## Example
 
 ```jsx
-// Get the interface for your anchor program
-const program = await sdk.getProgram("{{contract_address}}", "token");
+// Get the interface a given program type
+const program = await sdk.getProgram("{{program_address}}", "token");
 ```
