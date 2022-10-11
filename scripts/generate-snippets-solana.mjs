@@ -33,10 +33,10 @@ const snippets = CLASSES.reduce((acc, contractName) => {
     (snippet) => snippet.name.toLowerCase() === contractName.toLowerCase(),
   );
   const programTypeArg = {
-    [Program]: "",
-    [NFTCollection]: `, "nft-collection"`,
-    [NFTDrop]: `, "nft-drop"`,
-    [Token]: `, "token"`,
+    Program: "",
+    NFTCollection: `, "nft-collection"`,
+    NFTDrop: `, "nft-drop"`,
+    Token: `, "token"`,
   };
   const reactExample = [
     "Program",
