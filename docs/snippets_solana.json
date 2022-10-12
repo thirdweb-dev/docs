@@ -11,8 +11,8 @@
         "summary": "Get an SDK interface for a deployed program\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// Get the interface for your anchor program\nconst program = await sdk.getProgram(\"{{contract_address}}\");",
-          "react": "// Get the interface for your anchor program\nconst program = await sdk.getProgram(\"{{contract_address}}\");"
+          "javascript": "// Get the interface for your anchor program\nconst program = await sdk.getProgram(\"{{program_address}}\");",
+          "react": "// Get the interface for your anchor program\nconst program = await sdk.getProgram(\"{{program_address}}\");"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.getprogram",
@@ -24,8 +24,8 @@
         "summary": "Get an SDK interface for a deployed program\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// Get the interface for your anchor program\nconst program = await sdk.getProgram(\"{{contract_address}}\");",
-          "react": "// Get the interface for your anchor program\nconst program = await sdk.getProgram(\"{{contract_address}}\");"
+          "javascript": "// Get the interface for your anchor program\nconst program = await sdk.getProgram(\"{{program_address}}\");",
+          "react": "// Get the interface for your anchor program\nconst program = await sdk.getProgram(\"{{program_address}}\");"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.getprogram",
@@ -37,8 +37,8 @@
         "summary": "Get an SDK interface for a deployed program\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// Get the interface for your anchor program\nconst program = await sdk.getProgram(\"{{contract_address}}\");",
-          "react": "// Get the interface for your anchor program\nconst program = await sdk.getProgram(\"{{contract_address}}\");"
+          "javascript": "// Get the interface for your anchor program\nconst program = await sdk.getProgram(\"{{program_address}}\");",
+          "react": "// Get the interface for your anchor program\nconst program = await sdk.getProgram(\"{{program_address}}\");"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.getprogram",
@@ -68,8 +68,8 @@
     "name": "NFTCollection",
     "summary": "A collection of associated NFTs\n\n",
     "examples": {
-      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your NFT collection program\nconst program = await sdk.getNFTCollection(\"{{contract_address}}\");",
-      "react": "import { useProgram } from \"@thirdweb-dev/sdk/solana\"\n\nexport default function Component() {\n  const program = useProgram(\"{{contract_address}}\")\n  ...\n}"
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your NFT collection program\nconst program = await sdk.getProgram(\"{{program_address}}\", \"nft-collection\");",
+      "react": "import { useProgram } from \"@thirdweb-dev/sdk/solana\"\n\nexport default function Component() {\n  const program = useProgram(\"{{contract_address}}\", \"nft-collection\")\n  ...\n}"
     },
     "methods": [
       {
@@ -127,7 +127,7 @@
       {
         "name": "getAll",
         "summary": "Get the metadata for all NFTs on this collection\n\n",
-        "remarks": null,
+        "remarks": "\n\nThis method is paginated. Use the `start` and `count` properties of the queryParams object to control pagination. By default the first 100 NFTs are returned\n\n",
         "examples": {
           "javascript": "// Get all the NFTs that have been minted on this contract\nconst nfts = await program.getAll();\nconsole.log(nfts[0].metadata.name);\nconsole.log(nfts[0].owner);",
           "react": "import { useProgram, useNFTs } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const program = useProgram(\"{{program_address}}\");\n  const { data: metadata, isLoading } = useNFTs(program);\n\n  return (\n    <pre>{JSON.stringify(metadata)}</pre>\n  )\n}"
@@ -135,19 +135,6 @@
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftcollection.getall",
           "react": "https://portal.thirdweb.com/react/react.usenfts"
-        }
-      },
-      {
-        "name": "getAllNFTAddresses",
-        "summary": "Get the mint addresses for all NFTs on this collection\n\n",
-        "remarks": null,
-        "examples": {
-          "javascript": "// Get just the addresses of the minted NFTs on this contract\nconst nftsAdresses = await program.getAllNFTAddresses();\nconsole.log(nftsAdresses);",
-          "react": "// Get just the addresses of the minted NFTs on this contract\nconst nftsAdresses = await program.getAllNFTAddresses();\nconsole.log(nftsAdresses);"
-        },
-        "reference": {
-          "javascript": "https://portal.thirdweb.com/typescript/sdk.nftcollection.getallnftaddresses",
-          "react": "https://portal.thirdweb.com/typescript/sdk.nftcollection.getallnftaddresses"
         }
       },
       {
@@ -251,8 +238,8 @@
     "name": "Token",
     "summary": "Standard token or cryptocurrency.\n\n",
     "examples": {
-      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your token program\nconst program = await sdk.getToken(\"{{contract_address}}\");",
-      "react": "import { useProgram } from \"@thirdweb-dev/sdk/solana\"\n\nexport default function Component() {\n  const program = useProgram(\"{{contract_address}}\")\n  ...\n}"
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your token program\nconst program = await sdk.getProgram(\"{{program_address}}\", \"token\");",
+      "react": "import { useProgram } from \"@thirdweb-dev/sdk/solana\"\n\nexport default function Component() {\n  const program = useProgram(\"{{contract_address}}\", \"token\")\n  ...\n}"
     },
     "methods": [
       {
@@ -356,8 +343,8 @@
     "name": "NFTDrop",
     "summary": "A collection of NFTs that can be lazy minted and claimed\n\n",
     "examples": {
-      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your NFT Drop program\nconst program = await sdk.getNFTDrop(\"{{contract_address}}\");",
-      "react": "import { useProgram } from \"@thirdweb-dev/sdk/solana\"\n\nexport default function Component() {\n  const program = useProgram(\"{{contract_address}}\")\n  ...\n}"
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your NFT Drop program\nconst program = await sdk.getProgram(\"{{program_address}}\", \"nft-drop\");",
+      "react": "import { useProgram } from \"@thirdweb-dev/sdk/solana\"\n\nexport default function Component() {\n  const program = useProgram(\"{{contract_address}}\", \"nft-drop\")\n  ...\n}"
     },
     "methods": [
       {
@@ -418,7 +405,7 @@
         "remarks": null,
         "examples": {
           "javascript": "// Specify which address to claim the NFTs to\nconst receiverAddress =  \"...\";\n// Claim the NFTs to the specified wallet and get the mint addresses of the NFTs\nconst claimedAddresses = await program.claimTo(receiverAddress, 1);\nconsole.log(\"Claimed NFT at address\", claimedAddresses[0]);",
-          "react": "import { useProgram, useClaimNFT } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const program = useProgram(\"{{program_address}}\");\n  const { mutateAsync: claim, isLoading, error } = useClaimNFT(program);\n\n  return (\n    <button onClick={() => claim(1)}>\n      Claim\n    </button>\n  )\n}"
+          "react": "import { useProgram, useClaimNFT } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const program = useProgram(\"{{program_address}}\");\n  const { mutateAsync: claim, isLoading, error } = useClaimNFT(program);\n\n  return (\n    <button onClick={() => claim({amount: 1})}>\n      Claim\n    </button>\n  )\n}"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.claimto",
@@ -539,7 +526,7 @@
     "name": "Program",
     "summary": "Dynamic interface for interacting with Solana programs.\n\n",
     "examples": {
-      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your program\nconst program = await sdk.getProgram(\"{{contract_address}}\");",
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk/solana\";\n\nconst sdk = ThirdwebSDK.fromNetwork(\"devnet\");\nsdk.wallet.connect(signer);\n\n// Get the interface for your program\nconst program = await sdk.getProgram(\"{{program_address}}\");",
       "react": "import { useProgram } from \"@thirdweb-dev/sdk/solana\"\n\nexport default function Component() {\n  const program = useProgram(\"{{contract_address}}\")\n  ...\n}"
     },
     "methods": [

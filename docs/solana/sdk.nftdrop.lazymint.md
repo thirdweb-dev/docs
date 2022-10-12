@@ -16,7 +16,7 @@ Lazy mint NFTs to be claimed later
 ```typescript
 lazyMint(metadatas: NFTMetadataInput[], options?: {
         onProgress: (event: UploadProgressEvent) => void;
-    }): Promise<TransactionResult>;
+    }): Promise<TransactionResult[]>;
 ```
 
 ## Parameters
@@ -28,7 +28,7 @@ lazyMint(metadatas: NFTMetadataInput[], options?: {
 
 **Returns:**
 
-Promise&lt;TransactionResult&gt;
+Promise&lt;TransactionResult\[\]&gt;
 
 the transaction result of the lazy mint
 
