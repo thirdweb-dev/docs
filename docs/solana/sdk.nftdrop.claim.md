@@ -14,14 +14,14 @@ Claim an NFT from the drop with connected wallet
 **Signature:**
 
 ```typescript
-claim(quantity: number): Promise<string[]>;
+claim(quantity: Amount): Promise<string[]>;
 ```
 
 ## Parameters
 
 | Parameter | Type   | Description |
 | --------- | ------ | ----------- |
-| quantity  | number |             |
+| quantity  | Amount |             |
 
 **Returns:**
 

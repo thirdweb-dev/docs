@@ -17,10 +17,10 @@ Claim NFTs from an NFT Drop program
 import { useProgram, useClaimNFT } from "@thirdweb-dev/react/solana";
 
 export default function Component() {
-  const program = useProgram("{{program_address}}");
+  const { program } = useProgram("{{program_address}}");
   const { mutateAsync: claim, isLoading, error } = useClaimNFT(program);
 
-  return <button onClick={() => claim(1)}>Claim</button>;
+  return <button onClick={() => claim({ amount: 1 })}>Claim</button>;
 }
 ```
 

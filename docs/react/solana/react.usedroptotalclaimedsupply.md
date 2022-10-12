@@ -20,7 +20,7 @@ import {
 } from "@thirdweb-dev/react/solana";
 
 export default function Component() {
-  const program = useProgram("{{program_address}}");
+  const { program } = useProgram("{{program_address}}");
   const { data: claimedSupply, isLoading } = useDropTotalClaimedSupply(program);
 
   return <p>{claimedSupply}</p>;
