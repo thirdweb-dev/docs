@@ -1,0 +1,55 @@
+---
+title: NFT Collection
+slug: /pre-built-contracts/solana/nft-collection
+---
+
+import DeployThisContractButton from "@components/DeployThisContractButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# NFT Collection
+
+<div className="deployContractBtnContainer" style={{ marginTop: -70 }}>
+  <DeployThisContractButton
+    link={"https://nightly.thirdweb.com/programs"}
+    contractType="solana-nft-collection"
+    displayName="NFT Collection"
+  />
+</div>
+
+The NFT Collection program is suitable for when you want to have a collection of unique NFTs, but **not** "drop" or "release" them for your community to claim.
+
+Unlike the [NFT Drop](/pre-built-contracts/solana/nft-drop) program, the NFT Collection program does not **lazy mint** your NFTs.
+Instead, NFTs are minted immediately when they are added to the collection.
+
+## Use Cases & Examples
+
+You could use the NFT Collection contract to:
+
+- Create a 1-of-many collection of your artwork
+- Create a 1-of-1 NFT that provides special utility
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Guide: Create A Solana NFT Collection with the SDK"
+      link="https://blog.thirdweb.com/guides/mint-a-solana-nft-collection-with-typescript/"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
+
+## Using the Program in the SDK
+
+This page outlines how you can create and configure your NFT collection program using the [dashboard](https://thirdweb.com/dashboard).
+
+You can also use our [SDK](/solana) to create and interact with your program.
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Using the NFT Collection Program in the SDK"
+      link="/solana/programs/nft-collections"
+      image="/assets/icons/nft.png"
+    />
+  </div>
+</div>

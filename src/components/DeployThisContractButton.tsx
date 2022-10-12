@@ -4,6 +4,7 @@ type Props = {
   contractType: string;
   link?: string;
   additionalStyles?: React.CSSProperties;
+  displayName?: string;
 };
 
 const contractTypeToLinkMapping = {
@@ -29,6 +30,7 @@ export default function DeployThisContractButton({
   link,
   contractType,
   additionalStyles,
+  displayName,
 }: Props) {
   function formatName(name: string) {
     // Replace - with space and capitalize
@@ -97,7 +99,7 @@ export default function DeployThisContractButton({
         }}
       >
         <div style={{ marginRight: 14, fontWeight: 600 }}>
-          Deploy {formatName(contractType)}
+          Deploy {displayName || formatName(contractType)}
         </div>
       </div>
     </a>
