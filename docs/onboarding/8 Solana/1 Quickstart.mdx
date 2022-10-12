@@ -66,8 +66,7 @@ Now that we have our SDK setup, we can deploy a new NFT Drop program with a sing
 const address = await sdk.deployer.createNftDrop({
   name: "Cool Drop",
   description: "This is my first NFT Drop on Solana!",
-  price: 0,
-  itemsAvailable: 10,
+  totalSupply: 10, // the total amount of NFTs that will be available through this drop
 });
 // This will log out the address of our newly minted NFT Drop
 console.log(address);
