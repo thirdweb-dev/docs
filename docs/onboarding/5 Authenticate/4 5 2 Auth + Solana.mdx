@@ -1,11 +1,11 @@
 ---
 slug: /auth/solana
-title: Auth + Solana
+title: Solana
 ---
 
 import QuickstartCard from "../../../src/components/QuickstartCard";
 
-Auth can be integrated into Solana apps built with [Next.js](https://nextjs.org) to enable wallet-based login for Solana wallets. We'll go over the necessary setup below.
+Auth can be integrated into Solana apps built with [Next.js](https://nextjs.org) to enable wallet-based login for Solana wallets.
 
 <div className="row" style={{ marginTop: 24 }}>
   <div className="col col--12">
@@ -28,7 +28,7 @@ npm install @thirdweb-dev/auth
 
 ## Setup
 
-We need to setup an admin private key used to secure our authentication. We can do this by creating a new `.env.local` file at the top level of the project and adding a private key to the file:
+We need to set up an admin private key used to secure our authentication. We can do this by creating a new `.env.local` file at the top level of the project and adding a private key to the file:
 
 ```
 THIRDWEB_AUTH_PRIVATE_KEY=your-private-key-here
@@ -38,11 +38,11 @@ THIRDWEB_AUTH_PRIVATE_KEY=your-private-key-here
 
 It is not secure to store your private key in an environment variable.
 
-[Learn how to use a secret manager as we recommend here](/sdk/set-up-the-sdk/securing-your-private-key)
+[Learn how to use a secret manager as we recommend here](/sdk/set-up-the-sdk/securing-your-private-key).
 
 :::
 
-Next, we'll want to setup the Auth endpoints to enable users to login and logout with their wallet.
+Next, we'll want to set up the Auth endpoints to enable users to login and logout with their wallet.
 
 We can setup all the necessary endpoints by creating a `/pages/api/auth/[...thirdweb].js` file:
 
@@ -66,11 +66,11 @@ Here, we configure Auth with the `ThirdwebAuth` function, passing in our private
 
 :::info
 
-Importantly, the `domain` value here must match the `domain` that we use on the frontend when calling the `login` function.
+Importantly, the `domain` value here must match the `domain` that we use on the front end when calling the `login` function.
 
 :::
 
-This is all it takes to setup Auth for your Next.js backends. Now let's take a look at what you can do with this.
+This is all it takes to set up Auth for your Next.js backends. Now let's take a look at what you can do with this.
 
 ## Usage
 
@@ -78,7 +78,7 @@ Once we setup Auth, we get two functions:
 
 ### ThirdwebAuthHandler
 
-The `ThirdwebAuthHandler` functions automatically handles all the necessary API endpoints needed for Auth, and should be exported from the `/api/auth/[...thirdweb].js` file.
+The `ThirdwebAuthHandler` functions automatically handle all the necessary API endpoints needed for Auth, and should be exported from the `/api/auth/[...thirdweb].js` file.
 
 More specifically, by exporting the handler we'll get the following API endpoints:
 

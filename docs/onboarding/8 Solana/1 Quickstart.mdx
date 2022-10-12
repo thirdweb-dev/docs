@@ -156,6 +156,9 @@ The first thing we'll have to do is configure the project to work on Solana devn
 We can do this by navigating to the `pages/_app.tsx` file where we can change the network to `devnet` as follows:
 
 ```jsx
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+import { ThirdwebProvider } from "@thirdweb-dev/react/solana";
+
 // Here we make sure the network is set to devnet
 const network: Network = "devnet";
 
@@ -181,14 +184,13 @@ import { useProgram, useClaimNFT } from "@thirdweb-dev/react/solana";
 
 export default function NFTDrop() {
   const wallet = useWallet();
-  const program = useProgram("your_nft_drop_address", "nft-drop");
-  const claim = useClaimNFT(program.data);
-  const quantityToClaim = 1;
+  const { program } = useProgram("your_nft_drop_address", "nft-drop");
+  const claim = useClaimNFT(program);
 
   return (
     <div>
       {wallet.connected ? (
-        <button onClick={() => claim.mutate(quantityToClaim)}>
+        <button onClick={() => claim.mutate({ amount: 1)}>
           {claim.isLoading ? "Claiming..." : "Claim NFT"}
         </button>
       ) : (

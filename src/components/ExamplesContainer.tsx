@@ -29,7 +29,7 @@ export default function ExamplesContainer() {
         whichFirst={"image"}
       />
       {/* Featured Example (Solana TODO) */}
-      {/* <FeaturedExample
+      <FeaturedExample
         id={solanaHub.name}
         title="Solana Showcase"
         description="Discover the power of our Solana SDK by interacting with real programs and viewing code snippets."
@@ -42,7 +42,7 @@ export default function ExamplesContainer() {
           demo: solanaHub.homepage,
         }}
         whichFirst={"text"}
-      /> */}
+      />
 
       <h2>Featured Templates</h2>
       <p>Start building your own app on top of one of our templates.</p>

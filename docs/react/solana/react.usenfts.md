@@ -17,7 +17,7 @@ Get the metadata for every NFT on an NFT program
 import { useProgram, useNFTs } from "@thirdweb-dev/react/solana";
 
 export default function Component() {
-  const program = useProgram("{{program_address}}");
+  const { program } = useProgram("{{program_address}}");
   const { data: metadata, isLoading } = useNFTs(program);
 
   return <pre>{JSON.stringify(metadata)}</pre>;

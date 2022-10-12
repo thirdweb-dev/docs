@@ -33,10 +33,10 @@ const snippets = CLASSES.reduce((acc, contractName) => {
     (snippet) => snippet.name.toLowerCase() === contractName.toLowerCase(),
   );
   const programTypeArg = {
-    [Program]: "",
-    [NFTCollection]: `, "nft-collection"`,
-    [NFTDrop]: `, "nft-drop"`,
-    [Token]: `, "token"`,
+    Program: "",
+    NFTCollection: `, "nft-collection"`,
+    NFTDrop: `, "nft-drop"`,
+    Token: `, "token"`,
   };
   const reactExample = [
     "Program",
@@ -46,7 +46,7 @@ const snippets = CLASSES.reduce((acc, contractName) => {
   ].includes(contractName)
     ? {
         examples: {
-          javascript: `import { useProgram } from "@thirdweb-dev/sdk/solana"\n\nexport default function Component() {\n  const program = useProgram("{{contract_address}}"${programTypeArg[contractName]})\n  ...\n}`,
+          javascript: `import { useProgram } from "@thirdweb-dev/react/solana"\n\nexport default function Component() {\n  const { program } = useProgram("{{program_address}}"${programTypeArg[contractName]})\n  ...\n}`,
         },
       }
     : {};
