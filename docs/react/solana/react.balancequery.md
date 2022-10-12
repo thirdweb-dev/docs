@@ -12,7 +12,7 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export declare function balanceQuery(wallet: RequiredParam<UserWallet>): {
+export declare function balanceQuery(sdk: RequiredParam<ThirdwebSDK>): {
   queryKey: readonly [
     "__tw__",
     "sol",
@@ -32,9 +32,9 @@ export declare function balanceQuery(wallet: RequiredParam<UserWallet>): {
 
 ## Parameters
 
-| Parameter | Type                            | Description |
-| --------- | ------------------------------- | ----------- |
-| wallet    | RequiredParam&lt;UserWallet&gt; |             |
+| Parameter | Type                             | Description |
+| --------- | -------------------------------- | ----------- |
+| sdk       | RequiredParam&lt;ThirdwebSDK&gt; |             |
 
 **Returns:**
 

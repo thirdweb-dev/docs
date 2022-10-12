@@ -13,7 +13,7 @@ displayed_sidebar: react
 
 | Function                                                                       | Description                                                                                                                                                 |
 | ------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [balanceQuery(wallet)](./react.balancequery.md)                                |                                                                                                                                                             |
+| [balanceQuery(sdk)](./react.balancequery.md)                                   |                                                                                                                                                             |
 | [claimConditionsQuery(program)](./react.claimconditionsquery.md)               |                                                                                                                                                             |
 | [dropTotalClaimedSupplyQuery(program)](./react.droptotalclaimedsupplyquery.md) |                                                                                                                                                             |
 | [dropUnclaimedSupplyQuery(program)](./react.dropunclaimedsupplyquery.md)       |                                                                                                                                                             |
