@@ -17,7 +17,7 @@ Transfer NFTs from the connected wallet to another wallet
 import { useProgram, useTransferNFT } from "@thirdweb-dev/react/solana";
 
 export default function Component() {
-  const program = useProgram("{{program_address}}");
+  const { program } = useProgram("{{program_address}}");
   const { mutateAsync: transfer, isLoading, error } = useTransferNFT(program);
 
   return (

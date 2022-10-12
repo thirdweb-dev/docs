@@ -14,5 +14,5 @@ the index to start from (default: 0)
 **Signature:**
 
 ```typescript
-start?: BigNumberish;
+start?: number;
 ```

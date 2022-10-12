@@ -17,10 +17,10 @@ Claim NFTs from an NFT Drop program
 import { useProgram, useClaimNFT } from "@thirdweb-dev/react/solana";
 
 export default function Component() {
-  const program = useProgram("{{program_address}}");
+  const { program } = useProgram("{{program_address}}");
   const { mutateAsync: claim, isLoading, error } = useClaimNFT(program);
 
-  return <button onClick={() => claim(1)}>Claim</button>;
+  return <button onClick={() => claim({ amount: 1 })}>Claim</button>;
 }
 ```
 
@@ -32,7 +32,7 @@ export declare function useClaimNFT(
 ): import("@tanstack/react-query").UseMutationResult<
   string[],
   unknown,
-  number,
+  ClaimNFTParams,
   unknown
 >;
 ```
@@ -45,4 +45,4 @@ export declare function useClaimNFT(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;string\[\], unknown, number, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;string\[\], unknown, ClaimNFTParams, unknown&gt;

@@ -35,10 +35,11 @@ const address = sdk.wallet.getAddress();
 
 ## Properties
 
-| Property                             | Modifiers | Type                                                                   | Description |
-| ------------------------------------ | --------- | ---------------------------------------------------------------------- | ----------- |
-| [events](./sdk.userwallet.events.md) |           | EventEmitter&lt;[UserWalletEvents](./sdk.userwalletevents.md), any&gt; |             |
-| [signer](./sdk.userwallet.signer.md) |           | Signer &#124; undefined                                                |             |
+| Property                               | Modifiers             | Type                                                                   | Description |
+| -------------------------------------- | --------------------- | ---------------------------------------------------------------------- | ----------- |
+| [events](./sdk.userwallet.events.md)   |                       | EventEmitter&lt;[UserWalletEvents](./sdk.userwalletevents.md), any&gt; |             |
+| [network](./sdk.userwallet.network.md) | <code>readonly</code> | import("@metaplex-foundation/js").Cluster                              |             |
+| [signer](./sdk.userwallet.signer.md)   |                       | Signer &#124; undefined                                                |             |
 
 ## Methods
 

@@ -7,7 +7,7 @@ const { readdir, createReadStream, writeFile, readFile } = fs;
 const outDir = "./docs/solana";
 const packageRoot = "./submodules/js/packages/sdk";
 const inDir = packageRoot + "/docs/solana";
-const readmePath = packageRoot + "/README.md";
+const readmePath = packageRoot + "/README.solana.md";
 
 fs.rmdirSync(outDir, { recursive: true, force: true });
 fs.ensureDirSync(outDir);

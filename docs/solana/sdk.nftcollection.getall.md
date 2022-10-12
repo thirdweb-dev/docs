@@ -14,14 +14,24 @@ Get the metadata for all NFTs on this collection
 **Signature:**
 
 ```typescript
-getAll(): Promise<NFT[]>;
+getAll(queryParams?: QueryAllParams): Promise<NFT[]>;
 ```
+
+## Parameters
+
+| Parameter   | Type           | Description       |
+| ----------- | -------------- | ----------------- |
+| queryParams | QueryAllParams | <i>(Optional)</i> |
 
 **Returns:**
 
 Promise&lt;NFT\[\]&gt;
 
 metadata for all minted NFTs
+
+## Remarks
+
+This method is paginated. Use the `start` and `count` properties of the queryParams object to control pagination. By default the first 100 NFTs are returned
 
 ## Example
 

@@ -3,46 +3,66 @@ slug: /solana/quickstart
 title: Quickstart
 ---
 
-In this quickstart guide, we'll learn how to deploy a new Solana program from a script and build a simple frontend application around it, all using the Solana SDK!
+In this quickstart guide, we'll teach you all the fundamentals of our Solana SDK, including:
 
-More specifically, in this example we're going to create a new NFT Drop from a script, and then we'll build a simple minting website for it.
+- Deploying a new program from a script
+- Creating a web application to interact with the program
 
-### Creating an NFT Drop
+By the end, you'll create a new NFT Drop program and a simple minting app for it.
 
-We'll start off by creating a new NFT Drop with the Solana SDK.
+:::tip First time using Solana?
 
-**To get started, we'll need to install the SDK with the following command:**
+Follow our [Getting Started with Solana guide](https://blog.thirdweb.com/guides/getting-started-with-solana/) to create a wallet and get test funds!
+
+:::
+
+## Creating an NFT Drop Program
+
+We'll start by creating a new NFT Drop program with the Solana SDK.
+
+If you're starting from scratch, first create a new Node.js project:
+
+```bash
+npm init -y
+```
+
+Install the SDK with the following command:
 
 ```bash npm2yarn
 npm install @thirdweb-dev/sdk
 ```
 
-Now we can setup our SDK to create our NFT Drop. In this case, we want to deploy a new NFT Drop program and lazy mint some NFTs, so we'll want to be able to send transactions to the blockchain. For this reason, we'll setup the SDK with our private key:
+Now we're ready to deploy a new NFT Drop program and lazy mint some NFTs.
+
+To do this, we'll first initialize the SDK with our private key
+so we can send transactions to the blockchain.
 
 :::warning
 
 Ensure you store and access your private key securely.
 
-- **Never** directly expose your private key in your source code.
-- **Never** commit any file that may contain your private key to your source control.
-- **Never** use a private key for a frontend (website/dapp) application.
+[Learn how to securely store your private key using a secret manager](/sdk/set-up-the-sdk/securing-your-private-key).
 
 If you are unsure how to securely store and access your private key, please do not proceed.
 
 :::
 
-```jsx
+Create a file called `index.mjs`, and create an instance of the SDK:
+
+```jsx title="index.mjs"
 import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 
 // You can get this private key from your wallet, but it's important to store it securely
 const privateKey = "...";
 // Here we choose to setup the SDK on the Solana devnet network
-const sdk = new ThirdwebSDK.fromPrivateKey("devnet", privateKey);
+const sdk = ThirdwebSDK.fromPrivateKey("devnet", privateKey);
 ```
+
+### Deploying a Program
 
 Now that we have our SDK setup, we can deploy a new NFT Drop program with a single line of code as follows:
 
-```jsx
+```jsx title="index.mjs"
 const address = await sdk.deployer.createNftDrop({
   name: "Cool Drop",
   description: "This is my first NFT Drop on Solana!",
@@ -53,43 +73,79 @@ const address = await sdk.deployer.createNftDrop({
 console.log(address);
 ```
 
-If you run the above code, it should log out the address of our newly deployed NFT Drop!
+If you run the above code, it should log out the address of our newly deployed NFT Drop:
 
-Now we can finally lazy mint some NFTs to our drop so they're ready to be claimed:
+```bash
+node index.mjs
+# Prints out the address of the newly deployed NFT Drop!
+```
 
-```jsx
+### Interacting with the Program
+
+Now that we've created a new NFT Drop program, we can interact with it using the SDK.
+
+For example, we can lazy mint some NFTs to our drop so they're ready to be claimed/minted by other people!
+
+Let's create another file called `lazyMint.mjs` and lazy mint 10 NFTs to our drop, by:
+
+1. Initializing the SDK
+2. Connecting to the program using it's address (which we got from the previous step)
+3. Lazy minting the NFTs
+
+```jsx title="lazyMint.mjs"
+import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
+import { readFileSync } from "fs";
+
+// Initialize the SDK
+const privateKey = "...";
+const sdk = ThirdwebSDK.fromPrivateKey("devnet", privateKey);
+
+// Use the address of the NFT Drop program we just deployed to connect to the program
+const programAddress = "...";
+const program = await sdk.getNFTDrop(programAddress);
+
 // Here we create the metadata for our NFTs
+// Images can be URLs or relative paths to files
 const metadatas = [
   {
     name: "NFT #1",
     description: "My first NFT!",
-    image: readFileSync("./shroomsocrates.png"),
+    image: readFileSync("./blue_square.png"),
   },
   {
     name: "NFT #2",
     description: "My second NFT!",
-    image: readFileSync("./shroomsocrates.png"),
+    image: readFileSync("./yellow_star.png"),
   },
 ];
 
 // And now we can lazy mint with the metadata
 await program.lazyMint(metadatas);
-```
 
-Now we can check to see all the NFTs on our NFT Drop and we should see the two NFTs we just created:
-
-```jsx
+// Now let's view all of the NFTs in our drop:
 const nfts = await program.getAll();
 console.log(nfts);
 ```
 
-We've now succesfully create an NFT Drop with the SDK, so now we can turn to building a simple frontend application for users to claim from our drop!
+:::tip Lazy Minting
 
-### Building a Claiming Frontend
+To be able to claim NFTs from the drop, you must lazy mint the same amount of NFTs as the `itemsAvailable` you set when deploying the program.
 
-To quickly create a new React application with ready-to-go Solana support, we can use the thirdweb Solana frontend starter with the following command:
+:::
 
+If we run the above code, it should log out the addresses of the newly minted NFTs:
+
+```bash
+node lazyMint.mjs
 ```
+
+Let's see how we can build an application on top of this program!
+
+## Building a Claiming Frontend
+
+We can use the [CLI](/cli) to create a new React application with ready-to-go Solana support using the following command:
+
+```bash
 npx thirdweb create --template next-typescript-solana-starter
 ```
 
@@ -100,6 +156,9 @@ The first thing we'll have to do is configure the project to work on Solana devn
 We can do this by navigating to the `pages/_app.tsx` file where we can change the network to `devnet` as follows:
 
 ```jsx
+import { WalletModalProvider } from "@solana/wallet-adapter-react-ui";
+import { ThirdwebProvider } from "@thirdweb-dev/react/solana";
+
 // Here we make sure the network is set to devnet
 const network: Network = "devnet";
 
@@ -125,14 +184,13 @@ import { useProgram, useClaimNFT } from "@thirdweb-dev/react/solana";
 
 export default function NFTDrop() {
   const wallet = useWallet();
-  const program = useProgram("your_nft_drop_address", "nft-drop");
-  const claim = useClaimNFT(program.data);
-  const quantityToClaim = 1;
+  const { program } = useProgram("your_nft_drop_address", "nft-drop");
+  const claim = useClaimNFT(program);
 
   return (
     <div>
       {wallet.connected ? (
-        <button onClick={() => claim.mutate(quantityToClaim)}>
+        <button onClick={() => claim.mutate({ amount: 1)}>
           {claim.isLoading ? "Claiming..." : "Claim NFT"}
         </button>
       ) : (
@@ -145,4 +203,6 @@ export default function NFTDrop() {
 
 We can run our project with `npm run dev` or `yarn dev` and navigate to [`localhost:3000`](http://localhost:300) to try it out!
 
-And just like that, we've deployed a new NFT Drop to Solana, lazy minted some NFTs, and created a claiming website, all with the thirdweb Solana SDK!
+And just like that, we've deployed a new NFT Drop to Solana, lazy-minted some NFTs, and created a claiming website, all with the thirdweb Solana SDK!
+
+![Claiming NFTs](./assets/claim-page.png)

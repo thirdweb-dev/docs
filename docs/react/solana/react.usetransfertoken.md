@@ -17,7 +17,7 @@ Transfer tokens from the connected wallet to another wallet
 import { useProgram, useTransferToken } from "@thirdweb-dev/react/solana";
 
 export default function Component() {
-  const program = useProgram("{{program_address}}");
+  const { program } = useProgram("{{program_address}}");
   const { mutateAsync: transfer, isLoading, error } = useTransferToken(program);
 
   return (

@@ -23,7 +23,7 @@ export default function LearnSection() {
           <GettingStartedCard
             name="YouTube"
             description=""
-            link="https://www.youtube.com/c/thirdweb_"
+            link="https://www.youtube.com/c/thirdweb"
             image="/assets/youtube.svg"
             additionalStyles={{
               height: 56,
