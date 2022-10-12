@@ -3326,7 +3326,7 @@
     "summary": "Setup a collection of NFTs where when it comes to minting, you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party..\n\n",
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getContract(\"{{contract_address}}\", \"signature-drop\");",
-      "react": "import { useSignatureDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const signatureDrop = useSignatureDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the Signature drop contract in the rest of the component\n}"
+      "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract, isLoading, isError } = useContract(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the Signature drop contract in the rest of the component\n}"
     },
     "methods": [
       {
