@@ -1,60 +1,50 @@
 ---
-title: Signature Drop (ERC721A)
-slug: /pre-built-contracts/signature-drop
+title: NFT Drop (ERC721)
+slug: /pre-built-contracts/nft-drop
 ---
 
-import DeployThisContractButton from "../../../../src/components/DeployThisContractButton";
-import QuickstartCard from "../../../../src/components/QuickstartCard";
+import DeployThisContractButton from "@components/DeployThisContractButton";
+import QuickstartCard from "@components/QuickstartCard";
 
-# Signature Drop
+# NFT Drop
 
 <div className="deployContractBtnContainer" style={{ marginTop: -70 }}>
   <DeployThisContractButton
-    link={"https://thirdweb.com/contracts/new/pre-built/drop/signature-drop"}
-    contractType="signature-drop"
+    link={"https://thirdweb.com/contracts/new/pre-built/drop/nft-drop"}
+    contractType="nft-drop"
   />
 </div>
 
-The Signature Drop contract uses the [ERC721A](https://www.erc721a.org/) standard to
-release a collection of unique one-of-one NFTs with lower gas fees for your community
-compared to the regular ERC721 standard used in the [NFT Drop](/pre-built-contracts/nft-drop).
+The NFT Drop contract is ideal when you want to release a collection of unique NFTs
+using the [ERC721 Standard](https://eips.ethereum.org/EIPS/eip-721).
 
-You **lazy-mint** your NFTs by uploading the metadata and configuring a **single** claim phase, laying out the rules for how your users can claim
-NFTs from your drop; such as an allowlist, release date, or [delayed reveal](/sdk/advanced-features/delayed-reveal).
+It allows you to define a set of conditions called **claim phases** in a sequence which defines
+when and how your users can claim an NFT from your drop;
+including allowlists, release dates, claim limits, and delayed reveals.
 
-The "signature" in the name refers to the [signature-based minting](/sdk/advanced-features/on-demand-minting) feature,
-that allows you to grant users the ability to mint NFT(s) based on a custom set of criteria, checked
-on-demand. This feature is **optional** and separate from the claim phase conditions.
-
-<div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--12" style={{ marginTop: 8 }}>
-    <QuickstartCard
-      name="Learn more about signature-based minting"
-      link="/sdk/advanced-features/on-demand-minting"
-      image="/assets/icons/sdks.png"
-    />
-  </div>
-</div>
+When you add NFTs to your drop contract, they are **not** minted at this point.
+You prepare everything for your users by **lazy minting** them, so that other wallets can mint them
 
 ## Use Cases & Examples
 
-You could use the Signature Drop contract to:
+You could use the NFT Drop contract to:
 
-- Release a gas-optimized PFP Collection where each NFT has a different combination of traits
-- Allow users that meet certain criteria to be able to claim NFTs from your drop
+- Release a PFP Collection where each NFT has a different combination of traits
+- Release NFTs of your artwork, and have your community mint them for a price
+- Create a restricted-access NFT drop, where only a specified list of wallets can claim NFTs
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--6" style={{ marginTop: 8 }}>
     <QuickstartCard
-      name="Video: Build An ERC721A NFT Drop with signature-based Minting"
-      link="https://www.youtube.com/watch?v=2ITg70MPFJ8"
+      name="Guide: Create an NFT Drop with an Allowlist & Multiple Claim Phases"
+      link="https://blog.thirdweb.com/guides/create-nft-drop-with-claim-phases"
       image="/assets/icons/education.png"
     />
   </div>
   <div className="col col--6" style={{ marginTop: 8 }}>
     <QuickstartCard
-      name="Guide: Release An ERC721A NFT Drop Using the Signature Drop Contract"
-      link="https://blog.thirdweb.com/guides/signature-drop"
+      name="Guide: Create an NFT Drop with Delayed Reveal"
+      link="https://blog.thirdweb.com/guides/nft-drop-with-delayed-reveal"
       image="/assets/icons/education.png"
     />
   </div>
@@ -62,14 +52,14 @@ You could use the Signature Drop contract to:
 
 ## Smart Contract Design
 
-For a detailed exploration of how the signature drop smart contract works, why it was built,
-and it's limitations, visit our [Signature Drop Design Doc](/contracts/design/SignatureDrop)!
+For a detailed exploration of how our drop smart contracts work, why they were built,
+and their limitations, visit our [Drop Design Doc](/contracts/design/Drop)!
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
     <QuickstartCard
-      name="Signature Drop Smart Contract Design Document"
-      link="/contracts/design/SignatureDrop"
+      name="Drop Smart Contract Design Document"
+      link="/contracts/design/Drop"
       image="/assets/icons/drop.png"
     />
   </div>
@@ -77,33 +67,33 @@ and it's limitations, visit our [Signature Drop Design Doc](/contracts/design/Si
 
 ## Using the Contract in the SDK
 
-This page outlines how you can create and configure your signature drop contract using the [dashboard](https://thirdweb.com/dashboard).
+This page outlines how you can create and configure your NFT drop contract using the [dashboard](https://thirdweb.com/dashboard).
 
 You can also use our [SDK](/sdk) to create and interact with your contract.
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
     <QuickstartCard
-      name="Using the Signature Drop Contract in the SDK"
-      link="/sdk/interacting-with-contracts/signature-drop"
+      name="Using the NFT Drop Contract in the SDK"
+      link="/sdk/interacting-with-contracts/nft-drop"
       image="/assets/icons/drop.png"
     />
   </div>
 </div>
 
-## Creating & Configuring the Signature Drop
+## Creating & Configuring the NFT Drop
 
 Learn how to create and configure your smart contract using the [dashboard](https://thirdweb.com/dashboard).
 
-### Creating a Signature Drop Contract
+### Creating a NFT Drop Contract
 
-Deploy the signature drop contract to any of our
+Deploy the NFT drop contract to any of our
 [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use) using the button below.
 
 <div style={{ width: "fit-content" }}>
   <DeployThisContractButton
-    link={"https://thirdweb.com/contracts/new/pre-built/token/signature-drop"}
-    contractType="signature-drop"
+    link={"https://thirdweb.com/contracts/new/pre-built/token/nft-drop"}
+    contractType="nft-drop"
   />
 </div>
 
@@ -115,7 +105,7 @@ This is useful for when you want _other_ wallets to mint NFTs from your drop int
 
 To lazy mint NFT(s), click **Create** to lazy-mint a single NFT, or **Batch Upload** to lazy-mint multiple NFTs at once.
 
-![Create or Batch Upload Buttons](../assets/lazy-minting.png)
+![Create or Batch Upload Buttons](../assets/nft-drop-create.png)
 
 To get started, you can use one of our example files for [CSV](https://thirdweb.com/example.csv) or [JSON](https://nightly.thirdweb.com/example.json) metadata.
 
@@ -130,11 +120,11 @@ You have the option to add a delayed reveal to a batch of NFTs after you batch u
 
 ![Select Delayed Reveal](../assets/select-delayed-reveal.png)
 
-### Setting the Claim Phase
+### Setting Claim Phases
 
 A claim phase is a set of conditions that define when and how your users can claim an NFT from your drop.
 
-**The signature drop contract only supports one claim phase**, (this claim phase can be edited later).
+**The NFT Drop contract supports multiple sequential claim phases**.
 
 Within a claim phase, you can define:
 
@@ -148,13 +138,13 @@ Within a claim phase, you can define:
 
 To configure the claim phase, click the **Claim Phases** tab and **Add Claim Phase**.
 
-![Add Claim Phase Button](../assets/add-claim-phase.png)
+![Add Claim Phase Button](../assets/nft-drop-add-claim-phase.png)
 
 ### Contract Metadata
 
 To configure the image, name, and description of the contract, click the **Settings** tab:
 
-![Contract Metadata](../assets/contract-metadata.png)
+![Contract Metadata](../assets/nft-drop-settings-metadata.png)
 
 ### Royalty & Platform Fees
 
