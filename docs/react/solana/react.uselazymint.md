@@ -17,7 +17,7 @@ Lazy mint NFTs on an NFT Drop program
 import { useProgram, useLazyMintNFT } from "@thirdweb-dev/react/solana";
 
 export default function Component() {
-  const program = useProgram("{{program_address}}");
+  const { program } = useProgram("{{program_address}}");
   const { mutateAsync: lazyMint, isLoading, error } = useLazyMintNFT(program);
 
   return (
@@ -35,7 +35,7 @@ export declare function useLazyMint(
   program: RequiredParam<NFTDrop>,
   onProgress?: (progress: UploadProgressEvent) => void,
 ): import("@tanstack/react-query").UseMutationResult<
-  import("@thirdweb-dev/sdk/solana").TransactionResult,
+  import("@thirdweb-dev/sdk/solana").TransactionResult[],
   unknown,
   {
     metadatas: NFTMetadataInput[];
@@ -53,4 +53,4 @@ export declare function useLazyMint(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/solana").TransactionResult, unknown, { metadatas: NFTMetadataInput\[\]; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/solana").TransactionResult\[\], unknown, { metadatas: NFTMetadataInput\[\]; }, unknown&gt;

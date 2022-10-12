@@ -17,7 +17,7 @@ Get the metadata for a minted NFT
 import { useProgram, useNFT } from "@thirdweb-dev/react/solana";
 
 export default function Component() {
-  const program = useProgram("{{program_address}}");
+  const { program } = useProgram("{{program_address}}");
   const { data: metadata, isLoading } = useNFT(program, mintAddress);
 
   return <pre>{JSON.stringify(metadata)}</pre>;

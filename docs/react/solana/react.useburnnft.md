@@ -17,7 +17,7 @@ Burn an NFT owned by the connected wallet
 import { useProgram, useBurnNFT } from "@thirdweb-dev/react/solana";
 
 export default function Component() {
-  const program = useProgram("{{program_address}}");
+  const { program } = useProgram("{{program_address}}");
   const { mutateAsync: burn, isLoading, error } = useBurnNFT(program);
 
   return <button onClick={() => burn("...")}>Burn</button>;
