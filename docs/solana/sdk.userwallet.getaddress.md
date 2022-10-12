@@ -14,12 +14,12 @@ Get the address of the connected wallet
 **Signature:**
 
 ```typescript
-getAddress(): string;
+getAddress(): string | undefined;
 ```
 
 **Returns:**
 
-string
+string \| undefined
 
 the address of the connected wallet
 
