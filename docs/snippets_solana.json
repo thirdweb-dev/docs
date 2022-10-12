@@ -678,8 +678,8 @@
         "summary": "Create a new NFT drop program\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "const metadata = {\n  name: \"My NFT Drop\",\n  symbol: \"NFT\",\n  itemsAvailable: 5,\n};\n\nconst address = await sdk.deployer.createNftDrop(metadata);",
-          "react": "const sdk = useSDK();\n\nconst metadata = {\n  name: \"My NFT Drop\",\n  symbol: \"NFT\",\n  itemsAvailable: 5,\n};\n\nconst address = await sdk.deployer.createNftDrop(metadata);"
+          "javascript": "const metadata = {\n  name: \"My NFT Drop\",\n  symbol: \"NFT\",\n  totalSuppply: 5,\n};\n\nconst address = await sdk.deployer.createNftDrop(metadata);",
+          "react": "const sdk = useSDK();\n\nconst metadata = {\n  name: \"My NFT Drop\",\n  symbol: \"NFT\",\n  totalSuppply: 5,\n};\n\nconst address = await sdk.deployer.createNftDrop(metadata);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.deployer.createnftdrop",
