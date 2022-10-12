@@ -17,7 +17,7 @@ Get the current claim conditions on an NFT Drop
 import { useProgram, useClaimConditions } from "@thirdweb-dev/react/solana";
 
 export default function Component() {
-  const program = useProgram("{{program_address}}");
+  const { program } = useProgram("{{program_address}}");
   const { data: claimConditions, isLoading } = useClaimConditions(program);
 
   return <p>{claimConditions?.price.displayValue}</p>;

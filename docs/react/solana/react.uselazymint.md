@@ -17,7 +17,7 @@ Lazy mint NFTs on an NFT Drop program
 import { useProgram, useLazyMintNFT } from "@thirdweb-dev/react/solana";
 
 export default function Component() {
-  const program = useProgram("{{program_address}}");
+  const { program } = useProgram("{{program_address}}");
   const { mutateAsync: lazyMint, isLoading, error } = useLazyMintNFT(program);
 
   return (

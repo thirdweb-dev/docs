@@ -17,7 +17,7 @@ Get an SDK instance to interact with any program
 import { useProgram } from "@thirdweb-dev/react/solana";
 
 export default function Component() {
-  const program = useProgram("{{program_address}}").program;
+  const { program } = useProgram("{{program_address}}").program;
 
   // Now you can use the program in the rest of the component
 
