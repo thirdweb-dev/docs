@@ -33,5 +33,5 @@ the supply of the specified NFT
 
 ```jsx
 const address = "...";
-const supply = await program.supplyOf(addres);
+const supply = await program.supplyOf(address);
 ```

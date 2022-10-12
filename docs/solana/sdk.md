@@ -22,6 +22,13 @@ displayed_sidebar: solana
 | [UserWallet](./sdk.userwallet.md)                   | Handle and view info about the wallet connected to the SDK. |
 | [WalletAuthenticator](./sdk.walletauthenticator.md) | Wallet Authenticator                                        |
 
+## Functions
+
+| Function                                        | Description |
+| ----------------------------------------------- | ----------- |
+| [getNework(metaplex)](./sdk.getnework.md)       |             |
+| [getPublicRpc(metaplex)](./sdk.getpublicrpc.md) |             |
+
 ## Interfaces
 
 | Interface                                     | Description                                                                                              |

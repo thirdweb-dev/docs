@@ -203,12 +203,25 @@
         }
       },
       {
+        "name": "ownerOf",
+        "summary": "Get the current owner of the given NFT\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const nftAddress = \"...\"\nconst owner = await program.ownerOf(nftAddress);\nconsole.log(owner);",
+          "react": "const nftAddress = \"...\"\nconst owner = await program.ownerOf(nftAddress);\nconsole.log(owner);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.ownerof",
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.ownerof"
+        }
+      },
+      {
         "name": "supplyOf",
         "summary": "Get the supply of NFT editions minted from a specific NFT\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "const address = \"...\";\nconst supply = await program.supplyOf(addres);",
-          "react": "const address = \"...\";\nconst supply = await program.supplyOf(addres);"
+          "javascript": "const address = \"...\";\nconst supply = await program.supplyOf(address);",
+          "react": "const address = \"...\";\nconst supply = await program.supplyOf(address);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.supplyof",
@@ -475,6 +488,19 @@
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.lazymint",
           "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.lazymint"
+        }
+      },
+      {
+        "name": "ownerOf",
+        "summary": "Get the current owner of the given NFT\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const nftAddress = \"...\"\nconst owner = await program.ownerOf(nftAddress);\nconsole.log(owner);",
+          "react": "const nftAddress = \"...\"\nconst owner = await program.ownerOf(nftAddress);\nconsole.log(owner);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.ownerof",
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.ownerof"
         }
       },
       {
