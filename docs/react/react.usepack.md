@@ -23,16 +23,16 @@ Hook for getting an instance of a `Pack` contract. This contract supports the cr
 ## Example
 
 ```javascript
-import { usePack } from '@thirdweb-dev/react'
+import { useContract } from '@thirdweb-dev/react'
 
 export default function Component() {
-  const pack = usePack("<YOUR-CONTRACT-ADDRESS>")
+  const { contract } = usePack("<YOUR-CONTRACT-ADDRESS>", "pack")
 
   // Now you can use the pack contract in the rest of the component
 
   // For example, this function will get all the packs on this contract
   async function getPacks() {
-    const packs = await pack.getAll()
+    const packs = await contract.getAll()
     return packs
   }
 

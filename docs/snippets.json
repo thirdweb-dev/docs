@@ -151,7 +151,7 @@
     "summary": "Create a collection of one-of-one NFTs.\n\n",
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getContract(\"{{contract_address}}\", \"nft-collection\");",
-      "react": "import { useNFTCollection } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const nftCollection = useNFTCollection(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the nftCollection contract in the rest of the component\n}",
+      "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useNFTCollection(\"<YOUR-CONTRACT-ADDRESS>\", \"nft-collection\")\n\n  // Now you can use the nftCollection contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_nft_collection(\"{{contract_address}}\")",
       "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetNFTCollection(\"{{contract_address}}\")\n"
     },
@@ -340,7 +340,7 @@
     "summary": "Create a collection of NFTs that lets you mint multiple copies of each NFT.\n\n",
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getContract(\"{{contract_address}}\", \"edition\");",
-      "react": "import { useEdition } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const edition = useEdition(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the edition contract in the rest of the component\n}",
+      "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"edition\")\n\n  // Now you can use the edition contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_edition(\"{{contract_address}}\")",
       "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetEditionDrop(\"{{contract_address}}\")\n"
     },
@@ -546,7 +546,7 @@
     "summary": "Create a Drop contract for a standard crypto token or cryptocurrency.\n\n",
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getContract(\"{{contract_address}}\", \"token-drop\");",
-      "react": "import { useTokenDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const tokenDrop = useTokenDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the token drop contract in the rest of the component\n}"
+      "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"token-drop\")\n\n  // Now you can use the token drop contract in the rest of the component\n}"
     },
     "methods": [
       {
@@ -799,7 +799,7 @@
     "summary": "Create a standard crypto token or cryptocurrency.\n\n",
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getContract(\"{{contract_address}}\", \"token\");",
-      "react": "import { useToken } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const token = useToken(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the token contract in the rest of the component\n}",
+      "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"token\")\n\n  // Now you can use the token contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_token(\"{{contract_address}}\")",
       "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetToken(\"{{contract_address}}\")\n"
     },
@@ -1073,7 +1073,7 @@
     "summary": "Setup a collection of one-of-one NFTs that are minted as users claim them.\n\n",
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getContract(\"{{contract_address}}\", \"nft-drop\");",
-      "react": "import { useNFTDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const nftDrop = useNFTDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the nft drop contract in the rest of the component\n}",
+      "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"nft-drop\")\n\n  // Now you can use the nft drop contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_nft_drop(\"{{contract_address}}\")",
       "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetNFTDrop(\"{{contract_address}}\")\n"
     },
@@ -1398,7 +1398,7 @@
     "summary": "Setup a collection of NFTs with a customizable number of each NFT that are minted as users claim them.\n\n",
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getContract(\"{{contract_address}}\", \"edition-drop\");",
-      "react": "import { useEditionDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const editionDrop = useEditionDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the edition drop contract in the rest of the component\n}",
+      "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"edition-drop\")\n\n  // Now you can use the edition drop contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_edition_drop(\"{{contract_address}}\")",
       "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetEditionDrop(\"{{contract_address}}\")\n"
     },
@@ -1604,7 +1604,7 @@
     "summary": "Create your own whitelabel marketplace that enables users to buy and sell any digital assets.\n\n",
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getContract(\"{{contract_address}}\", \"marketplace\");",
-      "react": "import { useMarketplace } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const marketplace = useMarketplace(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the marketplace contract in the rest of the component\n}",
+      "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"marketplace\")\n\n  // Now you can use the marketplace contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_marketplace(\"{{contract_address}}\")",
       "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetMarketplace(\"{{contract_address}}\")\n"
     },
@@ -2002,7 +2002,7 @@
     "summary": "Create custom royalty splits to distribute funds.\n\n",
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getContract(\"{{contract_address}}\", \"split\");",
-      "react": "import { useSplit } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const split = useSplit(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the split contract in the rest of the component\n}"
+      "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"split\")\n\n  // Now you can use the split contract in the rest of the component\n}"
     },
     "methods": [
       {
@@ -2118,7 +2118,7 @@
     "summary": "Create lootboxes of NFTs with rarity based open mechanics.\n\n",
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getContract(\"{{contract_address}}\", \"pack\");",
-      "react": "import { usePack } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const pack = usePack(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the pack contract in the rest of the component\n}"
+      "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = usePack(\"<YOUR-CONTRACT-ADDRESS>\", \"pack\")\n\n  // Now you can use the pack contract in the rest of the component\n}"
     },
     "methods": [
       {
@@ -2354,7 +2354,7 @@
     "summary": "Create a decentralized organization for token holders to vote on proposals.\n\n",
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getContract(\"{{contract_address}}\", \"vote\");",
-      "react": "import { useVote } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const vote = useVote(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the vote contract in the rest of the component\n}"
+      "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"vote\")\n\n  // Now you can use the vote contract in the rest of the component\n}"
     },
     "methods": [
       {
@@ -2470,7 +2470,7 @@
     "summary": "Multiwrap lets you wrap any number of ERC20, ERC721 and ERC1155 tokens you own into a single wrapped token bundle.\n\n",
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getContract(\"{{contract_address}}\", \"multiwrap\");",
-      "react": "import { useMultiwrap } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const multiwrap = useMultiwrap(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the multiwrap contract in the rest of the component\n}",
+      "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"multiwrap\")\n\n  // Now you can use the multiwrap contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_multiwrap(\"{{contract_address}}\")",
       "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetMultiwrap(\"{{contract_address}}\")\n"
     },
@@ -3326,7 +3326,7 @@
     "summary": "Setup a collection of NFTs where when it comes to minting, you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party..\n\n",
     "examples": {
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = sdk.getContract(\"{{contract_address}}\", \"signature-drop\");",
-      "react": "import { useSignatureDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const signatureDrop = useSignatureDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the Signature drop contract in the rest of the component\n}"
+      "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"signature-drop\")\n\n  // Now you can use the Signature drop contract in the rest of the component\n}"
     },
     "methods": [
       {

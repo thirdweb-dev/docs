@@ -23,16 +23,16 @@ Hook for getting an instance of an `Edition` contract. This contract is used to 
 ## Example
 
 ```javascript
-import { useEdition } from '@thirdweb-dev/react'
+import { useContract } from '@thirdweb-dev/react'
 
 export default function Component() {
-  const edition = useEdition("<YOUR-CONTRACT-ADDRESS>")
+  const { contract } = useContract("<YOUR-CONTRACT-ADDRESS>", "edition")
 
   // Now you can use the edition contract in the rest of the component
 
   // For example, this function will return all the NFTs on this contract
   async function getNFTs() {
-    const nfts = await edition.getAll()
+    const nfts = await contract.getAll()
     return nfts
   }
 

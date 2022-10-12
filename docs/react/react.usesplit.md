@@ -23,16 +23,16 @@ Hook for getting an instance of a `Split` contract. This contract supports fund 
 ## Example
 
 ```javascript
-import { useSplit } from '@thirdweb-dev/react'
+import { useContract } from '@thirdweb-dev/react'
 
 export default function Component() {
-  const split = useSplit("<YOUR-CONTRACT-ADDRESS>")
+  const { contract } = useContract("<YOUR-CONTRACT-ADDRESS>", "split")
 
   // Now you can use the split contract in the rest of the component
 
   // For example, this function will retrun all the receipients of the split
   async function getRecipients() {
-    const recipients = await split.getAllRecipients()
+    const recipients = await contract.getAllRecipients()
     return recipients
   }
 

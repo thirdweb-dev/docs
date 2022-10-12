@@ -23,16 +23,16 @@ Hook for getting an instance of an `Vote` contract. This contract enables fully 
 ## Example
 
 ```javascript
-import { useVote } from '@thirdweb-dev/react'
+import { useContract } from '@thirdweb-dev/react'
 
 export default function Component() {
-  const vote = useVote("<YOUR-CONTRACT-ADDRESS>")
+  const { contract } = useContract("<YOUR-CONTRACT-ADDRESS>", "vote")
 
   // Now you can use the vote contract in the rest of the component
 
   // For example, this function will get all the proposals on this contract
   async function getProposals() {
-    const proposals = await vote.getAll()
+    const proposals = await contract.getAll()
     return proposals
   }
 

@@ -363,7 +363,7 @@
       "summary": "Hook for getting an instance of an `Edition` contract. This contract is used to interface with ERC1155 compliant NFTs.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "import { useEdition } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const edition = useEdition(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the edition contract in the rest of the component\n\n  // For example, this function will return all the NFTs on this contract\n  async function getNFTs() {\n    const nfts = await edition.getAll()\n    return nfts\n  }\n\n  ...\n}"
+        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"edition\")\n\n  // Now you can use the edition contract in the rest of the component\n\n  // For example, this function will return all the NFTs on this contract\n  async function getNFTs() {\n    const nfts = await contract.getAll()\n    return nfts\n  }\n\n  ...\n}"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useedition"
@@ -374,7 +374,7 @@
       "summary": "Hook for getting an instance of an `EditionDrop` contract. This conract is used to interface with ERC1155 compliant NFTs that can be lazily minted.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "import { useEditionDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const editionDrop = useEditionDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the edition drop contract in the rest of the component\n\n  // For example, this function will let the connected wallet claim a new NFT\n  async function claim(tokenId, quantity) {\n    await editionDrop.claim(tokenId, quantity)\n  }\n\n  ...\n}"
+        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"edition-drop\")\n\n  // Now you can use the edition drop contract in the rest of the component\n\n  // For example, this function will let the connected wallet claim a new NFT\n  async function claim(tokenId, quantity) {\n    await contract.claim(tokenId, quantity)\n  }\n\n  ...\n}"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useeditiondrop"
@@ -451,7 +451,7 @@
       "summary": "Hook for getting an instance of a `Marketplace` contract. This contract is used to support marketplace for purchase and sale of on-chain assets.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "import { useMarketplace } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const marketplace = useMarketplace(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the marketplace contract in the rest of the component\n\n  // For example, this function will return all the listings on the marketplace\n  async function getListings() {\n    const listings = await marketplace.getAll()\n    return listings\n  }\n\n  ...\n}"
+        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"marketplace\")\n\n  // Now you can use the marketplace contract in the rest of the component\n\n  // For example, this function will return all the listings on the marketplace\n  async function getListings() {\n    const listings = await contract.getAll()\n    return listings\n  }\n\n  ...\n}"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usemarketplace"
@@ -473,7 +473,7 @@
       "summary": "Hook for getting an instance of an `Multiwrap` contract. This contract is an ERC721 in which you can wrap ERC721, ERC1155 and ERC20 tokens.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "import { useMultiwrap } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const multiwrap = useMultiwrap(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the multiwrap contract in the rest of the component\n\n  // For example, this function will let the connected wallet wrap tokens\n  async function wrap(tokensToWrap, wrappedNFTMetadata) {\n    await multiwrap.wrap(tokensToWrap, wrappedNFTMetadata)\n  }\n\n  ...\n}"
+        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"multiwrap\")\n\n  // Now you can use the multiwrap contract in the rest of the component\n\n  // For example, this function will let the connected wallet wrap tokens\n  async function wrap(tokensToWrap, wrappedNFTMetadata) {\n    await contract.wrap(tokensToWrap, wrappedNFTMetadata)\n  }\n\n  ...\n}"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usemultiwrap"
@@ -506,7 +506,7 @@
       "summary": "Hook for getting an instance of an `NFTCollection` contract. This contract is meant to interface with ERC721 compliant NFTs.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "import { useNFTCollection } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const nftCollection = useNFTCollection(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the nftCollection contract in the rest of the component\n\n  // For example, this function will return all the NFTs on this contract\n  async function getNFTs() {\n    const nfts = await nftCollection.getAll()\n    return nfts\n  }\n\n  ...\n}"
+        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useNFTCollection(\"<YOUR-CONTRACT-ADDRESS>\", \"nft-collection\")\n\n  // Now you can use the nftCollection contract in the rest of the component\n\n  // For example, this function will return all the NFTs on this contract\n  async function getNFTs() {\n    const nfts = await contract.getAll()\n    return nfts\n  }\n\n  ...\n}"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usenftcollection"
@@ -517,7 +517,7 @@
       "summary": "Hook for getting an instance of an `NFTDrop` contract. This contract is meant to interface with ERC721 compliant NFTs that can be lazily minted.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "import { useNFTDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const nftDrop = useNFTDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the nft drop contract in the rest of the component\n\n  // For example, this function will let the connected wallet claim a new NFT\n  async function claim(quantity) {\n    await nftDrop.claim(quantity)\n  }\n\n  ...\n}"
+        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"nft-drop\")\n\n  // Now you can use the nft drop contract in the rest of the component\n\n  // For example, this function will let the connected wallet claim a new NFT\n  async function claim(quantity) {\n    await contract.claim(quantity)\n  }\n\n  ...\n}"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usenftdrop"
@@ -528,7 +528,7 @@
       "summary": "Hook for getting an instance of a `Pack` contract. This contract supports the creation of on-chain luck-based lootboxes.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "import { usePack } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const pack = usePack(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the pack contract in the rest of the component\n\n  // For example, this function will get all the packs on this contract\n  async function getPacks() {\n    const packs = await pack.getAll()\n    return packs\n  }\n\n  ...\n}"
+        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = usePack(\"<YOUR-CONTRACT-ADDRESS>\", \"pack\")\n\n  // Now you can use the pack contract in the rest of the component\n\n  // For example, this function will get all the packs on this contract\n  async function getPacks() {\n    const packs = await contract.getAll()\n    return packs\n  }\n\n  ...\n}"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usepack"
@@ -561,7 +561,7 @@
       "summary": "Hook for getting an instance of an `SignatureDrop` contract. This contract is meant to interface with ERC721 compliant NFTs that can be lazily minted.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "import { useSignatureDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const signatureDrop = useSignatureDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the Signature drop contract in the rest of the component\n\n  // For example, this function will let the connected wallet claim a new NFT\n  async function claim(quantity) {\n    await signatureDrop.claim(quantity)\n  }\n\n  ...\n}"
+        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"signature-drop\")\n\n  // Now you can use the Signature drop contract in the rest of the component\n\n  // For example, this function will let the connected wallet claim a new NFT\n  async function claim(quantity) {\n    await contract.claim(quantity)\n  }\n\n  ...\n}"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesignaturedrop"
@@ -572,7 +572,7 @@
       "summary": "Hook for getting an instance of a `Split` contract. This contract supports fund distribution to multiple parties.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "import { useSplit } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const split = useSplit(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the split contract in the rest of the component\n\n  // For example, this function will retrun all the receipients of the split\n  async function getRecipients() {\n    const recipients = await split.getAllRecipients()\n    return recipients\n  }\n\n  ...\n}"
+        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"split\")\n\n  // Now you can use the split contract in the rest of the component\n\n  // For example, this function will retrun all the receipients of the split\n  async function getRecipients() {\n    const recipients = await contract.getAllRecipients()\n    return recipients\n  }\n\n  ...\n}"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesplit"
@@ -594,7 +594,7 @@
       "summary": "Hook for getting an instance of a `Token` contract. This contract supports ERC20 compliant tokens.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "import { useToken } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const token = useToken(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the token contract in the rest of the component\n\n  // For example, this function will get the connected wallets token balance\n  async function balance() {\n    const balance = await token.balance()\n    return balance\n  }\n\n  ...\n}"
+        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"token\")\n\n  // Now you can use the token contract in the rest of the component\n\n  // For example, this function will get the connected wallets token balance\n  async function balance() {\n    const balance = await contract.balance()\n    return balance\n  }\n\n  ...\n}"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetoken"
@@ -605,7 +605,7 @@
       "summary": "Hook for getting an instance of a `Token Drop` contract.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "import { useTokenDrop } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const tokenDrop = useTokenDrop(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the token drop contract in the rest of the component\n\n  // For example, this function will get the connected wallets token balance\n  async function balance() {\n    const balance = await tokenDrop.balance()\n    return balance\n  }\n\n  ...\n}"
+        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"token-drop\")\n\n  // Now you can use the token drop contract in the rest of the component\n\n  // For example, this function will get the connected wallets token balance\n  async function balance() {\n    const balance = await contract.balance()\n    return balance\n  }\n\n  ...\n}"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetokendrop"
@@ -616,7 +616,7 @@
       "summary": "Hook for getting an instance of an `Vote` contract. This contract enables fully featured voting-based decentralized governance systems.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "import { useVote } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const vote = useVote(\"<YOUR-CONTRACT-ADDRESS>\")\n\n  // Now you can use the vote contract in the rest of the component\n\n  // For example, this function will get all the proposals on this contract\n  async function getProposals() {\n    const proposals = await vote.getAll()\n    return proposals\n  }\n\n  ...\n}"
+        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"vote\")\n\n  // Now you can use the vote contract in the rest of the component\n\n  // For example, this function will get all the proposals on this contract\n  async function getProposals() {\n    const proposals = await contract.getAll()\n    return proposals\n  }\n\n  ...\n}"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usevote"

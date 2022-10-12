@@ -23,16 +23,16 @@ Hook for getting an instance of a `Token` contract. This contract supports ERC20
 ## Example
 
 ```javascript
-import { useToken } from '@thirdweb-dev/react'
+import { useContract } from '@thirdweb-dev/react'
 
 export default function Component() {
-  const token = useToken("<YOUR-CONTRACT-ADDRESS>")
+  const { contract } = useContract("<YOUR-CONTRACT-ADDRESS>", "token")
 
   // Now you can use the token contract in the rest of the component
 
   // For example, this function will get the connected wallets token balance
   async function balance() {
-    const balance = await token.balance()
+    const balance = await contract.balance()
     return balance
   }
 
