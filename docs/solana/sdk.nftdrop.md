@@ -37,12 +37,12 @@ const program = await sdk.getProgram("{{program_address}}", "nft-drop");
 
 ## Properties
 
-| Property                                            | Modifiers             | Type                                      | Description |
-| --------------------------------------------------- | --------------------- | ----------------------------------------- | ----------- |
-| [accountType](./sdk.nftdrop.accounttype.md)         |                       | "nft-drop"                                |             |
-| [claimConditions](./sdk.nftdrop.claimconditions.md) |                       | ClaimConditions                           |             |
-| [network](./sdk.nftdrop.network.md)                 | <code>readonly</code> | import("@metaplex-foundation/js").Cluster |             |
-| [publicKey](./sdk.nftdrop.publickey.md)             |                       | PublicKey                                 |             |
+| Property                                            | Modifiers             | Type                                      | Description                               |
+| --------------------------------------------------- | --------------------- | ----------------------------------------- | ----------------------------------------- |
+| [accountType](./sdk.nftdrop.accounttype.md)         |                       | "nft-drop"                                |                                           |
+| [claimConditions](./sdk.nftdrop.claimconditions.md) |                       | ClaimConditions                           | Manage the claim conditions for this drop |
+| [network](./sdk.nftdrop.network.md)                 | <code>readonly</code> | import("@metaplex-foundation/js").Cluster |                                           |
+| [publicKey](./sdk.nftdrop.publickey.md)             |                       | PublicKey                                 |                                           |
 
 ## Methods
 

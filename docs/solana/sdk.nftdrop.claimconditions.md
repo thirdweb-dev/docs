@@ -9,8 +9,26 @@ displayed_sidebar: solana
 
 ## NFTDrop.claimConditions property
 
+Manage the claim conditions for this drop
+
 **Signature:**
 
 ```typescript
 claimConditions: ClaimConditions;
+```
+
+## Example
+
+```jsx
+// set your claim conditions
+await program.claimConditions.set({
+  maxClaimable: 100,
+  price: 0.5,
+  startTime: new Date(),
+});
+
+// get your claim conditions
+const conditions = await program.claimConditions.get();
+console.log(conditions.maxClaimable);
+console.log(conditions.claimedSupply);
 ```
