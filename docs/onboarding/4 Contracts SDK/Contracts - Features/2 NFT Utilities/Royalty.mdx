@@ -67,6 +67,15 @@ contract MyContract is Royalty {
     constructor() {
         deployer = msg.sender;
     }
+    
+    function supportsInterface(bytes4 interfaceId)
+        public
+        view
+        virtual
+        returns (bool)
+    {
+        return type(IERC2981).interfaceId == interfaceId;
+    }
 
     /**
      *  This function returns who is authorized to set royalty info for your NFT contract.
