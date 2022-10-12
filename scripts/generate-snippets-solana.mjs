@@ -46,7 +46,7 @@ const snippets = CLASSES.reduce((acc, contractName) => {
   ].includes(contractName)
     ? {
         examples: {
-          javascript: `import { useProgram } from "@thirdweb-dev/sdk/solana"\n\nexport default function Component() {\n  const { program } = useProgram("{{program_address}}"${programTypeArg[contractName]})\n  ...\n}`,
+          javascript: `import { useProgram } from "@thirdweb-dev/react/solana"\n\nexport default function Component() {\n  const { program } = useProgram("{{program_address}}"${programTypeArg[contractName]})\n  ...\n}`,
         },
       }
     : {};
