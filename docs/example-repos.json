@@ -54,13 +54,13 @@
     "html_url": "https://github.com/thirdweb-example/connect-wallet-button",
     "description": "Learn how to use the ConnectWallet Button component from the React SDK!",
     "created_at": "2022-08-23T04:29:36Z",
-    "updated_at": "2022-09-29T01:23:28Z",
+    "updated_at": "2022-10-13T02:25:19Z",
     "clone_url": "https://github.com/thirdweb-example/connect-wallet-button.git",
     "topics": [
       "ui-components"
     ],
     "language": "JavaScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://connectwallet.thirdweb-example.com/"
   },
@@ -417,7 +417,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2022-10-07T17:36:37Z",
+    "updated_at": "2022-10-13T02:49:02Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace.git",
     "topics": [
       "marketplace",
@@ -425,7 +425,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 26,
+    "stargazers_count": 27,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
@@ -460,6 +460,22 @@
     "homepage": ""
   },
   {
+    "name": "next-javascript-solana-starter",
+    "html_url": "https://github.com/thirdweb-example/next-javascript-solana-starter",
+    "description": "Starter Kit for Next.js + JavaScript + Solana",
+    "created_at": "2022-10-13T00:08:23Z",
+    "updated_at": "2022-10-13T05:20:48Z",
+    "clone_url": "https://github.com/thirdweb-example/next-javascript-solana-starter.git",
+    "topics": [
+      "solana",
+      "starter-kit"
+    ],
+    "language": "JavaScript",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": "https://next-javascript-solana-starter.thirdweb-example.com/"
+  },
+  {
     "name": "next-javascript-starter",
     "html_url": "https://github.com/thirdweb-example/next-javascript-starter",
     "description": "thirdweb starter project with Next.js & JavaScript",
@@ -480,17 +496,18 @@
   {
     "name": "next-typescript-solana-starter",
     "html_url": "https://github.com/thirdweb-example/next-typescript-solana-starter",
-    "description": "Starter Kit for Next.js + TypeScript",
+    "description": "Starter Kit for Next.js + TypeScript + Solana",
     "created_at": "2022-09-20T06:27:03Z",
-    "updated_at": "2022-09-29T01:14:41Z",
+    "updated_at": "2022-10-13T05:21:37Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-solana-starter.git",
     "topics": [
-      "solana"
+      "solana",
+      "starter-kit"
     ],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 3,
     "is_template": false,
-    "homepage": "https://next-ts-solana-starter.thirdweb-example.com/"
+    "homepage": "https://next-typescript-solana-starter.thirdweb-example.com/"
   },
   {
     "name": "next-typescript-starter",
@@ -548,6 +565,22 @@
     "stargazers_count": 60,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
+  },
+  {
+    "name": "nft-gated-website-solana",
+    "html_url": "https://github.com/thirdweb-example/nft-gated-website-solana",
+    "description": "Restrict access to content on your website to NFT Holders in Solana!",
+    "created_at": "2022-10-13T03:16:16Z",
+    "updated_at": "2022-10-13T11:41:59Z",
+    "clone_url": "https://github.com/thirdweb-example/nft-gated-website-solana.git",
+    "topics": [
+      "auth",
+      "solana"
+    ],
+    "language": "TypeScript",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": "https://nft-gated-website-solana.thirdweb-example.com"
   },
   {
     "name": "nft-staking-app",
@@ -646,6 +679,22 @@
     "stargazers_count": 1,
     "is_template": false,
     "homepage": null
+  },
+  {
+    "name": "sign-in-with-solana",
+    "html_url": "https://github.com/thirdweb-example/sign-in-with-solana",
+    "description": "Verify a user owns their wallet in a server-side environment using Sign In With Solana!",
+    "created_at": "2022-10-13T01:04:41Z",
+    "updated_at": "2022-10-13T05:17:20Z",
+    "clone_url": "https://github.com/thirdweb-example/sign-in-with-solana.git",
+    "topics": [
+      "auth",
+      "solana"
+    ],
+    "language": "TypeScript",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": "https://sign-in-with-solana.thirdweb-example.com"
   },
   {
     "name": "signature-based-minting",
