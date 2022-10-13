@@ -25,6 +25,12 @@ export declare class ContractDeployer extends RPCConnectionHandler
 | ----------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------- |
 | [(constructor)(network, options, storage)](./sdk.contractdeployer._constructor_.md) |           | Constructs a new instance of the <code>ContractDeployer</code> class |
 
+## Properties
+
+| Property                                   | Modifiers | Type                           | Description |
+| ------------------------------------------ | --------- | ------------------------------ | ----------- |
+| [events](./sdk.contractdeployer.events.md) |           | FactoryEvents &#124; undefined |             |
+
 ## Methods
 
 | Method                                                                                                                                                         | Modifiers | Description                                                             |

@@ -23,6 +23,12 @@ export declare class ContractEvents<TContract extends BaseContract>
 | ----------------------------------------------------------------------- | --------- | ------------------------------------------------------------------ |
 | [(constructor)(contractWrapper)](./sdk.contractevents._constructor_.md) |           | Constructs a new instance of the <code>ContractEvents</code> class |
 
+## Properties
+
+| Property                                                   | Modifiers              | Type                             | Description |
+| ---------------------------------------------------------- | ---------------------- | -------------------------------- | ----------- |
+| [contractWrapper](./sdk.contractevents.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;TContract&gt; |             |
+
 ## Methods
 
 | Method                                                                                   | Modifiers | Description                                     |
