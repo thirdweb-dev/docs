@@ -9,7 +9,9 @@ You can build front-end applications by using our [React](/react) and [TypeScrip
 
 Front-end applications are best-suited when you want users to connect their wallets to your web application and interact with your programs using their wallet.
 
-#### Learn by example with our [Live Demos](https://solana-hub.thirdweb-example.com/)
+### Learn By Example
+
+Check out our [live demos](https://solana-hub.thirdweb-example.com/) to see what you can build on Solana and how to build it.
 
 <div className="row" style={{ marginTop: 24 }}>
   <div className="col col--4" style={{ padding: 8 }}>
@@ -35,9 +37,9 @@ Front-end applications are best-suited when you want users to connect their wall
   </div>
 </div>
 
-## Creating a new project
+## Create A New Project
 
-The easiest way to get started is by using the [thirdweb CLI](https://github.com/thirdweb-dev/thirdweb-cli).
+The easiest way to get started is by using the [CLI](https://github.com/thirdweb-dev/thirdweb-cli).
 
 ```bash
 npx thirdweb create --template next-typescript-solana-starter
@@ -51,11 +53,11 @@ You're project is ready to start interacting with your programs, tokens and NFTs
   image="/assets/icons/education.png"
 />
 
-## Adding the SDK to an existing React project
+## Integrate Into Existing Projects
 
 If you have an **existing** project you want to integrate thirdweb into, install the thirdweb SDKs:
 
-```bash
+```bash npm2yarn
 npm install @thirdweb-dev/sdk @thirdweb-dev/react @solana/wallet-adapter-wallets @solana/wallet-adapter-react
 ```
 
@@ -76,24 +78,18 @@ export const MyApp = () => {
 };
 ```
 
-This provider will handle Wallet management + SDK functionality. This gives you access to wallet management hooks like, as well as all the SDK hooks and components you need to interact with your program.
+Any page wrapped within the `ThirdwebProvider` has access to the features of the React SDK, such as:
 
-- `useWallet()` - Get the current wallet and its state
-- `useSDK()` - Get the current SDK instance
-- `useProgram()` - Get any deployed program instance
-- and many more
+- [`useWallet`](https://solana-labs.github.io/wallet-adapter/#usage) - Get the current wallet and its state
+- [`useSDK`](/react/solana/react.usesdk) - Get the current SDK instance
+- [`useProgram`](/react/solana/react.useprogram) - Get any deployed program instance
 
-This setup is compatible with the Solana Wallet Adapter library. You can use any of the supported wallets.
+This setup is compatible with the [Solana Wallet Adapter](https://github.com/solana-labs/wallet-adapter) library. You can use any of the supported wallets.
 
-<QuickstartCard
-  name="Continue to the Interact with Programs section"
-  link="/solana/programs"
-  image="/assets/icons/education.png"
-/>
+### Existing Wallet Connection Setups
 
-### Using the SDK with an existing Solana project
-
-If you already have a connection and wallet setup using solana's web3js, you can use the `ThirdwebSDKProvider` to access the SDK functions without any of the wallet management functionality.
+If you already have a connection and wallet setup using [Solana's web3js](https://solana-labs.github.io/solana-web3.js/),
+you can use the `ThirdwebSDKProvider` to access the SDK functions without any of the wallet management functionality.
 
 ```jsx
 import { ThirdwebSDKProvider } from "@thirdweb-dev/react/solana";
@@ -109,9 +105,3 @@ export const MyApp({ Component, pageProps }) {
   );
 }
 ```
-
-<QuickstartCard
-  name="Continue to the Interact with Programs section"
-  link="/solana/programs"
-  image="/assets/icons/education.png"
-/>

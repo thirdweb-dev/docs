@@ -5,12 +5,20 @@ title: Backend & Scripting
 
 import QuickstartCard from "@components/QuickstartCard";
 
-Backend services are suitable for when you need to perform actions from _**your**_ wallet or simply need to **read** data,
+Backend services are suitable for when you need to perform actions from _**your**_ wallet or simply need to **read** data;
 rather than connecting to your user's wallets. It's also a great way to perform actions on behalf of your users.
 
-There are multiple different ways you can instantiate the SDK and use it, that vary depending on what you need to do.
+There are multiple different ways you can instantiate the SDK and use it, which vary depending on what you need to do.
+
+To get started, install the SDK:
+
+```bash npm2yarn
+npm install @thirdweb-dev/sdk
+```
 
 ## Read-only SDK
+
+Provide the network or your own RPC URL to start reading data from any Solana program.
 
 ```javascript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
@@ -20,21 +28,13 @@ import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
 const sdk = ThirdwebSDK.fromNetwork("devnet");
 ```
 
-This allows you to read data from any Solana program.
-
-<QuickstartCard
-  name="Continue to the Interact with Programs section"
-  link="/solana/programs"
-  image="/assets/icons/education.png"
-/>
-
 ## Read-Write SDK
 
-In order to execute transactions, you will need to connect a wallet to the SDK.
+To execute transactions, you will need to connect a wallet to the SDK. All transactions you make will be signed by the wallet you provide.
 
 ### From an existing private key
 
-To connect the SDK with a specific wallet, you can pass in the wallet's keypair.
+To connect the SDK with a specific wallet, you can pass in the wallet's private key.
 
 ```javascript
 import { ThirdwebSDK } from "@thirdweb-dev/sdk/solana";
@@ -56,12 +56,6 @@ If you are unsure how to securely store and access your private key, please do n
 
 :::
 
-<QuickstartCard
-  name="Continue to the Interact with Programs section"
-  link="/solana/programs"
-  image="/assets/icons/education.png"
-/>
-
 ### Using the Solana CLI Tool
 
 If you have the [Solana CLI](https://docs.solana.com/cli/install-solana-cli-tools) tool installed, you can follow the setup steps to generate a keypair.
@@ -77,9 +71,3 @@ const sdk = createThirdwebSDK("devnet");
 ```
 
 Note that the `createThirdwebSDK` function was imported from `@thirdweb-dev/sdk/solana/server` and is only supported on NodeJS environments.
-
-<QuickstartCard
-  name="Continue to the Interact with Programs section"
-  link="/solana/programs"
-  image="/assets/icons/education.png"
-/>
