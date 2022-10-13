@@ -5,7 +5,7 @@ title: Programs
 
 import CodeSnippetWithSummary from "@components/CodeSnippetWithSummary";
 
-You can get an SDK instance for any program by providing the on-chain address of the program as follows:
+You can get an SDK instance for any program by providing the address of the program as follows:
 
 <CodeSnippetWithSummary contract={"Program"} isSolana isGetContractCode />
 
@@ -22,4 +22,9 @@ You can call any function on your program including functions to read data or wr
 
 You can also read the data from any account associated with your program by using the `program.fetch` function as follows:
 
-<CodeSnippetWithSummary contract={"Program"} name={"fetch"} isSolana />
+<CodeSnippetWithSummary
+  contract={"Program"}
+  name={"fetch"}
+  isSolana
+  showHr={false}
+/>
