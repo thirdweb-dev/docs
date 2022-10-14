@@ -8,22 +8,18 @@ type Props = {
 };
 
 const contractTypeToLinkMapping = {
-  "nft-drop": "https://thirdweb.com/contracts/new/pre-built/drop/nft-drop",
-  "nft-collection":
-    "https://thirdweb.com/contracts/new/pre-built/token/nft-collection",
-  "edition-drop":
-    "https://thirdweb.com/contracts/new/pre-built/drop/edition-drop",
-  pack: "https://thirdweb.com/contracts/new/pre-built/token/pack",
-  multiwrap: "https://thirdweb.com/contracts/new/pre-built/token/multiwrap",
-  "signature-drop":
-    "https://thirdweb.com/contracts/new/pre-built/token/signature-drop",
-  edition: "https://thirdweb.com/contracts/new/pre-built/token/edition",
-  marketplace:
-    "https://thirdweb.com/contracts/new/pre-built/marketplace/marketplace",
-  token: "https://thirdweb.com/contracts/new/pre-built/token/token",
-  "token-drop": "https://thirdweb.com/contracts/new/pre-built/drop/token-drop",
-  vote: "https://thirdweb.com/contracts/new/pre-built/governance/vote",
-  split: "https://thirdweb.com/contracts/new/pre-built/governance/split",
+  "nft-drop": "https://thirdweb.com/deployer.thirdweb.eth/DropERC721",
+  "nft-collection": "https://thirdweb.com/deployer.thirdweb.eth/TokenERC721",
+  "edition-drop": "https://thirdweb.com/deployer.thirdweb.eth/DropERC1155",
+  pack: "https://thirdweb.com/deployer.thirdweb.eth/Pack",
+  multiwrap: "https://thirdweb.com/deployer.thirdweb.eth/Multiwrap",
+  "signature-drop": "https://thirdweb.com/deployer.thirdweb.eth/SignatureDrop",
+  edition: "https://thirdweb.com/deployer.thirdweb.eth/TokenERC1155",
+  marketplace: "https://thirdweb.com/deployer.thirdweb.eth/Marketplace",
+  token: "https://thirdweb.com/deployer.thirdweb.eth/TokenERC20",
+  "token-drop": "https://thirdweb.com/deployer.thirdweb.eth/DropERC20",
+  vote: "https://thirdweb.com/deployer.thirdweb.eth/VoteERC20",
+  split: "https://thirdweb.com/deployer.thirdweb.eth/Split",
 };
 
 export default function DeployThisContractButton({
