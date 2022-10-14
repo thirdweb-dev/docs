@@ -18,14 +18,13 @@ import { useProgram, useMintNFT } from "@thirdweb-dev/react/solana";
 
 export default function Component() {
   const { program } = useProgram("{{program_address}}");
-  const { mutateAsync: mint, isLoading, error } = useMintNFT(program);
+  const { mutateAsync: mintNFT, isLoading, error } = useMintNFT(program);
 
-  function mintNFT() {
-    const metadata = { name: "First NFT", description: "This is a cool NFT!" };
-    mint({ to: "{{wallet_address}}", metadata });
-  }
-
-  return <button onClick={() => mintNFT()}>Mint</button>;
+  return (
+    <button onClick={() => mintNFT({ metadata: { name: "First NFT" } })}>
+      Mint
+    </button>
+  );
 }
 ```
 

@@ -117,11 +117,11 @@
         "remarks": null,
         "examples": {
           "javascript": "// Specify the mint address of the NFT to get the data of\nconst nftAddress = \"...\";\n// And get the data for the NFT\nconst nft = await program.get(nftAddress);\nconsole.log(nft.metadata.name);\nconsole.log(nft.owner);",
-          "react": "import { useProgram, useNFT } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const { program } = useProgram(\"{{program_address}}\");\n  const { data: metadata, isLoading } = useNFT(program, mintAddress);\n\n  return (\n    <pre>{JSON.stringify(metadata)}</pre>\n  )\n}"
+          "react": "// Specify the mint address of the NFT to get the data of\nconst nftAddress = \"...\";\n// And get the data for the NFT\nconst nft = await program.get(nftAddress);\nconsole.log(nft.metadata.name);\nconsole.log(nft.owner);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.get",
-          "react": "https://portal.thirdweb.com/react/solana/react.usenft"
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.get"
         }
       },
       {
@@ -168,8 +168,8 @@
         "summary": "Mint additional supply of an NFT to the connected wallet\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// The address of the already minted NFT\nconst nftAddress = \"...\"\n// The amount of NFTs to mint\nconst amount = 1;\n// Mint an additional NFT of the original NFT\nconst addresses = await program.mintAdditionalSupply(nftAddress);",
-          "react": "// The address of the already minted NFT\nconst nftAddress = \"...\"\n// The amount of NFTs to mint\nconst amount = 1;\n// Mint an additional NFT of the original NFT\nconst addresses = await program.mintAdditionalSupply(nftAddress);"
+          "javascript": "// The address of the already minted NFT\nconst nftAddress = \"...\"\n// The amount of additional NFTs to mint\nconst amount = 1;\n// Mint an additional NFT of the original NFT\nconst addresses = await program.mintAdditionalSupply(nftAddress, amount);",
+          "react": "// The address of the already minted NFT\nconst nftAddress = \"...\"\n// The amount of additional NFTs to mint\nconst amount = 1;\n// Mint an additional NFT of the original NFT\nconst addresses = await program.mintAdditionalSupply(nftAddress, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.mintadditionalsupply",
@@ -181,8 +181,8 @@
         "summary": "Mint additional supply of an NFT to the specified wallet\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// Specify who to mint the additional NFT to\nconst to = \"...\"\n// The address of the already minted NFT\nconst nftAddress = \"...\"\n// Mint an additional NFT of the original NFT\nconst addresses = await program.mintAdditionalSupplyTo(to, nftAddress);",
-          "react": "// Specify who to mint the additional NFT to\nconst to = \"...\"\n// The address of the already minted NFT\nconst nftAddress = \"...\"\n// Mint an additional NFT of the original NFT\nconst addresses = await program.mintAdditionalSupplyTo(to, nftAddress);"
+          "javascript": "// Specify who to mint the additional NFT to\nconst to = \"...\"\n// The address of the already minted NFT\nconst nftAddress = \"...\"\n* // The amount of additional NFTs to mint\nconst amount = 1;\n// Mint an additional NFT of the original NFT\nconst addresses = await program.mintAdditionalSupplyTo(to, nftAddress, amount);",
+          "react": "// Specify who to mint the additional NFT to\nconst to = \"...\"\n// The address of the already minted NFT\nconst nftAddress = \"...\"\n* // The amount of additional NFTs to mint\nconst amount = 1;\n// Mint an additional NFT of the original NFT\nconst addresses = await program.mintAdditionalSupplyTo(to, nftAddress, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.mintadditionalsupplyto",
@@ -195,7 +195,7 @@
         "remarks": null,
         "examples": {
           "javascript": "// Specify who to mint the NFT to\nconst to = \"...\";\n\n// Add the metadata of your NFT\nconst metadata = {\n  name: \"NFT #1\",\n  description: \"My first NFT!\",\n  image: readFileSync(\"files/image.jpg\"),\n  properties: [\n    {\n       name: \"coolness\",\n       value: \"very cool!\"\n    }\n  ]\n}\n\n// Then mint the new NFT and get its address\nconst address = await program.mintTo(to, metadata);\nconsole.log(address);",
-          "react": "import { useProgram, useMintNFT } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const { program } = useProgram(\"{{program_address}}\");\n  const { mutateAsync: mint, isLoading, error } = useMintNFT(program);\n\n  function mintNFT() {\n    const metadata = { name: \"First NFT\", description: \"This is a cool NFT!\" };\n    mint({ to: \"{{wallet_address}}\", metadata });\n  }\n\n  return (\n    <button onClick={() => mintNFT()}>\n      Mint\n    </button>\n  )\n}"
+          "react": "import { useProgram, useMintNFT } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const { program } = useProgram(\"{{program_address}}\");\n  const { mutateAsync: mintNFT, isLoading, error } = useMintNFT(program);\n\n  return (\n    <button onClick={() => mintNFT({ metadata: { name: \"First NFT\" } })}>\n      Mint\n    </button>\n  )\n}"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.mintto",
@@ -431,11 +431,11 @@
         "remarks": null,
         "examples": {
           "javascript": "// Specify the mint address of the NFT to get the data of\nconst nftAddress = \"...\";\n// And get the data for the NFT\nconst nft = await program.get(nftAddress);\n\nconsole.log(nft.name);",
-          "react": "import { useProgram, useNFT } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const { program } = useProgram(\"{{program_address}}\");\n  const { data: metadata, isLoading } = useNFT(program, mintAddress);\n\n  return (\n    <pre>{JSON.stringify(metadata)}</pre>\n  )\n}"
+          "react": "// Specify the mint address of the NFT to get the data of\nconst nftAddress = \"...\";\n// And get the data for the NFT\nconst nft = await program.get(nftAddress);\n\nconsole.log(nft.name);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.get",
-          "react": "https://portal.thirdweb.com/react/solana/react.usenft"
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.get"
         }
       },
       {

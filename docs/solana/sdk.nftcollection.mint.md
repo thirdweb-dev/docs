@@ -14,14 +14,14 @@ Mint NFTs to the connected wallet
 **Signature:**
 
 ```typescript
-mint(metadata: NFTMetadataInput): Promise<string>;
+mint(metadata: NFTMetadataOrUri): Promise<string>;
 ```
 
 ## Parameters
 
 | Parameter | Type             | Description                     |
 | --------- | ---------------- | ------------------------------- |
-| metadata  | NFTMetadataInput | the metadata of the NFT to mint |
+| metadata  | NFTMetadataOrUri | the metadata of the NFT to mint |
 
 **Returns:**
 
