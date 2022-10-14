@@ -45,19 +45,19 @@ const program = await sdk.getProgram("{{program_address}}", "nft-collection");
 
 ## Methods
 
-| Method                                                                                  | Modifiers | Description                                               |
-| --------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------- |
-| [balance(nftAddress)](./sdk.nftcollection.balance.md)                                   |           | Get the NFT balance of the connected wallet               |
-| [balanceOf(walletAddress, nftAddress)](./sdk.nftcollection.balanceof.md)                |           | Get the NFT balance of the specified wallet               |
-| [burn(nftAddress)](./sdk.nftcollection.burn.md)                                         |           | Burn an NFT                                               |
-| [get(nftAddress)](./sdk.nftcollection.get.md)                                           |           | Get the metadata for a specific NFT                       |
-| [getAll(queryParams)](./sdk.nftcollection.getall.md)                                    |           | Get the metadata for all NFTs on this collection          |
-| [getMetadata()](./sdk.nftcollection.getmetadata.md)                                     |           | Get the metadata for this program.                        |
-| [mint(metadata)](./sdk.nftcollection.mint.md)                                           |           | Mint NFTs to the connected wallet                         |
-| [mintAdditionalSupply(nftAddress)](./sdk.nftcollection.mintadditionalsupply.md)         |           | Mint additional supply of an NFT to the connected wallet  |
-| [mintAdditionalSupplyTo(to, nftAddress)](./sdk.nftcollection.mintadditionalsupplyto.md) |           | Mint additional supply of an NFT to the specified wallet  |
-| [mintTo(to, metadata)](./sdk.nftcollection.mintto.md)                                   |           | Mint an NFT to the specified wallet                       |
-| [ownerOf(nftAddress)](./sdk.nftcollection.ownerof.md)                                   |           | Get the current owner of the given NFT                    |
-| [supplyOf(nftAddress)](./sdk.nftcollection.supplyof.md)                                 |           | Get the supply of NFT editions minted from a specific NFT |
-| [transfer(receiverAddress, nftAddress)](./sdk.nftcollection.transfer.md)                |           | Transfer the specified NFTs to another wallet             |
-| [updateSettings(settings)](./sdk.nftcollection.updatesettings.md)                       |           | Update the settings of the collection                     |
+| Method                                                                                          | Modifiers | Description                                               |
+| ----------------------------------------------------------------------------------------------- | --------- | --------------------------------------------------------- |
+| [balance(nftAddress)](./sdk.nftcollection.balance.md)                                           |           | Get the NFT balance of the connected wallet               |
+| [balanceOf(walletAddress, nftAddress)](./sdk.nftcollection.balanceof.md)                        |           | Get the NFT balance of the specified wallet               |
+| [burn(nftAddress)](./sdk.nftcollection.burn.md)                                                 |           | Burn an NFT                                               |
+| [get(nftAddress)](./sdk.nftcollection.get.md)                                                   |           | Get the metadata for a specific NFT                       |
+| [getAll(queryParams)](./sdk.nftcollection.getall.md)                                            |           | Get the metadata for all NFTs on this collection          |
+| [getMetadata()](./sdk.nftcollection.getmetadata.md)                                             |           | Get the metadata for this program.                        |
+| [mint(metadata)](./sdk.nftcollection.mint.md)                                                   |           | Mint NFTs to the connected wallet                         |
+| [mintAdditionalSupply(nftAddress, amount)](./sdk.nftcollection.mintadditionalsupply.md)         |           | Mint additional supply of an NFT to the connected wallet  |
+| [mintAdditionalSupplyTo(to, nftAddress, amount)](./sdk.nftcollection.mintadditionalsupplyto.md) |           | Mint additional supply of an NFT to the specified wallet  |
+| [mintTo(to, metadata)](./sdk.nftcollection.mintto.md)                                           |           | Mint an NFT to the specified wallet                       |
+| [ownerOf(nftAddress)](./sdk.nftcollection.ownerof.md)                                           |           | Get the current owner of the given NFT                    |
+| [supplyOf(nftAddress)](./sdk.nftcollection.supplyof.md)                                         |           | Get the supply of NFT editions minted from a specific NFT |
+| [transfer(receiverAddress, nftAddress)](./sdk.nftcollection.transfer.md)                        |           | Transfer the specified NFTs to another wallet             |
+| [updateSettings(settings)](./sdk.nftcollection.updatesettings.md)                               |           | Update the settings of the collection                     |

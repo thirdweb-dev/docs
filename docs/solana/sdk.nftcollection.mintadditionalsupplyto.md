@@ -14,7 +14,7 @@ Mint additional supply of an NFT to the specified wallet
 **Signature:**
 
 ```typescript
-mintAdditionalSupplyTo(to: string, nftAddress: string): Promise<string>;
+mintAdditionalSupplyTo(to: string, nftAddress: string, amount: number): Promise<string[]>;
 ```
 
 ## Parameters
@@ -23,10 +23,11 @@ mintAdditionalSupplyTo(to: string, nftAddress: string): Promise<string>;
 | ---------- | ------ | --------------------------------------------- |
 | to         | string | the address to mint the NFT to                |
 | nftAddress | string | the mint address to mint additional supply to |
+| amount     | number | the amount of NFTs to mint                    |
 
 **Returns:**
 
-Promise&lt;string&gt;
+Promise&lt;string\[\]&gt;
 
 the mint address of the minted NFT
 
@@ -38,5 +39,5 @@ const to = "...";
 // The address of the already minted NFT
 const nftAddress = "...";
 // Mint an additional NFT of the original NFT
-const address = await program.mintAdditionalSupplyTo(to, nftAddress);
+const addresses = await program.mintAdditionalSupplyTo(to, nftAddress);
 ```

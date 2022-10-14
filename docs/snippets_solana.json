@@ -168,8 +168,8 @@
         "summary": "Mint additional supply of an NFT to the connected wallet\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// The address of the already minted NFT\nconst nftAddress = \"...\"\n// Mint an additional NFT of the original NFT\nconst address = await program.mintAdditionalSupply(nftAddress);",
-          "react": "// The address of the already minted NFT\nconst nftAddress = \"...\"\n// Mint an additional NFT of the original NFT\nconst address = await program.mintAdditionalSupply(nftAddress);"
+          "javascript": "// The address of the already minted NFT\nconst nftAddress = \"...\"\n// The amount of NFTs to mint\nconst amount = 1;\n// Mint an additional NFT of the original NFT\nconst addresses = await program.mintAdditionalSupply(nftAddress);",
+          "react": "// The address of the already minted NFT\nconst nftAddress = \"...\"\n// The amount of NFTs to mint\nconst amount = 1;\n// Mint an additional NFT of the original NFT\nconst addresses = await program.mintAdditionalSupply(nftAddress);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.mintadditionalsupply",
@@ -181,8 +181,8 @@
         "summary": "Mint additional supply of an NFT to the specified wallet\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// Specify who to mint the additional NFT to\nconst to = \"...\"\n// The address of the already minted NFT\nconst nftAddress = \"...\"\n// Mint an additional NFT of the original NFT\nconst address = await program.mintAdditionalSupplyTo(to, nftAddress);",
-          "react": "// Specify who to mint the additional NFT to\nconst to = \"...\"\n// The address of the already minted NFT\nconst nftAddress = \"...\"\n// Mint an additional NFT of the original NFT\nconst address = await program.mintAdditionalSupplyTo(to, nftAddress);"
+          "javascript": "// Specify who to mint the additional NFT to\nconst to = \"...\"\n// The address of the already minted NFT\nconst nftAddress = \"...\"\n// Mint an additional NFT of the original NFT\nconst addresses = await program.mintAdditionalSupplyTo(to, nftAddress);",
+          "react": "// Specify who to mint the additional NFT to\nconst to = \"...\"\n// The address of the already minted NFT\nconst nftAddress = \"...\"\n// Mint an additional NFT of the original NFT\nconst addresses = await program.mintAdditionalSupplyTo(to, nftAddress);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.mintadditionalsupplyto",

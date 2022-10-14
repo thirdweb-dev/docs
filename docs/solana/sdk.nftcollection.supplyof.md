@@ -14,7 +14,7 @@ Get the supply of NFT editions minted from a specific NFT
 **Signature:**
 
 ```typescript
-supplyOf(nftAddress: string): Promise<bigint>;
+supplyOf(nftAddress: string): Promise<number>;
 ```
 
 ## Parameters
@@ -25,7 +25,7 @@ supplyOf(nftAddress: string): Promise<bigint>;
 
 **Returns:**
 
-Promise&lt;bigint&gt;
+Promise&lt;number&gt;
 
 the supply of the specified NFT
 
