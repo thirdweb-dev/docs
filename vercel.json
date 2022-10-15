@@ -204,10 +204,6 @@
       "destination": "/contractkit/features/:match*"
     },
     {
-      "source": "/getting-started",
-      "destination": "/getting-started/deploying-contracts"
-    },
-    {
       "source": "/advanced-features/signature-based-minting",
       "destination": "/advanced-features/on-demand-minting"
     },
