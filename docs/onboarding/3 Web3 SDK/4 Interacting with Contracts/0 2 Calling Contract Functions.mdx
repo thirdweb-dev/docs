@@ -35,14 +35,8 @@ Transactions are made using the connected wallet (or the wallet you instantiated
 <Tabs groupId={"thirdweb-code-snippet"} defaultValue={"react"}>
   <TabItem key={"react"} value={"react"} label={"React"}>
     <CodeBlock language={"javascript"}>{`const { contract } = useContract("{{contract_address}}");
-const { mutate: myFunction, isLoading, error } = useContractWrite(contract, "myFunction");
-myFunction(["argument1", "argument2"]) // Call the function
-// Alternatively, you can get an async function to call
 const { mutateAsync: myFunctionAsync } = useContractWrite(contract, "myFunction");
-// tx contains a receipt of the transaction
-const tx = await myFunctionAsync(["argument1", "argument2"]) // Call the function`}
-
-</CodeBlock>
+const tx = await myFunctionAsync(["argument1", "argument2"]) // Call the function`}</CodeBlock>
 
   </TabItem>
   <TabItem key={"javascript"} value={"javascript"} label={"JavaScript"}>
