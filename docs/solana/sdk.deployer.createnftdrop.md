@@ -35,7 +35,7 @@ Promise&lt;string&gt;
 const metadata = {
   name: "My NFT Drop",
   symbol: "NFT",
-  totalSuppply: 5,
+  totalSupply: 5,
 };
 
 const address = await sdk.deployer.createNftDrop(metadata);
