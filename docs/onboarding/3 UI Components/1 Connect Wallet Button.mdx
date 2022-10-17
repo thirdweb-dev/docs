@@ -9,25 +9,20 @@ import QuickstartCard from "@components/QuickstartCard";
 
 The Connect Wallet button allows the user to connect to your application using their
 [MetaMask](/react/react.usemetamask),
-[WalletConnect](/react/react.usewalletconnect) or [Coinbase](/react/react.usecoinbasewallet) wallet.
+[WalletConnect](/react/react.usewalletconnect)
+or [Coinbase](/react/react.usecoinbasewallet) wallet.
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+<ConnectWallet />;
+```
 
 After the user has connected, the user can:
 
 - View the connected wallet address
 - View their balance of the **native token** _(such as ETH)_
 - Switch network, disconnect wallet, and copy their wallet address
-
-Below is an example of the button before and after the user connects their wallet:
-
-<div
-  style={{
-    display: "flex",
-    justifyContent: "center",
-    marginBottom: 24,
-  }}
->
-  <img src={"/assets/connectwalletbutton.png"} style={{ maxHeight: 300 }} />
-</div>
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
@@ -39,7 +34,17 @@ Below is an example of the button before and after the user connects their walle
   </div>
 </div>
 
-## Example
+## Props
+
+| Prop          | Required | Description                                                            | Type                                    |
+| ------------- | -------- | ---------------------------------------------------------------------- | --------------------------------------- |
+| `accentColor` | Optional | The background color of the button                                     | [Hex Code](https://htmlcolorcodes.com/) |
+| `colorMode`   | Optional | Change the color of the text inside the button                         | `light` or `dark`                       |
+| `auth`        | Optional | Ask users to sign in using [auth](/auth) after connecting their wallet | `LoginOptions`                          |
+
+## Examples
+
+### Basic
 
 ```jsx
 import { ConnectWallet } from "@thirdweb-dev/react";
@@ -48,5 +53,51 @@ import { ConnectWallet } from "@thirdweb-dev/react";
   // Some customization of the button style
   colorMode="light"
   accentColor="#F213A4"
+/>;
+```
+
+### With Auth
+
+If you have [`authConfig` options in your `ThirdwebProvider`](/auth/quickstart#exploring-the-code),
+you can optionally pass an `auth` config to the `ConnectWallet` component that asks the user to sign in
+after connecting their wallet.
+
+```jsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+<ConnectWallet
+  // Ask users to sign in using auth after connecting their wallet
+  auth={{
+    loginOptional: false,
+  }}
+/>;
+```
+
+### Advanced Auth
+
+You can fully customize the auth configuration:
+
+```tsx
+import { ConnectWallet } from "@thirdweb-dev/react";
+
+<ConnectWallet
+  auth={{
+    loginConfig: {
+      // The URL to redirect to on login.
+      redirectTo: string,
+      // Function to run on error.
+      onError: (error: string) => void
+    },
+    // If you want users to sign in after connecting their wallet
+    loginOptional: boolean,
+    loginOptions: {
+      // The optional nonce of the login request used to prevent replay attacks
+      nonce: string,
+      // The optional time after which the login payload will be invalid
+      expirationTime: Date,
+      // The optional chain ID that the login request was intended for
+      chainId: number,
+    },
+  }}
 />;
 ```
