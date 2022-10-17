@@ -127,7 +127,10 @@ displayed_sidebar: typescript
 | Variable                                                          | Description |
 | ----------------------------------------------------------------- | ----------- |
 | [ALL_ROLES](./sdk.all_roles.md)                                   |             |
+| [CHAIN_ID_TO_NAME](./sdk.chain_id_to_name.md)                     |             |
+| [CHAIN_NAME_TO_ID](./sdk.chain_name_to_id.md)                     |             |
 | [CONTRACTS_MAP](./sdk.contracts_map.md)                           |             |
+| [DEFAULT_RPC_URLS](./sdk.default_rpc_urls.md)                     |             |
 | [EditionDropInitializer](./sdk.editiondropinitializer.md)         |             |
 | [EditionInitializer](./sdk.editioninitializer.md)                 |             |
 | [MarketplaceInitializer](./sdk.marketplaceinitializer.md)         |             |
