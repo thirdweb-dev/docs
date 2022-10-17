@@ -11,10 +11,6 @@ and renders the relevant component to show that media. This is especially useful
 1. Displaying the media assets of NFTs with metadata stored on IPFS
 2. Rendering NFTs where you are unsure of the file type (i.e. you don't know if it's an image or video)
 
-## Example
-
-Below is an example of passing in an IPFS URI that points to a video (`.mp4`) file into the `MediaRenderer` component
-
 ```jsx
 import { MediaRenderer } from "@thirdweb-dev/react";
 
@@ -27,3 +23,15 @@ const Component = () => {
   );
 };
 ```
+
+## Props
+
+| Prop                 | Required | Description                                                 | Type            |
+| -------------------- | -------- | ----------------------------------------------------------- | --------------- |
+| `src`                | Required | The URI of the media                                        | `string`        |
+| `poster`             | Optional | The media poster image uri. (if applicable)                 | `string`        |
+| `controls`           | Optional | Show the media controls (where applicable) (default false)  | `boolean`       |
+| `height`             | Optional | Height of the element to render                             | `string`        |
+| `width`              | Optional | Width of the element to render                              | `string`        |
+| `requireInteraction` | Optional | Require user interaction to play the media. (default false) | `boolean`       |
+| `style`              | Optional | Additional CSS to style the rendered element                | `CSSProperties` |

@@ -142,8 +142,6 @@ function DocSidebarItems({ items, ...props }) {
     );
   }
 
-  console.log(formatCategoryName(props?.activePath));
-
   return (
     <DocSidebarItemsExpandedStateProvider>
       {showBackToHome && (
