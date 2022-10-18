@@ -536,13 +536,13 @@
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2022-10-18T00:37:44Z",
+    "updated_at": "2022-10-18T03:39:09Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 49,
+    "stargazers_count": 50,
     "is_template": false,
     "homepage": "https://custom-minting-page.thirdweb-example.com"
   },
@@ -571,14 +571,14 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website-solana",
     "description": "Restrict access to content on your website to NFT Holders in Solana!",
     "created_at": "2022-10-13T03:16:16Z",
-    "updated_at": "2022-10-15T13:55:59Z",
+    "updated_at": "2022-10-18T04:23:36Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website-solana.git",
     "topics": [
       "auth",
       "solana"
     ],
     "language": "TypeScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": "https://nft-gated-website-solana.thirdweb-example.com"
   },
@@ -679,6 +679,19 @@
     "stargazers_count": 1,
     "is_template": false,
     "homepage": null
+  },
+  {
+    "name": "sign-in-button",
+    "html_url": "https://github.com/thirdweb-example/sign-in-button",
+    "description": "Simple starter kit for Auth and the ConnectWallet button",
+    "created_at": "2022-10-18T03:16:26Z",
+    "updated_at": "2022-10-18T04:52:22Z",
+    "clone_url": "https://github.com/thirdweb-example/sign-in-button.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "sign-in-button.vercel.app"
   },
   {
     "name": "sign-in-with-solana",
