@@ -52,7 +52,7 @@ const program = await sdk.getProgram("{{program_address}}", "nft-drop");
 | [balanceOf(walletAddress, nftAddress)](./sdk.nftdrop.balanceof.md) |           | Get the NFT balance of the specified wallet            |
 | [burn(nftAddress)](./sdk.nftdrop.burn.md)                          |           | Burn an NFT                                            |
 | [claim(quantity)](./sdk.nftdrop.claim.md)                          |           | Claim an NFT from the drop with connected wallet       |
-| [claimTo(receiverAddress, quantity)](./sdk.nftdrop.claimto.md)     |           | Claim an NFT from the drop for the specified wallet    |
+| [claimTo(receiverAddress, amount)](./sdk.nftdrop.claimto.md)       |           | Claim an NFT from the drop for the specified wallet    |
 | [get(nftAddress)](./sdk.nftdrop.get.md)                            |           | Get the metadata for a specific NFT                    |
 | [getAll()](./sdk.nftdrop.getall.md)                                |           | Get the metadata for all NFTs on this drop             |
 | [getAllClaimed()](./sdk.nftdrop.getallclaimed.md)                  |           | Get the metadata for all the claimed NFTs on this drop |
