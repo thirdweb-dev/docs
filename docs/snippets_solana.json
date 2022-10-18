@@ -138,16 +138,42 @@
         }
       },
       {
+        "name": "getCreators",
+        "summary": "Get the creators of this program.\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const creators = await program.getCreators();\nconsole.log(creators);",
+          "react": "const creators = await program.getCreators();\nconsole.log(creators);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.getcreators",
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.getcreators"
+        }
+      },
+      {
         "name": "getMetadata",
         "summary": "Get the metadata for this program.\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "const metadata = await program.getMetadata();\nconsole.log(metadata.name);",
-          "react": "const metadata = await program.getMetadata();\nconsole.log(metadata.name);"
+          "javascript": "const metadata = await program.getMetadata();\nconsole.log(metadata);",
+          "react": "const metadata = await program.getMetadata();\nconsole.log(metadata);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.getmetadata",
           "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.getmetadata"
+        }
+      },
+      {
+        "name": "getRoyalty",
+        "summary": "Get the royalty basis points for this collection\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const royalty = await program.getRoyalty();\nconsole.log(royalty);",
+          "react": "const royalty = await program.getRoyalty();\nconsole.log(royalty);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.getroyalty",
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.getroyalty"
         }
       },
       {
@@ -465,6 +491,19 @@
         }
       },
       {
+        "name": "getCreators",
+        "summary": "Get the creators of this program.\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const creators = await program.getCreators();\nconsole.log(creators);",
+          "react": "const creators = await program.getCreators();\nconsole.log(creators);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.getcreators",
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.getcreators"
+        }
+      },
+      {
         "name": "getMetadata",
         "summary": "Get the metadata for this program.\n\n",
         "remarks": null,
@@ -475,6 +514,19 @@
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.getmetadata",
           "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.getmetadata"
+        }
+      },
+      {
+        "name": "getRoyalty",
+        "summary": "Get the royalty basis points for this collection\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "const royalty = await program.getRoyalty();\nconsole.log(royalty);",
+          "react": "const royalty = await program.getRoyalty();\nconsole.log(royalty);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.getroyalty",
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.getroyalty"
         }
       },
       {
