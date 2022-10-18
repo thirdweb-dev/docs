@@ -5,6 +5,7 @@ slug: /pre-built-contracts/nft-drop
 
 import DeployThisContractButton from "@components/DeployThisContractButton";
 import QuickstartCard from "@components/QuickstartCard";
+import YoutubeEmbed from "@components/YoutubeEmbed";
 
 # NFT Drop
 
@@ -15,12 +16,21 @@ import QuickstartCard from "@components/QuickstartCard";
   />
 </div>
 
-The NFT Drop contract is ideal when you want to release a collection of unique NFTs
-using the [ERC721 Standard](https://eips.ethereum.org/EIPS/eip-721).
-
-It allows you to define a set of conditions called **claim phases** in a sequence which defines
-when and how your users can claim an NFT from your drop;
-including allowlists, release dates, claim limits, and delayed reveals.
+<div className="heroGrid">
+  <div>
+    <p>
+      The NFT Drop contract is ideal when you want to release a collection of
+      unique NFTs using the{" "}
+      <a href="https://eips.ethereum.org/EIPS/eip-721">ERC721</a>.
+    </p>
+    It allows you to define a set of conditions called <b>claim phases</b> in a sequence
+    that defines when and how your users can claim an NFT from your drop; including
+    allowlists, release dates, claim limits, and delayed reveals.
+  </div>
+  <div className="heroGridImageContainer">
+    <YoutubeEmbed link={"https://www.youtube.com/embed/11waisJqLik"} />
+  </div>
+</div>
 
 When you add NFTs to your drop contract, they are **not** minted at this point.
 You prepare everything for your users by **lazy minting** them, so that other wallets can mint them
@@ -109,12 +119,32 @@ To lazy mint NFT(s), click **Create** to lazy-mint a single NFT, or **Batch Uplo
 
 To get started, you can use one of our example files for [CSV](https://thirdweb.com/example.csv) or [JSON](https://nightly.thirdweb.com/example.json) metadata.
 
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Guide: Batch Upload NFT Metadata"
+      link="https://blog.thirdweb.com/guides/how-to-batch-upload/"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
+
 ### Delayed Reveals
 
 Delayed reveals allow you to reveal the contents of the NFT to the user later at a specific date and show a placeholder asset in the meantime.
 
 - **Reveal upon mint**: Collectors will immediately see the final NFT when they complete the minting.
 - **Delayed Reveal**: Collectors will mint your placeholder image, then you reveal it at a later time.
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Guide: Release an NFT drop with Delayed Reveal"
+      link="https://blog.thirdweb.com/guides/nft-drop-with-delayed-reveal/"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
 
 You have the option to add a delayed reveal to a batch of NFTs after you batch upload them.
 

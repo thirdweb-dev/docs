@@ -5,6 +5,7 @@ slug: /pre-built-contracts/split
 
 import DeployThisContractButton from "@components/DeployThisContractButton";
 import QuickstartCard from "@components/QuickstartCard";
+import YoutubeEmbed from "@components/YoutubeEmbed";
 
 # Split
 
@@ -15,10 +16,20 @@ import QuickstartCard from "@components/QuickstartCard";
   />
 </div>
 
+<div className="heroGrid">
+  <div>
+    <p>
 The Split contract lets you specify multiple wallet addresses that are recipients of any revenue or royalty split.
+    </p>
 
 You define what percentage of any funds that get sent to the split contract address is sent to each recipient.
 For example, you could define `0x1` and `0x2` as recipients, and configure them to receive 50% of the funds sent to the split contract.
+
+  </div>
+  <div className="heroGridImageContainer">
+    <YoutubeEmbed link={"https://www.youtube.com/embed/QDWlGOocKm8"} />
+  </div>
+</div>
 
 The split contract will store the funds, and when any user calls the `distribute` function, the funds will be distributed to the recipients according to the percentages you define.
 
@@ -42,7 +53,7 @@ You could use the Split contract to:
   <div className="col col--6" style={{ marginTop: 8 }}>
     <QuickstartCard
       name="Guide: Deploy an NFT Drop with Revenue Share"
-      link="https://portal.thirdweb.com/guides/nft-drop-with-revenue-share"
+      link="https://blog.thirdweb.com/guides/nft-drop-with-revenue-share"
       image="/assets/icons/education.png"
     />
   </div>

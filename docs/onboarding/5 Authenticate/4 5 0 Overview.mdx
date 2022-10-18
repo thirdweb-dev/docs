@@ -6,12 +6,22 @@ title: Overview
 # Auth
 
 import QuickstartCard from "@components/QuickstartCard";
+import YoutubeEmbed from "@components/YoutubeEmbed";
 
-Auth enables wallet-based authentication flows for you to:
+<div className="heroGrid">
+  <div>
+    <p>Auth enables wallet-based authentication flows for you to:</p>
 
-- Verify the wallet-address of your users on the server
-- Restrict access to content/resources based on a user's wallet information
-- Introduce web3 authentication to web2 applications where users can login with their wallets
+<ul>  
+<li> Verify the wallet address of your users on the server </li>
+<li> Restrict access to content/resources based on a user's wallet information </li>
+<li> Introduce web3 authentication to web2 applications where users can log in with their wallets</li>
+</ul> 
+  </div>
+  <div className="heroGridImageContainer">
+    <YoutubeEmbed link={"https://www.youtube.com/embed/u6VU51w01pM"} />
+  </div>
+</div>
 
 ```bash npm2yarn
 npm install @thirdweb-dev/auth
@@ -125,7 +135,7 @@ Explore real-world examples of adding Auth to your application:
   <div className="col col--6" style={{ padding: 8 }}>
     <QuickstartCard
       name="NFT Gated Website"
-      link="https://github.com/thirdweb-example/nft-gated-website"
+      link="https://blog.thirdweb.com/guides/nft-gated-website/"
       description="Restrict access to content to NFT holders"
       image="/assets/icons/nft.png"
     />
@@ -133,7 +143,7 @@ Explore real-world examples of adding Auth to your application:
   <div className="col col--6" style={{ padding: 8 }}>
     <QuickstartCard
       name="Stripe Subscription Payments"
-      link="https://github.com/thirdweb-example/thirdweb-stripe"
+      link="https://blog.thirdweb.com/guides/add-stripe-subscriptions-with-web3-auth/"
       description="Accept payments for a subscription service"
       image="/assets/icons/token.png"
     />

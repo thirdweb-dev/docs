@@ -5,6 +5,7 @@ slug: /pre-built-contracts/pack
 
 import DeployThisContractButton from "@components/DeployThisContractButton";
 import QuickstartCard from "@components/QuickstartCard";
+import YoutubeEmbed from "@components/YoutubeEmbed";
 
 # Pack
 
@@ -15,12 +16,22 @@ import QuickstartCard from "@components/QuickstartCard";
   />
 </div>
 
-The pack contract lets you bundle
-[ERC20](https://eips.ethereum.org/EIPS/eip-20),
-[ERC721](https://eips.ethereum.org/EIPS/eip-721) and,
-[ERC1155](https://eips.ethereum.org/EIPS/eip-1155) tokens together into **ERC1155 NFTs** that act as randomized loot boxes.
+<div className="heroGrid">
+<div>
+<p>
+The pack contract lets you bundle <a href="https://eips.ethereum.org/EIPS/eip-20">ERC20</a>,
+<a href="https://eips.ethereum.org/EIPS/eip-721">ERC721</a> and,
+<a href="https://eips.ethereum.org/EIPS/eip-1155">ERC1155</a> tokens together into <b>ERC1155 NFTs</b> that act as randomized loot boxes.
+</p>
+
 The packs are ERC1155 NFTs themselves, which can have the metadata you'd expect of an NFT,
 such as a name, image, description, etc.
+
+  </div>
+  <div className="heroGridImageContainer">
+    <YoutubeEmbed link={"https://www.youtube.com/embed/MBmQtpNLmgg"} />
+  </div>
+</div>
 
 When a pack is opened, a pre-defined quantity of tokens are randomly selected from the ones
 that were used to create the packs _(that haven't already been selected)_, and awarded to the opener.
@@ -50,7 +61,7 @@ You could use the Pack contract to:
   <div className="col col--6" style={{ marginTop: 8 }}>
     <QuickstartCard
       name="Guide: Create NFT Lootboxes with the Pack Contract"
-      link="https://portal.thirdweb.com/guides/create-an-nft-lootbox"
+      link="https://blog.thirdweb.com/guides/create-an-nft-lootbox"
       image="/assets/icons/education.png"
     />
   </div>

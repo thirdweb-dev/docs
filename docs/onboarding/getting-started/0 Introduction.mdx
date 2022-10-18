@@ -6,6 +6,7 @@ title: Introduction
 import QuickstartCard from "@components/QuickstartCard";
 import TwitterCard from "@components/ShareOnTwitterCard";
 import CodeBlock from "@theme/CodeBlock";
+import YoutubeEmbed from "@components/YoutubeEmbed";
 
 # Get Started
 
@@ -24,17 +25,7 @@ Let's get started by [building a contract](/getting-started/creating-custom-cont
 </div>
 
 <div className="heroGridImageContainer">
-  <div className="iframe-container">
-    <iframe
-      onload="this.style.height=(this.contentWindow.document.body.scrollHeight+20)+'px';"
-      src="https://www.youtube.com/embed/fzsz-b2JV9U"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      allowfullscreen
-      className="responsive-iframe"
-    />
-  </div>
+  <YoutubeEmbed link={"https://www.youtube.com/embed/fzsz-b2JV9U"} />
 </div>
 
 </div>
