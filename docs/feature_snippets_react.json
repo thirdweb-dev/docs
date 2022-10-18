@@ -469,6 +469,17 @@
       }
     },
     {
+      "name": "useMinimumNextBid",
+      "summary": "Use this to get the minimum next bid for the auction listing from your marketplace contract.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: minimumNextBid, isLoading, error } = useMinimumNextBid(<YourMarketplaceContractInstance>, <listingId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useminimumnextbid"
+      }
+    },
+    {
       "name": "useMultiwrap",
       "summary": "Hook for getting an instance of an `Multiwrap` contract. This contract is an ERC721 in which you can wrap ERC721, ERC1155 and ERC20 tokens.\n\n",
       "remarks": null,

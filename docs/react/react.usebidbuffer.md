@@ -24,7 +24,10 @@ const { data: auctionWinner, isLoading, error } = useBidBuffer(<YourMarketplaceC
 ```typescript
 export declare function useBidBuffer(
   contract: RequiredParam<Marketplace>,
-): import("@tanstack/react-query").UseQueryResult<BigNumber, unknown>;
+): import("@tanstack/react-query").UseQueryResult<
+  import("ethers").BigNumber,
+  unknown
+>;
 ```
 
 ## Parameters
@@ -35,6 +38,6 @@ export declare function useBidBuffer(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;BigNumber, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;import("ethers").BigNumber, unknown&gt;
 
 a response object that includes an array of listings

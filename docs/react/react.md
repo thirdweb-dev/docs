@@ -110,6 +110,7 @@ import { useMetamask } from "@thirdweb-dev/react";
 ```
 
 |
+| [useMinimumNextBid(contract, listingId)](./react.useminimumnextbid.md) | **<i>(BETA)</i>** Use this to get the minimum next bid for the auction listing from your marketplace contract. |
 | [useMintNFT(contract)](./react.usemintnft.md) | **<i>(BETA)</i>** Use this to mint a new NFT on your [Erc721OrErc1155](./react.erc721orerc1155.md) |
 | [useMintNFTSupply(contract)](./react.usemintnftsupply.md) | **<i>(BETA)</i>** Use this to mint a new NFT on your |
 | [useMintToken(contract)](./react.useminttoken.md) | **<i>(BETA)</i>** Use this to mint new tokens on your contract |
