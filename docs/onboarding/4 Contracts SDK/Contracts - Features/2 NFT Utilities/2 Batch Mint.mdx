@@ -57,19 +57,19 @@ function getBatchIdAtIndex(uint256 _index) public view returns (uint256);
 
 - The extension smart contract stores an array of 'batch IDs' i.e. IDs for different batches of NFTs minted on the contract. This function returns the batch ID at a given index in this ordered array of batch IDs.
 
-### getBatchId
+### \_getBatchId
 
 ```solidity
-function getBatchId(uint256 tokenId) internal view returns (uint256 batchId, uint256 index);
+function _getBatchId(uint256 tokenId) internal view returns (uint256 batchId, uint256 index);
 ```
 
 - Returns the batch ID for the batch of NFTs the given tokenId belongs to.
 - Parameter `tokenId`: the tokenId for which to retrieve the associated batch ID.
 
-### getBaseURI
+### \_getBaseURI
 
 ```solidity
-function getBaseURI(uint256 _tokenId) internal view returns (string memory);
+function _getBaseURI(uint256 _tokenId) internal view returns (string memory);
 ```
 
 - Returns the base metadata URI for the given tokenId.
