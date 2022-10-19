@@ -37,6 +37,7 @@ const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC1
 export declare function useClaimConditions(
   contract: RequiredParam<DropContract>,
   tokenId?: BigNumberish,
+  options?: ClaimConditionFetchOptions,
 ): import("@tanstack/react-query").UseQueryResult<
   {
     snapshot?:
@@ -44,6 +45,7 @@ export declare function useClaimConditions(
           address: string;
           maxClaimable: string;
         }[]
+      | null
       | undefined;
     quantityLimitPerTransaction: string;
     startTime: Date;
@@ -72,9 +74,10 @@ export declare function useClaimConditions(
 | --------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | contract  | [RequiredParam](./react.requiredparam.md)&lt;[DropContract](./react.dropcontract.md)&gt; | an instance of a contract that extends the ERC721 or ERC1155 spec and implements the <code>claimConditions</code> extension. |
 | tokenId   | BigNumberish                                                                             | <i>(Optional)</i> the id of the token to fetch the claim conditions for (if the contract is an ERC1155 contract)             |
+| options   | ClaimConditionFetchOptions                                                               | <i>(Optional)</i>                                                                                                            |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ snapshot?: { address: string; maxClaimable: string; }\[\] \| undefined; quantityLimitPerTransaction: string; startTime: Date; price: import("ethers").BigNumber; currencyAddress: string; maxQuantity: string; waitInSeconds: import("ethers").BigNumber; merkleRootHash: string \| number\[\]; availableSupply: string; currentMintSupply: string; currencyMetadata: { symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }; }\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ snapshot?: { address: string; maxClaimable: string; }\[\] \| null \| undefined; quantityLimitPerTransaction: string; startTime: Date; price: import("ethers").BigNumber; currencyAddress: string; maxQuantity: string; waitInSeconds: import("ethers").BigNumber; merkleRootHash: string \| number\[\]; availableSupply: string; currentMintSupply: string; currencyMetadata: { symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }; }\[\], unknown&gt;
 
 a response object with the list of claim conditions

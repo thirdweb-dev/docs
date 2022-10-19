@@ -11,16 +11,16 @@ displayed_sidebar: react
 
 ## Functions
 
-| Function                                                                         | Description                                                                                                                                                                                    |
-| -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [getErc1155(contract)](./react.geterc1155.md)                                    |                                                                                                                                                                                                |
-| [getErc20(contract)](./react.geterc20.md)                                        |                                                                                                                                                                                                |
-| [getErc721(contract)](./react.geterc721.md)                                      |                                                                                                                                                                                                |
-| [getErcs(contract)](./react.getercs.md)                                          |                                                                                                                                                                                                |
-| [shouldNeverPersistQuery(key)](./react.shouldneverpersistquery.md)               |                                                                                                                                                                                                |
-| [useActiveClaimCondition(contract, tokenId)](./react.useactiveclaimcondition.md) | **<i>(BETA)</i>** Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the <code>claimCondition</code> extension for this hook to work. |
-| [useActiveListings(contract, filter)](./react.useactivelistings.md)              | **<i>(BETA)</i>** Use this to get a list active listings from your marketplace contract.                                                                                                       |
-| [useAddress()](./react.useaddress.md)                                            | <p>Hook for accessing the address of the connected wallet</p>                                                                                                                                  |
+| Function                                                                                  | Description                                                                                                                                                                                    |
+| ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [getErc1155(contract)](./react.geterc1155.md)                                             |                                                                                                                                                                                                |
+| [getErc20(contract)](./react.geterc20.md)                                                 |                                                                                                                                                                                                |
+| [getErc721(contract)](./react.geterc721.md)                                               |                                                                                                                                                                                                |
+| [getErcs(contract)](./react.getercs.md)                                                   |                                                                                                                                                                                                |
+| [shouldNeverPersistQuery(key)](./react.shouldneverpersistquery.md)                        |                                                                                                                                                                                                |
+| [useActiveClaimCondition(contract, tokenId, options)](./react.useactiveclaimcondition.md) | **<i>(BETA)</i>** Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the <code>claimCondition</code> extension for this hook to work. |
+| [useActiveListings(contract, filter)](./react.useactivelistings.md)                       | **<i>(BETA)</i>** Use this to get a list active listings from your marketplace contract.                                                                                                       |
+| [useAddress()](./react.useaddress.md)                                                     | <p>Hook for accessing the address of the connected wallet</p>                                                                                                                                  |
 
 ```javascript
 import { useAddress } from "@thirdweb-dev/react";
@@ -44,7 +44,7 @@ import { useChainId } from "@thirdweb-dev/react";
 ```
 
 |
-| [useClaimConditions(contract, tokenId)](./react.useclaimconditions.md) | **<i>(BETA)</i>** Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the <code>claimCondition</code> extension for this hook to work. |
+| [useClaimConditions(contract, tokenId, options)](./react.useclaimconditions.md) | **<i>(BETA)</i>** Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the <code>claimCondition</code> extension for this hook to work. |
 | [useClaimedNFTs(contract, queryParams)](./react.useclaimednfts.md) | **<i>(BETA)</i>** Use this to get a list of \*claimed\* (minted) NFT tokens of your ERC721 Drop contract. |
 | [useClaimedNFTSupply(contract)](./react.useclaimednftsupply.md) | |
 | [useClaimIneligibilityReasons(contract, params, tokenId)](./react.useclaimineligibilityreasons.md) | **<i>(BETA)</i>** Use this to check for reasons that prevent claiming for either ERC20, ERC721 or ERC1155 based contracts. They need to extend the <code>claimCondition</code> extension for this hook to work. |
