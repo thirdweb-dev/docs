@@ -22,8 +22,8 @@ There are two kinds of extensions:
 1. **Contracts**: Fully implemented smart contracts you can import and use.
 2. **Abstract contracts**: Smart contracts where one or more functions is defined but not implemented. They are left for you to implement in the way that makes overall sense for your smart contract.
 
-We provide several features for adding functionality to your [ERC721](/contractkit/erc721), [ERC1155](/contractkit/erc1155), and
-[ERC20](/contractkit/erc20), as well as general extension for common use cases.
+We provide several features for adding functionality to your [ERC721](/contractkit/base-contracts/erc-721/erc721base), [ERC1155](/contractkit/base-contracts/erc-1155/erc1155base), and
+[ERC20](/contractkit/base-contracts/erc-20/erc20base), as well as general extension for common use cases.
 
 </div>
 
@@ -63,7 +63,7 @@ Below is a list of all the extensions available.
 | [DelayedReveal](/contractkit/extension-contracts/delayedreveal)             | Create batches of 'delayed-reveal' NFTs. Lazy mint a batch of NFTs without initially revealing the metadata of these NFTs to spectators, and reveal it later at your discretion.                         |
 | [PlatformFee](/contractkit/extension-contracts/platformfee)                 | Charge a percentage fee wherever there is a transfer of currency (ERC20 tokens or native tokens) in your contract.                                                                                       |
 | [PrimarySale](/contractkit/extension-contracts/primarysale)                 | Set and manage a primary sale recipient for your smart contract.                                                                                                                                         |
-| [Permissions](/contractkit/extension-contracts/persmissions)                | Assign roles to wallets; restrict your smart contract's functions based on the roles held or not held by a wallet.                                                                                       |
+| [Permissions](/contractkit/extension-contracts/permissions)                 | Assign roles to wallets; restrict your smart contract's functions based on the roles held or not held by a wallet.                                                                                       |
 | [PermissionsEnumerable](/contractkit/extension-contracts/permissions)       | Same as Permissions but with added functionality - view all members with a given role, and total count of members.                                                                                       |
 | [DropSinglePhase](/contractkit/extension-contracts/dropsinglephase)         | A distribution mechanic for tokens. Set conditions - such as a price, an allowlist, etc. - under which tokens can be claimed on your smart contract.                                                     |
 | [DropSinglePhase1155](/contractkit/extension-contracts/dropsinglephase1155) | A distribution mechanic for ERC1155 tokens. Set conditions - such as a price, an allowlist, etc. - under which tokens can be claimed on your smart contract.                                             |

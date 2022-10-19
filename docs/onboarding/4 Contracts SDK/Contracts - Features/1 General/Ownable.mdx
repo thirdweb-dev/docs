@@ -21,7 +21,7 @@ The `Ownable` smart contract extension is usable with any base smart contract. I
 
 ## Availability in base contracts
 
-The `Ownable` extension is _already_ available in the following [base contracts](/extensions/base-contracts):
+The `Ownable` extension is _already_ available in the following [base contracts](/contractkit/base-contracts):
 
 - All ERC20, ERC721 and ERC1155 base contracts.
 
@@ -43,9 +43,9 @@ Once deployed, you can use the features made available by these contracts on the
 
 The `Ownable` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                               | Type                    | Parameters | Returns | Description                                                                                                                  |
-| -------------------------------------------------- | ----------------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSetOwner`](/extensions/ownable#_cansetowner) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the owner of the contract. Returns whether the owner can be set in the given execution context. |
+| Name                                                                    | Type                    | Parameters | Returns | Description                                                                                                                  |
+| ----------------------------------------------------------------------- | ----------------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSetOwner`](/contractkit/extension-contracts/ownable#_cansetowner) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the owner of the contract. Returns whether the owner can be set in the given execution context. |
 
 ```solidity
 // SPDX-License-Identifier: MIT

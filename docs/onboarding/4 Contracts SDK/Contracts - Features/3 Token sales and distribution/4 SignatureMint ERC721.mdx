@@ -23,9 +23,9 @@ The 'signature minting' mechanism in the `SignatureMintERC721` extension uses [E
 
 ## Availability in base contracts
 
-The `SignatureMintERC721` extension is _already_ available in the following [base contracts](/extensions/base-contracts):
+The `SignatureMintERC721` extension is _already_ available in the following [base contracts](/contractkit/base-contracts):
 
-- **ERC721**: [`ERC721SignatureMint`](/extensions/base-contracts/erc-721/erc721signaturemint)
+- **ERC721**: [`ERC721SignatureMint`](/contractkit/base-contracts/erc-721/erc721signaturemint)
 
 ## Unlocked Features
 
@@ -43,14 +43,14 @@ Once deployed, you can use the features made available by these contracts on the
 
 ## Implementing the Contract
 
-This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/extensions/sigminterc721#availability-in-base-contracts) that already implement signature minting functionlity for you!
+This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/contractkit/extension-contracts/sigminterc721#availability-in-base-contracts) that already implement signature minting functionlity for you!
 
 The `SignatureMintERC721` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                   | Type                    | Parameters | Returns   | Description                                                                                                                                     |
-| ---------------------------------------------------------------------- | ----------------------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSignMintRequest`](/extensions/sigminterc721#_cansignmintrequest) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to mint tokens with signature on the contract. Returns whether the signer is authorized to issue a signature for minting. |
-| [`mintWithSignature`](/extensions/sigminterc721#mintwithsignature)     | external payable        | n/a        | `address` | Mints tokens according to the provided mint request.                                                                                            |
+| Name                                                                                        | Type                    | Parameters | Returns   | Description                                                                                                                                     |
+| ------------------------------------------------------------------------------------------- | ----------------------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSignMintRequest`](/contractkit/extension-contracts/sigminterc721#_cansignmintrequest) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to mint tokens with signature on the contract. Returns whether the signer is authorized to issue a signature for minting. |
+| [`mintWithSignature`](/contractkit/extension-contracts/sigminterc721#mintwithsignature)     | external payable        | n/a        | `address` | Mints tokens according to the provided mint request.                                                                                            |
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -83,7 +83,7 @@ contract ERC721SignatureMint is ERC721Base, SignatureMintERC721 {
         address receiver = _req.to;
 
         // Collect price
-        collectPriceOnClaim(
+        _collectPriceOnClaim(
             _req.primarySaleRecipient,
             _req.quantity,
             _req.currency,
@@ -109,7 +109,7 @@ contract ERC721SignatureMint is ERC721Base, SignatureMintERC721 {
     }
 
     /// @dev Collects and distributes the primary sale value of tokens being claimed.
-    function collectPriceOnClaim(
+    function _collectPriceOnClaim(
         address _primarySaleRecipient,
         uint256 _quantityToClaim,
         address _currency,
