@@ -32,6 +32,6 @@ getContract(address: string, abi: ContractInterface): Promise<SmartContract>;
 
 **Returns:**
 
-Promise&lt;SmartContract&gt;
+Promise&lt;[SmartContract](./sdk.smartcontract.md)&gt;
 
 the contract

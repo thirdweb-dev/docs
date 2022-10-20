@@ -32,6 +32,6 @@ getContract<TContractType extends ContractType>(address: string, contractType: T
 
 **Returns:**
 
-Promise&lt;TContractType extends [PrebuiltContractType](./sdk.prebuiltcontracttype.md) ? [ContractForPrebuiltContractType](./sdk.contractforprebuiltcontracttype.md)&lt;TContractType&gt; : SmartContract&gt;
+Promise&lt;TContractType extends [PrebuiltContractType](./sdk.prebuiltcontracttype.md) ? [ContractForPrebuiltContractType](./sdk.contractforprebuiltcontracttype.md)&lt;TContractType&gt; : [SmartContract](./sdk.smartcontract.md)&gt;
 
 the contract
