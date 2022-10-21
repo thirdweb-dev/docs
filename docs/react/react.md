@@ -78,13 +78,6 @@ import { useDisconnect } from "@thirdweb-dev/react";
 |
 | [useEdition(contractAddress)](./react.useedition.md) | Hook for getting an instance of an <code>Edition</code> contract. This contract is used to interface with ERC1155 compliant NFTs. |
 | [useEditionDrop(contractAddress)](./react.useeditiondrop.md) | Hook for getting an instance of an <code>EditionDrop</code> contract. This conract is used to interface with ERC1155 compliant NFTs that can be lazily minted. |
-| [useGnosis()](./react.usegnosis.md) | <p>Hook for connecting to a Gnosis Safe. This enables multisig wallets to connect to your application and sing transactions.</p>
-
-```javascript
-import { useGnosis } from "@thirdweb-dev/react";
-```
-
-|
 | [useGrantRole(contract)](./react.usegrantrole.md) | **<i>(BETA)</i>** Use this to grant a [WalletAddress](./react.walletaddress.md) a specific role on a |
 | [useIsAddressRole(contract, role, walletAddress)](./react.useisaddressrole.md) | **<i>(BETA)</i>** Use this to check if a [WalletAddress](./react.walletaddress.md) is a member of a role on a |
 | [useLazyMint(contract, onProgress)](./react.uselazymint.md) | **<i>(BETA)</i>** Use this to lazy mint a batch of NFTs on your [DropContract](./react.dropcontract.md) |
@@ -93,13 +86,6 @@ import { useGnosis } from "@thirdweb-dev/react";
 | [useListingsCount(contract)](./react.uselistingscount.md) | **<i>(BETA)</i>** Use this to get a count of all listings on your marketplace contract. |
 | [useLogin(config)](./react.uselogin.md) | **<i>(BETA)</i>** Hook to securely login to a backend with the connected wallet. The backend authentication URL must be configured on the ThirdwebProvider. |
 | [useLogout()](./react.uselogout.md) | **<i>(BETA)</i>** Hook to logout the connected wallet from the backend. The backend logout URL must be configured on the ThirdwebProvider. |
-| [useMagic()](./react.usemagic.md) | <p>Hook for connecting to an email wallet using magic link. This enables users without their own wallets to connect to your application and sign transactions securely using their email.</p>
-
-```javascript
-import { useMagic } from "@thirdweb-dev/react";
-```
-
-|
 | [useMakeBid(contract)](./react.usemakebid.md) | **<i>(BETA)</i>** Use this to place a bid on an auction listing from your marketplace contract. |
 | [useMarketplace(contractAddress)](./react.usemarketplace.md) | Hook for getting an instance of a <code>Marketplace</code> contract. This contract is used to support marketplace for purchase and sale of on-chain assets. |
 | [useMetadata(contract)](./react.usemetadata.md) | **<i>(BETA)</i>** Use this to get the metadata of your |

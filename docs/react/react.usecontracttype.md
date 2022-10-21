@@ -15,6 +15,7 @@ displayed_sidebar: react
 export declare function useContractType(
   contractAddress: RequiredParam<ContractAddress>,
 ): UseQueryResult<
+  | "split"
   | "edition-drop"
   | "edition"
   | "marketplace"
@@ -23,7 +24,6 @@ export declare function useContractType(
   | "nft-drop"
   | "pack"
   | "signature-drop"
-  | "split"
   | "token-drop"
   | "token"
   | "vote"
@@ -41,4 +41,4 @@ export declare function useContractType(
 
 **Returns:**
 
-UseQueryResult&lt;"edition-drop" \| "edition" \| "marketplace" \| "multiwrap" \| "nft-collection" \| "nft-drop" \| "pack" \| "signature-drop" \| "split" \| "token-drop" \| "token" \| "vote" \| "custom" \| null, unknown&gt;
+UseQueryResult&lt;"split" \| "edition-drop" \| "edition" \| "marketplace" \| "multiwrap" \| "nft-collection" \| "nft-drop" \| "pack" \| "signature-drop" \| "token-drop" \| "token" \| "vote" \| "custom" \| null, unknown&gt;

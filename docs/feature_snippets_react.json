@@ -381,17 +381,6 @@
       }
     },
     {
-      "name": "useGnosis",
-      "summary": "Hook for connecting to a Gnosis Safe. This enables multisig wallets to connect to your application and sing transactions.\n```javascript\nimport { useGnosis } from \"@thirdweb-dev/react\"\n```\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "import { useGnosis } from \"@thirdweb-dev/react\"\n\nconst App = () => {\n  const connectWithGnosis = useGnosis()\n\n  return (\n    <button onClick={() => connectWithGnosis({ safeAddress: \"0x...\", safeChainId: 1 })}>\n      Connect Gnosis Safe\n    </button>\n  )\n}"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usegnosis"
-      }
-    },
-    {
       "name": "useListing",
       "summary": "Use this to get a specific listing from the marketplace.\n\n",
       "remarks": null,
@@ -422,17 +411,6 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.uselistingscount"
-      }
-    },
-    {
-      "name": "useMagic",
-      "summary": "Hook for connecting to an email wallet using magic link. This enables users without their own wallets to connect to your application and sign transactions securely using their email.\n```javascript\nimport { useMagic } from \"@thirdweb-dev/react\"\n```\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "import { useMagic } from \"@thirdweb-dev/react\"\nimport { useState } from \"react\"\n\nconst LoginWithMagicLink = () => {\n  const connectWithMagic = useMagic()\n  const [email, setEmail] = useState()\n\n  return (\n    <div>\n      <input value={email} onChange={(e) => setEmail(e.target.value)} />\n      <button onClick={() => connectWithMagic({ email })}>Login</button>\n    </div>\n  )\n}"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usemagic"
       }
     },
     {
