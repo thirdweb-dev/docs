@@ -14,8 +14,8 @@ displayed_sidebar: react
 > This hook is deprecated and will be removed in a future major version. You should use instead.
 >
 > ```diff
-> - const nftCollection = await sdk.useNFTCollection("0x1234...");
-> + const nftCollection = await sdk.useContract("0x1234...", "nft-collection").contract;
+> - const nftCollection = useNFTCollection("0x1234...");
+> + const nftCollection = useContract("0x1234...", "nft-collection").contract;
 > ```
 
 Hook for getting an instance of an `NFTCollection` contract. This contract is meant to interface with ERC721 compliant NFTs.

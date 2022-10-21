@@ -14,8 +14,8 @@ displayed_sidebar: react
 > This hook is deprecated and will be removed in a future major version. You should use instead.
 >
 > ```diff
-> - const marketplace = await sdk.useMarketplace("0x1234...");
-> + const marketplace = await sdk.useContract("0x1234...", "marketplace").contract;
+> - const marketplace = useMarketplace("0x1234...");
+> + const marketplace = useContract("0x1234...", "marketplace").contract;
 > ```
 
 Hook for getting an instance of a `Marketplace` contract. This contract is used to support marketplace for purchase and sale of on-chain assets.

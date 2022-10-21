@@ -14,8 +14,8 @@ displayed_sidebar: react
 > This hook is deprecated and will be removed in a future major version. You should use instead.
 >
 > ```diff
-> - const editionDrop = await sdk.useEditionDrop("0x1234...");
-> + const editionDrop = await sdk.useContract("0x1234...", "edition-drop").contract;
+> - const editionDrop = useEditionDrop("0x1234...");
+> + const editionDrop = useContract("0x1234...", "edition-drop").contract;
 > ```
 
 Hook for getting an instance of an `EditionDrop` contract. This conract is used to interface with ERC1155 compliant NFTs that can be lazily minted.

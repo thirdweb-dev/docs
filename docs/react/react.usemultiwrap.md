@@ -14,8 +14,8 @@ displayed_sidebar: react
 > This hook is deprecated and will be removed in a future major version. You should use instead.
 >
 > ```diff
-> - const multiwrap = await sdk.useMultiwrap("0x1234...");
-> + const multiwrap = await sdk.useContract("0x1234...", "multiwrap").contract;
+> - const multiwrap = useMultiwrap("0x1234...");
+> + const multiwrap = useContract("0x1234...", "multiwrap").contract;
 > ```
 
 Hook for getting an instance of an `Multiwrap` contract. This contract is an ERC721 in which you can wrap ERC721, ERC1155 and ERC20 tokens.

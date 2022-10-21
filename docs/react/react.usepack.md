@@ -14,8 +14,8 @@ displayed_sidebar: react
 > This hook is deprecated and will be removed in a future major version. You should use instead.
 >
 > ```diff
-> - const pack = await sdk.usePack("0x1234...");
-> + const pack = await sdk.useContract("0x1234...", "pack").contract;
+> - const pack = usePack("0x1234...");
+> + const pack = useContract("0x1234...", "pack").contract;
 > ```
 
 Hook for getting an instance of a `Pack` contract. This contract supports the creation of on-chain luck-based lootboxes.

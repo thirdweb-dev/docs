@@ -14,8 +14,8 @@ displayed_sidebar: react
 > This hook is deprecated and will be removed in a future major version. You should use instead.
 >
 > ```diff
-> - const nftDrop = await sdk.useNFTDrop("0x1234...");
-> + const nftDrop = await sdk.useContract("0x1234...", "nft-drop").contract;
+> - const nftDrop = useNFTDrop("0x1234...");
+> + const nftDrop = useContract("0x1234...", "nft-drop").contract;
 > ```
 
 Hook for getting an instance of an `NFTDrop` contract. This contract is meant to interface with ERC721 compliant NFTs that can be lazily minted.

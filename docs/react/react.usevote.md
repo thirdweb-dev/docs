@@ -14,8 +14,8 @@ displayed_sidebar: react
 > This hook is deprecated and will be removed in a future major version. You should use instead.
 >
 > ```diff
-> - const vote = await sdk.useVote("0x1234...");
-> + const vote = await sdk.useContract("0x1234...", "vote").contract;
+> - const vote = useVote("0x1234...");
+> + const vote = useContract("0x1234...", "vote").contract;
 > ```
 
 Hook for getting an instance of an `Vote` contract. This contract enables fully featured voting-based decentralized governance systems.
