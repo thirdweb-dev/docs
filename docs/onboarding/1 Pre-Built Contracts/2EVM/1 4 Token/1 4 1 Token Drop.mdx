@@ -5,6 +5,7 @@ slug: /pre-built-contracts/token-drop
 
 import DeployThisContractButton from "@components/DeployThisContractButton";
 import QuickstartCard from "@components/QuickstartCard";
+import YoutubeEmbed from "@components/YoutubeEmbed";
 
 # Token Drop
 
@@ -15,10 +16,21 @@ import QuickstartCard from "@components/QuickstartCard";
   />
 </div>
 
-The Token Drop contract is a way of releasing your [ERC20](https://eips.ethereum.org/EIPS/eip-20)
-tokens for a set price.
+<div className="heroGrid">
+<div>
+<p>
+The Token Drop contract is a way of releasing your <a href="https://eips.ethereum.org/EIPS/eip-20">ERC20</a>
+{" "} tokens for a set price.
+</p>
+
 It allows you to define the conditions for when and how your users can claim
 your tokens; including allowlists, release dates, and claim limits.
+
+  </div>
+  <div className="heroGridImageContainer">
+    <YoutubeEmbed link={"https://www.youtube.com/embed/FlqplYUvFHQ"} />
+  </div>
+</div>
 
 In the Token Drop, you define the price for your tokens in each claim phase and can set a
 limit on how many tokens you want to release. Other users can then claim your tokens under

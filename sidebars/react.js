@@ -115,16 +115,16 @@ const sidebars = {
           label: "useCoinbaseWallet",
           id: "react.usecoinbasewallet",
         },
-        {
-          type: "doc",
-          label: "useMagic",
-          id: "react.usemagic",
-        },
-        {
-          type: "doc",
-          label: "useGnosis",
-          id: "react.usegnosis",
-        },
+        // {
+        //   type: "doc",
+        //   label: "useMagic",
+        //   id: "react.usemagic",
+        // },
+        // {
+        //   type: "doc",
+        //   label: "useGnosis",
+        //   id: "react.usegnosis",
+        // },
         {
           type: "doc",
           label: "useDisconnect",

@@ -5,6 +5,7 @@ slug: /pre-built-contracts/solana/token
 
 import DeployThisContractButton from "@components/DeployThisContractButton";
 import QuickstartCard from "@components/QuickstartCard";
+import YoutubeEmbed from "@components/YoutubeEmbed";
 
 <div className="deployContractBtnContainer" style={{ marginTop: -70 }}>
   <DeployThisContractButton
@@ -14,8 +15,21 @@ import QuickstartCard from "@components/QuickstartCard";
   />
 </div>
 
-The Token program is suited for creating a digital currency.
-It can be purchased and traded between users on an exchange, utilized to buy and sell NFTs in a marketplace, etc.
+<div className="heroGrid">
+  <div>
+    <p>The Token program is suited for creating a digital currency.</p>
+
+It can be purchased and traded between users on an exchange, utilized to buy
+and sell NFTs in a marketplace, etc.
+
+You provide an initial supply of tokens that will be minted
+at the time of creating the program, and can mint more tokens at any time.
+
+  </div>
+  <div className="heroGridImageContainer">
+    <YoutubeEmbed link={"https://www.youtube.com/embed/nZYxnz5haWA"} />
+  </div>
+</div>
 
 ## Use Cases & Examples
 
