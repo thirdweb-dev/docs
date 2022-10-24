@@ -14,14 +14,15 @@ Get all the claim conditions
 **Signature:**
 
 ```typescript
-getAll(tokenId: BigNumberish): Promise<ClaimCondition[]>;
+getAll(tokenId: BigNumberish, options?: ClaimConditionFetchOptions): Promise<ClaimCondition[]>;
 ```
 
 ## Parameters
 
-| Parameter | Type         | Description |
-| --------- | ------------ | ----------- |
-| tokenId   | BigNumberish |             |
+| Parameter | Type                                                              | Description       |
+| --------- | ----------------------------------------------------------------- | ----------------- |
+| tokenId   | BigNumberish                                                      |                   |
+| options   | [ClaimConditionFetchOptions](./sdk.claimconditionfetchoptions.md) | <i>(Optional)</i> |
 
 **Returns:**
 

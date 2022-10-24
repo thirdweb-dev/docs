@@ -1,12 +1,12 @@
 ---
-slug: /contractkit/extension-contracts/batchmint
+slug: /contractkit/extension-contracts/batchmintmetadata
 title: Batch Mint Metadata
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 
-# BatchMintMetadata
+# Batch Mint Metadata
 
 ```solidity
 import "@thirdweb-dev/contracts/extension/BatchMintMetadata.sol";
@@ -21,9 +21,9 @@ The `BatchMintMetadata` smart contract is an extension for any base NFT contract
 
 ## Availability in base contracts
 
-The `BatchMintMetadata` extension is _already_ available in the following [base contracts](/extensions/base-contracts):
+The `BatchMintMetadata` extension is _already_ available in the following [base contracts](/contractkit/base-contracts):
 
-- All [ERC721](/extensions/base-contracts/erc-721/erc721base) and [ERC1155](/extensions/base-contracts/erc-1155/erc1155base) base contracts.
+- All [ERC721](/contractkit/base-contracts/erc-721/erc721base) and [ERC1155](/contractkit/base-contracts/erc-1155/erc1155base) base contracts.
 
 ## Implementing It Yourself
 
@@ -57,19 +57,19 @@ function getBatchIdAtIndex(uint256 _index) public view returns (uint256);
 
 - The extension smart contract stores an array of 'batch IDs' i.e. IDs for different batches of NFTs minted on the contract. This function returns the batch ID at a given index in this ordered array of batch IDs.
 
-### getBatchId
+### \_getBatchId
 
 ```solidity
-function getBatchId(uint256 tokenId) internal view returns (uint256 batchId, uint256 index);
+function _getBatchId(uint256 tokenId) internal view returns (uint256 batchId, uint256 index);
 ```
 
 - Returns the batch ID for the batch of NFTs the given tokenId belongs to.
 - Parameter `tokenId`: the tokenId for which to retrieve the associated batch ID.
 
-### getBaseURI
+### \_getBaseURI
 
 ```solidity
-function getBaseURI(uint256 _tokenId) internal view returns (string memory);
+function _getBaseURI(uint256 _tokenId) internal view returns (string memory);
 ```
 
 - Returns the base metadata URI for the given tokenId.

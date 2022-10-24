@@ -14,8 +14,8 @@ displayed_sidebar: react
 > This hook is deprecated and will be removed in a future major version. You should use instead.
 >
 > ```diff
-> - const edition = await sdk.useEdition("0x1234...");
-> + const edition = await sdk.useContract("0x1234...", "edition").contract;
+> - const edition = useEdition("0x1234...");
+> + const edition = useContract("0x1234...", "edition").contract;
 > ```
 
 Hook for getting an instance of an `Edition` contract. This contract is used to interface with ERC1155 compliant NFTs.

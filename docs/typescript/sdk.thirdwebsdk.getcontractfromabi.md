@@ -41,6 +41,6 @@ getContractFromAbi(address: string, abi: ContractInterface): Promise<SmartContra
 
 **Returns:**
 
-Promise&lt;SmartContract&lt;ethers.BaseContract&gt;&gt;
+Promise&lt;[SmartContract](./sdk.smartcontract.md)&lt;ethers.BaseContract&gt;&gt;
 
 the contract

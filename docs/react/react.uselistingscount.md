@@ -24,7 +24,10 @@ const { data: listings, isLoading, error } = useListings(<YourMarketplaceContrac
 ```typescript
 export declare function useListingsCount(
   contract: RequiredParam<Marketplace>,
-): import("@tanstack/react-query").UseQueryResult<BigNumber, unknown>;
+): import("@tanstack/react-query").UseQueryResult<
+  import("ethers").BigNumber,
+  unknown
+>;
 ```
 
 ## Parameters
@@ -35,6 +38,6 @@ export declare function useListingsCount(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;BigNumber, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;import("ethers").BigNumber, unknown&gt;
 
 a response object that includes an array of listings

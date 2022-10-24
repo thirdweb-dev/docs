@@ -9,14 +9,14 @@ displayed_sidebar: react
 
 ## ThirdwebNftMedia variable
 
-> This feature is currently in beta and may change based on feedback that we receive.
+This component can be used to render NFTs from the thirdweb SDK. Props: [ThirdwebNftMediaProps](./react.thirdwebnftmediaprops.md)
 
 ## Example
 
 ```jsx
-import { ThirdwebNftMedia, useNFTCollection, useNFT } from "@thirdweb-dev/react";
+import { ThirdwebNftMedia, useContract, useNFT } from "@thirdweb-dev/react";
 export default function NFTCollectionRender() {
-  const contract = useNFTCollection(<your-contract-address>);
+  const { contract } = useContract(<your-contract-address>);
   const { data: nft, isLoading } = useNFT(contract, 0);
 
   return (
@@ -30,8 +30,6 @@ export default function NFTCollectionRender() {
   );
 }
 ```
-
-Use this to get the primary sales recipient of your
 
 **Signature:**
 

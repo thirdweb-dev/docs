@@ -59,6 +59,7 @@ displayed_sidebar: typescript
 | [NFTDrop](./sdk.nftdrop.md)                                                         | Setup a collection of one-of-one NFTs that are minted as users claim them.                                                                                                                         |
 | [Pack](./sdk.pack.md)                                                               | Create lootboxes of NFTs with rarity based open mechanics.                                                                                                                                         |
 | [SignatureDrop](./sdk.signaturedrop.md)                                             | Setup a collection of NFTs where when it comes to minting, you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.. |
+| [SmartContract](./sdk.smartcontract.md)                                             | **<i>(BETA)</i>** Custom contract dynamic class with feature detection                                                                                                                             |
 | [Split](./sdk.split.md)                                                             | Create custom royalty splits to distribute funds.                                                                                                                                                  |
 | [StandardErc1155](./sdk.standarderc1155.md)                                         | Standard ERC1155 NFT functions                                                                                                                                                                     |
 | [StandardErc20](./sdk.standarderc20.md)                                             | Standard ERC20 Token functions                                                                                                                                                                     |
@@ -165,6 +166,7 @@ displayed_sidebar: typescript
 | [AuthenticationPayload](./sdk.authenticationpayload.md)                                 |                                                                                      |
 | [AuthenticationPayloadData](./sdk.authenticationpayloaddata.md)                         |                                                                                      |
 | [ClaimCondition](./sdk.claimcondition.md)                                               | Represents a claim condition fetched from the SDK                                    |
+| [ClaimConditionFetchOptions](./sdk.claimconditionfetchoptions.md)                       |                                                                                      |
 | [ClaimConditionInput](./sdk.claimconditioninput.md)                                     | Input model to create a claim condition with optional snapshot of wallets            |
 | [ClaimConditionsForToken](./sdk.claimconditionsfortoken.md)                             |                                                                                      |
 | [ClaimOptions](./sdk.claimoptions.md)                                                   |                                                                                      |
@@ -225,12 +227,16 @@ displayed_sidebar: typescript
 | [Role](./sdk.role.md)                                                                   |                                                                                      |
 | [SchemaForPrebuiltContractType](./sdk.schemaforprebuiltcontracttype.md)                 |                                                                                      |
 | [SDKOptions](./sdk.sdkoptions.md)                                                       | All these configuration options are optional with sane defaults:                     |
+| [ShardData](./sdk.sharddata.md)                                                         |                                                                                      |
+| [ShardedMerkleTreeInfo](./sdk.shardedmerkletreeinfo.md)                                 |                                                                                      |
+| [ShardedSnapshot](./sdk.shardedsnapshot.md)                                             |                                                                                      |
 | [SignedPayload1155](./sdk.signedpayload1155.md)                                         |                                                                                      |
 | [SignedPayload20](./sdk.signedpayload20.md)                                             |                                                                                      |
 | [SignedPayload721](./sdk.signedpayload721.md)                                           |                                                                                      |
 | [SignedPayload721WithQuantitySignature](./sdk.signedpayload721withquantitysignature.md) |                                                                                      |
 | [SignerOrProvider](./sdk.signerorprovider.md)                                           |                                                                                      |
 | [Snapshot](./sdk.snapshot.md)                                                           |                                                                                      |
+| [SnapshotEntry](./sdk.snapshotentry.md)                                                 |                                                                                      |
 | [SnapshotInfo](./sdk.snapshotinfo.md)                                                   |                                                                                      |
 | [SnapshotInput](./sdk.snapshotinput.md)                                                 | Input model to pass a snapshot of addresses + amount claimable for a claim condition |
 | [SUPPORTED_CHAIN_ID](./sdk.supported_chain_id.md)                                       |                                                                                      |

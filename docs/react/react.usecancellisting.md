@@ -50,7 +50,7 @@ export declare function useCancelListing(
     >
   | undefined,
   unknown,
-  Pick<AuctionListing | DirectListing, "id" | "type">,
+  Pick<AuctionListing | DirectListing, "type" | "id">,
   unknown
 >;
 ```
@@ -63,6 +63,6 @@ export declare function useCancelListing(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt; \| undefined, unknown, Pick&lt;AuctionListing \| DirectListing, "id" \| "type"&gt;, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt; \| undefined, unknown, Pick&lt;AuctionListing \| DirectListing, "type" \| "id"&gt;, unknown&gt;
 
 a mutation object that can be used to create a new auction listing

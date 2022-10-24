@@ -14,8 +14,14 @@ Get the currently active claim condition
 **Signature:**
 
 ```typescript
-getActive(): Promise<ClaimCondition>;
+getActive(options?: ClaimConditionFetchOptions): Promise<ClaimCondition>;
 ```
+
+## Parameters
+
+| Parameter | Type                                                              | Description       |
+| --------- | ----------------------------------------------------------------- | ----------------- |
+| options   | [ClaimConditionFetchOptions](./sdk.claimconditionfetchoptions.md) | <i>(Optional)</i> |
 
 **Returns:**
 

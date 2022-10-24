@@ -12,8 +12,8 @@ Allow other wallets to **claim** NFTs that you have lazy-minted using (using [ER
 under the criteria of **claim conditions** by implementing `ERC1155`, `LazyMint`, and `DropSinglePhase`.
 
 <ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DropSinglePhase.sol"
-  name="DropSinglePhase"
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DropSinglePhase1155.sol"
+  name="DropSinglePhase1155"
 />
 
 ## Base Contracts Implementing This Feature
@@ -75,7 +75,7 @@ contract Contract is ERC1155, LazyMint, DropSinglePhase {
         // Your custom implementation here
     }
 
-    function collectPriceOnClaim(
+    function _collectPriceOnClaim(
         address _primarySaleRecipient,
         uint256 _quantityToClaim,
         address _currency,
@@ -84,7 +84,7 @@ contract Contract is ERC1155, LazyMint, DropSinglePhase {
         // Your custom implementation here
     }
 
-    function transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
+    function _transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
         internal
         virtual
         override

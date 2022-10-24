@@ -11,16 +11,16 @@ displayed_sidebar: react
 
 ## Functions
 
-| Function                                                                         | Description                                                                                                                                                                                    |
-| -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [getErc1155(contract)](./react.geterc1155.md)                                    |                                                                                                                                                                                                |
-| [getErc20(contract)](./react.geterc20.md)                                        |                                                                                                                                                                                                |
-| [getErc721(contract)](./react.geterc721.md)                                      |                                                                                                                                                                                                |
-| [getErcs(contract)](./react.getercs.md)                                          |                                                                                                                                                                                                |
-| [shouldNeverPersistQuery(key)](./react.shouldneverpersistquery.md)               |                                                                                                                                                                                                |
-| [useActiveClaimCondition(contract, tokenId)](./react.useactiveclaimcondition.md) | **<i>(BETA)</i>** Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the <code>claimCondition</code> extension for this hook to work. |
-| [useActiveListings(contract, filter)](./react.useactivelistings.md)              | **<i>(BETA)</i>** Use this to get a list active listings from your marketplace contract.                                                                                                       |
-| [useAddress()](./react.useaddress.md)                                            | <p>Hook for accessing the address of the connected wallet</p>                                                                                                                                  |
+| Function                                                                                  | Description                                                                                                                                                                                    |
+| ----------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [getErc1155(contract)](./react.geterc1155.md)                                             |                                                                                                                                                                                                |
+| [getErc20(contract)](./react.geterc20.md)                                                 |                                                                                                                                                                                                |
+| [getErc721(contract)](./react.geterc721.md)                                               |                                                                                                                                                                                                |
+| [getErcs(contract)](./react.getercs.md)                                                   |                                                                                                                                                                                                |
+| [shouldNeverPersistQuery(key)](./react.shouldneverpersistquery.md)                        |                                                                                                                                                                                                |
+| [useActiveClaimCondition(contract, tokenId, options)](./react.useactiveclaimcondition.md) | **<i>(BETA)</i>** Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the <code>claimCondition</code> extension for this hook to work. |
+| [useActiveListings(contract, filter)](./react.useactivelistings.md)                       | **<i>(BETA)</i>** Use this to get a list active listings from your marketplace contract.                                                                                                       |
+| [useAddress()](./react.useaddress.md)                                                     | <p>Hook for accessing the address of the connected wallet</p>                                                                                                                                  |
 
 ```javascript
 import { useAddress } from "@thirdweb-dev/react";
@@ -44,7 +44,7 @@ import { useChainId } from "@thirdweb-dev/react";
 ```
 
 |
-| [useClaimConditions(contract, tokenId)](./react.useclaimconditions.md) | **<i>(BETA)</i>** Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the <code>claimCondition</code> extension for this hook to work. |
+| [useClaimConditions(contract, tokenId, options)](./react.useclaimconditions.md) | **<i>(BETA)</i>** Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the <code>claimCondition</code> extension for this hook to work. |
 | [useClaimedNFTs(contract, queryParams)](./react.useclaimednfts.md) | **<i>(BETA)</i>** Use this to get a list of \*claimed\* (minted) NFT tokens of your ERC721 Drop contract. |
 | [useClaimedNFTSupply(contract)](./react.useclaimednftsupply.md) | |
 | [useClaimIneligibilityReasons(contract, params, tokenId)](./react.useclaimineligibilityreasons.md) | **<i>(BETA)</i>** Use this to check for reasons that prevent claiming for either ERC20, ERC721 or ERC1155 based contracts. They need to extend the <code>claimCondition</code> extension for this hook to work. |
@@ -78,13 +78,6 @@ import { useDisconnect } from "@thirdweb-dev/react";
 |
 | [useEdition(contractAddress)](./react.useedition.md) | Hook for getting an instance of an <code>Edition</code> contract. This contract is used to interface with ERC1155 compliant NFTs. |
 | [useEditionDrop(contractAddress)](./react.useeditiondrop.md) | Hook for getting an instance of an <code>EditionDrop</code> contract. This conract is used to interface with ERC1155 compliant NFTs that can be lazily minted. |
-| [useGnosis()](./react.usegnosis.md) | <p>Hook for connecting to a Gnosis Safe. This enables multisig wallets to connect to your application and sing transactions.</p>
-
-```javascript
-import { useGnosis } from "@thirdweb-dev/react";
-```
-
-|
 | [useGrantRole(contract)](./react.usegrantrole.md) | **<i>(BETA)</i>** Use this to grant a [WalletAddress](./react.walletaddress.md) a specific role on a |
 | [useIsAddressRole(contract, role, walletAddress)](./react.useisaddressrole.md) | **<i>(BETA)</i>** Use this to check if a [WalletAddress](./react.walletaddress.md) is a member of a role on a |
 | [useLazyMint(contract, onProgress)](./react.uselazymint.md) | **<i>(BETA)</i>** Use this to lazy mint a batch of NFTs on your [DropContract](./react.dropcontract.md) |
@@ -93,13 +86,6 @@ import { useGnosis } from "@thirdweb-dev/react";
 | [useListingsCount(contract)](./react.uselistingscount.md) | **<i>(BETA)</i>** Use this to get a count of all listings on your marketplace contract. |
 | [useLogin(config)](./react.uselogin.md) | **<i>(BETA)</i>** Hook to securely login to a backend with the connected wallet. The backend authentication URL must be configured on the ThirdwebProvider. |
 | [useLogout()](./react.uselogout.md) | **<i>(BETA)</i>** Hook to logout the connected wallet from the backend. The backend logout URL must be configured on the ThirdwebProvider. |
-| [useMagic()](./react.usemagic.md) | <p>Hook for connecting to an email wallet using magic link. This enables users without their own wallets to connect to your application and sign transactions securely using their email.</p>
-
-```javascript
-import { useMagic } from "@thirdweb-dev/react";
-```
-
-|
 | [useMakeBid(contract)](./react.usemakebid.md) | **<i>(BETA)</i>** Use this to place a bid on an auction listing from your marketplace contract. |
 | [useMarketplace(contractAddress)](./react.usemarketplace.md) | Hook for getting an instance of a <code>Marketplace</code> contract. This contract is used to support marketplace for purchase and sale of on-chain assets. |
 | [useMetadata(contract)](./react.usemetadata.md) | **<i>(BETA)</i>** Use this to get the metadata of your |
@@ -110,6 +96,7 @@ import { useMetamask } from "@thirdweb-dev/react";
 ```
 
 |
+| [useMinimumNextBid(contract, listingId)](./react.useminimumnextbid.md) | **<i>(BETA)</i>** Use this to get the minimum next bid for the auction listing from your marketplace contract. |
 | [useMintNFT(contract)](./react.usemintnft.md) | **<i>(BETA)</i>** Use this to mint a new NFT on your [Erc721OrErc1155](./react.erc721orerc1155.md) |
 | [useMintNFTSupply(contract)](./react.usemintnftsupply.md) | **<i>(BETA)</i>** Use this to mint a new NFT on your |
 | [useMintToken(contract)](./react.useminttoken.md) | **<i>(BETA)</i>** Use this to mint new tokens on your contract |
@@ -194,7 +181,7 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 | [ConnectWallet](./react.connectwallet.md)             | <p>**<i>(BETA)</i>** A component that allows the user to connect their wallet.</p><p>The button has to be wrapped in a <code>ThirdwebProvider</code> in order to function.</p>                                                                                                                                                                          |
 | [contractType](./react.contracttype.md)               |                                                                                                                                                                                                                                                                                                                                                         |
 | [MediaRenderer](./react.mediarenderer.md)             | <p>This component can be used to render any media type, including image, audio, video, and html files. Its convenient for rendering NFT media files, as these can be a variety of different types. The component falls back to a external link if the media type is not supported.</p><p>Props: [MediaRendererProps](./react.mediarendererprops.md)</p> |
-| [ThirdwebNftMedia](./react.thirdwebnftmedia.md)       | **<i>(BETA)</i>**                                                                                                                                                                                                                                                                                                                                       |
+| [ThirdwebNftMedia](./react.thirdwebnftmedia.md)       | This component can be used to render NFTs from the thirdweb SDK. Props: [ThirdwebNftMediaProps](./react.thirdwebnftmediaprops.md)                                                                                                                                                                                                                       |
 | [ThirdwebProvider](./react.thirdwebprovider.md)       | The <code>&lt;ThirdwebProvider /&gt;</code> component lets you control what networks you want users to connect to, what types of wallets can connect to your app, and the settings for the \[Typescript SDK\](https://docs.thirdweb.com/typescript).                                                                                                    |
 | [ThirdwebSDKProvider](./react.thirdwebsdkprovider.md) | <p>A basic wrapper around the Thirdweb SDK.</p><p>You can use this in order to be able to pass a provider &amp; signer directly to the SDK.</p>                                                                                                                                                                                                         |
 | [Web3Button](./react.web3button.md)                   | <p>**<i>(BETA)</i>** A component that allows the user to call an on-chain function on a contract.</p><p>The button has to be wrapped in a <code>ThirdwebProvider</code> in order to function.</p>                                                                                                                                                       |

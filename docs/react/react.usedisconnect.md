@@ -35,7 +35,7 @@ Once users disconnect their wallet, the `useAddress`, `useChainId`, `useAccount`
 
 ```typescript
 export declare function useDisconnect(options?: {
-  reconnectAfterGnosis?: boolean;
+  reconnectPrevious?: boolean;
 }): () => Promise<void | {
   data?: import("wagmi").ConnectorData<any> | undefined;
   error?: Error | undefined;
@@ -44,9 +44,9 @@ export declare function useDisconnect(options?: {
 
 ## Parameters
 
-| Parameter | Type                                | Description       |
-| --------- | ----------------------------------- | ----------------- |
-| options   | { reconnectAfterGnosis?: boolean; } | <i>(Optional)</i> |
+| Parameter | Type                             | Description       |
+| --------- | -------------------------------- | ----------------- |
+| options   | { reconnectPrevious?: boolean; } | <i>(Optional)</i> |
 
 **Returns:**
 

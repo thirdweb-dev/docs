@@ -2516,7 +2516,7 @@
         "examples": {
           "javascript": "const tx = await contract.wrap({\n  erc20Tokens: [{\n    contractAddress: \"0x...\",\n    quantity: \"0.8\"\n  }],\n  erc721Tokens: [{\n    contractAddress: \"0x...\",\n    tokenId: \"0\"\n  }],\n  erc1155Tokens: [{\n    contractAddress: \"0x...\",\n    tokenId: \"1\",\n    quantity: \"2\"\n  }]\n}, {\n    name: \"Wrapped bundle\",\n    description: \"This is a wrapped bundle of tokens and NFTs\",\n    image: \"ipfs://...\",\n});\nconst receipt = tx.receipt(); // the transaction receipt\nconst wrappedTokenId = tx.id; // the id of the wrapped token bundle",
           "python": "from thirdweb.types import (\n    TokensToWrap,\n    ERC20Wrappable,\n    ERC721Wrappable,\n    ERC1155Wrappable,\n    NFTMetadataInput,\n)\n\n# Contract setup goes here...\n\ntx = contract.wrap(\n    TokensToWrap(\n        erc20_tokens=[\n            ERC20Wrappable(contract_address=\"0x...\", quantity=0.8),\n        ],\n        erc721_tokens=[\n            ERC721Wrappable(contract_address=\"0x...\", token_id=0),\n        ],\n        erc1155_tokens=[\n            ERC1155Wrappable(contract_address=\"0x...\", token_id=0, quantity=1),\n        ]\n    ),\n    NFTMetadataInput(\n        name=\"Wrapped NFT\",\n        description=\"This is a wrapped bundle of tokens and NFTs\",\n        image=\"ipfs://...\",\n    )\n)\n\nprint(tx.receipt, tx.id)",
-          "go": "contents := &thirdweb.MultiwrapBundle{\n\tERC20Tokens: []*thirdweb.MultiwrapERC20{\n\t\t&thirdweb.MultiwrapERC20{\n\t\t\tContractAddress: \"0x...\",\n\t\t\tQuantity:        1,\n\t\t},\n\t},\n\tERC721Tokens: []*thirdweb.MultiwrapERC721{\n\t\t&thirdweb.MultiwrapERC721{\n\t\t\tContractAddress: \"0x...\",\n\t\t\tTokenId:         1,\n\t\t},\n\t},\n\tERC1155Tokens: []*thirdweb.MultiwrapERC1155{\n\t\t&thirdweb.MultiwrapERC1155{\n\t\t\tContractAddress: \"0x...\",\n\t\t\tTokenId:         1,\n\t\t\tQuantity:        1,\n\t\t},\n\t},\n}\n\nwrappedTokenMetadata := &thirdweb.NFTMetadataInput{\n\tName: \"Wrapped Token\"\n}\n\n// This will mint the wrapped token to the connected wallet\ntx, err := contract.Wrap(contents, wrappedTokenMetadata, \"\")\n",
+          "go": "contents := &thirdweb.MultiwrapBundle{\n\tERC20Tokens: []*thirdweb.MultiwrapERC20{\n\t\t&thirdweb.MultiwrapERC20{\n\t\t\tContractAddress: \"0x...\",\n\t\t\tQuantity:        1,\n\t\t},\n\t},\n\tERC721Tokens: []*thirdweb.MultiwrapERC721{\n\t\t&thirdweb.MultiwrapERC721{\n\t\t\tContractAddress: \"0x...\",\n\t\t\tTokenId:         1,\n\t\t},\n\t},\n\tERC1155Tokens: []*thirdweb.MultiwrapERC1155{\n\t\t&thirdweb.MultiwrapERC1155{\n\t\t\tContractAddress: \"0x...\",\n\t\t\tTokenId:         1,\n\t\t\tQuantity:        1,\n\t\t},\n\t},\n}\n\nwrappedTokenMetadata := &thirdweb.NFTMetadataInput{\n\tName: \"Wrapped Token\"\n}\n\n// This will mint the wrapped token to the connected wallet\ntx, err := contract.Wrap(context.Background(), contents, wrappedTokenMetadata, \"\")\n",
           "react": "const tx = await contract.wrap({\n  erc20Tokens: [{\n    contractAddress: \"0x...\",\n    quantity: \"0.8\"\n  }],\n  erc721Tokens: [{\n    contractAddress: \"0x...\",\n    tokenId: \"0\"\n  }],\n  erc1155Tokens: [{\n    contractAddress: \"0x...\",\n    tokenId: \"1\",\n    quantity: \"2\"\n  }]\n}, {\n    name: \"Wrapped bundle\",\n    description: \"This is a wrapped bundle of tokens and NFTs\",\n    image: \"ipfs://...\",\n});\nconst receipt = tx.receipt(); // the transaction receipt\nconst wrappedTokenId = tx.id; // the id of the wrapped token bundle"
         },
         "reference": {
@@ -3610,11 +3610,33 @@
   },
   "SmartContract": {
     "name": "SmartContract",
-    "summary": "",
-    "examples": {},
-    "methods": [],
+    "summary": "Custom contract dynamic class with feature detection\n\n",
+    "examples": {
+      "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(provider);\nconst contract = await sdk.getContract(\"{{contract_address}}\");\n\n// call any function in your contract\nawait contract.call(\"myCustomFunction\", param1, param2);\n\n// if your contract follows the ERC721 standard, contract.nft will be present\nconst allNFTs = await contract.erc721.query.all()\n\n// if your contract extends IMintableERC721, contract.nft.mint() will be available\nconst tx = await contract.erc721.mint({\n    name: \"Cool NFT\",\n    image: readFileSync(\"some_image.png\"),\n  });"
+    },
+    "methods": [
+      {
+        "name": "call",
+        "summary": "Call any function on this contract\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// read functions will return the data from the contract\nconst myValue = await contract.call(\"myReadFunction\");\nconsole.log(myValue);\n\n// write functions will return the transaction receipt\nconst tx = await contract.call(\"myWriteFunction\", arg1, arg2);\nconst receipt = tx.receipt;\n\n// Optionally override transaction options\nawait contract.call(\"myWriteFunction\", arg1, arg2, {\n gasLimit: 1000000, // override default gas limit\n value: ethers.utils.parseEther(\"0.1\"), // send 0.1 ether with the contract call\n};",
+          "python": "",
+          "go": "",
+          "react": "const { contract } = useContract(\"{{contract_address}}\");\nconst { mutate: myFunction, isLoading, error } = useContractWrite(contract, \"myFunction\");\n\n// the function can be called as follows:\n// myFunction([\"param 1\", \"param 2\", ...])"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.smartcontract.call",
+          "python": "",
+          "go": "",
+          "react": "https://portal.thirdweb.com/react/react.usecontractwrite"
+        }
+      }
+    ],
     "properties": [],
-    "reference": {}
+    "reference": {
+      "typescript": "https://portal.thirdweb.com/typescript/sdk.SmartContract"
+    }
   },
   "WalletAuthenticator": {
     "name": "WalletAuthenticator",

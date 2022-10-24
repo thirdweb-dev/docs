@@ -17,4 +17,4 @@ export declare type ValidContractInstance =
   | SmartContract;
 ```
 
-**References:** [ContractsMap](./sdk.contractsmap.md), [PrebuiltContractsMap](./sdk.prebuiltcontractsmap.md)
+**References:** [ContractsMap](./sdk.contractsmap.md), [PrebuiltContractsMap](./sdk.prebuiltcontractsmap.md), [SmartContract](./sdk.smartcontract.md)

@@ -27,5 +27,5 @@ program metadata
 
 ```jsx
 const metadata = await program.getMetadata();
-console.log(metadata.name);
+console.log(metadata);
 ```

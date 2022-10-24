@@ -14,8 +14,8 @@ displayed_sidebar: react
 > This hook is deprecated and will be removed in a future major version. You should use instead.
 >
 > ```diff
-> - const split = await sdk.useSplit("0x1234...");
-> + const split = await sdk.useContract("0x1234...", "split").contract;
+> - const split = useSplit("0x1234...");
+> + const split = useContract("0x1234...", "split").contract;
 > ```
 
 Hook for getting an instance of a `Split` contract. This contract supports fund distribution to multiple parties.

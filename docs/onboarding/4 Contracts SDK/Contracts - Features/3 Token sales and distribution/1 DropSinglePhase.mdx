@@ -6,7 +6,7 @@ title: Drop Single Phase
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 
-# Drop Single Phase (ERC20 & ERC 721)
+# Drop Single Phase (ERC20 & ERC721)
 
 ```solidity
 import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
@@ -23,10 +23,10 @@ This extension implements the 'Drop' distribution mechanism: set restrictions su
 
 ## Availability in base contracts
 
-The `DropSinglePhase` extension is _already_ available in the following [base contracts](/extensions/base-contracts):
+The `DropSinglePhase` extension is _already_ available in the following [base contracts](/contractkit/base-contracts):
 
-- **ERC20**: [`ERC20Drop`](/extensions/base-contracts/erc-20/erc20drop)
-- **ERC721**: [`ERC721Drop`](/extensions/base-contracts/erc-721/erc721drop)
+- **ERC20**: [`ERC20Drop`](/contractkit/base-contracts/erc-20/erc20drop)
+- **ERC721**: [`ERC721Drop`](/contractkit/base-contracts/erc-721/erc721drop)
 
 ## Unlocked Features
 
@@ -44,15 +44,15 @@ Once deployed, you can use the features made available by these contracts on the
 
 ## Implementing the Contract
 
-This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/extensions/dropsinglephase#availability-in-base-contracts) that already implement Drop functionlity for you!
+This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/contractkit/extension-contracts/dropsinglephase#availability-in-base-contracts) that already implement Drop functionlity for you!
 
 The `DropSinglePhase` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                           | Type                    | Parameters | Returns   | Description                                                                                                                                      |
-| ------------------------------------------------------------------------------ | ----------------------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [`collectPriceOnClaim`](/extensions/dropsinglephase#collectpriceonclaim)       | internal _virtual_      | n/a        | n/a       | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
-| [`transferTokensOnClaim`](/extensions/dropsinglephase#transfertokensonclaim)   | internal _virtual_      | n/a        | `uint256` | Transfers the NFTs being claimed.                                                                                                                |
-| [`_canSetClaimConditions`](/extensions/dropsinglephase#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
+| Name                                                                                                | Type                    | Parameters | Returns   | Description                                                                                                                                      |
+| --------------------------------------------------------------------------------------------------- | ----------------------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [`_collectPriceOnClaim`](/contractkit/extension-contracts/dropsinglephase#_collectpriceonclaim)     | internal _virtual_      | n/a        | n/a       | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
+| [`_transferTokensOnClaim`](/contractkit/extension-contracts/dropsinglephase#_transfertokensonclaim) | internal _virtual_      | n/a        | `uint256` | Transfers the NFTs being claimed.                                                                                                                |
+| [`_canSetClaimConditions`](/contractkit/extension-contracts/dropsinglephase#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
 
 ```solidity
 // SPDX-License-Identifier: Apache-2.0
@@ -78,7 +78,7 @@ contract MyContract is ERC20Base, DropSinglePhase {
     //////////////////////////////////////////////////////////////*/
 
     /// @dev Collects and distributes the primary sale value of tokens being claimed.
-    function collectPriceOnClaim(
+    function _collectPriceOnClaim(
         address _primarySaleRecipient,
         uint256 _quantityToClaim,
         address _currency,
@@ -105,7 +105,7 @@ contract MyContract is ERC20Base, DropSinglePhase {
     }
 
     /// @dev Transfers the tokens being claimed.
-    function transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
+    function _transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
         internal
         virtual
         override
@@ -277,10 +277,10 @@ function _afterClaim(
 - Parameter `allowlistProof`: The proof of the claimer's inclusion in the merkle root allowlist.
 - Parameter `data`: Arbitrary bytes data that can be leveraged in the implementation of this interface.
 
-### collectPriceOnClaim
+### \_collectPriceOnClaim
 
 ```solidity
-function collectPriceOnClaim(
+function _collectPriceOnClaim(
     address primarySaleRecipient,
     uint256 quantityToClaim,
     address currency,
@@ -294,10 +294,10 @@ function collectPriceOnClaim(
 - Parameter `currency`: The currency used to pay for the claim.
 - Parameter `pricePerToken`: The price per token to pay for the claim.
 
-### transferTokensOnClaim
+### \_transferTokensOnClaim
 
 ```solidity
-function transferTokensOnClaim(address to, uint256 quantityBeingClaimed)
+function _transferTokensOnClaim(address to, uint256 quantityBeingClaimed)
     internal
     virtual
     returns (uint256 startTokenId);

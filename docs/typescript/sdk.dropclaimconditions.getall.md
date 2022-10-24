@@ -14,8 +14,14 @@ Get all the claim conditions
 **Signature:**
 
 ```typescript
-getAll(): Promise<ClaimCondition[]>;
+getAll(options?: ClaimConditionFetchOptions): Promise<ClaimCondition[]>;
 ```
+
+## Parameters
+
+| Parameter | Type                                                              | Description       |
+| --------- | ----------------------------------------------------------------- | ----------------- |
+| options   | [ClaimConditionFetchOptions](./sdk.claimconditionfetchoptions.md) | <i>(Optional)</i> |
 
 **Returns:**
 

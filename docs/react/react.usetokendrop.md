@@ -14,8 +14,8 @@ displayed_sidebar: react
 > This hook is deprecated and will be removed in a future major version. You should use instead.
 >
 > ```diff
-> - const token = await sdk.useTokenDrop("0x1234...");
-> + const token = await sdk.useContract("0x1234...", "token-drop").contract;
+> - const token = useTokenDrop("0x1234...");
+> + const token = useContract("0x1234...", "token-drop").contract;
 > ```
 
 Hook for getting an instance of a `Token Drop` contract.

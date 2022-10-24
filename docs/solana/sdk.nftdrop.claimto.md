@@ -14,7 +14,7 @@ Claim an NFT from the drop for the specified wallet
 **Signature:**
 
 ```typescript
-claimTo(receiverAddress: string, quantity: Amount): Promise<string[]>;
+claimTo(receiverAddress: string, amount: Amount): Promise<string[]>;
 ```
 
 ## Parameters
@@ -22,7 +22,7 @@ claimTo(receiverAddress: string, quantity: Amount): Promise<string[]>;
 | Parameter       | Type   | Description |
 | --------------- | ------ | ----------- |
 | receiverAddress | string |             |
-| quantity        | Amount |             |
+| amount          | Amount |             |
 
 **Returns:**
 

@@ -14,14 +14,15 @@ Get the currently active claim condition
 **Signature:**
 
 ```typescript
-getActive(tokenId: BigNumberish): Promise<ClaimCondition>;
+getActive(tokenId: BigNumberish, options?: ClaimConditionFetchOptions): Promise<ClaimCondition>;
 ```
 
 ## Parameters
 
-| Parameter | Type         | Description |
-| --------- | ------------ | ----------- |
-| tokenId   | BigNumberish |             |
+| Parameter | Type                                                              | Description       |
+| --------- | ----------------------------------------------------------------- | ----------------- |
+| tokenId   | BigNumberish                                                      |                   |
+| options   | [ClaimConditionFetchOptions](./sdk.claimconditionfetchoptions.md) | <i>(Optional)</i> |
 
 **Returns:**
 

@@ -11,6 +11,35 @@ displayed_sidebar: typescript
 
 Verify that a payload is correctly signed
 
+## Example
+
+```javascript
+const nftMetadata = {
+  name: "Cool NFT #1",
+  description: "This is a cool NFT",
+  image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
+};
+
+const startTime = new Date();
+const endTime = new Date(Date.now() + 60 * 60 * 24 * 1000);
+const payload = {
+  metadata: nftMetadata, // The NFT to mint
+  to: {{wallet_address}}, // Who will receive the NFT (or AddressZero for anyone)
+  quantity: 2, // the quantity of NFTs to mint
+  price: 0.5, // the price per NFT
+  currencyAddress: NATIVE_TOKEN_ADDRESS, // the currency to pay with
+  mintStartTime: startTime, // can mint anytime from now
+  mintEndTime: endTime, // to 24h from now
+  royaltyRecipient: "0x...", // custom royalty recipient for this NFT
+  royaltyBps: 100, // custom royalty fees for this NFT (in bps)
+  primarySaleRecipient: "0x...", // custom sale recipient for this NFT
+};
+
+const signedPayload = contract.erc1155.signature.generate(payload);
+// Now you can verify that the payload is valid
+const isValid = await contract.erc1155.signature.verify(signedPayload);
+```
+
 **Signature:**
 
 ```typescript
