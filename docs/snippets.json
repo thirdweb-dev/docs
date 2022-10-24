@@ -1695,6 +1695,23 @@
         }
       },
       {
+        "name": "makeOffer",
+        "summary": "Make an offer for a Direct or Auction Listing\n\n",
+        "remarks": "\n\nMake an offer on a direct or auction listing\n\n",
+        "examples": {
+          "javascript": "// The listing ID of the asset you want to offer on\nconst listingId = 0;\n// The price you are willing to offer per token\nconst pricePerToken = 0.5;\n// The quantity of tokens you want to receive for this offer\nconst quantity = 1;\n\nawait contract.makeOffer(\n  listingId,\n  pricePerToken,\n  quantity,\n);",
+          "python": "",
+          "go": "",
+          "react": "// The listing ID of the asset you want to offer on\nconst listingId = 0;\n// The price you are willing to offer per token\nconst pricePerToken = 0.5;\n// The quantity of tokens you want to receive for this offer\nconst quantity = 1;\n\nawait contract.makeOffer(\n  listingId,\n  pricePerToken,\n  quantity,\n);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplace.makeoffer",
+          "python": "",
+          "go": "",
+          "react": "https://portal.thirdweb.com/typescript/sdk.marketplace.makeoffer"
+        }
+      },
+      {
         "name": "setBidBufferBps",
         "summary": "Set the Auction bid buffer\n\n",
         "remarks": "\n\nA percentage (e.g. 5%) in basis points (5% = 500, 100% = 10000). A new bid is considered to be a winning bid only if its bid amount is at least the bid buffer (e.g. 5%) greater than the previous winning bid. This prevents buyers from making very slightly higher bids to win the auctioned items.\n\n",
