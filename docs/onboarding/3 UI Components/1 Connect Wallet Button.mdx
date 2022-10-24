@@ -7,10 +7,11 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # Connect Wallet Button
 
-The Connect Wallet button allows the user to connect to your application using their
+The Connect Wallet button allows the user to connect to your application with the most popular
+wallets, such as
 [MetaMask](/react/react.usemetamask),
-[WalletConnect](/react/react.usewalletconnect)
-or [Coinbase](/react/react.usecoinbasewallet) wallet.
+[Coinbase](/react/react.usecoinbasewallet), or
+[WalletConnect](/react/react.usewalletconnect).
 
 ```jsx
 import { ConnectWallet } from "@thirdweb-dev/react";
@@ -18,21 +19,31 @@ import { ConnectWallet } from "@thirdweb-dev/react";
 <ConnectWallet />;
 ```
 
-After the user has connected, the user can:
+After the user has connected, they can:
 
 - View the connected wallet address
 - View their balance of the **native token** _(such as ETH)_
-- Switch network, disconnect wallet, and copy their wallet address
+- Switch networks, disconnect their wallet, and copy their wallet address
+
+You can view a live demo of the component below:
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
     <QuickstartCard
       name="Example: Connect Wallet Button"
-      link="https://connectwallet.thirdweb-example.com/"
+      link=""
       image="/assets/icons/education.png"
     />
   </div>
 </div>
+
+## Props
+
+| Prop          | Required | Description                                                            | Type                                    |
+| ------------- | -------- | ---------------------------------------------------------------------- | --------------------------------------- |
+| `accentColor` | Optional | The background color of the button                                     | [Hex Code](https://htmlcolorcodes.com/) |
+| `colorMode`   | Optional | Change the color of the text inside the button                         | `light` or `dark`                       |
+| `auth`        | Optional | Ask users to sign in using [auth](/auth) after connecting their wallet | `LoginOptions`                          |
 
 ## Resources
 
@@ -54,14 +65,6 @@ Learn how to integrate the `ConnectWallet` component into your application.
     />
   </div>
 </div>
-
-## Props
-
-| Prop          | Required | Description                                                            | Type                                    |
-| ------------- | -------- | ---------------------------------------------------------------------- | --------------------------------------- |
-| `accentColor` | Optional | The background color of the button                                     | [Hex Code](https://htmlcolorcodes.com/) |
-| `colorMode`   | Optional | Change the color of the text inside the button                         | `light` or `dark`                       |
-| `auth`        | Optional | Ask users to sign in using [auth](/auth) after connecting their wallet | `LoginOptions`                          |
 
 ## Examples
 
