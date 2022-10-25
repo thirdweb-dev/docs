@@ -87,6 +87,7 @@ import { useDisconnect } from "@thirdweb-dev/react";
 | [useLogin(config)](./react.uselogin.md) | **<i>(BETA)</i>** Hook to securely login to a backend with the connected wallet. The backend authentication URL must be configured on the ThirdwebProvider. |
 | [useLogout()](./react.uselogout.md) | **<i>(BETA)</i>** Hook to logout the connected wallet from the backend. The backend logout URL must be configured on the ThirdwebProvider. |
 | [useMakeBid(contract)](./react.usemakebid.md) | **<i>(BETA)</i>** Use this to place a bid on an auction listing from your marketplace contract. |
+| [useMakeOffer(contract)](./react.usemakeoffer.md) | **<i>(BETA)</i>** Use this to make an offer on direct or auction listing from your marketplace contract. |
 | [useMarketplace(contractAddress)](./react.usemarketplace.md) | Hook for getting an instance of a <code>Marketplace</code> contract. This contract is used to support marketplace for purchase and sale of on-chain assets. |
 | [useMetadata(contract)](./react.usemetadata.md) | **<i>(BETA)</i>** Use this to get the metadata of your |
 | [useMetamask()](./react.usemetamask.md) | <p>Hook for connecting to a Metamask wallet.</p>
@@ -114,6 +115,7 @@ import { useNetworkMistmatch } from "@thirdweb-dev/react";
 | [useNFTCollection(contractAddress)](./react.usenftcollection.md) | Hook for getting an instance of an <code>NFTCollection</code> contract. This contract is meant to interface with ERC721 compliant NFTs. |
 | [useNFTDrop(contractAddress)](./react.usenftdrop.md) | Hook for getting an instance of an <code>NFTDrop</code> contract. This contract is meant to interface with ERC721 compliant NFTs that can be lazily minted. |
 | [useNFTs(contract, queryParams)](./react.usenfts.md) | **<i>(BETA)</i>** Use this to get a list of NFT tokens of your [NFTContract](./react.nftcontract.md). |
+| [useOffers(contract, listingId)](./react.useoffers.md) | Get all the offers for a listing |
 | [useOwnedNFTs(contract, ownerWalletAddress)](./react.useownednfts.md) | **<i>(BETA)</i>** Use this to get a the owned NFTs for a specific [Erc721OrErc1155](./react.erc721orerc1155.md) and wallet address. |
 | [usePack(contractAddress)](./react.usepack.md) | Hook for getting an instance of a <code>Pack</code> contract. This contract supports the creation of on-chain luck-based lootboxes. |
 | [usePlatformFees(contract)](./react.useplatformfees.md) | **<i>(BETA)</i>** Use this to get the platform fees settings of your |
@@ -202,6 +204,7 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 | [DropContract](./react.dropcontract.md)                             | **<i>(BETA)</i>** The possible DROP contract types.                                                                                                         |
 | [Erc721OrErc1155](./react.erc721orerc1155.md)                       | **<i>(BETA)</i>** Possible NFT contract types.                                                                                                              |
 | [MakeBidParams](./react.makebidparams.md)                           |                                                                                                                                                             |
+| [MakeOfferParams](./react.makeofferparams.md)                       |                                                                                                                                                             |
 | [MintNFTParams](./react.mintnftparams.md)                           | **<i>(BETA)</i>** The params for the [useMintNFT()](./react.usemintnft.md) hook mutation.                                                                   |
 | [MintNFTReturnType](./react.mintnftreturntype.md)                   | **<i>(BETA)</i>** The return type of the [useMintNFT()](./react.usemintnft.md) hook.                                                                        |
 | [MintNFTSupplyParams](./react.mintnftsupplyparams.md)               | **<i>(BETA)</i>** The params to pass to <code>useMintNFTSupply</code>.                                                                                      |

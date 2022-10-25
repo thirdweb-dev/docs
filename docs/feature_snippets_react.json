@@ -425,6 +425,17 @@
       }
     },
     {
+      "name": "useMakeOffer",
+      "summary": "Use this to make an offer on direct or auction listing from your marketplace contract.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const {\n    mutate: makeOffer,\n    isLoading,\n    error,\n  } = useMakeOffer(\">>YourMarketplaceContractInstance<<\");\n\n  if (error) {\n    console.error(\"failed to make a bid\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => makeOffer({ listingId: 1, pricePerToken: 0.5, quantity: 1 })}\n    >\n      Bid!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usemakeoffer"
+      }
+    },
+    {
       "name": "useMarketplace",
       "summary": "Hook for getting an instance of a `Marketplace` contract. This contract is used to support marketplace for purchase and sale of on-chain assets.\n\n",
       "remarks": null,
@@ -510,6 +521,17 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usenftdrop"
+      }
+    },
+    {
+      "name": "useOffers",
+      "summary": "Get all the offers for a listing\n\n",
+      "remarks": "\n\nFetch all the offers for a specified direct or auction listing.\n\n",
+      "examples": {
+        "javascript": "const { data: offers, isLoading, error } = useOffers(<YourMarketplaceContractInstance>, <listingId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useoffers"
       }
     },
     {
