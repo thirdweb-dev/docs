@@ -18,6 +18,7 @@ displayed_sidebar: react
 | [getErc721(contract)](./react.geterc721.md)                                               |                                                                                                                                                                                                |
 | [getErcs(contract)](./react.getercs.md)                                                   |                                                                                                                                                                                                |
 | [shouldNeverPersistQuery(key)](./react.shouldneverpersistquery.md)                        |                                                                                                                                                                                                |
+| [useAcceptDirectListingOffer(contract)](./react.useacceptdirectlistingoffer.md)           | **<i>(BETA)</i>** Accept an offer on a direct listing from an offeror, will accept the latest offer by the given offeror.                                                                      |
 | [useActiveClaimCondition(contract, tokenId, options)](./react.useactiveclaimcondition.md) | **<i>(BETA)</i>** Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the <code>claimCondition</code> extension for this hook to work. |
 | [useActiveListings(contract, filter)](./react.useactivelistings.md)                       | **<i>(BETA)</i>** Use this to get a list active listings from your marketplace contract.                                                                                                       |
 | [useAddress()](./react.useaddress.md)                                                     | <p>Hook for accessing the address of the connected wallet</p>                                                                                                                                  |
@@ -78,6 +79,7 @@ import { useDisconnect } from "@thirdweb-dev/react";
 |
 | [useEdition(contractAddress)](./react.useedition.md) | Hook for getting an instance of an <code>Edition</code> contract. This contract is used to interface with ERC1155 compliant NFTs. |
 | [useEditionDrop(contractAddress)](./react.useeditiondrop.md) | Hook for getting an instance of an <code>EditionDrop</code> contract. This conract is used to interface with ERC1155 compliant NFTs that can be lazily minted. |
+| [useExecuteAuctionSale(contract)](./react.useexecuteauctionsale.md) | **<i>(BETA)</i>** Execute an auction sale. Can only be executed once the auction has ended and the auction has a winning bid. |
 | [useGrantRole(contract)](./react.usegrantrole.md) | **<i>(BETA)</i>** Use this to grant a [WalletAddress](./react.walletaddress.md) a specific role on a |
 | [useIsAddressRole(contract, role, walletAddress)](./react.useisaddressrole.md) | **<i>(BETA)</i>** Use this to check if a [WalletAddress](./react.walletaddress.md) is a member of a role on a |
 | [useLazyMint(contract, onProgress)](./react.uselazymint.md) | **<i>(BETA)</i>** Use this to lazy mint a batch of NFTs on your [DropContract](./react.dropcontract.md) |
@@ -115,7 +117,7 @@ import { useNetworkMistmatch } from "@thirdweb-dev/react";
 | [useNFTCollection(contractAddress)](./react.usenftcollection.md) | Hook for getting an instance of an <code>NFTCollection</code> contract. This contract is meant to interface with ERC721 compliant NFTs. |
 | [useNFTDrop(contractAddress)](./react.usenftdrop.md) | Hook for getting an instance of an <code>NFTDrop</code> contract. This contract is meant to interface with ERC721 compliant NFTs that can be lazily minted. |
 | [useNFTs(contract, queryParams)](./react.usenfts.md) | **<i>(BETA)</i>** Use this to get a list of NFT tokens of your [NFTContract](./react.nftcontract.md). |
-| [useOffers(contract, listingId)](./react.useoffers.md) | Get all the offers for a listing |
+| [useOffers(contract, listingId)](./react.useoffers.md) | **<i>(BETA)</i>** Get all the offers for a listing |
 | [useOwnedNFTs(contract, ownerWalletAddress)](./react.useownednfts.md) | **<i>(BETA)</i>** Use this to get a the owned NFTs for a specific [Erc721OrErc1155](./react.erc721orerc1155.md) and wallet address. |
 | [usePack(contractAddress)](./react.usepack.md) | Hook for getting an instance of a <code>Pack</code> contract. This contract supports the creation of on-chain luck-based lootboxes. |
 | [usePlatformFees(contract)](./react.useplatformfees.md) | **<i>(BETA)</i>** Use this to get the platform fees settings of your |
@@ -192,6 +194,7 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 
 | Type Alias                                                          | Description                                                                                                                                                 |
 | ------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [AcceptDirectOffer](./react.acceptdirectoffer.md)                   |                                                                                                                                                             |
 | [AirdropNFTParams](./react.airdropnftparams.md)                     | **<i>(BETA)</i>** The params to pass to <code>useTransferBatchNFT</code>.                                                                                   |
 | [BurnNFTParams](./react.burnnftparams.md)                           | **<i>(BETA)</i>** The params for the [useBurnNFT()](./react.useburnnft.md) hook mutation.                                                                   |
 | [BuyNowParams](./react.buynowparams.md)                             |                                                                                                                                                             |
@@ -203,6 +206,7 @@ import { useWalletConnect } from "@thirdweb-dev/react";
 | [DelayedRevealLazyMintInput](./react.delayedreveallazymintinput.md) | **<i>(BETA)</i>** The params for the [useDelayedRevealLazyMint()](./react.usedelayedreveallazymint.md) hook mutation.                                       |
 | [DropContract](./react.dropcontract.md)                             | **<i>(BETA)</i>** The possible DROP contract types.                                                                                                         |
 | [Erc721OrErc1155](./react.erc721orerc1155.md)                       | **<i>(BETA)</i>** Possible NFT contract types.                                                                                                              |
+| [ExecuteAuctionSale](./react.executeauctionsale.md)                 |                                                                                                                                                             |
 | [MakeBidParams](./react.makebidparams.md)                           |                                                                                                                                                             |
 | [MakeOfferParams](./react.makeofferparams.md)                       |                                                                                                                                                             |
 | [MintNFTParams](./react.mintnftparams.md)                           | **<i>(BETA)</i>** The params for the [useMintNFT()](./react.usemintnft.md) hook mutation.                                                                   |

@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 ## MarketplaceAuction.closeListing() method
 
-Close the Auction
+Close the Auction for the buyer or the seller
 
 ## Example
 
@@ -38,4 +38,4 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 
 ## Remarks
 
-Closes the Auction and executes the sale.
+Closes the Auction and executes the sale for the buyer or the seller.
