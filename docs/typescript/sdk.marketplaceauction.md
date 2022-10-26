@@ -23,14 +23,21 @@ export declare class MarketplaceAuction
 | ------------------------------------------------------------------------------------ | --------- | ---------------------------------------------------------------------- |
 | [(constructor)(contractWrapper, storage)](./sdk.marketplaceauction._constructor_.md) |           | Constructs a new instance of the <code>MarketplaceAuction</code> class |
 
+## Properties
+
+| Property                                       | Modifiers | Type                                                                   | Description |
+| ---------------------------------------------- | --------- | ---------------------------------------------------------------------- | ----------- |
+| [encoder](./sdk.marketplaceauction.encoder.md) |           | [ContractEncoder](./sdk.contractencoder.md)&lt;MarketplaceContract&gt; |             |
+
 ## Methods
 
 | Method                                                                        | Modifiers | Description                                                                 |
 | ----------------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------- |
 | [buyoutListing(listingId)](./sdk.marketplaceauction.buyoutlisting.md)         |           | Buyout Auction                                                              |
 | [cancelListing(listingId)](./sdk.marketplaceauction.cancellisting.md)         |           | Cancel Auction Listing                                                      |
-| [closeListing(listingId, closeFor)](./sdk.marketplaceauction.closelisting.md) |           | Close the Auction                                                           |
+| [closeListing(listingId, closeFor)](./sdk.marketplaceauction.closelisting.md) |           | Close the Auction for the buyer or the seller                               |
 | [createListing(listing)](./sdk.marketplaceauction.createlisting.md)           |           | Create Auction                                                              |
+| [executeSale(listingId)](./sdk.marketplaceauction.executesale.md)             |           | Execute the Auction Sale                                                    |
 | [getAddress()](./sdk.marketplaceauction.getaddress.md)                        |           |                                                                             |
 | [getBidBufferBps()](./sdk.marketplaceauction.getbidbufferbps.md)              |           | Get the buffer in basis points between offers                               |
 | [getListing(listingId)](./sdk.marketplaceauction.getlisting.md)               |           | Get an Auction listing by id                                                |

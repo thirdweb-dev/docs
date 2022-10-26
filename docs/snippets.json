@@ -1925,8 +1925,8 @@
       },
       {
         "name": "closeListing",
-        "summary": "Close the Auction\n\n",
-        "remarks": "\n\nCloses the Auction and executes the sale.\n\n",
+        "summary": "Close the Auction for the buyer or the seller\n\n",
+        "remarks": "\n\nCloses the Auction and executes the sale for the buyer or the seller.\n\n",
         "examples": {
           "javascript": "// The listing ID of the auction listing you want to close\nconst listingId = \"0\";\nawait contract.auction.closeListing(listingId);",
           "python": "",
@@ -1955,6 +1955,23 @@
           "python": "",
           "go": "",
           "react": "https://portal.thirdweb.com/typescript/sdk.marketplaceauction.createlisting"
+        }
+      },
+      {
+        "name": "executeSale",
+        "summary": "Execute the Auction Sale\n\n",
+        "remarks": "\n\nCloses the Auction and executes the sale for both parties.\n\n",
+        "examples": {
+          "javascript": "// The listing ID of the auction listing you want to close\nconst listingId = \"0\";\nawait contract.auction.executeSale(listingId);",
+          "python": "",
+          "go": "",
+          "react": "// The listing ID of the auction listing you want to close\nconst listingId = \"0\";\nawait contract.auction.executeSale(listingId);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplaceauction.executesale",
+          "python": "",
+          "go": "",
+          "react": "https://portal.thirdweb.com/typescript/sdk.marketplaceauction.executesale"
         }
       },
       {

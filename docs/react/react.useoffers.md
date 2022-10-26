@@ -9,6 +9,8 @@ displayed_sidebar: react
 
 ## useOffers() function
 
+> This feature is currently in beta and may change based on feedback that we receive.
+
 Get all the offers for a listing
 
 ## Example

@@ -1,187 +1,16 @@
 {
-  "ERC721ClaimableWithConditions": [
-    {
-      "name": "useActiveClaimCondition",
-      "summary": "Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition(<YourERC1155ContractInstance>, <tokenId>);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimcondition"
-      }
-    },
-    {
-      "name": "useClaimConditions",
-      "summary": "Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC1155ContractInstance>, <tokenId>);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useclaimconditions"
-      }
-    },
-    {
-      "name": "useClaimIneligibilityReasons",
-      "summary": "Use this to check for reasons that prevent claiming for either ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(<YourERC1155ContractInstance>, { quantity: <quantity>, walletAddress: <walletAddress> }, <tokenId>);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
-      }
-    },
-    {
-      "name": "useResetClaimConditions",
-      "summary": "Use this to reset claim conditions on your {@link DropContract}\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
-      }
-    },
-    {
-      "name": "useSetClaimConditions",
-      "summary": "Use this to set claim conditions on your {@link DropContract}\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxQuantity: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
-      }
-    }
-  ],
-  "ERC1155ClaimableWithConditions": [
-    {
-      "name": "useActiveClaimCondition",
-      "summary": "Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition(<YourERC1155ContractInstance>, <tokenId>);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimcondition"
-      }
-    },
-    {
-      "name": "useClaimConditions",
-      "summary": "Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC1155ContractInstance>, <tokenId>);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useclaimconditions"
-      }
-    },
-    {
-      "name": "useClaimIneligibilityReasons",
-      "summary": "Use this to check for reasons that prevent claiming for either ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(<YourERC1155ContractInstance>, { quantity: <quantity>, walletAddress: <walletAddress> }, <tokenId>);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
-      }
-    },
-    {
-      "name": "useResetClaimConditions",
-      "summary": "Use this to reset claim conditions on your {@link DropContract}\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
-      }
-    },
-    {
-      "name": "useSetClaimConditions",
-      "summary": "Use this to set claim conditions on your {@link DropContract}\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxQuantity: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
-      }
-    }
-  ],
-  "ERC20ClaimableWithConditions": [
-    {
-      "name": "useActiveClaimCondition",
-      "summary": "Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition(<YourERC1155ContractInstance>, <tokenId>);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimcondition"
-      }
-    },
-    {
-      "name": "useClaimConditions",
-      "summary": "Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC1155ContractInstance>, <tokenId>);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useclaimconditions"
-      }
-    },
-    {
-      "name": "useClaimIneligibilityReasons",
-      "summary": "Use this to check for reasons that prevent claiming for either ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(<YourERC1155ContractInstance>, { quantity: <quantity>, walletAddress: <walletAddress> }, <tokenId>);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
-      }
-    },
-    {
-      "name": "useClaimToken",
-      "summary": "Use this to claim tokens on your {@link Erc20}\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: claimTokens,\n    isLoading,\n    error,\n  } = useClaimToken(contract);\n\n  if (error) {\n    console.error(\"failed to claim tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimTokens({ to: \"0x...\", amount: 100 })}\n    >\n      Claim Tokens!\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useclaimtoken"
-      }
-    },
-    {
-      "name": "useResetClaimConditions",
-      "summary": "Use this to reset claim conditions on your {@link DropContract}\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
-      }
-    },
-    {
-      "name": "useSetClaimConditions",
-      "summary": "Use this to set claim conditions on your {@link DropContract}\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxQuantity: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
-      }
-    }
-  ],
   "": [
+    {
+      "name": "useAcceptDirectListingOffer",
+      "summary": "Accept an offer on a direct listing from an offeror, will accept the latest offer by the given offeror.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const {\n    mutate: acceptOffer,\n    isLoading,\n    error,\n  } = useAcceptDirectListingOffer(\">>YourMarketplaceContractInstance<<\");\n\n  if (error) {\n    console.error(\"failed to accept offer\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => acceptOffer({ listingId: 1, addressOfOfferor: \"0x...\" })}\n    >\n      Accept offer\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useacceptdirectlistingoffer"
+      }
+    },
     {
       "name": "useActiveListings",
       "summary": "Use this to get a list active listings from your marketplace contract.\n\n",
@@ -378,6 +207,17 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useeditiondrop"
+      }
+    },
+    {
+      "name": "useExecuteAuctionSale",
+      "summary": "Execute an auction sale. Can only be executed once the auction has ended and the auction has a winning bid.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const {\n    mutate: executeAuctionSale,\n    isLoading,\n    error,\n  } = useExecuteAuctionSale(\">>YourMarketplaceContractInstance<<\");\n\n  if (error) {\n    console.error(\"failed to execute sale\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => executeAuctionSale({ listingId: 1 })}\n    >\n      Execute sale\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useexecuteauctionsale"
       }
     },
     {
@@ -653,6 +493,188 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usewinningbid"
+      }
+    }
+  ],
+  "ERC721ClaimableWithConditions": [
+    {
+      "name": "useActiveClaimCondition",
+      "summary": "Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition(<YourERC1155ContractInstance>, <tokenId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimcondition"
+      }
+    },
+    {
+      "name": "useClaimConditions",
+      "summary": "Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC1155ContractInstance>, <tokenId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimconditions"
+      }
+    },
+    {
+      "name": "useClaimIneligibilityReasons",
+      "summary": "Use this to check for reasons that prevent claiming for either ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(<YourERC1155ContractInstance>, { quantity: <quantity>, walletAddress: <walletAddress> }, <tokenId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
+      }
+    },
+    {
+      "name": "useResetClaimConditions",
+      "summary": "Use this to reset claim conditions on your {@link DropContract}\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
+      }
+    },
+    {
+      "name": "useSetClaimConditions",
+      "summary": "Use this to set claim conditions on your {@link DropContract}\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxQuantity: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
+      }
+    }
+  ],
+  "ERC1155ClaimableWithConditions": [
+    {
+      "name": "useActiveClaimCondition",
+      "summary": "Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition(<YourERC1155ContractInstance>, <tokenId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimcondition"
+      }
+    },
+    {
+      "name": "useClaimConditions",
+      "summary": "Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC1155ContractInstance>, <tokenId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimconditions"
+      }
+    },
+    {
+      "name": "useClaimIneligibilityReasons",
+      "summary": "Use this to check for reasons that prevent claiming for either ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(<YourERC1155ContractInstance>, { quantity: <quantity>, walletAddress: <walletAddress> }, <tokenId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
+      }
+    },
+    {
+      "name": "useResetClaimConditions",
+      "summary": "Use this to reset claim conditions on your {@link DropContract}\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
+      }
+    },
+    {
+      "name": "useSetClaimConditions",
+      "summary": "Use this to set claim conditions on your {@link DropContract}\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxQuantity: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
+      }
+    }
+  ],
+  "ERC20ClaimableWithConditions": [
+    {
+      "name": "useActiveClaimCondition",
+      "summary": "Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition(<YourERC1155ContractInstance>, <tokenId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimcondition"
+      }
+    },
+    {
+      "name": "useClaimConditions",
+      "summary": "Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC1155ContractInstance>, <tokenId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimconditions"
+      }
+    },
+    {
+      "name": "useClaimIneligibilityReasons",
+      "summary": "Use this to check for reasons that prevent claiming for either ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(<YourERC1155ContractInstance>, { quantity: <quantity>, walletAddress: <walletAddress> }, <tokenId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
+      }
+    },
+    {
+      "name": "useClaimToken",
+      "summary": "Use this to claim tokens on your {@link Erc20}\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: claimTokens,\n    isLoading,\n    error,\n  } = useClaimToken(contract);\n\n  if (error) {\n    console.error(\"failed to claim tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimTokens({ to: \"0x...\", amount: 100 })}\n    >\n      Claim Tokens!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimtoken"
+      }
+    },
+    {
+      "name": "useResetClaimConditions",
+      "summary": "Use this to reset claim conditions on your {@link DropContract}\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
+      }
+    },
+    {
+      "name": "useSetClaimConditions",
+      "summary": "Use this to set claim conditions on your {@link DropContract}\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxQuantity: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
       }
     }
   ],
