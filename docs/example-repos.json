@@ -739,6 +739,22 @@
     "homepage": "https://solana-hub.thirdweb-example.com/"
   },
   {
+    "name": "solana-nft-gallery",
+    "html_url": "https://github.com/thirdweb-example/solana-nft-gallery",
+    "description": "Build an NFT Gallery showcasing all of your collection's NFTs on Solana!",
+    "created_at": "2022-10-26T01:06:53Z",
+    "updated_at": "2022-10-26T01:25:43Z",
+    "clone_url": "https://github.com/thirdweb-example/solana-nft-gallery.git",
+    "topics": [
+      "nft-collection",
+      "solana"
+    ],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "https://solana-nft-gallery.thirdweb-example.com"
+  },
+  {
     "name": "solana-token-deploy",
     "html_url": "https://github.com/thirdweb-example/solana-token-deploy",
     "description": "Deploy a token program using the TypeScript SDK",

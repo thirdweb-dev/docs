@@ -780,6 +780,47 @@ _See {IERC721Metadata-symbol}._
 | ---- | ------ | ----------- |
 | \_0  | string | undefined   |
 
+### tokenByIndex
+
+```solidity
+function tokenByIndex(uint256 index) external view returns (uint256)
+```
+
+_See {IERC721Enumerable-tokenByIndex}._
+
+#### Parameters
+
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| index | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### tokenOfOwnerByIndex
+
+```solidity
+function tokenOfOwnerByIndex(address owner, uint256 index) external view returns (uint256)
+```
+
+_See {IERC721Enumerable-tokenOfOwnerByIndex}._
+
+#### Parameters
+
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| owner | address | undefined   |
+| index | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
 ### tokenURI
 
 ```solidity
@@ -799,6 +840,20 @@ _Returns the URI for a given tokenId._
 | Name | Type   | Description |
 | ---- | ------ | ----------- |
 | \_0  | string | undefined   |
+
+### totalSupply
+
+```solidity
+function totalSupply() external view returns (uint256)
+```
+
+_See {IERC721Enumerable-totalSupply}._
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### transferFrom
 
