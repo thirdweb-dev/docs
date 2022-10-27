@@ -8,6 +8,8 @@ The document is written for technical and non-technical readers. To ask further 
 
 The thirdweb `Pack` contract is a lootbox mechanism. An account can bundle up arbitrary ERC20, ERC721 and ERC1155 tokens into a set of packs. A pack can then be opened in return for a selection of the tokens in the pack. The selection of tokens distributed on opening a pack depends on the relative supply of all tokens in the packs.
 
+**IMPORTANT**: _Pack functions, such as opening of packs, can be costly in terms of gas usage due to random selection of rewards. Please check your gas estimates/usage, and do a trial on testnets before any mainnet deployment._
+
 ## Product: How packs _should_ work (without web3 terminology)
 
 Let's say we want to create a set of packs with three kinds of rewards - 80 **circles**, 15 **squares**, and 5 **stars** — and we want exactly 1 reward to be distributed when a pack is opened.
@@ -151,6 +153,7 @@ Packs can be opened by owners of packs. A pack owner can open multiple packs at 
 
 ```solidity
 function openPack(uint256 packId, uint256 amountToOpen) external;
+
 ```
 
 | Parameter    | Description                          |
@@ -253,6 +256,6 @@ We’ll now discuss some possible solutions for this design problem along with t
     - No one can predict the block hash of the stored future block unless the pack creator is the miner of the block with that block number (highly unlikely).
     - The seed is controlled by the creator, submitted at the time of pack creation, and cannot be changed after submission.
     - Since packs are non-transferrable in the way described above, as long as the pack opener is not approved to transfer packs, the opener cannot manipulate the value of `random` by transferring packs to a desirable address and then opening the pack from that address.
-  **Why we’re not using this solution:**
+      **Why we’re not using this solution:**
   - Active involvement from the pack creator. They’re trusted to reveal the unencrypted seed once packs are eligible to be opened.
   - Packs _must_ be non-transferrable in the way described above, which means they can’t be purchased on a marketplace, etc. Lack of a built-in distribution mechanism for the packs.
