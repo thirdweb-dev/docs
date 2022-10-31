@@ -14,14 +14,15 @@ Returns allow list information and merkle proofs for the given address.
 **Signature:**
 
 ```typescript
-getClaimerProofs(claimerAddress: string): Promise<SnapshotEntryWithProof | null>;
+getClaimerProofs(claimerAddress: string, claimConditionId?: BigNumberish): Promise<SnapshotEntryWithProof | null>;
 ```
 
 ## Parameters
 
-| Parameter      | Type   | Description |
-| -------------- | ------ | ----------- |
-| claimerAddress | string |             |
+| Parameter        | Type         | Description                                                             |
+| ---------------- | ------------ | ----------------------------------------------------------------------- |
+| claimerAddress   | string       | the claimer address                                                     |
+| claimConditionId | BigNumberish | <i>(Optional)</i> optional the claim condition id to get the proofs for |
 
 **Returns:**
 

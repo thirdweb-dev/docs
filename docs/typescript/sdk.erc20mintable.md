@@ -15,7 +15,7 @@ Mint ERC20 Tokens
 
 ```javascript
 const contract = await sdk.getContract("{{contract_address}}");
-await contract.token.mint.to(walletAddress, nftMetadata);
+await contract.nft.mint.to(walletAddress, nftMetadata);
 ```
 
 ## Constructors
