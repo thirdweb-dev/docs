@@ -25,6 +25,8 @@ const { contract } = useContract(<ContractAddress>);
 export declare type NFTContract =
   | NFTCollection
   | Edition
+  | Pack
+  | Multiwrap
   | Exclude<DropContract, "TokenDrop">;
 ```
 
