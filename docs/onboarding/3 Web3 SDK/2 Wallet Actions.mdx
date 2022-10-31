@@ -3,6 +3,7 @@ slug: /sdk/wallet-actions
 ---
 
 import CodeSnippetWithSummary from "@components/CodeSnippetWithSummary";
+import YoutubeEmbed from "@components/YoutubeEmbed";
 
 # Wallet Actions
 
@@ -47,7 +48,20 @@ Transfer a specified quantity of either the native token or a specified ERC20 to
 
 ## Sign A Message
 
-Sign a message you specify with the currently connected wallet.
+<div className="heroGrid">
+  <div>
+    <p>Sign a message you specify with the currently connected wallet.</p>
+
+Message signing can be utilized to prove that a user owns a wallet address.
+
+After a user has signed the message, you can then verify which wallet address signed the message
+by using the [`recoverAddress`](#recover-signing-address) method.
+
+  </div>
+  <div className="heroGridImageContainer">
+    <YoutubeEmbed link={"https://www.youtube.com/embed/xoFsOLP8a88"} />
+  </div>
+</div>
 
 :::tip Auth
 
