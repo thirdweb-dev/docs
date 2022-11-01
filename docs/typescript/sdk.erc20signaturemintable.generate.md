@@ -18,7 +18,7 @@ const startTime = new Date();
 const endTime = new Date(Date.now() + 60 * 60 * 24 * 1000);
 const payload = {
   quantity: 4.2, // The quantity of tokens to be minted
-  to: {{wallet_address}}, // Who will receive the tokens (or AddressZero for anyone)
+  to: {{wallet_address}}, // Who will receive the tokens
   price: 0.5, // the price to pay for minting those tokens
   currencyAddress: NATIVE_TOKEN_ADDRESS, // the currency to pay with
   mintStartTime: startTime, // can mint anytime from now

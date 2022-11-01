@@ -134,6 +134,7 @@ displayed_sidebar: typescript
 | [DEFAULT_RPC_URLS](./sdk.default_rpc_urls.md)                     |             |
 | [EditionDropInitializer](./sdk.editiondropinitializer.md)         |             |
 | [EditionInitializer](./sdk.editioninitializer.md)                 |             |
+| [GenericRequest](./sdk.genericrequest.md)                         |             |
 | [MarketplaceInitializer](./sdk.marketplaceinitializer.md)         |             |
 | [MintRequest1155](./sdk.mintrequest1155.md)                       |             |
 | [MintRequest20](./sdk.mintrequest20.md)                           |             |

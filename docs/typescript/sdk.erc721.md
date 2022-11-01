@@ -35,6 +35,7 @@ await contract.erc721.transfer(walletAddress, tokenId);
 | [revealer](./sdk.erc721.revealer.md)               | <code>readonly</code>  | import("./delayed-reveal").[DelayedReveal](./sdk.delayedreveal.md)&lt;import("../../types/eips").BaseDelayedRevealERC721&gt;                     | Delayed reveal             |
 | [signature](./sdk.erc721.signature.md)             | <code>readonly</code>  | [Erc721WithQuantitySignatureMintable](./sdk.erc721withquantitysignaturemintable.md)                                                              | Signature Minting          |
 | [storage](./sdk.erc721.storage.md)                 | <code>protected</code> | ThirdwebStorage                                                                                                                                  |                            |
+| [tieredDrop](./sdk.erc721.tiereddrop.md)           | <code>readonly</code>  | Erc721TieredDrop                                                                                                                                 | Tiered Drop                |
 
 ## Methods
 

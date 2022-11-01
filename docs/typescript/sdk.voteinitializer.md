@@ -177,8 +177,15 @@ VoteInitializer: {
         inputs: never[];
         stateMutability: string;
         type: string;
-        anonymous?: undefined;
         name?: undefined;
+        anonymous?: undefined;
+        outputs?: undefined;
+    } | {
+        inputs: never[];
+        name: string;
+        type: string;
+        stateMutability?: undefined;
+        anonymous?: undefined;
         outputs?: undefined;
     } | {
         anonymous: boolean;
@@ -227,8 +234,8 @@ VoteInitializer: {
         stateMutability: string;
         type: string;
         inputs?: undefined;
-        anonymous?: undefined;
         name?: undefined;
+        anonymous?: undefined;
         outputs?: undefined;
     })[]>;
 }
