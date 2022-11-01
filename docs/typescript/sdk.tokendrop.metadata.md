@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-metadata: ContractMetadata<DropERC20, typeof DropErc20ContractSchema>;
+metadata: ContractMetadata<PrebuiltTokenDrop, typeof DropErc20ContractSchema>;
 ```

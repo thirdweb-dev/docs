@@ -341,7 +341,7 @@ NFTCollectionInitializer: {
       | undefined,
   ) =>
     Promise<import("./prebuilt-implementations/nft-collection").NFTCollection>;
-  getAbi: () =>
+  getAbi: (address: string, provider: ethers.providers.Provider) =>
     Promise<
       (
         | {

@@ -323,7 +323,7 @@ PackInitializer: {
         }
       | undefined,
   ) => Promise<import("./prebuilt-implementations/pack").Pack>;
-  getAbi: () =>
+  getAbi: (address: string, provider: ethers.providers.Provider) =>
     Promise<
       (
         | {

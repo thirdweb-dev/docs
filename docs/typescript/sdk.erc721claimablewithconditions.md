@@ -30,14 +30,13 @@ await contract.erc721.claimConditions.getActive();
 | Property                                                          | Modifiers | Type                                                                                | Description                |
 | ----------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------- | -------------------------- |
 | [conditions](./sdk.erc721claimablewithconditions.conditions.md)   |           | [DropClaimConditions](./sdk.dropclaimconditions.md)&lt;BaseClaimConditionERC721&gt; | Configure claim conditions |
-| [featureName](./sdk.erc721claimablewithconditions.featurename.md) |           | "ERC721ClaimableWithConditions"                                                     |                            |
+| [featureName](./sdk.erc721claimablewithconditions.featurename.md) |           | "ERC721ClaimableWithConditionsV2"                                                   |                            |
 
 ## Methods
 
-| Method                                                                                                                   | Modifiers | Description                                                                                                                                                                                                           |
-| ------------------------------------------------------------------------------------------------------------------------ | --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [getClaimTransaction(destinationAddress, quantity, options)](./sdk.erc721claimablewithconditions.getclaimtransaction.md) |           | Construct a claim transaction without executing it. This is useful for estimating the gas cost of a claim transaction, overriding transaction options and having fine grained control over the transaction execution. |
-| [to(destinationAddress, quantity, options)](./sdk.erc721claimablewithconditions.to.md)                                   |           | Claim unique NFTs to a specific Wallet                                                                                                                                                                                |
+| Method                                                                                 | Modifiers | Description                            |
+| -------------------------------------------------------------------------------------- | --------- | -------------------------------------- |
+| [to(destinationAddress, quantity, options)](./sdk.erc721claimablewithconditions.to.md) |           | Claim unique NFTs to a specific Wallet |
 
 **Signature:**
 

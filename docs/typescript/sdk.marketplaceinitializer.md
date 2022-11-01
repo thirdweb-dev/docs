@@ -244,7 +244,7 @@ MarketplaceInitializer: {
         }
       | undefined,
   ) => Promise<import("./prebuilt-implementations/marketplace").Marketplace>;
-  getAbi: () =>
+  getAbi: (address: string, provider: ethers.providers.Provider) =>
     Promise<
       (
         | {

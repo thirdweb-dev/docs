@@ -15,7 +15,7 @@ displayed_sidebar: typescript
 export declare type ClaimVerification = {
   overrides: CallOverrides;
   proofs: BytesLike[];
-  maxQuantityPerTransaction: BigNumber;
+  maxClaimable: BigNumber;
   price: BigNumber;
   currencyAddress: string;
 };

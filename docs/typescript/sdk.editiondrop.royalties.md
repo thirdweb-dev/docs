@@ -29,7 +29,10 @@ contract.royalties.setTokenRoyaltyInfo(tokenId, {
 **Signature:**
 
 ```typescript
-royalties: ContractRoyalty<DropERC1155, typeof DropErc1155ContractSchema>;
+royalties: ContractRoyalty<
+  PrebuiltEditionDrop,
+  typeof DropErc1155ContractSchema
+>;
 ```
 
 ## Remarks

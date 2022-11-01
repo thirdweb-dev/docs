@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-platformFees: ContractPlatformFee<DropERC20>;
+platformFees: ContractPlatformFee<PrebuiltTokenDrop>;
 ```

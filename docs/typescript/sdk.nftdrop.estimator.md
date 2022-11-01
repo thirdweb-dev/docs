@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-estimator: GasCostEstimator<DropERC721>;
+estimator: GasCostEstimator<PrebuiltNFTDrop>;
 ```

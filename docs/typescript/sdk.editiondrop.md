@@ -28,23 +28,23 @@ const contract = sdk.getContract("{{contract_address}}", "edition-drop");
 
 ## Properties
 
-| Property                                                | Modifiers | Type                                                                                                   | Description                             |
-| ------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------ | --------------------------------------- |
-| [abi](./sdk.editiondrop.abi.md)                         |           | typeof ABI                                                                                             |                                         |
-| [checkout](./sdk.editiondrop.checkout.md)               |           | PaperCheckout&lt;DropERC1155&gt;                                                                       | Checkout                                |
-| [claimConditions](./sdk.editiondrop.claimconditions.md) |           | [DropErc1155ClaimConditions](./sdk.droperc1155claimconditions.md)&lt;DropERC1155&gt;                   | Configure claim conditions for each NFT |
-| [encoder](./sdk.editiondrop.encoder.md)                 |           | [ContractEncoder](./sdk.contractencoder.md)&lt;DropERC1155&gt;                                         |                                         |
-| [erc1155](./sdk.editiondrop.erc1155.md)                 |           | [Erc1155](./sdk.erc1155.md)&lt;DropERC1155&gt;                                                         |                                         |
-| [estimator](./sdk.editiondrop.estimator.md)             |           | [GasCostEstimator](./sdk.gascostestimator.md)&lt;DropERC1155&gt;                                       |                                         |
-| [events](./sdk.editiondrop.events.md)                   |           | [ContractEvents](./sdk.contractevents.md)&lt;DropERC1155&gt;                                           |                                         |
-| [history](./sdk.editiondrop.history.md)                 |           | [DropErc1155History](./sdk.droperc1155history.md)                                                      |                                         |
-| [interceptor](./sdk.editiondrop.interceptor.md)         |           | [ContractInterceptor](./sdk.contractinterceptor.md)&lt;DropERC1155&gt;                                 |                                         |
-| [metadata](./sdk.editiondrop.metadata.md)               |           | [ContractMetadata](./sdk.contractmetadata.md)&lt;DropERC1155, typeof DropErc1155ContractSchema&gt;     |                                         |
-| [owner](./sdk.editiondrop.owner.md)                     |           | [ContractOwner](./sdk.contractowner.md)&lt;DropERC1155&gt;                                             |                                         |
-| [platformFees](./sdk.editiondrop.platformfees.md)       |           | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;DropERC1155&gt;                                 |                                         |
-| [roles](./sdk.editiondrop.roles.md)                     |           | [ContractRoles](./sdk.contractroles.md)&lt;DropERC1155, typeof EditionDrop.contractRoles\[number\]&gt; |                                         |
-| [royalties](./sdk.editiondrop.royalties.md)             |           | [ContractRoyalty](./sdk.contractroyalty.md)&lt;DropERC1155, typeof DropErc1155ContractSchema&gt;       | Configure royalties                     |
-| [sales](./sdk.editiondrop.sales.md)                     |           | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;DropERC1155&gt;                                 |                                         |
+| Property                                                | Modifiers | Type                                                                                                           | Description                             |
+| ------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
+| [abi](./sdk.editiondrop.abi.md)                         |           | typeof ABI                                                                                                     |                                         |
+| [checkout](./sdk.editiondrop.checkout.md)               |           | PaperCheckout&lt;PrebuiltEditionDrop&gt;                                                                       | Checkout                                |
+| [claimConditions](./sdk.editiondrop.claimconditions.md) |           | [DropErc1155ClaimConditions](./sdk.droperc1155claimconditions.md)&lt;PrebuiltEditionDrop&gt;                   | Configure claim conditions for each NFT |
+| [encoder](./sdk.editiondrop.encoder.md)                 |           | [ContractEncoder](./sdk.contractencoder.md)&lt;PrebuiltEditionDrop&gt;                                         |                                         |
+| [erc1155](./sdk.editiondrop.erc1155.md)                 |           | [Erc1155](./sdk.erc1155.md)&lt;PrebuiltEditionDrop&gt;                                                         |                                         |
+| [estimator](./sdk.editiondrop.estimator.md)             |           | [GasCostEstimator](./sdk.gascostestimator.md)&lt;PrebuiltEditionDrop&gt;                                       |                                         |
+| [events](./sdk.editiondrop.events.md)                   |           | [ContractEvents](./sdk.contractevents.md)&lt;PrebuiltEditionDrop&gt;                                           |                                         |
+| [history](./sdk.editiondrop.history.md)                 |           | [DropErc1155History](./sdk.droperc1155history.md)                                                              |                                         |
+| [interceptor](./sdk.editiondrop.interceptor.md)         |           | [ContractInterceptor](./sdk.contractinterceptor.md)&lt;PrebuiltEditionDrop&gt;                                 |                                         |
+| [metadata](./sdk.editiondrop.metadata.md)               |           | [ContractMetadata](./sdk.contractmetadata.md)&lt;PrebuiltEditionDrop, typeof DropErc1155ContractSchema&gt;     |                                         |
+| [owner](./sdk.editiondrop.owner.md)                     |           | [ContractOwner](./sdk.contractowner.md)&lt;PrebuiltEditionDrop&gt;                                             |                                         |
+| [platformFees](./sdk.editiondrop.platformfees.md)       |           | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;PrebuiltEditionDrop&gt;                                 |                                         |
+| [roles](./sdk.editiondrop.roles.md)                     |           | [ContractRoles](./sdk.contractroles.md)&lt;PrebuiltEditionDrop, typeof EditionDrop.contractRoles\[number\]&gt; |                                         |
+| [royalties](./sdk.editiondrop.royalties.md)             |           | [ContractRoyalty](./sdk.contractroyalty.md)&lt;PrebuiltEditionDrop, typeof DropErc1155ContractSchema&gt;       | Configure royalties                     |
+| [sales](./sdk.editiondrop.sales.md)                     |           | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;PrebuiltEditionDrop&gt;                                 |                                         |
 
 ## Methods
 
@@ -64,7 +64,7 @@ const contract = sdk.getContract("{{contract_address}}", "edition-drop");
 **Signature:**
 
 ```typescript
-export declare class EditionDrop extends StandardErc1155<DropERC1155>
+export declare class EditionDrop extends StandardErc1155<PrebuiltEditionDrop>
 ```
 
-**Extends:** [StandardErc1155](./sdk.standarderc1155.md)&lt;DropERC1155&gt;
+**Extends:** [StandardErc1155](./sdk.standarderc1155.md)&lt;PrebuiltEditionDrop&gt;

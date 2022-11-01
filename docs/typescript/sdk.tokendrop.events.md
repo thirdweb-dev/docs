@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-events: ContractEvents<DropERC20>;
+events: ContractEvents<PrebuiltTokenDrop>;
 ```

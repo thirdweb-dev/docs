@@ -14,7 +14,7 @@ Checkout
 **Signature:**
 
 ```typescript
-checkout: PaperCheckout<DropERC1155>;
+checkout: PaperCheckout<PrebuiltEditionDrop>;
 ```
 
 ## Remarks

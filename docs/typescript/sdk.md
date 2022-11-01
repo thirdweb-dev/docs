@@ -88,6 +88,7 @@ displayed_sidebar: typescript
 
 | Function                                                              | Description                                |
 | --------------------------------------------------------------------- | ------------------------------------------ |
+| [getContractName(type)](./sdk.getcontractname.md)                     |                                            |
 | [getNativeTokenByChainId(chainId)](./sdk.getnativetokenbychainid.md)  | Returns the native token for a given chain |
 | [getReadOnlyProvider(network, chainId)](./sdk.getreadonlyprovider.md) |                                            |
 | [isDowngradeVersion(current, next)](./sdk.isdowngradeversion.md)      |                                            |
@@ -125,35 +126,37 @@ displayed_sidebar: typescript
 
 ## Variables
 
-| Variable                                                          | Description |
-| ----------------------------------------------------------------- | ----------- |
-| [ALL_ROLES](./sdk.all_roles.md)                                   |             |
-| [CHAIN_ID_TO_NAME](./sdk.chain_id_to_name.md)                     |             |
-| [CHAIN_NAME_TO_ID](./sdk.chain_name_to_id.md)                     |             |
-| [CONTRACTS_MAP](./sdk.contracts_map.md)                           |             |
-| [DEFAULT_RPC_URLS](./sdk.default_rpc_urls.md)                     |             |
-| [EditionDropInitializer](./sdk.editiondropinitializer.md)         |             |
-| [EditionInitializer](./sdk.editioninitializer.md)                 |             |
-| [GenericRequest](./sdk.genericrequest.md)                         |             |
-| [MarketplaceInitializer](./sdk.marketplaceinitializer.md)         |             |
-| [MintRequest1155](./sdk.mintrequest1155.md)                       |             |
-| [MintRequest20](./sdk.mintrequest20.md)                           |             |
-| [MintRequest721](./sdk.mintrequest721.md)                         |             |
-| [MintRequest721withQuantity](./sdk.mintrequest721withquantity.md) |             |
-| [MultiwrapInitializer](./sdk.multiwrapinitializer.md)             |             |
-| [NATIVE_TOKEN_ADDRESS](./sdk.native_token_address.md)             |             |
-| [NATIVE_TOKENS](./sdk.native_tokens.md)                           |             |
-| [NFTCollectionInitializer](./sdk.nftcollectioninitializer.md)     |             |
-| [NFTDropInitializer](./sdk.nftdropinitializer.md)                 |             |
-| [PackInitializer](./sdk.packinitializer.md)                       |             |
-| [ProfileSchemaOutput](./sdk.profileschemaoutput.md)               |             |
-| [SDKOptionsSchema](./sdk.sdkoptionsschema.md)                     |             |
-| [SignatureDropInitializer](./sdk.signaturedropinitializer.md)     |             |
-| [SplitInitializer](./sdk.splitinitializer.md)                     |             |
-| [SUPPORTED_CHAIN_IDS](./sdk.supported_chain_ids.md)               |             |
-| [TokenDropInitializer](./sdk.tokendropinitializer.md)             |             |
-| [TokenInitializer](./sdk.tokeninitializer.md)                     |             |
-| [VoteInitializer](./sdk.voteinitializer.md)                       |             |
+| Variable                                                              | Description |
+| --------------------------------------------------------------------- | ----------- |
+| [ALL_ROLES](./sdk.all_roles.md)                                       |             |
+| [CHAIN_ID_TO_NAME](./sdk.chain_id_to_name.md)                         |             |
+| [CHAIN_NAME_TO_ID](./sdk.chain_name_to_id.md)                         |             |
+| [CONTRACTS_MAP](./sdk.contracts_map.md)                               |             |
+| [DEFAULT_RPC_URLS](./sdk.default_rpc_urls.md)                         |             |
+| [EditionDropInitializer](./sdk.editiondropinitializer.md)             |             |
+| [EditionInitializer](./sdk.editioninitializer.md)                     |             |
+| [GenericRequest](./sdk.genericrequest.md)                             |             |
+| [MarketplaceInitializer](./sdk.marketplaceinitializer.md)             |             |
+| [MintRequest1155](./sdk.mintrequest1155.md)                           |             |
+| [MintRequest20](./sdk.mintrequest20.md)                               |             |
+| [MintRequest721](./sdk.mintrequest721.md)                             |             |
+| [MintRequest721withQuantity](./sdk.mintrequest721withquantity.md)     |             |
+| [MultiwrapInitializer](./sdk.multiwrapinitializer.md)                 |             |
+| [NATIVE_TOKEN_ADDRESS](./sdk.native_token_address.md)                 |             |
+| [NATIVE_TOKENS](./sdk.native_tokens.md)                               |             |
+| [NFTCollectionInitializer](./sdk.nftcollectioninitializer.md)         |             |
+| [NFTDropInitializer](./sdk.nftdropinitializer.md)                     |             |
+| [PackInitializer](./sdk.packinitializer.md)                           |             |
+| [ProfileSchemaOutput](./sdk.profileschemaoutput.md)                   |             |
+| [SDKOptionsSchema](./sdk.sdkoptionsschema.md)                         |             |
+| [SignatureDropInitializer](./sdk.signaturedropinitializer.md)         |             |
+| [SnapshotEntryInput](./sdk.snapshotentryinput.md)                     |             |
+| [SnapshotEntryWithProofSchema](./sdk.snapshotentrywithproofschema.md) |             |
+| [SplitInitializer](./sdk.splitinitializer.md)                         |             |
+| [SUPPORTED_CHAIN_IDS](./sdk.supported_chain_ids.md)                   |             |
+| [TokenDropInitializer](./sdk.tokendropinitializer.md)                 |             |
+| [TokenInitializer](./sdk.tokeninitializer.md)                         |             |
+| [VoteInitializer](./sdk.voteinitializer.md)                           |             |
 
 ## Type Aliases
 
@@ -161,6 +164,7 @@ displayed_sidebar: typescript
 | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
 | [AbiEvent](./sdk.abievent.md)                                                           |                                                                                      |
 | [AbiFunction](./sdk.abifunction.md)                                                     |                                                                                      |
+| [AbstractClaimConditionContractStruct](./sdk.abstractclaimconditioncontractstruct.md)   |                                                                                      |
 | [AirdropInput](./sdk.airdropinput.md)                                                   | Input model to pass a list of addresses + amount to transfer to each one             |
 | [Amount](./sdk.amount.md)                                                               | Represents a currency amount already formatted. ie. "1" for 1 ether.                 |
 | [AuthenticationOptions](./sdk.authenticationoptions.md)                                 |                                                                                      |

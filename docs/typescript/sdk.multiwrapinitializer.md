@@ -307,7 +307,7 @@ MultiwrapInitializer: {
         }
       | undefined,
   ) => Promise<import("./prebuilt-implementations/multiwrap").Multiwrap>;
-  getAbi: () =>
+  getAbi: (address: string, provider: ethers.providers.Provider) =>
     Promise<
       (
         | {

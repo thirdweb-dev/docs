@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-interceptor: ContractInterceptor<DropERC1155>;
+interceptor: ContractInterceptor<PrebuiltEditionDrop>;
 ```

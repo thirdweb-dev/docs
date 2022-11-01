@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-estimator: GasCostEstimator<DropERC20>;
+estimator: GasCostEstimator<PrebuiltTokenDrop>;
 ```

@@ -14,3 +14,5 @@ displayed_sidebar: typescript
 ```typescript
 export declare type SnapshotEntry = z.output<typeof SnapshotEntryInput>;
 ```
+
+**References:** [SnapshotEntryInput](./sdk.snapshotentryinput.md)

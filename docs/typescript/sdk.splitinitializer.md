@@ -458,7 +458,7 @@ SplitInitializer: {
         }
       | undefined,
   ) => Promise<import("./prebuilt-implementations/split").Split>;
-  getAbi: () =>
+  getAbi: (address: string, provider: ethers.providers.Provider) =>
     Promise<
       (
         | {

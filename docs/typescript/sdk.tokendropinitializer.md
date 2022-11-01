@@ -330,7 +330,7 @@ TokenDropInitializer: {
         }
       | undefined,
   ) => Promise<import("./prebuilt-implementations/token-drop").TokenDrop>;
-  getAbi: () =>
+  getAbi: (address: string, provider: ethers.providers.Provider) =>
     Promise<
       (
         | {

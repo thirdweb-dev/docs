@@ -14,11 +14,11 @@ Constructs a new instance of the `DropErc1155History` class
 **Signature:**
 
 ```typescript
-constructor(events: ContractEvents<DropERC1155>);
+constructor(events: ContractEvents<PrebuiltEditionDrop>);
 ```
 
 ## Parameters
 
-| Parameter | Type                                                         | Description |
-| --------- | ------------------------------------------------------------ | ----------- |
-| events    | [ContractEvents](./sdk.contractevents.md)&lt;DropERC1155&gt; |             |
+| Parameter | Type                                                                 | Description |
+| --------- | -------------------------------------------------------------------- | ----------- |
+| events    | [ContractEvents](./sdk.contractevents.md)&lt;PrebuiltEditionDrop&gt; |             |

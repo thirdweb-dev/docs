@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-erc1155: Erc1155<DropERC1155>;
+erc1155: Erc1155<PrebuiltEditionDrop>;
 ```

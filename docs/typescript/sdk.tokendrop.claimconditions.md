@@ -34,7 +34,7 @@ await contract.claimConditions.set(claimConditions);
 **Signature:**
 
 ```typescript
-claimConditions: DropClaimConditions<DropERC20>;
+claimConditions: DropClaimConditions<PrebuiltTokenDrop>;
 ```
 
 ## Remarks

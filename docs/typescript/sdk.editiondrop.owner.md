@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-owner: ContractOwner<DropERC1155>;
+owner: ContractOwner<PrebuiltEditionDrop>;
 ```

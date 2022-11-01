@@ -24,17 +24,16 @@ const receipt = tx.receipt; // the transaction receipt
 **Signature:**
 
 ```typescript
-claimTo(destinationAddress: string, amount: Amount, checkERC20Allowance?: boolean, claimData?: ClaimVerification): Promise<TransactionResult>;
+claimTo(destinationAddress: string, amount: Amount, options?: ClaimOptions): Promise<TransactionResult>;
 ```
 
 ## Parameters
 
-| Parameter           | Type                                            | Description                                                                                                                      |
-| ------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| destinationAddress  | string                                          | Address you want to send the token to                                                                                            |
-| amount              | [Amount](./sdk.amount.md)                       | Quantity of the tokens you want to claim                                                                                         |
-| checkERC20Allowance | boolean                                         | <i>(Optional)</i> Optional, check if the wallet has enough ERC20 allowance to claim the tokens, and if not, approve the transfer |
-| claimData           | [ClaimVerification](./sdk.claimverification.md) | <i>(Optional)</i>                                                                                                                |
+| Parameter          | Type                                  | Description                              |
+| ------------------ | ------------------------------------- | ---------------------------------------- |
+| destinationAddress | string                                | Address you want to send the token to    |
+| amount             | [Amount](./sdk.amount.md)             | Quantity of the tokens you want to claim |
+| options            | [ClaimOptions](./sdk.claimoptions.md) | <i>(Optional)</i>                        |
 
 **Returns:**
 

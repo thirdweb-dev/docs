@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-sales: ContractPrimarySale<DropERC20>;
+sales: ContractPrimarySale<PrebuiltTokenDrop>;
 ```

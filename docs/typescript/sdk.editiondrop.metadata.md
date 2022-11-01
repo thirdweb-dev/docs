@@ -12,5 +12,8 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-metadata: ContractMetadata<DropERC1155, typeof DropErc1155ContractSchema>;
+metadata: ContractMetadata<
+  PrebuiltEditionDrop,
+  typeof DropErc1155ContractSchema
+>;
 ```

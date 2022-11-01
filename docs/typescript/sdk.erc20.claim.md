@@ -24,16 +24,15 @@ const receipt = tx.receipt; // the transaction receipt
 **Signature:**
 
 ```typescript
-claim(amount: Amount, checkERC20Allowance?: boolean, claimData?: ClaimVerification): Promise<TransactionResult>;
+claim(amount: Amount, options?: ClaimOptions): Promise<TransactionResult>;
 ```
 
 ## Parameters
 
-| Parameter           | Type                                            | Description                                                                                                                      |
-| ------------------- | ----------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| amount              | [Amount](./sdk.amount.md)                       | Quantity of the tokens you want to claim                                                                                         |
-| checkERC20Allowance | boolean                                         | <i>(Optional)</i> Optional, check if the wallet has enough ERC20 allowance to claim the tokens, and if not, approve the transfer |
-| claimData           | [ClaimVerification](./sdk.claimverification.md) | <i>(Optional)</i>                                                                                                                |
+| Parameter | Type                                  | Description                              |
+| --------- | ------------------------------------- | ---------------------------------------- |
+| amount    | [Amount](./sdk.amount.md)             | Quantity of the tokens you want to claim |
+| options   | [ClaimOptions](./sdk.claimoptions.md) | <i>(Optional)</i>                        |
 
 **Returns:**
 

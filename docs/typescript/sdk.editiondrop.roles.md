@@ -12,5 +12,8 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-roles: ContractRoles<DropERC1155, typeof EditionDrop.contractRoles[number]>;
+roles: ContractRoles<
+  PrebuiltEditionDrop,
+  typeof EditionDrop.contractRoles[number]
+>;
 ```

@@ -390,7 +390,7 @@ SignatureDropInitializer: {
       | undefined,
   ) =>
     Promise<import("./prebuilt-implementations/signature-drop").SignatureDrop>;
-  getAbi: () =>
+  getAbi: (address: string, provider: ethers.providers.Provider) =>
     Promise<
       (
         | {

@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-erc721: Erc721<DropERC721>;
+erc721: Erc721<PrebuiltNFTDrop>;
 ```

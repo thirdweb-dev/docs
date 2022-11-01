@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-encoder: ContractEncoder<DropERC721>;
+encoder: ContractEncoder<PrebuiltNFTDrop>;
 ```

@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-encoder: ContractEncoder<DropERC20>;
+encoder: ContractEncoder<PrebuiltTokenDrop>;
 ```

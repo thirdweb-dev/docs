@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-sales: ContractPrimarySale<DropERC1155>;
+sales: ContractPrimarySale<PrebuiltEditionDrop>;
 ```

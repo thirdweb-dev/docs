@@ -28,7 +28,8 @@ featureName: "ERC1155" |
   "ERC721LazyMintable" |
   "ERC721Revealable" |
   "ERC721Claimable" |
-  "ERC721ClaimableWithConditions" |
+  "ERC721ClaimableWithConditionsV2" |
+  "ERC721ClaimableWithConditionsV1" |
   "ERC721SignatureMint" |
   "ERC721TieredDrop" |
   "ERC1155Burnable" |

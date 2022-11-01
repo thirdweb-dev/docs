@@ -389,7 +389,7 @@ EditionDropInitializer: {
         }
       | undefined,
   ) => Promise<import("./prebuilt-implementations/edition-drop").EditionDrop>;
-  getAbi: () =>
+  getAbi: (address: string, provider: ethers.providers.Provider) =>
     Promise<
       (
         | {

@@ -46,7 +46,7 @@ await contract.revealer.reveal(batchId, "my secret password");
 **Signature:**
 
 ```typescript
-revealer: DelayedReveal<DropERC721>;
+revealer: DelayedReveal<PrebuiltNFTDrop>;
 ```
 
 ## Remarks

@@ -340,7 +340,7 @@ EditionInitializer: {
         }
       | undefined,
   ) => Promise<import("./prebuilt-implementations/edition").Edition>;
-  getAbi: () =>
+  getAbi: (address: string, provider: ethers.providers.Provider) =>
     Promise<
       (
         | {

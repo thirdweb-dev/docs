@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-platformFees: ContractPlatformFee<DropERC721>;
+platformFees: ContractPlatformFee<PrebuiltNFTDrop>;
 ```

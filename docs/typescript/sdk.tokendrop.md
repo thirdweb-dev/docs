@@ -28,18 +28,18 @@ const contract = sdk.getContract("{{contract_address}}", "token-drop");
 
 ## Properties
 
-| Property                                              | Modifiers           | Type                                                                                                                                   | Description                |
-| ----------------------------------------------------- | ------------------- | -------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| [abi](./sdk.tokendrop.abi.md)                         |                     | typeof ABI                                                                                                                             |                            |
-| [claimConditions](./sdk.tokendrop.claimconditions.md) |                     | [DropClaimConditions](./sdk.dropclaimconditions.md)&lt;DropERC20&gt;                                                                   | Configure claim conditions |
-| [contractRoles](./sdk.tokendrop.contractroles.md)     | <code>static</code> | readonly \["admin", "transfer"\]                                                                                                       |                            |
-| [encoder](./sdk.tokendrop.encoder.md)                 |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;DropERC20&gt;                                                                           |                            |
-| [estimator](./sdk.tokendrop.estimator.md)             |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;DropERC20&gt;                                                                         |                            |
-| [events](./sdk.tokendrop.events.md)                   |                     | [ContractEvents](./sdk.contractevents.md)&lt;DropERC20&gt;                                                                             |                            |
-| [metadata](./sdk.tokendrop.metadata.md)               |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;DropERC20, typeof DropErc20ContractSchema&gt;                                         |                            |
-| [platformFees](./sdk.tokendrop.platformfees.md)       |                     | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;DropERC20&gt;                                                                   |                            |
-| [roles](./sdk.tokendrop.roles.md)                     |                     | [ContractRoles](./sdk.contractroles.md)&lt;DropERC20, typeof [TokenDrop.contractRoles](./sdk.tokendrop.contractroles.md)\[number\]&gt; |                            |
-| [sales](./sdk.tokendrop.sales.md)                     |                     | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;DropERC20&gt;                                                                   |                            |
+| Property                                              | Modifiers           | Type                                                                                                                                           | Description                |
+| ----------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| [abi](./sdk.tokendrop.abi.md)                         |                     | typeof ABI                                                                                                                                     |                            |
+| [claimConditions](./sdk.tokendrop.claimconditions.md) |                     | [DropClaimConditions](./sdk.dropclaimconditions.md)&lt;PrebuiltTokenDrop&gt;                                                                   | Configure claim conditions |
+| [contractRoles](./sdk.tokendrop.contractroles.md)     | <code>static</code> | readonly \["admin", "transfer"\]                                                                                                               |                            |
+| [encoder](./sdk.tokendrop.encoder.md)                 |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;PrebuiltTokenDrop&gt;                                                                           |                            |
+| [estimator](./sdk.tokendrop.estimator.md)             |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;PrebuiltTokenDrop&gt;                                                                         |                            |
+| [events](./sdk.tokendrop.events.md)                   |                     | [ContractEvents](./sdk.contractevents.md)&lt;PrebuiltTokenDrop&gt;                                                                             |                            |
+| [metadata](./sdk.tokendrop.metadata.md)               |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;PrebuiltTokenDrop, typeof DropErc20ContractSchema&gt;                                         |                            |
+| [platformFees](./sdk.tokendrop.platformfees.md)       |                     | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;PrebuiltTokenDrop&gt;                                                                   |                            |
+| [roles](./sdk.tokendrop.roles.md)                     |                     | [ContractRoles](./sdk.contractroles.md)&lt;PrebuiltTokenDrop, typeof [TokenDrop.contractRoles](./sdk.tokendrop.contractroles.md)\[number\]&gt; |                            |
+| [sales](./sdk.tokendrop.sales.md)                     |                     | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;PrebuiltTokenDrop&gt;                                                                   |                            |
 
 ## Methods
 
@@ -58,7 +58,7 @@ const contract = sdk.getContract("{{contract_address}}", "token-drop");
 **Signature:**
 
 ```typescript
-export declare class TokenDrop extends StandardErc20<DropERC20>
+export declare class TokenDrop extends StandardErc20<PrebuiltTokenDrop>
 ```
 
-**Extends:** [StandardErc20](./sdk.standarderc20.md)&lt;DropERC20&gt;
+**Extends:** [StandardErc20](./sdk.standarderc20.md)&lt;PrebuiltTokenDrop&gt;

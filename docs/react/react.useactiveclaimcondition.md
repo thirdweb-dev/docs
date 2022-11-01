@@ -40,18 +40,21 @@ export declare function useActiveClaimCondition(
   options?: ClaimConditionFetchOptions,
 ): import("@tanstack/react-query").UseQueryResult<
   {
+    metadata?: string | undefined;
     snapshot?:
       | {
           address: string;
+          price: string;
+          currencyAddress: string;
           maxClaimable: string;
         }[]
       | null
       | undefined;
-    quantityLimitPerTransaction: string;
+    maxClaimableSupply: string;
     startTime: Date;
     price: import("ethers").BigNumber;
     currencyAddress: string;
-    maxQuantity: string;
+    maxClaimablePerWallet: string;
     waitInSeconds: import("ethers").BigNumber;
     merkleRootHash: string | number[];
     availableSupply: string;
@@ -78,6 +81,6 @@ export declare function useActiveClaimCondition(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ snapshot?: { address: string; maxClaimable: string; }\[\] \| null \| undefined; quantityLimitPerTransaction: string; startTime: Date; price: import("ethers").BigNumber; currencyAddress: string; maxQuantity: string; waitInSeconds: import("ethers").BigNumber; merkleRootHash: string \| number\[\]; availableSupply: string; currentMintSupply: string; currencyMetadata: { symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }; }, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ metadata?: string \| undefined; snapshot?: { address: string; price: string; currencyAddress: string; maxClaimable: string; }\[\] \| null \| undefined; maxClaimableSupply: string; startTime: Date; price: import("ethers").BigNumber; currencyAddress: string; maxClaimablePerWallet: string; waitInSeconds: import("ethers").BigNumber; merkleRootHash: string \| number\[\]; availableSupply: string; currentMintSupply: string; currencyMetadata: { symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }; }, unknown&gt;
 
 a response object with the currently active claim condition

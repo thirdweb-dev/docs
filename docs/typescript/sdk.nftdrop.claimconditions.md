@@ -34,7 +34,7 @@ await contract.claimConditions.set(claimConditions);
 **Signature:**
 
 ```typescript
-claimConditions: DropClaimConditions<DropERC721>;
+claimConditions: DropClaimConditions<PrebuiltNFTDrop>;
 ```
 
 ## Remarks

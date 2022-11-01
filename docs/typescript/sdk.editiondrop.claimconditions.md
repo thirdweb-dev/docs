@@ -36,7 +36,7 @@ await contract.claimConditions.set(tokenId, claimConditions);
 **Signature:**
 
 ```typescript
-claimConditions: DropErc1155ClaimConditions<DropERC1155>;
+claimConditions: DropErc1155ClaimConditions<PrebuiltEditionDrop>;
 ```
 
 ## Remarks

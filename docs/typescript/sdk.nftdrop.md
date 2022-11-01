@@ -28,23 +28,23 @@ const contract = sdk.getContract("{{contract_address}}", "nft-drop");
 
 ## Properties
 
-| Property                                            | Modifiers           | Type                                                                                                                                | Description                |
-| --------------------------------------------------- | ------------------- | ----------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
-| [abi](./sdk.nftdrop.abi.md)                         |                     | typeof ABI                                                                                                                          |                            |
-| [checkout](./sdk.nftdrop.checkout.md)               |                     | PaperCheckout&lt;DropERC721&gt;                                                                                                     | Checkout                   |
-| [claimConditions](./sdk.nftdrop.claimconditions.md) |                     | [DropClaimConditions](./sdk.dropclaimconditions.md)&lt;DropERC721&gt;                                                               | Configure claim conditions |
-| [contractRoles](./sdk.nftdrop.contractroles.md)     | <code>static</code> | readonly \["admin", "minter", "transfer"\]                                                                                          |                            |
-| [encoder](./sdk.nftdrop.encoder.md)                 |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;DropERC721&gt;                                                                       |                            |
-| [erc721](./sdk.nftdrop.erc721.md)                   |                     | [Erc721](./sdk.erc721.md)&lt;DropERC721&gt;                                                                                         |                            |
-| [estimator](./sdk.nftdrop.estimator.md)             |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;DropERC721&gt;                                                                     |                            |
-| [events](./sdk.nftdrop.events.md)                   |                     | [ContractEvents](./sdk.contractevents.md)&lt;DropERC721&gt;                                                                         |                            |
-| [metadata](./sdk.nftdrop.metadata.md)               |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;DropERC721, typeof DropErc721ContractSchema&gt;                                    |                            |
-| [owner](./sdk.nftdrop.owner.md)                     |                     | [ContractOwner](./sdk.contractowner.md)&lt;DropERC721&gt;                                                                           |                            |
-| [platformFees](./sdk.nftdrop.platformfees.md)       |                     | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;DropERC721&gt;                                                               |                            |
-| [revealer](./sdk.nftdrop.revealer.md)               |                     | [DelayedReveal](./sdk.delayedreveal.md)&lt;DropERC721&gt;                                                                           | Delayed reveal             |
-| [roles](./sdk.nftdrop.roles.md)                     |                     | [ContractRoles](./sdk.contractroles.md)&lt;DropERC721, typeof [NFTDrop.contractRoles](./sdk.nftdrop.contractroles.md)\[number\]&gt; |                            |
-| [royalties](./sdk.nftdrop.royalties.md)             |                     | [ContractRoyalty](./sdk.contractroyalty.md)&lt;DropERC721, typeof DropErc721ContractSchema&gt;                                      | Configure royalties        |
-| [sales](./sdk.nftdrop.sales.md)                     |                     | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;DropERC721&gt;                                                               |                            |
+| Property                                            | Modifiers           | Type                                                                                                                                     | Description                |
+| --------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| [abi](./sdk.nftdrop.abi.md)                         |                     | typeof ABI                                                                                                                               |                            |
+| [checkout](./sdk.nftdrop.checkout.md)               |                     | PaperCheckout&lt;PrebuiltNFTDrop&gt;                                                                                                     | Checkout                   |
+| [claimConditions](./sdk.nftdrop.claimconditions.md) |                     | [DropClaimConditions](./sdk.dropclaimconditions.md)&lt;PrebuiltNFTDrop&gt;                                                               | Configure claim conditions |
+| [contractRoles](./sdk.nftdrop.contractroles.md)     | <code>static</code> | readonly \["admin", "minter", "transfer"\]                                                                                               |                            |
+| [encoder](./sdk.nftdrop.encoder.md)                 |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;PrebuiltNFTDrop&gt;                                                                       |                            |
+| [erc721](./sdk.nftdrop.erc721.md)                   |                     | [Erc721](./sdk.erc721.md)&lt;PrebuiltNFTDrop&gt;                                                                                         |                            |
+| [estimator](./sdk.nftdrop.estimator.md)             |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;PrebuiltNFTDrop&gt;                                                                     |                            |
+| [events](./sdk.nftdrop.events.md)                   |                     | [ContractEvents](./sdk.contractevents.md)&lt;PrebuiltNFTDrop&gt;                                                                         |                            |
+| [metadata](./sdk.nftdrop.metadata.md)               |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;PrebuiltNFTDrop, typeof DropErc721ContractSchema&gt;                                    |                            |
+| [owner](./sdk.nftdrop.owner.md)                     |                     | [ContractOwner](./sdk.contractowner.md)&lt;PrebuiltNFTDrop&gt;                                                                           |                            |
+| [platformFees](./sdk.nftdrop.platformfees.md)       |                     | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;PrebuiltNFTDrop&gt;                                                               |                            |
+| [revealer](./sdk.nftdrop.revealer.md)               |                     | [DelayedReveal](./sdk.delayedreveal.md)&lt;PrebuiltNFTDrop&gt;                                                                           | Delayed reveal             |
+| [roles](./sdk.nftdrop.roles.md)                     |                     | [ContractRoles](./sdk.contractroles.md)&lt;PrebuiltNFTDrop, typeof [NFTDrop.contractRoles](./sdk.nftdrop.contractroles.md)\[number\]&gt; |                            |
+| [royalties](./sdk.nftdrop.royalties.md)             |                     | [ContractRoyalty](./sdk.contractroyalty.md)&lt;PrebuiltNFTDrop, typeof DropErc721ContractSchema&gt;                                      | Configure royalties        |
+| [sales](./sdk.nftdrop.sales.md)                     |                     | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;PrebuiltNFTDrop&gt;                                                               |                            |
 
 ## Methods
 
@@ -72,7 +72,7 @@ const contract = sdk.getContract("{{contract_address}}", "nft-drop");
 **Signature:**
 
 ```typescript
-export declare class NFTDrop extends StandardErc721<DropERC721>
+export declare class NFTDrop extends StandardErc721<PrebuiltNFTDrop>
 ```
 
-**Extends:** [StandardErc721](./sdk.standarderc721.md)&lt;DropERC721&gt;
+**Extends:** [StandardErc721](./sdk.standarderc721.md)&lt;PrebuiltNFTDrop&gt;
