@@ -554,7 +554,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2022-10-25T05:19:24Z",
+    "updated_at": "2022-11-01T21:12:37Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -567,7 +567,7 @@
       "web3js"
     ],
     "language": "CSS",
-    "stargazers_count": 26,
+    "stargazers_count": 27,
     "is_template": true,
     "homepage": "https://next-typescript-starter.thirdweb-example.com"
   },
