@@ -43,9 +43,9 @@ export declare function useClaimConditions(
     metadata?: string | undefined;
     snapshot?:
       | {
+          price?: string | undefined;
+          currencyAddress?: string | undefined;
           address: string;
-          price: string;
-          currencyAddress: string;
           maxClaimable: string;
         }[]
       | null
@@ -81,6 +81,6 @@ export declare function useClaimConditions(
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ metadata?: string \| undefined; snapshot?: { address: string; price: string; currencyAddress: string; maxClaimable: string; }\[\] \| null \| undefined; maxClaimableSupply: string; startTime: Date; price: import("ethers").BigNumber; currencyAddress: string; maxClaimablePerWallet: string; waitInSeconds: import("ethers").BigNumber; merkleRootHash: string \| number\[\]; availableSupply: string; currentMintSupply: string; currencyMetadata: { symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }; }\[\], unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ metadata?: string \| undefined; snapshot?: { price?: string \| undefined; currencyAddress?: string \| undefined; address: string; maxClaimable: string; }\[\] \| null \| undefined; maxClaimableSupply: string; startTime: Date; price: import("ethers").BigNumber; currencyAddress: string; maxClaimablePerWallet: string; waitInSeconds: import("ethers").BigNumber; merkleRootHash: string \| number\[\]; availableSupply: string; currentMintSupply: string; currencyMetadata: { symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }; }\[\], unknown&gt;
 
 a response object with the list of claim conditions
