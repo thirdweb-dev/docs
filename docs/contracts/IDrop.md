@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # IDrop
 
+The interface `IDrop` is written for thirdweb&#39;s &#39;Drop&#39; contracts, which are distribution mechanisms for tokens. An authorized wallet can set a series of claim conditions, ordered by their respective `startTimestamp`. A claim condition defines criteria under which accounts can mint tokens. Claim conditions can be overwritten or added to by the contract admin. At any moment, there is only one active claim condition.
+
 ## Methods
 
 ### claim
@@ -47,7 +49,7 @@ function setClaimConditions(IClaimCondition.ClaimCondition[] phases, bool resetC
 event ClaimConditionsUpdated(IClaimCondition.ClaimCondition[] claimConditions, bool resetEligibility)
 ```
 
-_Emitted when the contract&#39;s claim conditions are updated._
+Emitted when the contract&#39;s claim conditions are updated.
 
 #### Parameters
 
@@ -62,7 +64,7 @@ _Emitted when the contract&#39;s claim conditions are updated._
 event TokensClaimed(uint256 indexed claimConditionIndex, address indexed claimer, address indexed receiver, uint256 startTokenId, uint256 quantityClaimed)
 ```
 
-_Emitted when tokens are claimed via `claim`._
+Emitted when tokens are claimed via `claim`.
 
 #### Parameters
 
@@ -73,114 +75,3 @@ _Emitted when tokens are claimed via `claim`._
 | receiver `indexed`            | address | undefined   |
 | startTokenId                  | uint256 | undefined   |
 | quantityClaimed               | uint256 | undefined   |
-
-## Errors
-
-### Drop\_\_CannotClaimYet
-
-```solidity
-error Drop__CannotClaimYet(uint256 blockTimestamp, uint256 startTimestamp, uint256 lastClaimedAt, uint256 nextValidClaimTimestamp)
-```
-
-Emitted when the current timestamp is invalid for claim.
-
-#### Parameters
-
-| Name                    | Type    | Description |
-| ----------------------- | ------- | ----------- |
-| blockTimestamp          | uint256 | undefined   |
-| startTimestamp          | uint256 | undefined   |
-| lastClaimedAt           | uint256 | undefined   |
-| nextValidClaimTimestamp | uint256 | undefined   |
-
-### Drop\_\_ExceedMaxClaimableSupply
-
-```solidity
-error Drop__ExceedMaxClaimableSupply(uint256 supplyClaimed, uint256 maxClaimableSupply)
-```
-
-Emitted when claiming given quantity will exceed max claimable supply.
-
-#### Parameters
-
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| supplyClaimed      | uint256 | undefined   |
-| maxClaimableSupply | uint256 | undefined   |
-
-### Drop\_\_InvalidCurrencyOrPrice
-
-```solidity
-error Drop__InvalidCurrencyOrPrice(address givenCurrency, address requiredCurrency, uint256 givenPricePerToken, uint256 requiredPricePerToken)
-```
-
-Emitted when given currency or price is invalid.
-
-#### Parameters
-
-| Name                  | Type    | Description |
-| --------------------- | ------- | ----------- |
-| givenCurrency         | address | undefined   |
-| requiredCurrency      | address | undefined   |
-| givenPricePerToken    | uint256 | undefined   |
-| requiredPricePerToken | uint256 | undefined   |
-
-### Drop\_\_InvalidQuantity
-
-```solidity
-error Drop__InvalidQuantity()
-```
-
-Emitted when claiming invalid quantity of tokens.
-
-### Drop\_\_InvalidQuantityProof
-
-```solidity
-error Drop__InvalidQuantityProof(uint256 maxQuantityInAllowlist)
-```
-
-Emitted when claiming more than allowed quantity in allowlist.
-
-#### Parameters
-
-| Name                   | Type    | Description |
-| ---------------------- | ------- | ----------- |
-| maxQuantityInAllowlist | uint256 | undefined   |
-
-### Drop\_\_MaxSupplyClaimedAlready
-
-```solidity
-error Drop__MaxSupplyClaimedAlready(uint256 supplyClaimedAlready)
-```
-
-Emitted when max claimable supply in given condition is less than supply claimed already.
-
-#### Parameters
-
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| supplyClaimedAlready | uint256 | undefined   |
-
-### Drop\_\_NotAuthorized
-
-```solidity
-error Drop__NotAuthorized()
-```
-
-_Emitted when an unauthorized caller tries to set claim conditions._
-
-### Drop\_\_NotInWhitelist
-
-```solidity
-error Drop__NotInWhitelist()
-```
-
-Emitted when given allowlist proof is invalid.
-
-### Drop\_\_ProofClaimed
-
-```solidity
-error Drop__ProofClaimed()
-```
-
-Emitted when allowlist spot is already used.

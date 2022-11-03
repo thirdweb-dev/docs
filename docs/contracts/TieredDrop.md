@@ -1,11 +1,11 @@
 ---
-slug: /SignatureDrop
-title: SignatureDrop
+slug: /TieredDrop
+title: TieredDrop
 hide_title: true
 displayed_sidebar: contracts
 ---
 
-# SignatureDrop
+# TieredDrop
 
 ## Methods
 
@@ -70,53 +70,24 @@ _Burns `tokenId`. See {ERC721-\_burn}._
 | ------- | ------- | ----------- |
 | tokenId | uint256 | undefined   |
 
-### claim
+### claimWithSignature
 
 ```solidity
-function claim(address _receiver, uint256 _quantity, address _currency, uint256 _pricePerToken, IDropSinglePhase.AllowlistProof _allowlistProof, bytes _data) external payable
+function claimWithSignature(ISignatureAction.GenericRequest _req, bytes _signature) external payable returns (address signer)
 ```
 
 #### Parameters
 
-| Name             | Type                            | Description |
-| ---------------- | ------------------------------- | ----------- |
-| \_receiver       | address                         | undefined   |
-| \_quantity       | uint256                         | undefined   |
-| \_currency       | address                         | undefined   |
-| \_pricePerToken  | uint256                         | undefined   |
-| \_allowlistProof | IDropSinglePhase.AllowlistProof | undefined   |
-| \_data           | bytes                           | undefined   |
-
-### claimCondition
-
-```solidity
-function claimCondition() external view returns (uint256 startTimestamp, uint256 maxClaimableSupply, uint256 supplyClaimed, uint256 quantityLimitPerWallet, bytes32 merkleRoot, uint256 pricePerToken, address currency, string metadata)
-```
+| Name        | Type                            | Description |
+| ----------- | ------------------------------- | ----------- |
+| \_req       | ISignatureAction.GenericRequest | undefined   |
+| \_signature | bytes                           | undefined   |
 
 #### Returns
 
-| Name                   | Type    | Description |
-| ---------------------- | ------- | ----------- |
-| startTimestamp         | uint256 | undefined   |
-| maxClaimableSupply     | uint256 | undefined   |
-| supplyClaimed          | uint256 | undefined   |
-| quantityLimitPerWallet | uint256 | undefined   |
-| merkleRoot             | bytes32 | undefined   |
-| pricePerToken          | uint256 | undefined   |
-| currency               | address | undefined   |
-| metadata               | string  | undefined   |
-
-### contractType
-
-```solidity
-function contractType() external pure returns (bytes32)
-```
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
+| Name   | Type    | Description |
+| ------ | ------- | ----------- |
+| signer | address | undefined   |
 
 ### contractURI
 
@@ -131,18 +102,6 @@ Returns the contract metadata URI.
 | Name | Type   | Description |
 | ---- | ------ | ----------- |
 | \_0  | string | undefined   |
-
-### contractVersion
-
-```solidity
-function contractVersion() external pure returns (uint8)
-```
-
-#### Returns
-
-| Name | Type  | Description |
-| ---- | ----- | ----------- |
-| \_0  | uint8 | undefined   |
 
 ### encryptDecrypt
 
@@ -258,20 +217,19 @@ Returns the defualt royalty recipient and BPS for this contract&#39;s NFTs.
 | \_0  | address | undefined   |
 | \_1  | uint16  | undefined   |
 
-### getPlatformFeeInfo
+### getMetadataForAllTiers
 
 ```solidity
-function getPlatformFeeInfo() external view returns (address, uint16)
+function getMetadataForAllTiers() external view returns (struct LazyMintWithTier.TierMetadata[] metadataForAllTiers)
 ```
 
-_Returns the platform fee recipient and bps._
+Returns all metadata for all tiers created on the contract.
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint16  | undefined   |
+| Name                | Type                            | Description |
+| ------------------- | ------------------------------- | ----------- |
+| metadataForAllTiers | LazyMintWithTier.TierMetadata[] | undefined   |
 
 ### getRevealURI
 
@@ -386,19 +344,55 @@ _Returns royalty recipient and bps for `_tokenId`._
 | \_0  | address | undefined   |
 | \_1  | uint16  | undefined   |
 
-### getSupplyClaimedByWallet
+### getTierForToken
 
 ```solidity
-function getSupplyClaimedByWallet(address _claimer) external view returns (uint256)
+function getTierForToken(uint256 _tokenId) external view returns (string)
 ```
 
-_Returns the supply claimed by claimer for active conditionId._
+_Returns the tier that the given token is associated with._
 
 #### Parameters
 
 | Name      | Type    | Description |
 | --------- | ------- | ----------- |
-| \_claimer | address | undefined   |
+| \_tokenId | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
+
+### getTokensInTier
+
+```solidity
+function getTokensInTier(string _tier, uint256 _startIdx, uint256 _endIdx) external view returns (struct LazyMintWithTier.TokenRange[] ranges)
+```
+
+_Returns all tokenIds that belong to the given tier._
+
+#### Parameters
+
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_tier     | string  | undefined   |
+| \_startIdx | uint256 | undefined   |
+| \_endIdx   | uint256 | undefined   |
+
+#### Returns
+
+| Name   | Type                          | Description |
+| ------ | ----------------------------- | ----------- |
+| ranges | LazyMintWithTier.TokenRange[] | undefined   |
+
+### getTokensInTierLen
+
+```solidity
+function getTokensInTierLen() external view returns (uint256)
+```
+
+_Returns the max `endIndex` that can be used with getTokensInTier._
 
 #### Returns
 
@@ -472,25 +466,23 @@ _Returns `true` if `account` has been granted `role`. Role restrictions can be s
 ### initialize
 
 ```solidity
-function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _saleRecipient, address _royaltyRecipient, uint128 _royaltyBps, uint128 _platformFeeBps, address _platformFeeRecipient) external nonpayable
+function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _saleRecipient, address _royaltyRecipient, uint16 _royaltyBps) external nonpayable
 ```
 
 _Initiliazes the contract, like a constructor._
 
 #### Parameters
 
-| Name                   | Type      | Description |
-| ---------------------- | --------- | ----------- |
-| \_defaultAdmin         | address   | undefined   |
-| \_name                 | string    | undefined   |
-| \_symbol               | string    | undefined   |
-| \_contractURI          | string    | undefined   |
-| \_trustedForwarders    | address[] | undefined   |
-| \_saleRecipient        | address   | undefined   |
-| \_royaltyRecipient     | address   | undefined   |
-| \_royaltyBps           | uint128   | undefined   |
-| \_platformFeeBps       | uint128   | undefined   |
-| \_platformFeeRecipient | address   | undefined   |
+| Name                | Type      | Description |
+| ------------------- | --------- | ----------- |
+| \_defaultAdmin      | address   | undefined   |
+| \_name              | string    | undefined   |
+| \_symbol            | string    | undefined   |
+| \_contractURI       | string    | undefined   |
+| \_trustedForwarders | address[] | undefined   |
+| \_saleRecipient     | address   | undefined   |
+| \_royaltyRecipient  | address   | undefined   |
+| \_royaltyBps        | uint16    | undefined   |
 
 ### isApprovedForAll
 
@@ -556,43 +548,25 @@ function isTrustedForwarder(address forwarder) external view returns (bool)
 ### lazyMint
 
 ```solidity
-function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _data) external nonpayable returns (uint256 batchId)
+function lazyMint(uint256 _amount, string _baseURIForTokens, string _tier, bytes _data) external nonpayable returns (uint256 batchId)
 ```
 
-_Lets an account with `MINTER_ROLE` lazy mint &#39;n&#39; NFTs. The URIs for each token is the provided `_baseURIForTokens` + `{tokenId}`._
+Lets an authorized address lazy mint a given amount of NFTs.
 
 #### Parameters
 
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| \_amount           | uint256 | undefined   |
-| \_baseURIForTokens | string  | undefined   |
-| \_data             | bytes   | undefined   |
+| Name               | Type    | Description                                                                                                                                       |
+| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
+| \_amount           | uint256 | The number of NFTs to lazy mint.                                                                                                                  |
+| \_baseURIForTokens | string  | The base URI for the &#39;n&#39; number of NFTs being lazy minted, where the metadata for each of those NFTs is `${baseURIForTokens}/${tokenId}`. |
+| \_tier             | string  | undefined                                                                                                                                         |
+| \_data             | bytes   | Additional bytes data to be used at the discretion of the consumer of the contract.                                                               |
 
 #### Returns
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| batchId | uint256 | undefined   |
-
-### mintWithSignature
-
-```solidity
-function mintWithSignature(ISignatureMintERC721.MintRequest _req, bytes _signature) external payable returns (address signer)
-```
-
-#### Parameters
-
-| Name        | Type                             | Description |
-| ----------- | -------------------------------- | ----------- |
-| \_req       | ISignatureMintERC721.MintRequest | undefined   |
-| \_signature | bytes                            | undefined   |
-
-#### Returns
-
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| signer | address | undefined   |
+| Name    | Type    | Description                                                             |
+| ------- | ------- | ----------------------------------------------------------------------- |
+| batchId | uint256 | A unique integer identifier for the batch of NFTs lazy minted together. |
 
 ### multicall
 
@@ -817,19 +791,6 @@ _See {IERC721-setApprovalForAll}._
 | operator | address | undefined   |
 | approved | bool    | undefined   |
 
-### setClaimConditions
-
-```solidity
-function setClaimConditions(IClaimCondition.ClaimCondition _condition, bool _resetClaimEligibility) external nonpayable
-```
-
-#### Parameters
-
-| Name                    | Type                           | Description |
-| ----------------------- | ------------------------------ | ----------- |
-| \_condition             | IClaimCondition.ClaimCondition | undefined   |
-| \_resetClaimEligibility | bool                           | undefined   |
-
 ### setContractURI
 
 ```solidity
@@ -876,23 +837,6 @@ Lets an authorized wallet set a new owner for the contract.
 | Name       | Type    | Description                                          |
 | ---------- | ------- | ---------------------------------------------------- |
 | \_newOwner | address | The address to set as the new owner of the contract. |
-
-### setPlatformFeeInfo
-
-```solidity
-function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeBps) external nonpayable
-```
-
-Updates the platform fee recipient and bps.
-
-_Caller should be authorized to set platform fee info. See {\_canSetPlatformFeeInfo}. Emits {PlatformFeeInfoUpdated Event}; See {\_setupPlatformFeeInfo}._
-
-#### Parameters
-
-| Name                   | Type    | Description                                    |
-| ---------------------- | ------- | ---------------------------------------------- |
-| \_platformFeeRecipient | address | Address to be set as new platformFeeRecipient. |
-| \_platformFeeBps       | uint256 | Updated platformFeeBps.                        |
 
 ### setPrimarySaleRecipient
 
@@ -988,7 +932,27 @@ _Returns the URI for a given tokenId._
 function totalMinted() external view returns (uint256)
 ```
 
-Returns the total amount of tokens minted in the contract.
+_Returns the total amount of tokens minted in the contract._
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### totalMintedInTier
+
+```solidity
+function totalMintedInTier(string _tier) external view returns (uint256)
+```
+
+_Returns the total number of tokens minted from the given tier._
+
+#### Parameters
+
+| Name   | Type   | Description |
+| ------ | ------ | ----------- |
+| \_tier | string | undefined   |
 
 #### Returns
 
@@ -1029,15 +993,15 @@ _See {IERC721-transferFrom}._
 ### verify
 
 ```solidity
-function verify(ISignatureMintERC721.MintRequest _req, bytes _signature) external view returns (bool success, address signer)
+function verify(ISignatureAction.GenericRequest _req, bytes _signature) external view returns (bool success, address signer)
 ```
 
 #### Parameters
 
-| Name        | Type                             | Description |
-| ----------- | -------------------------------- | ----------- |
-| \_req       | ISignatureMintERC721.MintRequest | undefined   |
-| \_signature | bytes                            | undefined   |
+| Name        | Type                            | Description |
+| ----------- | ------------------------------- | ----------- |
+| \_req       | ISignatureAction.GenericRequest | undefined   |
+| \_signature | bytes                           | undefined   |
 
 #### Returns
 
@@ -1045,28 +1009,6 @@ function verify(ISignatureMintERC721.MintRequest _req, bytes _signature) externa
 | ------- | ------- | ----------- |
 | success | bool    | undefined   |
 | signer  | address | undefined   |
-
-### verifyClaim
-
-```solidity
-function verifyClaim(address _claimer, uint256 _quantity, address _currency, uint256 _pricePerToken, IDropSinglePhase.AllowlistProof _allowlistProof) external view returns (bool isOverride)
-```
-
-#### Parameters
-
-| Name             | Type                            | Description |
-| ---------------- | ------------------------------- | ----------- |
-| \_claimer        | address                         | undefined   |
-| \_quantity       | uint256                         | undefined   |
-| \_currency       | address                         | undefined   |
-| \_pricePerToken  | uint256                         | undefined   |
-| \_allowlistProof | IDropSinglePhase.AllowlistProof | undefined   |
-
-#### Returns
-
-| Name       | Type | Description |
-| ---------- | ---- | ----------- |
-| isOverride | bool | undefined   |
 
 ## Events
 
@@ -1097,21 +1039,6 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 | owner `indexed`    | address | undefined   |
 | operator `indexed` | address | undefined   |
 | approved           | bool    | undefined   |
-
-### ClaimConditionUpdated
-
-```solidity
-event ClaimConditionUpdated(IClaimCondition.ClaimCondition condition, bool resetEligibility)
-```
-
-Emitted when the contract&#39;s claim conditions are updated.
-
-#### Parameters
-
-| Name             | Type                           | Description |
-| ---------------- | ------------------------------ | ----------- |
-| condition        | IClaimCondition.ClaimCondition | undefined   |
-| resetEligibility | bool                           | undefined   |
 
 ### ContractURIUpdated
 
@@ -1164,19 +1091,6 @@ event OwnerUpdated(address indexed prevOwner, address indexed newOwner)
 | prevOwner `indexed` | address | undefined   |
 | newOwner `indexed`  | address | undefined   |
 
-### PlatformFeeInfoUpdated
-
-```solidity
-event PlatformFeeInfoUpdated(address indexed platformFeeRecipient, uint256 platformFeeBps)
-```
-
-#### Parameters
-
-| Name                           | Type    | Description |
-| ------------------------------ | ------- | ----------- |
-| platformFeeRecipient `indexed` | address | undefined   |
-| platformFeeBps                 | uint256 | undefined   |
-
 ### PrimarySaleRecipientUpdated
 
 ```solidity
@@ -1188,6 +1102,22 @@ event PrimarySaleRecipientUpdated(address indexed recipient)
 | Name                | Type    | Description |
 | ------------------- | ------- | ----------- |
 | recipient `indexed` | address | undefined   |
+
+### RequestExecuted
+
+```solidity
+event RequestExecuted(address indexed user, address indexed signer, ISignatureAction.GenericRequest _req)
+```
+
+Emitted when a payload is verified and executed.
+
+#### Parameters
+
+| Name             | Type                            | Description |
+| ---------------- | ------------------------------- | ----------- |
+| user `indexed`   | address                         | undefined   |
+| signer `indexed` | address                         | undefined   |
+| \_req            | ISignatureAction.GenericRequest | undefined   |
 
 ### RoleAdminChanged
 
@@ -1258,52 +1188,21 @@ event TokenURIRevealed(uint256 indexed index, string revealedURI)
 | index `indexed` | uint256 | undefined   |
 | revealedURI     | string  | undefined   |
 
-### TokensClaimed
-
-```solidity
-event TokensClaimed(address indexed claimer, address indexed receiver, uint256 indexed startTokenId, uint256 quantityClaimed)
-```
-
-Emitted when tokens are claimed via `claim`.
-
-#### Parameters
-
-| Name                   | Type    | Description |
-| ---------------------- | ------- | ----------- |
-| claimer `indexed`      | address | undefined   |
-| receiver `indexed`     | address | undefined   |
-| startTokenId `indexed` | uint256 | undefined   |
-| quantityClaimed        | uint256 | undefined   |
-
 ### TokensLazyMinted
 
 ```solidity
-event TokensLazyMinted(uint256 indexed startTokenId, uint256 endTokenId, string baseURI, bytes encryptedBaseURI)
+event TokensLazyMinted(string indexed tier, uint256 indexed startTokenId, uint256 endTokenId, string baseURI, bytes encryptedBaseURI)
 ```
 
 #### Parameters
 
 | Name                   | Type    | Description |
 | ---------------------- | ------- | ----------- |
+| tier `indexed`         | string  | undefined   |
 | startTokenId `indexed` | uint256 | undefined   |
 | endTokenId             | uint256 | undefined   |
 | baseURI                | string  | undefined   |
 | encryptedBaseURI       | bytes   | undefined   |
-
-### TokensMintedWithSignature
-
-```solidity
-event TokensMintedWithSignature(address indexed signer, address indexed mintedTo, uint256 indexed tokenIdMinted, ISignatureMintERC721.MintRequest mintRequest)
-```
-
-#### Parameters
-
-| Name                    | Type                             | Description |
-| ----------------------- | -------------------------------- | ----------- |
-| signer `indexed`        | address                          | undefined   |
-| mintedTo `indexed`      | address                          | undefined   |
-| tokenIdMinted `indexed` | uint256                          | undefined   |
-| mintRequest             | ISignatureMintERC721.MintRequest | undefined   |
 
 ### Transfer
 

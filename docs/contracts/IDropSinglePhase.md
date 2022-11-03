@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # IDropSinglePhase
 
+The interface `IDropSinglePhase` is written for thirdweb&#39;s &#39;DropSinglePhase&#39; contracts, which are distribution mechanisms for tokens. An authorized wallet can set a claim condition for the distribution of the contract&#39;s tokens. A claim condition defines criteria under which accounts can mint tokens. Claim conditions can be overwritten or added to by the contract admin. At any moment, there is only one active claim condition.
+
 ## Methods
 
 ### claim
@@ -47,7 +49,7 @@ function setClaimConditions(IClaimCondition.ClaimCondition phase, bool resetClai
 event ClaimConditionUpdated(IClaimCondition.ClaimCondition condition, bool resetEligibility)
 ```
 
-_Emitted when the contract&#39;s claim conditions are updated._
+Emitted when the contract&#39;s claim conditions are updated.
 
 #### Parameters
 
@@ -62,7 +64,7 @@ _Emitted when the contract&#39;s claim conditions are updated._
 event TokensClaimed(address indexed claimer, address indexed receiver, uint256 indexed startTokenId, uint256 quantityClaimed)
 ```
 
-_Emitted when tokens are claimed via `claim`._
+Emitted when tokens are claimed via `claim`.
 
 #### Parameters
 

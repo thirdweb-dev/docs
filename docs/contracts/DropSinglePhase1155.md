@@ -30,7 +30,7 @@ function claim(address _receiver, uint256 _tokenId, uint256 _quantity, address _
 ### claimCondition
 
 ```solidity
-function claimCondition(uint256) external view returns (uint256 startTimestamp, uint256 maxClaimableSupply, uint256 supplyClaimed, uint256 quantityLimitPerTransaction, uint256 waitTimeInSecondsBetweenClaims, bytes32 merkleRoot, uint256 pricePerToken, address currency)
+function claimCondition(uint256) external view returns (uint256 startTimestamp, uint256 maxClaimableSupply, uint256 supplyClaimed, uint256 quantityLimitPerWallet, bytes32 merkleRoot, uint256 pricePerToken, address currency, string metadata)
 ```
 
 _Mapping from tokenId =&gt; active claim condition for the tokenId._
@@ -43,24 +43,24 @@ _Mapping from tokenId =&gt; active claim condition for the tokenId._
 
 #### Returns
 
-| Name                           | Type    | Description |
-| ------------------------------ | ------- | ----------- |
-| startTimestamp                 | uint256 | undefined   |
-| maxClaimableSupply             | uint256 | undefined   |
-| supplyClaimed                  | uint256 | undefined   |
-| quantityLimitPerTransaction    | uint256 | undefined   |
-| waitTimeInSecondsBetweenClaims | uint256 | undefined   |
-| merkleRoot                     | bytes32 | undefined   |
-| pricePerToken                  | uint256 | undefined   |
-| currency                       | address | undefined   |
+| Name                   | Type    | Description |
+| ---------------------- | ------- | ----------- |
+| startTimestamp         | uint256 | undefined   |
+| maxClaimableSupply     | uint256 | undefined   |
+| supplyClaimed          | uint256 | undefined   |
+| quantityLimitPerWallet | uint256 | undefined   |
+| merkleRoot             | bytes32 | undefined   |
+| pricePerToken          | uint256 | undefined   |
+| currency               | address | undefined   |
+| metadata               | string  | undefined   |
 
-### getClaimTimestamp
+### getSupplyClaimedByWallet
 
 ```solidity
-function getClaimTimestamp(uint256 _tokenId, address _claimer) external view returns (uint256 lastClaimedAt, uint256 nextValidClaimTimestamp)
+function getSupplyClaimedByWallet(uint256 _tokenId, address _claimer) external view returns (uint256)
 ```
 
-_Returns the timestamp for when a claimer is eligible for claiming NFTs again._
+_Returns the supply claimed by claimer for active conditionId._
 
 #### Parameters
 
@@ -71,10 +71,9 @@ _Returns the timestamp for when a claimer is eligible for claiming NFTs again._
 
 #### Returns
 
-| Name                    | Type    | Description |
-| ----------------------- | ------- | ----------- |
-| lastClaimedAt           | uint256 | undefined   |
-| nextValidClaimTimestamp | uint256 | undefined   |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### setClaimConditions
 
@@ -93,26 +92,7 @@ function setClaimConditions(uint256 _tokenId, IClaimCondition.ClaimCondition _co
 ### verifyClaim
 
 ```solidity
-function verifyClaim(uint256 _tokenId, address _claimer, uint256 _quantity, address _currency, uint256 _pricePerToken, bool verifyMaxQuantityPerTransaction) external view
-```
-
-_Checks a request to claim NFTs against the active claim condition&#39;s criteria._
-
-#### Parameters
-
-| Name                            | Type    | Description |
-| ------------------------------- | ------- | ----------- |
-| \_tokenId                       | uint256 | undefined   |
-| \_claimer                       | address | undefined   |
-| \_quantity                      | uint256 | undefined   |
-| \_currency                      | address | undefined   |
-| \_pricePerToken                 | uint256 | undefined   |
-| verifyMaxQuantityPerTransaction | bool    | undefined   |
-
-### verifyClaimMerkleProof
-
-```solidity
-function verifyClaimMerkleProof(uint256 _tokenId, address _claimer, uint256 _quantity, IDropSinglePhase1155.AllowlistProof _allowlistProof) external view returns (bool validMerkleProof, uint256 merkleProofIndex)
+function verifyClaim(uint256 _tokenId, address _claimer, uint256 _quantity, address _currency, uint256 _pricePerToken, IDropSinglePhase1155.AllowlistProof _allowlistProof) external view returns (bool isOverride)
 ```
 
 #### Parameters
@@ -122,14 +102,15 @@ function verifyClaimMerkleProof(uint256 _tokenId, address _claimer, uint256 _qua
 | \_tokenId        | uint256                             | undefined   |
 | \_claimer        | address                             | undefined   |
 | \_quantity       | uint256                             | undefined   |
+| \_currency       | address                             | undefined   |
+| \_pricePerToken  | uint256                             | undefined   |
 | \_allowlistProof | IDropSinglePhase1155.AllowlistProof | undefined   |
 
 #### Returns
 
-| Name             | Type    | Description |
-| ---------------- | ------- | ----------- |
-| validMerkleProof | bool    | undefined   |
-| merkleProofIndex | uint256 | undefined   |
+| Name       | Type | Description |
+| ---------- | ---- | ----------- |
+| isOverride | bool | undefined   |
 
 ## Events
 
@@ -138,6 +119,8 @@ function verifyClaimMerkleProof(uint256 _tokenId, address _claimer, uint256 _qua
 ```solidity
 event ClaimConditionUpdated(uint256 indexed tokenId, IClaimCondition.ClaimCondition condition, bool resetEligibility)
 ```
+
+Emitted when the contract&#39;s claim conditions are updated.
 
 #### Parameters
 
@@ -152,6 +135,8 @@ event ClaimConditionUpdated(uint256 indexed tokenId, IClaimCondition.ClaimCondit
 ```solidity
 event TokensClaimed(address indexed claimer, address indexed receiver, uint256 indexed tokenId, uint256 quantityClaimed)
 ```
+
+Emitted when tokens are claimed via `claim`.
 
 #### Parameters
 

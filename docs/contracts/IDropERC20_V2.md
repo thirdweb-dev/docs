@@ -1,11 +1,11 @@
 ---
-slug: /IDropERC20
-title: IDropERC20
+slug: /IDropERC20_V2
+title: IDropERC20_V2
 hide_title: true
 displayed_sidebar: contracts
 ---
 
-# IDropERC20
+# IDropERC20_V2
 
 Thirdweb&#39;s &#39;Drop&#39; contracts are distribution mechanisms for tokens. The `DropERC20` contract is a distribution mechanism for ERC20 tokens. A contract admin (i.e. holder of `DEFAULT_ADMIN_ROLE`) can create claim conditions with non-overlapping time windows, and accounts can claim the tokens according to restrictions defined in the claim condition that is active at the time of the transaction.
 
@@ -76,32 +76,34 @@ _Returns the amount of tokens owned by `account`._
 ### claim
 
 ```solidity
-function claim(address receiver, uint256 quantity, address currency, uint256 pricePerToken, IDropERC20.AllowlistProof allowlistProof, bytes data) external payable
+function claim(address receiver, uint256 quantity, address currency, uint256 pricePerToken, bytes32[] proofs, uint256 proofMaxQuantityPerTransaction) external payable
 ```
+
+Lets an account claim a given quantity of tokens.
 
 #### Parameters
 
-| Name           | Type                      | Description |
-| -------------- | ------------------------- | ----------- |
-| receiver       | address                   | undefined   |
-| quantity       | uint256                   | undefined   |
-| currency       | address                   | undefined   |
-| pricePerToken  | uint256                   | undefined   |
-| allowlistProof | IDropERC20.AllowlistProof | undefined   |
-| data           | bytes                     | undefined   |
+| Name                           | Type      | Description                                                                                               |
+| ------------------------------ | --------- | --------------------------------------------------------------------------------------------------------- |
+| receiver                       | address   | The receiver of the tokens to claim.                                                                      |
+| quantity                       | uint256   | The quantity of tokens to claim.                                                                          |
+| currency                       | address   | The currency in which to pay for the claim.                                                               |
+| pricePerToken                  | uint256   | The price per token (i.e. price per 1 ether unit of the token) to pay for the claim.                      |
+| proofs                         | bytes32[] | The proof of the claimer&#39;s inclusion in the merkle root allowlist of the claim conditions that apply. |
+| proofMaxQuantityPerTransaction | uint256   | (Optional) The maximum number of tokens an address included in an allowlist can claim.                    |
 
 ### setClaimConditions
 
 ```solidity
-function setClaimConditions(IDropClaimCondition.ClaimCondition[] phases, bool resetClaimEligibility) external nonpayable
+function setClaimConditions(IDropClaimCondition_V2.ClaimCondition[] phases, bool resetClaimEligibility) external nonpayable
 ```
 
 #### Parameters
 
-| Name                  | Type                                 | Description |
-| --------------------- | ------------------------------------ | ----------- |
-| phases                | IDropClaimCondition.ClaimCondition[] | undefined   |
-| resetClaimEligibility | bool                                 | undefined   |
+| Name                  | Type                                    | Description |
+| --------------------- | --------------------------------------- | ----------- |
+| phases                | IDropClaimCondition_V2.ClaimCondition[] | undefined   |
+| resetClaimEligibility | bool                                    | undefined   |
 
 ### totalSupply
 
@@ -179,16 +181,16 @@ event Approval(address indexed owner, address indexed spender, uint256 value)
 ### ClaimConditionsUpdated
 
 ```solidity
-event ClaimConditionsUpdated(IDropClaimCondition.ClaimCondition[] claimConditions)
+event ClaimConditionsUpdated(IDropClaimCondition_V2.ClaimCondition[] claimConditions)
 ```
 
 _Emitted when new claim conditions are set._
 
 #### Parameters
 
-| Name            | Type                                 | Description |
-| --------------- | ------------------------------------ | ----------- |
-| claimConditions | IDropClaimCondition.ClaimCondition[] | undefined   |
+| Name            | Type                                    | Description |
+| --------------- | --------------------------------------- | ----------- |
+| claimConditions | IDropClaimCondition_V2.ClaimCondition[] | undefined   |
 
 ### ContractURIUpdated
 
@@ -218,6 +220,20 @@ _Emitted when the global max supply of tokens is updated._
 | Name           | Type    | Description |
 | -------------- | ------- | ----------- |
 | maxTotalSupply | uint256 | undefined   |
+
+### MaxWalletClaimCountUpdated
+
+```solidity
+event MaxWalletClaimCountUpdated(uint256 count)
+```
+
+_Emitted when the global max wallet claim count is updated._
+
+#### Parameters
+
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| count | uint256 | undefined   |
 
 ### TokensClaimed
 
@@ -249,3 +265,18 @@ event Transfer(address indexed from, address indexed to, uint256 value)
 | from `indexed` | address | undefined   |
 | to `indexed`   | address | undefined   |
 | value          | uint256 | undefined   |
+
+### WalletClaimCountUpdated
+
+```solidity
+event WalletClaimCountUpdated(address indexed wallet, uint256 count)
+```
+
+_Emitted when the wallet claim count for an address is updated._
+
+#### Parameters
+
+| Name             | Type    | Description |
+| ---------------- | ------- | ----------- |
+| wallet `indexed` | address | undefined   |
+| count            | uint256 | undefined   |

@@ -1,11 +1,11 @@
 ---
-slug: /IDropERC721
-title: IDropERC721
+slug: /IDropERC721_V3
+title: IDropERC721_V3
 hide_title: true
 displayed_sidebar: contracts
 ---
 
-# IDropERC721
+# IDropERC721_V3
 
 Thirdweb&#39;s &#39;Drop&#39; contracts are distribution mechanisms for tokens. The `DropERC721` contract is a distribution mechanism for ERC721 tokens. A minter wallet (i.e. holder of `MINTER_ROLE`) can (lazy)mint &#39;n&#39; tokens at once by providing a single base URI for all tokens being lazy minted. The URI for each of the &#39;n&#39; tokens lazy minted is the provided base URI + `{tokenId}` of the respective token. (e.g. &quot;ipsf://Qmece.../1&quot;). A minter can choose to lazy mint &#39;delayed-reveal&#39; tokens. More on &#39;delayed-reveal&#39; tokens in [this article](https://blog.thirdweb.com/delayed-reveal-nfts). A contract admin (i.e. holder of `DEFAULT_ADMIN_ROLE`) can create claim conditions with non-overlapping time windows, and accounts can claim the tokens according to restrictions defined in the claim condition that is active at the time of the transaction.
 
@@ -49,19 +49,21 @@ _Returns the number of tokens in `owner`&#39;s account._
 ### claim
 
 ```solidity
-function claim(address receiver, uint256 quantity, address currency, uint256 pricePerToken, IDropERC721.AllowlistProof allowlistProof, bytes data) external payable
+function claim(address receiver, uint256 quantity, address currency, uint256 pricePerToken, bytes32[] proofs, uint256 proofMaxQuantityPerTransaction) external payable
 ```
+
+Lets an account claim a given quantity of NFTs.
 
 #### Parameters
 
-| Name           | Type                       | Description |
-| -------------- | -------------------------- | ----------- |
-| receiver       | address                    | undefined   |
-| quantity       | uint256                    | undefined   |
-| currency       | address                    | undefined   |
-| pricePerToken  | uint256                    | undefined   |
-| allowlistProof | IDropERC721.AllowlistProof | undefined   |
-| data           | bytes                      | undefined   |
+| Name                           | Type      | Description                                                                                               |
+| ------------------------------ | --------- | --------------------------------------------------------------------------------------------------------- |
+| receiver                       | address   | The receiver of the NFTs to claim.                                                                        |
+| quantity                       | uint256   | The quantity of NFTs to claim.                                                                            |
+| currency                       | address   | The currency in which to pay for the claim.                                                               |
+| pricePerToken                  | uint256   | The price per token to pay for the claim.                                                                 |
+| proofs                         | bytes32[] | The proof of the claimer&#39;s inclusion in the merkle root allowlist of the claim conditions that apply. |
+| proofMaxQuantityPerTransaction | uint256   | (Optional) The maximum number of NFTs an address included in an allowlist can claim.                      |
 
 ### getApproved
 
@@ -191,15 +193,15 @@ _Approve or remove `operator` as an operator for the caller. Operators can call 
 ### setClaimConditions
 
 ```solidity
-function setClaimConditions(IDropClaimCondition.ClaimCondition[] phases, bool resetClaimEligibility) external nonpayable
+function setClaimConditions(IDropClaimCondition_V2.ClaimCondition[] phases, bool resetClaimEligibility) external nonpayable
 ```
 
 #### Parameters
 
-| Name                  | Type                                 | Description |
-| --------------------- | ------------------------------------ | ----------- |
-| phases                | IDropClaimCondition.ClaimCondition[] | undefined   |
-| resetClaimEligibility | bool                                 | undefined   |
+| Name                  | Type                                    | Description |
+| --------------------- | --------------------------------------- | ----------- |
+| phases                | IDropClaimCondition_V2.ClaimCondition[] | undefined   |
+| resetClaimEligibility | bool                                    | undefined   |
 
 ### supportsInterface
 
@@ -270,16 +272,16 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 ### ClaimConditionsUpdated
 
 ```solidity
-event ClaimConditionsUpdated(IDropClaimCondition.ClaimCondition[] claimConditions)
+event ClaimConditionsUpdated(IDropClaimCondition_V2.ClaimCondition[] claimConditions)
 ```
 
 _Emitted when new claim conditions are set._
 
 #### Parameters
 
-| Name            | Type                                 | Description |
-| --------------- | ------------------------------------ | ----------- |
-| claimConditions | IDropClaimCondition.ClaimCondition[] | undefined   |
+| Name            | Type                                    | Description |
+| --------------- | --------------------------------------- | ----------- |
+| claimConditions | IDropClaimCondition_V2.ClaimCondition[] | undefined   |
 
 ### MaxTotalSupplyUpdated
 
@@ -294,6 +296,20 @@ _Emitted when the global max supply of tokens is updated._
 | Name           | Type    | Description |
 | -------------- | ------- | ----------- |
 | maxTotalSupply | uint256 | undefined   |
+
+### MaxWalletClaimCountUpdated
+
+```solidity
+event MaxWalletClaimCountUpdated(uint256 count)
+```
+
+_Emitted when the global max wallet claim count is updated._
+
+#### Parameters
+
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| count | uint256 | undefined   |
 
 ### NFTRevealed
 
@@ -358,3 +374,18 @@ event Transfer(address indexed from, address indexed to, uint256 indexed tokenId
 | from `indexed`    | address | undefined   |
 | to `indexed`      | address | undefined   |
 | tokenId `indexed` | uint256 | undefined   |
+
+### WalletClaimCountUpdated
+
+```solidity
+event WalletClaimCountUpdated(address indexed wallet, uint256 count)
+```
+
+_Emitted when the wallet claim count for an address is updated._
+
+#### Parameters
+
+| Name             | Type    | Description |
+| ---------------- | ------- | ----------- |
+| wallet `indexed` | address | undefined   |
+| count            | uint256 | undefined   |
