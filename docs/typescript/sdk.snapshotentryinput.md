@@ -29,26 +29,30 @@ SnapshotEntryInput: z.ZodObject<
         >
       >
     >;
-    price: z.ZodDefault<
-      z.ZodUnion<
-        [
-          z.ZodEffects<
-            z.ZodUnion<[z.ZodString, z.ZodNumber]>,
-            string,
-            string | number
-          >,
-          z.ZodLiteral<"unlimited">,
-        ]
+    price: z.ZodOptional<
+      z.ZodDefault<
+        z.ZodUnion<
+          [
+            z.ZodEffects<
+              z.ZodUnion<[z.ZodString, z.ZodNumber]>,
+              string,
+              string | number
+            >,
+            z.ZodLiteral<"unlimited">,
+          ]
+        >
       >
     >;
-    currencyAddress: z.ZodDefault<z.ZodEffects<z.ZodString, string, string>>;
+    currencyAddress: z.ZodOptional<
+      z.ZodDefault<z.ZodEffects<z.ZodString, string, string>>
+    >;
   },
   "strip",
   z.ZodTypeAny,
   {
+    price?: string | undefined;
+    currencyAddress?: string | undefined;
     address: string;
-    price: string;
-    currencyAddress: string;
     maxClaimable: string;
   },
   {
