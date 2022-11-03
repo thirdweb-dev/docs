@@ -11,7 +11,7 @@ displayed_sidebar: react
 
 > This feature is currently in beta and may change based on feedback that we receive.
 
-Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.
+Use this to get the active claim condition for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.
 
 ## Example 1
 
@@ -73,11 +73,11 @@ export declare function useActiveClaimCondition(
 
 ## Parameters
 
-| Parameter | Type                                                                                     | Description                                                                                                                  |
-| --------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;[DropContract](./react.dropcontract.md)&gt; | an instance of a contract that extends the ERC721 or ERC1155 spec and implements the <code>claimConditions</code> extension. |
-| tokenId   | BigNumberish                                                                             | <i>(Optional)</i> the id of the token to fetch the claim conditions for (if the contract is an ERC1155 contract)             |
-| options   | ClaimConditionFetchOptions                                                               | <i>(Optional)</i>                                                                                                            |
+| Parameter | Type                                                                                     | Description                                                                                                                         |
+| --------- | ---------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;[DropContract](./react.dropcontract.md)&gt; | an instance of a contract that extends the ERC721, ERC1155 or ERC20 spec and implements the <code>claimConditions</code> extension. |
+| tokenId   | BigNumberish                                                                             | <i>(Optional)</i> the id of the token to fetch the claim conditions for (if the contract is an ERC1155 contract)                    |
+| options   | ClaimConditionFetchOptions                                                               | <i>(Optional)</i>                                                                                                                   |
 
 **Returns:**
 

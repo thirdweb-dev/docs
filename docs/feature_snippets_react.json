@@ -499,7 +499,7 @@
   "ERC721ClaimableWithConditions": [
     {
       "name": "useActiveClaimCondition",
-      "summary": "Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "summary": "Use this to get the active claim condition for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
       "remarks": null,
       "examples": {
         "javascript": "const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition(<YourERC1155ContractInstance>, <tokenId>);"
@@ -510,13 +510,24 @@
     },
     {
       "name": "useClaimConditions",
-      "summary": "Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "summary": "Use this to get all claim conditions for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
       "remarks": null,
       "examples": {
         "javascript": "const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC1155ContractInstance>, <tokenId>);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimconditions"
+      }
+    },
+    {
+      "name": "useClaimerProofs",
+      "summary": "Use this to get the claimer proofs for an adddress for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: claimerProofs, isLoading, error } = useClaimerProofs(<YourERC1155ContractInstance>, <tokenId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimerproofs"
       }
     },
     {
@@ -556,7 +567,7 @@
   "ERC1155ClaimableWithConditions": [
     {
       "name": "useActiveClaimCondition",
-      "summary": "Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "summary": "Use this to get the active claim condition for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
       "remarks": null,
       "examples": {
         "javascript": "const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition(<YourERC1155ContractInstance>, <tokenId>);"
@@ -567,13 +578,24 @@
     },
     {
       "name": "useClaimConditions",
-      "summary": "Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "summary": "Use this to get all claim conditions for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
       "remarks": null,
       "examples": {
         "javascript": "const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC1155ContractInstance>, <tokenId>);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimconditions"
+      }
+    },
+    {
+      "name": "useClaimerProofs",
+      "summary": "Use this to get the claimer proofs for an adddress for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: claimerProofs, isLoading, error } = useClaimerProofs(<YourERC1155ContractInstance>, <tokenId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimerproofs"
       }
     },
     {
@@ -613,7 +635,7 @@
   "ERC20ClaimableWithConditions": [
     {
       "name": "useActiveClaimCondition",
-      "summary": "Use this to get the active claim conditon for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "summary": "Use this to get the active claim condition for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
       "remarks": null,
       "examples": {
         "javascript": "const { data: activeClaimCondition, isLoading, error } = useActiveClaimCondition(<YourERC1155ContractInstance>, <tokenId>);"
@@ -624,13 +646,24 @@
     },
     {
       "name": "useClaimConditions",
-      "summary": "Use this to get all claim conditons for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "summary": "Use this to get all claim conditions for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
       "remarks": null,
       "examples": {
         "javascript": "const { data: claimConditions, isLoading, error } = useClaimConditions(<YourERC1155ContractInstance>, <tokenId>);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimconditions"
+      }
+    },
+    {
+      "name": "useClaimerProofs",
+      "summary": "Use this to get the claimer proofs for an adddress for ERC20, ERC721 or ERC1155 based contracts. They need to extend the `claimCondition` extension for this hook to work.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: claimerProofs, isLoading, error } = useClaimerProofs(<YourERC1155ContractInstance>, <tokenId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useclaimerproofs"
       }
     },
     {
