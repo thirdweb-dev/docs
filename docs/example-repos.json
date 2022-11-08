@@ -627,7 +627,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-11-07T07:03:24Z",
+    "updated_at": "2022-11-07T23:46:14Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "contract-kit",
@@ -640,7 +640,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 61,
+    "stargazers_count": 62,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -684,13 +684,13 @@
     "html_url": "https://github.com/thirdweb-example/reddit",
     "description": "Create a seamless user experience with email sign in and pay the gas for minting NFTs.",
     "created_at": "2022-11-05T01:31:43Z",
-    "updated_at": "2022-11-05T03:11:04Z",
+    "updated_at": "2022-11-07T21:50:29Z",
     "clone_url": "https://github.com/thirdweb-example/reddit.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": "https://reddit.thirdweb-example.com/"
   },
@@ -754,7 +754,7 @@
     "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2022-10-23T20:05:22Z",
+    "updated_at": "2022-11-08T02:34:00Z",
     "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
@@ -763,7 +763,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 19,
+    "stargazers_count": 20,
     "is_template": false,
     "homepage": "https://signature-based-minting.thirdweb-example.com"
   },
@@ -1021,6 +1021,19 @@
     "stargazers_count": 3,
     "is_template": false,
     "homepage": "https://token-drop.thirdweb-example.com"
+  },
+  {
+    "name": "updatable-nft-metadata",
+    "html_url": "https://github.com/thirdweb-example/updatable-nft-metadata",
+    "description": null,
+    "created_at": "2022-11-08T03:48:09Z",
+    "updated_at": "2022-11-08T06:02:12Z",
+    "clone_url": "https://github.com/thirdweb-example/updatable-nft-metadata.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": null
   },
   {
     "name": "vite-javascript-starter",
