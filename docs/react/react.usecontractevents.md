@@ -20,7 +20,7 @@ export declare function useContractEvents(
   contract: RequiredParam<ValidContractInstance>,
   eventName?: string,
   options?: {
-    queryFilter?: EventQueryFilter;
+    queryFilter?: EventQueryOptions;
     subscribe?: boolean;
   },
 ): UseQueryResult<ContractEvent<Record<string, any>>[], unknown>;
@@ -32,7 +32,7 @@ export declare function useContractEvents(
 | --------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------- |
 | contract  | [RequiredParam](./react.requiredparam.md)&lt;ValidContractInstance&gt; | the instance of the contract to listen to events for                                                                                     |
 | eventName | string                                                                 | <i>(Optional)</i> the name of the event to query for (omit this or pass <code>undefined</code> to query for all events)                  |
-| options   | { queryFilter?: EventQueryFilter; subscribe?: boolean; }               | <i>(Optional)</i> options incldues the filters () for the query as well as if you want to subscribe to real-time updates (default: true) |
+| options   | { queryFilter?: EventQueryOptions; subscribe?: boolean; }              | <i>(Optional)</i> options incldues the filters () for the query as well as if you want to subscribe to real-time updates (default: true) |
 
 **Returns:**
 

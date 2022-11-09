@@ -100,7 +100,7 @@ displayed_sidebar: typescript
 | [AuctionListing](./sdk.auctionlisting.md)                                       | Represents a new marketplace auction listing.                                                            |
 | [BatchToReveal](./sdk.batchtoreveal.md)                                         |                                                                                                          |
 | [DirectListing](./sdk.directlisting.md)                                         | Represents a marketplace direct listing.                                                                 |
-| [EventQueryFilter](./sdk.eventqueryfilter.md)                                   | Filters for querying past events                                                                         |
+| [EventQueryOptions](./sdk.eventqueryoptions.md)                                 | Filters for querying past events                                                                         |
 | [GaslessTransaction](./sdk.gaslesstransaction.md)                               | transaction message contains information that's needed to execute a gasless transaction                  |
 | [MarketplaceContractDeployMetadata](./sdk.marketplacecontractdeploymetadata.md) | Options for deploying a Marketplace contract                                                             |
 | [MarketplaceFilter](./sdk.marketplacefilter.md)                                 |                                                                                                          |

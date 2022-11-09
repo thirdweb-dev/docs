@@ -27,14 +27,14 @@ console.log(events[0].data);
 **Signature:**
 
 ```typescript
-getAllEvents<TEvent extends Record<string, any>>(filters?: EventQueryFilter): Promise<ContractEvent<TEvent>[]>;
+getAllEvents<TEvent extends Record<string, any>>(filters?: Omit<EventQueryOptions, "filters">): Promise<ContractEvent<TEvent>[]>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                          | Description                                                                                       |
-| --------- | --------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| filters   | [EventQueryFilter](./sdk.eventqueryfilter.md) | <i>(Optional)</i> Specify the from and to block numbers to get events for, defaults to all blocks |
+| Parameter | Type                                                                   | Description                                                                                       |
+| --------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
+| filters   | Omit&lt;[EventQueryOptions](./sdk.eventqueryoptions.md), "filters"&gt; | <i>(Optional)</i> Specify the from and to block numbers to get events for, defaults to all blocks |
 
 **Returns:**
 

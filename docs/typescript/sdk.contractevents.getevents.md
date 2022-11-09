@@ -16,12 +16,20 @@ Get Events
 ```javascript
 // The name of the event to get logs for
 const eventName = "Transfer";
-// Optionally pass in filters to limit the blocks from which events are retrieved
-const filters = {
+
+// Optionally pass in options to limit the blocks from which events are retrieved
+const options = {
   fromBlock: 0,
-  toBlock: 1000000,
+  toBlock: 1000000, // can also pass "latest"
+  order: "desc",
+  // Configure event filters (filter on indexed event parameters)
+  filters: {
+    from: "0x...",
+    to: "0x...",
+  },
 };
-const events = await contract.events.getEvents(eventName, filters);
+
+const events = await contract.events.getEvents(eventName, options);
 console.log(events[0].eventName);
 console.log(events[0].data);
 ```
@@ -29,15 +37,15 @@ console.log(events[0].data);
 **Signature:**
 
 ```typescript
-getEvents<TEvent extends Record<string, any>>(eventName: string, filters?: EventQueryFilter): Promise<ContractEvent<TEvent>[]>;
+getEvents<TEvent extends Record<string, any> = Record<string, any>, TFilter extends Record<string, any> = Record<string, any>>(eventName: string, options?: EventQueryOptions<TFilter>): Promise<ContractEvent<TEvent>[]>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                          | Description                                                                                        |
-| --------- | --------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| eventName | string                                        | The name of the event to get logs for                                                              |
-| filters   | [EventQueryFilter](./sdk.eventqueryfilter.md) | <i>(Optional)</i> Specify the from and to block numbers to get events for, defaults to all blocks. |
+| Parameter | Type                                                           | Description                                                                                        |
+| --------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| eventName | string                                                         | The name of the event to get logs for                                                              |
+| options   | [EventQueryOptions](./sdk.eventqueryoptions.md)&lt;TFilter&gt; | <i>(Optional)</i> Specify the from and to block numbers to get events for, defaults to all blocks. |
 
 **Returns:**
 

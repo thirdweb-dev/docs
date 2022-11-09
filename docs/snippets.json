@@ -2947,10 +2947,10 @@
         "summary": "Get Events\n\n",
         "remarks": "\n\nGet a list of the events of a specific type emitted from this contract during the specified time period\n\n",
         "examples": {
-          "javascript": "// The name of the event to get logs for\nconst eventName = \"Transfer\";\n// Optionally pass in filters to limit the blocks from which events are retrieved\nconst filters = {\n  fromBlock: 0,\n  toBlock: 1000000,\n}\nconst events = await contract.events.getEvents(eventName, filters);\nconsole.log(events[0].eventName);\nconsole.log(events[0].data);",
+          "javascript": "// The name of the event to get logs for\nconst eventName = \"Transfer\";\n\n// Optionally pass in options to limit the blocks from which events are retrieved\nconst options = {\n  fromBlock: 0,\n  toBlock: 1000000, // can also pass \"latest\"\n  order: \"desc\",\n  // Configure event filters (filter on indexed event parameters)\n  filters: {\n    from: \"0x...\",\n    to: \"0x...\"\n  }\n};\n\nconst events = await contract.events.getEvents(eventName, options);\nconsole.log(events[0].eventName);\nconsole.log(events[0].data);",
           "python": "",
           "go": "",
-          "react": "// The name of the event to get logs for\nconst eventName = \"Transfer\";\n// Optionally pass in filters to limit the blocks from which events are retrieved\nconst filters = {\n  fromBlock: 0,\n  toBlock: 1000000,\n}\nconst events = await contract.events.getEvents(eventName, filters);\nconsole.log(events[0].eventName);\nconsole.log(events[0].data);"
+          "react": "// The name of the event to get logs for\nconst eventName = \"Transfer\";\n\n// Optionally pass in options to limit the blocks from which events are retrieved\nconst options = {\n  fromBlock: 0,\n  toBlock: 1000000, // can also pass \"latest\"\n  order: \"desc\",\n  // Configure event filters (filter on indexed event parameters)\n  filters: {\n    from: \"0x...\",\n    to: \"0x...\"\n  }\n};\n\nconst events = await contract.events.getEvents(eventName, options);\nconsole.log(events[0].eventName);\nconsole.log(events[0].data);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractevents.getevents",
