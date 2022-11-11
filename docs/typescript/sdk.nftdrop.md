@@ -17,7 +17,7 @@ Setup a collection of one-of-one NFTs that are minted as users claim them.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getContract("{{contract_address}}", "nft-drop");
+const contract = await sdk.getContract("{{contract_address}}", "nft-drop");
 ```
 
 ## Constructors

@@ -17,7 +17,10 @@ Create a collection of one-of-one NFTs.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getContract("{{contract_address}}", "nft-collection");
+const contract = await sdk.getContract(
+  "{{contract_address}}",
+  "nft-collection",
+);
 ```
 
 ## Constructors
