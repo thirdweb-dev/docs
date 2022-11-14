@@ -17,7 +17,7 @@ Create lootboxes of NFTs with rarity based open mechanics.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getContract("{{contract_address}}", "pack");
+const contract = await sdk.getContract("{{contract_address}}", "pack");
 ```
 
 ## Constructors

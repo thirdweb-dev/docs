@@ -17,7 +17,10 @@ Setup a collection of NFTs where when it comes to minting, you can authorize som
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getContract("{{contract_address}}", "signature-drop");
+const contract = await sdk.getContract(
+  "{{contract_address}}",
+  "signature-drop",
+);
 ```
 
 ## Constructors

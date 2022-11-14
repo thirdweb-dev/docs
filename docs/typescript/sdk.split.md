@@ -17,7 +17,7 @@ Create custom royalty splits to distribute funds.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getContract("{{contract_address}}", "split");
+const contract = await sdk.getContract("{{contract_address}}", "split");
 ```
 
 ## Constructors

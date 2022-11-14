@@ -19,7 +19,7 @@ Multiwrap lets you wrap any number of ERC20, ERC721 and ERC1155 tokens you own i
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getContract("{{contract_address}}", "multiwrap");
+const contract = await sdk.getContract("{{contract_address}}", "multiwrap");
 ```
 
 ## Constructors

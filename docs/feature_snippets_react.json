@@ -346,7 +346,7 @@
       "summary": "Hook for getting an instance of an `NFTCollection` contract. This contract is meant to interface with ERC721 compliant NFTs.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useNFTCollection(\"<YOUR-CONTRACT-ADDRESS>\", \"nft-collection\")\n\n  // Now you can use the nftCollection contract in the rest of the component\n\n  // For example, this function will return all the NFTs on this contract\n  async function getNFTs() {\n    const nfts = await contract.getAll()\n    return nfts\n  }\n\n  ...\n}"
+        "javascript": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract, isLoading, error } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"nft-collection\")\n\n  // Now you can use the nftCollection contract in the rest of the component\n\n  // For example, this function will return all the NFTs on this contract\n  async function getNFTs() {\n    const nfts = await contract.getAll()\n    return nfts\n  }\n\n  ...\n}"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usenftcollection"

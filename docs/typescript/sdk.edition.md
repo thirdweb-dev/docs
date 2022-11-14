@@ -17,7 +17,7 @@ Create a collection of NFTs that lets you mint multiple copies of each NFT.
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getContract("{{contract_address}}", "edition");
+const contract = await sdk.getContract("{{contract_address}}", "edition");
 ```
 
 ## Constructors
