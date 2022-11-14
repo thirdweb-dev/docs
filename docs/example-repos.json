@@ -260,7 +260,7 @@
     "html_url": "https://github.com/thirdweb-example/firebase-auth",
     "description": "Integrate sign in with Ethereum using thirdweb Auth into your Firebase application",
     "created_at": "2022-09-09T03:34:01Z",
-    "updated_at": "2022-11-04T16:26:06Z",
+    "updated_at": "2022-11-10T10:03:53Z",
     "clone_url": "https://github.com/thirdweb-example/firebase-auth.git",
     "topics": [
       "auth",
@@ -268,7 +268,7 @@
       "web2"
     ],
     "language": "TypeScript",
-    "stargazers_count": 5,
+    "stargazers_count": 6,
     "is_template": false,
     "homepage": "https://firebase-auth.thirdweb-example.com/"
   },
@@ -554,7 +554,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2022-11-07T12:46:16Z",
+    "updated_at": "2022-11-10T23:36:24Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -567,7 +567,7 @@
       "web3js"
     ],
     "language": "CSS",
-    "stargazers_count": 28,
+    "stargazers_count": 30,
     "is_template": true,
     "homepage": "https://next-typescript-starter.thirdweb-example.com"
   },
@@ -576,13 +576,13 @@
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2022-11-04T06:24:19Z",
+    "updated_at": "2022-11-11T11:45:25Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 50,
+    "stargazers_count": 51,
     "is_template": false,
     "homepage": "https://custom-minting-page.thirdweb-example.com"
   },
@@ -697,10 +697,10 @@
     "html_url": "https://github.com/thirdweb-example/react-native-javascript-starter",
     "description": null,
     "created_at": "2022-11-09T06:00:00Z",
-    "updated_at": "2022-11-09T06:00:00Z",
+    "updated_at": "2022-11-10T20:22:32Z",
     "clone_url": "https://github.com/thirdweb-example/react-native-javascript-starter.git",
     "topics": [],
-    "language": null,
+    "language": "JavaScript",
     "stargazers_count": 0,
     "is_template": false,
     "homepage": null
@@ -710,11 +710,11 @@
     "html_url": "https://github.com/thirdweb-example/react-native-typescript-starter",
     "description": null,
     "created_at": "2022-11-02T02:03:17Z",
-    "updated_at": "2022-11-09T06:00:21Z",
+    "updated_at": "2022-11-09T23:21:30Z",
     "clone_url": "https://github.com/thirdweb-example/react-native-typescript-starter.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": null
   },
@@ -970,7 +970,7 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-postgres",
     "description": "Enable users to login to your backend with their wallet, and store users in postgres",
     "created_at": "2022-09-07T20:07:34Z",
-    "updated_at": "2022-09-29T01:27:13Z",
+    "updated_at": "2022-11-10T10:00:58Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-postgres.git",
     "topics": [
       "auth",
@@ -978,7 +978,7 @@
       "web2"
     ],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": ""
   },

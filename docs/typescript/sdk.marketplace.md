@@ -17,7 +17,7 @@ Create your own whitelabel marketplace that enables users to buy and sell any di
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getContract("{{contract_address}}", "marketplace");
+const contract = await sdk.getContract("{{contract_address}}", "marketplace");
 ```
 
 ## Constructors

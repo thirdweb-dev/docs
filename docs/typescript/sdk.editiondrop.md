@@ -17,7 +17,7 @@ Setup a collection of NFTs with a customizable number of each NFT that are minte
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
 const sdk = new ThirdwebSDK("{{chainName}}");
-const contract = sdk.getContract("{{contract_address}}", "edition-drop");
+const contract = await sdk.getContract("{{contract_address}}", "edition-drop");
 ```
 
 ## Constructors
