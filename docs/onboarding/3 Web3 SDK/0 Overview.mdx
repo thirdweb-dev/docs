@@ -4,6 +4,7 @@ title: Overview
 ---
 
 import SupportedLanguagesSection from "@components/SupportedLanguagesSection";
+import YoutubeEmbed from "@components/YoutubeEmbed";
 
 <div className="heroGrid" style={{ alignItems: "flex-start" }}>
   <div style={{ width: "86%" }}>
@@ -14,19 +15,20 @@ import SupportedLanguagesSection from "@components/SupportedLanguagesSection";
       <li>Connecting to user's wallets</li>
       <li>Deploying and interacting with smart contracts</li>
       <li>
-        Utilizing the <a href="/contractkit/features">extensions</a> you
+        Utilizing the <a href="/contractkit/features">features</a> you
         implemented in Solidity
       </li>
     </ul>
-    <p>
-      We support the most popular languages <i>(and are working on more)</i> to
-      make it easier for you to build different kinds of applications.
-    </p>
   </div>
-  <p style={{ marginTop: "-16px" }}>
-    <SupportedLanguagesSection />
-  </p>
+  <div className="heroGridImageContainer">
+    <YoutubeEmbed link={"https://www.youtube.com/embed/Ti_wdhHn42Q"} />
+  </div>
 </div>
+<p>
+  We support the following languages <i>(and are working on more)</i> to make it
+  easier for you to build applications.
+</p>
+<SupportedLanguagesSection />
 
 ## Quick Start
 

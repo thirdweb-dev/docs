@@ -269,6 +269,15 @@ const config = {
         darkTheme: darkCodeTheme,
       },
     }),
+
+  scripts: [
+    {
+      src: "https://thirdweb.com/js/pl.js",
+      defer: true,
+      "data-domain": "portal.thirdweb.com",
+      "data-api": "https://pl.thirdweb.com/api/event",
+    },
+  ],
 };
 
 module.exports = config;

@@ -19,10 +19,11 @@ export default function SupportedLanguagesSection() {
     <div className="row supported-language-section">
       {["JavaScript", "React", "Python", "Go"].map((lang) => (
         <a
-          className="col col--12 card"
+          className="col col--3 card"
           key={lang}
           href={languageToUrlMapping[lang]}
           aria-label={`${lang} SDK`}
+          style={{ flex: 1 }}
         >
           <div className="card__body">
             <img
