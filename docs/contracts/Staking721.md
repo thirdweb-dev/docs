@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # Staking721
 
+note: This is a Beta release.
+
 ## Methods
 
 ### claimRewards
