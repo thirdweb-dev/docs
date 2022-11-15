@@ -130,7 +130,7 @@
     "html_url": "https://github.com/thirdweb-example/cra-javascript-starter",
     "description": "thirdweb starter project with Create React App & JavaScript",
     "created_at": "2022-03-18T00:31:36Z",
-    "updated_at": "2022-10-13T20:23:35Z",
+    "updated_at": "2022-11-15T20:15:02Z",
     "clone_url": "https://github.com/thirdweb-example/cra-javascript-starter.git",
     "topics": [
       "javascript",
@@ -138,7 +138,7 @@
       "starter-kit"
     ],
     "language": "JavaScript",
-    "stargazers_count": 16,
+    "stargazers_count": 17,
     "is_template": true,
     "homepage": "https://cra-javascript-starter.thirdweb-example.com"
   },
@@ -215,7 +215,7 @@
     "html_url": "https://github.com/thirdweb-example/discord-role-granter",
     "description": "Grant users who own NFTs a role in your Discord server!",
     "created_at": "2022-07-22T03:52:48Z",
-    "updated_at": "2022-09-29T01:24:38Z",
+    "updated_at": "2022-11-15T01:34:32Z",
     "clone_url": "https://github.com/thirdweb-example/discord-role-granter.git",
     "topics": [
       "auth",
@@ -223,7 +223,7 @@
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": "https://discord-role-granter.thirdweb-example.com/"
   },
@@ -245,13 +245,13 @@
     "html_url": "https://github.com/thirdweb-example/edition-drop",
     "description": "Starter kit for using the Edition Drop Pre-Built contract",
     "created_at": "2022-07-05T01:19:38Z",
-    "updated_at": "2022-09-26T16:58:56Z",
+    "updated_at": "2022-11-15T12:46:35Z",
     "clone_url": "https://github.com/thirdweb-example/edition-drop.git",
     "topics": [
       "edition-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": "https://edition-drop.thirdweb-example.com"
   },
@@ -394,13 +394,13 @@
     "html_url": "https://github.com/thirdweb-example/lens",
     "description": "Starter kit for using Lens Protocol with the thirdweb SDK!",
     "created_at": "2022-10-27T10:15:02Z",
-    "updated_at": "2022-11-06T16:46:06Z",
+    "updated_at": "2022-11-15T07:44:43Z",
     "clone_url": "https://github.com/thirdweb-example/lens.git",
     "topics": [
       "lens-protocol"
     ],
     "language": "TypeScript",
-    "stargazers_count": 13,
+    "stargazers_count": 15,
     "is_template": false,
     "homepage": "https://lens.thirdweb-example.com/"
   },
@@ -677,7 +677,7 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2022-10-29T09:55:58Z",
+    "updated_at": "2022-11-15T10:48:00Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [
       "contract-kit",
@@ -688,7 +688,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 19,
+    "stargazers_count": 20,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },
@@ -793,7 +793,7 @@
     "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2022-11-08T02:34:00Z",
+    "updated_at": "2022-11-15T20:42:45Z",
     "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
@@ -802,7 +802,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 20,
+    "stargazers_count": 19,
     "is_template": false,
     "homepage": "https://signature-based-minting.thirdweb-example.com"
   },
@@ -954,14 +954,14 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-next-auth",
     "description": "Enable wallet-based login with thirdweb Auth & Next Auth",
     "created_at": "2022-08-30T21:44:52Z",
-    "updated_at": "2022-11-13T07:58:15Z",
+    "updated_at": "2022-11-15T20:40:42Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-next-auth.git",
     "topics": [
       "auth",
       "nextauth"
     ],
     "language": "TypeScript",
-    "stargazers_count": 4,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": ""
   },
