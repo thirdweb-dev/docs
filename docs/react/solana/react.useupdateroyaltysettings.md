@@ -37,9 +37,10 @@ export default function Component() {
 export declare function useUpdateRoyaltySettings(
   program: RequiredParam<NFTCollection | NFTDrop>,
 ): import("@tanstack/react-query").UseMutationResult<
-  {
-    signature: string;
-  },
+  | import("@thirdweb-dev/sdk/solana").TransactionResult[]
+  | {
+      signature: string;
+    },
   unknown,
   number,
   unknown
@@ -54,4 +55,4 @@ export declare function useUpdateRoyaltySettings(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;{ signature: string; }, unknown, number, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/solana").TransactionResult\[\] \| { signature: string; }, unknown, number, unknown&gt;

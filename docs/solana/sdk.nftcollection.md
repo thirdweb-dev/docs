@@ -62,5 +62,5 @@ const program = await sdk.getProgram("{{program_address}}", "nft-collection");
 | [ownerOf(nftAddress)](./sdk.nftcollection.ownerof.md)                                           |           | Get the current owner of the given NFT                    |
 | [supplyOf(nftAddress)](./sdk.nftcollection.supplyof.md)                                         |           | Get the supply of NFT editions minted from a specific NFT |
 | [transfer(receiverAddress, nftAddress)](./sdk.nftcollection.transfer.md)                        |           | Transfer the specified NFTs to another wallet             |
-| [updateCreators(creators)](./sdk.nftcollection.updatecreators.md)                               |           | Update the creators of the collection                     |
-| [updateRoyalty(sellerFeeBasisPoints)](./sdk.nftcollection.updateroyalty.md)                     |           | Update the royalty basis points of the collection         |
+| [updateCreators(creators, updateAll)](./sdk.nftcollection.updatecreators.md)                    |           | Update the creators of the collection                     |
+| [updateRoyalty(sellerFeeBasisPoints, updateAll)](./sdk.nftcollection.updateroyalty.md)          |           | Update the royalty basis points of the collection         |
