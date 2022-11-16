@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-featureName: "ERC721ClaimableWithConditionsV2";
+featureName: "ERC721ClaimConditionsV2";
 ```

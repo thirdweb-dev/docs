@@ -29,7 +29,7 @@ export declare class Erc1155LazyMintable implements DetectableFeature
 | ----------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------- | ------------------------------------------- |
 | [claim](./sdk.erc1155lazymintable.claim.md)                             |           | ERC1155Claimable &#124; undefined                                                        |                                             |
 | [claimWithConditions](./sdk.erc1155lazymintable.claimwithconditions.md) |           | Erc1155ClaimableWithConditions &#124; undefined                                          | Claim tokens and configure claim conditions |
-| [featureName](./sdk.erc1155lazymintable.featurename.md)                 |           | "ERC1155LazyMintable"                                                                    |                                             |
+| [featureName](./sdk.erc1155lazymintable.featurename.md)                 |           | "ERC1155LazyMintableV2"                                                                  |                                             |
 | [revealer](./sdk.erc1155lazymintable.revealer.md)                       |           | [DelayedReveal](./sdk.delayedreveal.md)&lt;BaseDelayedRevealERC1155&gt; &#124; undefined | Delayed reveal                              |
 
 ## Methods

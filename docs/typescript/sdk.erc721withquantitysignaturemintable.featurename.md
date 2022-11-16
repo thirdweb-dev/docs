@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-featureName: "ERC721SignatureMint";
+featureName: "ERC721SignatureMintV2";
 ```

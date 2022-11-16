@@ -18,7 +18,10 @@ featureName: "ERC1155" |
   "ERC20Burnable" |
   "ERC20Mintable" |
   "ERC20BatchMintable" |
-  "ERC20ClaimableWithConditions" |
+  "ERC20ClaimConditionsV1" |
+  "ERC20ClaimConditionsV2" |
+  "ERC20ClaimPhasesV1" |
+  "ERC20ClaimPhasesV2" |
   "ERC20SignatureMintable" |
   "ERC721Burnable" |
   "ERC721Supply" |
@@ -27,19 +30,26 @@ featureName: "ERC1155" |
   "ERC721BatchMintable" |
   "ERC721LazyMintable" |
   "ERC721Revealable" |
-  "ERC721Claimable" |
-  "ERC721ClaimableWithConditionsV2" |
-  "ERC721ClaimableWithConditionsV1" |
-  "ERC721SignatureMint" |
+  "ERC721ClaimCustom" |
+  "ERC721ClaimConditionsV1" |
+  "ERC721ClaimConditionsV2" |
+  "ERC721ClaimPhasesV1" |
+  "ERC721ClaimPhasesV2" |
+  "ERC721SignatureMintV1" |
+  "ERC721SignatureMintV2" |
   "ERC721TieredDrop" |
   "ERC1155Burnable" |
   "ERC1155Enumerable" |
   "ERC1155Mintable" |
   "ERC1155BatchMintable" |
-  "ERC1155LazyMintable" |
-  "ERC1155Claimable" |
-  "ERC1155ClaimableWithConditions" |
+  "ERC1155LazyMintableV1" |
+  "ERC1155ClaimPhasesV1" |
+  "ERC1155LazyMintableV2" |
   "ERC1155Revealable" |
+  "ERC1155ClaimCustom" |
+  "ERC1155ClaimConditionsV1" |
+  "ERC1155ClaimConditionsV2" |
+  "ERC1155ClaimPhasesV2" |
   "ERC1155SignatureMintable" |
   "Royalty" |
   "PlatformFee" |

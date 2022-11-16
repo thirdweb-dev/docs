@@ -129,6 +129,7 @@ displayed_sidebar: typescript
 | Variable                                                              | Description |
 | --------------------------------------------------------------------- | ----------- |
 | [ALL_ROLES](./sdk.all_roles.md)                                       |             |
+| [APPROVED_IMPLEMENTATIONS](./sdk.approved_implementations.md)         |             |
 | [CHAIN_ID_TO_NAME](./sdk.chain_id_to_name.md)                         |             |
 | [CHAIN_NAME_TO_ID](./sdk.chain_name_to_id.md)                         |             |
 | [CONTRACTS_MAP](./sdk.contracts_map.md)                               |             |
@@ -162,6 +163,7 @@ displayed_sidebar: typescript
 
 | Type Alias                                                                              | Description                                                                          |
 | --------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ |
+| [Abi](./sdk.abi.md)                                                                     |                                                                                      |
 | [AbiEvent](./sdk.abievent.md)                                                           |                                                                                      |
 | [AbiFunction](./sdk.abifunction.md)                                                     |                                                                                      |
 | [AbstractClaimConditionContractStruct](./sdk.abstractclaimconditioncontractstruct.md)   |                                                                                      |
