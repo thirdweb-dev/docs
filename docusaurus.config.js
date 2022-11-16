@@ -157,6 +157,18 @@ const config = {
         // ... other options
       },
     ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "unity",
+        path: "docs/unity",
+        routeBasePath: "unity",
+        sidebarPath: require.resolve("./sidebars/unity.js"),
+        remarkPlugins: [[npm2yarn, { sync: true }]],
+        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
+        // ... other options
+      },
+    ],
     "posthog-docusaurus",
     "docusaurus-plugin-sass",
     [
