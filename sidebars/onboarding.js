@@ -83,8 +83,8 @@ const sidebars = {
     },
     {
       type: "link",
-      label: "Gaming Kit",
-      href: "/gaming-kit",
+      label: "GamingKit",
+      href: "/gamingkit",
     },
     {
       type: "link",
