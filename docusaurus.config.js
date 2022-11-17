@@ -276,7 +276,7 @@ const config = {
         copyright: `Copyright © ${new Date().getFullYear()} thirdweb, Inc.`,
       },
       prism: {
-        additionalLanguages: ["solidity"],
+        additionalLanguages: ["solidity", "csharp"],
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
       },

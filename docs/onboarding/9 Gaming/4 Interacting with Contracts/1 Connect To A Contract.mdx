@@ -1,0 +1,40 @@
+---
+slug: /gaming-kit/interact-with-contracts/connect-to-a-contract
+title: Connect To A Contract
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+# Connect To A Contract
+
+For smart contracts deployed using thirdweb via the [dashboard](/dashboard) or [deploy](/deploy),
+provide it's address to the `GetContract` method to get a contract instance.
+
+```csharp
+// Ensure your sdk is initialized to the same network as the contract
+Contract contract = sdk.GetContract("<your-smart-contract-address>");
+```
+
+The `Contract` instance has type-safe functionality to interact with your smart contracts, including:
+
+- [ERC20](/unity/ERC20)
+- [ERC721](/unity/ERC721)
+- [ERC1155](/unity/ERC1155)
+
+### Marketplaces
+
+If you're using the [Marketplace](/pre-built-contracts/marketplace), you can access that in the contract's `marketplace` field:
+
+```csharp
+Marketplace marketplace = contract.marketplace;
+```
+
+## Using Contract ABI
+
+For any smart contract that is not deployed using thirdweb, you can provide the
+contract's [ABI](https://docs.soliditylang.org/en/v0.8.16/abi-spec.html)
+as a second argument to the `GetContract` method to get an instance of it.
+
+```csharp
+Contract contract = sdk.GetContract("<your-smart-contract-address>", "<your-contract-abi>");
+```

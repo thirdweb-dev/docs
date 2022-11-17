@@ -29,6 +29,7 @@ export default function ThirdwebCodeSnippet({
         javascript: true,
         python: true,
         go: true,
+        unity: true,
         ...languages,
       };
 
