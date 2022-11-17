@@ -27,9 +27,9 @@ export declare class Erc721WithQuantitySignatureMintable implements DetectableFe
 
 ## Properties
 
-| Property                                                                | Modifiers | Type                  | Description |
-| ----------------------------------------------------------------------- | --------- | --------------------- | ----------- |
-| [featureName](./sdk.erc721withquantitysignaturemintable.featurename.md) |           | "ERC721SignatureMint" |             |
+| Property                                                                | Modifiers | Type                    | Description |
+| ----------------------------------------------------------------------- | --------- | ----------------------- | ----------- |
+| [featureName](./sdk.erc721withquantitysignaturemintable.featurename.md) |           | "ERC721SignatureMintV2" |             |
 
 ## Methods
 

@@ -14,7 +14,7 @@ Deploy any released contract by its name
 **Signature:**
 
 ```typescript
-deployReleasedContract(releaserAddress: string, contractName: string, constructorParams: any[]): Promise<string>;
+deployReleasedContract(releaserAddress: string, contractName: string, constructorParams: any[], version?: string): Promise<string>;
 ```
 
 ## Parameters
@@ -24,6 +24,7 @@ deployReleasedContract(releaserAddress: string, contractName: string, constructo
 | releaserAddress   | string  | the address of the releaser                    |
 | contractName      | string  | the name of the contract to deploy             |
 | constructorParams | any\[\] | the constructor params to pass to the contract |
+| version           | string  | <i>(Optional)</i>                              |
 
 **Returns:**
 

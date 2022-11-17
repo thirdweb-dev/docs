@@ -155,7 +155,7 @@ function isCodeHashOfFiltered(address registrant, address operatorWithCode) exte
 ### isOperatorAllowed
 
 ```solidity
-function isOperatorAllowed(address registrant, address operator) external nonpayable returns (bool)
+function isOperatorAllowed(address registrant, address operator) external view returns (bool)
 ```
 
 #### Parameters

@@ -30,7 +30,7 @@ await contract.erc721.claimConditions.getActive();
 | Property                                                          | Modifiers | Type                                                                                | Description                |
 | ----------------------------------------------------------------- | --------- | ----------------------------------------------------------------------------------- | -------------------------- |
 | [conditions](./sdk.erc721claimablewithconditions.conditions.md)   |           | [DropClaimConditions](./sdk.dropclaimconditions.md)&lt;BaseClaimConditionERC721&gt; | Configure claim conditions |
-| [featureName](./sdk.erc721claimablewithconditions.featurename.md) |           | "ERC721ClaimableWithConditionsV2"                                                   |                            |
+| [featureName](./sdk.erc721claimablewithconditions.featurename.md) |           | "ERC721ClaimConditionsV2"                                                           |                            |
 
 ## Methods
 

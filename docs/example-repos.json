@@ -457,7 +457,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2022-11-14T10:20:23Z",
+    "updated_at": "2022-11-16T07:01:56Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace.git",
     "topics": [
       "marketplace",
@@ -465,7 +465,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 32,
+    "stargazers_count": 34,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
@@ -591,7 +591,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-11-12T05:53:24Z",
+    "updated_at": "2022-11-16T14:20:45Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -602,7 +602,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 64,
+    "stargazers_count": 65,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -611,14 +611,14 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website-solana",
     "description": "Restrict access to content on your website to NFT Holders in Solana!",
     "created_at": "2022-10-13T03:16:16Z",
-    "updated_at": "2022-11-05T09:50:09Z",
+    "updated_at": "2022-11-16T05:41:47Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website-solana.git",
     "topics": [
       "auth",
       "solana"
     ],
     "language": "TypeScript",
-    "stargazers_count": 5,
+    "stargazers_count": 6,
     "is_template": false,
     "homepage": "https://nft-gated-website-solana.thirdweb-example.com"
   },
@@ -710,11 +710,11 @@
     "html_url": "https://github.com/thirdweb-example/react-native-typescript-starter",
     "description": null,
     "created_at": "2022-11-02T02:03:17Z",
-    "updated_at": "2022-11-12T12:10:15Z",
+    "updated_at": "2022-11-16T20:01:36Z",
     "clone_url": "https://github.com/thirdweb-example/react-native-typescript-starter.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": null
   },
@@ -811,13 +811,13 @@
     "html_url": "https://github.com/thirdweb-example/signature-drop",
     "description": "Use the signature drop pre-built contract to claim NFTs under a claim phase as well as claim using signature-based minting!",
     "created_at": "2022-07-14T23:58:52Z",
-    "updated_at": "2022-10-25T20:11:56Z",
+    "updated_at": "2022-11-16T18:13:45Z",
     "clone_url": "https://github.com/thirdweb-example/signature-drop.git",
     "topics": [
       "signature-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 7,
+    "stargazers_count": 8,
     "is_template": false,
     "homepage": "http://signature-drop.thirdweb-example.com/"
   },

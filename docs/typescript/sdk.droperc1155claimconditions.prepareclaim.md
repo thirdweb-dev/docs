@@ -14,16 +14,17 @@ Returns proofs and the overrides required for the transaction.
 **Signature:**
 
 ```typescript
-prepareClaim(tokenId: BigNumberish, quantity: BigNumberish, checkERC20Allowance: boolean): Promise<ClaimVerification>;
+prepareClaim(tokenId: BigNumberish, quantity: BigNumberish, checkERC20Allowance: boolean, address?: string): Promise<ClaimVerification>;
 ```
 
 ## Parameters
 
-| Parameter           | Type         | Description |
-| ------------------- | ------------ | ----------- |
-| tokenId             | BigNumberish |             |
-| quantity            | BigNumberish |             |
-| checkERC20Allowance | boolean      |             |
+| Parameter           | Type         | Description       |
+| ------------------- | ------------ | ----------------- |
+| tokenId             | BigNumberish |                   |
+| quantity            | BigNumberish |                   |
+| checkERC20Allowance | boolean      |                   |
+| address             | string       | <i>(Optional)</i> |
 
 **Returns:**
 
