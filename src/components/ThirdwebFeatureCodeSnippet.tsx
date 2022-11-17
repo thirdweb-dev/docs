@@ -63,6 +63,12 @@ export default function ThirdwebFeatureCodeSnippet({
       syntax: "go",
       docsLink: "https://portal.thirdweb.com/go",
     },
+    unity: {
+      label: "Unity",
+      key: "unity",
+      syntax: "csharp",
+      docsLink: "https://portal.thirdweb.com/unity",
+    },
   };
 
   return (
