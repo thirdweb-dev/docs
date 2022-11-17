@@ -160,6 +160,11 @@ const sidebars = {
         },
         {
           type: "link",
+          label: "Unity",
+          href: "/unity",
+        },
+        {
+          type: "link",
           label: "Solidity",
           href: "/contracts",
         },
