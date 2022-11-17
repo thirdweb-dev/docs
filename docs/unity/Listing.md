@@ -9,18 +9,18 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| id | variable |  |
-| sellerAddress | variable |  |
-| assetContractAddress | variable |  |
-| tokenId | variable |  |
-| asset | variable |  |
-| quantity | variable |  |
-| currencyContractAddress | variable |  |
-| buyoutPrice | variable |  |
-| buyoutCurrencyValuePerToken | variable |  |
-| type | variable |  |
+| Members                     | Type     | Descriptions |
+| --------------------------- | -------- | ------------ |
+| id                          | variable |              |
+| sellerAddress               | variable |              |
+| assetContractAddress        | variable |              |
+| tokenId                     | variable |              |
+| asset                       | variable |              |
+| quantity                    | variable |              |
+| currencyContractAddress     | variable |              |
+| buyoutPrice                 | variable |              |
+| buyoutCurrencyValuePerToken | variable |              |
+| type                        | variable |              |
 
 ### Members
 

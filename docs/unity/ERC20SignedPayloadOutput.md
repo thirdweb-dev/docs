@@ -9,16 +9,16 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| to | variable |  |
-| price | variable |  |
-| currencyAddress | variable |  |
-| primarySaleRecipient | variable |  |
-| quantity | variable |  |
-| uid | variable |  |
-| mintStartTime | variable |  |
-| mintEndTime | variable |  |
+| Members              | Type     | Descriptions |
+| -------------------- | -------- | ------------ |
+| to                   | variable |              |
+| price                | variable |              |
+| currencyAddress      | variable |              |
+| primarySaleRecipient | variable |              |
+| quantity             | variable |              |
+| uid                  | variable |              |
+| mintStartTime        | variable |              |
+| mintEndTime          | variable |              |
 
 ### Members
 

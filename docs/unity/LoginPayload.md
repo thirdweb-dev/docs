@@ -9,10 +9,10 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| payload | variable |  |
-| signature | variable |  |
+| Members   | Type     | Descriptions |
+| --------- | -------- | ------------ |
+| payload   | variable |              |
+| signature | variable |              |
 
 ### Members
 

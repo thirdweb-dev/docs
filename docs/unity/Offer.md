@@ -9,14 +9,14 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| listingId | variable |  |
-| buyerAddress | variable |  |
-| quantityDesired | variable |  |
-| pricePerToken | variable |  |
-| currencyValue | variable |  |
-| currencyContractAddress | variable |  |
+| Members                 | Type     | Descriptions |
+| ----------------------- | -------- | ------------ |
+| listingId               | variable |              |
+| buyerAddress            | variable |              |
+| quantityDesired         | variable |              |
+| pricePerToken           | variable |              |
+| currencyValue           | variable |              |
+| currencyContractAddress | variable |              |
 
 ### Members
 

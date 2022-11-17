@@ -9,11 +9,11 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| name | variable |  |
-| symbol | variable |  |
-| decimals | variable |  |
+| Members  | Type     | Descriptions |
+| -------- | -------- | ------------ |
+| name     | variable |              |
+| symbol   | variable |              |
+| decimals | variable |              |
 
 ### Members
 

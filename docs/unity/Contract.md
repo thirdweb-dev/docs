@@ -11,18 +11,18 @@ Convenient wrapper to interact with any EVM contract
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| chain | variable |  |
-| address | variable |  |
-| abi | variable |  |
-| ERC20 | variable | Call any [ERC20](docs/unity/ERC20.md#class_thirdweb_1_1_e_r_c20) supported functions |
-| ERC721 | variable | Call any [ERC721](docs/unity/ERC721.md#class_thirdweb_1_1_e_r_c721) supported functions |
-| ERC1155 | variable | Call any [ERC1155](docs/unity/ERC1155.md#class_thirdweb_1_1_e_r_c1155) supported functions |
+| Members     | Type     | Descriptions                                                                                         |
+| ----------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| chain       | variable |                                                                                                      |
+| address     | variable |                                                                                                      |
+| abi         | variable |                                                                                                      |
+| ERC20       | variable | Call any [ERC20](docs/unity/ERC20.md#class_thirdweb_1_1_e_r_c20) supported functions                 |
+| ERC721      | variable | Call any [ERC721](docs/unity/ERC721.md#class_thirdweb_1_1_e_r_c721) supported functions              |
+| ERC1155     | variable | Call any [ERC1155](docs/unity/ERC1155.md#class_thirdweb_1_1_e_r_c1155) supported functions           |
 | marketplace | variable | Call any [Marketplace](docs/unity/Marketplace.md#class_thirdweb_1_1_marketplace) supported functions |
-| Contract | function |  |
-| Read< T > | function | Read data from a contract |
-| Write | function | Execute a write transaction on a contract |
+| Contract    | function |                                                                                                      |
+| Read< T >   | function | Read data from a contract                                                                            |
+| Write       | function | Execute a write transaction on a contract                                                            |
 
 ### Members
 
@@ -62,7 +62,7 @@ Call any [Marketplace](docs/unity/Marketplace.md#class_thirdweb_1_1_marketplace)
 
 ---
 
-**`public inline  `[`Contract`](#class_thirdweb_1_1_contract_1a27550a2733b64016c83843d25fa3e5f1)`(string chain,string address,string abi)`**
+**`public inline `[`Contract`](#class_thirdweb_1_1_contract_1a27550a2733b64016c83843d25fa3e5f1)`(string chain,string address,string abi)`**
 
 ---
 
@@ -71,25 +71,29 @@ Call any [Marketplace](docs/unity/Marketplace.md#class_thirdweb_1_1_marketplace)
 Read data from a contract
 
 #### Parameters
-* `functionName` The contract function name to call
 
-* `args` The function arguments. Structs and Lists will get serialized automatically
+- `functionName` The contract function name to call
+
+- `args` The function arguments. Structs and Lists will get serialized automatically
 
 #### Returns
+
 The data deserialized to the given typed
 
 ---
 
-**`public inline async Task< `[`TransactionResult`](docs/unity/TransactionResult.md#class_thirdweb_1_1_transaction_result)` > `[`Write`](#class_thirdweb_1_1_contract_1a0d72328ca63f71f2eb420a05f23c480e)`(string functionName,params object[] args)`**
+**`public inline async Task< `[`TransactionResult`](docs/unity/TransactionResult.md#class_thirdweb_1_1_transaction_result)`>`[`Write`](#class_thirdweb_1_1_contract_1a0d72328ca63f71f2eb420a05f23c480e)`(string functionName,params object[] args)`**
 
 Execute a write transaction on a contract
 
 #### Parameters
-* `functionName` The contract function name to call
 
-* `args` The function arguments. Structs and Lists will get serialized automatically
+- `functionName` The contract function name to call
+
+- `args` The function arguments. Structs and Lists will get serialized automatically
 
 #### Returns
+
 The transaction receipt
 
 ---

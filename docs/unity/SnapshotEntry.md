@@ -9,12 +9,12 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| address | variable |  |
-| maxClaimable | variable |  |
-| price | variable |  |
-| currencyAddress | variable |  |
+| Members         | Type     | Descriptions |
+| --------------- | -------- | ------------ |
+| address         | variable |              |
+| maxClaimable    | variable |              |
+| price           | variable |              |
+| currencyAddress | variable |              |
 
 ### Members
 

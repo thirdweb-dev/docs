@@ -9,13 +9,13 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| domain | variable |  |
-| address | variable |  |
-| nonce | variable |  |
-| expiration_time | variable |  |
-| chain_id | variable |  |
+| Members         | Type     | Descriptions |
+| --------------- | -------- | ------------ |
+| domain          | variable |              |
+| address         | variable |              |
+| nonce           | variable |              |
+| expiration_time | variable |              |
+| chain_id        | variable |              |
 
 ### Members
 

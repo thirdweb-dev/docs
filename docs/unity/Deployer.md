@@ -11,20 +11,20 @@ Deploy contracts to the blockchain.
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| DeployNFTCollection | function |  |
-| DeployNFTDrop | function |  |
-| DeploySignatureDrop | function |  |
-| DeployMultiwrap | function |  |
-| DeployEdition | function |  |
-| DeployEditionDrop | function |  |
-| DeployPack | function |  |
-| DeployToken | function |  |
-| DeployTokenDrop | function |  |
-| DeployTokenDrop | function |  |
-| DeployReleasedContract | function |  |
-| DeployFromContractUri | function |  |
+| Members                | Type     | Descriptions |
+| ---------------------- | -------- | ------------ |
+| DeployNFTCollection    | function |              |
+| DeployNFTDrop          | function |              |
+| DeploySignatureDrop    | function |              |
+| DeployMultiwrap        | function |              |
+| DeployEdition          | function |              |
+| DeployEditionDrop      | function |              |
+| DeployPack             | function |              |
+| DeployToken            | function |              |
+| DeployTokenDrop        | function |              |
+| DeployTokenDrop        | function |              |
+| DeployReleasedContract | function |              |
+| DeployFromContractUri  | function |              |
 
 ### Members
 

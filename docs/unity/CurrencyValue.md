@@ -9,13 +9,13 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| name | variable |  |
-| symbol | variable |  |
-| decimals | variable |  |
-| value | variable |  |
-| displayValue | variable |  |
+| Members      | Type     | Descriptions |
+| ------------ | -------- | ------------ |
+| name         | variable |              |
+| symbol       | variable |              |
+| decimals     | variable |              |
+| value        | variable |              |
+| displayValue | variable |              |
 
 ### Members
 

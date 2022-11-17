@@ -9,14 +9,14 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| from | variable |  |
-| to | variable |  |
-| data | variable |  |
-| value | variable |  |
-| gasLimit | variable |  |
-| gasPrice | variable |  |
+| Members  | Type     | Descriptions |
+| -------- | -------- | ------------ |
+| from     | variable |              |
+| to       | variable |              |
+| data     | variable |              |
+| value    | variable |              |
+| gasLimit | variable |              |
+| gasPrice | variable |              |
 
 ### Members
 

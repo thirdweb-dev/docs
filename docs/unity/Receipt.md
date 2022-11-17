@@ -9,14 +9,14 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| from | variable |  |
-| to | variable |  |
-| transactionIndex | variable |  |
-| gasUsed | variable |  |
-| blockHash | variable |  |
-| transactionHash | variable |  |
+| Members          | Type     | Descriptions |
+| ---------------- | -------- | ------------ |
+| from             | variable |              |
+| to               | variable |              |
+| transactionIndex | variable |              |
+| gasUsed          | variable |              |
+| blockHash        | variable |              |
+| transactionHash  | variable |              |
 
 ### Members
 

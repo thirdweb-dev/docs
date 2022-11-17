@@ -11,15 +11,15 @@ Fetch claim conditions for a given [ERC20](docs/unity/ERC20.md#class_thirdweb_1_
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| chain | variable |  |
-| address | variable |  |
-| ERC20ClaimConditions | function |  |
-| GetActive | function | Get the active claim condition |
-| CanClaim | function | Check whether the connected wallet is eligible to claim |
+| Members                 | Type     | Descriptions                                                      |
+| ----------------------- | -------- | ----------------------------------------------------------------- |
+| chain                   | variable |                                                                   |
+| address                 | variable |                                                                   |
+| ERC20ClaimConditions    | function |                                                                   |
+| GetActive               | function | Get the active claim condition                                    |
+| CanClaim                | function | Check whether the connected wallet is eligible to claim           |
 | GetIneligibilityReasons | function | Get the reasons why the connected wallet is not eligible to claim |
-| GetClaimerProofs | function | Get the special values set in the allowlist for the given wallet |
+| GetClaimerProofs        | function | Get the special values set in the allowlist for the given wallet  |
 
 ### Members
 
@@ -31,11 +31,11 @@ Fetch claim conditions for a given [ERC20](docs/unity/ERC20.md#class_thirdweb_1_
 
 ---
 
-**`public inline  `[`ERC20ClaimConditions`](#class_thirdweb_1_1_e_r_c20_claim_conditions_1a95f27452db18ff648bc59f3647238b8c)`(string chain,string address)`**
+**`public inline `[`ERC20ClaimConditions`](#class_thirdweb_1_1_e_r_c20_claim_conditions_1a95f27452db18ff648bc59f3647238b8c)`(string chain,string address)`**
 
 ---
 
-**`public inline async Task< `[`ClaimConditions`](docs/unity/ClaimConditions.md#class_thirdweb_1_1_claim_conditions)` > `[`GetActive`](#class_thirdweb_1_1_e_r_c20_claim_conditions_1a9b3b8ed78acfbed1bb668b80317f7264)`()`**
+**`public inline async Task< `[`ClaimConditions`](docs/unity/ClaimConditions.md#class_thirdweb_1_1_claim_conditions)`>`[`GetActive`](#class_thirdweb_1_1_e_r_c20_claim_conditions_1a9b3b8ed78acfbed1bb668b80317f7264)`()`**
 
 Get the active claim condition
 

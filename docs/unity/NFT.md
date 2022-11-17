@@ -9,13 +9,13 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| metadata | variable |  |
-| owner | variable |  |
-| type | variable |  |
-| supply | variable |  |
-| quantityOwned | variable |  |
+| Members       | Type     | Descriptions |
+| ------------- | -------- | ------------ |
+| metadata      | variable |              |
+| owner         | variable |              |
+| type          | variable |              |
+| supply        | variable |              |
+| quantityOwned | variable |              |
 
 ### Members
 

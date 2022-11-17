@@ -9,14 +9,14 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| chain | variable |  |
-| address | variable |  |
-| ERC721Signature | function |  |
-| Generate | function |  |
-| Verify | function |  |
-| Mint | function |  |
+| Members         | Type     | Descriptions |
+| --------------- | -------- | ------------ |
+| chain           | variable |              |
+| address         | variable |              |
+| ERC721Signature | function |              |
+| Generate        | function |              |
+| Verify          | function |              |
+| Mint            | function |              |
 
 ### Members
 
@@ -28,11 +28,11 @@ displayed_sidebar: unity
 
 ---
 
-**`public inline  `[`ERC721Signature`](#class_thirdweb_1_1_e_r_c721_signature_1a8c80d1708ee1851f070436b3464b6640)`(string chain,string address)`**
+**`public inline `[`ERC721Signature`](#class_thirdweb_1_1_e_r_c721_signature_1a8c80d1708ee1851f070436b3464b6640)`(string chain,string address)`**
 
 ---
 
-**`public inline async Task< `[`ERC721SignedPayload`](docs/unity/ERC721SignedPayload.md#struct_thirdweb_1_1_e_r_c721_signed_payload)` > `[`Generate`](#class_thirdweb_1_1_e_r_c721_signature_1acf8052d6df944e5f139d9a495bd5ba3f)`(`[`ERC721MintPayload`](docs/unity/ERC721MintPayload.md#class_thirdweb_1_1_e_r_c721_mint_payload)` payloadToSign)`**
+**`public inline async Task< `[`ERC721SignedPayload`](docs/unity/ERC721SignedPayload.md#struct_thirdweb_1_1_e_r_c721_signed_payload)`>`[`Generate`](#class_thirdweb_1_1_e_r_c721_signature_1acf8052d6df944e5f139d9a495bd5ba3f)`(`[`ERC721MintPayload`](docs/unity/ERC721MintPayload.md#class_thirdweb_1_1_e_r_c721_mint_payload)` payloadToSign)`**
 
 ---
 
@@ -40,6 +40,6 @@ displayed_sidebar: unity
 
 ---
 
-**`public inline async Task< `[`TransactionResult`](docs/unity/TransactionResult.md#class_thirdweb_1_1_transaction_result)` > `[`Mint`](#class_thirdweb_1_1_e_r_c721_signature_1a4f49b40bc596ef51385c3aaf69a3cae3)`(`[`ERC721SignedPayload`](docs/unity/ERC721SignedPayload.md#struct_thirdweb_1_1_e_r_c721_signed_payload)` signedPayload)`**
+**`public inline async Task< `[`TransactionResult`](docs/unity/TransactionResult.md#class_thirdweb_1_1_transaction_result)`>`[`Mint`](#class_thirdweb_1_1_e_r_c721_signature_1a4f49b40bc596ef51385c3aaf69a3cae3)`(`[`ERC721SignedPayload`](docs/unity/ERC721SignedPayload.md#struct_thirdweb_1_1_e_r_c721_signed_payload)` signedPayload)`**
 
 ---
