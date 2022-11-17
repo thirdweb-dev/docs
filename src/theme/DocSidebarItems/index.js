@@ -50,7 +50,14 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Build Apps",
-      items: ["EVM SDK", "Solana SDK", "UI Components", "Auth", "Storage"],
+      items: [
+        "EVM SDK",
+        "Solana SDK",
+        "Gaming Kit",
+        "UI Components",
+        "Auth",
+        "Storage",
+      ],
     },
     {
       title: "Manage Projects",
@@ -71,6 +78,7 @@ function DocSidebarItems({ items, ...props }) {
     Release: "release.png",
     SDK: "sdk.png",
     Solana: "sdk.png",
+    Gaming: "sdk.png",
     Storage: "storage.png",
     "UI Components": "ui.png",
   };

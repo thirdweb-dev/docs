@@ -42,6 +42,13 @@ const products: Product[] = [
     link: "/solana",
   },
   {
+    image: "/assets/product/sdk.png",
+    name: "Gaming",
+    description:
+      "Unity interface for building web3 games on EVM compatible blockchains",
+    link: "/gaming",
+  },
+  {
     image: "/assets/product/ui.png",
     name: "UI Components",
     description:
