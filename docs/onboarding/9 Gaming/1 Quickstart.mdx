@@ -67,7 +67,7 @@ Within this file, you can see the basic functionality to initialize and start us
 
 For example, within the `Start` function (which gets called when the game starts), we can initialize a read-only instance of the SDK to read data from the blockchain:
 
-```c#
+```csharp
 using UnityEngine;
 
 // Import the Thirdweb SDK namespace
@@ -98,7 +98,7 @@ Familiarize yourself with the code and customize anything that catches your inte
 
 **Read data from smart contract**:
 
-```c#
+```csharp
 public async void GetERC721() {
   var contract = sdk.GetContract("<smart-contract-address>"); // NFT Drop
   NFT result = await contract.ERC721.Get(count.ToString());
@@ -107,7 +107,7 @@ public async void GetERC721() {
 
 **Write transactions to the smart contract**
 
-```c#
+```csharp
 public async void MintERC20() {
   var contract = sdk.GetContract("<smart-contract-address>"); // Token
   var result = await contract.ERC20.Mint("1.2");
@@ -152,11 +152,3 @@ Voilà! Our game is built and we can test it out in the browser at [`localhost:5
 
 Now we can connect our wallet and start reading and writing transactions to the blockchain:
 ![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668221409295/fJP-jlxzR.png)
-
-Awesome! 🥳🎉
-
-## What's Next?
-
-Now you've learnt how to get up and running with thirdweb in Unity, let's begin our multi-guide journey on creating a play-to-earn web3 game!
-
-... TODO

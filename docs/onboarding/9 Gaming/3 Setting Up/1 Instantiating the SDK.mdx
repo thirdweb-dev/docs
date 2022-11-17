@@ -1,0 +1,31 @@
+---
+slug: /gaming/setting-up/instantiating-the-sdk
+title: Instantiating the SDK
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+# Instantiating the SDK
+
+Initialize the [SDK](/unity/ThirdwebSDK) in read-only mode when you need to read data from the blockchain.
+
+To write transactions to the blockchain from a wallet, you need to [connect to a wallet](/gaming/setting-up/connect-wallets) _after_
+creating a read-only instance.
+
+```csharp
+using UnityEngine;
+using Thirdweb; // 1. Import the ThirdwebSDK
+
+public class DemoClass : MonoBehaviour
+{
+    // 2. Create a ThirdwebSDK instance for us to use throughout the class
+    private ThirdwebSDK sdk;
+
+    void Start()
+    {
+        // 3. When the app starts, set up the ThirdwebSDK
+        // Below, we're setting up a read-only instance on the "goerli" test network.
+        sdk = new ThirdwebSDK("goerli");
+    }
+}
+```
