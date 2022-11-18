@@ -158,11 +158,11 @@ struct ClaimCondition {
     uint256 startTimestamp;
     uint256 maxClaimableSupply;
     uint256 supplyClaimed;
-    uint256 quantityLimitPerTransaction;
-    uint256 waitTimeInSecondsBetweenClaims;
+    uint256 quantityLimitPerWallet;
     bytes32 merkleRoot;
     uint256 pricePerToken;
     address currency;
+    string metadata;
 }
 
 function setClaimConditions(ClaimCondition calldata phase, bool resetClaimEligibility) external;
@@ -173,24 +173,31 @@ function setClaimConditions(ClaimCondition calldata phase, bool resetClaimEligib
   - `startTimestamp`: The unix timestamp after which the claim condition applies.
   - `maxClaimableSupply`: The maximum total number of tokens that can be claimed under the claim condition.
   - `supplyClaimed`: At any given point, the number of tokens that have been claimed under the claim condition.
-  - `quantityLimitPerTransaction`: The maximum number of tokens that can be claimed in a single transaction.
-  - `waitTimeInSecondsBetweenClaims`: The least number of seconds an account must wait after claiming tokens, to be able to claim tokens again.
+  - `quantityLimitPerWallet`: The maximum number of tokens that can be claimed by a wallet.
   - `merkleRoot`: The allowlist of addresses that can claim tokens under the claim condition.
   - `pricePerToken`: The price required to pay per token claimed.
   - `currency`: The currency in which the price must be paid.
+  - `metadata`: Claim condition metadata.
 - Parameter `resetClaimEligibility`: Whether to carry over the restrictions active for wallets that claimed tokens in the incumbent claim condition (e.g. next valid claim timestamp for a given wallet).
 - The `_canSetClaimConditions` function is run on every call to this function. If the return value of `_canSetClaimConditions` is `false`, the `setClaimConditions` call will revert.
 
 ### verifyClaim
 
 ```solidity
+struct AllowlistProof {
+    bytes32[] proof;
+    uint256 quantityLimitPerWallet;
+    uint256 pricePerToken;
+    address currency;
+}
+
 function verifyClaim(
     address claimer,
     uint256 quantity,
     address currency,
     uint256 pricePerToken,
-    bool verifyMaxQuantityPerTransaction
-) public view;
+    AllowlistProof calldata allowlistProof
+) public view returns (bool isOverride);
 ```
 
 - Checks a request to claim tokens against the active claim condition's criteria.
@@ -198,33 +205,19 @@ function verifyClaim(
 - Parameter `quantity`: The quantity of tokens to claim.
 - Parameter `currency`: The currency in which to pay the price for the claim.
 - Parameter `pricePerToken`: The price to pay per token claimed.
-- Parameter `verifyMaxQuantityPerTransaction`: Whether to account for any allowlist criteria.
+- Parameter `allowlistProof`: Struct containing below elements:
+  - `proof`: Proof of concerned wallet's inclusion in an allowlist.
+  - `quantityLimitPerWallet`: The total quantity of tokens the allowlisted wallet is eligible to claim over time.
+  - `pricePerToken`: The price per token the allowlisted wallet must pay to claim tokens.
+  - `currency`: The currency in which the allowlisted wallet must pay the price for claiming tokens.
 
-### verifyClaimMerkleProof
-
-```solidity
-function verifyClaimMerkleProof(
-    address claimer,
-    uint256 quantity,
-    AllowlistProof calldata allowlistProof
-) public view returns (bool validMerkleProof, uint256 merkleProofIndex);
-```
-
-- Checks whether a claimer meets the claim condition's allowlist criteria.
-- Parameter `claimer`: The wallet claiming tokens.
-- Parameter `quantity`: The quantity of tokens to claim.
-- Parameter `allowlistProof`: The proof of the claimer's inclusion in the allowlist.
-
-### getClaimTimestamp
+### getSupplyClaimedByWallet
 
 ```solidity
-function getClaimTimestamp(address claimer)
-    public
-    view
-    returns (uint256 lastClaimedAt, uint256 nextValidClaimTimestamp);
+function getSupplyClaimedByWallet(address claimer) public view returns (uint256);
 ```
 
-- Returns the timestamp for when a claimer is eligible for claiming tokens again.
+- Returns the number of tokens claimed by a wallet under the active condition.
 - Parameter `claimer`: The wallet claiming tokens.
 
 ### \_dropMsgSender
