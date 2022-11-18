@@ -569,6 +569,19 @@
         }
       },
       {
+        "name": "totalSupply",
+        "summary": "Get the total minted supply of this drop\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// Get the total number of NFTs that have been minted on this drop\nconst supply = await program.totalSupply();",
+          "react": "// Get the total number of NFTs that have been minted on this drop\nconst supply = await program.totalSupply();"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.totalsupply",
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.totalsupply"
+        }
+      },
+      {
         "name": "totalUnclaimedSupply",
         "summary": "Get the total unclaimed supply of this drop\n\n",
         "remarks": null,
