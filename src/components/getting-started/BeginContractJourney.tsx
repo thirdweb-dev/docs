@@ -36,8 +36,6 @@ export default function BeginContractJourney() {
     const element = document.getElementById(id);
     if (!element) return;
 
-    console.log(id);
-
     // Update the other tabs visibility css
     items.forEach((item, index) => {
       const otherElement = document.getElementById(item.id);
@@ -67,6 +65,7 @@ export default function BeginContractJourney() {
           className={`tw-card contract-journey-card ${
             activeTab === index ? "active-journey-card" : ""
           }`}
+          data-getting-started-deploy-pathway={item.title}
           key={index}
           onClick={() => setActiveTab(index)}
         >
