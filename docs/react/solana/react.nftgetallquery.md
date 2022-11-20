@@ -14,6 +14,7 @@ displayed_sidebar: react
 ```typescript
 export declare function nftGetAllQuery(
   program: RequiredParam<NFTCollection | NFTDrop>,
+  queryParams?: QueryAllParams,
 ): {
   queryKey: readonly [
     "__tw__",
@@ -22,6 +23,13 @@ export declare function nftGetAllQuery(
     "program",
     string | undefined,
     "getAll",
+    (
+      | {
+          start?: number | undefined;
+          count?: number | undefined;
+        }
+      | undefined
+    ),
   ];
   queryFn: () => Promise<import("@thirdweb-dev/sdk").NFT[]>;
   enabled: boolean;
@@ -30,10 +38,11 @@ export declare function nftGetAllQuery(
 
 ## Parameters
 
-| Parameter | Type                                              | Description |
-| --------- | ------------------------------------------------- | ----------- |
-| program   | RequiredParam&lt;NFTCollection &#124; NFTDrop&gt; |             |
+| Parameter   | Type                                              | Description       |
+| ----------- | ------------------------------------------------- | ----------------- |
+| program     | RequiredParam&lt;NFTCollection &#124; NFTDrop&gt; |                   |
+| queryParams | QueryAllParams                                    | <i>(Optional)</i> |
 
 **Returns:**
 
-{ queryKey: readonly \["\_\_tw\_\_", "sol", RequiredParam&lt;import("@thirdweb-dev/sdk/solana").Network&gt;, "program", string \| undefined, "getAll"\]; queryFn: () =&gt; Promise&lt;import("@thirdweb-dev/sdk").NFT\[\]&gt;; enabled: boolean; }
+{ queryKey: readonly \["\_\_tw\_\_", "sol", RequiredParam&lt;import("@thirdweb-dev/sdk/solana").Network&gt;, "program", string \| undefined, "getAll", { start?: number \| undefined; count?: number \| undefined; } \| undefined\]; queryFn: () =&gt; Promise&lt;import("@thirdweb-dev/sdk").NFT\[\]&gt;; enabled: boolean; }

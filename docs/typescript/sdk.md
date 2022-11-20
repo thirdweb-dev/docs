@@ -115,7 +115,6 @@ displayed_sidebar: typescript
 | [Proposal](./sdk.proposal.md)                                                   |                                                                                                          |
 | [ProposalExecutable](./sdk.proposalexecutable.md)                               |                                                                                                          |
 | [ProposalVote](./sdk.proposalvote.md)                                           |                                                                                                          |
-| [QueryAllParams](./sdk.queryallparams.md)                                       | Pagination Parameters                                                                                    |
 | [SplitContractDeployMetadata](./sdk.splitcontractdeploymetadata.md)             | Options for deploying Split contract                                                                     |
 | [SplitRecipient](./sdk.splitrecipient.md)                                       | The SplitRecipient type represents a recipient of some royalty, indicated by their split percentage.     |
 | [SplitRecipientInput](./sdk.splitrecipientinput.md)                             |                                                                                                          |
@@ -233,6 +232,7 @@ displayed_sidebar: typescript
 | [PublishedContract](./sdk.publishedcontract.md)                                         |                                                                                      |
 | [PublishedContractFetched](./sdk.publishedcontractfetched.md)                           |                                                                                      |
 | [PublishedMetadata](./sdk.publishedmetadata.md)                                         |                                                                                      |
+| [QueryAllParams](./sdk.queryallparams.md)                                               | Pagination Parameters                                                                |
 | [Role](./sdk.role.md)                                                                   |                                                                                      |
 | [SchemaForPrebuiltContractType](./sdk.schemaforprebuiltcontracttype.md)                 |                                                                                      |
 | [SDKOptions](./sdk.sdkoptions.md)                                                       | All these configuration options are optional with sane defaults:                     |
