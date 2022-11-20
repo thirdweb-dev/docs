@@ -51,6 +51,13 @@ export default function BeginContractJourney() {
       // Set opacity too
       otherElement.style.opacity = index === activeTab ? "1" : "0";
     });
+
+    // Scroll to the element but up a bit to account for the navbar
+    const top = element.getBoundingClientRect().top;
+    window.scrollTo({
+      top: top - 96,
+      behavior: "smooth",
+    });
   }, [activeTab]);
 
   return (
