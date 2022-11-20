@@ -551,6 +551,7 @@ html[data-theme="light"] {
 .contract-journey-container {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 64px;
@@ -612,17 +613,20 @@ html[data-theme="light"] {
 #prebuilt-contract-section {
   transition: visibility 0s linear 300ms, opacity 300ms;
   opacity: 0;
-  height: 0;
+  height: 0px;
+  overflow: hidden;
 }
 
 #custom-contract-section {
   transition: visibility 0s linear 300ms, opacity 300ms;
   opacity: 0;
-  height: 0;
+  height: 0px;
+  overflow: hidden;
 }
 
 #deploy-contract-section {
   transition: visibility 0s linear 300ms, opacity 300ms;
   opacity: 0;
-  height: 0;
+  height: 0px;
+  overflow: hidden;
 }

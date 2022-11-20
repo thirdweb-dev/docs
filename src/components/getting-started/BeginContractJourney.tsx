@@ -3,21 +3,21 @@ import React, { useEffect, useState } from "react";
 const items = [
   {
     id: "prebuilt-contract-section",
-    title: "Prebuilt Contracts",
+    title: "Explore",
     description:
       "Secure, gas-optimized, and audited contracts that are ready to be deployed with one-click.",
     icon: "/product/contracts.png",
   },
   {
     id: "custom-contract-section",
-    title: "Build Your Own",
+    title: "Build your own",
     description:
       "Create custom contracts that are specific to your use case using ContractKit and Solidity.",
     icon: "/product/extensions.png",
   },
   {
     id: "deploy-contract-section",
-    title: "Deploy Existing",
+    title: "Deploy from source",
     description:
       "Already have a contract ready to deploy? Learn how to use our interactive CLI to ship it.",
     icon: "/product/deploy.png",
@@ -44,7 +44,9 @@ export default function BeginContractJourney() {
       if (!otherElement) return;
 
       // Set height too
-      otherElement.style.height = index === activeTab ? "auto" : "0";
+      otherElement.style.height = index === activeTab ? "auto" : "0px";
+      // Overflow
+      otherElement.style.overflow = index === activeTab ? "visible" : "hidden";
 
       // Set opacity too
       otherElement.style.opacity = index === activeTab ? "1" : "0";

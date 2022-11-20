@@ -55,7 +55,7 @@ export default function Home() {
 ```
 
 You can now call any function on your smart contract with [`useContractRead`](/sdk/interacting-with-contracts/custom-contracts/using-contracts#read-contract-data) and
-[`useContractWrite`](/sdk/interacting-with-contracts/custom-contracts/using-contracts#write-transactions).
+[`useContractWrite`](/sdk/interacting-with-contracts/custom-contracts/using-contracts#write-transactions) hooks.
 Each [extension](/contractkit/features) you implemented in your smart contract also
 unlocks a new functionality for you to use in the [SDK](/sdk).
 
@@ -68,7 +68,7 @@ and [ERC721Supply](/contractkit/interfaces/erc721supply) extensions.
 
 By doing so, we can use the [View All](/sdk/interacting-with-contracts/erc721supply)
 functionality in our application! In the React SDK, that is available
-through the [`useNFTs`](/react/react.usenfts) hook, which we use by providing the `contract` object to it like so:
+through the [`useNFTs`](/react/react.usenfts) hook, which we can use by providing the `contract` object to the hook like so:
 
 ```jsx title="src/App.js"
 import { useContract, useNFTs } from "@thirdweb-dev/react";
@@ -112,7 +112,7 @@ export default function Home() {
 Since our smart contract implements the `ERC721Mintable` extension,
 the [Mint](/sdk/interacting-with-contracts/erc721mintable) feature is available to us in the SDK.
 
-Use the [`Web3Button`](/ui-components/web3button) component to perform a `mint` transaction; ensuring the user
+Use the [`Web3Button`](/ui-components/web3button) component to perform a `mint` transaction; which ensures the user
 has their wallet connected and is on the right network before calling the function:
 
 ```jsx title="src/App.js"
@@ -127,6 +127,7 @@ import { Web3Button } from "@thirdweb-dev/react";
   action={(contract) =>
     contract.erc721.mint({
       name: "Hello world!",
+      // Place any URL or file here!
       image: "<your-image-url-here>",
     })
   }
@@ -151,8 +152,14 @@ That's it! 🥳 This command uses [Storage](/storage) to:
 - Generate a URL where your app is permanently hosted.
 
 <TwitterCard
-  title={"Share Your Build With Us On Twitter!"}
+  title={"Share your app with us on Twitter!"}
   text={`Probably nothing 👀 @thirdweb
   
 <your-deployment-url-here>`}
 />
+
+### What's Next?
+
+Congratulations on making it this far! 🎉
+
+Now you've learned the basics, take your skills to the next level by building on top of our [templates](/templates).
