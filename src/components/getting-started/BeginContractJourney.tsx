@@ -50,12 +50,21 @@ export default function BeginContractJourney() {
       otherElement.style.opacity = index === activeTab ? "1" : "0";
     });
 
-    // Scroll to the element but up a bit to account for the navbar
-    const top = element.getBoundingClientRect().top;
-    window.scrollTo({
-      top: top - 96,
-      behavior: "smooth",
-    });
+    // wait 0.1 seconds
+    setTimeout(() => {
+      // Scroll to the element
+      // Scroll to the second h3 element
+      const h3 = element.getElementsByTagName("h3")[0];
+
+      // Get the offset of the h3 element
+      const offset = h3.offsetTop;
+
+      // Scroll to the offset
+      window.scrollTo({
+        top: offset - 72,
+        behavior: "smooth",
+      });
+    }, 301);
   }, [activeTab]);
 
   return (
