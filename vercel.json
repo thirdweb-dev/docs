@@ -81,12 +81,12 @@
     },
     {
       "source": "/learn-thirdweb/connect-to-blockchain",
-      "destination": "/getting-started/integrate-sdks",
+      "destination": "/getting-started",
       "permanent": true
     },
     {
       "source": "/learn-thirdweb/quick-start-dev",
-      "destination": "/getting-started/your-first-app",
+      "destination": "/getting-started",
       "permanent": true
     },
     {
@@ -223,7 +223,7 @@
     },
     {
       "source": "/installation",
-      "destination": "/getting-started/deploying-contracts",
+      "destination": "/getting-started",
       "permanent": true
     },
     {
@@ -349,7 +349,7 @@
     },
     {
       "source": "/contracts-sdk/quickstart",
-      "destination": "/getting-started/creating-custom-contracts"
+      "destination": "/getting-started/contracts"
     },
     {
       "source": "/contracts-sdk/contract-extensions/signatureminting",
@@ -412,15 +412,15 @@
     },
     {
       "source": "/getting-started/deploying-contracts",
-      "destination": "/getting-started/creating-custom-contracts"
+      "destination": "/getting-started/contracts"
     },
     {
       "source": "/getting-started/configuring-contracts",
-      "destination": "/getting-started/creating-custom-contracts"
+      "destination": "/getting-started/contracts"
     },
     {
       "source": "/getting-started/creating-nfts",
-      "destination": "/getting-started/creating-custom-contracts"
+      "destination": "/getting-started/contracts"
     },
     {
       "source": "/contractkit/features/contractmetadata",
@@ -461,6 +461,18 @@
     {
       "source": "/sdk/ui-components",
       "destination": "/ui-components"
+    },
+    {
+      "source": "/getting-started/creating-custom-contracts",
+      "destination": "/getting-started/contracts"
+    },
+    {
+      "source": "/getting-started/building-app",
+      "destination": "/getting-started/apps"
+    },
+    {
+      "source": "/getting-started/releasing-custom-contracts",
+      "destination": "/getting-started"
     }
   ]
 }

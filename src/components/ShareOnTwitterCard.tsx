@@ -2,10 +2,11 @@ import React, { useMemo } from "react";
 
 type Props = {
   text: string;
+  title?: string;
   link?: string;
 };
 
-export default function TwitterCard({ text, link }: Props) {
+export default function TwitterCard({ text, title, link }: Props) {
   const twitterIntentUrl = useMemo(() => {
     const url = new URL("https://twitter.com/intent/tweet");
     url.searchParams.append("text", `${text}`);
@@ -64,7 +65,7 @@ export default function TwitterCard({ text, link }: Props) {
                 pointerEvents: "none",
               }}
             >
-              Share on Twitter
+              {title ? title : "Share on Twitter"}
             </h5>
           </div>
         </div>

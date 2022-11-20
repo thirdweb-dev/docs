@@ -10,54 +10,62 @@ import YoutubeEmbed from "@components/YoutubeEmbed";
 
 # Get Started
 
-<div className="heroGrid">
+<div className="heroGrid" style={{alignItems:'flex-start'}}>
   
   <div>
     <p>
 In this getting started guide, we'll show you how to build and deploy a full web3 application!
+You'll learn how to:
 </p>
 
-By the end, you'll have a [finished project](https://replit.com/@thirdweb/getting-started) that allows
-you to mint NFTs into an ERC721A smart contract that you created and deployed on the Ethereum test network!
+- Create and deploy a smart contract
+- Manage your contract from the dashboard
+- Build a React app using the SDK to interact with the contract
 
-Let's get started by [building a contract](/getting-started/creating-custom-contracts)!
-
-</div>
-
-<div className="heroGridImageContainer">
-  <YoutubeEmbed link={"https://www.youtube.com/embed/fzsz-b2JV9U"} />
-</div>
-
-</div>
-
-:::tip Looking to build on Solana?
-
-<div className="row" style={{ marginBottom: 24 }}>
+<div className="row" style={{ marginBottom: 16 }}>
   <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
     <QuickstartCard
-      name="Solana Quick Start"
-      link="/solana/quickstart"
-      image="/assets/languages/solana.png"
+      name="Start Building! 🚀"
+      link="/getting-started/contracts"
+      image="/assets/icons/general.png"
     />
   </div>
 </div>
 
-:::
+</div>
 
-## What You'll Learn
+<div
+  className="heroGridImageContainer"
+  style={{
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+  }}
+>
+  <YoutubeEmbed link={"https://www.youtube.com/embed/fzsz-b2JV9U"} />
+  <div
+    style={{ display: "flex", alignItems: "center", justifyContent: "center" }}
+  >
+    <p
+      style={{
+        textAlign: "center",
+        opacity: "0.8",
+        fontSize: 16,
+        marginTop: 4,
+      }}
+    >
+      Visual learner? Watch the video guide instead!
+    </p>
+  </div>
+</div>
 
-We'll walk you through the thirdweb workflow for building web3 apps looks like:
+</div>
 
-- Building your smart contracts with [ContractKit](/contractkit) or quickly
-  deploying a [prebuilt contract](/pre-built-contracts).
-- [Deploying](/deploy) contracts using the [CLI](/cli).
-- Building an application using our [SDK](/sdk) and [UI Components](/ui-components).
-- [Releasing](/release) versions of your contract for others to use.
-
-### Prerequisites
+### Before You Begin
 
 We recommend you have the following tools installed before you begin:
 
-- [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-- [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable)
-- [Git](https://git-scm.com/downloads)
+- [Node.js and npm](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm): To install our SDK into your project.
+- [Yarn](https://classic.yarnpkg.com/en/docs/install/#mac-stable): For executing scripts in our React app.
+- [Git](https://git-scm.com/downloads): For using the `create` command in our CLI.
