@@ -461,6 +461,18 @@
     {
       "source": "/sdk/ui-components",
       "destination": "/ui-components"
+    },
+    {
+      "source": "/getting-started/creating-custom-contracts",
+      "destination": "/getting-started/contracts"
+    },
+    {
+      "source": "/getting-started/building-app",
+      "destination": "/getting-started/apps"
+    },
+    {
+      "source": "/getting-started/releasing-custom-contracts",
+      "destination": "/getting-started"
     }
   ]
 }
