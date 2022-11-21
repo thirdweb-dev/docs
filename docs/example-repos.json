@@ -267,6 +267,19 @@
     "homepage": "https://discord-role-granter.thirdweb-example.com/"
   },
   {
+    "name": "dynamic-free-mint",
+    "html_url": "https://github.com/thirdweb-example/dynamic-free-mint",
+    "description": null,
+    "created_at": "2022-11-21T19:51:22Z",
+    "updated_at": "2022-11-21T19:51:35Z",
+    "clone_url": "https://github.com/thirdweb-example/dynamic-free-mint.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "dynamic-pricing",
     "html_url": "https://github.com/thirdweb-example/dynamic-pricing",
     "description": "Set a dynamic pricing for your Signature Drop collection NFTs",
@@ -749,11 +762,11 @@
     "html_url": "https://github.com/thirdweb-example/react-native-typescript-starter",
     "description": null,
     "created_at": "2022-11-02T02:03:17Z",
-    "updated_at": "2022-11-16T20:01:36Z",
+    "updated_at": "2022-11-21T20:11:52Z",
     "clone_url": "https://github.com/thirdweb-example/react-native-typescript-starter.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": null
   },
