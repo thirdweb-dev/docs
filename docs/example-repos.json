@@ -207,10 +207,10 @@
     "html_url": "https://github.com/thirdweb-example/custom-currency-claim-conditions",
     "description": "Set up your claim conditions so that holders of your NFT collection can purchase in a custom token.",
     "created_at": "2022-11-17T03:36:49Z",
-    "updated_at": "2022-11-17T03:36:49Z",
+    "updated_at": "2022-11-22T07:08:34Z",
     "clone_url": "https://github.com/thirdweb-example/custom-currency-claim-conditions.git",
     "topics": [],
-    "language": null,
+    "language": "JavaScript",
     "stargazers_count": 0,
     "is_template": false,
     "homepage": null
@@ -1103,13 +1103,13 @@
     "html_url": "https://github.com/thirdweb-example/token-drop",
     "description": "Release your token with claim conditions for a price using thirdweb's Token Drop contract",
     "created_at": "2022-05-25T04:05:25Z",
-    "updated_at": "2022-10-28T20:41:06Z",
+    "updated_at": "2022-11-22T18:17:30Z",
     "clone_url": "https://github.com/thirdweb-example/token-drop.git",
     "topics": [
       "token-drop"
     ],
     "language": "JavaScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": "https://token-drop.thirdweb-example.com"
   },

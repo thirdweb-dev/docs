@@ -42,7 +42,7 @@ export declare function useUpdateRoyaltySettings(
       signature: string;
     },
   unknown,
-  number,
+  UpdateRoyaltySettingsInput,
   unknown
 >;
 ```
@@ -55,4 +55,4 @@ export declare function useUpdateRoyaltySettings(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/solana").TransactionResult\[\] \| { signature: string; }, unknown, number, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/solana").TransactionResult\[\] \| { signature: string; }, unknown, UpdateRoyaltySettingsInput, unknown&gt;
