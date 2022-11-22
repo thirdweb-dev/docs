@@ -16,7 +16,7 @@ The params to pass to `useMintNFTSupply`.
 **Signature:**
 
 ```typescript
-export declare type MintNFTSupplyParams = {
+export type MintNFTSupplyParams = {
   tokenId: BigNumberish;
   additionalSupply: Amount;
   to: WalletAddress;

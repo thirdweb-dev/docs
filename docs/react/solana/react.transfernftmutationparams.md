@@ -12,7 +12,7 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export declare type TransferNFTMutationParams = {
+export type TransferNFTMutationParams = {
   receiverAddress: string;
   tokenAddress: string;
 };

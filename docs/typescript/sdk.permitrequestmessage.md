@@ -14,7 +14,7 @@ EIP-2612 token permit message for gasless transaction
 **Signature:**
 
 ```typescript
-export declare type PermitRequestMessage = {
+export type PermitRequestMessage = {
   to: string;
   owner: string;
   spender: string;

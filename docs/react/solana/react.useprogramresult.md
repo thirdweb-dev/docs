@@ -12,5 +12,5 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export declare type UseProgramResult = ReturnType<typeof useProgram>;
+export type UseProgramResult = ReturnType<typeof useProgram>;
 ```

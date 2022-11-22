@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type ShardedSnapshot = {
+export type ShardedSnapshot = {
   shardedMerkleInfo: ShardedMerkleTreeInfo;
   uri: string;
 };

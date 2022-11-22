@@ -16,7 +16,7 @@ The params for the [useBurnNFT()](./react.useburnnft.md) hook mutation.
 **Signature:**
 
 ```typescript
-export declare type BurnNFTParams = {
+export type BurnNFTParams = {
   tokenId: BigNumberish;
   amount?: Amount;
 };

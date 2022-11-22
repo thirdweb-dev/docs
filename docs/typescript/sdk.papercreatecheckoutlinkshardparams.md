@@ -14,7 +14,7 @@ The parameters for creating a paper.xyz checkout link.
 **Signature:**
 
 ```typescript
-export declare type PaperCreateCheckoutLinkShardParams = {
+export type PaperCreateCheckoutLinkShardParams = {
   title: string;
   quantity?: number;
   walletAddress?: string;

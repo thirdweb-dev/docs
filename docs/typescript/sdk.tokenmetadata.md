@@ -14,5 +14,5 @@ Metadata for a token
 **Signature:**
 
 ```typescript
-export declare type TokenMetadata = z.output<typeof CommonTokenOutputSchema>;
+export type TokenMetadata = z.output<typeof CommonTokenOutputSchema>;
 ```

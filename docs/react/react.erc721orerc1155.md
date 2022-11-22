@@ -16,5 +16,5 @@ Possible NFT contract types.
 **Signature:**
 
 ```typescript
-export declare type Erc721OrErc1155 = Erc721 | Erc1155;
+export type Erc721OrErc1155 = Erc721 | Erc1155;
 ```

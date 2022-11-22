@@ -12,10 +12,9 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type TransactionResultWithId<T = never> =
-  TransactionResult<T> & {
-    id: BigNumber;
-  };
+export type TransactionResultWithId<T = never> = TransactionResult<T> & {
+  id: BigNumber;
+};
 ```
 
 **References:** [TransactionResult](./sdk.transactionresult.md)

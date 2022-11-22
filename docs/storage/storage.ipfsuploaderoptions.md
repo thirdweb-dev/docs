@@ -12,7 +12,7 @@ displayed_sidebar: storage
 **Signature:**
 
 ```typescript
-export declare type IpfsUploaderOptions = {
+export type IpfsUploaderOptions = {
   uploadWithGatewayUrl?: boolean;
 };
 ```

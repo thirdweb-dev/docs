@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type PrebuiltContractType = keyof PrebuiltContractsMap;
+export type PrebuiltContractType = keyof PrebuiltContractsMap;
 ```
 
 **References:** [PrebuiltContractsMap](./sdk.prebuiltcontractsmap.md)

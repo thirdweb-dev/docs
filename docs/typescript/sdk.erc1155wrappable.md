@@ -14,7 +14,7 @@ Represents a certain amount of ERC1155 NFTs that can be wrapped
 **Signature:**
 
 ```typescript
-export declare type ERC1155Wrappable = {
+export type ERC1155Wrappable = {
   contractAddress: string;
   quantity: Amount;
   tokenId: BigNumberish;

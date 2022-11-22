@@ -12,7 +12,7 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export declare type MakeOfferParams = {
+export type MakeOfferParams = {
   listingId: BigNumberish;
   pricePerToken: Price;
   quantity?: Amount;

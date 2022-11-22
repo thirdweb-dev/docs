@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type SnapshotEntry = z.output<typeof SnapshotEntryInput>;
+export type SnapshotEntry = z.output<typeof SnapshotEntryInput>;
 ```
 
 **References:** [SnapshotEntryInput](./sdk.snapshotentryinput.md)

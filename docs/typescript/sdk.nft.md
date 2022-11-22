@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type NFT = {
+export type NFT = {
   metadata: NFTMetadata;
   owner: string;
   type: "ERC1155" | "ERC721" | "metaplex";

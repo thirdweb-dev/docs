@@ -14,7 +14,7 @@ Pagination Parameters
 **Signature:**
 
 ```typescript
-export declare type QueryAllParams = Exclude<
+export type QueryAllParams = Exclude<
   z.input<typeof QueryAllParamsSchema>,
   undefined
 >;

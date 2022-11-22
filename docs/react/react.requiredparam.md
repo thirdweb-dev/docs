@@ -16,5 +16,5 @@ Makes a parameter required to be passed, but still allowes it to be null or unde
 **Signature:**
 
 ```typescript
-export declare type RequiredParam<T> = T | null | undefined;
+export type RequiredParam<T> = T | null | undefined;
 ```

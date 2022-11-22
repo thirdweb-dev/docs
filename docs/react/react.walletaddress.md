@@ -16,5 +16,5 @@ A wallet address.
 **Signature:**
 
 ```typescript
-export declare type WalletAddress = string;
+export type WalletAddress = string;
 ```
