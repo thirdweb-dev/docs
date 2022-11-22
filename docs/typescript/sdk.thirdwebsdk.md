@@ -40,6 +40,7 @@ export declare class ThirdwebSDK extends RPCConnectionHandler
 | -------------------------------------------------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------- |
 | [fromPrivateKey(privateKey, network, options, storage)](./sdk.thirdwebsdk.fromprivatekey.md) | <code>static</code> | **<i>(BETA)</i>** Get an instance of the thirdweb SDK based on a private key.            |
 | [fromSigner(signer, network, options, storage)](./sdk.thirdwebsdk.fromsigner.md)             | <code>static</code> | **<i>(BETA)</i>** Get an instance of the thirdweb SDK based on an existing ethers signer |
+| [fromWallet(wallet, network, options, storage)](./sdk.thirdwebsdk.fromwallet.md)             | <code>static</code> | **<i>(BETA)</i>** Get an instance of the thirdweb SDK based on an AbstractWallet         |
 | [getBalance(address)](./sdk.thirdwebsdk.getbalance.md)                                       |                     | Get the native balance of a given address (wallet or contract)                           |
 | [getContract(address)](./sdk.thirdwebsdk.getcontract.md)                                     |                     | Get an instance of a Custom ThirdwebContract                                             |
 | [getContract(address, contractType)](./sdk.thirdwebsdk.getcontract_1.md)                     |                     | Get an instance of a Custom ThirdwebContract                                             |

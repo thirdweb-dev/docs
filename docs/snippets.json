@@ -39,6 +39,23 @@
         }
       },
       {
+        "name": "fromWallet",
+        "summary": "Get an instance of the thirdweb SDK based on an AbstractWallet\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\"\n\nconst wallet = new AbstractWalletImplementation();\nconst sdk = await ThirdwebSDK.fromWallet(wallet, \"mainnet\");",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\nimport { ThirdwebSDK } from \"@thirdweb-dev/sdk\"\n\nconst wallet = new AbstractWalletImplementation();\nconst sdk = await ThirdwebSDK.fromWallet(wallet, \"mainnet\");"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.fromwallet",
+          "python": "",
+          "go": "",
+          "react": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.fromwallet"
+        }
+      },
+      {
         "name": "getBalance",
         "summary": "Get the native balance of a given address (wallet or contract)\n\n",
         "remarks": null,
