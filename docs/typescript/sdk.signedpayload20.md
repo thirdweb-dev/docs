@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type SignedPayload20 = {
+export type SignedPayload20 = {
   payload: PayloadWithUri20;
   signature: string;
 };

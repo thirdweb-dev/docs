@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type ClaimConditionFetchOptions = {
+export type ClaimConditionFetchOptions = {
   withAllowList?: boolean;
 };
 ```

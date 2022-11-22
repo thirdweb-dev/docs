@@ -12,7 +12,7 @@ displayed_sidebar: storage
 **Signature:**
 
 ```typescript
-export declare type GatewayUrls = {
+export type GatewayUrls = {
   [key: string]: string[];
 };
 ```

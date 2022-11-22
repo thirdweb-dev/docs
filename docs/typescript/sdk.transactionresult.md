@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type TransactionResult<T = never> = If<
+export type TransactionResult<T = never> = If<
   Equals<T, never>,
   Omit<TransactionResultWithMetadata, "data">,
   TransactionResultWithMetadata<T>

@@ -25,11 +25,11 @@ If you're using Visual Studio Code, follow the
 
 Once you're set up for success, open Unity Hub and click `Create New Project`:
 
-![Create New Project Unity Hub](https://cdn.hashnode.com/res/hashnode/image/upload/v1668212495039/5hwf-TtKD.png)
+![Create New Project Unity Hub](./assets/1.png)
 
 Next, select `3D`, give your project a name, and click `Create Project`:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668212555757/mNNM_n6_E.png)
+![image.png](./assets/2.png)
 
 ### Installing thirdweb SDK
 
@@ -39,29 +39,29 @@ First, head over to the [`thirdweb-dev/unity-sdk` releases page](https://github.
 
 Download the `.unitypackage` for the SDK version you want to use (usually you'll want the latest version):
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668212863206/Ap8VapfSX.png)
+![image.png](./assets/3.png)
 
 Now we've got the `.unitypackage`, we can add it to our Unity project by clicking `Assets` > `Import Package` > `Custom Package` like so:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668212676064/H5BffjB17.png)
+![image.png](./assets/4.png)
 
 From here, select the file you just downloaded from GitHub, which will open the `Import Unity Package` menu:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668213080058/7evzCA0-Y.png)
+![image.png](./assets/5.png)
 
 Leave everything selected, and click `Import`.
 
 In your `Project` window now, you'll be able to see all of the resources we've imported:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668213194792/Zl_10OQCV.png)
+![image.png](./assets/6.png)
 
 From the `Scenes` folder, double-click the `ThirdwebDemoScene.unity` file to open it. If you manoeuvre around the scene, you'll be able to see the `Canvas` that comes as part of the demo:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668213402193/MHAAgfIsp.png)
+![image.png](./assets/7.png)
 
 To view the code powering this demo and see what you can do with the SDK, open the `ThirdwebSDKDemos.cs` file by double-clicking it:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668213476859/lq24gmw1r.png)
+![image.png](./assets/8.png)
 
 Within this file, you can see the basic functionality to initialize and start using the SDK.
 
@@ -126,29 +126,51 @@ Open up your build settings by clicking `File` > `Build Settings`.
 
 From the `Platform` options, select `WebGL` and `Switch Platform`.
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668220794916/gzemOuhkY.png)
+![image.png](./assets/9.png)
 
 Next, click `Player Settings...` (bottom left corner) and set the `WebGL Template` under `Resolution and Presentation` to `Thirdweb`:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668220894144/MlS9QjEiQ.png)
+![image.png](./assets/10.png)
 
 You may also need to disable `Auto Graphics API` in order to build your project:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668221000440/gjFeshDHr.png)
+![image.png](./assets/11.png)
 
 Ensure you add your scenes to the `Scenes In Build` by clicking `Add Open Scenes`:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668221043021/-pC_U5lGi.png)
+![image.png](./assets/12.png)
 
 Finally, click `Build And Run`, and create a new `build` folder in your project as the directory.
 
 This will trigger the build process for you to test your game:
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668221151585/1y8EQusvM.png)
+![image.png](./assets/13.png)
 
-Voilà! Our game is built and we can test it out in the browser at [`localhost:50140`](http://localhost:50140/):
+Voilà! Our game is built and we can test it out in the browser!
 
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668221317570/3f1B7yimW.png)
+![image.png](./assets/14.png)
 
 Now we can connect our wallet and start reading and writing transactions to the blockchain:
-![image.png](https://cdn.hashnode.com/res/hashnode/image/upload/v1668221409295/fJP-jlxzR.png)
+![image.png](./assets/15.png)
+
+## Deploying Your Game
+
+To deploy your game to the web, from within the `Player Settings...` section, set the `Compression Format` under `Publishing Settings` to be **Disabled**.
+
+![image.png](./assets/16.png)
+
+Re-build your game with these settings, and open the `build` folder _(the directory you selected your build to be output to)_ in your terminal:
+
+```bash
+cd <path-to-build-folder-here>
+```
+
+We can then use [Storage](https://portal.thirdweb.com/storage) to upload and deploy our application to IPFS, by running the following command:
+
+```bash
+npx thirdweb@latest upload .
+```
+
+This command uploads your build directory to HTML and prints a link where your app is deployed:
+
+![image.png](./assets/17.png)

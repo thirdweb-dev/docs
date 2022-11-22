@@ -16,7 +16,7 @@ The return type of the [useMintNFT()](./react.usemintnft.md) hook.
 **Signature:**
 
 ```typescript
-export declare type MintNFTReturnType<TContract> = TContract extends Erc721
+export type MintNFTReturnType<TContract> = TContract extends Erc721
   ? Awaited<ReturnType<Erc721Mintable["to"]>>
   : TContract extends Erc1155
   ? Awaited<ReturnType<Erc1155Mintable["to"]>>

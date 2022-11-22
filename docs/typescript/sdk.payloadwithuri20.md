@@ -12,7 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type PayloadWithUri20 = z.output<
-  typeof Signature20PayloadOutput
->;
+export type PayloadWithUri20 = z.output<typeof Signature20PayloadOutput>;
 ```

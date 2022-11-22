@@ -1,59 +1,55 @@
 ---
-slug: /getting-started/creating-custom-contracts
-title: Build A Contract
+slug: /getting-started/contracts
+title: Deploy A Smart Contract
 ---
 
 import QuickstartCard from "@components/QuickstartCard";
 import TwitterCard from "@components/ShareOnTwitterCard";
+import BeginContractJourney from "@components/getting-started/BeginContractJourney";
 
-Smart contracts are the foundational layer of any web3 application; they store the state and logic of your project on the blockchain.
-We provide a variety of ways for you to build and ship contracts, ranging from audited and gas-optimized prebuilt solutions,
-to a Solidity SDK that provides the building blocks to create your own.
+You may want to build a smart contract from the ground up,
+or deploy a prebuilt solution that meets your needs;
+we provide solutions for creating and deploying _any_ smart contract.
 
-![Getting Started Contracts Comparison](./assets/getting-started-contracts-comparison.png)
+### Begin Your Journey
 
-In this section, we're going to show you how to build a contract from scratch using Solidity.
-If you want to explore the prebuilt contracts we have available, check out the [prebuilt contracts](/pre-built-contracts) section
-and join us back here when you're ready to [build your application](/getting-started/building-app)!
+Select which card best describes your contract needs below.
 
-<div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--12" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Explore Prebuilt Contracts"
-      link="/pre-built-contracts"
-      image="/assets/icons/general.png"
-    />
-  </div>
-</div>
+<BeginContractJourney />
 
-### Creating A Project
+<!-- Selects Custom Contract -->
 
-First, we can use the [CLI](/cli) to create a new project with a smart contract inside,
+<div id="custom-contract-section">
+
+<h3>Creating A Project</h3>
+
+We can use the [CLI](/cli) to create a new project with a smart contract inside,
 and [ContractKit](/contractkit) installed for us.
 
 ```bash
-npx thirdweb create --contract
+npx thirdweb@latest create --contract
 ```
 
-Let's name our project `contracts` and select `Hardhat` as our framework.
+This will kick off an interactive series of questions to help you get started:
 
-Next, select the [ERC721 Base](/contractkit/base-contracts/erc-721/erc721base) contract as our starting point,
-which gives us an implementation of the [ERC721A](/contractkit/erc721) NFT standard that we can modify and extend.
+- Give your project a name
+- Select [`Hardhat`](https://hardhat.org/) as the framework
+- Select `ERC721` as the [base contract](/contractkit/base-contracts/erc-721/erc721base)
+- Select `None` for optional [extensions](/contractkit/features)
 
-![thirdweb CLI select base contract](./assets/1.png)
+<h3 style={{ marginTop: 48 }}>Exploring The Project</h3>
 
-Open up the project in your text editor - let's see what's inside 👀.
-
-### Exploring the project
+The `create` command generates a new directory with your project name.
+Open this directory in your text editor.
 
 Inside the `contracts` folder, you'll find a `Contract.sol` file; this is our smart contract written in Solidity!
 
-If we take a look at the code, you can see that our contract is inheriting the functionality of the [ERC721Base](/contractkit/base-contracts/erc-721/erc721base),
+If we take a look at the code, you can see that our contract is inheriting the functionality of [ERC721Base](/contractkit/base-contracts/erc-721/erc721base),
 by:
 
-1. Importing the contract.
-2. [Inheriting](https://docs.soliditylang.org/en/v0.8.12/contracts.html#inheritance) the contract, by declaring that our contract `is ERC721Base`.
-3. Implementing any [required methods](/contractkit/base-contracts/erc-721/erc721base#implementing-the-contract) such as the `constructor`.
+1. [Importing](https://solidity-by-example.org/import/) the contract
+2. [Inheriting](https://docs.soliditylang.org/en/v0.8.17/contracts.html#inheritance) the contract; by declaring that our contract `is ERC721Base`
+3. Implementing any [required methods](/contractkit/base-contracts/erc-721/erc721base#implementing-the-contract) such as the [`constructor`](https://docs.soliditylang.org/en/v0.8.17/contracts.html#constructors).
 
 ```solidity title="contracts/Contract.sol"
 // SPDX-License-Identifier: MIT
@@ -62,44 +58,35 @@ pragma solidity ^0.8.0;
 import "@thirdweb-dev/contracts/base/ERC721Base.sol";
 
 contract Contract is ERC721Base {
-      constructor(
+    constructor(
         string memory _name,
         string memory _symbol,
         address _royaltyRecipient,
         uint128 _royaltyBps
-    )
-        ERC721Base(
-            _name,
-            _symbol,
-            _royaltyRecipient,
-            _royaltyBps
-        )
-    {}
+    ) ERC721Base(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
 }
 ```
 
-This pattern lets us incorporate functionality from other contracts inside of ours, modify it, and add our own custom logic on top.
+This inheritance pattern lets us use functionality from other contracts inside of ours, modify it, and add custom logic.
+
 For example, our contract currently implements all of the logic inside
-the [ERC721Base.sol](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol) contract.
+the [ERC721Base.sol](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol) contract; which
+implements the [ERC721A](https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC721A.sol) standard with several useful [extensions](/contractkit/features).
 
-## Adding Functionality
+<h3 style={{ marginTop: 48 }}>Adding Extensions</h3>
 
-Base contracts work out of the box without any additional code required, but you might want to add additional functionality.
-Let's see how we can both _override_ and _extend_ the base contract.
+[Extensions](/contractkit/features) are a great way to add individual pieces of
+functionality to your contract, such as [Permissions](/contractkit/extension-contracts/permissions).
 
-### Adding A Feature
+You can follow the same pattern as we did with the base contract to add an extension:
 
-Features are a great way to add individual pieces of functionality to your contract, such as [Permissions](/contractkit/features/permissions).
-
-You can follow the same pattern as we did with the base contract:
-
-1. Import it
+**Import**
 
 ```solidity
 import "@thirdweb-dev/contracts/extension/PermissionsEnumerable.sol";
 ```
 
-2. Inherit it
+**Inherit**
 
 ```solidity
 contract Contract is ERC721Base, PermissionsEnumerable {
@@ -107,96 +94,48 @@ contract Contract is ERC721Base, PermissionsEnumerable {
 }
 ```
 
-3. Implement it
+**Implement**
 
 ```solidity
 contract Contract is ERC721Base, PermissionsEnumerable {
-      constructor(
+    constructor(
         string memory _name,
         string memory _symbol,
         address _royaltyRecipient,
         uint128 _royaltyBps
-    )
-        ERC721Base(
-            _name,
-            _symbol,
-            _royaltyRecipient,
-            _royaltyBps
-        )
-    {
+    ) ERC721Base(_name, _symbol, _royaltyRecipient, _royaltyBps) {
         // Give the contract deployer the "admin" role when the contract is deployed.
         _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+    }
+
+    // Example: Only allow the "admin" role to call this function.
+    function helloWorld() external onlyRole(DEFAULT_ADMIN_ROLE) {
+        // ...
     }
 }
 ```
 
-That's it! We can now restrict who can call certain functions on our contract.
+That's it! 🥳 You just made an ERC721A NFT collection smart contract with permission controls!
 
-### Adding Custom Logic
+<h2 style={{ marginTop: 64 }}>Deploying</h2>
 
-Let's combine our new feature with some custom logic to create a new function that only the `admin` role can call.
-
-Above the constructor, let's add a `powerLevel` mapping that stores a power level for each NFT.
-
-```solidity
-// A mapping is a key-value store that lets us keep data in our contract.
-// Here, the key is the token ID, and the value is the power level for that NFT.
-mapping(uint256 => uint256) public powerLevel;
-```
-
-Next, let's add a function that lets the `admin` role set the power level of an NFT:
-
-```solidity
-function setPowerLevel(uint256 _tokenId, uint256 _powerLevel) external onlyRole(DEFAULT_ADMIN_ROLE) {
-    powerLevel[_tokenId] = _powerLevel;
-}
-```
-
-Great! Now the admin wallet (the contract deployer) can set the power level for any NFT.
-
-### Override An Inherited Method
-
-Finally, let's see how we can override a method in the base contract.
-
-Let's say we want to add a power level to the NFT when it's minted.
-
-We can override the `mintTo` method from the base contract, and add our custom logic inside.
-
-```solidity
-function mintTo(address _to, string memory _tokenURI) public virtual override {
-    // Grab the next token ID being minted using an inherited view.
-    uint256 tokenId = nextTokenIdToMint();
-
-    // Here, "super" refers to the base contract.
-    // We are saying "run the mintTo method from the base contract".
-    super.mintTo(_to, _tokenURI);
-
-    // *then* we can add our custom logic on top:
-    powerLevel[tokenId] = tokenId;
-}
-```
-
-## Deploying
-
-We're ready for liftoff! 🚀 Let's [deploy](/deploy) our contract to the blockchain, by running:
+Let's [deploy](/deploy) our contract to the blockchain, by running the following command:
 
 ```bash
-npx thirdweb deploy
+yarn deploy
 ```
 
 That's it! 🥳 This command does the following:
 
-- Compiles your contract.
-- Uploads your contract source code ([ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)) to [IPFS](https://docs.ipfs.tech/concepts/what-is-ipfs/).
-- Opens the [dashboard](/dashboard) for you to select one of our [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use/) to deploy to.
+- Compiles your contract
+- Uploads your contract source code ([ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)) to
+  [IPFS](https://docs.ipfs.tech/concepts/what-is-ipfs/)
+- Opens the [dashboard](/dashboard) for you to select one of our
+  [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use/) to deploy to
 
 ![thirdweb CLI - thirdweb deploy](./assets/2.png)
 
-From the dashboard, we can see all of the [ContractKit](/contractkit) that our contract implements.
-
-For each extension, we unlock capabilities in the [dashboard](/dashboard) and the [SDK](/sdk). _We'll learn more about that in the next section_.
-
-First, we need to enter the parameters for our contract:
+First, we need to enter the values for our contract's constructor:
 
 - `_name`: The name of our contract
 - `_symbol`: The symbol or "ticker" given to our contracts tokens
@@ -208,27 +147,104 @@ you want to deploy to _(we recommend the Goerli test network)_, and click "Deplo
 
 ![Deploying your contract using the thirdweb dashboard](./assets/3.png)
 
-### Your Contract Dashboard
+Once your contract is deployed, you'll be redirected to your contract's dashboard:
 
-Welcome to your very own contract dashboard! 🎉
+<div className="row" style={{ marginBottom: 16 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Next Up: Welcome to Your Contract Dashboard"
+      link="/getting-started/dashboard"
+      image="/assets/product/dashboard.png"
+    />
+  </div>
+</div>
 
-![thirdweb dashboard contract deployed state](./assets/8.png)
+</div>
 
-Here, you'll find all of the information you need to interact with and manage your contract, including:
+<!-- Selects Prebuilt Contract -->
 
-- [`Explorer`](/dashboard/view-and-interact-with-contracts): call any function on your contract, and view the results.
-- [`Events`](/dashboard/activity-feed): a live-updating feed of all [events](https://docs.soliditylang.org/en/v0.8.15/contracts.html#events) emitted by your contract.
+<div id="prebuilt-contract-section">
 
-As well as tabs for each [extension](/contractkit) that your contract implements:
+<h3>Explore Contracts</h3>
 
-- `NFTs`: since you implemented the [ERC721 Standard](/contractkit/base-contracts/erc-721/erc721base).
-- `Permissions`: since you implemented the [Permissions](/contractkit/permissions#permissions-enumerable-contract) feature.
-- `Settings`: since you implemented the [Contract Metadata](/contractkit/contractmetadata) and [Royalty](/contractkit/royalty) features.
+From the [explore page](https://thirdweb.com/explore), you can choose from
+a curated collection of gas-optimized, audited, and
+battle-tested smart contracts built by trusted open-source protocols and the thirdweb team;
+ready to deploy in one click.
 
-You just built and deployed your own NFT smart contract! 🥳
+For example, let's select the [NFT Collection](https://thirdweb.com/thirdweb.eth/TokenERC721)
+smart contract built by the thirdweb team:
 
-That's a huge accomplishment, and we're so proud of you! 🎉 Tag us below to let us know what you shipped!
+![discover smart contracts on explore page](./assets/18.png)
 
-<TwitterCard
-  text={`I just deployed an NFT smart contract with Solidity & @thirdweb 🚀 Check it out here: <share your dashboard url to the world!>`}
-/>
+From this page, we can discover the contract's features,
+view its source code, see which [extensions](https://portal.thirdweb.com/contractkit/features) it implements,
+and deploy it to the [blockchain of our choice](https://blog.thirdweb.com/guides/which-network-should-you-use/).
+
+Click the "Deploy Now" button to enter the deployment flow, and
+enter the metadata of your smart contract; such as its name, symbol, image and description:
+
+![enter contract-metadata](./assets/enter-contract-metadata.png)
+
+Finally, select the [network](https://blog.thirdweb.com/guides/which-network-should-you-use/) you want to deploy your
+smart contract to and click "Deploy Now":
+
+![deploy smart contract](./assets/deploy-button-prebuilt.png)
+
+Once your contract is deployed, you'll be redirected to your contract's dashboard:
+
+<div className="row" style={{ marginBottom: 16 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Next Up: Welcome to Your Contract Dashboard"
+      link="/getting-started/dashboard"
+      image="/assets/product/dashboard.png"
+    />
+  </div>
+</div>
+</div>
+
+<!-- Selects Deploy Existing -->
+
+<div id="deploy-contract-section">
+
+<h3>Deploy Your Smart Contract</h3>
+
+Use the [CLI](/cli) to [deploy](/deploy) your smart contract to the blockchain.
+
+From the same directory as your `.sol` smart contract file, run the following command:
+
+```bash
+npx thirdweb@latest deploy
+```
+
+That's it! 🥳 This command does the following:
+
+- Compiles your contract
+- Uploads your contract source code ([ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html)) to
+  [IPFS](https://docs.ipfs.tech/concepts/what-is-ipfs/)
+- Opens the [dashboard](/dashboard) for you to select one of our
+  [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use/) to deploy to
+
+![thirdweb CLI - thirdweb deploy](./assets/2.png)
+
+Open the generated URL in your browser, and populate the fields of
+your smart contract's [`constructor`](https://docs.soliditylang.org/en/v0.8.17/contracts.html#constructors).
+
+Finally, select the [network](https://blog.thirdweb.com/guides/which-network-should-you-use/)
+you want to deploy to _(we recommend the Goerli test network)_, and click "Deploy Now".
+
+![Deploying your contract using the thirdweb dashboard](./assets/3.png)
+
+Once your contract is deployed, you'll be redirected to your contract's dashboard:
+
+<div className="row" style={{ marginBottom: 16 }}>
+  <div className="col col--12" style={{ padding: 8, paddingBottom: 0 }}>
+    <QuickstartCard
+      name="Next Up: Welcome to Your Contract Dashboard"
+      link="/getting-started/dashboard"
+      image="/assets/product/dashboard.png"
+    />
+  </div>
+</div>
+</div>

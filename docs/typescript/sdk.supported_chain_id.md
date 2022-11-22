@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type SUPPORTED_CHAIN_ID =
+export type SUPPORTED_CHAIN_ID =
   | ChainId.Mainnet
   | ChainId.Goerli
   | ChainId.Mumbai

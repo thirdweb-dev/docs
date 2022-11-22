@@ -12,7 +12,5 @@ displayed_sidebar: solana
 **Signature:**
 
 ```typescript
-export declare type NFTDropContractInput = z.input<
-  typeof NFTDropContractInputSchema
->;
+export type NFTDropContractInput = z.input<typeof NFTDropContractInputSchema>;
 ```

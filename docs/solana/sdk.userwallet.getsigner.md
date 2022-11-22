@@ -14,12 +14,12 @@ Get the connected signer
 **Signature:**
 
 ```typescript
-getSigner(): import("@metaplex-foundation/js/dist/types/plugins/identityModule").IdentityClient;
+getSigner(): import("@metaplex-foundation/js").IdentityClient;
 ```
 
 **Returns:**
 
-import("@metaplex-foundation/js/dist/types/plugins/identityModule").IdentityClient
+import("@metaplex-foundation/js").IdentityClient
 
 the signer
 

@@ -12,7 +12,7 @@ displayed_sidebar: storage
 **Signature:**
 
 ```typescript
-export declare type UploadProgressEvent = {
+export type UploadProgressEvent = {
   progress: number;
   total: number;
 };

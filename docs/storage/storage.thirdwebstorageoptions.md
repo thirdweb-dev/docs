@@ -12,7 +12,7 @@ displayed_sidebar: storage
 **Signature:**
 
 ```typescript
-export declare type ThirdwebStorageOptions<T extends UploadOptions> = {
+export type ThirdwebStorageOptions<T extends UploadOptions> = {
   uploader?: IStorageUploader<T>;
   downloader?: IStorageDownloader;
   gatewayUrls?: GatewayUrls;

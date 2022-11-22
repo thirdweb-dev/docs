@@ -14,7 +14,7 @@ Output for the contents of a bundle wrapped token
 **Signature:**
 
 ```typescript
-export declare type WrappedTokens = {
+export type WrappedTokens = {
   erc20Tokens: ERC20Wrappable[];
   erc721Tokens: ERC721Wrappable[];
   erc1155Tokens: ERC1155Wrappable[];

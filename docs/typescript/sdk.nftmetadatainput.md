@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type NFTMetadataInput = z.input<typeof CommonNFTInput>;
+export type NFTMetadataInput = z.input<typeof CommonNFTInput>;
 ```

@@ -16,7 +16,7 @@ The params for the [useMintNFT()](./react.usemintnft.md) hook mutation.
 **Signature:**
 
 ```typescript
-export declare type MintNFTParams = {
+export type MintNFTParams = {
   metadata: NFTMetadataOrUri;
   to: WalletAddress;
   supply?: Amount;

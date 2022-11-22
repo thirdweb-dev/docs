@@ -12,7 +12,7 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export declare type ExecuteAuctionSale = {
+export type ExecuteAuctionSale = {
   listingId: BigNumberish;
 };
 ```

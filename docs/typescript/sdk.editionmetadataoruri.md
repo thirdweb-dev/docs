@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type EditionMetadataOrUri = z.input<
+export type EditionMetadataOrUri = z.input<
   typeof EditionMetadataInputOrUriSchema
 >;
 ```

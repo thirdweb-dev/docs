@@ -12,7 +12,7 @@ displayed_sidebar: storage
 **Signature:**
 
 ```typescript
-export declare type UploadOptions = {
+export type UploadOptions = {
   [key: string]: any;
 };
 ```

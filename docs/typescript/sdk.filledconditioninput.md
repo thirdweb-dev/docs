@@ -12,7 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type FilledConditionInput = z.output<
-  typeof ClaimConditionInputSchema
->;
+export type FilledConditionInput = z.output<typeof ClaimConditionInputSchema>;
 ```

@@ -12,7 +12,5 @@ displayed_sidebar: solana
 **Signature:**
 
 ```typescript
-export declare type TokenMetadataInput = z.input<
-  typeof TokenMetadataInputSchema
->;
+export type TokenMetadataInput = z.input<typeof TokenMetadataInputSchema>;
 ```

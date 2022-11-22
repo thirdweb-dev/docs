@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type SignerOrProvider = Signer | providers.Provider;
+export type SignerOrProvider = Signer | providers.Provider;
 ```

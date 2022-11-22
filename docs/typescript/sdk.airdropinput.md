@@ -14,5 +14,5 @@ Input model to pass a list of addresses + amount to transfer to each one
 **Signature:**
 
 ```typescript
-export declare type AirdropInput = z.input<typeof AirdropInputSchema>;
+export type AirdropInput = z.input<typeof AirdropInputSchema>;
 ```

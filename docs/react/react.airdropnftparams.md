@@ -16,7 +16,7 @@ The params to pass to `useTransferBatchNFT`.
 **Signature:**
 
 ```typescript
-export declare type AirdropNFTParams = {
+export type AirdropNFTParams = {
   tokenId: BigNumberish;
   addresses: AirdropInput;
 };

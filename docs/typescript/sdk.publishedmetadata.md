@@ -12,7 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type PublishedMetadata = z.infer<
-  typeof CompilerMetadataFetchedSchema
->;
+export type PublishedMetadata = z.infer<typeof CompilerMetadataFetchedSchema>;
 ```

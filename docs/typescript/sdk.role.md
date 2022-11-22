@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type Role = keyof typeof roleMap;
+export type Role = keyof typeof roleMap;
 ```

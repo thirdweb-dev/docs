@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type PublishedContractFetched = {
+export type PublishedContractFetched = {
   name: string;
   publishedTimestamp: BigNumberish;
   publishedMetadata: FullPublishMetadata;

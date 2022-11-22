@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type ShardedMerkleTreeInfo = {
+export type ShardedMerkleTreeInfo = {
   merkleRoot: string;
   baseUri: string;
   originalEntriesUri: string;

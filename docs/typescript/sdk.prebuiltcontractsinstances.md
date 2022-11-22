@@ -12,7 +12,7 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare type PrebuiltContractsInstances = {
+export type PrebuiltContractsInstances = {
   [K in keyof PrebuiltContractsMap]: Awaited<
     ReturnType<typeof PREBUILT_CONTRACTS_MAP[K]["initialize"]>
   >;

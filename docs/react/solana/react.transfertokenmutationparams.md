@@ -12,7 +12,7 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export declare type TransferTokenMutationParams = {
+export type TransferTokenMutationParams = {
   amount: Amount;
   receiverAddress: string;
 };

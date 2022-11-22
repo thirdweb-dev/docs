@@ -14,7 +14,7 @@ Forward Request Message that's used for gasless transaction
 **Signature:**
 
 ```typescript
-export declare type ForwardRequestMessage = {
+export type ForwardRequestMessage = {
   from: string;
   to: string;
   value: string;
