@@ -51,14 +51,14 @@
     "html_url": "https://github.com/thirdweb-example/community-rewards",
     "description": "Reward your community using NFTs and thirdweb's signature based minting.",
     "created_at": "2022-05-22T23:33:24Z",
-    "updated_at": "2022-10-06T09:23:15Z",
+    "updated_at": "2022-11-23T12:03:53Z",
     "clone_url": "https://github.com/thirdweb-example/community-rewards.git",
     "topics": [
       "nft-collection",
       "signature-based-minting"
     ],
     "language": "JavaScript",
-    "stargazers_count": 12,
+    "stargazers_count": 13,
     "is_template": false,
     "homepage": "https://community-rewards.thirdweb-example.com"
   },
@@ -556,14 +556,14 @@
     "html_url": "https://github.com/thirdweb-example/next-javascript-solana-starter",
     "description": "Starter Kit for Next.js + JavaScript + Solana",
     "created_at": "2022-10-13T00:08:23Z",
-    "updated_at": "2022-10-15T13:56:28Z",
+    "updated_at": "2022-11-23T14:14:49Z",
     "clone_url": "https://github.com/thirdweb-example/next-javascript-solana-starter.git",
     "topics": [
       "solana",
       "starter-kit"
     ],
     "language": "JavaScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": "https://next-javascript-solana-starter.thirdweb-example.com/"
   },
@@ -590,14 +590,14 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-solana-starter",
     "description": "Starter Kit for Next.js + TypeScript + Solana",
     "created_at": "2022-09-20T06:27:03Z",
-    "updated_at": "2022-10-19T14:36:48Z",
+    "updated_at": "2022-11-23T12:32:47Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-solana-starter.git",
     "topics": [
       "solana",
       "starter-kit"
     ],
     "language": "TypeScript",
-    "stargazers_count": 5,
+    "stargazers_count": 6,
     "is_template": false,
     "homepage": "https://next-typescript-solana-starter.thirdweb-example.com/"
   },

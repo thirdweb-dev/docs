@@ -1,11 +1,11 @@
 ---
-slug: /NFTStake
-title: NFTStake
+slug: /EditionStake
+title: EditionStake
 hide_title: true
 displayed_sidebar: contracts
 ---
 
-# NFTStake
+# EditionStake
 
 ## Methods
 
@@ -24,12 +24,18 @@ function DEFAULT_ADMIN_ROLE() external view returns (bytes32)
 ### claimRewards
 
 ```solidity
-function claimRewards() external nonpayable
+function claimRewards(uint256 _tokenId) external nonpayable
 ```
 
 Claim accumulated rewards.
 
 _See {\_claimRewards}. Override that to implement custom logic. See {\_calculateRewards} for reward-calculation logic._
+
+#### Parameters
+
+| Name      | Type    | Description      |
+| --------- | ------- | ---------------- |
+| \_tokenId | uint256 | Staked token Id. |
 
 ### contractType
 
@@ -72,6 +78,42 @@ _Returns the version of the contract._
 | Name | Type  | Description |
 | ---- | ----- | ----------- |
 | \_0  | uint8 | undefined   |
+
+### defaultRewardsPerUnitTime
+
+```solidity
+function defaultRewardsPerUnitTime() external view returns (uint256)
+```
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### defaultTimeUnit
+
+```solidity
+function defaultTimeUnit() external view returns (uint256)
+```
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### edition
+
+```solidity
+function edition() external view returns (address)
+```
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### getRoleAdmin
 
@@ -143,10 +185,10 @@ _Returns `count` of accounts that have `role`. See struct {RoleMembers}, and map
 ### getStakeInfo
 
 ```solidity
-function getStakeInfo(address _staker) external view returns (uint256[] _tokensStaked, uint256 _rewards)
+function getStakeInfo(address _staker) external view returns (uint256[] _tokensStaked, uint256[] _tokenAmounts, uint256 _totalRewards)
 ```
 
-View amount staked and total rewards for a user.
+View all tokens staked and total rewards for a user.
 
 #### Parameters
 
@@ -156,10 +198,33 @@ View amount staked and total rewards for a user.
 
 #### Returns
 
-| Name           | Type      | Description                         |
-| -------------- | --------- | ----------------------------------- |
-| \_tokensStaked | uint256[] | List of token-ids staked by staker. |
-| \_rewards      | uint256   | Available reward amount.            |
+| Name           | Type      | Description                     |
+| -------------- | --------- | ------------------------------- |
+| \_tokensStaked | uint256[] | List of token-ids staked.       |
+| \_tokenAmounts | uint256[] | Amount of each token-id staked. |
+| \_totalRewards | uint256   | Total rewards available.        |
+
+### getStakeInfoForToken
+
+```solidity
+function getStakeInfoForToken(uint256 _tokenId, address _staker) external view returns (uint256 _tokensStaked, uint256 _rewards)
+```
+
+View amount staked and rewards for a user, for a given token-id.
+
+#### Parameters
+
+| Name      | Type    | Description                              |
+| --------- | ------- | ---------------------------------------- |
+| \_tokenId | uint256 | undefined                                |
+| \_staker  | address | Address for which to calculated rewards. |
+
+#### Returns
+
+| Name           | Type    | Description                                 |
+| -------------- | ------- | ------------------------------------------- |
+| \_tokensStaked | uint256 | Amount of tokens staked for given token-id. |
+| \_rewards      | uint256 | Available reward amount.                    |
 
 ### grantRole
 
@@ -245,22 +310,22 @@ function indexedTokens(uint256) external view returns (uint256)
 ### initialize
 
 ```solidity
-function initialize(address _defaultAdmin, string _contractURI, address[] _trustedForwarders, address _rewardToken, address _nftCollection, uint256 _timeUnit, uint256 _rewardsPerUnitTime) external nonpayable
+function initialize(address _defaultAdmin, string _contractURI, address[] _trustedForwarders, address _rewardToken, address _edition, uint256 _defaultTimeUnit, uint256 _defaultRewardsPerUnitTime) external nonpayable
 ```
 
 _Initiliazes the contract, like a constructor._
 
 #### Parameters
 
-| Name                 | Type      | Description |
-| -------------------- | --------- | ----------- |
-| \_defaultAdmin       | address   | undefined   |
-| \_contractURI        | string    | undefined   |
-| \_trustedForwarders  | address[] | undefined   |
-| \_rewardToken        | address   | undefined   |
-| \_nftCollection      | address   | undefined   |
-| \_timeUnit           | uint256   | undefined   |
-| \_rewardsPerUnitTime | uint256   | undefined   |
+| Name                        | Type      | Description |
+| --------------------------- | --------- | ----------- |
+| \_defaultAdmin              | address   | undefined   |
+| \_contractURI               | string    | undefined   |
+| \_trustedForwarders         | address[] | undefined   |
+| \_rewardToken               | address   | undefined   |
+| \_edition                   | address   | undefined   |
+| \_defaultTimeUnit           | uint256   | undefined   |
+| \_defaultRewardsPerUnitTime | uint256   | undefined   |
 
 ### isIndexed
 
@@ -318,22 +383,34 @@ _Receives and executes a batch of function calls on this contract._
 | ------- | ------- | ----------- |
 | results | bytes[] | undefined   |
 
-### nftCollection
+### onERC1155BatchReceived
 
 ```solidity
-function nftCollection() external view returns (address)
+function onERC1155BatchReceived(address operator, address from, uint256[] ids, uint256[] values, bytes data) external nonpayable returns (bytes4)
 ```
+
+_Handles the receipt of a multiple ERC1155 token types. This function is called at the end of a `safeBatchTransferFrom` after the balances have been updated. NOTE: To accept the transfer(s), this must return `bytes4(keccak256(&quot;onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)&quot;))` (i.e. 0xbc197c81, or its own function selector)._
+
+#### Parameters
+
+| Name     | Type      | Description                                                                                         |
+| -------- | --------- | --------------------------------------------------------------------------------------------------- |
+| operator | address   | The address which initiated the batch transfer (i.e. msg.sender)                                    |
+| from     | address   | The address which previously owned the token                                                        |
+| ids      | uint256[] | An array containing ids of each token being transferred (order and length must match values array)  |
+| values   | uint256[] | An array containing amounts of each token being transferred (order and length must match ids array) |
+| data     | bytes     | Additional data with no specified format                                                            |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type   | Description                                                                                                               |
+| ---- | ------ | ------------------------------------------------------------------------------------------------------------------------- |
+| \_0  | bytes4 | `bytes4(keccak256(&quot;onERC1155BatchReceived(address,address,uint256[],uint256[],bytes)&quot;))` if transfer is allowed |
 
-### onERC721Received
+### onERC1155Received
 
 ```solidity
-function onERC721Received(address, address, uint256, bytes) external pure returns (bytes4)
+function onERC1155Received(address, address, uint256, uint256, bytes) external nonpayable returns (bytes4)
 ```
 
 #### Parameters
@@ -343,7 +420,8 @@ function onERC721Received(address, address, uint256, bytes) external pure return
 | \_0  | address | undefined   |
 | \_1  | address | undefined   |
 | \_2  | uint256 | undefined   |
-| \_3  | bytes   | undefined   |
+| \_3  | uint256 | undefined   |
+| \_4  | bytes   | undefined   |
 
 #### Returns
 
@@ -402,8 +480,14 @@ _ERC20 Reward Token address. See {\_mintRewards} below._
 ### rewardsPerUnitTime
 
 ```solidity
-function rewardsPerUnitTime() external view returns (uint256)
+function rewardsPerUnitTime(uint256) external view returns (uint256)
 ```
+
+#### Parameters
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 #### Returns
 
@@ -427,10 +511,42 @@ _Caller should be authorized to setup contractURI, e.g. contract admin. See {\_c
 | ----- | ------ | --------------------------------------------------------------------- |
 | \_uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
+### setDefaultRewardsPerUnitTime
+
+```solidity
+function setDefaultRewardsPerUnitTime(uint256 _defaultRewardsPerUnitTime) external nonpayable
+```
+
+Set rewards per unit of time. Interpreted as x rewards per second/per day/etc based on time-unit.
+
+_Only admin/authorized-account can call it._
+
+#### Parameters
+
+| Name                        | Type    | Description                |
+| --------------------------- | ------- | -------------------------- |
+| \_defaultRewardsPerUnitTime | uint256 | New rewards per unit time. |
+
+### setDefaultTimeUnit
+
+```solidity
+function setDefaultTimeUnit(uint256 _defaultTimeUnit) external nonpayable
+```
+
+Set time unit. Set as a number of seconds. Could be specified as -- x _ 1 hours, x _ 1 days, etc.
+
+_Only admin/authorized-account can call it._
+
+#### Parameters
+
+| Name              | Type    | Description    |
+| ----------------- | ------- | -------------- |
+| \_defaultTimeUnit | uint256 | New time unit. |
+
 ### setRewardsPerUnitTime
 
 ```solidity
-function setRewardsPerUnitTime(uint256 _rewardsPerUnitTime) external nonpayable
+function setRewardsPerUnitTime(uint256 _tokenId, uint256 _rewardsPerUnitTime) external nonpayable
 ```
 
 Set rewards per unit of time. Interpreted as x rewards per second/per day/etc based on time-unit.
@@ -441,12 +557,13 @@ _Only admin/authorized-account can call it._
 
 | Name                 | Type    | Description                |
 | -------------------- | ------- | -------------------------- |
+| \_tokenId            | uint256 | ERC1155 token Id.          |
 | \_rewardsPerUnitTime | uint256 | New rewards per unit time. |
 
 ### setTimeUnit
 
 ```solidity
-function setTimeUnit(uint256 _timeUnit) external nonpayable
+function setTimeUnit(uint256 _tokenId, uint256 _timeUnit) external nonpayable
 ```
 
 Set time unit. Set as a number of seconds. Could be specified as -- x _ 1 hours, x _ 1 days, etc.
@@ -455,14 +572,15 @@ _Only admin/authorized-account can call it._
 
 #### Parameters
 
-| Name       | Type    | Description    |
-| ---------- | ------- | -------------- |
-| \_timeUnit | uint256 | New time unit. |
+| Name       | Type    | Description       |
+| ---------- | ------- | ----------------- |
+| \_tokenId  | uint256 | ERC1155 token Id. |
+| \_timeUnit | uint256 | New time unit.    |
 
 ### stake
 
 ```solidity
-function stake(uint256[] _tokenIds) external nonpayable
+function stake(uint256 _tokenId, uint256 _amount) external nonpayable
 ```
 
 Stake ERC721 Tokens.
@@ -471,14 +589,15 @@ _See {\_stake}. Override that to implement custom logic._
 
 #### Parameters
 
-| Name       | Type      | Description              |
-| ---------- | --------- | ------------------------ |
-| \_tokenIds | uint256[] | List of tokens to stake. |
+| Name      | Type    | Description                |
+| --------- | ------- | -------------------------- |
+| \_tokenId | uint256 | ERC1155 token-id to stake. |
+| \_amount  | uint256 | Amount to stake.           |
 
-### stakerAddress
+### stakers
 
 ```solidity
-function stakerAddress(uint256) external view returns (address)
+function stakers(uint256, address) external view returns (uint256 amountStaked, uint256 timeOfLastUpdate, uint256 unclaimedRewards)
 ```
 
 #### Parameters
@@ -486,24 +605,7 @@ function stakerAddress(uint256) external view returns (address)
 | Name | Type    | Description |
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-
-### stakers
-
-```solidity
-function stakers(address) external view returns (uint256 amountStaked, uint256 timeOfLastUpdate, uint256 unclaimedRewards)
-```
-
-#### Parameters
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| \_1  | address | undefined   |
 
 #### Returns
 
@@ -516,7 +618,7 @@ function stakers(address) external view returns (uint256 amountStaked, uint256 t
 ### stakersArray
 
 ```solidity
-function stakersArray(uint256) external view returns (address)
+function stakersArray(uint256, uint256) external view returns (address)
 ```
 
 #### Parameters
@@ -524,6 +626,7 @@ function stakersArray(uint256) external view returns (address)
 | Name | Type    | Description |
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
+| \_1  | uint256 | undefined   |
 
 #### Returns
 
@@ -536,6 +639,8 @@ function stakersArray(uint256) external view returns (address)
 ```solidity
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
+
+_Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas._
 
 #### Parameters
 
@@ -552,8 +657,14 @@ function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ### timeUnit
 
 ```solidity
-function timeUnit() external view returns (uint256)
+function timeUnit(uint256) external view returns (uint256)
 ```
+
+#### Parameters
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 #### Returns
 
@@ -564,7 +675,7 @@ function timeUnit() external view returns (uint256)
 ### withdraw
 
 ```solidity
-function withdraw(uint256[] _tokenIds) external nonpayable
+function withdraw(uint256 _tokenId, uint256 _amount) external nonpayable
 ```
 
 Withdraw staked tokens.
@@ -573,9 +684,10 @@ _See {\_withdraw}. Override that to implement custom logic._
 
 #### Parameters
 
-| Name       | Type      | Description                 |
-| ---------- | --------- | --------------------------- |
-| \_tokenIds | uint256[] | List of tokens to withdraw. |
+| Name      | Type    | Description                   |
+| --------- | ------- | ----------------------------- |
+| \_tokenId | uint256 | ERC1155 token-id to withdraw. |
+| \_amount  | uint256 | Amount to withdraw.           |
 
 ## Events
 
@@ -662,33 +774,35 @@ event RoleRevoked(bytes32 indexed role, address indexed account, address indexed
 ### TokensStaked
 
 ```solidity
-event TokensStaked(address indexed staker, uint256[] indexed tokenIds)
+event TokensStaked(address indexed staker, uint256 indexed tokenId, uint256 amount)
 ```
 
 #### Parameters
 
-| Name               | Type      | Description |
-| ------------------ | --------- | ----------- |
-| staker `indexed`   | address   | undefined   |
-| tokenIds `indexed` | uint256[] | undefined   |
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| staker `indexed`  | address | undefined   |
+| tokenId `indexed` | uint256 | undefined   |
+| amount            | uint256 | undefined   |
 
 ### TokensWithdrawn
 
 ```solidity
-event TokensWithdrawn(address indexed staker, uint256[] indexed tokenIds)
+event TokensWithdrawn(address indexed staker, uint256 indexed tokenId, uint256 amount)
 ```
 
 #### Parameters
 
-| Name               | Type      | Description |
-| ------------------ | --------- | ----------- |
-| staker `indexed`   | address   | undefined   |
-| tokenIds `indexed` | uint256[] | undefined   |
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| staker `indexed`  | address | undefined   |
+| tokenId `indexed` | uint256 | undefined   |
+| amount            | uint256 | undefined   |
 
-### UpdatedRewardsPerUnitTime
+### UpdatedDefaultRewardsPerUnitTime
 
 ```solidity
-event UpdatedRewardsPerUnitTime(uint256 oldRewardsPerUnitTime, uint256 newRewardsPerUnitTime)
+event UpdatedDefaultRewardsPerUnitTime(uint256 oldRewardsPerUnitTime, uint256 newRewardsPerUnitTime)
 ```
 
 #### Parameters
@@ -698,15 +812,43 @@ event UpdatedRewardsPerUnitTime(uint256 oldRewardsPerUnitTime, uint256 newReward
 | oldRewardsPerUnitTime | uint256 | undefined   |
 | newRewardsPerUnitTime | uint256 | undefined   |
 
-### UpdatedTimeUnit
+### UpdatedDefaultTimeUnit
 
 ```solidity
-event UpdatedTimeUnit(uint256 oldTimeUnit, uint256 newTimeUnit)
+event UpdatedDefaultTimeUnit(uint256 oldTimeUnit, uint256 newTimeUnit)
 ```
 
 #### Parameters
 
 | Name        | Type    | Description |
 | ----------- | ------- | ----------- |
+| oldTimeUnit | uint256 | undefined   |
+| newTimeUnit | uint256 | undefined   |
+
+### UpdatedRewardsPerUnitTime
+
+```solidity
+event UpdatedRewardsPerUnitTime(uint256 _tokenId, uint256 oldRewardsPerUnitTime, uint256 newRewardsPerUnitTime)
+```
+
+#### Parameters
+
+| Name                  | Type    | Description |
+| --------------------- | ------- | ----------- |
+| \_tokenId             | uint256 | undefined   |
+| oldRewardsPerUnitTime | uint256 | undefined   |
+| newRewardsPerUnitTime | uint256 | undefined   |
+
+### UpdatedTimeUnit
+
+```solidity
+event UpdatedTimeUnit(uint256 _tokenId, uint256 oldTimeUnit, uint256 newTimeUnit)
+```
+
+#### Parameters
+
+| Name        | Type    | Description |
+| ----------- | ------- | ----------- |
+| \_tokenId   | uint256 | undefined   |
 | oldTimeUnit | uint256 | undefined   |
 | newTimeUnit | uint256 | undefined   |

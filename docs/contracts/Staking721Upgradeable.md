@@ -24,7 +24,7 @@ _See {\_claimRewards}. Override that to implement custom logic. See {\_calculate
 ### getStakeInfo
 
 ```solidity
-function getStakeInfo(address _staker) external view returns (uint256 _tokensStaked, uint256 _rewards)
+function getStakeInfo(address _staker) external view returns (uint256[] _tokensStaked, uint256 _rewards)
 ```
 
 View amount staked and total rewards for a user.
@@ -37,10 +37,50 @@ View amount staked and total rewards for a user.
 
 #### Returns
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| \_tokensStaked | uint256 | undefined   |
-| \_rewards      | uint256 | undefined   |
+| Name           | Type      | Description                         |
+| -------------- | --------- | ----------------------------------- |
+| \_tokensStaked | uint256[] | List of token-ids staked by staker. |
+| \_rewards      | uint256   | Available reward amount.            |
+
+### indexedTokens
+
+```solidity
+function indexedTokens(uint256) external view returns (uint256)
+```
+
+_List of token-ids ever staked._
+
+#### Parameters
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### isIndexed
+
+```solidity
+function isIndexed(uint256) external view returns (bool)
+```
+
+_Mapping from token-id to whether it is indexed or not._
+
+#### Parameters
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### nftCollection
 
@@ -144,7 +184,7 @@ _Mapping from staked token-id to staker address._
 function stakers(address) external view returns (uint256 amountStaked, uint256 timeOfLastUpdate, uint256 unclaimedRewards)
 ```
 
-_Mapping from staker address to Staker struct. See {struct IStaking.Staker}._
+_Mapping from staker address to Staker struct. See {struct IStaking721.Staker}._
 
 #### Parameters
 
