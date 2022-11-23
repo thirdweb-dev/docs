@@ -447,6 +447,10 @@
       "destination": "/contractkit/primarysale"
     },
     {
+      "source": "/contractkit/features",
+      "destination": "/contractkit/extensions"
+    },
+    {
       "source": "/contractkit/features/:match*",
       "destination": "/contractkit/extensions/:match*"
     },
