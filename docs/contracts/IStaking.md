@@ -20,7 +20,7 @@ Claim accumulated rewards.
 ### getStakeInfo
 
 ```solidity
-function getStakeInfo(address staker) external view returns (uint256 _tokensStaked, uint256 _rewards)
+function getStakeInfo(address staker) external view returns (uint256[] _tokensStaked, uint256 _rewards)
 ```
 
 View amount staked and total rewards for a user.
@@ -33,10 +33,10 @@ View amount staked and total rewards for a user.
 
 #### Returns
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| \_tokensStaked | uint256 | undefined   |
-| \_rewards      | uint256 | undefined   |
+| Name           | Type      | Description |
+| -------------- | --------- | ----------- |
+| \_tokensStaked | uint256[] | undefined   |
+| \_rewards      | uint256   | undefined   |
 
 ### stake
 
