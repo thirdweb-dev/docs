@@ -1,13 +1,13 @@
 ---
-slug: /Staking1155Upgradeable
-title: Staking1155Upgradeable
+slug: /Staking1155Base
+title: Staking1155Base
 hide_title: true
 displayed_sidebar: contracts
 ---
 
-# Staking1155Upgradeable
+# Staking1155Base
 
-note: This is a Beta release.
+note: This is a Beta release. EXTENSION: Staking1155 The `Staking1155Base` smart contract implements NFT staking mechanism. Allows users to stake their ERC-1155 NFTs and earn rewards in form of ERC-20 tokens. Following features and implementation setup must be noted: - ERC-1155 NFTs from only one collection can be staked. - Contract admin can choose to give out rewards by either transferring or minting the rewardToken, which is an ERC20 token. See {\_mintRewards}. - To implement custom logic for staking, reward calculation, etc. corresponding functions can be overridden from the extension `Staking1155`. - Ownership of the contract, with the ability to restrict certain functions to only be called by the contract&#39;s owner. - Multicall capability to perform multiple actions atomically.
 
 ## Methods
 
@@ -27,13 +27,25 @@ _See {\_claimRewards}. Override that to implement custom logic. See {\_calculate
 | --------- | ------- | ---------------- |
 | \_tokenId | uint256 | Staked token Id. |
 
+### contractURI
+
+```solidity
+function contractURI() external view returns (string)
+```
+
+Returns the contract metadata URI.
+
+#### Returns
+
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
+
 ### defaultRewardsPerUnitTime
 
 ```solidity
 function defaultRewardsPerUnitTime() external view returns (uint256)
 ```
-
-_Default rewards accumulated per unit of time._
 
 #### Returns
 
@@ -47,8 +59,6 @@ _Default rewards accumulated per unit of time._
 function defaultTimeUnit() external view returns (uint256)
 ```
 
-_Default unit of time specified in number of seconds. Can be set as 1 seconds, 1 days, 1 hours, etc._
-
 #### Returns
 
 | Name | Type    | Description |
@@ -60,8 +70,6 @@ _Default unit of time specified in number of seconds. Can be set as 1 seconds, 1
 ```solidity
 function edition() external view returns (address)
 ```
-
-_Address of ERC1155 contract -- staked tokens belong to this contract._
 
 #### Returns
 
@@ -119,8 +127,6 @@ View amount staked and rewards for a user, for a given token-id.
 function indexedTokens(uint256) external view returns (uint256)
 ```
 
-_List of token-ids ever staked._
-
 #### Parameters
 
 | Name | Type    | Description |
@@ -139,8 +145,6 @@ _List of token-ids ever staked._
 function isIndexed(uint256) external view returns (bool)
 ```
 
-_Mapping from token-id to whether it is indexed or not._
-
 #### Parameters
 
 | Name | Type    | Description |
@@ -153,13 +157,61 @@ _Mapping from token-id to whether it is indexed or not._
 | ---- | ---- | ----------- |
 | \_0  | bool | undefined   |
 
+### multicall
+
+```solidity
+function multicall(bytes[] data) external nonpayable returns (bytes[] results)
+```
+
+Receives and executes a batch of function calls on this contract.
+
+_Receives and executes a batch of function calls on this contract._
+
+#### Parameters
+
+| Name | Type    | Description                                                          |
+| ---- | ------- | -------------------------------------------------------------------- |
+| data | bytes[] | The bytes data that makes up the batch of function calls to execute. |
+
+#### Returns
+
+| Name    | Type    | Description                                                                      |
+| ------- | ------- | -------------------------------------------------------------------------------- |
+| results | bytes[] | The bytes data that makes up the result of the batch of function calls executed. |
+
+### owner
+
+```solidity
+function owner() external view returns (address)
+```
+
+Returns the owner of the contract.
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+
+### rewardToken
+
+```solidity
+function rewardToken() external view returns (address)
+```
+
+_ERC20 Reward Token address. See {\_mintRewards} below._
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+
 ### rewardsPerUnitTime
 
 ```solidity
 function rewardsPerUnitTime(uint256) external view returns (uint256)
 ```
-
-_Mapping from token-id to rewards accumulated per unit of time._
 
 #### Parameters
 
@@ -172,6 +224,22 @@ _Mapping from token-id to rewards accumulated per unit of time._
 | Name | Type    | Description |
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
+
+### setContractURI
+
+```solidity
+function setContractURI(string _uri) external nonpayable
+```
+
+Lets a contract admin set the URI for contract-level metadata.
+
+_Caller should be authorized to setup contractURI, e.g. contract admin. See {\_canSetContractURI}. Emits {ContractURIUpdated Event}._
+
+#### Parameters
+
+| Name  | Type   | Description                                                           |
+| ----- | ------ | --------------------------------------------------------------------- |
+| \_uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
 ### setDefaultRewardsPerUnitTime
 
@@ -204,6 +272,20 @@ _Only admin/authorized-account can call it._
 | Name              | Type    | Description    |
 | ----------------- | ------- | -------------- |
 | \_defaultTimeUnit | uint256 | New time unit. |
+
+### setOwner
+
+```solidity
+function setOwner(address _newOwner) external nonpayable
+```
+
+Lets an authorized wallet set a new owner for the contract.
+
+#### Parameters
+
+| Name       | Type    | Description                                          |
+| ---------- | ------- | ---------------------------------------------------- |
+| \_newOwner | address | The address to set as the new owner of the contract. |
 
 ### setRewardsPerUnitTime
 
@@ -262,8 +344,6 @@ _See {\_stake}. Override that to implement custom logic._
 function stakers(uint256, address) external view returns (uint256 amountStaked, uint256 timeOfLastUpdate, uint256 unclaimedRewards)
 ```
 
-_Mapping from token-id and staker address to Staker struct. See {struct IStaking1155.Staker}._
-
 #### Parameters
 
 | Name | Type    | Description |
@@ -285,8 +365,6 @@ _Mapping from token-id and staker address to Staker struct. See {struct IStaking
 function stakersArray(uint256, uint256) external view returns (address)
 ```
 
-_Mapping from token-id to list of accounts that have staked that token-id._
-
 #### Parameters
 
 | Name | Type    | Description |
@@ -305,8 +383,6 @@ _Mapping from token-id to list of accounts that have staked that token-id._
 ```solidity
 function timeUnit(uint256) external view returns (uint256)
 ```
-
-_Mapping from token-id to unit of time specified in number of seconds. Can be set as 1 seconds, 1 days, 1 hours, etc._
 
 #### Parameters
 
@@ -339,17 +415,31 @@ _See {\_withdraw}. Override that to implement custom logic._
 
 ## Events
 
-### Initialized
+### ContractURIUpdated
 
 ```solidity
-event Initialized(uint8 version)
+event ContractURIUpdated(string prevURI, string newURI)
 ```
 
 #### Parameters
 
-| Name    | Type  | Description |
-| ------- | ----- | ----------- |
-| version | uint8 | undefined   |
+| Name    | Type   | Description |
+| ------- | ------ | ----------- |
+| prevURI | string | undefined   |
+| newURI  | string | undefined   |
+
+### OwnerUpdated
+
+```solidity
+event OwnerUpdated(address indexed prevOwner, address indexed newOwner)
+```
+
+#### Parameters
+
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| prevOwner `indexed` | address | undefined   |
+| newOwner `indexed`  | address | undefined   |
 
 ### RewardsClaimed
 

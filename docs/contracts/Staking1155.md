@@ -409,27 +409,27 @@ event UpdatedDefaultTimeUnit(uint256 oldTimeUnit, uint256 newTimeUnit)
 ### UpdatedRewardsPerUnitTime
 
 ```solidity
-event UpdatedRewardsPerUnitTime(uint256 _tokenId, uint256 oldRewardsPerUnitTime, uint256 newRewardsPerUnitTime)
+event UpdatedRewardsPerUnitTime(uint256 indexed _tokenId, uint256 oldRewardsPerUnitTime, uint256 newRewardsPerUnitTime)
 ```
 
 #### Parameters
 
 | Name                  | Type    | Description |
 | --------------------- | ------- | ----------- |
-| \_tokenId             | uint256 | undefined   |
+| \_tokenId `indexed`   | uint256 | undefined   |
 | oldRewardsPerUnitTime | uint256 | undefined   |
 | newRewardsPerUnitTime | uint256 | undefined   |
 
 ### UpdatedTimeUnit
 
 ```solidity
-event UpdatedTimeUnit(uint256 _tokenId, uint256 oldTimeUnit, uint256 newTimeUnit)
+event UpdatedTimeUnit(uint256 indexed _tokenId, uint256 oldTimeUnit, uint256 newTimeUnit)
 ```
 
 #### Parameters
 
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| \_tokenId   | uint256 | undefined   |
-| oldTimeUnit | uint256 | undefined   |
-| newTimeUnit | uint256 | undefined   |
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| \_tokenId `indexed` | uint256 | undefined   |
+| oldTimeUnit         | uint256 | undefined   |
+| newTimeUnit         | uint256 | undefined   |
