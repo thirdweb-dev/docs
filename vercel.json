@@ -201,7 +201,7 @@
     },
     {
       "source": "/thirdweb-deploy/contract-features/:match*",
-      "destination": "/contractkit/features/:match*"
+      "destination": "/contractkit/extensions/:match*"
     },
     {
       "source": "/advanced-features/signature-based-minting",
@@ -353,7 +353,7 @@
     },
     {
       "source": "/contracts-sdk/contract-extensions/signatureminting",
-      "destination": "/contractkit/features/signatureminterc721"
+      "destination": "/contractkit/extensions/signatureminterc721"
     },
     {
       "source": "/guides/sign-in-with-ethereum-using-thirdweb-connectwallet",
@@ -373,11 +373,11 @@
     },
     {
       "source": "/contracts-sdk/contract-extensions",
-      "destination": "/contractkit/features"
+      "destination": "/contractkit/extensions"
     },
     {
       "source": "/contracts-sdk/contract-extensions/:match*",
-      "destination": "/contractkit/features/:match*"
+      "destination": "/contractkit/extensions/:match*"
     },
     {
       "source": "/contracts-sdk/:match*",
@@ -423,28 +423,32 @@
       "destination": "/getting-started/contracts"
     },
     {
-      "source": "/contractkit/features/contractmetadata",
+      "source": "/contractkit/extensions/contractmetadata",
       "destination": "/contractkit/contractmetadata"
     },
     {
-      "source": "/contractkit/features/ownable",
+      "source": "/contractkit/extensions/ownable",
       "destination": "/contractkit/ownable"
     },
     {
-      "source": "/contractkit/features/permissions",
+      "source": "/contractkit/extensions/permissions",
       "destination": "/contractkit/permissions"
     },
     {
-      "source": "/contractkit/features/platformfee",
+      "source": "/contractkit/extensions/platformfee",
       "destination": "/contractkit/platformfee"
     },
     {
-      "source": "/contractkit/features/primarysale",
+      "source": "/contractkit/extensions/primarysale",
       "destination": "/contractkit/primarysale"
     },
     {
-      "source": "/contractkit/features/primarysale",
+      "source": "/contractkit/extensions/primarysale",
       "destination": "/contractkit/primarysale"
+    },
+    {
+      "source": "/contractkit/features/:match*",
+      "destination": "/contractkit/extensions/:match*"
     },
     {
       "source": "/create",
@@ -473,6 +477,14 @@
     {
       "source": "/getting-started/releasing-custom-contracts",
       "destination": "/getting-started"
+    },
+    {
+      "source": "/gaming-kit",
+      "destination": "/gamingkit"
+    },
+    {
+      "source": "/gaming-kit/:match*",
+      "destination": "/gamingkit/:match*"
     }
   ]
 }
