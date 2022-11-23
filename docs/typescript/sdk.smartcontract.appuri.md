@@ -11,10 +11,8 @@ displayed_sidebar: typescript
 
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
 
-Set and get the appuri of the contract
-
 **Signature:**
 
 ```typescript
-get appURI(): ContractAppURI<AppURI>;
+appURI: ContractAppURI<BaseContract>;
 ```
