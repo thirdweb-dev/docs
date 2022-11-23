@@ -17,7 +17,7 @@ import jsonData from "../docs/feature_snippets.json" assert { type: "json" };
     // If it contains ERC20, then the link is :
     // /contractkit/erc-20/${contractName}
     // Otherwise the link is :
-    // /contractkit/features/${contractName}
+    // /contractkit/extensions/${contractName}
     let output = "";
 
     if (contractName.includes("ERC721")) {
@@ -27,7 +27,7 @@ import jsonData from "../docs/feature_snippets.json" assert { type: "json" };
     } else if (contractName.includes("ERC20")) {
       output = `/contractkit/erc-20/${contractName}`;
     } else {
-      output = `/contractkit/features/${contractName}`;
+      output = `/contractkit/extensions/${contractName}`;
     }
 
     return output.toLowerCase();

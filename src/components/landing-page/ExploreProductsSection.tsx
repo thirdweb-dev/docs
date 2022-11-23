@@ -43,10 +43,10 @@ const products: Product[] = [
   },
   {
     image: "/assets/product/sdk.png",
-    name: "Gaming Kit",
+    name: "GamingKit",
     description:
       "Unity interface for building web3 games on EVM compatible networks",
-    link: "/gaming-kit",
+    link: "/gamingkit",
   },
   {
     image: "/assets/product/ui.png",
