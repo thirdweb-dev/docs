@@ -14,8 +14,8 @@ import YoutubeEmbed from "@components/YoutubeEmbed";
 <p>
 Use the <a href="https://portal.thirdweb.com/cli">CLI</a>,
 to publish a new version of your smart contract to our{" "}
-<b>on-chain registry</b>,
-where anyone can view and deploy it from the <a href="https://thirdweb.com/dashboard">dashboard</a>.
+on-chain registry,
+where anyone can view and deploy it from the <a href="https://thirdweb.com/explore">explore page</a>.
 
 </p>
 
@@ -30,55 +30,79 @@ npx thirdweb release
 </div>
 </div>
 
-<div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--12" style={{ marginTop: 8 }}>
-    <QuickstartCard
-      name="Guide: Release & Deploy Your Own Contract"
-      link="https://blog.thirdweb.com/guides/register-your-contract-using-thirdweb-release/"
-      image="/assets/icons/education.png"
-    />
-  </div>
+## Release A Contract
+
+<div className="heroGrid">
+<div>
+
+From the same directory as your smart contract(s), run the following command
+to:
+
+- Compile your smart contract.
+- Upload the contract source code (ABI) to IPFS.
+- Open the release flow in the dashboard.
+
+```bash
+npx thirdweb@latest release
+```
+
 </div>
 
-:::tip Solana Program Releases
+<div className="heroGridImageContainer">
+  <img src="/assets/release.png"/>
+</div>
+</div>
 
-You will soon be able to release Solana programs and let anyone deploy them in one click.
+Open the generated URL in your browser and follow the steps below to release your contract.
 
-Join our [Discord](https://discord.gg/thirdweb) to be the first to know when it's shipped!
+### Configure Contract Metadata
 
-:::
+From the dashboard, provide metadata about your smart contract such as a name, image, description and more:
 
-## Releasing Contracts
+This information is what users will see when they visit your smart contract from the explore page.
 
-By releasing your contract onto the thirdweb registry, you unlock a way of creating **versioned deployments**
-of your contracts and have your contract source code stored on the blockchain.
+![Enter Contract Metadata](/assets/release-dashboard-1.png)
 
-When you publish a new version, you can easily deploy it to any of our [supported networks](https://blog.thirdweb.com/guides/which-network-should-you-use)
-in one click, without exposing your private key at any point.
+### Add A Version
 
-We also create a public landing page for both your **wallet** and your **smart contract**, where the metadata, author, release notes, and
-source code is all publicly available and stored on-chain.
+Use [semantic versioning](https://semver.org/) to incrementally release new versions of your smart contract;
+ideal for when you want to make changes to your smart contract but don't want to break existing integrations.
 
-These pages are accessible by anyone and allow users who visit them to:
+Each version of your smart contract is stored on-chain and can be deployed by anyone, and
+can optionally include release notes to describe the changes you've made between versions.
 
-- View the author and the source of the contract
-- View the functions, variables, and [extensions](/contractkit/features) in your contract
-- Deploy a copy of the contract themselves
+![Versioned Releases](/assets/versioned-releases-with-p-notes.png)
 
-![Release Page](./assets/release-page.png)
+### Describe Constructor Parameters
+
+Help users trying to deploy your smart contract by providing a description of each constructor parameter.
+
+![Describe Constructor Parameters](/assets/enter-contract-params.png)
+
+### Create Release
+
+Finally, click the "Create Release" button to publish your smart contract to the on-chain registry.
+
+![Release](/assets/create-release.png)
+
+### Get Your Release Featured
+
+Releasing your contract on thirdweb is the best way to get your protocol in front of 60k+ web3 developers.
+
+[Contact Us](https://form.typeform.com/to/FAwehBFl) to apply to have your contract featured on the explore page.
 
 ## Advanced Features
 
-### Cheaper deploys using EIP-1967 Proxy contracts
+### EIP-1967 Proxy contracts
 
 When releasing a contract, you can choose to let others deploy a "proxy" of a pre-deployed contract. Since proxies are much lighter weight than the actual full contract, they are much cheaper to deploy. Proxy deploys only requiring a fraction of the gas of a normal deploy.
 
 This feature has a requirement however, the "main" contract, referred to as the "implementation" needs to be deployed on chain already.
 
-Here's the step by step flow to create a release with proxy deploys enabled:
+Here's the step-by-step flow to create a release with proxy deploys enabled:
 
 1. Your contract needs to implement the [upgradeable pattern](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable), generally means it has an "initialize" function instead of a regular constructo
-2. Run `npx thirdweb release` from you project
+2. Run `npx thirdweb release` from your project
 3. On the create release page, check "Deployable via proxy"
 4. This will reveal a new section, where you can deploy your implementations on any supported chain in one click.
 5. Deploy your implementations on your desired chains (addresses are saved automatically)
@@ -92,7 +116,7 @@ Another way to let users deploy your contracts is by using a factory contract. T
 
 To enable factory deploys, you will need to deploy a factory contract that implements the [IContractFactory interface](https://portal.thirdweb.com/contracts/IContractFactory). This is a simple interface with one function that you can implement to add deploy contracts any way you like, and add your custom logic on top. This is extremely useful when deploying a contract requires multiple steps, having the factory take care of the heavy lifting.
 
-Here's the step by step flow to create a release with factory deploys enabled:
+Here's the step-by-step flow to create a release with factory deploys enabled:
 
 1. Follow steps 1 to 5
 2. Check "Deployable via factory"
@@ -100,7 +124,3 @@ Here's the step by step flow to create a release with factory deploys enabled:
 4. Create your release
 
 That's it, now when people click deploy from your release page, your factory will be invoked instead.
-
----
-
-We'd love to hear of other release use cases you need! Join our discord community and share your thoughts!
