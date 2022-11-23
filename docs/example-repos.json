@@ -1054,7 +1054,7 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-supabase",
     "description": "Enable users to login to your backend with their wallet, and store users in supabase. ",
     "created_at": "2022-08-19T19:02:16Z",
-    "updated_at": "2022-11-07T14:27:41Z",
+    "updated_at": "2022-11-23T07:09:48Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-supabase.git",
     "topics": [
       "auth",
@@ -1062,7 +1062,7 @@
       "web2"
     ],
     "language": "TypeScript",
-    "stargazers_count": 5,
+    "stargazers_count": 6,
     "is_template": false,
     "homepage": ""
   },
