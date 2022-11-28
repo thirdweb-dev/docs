@@ -514,7 +514,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2022-11-16T07:01:56Z",
+    "updated_at": "2022-11-28T13:44:53Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace.git",
     "topics": [
       "marketplace",
@@ -522,7 +522,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 34,
+    "stargazers_count": 35,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
@@ -1130,6 +1130,32 @@
     "stargazers_count": 0,
     "is_template": false,
     "homepage": null
+  },
+  {
+    "name": "unity-karting-game",
+    "html_url": "https://github.com/thirdweb-example/unity-karting-game",
+    "description": "Mint An NFT Vehicle and start driving to collect rewards!",
+    "created_at": "2022-11-28T07:07:24Z",
+    "updated_at": "2022-11-28T07:13:52Z",
+    "clone_url": "https://github.com/thirdweb-example/unity-karting-game.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "unity-karting-game.vercel.app"
+  },
+  {
+    "name": "unity-rpg-game",
+    "html_url": "https://github.com/thirdweb-example/unity-rpg-game",
+    "description": "Speak with NPCs and complete quests to earn ERC20 tokens which you can use to buy NFTs from the in-game shop!",
+    "created_at": "2022-11-28T07:08:09Z",
+    "updated_at": "2022-11-28T07:12:57Z",
+    "clone_url": "https://github.com/thirdweb-example/unity-rpg-game.git",
+    "topics": [],
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "unity-rpg-game.vercel.app"
   },
   {
     "name": "updatable-nft-metadata",
