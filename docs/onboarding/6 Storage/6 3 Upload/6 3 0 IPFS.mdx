@@ -60,7 +60,7 @@ export default function Component() {
     async (acceptedFiles: File[]) => {
       const uris = await upload({ data: acceptedFiles });
       console.log(uris);
-    }
+    },
     [upload],
   );
   const { getRootProps, getInputProps } = useDropzone({ onDrop });
