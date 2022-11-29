@@ -199,7 +199,7 @@ export default function TemplateCard({ t }: Props) {
         <CodeBlock
           language={"console"}
           className="template-code"
-        >{`npx thirdweb create -t ${t.name}`}</CodeBlock>
+        >{`npx thirdweb@latest create -t ${t.name}`}</CodeBlock>
 
         <div
           className="button-container always-row"

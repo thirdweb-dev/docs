@@ -130,7 +130,7 @@ hide_title: true
     "\n" +
     "```jsx" +
     "\n" +
-    "npx thirdweb create --template " +
+    "npx thirdweb@latest create --template " +
     page.name +
     "\n" +
     "```";
