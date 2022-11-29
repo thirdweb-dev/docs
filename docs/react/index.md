@@ -26,7 +26,7 @@ displayed_sidebar: react
 The easiest way to get started with the React SDK is to use the CLI:
 
 ```sh
-npx thirdweb@latest create app --evm
+npx thirdweb create --app
 ```
 
 Alternatively, you can install the SDK into your existing project using npm or yarn:
