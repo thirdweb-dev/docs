@@ -689,6 +689,20 @@ _See {\_withdraw}. Override that to implement custom logic._
 | \_tokenId | uint256 | ERC1155 token-id to withdraw. |
 | \_amount  | uint256 | Amount to withdraw.           |
 
+### withdrawRewardTokens
+
+```solidity
+function withdrawRewardTokens(uint256 _amount) external nonpayable
+```
+
+_Admin can withdraw excess reward tokens._
+
+#### Parameters
+
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| \_amount | uint256 | undefined   |
+
 ## Events
 
 ### ContractURIUpdated

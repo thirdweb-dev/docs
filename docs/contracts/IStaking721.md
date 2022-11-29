@@ -1,11 +1,11 @@
 ---
-slug: /IStaking
-title: IStaking
+slug: /IStaking721
+title: IStaking721
 hide_title: true
 displayed_sidebar: contracts
 ---
 
-# IStaking
+# IStaking721
 
 ## Methods
 

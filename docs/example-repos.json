@@ -165,11 +165,11 @@
     "html_url": "https://github.com/thirdweb-example/cra-typescript-solana-starter",
     "description": "Starter kit for Create React App, thirdweb, Solana, and TypeScript",
     "created_at": "2022-11-17T03:22:45Z",
-    "updated_at": "2022-11-23T23:20:15Z",
+    "updated_at": "2022-11-29T02:53:16Z",
     "clone_url": "https://github.com/thirdweb-example/cra-typescript-solana-starter.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": "cra-typescript-solana-starter.vercel.app"
   },
