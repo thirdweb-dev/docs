@@ -231,7 +231,7 @@ export default function TemplateCard({ t }: Props) {
             </a>
           )}
           {/* <CopyTemplateButton
-            copyText={`npx thirdweb@latest@latest create --template ${t.name}`}
+            copyText={`npx thirdweb@latest create --template ${t.name}`}
           /> */}
         </div>
       </div>
