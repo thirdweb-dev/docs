@@ -22,14 +22,14 @@ contract.events.addTransactionListener((event) => {
 **Signature:**
 
 ```typescript
-addTransactionListener(listener: ListenerFn): void;
+addTransactionListener(listener: EventEmitter.ListenerFn): void;
 ```
 
 ## Parameters
 
-| Parameter | Type       | Description                                                    |
-| --------- | ---------- | -------------------------------------------------------------- |
-| listener  | ListenerFn | the callback function that will be called on every transaction |
+| Parameter | Type                    | Description                                                    |
+| --------- | ----------------------- | -------------------------------------------------------------- |
+| listener  | EventEmitter.ListenerFn | the callback function that will be called on every transaction |
 
 **Returns:**
 

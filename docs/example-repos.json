@@ -195,7 +195,7 @@
     "html_url": "https://github.com/thirdweb-example/creator-platform",
     "description": "Authenticate users into a web2 database to build a hybrid web2+web3 creator platform!",
     "created_at": "2022-09-23T01:22:38Z",
-    "updated_at": "2022-11-04T13:55:52Z",
+    "updated_at": "2022-11-29T23:28:50Z",
     "clone_url": "https://github.com/thirdweb-example/creator-platform.git",
     "topics": [
       "auth",
@@ -203,7 +203,7 @@
       "web2"
     ],
     "language": "TypeScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": ""
   },
@@ -482,7 +482,7 @@
     "html_url": "https://github.com/thirdweb-example/magic-link",
     "description": "Connect users to your dApp using just their email using thirdweb's useMagic hook!",
     "created_at": "2022-04-27T07:03:18Z",
-    "updated_at": "2022-11-09T05:55:32Z",
+    "updated_at": "2022-11-30T03:12:27Z",
     "clone_url": "https://github.com/thirdweb-example/magic-link.git",
     "topics": [
       "nextjs",
@@ -490,7 +490,7 @@
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 7,
+    "stargazers_count": 8,
     "is_template": false,
     "homepage": "https://magic-link.thirdweb-example.com"
   },
@@ -648,7 +648,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-11-27T13:35:06Z",
+    "updated_at": "2022-11-30T08:06:17Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -659,7 +659,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 67,
+    "stargazers_count": 68,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -715,6 +715,19 @@
     "homepage": null
   },
   {
+    "name": "pack-creation-script",
+    "html_url": "https://github.com/thirdweb-example/pack-creation-script",
+    "description": null,
+    "created_at": "2022-11-30T03:55:04Z",
+    "updated_at": "2022-11-30T04:03:33Z",
+    "clone_url": "https://github.com/thirdweb-example/pack-creation-script.git",
+    "topics": [],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "packs",
     "html_url": "https://github.com/thirdweb-example/packs",
     "description": "Bundle NFTs and Tokens together in Packs that users can open and receive randomly selected tokens from those that were bundled!",
@@ -734,7 +747,7 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2022-11-25T20:23:18Z",
+    "updated_at": "2022-11-30T22:03:08Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [
       "contract-kit",
@@ -745,7 +758,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 21,
+    "stargazers_count": 22,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },

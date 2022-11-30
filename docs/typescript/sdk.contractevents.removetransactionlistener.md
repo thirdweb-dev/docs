@@ -22,14 +22,14 @@ contract.events.removeTransactionListener((event) => {
 **Signature:**
 
 ```typescript
-removeTransactionListener(listener: ListenerFn): void;
+removeTransactionListener(listener: EventEmitter.ListenerFn): void;
 ```
 
 ## Parameters
 
-| Parameter | Type       | Description                     |
-| --------- | ---------- | ------------------------------- |
-| listener  | ListenerFn | the callback function to remove |
+| Parameter | Type                    | Description                     |
+| --------- | ----------------------- | ------------------------------- |
+| listener  | EventEmitter.ListenerFn | the callback function to remove |
 
 **Returns:**
 
