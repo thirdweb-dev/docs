@@ -16,6 +16,26 @@ To [write transactions to the blockchain](/gamingkit/interact-with-contracts/wri
 string address = await sdk.wallet.Connect();
 ```
 
+## Connect to a particular Wallet provider
+
+You can pick and choose how you want your users to connect to your application. The SDK supports:
+
+- MetaMask
+- Coinbase Wallet
+- WalletConnect
+- any injected browser extension like TrustWallet and others.
+
+You can also specify which chain you want your users to connect to, here's an example:
+
+```csharp
+// Connect to the user's wallet via CoinbaseWallet
+string address = await sdk.wallet.Connect(new WalletConnection()
+        {
+            provider = WalletProvider.CoinbaseWallet,
+            chainId = 5 // Switch the wallet Goerli on connection
+        });
+```
+
 ## Read Wallet Information
 
 Once connected, you can access information about the user's [Wallet](/unity/Wallet).
