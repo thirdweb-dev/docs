@@ -259,7 +259,7 @@
     "html_url": "https://github.com/thirdweb-example/discord-role-granter",
     "description": "Grant users who own NFTs a role in your Discord server!",
     "created_at": "2022-07-22T03:52:48Z",
-    "updated_at": "2022-11-15T01:34:32Z",
+    "updated_at": "2022-12-02T15:45:32Z",
     "clone_url": "https://github.com/thirdweb-example/discord-role-granter.git",
     "topics": [
       "auth",
@@ -267,7 +267,7 @@
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": "https://discord-role-granter.thirdweb-example.com/"
   },
