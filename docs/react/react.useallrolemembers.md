@@ -16,7 +16,7 @@ Use this to get the roles of a
 ## Example
 
 ```jsx
-const { data: roles, isLoading, error } = useAllRoleMembers(SmartContract);
+const { data: roles, isLoading, error } = useAllRoleMembers(contract);
 ```
 
 **Signature:**

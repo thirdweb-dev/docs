@@ -21,7 +21,7 @@ const Component = () => {
     mutate: overwriteRoles,
     isLoading,
     error,
-  } = useSetAllRoleMembers(SmartContract);
+  } = useSetAllRoleMembers(contract);
 
   if (error) {
     console.error("failed to overwrite roles", error);

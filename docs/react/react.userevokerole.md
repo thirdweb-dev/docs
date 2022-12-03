@@ -17,7 +17,7 @@ Use this to revoke a [WalletAddress](./react.walletaddress.md) a specific role o
 
 ```jsx
 const Component = () => {
-  const { mutate: revokeRole, isLoading, error } = useRevokeRole(SmartContract);
+  const { mutate: revokeRole, isLoading, error } = useRevokeRole(contract);
 
   if (error) {
     console.error("failed to revoke role", error);

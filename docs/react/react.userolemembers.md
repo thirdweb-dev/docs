@@ -20,7 +20,7 @@ const {
   data: members,
   isLoading,
   error,
-} = useRoleMembers(SmartContract, "admin");
+} = useRoleMembers(contract, "admin");
 ```
 
 **Signature:**

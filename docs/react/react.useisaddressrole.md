@@ -20,7 +20,7 @@ const {
   data: isMember,
   isLoading,
   error,
-} = useIsAddressRole(SmartContract, "admin", "0x123");
+} = useIsAddressRole(contract, "admin", "0x123");
 ```
 
 **Signature:**

@@ -17,7 +17,7 @@ Use this to grant a [WalletAddress](./react.walletaddress.md) a specific role on
 
 ```jsx
 const Component = () => {
-  const { mutate: grantRole, isLoading, error } = useGrantRole(SmartContract);
+  const { mutate: grantRole, isLoading, error } = useGrantRole(contract);
 
   if (error) {
     console.error("failed to grant role", error);
