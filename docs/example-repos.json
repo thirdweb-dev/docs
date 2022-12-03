@@ -178,7 +178,7 @@
     "html_url": "https://github.com/thirdweb-example/cra-typescript-starter",
     "description": "thirdweb starter project with Create React App & TypeScript",
     "created_at": "2022-03-17T23:44:42Z",
-    "updated_at": "2022-10-04T20:54:40Z",
+    "updated_at": "2022-12-03T13:20:43Z",
     "clone_url": "https://github.com/thirdweb-example/cra-typescript-starter.git",
     "topics": [
       "react",
@@ -186,7 +186,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 4,
+    "stargazers_count": 5,
     "is_template": true,
     "homepage": "https://cra-typescript-starter.thirdweb-example.com"
   },
@@ -466,14 +466,14 @@
     "html_url": "https://github.com/thirdweb-example/login-with-wallet",
     "description": "Authenticate to a backend using the sign in with ethereum standard provided by thirdweb auth",
     "created_at": "2022-06-03T16:04:25Z",
-    "updated_at": "2022-09-29T14:56:40Z",
+    "updated_at": "2022-12-03T18:31:11Z",
     "clone_url": "https://github.com/thirdweb-example/login-with-wallet.git",
     "topics": [
       "auth",
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 12,
+    "stargazers_count": 13,
     "is_template": false,
     "homepage": ""
   },
