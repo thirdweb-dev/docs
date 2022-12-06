@@ -514,7 +514,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2022-12-04T14:29:16Z",
+    "updated_at": "2022-12-06T12:13:42Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace.git",
     "topics": [
       "marketplace",
@@ -522,7 +522,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 36,
+    "stargazers_count": 37,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
@@ -1149,13 +1149,13 @@
     "html_url": "https://github.com/thirdweb-example/unity-karting-game",
     "description": "Purchase Vehicle NFTs from an in-game marketplace and start earning ERC20 tokens used to buy upgrades!",
     "created_at": "2022-11-28T07:07:24Z",
-    "updated_at": "2022-11-30T23:07:33Z",
+    "updated_at": "2022-12-06T04:41:31Z",
     "clone_url": "https://github.com/thirdweb-example/unity-karting-game.git",
     "topics": [
       "gaming"
     ],
-    "language": "JavaScript",
-    "stargazers_count": 0,
+    "language": "C#",
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": "https://unity-karting-game.thirdweb-example.com"
   },
@@ -1164,13 +1164,13 @@
     "html_url": "https://github.com/thirdweb-example/unity-nft-lootboxes",
     "description": "Purchase NFT loot boxes from a marketplace and open them to reveal randomly selected NFTs inside!",
     "created_at": "2022-11-30T04:22:51Z",
-    "updated_at": "2022-12-06T01:42:41Z",
+    "updated_at": "2022-12-06T15:41:04Z",
     "clone_url": "https://github.com/thirdweb-example/unity-nft-lootboxes.git",
     "topics": [
       "gaming"
     ],
     "language": "JavaScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": "https://unity-nft-lootboxes.thirdweb-example.com"
   },
@@ -1179,10 +1179,10 @@
     "html_url": "https://github.com/thirdweb-example/unity-rpg-game",
     "description": "Speak with NPCs and complete quests to earn ERC20 tokens which you can use to buy NFTs from the in-game shop!",
     "created_at": "2022-11-28T07:08:09Z",
-    "updated_at": "2022-11-29T22:12:00Z",
+    "updated_at": "2022-12-06T07:29:40Z",
     "clone_url": "https://github.com/thirdweb-example/unity-rpg-game.git",
     "topics": [],
-    "language": "JavaScript",
+    "language": "C#",
     "stargazers_count": 0,
     "is_template": false,
     "homepage": "https://unity-rpg-game.thirdweb-example.com"
