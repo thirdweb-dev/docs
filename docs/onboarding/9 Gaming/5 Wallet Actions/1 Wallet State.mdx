@@ -1,0 +1,65 @@
+---
+slug: /gamingkit/wallet-actions/wallet-state
+title: Wallet State
+---
+
+# Wallet State
+
+Once a user has [connected](/gamingkit/setting-up/connect-wallets) to your game,
+use the [Wallet](/unity/Wallet) class to interact with the connected wallet.
+
+## Read Wallet State
+
+Read information about the connected wallet.
+
+### Check Wallet Connection
+
+Check if the user has connected their wallet to your game.
+
+```csharp
+bool isConnected = await sdk.wallet.IsConnected();
+```
+
+### Wallet Address
+
+If the user has connected their wallet to your game, read their wallet address.
+
+```csharp
+string address = await sdk.wallet.GetAddress();
+```
+
+### Current Network
+
+View the [chain ID](/typescript/sdk.chainid) of the network the user is connected to.
+
+```csharp
+int chainId = await sdk.wallet.GetChainId();
+```
+
+### Balance (Native Token)
+
+Read the balance of the native token of the network the user is connected to.
+
+For example, if the user is connected to the Ethereum Mainnet, this will return the balance of ETH.
+
+```csharp
+CurrencyValue balance = await sdk.wallet.GetBalance();
+```
+
+## Change Wallet State
+
+Request the user to change their wallet state.
+
+These functions are especially useful to ensure the user is on the correct network before signing a transaction.
+
+### Switch Network
+
+```csharp
+await sdk.wallet.SwitchNetwork(chainId);
+```
+
+### Disconnect Wallet
+
+```csharp
+await sdk.wallet.Disconnect();
+```
