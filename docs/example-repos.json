@@ -1192,14 +1192,14 @@
     "html_url": "https://github.com/thirdweb-example/unity-vr",
     "description": "Create VR Games in Unity using GamingKit",
     "created_at": "2022-12-07T06:21:33Z",
-    "updated_at": "2022-12-08T05:38:21Z",
+    "updated_at": "2022-12-08T18:05:18Z",
     "clone_url": "https://github.com/thirdweb-example/unity-vr.git",
     "topics": [
       "gaming",
       "gamingkit"
     ],
     "language": "C#",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": "https://unity-vr.thirdweb-example.com"
   },
