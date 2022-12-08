@@ -93,6 +93,7 @@ displayed_sidebar: typescript
 | [getContractName(type)](./sdk.getcontractname.md)                      |                                                   |
 | [getNativeTokenByChainId(chainId)](./sdk.getnativetokenbychainid.md)   | Returns the native token for a given chain        |
 | [getReadOnlyProvider(network, chainId)](./sdk.getreadonlyprovider.md)  |                                                   |
+| [getRpcUrl(network, apikey)](./sdk.getrpcurl.md)                       |                                                   |
 | [isDowngradeVersion(current, next)](./sdk.isdowngradeversion.md)       |                                                   |
 
 ## Interfaces
