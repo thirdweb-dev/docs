@@ -67,13 +67,13 @@
     "html_url": "https://github.com/thirdweb-example/connect-wallet-button",
     "description": "Learn how to use the ConnectWallet Button component from the React SDK!",
     "created_at": "2022-08-23T04:29:36Z",
-    "updated_at": "2022-10-13T02:25:19Z",
+    "updated_at": "2022-12-08T01:15:43Z",
     "clone_url": "https://github.com/thirdweb-example/connect-wallet-button.git",
     "topics": [
       "ui-components"
     ],
     "language": "JavaScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": "https://connectwallet.thirdweb-example.com/"
   },
@@ -482,7 +482,7 @@
     "html_url": "https://github.com/thirdweb-example/magic-link",
     "description": "Connect users to your dApp using just their email using thirdweb's useMagic hook!",
     "created_at": "2022-04-27T07:03:18Z",
-    "updated_at": "2022-11-30T03:12:27Z",
+    "updated_at": "2022-12-08T03:03:59Z",
     "clone_url": "https://github.com/thirdweb-example/magic-link.git",
     "topics": [
       "nextjs",
@@ -490,7 +490,7 @@
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 8,
+    "stargazers_count": 9,
     "is_template": false,
     "homepage": "https://magic-link.thirdweb-example.com"
   },
@@ -1186,6 +1186,22 @@
     "stargazers_count": 1,
     "is_template": false,
     "homepage": "https://unity-rpg-game.thirdweb-example.com"
+  },
+  {
+    "name": "unity-vr",
+    "html_url": "https://github.com/thirdweb-example/unity-vr",
+    "description": "Create VR Games in Unity using GamingKit",
+    "created_at": "2022-12-07T06:21:33Z",
+    "updated_at": "2022-12-08T05:38:21Z",
+    "clone_url": "https://github.com/thirdweb-example/unity-vr.git",
+    "topics": [
+      "gaming",
+      "gamingkit"
+    ],
+    "language": "C#",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "https://unity-vr.thirdweb-example.com"
   },
   {
     "name": "unlock-subscribe",
