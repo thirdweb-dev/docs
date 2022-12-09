@@ -7,12 +7,15 @@ displayed_sidebar: unity
 
 ## class `MarketplaceDirect` {#class_thirdweb_1_1_marketplace_direct}
 
+```
+class MarketplaceDirect
+  : public Thirdweb.Routable
+```
+
 ### Summary
 
 | Members           | Type     | Descriptions |
 | ----------------- | -------- | ------------ |
-| chain             | variable |              |
-| address           | variable |              |
 | MarketplaceDirect | function |              |
 | GetListing        | function |              |
 | GetActiveOffer    | function |              |
@@ -22,15 +25,7 @@ displayed_sidebar: unity
 
 ### Members
 
-**`public string `[`chain`](#class_thirdweb_1_1_marketplace_direct_1a71fe2680819d19bb2f5a3438a40c5d80)**
-
----
-
-**`public string `[`address`](#class_thirdweb_1_1_marketplace_direct_1ac53e8254f7de1d6edadaddfc2f206d31)**
-
----
-
-**`public inline `[`MarketplaceDirect`](#class_thirdweb_1_1_marketplace_direct_1a0502828aef1c9e0420de0a144b30efb2)`(string chain,string address)`**
+**`public inline `[`MarketplaceDirect`](#class_thirdweb_1_1_marketplace_direct_1a93737c9a97ff8881b93c30a5441d215c)`(string parentRoute)`**
 
 ---
 

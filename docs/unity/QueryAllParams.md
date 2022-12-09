@@ -9,10 +9,11 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type     | Descriptions |
-| ------- | -------- | ------------ |
-| start   | variable |              |
-| count   | variable |              |
+| Members  | Type     | Descriptions |
+| -------- | -------- | ------------ |
+| start    | variable |              |
+| count    | variable |              |
+| ToString | function |              |
 
 ### Members
 
@@ -21,5 +22,9 @@ displayed_sidebar: unity
 ---
 
 **`public int `[`count`](#class_thirdweb_1_1_query_all_params_1ab753967d04c707adca12536681b9c90d)**
+
+---
+
+**`public inline override string `[`ToString`](#class_thirdweb_1_1_query_all_params_1a40b0af4516de90ef715ec8270df00954)`()`**
 
 ---

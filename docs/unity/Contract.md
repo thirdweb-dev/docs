@@ -7,6 +7,11 @@ displayed_sidebar: unity
 
 ## class `Contract` {#class_thirdweb_1_1_contract}
 
+```
+class Contract
+  : public Thirdweb.Routable
+```
+
 Convenient wrapper to interact with any EVM contract
 
 ### Summary
@@ -20,8 +25,11 @@ Convenient wrapper to interact with any EVM contract
 | ERC721      | variable | Call any [ERC721](docs/unity/ERC721.md#class_thirdweb_1_1_e_r_c721) supported functions              |
 | ERC1155     | variable | Call any [ERC1155](docs/unity/ERC1155.md#class_thirdweb_1_1_e_r_c1155) supported functions           |
 | marketplace | variable | Call any [Marketplace](docs/unity/Marketplace.md#class_thirdweb_1_1_marketplace) supported functions |
+| pack        | variable | Call any [Pack](docs/unity/Pack.md#class_thirdweb_1_1_pack) supported functions                      |
 | Contract    | function |                                                                                                      |
+| GetBalance  | function |                                                                                                      |
 | Read< T >   | function | Read data from a contract                                                                            |
+| Write       | function | Execute a write transaction on a contract                                                            |
 | Write       | function | Execute a write transaction on a contract                                                            |
 
 ### Members
@@ -62,7 +70,17 @@ Call any [Marketplace](docs/unity/Marketplace.md#class_thirdweb_1_1_marketplace)
 
 ---
 
+**`public `[`Pack`](docs/unity/Pack.md#class_thirdweb_1_1_pack)` `[`pack`](#class_thirdweb_1_1_contract_1aba5b822fa1cbb8155e606b5a9a48731b)**
+
+Call any [Pack](docs/unity/Pack.md#class_thirdweb_1_1_pack) supported functions
+
+---
+
 **`public inline `[`Contract`](#class_thirdweb_1_1_contract_1a27550a2733b64016c83843d25fa3e5f1)`(string chain,string address,string abi)`**
+
+---
+
+**`public inline async Task< `[`CurrencyValue`](docs/unity/CurrencyValue.md#struct_thirdweb_1_1_currency_value)`>`[`GetBalance`](#class_thirdweb_1_1_contract_1a2b81f3985b27c3fad539c6b06486f693)`()`**
 
 ---
 
@@ -74,7 +92,7 @@ Read data from a contract
 
 - `functionName` The contract function name to call
 
-- `args` The function arguments. Structs and Lists will get serialized automatically
+- `args` Optional function arguments. Structs and Lists will get serialized automatically
 
 #### Returns
 
@@ -82,7 +100,7 @@ The data deserialized to the given typed
 
 ---
 
-**`public inline async Task< `[`TransactionResult`](docs/unity/TransactionResult.md#class_thirdweb_1_1_transaction_result)`>`[`Write`](#class_thirdweb_1_1_contract_1a0d72328ca63f71f2eb420a05f23c480e)`(string functionName,params object[] args)`**
+**`public inline Task< `[`TransactionResult`](docs/unity/TransactionResult.md#class_thirdweb_1_1_transaction_result)`>`[`Write`](#class_thirdweb_1_1_contract_1a9bdc5f71abafc9af5b99b1358859ef1c)`(string functionName,params object[] args)`**
 
 Execute a write transaction on a contract
 
@@ -90,7 +108,25 @@ Execute a write transaction on a contract
 
 - `functionName` The contract function name to call
 
-- `args` The function arguments. Structs and Lists will get serialized automatically
+- `args` Optional function arguments. Structs and Lists will get serialized automatically
+
+#### Returns
+
+The transaction receipt
+
+---
+
+**`public inline async Task< `[`TransactionResult`](docs/unity/TransactionResult.md#class_thirdweb_1_1_transaction_result)`>`[`Write`](#class_thirdweb_1_1_contract_1a32bc75bfc4abe9cbf84cd08b9c9ece6f)`(string functionName,`[`TransactionRequest`](docs/unity/TransactionRequest.md#struct_thirdweb_1_1_transaction_request)`? transactionOverrides,params object[] args)`**
+
+Execute a write transaction on a contract
+
+#### Parameters
+
+- `functionName` The contract function name to call
+
+- `transactionOverrides` Overrides to pass with the transaction
+
+- `args` Optional function arguments. Structs and Lists will get serialized automatically
 
 #### Returns
 

@@ -17,6 +17,7 @@ displayed_sidebar: unity
 | value    | variable |              |
 | gasLimit | variable |              |
 | gasPrice | variable |              |
+| ToString | function |              |
 
 ### Members
 
@@ -41,5 +42,9 @@ displayed_sidebar: unity
 ---
 
 **`public string `[`gasPrice`](#struct_thirdweb_1_1_transaction_request_1ab7227765c543af92b5b367d0aa82609c)**
+
+---
+
+**`public inline override string `[`ToString`](#struct_thirdweb_1_1_transaction_request_1aa7383865ff6ff2e252ea32e5487651b0)`()`**
 
 ---

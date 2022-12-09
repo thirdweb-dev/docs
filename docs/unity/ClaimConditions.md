@@ -14,11 +14,11 @@ displayed_sidebar: unity
 | availableSupply       | variable |              |
 | currentMintSupply     | variable |              |
 | currencyMetadata      | variable |              |
-| price                 | variable |              |
 | currencyAddress       | variable |              |
 | maxClaimableSupply    | variable |              |
 | maxClaimablePerWallet | variable |              |
 | waitInSeconds         | variable |              |
+| ToString              | function |              |
 
 ### Members
 
@@ -31,10 +31,6 @@ displayed_sidebar: unity
 ---
 
 **`public `[`CurrencyValue`](docs/unity/CurrencyValue.md#struct_thirdweb_1_1_currency_value)` `[`currencyMetadata`](#class_thirdweb_1_1_claim_conditions_1a6a88e5223560666ebacc34fbaf65e670)**
-
----
-
-**`public string `[`price`](#class_thirdweb_1_1_claim_conditions_1a3fc57191f23b424f6c969145b2c209ca)**
 
 ---
 
@@ -51,5 +47,9 @@ displayed_sidebar: unity
 ---
 
 **`public string `[`waitInSeconds`](#class_thirdweb_1_1_claim_conditions_1ae1cf9fb214afce4c675dc664f24e522d)**
+
+---
+
+**`public inline override string `[`ToString`](#class_thirdweb_1_1_claim_conditions_1a5bbe0aae1c26602df340a54cc476db9c)`()`**
 
 ---

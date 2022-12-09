@@ -16,6 +16,7 @@ displayed_sidebar: unity
 | decimals     | variable |              |
 | value        | variable |              |
 | displayValue | variable |              |
+| ToString     | function |              |
 
 ### Members
 
@@ -36,5 +37,9 @@ displayed_sidebar: unity
 ---
 
 **`public string `[`displayValue`](#struct_thirdweb_1_1_currency_value_1a8fe2ca9ff5a00167aae223eaeb215a58)**
+
+---
+
+**`public inline override string `[`ToString`](#struct_thirdweb_1_1_currency_value_1ad7aa4254180d66c9dbaae7095fb51f35)`()`**
 
 ---

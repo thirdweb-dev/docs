@@ -17,6 +17,7 @@ displayed_sidebar: unity
 | gasUsed          | variable |              |
 | blockHash        | variable |              |
 | transactionHash  | variable |              |
+| ToString         | function |              |
 
 ### Members
 
@@ -41,5 +42,9 @@ displayed_sidebar: unity
 ---
 
 **`public string `[`transactionHash`](#struct_thirdweb_1_1_receipt_1aab3d044a0e929c252238d6d2679dcce2)**
+
+---
+
+**`public inline override string `[`ToString`](#struct_thirdweb_1_1_receipt_1a4a4a7eab264c47afea67579079320410)`()`**
 
 ---
