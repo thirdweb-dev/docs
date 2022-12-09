@@ -499,13 +499,13 @@
     "html_url": "https://github.com/thirdweb-example/makeswift",
     "description": "Use Makeswift to build a web3 application using a drag-and-drop web builder",
     "created_at": "2022-07-25T21:35:43Z",
-    "updated_at": "2022-09-29T01:31:00Z",
+    "updated_at": "2022-12-09T12:50:59Z",
     "clone_url": "https://github.com/thirdweb-example/makeswift.git",
     "topics": [
       "no-code"
     ],
     "language": "TypeScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": ""
   },
@@ -648,7 +648,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-11-30T08:06:17Z",
+    "updated_at": "2022-12-09T03:37:42Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -659,7 +659,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 68,
+    "stargazers_count": 69,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
