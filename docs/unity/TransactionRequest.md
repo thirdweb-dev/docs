@@ -9,15 +9,15 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| from | variable |  |
-| to | variable |  |
-| data | variable |  |
-| value | variable |  |
-| gasLimit | variable |  |
-| gasPrice | variable |  |
-| ToString | function |  |
+| Members  | Type     | Descriptions |
+| -------- | -------- | ------------ |
+| from     | variable |              |
+| to       | variable |              |
+| data     | variable |              |
+| value    | variable |              |
+| gasLimit | variable |              |
+| gasPrice | variable |              |
+| ToString | function |              |
 
 ### Members
 

@@ -9,11 +9,11 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| contractAddress | variable | the [ERC1155](docs/unity/ERC1155.md#class_thirdweb_1_1_e_r_c1155) contract address |
-| tokenId | variable | the tokenId of the [NFT](docs/unity/NFT.md#struct_thirdweb_1_1_n_f_t) to be rewarded |
-| quantityPerReward | variable | How many NFTs can be otained when opening a pack and receiving this reward. |
+| Members           | Type     | Descriptions                                                                         |
+| ----------------- | -------- | ------------------------------------------------------------------------------------ |
+| contractAddress   | variable | the [ERC1155](docs/unity/ERC1155.md#class_thirdweb_1_1_e_r_c1155) contract address   |
+| tokenId           | variable | the tokenId of the [NFT](docs/unity/NFT.md#struct_thirdweb_1_1_n_f_t) to be rewarded |
+| quantityPerReward | variable | How many NFTs can be otained when opening a pack and receiving this reward.          |
 
 ### Members
 

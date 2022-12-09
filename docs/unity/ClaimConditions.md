@@ -9,16 +9,16 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| availableSupply | variable |  |
-| currentMintSupply | variable |  |
-| currencyMetadata | variable |  |
-| currencyAddress | variable |  |
-| maxClaimableSupply | variable |  |
-| maxClaimablePerWallet | variable |  |
-| waitInSeconds | variable |  |
-| ToString | function |  |
+| Members               | Type     | Descriptions |
+| --------------------- | -------- | ------------ |
+| availableSupply       | variable |              |
+| currentMintSupply     | variable |              |
+| currencyMetadata      | variable |              |
+| currencyAddress       | variable |              |
+| maxClaimableSupply    | variable |              |
+| maxClaimablePerWallet | variable |              |
+| waitInSeconds         | variable |              |
+| ToString              | function |              |
 
 ### Members
 

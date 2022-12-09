@@ -9,18 +9,18 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| to | variable |  |
-| price | variable |  |
-| currencyAddress | variable |  |
-| primarySaleRecipient | variable |  |
-| royaltyRecipient | variable |  |
-| royaltyBps | variable |  |
-| quantity | variable |  |
-| metadata | variable |  |
-| uid | variable |  |
-| ERC1155MintPayload | function |  |
+| Members              | Type     | Descriptions |
+| -------------------- | -------- | ------------ |
+| to                   | variable |              |
+| price                | variable |              |
+| currencyAddress      | variable |              |
+| primarySaleRecipient | variable |              |
+| royaltyRecipient     | variable |              |
+| royaltyBps           | variable |              |
+| quantity             | variable |              |
+| metadata             | variable |              |
+| uid                  | variable |              |
+| ERC1155MintPayload   | function |              |
 
 ### Members
 
@@ -60,6 +60,6 @@ displayed_sidebar: unity
 
 ---
 
-**`public inline  `[`ERC1155MintPayload`](#class_thirdweb_1_1_e_r_c1155_mint_payload_1aa33a80a80a21cbe330e9a073d352c176)`(string receiverAddress,`[`NFTMetadata`](docs/unity/NFTMetadata.md#struct_thirdweb_1_1_n_f_t_metadata)` metadata)`**
+**`public inline `[`ERC1155MintPayload`](#class_thirdweb_1_1_e_r_c1155_mint_payload_1aa33a80a80a21cbe330e9a073d352c176)`(string receiverAddress,`[`NFTMetadata`](docs/unity/NFTMetadata.md#struct_thirdweb_1_1_n_f_t_metadata)` metadata)`**
 
 ---

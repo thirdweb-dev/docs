@@ -14,13 +14,13 @@ class AuctionListing
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| startTimeInEpochSeconds | variable |  |
-| endTimeInEpochSeconds | variable |  |
-| reservePrice | variable |  |
-| reservePriceCurrencyValuePerToken | variable |  |
-| ToString | function |  |
+| Members                           | Type     | Descriptions |
+| --------------------------------- | -------- | ------------ |
+| startTimeInEpochSeconds           | variable |              |
+| endTimeInEpochSeconds             | variable |              |
+| reservePrice                      | variable |              |
+| reservePriceCurrencyValuePerToken | variable |              |
+| ToString                          | function |              |
 
 ### Members
 

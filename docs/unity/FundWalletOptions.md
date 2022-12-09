@@ -9,12 +9,12 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| appId | variable |  |
-| address | variable |  |
-| chainId | variable |  |
-| assets | variable |  |
+| Members | Type     | Descriptions |
+| ------- | -------- | ------------ |
+| appId   | variable |              |
+| address | variable |              |
+| chainId | variable |              |
+| assets  | variable |              |
 
 ### Members
 

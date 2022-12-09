@@ -9,15 +9,15 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| Value | property |  |
-| MetaMask | property |  |
-| CoinbaseWallet | property |  |
-| WalletConnect | property |  |
-| Injected | property |  |
-| MagicAuth | property |  |
-| ToString | function |  |
+| Members        | Type     | Descriptions |
+| -------------- | -------- | ------------ |
+| Value          | property |              |
+| MetaMask       | property |              |
+| CoinbaseWallet | property |              |
+| WalletConnect  | property |              |
+| Injected       | property |              |
+| MagicAuth      | property |              |
+| ToString       | function |              |
 
 ### Members
 

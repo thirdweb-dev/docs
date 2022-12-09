@@ -9,13 +9,13 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| address | variable |  |
-| maxClaimable | variable |  |
-| price | variable |  |
-| currencyAddress | variable |  |
-| ToString | function |  |
+| Members         | Type     | Descriptions |
+| --------------- | -------- | ------------ |
+| address         | variable |              |
+| maxClaimable    | variable |              |
+| price           | variable |              |
+| currencyAddress | variable |              |
+| ToString        | function |              |
 
 ### Members
 

@@ -9,15 +9,15 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| Routable | function |  |
-| baseRoute | variable |  |
-| getRoute | function |  |
+| Members   | Type     | Descriptions |
+| --------- | -------- | ------------ |
+| Routable  | function |              |
+| baseRoute | variable |              |
+| getRoute  | function |              |
 
 ### Members
 
-**`public inline  `[`Routable`](#class_thirdweb_1_1_routable_1ad23bc6bc913ed5efd0e8d7f619e72193)`(string baseRoute)`**
+**`public inline `[`Routable`](#class_thirdweb_1_1_routable_1ad23bc6bc913ed5efd0e8d7f619e72193)`(string baseRoute)`**
 
 ---
 

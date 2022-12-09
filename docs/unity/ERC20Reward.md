@@ -9,9 +9,9 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| contractAddress | variable | the Token contract address |
+| Members           | Type     | Descriptions                                                                  |
+| ----------------- | -------- | ----------------------------------------------------------------------------- |
+| contractAddress   | variable | the Token contract address                                                    |
 | quantityPerReward | variable | How many tokens can be otained when opening a pack and receiving this reward. |
 
 ### Members

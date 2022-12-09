@@ -9,20 +9,20 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| to | variable |  |
-| tokenId | variable |  |
-| price | variable |  |
-| currencyAddress | variable |  |
-| primarySaleRecipient | variable |  |
-| royaltyRecipient | variable |  |
-| royaltyBps | variable |  |
-| quantity | variable |  |
-| uri | variable |  |
-| uid | variable |  |
-| mintStartTime | variable |  |
-| mintEndTime | variable |  |
+| Members              | Type     | Descriptions |
+| -------------------- | -------- | ------------ |
+| to                   | variable |              |
+| tokenId              | variable |              |
+| price                | variable |              |
+| currencyAddress      | variable |              |
+| primarySaleRecipient | variable |              |
+| royaltyRecipient     | variable |              |
+| royaltyBps           | variable |              |
+| quantity             | variable |              |
+| uri                  | variable |              |
+| uid                  | variable |              |
+| mintStartTime        | variable |              |
+| mintEndTime          | variable |              |
 
 ### Members
 

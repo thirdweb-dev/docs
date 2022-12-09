@@ -9,18 +9,18 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| tokenId | variable |  |
-| to | variable |  |
-| price | variable |  |
-| currencyAddress | variable |  |
-| primarySaleRecipient | variable |  |
-| royaltyRecipient | variable |  |
-| royaltyBps | variable |  |
-| quantity | variable |  |
-| uid | variable |  |
-| ERC1155MintAdditionalPayload | function |  |
+| Members                      | Type     | Descriptions |
+| ---------------------------- | -------- | ------------ |
+| tokenId                      | variable |              |
+| to                           | variable |              |
+| price                        | variable |              |
+| currencyAddress              | variable |              |
+| primarySaleRecipient         | variable |              |
+| royaltyRecipient             | variable |              |
+| royaltyBps                   | variable |              |
+| quantity                     | variable |              |
+| uid                          | variable |              |
+| ERC1155MintAdditionalPayload | function |              |
 
 ### Members
 
@@ -60,6 +60,6 @@ displayed_sidebar: unity
 
 ---
 
-**`public inline  `[`ERC1155MintAdditionalPayload`](#class_thirdweb_1_1_e_r_c1155_mint_additional_payload_1a259c7a6207bad788115dfd2cd4330590)`(string receiverAddress,string tokenId)`**
+**`public inline `[`ERC1155MintAdditionalPayload`](#class_thirdweb_1_1_e_r_c1155_mint_additional_payload_1a259c7a6207bad788115dfd2cd4330590)`(string receiverAddress,string tokenId)`**
 
 ---

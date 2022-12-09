@@ -16,25 +16,25 @@ Deploy contracts to the blockchain.
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| Deployer | function |  |
-| DeployNFTCollection | function |  |
-| DeployNFTDrop | function |  |
-| DeploySignatureDrop | function |  |
-| DeployMultiwrap | function |  |
-| DeployEdition | function |  |
-| DeployEditionDrop | function |  |
-| DeployPack | function |  |
-| DeployToken | function |  |
-| DeployTokenDrop | function |  |
-| DeployMarketplace | function |  |
-| DeployReleasedContract | function |  |
-| DeployFromContractUri | function |  |
+| Members                | Type     | Descriptions |
+| ---------------------- | -------- | ------------ |
+| Deployer               | function |              |
+| DeployNFTCollection    | function |              |
+| DeployNFTDrop          | function |              |
+| DeploySignatureDrop    | function |              |
+| DeployMultiwrap        | function |              |
+| DeployEdition          | function |              |
+| DeployEditionDrop      | function |              |
+| DeployPack             | function |              |
+| DeployToken            | function |              |
+| DeployTokenDrop        | function |              |
+| DeployMarketplace      | function |              |
+| DeployReleasedContract | function |              |
+| DeployFromContractUri  | function |              |
 
 ### Members
 
-**`public inline  `[`Deployer`](#class_thirdweb_1_1_deployer_1a6b3329ae934d3e34f566026e0ea08d57)`()`**
+**`public inline `[`Deployer`](#class_thirdweb_1_1_deployer_1a6b3329ae934d3e34f566026e0ea08d57)`()`**
 
 ---
 

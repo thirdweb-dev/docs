@@ -9,14 +9,14 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| metadata | variable |  |
-| owner | variable |  |
-| type | variable |  |
-| supply | variable |  |
-| quantityOwned | variable |  |
-| ToString | function |  |
+| Members       | Type     | Descriptions |
+| ------------- | -------- | ------------ |
+| metadata      | variable |              |
+| owner         | variable |              |
+| type          | variable |              |
+| supply        | variable |              |
+| quantityOwned | variable |              |
+| ToString      | function |              |
 
 ### Members
 

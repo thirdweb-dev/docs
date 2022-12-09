@@ -14,12 +14,12 @@ class MarketplaceFilter
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| seller | variable |  |
-| tokenContract | variable |  |
-| tokenId | variable |  |
-| ToString | function |  |
+| Members       | Type     | Descriptions |
+| ------------- | -------- | ------------ |
+| seller        | variable |              |
+| tokenContract | variable |              |
+| tokenId       | variable |              |
+| ToString      | function |              |
 
 ### Members
 

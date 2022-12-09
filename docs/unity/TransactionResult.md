@@ -9,12 +9,12 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| receipt | variable |  |
-| id | variable |  |
-| isSuccessful | function |  |
-| ToString | function |  |
+| Members      | Type     | Descriptions |
+| ------------ | -------- | ------------ |
+| receipt      | variable |              |
+| id           | variable |              |
+| isSuccessful | function |              |
+| ToString     | function |              |
 
 ### Members
 

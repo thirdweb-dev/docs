@@ -14,9 +14,9 @@ class ERC20Contents
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| totalRewards | variable |  |
+| Members      | Type     | Descriptions |
+| ------------ | -------- | ------------ |
+| totalRewards | variable |              |
 
 ### Members
 

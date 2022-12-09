@@ -9,11 +9,11 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| payload | variable |  |
-| signature | variable |  |
-| ToString | function |  |
+| Members   | Type     | Descriptions |
+| --------- | -------- | ------------ |
+| payload   | variable |              |
+| signature | variable |              |
+| ToString  | function |              |
 
 ### Members
 

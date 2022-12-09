@@ -9,12 +9,12 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| name | variable |  |
-| symbol | variable |  |
-| decimals | variable |  |
-| ToString | function |  |
+| Members  | Type     | Descriptions |
+| -------- | -------- | ------------ |
+| name     | variable |              |
+| symbol   | variable |              |
+| decimals | variable |              |
+| ToString | function |              |
 
 ### Members
 

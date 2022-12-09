@@ -14,11 +14,11 @@ class DirectListing
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| startTimeInSeconds | variable |  |
-| secondsUntilEnd | variable |  |
-| ToString | function |  |
+| Members            | Type     | Descriptions |
+| ------------------ | -------- | ------------ |
+| startTimeInSeconds | variable |              |
+| secondsUntilEnd    | variable |              |
+| ToString           | function |              |
 
 ### Members
 

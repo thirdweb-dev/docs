@@ -9,16 +9,16 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| id | variable |  |
-| uri | variable |  |
-| description | variable |  |
-| image | variable |  |
-| name | variable |  |
-| external_url | variable |  |
-| properties | variable |  |
-| ToString | function |  |
+| Members      | Type     | Descriptions |
+| ------------ | -------- | ------------ |
+| id           | variable |              |
+| uri          | variable |              |
+| description  | variable |              |
+| image        | variable |              |
+| name         | variable |              |
+| external_url | variable |              |
+| properties   | variable |              |
+| ToString     | function |              |
 
 ### Members
 

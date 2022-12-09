@@ -9,10 +9,10 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| provider | variable |  |
-| chainId | variable |  |
+| Members  | Type     | Descriptions |
+| -------- | -------- | ------------ |
+| provider | variable |              |
+| chainId  | variable |              |
 
 ### Members
 

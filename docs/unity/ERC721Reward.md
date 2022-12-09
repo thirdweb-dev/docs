@@ -9,10 +9,10 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| contractAddress | variable | the [ERC721](docs/unity/ERC721.md#class_thirdweb_1_1_e_r_c721) contract address |
-| tokenId | variable | the tokenId of the [NFT](docs/unity/NFT.md#struct_thirdweb_1_1_n_f_t) to be rewarded |
+| Members         | Type     | Descriptions                                                                         |
+| --------------- | -------- | ------------------------------------------------------------------------------------ |
+| contractAddress | variable | the [ERC721](docs/unity/ERC721.md#class_thirdweb_1_1_e_r_c721) contract address      |
+| tokenId         | variable | the tokenId of the [NFT](docs/unity/NFT.md#struct_thirdweb_1_1_n_f_t) to be rewarded |
 
 ### Members
 

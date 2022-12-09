@@ -16,21 +16,21 @@ Fetch claim conditions for a given [ERC721](docs/unity/ERC721.md#class_thirdweb_
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| ERC721ClaimConditions | function |  |
-| GetActive | function | Get the active claim condition |
-| CanClaim | function | Check whether the connected wallet is eligible to claim |
+| Members                 | Type     | Descriptions                                                      |
+| ----------------------- | -------- | ----------------------------------------------------------------- |
+| ERC721ClaimConditions   | function |                                                                   |
+| GetActive               | function | Get the active claim condition                                    |
+| CanClaim                | function | Check whether the connected wallet is eligible to claim           |
 | GetIneligibilityReasons | function | Get the reasons why the connected wallet is not eligible to claim |
-| GetClaimerProofs | function | Get the special values set in the allowlist for the given wallet |
+| GetClaimerProofs        | function | Get the special values set in the allowlist for the given wallet  |
 
 ### Members
 
-**`public inline  `[`ERC721ClaimConditions`](#class_thirdweb_1_1_e_r_c721_claim_conditions_1a9a01601dc72ca74c0fd718d7395f24d4)`(string parentRoute)`**
+**`public inline `[`ERC721ClaimConditions`](#class_thirdweb_1_1_e_r_c721_claim_conditions_1a9a01601dc72ca74c0fd718d7395f24d4)`(string parentRoute)`**
 
 ---
 
-**`public inline async Task< `[`ClaimConditions`](docs/unity/ClaimConditions.md#class_thirdweb_1_1_claim_conditions)` > `[`GetActive`](#class_thirdweb_1_1_e_r_c721_claim_conditions_1adf0e79e56a1c0a104a1ddc9ed888b34b)`()`**
+**`public inline async Task< `[`ClaimConditions`](docs/unity/ClaimConditions.md#class_thirdweb_1_1_claim_conditions)`>`[`GetActive`](#class_thirdweb_1_1_e_r_c721_claim_conditions_1adf0e79e56a1c0a104a1ddc9ed888b34b)`()`**
 
 Get the active claim condition
 

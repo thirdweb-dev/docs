@@ -9,14 +9,14 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| domain | variable |  |
-| address | variable |  |
-| nonce | variable |  |
-| expiration_time | variable |  |
-| chain_id | variable |  |
-| ToString | function |  |
+| Members         | Type     | Descriptions |
+| --------------- | -------- | ------------ |
+| domain          | variable |              |
+| address         | variable |              |
+| nonce           | variable |              |
+| expiration_time | variable |              |
+| chain_id        | variable |              |
+| ToString        | function |              |
 
 ### Members
 

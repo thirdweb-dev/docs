@@ -14,10 +14,10 @@ class NewPackInput
 
 ### Summary
 
-| Members | Type | Descriptions |
-| ------- | ---- | ------------ |
-| packMetadata | variable | The Metadata of the pack [NFT](docs/unity/NFT.md#struct_thirdweb_1_1_n_f_t) itself. |
-| rewardsPerPack | variable | How many rewards can be obtained by opening a single pack. |
+| Members        | Type     | Descriptions                                                                        |
+| -------------- | -------- | ----------------------------------------------------------------------------------- |
+| packMetadata   | variable | The Metadata of the pack [NFT](docs/unity/NFT.md#struct_thirdweb_1_1_n_f_t) itself. |
+| rewardsPerPack | variable | How many rewards can be obtained by opening a single pack.                          |
 
 ### Members
 
