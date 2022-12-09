@@ -25,6 +25,9 @@ To start using your Token Drop contract inside your application, you need to use
   name={"initializing the SDK"}
   isGetContractCode
   dontShowSummary
+  snippetOverrides={{
+    unity: `Contract contract = sdk.GetContract("{{contract_address}}");`,
+  }}
 />
 
 ## Setting Claim Phases

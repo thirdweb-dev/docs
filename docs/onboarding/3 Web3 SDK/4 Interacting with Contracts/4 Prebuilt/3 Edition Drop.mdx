@@ -26,6 +26,9 @@ To start using your Edition Drop contract inside your application, you need to u
   name={"initializing the SDK"}
   isGetContractCode
   dontShowSummary
+  snippetOverrides={{
+    unity: `Contract contract = sdk.GetContract("{{contract_address}}");`,
+  }}
 />
 
 ## Lazy Minting Your NFTs

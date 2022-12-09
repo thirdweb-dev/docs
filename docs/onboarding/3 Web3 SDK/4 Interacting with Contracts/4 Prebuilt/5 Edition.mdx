@@ -22,6 +22,9 @@ To start using your Edition contract inside your application, you'll need to use
   name={"initializing the SDK"}
   isGetContractCode
   dontShowSummary
+  snippetOverrides={{
+    unity: `Contract contract = sdk.GetContract("{{contract_address}}");`,
+  }}
 />
 
 ## Setting Royalty Fees

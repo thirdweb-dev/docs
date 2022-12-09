@@ -113,17 +113,24 @@ export default function ThirdwebCodeSnippet({
           }
 
           // If the example is empty, return null
-          if (!example) {
+          if (!example && !snippetOverrides?.[language]) {
             return (
               <TabItem key={language} value={language} label={languageName}>
                 <CodeBlock language={languageToHighlightMapping[language]}>
                   <p>
-                    Check out the{" "}
+                    This feature is missing a code snippet or might not be
+                    supported yet.
+                  </p>
+                  <p>
+                    Check the{" "}
                     <a href={`/${languageName}`}>
                       {languageName} SDK Reference
                     </a>{" "}
                     for more information.
                   </p>
+                  Reach out on{" "}
+                  <a href={"https://discord.com/invite/thirdweb"}>Discord</a>{" "}
+                  for further assistance!
                 </CodeBlock>
               </TabItem>
             );

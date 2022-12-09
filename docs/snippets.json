@@ -172,7 +172,7 @@
           "python": "",
           "go": "tokenId := 0\ntx, err := contract.Burn(context.Background(), tokenId)\n",
           "react": "const result = await contract.burnToken(tokenId);",
-          "unity": "var result = await contract.BurnToken(tokenId);"
+          "unity": "var tokenId = \"0\";\nvar result = await contract.ERC721.Burn(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftcollection.burn",
@@ -190,7 +190,7 @@
           "python": "from thirdweb.types.nft import NFTMetadataInput\n\n# You can customize this metadata however you like\nmetadatas = [\n    NFTMetadataInput.from_json({\n        \"name\": \"Cool NFT\",\n        \"description\": \"This is a cool NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n    NFTMetadataInput.from_json({\n        \"name\": \"Cooler NFT\",\n        \"description\": \"This is a cooler NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n]\n\n# You can pass in any address here to mint the NFT to\ntxs = contract.mint_batch_to(\"{{wallet_address}}\", metadatas)\nreceipt = txs[0].receipt\nfirst_token_id = txs[0].id\nfirst_nft = txs[0].data()",
           "go": "metadatas := []*thirdweb.NFTMetadataInput{\n\t&thirdweb.NFTMetadataInput{\n\t\tName: \"Cool NFT\",\n\t\tDescription: \"This is a cool NFT\",\n\t}\n\t&thirdweb.NFTMetadataInput{\n\t\tName: \"Cool NFT 2\",\n\t\tDescription: \"This is also a cool NFT\",\n\t}\n}\n\ntx, err := contract.MintBatchTo(context.Background(), \"{{wallet_address}}\", metadatas)\n",
           "react": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFTs you want to mint.\nconst metadatas = [{\n  name: \"Cool NFT #1\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT #2\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/other/image.png\"),\n}];\n\nconst tx = await contract.mintBatchTo(walletAddress, metadatas);\nconst receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nconst firstTokenId = tx[0].id; // token id of the first minted NFT\nconst firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT",
-          "unity": "// Address of the Wallet you want to mint the NFT to\nvar WalletAddress = \"{{Wallet_address}}\";\n\n// Custom metadata of the NFTs you want to mint.\nvar metadatas = [{\n  name: \"Cool NFT #1\",\n  description: \"This is a cool NFT\",\n  image: fs.ReadFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT #2\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/other/image.png\"),\n}];\n\nvar tx = await contract.mintBatchTo(WalletAddress, metadatas);\nvar receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nvar firstTokenId = tx[0].id; // token id of the first minted NFT\nvar firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT"
+          "unity": "// Address of the Wallet you want to mint the NFT to\nvar walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFTs you want to mint.\nvar metadatas = [{\n  name: \"Cool NFT #1\",\n  description: \"This is a cool NFT\",\n  image: fs.ReadFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT #2\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/other/image.png\"),\n}];\n\nvar tx = await contract.mintBatchTo(walletAddress, metadatas);\nvar receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nvar firstTokenId = tx[0].id; // token id of the first minted NFT\nvar firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftcollection.mintbatchto",
@@ -208,7 +208,7 @@
           "python": "from thirdweb.types.nft import NFTMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadata = NFTMetadataInput.from_json({\n    \"name\": \"Cool NFT\",\n    \"description\": \"This is a cool NFT\",\n    \"image\": open(\"path/to/file.jpg\", \"rb\"),\n})\n\n# You can pass in any address here to mint the NFT to\ntx = contract.mint_to(\"{{wallet_address}}\", metadata)\nreceipt = tx.receipt\ntoken_id = tx.id\nnft = tx.data()",
           "go": "image, err := os.Open(\"path/to/image.jpg\")\ndefer image.Close()\n\nmetadata := &thirdweb.NFTMetadataInput{\n\tName: \"Cool NFT\",\n\tDescription: \"This is a cool NFT\",\n\tImage: image,\n}\n\ntx, err := contract.MintTo(context.Background(), \"{{wallet_address}}\", metadata)\n",
           "react": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nconst metadata = {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n};\n\nconst tx = await contract.mintTo(walletAddress, metadata);\nconst receipt = tx.receipt; // the transaction receipt\nconst tokenId = tx.id; // the id of the NFT minted\nconst nft = await tx.data(); // (optional) fetch details of minted NFT",
-          "unity": "// Address of the Wallet you want to mint the NFT to\nvar WalletAddress = \"{{Wallet_address}}\";\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nvar metadata = new NFTMetadata() {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.ReadFileSync(\"path/to/image.png\"), // This can be an image url or file\n};\n\nvar tx = await contract.MintTo(WalletAddress, metadata);\nvar receipt = tx.receipt; // the transaction receipt\nvar tokenId = tx.id; // the id of the NFT minted\nvar nft = await tx.data(); // (optional) fetch details of minted NFT"
+          "unity": "// Address of the Wallet you want to mint the NFT to\nvar walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nvar metadata = new NFTMetadata() {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.ReadFileSync(\"path/to/image.png\"), // This can be an image url or file\n};\n\nvar tx = await contract.MintTo(walletAddress, metadata);\nvar receipt = tx.receipt; // the transaction receipt\nvar tokenId = tx.id; // the id of the NFT minted\nvar nft = await tx.data(); // (optional) fetch details of minted NFT"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftcollection.mintto",
@@ -226,7 +226,7 @@
           "python": "balance = contract.balance_of(\"{{wallet_address}}\")\nprint(balance)",
           "go": "address := \"{{wallet_address}}\"\nbalance, err := contract.BalanceOf(context.Background(), address)\n",
           "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
-          "unity": "var WalletAddress = \"{{Wallet_address}}\";\nvar balance = await contract.BalanceOf(WalletAddress);\nDebug.Log(balance);"
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.BalanceOf(walletAddress);\nDebug.Log(balance);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.balanceof",
@@ -244,7 +244,7 @@
           "python": "nft = contract.get(0)\nprint(nft)",
           "go": "nft, err := contract.Get(context.Background(), 0)\n owner := nft.Owner\n\tname := nft.Metadata.Name\n",
           "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
-          "unity": "var tokenId = 0;\nvar nft = await contract.Get(tokenId);"
+          "unity": "var tokenId = \"0\";\nvar nft = await contract.ERC721.Get(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.get",
@@ -262,7 +262,7 @@
           "python": "nfts = contract.get_all()\nprint(nfts)",
           "go": "nfts, err := contract.GetAll(context.Background())\nownerOne := nfts[0].Owner\nnameOne := nfts[0].Metadata.Name\n",
           "react": "const nfts = await contract.getAll();\nconsole.log(nfts);",
-          "unity": "var nfts = await contract.GetAll();\nDebug.Log(nfts);"
+          "unity": "var nfts = await contract.ERC721.GetAll();\nDebug.Log(nfts);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getall",
@@ -280,7 +280,7 @@
           "python": "nfts = contract.get_owned(\"{{wallet_address}}\")\nprint(nfts)",
           "go": "owner := \"{{wallet_address}}\"\nnfts, err := contract.GetOwned(context.Background(), owner)\nname := nfts[0].Metadata.Name\n",
           "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
-          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{Wallet_address}}\";\nvar nfts = await contract.GetOwned(address);\nDebug.Log(nfts);"
+          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{wallet_address}}\";\nvar nfts = await contract.ERC721.GetOwned(address);\nDebug.Log(nfts);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getowned",
@@ -298,7 +298,7 @@
           "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\n\nreceipt = contract.transfer(to, token_id)",
           "go": "to := \"0x...\"\ntokenId := 0\n\ntx, err := contract.Transfer(context.Background(), to, tokenId)\n",
           "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
-          "unity": "var WalletAddress = \"{{Wallet_address}}\";\nvar tokenId = 0;\nawait contract.Transfer(WalletAddress, tokenId);"
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\";\nawait contract.Transfer(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.transfer",
@@ -369,7 +369,7 @@
           "python": "",
           "go": "tokenId := 0\namount := 1\ntx, err := contract.Burn(context.Background(), tokenId, amount)\n",
           "react": "const result = await contract.burnTokens(tokenId, amount);",
-          "unity": "var result = await contract.BurnTokens(tokenId, amount);"
+          "unity": "var tokenId = \"0\";\nint amount = 1;var result = await contract.ERC1155.Burn(tokenId, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.edition.burn",
@@ -387,7 +387,7 @@
           "python": "metadatas = contract.get_all()\nprint(metadatas)",
           "go": "nfts, err := contract.GetAll(context.Background())\nsupplyOne := nfts[0].Supply\nnameOne := nfts[0].Metadata.Name\n",
           "react": "const nfts = await contract.getAll();",
-          "unity": "var nfts = await contract.GetAll();"
+          "unity": "var nfts = await contract.ERC1155.GetAll();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.edition.getall",
@@ -405,7 +405,7 @@
           "python": "address = \"{{wallet_address}}\"\nowned = contract.get_owned(address)\nprint(owned)",
           "go": "owner := \"{{wallet_address}}\"\nnfts, err := contract.GetOwned(context.Background(), owner)\nname := nfts[0].Metadata.Name\n",
           "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);",
-          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{Wallet_address}}\";\nvar nfts = await contract.GetOwned(address);"
+          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{wallet_address}}\";\nvar nfts = await contract.GetOwned(address);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.edition.getowned",
@@ -423,7 +423,7 @@
           "python": "from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadatas_with_supply = [\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cool NFT\",\n            \"description\": \"This is a cool NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    ),\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cooler NFT\",\n            \"description\": \"This is a cooler NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    )\n]\n\n# You can pass in any address here to mint the NFT to\ntxs = contract.mint_batch_to(\"{{wallet_address}}\", metadatas_with_supply)\nreceipt = txs[0].receipt\ntoken_id = txs[0].id\nnft = txs[0].data()",
           "go": "",
           "react": "// Address of the wallet you want to mint the NFT to\nconst toAddress = \"{{wallet_address}}\"\n\n// Custom metadata and supplies of your NFTs\nconst metadataWithSupply = [{\n  supply: 50, // The number of this NFT you want to mint\n  metadata: {\n    name: \"Cool NFT #1\",\n    description: \"This is a cool NFT\",\n    image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n  },\n}, {\n  supply: 100,\n  metadata: {\n    name: \"Cool NFT #2\",\n    description: \"This is a cool NFT\",\n    image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n  },\n}];\n\nconst tx = await contract.mintBatchTo(toAddress, metadataWithSupply);\nconst receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nconst firstTokenId = tx[0].id; // token id of the first minted NFT\nconst firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT",
-          "unity": "// Address of the Wallet you want to mint the NFT to\nvar toAddress = \"{{Wallet_address}}\"\n\n// Custom metadata and supplies of your NFTs\nvar metadataWithSupply = [{\n  supply: 50, // The number of this NFT you want to mint\n  metadata: {\n    name: \"Cool NFT #1\",\n    description: \"This is a cool NFT\",\n    image: fs.ReadFileSync(\"path/to/image.png\"), // This can be an image url or file\n  },\n}, {\n  supply: 100,\n  metadata: {\n    name: \"Cool NFT #2\",\n    description: \"This is a cool NFT\",\n    image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n  },\n}];\n\nvar tx = await contract.mintBatchTo(toAddress, metadataWithSupply);\nvar receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nvar firstTokenId = tx[0].id; // token id of the first minted NFT\nvar firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT"
+          "unity": "// Address of the Wallet you want to mint the NFT to\nvar toAddress = \"{{wallet_address}}\"\n\n// Custom metadata and supplies of your NFTs\nvar metadataWithSupply = [{\n  supply: 50, // The number of this NFT you want to mint\n  metadata: {\n    name: \"Cool NFT #1\",\n    description: \"This is a cool NFT\",\n    image: fs.ReadFileSync(\"path/to/image.png\"), // This can be an image url or file\n  },\n}, {\n  supply: 100,\n  metadata: {\n    name: \"Cool NFT #2\",\n    description: \"This is a cool NFT\",\n    image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n  },\n}];\n\nvar tx = await contract.mintBatchTo(toAddress, metadataWithSupply);\nvar receipt = tx[0].receipt; // same transaction receipt for all minted NFTs\nvar firstTokenId = tx[0].id; // token id of the first minted NFT\nvar firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.edition.mintbatchto",
@@ -441,7 +441,7 @@
           "python": "from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadata_with_supply = EditionMetadataInput(\n    NFTMetadataInput.from_json({\n        \"name\": \"Cool NFT\",\n        \"description\": \"This is a cool NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n    100\n)\n\n# You can pass in any address here to mint the NFT to\ntx = contract.mint_to(\"{{wallet_address}}\", metadata_with_supply)\nreceipt = tx.receipt\ntoken_id = tx.id\nnft = tx.data()",
           "go": "",
           "react": "// Address of the wallet you want to mint the NFT to\nconst toAddress = \"{{wallet_address}}\"\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nconst metadata = {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}\n\nconst metadataWithSupply = {\n  metadata,\n  supply: 1000, // The number of this NFT you want to mint\n}\n\nconst tx = await contract.mintTo(toAddress, metadataWithSupply);\nconst receipt = tx.receipt; // the transaction receipt\nconst tokenId = tx.id; // the id of the NFT minted\nconst nft = await tx.data(); // (optional) fetch details of minted NFT",
-          "unity": "// Address of the Wallet you want to mint the NFT to\nvar toAddress = \"{{Wallet_address}}\"\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nvar metadata = new NFTMetadata() {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.ReadFileSync(\"path/to/image.png\"), // This can be an image url or file\n}\n\nvar metadataWithSupply = {\n  metadata,\n  supply: 1000, // The number of this NFT you want to mint\n}\n\nvar tx = await contract.MintTo(toAddress, metadataWithSupply);\nvar receipt = tx.receipt; // the transaction receipt\nvar tokenId = tx.id; // the id of the NFT minted\nvar nft = await tx.data(); // (optional) fetch details of minted NFT"
+          "unity": "// Address of the Wallet you want to mint the NFT to\nvar toAddress = \"{{wallet_address}}\"\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nvar metadata = new NFTMetadata() {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.ReadFileSync(\"path/to/image.png\"), // This can be an image url or file\n}\n\nvar metadataWithSupply = {\n  metadata,\n  supply: 1000, // The number of this NFT you want to mint\n}\n\nvar tx = await contract.MintTo(toAddress, metadataWithSupply);\nvar receipt = tx.receipt; // the transaction receipt\nvar tokenId = tx.id; // the id of the NFT minted\nvar nft = await tx.data(); // (optional) fetch details of minted NFT"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.edition.mintto",
@@ -477,7 +477,7 @@
           "python": "address = \"{{wallet_address}}\"\ntoken_id = 0\n\nbalance = contract.balance_of(address, token_id)",
           "go": "address := \"{{wallet_address}}\"\ntokenId := 0\nbalance, err := contract.BalanceOf(context.Background(), address, tokenId)\n",
           "react": "// Address of the wallet to check NFT balance\nconst walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0; // Id of the NFT to check\nconst balance = await contract.balanceOf(walletAddress, tokenId);",
-          "unity": "// Address of the Wallet to check NFT balance\nvar WalletAddress = \"{{Wallet_address}}\";\nvar tokenId = 0; // Id of the NFT to check\nvar balance = await contract.BalanceOf(WalletAddress, tokenId);"
+          "unity": "// Address of the Wallet to check NFT balance\nvar walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\"; // Id of the NFT to check\nvar balance = await contract.BalanceOf(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.balanceof",
@@ -495,7 +495,7 @@
           "python": "nft = contract.get(0)\nprint(nft)",
           "go": "nft, err := contract.Get(context.Background(), 0)\n supply := nft.Supply\n\tname := nft.Metadata.Name\n",
           "react": "const nft = await contract.get(\"0\");",
-          "unity": "var nft = await contract.Get(\"0\");"
+          "unity": "var nft = await contract.ERC1155.Get(\"0\");"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.get",
@@ -513,7 +513,7 @@
           "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\namount = 1\n\nreceipt = contract.transfer(to, token_id, amount)",
           "go": "to := \"0x...\"\ntokenId := 0\namount := 1\n\ntx, err := contract.Transfer(context.Background(), to, tokenId, amount)\n",
           "react": "// Address of the wallet you want to send the NFT to\nconst toAddress = \"{{wallet_address}}\";\nconst tokenId = \"0\"; // The token ID of the NFT you want to send\nconst amount = 3; // How many copies of the NFTs to transfer\nawait contract.transfer(toAddress, tokenId, amount);",
-          "unity": "// Address of the Wallet you want to send the NFT to\nvar toAddress = \"{{Wallet_address}}\";\nvar tokenId = \"0\"; // The token ID of the NFT you want to send\nvar amount = 3; // How many copies of the NFTs to transfer\nawait contract.Transfer(toAddress, tokenId, amount);"
+          "unity": "// Address of the Wallet you want to send the NFT to\nvar toAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\"; // The token ID of the NFT you want to send\nvar amount = 3; // How many copies of the NFTs to transfer\nawait contract.Transfer(toAddress, tokenId, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.transfer",
@@ -581,8 +581,7 @@
           "javascript": "// Address of the wallet sending the tokens\nconst holderAddress = \"{{wallet_address}}\";\n\n// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnFrom(holderAddress, amount);",
           "python": "",
           "go": "",
-          "react": "// Address of the wallet sending the tokens\nconst holderAddress = \"{{wallet_address}}\";\n\n// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnFrom(holderAddress, amount);",
-          "unity": "// Address of the Wallet sending the tokens\nvar holderAddress = \"{{Wallet_address}}\";\n\n// The amount of this token you want to burn\nvar amount = 1.2;\n\nawait contract.BurnFrom(holderAddress, amount);"
+          "react": "// Address of the wallet sending the tokens\nconst holderAddress = \"{{wallet_address}}\";\n\n// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnFrom(holderAddress, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.tokendrop.burnfrom",
@@ -600,7 +599,7 @@
           "python": "",
           "go": "",
           "react": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnTokens(amount);",
-          "unity": "// The amount of this token you want to burn\nvar amount = 1.2;\n\nawait contract.BurnTokens(amount);"
+          "unity": "// The amount of this token you want to burn\nvar amount = \"1.2\";\n\nawait contract.ERC20.Burn(amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.tokendrop.burntokens",
@@ -618,7 +617,7 @@
           "python": "",
           "go": "",
           "react": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 42.69; // how many tokens you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx.receipt; // the transaction receipt",
-          "unity": "var address = \"{{Wallet_address}}\"; // address of the Wallet you want to claim the NFTs\nvar quantity = 42.69; // how many tokens you want to claim\n\nvar tx = await contract.ClaimTo(address, quantity);\nvar receipt = tx.receipt; // the transaction receipt"
+          "unity": "var address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nvar quantity = 1; // how many tokens you want to claim\n\nvar tx = await contract.ERC20.ClaimTo(address, quantity);\nvar receipt = tx.receipt; // the transaction receipt"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.tokendrop.claimto",
@@ -654,7 +653,7 @@
           "python": "",
           "go": "",
           "react": "// Address of the wallet who owns the funds\nconst owner = \"{{wallet_address}}\";\n// Address of the wallet to check token allowance\nconst spender = \"0x...\";\nconst allowance = await contract.allowanceOf(owner, spender);",
-          "unity": "// Address of the Wallet who owns the funds\nvar owner = \"{{Wallet_address}}\";\n// Address of the Wallet to check token allowance\nvar spender = \"0x...\";\nvar allowance = await contract.AllowanceOf(owner, spender);"
+          "unity": "// Address of the Wallet who owns the funds\nvar owner = \"{{wallet_address}}\";\n// Address of the Wallet to check token allowance\nvar spender = \"0x...\";\nvar allowance = await contract.AllowanceOf(owner, spender);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.allowanceof",
@@ -690,7 +689,7 @@
           "python": "",
           "go": "",
           "react": "// Address of the wallet to check token balance\nconst walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);",
-          "unity": "// Address of the Wallet to check token balance\nvar WalletAddress = \"{{Wallet_address}}\";\nvar balance = await contract.BalanceOf(WalletAddress);"
+          "unity": "// Address of the Wallet to check token balance\nvar walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.BalanceOf(walletAddress);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.balanceof",
@@ -708,7 +707,7 @@
           "python": "",
           "go": "",
           "react": "const token = await contract.get();",
-          "unity": "var token = await contract.Get();"
+          "unity": "var token = await contract.ERC20.Get();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.get",
@@ -722,10 +721,10 @@
         "summary": "Allows the specified `spender` wallet to transfer the given `amount` of tokens to another wallet\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100;\nawait contract.setAllowance(spenderAddress, amount);",
+          "javascript": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100\nawait contract.setAllowance(spenderAddress, amount);",
           "python": "",
           "go": "",
-          "react": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100;\nawait contract.setAllowance(spenderAddress, amount);",
+          "react": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100\nawait contract.setAllowance(spenderAddress, amount);",
           "unity": "// Address of the Wallet to allow transfers from\nvar spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nvar amount = 100;\nawait contract.SetAllowance(spenderAddress, amount);"
         },
         "reference": {
@@ -762,7 +761,7 @@
           "python": "",
           "go": "",
           "react": "// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The amount of tokens you want to send\nconst amount = 0.1;\nawait contract.transfer(toAddress, amount);",
-          "unity": "// Address of the Wallet you want to send the tokens to\nvar toAddress = \"0x...\";\n// The amount of tokens you want to send\nvar amount = \"0.1\";\nawait contract.Transfer(toAddress, amount);"
+          "unity": "// Address of the Wallet you want to send the tokens to\nvar toAddress = \"0x...\";\n// The amount of tokens you want to send\nvar amount = \"0.1\";\nawait contract.ERC20.Transfer(toAddress, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.transfer",
@@ -779,8 +778,7 @@
           "javascript": "// Data of the tokens you want to mint\nconst data = [\n  {\n    toAddress: \"{{wallet_address}}\", // Address to mint tokens to\n    amount: 100, // How many tokens to mint to specified address\n  },\n {\n   toAddress: \"0x...\",\n   amount: 100,\n }\n]\n\nawait contract.transferBatch(data);",
           "python": "",
           "go": "",
-          "react": "// Data of the tokens you want to mint\nconst data = [\n  {\n    toAddress: \"{{wallet_address}}\", // Address to mint tokens to\n    amount: 100, // How many tokens to mint to specified address\n  },\n {\n   toAddress: \"0x...\",\n   amount: 100,\n }\n]\n\nawait contract.transferBatch(data);",
-          "unity": "// Data of the tokens you want to mint\nvar data = [\n  {\n    toAddress: \"{{Wallet_address}}\", // Address to mint tokens to\n    amount: 100, // How many tokens to mint to specified address\n  },\n {\n   toAddress: \"0x...\",\n   amount: 100,\n }\n]\n\nawait contract.TransferBatch(data);"
+          "react": "// Data of the tokens you want to mint\nconst data = [\n  {\n    toAddress: \"{{wallet_address}}\", // Address to mint tokens to\n    amount: 100, // How many tokens to mint to specified address\n  },\n {\n   toAddress: \"0x...\",\n   amount: 100,\n }\n]\n\nawait contract.transferBatch(data);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.transferbatch",
@@ -797,8 +795,7 @@
           "javascript": "// Address of the wallet sending the tokens\nconst fromAddress = \"{{wallet_address}}\";\n// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The number of tokens you want to send\nconst amount = 1.2\n// Note that the connected wallet must have approval to transfer the tokens of the fromAddress\nawait contract.transferFrom(fromAddress, toAddress, amount);",
           "python": "",
           "go": "",
-          "react": "// Address of the wallet sending the tokens\nconst fromAddress = \"{{wallet_address}}\";\n// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The number of tokens you want to send\nconst amount = 1.2\n// Note that the connected wallet must have approval to transfer the tokens of the fromAddress\nawait contract.transferFrom(fromAddress, toAddress, amount);",
-          "unity": "// Address of the Wallet sending the tokens\nvar fromAddress = \"{{Wallet_address}}\";\n// Address of the Wallet you want to send the tokens to\nvar toAddress = \"0x...\";\n// The number of tokens you want to send\nvar amount = 1.2\n// Note that the connected Wallet must have approval to transfer the tokens of the fromAddress\nawait contract.TransferFrom(fromAddress, toAddress, amount);"
+          "react": "// Address of the wallet sending the tokens\nconst fromAddress = \"{{wallet_address}}\";\n// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The number of tokens you want to send\nconst amount = 1.2\n// Note that the connected wallet must have approval to transfer the tokens of the fromAddress\nawait contract.transferFrom(fromAddress, toAddress, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.transferfrom",
@@ -850,7 +847,7 @@
           "python": "amount = 0.1\ncontract.burn(amount)",
           "go": "amount := 1\ntx, err := contract.Burn(context.Background(), amount)\n",
           "react": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnTokens(amount);",
-          "unity": "// The amount of this token you want to burn\nvar amount = 1.2;\n\nawait contract.BurnTokens(amount);"
+          "unity": "// The amount of this token you want to burn\nvar amount = \"1.2\";\n\nawait contract.ERC20.Burn(amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.token.burn",
@@ -867,8 +864,7 @@
           "javascript": "// Address of the wallet sending the tokens\nconst holderAddress = \"{{wallet_address}}\";\n\n// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnFrom(holderAddress, amount);",
           "python": "holder = \"{{wallet_address}}\"\namount = 0.1\ncontract.burn_from(holder, amount)",
           "go": "holder := \"0x...\"\namount := 1\n\ntx, err := contract.BurnFrom(context.Background(), holder, amount)\n",
-          "react": "// Address of the wallet sending the tokens\nconst holderAddress = \"{{wallet_address}}\";\n\n// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnFrom(holderAddress, amount);",
-          "unity": "// Address of the Wallet sending the tokens\nvar holderAddress = \"{{Wallet_address}}\";\n\n// The amount of this token you want to burn\nvar amount = 1.2;\n\nawait contract.BurnFrom(holderAddress, amount);"
+          "react": "// Address of the wallet sending the tokens\nconst holderAddress = \"{{wallet_address}}\";\n\n// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnFrom(holderAddress, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.token.burnfrom",
@@ -885,8 +881,7 @@
           "javascript": "// Data of the tokens you want to mint\nconst data = [\n  {\n    toAddress: \"{{wallet_address}}\", // Address to mint tokens to\n    amount: 0.2, // How many tokens to mint to specified address\n  },\n {\n   toAddress: \"0x...\",\n   amount: 1.4,\n }\n]\n\nawait contract.mintBatchTo(data);",
           "python": "from thirdweb.types.currency import TokenAmount\n\nargs = [\n    TokenAmount(\"{{wallet_address}}\", 1),\n    TokenAmount(\"{{wallet_address}}\", 2),\n]\n\ncontract.mint_batch_to(args)",
           "go": "args = []*thirdweb.TokenAmount{\n\t&thirdweb.TokenAmount{\n\t\tToAddress: \"{{wallet_address}}\",\n\t\tAmount:    1\n\t}\n\t&thirdweb.TokenAmount{\n\t\tToAddress: \"{{wallet_address}}\",\n\t\tAmount:    2\n\t}\n}\n\ntx, err := contract.MintBatchTo(context.Background(), args)\n",
-          "react": "// Data of the tokens you want to mint\nconst data = [\n  {\n    toAddress: \"{{wallet_address}}\", // Address to mint tokens to\n    amount: 0.2, // How many tokens to mint to specified address\n  },\n {\n   toAddress: \"0x...\",\n   amount: 1.4,\n }\n]\n\nawait contract.mintBatchTo(data);",
-          "unity": "// Batch minting in Unity is coming soon. Reach out to us on Discord if you need this feature!"
+          "react": "// Data of the tokens you want to mint\nconst data = [\n  {\n    toAddress: \"{{wallet_address}}\", // Address to mint tokens to\n    amount: 0.2, // How many tokens to mint to specified address\n  },\n {\n   toAddress: \"0x...\",\n   amount: 1.4,\n }\n]\n\nawait contract.mintBatchTo(data);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.token.mintbatchto",
@@ -904,7 +899,7 @@
           "python": "contract.mint_to(\"{{wallet_address}}\", 1)",
           "go": "tx, err := contract.MintTo(context.Background(), \"{{wallet_address}}\", 1)\n",
           "react": "const toAddress = \"{{wallet_address}}\"; // Address of the wallet you want to mint the tokens to\nconst amount = \"1.5\"; // The amount of this token you want to mint\n\nawait contract.mintTo(toAddress, amount);",
-          "unity": "var toAddress = \"{{Wallet_address}}\"; // Address of the Wallet you want to mint the tokens to\nvar amount = \"1.5\"; // The amount of this token you want to mint\n\nawait contract.MintTo(toAddress, amount);"
+          "unity": "var toAddress = \"{{wallet_address}}\"; // Address of the Wallet you want to mint the tokens to\nvar amount = \"1.5\"; // The amount of this token you want to mint\n\nawait contract.MintTo(toAddress, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.token.mintto",
@@ -940,7 +935,7 @@
           "python": "# Address of the wallet who owns the funds\naddress = \"{{wallet_address}}\"\n\n# Address of the wallet to check the token allowance\nspender = \"0x...\"\n\nallowance = contract.allowance_of(address, spender)\nprint(allowance)",
           "go": "address := \"{{wallet_address}}\"\nspender := \"0x...\"\n\nallowance, err := contract.AllowanceOf(address, spender)\nallowanceValue := allowance.DisplayValue\n",
           "react": "// Address of the wallet who owns the funds\nconst owner = \"{{wallet_address}}\";\n// Address of the wallet to check token allowance\nconst spender = \"0x...\";\nconst allowance = await contract.allowanceOf(owner, spender);",
-          "unity": "// Address of the Wallet who owns the funds\nvar owner = \"{{Wallet_address}}\";\n// Address of the Wallet to check token allowance\nvar spender = \"0x...\";\nvar allowance = await contract.AllowanceOf(owner, spender);"
+          "unity": "// Address of the Wallet who owns the funds\nvar owner = \"{{wallet_address}}\";\n// Address of the Wallet to check token allowance\nvar spender = \"0x...\";\nvar allowance = await contract.AllowanceOf(owner, spender);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.allowanceof",
@@ -976,7 +971,7 @@
           "python": "address = \"{{wallet_address}}\"\nbalance = contract.balance_of(address)\nprint(balance)",
           "go": "address := \"{{wallet_address}}\"\n\tbalance, err := contract.BalanceOf()\n balanceValue := balance.DisplayValue\n",
           "react": "// Address of the wallet to check token balance\nconst walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);",
-          "unity": "// Address of the Wallet to check token balance\nvar WalletAddress = \"{{Wallet_address}}\";\nvar balance = await contract.BalanceOf(WalletAddress);"
+          "unity": "// Address of the Wallet to check token balance\nvar walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.BalanceOf(walletAddress);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.balanceof",
@@ -1008,10 +1003,10 @@
         "summary": "Allows the specified `spender` wallet to transfer the given `amount` of tokens to another wallet\n\n",
         "remarks": null,
         "examples": {
-          "javascript": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100;\nawait contract.setAllowance(spenderAddress, amount);",
-          "python": "spender = \"0x...\"\namount = 100;\ncontract.set_allowance(spender, amount)",
-          "go": "spender := \"0x...\"\namount := 1;\n\ntx, err := contract.SetAllowance(context.Background(), spender, amount)\n",
-          "react": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100;\nawait contract.setAllowance(spenderAddress, amount);",
+          "javascript": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100\nawait contract.setAllowance(spenderAddress, amount);",
+          "python": "spender = \"0x...\"\namount = 100\ncontract.set_allowance(spender, amount)",
+          "go": "spender := \"0x...\"\namount := 1\n\ntx, err := contract.SetAllowance(context.Background(), spender, amount)\n",
+          "react": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100\nawait contract.setAllowance(spenderAddress, amount);",
           "unity": "// Address of the Wallet to allow transfers from\nvar spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nvar amount = 100;\nawait contract.SetAllowance(spenderAddress, amount);"
         },
         "reference": {
@@ -1048,7 +1043,7 @@
           "python": "# Address to send tokens to\nto = \"0x...\n\n# Amount of tokens to transfer\namount = 0.1\n\ncontract.transfer(to, amount)",
           "go": "to := \"0x...\"\namount := 1\n\ntx, err := contract.Transfer(context.Background(), to, amount)\n",
           "react": "// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The amount of tokens you want to send\nconst amount = 0.1;\nawait contract.transfer(toAddress, amount);",
-          "unity": "// Address of the Wallet you want to send the tokens to\nvar toAddress = \"0x...\";\n// The amount of tokens you want to send\nvar amount = \"0.1\";\nawait contract.Transfer(toAddress, amount);"
+          "unity": "// Address of the Wallet you want to send the tokens to\nvar toAddress = \"0x...\";\n// The amount of tokens you want to send\nvar amount = \"0.1\";\nawait contract.ERC20.Transfer(toAddress, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.transfer",
@@ -1066,7 +1061,7 @@
           "python": "from thirdweb.types.currency import TokenAmount\n\ndata = [\n    TokenAmount(\"{{wallet_address}}\", 0.1),\n    TokenAmount(\"0x...\", 0.2),\n]\n\ncontract.transfer_batch(data)",
           "go": "args = []*thirdweb.TokenAmount{\n\t&thirdweb.TokenAmount{\n\t\tToAddress: \"0x...\",\n\t\tAmount:    1\n\t}\n\t&thirdweb.TokenAmount{\n\t\tToAddress: \"0x...\",\n\t\tAmount:    2\n\t}\n}\n\ntx, err := contract.TransferBatch(context.Background(), args)\n",
           "react": "// Data of the tokens you want to mint\nconst data = [\n  {\n    toAddress: \"{{wallet_address}}\", // Address to mint tokens to\n    amount: 100, // How many tokens to mint to specified address\n  },\n {\n   toAddress: \"0x...\",\n   amount: 100,\n }\n]\n\nawait contract.transferBatch(data);",
-          "unity": "// Data of the tokens you want to mint\nvar data = [\n  {\n    toAddress: \"{{Wallet_address}}\", // Address to mint tokens to\n    amount: 100, // How many tokens to mint to specified address\n  },\n {\n   toAddress: \"0x...\",\n   amount: 100,\n }\n]\n\nawait contract.TransferBatch(data);"
+          "unity": "// Data of the tokens you want to mint\nvar data = [\n  {\n    toAddress: \"{{wallet_address}}\", // Address to mint tokens to\n    amount: 100, // How many tokens to mint to specified address\n  },\n {\n   toAddress: \"0x...\",\n   amount: 100,\n }\n]\n\nawait contract.ERC20.TransferBatch(data);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.transferbatch",
@@ -1083,8 +1078,7 @@
           "javascript": "// Address of the wallet sending the tokens\nconst fromAddress = \"{{wallet_address}}\";\n// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The number of tokens you want to send\nconst amount = 1.2\n// Note that the connected wallet must have approval to transfer the tokens of the fromAddress\nawait contract.transferFrom(fromAddress, toAddress, amount);",
           "python": "# Address to send tokens from\nfr = \"{{wallet_address}}\"\n\n# Address to send tokens to\nto = \"0x...\"\n\n# Amount of tokens to transfer\namount = 0.1\n\ncontract.transfer_from(fr, to, amount)",
           "go": "from := \"{{wallet_address}}\"\nto := \"0x...\"\namount := 1\n\ntx, err := contract.TransferFrom(context.Background(), from, to, amount)\n",
-          "react": "// Address of the wallet sending the tokens\nconst fromAddress = \"{{wallet_address}}\";\n// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The number of tokens you want to send\nconst amount = 1.2\n// Note that the connected wallet must have approval to transfer the tokens of the fromAddress\nawait contract.transferFrom(fromAddress, toAddress, amount);",
-          "unity": "// Address of the Wallet sending the tokens\nvar fromAddress = \"{{Wallet_address}}\";\n// Address of the Wallet you want to send the tokens to\nvar toAddress = \"0x...\";\n// The number of tokens you want to send\nvar amount = 1.2\n// Note that the connected Wallet must have approval to transfer the tokens of the fromAddress\nawait contract.TransferFrom(fromAddress, toAddress, amount);"
+          "react": "// Address of the wallet sending the tokens\nconst fromAddress = \"{{wallet_address}}\";\n// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The number of tokens you want to send\nconst amount = 1.2\n// Note that the connected wallet must have approval to transfer the tokens of the fromAddress\nawait contract.transferFrom(fromAddress, toAddress, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.transferfrom",
@@ -1138,7 +1132,7 @@
           "python": "balance = contract.balance_of(\"{{wallet_address}}\")\nprint(balance)",
           "go": "address := \"{{wallet_address}}\"\nbalance, err := contract.BalanceOf(context.Background(), address)\n",
           "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
-          "unity": "var WalletAddress = \"{{Wallet_address}}\";\nvar balance = await contract.BalanceOf(WalletAddress);\nDebug.Log(balance);"
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.BalanceOf(walletAddress);\nDebug.Log(balance);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.balanceof",
@@ -1156,7 +1150,7 @@
           "python": "",
           "go": "tokenId := 0\ntx, err := contract.Burn(context.Background(), tokenId)\n",
           "react": "const result = await contract.burnToken(tokenId);",
-          "unity": "var result = await contract.BurnToken(tokenId);"
+          "unity": "var tokenId = \"0\";\nvar result = await contract.ERC721.Burn(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.burn",
@@ -1174,7 +1168,7 @@
           "python": "address = {{wallet_address}}\nquantity = 1\n\ntx = contract.claim_to(address, quantity)\nreceipt = tx.receipt\nclaimed_token_id = tx.id\nclaimed_nft = tx.data()",
           "go": "address := \"{{wallet_address}}\"\nquantity = 1\n\ntx, err := contract.ClaimTo(context.Background(), address, quantity)\n",
           "react": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 1; // how many unique NFTs you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx[0].receipt; // the transaction receipt\nconst claimedTokenId = tx[0].id; // the id of the NFT claimed\nconst claimedNFT = await tx[0].data(); // (optional) get the claimed NFT metadata",
-          "unity": "var address = \"{{Wallet_address}}\"; // address of the Wallet you want to claim the NFTs\nvar quantity = 1; // how many unique NFTs you want to claim\n\nvar tx = await contract.ClaimTo(address, quantity);\nvar receipt = tx[0].receipt; // the transaction receipt\nvar claimedTokenId = tx[0].id; // the id of the NFT claimed\nvar claimedNFT = await tx[0].data(); // (optional) get the claimed NFT metadata"
+          "unity": "var address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nvar quantity = 1; // how many unique NFTs you want to claim\n\nvar tx = await contract.ERC721.ClaimTo(address, quantity);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.claimto",
@@ -1192,7 +1186,7 @@
           "python": "from thirdweb.types.nft import NFTMetadataInput\n\n# You can customize this metadata however you like\nmetadatas = [\n    NFTMetadataInput.from_json({\n        \"name\": \"Cool NFT\",\n        \"description\": \"This is a cool NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n    NFTMetadataInput.from_json({\n        \"name\": \"Cooler NFT\",\n        \"description\": \"This is a cooler NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n]\n\ntxs = contract.create_batch(metadatas)\nfirst_token_id = txs[0].id\nfirst_nft = txs[0].data()",
           "go": "image0, err := os.Open(\"path/to/image/0.jpg\")\ndefer image0.Close()\n\nimage1, err := os.Open(\"path/to/image/1.jpg\")\ndefer image1.Close()\n\nmetadatas := []*thirdweb.NFTMetadataInput{\n\t&thirdweb.NFTMetadataInput{\n\t\tName: \"Cool NFT\",\n\t\tDescription: \"This is a cool NFT\",\n\t\tImage: image1\n\t}\n\t&thirdweb.NFTMetadataInput{\n\t\tName: \"Cool NFT 2\",\n\t\tDescription: \"This is also a cool NFT\",\n\t\tImage: image2\n\t}\n}\n\ntx, err := contract.CreateBatch(context.Background(), metadatas)\n",
           "react": "// Custom metadata of the NFTs to create\nconst metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nconst results = await contract.createBatch(metadatas); // uploads and creates the NFTs on chain\nconst firstTokenId = results[0].id; // token id of the first created NFT\nconst firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT",
-          "unity": "// Custom metadata of the NFTs to create\nvar metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.ReadFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nvar results = await contract.createBatch(metadatas); // uploads and creates the NFTs on chain\nvar firstTokenId = results[0].id; // token id of the first created NFT\nvar firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT"
+          "unity": "// Lazy minting in Unity is coming soon. Reach out to us on Discord if you need this feature!"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.createbatch",
@@ -1210,7 +1204,7 @@
           "python": "nft = contract.get(0)\nprint(nft)",
           "go": "nft, err := contract.Get(context.Background(), 0)\n owner := nft.Owner\n\tname := nft.Metadata.Name\n",
           "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
-          "unity": "var tokenId = 0;\nvar nft = await contract.Get(tokenId);"
+          "unity": "var tokenId = \"0\";\nvar nft = await contract.ERC721.Get(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.get",
@@ -1227,8 +1221,7 @@
           "javascript": "const claimedNFTs = await contract.getAllClaimed();\nconst firstOwner = claimedNFTs[0].owner;",
           "python": "claimed_nfts = contract.get_all_claimed()\nfirst_owner = claimed_nfts[0].owner",
           "go": "claimedNfts, err := contract.GetAllClaimed(context.Background())\nfirstOwner := claimedNfts[0].Owner\n",
-          "react": "const claimedNFTs = await contract.getAllClaimed();\nconst firstOwner = claimedNFTs[0].owner;",
-          "unity": "var claimedNFTs = await contract.GetAllClaimed();\nvar firstOwner = claimedNFTs[0].owner;"
+          "react": "const claimedNFTs = await contract.getAllClaimed();\nconst firstOwner = claimedNFTs[0].owner;"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.getallclaimed",
@@ -1245,8 +1238,7 @@
           "javascript": "const unclaimedNFTs = await contract.getAllUnclaimed();\nconst firstUnclaimedNFT = unclaimedNFTs[0].name;",
           "python": "unclaimed_nfts = contract.get_all_unclaimed()\nfirst_nft_name = unclaimed_nfts[0].name",
           "go": "unclaimedNfts, err := contract.GetAllUnclaimed(context.Background())\nfirstNftName := unclaimedNfts[0].Name\n",
-          "react": "const unclaimedNFTs = await contract.getAllUnclaimed();\nconst firstUnclaimedNFT = unclaimedNFTs[0].name;",
-          "unity": "var unclaimedNFTs = await contract.GetAllUnclaimed();\nvar firstUnclaimedNFT = unclaimedNFTs[0].name;"
+          "react": "const unclaimedNFTs = await contract.getAllUnclaimed();\nconst firstUnclaimedNFT = unclaimedNFTs[0].name;"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.getallunclaimed",
@@ -1264,7 +1256,7 @@
           "python": "total_claimed = contract.total_claimed_supply()",
           "go": "",
           "react": "const claimedNFTCount = await contract.totalClaimedSupply();\nconsole.log(`NFTs claimed so far: ${claimedNFTCount}`);",
-          "unity": "var claimedNFTCount = await contract.TotalClaimedSupply();\nDebug.Log(`NFTs claimed so far: ${claimedNFTCount}`);"
+          "unity": "var claimedNFTCount = await contract.ERC721.TotalClaimedSupply();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.totalclaimedsupply",
@@ -1282,7 +1274,7 @@
           "python": "total_unclaimed = contract.total_unclaimed_supply()",
           "go": "",
           "react": "const unclaimedNFTCount = await contract.totalUnclaimedSupply();\nconsole.log(`NFTs left to claim: ${unclaimedNFTCount}`);",
-          "unity": "var unclaimedNFTCount = await contract.TotalUnclaimedSupply();\nDebug.Log(`NFTs left to claim: ${unclaimedNFTCount}`);"
+          "unity": "var unclaimedNFTCount = await contract.ERC721.TotalUnclaimedSupply();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.totalunclaimedsupply",
@@ -1300,7 +1292,7 @@
           "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\n\nreceipt = contract.transfer(to, token_id)",
           "go": "to := \"0x...\"\ntokenId := 0\n\ntx, err := contract.Transfer(context.Background(), to, tokenId)\n",
           "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
-          "unity": "var WalletAddress = \"{{Wallet_address}}\";\nvar tokenId = 0;\nawait contract.Transfer(WalletAddress, tokenId);"
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\";\nawait contract.ERC721.Transfer(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.transfer",
@@ -1318,7 +1310,7 @@
           "python": "balance = contract.balance_of(\"{{wallet_address}}\")\nprint(balance)",
           "go": "address := \"{{wallet_address}}\"\nbalance, err := contract.BalanceOf(context.Background(), address)\n",
           "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
-          "unity": "var WalletAddress = \"{{Wallet_address}}\";\nvar balance = await contract.BalanceOf(WalletAddress);\nDebug.Log(balance);"
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.BalanceOf(walletAddress);\nDebug.Log(balance);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.balanceof",
@@ -1336,7 +1328,7 @@
           "python": "nft = contract.get(0)\nprint(nft)",
           "go": "nft, err := contract.Get(context.Background(), 0)\n owner := nft.Owner\n\tname := nft.Metadata.Name\n",
           "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
-          "unity": "var tokenId = 0;\nvar nft = await contract.Get(tokenId);"
+          "unity": "var tokenId = \"0\";\nvar nft = await contract.ERC721.Get(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.get",
@@ -1354,7 +1346,7 @@
           "python": "nfts = contract.get_all()\nprint(nfts)",
           "go": "nfts, err := contract.GetAll(context.Background())\nownerOne := nfts[0].Owner\nnameOne := nfts[0].Metadata.Name\n",
           "react": "const nfts = await contract.getAll();\nconsole.log(nfts);",
-          "unity": "var nfts = await contract.GetAll();\nDebug.Log(nfts);"
+          "unity": "var nfts = await contract.ERC721.GetAll();\nDebug.Log(nfts);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getall",
@@ -1372,7 +1364,7 @@
           "python": "nfts = contract.get_owned(\"{{wallet_address}}\")\nprint(nfts)",
           "go": "owner := \"{{wallet_address}}\"\nnfts, err := contract.GetOwned(context.Background(), owner)\nname := nfts[0].Metadata.Name\n",
           "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
-          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{Wallet_address}}\";\nvar nfts = await contract.GetOwned(address);\nDebug.Log(nfts);"
+          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{wallet_address}}\";\nvar nfts = await contract.ERC721.GetOwned(address);\nDebug.Log(nfts);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getowned",
@@ -1390,7 +1382,7 @@
           "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\n\nreceipt = contract.transfer(to, token_id)",
           "go": "to := \"0x...\"\ntokenId := 0\n\ntx, err := contract.Transfer(context.Background(), to, tokenId)\n",
           "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
-          "unity": "var WalletAddress = \"{{Wallet_address}}\";\nvar tokenId = 0;\nawait contract.Transfer(WalletAddress, tokenId);"
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\";\nawait contract.ERC721.Transfer(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.transfer",
@@ -1478,7 +1470,7 @@
           "python": "",
           "go": "",
           "react": "const result = await contract.burnTokens(tokenId, amount);",
-          "unity": "var result = await contract.BurnTokens(tokenId, amount);"
+          "unity": "var tokenId = \"0\";\nint amount = 1;var result = await contract.ERC1155.Burn(tokenId, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.editiondrop.burntokens",
@@ -1496,7 +1488,7 @@
           "python": "address = {{wallet_address}}\ntoken_id = 0\nquantity = 1\n\ntx = contract.claim_to(address, token_id, quantity)\nreceipt = tx.receipt\nclaimed_token_id = tx.id\nclaimed_nft = tx.data()",
           "go": "address = \"{{wallet_address}}\"\ntokenId = 0\nquantity = 1\n\ntx, err := contract.ClaimTo(context.Background(), address, tokenId, quantity)\n",
           "react": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst tokenId = 0; // the id of the NFT you want to claim\nconst quantity = 1; // how many NFTs you want to claim\n\nconst tx = await contract.claimTo(address, tokenId, quantity);\nconst receipt = tx.receipt; // the transaction receipt",
-          "unity": "var address = \"{{Wallet_address}}\"; // address of the Wallet you want to claim the NFTs\nvar tokenId = 0; // the id of the NFT you want to claim\nvar quantity = 1; // how many NFTs you want to claim\n\nvar tx = await contract.ClaimTo(address, tokenId, quantity);\nvar receipt = tx.receipt; // the transaction receipt"
+          "unity": "var address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nvar quantity = 1; // how many unique NFTs you want to claim\n\nvar tx = await contract.ERC721.ClaimTo(address, quantity);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.editiondrop.claimto",
@@ -1514,7 +1506,7 @@
           "python": "from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadatas_with_supply = [\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cool NFT\",\n            \"description\": \"This is a cool NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    ),\n    EditionMetadataInput(\n        NFTMetadataInput.from_json({\n            \"name\": \"Cooler NFT\",\n            \"description\": \"This is a cooler NFT\",\n            \"image\": open(\"path/to/file.jpg\", \"rb\"),\n        }),\n        100\n    )\n]\n\ntxs = contract.create_batch(metadata_with_supply)\nfirst_token_id = txs[0].id\nfirst_nft = txs[0].data()",
           "go": "image0, err := os.Open(\"path/to/image/0.jpg\")\ndefer image0.Close()\n\nimage1, err := os.Open(\"path/to/image/1.jpg\")\ndefer image1.Close()\n\nmetadatasWithSupply := []*thirdweb.EditionMetadataInput{\n\t&thirdweb.EditionMetadataInput{\n\t\tMetadata: &thirdweb.NFTMetadataInput{\n\t\t\tName: \"Cool NFT\",\n\t\t\tDescription: \"This is a cool NFT\",\n\t\t\tImage: image0,\n\t\t},\n\t\tSupply: 100,\n\t},\n\t&thirdweb.EditionMetadataInput{\n\t\tMetadata: &thirdweb.NFTMetadataInput{\n\t\t\tName: \"Cool NFT\",\n\t\t\tDescription: \"This is a cool NFT\",\n\t\t\tImage: image1,\n\t\t},\n\t\tSupply: 100,\n\t},\n}\n\ntx, err := contract.MintBatchTo(context.Background(), \"{{wallet_address}}\", metadatasWithSupply)\n",
           "react": "// Custom metadata of the NFTs to create\nconst metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nconst results = await contract.createBatch(metadatas); // uploads and creates the NFTs on chain\nconst firstTokenId = results[0].id; // token id of the first created NFT\nconst firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT",
-          "unity": "// Custom metadata of the NFTs to create\nvar metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.ReadFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nvar results = await contract.createBatch(metadatas); // uploads and creates the NFTs on chain\nvar firstTokenId = results[0].id; // token id of the first created NFT\nvar firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT"
+          "unity": "// Lazy minting in Unity is coming soon. Reach out to us on Discord if you need this feature!"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.editiondrop.createbatch",
@@ -1532,7 +1524,7 @@
           "python": "metadatas = contract.get_all()\nprint(metadatas)",
           "go": "nfts, err := contract.GetAll(context.Background())\nsupplyOne := nfts[0].Supply\nnameOne := nfts[0].Metadata.Name\n",
           "react": "const nfts = await contract.getAll();",
-          "unity": "var nfts = await contract.GetAll();"
+          "unity": "var nfts = await contract.ERC1155.GetAll();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.editiondrop.getall",
@@ -1550,7 +1542,7 @@
           "python": "address = \"{{wallet_address}}\"\nowned = contract.get_owned(address)\nprint(owned)",
           "go": "owner := \"{{wallet_address}}\"\nnfts, err := contract.GetOwned(context.Background(), owner)\nname := nfts[0].Metadata.Name\n",
           "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);",
-          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{Wallet_address}}\";\nvar nfts = await contract.GetOwned(address);"
+          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{wallet_address}}\";\nvar nfts = await contract.GetOwned(address);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.editiondrop.getowned",
@@ -1586,7 +1578,7 @@
           "python": "address = \"{{wallet_address}}\"\ntoken_id = 0\n\nbalance = contract.balance_of(address, token_id)",
           "go": "address := \"{{wallet_address}}\"\ntokenId := 0\nbalance, err := contract.BalanceOf(context.Background(), address, tokenId)\n",
           "react": "// Address of the wallet to check NFT balance\nconst walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0; // Id of the NFT to check\nconst balance = await contract.balanceOf(walletAddress, tokenId);",
-          "unity": "// Address of the Wallet to check NFT balance\nvar WalletAddress = \"{{Wallet_address}}\";\nvar tokenId = 0; // Id of the NFT to check\nvar balance = await contract.BalanceOf(WalletAddress, tokenId);"
+          "unity": "// Address of the Wallet to check NFT balance\nvar walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\"; // Id of the NFT to check\nvar balance = await contract.BalanceOf(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.balanceof",
@@ -1604,7 +1596,7 @@
           "python": "nft = contract.get(0)\nprint(nft)",
           "go": "nft, err := contract.Get(context.Background(), 0)\n supply := nft.Supply\n\tname := nft.Metadata.Name\n",
           "react": "const nft = await contract.get(\"0\");",
-          "unity": "var nft = await contract.Get(\"0\");"
+          "unity": "var nft = await contract.ERC1155.Get(\"0\");"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.get",
@@ -1622,7 +1614,7 @@
           "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\namount = 1\n\nreceipt = contract.transfer(to, token_id, amount)",
           "go": "to := \"0x...\"\ntokenId := 0\namount := 1\n\ntx, err := contract.Transfer(context.Background(), to, tokenId, amount)\n",
           "react": "// Address of the wallet you want to send the NFT to\nconst toAddress = \"{{wallet_address}}\";\nconst tokenId = \"0\"; // The token ID of the NFT you want to send\nconst amount = 3; // How many copies of the NFTs to transfer\nawait contract.transfer(toAddress, tokenId, amount);",
-          "unity": "// Address of the Wallet you want to send the NFT to\nvar toAddress = \"{{Wallet_address}}\";\nvar tokenId = \"0\"; // The token ID of the NFT you want to send\nvar amount = 3; // How many copies of the NFTs to transfer\nawait contract.Transfer(toAddress, tokenId, amount);"
+          "unity": "// Address of the Wallet you want to send the NFT to\nvar toAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\"; // The token ID of the NFT you want to send\nvar amount = 3; // How many copies of the NFTs to transfer\nawait contract.ERC1155.Transfer(toAddress, tokenId, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.transfer",
@@ -2144,7 +2136,7 @@
           "python": "",
           "go": "",
           "react": "// The address to check the funds of\nconst address = \"{{wallet_address}}\";\nconst funds = await contract.balanceOf(address);\nconsole.log(funds);",
-          "unity": "// The address to check the funds of\nvar address = \"{{Wallet_address}}\";\nvar funds = await contract.BalanceOf(address);\nDebug.Log(funds);"
+          "unity": "// The address to check the funds of\nvar address = \"{{wallet_address}}\";\nvar funds = await contract.BalanceOf(address);\nDebug.Log(funds);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.split.balanceof",
@@ -2162,7 +2154,7 @@
           "python": "",
           "go": "",
           "react": "// The address to check the funds of\nconst address = \"{{wallet_address}}\";\n// The address of the currency to check the contracts funds of\nconst tokenAddress = \"0x...\"\nconst funds = await contract.balanceOfToken(address, tokenAddress);\nconsole.log(funds);",
-          "unity": "// The address to check the funds of\nvar address = \"{{Wallet_address}}\";\n// The address of the currency to check the contracts funds of\nvar tokenAddress = \"0x...\"\nvar funds = await contract.BalanceOfToken(address, tokenAddress);\nDebug.Log(funds);"
+          "unity": "// The address to check the funds of\nvar address = \"{{wallet_address}}\";\n// The address of the currency to check the contracts funds of\nvar tokenAddress = \"0x...\"\nvar funds = await contract.BalanceOfToken(address, tokenAddress);\nDebug.Log(funds);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.split.balanceoftoken",
@@ -2234,7 +2226,7 @@
           "python": "",
           "go": "",
           "react": "// the wallet address that wants to withdraw their funds\nconst walletAddress = \"{{wallet_address}}\"\nawait contract.withdraw(walletAddress);",
-          "unity": "// the Wallet address that wants to withdraw their funds\nvar WalletAddress = \"{{Wallet_address}}\"\nawait contract.Withdraw(WalletAddress);"
+          "unity": "// the Wallet address that wants to withdraw their funds\nvar walletAddress = \"{{wallet_address}}\"\nawait contract.Withdraw(walletAddress);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.split.withdraw",
@@ -2356,7 +2348,7 @@
           "python": "",
           "go": "",
           "react": "// Address of the wallet to get the packs of\nconst address = \"{{wallet_address}}\";\nconst packss = await contract.getOwned(address);",
-          "unity": "// Address of the Wallet to get the packs of\nvar address = \"{{Wallet_address}}\";\nvar packss = await contract.GetOwned(address);"
+          "unity": "// Address of the Wallet to get the packs of\nvar address = \"{{wallet_address}}\";\nvar packss = await contract.GetOwned(address);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.pack.getowned",
@@ -2392,7 +2384,7 @@
           "python": "",
           "go": "",
           "react": "const tokenId = 0\nconst amount = 1\nconst tx = await contract.open(tokenId, amount);",
-          "unity": "var tokenId = 0\nvar amount = 1\nvar tx = await contract.Open(tokenId, amount);"
+          "unity": "var tokenId = \"0\"\nvar amount = 1\nvar tx = await contract.Open(tokenId, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.pack.open",
@@ -2428,7 +2420,7 @@
           "python": "",
           "go": "",
           "react": "// Address of the wallet to check NFT balance\nconst walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0; // Id of the NFT to check\nconst balance = await contract.balanceOf(walletAddress, tokenId);",
-          "unity": "// Address of the Wallet to check NFT balance\nvar WalletAddress = \"{{Wallet_address}}\";\nvar tokenId = 0; // Id of the NFT to check\nvar balance = await contract.BalanceOf(WalletAddress, tokenId);"
+          "unity": "// Address of the Wallet to check NFT balance\nvar walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\"; // Id of the NFT to check\nvar balance = await contract.BalanceOf(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.balanceof",
@@ -2464,7 +2456,7 @@
           "python": "",
           "go": "",
           "react": "// Address of the wallet you want to send the NFT to\nconst toAddress = \"{{wallet_address}}\";\nconst tokenId = \"0\"; // The token ID of the NFT you want to send\nconst amount = 3; // How many copies of the NFTs to transfer\nawait contract.transfer(toAddress, tokenId, amount);",
-          "unity": "// Address of the Wallet you want to send the NFT to\nvar toAddress = \"{{Wallet_address}}\";\nvar tokenId = \"0\"; // The token ID of the NFT you want to send\nvar amount = 3; // How many copies of the NFTs to transfer\nawait contract.Transfer(toAddress, tokenId, amount);"
+          "unity": "// Address of the Wallet you want to send the NFT to\nvar toAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\"; // The token ID of the NFT you want to send\nvar amount = 3; // How many copies of the NFTs to transfer\nawait contract.ERC721.Transfer(toAddress, tokenId, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.transfer",
@@ -2568,7 +2560,7 @@
           "python": "",
           "go": "",
           "react": "// The proposal ID of the proposal you want to check\nconst proposalId = \"0\";\n// The address of the wallet you want to check to see if they voted\nconst address = \"{{wallet_address}}\";\n\nawait contract.hasVoted(proposalId, address);",
-          "unity": "// The proposal ID of the proposal you want to check\nvar proposalId = \"0\";\n// The address of the Wallet you want to check to see if they voted\nvar address = \"{{Wallet_address}}\";\n\nawait contract.HasVoted(proposalId, address);"
+          "unity": "// The proposal ID of the proposal you want to check\nvar proposalId = \"0\";\n// The address of the Wallet you want to check to see if they voted\nvar address = \"{{wallet_address}}\";\n\nawait contract.HasVoted(proposalId, address);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.vote.hasvoted",
@@ -2692,7 +2684,7 @@
           "python": "balance = contract.balance_of(\"{{wallet_address}}\")\nprint(balance)",
           "go": "address := \"{{wallet_address}}\"\nbalance, err := contract.BalanceOf(context.Background(), address)\n",
           "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
-          "unity": "var WalletAddress = \"{{Wallet_address}}\";\nvar balance = await contract.BalanceOf(WalletAddress);\nDebug.Log(balance);"
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.BalanceOf(walletAddress);\nDebug.Log(balance);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.balanceof",
@@ -2710,7 +2702,7 @@
           "python": "nft = contract.get(0)\nprint(nft)",
           "go": "nft, err := contract.Get(context.Background(), 0)\n owner := nft.Owner\n\tname := nft.Metadata.Name\n",
           "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
-          "unity": "var tokenId = 0;\nvar nft = await contract.Get(tokenId);"
+          "unity": "var tokenId = \"0\";\nvar nft = await contract.Get(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.get",
@@ -2746,7 +2738,7 @@
           "python": "",
           "go": "",
           "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
-          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{Wallet_address}}\";\nvar nfts = await contract.GetOwned(address);\nDebug.Log(nfts);"
+          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{wallet_address}}\";\nvar nfts = await contract.GetOwned(address);\nDebug.Log(nfts);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getowned",
@@ -2764,7 +2756,7 @@
           "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\n\nreceipt = contract.transfer(to, token_id)",
           "go": "to := \"0x...\"\ntokenId := 0\n\ntx, err := contract.Transfer(context.Background(), to, tokenId)\n",
           "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
-          "unity": "var WalletAddress = \"{{Wallet_address}}\";\nvar tokenId = 0;\nawait contract.Transfer(WalletAddress, tokenId);"
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\";\nawait contract.ERC721.Transfer(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.transfer",
@@ -2813,7 +2805,7 @@
           "python": "",
           "go": "",
           "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployEdition({\n  name: \"My Edition\",\n  primary_sale_recipient: \"your-address\",\n});",
-          "unity": "var contractAddress = await sdk.deployer.DeployEdition({\n  name: \"My Edition\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployEdition(new NFTContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deployedition",
@@ -2831,7 +2823,7 @@
           "python": "",
           "go": "",
           "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployEditionDrop({\n  name: \"My Edition Drop\",\n  primary_sale_recipient: \"your-address\",\n});",
-          "unity": "var contractAddress = await sdk.deployer.DeployEditionDrop({\n  name: \"My Edition Drop\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployEditionDrop(new NFTContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deployeditiondrop",
@@ -2849,7 +2841,7 @@
           "python": "",
           "go": "",
           "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployMarketplace({\n  name: \"My Marketplace\",\n  primary_sale_recipient: \"your-address\",\n});",
-          "unity": "var contractAddress = await sdk.deployer.DeployMarketplace({\n  name: \"My Marketplace\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployMultiwrap(new MarketplaceContractDeployMetadata()\r\n    { name = \"My Collection\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploymarketplace",
@@ -2867,7 +2859,7 @@
           "python": "",
           "go": "",
           "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployMultiwrap({\n  name: \"My Multiwrap\",\n});",
-          "unity": "var contractAddress = await sdk.deployer.DeployMultiwrap({\n  name: \"My Multiwrap\",\n});"
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployMultiwrap(new NFTContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploymultiwrap",
@@ -2885,7 +2877,7 @@
           "python": "",
           "go": "",
           "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployNFTCollection({\n  name: \"My Collection\",\n  primary_sale_recipient: \"your-address\",\n});",
-          "unity": "var contractAddress = await sdk.deployer.DeployNFTCollection({\n  name: \"My Collection\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployNFTCollection(new NFTContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploynftcollection",
@@ -2903,7 +2895,7 @@
           "python": "",
           "go": "",
           "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployNFTDrop({\n  name: \"My Drop\",\n  primary_sale_recipient: \"your-address\",\n});",
-          "unity": "var contractAddress = await sdk.deployer.DeployNFTDrop({\n  name: \"My Drop\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployNFTDrop(new NFTContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploynftdrop",
@@ -2921,7 +2913,7 @@
           "python": "",
           "go": "",
           "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployPack({\n  name: \"My Pack\",\n  primary_sale_recipient: \"your-address\",\n});",
-          "unity": "var contractAddress = await sdk.deployer.DeployPack({\n  name: \"My Pack\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployPack(new NFTContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploypack",
@@ -2939,7 +2931,7 @@
           "python": "",
           "go": "",
           "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deploySignatureDrop({\n  name: \"My Signature Drop\",\n  primary_sale_recipient: \"your-address\",\n});",
-          "unity": "var contractAddress = await sdk.deployer.DeploySignatureDrop({\n  name: \"My Signature Drop\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "unity": "await sdk\r\n    .deployer\r\n    .DeploySignatureDrop(new NFTContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploysignaturedrop",
@@ -2957,7 +2949,7 @@
           "python": "",
           "go": "",
           "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deploySplit({\n  name: \"My Split\",\n  primary_sale_recipient: \"your-address\",\n  recipients: [\n   {\n     address: \"your-address\",\n     sharesBps: 80 * 100, // 80%\n   },\n   {\n     address: \"another-address\",\n     sharesBps: 20 * 100, // 20%\n   },\n  ],\n});",
-          "unity": "var contractAddress = await sdk.deployer.DeploySplit({\n  name: \"My Split\",\n  primary_sale_recipient: \"your-address\",\n  recipients: [\n   {\n     address: \"your-address\",\n     sharesBps: 80 * 100, // 80%\n   },\n   {\n     address: \"another-address\",\n     sharesBps: 20 * 100, // 20%\n   },\n  ],\n});"
+          "unity": "// Split contract deploys are coming to Unity soon. Reach out to us on Discord if you need this feature!"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploysplit",
@@ -2975,7 +2967,7 @@
           "python": "",
           "go": "",
           "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployToken({\n  name: \"My Token\",\n  primary_sale_recipient: \"your-address\",\n});",
-          "unity": "var contractAddress = await sdk.deployer.DeployToken({\n  name: \"My Token\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployToken(new \tTokenContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploytoken",
@@ -2993,7 +2985,7 @@
           "python": "",
           "go": "",
           "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployTokenDrop({\n  name: \"My Token Drop\",\n  primary_sale_recipient: \"your-address\",\n});",
-          "unity": "var contractAddress = await sdk.deployer.DeployTokenDrop({\n  name: \"My Token Drop\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployTokenDrop(new \tTokenContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploytokendrop",
@@ -3011,7 +3003,7 @@
           "python": "",
           "go": "",
           "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployVote({\n  name: \"My Vote\",\n  primary_sale_recipient: \"your-address\",\n  voting_token_address: \"your-token-contract-address\",\n});",
-          "unity": "var contractAddress = await sdk.deployer.DeployVote({\n  name: \"My Vote\",\n  primary_sale_recipient: \"your-address\",\n  voting_token_address: \"your-token-contract-address\",\n});"
+          "unity": "// Vote contract deploys are coming to Unity soon. Reach out to us on Discord if you need this feature!"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deployvote",
@@ -3535,7 +3527,7 @@
           "python": "",
           "go": "",
           "react": "const result = await contract.burnToken(tokenId);",
-          "unity": "var result = await contract.BurnToken(tokenId);"
+          "unity": "var tokenId = \"0\";\nvar result = await contract.ERC721.Burn(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.signaturedrop.burn",
@@ -3553,7 +3545,7 @@
           "python": "",
           "go": "",
           "react": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 1; // how many unique NFTs you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx.receipt; // the transaction receipt\nconst claimedTokenId = tx.id; // the id of the NFT claimed\nconst claimedNFT = await tx.data(); // (optional) get the claimed NFT metadata",
-          "unity": "var address = \"{{Wallet_address}}\"; // address of the Wallet you want to claim the NFTs\nvar quantity = 1; // how many unique NFTs you want to claim\n\nvar tx = await contract.ClaimTo(address, quantity);\nvar receipt = tx.receipt; // the transaction receipt\nvar claimedTokenId = tx.id; // the id of the NFT claimed\nvar claimedNFT = await tx.data(); // (optional) get the claimed NFT metadata"
+          "unity": "var address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nvar quantity = 1; // how many unique NFTs you want to claim\n\nvar tx = await contract.ERC721.ClaimTo(address, quantity);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.signaturedrop.claimto",
@@ -3571,7 +3563,7 @@
           "python": "",
           "go": "",
           "react": "// Custom metadata of the NFTs to create\nconst metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nconst results = await contract.createBatch(metadatas); // uploads and creates the NFTs on chain\nconst firstTokenId = results[0].id; // token id of the first created NFT\nconst firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT",
-          "unity": "// Custom metadata of the NFTs to create\nvar metadatas = [{\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.ReadFileSync(\"path/to/image.png\"), // This can be an image url or file\n}, {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"),\n}];\n\nvar results = await contract.createBatch(metadatas); // uploads and creates the NFTs on chain\nvar firstTokenId = results[0].id; // token id of the first created NFT\nvar firstNFT = await results[0].data(); // (optional) fetch details of the first created NFT"
+          "unity": "// Lazy minting in Unity is coming soon. Reach out to us on Discord if you need this feature!"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.signaturedrop.createbatch",
@@ -3588,8 +3580,7 @@
           "javascript": "const claimedNFTs = await contract.getAllClaimed();\nconst firstOwner = claimedNFTs[0].owner;",
           "python": "",
           "go": "",
-          "react": "const claimedNFTs = await contract.getAllClaimed();\nconst firstOwner = claimedNFTs[0].owner;",
-          "unity": "var claimedNFTs = await contract.GetAllClaimed();\nvar firstOwner = claimedNFTs[0].owner;"
+          "react": "const claimedNFTs = await contract.getAllClaimed();\nconst firstOwner = claimedNFTs[0].owner;"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.signaturedrop.getallclaimed",
@@ -3606,8 +3597,7 @@
           "javascript": "const unclaimedNFTs = await contract.getAllUnclaimed();\nconst firstUnclaimedNFT = unclaimedNFTs[0].name;",
           "python": "",
           "go": "",
-          "react": "const unclaimedNFTs = await contract.getAllUnclaimed();\nconst firstUnclaimedNFT = unclaimedNFTs[0].name;",
-          "unity": "var unclaimedNFTs = await contract.GetAllUnclaimed();\nvar firstUnclaimedNFT = unclaimedNFTs[0].name;"
+          "react": "const unclaimedNFTs = await contract.getAllUnclaimed();\nconst firstUnclaimedNFT = unclaimedNFTs[0].name;"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.signaturedrop.getallunclaimed",
@@ -3625,7 +3615,7 @@
           "python": "",
           "go": "",
           "react": "const claimedNFTCount = await contract.totalClaimedSupply();\nconsole.log(`NFTs claimed so far: ${claimedNFTCount}`);",
-          "unity": "var claimedNFTCount = await contract.TotalClaimedSupply();\nDebug.Log(`NFTs claimed so far: ${claimedNFTCount}`);"
+          "unity": "var claimedNFTCount = await contract.ERC721.TotalClaimedSupply();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.signaturedrop.totalclaimedsupply",
@@ -3643,7 +3633,7 @@
           "python": "",
           "go": "",
           "react": "const unclaimedNFTCount = await contract.totalUnclaimedSupply();\nconsole.log(`NFTs left to claim: ${unclaimedNFTCount}`);",
-          "unity": "var unclaimedNFTCount = await contract.TotalUnclaimedSupply();\nDebug.Log(`NFTs left to claim: ${unclaimedNFTCount}`);"
+          "unity": "var unclaimedNFTCount = await contract.ERC721.TotalUnclaimedSupply();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.signaturedrop.totalunclaimedsupply",
@@ -3661,7 +3651,7 @@
           "python": "",
           "go": "",
           "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
-          "unity": "var WalletAddress = \"{{Wallet_address}}\";\nvar balance = await contract.BalanceOf(WalletAddress);\nDebug.Log(balance);"
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.BalanceOf(walletAddress);\nDebug.Log(balance);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.balanceof",
@@ -3679,7 +3669,7 @@
           "python": "",
           "go": "",
           "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
-          "unity": "var tokenId = 0;\nvar nft = await contract.Get(tokenId);"
+          "unity": "var tokenId = \"0\";\nvar nft = await contract.ERC721.Get(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.get",
@@ -3697,7 +3687,7 @@
           "python": "",
           "go": "",
           "react": "const nfts = await contract.getAll();\nconsole.log(nfts);",
-          "unity": "var nfts = await contract.GetAll();\nDebug.Log(nfts);"
+          "unity": "var nfts = await contract.ERC721.GetAll();\nDebug.Log(nfts);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getall",
@@ -3715,7 +3705,7 @@
           "python": "",
           "go": "",
           "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
-          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{Wallet_address}}\";\nvar nfts = await contract.GetOwned(address);\nDebug.Log(nfts);"
+          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{wallet_address}}\";\nvar nfts = await contract.ERC721.GetOwned(address);\nDebug.Log(nfts);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getowned",
@@ -3733,7 +3723,7 @@
           "python": "",
           "go": "",
           "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
-          "unity": "var WalletAddress = \"{{Wallet_address}}\";\nvar tokenId = 0;\nawait contract.Transfer(WalletAddress, tokenId);"
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\";\nawait contract.ERC721.Transfer(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.transfer",
@@ -3803,7 +3793,8 @@
           "javascript": "// see how to craft a payload to sign in the `contract.signature.generate()` documentation\nconst signedPayload = contract.signature.generate(payload);\n\n// now anyone can mint the NFT\nconst tx = contract.signature.mint(signedPayload);\nconst receipt = tx.receipt; // the mint transaction receipt\nconst mintedId = tx.id; // the id of the NFT minted",
           "python": "",
           "go": "",
-          "react": "// see how to craft a payload to sign in the `contract.signature.generate()` documentation\nconst signedPayload = contract.signature.generate(payload);\n\n// now anyone can mint the NFT\nconst tx = contract.signature.mint(signedPayload);\nconst receipt = tx.receipt; // the mint transaction receipt\nconst mintedId = tx.id; // the id of the NFT minted"
+          "react": "// see how to craft a payload to sign in the `contract.signature.generate()` documentation\nconst signedPayload = contract.signature.generate(payload);\n\n// now anyone can mint the NFT\nconst tx = contract.signature.mint(signedPayload);\nconst receipt = tx.receipt; // the mint transaction receipt\nconst mintedId = tx.id; // the id of the NFT minted",
+          "unity": "var meta = new NFTMetadata()\n{\n    name = \"Unity NFT\",\n    description = \"Minted From Unity (signature)\",\n    image = \"ipfs://QmbpciV7R5SSPb6aT9kEBAxoYoXBUsStJkMpxzymV4ZcVc\"\n};\nstring connectedAddress = await sdk.wallet.GetAddress();\nvar payload = new ERC721MintPayload(connectedAddress, meta);\nvar signature = await contract.ERC721.signature.Generate(payload); // typically generated on the backend \n// Provide the signature you generated above to the Mint function:\nvar result = await contract.ERC721.signature.Mint(signature);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.erc721withquantitysignaturemintable",

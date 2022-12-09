@@ -531,7 +531,7 @@
       "summary": "Signature Minting\n\n",
       "remarks": "\n\nGenerate dynamic NFTs with your own signature, and let others mint them using that signature.\n\n",
       "examples": {
-        "unity": "var meta = new NFTMetadata()\r\n{\r\n    name = \"Unity NFT\",\r\n    description = \"Minted From Unity (signature)\",\r\n    image = \"ipfs://QmbpciV7R5SSPb6aT9kEBAxoYoXBUsStJkMpxzymV4ZcVc\"\r\n};\r\nstring connectedAddress = await sdk.wallet.GetAddress();\r\nvar payload = new ERC721MintPayload(connectedAddress, meta);\r\ntry\r\n{\r\n    var p = await contract.ERC721.signature.Generate(payload); // typically generated on the backend\r\n    var result = await contract.ERC721.signature.Mint(p);\r\n    resultText.text = \"SigMinted tokenId: \" + result.id;\r\n}\r\ncatch (System.Exception e)\r\n{\r\n    resultText.text = \"Sigmint Failed (see console): \" + e.Message;\r\n}"
+        "unity": "var meta = new NFTMetadata()\n{\n    name = \"Unity NFT\",\n    description = \"Minted From Unity (signature)\",\n    image = \"ipfs://QmbpciV7R5SSPb6aT9kEBAxoYoXBUsStJkMpxzymV4ZcVc\"\n};\nstring connectedAddress = await sdk.wallet.GetAddress();\nvar payload = new ERC721MintPayload(connectedAddress, meta);\nvar signature = await contract.ERC721.signature.Generate(payload); // typically generated on the backend"
       }
     },
     {
