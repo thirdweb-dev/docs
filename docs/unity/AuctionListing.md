@@ -14,12 +14,13 @@ class AuctionListing
 
 ### Summary
 
-| Members                           | Type     | Descriptions |
-| --------------------------------- | -------- | ------------ |
-| startTimeInEpochSeconds           | variable |              |
-| endTimeInEpochSeconds             | variable |              |
-| reservePrice                      | variable |              |
-| reservePriceCurrencyValuePerToken | variable |              |
+| Members | Type | Descriptions |
+| ------- | ---- | ------------ |
+| startTimeInEpochSeconds | variable |  |
+| endTimeInEpochSeconds | variable |  |
+| reservePrice | variable |  |
+| reservePriceCurrencyValuePerToken | variable |  |
+| ToString | function |  |
 
 ### Members
 
@@ -36,5 +37,9 @@ class AuctionListing
 ---
 
 **`public `[`CurrencyValue`](docs/unity/CurrencyValue.md#struct_thirdweb_1_1_currency_value)` `[`reservePriceCurrencyValuePerToken`](#class_thirdweb_1_1_auction_listing_1af0bbe35981fd0bd2b9cd153a3b046a05)**
+
+---
+
+**`public inline override string `[`ToString`](#class_thirdweb_1_1_auction_listing_1a970ce2025743475a52eb1583606994af)`()`**
 
 ---

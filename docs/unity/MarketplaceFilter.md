@@ -14,11 +14,12 @@ class MarketplaceFilter
 
 ### Summary
 
-| Members       | Type     | Descriptions |
-| ------------- | -------- | ------------ |
-| seller        | variable |              |
-| tokenContract | variable |              |
-| tokenId       | variable |              |
+| Members | Type | Descriptions |
+| ------- | ---- | ------------ |
+| seller | variable |  |
+| tokenContract | variable |  |
+| tokenId | variable |  |
+| ToString | function |  |
 
 ### Members
 
@@ -31,5 +32,9 @@ class MarketplaceFilter
 ---
 
 **`public string `[`tokenId`](#class_thirdweb_1_1_marketplace_filter_1aeee67462731624fa5245ee800a977d0d)**
+
+---
+
+**`public inline override string `[`ToString`](#class_thirdweb_1_1_marketplace_filter_1abd37f9fde91d48f844ebcae2766a55f1)`()`**
 
 ---

@@ -9,13 +9,14 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members         | Type     | Descriptions |
-| --------------- | -------- | ------------ |
-| domain          | variable |              |
-| address         | variable |              |
-| nonce           | variable |              |
-| expiration_time | variable |              |
-| chain_id        | variable |              |
+| Members | Type | Descriptions |
+| ------- | ---- | ------------ |
+| domain | variable |  |
+| address | variable |  |
+| nonce | variable |  |
+| expiration_time | variable |  |
+| chain_id | variable |  |
+| ToString | function |  |
 
 ### Members
 
@@ -36,5 +37,9 @@ displayed_sidebar: unity
 ---
 
 **`public string `[`chain_id`](#struct_thirdweb_1_1_login_payload_data_1ad3202d3b11336a51fcf69382db0e5365)**
+
+---
+
+**`public inline override string `[`ToString`](#struct_thirdweb_1_1_login_payload_data_1a2eea8cb9e8b40ffd8897b9e8a43e972c)`()`**
 
 ---

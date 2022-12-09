@@ -9,10 +9,11 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members  | Type     | Descriptions |
-| -------- | -------- | ------------ |
-| metadata | variable |              |
-| supply   | variable |              |
+| Members | Type | Descriptions |
+| ------- | ---- | ------------ |
+| metadata | variable |  |
+| supply | variable |  |
+| ToString | function |  |
 
 ### Members
 
@@ -21,5 +22,9 @@ displayed_sidebar: unity
 ---
 
 **`public int `[`supply`](#struct_thirdweb_1_1_n_f_t_metadata_with_supply_1a35da0453addd6dd8533f0bc5849052ff)**
+
+---
+
+**`public inline override string `[`ToString`](#struct_thirdweb_1_1_n_f_t_metadata_with_supply_1ac7aba7d3efbaf8eb3dd52b34c0e10dfa)`()`**
 
 ---

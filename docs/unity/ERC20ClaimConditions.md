@@ -7,35 +7,30 @@ displayed_sidebar: unity
 
 ## class `ERC20ClaimConditions` {#class_thirdweb_1_1_e_r_c20_claim_conditions}
 
+```
+class ERC20ClaimConditions
+  : public Thirdweb.Routable
+```
+
 Fetch claim conditions for a given [ERC20](docs/unity/ERC20.md#class_thirdweb_1_1_e_r_c20) drop contract
 
 ### Summary
 
-| Members                 | Type     | Descriptions                                                      |
-| ----------------------- | -------- | ----------------------------------------------------------------- |
-| chain                   | variable |                                                                   |
-| address                 | variable |                                                                   |
-| ERC20ClaimConditions    | function |                                                                   |
-| GetActive               | function | Get the active claim condition                                    |
-| CanClaim                | function | Check whether the connected wallet is eligible to claim           |
+| Members | Type | Descriptions |
+| ------- | ---- | ------------ |
+| ERC20ClaimConditions | function |  |
+| GetActive | function | Get the active claim condition |
+| CanClaim | function | Check whether the connected wallet is eligible to claim |
 | GetIneligibilityReasons | function | Get the reasons why the connected wallet is not eligible to claim |
-| GetClaimerProofs        | function | Get the special values set in the allowlist for the given wallet  |
+| GetClaimerProofs | function | Get the special values set in the allowlist for the given wallet |
 
 ### Members
 
-**`public string `[`chain`](#class_thirdweb_1_1_e_r_c20_claim_conditions_1a33fc497c6729776eacfa3060bfeff664)**
+**`public inline  `[`ERC20ClaimConditions`](#class_thirdweb_1_1_e_r_c20_claim_conditions_1af092ffd1d33b89eff3fb5aae38da50d7)`(string parentRoute)`**
 
 ---
 
-**`public string `[`address`](#class_thirdweb_1_1_e_r_c20_claim_conditions_1a5d7f21573fa3a130ddb5acbf194bf812)**
-
----
-
-**`public inline `[`ERC20ClaimConditions`](#class_thirdweb_1_1_e_r_c20_claim_conditions_1a95f27452db18ff648bc59f3647238b8c)`(string chain,string address)`**
-
----
-
-**`public inline async Task< `[`ClaimConditions`](docs/unity/ClaimConditions.md#class_thirdweb_1_1_claim_conditions)`>`[`GetActive`](#class_thirdweb_1_1_e_r_c20_claim_conditions_1a9b3b8ed78acfbed1bb668b80317f7264)`()`**
+**`public inline async Task< `[`ClaimConditions`](docs/unity/ClaimConditions.md#class_thirdweb_1_1_claim_conditions)` > `[`GetActive`](#class_thirdweb_1_1_e_r_c20_claim_conditions_1a9b3b8ed78acfbed1bb668b80317f7264)`()`**
 
 Get the active claim condition
 

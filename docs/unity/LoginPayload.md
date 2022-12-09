@@ -9,10 +9,11 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members   | Type     | Descriptions |
-| --------- | -------- | ------------ |
-| payload   | variable |              |
-| signature | variable |              |
+| Members | Type | Descriptions |
+| ------- | ---- | ------------ |
+| payload | variable |  |
+| signature | variable |  |
+| ToString | function |  |
 
 ### Members
 
@@ -21,5 +22,9 @@ displayed_sidebar: unity
 ---
 
 **`public string `[`signature`](#struct_thirdweb_1_1_login_payload_1a0751cf7c6da93f08bc72ef5e51e6e3e3)**
+
+---
+
+**`public inline override string `[`ToString`](#struct_thirdweb_1_1_login_payload_1ad7941ebf7c579b93687e1c7dfd0ed11d)`()`**
 
 ---

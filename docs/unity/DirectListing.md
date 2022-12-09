@@ -14,10 +14,11 @@ class DirectListing
 
 ### Summary
 
-| Members            | Type     | Descriptions |
-| ------------------ | -------- | ------------ |
-| startTimeInSeconds | variable |              |
-| secondsUntilEnd    | variable |              |
+| Members | Type | Descriptions |
+| ------- | ---- | ------------ |
+| startTimeInSeconds | variable |  |
+| secondsUntilEnd | variable |  |
+| ToString | function |  |
 
 ### Members
 
@@ -26,5 +27,9 @@ class DirectListing
 ---
 
 **`public string `[`secondsUntilEnd`](#class_thirdweb_1_1_direct_listing_1a1019bce8048c7c4146df0f4e6efc0526)**
+
+---
+
+**`public inline override string `[`ToString`](#class_thirdweb_1_1_direct_listing_1a7a9ec2d57a4dda0f1a385142ae76dc81)`()`**
 
 ---
