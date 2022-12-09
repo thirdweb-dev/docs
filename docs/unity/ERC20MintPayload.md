@@ -9,15 +9,15 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members              | Type     | Descriptions |
-| -------------------- | -------- | ------------ |
-| to                   | variable |              |
-| price                | variable |              |
-| currencyAddress      | variable |              |
-| primarySaleRecipient | variable |              |
-| quantity             | variable |              |
-| uid                  | variable |              |
-| ERC20MintPayload     | function |              |
+| Members | Type | Descriptions |
+| ------- | ---- | ------------ |
+| to | variable |  |
+| price | variable |  |
+| currencyAddress | variable |  |
+| primarySaleRecipient | variable |  |
+| quantity | variable |  |
+| uid | variable |  |
+| ERC20MintPayload | function |  |
 
 ### Members
 
@@ -45,6 +45,6 @@ displayed_sidebar: unity
 
 ---
 
-**`public inline `[`ERC20MintPayload`](#class_thirdweb_1_1_e_r_c20_mint_payload_1ac8ac666e7113f2e38e01027ff8a8efe8)`(string receiverAddress,string quantity)`**
+**`public inline  `[`ERC20MintPayload`](#class_thirdweb_1_1_e_r_c20_mint_payload_1ac8ac666e7113f2e38e01027ff8a8efe8)`(string receiverAddress,string quantity)`**
 
 ---

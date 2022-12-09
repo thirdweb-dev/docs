@@ -9,11 +9,12 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members  | Type     | Descriptions |
-| -------- | -------- | ------------ |
-| name     | variable |              |
-| symbol   | variable |              |
-| decimals | variable |              |
+| Members | Type | Descriptions |
+| ------- | ---- | ------------ |
+| name | variable |  |
+| symbol | variable |  |
+| decimals | variable |  |
+| ToString | function |  |
 
 ### Members
 
@@ -26,5 +27,9 @@ displayed_sidebar: unity
 ---
 
 **`public string `[`decimals`](#struct_thirdweb_1_1_currency_1a9625fc4569b81e684b04047243099991)**
+
+---
+
+**`public inline override string `[`ToString`](#struct_thirdweb_1_1_currency_1a616c290e086cec01f01f2f292501a456)`()`**
 
 ---

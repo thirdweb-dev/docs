@@ -9,13 +9,14 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members       | Type     | Descriptions |
-| ------------- | -------- | ------------ |
-| metadata      | variable |              |
-| owner         | variable |              |
-| type          | variable |              |
-| supply        | variable |              |
-| quantityOwned | variable |              |
+| Members | Type | Descriptions |
+| ------- | ---- | ------------ |
+| metadata | variable |  |
+| owner | variable |  |
+| type | variable |  |
+| supply | variable |  |
+| quantityOwned | variable |  |
+| ToString | function |  |
 
 ### Members
 
@@ -36,5 +37,9 @@ displayed_sidebar: unity
 ---
 
 **`public int `[`quantityOwned`](#struct_thirdweb_1_1_n_f_t_1aef81fe74dfe19e5b12b83d0513649129)**
+
+---
+
+**`public inline override string `[`ToString`](#struct_thirdweb_1_1_n_f_t_1a485b5388ebfc45794a4d531ff71c9658)`()`**
 
 ---

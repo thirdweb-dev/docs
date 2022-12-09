@@ -9,15 +9,15 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members                   | Type     | Descriptions |
-| ------------------------- | -------- | ------------ |
-| name                      | variable |              |
-| description               | variable |              |
-| image                     | variable |              |
-| external_link             | variable |              |
-| trusted_forwarders        | variable |              |
-| platform_fee_recipient    | variable |              |
-| platform_fee_basis_points | variable |              |
+| Members | Type | Descriptions |
+| ------- | ---- | ------------ |
+| name | variable |  |
+| description | variable |  |
+| image | variable |  |
+| external_link | variable |  |
+| trusted_forwarders | variable |  |
+| platform_fee_recipient | variable |  |
+| platform_fee_basis_points | variable |  |
 
 ### Members
 

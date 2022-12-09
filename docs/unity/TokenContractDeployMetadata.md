@@ -9,17 +9,17 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members                   | Type     | Descriptions |
-| ------------------------- | -------- | ------------ |
-| name                      | variable |              |
-| description               | variable |              |
-| image                     | variable |              |
-| external_link             | variable |              |
-| symbol                    | variable |              |
-| trusted_forwarders        | variable |              |
-| primary_sale_recipient    | variable |              |
-| platform_fee_recipient    | variable |              |
-| platform_fee_basis_points | variable |              |
+| Members | Type | Descriptions |
+| ------- | ---- | ------------ |
+| name | variable |  |
+| description | variable |  |
+| image | variable |  |
+| external_link | variable |  |
+| symbol | variable |  |
+| trusted_forwarders | variable |  |
+| primary_sale_recipient | variable |  |
+| platform_fee_recipient | variable |  |
+| platform_fee_basis_points | variable |  |
 
 ### Members
 

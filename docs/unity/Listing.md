@@ -9,18 +9,19 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members                     | Type     | Descriptions |
-| --------------------------- | -------- | ------------ |
-| id                          | variable |              |
-| sellerAddress               | variable |              |
-| assetContractAddress        | variable |              |
-| tokenId                     | variable |              |
-| asset                       | variable |              |
-| quantity                    | variable |              |
-| currencyContractAddress     | variable |              |
-| buyoutPrice                 | variable |              |
-| buyoutCurrencyValuePerToken | variable |              |
-| type                        | variable |              |
+| Members | Type | Descriptions |
+| ------- | ---- | ------------ |
+| id | variable |  |
+| sellerAddress | variable |  |
+| assetContractAddress | variable |  |
+| tokenId | variable |  |
+| asset | variable |  |
+| quantity | variable |  |
+| currencyContractAddress | variable |  |
+| buyoutPrice | variable |  |
+| buyoutCurrencyValuePerToken | variable |  |
+| type | variable |  |
+| ToString | function |  |
 
 ### Members
 
@@ -61,5 +62,9 @@ displayed_sidebar: unity
 ---
 
 **`public int `[`type`](#class_thirdweb_1_1_listing_1aeba88a288b054d910b2683e93f327103)**
+
+---
+
+**`public inline override string `[`ToString`](#class_thirdweb_1_1_listing_1a64e953e8c6abfdc56b552e4ead712bd7)`()`**
 
 ---

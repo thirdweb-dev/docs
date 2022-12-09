@@ -9,15 +9,16 @@ displayed_sidebar: unity
 
 ### Summary
 
-| Members      | Type     | Descriptions |
-| ------------ | -------- | ------------ |
-| id           | variable |              |
-| uri          | variable |              |
-| description  | variable |              |
-| image        | variable |              |
-| name         | variable |              |
-| external_url | variable |              |
-| properties   | variable |              |
+| Members | Type | Descriptions |
+| ------- | ---- | ------------ |
+| id | variable |  |
+| uri | variable |  |
+| description | variable |  |
+| image | variable |  |
+| name | variable |  |
+| external_url | variable |  |
+| properties | variable |  |
+| ToString | function |  |
 
 ### Members
 
@@ -46,5 +47,9 @@ displayed_sidebar: unity
 ---
 
 **`public Dictionary< string, object > `[`properties`](#struct_thirdweb_1_1_n_f_t_metadata_1a65258f74ef9b27095263c0f858348179)**
+
+---
+
+**`public inline override string `[`ToString`](#struct_thirdweb_1_1_n_f_t_metadata_1adeeae7a8e08a7d92cbbdd4a029431e08)`()`**
 
 ---
