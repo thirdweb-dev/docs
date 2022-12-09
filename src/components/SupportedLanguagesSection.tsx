@@ -5,6 +5,7 @@ const languageToImageMapping = {
   React: `/assets/languages/react.png`,
   Python: `/assets/languages/python.png`,
   Go: `/assets/languages/go.png`,
+  Unity: `/assets/languages/unity.webp`,
 };
 
 const languageToUrlMapping = {
@@ -12,12 +13,16 @@ const languageToUrlMapping = {
   React: `/react`,
   Python: `/python`,
   Go: `/go`,
+  Unity: `/unity`,
 };
 
-export default function SupportedLanguagesSection() {
+export default function SupportedLanguagesSection(languages?: string[]) {
+  const arrayToUse =
+    languages.length > 0 ? languages : ["JavaScript", "Python", "Go", "Unity"];
+
   return (
     <div className="row supported-language-section">
-      {["JavaScript", "React", "Python", "Go"].map((lang) => (
+      {arrayToUse.map((lang) => (
         <a
           className="col col--3 card"
           key={lang}

@@ -3,10 +3,11 @@ slug: /sdk/set-up-the-sdk/backend
 title: Backend Applications
 ---
 
-import FromPrivateKeyCodeTabs from "../../../../src/components/FromPrivateKeyCodeTabs";
-import FromSignerCodeTabs from "../../../../src/components/FromSignerCodeTabs";
-import InitializingThirdwebCodeTabs from "../../../../src/components/InitializingThirdwebCodeTabs";
-import InstallingThirdwebCodeTabs from "../../../../src/components/InstallingThirdwebCodeTabs";
+import FromPrivateKeyCodeTabs from "@components/FromPrivateKeyCodeTabs";
+import FromSignerCodeTabs from "@components/FromSignerCodeTabs";
+import InitializingThirdwebCodeTabs from "@components/InitializingThirdwebCodeTabs";
+import InstallingThirdwebCodeTabs from "@components/InstallingThirdwebCodeTabs";
+import SupportedLanguagesSection from "@components/SupportedLanguagesSection";
 
 # Backend & Scripting Applications
 
@@ -15,17 +16,28 @@ rather than connecting to your user's wallets.
 
 You can build back-end applications or scripts by using any of our SDKs:
 
-- [TypeScript](/typescript)
-- [Python](/python)
-- [Go](/go)
+<SupportedLanguagesSection
+  languages={["javascript", "python", "go", "unity"]}
+/>
+
+## Installation
 
 <InstallingThirdwebCodeTabs />
 
-There are multiple different ways you can instantiate the SDK and use it, that vary depending on what you need to do.
+## Instantiating the SDK
 
-## From a Private key
+There are two different kinds of SDK instances you can create:
 
-This instantiates the SDK with write-permissions directly from a wallet's private key.
+1. **Read-only**: Select a network and connect to it to read data from the blockchain.
+2. **Read-Write**: Connect a wallet using either a [private key](#from-a-private-key) or [signer/provider](#from-a-signer--provider) and write transactions directly from the wallet.
+
+### Read-only Connection
+
+<InitializingThirdwebCodeTabs />
+
+### From a Private key
+
+This instantiates the SDK with write permissions directly from a wallet's private key.
 
 If you expose your private key, anyone can access your wallet's funds. Please proceed carefully.
 
@@ -44,13 +56,9 @@ If you are unsure how to securely store and access your private key, please do n
 
 <FromPrivateKeyCodeTabs />
 
-## From a Signer / Provider
+### From a Signer / Provider
 
 You can use a signer such as one from an
 [Ethers Web3Provider](https://docs.ethers.io/v4/cookbook-providers.html) to instantiate the SDK.
 
 <FromSignerCodeTabs />
-
-## Read-only Connection
-
-<InitializingThirdwebCodeTabs />

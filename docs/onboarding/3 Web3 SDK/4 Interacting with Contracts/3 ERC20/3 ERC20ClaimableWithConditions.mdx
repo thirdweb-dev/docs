@@ -1,5 +1,5 @@
 ---
-slug: /sdk/interacting-with-contracts/erc721/erc20drop
+slug: /sdk/interacting-with-contracts/erc20/erc20drop
 title: Drop
 ---
 
@@ -26,9 +26,9 @@ You can utilize these features of the SDK on your contract if it implements [Dro
 Mint tokens to a specified address.
 
 <ThirdwebFeatureCodeSnippet
-  featureName={"ERC20BatchMintable"}
+  featureName={"ERC20ClaimableWithConditions"}
   languageFunctionMapping={{
-    javascript: "mintBatchTo",
+    javascript: "claim",
   }}
 />
 
@@ -47,9 +47,9 @@ Each claim phase can define:
 - Metadata for the claim condition
 
 <ThirdwebFeatureCodeSnippet
-  featureName={"ERC20BatchMintable"}
+  featureName={"ERC20ClaimableWithConditions"}
   languageFunctionMapping={{
-    javascript: "mintBatchTo",
+    javascript: "claimConditions",
   }}
   showHr={false}
 />

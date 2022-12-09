@@ -4,6 +4,7 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import reactSnippets from "../../docs/feature_snippets_react.json";
 import typescriptSnippets from "../../docs/feature_snippets_sdk.json";
+import unitySnippets from "../../docs/feature_snippets_unity.json";
 
 type Props = {
   featureName: string;
@@ -12,6 +13,7 @@ type Props = {
     javascript?: string;
     python?: string;
     go?: string;
+    unity?: string;
   };
   showHr: boolean;
 };
@@ -33,10 +35,15 @@ export default function ThirdwebFeatureCodeSnippet({
       javascript: typescriptSnippets?.[featureName]?.find(
         (s) => s.name === languageFunctionMapping?.["javascript"],
       ),
+      unity: unitySnippets?.[featureName]?.find(
+        (s) => s.name === languageFunctionMapping?.["javascript"],
+      ),
     };
   }
 
   const snippetsObject = createSnippetsObject();
+
+  console.log(snippetsObject);
 
   const languagesToShow = {
     react: {
@@ -102,19 +109,26 @@ export default function ThirdwebFeatureCodeSnippet({
 
           // Grab the example snippet
           let example = snippetsObject[language].examples[languageInfo.key];
-          // Grabthe reference URL
-          let reference = snippetsObject[language].reference[languageInfo.key];
+          // Grab the reference URL
+          let reference =
+            snippetsObject[language].reference?.[languageInfo.key];
 
           return (
             <TabItem key={language} value={language} label={languageInfo.label}>
               <CodeBlock language={languageInfo.syntax}>{example}</CodeBlock>
-              <p className="code-snippet-migration-tip">
-                This snippet is for <strong>v3</strong> of the SDK.{" "}
-                <a href={`${languageInfo.docsLink}/migration-guide`}>
-                  Learn how to upgrade
-                </a>
-                .
-              </p>
+
+              {
+                // If typescript or react
+                (language === "react" || language === "javascript") && (
+                  <p className="code-snippet-migration-tip">
+                    This snippet is for <strong>v3</strong> of the SDK.{" "}
+                    <a href={`${languageInfo.docsLink}/migration-guide`}>
+                      Learn how to upgrade
+                    </a>
+                    .
+                  </p>
+                )
+              }
               {reference && (
                 <a
                   href={reference}

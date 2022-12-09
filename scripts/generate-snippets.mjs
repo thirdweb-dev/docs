@@ -1,4 +1,5 @@
 import fs from "fs";
+import createCSharpSnippet from "./helper/create-csharp-snippet.mjs";
 import createReactSnippet from "./helper/create-react-snippet-from-mapping.mjs";
 
 const CLASSES = [
@@ -117,6 +118,7 @@ const snippets = CLASSES.reduce((acc, contractName) => {
               return ts;
             }
           })(),
+        unity: createCSharpSnippet(contractName, method.name),
       },
       reference: {
         javascript:
@@ -177,6 +179,7 @@ const snippets = CLASSES.reduce((acc, contractName) => {
               return ts;
             }
           })(),
+        unity: createCSharpSnippet(contractName, property.name),
       },
       reference: {
         javascript:

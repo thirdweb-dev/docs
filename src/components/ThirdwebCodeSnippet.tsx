@@ -82,6 +82,7 @@ export default function ThirdwebCodeSnippet({
     python: "python",
     react: "jsx",
     go: "go",
+    unity: "csharp",
   };
 
   return (
