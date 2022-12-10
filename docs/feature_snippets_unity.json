@@ -3,130 +3,85 @@
     {
       "name": "get",
       "summary": "Get the metadata of a contract\n\n",
-      "remarks": "\n\nGet the metadata of a contract\n\n",
-      "examples": {
-        "unity": "var metadata = await contract.Metadata.Get();"
-      }
+      "remarks": "\n\nGet the metadata of a contract\n\n"
     },
     {
       "name": "set",
       "summary": "Set the metadata of a contract\n\n",
-      "remarks": "\n\nOVERWRITE the metadata of a contract\n\n",
-      "examples": {
-        "unity": "await contract.Metadata.Set({\n name: \"My Contract\",\n description: \"My contract description\"\n})"
-      }
+      "remarks": "\n\nOVERWRITE the metadata of a contract\n\n"
     },
     {
       "name": "update",
       "summary": "Update the metadata of a contract\n\n",
-      "remarks": "\n\nUpdate the metadata of a contract\n\n",
-      "examples": {
-        "unity": "await contract.Metadata.Update({\n  name: \"My Contract\",\n  description: \"My contract description\"\n})"
-      }
+      "remarks": "\n\nUpdate the metadata of a contract\n\n"
     }
   ],
   "PlatformFee": [
     {
       "name": "get",
       "summary": "Get the platform fee recipient and basis points *\n\n",
-      "remarks": null,
-      "examples": {
-        "unity": "var feeInfo = await contract.platformFee.Get();"
-      }
+      "remarks": null
     }
   ],
   "PrimarySale": [
     {
       "name": "getRecipient",
       "summary": "Get the primary sale recipient.\n\n",
-      "remarks": null,
-      "examples": {
-        "unity": "var salesRecipient = await contract.Sales.GetRecipient();"
-      }
+      "remarks": null
     },
     {
       "name": "setRecipient",
       "summary": "Set the primary sale recipient\n\n",
-      "remarks": null,
-      "examples": {
-        "unity": "await contract.Sales.SetRecipient(recipientWalletAddress);"
-      }
+      "remarks": null
     }
   ],
   "Permissions": [
     {
       "name": "get",
       "summary": "Call this to get a list of addresses that are members of a specific role.\n\n",
-      "remarks": "\n\nSee {@link ContractRoles.getAll} to get get a list of addresses for all supported roles on the contract.\n\n",
-      "examples": {
-        "unity": "var minterAddresses = await contract.Roles.Get(\"minter\");"
-      }
+      "remarks": "\n\nSee {@link ContractRoles.getAll} to get get a list of addresses for all supported roles on the contract.\n\n"
     },
     {
       "name": "getAll",
       "summary": "Call this to get get a list of addresses for all supported roles on the contract.\n\n",
-      "remarks": "\n\nSee {@link ContractRoles.get} to get a list of addresses that are members of a specific role.\n\n",
-      "examples": {
-        "unity": "var rolesAndMembers = await contract.Roles.GetAll();"
-      }
+      "remarks": "\n\nSee {@link ContractRoles.get} to get a list of addresses that are members of a specific role.\n\n"
     },
     {
       "name": "grant",
       "summary": "Call this to grant a role to a specific address.\n\n",
-      "remarks": "\n\nMake sure you are sure you want to grant the role to the address.\n\n",
-      "examples": {
-        "unity": "await contract.Roles.Grant(\"minter\", \"0x1234567890123456789012345678901234567890\");"
-      }
+      "remarks": "\n\nMake sure you are sure you want to grant the role to the address.\n\n"
     },
     {
       "name": "revoke",
       "summary": "Call this to revoke a role from a specific address.\n\n",
-      "remarks": "\n\n-- Caution --\n\nThis will let you remove yourself from the role, too. If you remove yourself from the admin role, you will no longer be able to administer the contract. There is no way to recover from this.\n\n",
-      "examples": {
-        "unity": "await contract.Roles.Revoke(\"minter\", \"0x1234567890123456789012345678901234567890\");"
-      }
+      "remarks": "\n\n-- Caution --\n\nThis will let you remove yourself from the role, too. If you remove yourself from the admin role, you will no longer be able to administer the contract. There is no way to recover from this.\n\n"
     },
     {
       "name": "setAll",
       "summary": "Call this to OVERWRITE the list of addresses that are members of specific roles.\n\nEvery role in the list will be overwritten with the new list of addresses provided with them. If you want to add or remove addresses for a single address use {@link ContractRoles.grant} and {@link ContractRoles.revoke} respectively instead.\n\n",
-      "remarks": null,
-      "examples": {
-        "unity": "var minterAddresses = await contract.Roles.Get(\"minter\");\nawait contract.Roles.setAll({\n minter: []\n});\nDebug.Log(await contract.Roles.get(\"minter\")); // No matter what members had the role before, the new list will be set to []"
-      }
+      "remarks": null
     }
   ],
   "Royalty": [
     {
       "name": "getDefaultRoyaltyInfo",
       "summary": "Gets the royalty recipient and BPS (basis points) of the contract\n\n",
-      "remarks": null,
-      "examples": {
-        "unity": "var royaltyInfo = await contract.Royalties.GetDefaultRoyaltyInfo();"
-      }
+      "remarks": null
     },
     {
       "name": "getTokenRoyaltyInfo",
       "summary": "Gets the royalty recipient and BPS (basis points) of a particular token\n\n",
-      "remarks": null,
-      "examples": {
-        "unity": "var royaltyInfo = await contract.Royalties.GetDefaultRoyaltyInfo();"
-      }
+      "remarks": null
     },
     {
       "name": "setDefaultRoyaltyInfo",
       "summary": "Set the royalty recipient and fee for a contract\n\n",
-      "remarks": null,
-      "examples": {
-        "unity": "await contract.Roles.SetDefaultRoyaltyInfo({\n  seller_fee_basis_points: 100, // 1% royalty fee\n  fee_recipient: \"0x...\", // the fee recipient\n});"
-      }
+      "remarks": null
     },
     {
       "name": "setTokenRoyaltyInfo",
       "summary": "Set the royalty recipient and fee for a particular token\n\n",
-      "remarks": null,
-      "examples": {
-        "unity": "await contract.Roles.SetTokenRoyaltyInfo(tokenId, {\n  seller_fee_basis_points: 100, // 1% royalty fee\n  fee_recipient: \"0x...\", // the fee recipient\n});"
-      }
+      "remarks": null
     }
   ],
   "ERC1155ClaimableWithConditions": [

@@ -36,14 +36,12 @@ export default function ThirdwebFeatureCodeSnippet({
         (s) => s.name === languageFunctionMapping?.["javascript"],
       ),
       unity: unitySnippets?.[featureName]?.find(
-        (s) => s.name === languageFunctionMapping?.["javascript"],
+        (s) => s.name === languageFunctionMapping?.["unity"],
       ),
     };
   }
 
   const snippetsObject = createSnippetsObject();
-
-  console.log(snippetsObject);
 
   const languagesToShow = {
     react: {
@@ -82,7 +80,7 @@ export default function ThirdwebFeatureCodeSnippet({
     <>
       <Tabs groupId={"thirdweb-code-snippet"} defaultValue={"react"}>
         {Object.entries(languagesToShow).map(([language, languageInfo]) => {
-          if (!snippetsObject[language]) {
+          if (!snippetsObject?.[language]) {
             return (
               <TabItem
                 key={language}
@@ -90,7 +88,20 @@ export default function ThirdwebFeatureCodeSnippet({
                 label={languageInfo.label}
               >
                 <CodeBlock language={"text"}>
-                  {`Check our ${languageInfo.label} documentation to see how to utilize ${featureName} in ${languageInfo.label}.`}
+                  <p>
+                    This feature is missing a code snippet or might not be
+                    supported yet.
+                  </p>
+                  <p>
+                    Check the{" "}
+                    <a href={languageInfo.docsLink}>
+                      {languageInfo.label} SDK documentation
+                    </a>{" "}
+                    for more information.
+                  </p>
+                  Reach out on{" "}
+                  <a href={"https://discord.com/invite/thirdweb"}>Discord</a>{" "}
+                  for further assistance!
                 </CodeBlock>
 
                 <a
