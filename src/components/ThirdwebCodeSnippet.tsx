@@ -89,12 +89,12 @@ export default function ThirdwebCodeSnippet({
     <>
       <Tabs groupId={groupId} defaultValue={isSolana ? "javascript" : "react"}>
         {Object.entries(languagesToShow).map(([language, alwaysShow]) => {
-          const example = examples[language];
-          const reference = references[language];
+          const example = examples?.[language];
+          const reference = references?.[language];
 
           // Capitalize first letter for language name
           const languageName =
-            language.charAt(0).toUpperCase() + language.slice(1);
+            language?.charAt(0)?.toUpperCase() + language?.slice(1);
 
           if (!alwaysShow) {
             return (
@@ -138,7 +138,7 @@ export default function ThirdwebCodeSnippet({
 
           return (
             <TabItem key={language} value={language} label={languageName}>
-              <CodeBlock language={languageToHighlightMapping[language]}>
+              <CodeBlock language={languageToHighlightMapping?.[language]}>
                 {snippetOverrides?.[language] || example}
               </CodeBlock>
 

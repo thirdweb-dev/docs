@@ -125,10 +125,11 @@ export default function ThirdwebFeatureCodeSnippet({
           }
 
           // Grab the example snippet
-          let example = snippetsObject[language].examples[languageInfo.key];
+          let example =
+            snippetsObject?.[language]?.examples?.[languageInfo.key];
           // Grab the reference URL
           let reference =
-            snippetsObject[language].reference?.[languageInfo.key];
+            snippetsObject?.[language]?.reference?.[languageInfo.key];
 
           return (
             <TabItem key={language} value={language} label={languageInfo.label}>
