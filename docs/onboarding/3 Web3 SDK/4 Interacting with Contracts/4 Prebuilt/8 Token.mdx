@@ -23,6 +23,9 @@ You can get the contract address from the [dashboard](https://thirdweb.com/dashb
   name={"initializing the SDK"}
   isGetContractCode
   dontShowSummary
+  snippetOverrides={{
+    unity: `Contract contract = sdk.GetContract("{{contract_address}}");`,
+  }}
 />
 
 ## Minting Tokens

@@ -26,6 +26,14 @@ const { data: myData, isLoading } = useContractRead(contract, "myFunction");`}
 const myValue = await contract.call("myReadFunction");
 console.log(myValue);`}</CodeBlock>
   </TabItem>
+
+<TabItem key={"unity"} value={"unity"} label={"Unity"}>
+  <CodeBlock
+    language={"csharp"}
+  >{`// Place the type of the return value in the <> brackets
+var result = await contract.Read<string>("functionName", arg1, arg2);`}</CodeBlock>
+</TabItem>
+
 </Tabs>
 
 ## Write Transactions
@@ -40,7 +48,7 @@ const tx = await myFunctionAsync(["argument1", "argument2"]) // Call the functio
 
   </TabItem>
   <TabItem key={"javascript"} value={"javascript"} label={"JavaScript"}>
-    <CodeBlock language={"javascript"}>{`// write functions will return the transaction receipt
+    <CodeBlock language={"csharp"}>{`// write functions will return the transaction receipt
 const tx = await contract.call("myWriteFunction", arg1, arg2);
 const receipt = tx.receipt;
 // Optionally override transaction options
@@ -48,5 +56,9 @@ await contract.call("myWriteFunction", arg1, arg2, {
   gasLimit: 1000000, // override default gas limit
   value: ethers.utils.parseEther("0.1"), // send 0.1 ether with the contract call
 });`}</CodeBlock>
+  </TabItem>
+
+  <TabItem key={"unity"} value={"unity"} label={"Unity"}>
+    <CodeBlock language={"csharp"}>{`await contract.Write("functionName", arg1, arg2);`}</CodeBlock>
   </TabItem>
 </Tabs>

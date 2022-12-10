@@ -82,18 +82,19 @@ export default function ThirdwebCodeSnippet({
     python: "python",
     react: "jsx",
     go: "go",
+    unity: "csharp",
   };
 
   return (
     <>
       <Tabs groupId={groupId} defaultValue={isSolana ? "javascript" : "react"}>
         {Object.entries(languagesToShow).map(([language, alwaysShow]) => {
-          const example = examples[language];
-          const reference = references[language];
+          const example = examples?.[language];
+          const reference = references?.[language];
 
           // Capitalize first letter for language name
           const languageName =
-            language.charAt(0).toUpperCase() + language.slice(1);
+            language?.charAt(0)?.toUpperCase() + language?.slice(1);
 
           if (!alwaysShow) {
             return (
@@ -112,17 +113,24 @@ export default function ThirdwebCodeSnippet({
           }
 
           // If the example is empty, return null
-          if (!example) {
+          if (!example && !snippetOverrides?.[language]) {
             return (
               <TabItem key={language} value={language} label={languageName}>
                 <CodeBlock language={languageToHighlightMapping[language]}>
                   <p>
-                    Check out the{" "}
+                    This feature is missing a code snippet or might not be
+                    supported yet.
+                  </p>
+                  <p>
+                    Check the{" "}
                     <a href={`/${languageName}`}>
                       {languageName} SDK Reference
                     </a>{" "}
                     for more information.
                   </p>
+                  Reach out on{" "}
+                  <a href={"https://discord.com/invite/thirdweb"}>Discord</a>{" "}
+                  for further assistance!
                 </CodeBlock>
               </TabItem>
             );
@@ -130,7 +138,7 @@ export default function ThirdwebCodeSnippet({
 
           return (
             <TabItem key={language} value={language} label={languageName}>
-              <CodeBlock language={languageToHighlightMapping[language]}>
+              <CodeBlock language={languageToHighlightMapping?.[language]}>
                 {snippetOverrides?.[language] || example}
               </CodeBlock>
 

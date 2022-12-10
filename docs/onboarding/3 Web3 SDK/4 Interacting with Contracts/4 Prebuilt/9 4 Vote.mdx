@@ -3,7 +3,7 @@ slug: /sdk/interacting-with-contracts/vote
 title: Vote
 ---
 
-import ThirdwebCodeSnippet from "../../../../../src/components/ThirdwebCodeSnippet";
+import ThirdwebCodeSnippet from "@components/ThirdwebCodeSnippet";
 
 # Vote
 
@@ -22,6 +22,9 @@ To start using your Vote contract inside your application, you'll need to use it
   name={"initializing the SDK"}
   isGetContractCode
   dontShowSummary
+  snippetOverrides={{
+    unity: `// Vote is not yet supported in Unity. Reach out to us on Discord if you need this feature! \nMultiwrap contract = sdk.GetContract("{{contract_address}}").vote`,
+  }}
 />
 
 ## Creating A Proposal

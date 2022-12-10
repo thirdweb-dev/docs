@@ -12,7 +12,8 @@
           "javascript": "const sdk = ThirdwebSDK.fromPrivateKey(\"SecretPrivateKey\", \"mainnet\");",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst sdk = ThirdwebSDK.fromPrivateKey(\"SecretPrivateKey\", \"mainnet\");"
+          "react": "const sdk = useSDK();\n\nconst sdk = ThirdwebSDK.fromPrivateKey(\"SecretPrivateKey\", \"mainnet\");",
+          "unity": "Unity does not support instantiating the SDK from a private key. Instantiate the SDK in read-only mode and then connect the user's Wallet."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.fromprivatekey",
@@ -29,30 +30,14 @@
           "javascript": "// get a signer from somewhere (createRandom is being used purely for example purposes)\nconst signer = ethers.Wallet.createRandom();\n\n// get an instance of the SDK with the signer already setup\nconst sdk = ThirdwebSDK.fromSigner(signer, \"mainnet\");",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\n// get a signer from somewhere (createRandom is being used purely for example purposes)\nconst signer = ethers.Wallet.createRandom();\n\n// get an instance of the SDK with the signer already setup\nconst sdk = ThirdwebSDK.fromSigner(signer, \"mainnet\");"
+          "react": "const sdk = useSDK();\n\n// get a signer from somewhere (createRandom is being used purely for example purposes)\nconst signer = ethers.Wallet.createRandom();\n\n// get an instance of the SDK with the signer already setup\nconst sdk = ThirdwebSDK.fromSigner(signer, \"mainnet\");",
+          "unity": "Unity does not support instantiating the SDK from a signer. Instantiate the SDK in read-only mode and then connect the user's Wallet."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.fromsigner",
           "python": "",
           "go": "",
           "react": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.fromsigner"
-        }
-      },
-      {
-        "name": "fromWallet",
-        "summary": "Get an instance of the thirdweb SDK based on an AbstractWallet\n\n",
-        "remarks": null,
-        "examples": {
-          "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\"\n\nconst wallet = new AbstractWalletImplementation();\nconst sdk = await ThirdwebSDK.fromWallet(wallet, \"mainnet\");",
-          "python": "",
-          "go": "",
-          "react": "const sdk = useSDK();\n\nimport { ThirdwebSDK } from \"@thirdweb-dev/sdk\"\n\nconst wallet = new AbstractWalletImplementation();\nconst sdk = await ThirdwebSDK.fromWallet(wallet, \"mainnet\");"
-        },
-        "reference": {
-          "javascript": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.fromwallet",
-          "python": "",
-          "go": "",
-          "react": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.fromwallet"
         }
       },
       {
@@ -63,7 +48,8 @@
           "javascript": "const balance = await sdk.getBalance(\"0x...\");\nconsole.log(balance.displayValue);",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst balance = await sdk.getBalance(\"0x...\");\nconsole.log(balance.displayValue);"
+          "react": "const sdk = useSDK();\n\nconst balance = await sdk.getBalance(\"0x...\");\nconsole.log(balance.displayValue);",
+          "unity": "CurrencyValue balance = await sdk.Wallet.GetBalance();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.getbalance",
@@ -80,7 +66,8 @@
           "javascript": "const contract = await sdk.getContract(\"{{contract_address}}\");",
           "python": "",
           "go": "",
-          "react": "const { contract, isLoading, error } = useContract(\"{{contract_address}}\");"
+          "react": "const { contract, isLoading, error } = useContract(\"{{contract_address}}\");",
+          "unity": "// Ensure your sdk is initialized to the same network as the contract\nContract contract = sdk.GetContract(\"<your-smart-contract-address>\");\n    \n// For marketplaces and packs:\nMarketplace marketplace = contract.marketplace;\nPack pack = contract.pack;"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.getcontract",
@@ -97,7 +84,8 @@
           "javascript": "const contract = await sdk.getContract(\"{{contract_address}}\");",
           "python": "",
           "go": "",
-          "react": "const { contract, isLoading, error } = useContract(\"{{contract_address}}\");"
+          "react": "const { contract, isLoading, error } = useContract(\"{{contract_address}}\");",
+          "unity": "// Ensure your sdk is initialized to the same network as the contract\nContract contract = sdk.GetContract(\"<your-smart-contract-address>\");\n    \n// For marketplaces and packs:\nMarketplace marketplace = contract.marketplace;\nPack pack = contract.pack;"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.getcontract",
@@ -114,7 +102,8 @@
           "javascript": "const contract = await sdk.getContract(\"{{contract_address}}\");",
           "python": "",
           "go": "",
-          "react": "const { contract, isLoading, error } = useContract(\"{{contract_address}}\");"
+          "react": "const { contract, isLoading, error } = useContract(\"{{contract_address}}\");",
+          "unity": "// Ensure your sdk is initialized to the same network as the contract\nContract contract = sdk.GetContract(\"<your-smart-contract-address>\");\n    \n// For marketplaces and packs:\nMarketplace marketplace = contract.marketplace;\nPack pack = contract.pack;"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.getcontract",
@@ -131,7 +120,8 @@
           "javascript": "// Import your ABI from a JSON file\nimport myABI from \"./path/to/myABI.json\";\n\nconst contract = sdk.getContractFromAbi(\n  \"{{contract_address}}\",\n  // Pass in the \"abi\" field from the JSON file\n  myABI.abi\n);",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\n// Import your ABI from a JSON file\nimport myABI from \"./path/to/myABI.json\";\n\nconst contract = sdk.getContractFromAbi(\n  \"{{contract_address}}\",\n  // Pass in the \"abi\" field from the JSON file\n  myABI.abi\n);"
+          "react": "const sdk = useSDK();\n\n// Import your ABI from a JSON file\nimport myABI from \"./path/to/myABI.json\";\n\nconst contract = sdk.getContractFromAbi(\n  \"{{contract_address}}\",\n  // Pass in the \"abi\" field from the JSON file\n  myABI.abi\n);",
+          "unity": "Contract contract = sdk.GetContract(\"<your-smart-contract-address>\", \"<your-contract-abi>\");"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.thirdwebsdk.getcontractfromabi",
@@ -170,7 +160,7 @@
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = await sdk.getContract(\"{{contract_address}}\", \"nft-collection\");",
       "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract, isLoading, error } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"nft-collection\")\n\n  // Now you can use the nftCollection contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_nft_collection(\"{{contract_address}}\")",
-      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/v2/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetNFTCollection(\"{{contract_address}}\")\n"
+      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetNFTCollection(\"{{contract_address}}\")\n"
     },
     "methods": [
       {
@@ -181,7 +171,8 @@
           "javascript": "const result = await contract.burnToken(tokenId);",
           "python": "",
           "go": "tokenId := 0\ntx, err := contract.Burn(context.Background(), tokenId)\n",
-          "react": "const result = await contract.burnToken(tokenId);"
+          "react": "const result = await contract.burnToken(tokenId);",
+          "unity": "var tokenId = \"0\";\nvar result = await contract.ERC721.Burn(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftcollection.burn",
@@ -215,7 +206,8 @@
           "javascript": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nconst metadata = {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n};\n\nconst tx = await contract.mintTo(walletAddress, metadata);\nconst receipt = tx.receipt; // the transaction receipt\nconst tokenId = tx.id; // the id of the NFT minted\nconst nft = await tx.data(); // (optional) fetch details of minted NFT",
           "python": "from thirdweb.types.nft import NFTMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadata = NFTMetadataInput.from_json({\n    \"name\": \"Cool NFT\",\n    \"description\": \"This is a cool NFT\",\n    \"image\": open(\"path/to/file.jpg\", \"rb\"),\n})\n\n# You can pass in any address here to mint the NFT to\ntx = contract.mint_to(\"{{wallet_address}}\", metadata)\nreceipt = tx.receipt\ntoken_id = tx.id\nnft = tx.data()",
           "go": "image, err := os.Open(\"path/to/image.jpg\")\ndefer image.Close()\n\nmetadata := &thirdweb.NFTMetadataInput{\n\tName: \"Cool NFT\",\n\tDescription: \"This is a cool NFT\",\n\tImage: image,\n}\n\ntx, err := contract.MintTo(context.Background(), \"{{wallet_address}}\", metadata)\n",
-          "react": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nconst metadata = {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n};\n\nconst tx = await contract.mintTo(walletAddress, metadata);\nconst receipt = tx.receipt; // the transaction receipt\nconst tokenId = tx.id; // the id of the NFT minted\nconst nft = await tx.data(); // (optional) fetch details of minted NFT"
+          "react": "// Address of the wallet you want to mint the NFT to\nconst walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nconst metadata = {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n};\n\nconst tx = await contract.mintTo(walletAddress, metadata);\nconst receipt = tx.receipt; // the transaction receipt\nconst tokenId = tx.id; // the id of the NFT minted\nconst nft = await tx.data(); // (optional) fetch details of minted NFT",
+          "unity": "// Address of the wallet you want to mint the NFT to\nvar walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nvar metadata = new NFTMetadata() {\n  name =  \"Cool NFT\",\n  description = \"This is a cool NFT\",\n  image = \"<image-url-here>\" \n};\n\nvar tx = await contract.ERC721.MintTo(walletAddress, metadata);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftcollection.mintto",
@@ -232,7 +224,8 @@
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
           "python": "balance = contract.balance_of(\"{{wallet_address}}\")\nprint(balance)",
           "go": "address := \"{{wallet_address}}\"\nbalance, err := contract.BalanceOf(context.Background(), address)\n",
-          "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);"
+          "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.ERC721.BalanceOf(walletAddress);\nDebug.Log(balance);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.balanceof",
@@ -249,7 +242,8 @@
           "javascript": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
           "python": "nft = contract.get(0)\nprint(nft)",
           "go": "nft, err := contract.Get(context.Background(), 0)\n owner := nft.Owner\n\tname := nft.Metadata.Name\n",
-          "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);"
+          "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
+          "unity": "var tokenId = \"0\";\nvar nft = await contract.ERC721.Get(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.get",
@@ -266,7 +260,8 @@
           "javascript": "const nfts = await contract.getAll();\nconsole.log(nfts);",
           "python": "nfts = contract.get_all()\nprint(nfts)",
           "go": "nfts, err := contract.GetAll(context.Background())\nownerOne := nfts[0].Owner\nnameOne := nfts[0].Metadata.Name\n",
-          "react": "const nfts = await contract.getAll();\nconsole.log(nfts);"
+          "react": "const nfts = await contract.getAll();\nconsole.log(nfts);",
+          "unity": "var nfts = await contract.ERC721.GetAll();\nDebug.Log(nfts);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getall",
@@ -283,7 +278,8 @@
           "javascript": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
           "python": "nfts = contract.get_owned(\"{{wallet_address}}\")\nprint(nfts)",
           "go": "owner := \"{{wallet_address}}\"\nnfts, err := contract.GetOwned(context.Background(), owner)\nname := nfts[0].Metadata.Name\n",
-          "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);"
+          "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
+          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{wallet_address}}\";\nvar nfts = await contract.ERC721.GetOwned(address);\nDebug.Log(nfts);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getowned",
@@ -300,7 +296,8 @@
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
           "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\n\nreceipt = contract.transfer(to, token_id)",
           "go": "to := \"0x...\"\ntokenId := 0\n\ntx, err := contract.Transfer(context.Background(), to, tokenId)\n",
-          "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);"
+          "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\";\nawait contract.ERC721.Transfer(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.transfer",
@@ -359,7 +356,7 @@
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = await sdk.getContract(\"{{contract_address}}\", \"edition\");",
       "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"edition\")\n\n  // Now you can use the edition contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_edition(\"{{contract_address}}\")",
-      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/v2/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetEditionDrop(\"{{contract_address}}\")\n"
+      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetEditionDrop(\"{{contract_address}}\")\n"
     },
     "methods": [
       {
@@ -370,7 +367,8 @@
           "javascript": "const result = await contract.burnTokens(tokenId, amount);",
           "python": "",
           "go": "tokenId := 0\namount := 1\ntx, err := contract.Burn(context.Background(), tokenId, amount)\n",
-          "react": "const result = await contract.burnTokens(tokenId, amount);"
+          "react": "const result = await contract.burnTokens(tokenId, amount);",
+          "unity": "var tokenId = \"0\";\nint amount = 1;\nvar result = await contract.ERC1155.Burn(tokenId, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.edition.burn",
@@ -387,7 +385,8 @@
           "javascript": "const nfts = await contract.getAll();",
           "python": "metadatas = contract.get_all()\nprint(metadatas)",
           "go": "nfts, err := contract.GetAll(context.Background())\nsupplyOne := nfts[0].Supply\nnameOne := nfts[0].Metadata.Name\n",
-          "react": "const nfts = await contract.getAll();"
+          "react": "const nfts = await contract.getAll();",
+          "unity": "var nfts = await contract.ERC1155.GetAll();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.edition.getall",
@@ -404,7 +403,8 @@
           "javascript": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);",
           "python": "address = \"{{wallet_address}}\"\nowned = contract.get_owned(address)\nprint(owned)",
           "go": "owner := \"{{wallet_address}}\"\nnfts, err := contract.GetOwned(context.Background(), owner)\nname := nfts[0].Metadata.Name\n",
-          "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);"
+          "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);",
+          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{wallet_address}}\";\nvar nfts = await contract.ERC1155.GetOwned(address);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.edition.getowned",
@@ -438,7 +438,8 @@
           "javascript": "// Address of the wallet you want to mint the NFT to\nconst toAddress = \"{{wallet_address}}\"\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nconst metadata = {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}\n\nconst metadataWithSupply = {\n  metadata,\n  supply: 1000, // The number of this NFT you want to mint\n}\n\nconst tx = await contract.mintTo(toAddress, metadataWithSupply);\nconst receipt = tx.receipt; // the transaction receipt\nconst tokenId = tx.id; // the id of the NFT minted\nconst nft = await tx.data(); // (optional) fetch details of minted NFT",
           "python": "from thirdweb.types.nft import NFTMetadataInput, EditionMetadataInput\n\n# Note that you can customize this metadata however you like\nmetadata_with_supply = EditionMetadataInput(\n    NFTMetadataInput.from_json({\n        \"name\": \"Cool NFT\",\n        \"description\": \"This is a cool NFT\",\n        \"image\": open(\"path/to/file.jpg\", \"rb\"),\n    }),\n    100\n)\n\n# You can pass in any address here to mint the NFT to\ntx = contract.mint_to(\"{{wallet_address}}\", metadata_with_supply)\nreceipt = tx.receipt\ntoken_id = tx.id\nnft = tx.data()",
           "go": "",
-          "react": "// Address of the wallet you want to mint the NFT to\nconst toAddress = \"{{wallet_address}}\"\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nconst metadata = {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}\n\nconst metadataWithSupply = {\n  metadata,\n  supply: 1000, // The number of this NFT you want to mint\n}\n\nconst tx = await contract.mintTo(toAddress, metadataWithSupply);\nconst receipt = tx.receipt; // the transaction receipt\nconst tokenId = tx.id; // the id of the NFT minted\nconst nft = await tx.data(); // (optional) fetch details of minted NFT"
+          "react": "// Address of the wallet you want to mint the NFT to\nconst toAddress = \"{{wallet_address}}\"\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nconst metadata = {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.readFileSync(\"path/to/image.png\"), // This can be an image url or file\n}\n\nconst metadataWithSupply = {\n  metadata,\n  supply: 1000, // The number of this NFT you want to mint\n}\n\nconst tx = await contract.mintTo(toAddress, metadataWithSupply);\nconst receipt = tx.receipt; // the transaction receipt\nconst tokenId = tx.id; // the id of the NFT minted\nconst nft = await tx.data(); // (optional) fetch details of minted NFT",
+          "unity": "// Address of the wallet you want to mint the NFT to\r\nvar toAddress = \"{{wallet_address}}\";\r\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\r\nvar metadata =\r\n    new NFTMetadata()\r\n    {\r\n        name = \"Cool NFT\",\r\n        description = \"This is a cool NFT\",\r\n        image = \"<your-image-url>\"\r\n    };\r\nvar metadataWithSupply =\r\n    new NFTMetadataWithSupply() { metadata = metadata, supply = 1 };\r\nvar tx = await contract.ERC1155.MintTo(toAddress, metadataWithSupply);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.edition.mintto",
@@ -472,7 +473,8 @@
           "javascript": "// Address of the wallet to check NFT balance\nconst walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0; // Id of the NFT to check\nconst balance = await contract.balanceOf(walletAddress, tokenId);",
           "python": "address = \"{{wallet_address}}\"\ntoken_id = 0\n\nbalance = contract.balance_of(address, token_id)",
           "go": "address := \"{{wallet_address}}\"\ntokenId := 0\nbalance, err := contract.BalanceOf(context.Background(), address, tokenId)\n",
-          "react": "// Address of the wallet to check NFT balance\nconst walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0; // Id of the NFT to check\nconst balance = await contract.balanceOf(walletAddress, tokenId);"
+          "react": "// Address of the wallet to check NFT balance\nconst walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0; // Id of the NFT to check\nconst balance = await contract.balanceOf(walletAddress, tokenId);",
+          "unity": "// Address of the Wallet to check NFT balance\nvar walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\"; // Id of the NFT to check\nvar balance = await contract.ERC1155.BalanceOf(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.balanceof",
@@ -489,7 +491,8 @@
           "javascript": "const nft = await contract.get(\"0\");",
           "python": "nft = contract.get(0)\nprint(nft)",
           "go": "nft, err := contract.Get(context.Background(), 0)\n supply := nft.Supply\n\tname := nft.Metadata.Name\n",
-          "react": "const nft = await contract.get(\"0\");"
+          "react": "const nft = await contract.get(\"0\");",
+          "unity": "var nft = await contract.ERC1155.Get(\"0\");"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.get",
@@ -506,7 +509,8 @@
           "javascript": "// Address of the wallet you want to send the NFT to\nconst toAddress = \"{{wallet_address}}\";\nconst tokenId = \"0\"; // The token ID of the NFT you want to send\nconst amount = 3; // How many copies of the NFTs to transfer\nawait contract.transfer(toAddress, tokenId, amount);",
           "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\namount = 1\n\nreceipt = contract.transfer(to, token_id, amount)",
           "go": "to := \"0x...\"\ntokenId := 0\namount := 1\n\ntx, err := contract.Transfer(context.Background(), to, tokenId, amount)\n",
-          "react": "// Address of the wallet you want to send the NFT to\nconst toAddress = \"{{wallet_address}}\";\nconst tokenId = \"0\"; // The token ID of the NFT you want to send\nconst amount = 3; // How many copies of the NFTs to transfer\nawait contract.transfer(toAddress, tokenId, amount);"
+          "react": "// Address of the wallet you want to send the NFT to\nconst toAddress = \"{{wallet_address}}\";\nconst tokenId = \"0\"; // The token ID of the NFT you want to send\nconst amount = 3; // How many copies of the NFTs to transfer\nawait contract.transfer(toAddress, tokenId, amount);",
+          "unity": "// Address of the Wallet you want to send the NFT to\nvar toAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\"; // The token ID of the NFT you want to send\nvar amount = 3; // How many copies of the NFTs to transfer\nawait contract.ERC1155.Transfer(toAddress, tokenId, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.transfer",
@@ -591,7 +595,8 @@
           "javascript": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnTokens(amount);",
           "python": "",
           "go": "",
-          "react": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnTokens(amount);"
+          "react": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnTokens(amount);",
+          "unity": "// The amount of this token you want to burn\nvar amount = \"1.2\";\n\nawait contract.ERC20.Burn(amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.tokendrop.burntokens",
@@ -608,7 +613,8 @@
           "javascript": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 42.69; // how many tokens you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx.receipt; // the transaction receipt",
           "python": "",
           "go": "",
-          "react": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 42.69; // how many tokens you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx.receipt; // the transaction receipt"
+          "react": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 42.69; // how many tokens you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx.receipt; // the transaction receipt",
+          "unity": "var address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nvar quantity = 1; // how many tokens you want to claim\n\nvar tx = await contract.ERC20.ClaimTo(address, quantity);\nvar receipt = tx.receipt; // the transaction receipt"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.tokendrop.claimto",
@@ -625,7 +631,8 @@
           "javascript": "// Address of the wallet to check token allowance\nconst spenderAddress = \"0x...\";\nconst allowance = await contract.allowance(spenderAddress);",
           "python": "",
           "go": "",
-          "react": "// Address of the wallet to check token allowance\nconst spenderAddress = \"0x...\";\nconst allowance = await contract.allowance(spenderAddress);"
+          "react": "// Address of the wallet to check token allowance\nconst spenderAddress = \"0x...\";\nconst allowance = await contract.allowance(spenderAddress);",
+          "unity": "// Address of the Wallet to check token allowance\nvar spenderAddress = \"0x...\";\nvar allowance = await contract.ERC20.Allowance(spenderAddress);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.allowance",
@@ -642,7 +649,8 @@
           "javascript": "// Address of the wallet who owns the funds\nconst owner = \"{{wallet_address}}\";\n// Address of the wallet to check token allowance\nconst spender = \"0x...\";\nconst allowance = await contract.allowanceOf(owner, spender);",
           "python": "",
           "go": "",
-          "react": "// Address of the wallet who owns the funds\nconst owner = \"{{wallet_address}}\";\n// Address of the wallet to check token allowance\nconst spender = \"0x...\";\nconst allowance = await contract.allowanceOf(owner, spender);"
+          "react": "// Address of the wallet who owns the funds\nconst owner = \"{{wallet_address}}\";\n// Address of the wallet to check token allowance\nconst spender = \"0x...\";\nconst allowance = await contract.allowanceOf(owner, spender);",
+          "unity": "// Address of the Wallet who owns the funds\nvar owner = \"{{wallet_address}}\";\n// Address of the Wallet to check token allowance\nvar spender = \"0x...\";\nvar allowance = await contract.ERC20.AllowanceOf(owner, spender);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.allowanceof",
@@ -659,7 +667,8 @@
           "javascript": "const balance = await contract.balance();",
           "python": "",
           "go": "",
-          "react": "const balance = await contract.balance();"
+          "react": "const balance = await contract.balance();",
+          "unity": "var balance = await contract.ERC20.Balance();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.balance",
@@ -676,7 +685,8 @@
           "javascript": "// Address of the wallet to check token balance\nconst walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);",
           "python": "",
           "go": "",
-          "react": "// Address of the wallet to check token balance\nconst walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);"
+          "react": "// Address of the wallet to check token balance\nconst walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);",
+          "unity": "// Address of the Wallet to check token balance\nvar walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.ERC20.BalanceOf(walletAddress);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.balanceof",
@@ -693,7 +703,8 @@
           "javascript": "const token = await contract.get();",
           "python": "",
           "go": "",
-          "react": "const token = await contract.get();"
+          "react": "const token = await contract.get();",
+          "unity": "var token = await contract.ERC20.Get();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.get",
@@ -710,7 +721,8 @@
           "javascript": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100\nawait contract.setAllowance(spenderAddress, amount);",
           "python": "",
           "go": "",
-          "react": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100\nawait contract.setAllowance(spenderAddress, amount);"
+          "react": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100\nawait contract.setAllowance(spenderAddress, amount);",
+          "unity": "// Address of the Wallet to allow transfers from\nvar spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nvar amount = \"100\";\nawait contract.ERC20.SetAllowance(spenderAddress, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.setallowance",
@@ -727,7 +739,8 @@
           "javascript": "const balance = await contract.totalSupply();",
           "python": "",
           "go": "",
-          "react": "const balance = await contract.totalSupply();"
+          "react": "const balance = await contract.totalSupply();",
+          "unity": "var balance = await contract.ERC20.TotalSupply();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.totalsupply",
@@ -744,7 +757,8 @@
           "javascript": "// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The amount of tokens you want to send\nconst amount = 0.1;\nawait contract.transfer(toAddress, amount);",
           "python": "",
           "go": "",
-          "react": "// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The amount of tokens you want to send\nconst amount = 0.1;\nawait contract.transfer(toAddress, amount);"
+          "react": "// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The amount of tokens you want to send\nconst amount = 0.1;\nawait contract.transfer(toAddress, amount);",
+          "unity": "// Address of the Wallet you want to send the tokens to\nvar toAddress = \"0x...\";\n// The amount of tokens you want to send\nvar amount = \"0.1\";\nawait contract.ERC20.Transfer(toAddress, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.transfer",
@@ -818,7 +832,7 @@
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = await sdk.getContract(\"{{contract_address}}\", \"token\");",
       "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"token\")\n\n  // Now you can use the token contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_token(\"{{contract_address}}\")",
-      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/v2/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetToken(\"{{contract_address}}\")\n"
+      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetToken(\"{{contract_address}}\")\n"
     },
     "methods": [
       {
@@ -829,7 +843,8 @@
           "javascript": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnTokens(amount);",
           "python": "amount = 0.1\ncontract.burn(amount)",
           "go": "amount := 1\ntx, err := contract.Burn(context.Background(), amount)\n",
-          "react": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnTokens(amount);"
+          "react": "// The amount of this token you want to burn\nconst amount = 1.2;\n\nawait contract.burnTokens(amount);",
+          "unity": "// The amount of this token you want to burn\nvar amount = \"1.2\";\n\nawait contract.ERC20.Burn(amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.token.burn",
@@ -880,7 +895,8 @@
           "javascript": "const toAddress = \"{{wallet_address}}\"; // Address of the wallet you want to mint the tokens to\nconst amount = \"1.5\"; // The amount of this token you want to mint\n\nawait contract.mintTo(toAddress, amount);",
           "python": "contract.mint_to(\"{{wallet_address}}\", 1)",
           "go": "tx, err := contract.MintTo(context.Background(), \"{{wallet_address}}\", 1)\n",
-          "react": "const toAddress = \"{{wallet_address}}\"; // Address of the wallet you want to mint the tokens to\nconst amount = \"1.5\"; // The amount of this token you want to mint\n\nawait contract.mintTo(toAddress, amount);"
+          "react": "const toAddress = \"{{wallet_address}}\"; // Address of the wallet you want to mint the tokens to\nconst amount = \"1.5\"; // The amount of this token you want to mint\n\nawait contract.mintTo(toAddress, amount);",
+          "unity": "var toAddress = \"{{wallet_address}}\"; // Address of the Wallet you want to mint the tokens to\nvar amount = \"1.5\"; // The amount of this token you want to mint\n\nawait contract.ERC20.MintTo(toAddress, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.token.mintto",
@@ -897,7 +913,8 @@
           "javascript": "// Address of the wallet to check token allowance\nconst spenderAddress = \"0x...\";\nconst allowance = await contract.allowance(spenderAddress);",
           "python": "spender = \"{{wallet_address}}\"\nallowance = contract.allowance(spender)",
           "go": "spender := \"0x...\"\n\nallowance, err := contract.Allowance(spender)\nallowanceValue := allowance.DisplayValue\n",
-          "react": "// Address of the wallet to check token allowance\nconst spenderAddress = \"0x...\";\nconst allowance = await contract.allowance(spenderAddress);"
+          "react": "// Address of the wallet to check token allowance\nconst spenderAddress = \"0x...\";\nconst allowance = await contract.allowance(spenderAddress);",
+          "unity": "// Address of the Wallet to check token allowance\nvar spenderAddress = \"0x...\";\nvar allowance = await contract.ERC20.Allowance(spenderAddress);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.allowance",
@@ -914,7 +931,8 @@
           "javascript": "// Address of the wallet who owns the funds\nconst owner = \"{{wallet_address}}\";\n// Address of the wallet to check token allowance\nconst spender = \"0x...\";\nconst allowance = await contract.allowanceOf(owner, spender);",
           "python": "# Address of the wallet who owns the funds\naddress = \"{{wallet_address}}\"\n\n# Address of the wallet to check the token allowance\nspender = \"0x...\"\n\nallowance = contract.allowance_of(address, spender)\nprint(allowance)",
           "go": "address := \"{{wallet_address}}\"\nspender := \"0x...\"\n\nallowance, err := contract.AllowanceOf(address, spender)\nallowanceValue := allowance.DisplayValue\n",
-          "react": "// Address of the wallet who owns the funds\nconst owner = \"{{wallet_address}}\";\n// Address of the wallet to check token allowance\nconst spender = \"0x...\";\nconst allowance = await contract.allowanceOf(owner, spender);"
+          "react": "// Address of the wallet who owns the funds\nconst owner = \"{{wallet_address}}\";\n// Address of the wallet to check token allowance\nconst spender = \"0x...\";\nconst allowance = await contract.allowanceOf(owner, spender);",
+          "unity": "// Address of the Wallet who owns the funds\nvar owner = \"{{wallet_address}}\";\n// Address of the Wallet to check token allowance\nvar spender = \"0x...\";\nvar allowance = await contract.ERC20.AllowanceOf(owner, spender);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.allowanceof",
@@ -931,7 +949,8 @@
           "javascript": "const balance = await contract.balance();",
           "python": "balance = contract.balance()\nprint(balance)",
           "go": "balance, err := contract.Balance()\n balanceValue := balance.DisplayValue\n",
-          "react": "const balance = await contract.balance();"
+          "react": "const balance = await contract.balance();",
+          "unity": "var balance = await contract.ERC20.Balance();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.balance",
@@ -948,7 +967,8 @@
           "javascript": "// Address of the wallet to check token balance\nconst walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);",
           "python": "address = \"{{wallet_address}}\"\nbalance = contract.balance_of(address)\nprint(balance)",
           "go": "address := \"{{wallet_address}}\"\n\tbalance, err := contract.BalanceOf()\n balanceValue := balance.DisplayValue\n",
-          "react": "// Address of the wallet to check token balance\nconst walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);"
+          "react": "// Address of the wallet to check token balance\nconst walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);",
+          "unity": "// Address of the Wallet to check token balance\nvar walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.ERC20.BalanceOf(walletAddress);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.balanceof",
@@ -965,7 +985,8 @@
           "javascript": "const token = await contract.get();",
           "python": "token = contract.get()\nprint(token)",
           "go": "currency, err := contract.Get()\nsymbol := currency.Symbol\n",
-          "react": "const token = await contract.get();"
+          "react": "const token = await contract.get();",
+          "unity": "var token = await contract.ERC20.Get();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.get",
@@ -982,7 +1003,8 @@
           "javascript": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100\nawait contract.setAllowance(spenderAddress, amount);",
           "python": "spender = \"0x...\"\namount = 100\ncontract.set_allowance(spender, amount)",
           "go": "spender := \"0x...\"\namount := 1\n\ntx, err := contract.SetAllowance(context.Background(), spender, amount)\n",
-          "react": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100\nawait contract.setAllowance(spenderAddress, amount);"
+          "react": "// Address of the wallet to allow transfers from\nconst spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nconst amount = 100\nawait contract.setAllowance(spenderAddress, amount);",
+          "unity": "// Address of the Wallet to allow transfers from\nvar spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nvar amount = \"100\";\nawait contract.ERC20.SetAllowance(spenderAddress, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.setallowance",
@@ -999,7 +1021,8 @@
           "javascript": "const balance = await contract.totalSupply();",
           "python": "",
           "go": "",
-          "react": "const balance = await contract.totalSupply();"
+          "react": "const balance = await contract.totalSupply();",
+          "unity": "var balance = await contract.ERC20.TotalSupply();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.totalsupply",
@@ -1016,7 +1039,8 @@
           "javascript": "// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The amount of tokens you want to send\nconst amount = 0.1;\nawait contract.transfer(toAddress, amount);",
           "python": "# Address to send tokens to\nto = \"0x...\n\n# Amount of tokens to transfer\namount = 0.1\n\ncontract.transfer(to, amount)",
           "go": "to := \"0x...\"\namount := 1\n\ntx, err := contract.Transfer(context.Background(), to, amount)\n",
-          "react": "// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The amount of tokens you want to send\nconst amount = 0.1;\nawait contract.transfer(toAddress, amount);"
+          "react": "// Address of the wallet you want to send the tokens to\nconst toAddress = \"0x...\";\n// The amount of tokens you want to send\nconst amount = 0.1;\nawait contract.transfer(toAddress, amount);",
+          "unity": "// Address of the Wallet you want to send the tokens to\nvar toAddress = \"0x...\";\n// The amount of tokens you want to send\nvar amount = \"0.1\";\nawait contract.ERC20.Transfer(toAddress, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc20.transfer",
@@ -1092,7 +1116,7 @@
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = await sdk.getContract(\"{{contract_address}}\", \"nft-drop\");",
       "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"nft-drop\")\n\n  // Now you can use the nft drop contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_nft_drop(\"{{contract_address}}\")",
-      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/v2/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetNFTDrop(\"{{contract_address}}\")\n"
+      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetNFTDrop(\"{{contract_address}}\")\n"
     },
     "methods": [
       {
@@ -1103,7 +1127,8 @@
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
           "python": "balance = contract.balance_of(\"{{wallet_address}}\")\nprint(balance)",
           "go": "address := \"{{wallet_address}}\"\nbalance, err := contract.BalanceOf(context.Background(), address)\n",
-          "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);"
+          "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.ERC721.BalanceOf(walletAddress);\nDebug.Log(balance);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.balanceof",
@@ -1120,7 +1145,8 @@
           "javascript": "const result = await contract.burnToken(tokenId);",
           "python": "",
           "go": "tokenId := 0\ntx, err := contract.Burn(context.Background(), tokenId)\n",
-          "react": "const result = await contract.burnToken(tokenId);"
+          "react": "const result = await contract.burnToken(tokenId);",
+          "unity": "var tokenId = \"0\";\nvar result = await contract.ERC721.Burn(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.burn",
@@ -1137,7 +1163,8 @@
           "javascript": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 1; // how many unique NFTs you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx[0].receipt; // the transaction receipt\nconst claimedTokenId = tx[0].id; // the id of the NFT claimed\nconst claimedNFT = await tx[0].data(); // (optional) get the claimed NFT metadata",
           "python": "address = {{wallet_address}}\nquantity = 1\n\ntx = contract.claim_to(address, quantity)\nreceipt = tx.receipt\nclaimed_token_id = tx.id\nclaimed_nft = tx.data()",
           "go": "address := \"{{wallet_address}}\"\nquantity = 1\n\ntx, err := contract.ClaimTo(context.Background(), address, quantity)\n",
-          "react": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 1; // how many unique NFTs you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx[0].receipt; // the transaction receipt\nconst claimedTokenId = tx[0].id; // the id of the NFT claimed\nconst claimedNFT = await tx[0].data(); // (optional) get the claimed NFT metadata"
+          "react": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 1; // how many unique NFTs you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx[0].receipt; // the transaction receipt\nconst claimedTokenId = tx[0].id; // the id of the NFT claimed\nconst claimedNFT = await tx[0].data(); // (optional) get the claimed NFT metadata",
+          "unity": "var address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nvar quantity = 1; // how many unique NFTs you want to claim\n\nvar tx = await contract.ERC721.ClaimTo(address, quantity);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.claimto",
@@ -1171,7 +1198,8 @@
           "javascript": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
           "python": "nft = contract.get(0)\nprint(nft)",
           "go": "nft, err := contract.Get(context.Background(), 0)\n owner := nft.Owner\n\tname := nft.Metadata.Name\n",
-          "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);"
+          "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
+          "unity": "var tokenId = \"0\";\nvar nft = await contract.ERC721.Get(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.get",
@@ -1222,7 +1250,8 @@
           "javascript": "const claimedNFTCount = await contract.totalClaimedSupply();\nconsole.log(`NFTs claimed so far: ${claimedNFTCount}`);",
           "python": "total_claimed = contract.total_claimed_supply()",
           "go": "",
-          "react": "const claimedNFTCount = await contract.totalClaimedSupply();\nconsole.log(`NFTs claimed so far: ${claimedNFTCount}`);"
+          "react": "const claimedNFTCount = await contract.totalClaimedSupply();\nconsole.log(`NFTs claimed so far: ${claimedNFTCount}`);",
+          "unity": "var claimedNFTCount = await contract.ERC721.TotalClaimedSupply();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.totalclaimedsupply",
@@ -1239,7 +1268,8 @@
           "javascript": "const unclaimedNFTCount = await contract.totalUnclaimedSupply();\nconsole.log(`NFTs left to claim: ${unclaimedNFTCount}`);",
           "python": "total_unclaimed = contract.total_unclaimed_supply()",
           "go": "",
-          "react": "const unclaimedNFTCount = await contract.totalUnclaimedSupply();\nconsole.log(`NFTs left to claim: ${unclaimedNFTCount}`);"
+          "react": "const unclaimedNFTCount = await contract.totalUnclaimedSupply();\nconsole.log(`NFTs left to claim: ${unclaimedNFTCount}`);",
+          "unity": "var unclaimedNFTCount = await contract.ERC721.TotalUnclaimedSupply();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.totalunclaimedsupply",
@@ -1256,7 +1286,8 @@
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
           "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\n\nreceipt = contract.transfer(to, token_id)",
           "go": "to := \"0x...\"\ntokenId := 0\n\ntx, err := contract.Transfer(context.Background(), to, tokenId)\n",
-          "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);"
+          "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\";\nawait contract.ERC721.Transfer(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.transfer",
@@ -1273,7 +1304,8 @@
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
           "python": "balance = contract.balance_of(\"{{wallet_address}}\")\nprint(balance)",
           "go": "address := \"{{wallet_address}}\"\nbalance, err := contract.BalanceOf(context.Background(), address)\n",
-          "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);"
+          "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.ERC721.BalanceOf(walletAddress);\nDebug.Log(balance);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.balanceof",
@@ -1290,7 +1322,8 @@
           "javascript": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
           "python": "nft = contract.get(0)\nprint(nft)",
           "go": "nft, err := contract.Get(context.Background(), 0)\n owner := nft.Owner\n\tname := nft.Metadata.Name\n",
-          "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);"
+          "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
+          "unity": "var tokenId = \"0\";\nvar nft = await contract.ERC721.Get(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.get",
@@ -1307,7 +1340,8 @@
           "javascript": "const nfts = await contract.getAll();\nconsole.log(nfts);",
           "python": "nfts = contract.get_all()\nprint(nfts)",
           "go": "nfts, err := contract.GetAll(context.Background())\nownerOne := nfts[0].Owner\nnameOne := nfts[0].Metadata.Name\n",
-          "react": "const nfts = await contract.getAll();\nconsole.log(nfts);"
+          "react": "const nfts = await contract.getAll();\nconsole.log(nfts);",
+          "unity": "var nfts = await contract.ERC721.GetAll();\nDebug.Log(nfts);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getall",
@@ -1324,7 +1358,8 @@
           "javascript": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
           "python": "nfts = contract.get_owned(\"{{wallet_address}}\")\nprint(nfts)",
           "go": "owner := \"{{wallet_address}}\"\nnfts, err := contract.GetOwned(context.Background(), owner)\nname := nfts[0].Metadata.Name\n",
-          "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);"
+          "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
+          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{wallet_address}}\";\nvar nfts = await contract.ERC721.GetOwned(address);\nDebug.Log(nfts);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getowned",
@@ -1341,7 +1376,8 @@
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
           "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\n\nreceipt = contract.transfer(to, token_id)",
           "go": "to := \"0x...\"\ntokenId := 0\n\ntx, err := contract.Transfer(context.Background(), to, tokenId)\n",
-          "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);"
+          "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\";\nawait contract.ERC721.Transfer(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.nftdrop.transfer",
@@ -1417,7 +1453,7 @@
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = await sdk.getContract(\"{{contract_address}}\", \"edition-drop\");",
       "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"edition-drop\")\n\n  // Now you can use the edition drop contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_edition_drop(\"{{contract_address}}\")",
-      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/v2/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetEditionDrop(\"{{contract_address}}\")\n"
+      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetEditionDrop(\"{{contract_address}}\")\n"
     },
     "methods": [
       {
@@ -1428,7 +1464,8 @@
           "javascript": "const result = await contract.burnTokens(tokenId, amount);",
           "python": "",
           "go": "",
-          "react": "const result = await contract.burnTokens(tokenId, amount);"
+          "react": "const result = await contract.burnTokens(tokenId, amount);",
+          "unity": "var tokenId = \"0\";\nint amount = 1;\nvar result = await contract.ERC1155.Burn(tokenId, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.editiondrop.burntokens",
@@ -1445,7 +1482,8 @@
           "javascript": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst tokenId = 0; // the id of the NFT you want to claim\nconst quantity = 1; // how many NFTs you want to claim\n\nconst tx = await contract.claimTo(address, tokenId, quantity);\nconst receipt = tx.receipt; // the transaction receipt",
           "python": "address = {{wallet_address}}\ntoken_id = 0\nquantity = 1\n\ntx = contract.claim_to(address, token_id, quantity)\nreceipt = tx.receipt\nclaimed_token_id = tx.id\nclaimed_nft = tx.data()",
           "go": "address = \"{{wallet_address}}\"\ntokenId = 0\nquantity = 1\n\ntx, err := contract.ClaimTo(context.Background(), address, tokenId, quantity)\n",
-          "react": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst tokenId = 0; // the id of the NFT you want to claim\nconst quantity = 1; // how many NFTs you want to claim\n\nconst tx = await contract.claimTo(address, tokenId, quantity);\nconst receipt = tx.receipt; // the transaction receipt"
+          "react": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst tokenId = 0; // the id of the NFT you want to claim\nconst quantity = 1; // how many NFTs you want to claim\n\nconst tx = await contract.claimTo(address, tokenId, quantity);\nconst receipt = tx.receipt; // the transaction receipt",
+          "unity": "var address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nvar quantity = 1; // how many unique NFTs you want to claim\n\nvar tx = await contract.ERC1155.ClaimTo(address, quantity);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.editiondrop.claimto",
@@ -1479,7 +1517,8 @@
           "javascript": "const nfts = await contract.getAll();",
           "python": "metadatas = contract.get_all()\nprint(metadatas)",
           "go": "nfts, err := contract.GetAll(context.Background())\nsupplyOne := nfts[0].Supply\nnameOne := nfts[0].Metadata.Name\n",
-          "react": "const nfts = await contract.getAll();"
+          "react": "const nfts = await contract.getAll();",
+          "unity": "var nfts = await contract.ERC1155.GetAll();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.editiondrop.getall",
@@ -1496,7 +1535,8 @@
           "javascript": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);",
           "python": "address = \"{{wallet_address}}\"\nowned = contract.get_owned(address)\nprint(owned)",
           "go": "owner := \"{{wallet_address}}\"\nnfts, err := contract.GetOwned(context.Background(), owner)\nname := nfts[0].Metadata.Name\n",
-          "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);"
+          "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);",
+          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{wallet_address}}\";\nvar nfts = await contract.ERC1155.GetOwned(address);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.editiondrop.getowned",
@@ -1530,7 +1570,8 @@
           "javascript": "// Address of the wallet to check NFT balance\nconst walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0; // Id of the NFT to check\nconst balance = await contract.balanceOf(walletAddress, tokenId);",
           "python": "address = \"{{wallet_address}}\"\ntoken_id = 0\n\nbalance = contract.balance_of(address, token_id)",
           "go": "address := \"{{wallet_address}}\"\ntokenId := 0\nbalance, err := contract.BalanceOf(context.Background(), address, tokenId)\n",
-          "react": "// Address of the wallet to check NFT balance\nconst walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0; // Id of the NFT to check\nconst balance = await contract.balanceOf(walletAddress, tokenId);"
+          "react": "// Address of the wallet to check NFT balance\nconst walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0; // Id of the NFT to check\nconst balance = await contract.balanceOf(walletAddress, tokenId);",
+          "unity": "// Address of the Wallet to check NFT balance\nvar walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\"; // Id of the NFT to check\nvar balance = await contract.ERC1155.BalanceOf(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.balanceof",
@@ -1547,7 +1588,8 @@
           "javascript": "const nft = await contract.get(\"0\");",
           "python": "nft = contract.get(0)\nprint(nft)",
           "go": "nft, err := contract.Get(context.Background(), 0)\n supply := nft.Supply\n\tname := nft.Metadata.Name\n",
-          "react": "const nft = await contract.get(\"0\");"
+          "react": "const nft = await contract.get(\"0\");",
+          "unity": "var nft = await contract.ERC1155.Get(\"0\");"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.get",
@@ -1564,7 +1606,8 @@
           "javascript": "// Address of the wallet you want to send the NFT to\nconst toAddress = \"{{wallet_address}}\";\nconst tokenId = \"0\"; // The token ID of the NFT you want to send\nconst amount = 3; // How many copies of the NFTs to transfer\nawait contract.transfer(toAddress, tokenId, amount);",
           "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\namount = 1\n\nreceipt = contract.transfer(to, token_id, amount)",
           "go": "to := \"0x...\"\ntokenId := 0\namount := 1\n\ntx, err := contract.Transfer(context.Background(), to, tokenId, amount)\n",
-          "react": "// Address of the wallet you want to send the NFT to\nconst toAddress = \"{{wallet_address}}\";\nconst tokenId = \"0\"; // The token ID of the NFT you want to send\nconst amount = 3; // How many copies of the NFTs to transfer\nawait contract.transfer(toAddress, tokenId, amount);"
+          "react": "// Address of the wallet you want to send the NFT to\nconst toAddress = \"{{wallet_address}}\";\nconst tokenId = \"0\"; // The token ID of the NFT you want to send\nconst amount = 3; // How many copies of the NFTs to transfer\nawait contract.transfer(toAddress, tokenId, amount);",
+          "unity": "// Address of the Wallet you want to send the NFT to\nvar toAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\"; // The token ID of the NFT you want to send\nvar amount = 3; // How many copies of the NFTs to transfer\nawait contract.ERC1155.Transfer(toAddress, tokenId, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.transfer",
@@ -1623,7 +1666,7 @@
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = await sdk.getContract(\"{{contract_address}}\", \"marketplace\");",
       "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"marketplace\")\n\n  // Now you can use the marketplace contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_marketplace(\"{{contract_address}}\")",
-      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/v2/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetMarketplace(\"{{contract_address}}\")\n"
+      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetMarketplace(\"{{contract_address}}\")\n"
     },
     "methods": [
       {
@@ -1634,7 +1677,8 @@
           "javascript": "// The listing ID of the asset you want to buy\nconst listingId = 0;\n// Quantity of the asset you want to buy\nconst quantityDesired = 1;\n\nawait contract.buyoutListing(listingId, quantityDesired);",
           "python": "listing_id = 0\nquantity_desired = 1\n\ncontract.buyout_listing(listing_id, quantity_desired)",
           "go": "",
-          "react": "// The listing ID of the asset you want to buy\nconst listingId = 0;\n// Quantity of the asset you want to buy\nconst quantityDesired = 1;\n\nawait contract.buyoutListing(listingId, quantityDesired);"
+          "react": "// The listing ID of the asset you want to buy\nconst listingId = 0;\n// Quantity of the asset you want to buy\nconst quantityDesired = 1;\n\nawait contract.buyoutListing(listingId, quantityDesired);",
+          "unity": "// The listing ID of the asset you want to buy\nvar listingId = \"0\";\n// Quantity of the asset you want to buy\nvar quantityDesired = 1;\n\nawait contract.BuyoutListing(listingId, quantityDesired);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplace.buyoutlisting",
@@ -1651,7 +1695,8 @@
           "javascript": "const listings = await contract.getActiveListings();\nconst priceOfFirstActiveListing = listings[0].price;",
           "python": "listings = contract.get_active_listings()\nprice_of_first = listings[0].price",
           "go": "listings, err := marketplace.GetActiveListings(context.Background(), nil)\n// Price per token of the first listing\nlistings[0].BuyoutCurrencyValuePerToken.DisplayValue\n",
-          "react": "const listings = await contract.getActiveListings();\nconst priceOfFirstActiveListing = listings[0].price;"
+          "react": "const listings = await contract.getActiveListings();\nconst priceOfFirstActiveListing = listings[0].price;",
+          "unity": "var listings = await contract.GetActiveListings();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplace.getactivelistings",
@@ -1668,7 +1713,8 @@
           "javascript": "const listings = await contract.getAllListings();\nconst priceOfFirstListing = listings[0].price;",
           "python": "listings = contract.get_all_listings()\nprice_of_first = listings[0].price",
           "go": "listings, err := marketplace.GetAllListings(context.Background(), nil)\n// Price per token of the first listing\nlistings[0].BuyoutCurrencyValuePerToken.DisplayValue\n",
-          "react": "const listings = await contract.getAllListings();\nconst priceOfFirstListing = listings[0].price;"
+          "react": "const listings = await contract.getAllListings();\nconst priceOfFirstListing = listings[0].price;",
+          "unity": "var listings = await contract.GetAllListings();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplace.getalllistings",
@@ -1685,7 +1731,8 @@
           "javascript": "const listingId = 0;\nconst listing = await contract.getListing(listingId);",
           "python": "",
           "go": "listingId := 0\nlisting, err := marketplace.GetListing(context.Background(), listingId)\n",
-          "react": "const listingId = 0;\nconst listing = await contract.getListing(listingId);"
+          "react": "const listingId = 0;\nconst listing = await contract.getListing(listingId);",
+          "unity": "var listingId = \"0\";\nvar listing = await contract.GetListing(listingId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplace.getlisting",
@@ -1702,7 +1749,8 @@
           "javascript": "const offers = await marketplaceContract.getOffers(listingId);\nconst firstOffer = offers[0];",
           "python": "",
           "go": "",
-          "react": "const offers = await marketplaceContract.getOffers(listingId);\nconst firstOffer = offers[0];"
+          "react": "const offers = await marketplaceContract.getOffers(listingId);\nconst firstOffer = offers[0];",
+          "unity": "string listingId = \"0\";\r\nawait contract.GetOffers(listingId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplace.getoffers",
@@ -1719,7 +1767,8 @@
           "javascript": "// The listing ID of the asset you want to offer on\nconst listingId = 0;\n// The price you are willing to offer per token\nconst pricePerToken = 0.5;\n// The quantity of tokens you want to receive for this offer\nconst quantity = 1;\n\nawait contract.makeOffer(\n  listingId,\n  pricePerToken,\n  quantity,\n);",
           "python": "",
           "go": "",
-          "react": "// The listing ID of the asset you want to offer on\nconst listingId = 0;\n// The price you are willing to offer per token\nconst pricePerToken = 0.5;\n// The quantity of tokens you want to receive for this offer\nconst quantity = 1;\n\nawait contract.makeOffer(\n  listingId,\n  pricePerToken,\n  quantity,\n);"
+          "react": "// The listing ID of the asset you want to offer on\nconst listingId = 0;\n// The price you are willing to offer per token\nconst pricePerToken = 0.5;\n// The quantity of tokens you want to receive for this offer\nconst quantity = 1;\n\nawait contract.makeOffer(\n  listingId,\n  pricePerToken,\n  quantity,\n);",
+          "unity": "// The listing ID of the asset you want to offer on\nvar listingId = \"0\";\n// The price you are willing to offer per token\nvar pricePerToken = 0.5;\n// The quantity of tokens you want to receive for this offer\nvar quantity = 1;\n\nawait contract.MakeOffer(\n  listingId,\n  pricePerToken,\n  quantity,\n);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplace.makeoffer",
@@ -1835,7 +1884,8 @@
           "javascript": "// The listing ID of the asset you want to buy\nconst listingId = 0;\n// Quantity of the asset you want to buy\nconst quantityDesired = 1;\n\nawait contract.direct.buyoutListing(listingId, quantityDesired);",
           "python": "",
           "go": "",
-          "react": "const Component = () => {\n  const {\n    mutate: buyNow,\n    isLoading,\n    error,\n  } = useBuyNow(\">>YourMarketplaceContractInstance<<\");\n\n  if (error) {\n    console.error(\"failed to buyout listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => buyNow({listingId: 1, type: ListingType.Auction})}\n    >\n      Buy listing!\n    </button>\n  );\n};"
+          "react": "const Component = () => {\n  const {\n    mutate: buyNow,\n    isLoading,\n    error,\n  } = useBuyNow(\">>YourMarketplaceContractInstance<<\");\n\n  if (error) {\n    console.error(\"failed to buyout listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => buyNow({listingId: 1, type: ListingType.Auction})}\n    >\n      Buy listing!\n    </button>\n  );\n};",
+          "unity": "// The listing ID of the asset you want to buy\r\nvar listingId = \"0\";\r\n// Quantity of the asset you want to buy\r\nvar quantityDesired = 1;\r\nawait contract.BuyListing(listingId, quantityDesired);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplacedirect.buyoutlisting",
@@ -1852,7 +1902,8 @@
           "javascript": "// The listing ID of the direct listing you want to cancel\nconst listingId = \"0\";\n\nawait contract.direct.cancelListing(listingId);",
           "python": "",
           "go": "",
-          "react": "// The listing ID of the direct listing you want to cancel\nconst listingId = \"0\";\n\nawait contract.direct.cancelListing(listingId);"
+          "react": "// The listing ID of the direct listing you want to cancel\nconst listingId = \"0\";\n\nawait contract.direct.cancelListing(listingId);",
+          "unity": "string listingId = \"0\";\r\nawait contract.direct.CancelListing(listingId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplacedirect.cancellisting",
@@ -1869,7 +1920,8 @@
           "javascript": "// Data of the listing you want to create\nconst listing = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to list\n  tokenId: \"0\",\n  // when should the listing open up for offers\n  startTimestamp: new Date(),\n  // how long the listing will be open for\n  listingDurationInSeconds: 86400,\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // how much the asset will be sold for\n  buyoutPricePerToken: \"1.5\",\n}\n\nconst tx = await contract.direct.createListing(listing);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing",
           "python": "",
           "go": "",
-          "react": "// Data of the listing you want to create\nconst listing = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to list\n  tokenId: \"0\",\n  // when should the listing open up for offers\n  startTimestamp: new Date(),\n  // how long the listing will be open for\n  listingDurationInSeconds: 86400,\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // how much the asset will be sold for\n  buyoutPricePerToken: \"1.5\",\n}\n\nconst tx = await contract.direct.createListing(listing);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing"
+          "react": "// Data of the listing you want to create\nconst listing = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to list\n  tokenId: \"0\",\n  // when should the listing open up for offers\n  startTimestamp: new Date(),\n  // how long the listing will be open for\n  listingDurationInSeconds: 86400,\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // how much the asset will be sold for\n  buyoutPricePerToken: \"1.5\",\n}\n\nconst tx = await contract.direct.createListing(listing);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing",
+          "unity": "await contract\r\n    .direct\r\n    .CreateListing(new NewDirectListing()\r\n    {\r\n        assetContractAddress = \"0x...\",\r\n        buyoutPricePerToken = \"1\",\r\n        currencyContractAddress = \"0x...\",\r\n        listingDurationInSeconds = 3600,\r\n        quantity = 1,\r\n        reservePricePerToken = \"0\",\r\n        startTimestamp = 0,\r\n        tokenId = \"1\",\r\n        type = \"direct\"\r\n    });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplacedirect.createlisting",
@@ -1886,7 +1938,8 @@
           "javascript": "import { ChainId, NATIVE_TOKENS } from \"@thirdweb-dev/sdk\";\n\n// The listing ID of the asset you want to offer on\nconst listingId = 0;\n// The price you are willing to offer per token\nconst pricePerToken = 1;\n// The quantity of tokens you want to receive for this offer\nconst quantity = 1;\n// The address of the currency you are making the offer in (must be ERC-20)\nconst currencyContractAddress = NATIVE_TOKENS[ChainId.Rinkeby].wrapped.address\n\nawait contract.direct.makeOffer(\n  listingId,\n  quantity,\n  currencyContractAddress,\n  pricePerToken\n);",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nimport { ChainId, NATIVE_TOKENS } from \"@thirdweb-dev/sdk\";\n\n// The listing ID of the asset you want to offer on\nconst listingId = 0;\n// The price you are willing to offer per token\nconst pricePerToken = 1;\n// The quantity of tokens you want to receive for this offer\nconst quantity = 1;\n// The address of the currency you are making the offer in (must be ERC-20)\nconst currencyContractAddress = NATIVE_TOKENS[ChainId.Rinkeby].wrapped.address\n\nawait contract.direct.makeOffer(\n  listingId,\n  quantity,\n  currencyContractAddress,\n  pricePerToken\n);"
+          "react": "const sdk = useSDK();\n\nimport { ChainId, NATIVE_TOKENS } from \"@thirdweb-dev/sdk\";\n\n// The listing ID of the asset you want to offer on\nconst listingId = 0;\n// The price you are willing to offer per token\nconst pricePerToken = 1;\n// The quantity of tokens you want to receive for this offer\nconst quantity = 1;\n// The address of the currency you are making the offer in (must be ERC-20)\nconst currencyContractAddress = NATIVE_TOKENS[ChainId.Rinkeby].wrapped.address\n\nawait contract.direct.makeOffer(\n  listingId,\n  quantity,\n  currencyContractAddress,\n  pricePerToken\n);",
+          "unity": "string listingId = \"0\";\r\nstring price = \"0.1\";\r\nint quantity = 1;\r\nawait contract.MakeOffer(listingId, price, quantity);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplacedirect.makeoffer",
@@ -1914,7 +1967,8 @@
           "javascript": "// The listing ID of the asset you want to buy\nconst listingId = 0;\n\nawait contract.auction.buyoutListing(listingId);",
           "python": "",
           "go": "",
-          "react": "// The listing ID of the asset you want to buy\nconst listingId = 0;\n\nawait contract.auction.buyoutListing(listingId);"
+          "react": "// The listing ID of the asset you want to buy\nconst listingId = 0;\n\nawait contract.auction.buyoutListing(listingId);",
+          "unity": "// The listing ID of the asset you want to buy\r\nvar listingId = \"0\";\r\n// Quantity of the asset you want to buy\r\nvar quantityDesired = 1;\r\nawait contract.BuyListing(listingId, quantityDesired);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplaceauction.buyoutlisting",
@@ -1931,7 +1985,8 @@
           "javascript": "// The listing ID of the auction listing you want to cancel\nconst listingId = \"0\";\n\nawait contract.auction.cancelListing(listingId);",
           "python": "",
           "go": "",
-          "react": "// The listing ID of the auction listing you want to cancel\nconst listingId = \"0\";\n\nawait contract.auction.cancelListing(listingId);"
+          "react": "// The listing ID of the auction listing you want to cancel\nconst listingId = \"0\";\n\nawait contract.auction.cancelListing(listingId);",
+          "unity": "string listingId = \"0\";\r\nawait contract.auction.CancelListing(listingId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplaceauction.cancellisting",
@@ -1948,7 +2003,8 @@
           "javascript": "// The listing ID of the auction listing you want to close\nconst listingId = \"0\";\nawait contract.auction.closeListing(listingId);",
           "python": "",
           "go": "",
-          "react": "// The listing ID of the auction listing you want to close\nconst listingId = \"0\";\nawait contract.auction.closeListing(listingId);"
+          "react": "// The listing ID of the auction listing you want to close\nconst listingId = \"0\";\nawait contract.auction.closeListing(listingId);",
+          "unity": "string listingId = \"0\";\r\nawait contract.auction.ExecuteSale(listingId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplaceauction.closelisting",
@@ -1965,7 +2021,8 @@
           "javascript": "// Data of the auction you want to create\nconst auction = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to list\n  tokenId: \"0\",\n // when should the listing open up for offers\n  startTimestamp: new Date(),\n  // how long the listing will be open for\n  listingDurationInSeconds: 86400,\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // how much people would have to bid to instantly buy the asset\n  buyoutPricePerToken: \"10\",\n  // the minimum bid that will be accepted for the token\n  reservePricePerToken: \"1.5\",\n}\n\nconst tx = await contract.auction.createListing(auction);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing",
           "python": "",
           "go": "",
-          "react": "// Data of the auction you want to create\nconst auction = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to list\n  tokenId: \"0\",\n // when should the listing open up for offers\n  startTimestamp: new Date(),\n  // how long the listing will be open for\n  listingDurationInSeconds: 86400,\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // how much people would have to bid to instantly buy the asset\n  buyoutPricePerToken: \"10\",\n  // the minimum bid that will be accepted for the token\n  reservePricePerToken: \"1.5\",\n}\n\nconst tx = await contract.auction.createListing(auction);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing"
+          "react": "// Data of the auction you want to create\nconst auction = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to list\n  tokenId: \"0\",\n // when should the listing open up for offers\n  startTimestamp: new Date(),\n  // how long the listing will be open for\n  listingDurationInSeconds: 86400,\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // how much people would have to bid to instantly buy the asset\n  buyoutPricePerToken: \"10\",\n  // the minimum bid that will be accepted for the token\n  reservePricePerToken: \"1.5\",\n}\n\nconst tx = await contract.auction.createListing(auction);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing",
+          "unity": "await contract\r\n    .direct\r\n    .CreateListing(new NewDirectListing()\r\n    {\r\n        assetContractAddress = \"0x...\",\r\n        buyoutPricePerToken = \"1\",\r\n        currencyContractAddress = \"0x...\",\r\n        listingDurationInSeconds = 3600,\r\n        quantity = 1,\r\n        reservePricePerToken = \"0\",\r\n        startTimestamp = 0,\r\n        tokenId = \"1\",\r\n        type = \"auction\"\r\n    });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplaceauction.createlisting",
@@ -1982,7 +2039,8 @@
           "javascript": "// The listing ID of the auction listing you want to close\nconst listingId = \"0\";\nawait contract.auction.executeSale(listingId);",
           "python": "",
           "go": "",
-          "react": "// The listing ID of the auction listing you want to close\nconst listingId = \"0\";\nawait contract.auction.executeSale(listingId);"
+          "react": "// The listing ID of the auction listing you want to close\nconst listingId = \"0\";\nawait contract.auction.executeSale(listingId);",
+          "unity": "string listingId = \"0\";\r\nawait contract.auction.ExecuteSale(listingId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplaceauction.executesale",
@@ -1999,7 +2057,8 @@
           "javascript": "// The listing ID of the auction that closed\nconst listingId = 0;\n\ncontract.auction.\n  .getWinner(listingId)\n  .then((auctionWinner) => console.log(auctionWinner))\n  .catch((err) => console.error(err));",
           "python": "",
           "go": "",
-          "react": "// The listing ID of the auction that closed\nconst listingId = 0;\n\ncontract.auction.\n  .getWinner(listingId)\n  .then((auctionWinner) => console.log(auctionWinner))\n  .catch((err) => console.error(err));"
+          "react": "// The listing ID of the auction that closed\nconst listingId = 0;\n\ncontract.auction.\n  .getWinner(listingId)\n  .then((auctionWinner) => console.log(auctionWinner))\n  .catch((err) => console.error(err));",
+          "unity": "string listingId = \"0\";\r\nawait contract.auction.GetWinner(listingId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplaceauction.getwinner",
@@ -2016,7 +2075,8 @@
           "javascript": "// The listing ID of the auction that closed\nconst listingId = 0;\n\ncontract.auction.\n  .getWinningBid(listingId)\n  .then((offer) => console.log(offer))\n  .catch((err) => console.error(err));",
           "python": "",
           "go": "",
-          "react": "const { data: winningBid, isLoading, error } = useWinningBid(<YourMarketplaceContractInstance>, <listingId>);"
+          "react": "const { data: winningBid, isLoading, error } = useWinningBid(<YourMarketplaceContractInstance>, <listingId>);",
+          "unity": "string listingId = \"0\";\r\nawait contract.auction.GetWinningBid(listingId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplaceauction.getwinningbid",
@@ -2033,7 +2093,8 @@
           "javascript": "// The listing ID of the asset you want to bid on\nconst listingId = 0;\n// The price you are willing to bid for a single token of the listing\nconst pricePerToken = 1;\n\nawait contract.auction.makeBid(listingId, pricePerToken);",
           "python": "",
           "go": "",
-          "react": "const Component = () => {\n  const {\n    mutate: makeBid,\n    isLoading,\n    error,\n  } = useMakeBid(\">>YourMarketplaceContractInstance<<\");\n\n  if (error) {\n    console.error(\"failed to make a bid\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => makeBid({ listingId: 1, bid: 2 })}\n    >\n      Bid!\n    </button>\n  );\n};"
+          "react": "const Component = () => {\n  const {\n    mutate: makeBid,\n    isLoading,\n    error,\n  } = useMakeBid(\">>YourMarketplaceContractInstance<<\");\n\n  if (error) {\n    console.error(\"failed to make a bid\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => makeBid({ listingId: 1, bid: 2 })}\n    >\n      Bid!\n    </button>\n  );\n};",
+          "unity": "string listingId = \"0\";\r\nstring price = \"0.1\";\r\nint quantity = 1;\r\nawait contract.MakeOffer(listingId, price, quantity);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplaceauction.makebid",
@@ -2064,7 +2125,8 @@
           "javascript": "// The address to check the funds of\nconst address = \"{{wallet_address}}\";\nconst funds = await contract.balanceOf(address);\nconsole.log(funds);",
           "python": "",
           "go": "",
-          "react": "// The address to check the funds of\nconst address = \"{{wallet_address}}\";\nconst funds = await contract.balanceOf(address);\nconsole.log(funds);"
+          "react": "// The address to check the funds of\nconst address = \"{{wallet_address}}\";\nconst funds = await contract.balanceOf(address);\nconsole.log(funds);",
+          "unity": "// Split is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.split.balanceof",
@@ -2081,7 +2143,8 @@
           "javascript": "// The address to check the funds of\nconst address = \"{{wallet_address}}\";\n// The address of the currency to check the contracts funds of\nconst tokenAddress = \"0x...\"\nconst funds = await contract.balanceOfToken(address, tokenAddress);\nconsole.log(funds);",
           "python": "",
           "go": "",
-          "react": "// The address to check the funds of\nconst address = \"{{wallet_address}}\";\n// The address of the currency to check the contracts funds of\nconst tokenAddress = \"0x...\"\nconst funds = await contract.balanceOfToken(address, tokenAddress);\nconsole.log(funds);"
+          "react": "// The address to check the funds of\nconst address = \"{{wallet_address}}\";\n// The address of the currency to check the contracts funds of\nconst tokenAddress = \"0x...\"\nconst funds = await contract.balanceOfToken(address, tokenAddress);\nconsole.log(funds);",
+          "unity": "// Split is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.split.balanceoftoken",
@@ -2098,7 +2161,8 @@
           "javascript": "await contract.distribute();",
           "python": "",
           "go": "",
-          "react": "await contract.distribute();"
+          "react": "await contract.distribute();",
+          "unity": "// Split is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.split.distribute",
@@ -2115,7 +2179,8 @@
           "javascript": "// The address of the currency to distribute funds\nconst tokenAddress = \"0x...\"\nawait contract.distributeToken(tokenAddress);",
           "python": "",
           "go": "",
-          "react": "// The address of the currency to distribute funds\nconst tokenAddress = \"0x...\"\nawait contract.distributeToken(tokenAddress);"
+          "react": "// The address of the currency to distribute funds\nconst tokenAddress = \"0x...\"\nawait contract.distributeToken(tokenAddress);",
+          "unity": "// Split is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.split.distributetoken",
@@ -2132,7 +2197,8 @@
           "javascript": "const recipients = await contract.getAllRecipients();\nconsole.log(recipients);",
           "python": "",
           "go": "",
-          "react": "const recipients = await contract.getAllRecipients();\nconsole.log(recipients);"
+          "react": "const recipients = await contract.getAllRecipients();\nconsole.log(recipients);",
+          "unity": "// Split is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.split.getallrecipients",
@@ -2149,7 +2215,8 @@
           "javascript": "// the wallet address that wants to withdraw their funds\nconst walletAddress = \"{{wallet_address}}\"\nawait contract.withdraw(walletAddress);",
           "python": "",
           "go": "",
-          "react": "// the wallet address that wants to withdraw their funds\nconst walletAddress = \"{{wallet_address}}\"\nawait contract.withdraw(walletAddress);"
+          "react": "// the wallet address that wants to withdraw their funds\nconst walletAddress = \"{{wallet_address}}\"\nawait contract.withdraw(walletAddress);",
+          "unity": "// Split is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.split.withdraw",
@@ -2180,7 +2247,8 @@
           "javascript": "const packContents = {\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n}\n\nconst tx = await contract.addPackContents(packId, packContents);",
           "python": "",
           "go": "",
-          "react": "const packContents = {\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n}\n\nconst tx = await contract.addPackContents(packId, packContents);"
+          "react": "const packContents = {\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n}\n\nconst tx = await contract.addPackContents(packId, packContents);",
+          "unity": "// Pack token ID\r\nstring packId = \"0\";\r\n\r\nawait contract\r\n    .AddPackContents(packId,\r\n    new PackRewards()\r\n    {\r\n        erc1155Rewards =\r\n            new List<ERC1155Reward> {\r\n                new ERC1155Reward()\r\n                {\r\n                    contractAddress = \"0x...\",\r\n                    tokenId = \"0\",\r\n                    quantityPerReward = \"1\"\r\n                }\r\n            },\r\n        erc721Rewards =\r\n            new List<ERC721Reward> {\r\n                new ERC721Reward()\r\n                { contractAddress = \"0x...\", tokenId = \"0\" }\r\n            },\r\n        erc20Rewards =\r\n            new List<ERC20Reward> {\r\n                new ERC20Reward()\r\n                { contractAddress = \"0x...\", quantityPerReward = \"1\" }\r\n            }\r\n    });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.pack.addpackcontents",
@@ -2197,7 +2265,8 @@
           "javascript": "const pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.create(pack);",
           "python": "",
           "go": "",
-          "react": "const pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.create(pack);"
+          "react": "const pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.create(pack);",
+          "unity": "await contract\r\n    .Create(new NewPackInput()\r\n    {\r\n        packMetadata =\r\n            new NFTMetadata()\r\n            {\r\n                name = \"My Pack\",\r\n                description = \"My Pack Description\",\r\n                image = \"https://myimage.com\",\r\n                external_url = \"https://myimage.com\"\r\n            },\r\n        erc1155Rewards =\r\n            new List<ERC1155Contents> {\r\n                new ERC1155Contents()\r\n                {\r\n                    contractAddress = \"0x...\",\r\n                    tokenId = \"0\",\r\n                    quantityPerReward = \"1\"\r\n                }\r\n            },\r\n        erc721Rewards =\r\n            new List<ERC721Contents> {\r\n                new ERC721Contents()\r\n                {\r\n                    contractAddress = \"0x...\",\r\n                    tokenId = \"0\"\r\n                }\r\n            },\r\n        erc20Rewards =\r\n            new List<ERC20Contents> {\r\n                new ERC20Contents()\r\n                {\r\n                    contractAddress = \"0x...\",\r\n                    quantityPerReward = \"1\",\r\n                    totalRewards = \"1\"\r\n                }\r\n            }\r\n    });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.pack.create",
@@ -2214,7 +2283,8 @@
           "javascript": "const pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.createTo(\"0x...\", pack);",
           "python": "",
           "go": "",
-          "react": "const pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.createTo(\"0x...\", pack);"
+          "react": "const pack = {\n  // The metadata for the pack NFT itself\n  packMetadata: {\n    name: \"My Pack\",\n    description: \"This is a new pack\",\n    image: \"ipfs://...\",\n  },\n  // ERC20 rewards to be included in the pack\n  erc20Rewards: [\n    {\n      assetContract: \"0x...\",\n      quantityPerReward: 5,\n      quantity: 100,\n      totalRewards: 20,\n    }\n  ],\n  // ERC721 rewards to be included in the pack\n  erc721Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n    }\n  ],\n  // ERC1155 rewards to be included in the pack\n  erc1155Rewards: [\n    {\n      assetContract: \"0x...\",\n      tokenId: 0,\n      quantityPerReward: 1,\n      totalRewards: 100,\n    }\n  ],\n  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now\n  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1\n}\n\nconst tx = await contract.createTo(\"0x...\", pack);",
+          "unity": "// The address to check the funds of\r\nvar address = \"{{wallet_address}}\";\r\nawait contract\r\n    .CreateTo(address,\r\n    new NewPackInput()\r\n    {\r\n        packMetadata =\r\n            new NFTMetadata()\r\n            {\r\n                name = \"My Pack\",\r\n                description = \"My Pack Description\",\r\n                image = \"https://myimage.com\",\r\n                external_url = \"https://myimage.com\"\r\n            },\r\n        erc1155Rewards =\r\n            new List<ERC1155Contents> {\r\n                new ERC1155Contents()\r\n                {\r\n                    contractAddress = \"0x...\",\r\n                    tokenId = \"0\",\r\n                    quantityPerReward = \"1\"\r\n                }\r\n            },\r\n        erc721Rewards =\r\n            new List<ERC721Contents> {\r\n                new ERC721Contents()\r\n                {\r\n                    contractAddress = \"0x...\",\r\n                    tokenId = \"0\"\r\n                }\r\n            },\r\n        erc20Rewards =\r\n            new List<ERC20Contents> {\r\n                new ERC20Contents()\r\n                {\r\n                    contractAddress = \"0x...\",\r\n                    quantityPerReward = \"1\",\r\n                    totalRewards = \"1\"\r\n                }\r\n            }\r\n    });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.pack.createto",
@@ -2231,7 +2301,8 @@
           "javascript": "const pack = await contract.get(0);\nconsole.log(packs;",
           "python": "",
           "go": "",
-          "react": "const pack = await contract.get(0);\nconsole.log(packs;"
+          "react": "const pack = await contract.get(0);\nconsole.log(packs;",
+          "unity": "var tokenId = \"0\";\nvar pack = await contract.Get(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.pack.get",
@@ -2248,7 +2319,8 @@
           "javascript": "const packs = await contract.getAll();\nconsole.log(packs;",
           "python": "",
           "go": "",
-          "react": "const packs = await contract.getAll();\nconsole.log(packs;"
+          "react": "const packs = await contract.getAll();\nconsole.log(packs;",
+          "unity": "var packs = await contract.GetAll();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.pack.getall",
@@ -2265,7 +2337,8 @@
           "javascript": "// Address of the wallet to get the packs of\nconst address = \"{{wallet_address}}\";\nconst packss = await contract.getOwned(address);",
           "python": "",
           "go": "",
-          "react": "// Address of the wallet to get the packs of\nconst address = \"{{wallet_address}}\";\nconst packss = await contract.getOwned(address);"
+          "react": "// Address of the wallet to get the packs of\nconst address = \"{{wallet_address}}\";\nconst packss = await contract.getOwned(address);",
+          "unity": "// Address of the Wallet to get the packs of\nvar address = \"{{wallet_address}}\";\nvar packss = await contract.GetOwned(address);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.pack.getowned",
@@ -2282,7 +2355,8 @@
           "javascript": "const packId = 0;\nconst contents = await contract.getPackContents(packId);\nconsole.log(contents.erc20Rewards);\nconsole.log(contents.erc721Rewards);\nconsole.log(contents.erc1155Rewards);",
           "python": "",
           "go": "",
-          "react": "const packId = 0;\nconst contents = await contract.getPackContents(packId);\nconsole.log(contents.erc20Rewards);\nconsole.log(contents.erc721Rewards);\nconsole.log(contents.erc1155Rewards);"
+          "react": "const packId = 0;\nconst contents = await contract.getPackContents(packId);\nconsole.log(contents.erc20Rewards);\nconsole.log(contents.erc721Rewards);\nconsole.log(contents.erc1155Rewards);",
+          "unity": "var packId = \"0\";\nvar contents = await contract.GetPackContents(packId);\nDebug.Log(contents.erc20Rewards);\nDebug.Log(contents.erc721Rewards);\nDebug.Log(contents.erc1155Rewards);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.pack.getpackcontents",
@@ -2299,7 +2373,8 @@
           "javascript": "const tokenId = 0\nconst amount = 1\nconst tx = await contract.open(tokenId, amount);",
           "python": "",
           "go": "",
-          "react": "const tokenId = 0\nconst amount = 1\nconst tx = await contract.open(tokenId, amount);"
+          "react": "const tokenId = 0\nconst amount = 1\nconst tx = await contract.open(tokenId, amount);",
+          "unity": "var tokenId = \"0\";\nvar amount = \"1\";\nvar tx = await contract.Open(tokenId, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.pack.open",
@@ -2333,7 +2408,8 @@
           "javascript": "// Address of the wallet to check NFT balance\nconst walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0; // Id of the NFT to check\nconst balance = await contract.balanceOf(walletAddress, tokenId);",
           "python": "",
           "go": "",
-          "react": "// Address of the wallet to check NFT balance\nconst walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0; // Id of the NFT to check\nconst balance = await contract.balanceOf(walletAddress, tokenId);"
+          "react": "// Address of the wallet to check NFT balance\nconst walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0; // Id of the NFT to check\nconst balance = await contract.balanceOf(walletAddress, tokenId);",
+          "unity": "// Address of the Wallet to check NFT balance\nvar walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\"; // Id of the NFT to check\nvar balance = await contract.BalanceOf(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.balanceof",
@@ -2350,7 +2426,8 @@
           "javascript": "const pack = await contract.get(0);\nconsole.log(packs;",
           "python": "",
           "go": "",
-          "react": "const pack = await contract.get(0);\nconsole.log(packs;"
+          "react": "const pack = await contract.get(0);\nconsole.log(packs;",
+          "unity": "var tokenId = \"0\";\nvar pack = await contract.Get(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.pack.get",
@@ -2367,7 +2444,8 @@
           "javascript": "// Address of the wallet you want to send the NFT to\nconst toAddress = \"{{wallet_address}}\";\nconst tokenId = \"0\"; // The token ID of the NFT you want to send\nconst amount = 3; // How many copies of the NFTs to transfer\nawait contract.transfer(toAddress, tokenId, amount);",
           "python": "",
           "go": "",
-          "react": "// Address of the wallet you want to send the NFT to\nconst toAddress = \"{{wallet_address}}\";\nconst tokenId = \"0\"; // The token ID of the NFT you want to send\nconst amount = 3; // How many copies of the NFTs to transfer\nawait contract.transfer(toAddress, tokenId, amount);"
+          "react": "// Address of the wallet you want to send the NFT to\nconst toAddress = \"{{wallet_address}}\";\nconst tokenId = \"0\"; // The token ID of the NFT you want to send\nconst amount = 3; // How many copies of the NFTs to transfer\nawait contract.transfer(toAddress, tokenId, amount);",
+          "unity": "// Address of the Wallet you want to send the NFT to\nvar toAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\"; // The token ID of the NFT you want to send\nvar amount = 3; // How many copies of the NFTs to transfer\nawait contract.Transfer(toAddress, tokenId, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc1155.transfer",
@@ -2416,7 +2494,8 @@
           "javascript": "// The proposal ID of the proposal you want to check\nconst proposalId = \"0\";\nconst canExecute = await contract.canExecute(proposalId);\nconsole.log(canExecute);",
           "python": "",
           "go": "",
-          "react": "// The proposal ID of the proposal you want to check\nconst proposalId = \"0\";\nconst canExecute = await contract.canExecute(proposalId);\nconsole.log(canExecute);"
+          "react": "// The proposal ID of the proposal you want to check\nconst proposalId = \"0\";\nconst canExecute = await contract.canExecute(proposalId);\nconsole.log(canExecute);",
+          "unity": "// Vote is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.vote.canexecute",
@@ -2433,7 +2512,8 @@
           "javascript": "// The proposal ID ofthe proposal you want to execute\nconst proposalId = \"0\"\nawait contract.execute(proposalId);",
           "python": "",
           "go": "",
-          "react": "// The proposal ID ofthe proposal you want to execute\nconst proposalId = \"0\"\nawait contract.execute(proposalId);"
+          "react": "// The proposal ID ofthe proposal you want to execute\nconst proposalId = \"0\"\nawait contract.execute(proposalId);",
+          "unity": "// Vote is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.vote.execute",
@@ -2450,7 +2530,8 @@
           "javascript": "const proposals = await contract.getAll();\nconsole.log(proposals);",
           "python": "",
           "go": "",
-          "react": "const proposals = await contract.getAll();\nconsole.log(proposals);"
+          "react": "const proposals = await contract.getAll();\nconsole.log(proposals);",
+          "unity": "// Vote is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.vote.getall",
@@ -2467,7 +2548,8 @@
           "javascript": "// The proposal ID of the proposal you want to check\nconst proposalId = \"0\";\n// The address of the wallet you want to check to see if they voted\nconst address = \"{{wallet_address}}\";\n\nawait contract.hasVoted(proposalId, address);",
           "python": "",
           "go": "",
-          "react": "// The proposal ID of the proposal you want to check\nconst proposalId = \"0\";\n// The address of the wallet you want to check to see if they voted\nconst address = \"{{wallet_address}}\";\n\nawait contract.hasVoted(proposalId, address);"
+          "react": "// The proposal ID of the proposal you want to check\nconst proposalId = \"0\";\n// The address of the wallet you want to check to see if they voted\nconst address = \"{{wallet_address}}\";\n\nawait contract.hasVoted(proposalId, address);",
+          "unity": "// Vote is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.vote.hasvoted",
@@ -2484,7 +2566,8 @@
           "javascript": "// The description of the proposal you want to pass\nconst description = \"This is a great proposal - vote for it!\"\n// You can (optionally) pass in contract calls that will get executed when the proposal is executed.\nconst executions = [\n  {\n    // The contract you want to make a call to\n    toAddress: \"0x...\",\n    // The amount of the native currency to send in this transaction\n    nativeTokenValue: 0,\n    // Transaction data that will be executed when the proposal is executed\n    // This is an example transfer transaction with a token contract (which you would need to setup in code)\n    transactionData: tokenContract.encoder.encode(\n      \"transfer\", [\n        fromAddress,\n        amount,\n      ]\n    ),\n  }\n]\n\nconst proposal = await contract.propose(description, executions);",
           "python": "",
           "go": "",
-          "react": "// The description of the proposal you want to pass\nconst description = \"This is a great proposal - vote for it!\"\n// You can (optionally) pass in contract calls that will get executed when the proposal is executed.\nconst executions = [\n  {\n    // The contract you want to make a call to\n    toAddress: \"0x...\",\n    // The amount of the native currency to send in this transaction\n    nativeTokenValue: 0,\n    // Transaction data that will be executed when the proposal is executed\n    // This is an example transfer transaction with a token contract (which you would need to setup in code)\n    transactionData: tokenContract.encoder.encode(\n      \"transfer\", [\n        fromAddress,\n        amount,\n      ]\n    ),\n  }\n]\n\nconst proposal = await contract.propose(description, executions);"
+          "react": "// The description of the proposal you want to pass\nconst description = \"This is a great proposal - vote for it!\"\n// You can (optionally) pass in contract calls that will get executed when the proposal is executed.\nconst executions = [\n  {\n    // The contract you want to make a call to\n    toAddress: \"0x...\",\n    // The amount of the native currency to send in this transaction\n    nativeTokenValue: 0,\n    // Transaction data that will be executed when the proposal is executed\n    // This is an example transfer transaction with a token contract (which you would need to setup in code)\n    transactionData: tokenContract.encoder.encode(\n      \"transfer\", [\n        fromAddress,\n        amount,\n      ]\n    ),\n  }\n]\n\nconst proposal = await contract.propose(description, executions);",
+          "unity": "// Vote is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.vote.propose",
@@ -2501,7 +2584,8 @@
           "javascript": "// The proposal ID of the proposal you want to vote on\nconst proposalId = \"0\";\n// The vote type you want to cast, can be VoteType.Against, VoteType.For, or VoteType.Abstain\nconst voteType = VoteType.For;\n// The (optional) reason for the vote\nconst reason = \"I like this proposal!\";\n\nawait contract.vote(proposalId, voteType, reason);",
           "python": "",
           "go": "",
-          "react": "// The proposal ID of the proposal you want to vote on\nconst proposalId = \"0\";\n// The vote type you want to cast, can be VoteType.Against, VoteType.For, or VoteType.Abstain\nconst voteType = VoteType.For;\n// The (optional) reason for the vote\nconst reason = \"I like this proposal!\";\n\nawait contract.vote(proposalId, voteType, reason);"
+          "react": "// The proposal ID of the proposal you want to vote on\nconst proposalId = \"0\";\n// The vote type you want to cast, can be VoteType.Against, VoteType.For, or VoteType.Abstain\nconst voteType = VoteType.For;\n// The (optional) reason for the vote\nconst reason = \"I like this proposal!\";\n\nawait contract.vote(proposalId, voteType, reason);",
+          "unity": "// Vote is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.vote.vote",
@@ -2523,7 +2607,7 @@
       "javascript": "import { ThirdwebSDK } from \"@thirdweb-dev/sdk\";\n\nconst sdk = new ThirdwebSDK(\"{{chainName}}\");\nconst contract = await sdk.getContract(\"{{contract_address}}\", \"multiwrap\");",
       "react": "import { useContract } from '@thirdweb-dev/react'\n\nexport default function Component() {\n  const { contract } = useContract(\"<YOUR-CONTRACT-ADDRESS>\", \"multiwrap\")\n\n  // Now you can use the multiwrap contract in the rest of the component\n}",
       "python": "from thirdweb import ThirdwebSDK\n\n# You can customize this to a supported network or your own RPC URL\nnetwork = \"mumbai\"\n\n# Now we can create a new instance of the SDK\nsdk = ThirdwebSDK(network)\n\n# If you want to send transactions, you can instantiate the SDK with a private key instead:\n#   sdk = ThirdwebSDK.from_private_key(PRIVATE_KEY, network)\n\ncontract = sdk.get_multiwrap(\"{{contract_address}}\")",
-      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/v2/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetMultiwrap(\"{{contract_address}}\")\n"
+      "go": "\nimport (\n\t\"github.com/thirdweb-dev/go-sdk/thirdweb\"\n)\n\nprivateKey = \"...\"\n\nsdk, err := thirdweb.NewThirdwebSDK(\"mumbai\", &thirdweb.SDKOptions{\n\tPrivateKey: privateKey,\n})\n\ncontract, err := sdk.GetMultiwrap(\"{{contract_address}}\")\n"
     },
     "methods": [
       {
@@ -2534,7 +2618,8 @@
           "javascript": "const contents = await contract.getWrappedContents(wrappedTokenId);\nconsole.log(contents.erc20Tokens);\nconsole.log(contents.erc721Tokens);\nconsole.log(contents.erc1155Tokens);",
           "python": "token_id = 0\ncontents = contract.get_wrapped_contents(token_id)\nprint(contents.erc20_tokens)\nprint(contents.erc721_tokens)\nprint(contents.erc1155_tokens)",
           "go": "tokenId := 0\ncontents, err := contract.GetWrappedContents(tokenId)\nerc20Tokens := contents.Erc20Tokens\nerc721Tokens := contents.Erc721Tokens\nerc1155Tokens := contents.Erc1155Tokens\n",
-          "react": "const contents = await contract.getWrappedContents(wrappedTokenId);\nconsole.log(contents.erc20Tokens);\nconsole.log(contents.erc721Tokens);\nconsole.log(contents.erc1155Tokens);"
+          "react": "const contents = await contract.getWrappedContents(wrappedTokenId);\nconsole.log(contents.erc20Tokens);\nconsole.log(contents.erc721Tokens);\nconsole.log(contents.erc1155Tokens);",
+          "unity": "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.multiwrap.getwrappedcontents",
@@ -2551,7 +2636,8 @@
           "javascript": "await contract.unwrap(wrappedTokenId);",
           "python": "tx = contract.unwrap(wrapped_token_id, receipientAddress)",
           "go": "tokenId := 0\ntx, err := contract.Unwrap(context.Background(), tokenId, \"\")\n",
-          "react": "await contract.unwrap(wrappedTokenId);"
+          "react": "await contract.unwrap(wrappedTokenId);",
+          "unity": "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.multiwrap.unwrap",
@@ -2568,7 +2654,8 @@
           "javascript": "const tx = await contract.wrap({\n  erc20Tokens: [{\n    contractAddress: \"0x...\",\n    quantity: \"0.8\"\n  }],\n  erc721Tokens: [{\n    contractAddress: \"0x...\",\n    tokenId: \"0\"\n  }],\n  erc1155Tokens: [{\n    contractAddress: \"0x...\",\n    tokenId: \"1\",\n    quantity: \"2\"\n  }]\n}, {\n    name: \"Wrapped bundle\",\n    description: \"This is a wrapped bundle of tokens and NFTs\",\n    image: \"ipfs://...\",\n});\nconst receipt = tx.receipt(); // the transaction receipt\nconst wrappedTokenId = tx.id; // the id of the wrapped token bundle",
           "python": "from thirdweb.types import (\n    TokensToWrap,\n    ERC20Wrappable,\n    ERC721Wrappable,\n    ERC1155Wrappable,\n    NFTMetadataInput,\n)\n\n# Contract setup goes here...\n\ntx = contract.wrap(\n    TokensToWrap(\n        erc20_tokens=[\n            ERC20Wrappable(contract_address=\"0x...\", quantity=0.8),\n        ],\n        erc721_tokens=[\n            ERC721Wrappable(contract_address=\"0x...\", token_id=0),\n        ],\n        erc1155_tokens=[\n            ERC1155Wrappable(contract_address=\"0x...\", token_id=0, quantity=1),\n        ]\n    ),\n    NFTMetadataInput(\n        name=\"Wrapped NFT\",\n        description=\"This is a wrapped bundle of tokens and NFTs\",\n        image=\"ipfs://...\",\n    )\n)\n\nprint(tx.receipt, tx.id)",
           "go": "contents := &thirdweb.MultiwrapBundle{\n\tERC20Tokens: []*thirdweb.MultiwrapERC20{\n\t\t&thirdweb.MultiwrapERC20{\n\t\t\tContractAddress: \"0x...\",\n\t\t\tQuantity:        1,\n\t\t},\n\t},\n\tERC721Tokens: []*thirdweb.MultiwrapERC721{\n\t\t&thirdweb.MultiwrapERC721{\n\t\t\tContractAddress: \"0x...\",\n\t\t\tTokenId:         1,\n\t\t},\n\t},\n\tERC1155Tokens: []*thirdweb.MultiwrapERC1155{\n\t\t&thirdweb.MultiwrapERC1155{\n\t\t\tContractAddress: \"0x...\",\n\t\t\tTokenId:         1,\n\t\t\tQuantity:        1,\n\t\t},\n\t},\n}\n\nwrappedTokenMetadata := &thirdweb.NFTMetadataInput{\n\tName: \"Wrapped Token\"\n}\n\n// This will mint the wrapped token to the connected wallet\ntx, err := contract.Wrap(context.Background(), contents, wrappedTokenMetadata, \"\")\n",
-          "react": "const tx = await contract.wrap({\n  erc20Tokens: [{\n    contractAddress: \"0x...\",\n    quantity: \"0.8\"\n  }],\n  erc721Tokens: [{\n    contractAddress: \"0x...\",\n    tokenId: \"0\"\n  }],\n  erc1155Tokens: [{\n    contractAddress: \"0x...\",\n    tokenId: \"1\",\n    quantity: \"2\"\n  }]\n}, {\n    name: \"Wrapped bundle\",\n    description: \"This is a wrapped bundle of tokens and NFTs\",\n    image: \"ipfs://...\",\n});\nconst receipt = tx.receipt(); // the transaction receipt\nconst wrappedTokenId = tx.id; // the id of the wrapped token bundle"
+          "react": "const tx = await contract.wrap({\n  erc20Tokens: [{\n    contractAddress: \"0x...\",\n    quantity: \"0.8\"\n  }],\n  erc721Tokens: [{\n    contractAddress: \"0x...\",\n    tokenId: \"0\"\n  }],\n  erc1155Tokens: [{\n    contractAddress: \"0x...\",\n    tokenId: \"1\",\n    quantity: \"2\"\n  }]\n}, {\n    name: \"Wrapped bundle\",\n    description: \"This is a wrapped bundle of tokens and NFTs\",\n    image: \"ipfs://...\",\n});\nconst receipt = tx.receipt(); // the transaction receipt\nconst wrappedTokenId = tx.id; // the id of the wrapped token bundle",
+          "unity": "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.multiwrap.wrap",
@@ -2585,7 +2672,8 @@
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
           "python": "balance = contract.balance_of(\"{{wallet_address}}\")\nprint(balance)",
           "go": "address := \"{{wallet_address}}\"\nbalance, err := contract.BalanceOf(context.Background(), address)\n",
-          "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);"
+          "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
+          "unity": "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.balanceof",
@@ -2602,7 +2690,8 @@
           "javascript": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
           "python": "nft = contract.get(0)\nprint(nft)",
           "go": "nft, err := contract.Get(context.Background(), 0)\n owner := nft.Owner\n\tname := nft.Metadata.Name\n",
-          "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);"
+          "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
+          "unity": "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.get",
@@ -2619,7 +2708,8 @@
           "javascript": "const nfts = await contract.getAll();\nconsole.log(nfts);",
           "python": "nfts = contract.get_all()\nprint(nfts)",
           "go": "nfts, err := contract.GetAll(context.Background())\nownerOne := nfts[0].Owner\nnameOne := nfts[0].Metadata.Name\n",
-          "react": "const nfts = await contract.getAll();\nconsole.log(nfts);"
+          "react": "const nfts = await contract.getAll();\nconsole.log(nfts);",
+          "unity": "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getall",
@@ -2636,7 +2726,8 @@
           "javascript": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
           "python": "",
           "go": "",
-          "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);"
+          "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
+          "unity": "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getowned",
@@ -2653,7 +2744,8 @@
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
           "python": "to = \"{{wallet_address}}\"\ntoken_id = 0\n\nreceipt = contract.transfer(to, token_id)",
           "go": "to := \"0x...\"\ntokenId := 0\n\ntx, err := contract.Transfer(context.Background(), to, tokenId)\n",
-          "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);"
+          "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
+          "unity": "// Multiwrap is not yet supported in Unity. You can still use the contrat.Read and contract.Write functions to call functions directly."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.transfer",
@@ -2701,7 +2793,8 @@
           "javascript": "const contractAddress = await sdk.deployer.deployEdition({\n  name: \"My Edition\",\n  primary_sale_recipient: \"your-address\",\n});",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployEdition({\n  name: \"My Edition\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployEdition({\n  name: \"My Edition\",\n  primary_sale_recipient: \"your-address\",\n});",
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployEdition(new NFTContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deployedition",
@@ -2718,7 +2811,8 @@
           "javascript": "const contractAddress = await sdk.deployer.deployEditionDrop({\n  name: \"My Edition Drop\",\n  primary_sale_recipient: \"your-address\",\n});",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployEditionDrop({\n  name: \"My Edition Drop\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployEditionDrop({\n  name: \"My Edition Drop\",\n  primary_sale_recipient: \"your-address\",\n});",
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployEditionDrop(new NFTContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deployeditiondrop",
@@ -2735,7 +2829,8 @@
           "javascript": "const contractAddress = await sdk.deployer.deployMarketplace({\n  name: \"My Marketplace\",\n  primary_sale_recipient: \"your-address\",\n});",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployMarketplace({\n  name: \"My Marketplace\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployMarketplace({\n  name: \"My Marketplace\",\n  primary_sale_recipient: \"your-address\",\n});",
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployMarketplace(new MarketplaceContractDeployMetadata()\r\n    { name = \"My Collection\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploymarketplace",
@@ -2769,7 +2864,8 @@
           "javascript": "const contractAddress = await sdk.deployer.deployNFTCollection({\n  name: \"My Collection\",\n  primary_sale_recipient: \"your-address\",\n});",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployNFTCollection({\n  name: \"My Collection\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployNFTCollection({\n  name: \"My Collection\",\n  primary_sale_recipient: \"your-address\",\n});",
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployNFTCollection(new NFTContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploynftcollection",
@@ -2786,7 +2882,8 @@
           "javascript": "const contractAddress = await sdk.deployer.deployNFTDrop({\n  name: \"My Drop\",\n  primary_sale_recipient: \"your-address\",\n});",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployNFTDrop({\n  name: \"My Drop\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployNFTDrop({\n  name: \"My Drop\",\n  primary_sale_recipient: \"your-address\",\n});",
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployNFTDrop(new NFTContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploynftdrop",
@@ -2803,7 +2900,8 @@
           "javascript": "const contractAddress = await sdk.deployer.deployPack({\n  name: \"My Pack\",\n  primary_sale_recipient: \"your-address\",\n});",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployPack({\n  name: \"My Pack\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployPack({\n  name: \"My Pack\",\n  primary_sale_recipient: \"your-address\",\n});",
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployPack(new NFTContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploypack",
@@ -2820,7 +2918,8 @@
           "javascript": "const contractAddress = await sdk.deployer.deploySignatureDrop({\n  name: \"My Signature Drop\",\n  primary_sale_recipient: \"your-address\",\n});",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deploySignatureDrop({\n  name: \"My Signature Drop\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deploySignatureDrop({\n  name: \"My Signature Drop\",\n  primary_sale_recipient: \"your-address\",\n});",
+          "unity": "await sdk\r\n    .deployer\r\n    .DeploySignatureDrop(new NFTContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploysignaturedrop",
@@ -2854,7 +2953,8 @@
           "javascript": "const contractAddress = await sdk.deployer.deployToken({\n  name: \"My Token\",\n  primary_sale_recipient: \"your-address\",\n});",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployToken({\n  name: \"My Token\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployToken({\n  name: \"My Token\",\n  primary_sale_recipient: \"your-address\",\n});",
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployToken(new \tTokenContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploytoken",
@@ -2871,7 +2971,8 @@
           "javascript": "const contractAddress = await sdk.deployer.deployTokenDrop({\n  name: \"My Token Drop\",\n  primary_sale_recipient: \"your-address\",\n});",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployTokenDrop({\n  name: \"My Token Drop\",\n  primary_sale_recipient: \"your-address\",\n});"
+          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployTokenDrop({\n  name: \"My Token Drop\",\n  primary_sale_recipient: \"your-address\",\n});",
+          "unity": "await sdk\r\n    .deployer\r\n    .DeployTokenDrop(new \tTokenContractDeployMetadata()\r\n    { name = \"My Collection\", primary_sale_recipient = \"0x...\" });"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploytokendrop",
@@ -2906,9 +3007,7 @@
   "ContractEvents": {
     "name": "ContractEvents",
     "summary": "Listen to Contract events in real time\n\n\n",
-    "examples": {
-      "go": "\n// First get an instance of your contract\ncontract, _ := sdk.GetContract(\"0x...\");\n\n// Now, get all Transfer events from a specific block range\ncontract.Events.GetEvents(\"Transfer\", thirdweb.EventQueryOptions{\n  FromBlock: 100000000,\n  ToBlock:   100000001,\n})\n\n// And setup a listener to listen for future Transfer events\ncontract.Events.AddEventListener(\"Transfer\", func (event thirdweb.ContractEvent) {\n  fmt.Printf(\"%#v\\n\", event)\n})\n"
-    },
+    "examples": {},
     "methods": [
       {
         "name": "addEventListener",
@@ -2917,13 +3016,13 @@
         "examples": {
           "javascript": "contract.events.addEventListener(\"TokensMinted\", (event) => {\n  console.log(event);\n});",
           "python": "",
-          "go": "// Define a listener function to be called whenever a new Transfer event is received\nlistener := func (event thirdweb.ContractEvent) {\n  fmt.Printf(\"%#v\\n\", event)\n}\n\n// Add a new listener for the Transfer event\nsubscription := contract.Events.AddEventListener(context.Background(), \"Transfer\", listener)\n\n// Unsubscribe from the Transfer event at some time in the future, closing the listener\nsubscription.Unsubscribe()\n",
+          "go": "",
           "react": "contract.events.addEventListener(\"TokensMinted\", (event) => {\n  console.log(event);\n});"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractevents.addeventlistener",
           "python": "",
-          "go": "https://docs.thirdweb.com/go/contract_events#func-contractevents-addeventlistener",
+          "go": "",
           "react": "https://portal.thirdweb.com/typescript/sdk.contractevents.addeventlistener"
         }
       },
@@ -2968,13 +3067,13 @@
         "examples": {
           "javascript": "// The name of the event to get logs for\nconst eventName = \"Transfer\";\n\n// Optionally pass in options to limit the blocks from which events are retrieved\nconst options = {\n  fromBlock: 0,\n  toBlock: 1000000, // can also pass \"latest\"\n  order: \"desc\",\n  // Configure event filters (filter on indexed event parameters)\n  filters: {\n    from: \"0x...\",\n    to: \"0x...\"\n  }\n};\n\nconst events = await contract.events.getEvents(eventName, options);\nconsole.log(events[0].eventName);\nconsole.log(events[0].data);",
           "python": "",
-          "go": "// First we define a filter to only get Transfer events where the \"from\" address is \"0x...\"\n// Note that you can only add filters for indexed parameters on events\nfilters := map[string]interface{} {\n  \"from\": common.HexToAddress(\"0x...\")\n}\n\n// Now we can define the query options, including the block range and the filter\nqueryOptions := thirdweb.EventQueryOptions{\n  FromBlock: 100000000, // Defaults to block 0 if you don't specify this field\n  ToBlock:   100000001, // Defaults to latest block if you don't specify this field\n  Filters:   filters,\n}\n\n// Now we can query for the Transfer events\nevents, _ := contract.Events.GetEvents(\"Transfer\", queryOptions)\n",
+          "go": "",
           "react": "// The name of the event to get logs for\nconst eventName = \"Transfer\";\n\n// Optionally pass in options to limit the blocks from which events are retrieved\nconst options = {\n  fromBlock: 0,\n  toBlock: 1000000, // can also pass \"latest\"\n  order: \"desc\",\n  // Configure event filters (filter on indexed event parameters)\n  filters: {\n    from: \"0x...\",\n    to: \"0x...\"\n  }\n};\n\nconst events = await contract.events.getEvents(eventName, options);\nconsole.log(events[0].eventName);\nconsole.log(events[0].data);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractevents.getevents",
           "python": "",
-          "go": "https://docs.thirdweb.com/go/contract_events#func-contractevents-getevents",
+          "go": "",
           "react": "https://portal.thirdweb.com/typescript/sdk.contractevents.getevents"
         }
       },
@@ -3049,8 +3148,7 @@
     ],
     "properties": [],
     "reference": {
-      "typescript": "https://portal.thirdweb.com/typescript/sdk.ContractEvents",
-      "go": "https://docs.thirdweb.com/go/contract_events"
+      "typescript": "https://portal.thirdweb.com/typescript/sdk.ContractEvents"
     }
   },
   "DelayedReveal": {
@@ -3391,7 +3489,8 @@
           "javascript": "const result = await contract.burnToken(tokenId);",
           "python": "",
           "go": "",
-          "react": "const result = await contract.burnToken(tokenId);"
+          "react": "const result = await contract.burnToken(tokenId);",
+          "unity": "var tokenId = \"0\";\nvar result = await contract.ERC721.Burn(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.signaturedrop.burn",
@@ -3408,7 +3507,8 @@
           "javascript": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 1; // how many unique NFTs you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx.receipt; // the transaction receipt\nconst claimedTokenId = tx.id; // the id of the NFT claimed\nconst claimedNFT = await tx.data(); // (optional) get the claimed NFT metadata",
           "python": "",
           "go": "",
-          "react": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 1; // how many unique NFTs you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx.receipt; // the transaction receipt\nconst claimedTokenId = tx.id; // the id of the NFT claimed\nconst claimedNFT = await tx.data(); // (optional) get the claimed NFT metadata"
+          "react": "const address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nconst quantity = 1; // how many unique NFTs you want to claim\n\nconst tx = await contract.claimTo(address, quantity);\nconst receipt = tx.receipt; // the transaction receipt\nconst claimedTokenId = tx.id; // the id of the NFT claimed\nconst claimedNFT = await tx.data(); // (optional) get the claimed NFT metadata",
+          "unity": "var address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nvar quantity = 1; // how many unique NFTs you want to claim\n\nvar tx = await contract.ERC721.ClaimTo(address, quantity);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.signaturedrop.claimto",
@@ -3476,7 +3576,8 @@
           "javascript": "const claimedNFTCount = await contract.totalClaimedSupply();\nconsole.log(`NFTs claimed so far: ${claimedNFTCount}`);",
           "python": "",
           "go": "",
-          "react": "const claimedNFTCount = await contract.totalClaimedSupply();\nconsole.log(`NFTs claimed so far: ${claimedNFTCount}`);"
+          "react": "const claimedNFTCount = await contract.totalClaimedSupply();\nconsole.log(`NFTs claimed so far: ${claimedNFTCount}`);",
+          "unity": "var claimedNFTCount = await contract.ERC721.TotalClaimedSupply();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.signaturedrop.totalclaimedsupply",
@@ -3493,7 +3594,8 @@
           "javascript": "const unclaimedNFTCount = await contract.totalUnclaimedSupply();\nconsole.log(`NFTs left to claim: ${unclaimedNFTCount}`);",
           "python": "",
           "go": "",
-          "react": "const unclaimedNFTCount = await contract.totalUnclaimedSupply();\nconsole.log(`NFTs left to claim: ${unclaimedNFTCount}`);"
+          "react": "const unclaimedNFTCount = await contract.totalUnclaimedSupply();\nconsole.log(`NFTs left to claim: ${unclaimedNFTCount}`);",
+          "unity": "var unclaimedNFTCount = await contract.ERC721.TotalUnclaimedSupply();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.signaturedrop.totalunclaimedsupply",
@@ -3510,7 +3612,8 @@
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
           "python": "",
           "go": "",
-          "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);"
+          "react": "const walletAddress = \"{{wallet_address}}\";\nconst balance = await contract.balanceOf(walletAddress);\nconsole.log(balance);",
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.ERC721.BalanceOf(walletAddress);\nDebug.Log(balance);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.balanceof",
@@ -3527,7 +3630,8 @@
           "javascript": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
           "python": "",
           "go": "",
-          "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);"
+          "react": "const tokenId = 0;\nconst nft = await contract.get(tokenId);",
+          "unity": "var tokenId = \"0\";\nvar nft = await contract.ERC721.Get(tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.get",
@@ -3544,7 +3648,8 @@
           "javascript": "const nfts = await contract.getAll();\nconsole.log(nfts);",
           "python": "",
           "go": "",
-          "react": "const nfts = await contract.getAll();\nconsole.log(nfts);"
+          "react": "const nfts = await contract.getAll();\nconsole.log(nfts);",
+          "unity": "var nfts = await contract.ERC721.GetAll();\nDebug.Log(nfts);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getall",
@@ -3561,7 +3666,8 @@
           "javascript": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
           "python": "",
           "go": "",
-          "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);"
+          "react": "// Address of the wallet to get the NFTs of\nconst address = \"{{wallet_address}}\";\nconst nfts = await contract.getOwned(address);\nconsole.log(nfts);",
+          "unity": "// Address of the Wallet to get the NFTs of\nvar address = \"{{wallet_address}}\";\nvar nfts = await contract.ERC721.GetOwned(address);\nDebug.Log(nfts);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.getowned",
@@ -3578,7 +3684,8 @@
           "javascript": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
           "python": "",
           "go": "",
-          "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);"
+          "react": "const walletAddress = \"{{wallet_address}}\";\nconst tokenId = 0;\nawait contract.transfer(walletAddress, tokenId);",
+          "unity": "var walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\";\nawait contract.ERC721.Transfer(walletAddress, tokenId);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.standarderc721.transfer",
@@ -3648,7 +3755,8 @@
           "javascript": "// see how to craft a payload to sign in the `contract.signature.generate()` documentation\nconst signedPayload = contract.signature.generate(payload);\n\n// now anyone can mint the NFT\nconst tx = contract.signature.mint(signedPayload);\nconst receipt = tx.receipt; // the mint transaction receipt\nconst mintedId = tx.id; // the id of the NFT minted",
           "python": "",
           "go": "",
-          "react": "// see how to craft a payload to sign in the `contract.signature.generate()` documentation\nconst signedPayload = contract.signature.generate(payload);\n\n// now anyone can mint the NFT\nconst tx = contract.signature.mint(signedPayload);\nconst receipt = tx.receipt; // the mint transaction receipt\nconst mintedId = tx.id; // the id of the NFT minted"
+          "react": "// see how to craft a payload to sign in the `contract.signature.generate()` documentation\nconst signedPayload = contract.signature.generate(payload);\n\n// now anyone can mint the NFT\nconst tx = contract.signature.mint(signedPayload);\nconst receipt = tx.receipt; // the mint transaction receipt\nconst mintedId = tx.id; // the id of the NFT minted",
+          "unity": "var meta = new NFTMetadata()\n{\n    name = \"Unity NFT\",\n    description = \"Minted From Unity (signature)\",\n    image = \"ipfs://QmbpciV7R5SSPb6aT9kEBAxoYoXBUsStJkMpxzymV4ZcVc\"\n};\nstring connectedAddress = await sdk.wallet.GetAddress();\nvar payload = new ERC721MintPayload(connectedAddress, meta);\nvar signature = await contract.ERC721.signature.Generate(payload); // typically generated on the backend \n// Provide the signature you generated above to the Mint function:\nvar result = await contract.ERC721.signature.Mint(signature);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.erc721withquantitysignaturemintable",
@@ -3677,7 +3785,8 @@
           "javascript": "// read functions will return the data from the contract\nconst myValue = await contract.call(\"myReadFunction\");\nconsole.log(myValue);\n\n// write functions will return the transaction receipt\nconst tx = await contract.call(\"myWriteFunction\", arg1, arg2);\nconst receipt = tx.receipt;\n\n// Optionally override transaction options\nawait contract.call(\"myWriteFunction\", arg1, arg2, {\n gasLimit: 1000000, // override default gas limit\n value: ethers.utils.parseEther(\"0.1\"), // send 0.1 ether with the contract call\n};",
           "python": "",
           "go": "",
-          "react": "const { contract } = useContract(\"{{contract_address}}\");\nconst { mutate: myFunction, isLoading, error } = useContractWrite(contract, \"myFunction\");\n\n// the function can be called as follows:\n// myFunction([\"param 1\", \"param 2\", ...])"
+          "react": "const { contract } = useContract(\"{{contract_address}}\");\nconst { mutate: myFunction, isLoading, error } = useContractWrite(contract, \"myFunction\");\n\n// the function can be called as follows:\n// myFunction([\"param 1\", \"param 2\", ...])",
+          "unity": "// Write operations\nawait contract.Write(\"functionName\", \"arg1\", \"arg2\", \"arg3\");\n\n// Read operations (place expected return type between <>)\nvar result = await contract.Read<string>(\"functionName\", \"arg1\", \"arg2\", \"arg3\");"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.smartcontract.call",
@@ -3743,7 +3852,8 @@
           "javascript": "// Add the domain of the application users will login to, this will be used throughout the login process\nconst domain = \"example.com\";\n// Generate a signed login payload for the connected wallet to authenticate with\nconst loginPayload = await sdk.auth.login(domain);",
           "python": "# Add the domain of the application that you want to log in to\ndomain = \"example.com\"\n\n# Generate a signed login payload for the connected wallet to authenticate with\npayload = sdk.auth.login(domain)",
           "go": "// Add the domain of the application that you want to log in to\ndomain := \"example.com\"\n\n// Generate a signed login payload for the connected wallet to authenticate with\npayload, err := sdk.Auth.Login(domain, nil)\n",
-          "react": "const sdk = useSDK();\n\n// Add the domain of the application users will login to, this will be used throughout the login process\nconst domain = \"example.com\";\n// Generate a signed login payload for the connected wallet to authenticate with\nconst loginPayload = await sdk.auth.login(domain);"
+          "react": "const sdk = useSDK();\n\n// Add the domain of the application users will login to, this will be used throughout the login process\nconst domain = \"example.com\";\n// Generate a signed login payload for the connected wallet to authenticate with\nconst loginPayload = await sdk.auth.login(domain);",
+          "unity": "// Login is not available in the Unity SDK."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.walletauthenticator.login",
@@ -3760,7 +3870,8 @@
           "javascript": "const domain = \"example.com\";\nconst loginPayload = await sdk.auth.login(domain);\n\n// Verify the login request\nconst address = sdk.auth.verify(domain, loginPayload);",
           "python": "domain = \"example.com\"\npayload = sdk.auth.login(domain)\n\n# Verify the login request\naddress = sdk.auth.verify(domain, payload)",
           "go": "domain := \"example.com\"\npayload, err := sdk.Auth.Login(domain, nil)\n\n// Verify the login request\naddress, err := sdk.Auth.Verify(domain, payload, nil)\n",
-          "react": "const sdk = useSDK();\n\nconst domain = \"example.com\";\nconst loginPayload = await sdk.auth.login(domain);\n\n// Verify the login request\nconst address = sdk.auth.verify(domain, loginPayload);"
+          "react": "const sdk = useSDK();\n\nconst domain = \"example.com\";\nconst loginPayload = await sdk.auth.login(domain);\n\n// Verify the login request\nconst address = sdk.auth.verify(domain, loginPayload);",
+          "unity": "// Generating an authentication token is a server-side admin operation.\n For this reason, it is not available in the Unity SDK."
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.walletauthenticator.verify",
@@ -3792,7 +3903,8 @@
           "javascript": "// native currency balance\nconst balance = await sdk.wallet.balance();\n// ERC20 token balance\nconst erc20balance = await sdk.wallet.balance(tokenContractAddress);\n",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\n// native currency balance\nconst balance = await sdk.wallet.balance();\n// ERC20 token balance\nconst erc20balance = await sdk.wallet.balance(tokenContractAddress);\n"
+          "react": "const sdk = useSDK();\n\n// native currency balance\nconst balance = await sdk.wallet.balance();\n// ERC20 token balance\nconst erc20balance = await sdk.wallet.balance(tokenContractAddress);\n",
+          "unity": "await sdk.wallet.GetBalance();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.userwallet.balance",
@@ -3809,7 +3921,8 @@
           "javascript": "const address = await sdk.wallet.getAddress();",
           "python": "",
           "go": "",
-          "react": "import { useAddress } from \"@thirdweb-dev/react\"\n\nconst App = () => {\n  const address = useAddress()\n\n  return <div>{address}</div>\n}"
+          "react": "import { useAddress } from \"@thirdweb-dev/react\"\n\nconst App = () => {\n  const address = useAddress()\n\n  return <div>{address}</div>\n}",
+          "unity": "await sdk.wallet.GetAddress();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.userwallet.getaddress",
@@ -3826,7 +3939,8 @@
           "javascript": "const message = \"Sign this message...\";\nconst signature = await sdk.wallet.sign(message);\n\n// Now we can recover the signing address\nconst address = sdk.wallet.recoverAddress(message, signature);",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\nconst message = \"Sign this message...\";\nconst signature = await sdk.wallet.sign(message);\n\n// Now we can recover the signing address\nconst address = sdk.wallet.recoverAddress(message, signature);"
+          "react": "const sdk = useSDK();\n\nconst message = \"Sign this message...\";\nconst signature = await sdk.wallet.sign(message);\n\n// Now we can recover the signing address\nconst address = sdk.wallet.recoverAddress(message, signature);",
+          "unity": "await sdk.wallet.RecoverAddress(\"message\", \"signature\");"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.userwallet.recoveraddress",
@@ -3843,7 +3957,8 @@
           "javascript": "// This is the message to be signed\nconst message = \"Sign this message...\";\n\n// Now we can sign the message with the connected wallet\nconst signature = await sdk.wallet.sign(message);",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\n// This is the message to be signed\nconst message = \"Sign this message...\";\n\n// Now we can sign the message with the connected wallet\nconst signature = await sdk.wallet.sign(message);"
+          "react": "const sdk = useSDK();\n\n// This is the message to be signed\nconst message = \"Sign this message...\";\n\n// Now we can sign the message with the connected wallet\nconst signature = await sdk.wallet.sign(message);",
+          "unity": "await sdk.wallet.Sign(\"message\");"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.userwallet.sign",
@@ -3860,7 +3975,8 @@
           "javascript": " // transfer 0.8 ETH\nawait sdk.wallet.transfer(\"0x...\", 0.8);\n // transfer 0.8 tokens of `tokenContractAddress`\nawait sdk.wallet.transfer(\"0x...\", 0.8, tokenContractAddress);",
           "python": "",
           "go": "",
-          "react": "const sdk = useSDK();\n\n // transfer 0.8 ETH\nawait sdk.wallet.transfer(\"0x...\", 0.8);\n // transfer 0.8 tokens of `tokenContractAddress`\nawait sdk.wallet.transfer(\"0x...\", 0.8, tokenContractAddress);"
+          "react": "const sdk = useSDK();\n\n // transfer 0.8 ETH\nawait sdk.wallet.transfer(\"0x...\", 0.8);\n // transfer 0.8 tokens of `tokenContractAddress`\nawait sdk.wallet.transfer(\"0x...\", 0.8, tokenContractAddress);",
+          "unity": "await sdk.wallet.Transfer(\"to\", \"amount\", \"currencyAddress\");"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.userwallet.transfer",

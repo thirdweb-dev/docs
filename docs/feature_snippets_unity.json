@@ -1,0 +1,621 @@
+{
+  "ContractMetadata": [
+    {
+      "name": "get",
+      "summary": "Get the metadata of a contract\n\n",
+      "remarks": "\n\nGet the metadata of a contract\n\n"
+    },
+    {
+      "name": "set",
+      "summary": "Set the metadata of a contract\n\n",
+      "remarks": "\n\nOVERWRITE the metadata of a contract\n\n"
+    },
+    {
+      "name": "update",
+      "summary": "Update the metadata of a contract\n\n",
+      "remarks": "\n\nUpdate the metadata of a contract\n\n"
+    }
+  ],
+  "PlatformFee": [
+    {
+      "name": "get",
+      "summary": "Get the platform fee recipient and basis points *\n\n",
+      "remarks": null
+    }
+  ],
+  "PrimarySale": [
+    {
+      "name": "getRecipient",
+      "summary": "Get the primary sale recipient.\n\n",
+      "remarks": null
+    },
+    {
+      "name": "setRecipient",
+      "summary": "Set the primary sale recipient\n\n",
+      "remarks": null
+    }
+  ],
+  "Permissions": [
+    {
+      "name": "get",
+      "summary": "Call this to get a list of addresses that are members of a specific role.\n\n",
+      "remarks": "\n\nSee {@link ContractRoles.getAll} to get get a list of addresses for all supported roles on the contract.\n\n"
+    },
+    {
+      "name": "getAll",
+      "summary": "Call this to get get a list of addresses for all supported roles on the contract.\n\n",
+      "remarks": "\n\nSee {@link ContractRoles.get} to get a list of addresses that are members of a specific role.\n\n"
+    },
+    {
+      "name": "grant",
+      "summary": "Call this to grant a role to a specific address.\n\n",
+      "remarks": "\n\nMake sure you are sure you want to grant the role to the address.\n\n"
+    },
+    {
+      "name": "revoke",
+      "summary": "Call this to revoke a role from a specific address.\n\n",
+      "remarks": "\n\n-- Caution --\n\nThis will let you remove yourself from the role, too. If you remove yourself from the admin role, you will no longer be able to administer the contract. There is no way to recover from this.\n\n"
+    },
+    {
+      "name": "setAll",
+      "summary": "Call this to OVERWRITE the list of addresses that are members of specific roles.\n\nEvery role in the list will be overwritten with the new list of addresses provided with them. If you want to add or remove addresses for a single address use {@link ContractRoles.grant} and {@link ContractRoles.revoke} respectively instead.\n\n",
+      "remarks": null
+    }
+  ],
+  "Royalty": [
+    {
+      "name": "getDefaultRoyaltyInfo",
+      "summary": "Gets the royalty recipient and BPS (basis points) of the contract\n\n",
+      "remarks": null
+    },
+    {
+      "name": "getTokenRoyaltyInfo",
+      "summary": "Gets the royalty recipient and BPS (basis points) of a particular token\n\n",
+      "remarks": null
+    },
+    {
+      "name": "setDefaultRoyaltyInfo",
+      "summary": "Set the royalty recipient and fee for a contract\n\n",
+      "remarks": null
+    },
+    {
+      "name": "setTokenRoyaltyInfo",
+      "summary": "Set the royalty recipient and fee for a particular token\n\n",
+      "remarks": null
+    }
+  ],
+  "ERC1155ClaimableWithConditions": [
+    {
+      "name": "claimConditions",
+      "summary": "Configure claim conditions\n\n",
+      "remarks": "\n\nDefine who can claim NFTs in the collection, when and how many.\n\n",
+      "examples": {
+        "unity": "var tokenId = \"0\";\nawait contract.ERC1155.claimConditions.GetActive(tokenId);"
+      }
+    }
+  ],
+  "ERC1155Revealable": [
+    {
+      "name": "revealer",
+      "summary": "Delayed reveal\n\n",
+      "remarks": "\n\nCreate a batch of encrypted NFTs that can be revealed at a later time.\n\n",
+      "examples": {
+        "unity": "// Delayed reveal is coming to Unity soon. Reach out to us on Discord if you need this feature!"
+      }
+    }
+  ],
+  "ERC1155SignatureMintable": [
+    {
+      "name": "signature",
+      "summary": "Signature Minting\n\n",
+      "remarks": "\n\nGenerate dynamic NFTs with your own signature, and let others mint them using that signature.\n\n",
+      "examples": {
+        "unity": "// see how to craft a payload to sign in the `contract.signature.Generate()` documentation\nvar signedPayload = contract.signature().generate(payload);\n\n// now anyone can mint the NFT\nvar tx = contract.signature.mint(signedPayload);\nvar receipt = tx.receipt; // the mint transaction receipt\nvar mintedId = tx.id; // the id of the NFT minted"
+      }
+    },
+    {
+      "name": "generate",
+      "summary": "Generate a signature that can be used to mint an NFT dynamically.\n\n",
+      "remarks": "\n\nTakes in an NFT and some information about how it can be minted, uploads the metadata and signs it with your private key. The generated signature can then be used to mint an NFT using the exact payload and signature generated.\n\n",
+      "examples": {
+        "unity": "var meta =\r\n    new NFTMetadata()\r\n    {\r\n        name = \"Unity NFT\",\r\n        description = \"Minted From Unity (signature)\",\r\n        image = \"ipfs://QmbpciV7R5SSPb6aT9kEBAxoYoXBUsStJkMpxzymV4ZcVc\"\r\n    };\r\nstring connectedAddress = await sdk.wallet.GetAddress();\r\nvar payload = new ERC1155MintPayload(connectedAddress, meta);\r\nvar signature = await contract.ERC1155.signature.Generate(payload);"
+      }
+    },
+    {
+      "name": "generateFromTokenId",
+      "summary": "Generate a signature that can be used to mint additionaly supply to an existing NFT.\n\n",
+      "remarks": "\n\nTakes in a payload with the token ID of an existing NFT, and signs it with your private key. The generated signature can then be used to mint additional supply to the NFT using the exact payload and signature generated.\n\n",
+      "examples": {
+        "unity": "string connectedAddress = await sdk.wallet.GetAddress();\r\nstring tokenId = \"0\";\r\nvar payload =\r\n    new ERC1155MintAdditionalPayload(connectedAddress, tokenId);\r\npayload.quantity = 3;\r\nvar signature =\r\n    await contract.ERC1155.signature.GenerateFromTokenId(payload);"
+      }
+    },
+    {
+      "name": "mint",
+      "summary": "Mint a dynamically generated NFT\n\n",
+      "remarks": "\n\nMint a dynamic NFT with a previously generated signature.\n\n",
+      "examples": {
+        "unity": "// Use the signature you generated in the Mint method:\n var nft = await contract.ERC1155.signature.Mint(signature);"
+      }
+    }
+  ],
+  "ERC1155": [
+    {
+      "name": "balanceOf",
+      "summary": "Get NFT Balance\n\n",
+      "remarks": "\n\nGet a wallets NFT balance (number of NFTs in this contract owned by the wallet).\n\n",
+      "examples": {
+        "unity": "// Address of the wallet to check NFT balance\nvar walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\"; // Id of the NFT to check\nvar balance = await contract.ERC1155.BalanceOf(walletAddress, tokenId);"
+      }
+    },
+    {
+      "name": "get",
+      "summary": "Get a single NFT Metadata\n\n",
+      "remarks": null,
+      "examples": {
+        "unity": "var tokenId = \"0\";\nvar nft = await contract.ERC1155.Get(tokenId);"
+      }
+    },
+    {
+      "name": "transfer",
+      "summary": "Transfer a single NFT\n\n",
+      "remarks": "\n\nTransfer an NFT from the connected wallet to another wallet.\n\n",
+      "examples": {
+        "unity": "// Address of the wallet you want to send the NFT to\nvar toAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\"; // The token ID of the NFT you want to send\nvar amount = 3; // How many copies of the NFTs to transfer\nawait contract.ERC1155.Transfer(toAddress, tokenId, amount);"
+      }
+    }
+  ],
+  "ERC1155Burnable": [
+    {
+      "name": "burn",
+      "summary": "Burn a specified amount of a NFTs\n\n",
+      "remarks": "\n\nBurn the specified NFTs from the connected wallet\n\n",
+      "examples": {
+        "unity": "// The token ID to burn NFTs of\nvar tokenId = \"0\";\n// The amount of the NFT you want to burn\nvar amount = 2;\n\nvar result = await contract.ERC1155.Burn(tokenId, amount);"
+      }
+    },
+    {
+      "name": "burnBatch",
+      "summary": "Burn a batch of NFTs\n\n",
+      "remarks": "\n\nBurn the batch NFTs from the connected wallet\n\n",
+      "examples": {
+        "unity": "// Batch burning in Unity is coming soon. Reach out to us in Discord if you need this feature!"
+      }
+    },
+    {
+      "name": "burnBatchFrom",
+      "summary": "Burn a batch of NFTs\n\n",
+      "remarks": "\n\nBurn the batch NFTs from the specified wallet\n\n",
+      "examples": {
+        "unity": "// Batch burning in Unity is coming soon. Reach out to us in Discord if you need this feature!"
+      }
+    },
+    {
+      "name": "burnFrom",
+      "summary": "Burn a specified amount of a NFTs\n\n",
+      "remarks": "\n\nBurn the specified NFTs from a specified wallet\n\n",
+      "examples": {
+        "unity": "// BurnFrom in Unity is coming soon. Reach out to us in Discord if you need this feature!"
+      }
+    }
+  ],
+  "ERC1155Claimable": [
+    {
+      "name": "claim",
+      "summary": "Claim NFTs\n\n",
+      "remarks": "\n\nLet the connected wallet claim NFTs.\n\n",
+      "examples": {
+        "unity": "var tokenId = \"0\"; // the id of the NFT you want to claim\nvar quantity = 1; // how many NFTs you want to claim\n\nvar tx = await contract.ERC1155.Claim(tokenId, quantity);\nvar receipt = tx.receipt; // the transaction receipt"
+      }
+    },
+    {
+      "name": "claimTo",
+      "summary": "Claim NFTs to a specific Wallet\n\n",
+      "remarks": "\n\nLet the specified wallet claim NFTs.\n\n",
+      "examples": {
+        "unity": "var address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nvar tokenId = \"0\"; // the id of the NFT you want to claim\nvar quantity = 1; // how many NFTs you want to claim\n\nvar tx = await contract.ERC1155.ClaimTo(address, tokenId, quantity);\nvar receipt = tx.receipt; // the transaction receipt"
+      }
+    }
+  ],
+  "ERC1155Enumerable": [
+    {
+      "name": "getAll",
+      "summary": "Get All NFTs\n\n",
+      "remarks": "\n\nGet all the data associated with every NFT in this contract.\n\nBy default, returns the first 100 NFTs, use queryParams to fetch more.\n\n",
+      "examples": {
+        "unity": "var nfts = await contract.ERC1155.GetAll();"
+      }
+    },
+    {
+      "name": "getOwned",
+      "summary": "Get Owned NFTs\n\n",
+      "remarks": "\n\nGet all the data associated with the NFTs owned by a specific wallet.\n\n",
+      "examples": {
+        "unity": "// Address of the wallet to get the NFTs of\nvar address = \"{{wallet_address}}\";\nvar nfts = await contract.ERC1155.GetOwned(address);"
+      }
+    }
+  ],
+  "ERC1155LazyMintable": [
+    {
+      "name": "lazyMint",
+      "summary": "Create a batch of NFTs to be claimed in the future\n\n",
+      "remarks": "\n\nCreate batch allows you to create a batch of many NFTs in one transaction.\n\n",
+      "examples": {
+        "unity": "// Lazy minting in Unity is coming soon. Reach out to us in Discord if you need this feature!"
+      }
+    }
+  ],
+  "ERC1155Mintable": [
+    {
+      "name": "mint",
+      "summary": "Mint an NFT with a limited supply\n\n",
+      "remarks": "\n\nMint an NFT with a limited supply to the connected wallet.\n\n",
+      "examples": {
+        "unity": "// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\r\nvar metadata =\r\n    new NFTMetadata()\r\n    {\r\n        name = \"Cool NFT\",\r\n        description = \"This is a cool NFT\",\r\n        image = \"<your-image-url>\"\r\n    };\r\nvar metadataWithSupply =\r\n    new NFTMetadataWithSupply() { metadata = metadata, supply = 1 };\r\nvar tx = await contract.ERC1155.Mint(metadataWithSupply);"
+      }
+    },
+    {
+      "name": "mintAdditionalSupply",
+      "summary": "Increase the supply of an existing NFT\n\n",
+      "remarks": "\n\nIncrease the supply of an existing NFT and mint it to the connected wallet address\n\n",
+      "examples": {
+        "unity": "var tokenId = \"0\";\nvar additionalSupply = 1000;\nawait contract.ERC1155.MintAdditionalSupply(tokenId, additionalSupply);"
+      }
+    },
+    {
+      "name": "mintTo",
+      "summary": "Mint an NFT with a limited supply\n\n",
+      "remarks": "\n\nMint an NFT with a limited supply to a specified wallet.\n\n",
+      "examples": {
+        "unity": "// Address of the wallet you want to mint the NFT to\r\nvar toAddress = \"{{wallet_address}}\";\r\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\r\nvar metadata =\r\n    new NFTMetadata()\r\n    {\r\n        name = \"Cool NFT\",\r\n        description = \"This is a cool NFT\",\r\n        image = \"<your-image-url>\"\r\n    };\r\nvar metadataWithSupply =\r\n    new NFTMetadataWithSupply() { metadata = metadata, supply = 1 };\r\nvar tx = await contract.ERC1155.MintTo(toAddress, metadataWithSupply);"
+      }
+    }
+  ],
+  "ERC1155BatchMintable": [
+    {
+      "name": "mintBatch",
+      "summary": "Mint Many NFTs with limited supplies\n\n",
+      "remarks": "\n\nMint many different NFTs with limited supplies to the connected wallet.\n\n",
+      "examples": {
+        "unity": "// Batch minting in Unity is coming soon. Reach out to us in Discord if you need this feature!"
+      }
+    },
+    {
+      "name": "mintBatchTo",
+      "summary": "Mint Many NFTs with limited supplies\n\n",
+      "remarks": "\n\nMint many different NFTs with limited supplies to a specified wallet.\n\n",
+      "examples": {
+        "unity": "// Batch minting in Unity is coming soon. Reach out to us in Discord if you need this feature!"
+      }
+    }
+  ],
+  "ERC20ClaimableWithConditions": [
+    {
+      "name": "claimConditions",
+      "summary": "Configure claim conditions\n\n",
+      "remarks": "\n\nDefine who can claim NFTs in the collection, when and how many.\n\n",
+      "examples": {
+        "unity": "await contract.ERC20.claimConditions.GetActive();"
+      }
+    },
+    {
+      "name": "claim",
+      "summary": "Claim a certain amount of tokens to the connected Wallet\n\n",
+      "remarks": "\n\nLet the specified wallet claim Tokens.\n\n",
+      "examples": {
+        "unity": "// address of the wallet you want to claim the NFTs\nvar quantity = \"1\"; // how many tokens you want to claim\n\nvar tx = await contract.ERC20.Claim(quantity);\nvar receipt = tx.receipt; // the transaction receipt"
+      }
+    },
+    {
+      "name": "claimTo",
+      "summary": "Claim a certain amount of tokens to a specific Wallet\n\n",
+      "remarks": "\n\nLet the specified wallet claim Tokens.\n\n",
+      "examples": {
+        "unity": "var address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nvar quantity = 1; // how many tokens you want to claim\n\nvar tx = await contract.ERC20.ClaimTo(address, quantity);\nvar receipt = tx.receipt; // the transaction receipt"
+      }
+    }
+  ],
+  "ERC20SignatureMintable": [
+    {
+      "name": "signature",
+      "summary": "Signature Minting\n\n",
+      "remarks": "\n\nGenerate dynamic NFTs with your own signature, and let others mint them using that signature.\n\n",
+      "examples": {
+        "unity": "// see how to craft a payload to sign in the `contract.signature.Generate()` documentation\nvar signedPayload = contract.signature().generate(payload);\n\n// now anyone can mint the NFT\nvar tx = contract.ERC20.signature.mint(signedPayload);\nvar receipt = tx.receipt; // the mint transaction receipt\nvar mintedId = tx.id; // the id of the NFT minted"
+      }
+    },
+    {
+      "name": "generate",
+      "summary": "Generate a signature that can be used to mint a certain amount of tokens\n\n",
+      "remarks": "\n\nTakes in a quantity of tokens, some conditions for how it can be minted and signs it with your private key. The generated signature can then be used to mint those tokens using the exact payload and signature generated.\n\n",
+      "examples": {
+        "unity": "string connectedAddress = await sdk.wallet.GetAddress();\r\nstring quantity = \"1\";\r\nvar payload = new ERC20MintPayload(connectedAddress, quantity);\r\nvar signature = await contract.ERC20.signature.Generate(payload);"
+      }
+    },
+    {
+      "name": "mint",
+      "summary": "Mint tokens from a signature\n\n",
+      "remarks": "\n\nMint a certain amount of tokens from a previously generated signature.\n\n",
+      "examples": {
+        "unity": "// Use the signature you generated above to pass into the Mint method.\n  var nft = await contract.ERC20.signature.Mint(signature);"
+      }
+    }
+  ],
+  "ERC20": [
+    {
+      "name": "allowance",
+      "summary": "Get Token Allowance\n\n",
+      "remarks": "\n\nGet the allowance of a 'spender' wallet over the connected wallet's funds - the allowance of a different address for a token is the amount of tokens that the `spender` wallet is allowed to spend on behalf of the connected wallet.\n\n",
+      "examples": {
+        "unity": "// Address of the wallet to check token allowance\nvar spenderAddress = \"0x...\";\nvar allowance = await contract.ERC20.Allowance(spenderAddress);"
+      }
+    },
+    {
+      "name": "allowanceOf",
+      "summary": "Get Token Allowance\n\n",
+      "remarks": "\n\nGet the allowance of one wallet over another wallet's funds - the allowance of a different address for a token is the amount of tokens that the wallet is allowed to spend on behalf of the specified wallet.\n\n",
+      "examples": {
+        "unity": "// Address of the wallet who owns the funds\nvar owner = \"{{wallet_address}}\";\n// Address of the wallet to check token allowance\nvar spender = \"0x...\";\nvar allowance = await contract.ERC20.AllowanceOf(owner, spender);"
+      }
+    },
+    {
+      "name": "balance",
+      "summary": "Get Token Balance for the currently connected wallet\n\n",
+      "remarks": "\n\nGet a wallets token balance.\n\n",
+      "examples": {
+        "unity": "var balance = await contract.ERC20.Balance();"
+      }
+    },
+    {
+      "name": "balanceOf",
+      "summary": "Get Token Balance\n\n",
+      "remarks": "\n\nGet a wallets token balance.\n\n",
+      "examples": {
+        "unity": "// Address of the wallet to check token balance\nvar walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.ERC20.BalanceOf(walletAddress);"
+      }
+    },
+    {
+      "name": "get",
+      "summary": "Get the token Metadata (name, symbol, etc...)\n\n",
+      "remarks": null,
+      "examples": {
+        "unity": "var token = await contract.ERC20.Get();"
+      }
+    },
+    {
+      "name": "setAllowance",
+      "summary": "Allows the specified `spender` wallet to transfer the given `amount` of tokens to another wallet\n\n",
+      "remarks": null,
+      "examples": {
+        "unity": "// Address of the wallet to allow transfers from\nvar spenderAddress = \"0x...\";\n// The number of tokens to give as allowance\nvar amount = \"100\";\nawait contract.ERC20.SetAllowance(spenderAddress, amount);"
+      }
+    },
+    {
+      "name": "totalSupply",
+      "summary": "The total supply for this Token\n\n",
+      "remarks": "\n\nGet how much supply has been minted\n\n",
+      "examples": {
+        "unity": "var balance = await contract.ERC20.TotalSupply();"
+      }
+    },
+    {
+      "name": "transfer",
+      "summary": "Transfer Tokens\n\n",
+      "remarks": "\n\nTransfer tokens from the connected wallet to another wallet.\n\n",
+      "examples": {
+        "unity": "// Address of the wallet you want to send the tokens to\nvar toAddress = \"0x...\";\n// The amount of tokens you want to send\nvar amount = \"0.1\";\nawait contract.ERC20.Transfer(toAddress, amount);"
+      }
+    },
+    {
+      "name": "transferFrom",
+      "summary": "Transfer Tokens From Address\n\n",
+      "remarks": "\n\nTransfer tokens from one wallet to another\n\n",
+      "examples": {
+        "unity": "// Address of the wallet sending the tokens\nvar fromAddress = \"{{wallet_address}}\";\n// Address of the wallet you want to send the tokens to\nvar toAddress = \"0x...\";\n// The number of tokens you want to send\nvar amount = 1.2\n// Note that the connected wallet must have approval to transfer the tokens of the fromAddress\nawait contract.ERC20.TransferFrom(fromAddress, toAddress, amount);"
+      }
+    }
+  ],
+  "ERC20Burnable": [
+    {
+      "name": "burn",
+      "summary": "Burn Tokens\n\n",
+      "remarks": "\n\nBurn tokens held by the connected wallet\n\n",
+      "examples": {
+        "unity": "// The amount of this token you want to burn\nvar amount = \"1.2\";\n\nawait contract.ERC20.Burn(amount);"
+      }
+    },
+    {
+      "name": "burnFrom",
+      "summary": "Burn Tokens\n\n",
+      "remarks": "\n\nBurn tokens held by the specified wallet\n\n",
+      "examples": {
+        "unity": "// BurnFrom in Unity is coming soon. Reach out to us in Discord if you need this feature!"
+      }
+    }
+  ],
+  "ERC20Mintable": [
+    {
+      "name": "mint",
+      "summary": "Mint Tokens\n\n",
+      "remarks": "\n\nMint tokens to the connected wallet.\n\n",
+      "examples": {
+        "unity": "var amount = \"1.5\"; // The amount of this token you want to mint\nawait contract.ERC20.Mint(amount);"
+      }
+    },
+    {
+      "name": "mintTo",
+      "summary": "Mint Tokens\n\n",
+      "remarks": "\n\nMint tokens to a specified address.\n\n",
+      "examples": {
+        "unity": "var toAddress = \"{{wallet_address}}\"; // Address of the wallet you want to mint the tokens to\nvar amount = \"1.5\"; // The amount of this token you want to mint\nawait contract.ERC20.MintTo(toAddress, amount);"
+      }
+    }
+  ],
+  "ERC20BatchMintable": [
+    {
+      "name": "mintBatchTo",
+      "summary": "Mint Tokens To Many Wallets\n\n",
+      "remarks": "\n\nMint tokens to many wallets in one transaction.\n\n",
+      "examples": {
+        "unity": "// Batch minting in Unity is coming soon. Reach out to us in Discord if you need this feature!"
+      }
+    }
+  ],
+  "ERC721ClaimableWithConditions": [
+    {
+      "name": "claimConditions",
+      "summary": "Configure claim conditions\n\n",
+      "remarks": "\n\nDefine who can claim NFTs in the collection, when and how many.\n\n",
+      "examples": {
+        "unity": "await contract.ERC721.claimConditions.GetActive();"
+      }
+    }
+  ],
+  "ERC721Revealable": [
+    {
+      "name": "revealer",
+      "summary": "Delayed reveal\n\n",
+      "remarks": "\n\nCreate a batch of encrypted NFTs that can be revealed at a later time.\n\n",
+      "examples": {
+        "unity": "// Delayed reveal is coming to Unity soon. Reach out to us on Discord if you need this feature!"
+      }
+    }
+  ],
+  "ERC721SignatureMint": [
+    {
+      "name": "signature",
+      "summary": "Signature Minting\n\n",
+      "remarks": "\n\nGenerate dynamic NFTs with your own signature, and let others mint them using that signature.\n\n",
+      "examples": {
+        "unity": "var meta = new NFTMetadata()\n{\n    name = \"Unity NFT\",\n    description = \"Minted From Unity (signature)\",\n    image = \"ipfs://QmbpciV7R5SSPb6aT9kEBAxoYoXBUsStJkMpxzymV4ZcVc\"\n};\nstring connectedAddress = await sdk.wallet.GetAddress();\nvar payload = new ERC721MintPayload(connectedAddress, meta);\nvar signature = await contract.ERC721.signature.Generate(payload); // typically generated on the backend"
+      }
+    },
+    {
+      "name": "generate",
+      "summary": "Generate a signature that can be used to mint a dynamic NFT\n\n",
+      "remarks": "\n\nTakes in an NFT and some information about how it can be minted, uploads the metadata and signs it with your private key. The generated signature can then be used to mint an NFT using the exact payload and signature generated.\n\n",
+      "examples": {
+        "unity": "var meta = new NFTMetadata()\n{\n    name = \"Unity NFT\",\n    description = \"Minted From Unity (signature)\",\n    image = \"ipfs://QmbpciV7R5SSPb6aT9kEBAxoYoXBUsStJkMpxzymV4ZcVc\"\n};\nstring connectedAddress = await sdk.wallet.GetAddress();\nvar payload = new ERC721MintPayload(connectedAddress, meta);\nvar signature = await contract.ERC721.signature.Generate(payload); // typically generated on the backend"
+      }
+    },
+    {
+      "name": "mint",
+      "summary": "Mint a dynamically generated NFT\n\n",
+      "remarks": "\n\nMint a dynamic NFT with a previously generated signature.\n\n",
+      "examples": {
+        "unity": "// Provide the signature you generated above to the Mint function:\nvar result = await contract.ERC721.signature.Mint(signature);"
+      }
+    }
+  ],
+  "ERC721": [
+    {
+      "name": "balanceOf",
+      "summary": "Get NFT Balance\n\n",
+      "remarks": "\n\nGet a wallets NFT balance (number of NFTs in this contract owned by the wallet).\n\n",
+      "examples": {
+        "unity": "var walletAddress = \"{{wallet_address}}\";\nvar balance = await contract.ERC721.BalanceOf(walletAddress);\nDebug.Log(balance);"
+      }
+    },
+    {
+      "name": "get",
+      "summary": "Get a single NFT Metadata\n\n",
+      "remarks": null,
+      "examples": {
+        "unity": "var tokenId = \"0\";\nvar nft = await contract.ERC721.Get(tokenId);"
+      }
+    },
+    {
+      "name": "transfer",
+      "summary": "Transfer a single NFT\n\n",
+      "remarks": "\n\nTransfer an NFT from the connected wallet to another wallet.\n\n",
+      "examples": {
+        "unity": "var walletAddress = \"{{wallet_address}}\";\nvar tokenId = \"0\";\nawait contract.ERC721.Transfer(walletAddress, tokenId);"
+      }
+    }
+  ],
+  "ERC721Burnable": [
+    {
+      "name": "burn",
+      "summary": "Burn a single NFT\n\n",
+      "remarks": null,
+      "examples": {
+        "unity": "var tokenId = \"0\";\nvar result = await contract.ERC721.Burn(tokenId);"
+      }
+    }
+  ],
+  "ERC721Claimable": [
+    {
+      "name": "claim",
+      "summary": "Claim unique NFTs to the connected wallet\n\n",
+      "remarks": "\n\nLet the specified wallet claim NFTs.\n\n",
+      "examples": {
+        "unity": "var quantity = 1; // how many unique NFTs you want to claim\n\nvar tx = await contract.ERC721.Claim(quantity);\nvar receipt = tx.receipt; // the transaction receipt\nvar claimedTokenId = tx.id; // the id of the NFT claimed\nvar claimedNFT = await tx.data(); // (optional) get the claimed NFT metadata"
+      }
+    },
+    {
+      "name": "claimTo",
+      "summary": "Claim unique NFTs to a specific Wallet\n\n",
+      "remarks": "\n\nLet the specified wallet claim NFTs.\n\n",
+      "examples": {
+        "unity": "var address = \"{{wallet_address}}\"; // address of the wallet you want to claim the NFTs\nvar quantity = 1; // how many unique NFTs you want to claim\n\nvar tx = await contract.ERC721.ClaimTo(address, quantity);"
+      }
+    }
+  ],
+  "ERC721Supply": [
+    {
+      "name": "getAll",
+      "summary": "Get All Minted NFTs\n\n",
+      "remarks": "\n\nGet all the data associated with every NFT in this contract.\n\nBy default, returns the first 100 NFTs, use queryParams to fetch more.\n\n",
+      "examples": {
+        "unity": "var nfts = await contract.ERC721.GetAll();\nDebug.Log(nfts);"
+      }
+    }
+  ],
+  "ERC721Enumerable": [
+    {
+      "name": "getOwned",
+      "summary": "Get Owned NFTs\n\n",
+      "remarks": "\n\nGet all the data associated with the NFTs owned by a specific wallet.\n\n",
+      "examples": {
+        "unity": "// Address of the wallet to get the NFTs of\nvar address = \"{{wallet_address}}\";\nvar nfts = await contract.ERC721.GetOwned(address);\nDebug.Log(nfts);"
+      }
+    }
+  ],
+  "ERC721LazyMintable": [
+    {
+      "name": "lazyMint",
+      "summary": "Create a batch of unique NFTs to be claimed in the future\n\n",
+      "remarks": "\n\nCreate batch allows you to create a batch of many unique NFTs in one transaction.\n\n",
+      "examples": {
+        "unity": "// Lazy minting in Unity is coming soon. Reach out to us in Discord if you need this feature!"
+      }
+    }
+  ],
+  "ERC721Mintable": [
+    {
+      "name": "mint",
+      "summary": "Mint a unique NFT\n\n",
+      "remarks": "\n\nMint a unique NFT to the connected wallet.\n\n",
+      "examples": {
+        "unity": "// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nvar metadata = new NFTMetadata() {\n  name: \"Cool NFT\",\n  description: \"This is a cool NFT\",\n  image: fs.ReadFileSync(\"path/to/image.png\"), // This can be an image url or file\n};\n\nvar tx = await contract.ERC721.Mint(metadata);\nvar receipt = tx.receipt; // the transaction receipt\nvar tokenId = tx.id; // the id of the NFT minted\nvar nft = await tx.data(); // (optional) fetch details of minted NFT"
+      }
+    },
+    {
+      "name": "mintTo",
+      "summary": "Mint a unique NFT\n\n",
+      "remarks": "\n\nMint a unique NFT to a specified wallet.\n\n",
+      "examples": {
+        "unity": "// Address of the wallet you want to mint the NFT to\nvar walletAddress = \"{{wallet_address}}\";\n\n// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.\nvar metadata = new NFTMetadata() {\n  name =  \"Cool NFT\",\n  description = \"This is a cool NFT\",\n  image = \"<image-url-here>\" \n};\n\nvar tx = await contract.ERC721.MintTo(walletAddress, metadata);"
+      }
+    }
+  ],
+  "ERC721BatchMintable": [
+    {
+      "name": "mintBatchTo",
+      "summary": "Mint Many unique NFTs\n\n",
+      "remarks": "\n\nMint many unique NFTs at once to a specified wallet.\n\n",
+      "examples": {
+        "unity": "// Batch minting in Unity is coming soon. Reach out to us in Discord if you need this feature!"
+      }
+    }
+  ]
+}
