@@ -35,9 +35,15 @@ export default function ThirdwebFeatureCodeSnippet({
       javascript: typescriptSnippets?.[featureName]?.find(
         (s) => s.name === languageFunctionMapping?.["javascript"],
       ),
-      unity: unitySnippets?.[featureName]?.find(
-        (s) => s.name === languageFunctionMapping?.["unity"],
-      ),
+      unity:
+        unitySnippets?.[featureName]?.find(
+          (s) => s.name === languageFunctionMapping?.["unity"],
+        ) ||
+        // This is so that we don't have to pass the same function name in the language function mapping
+        // The function name for unity is the same as the javascript function name
+        unitySnippets?.[featureName]?.find(
+          (s) => s.name === languageFunctionMapping?.["javascript"],
+        ),
     };
   }
 
