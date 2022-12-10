@@ -7,12 +7,18 @@ displayed_sidebar: unity
 
 ## class `Deployer` {#class_thirdweb_1_1_deployer}
 
+```
+class Deployer
+  : public Thirdweb.Routable
+```
+
 Deploy contracts to the blockchain.
 
 ### Summary
 
 | Members                | Type     | Descriptions |
 | ---------------------- | -------- | ------------ |
+| Deployer               | function |              |
 | DeployNFTCollection    | function |              |
 | DeployNFTDrop          | function |              |
 | DeploySignatureDrop    | function |              |
@@ -22,11 +28,15 @@ Deploy contracts to the blockchain.
 | DeployPack             | function |              |
 | DeployToken            | function |              |
 | DeployTokenDrop        | function |              |
-| DeployTokenDrop        | function |              |
+| DeployMarketplace      | function |              |
 | DeployReleasedContract | function |              |
 | DeployFromContractUri  | function |              |
 
 ### Members
+
+**`public inline `[`Deployer`](#class_thirdweb_1_1_deployer_1a6b3329ae934d3e34f566026e0ea08d57)`()`**
+
+---
 
 **`public inline async Task< string > `[`DeployNFTCollection`](#class_thirdweb_1_1_deployer_1aa5f5a63ed164970a0da39304a5954f3f)`(`[`NFTContractDeployMetadata`](docs/unity/NFTContractDeployMetadata.md#struct_thirdweb_1_1_n_f_t_contract_deploy_metadata)` metadata)`**
 
@@ -64,7 +74,7 @@ Deploy contracts to the blockchain.
 
 ---
 
-**`public inline async Task< string > `[`DeployTokenDrop`](#class_thirdweb_1_1_deployer_1a8a8526593ab665c5a3e4a1621bfc0b4a)`(`[`MarketplaceContractDeployMetadata`](docs/unity/MarketplaceContractDeployMetadata.md#struct_thirdweb_1_1_marketplace_contract_deploy_metadata)` metadata)`**
+**`public inline async Task< string > `[`DeployMarketplace`](#class_thirdweb_1_1_deployer_1afb7d424a176e2014a23496c4388ae323)`(`[`MarketplaceContractDeployMetadata`](docs/unity/MarketplaceContractDeployMetadata.md#struct_thirdweb_1_1_marketplace_contract_deploy_metadata)` metadata)`**
 
 ---
 

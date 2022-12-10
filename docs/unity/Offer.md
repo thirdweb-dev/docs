@@ -17,6 +17,7 @@ displayed_sidebar: unity
 | pricePerToken           | variable |              |
 | currencyValue           | variable |              |
 | currencyContractAddress | variable |              |
+| ToString                | function |              |
 
 ### Members
 
@@ -41,5 +42,9 @@ displayed_sidebar: unity
 ---
 
 **`public string `[`currencyContractAddress`](#struct_thirdweb_1_1_offer_1aa7bb8cb05239ace23e9ea064e80cab69)**
+
+---
+
+**`public inline override string `[`ToString`](#struct_thirdweb_1_1_offer_1addbcc52aea98f0df5920f7ed3b74ce30)`()`**
 
 ---

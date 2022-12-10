@@ -633,13 +633,13 @@
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2022-12-03T21:55:15Z",
+    "updated_at": "2022-12-09T01:36:58Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 53,
+    "stargazers_count": 54,
     "is_template": false,
     "homepage": "https://custom-minting-page.thirdweb-example.com"
   },
@@ -684,7 +684,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-12-04T14:00:24Z",
+    "updated_at": "2022-12-08T23:20:06Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "contract-kit",
@@ -697,7 +697,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 65,
+    "stargazers_count": 66,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -1164,13 +1164,13 @@
     "html_url": "https://github.com/thirdweb-example/unity-nft-lootboxes",
     "description": "Purchase NFT loot boxes from a marketplace and open them to reveal randomly selected NFTs inside!",
     "created_at": "2022-11-30T04:22:51Z",
-    "updated_at": "2022-12-06T15:41:04Z",
+    "updated_at": "2022-12-08T23:32:17Z",
     "clone_url": "https://github.com/thirdweb-example/unity-nft-lootboxes.git",
     "topics": [
       "gaming"
     ],
     "language": "JavaScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://unity-nft-lootboxes.thirdweb-example.com"
   },

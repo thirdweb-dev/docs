@@ -14,6 +14,7 @@ displayed_sidebar: unity
 | receipt      | variable |              |
 | id           | variable |              |
 | isSuccessful | function |              |
+| ToString     | function |              |
 
 ### Members
 
@@ -26,5 +27,9 @@ displayed_sidebar: unity
 ---
 
 **`public inline bool `[`isSuccessful`](#class_thirdweb_1_1_transaction_result_1a684f96f6d5cf3dd55b758843ac7065de)`()`**
+
+---
+
+**`public inline override string `[`ToString`](#class_thirdweb_1_1_transaction_result_1ab6e684a229e9e766fbb6013ef7b63b13)`()`**
 
 ---

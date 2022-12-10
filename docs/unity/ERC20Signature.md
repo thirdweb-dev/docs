@@ -7,14 +7,17 @@ displayed_sidebar: unity
 
 ## class `ERC20Signature` {#class_thirdweb_1_1_e_r_c20_signature}
 
+```
+class ERC20Signature
+  : public Thirdweb.Routable
+```
+
 Generate, verify and mint signed mintable payloads
 
 ### Summary
 
 | Members        | Type     | Descriptions                                                     |
 | -------------- | -------- | ---------------------------------------------------------------- |
-| chain          | variable |                                                                  |
-| address        | variable |                                                                  |
 | ERC20Signature | function | Generate, verify and mint signed mintable payloads               |
 | Generate       | function | Generate a signed mintable payload. Requires minting permission. |
 | Verify         | function | Verify that a signed mintable payload is valid                   |
@@ -22,15 +25,7 @@ Generate, verify and mint signed mintable payloads
 
 ### Members
 
-**`public string `[`chain`](#class_thirdweb_1_1_e_r_c20_signature_1a964d83026c0e31fae6e0aa7185961979)**
-
----
-
-**`public string `[`address`](#class_thirdweb_1_1_e_r_c20_signature_1a8ae1de35466564c98935fc953224bcca)**
-
----
-
-**`public inline `[`ERC20Signature`](#class_thirdweb_1_1_e_r_c20_signature_1aef4a97765de1b84d286a67aeb2de584a)`(string chain,string address)`**
+**`public inline `[`ERC20Signature`](#class_thirdweb_1_1_e_r_c20_signature_1a24462dd79c205e7cda11618a76423550)`(string parentRoute)`**
 
 Generate, verify and mint signed mintable payloads
 

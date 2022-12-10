@@ -7,12 +7,15 @@ displayed_sidebar: unity
 
 ## class `MarketplaceAuction` {#class_thirdweb_1_1_marketplace_auction}
 
+```
+class MarketplaceAuction
+  : public Thirdweb.Routable
+```
+
 ### Summary
 
 | Members            | Type     | Descriptions |
 | ------------------ | -------- | ------------ |
-| chain              | variable |              |
-| address            | variable |              |
 | MarketplaceAuction | function |              |
 | GetListing         | function |              |
 | GetWinningBid      | function |              |
@@ -24,15 +27,7 @@ displayed_sidebar: unity
 
 ### Members
 
-**`public string `[`chain`](#class_thirdweb_1_1_marketplace_auction_1a63d248e9b322d6c9fc38030931321d44)**
-
----
-
-**`public string `[`address`](#class_thirdweb_1_1_marketplace_auction_1acc8790de86e1afa9491261c4c5665563)**
-
----
-
-**`public inline `[`MarketplaceAuction`](#class_thirdweb_1_1_marketplace_auction_1a19e0032b7fd05fbd1bd3e43b76f83ca4)`(string chain,string address)`**
+**`public inline `[`MarketplaceAuction`](#class_thirdweb_1_1_marketplace_auction_1a4e2dd160750e3621c04c6736b82614f1)`(string parentRoute)`**
 
 ---
 

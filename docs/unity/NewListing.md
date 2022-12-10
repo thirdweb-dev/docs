@@ -20,6 +20,7 @@ displayed_sidebar: unity
 | currencyContractAddress  | variable |              |
 | reservePricePerToken     | variable |              |
 | buyoutPricePerToken      | variable |              |
+| ToString                 | function |              |
 
 ### Members
 
@@ -56,5 +57,9 @@ displayed_sidebar: unity
 ---
 
 **`public string `[`buyoutPricePerToken`](#class_thirdweb_1_1_new_listing_1a496ad491ab84fd2294d9ba4f05afc453)**
+
+---
+
+**`public inline override string `[`ToString`](#class_thirdweb_1_1_new_listing_1ae5cda1609d2a6ab3095c3ada05b8e151)`()`**
 
 ---

@@ -7,14 +7,17 @@ displayed_sidebar: unity
 
 ## class `ERC1155ClaimConditions` {#class_thirdweb_1_1_e_r_c1155_claim_conditions}
 
+```
+class ERC1155ClaimConditions
+  : public Thirdweb.Routable
+```
+
 Fetch claim conditions for a given [ERC1155](docs/unity/ERC1155.md#class_thirdweb_1_1_e_r_c1155) drop contract
 
 ### Summary
 
 | Members                 | Type     | Descriptions                                                      |
 | ----------------------- | -------- | ----------------------------------------------------------------- |
-| chain                   | variable |                                                                   |
-| address                 | variable |                                                                   |
 | ERC1155ClaimConditions  | function |                                                                   |
 | GetActive               | function | Get the active claim condition                                    |
 | CanClaim                | function | Check whether the connected wallet is eligible to claim           |
@@ -23,15 +26,7 @@ Fetch claim conditions for a given [ERC1155](docs/unity/ERC1155.md#class_thirdwe
 
 ### Members
 
-**`public string `[`chain`](#class_thirdweb_1_1_e_r_c1155_claim_conditions_1a4f58ba78e9f0355564ae7b639eee4a9a)**
-
----
-
-**`public string `[`address`](#class_thirdweb_1_1_e_r_c1155_claim_conditions_1a68d89d0101e0f50adfa9316b16099cf4)**
-
----
-
-**`public inline `[`ERC1155ClaimConditions`](#class_thirdweb_1_1_e_r_c1155_claim_conditions_1adb327c4783f754b90ae9cfe7c92854d2)`(string chain,string address)`**
+**`public inline `[`ERC1155ClaimConditions`](#class_thirdweb_1_1_e_r_c1155_claim_conditions_1a56d86a9c9855fb91895d7a3dbaae2185)`(string parentRoute)`**
 
 ---
 

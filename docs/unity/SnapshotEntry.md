@@ -15,6 +15,7 @@ displayed_sidebar: unity
 | maxClaimable    | variable |              |
 | price           | variable |              |
 | currencyAddress | variable |              |
+| ToString        | function |              |
 
 ### Members
 
@@ -31,5 +32,9 @@ displayed_sidebar: unity
 ---
 
 **`public string `[`currencyAddress`](#class_thirdweb_1_1_snapshot_entry_1a1ac12c2ed03818bef0b0644204ff537c)**
+
+---
+
+**`public inline override string `[`ToString`](#class_thirdweb_1_1_snapshot_entry_1a543dd5e366b8ae7ffc0db2b5c80afc71)`()`**
 
 ---

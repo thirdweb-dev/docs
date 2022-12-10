@@ -7,6 +7,11 @@ displayed_sidebar: unity
 
 ## class `Marketplace` {#class_thirdweb_1_1_marketplace}
 
+```
+class Marketplace
+  : public Thirdweb.Routable
+```
+
 Interact with a [Marketplace](#class_thirdweb_1_1_marketplace) contract.
 
 ### Summary
