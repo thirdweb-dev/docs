@@ -10,6 +10,7 @@ export default function ThirdwebCodeSnippet() {
     python: `pip install thirdweb-sdk`,
     // solidity: `npm install @thirdweb-dev/contracts`,
     go: `go get github.com/thirdweb-dev/go-sdk`,
+    unity: `https://portal.thirdweb.com/gamingkit/setting-up/installation`,
   };
 
   return (
