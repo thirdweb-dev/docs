@@ -73,6 +73,33 @@ _Returns the version of the contract._
 | ---- | ----- | ----------- |
 | \_0  | uint8 | undefined   |
 
+### getRewardRatio
+
+```solidity
+function getRewardRatio() external view returns (uint256 _numerator, uint256 _denominator)
+```
+
+#### Returns
+
+| Name          | Type    | Description |
+| ------------- | ------- | ----------- |
+| \_numerator   | uint256 | undefined   |
+| \_denominator | uint256 | undefined   |
+
+### getRewardTokenBalance
+
+```solidity
+function getRewardTokenBalance() external view returns (uint256 _rewardsAvailableInContract)
+```
+
+View total rewards available in the staking contract.
+
+#### Returns
+
+| Name                         | Type    | Description |
+| ---------------------------- | ------- | ----------- |
+| \_rewardsAvailableInContract | uint256 | undefined   |
+
 ### getRoleAdmin
 
 ```solidity
@@ -160,6 +187,18 @@ View amount staked and rewards for a user.
 | -------------- | ------- | ------------------------ |
 | \_tokensStaked | uint256 | Amount of tokens staked. |
 | \_rewards      | uint256 | Available reward amount. |
+
+### getTimeUnit
+
+```solidity
+function getTimeUnit() external view returns (uint256 _timeUnit)
+```
+
+#### Returns
+
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_timeUnit | uint256 | undefined   |
 
 ### grantRole
 
@@ -317,30 +356,6 @@ _Caller must have admin role for the `role`. Emits {RoleRevoked Event}._
 | role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 | account | address | Address of the account from which the role is being revoked.          |
 
-### rewardRatioDenominator
-
-```solidity
-function rewardRatioDenominator() external view returns (uint256)
-```
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
-
-### rewardRatioNumerator
-
-```solidity
-function rewardRatioNumerator() external view returns (uint256)
-```
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
-
 ### rewardToken
 
 ```solidity
@@ -354,6 +369,18 @@ _ERC20 Reward Token address. See {\_mintRewards} below._
 | Name | Type    | Description |
 | ---- | ------- | ----------- |
 | \_0  | address | undefined   |
+
+### rewardTokenDecimals
+
+```solidity
+function rewardTokenDecimals() external view returns (uint256)
+```
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### setContractURI
 
@@ -423,7 +450,7 @@ _See {\_stake}. Override that to implement custom logic._
 ### stakers
 
 ```solidity
-function stakers(address) external view returns (uint256 amountStaked, uint256 timeOfLastUpdate, uint256 unclaimedRewards)
+function stakers(address) external view returns (uint256 amountStaked, uint256 timeOfLastUpdate, uint256 unclaimedRewards, uint256 conditionIdOflastUpdate)
 ```
 
 #### Parameters
@@ -434,11 +461,12 @@ function stakers(address) external view returns (uint256 amountStaked, uint256 t
 
 #### Returns
 
-| Name             | Type    | Description |
-| ---------------- | ------- | ----------- |
-| amountStaked     | uint256 | undefined   |
-| timeOfLastUpdate | uint256 | undefined   |
-| unclaimedRewards | uint256 | undefined   |
+| Name                    | Type    | Description |
+| ----------------------- | ------- | ----------- |
+| amountStaked            | uint256 | undefined   |
+| timeOfLastUpdate        | uint256 | undefined   |
+| unclaimedRewards        | uint256 | undefined   |
+| conditionIdOflastUpdate | uint256 | undefined   |
 
 ### stakersArray
 
@@ -458,10 +486,22 @@ function stakersArray(uint256) external view returns (address)
 | ---- | ------- | ----------- |
 | \_0  | address | undefined   |
 
-### timeUnit
+### stakingTokenBalance
 
 ```solidity
-function timeUnit() external view returns (uint256)
+function stakingTokenBalance() external view returns (uint256)
+```
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### stakingTokenDecimals
+
+```solidity
+function stakingTokenDecimals() external view returns (uint256)
 ```
 
 #### Returns
@@ -538,6 +578,20 @@ event Initialized(uint8 version)
 | Name    | Type  | Description |
 | ------- | ----- | ----------- |
 | version | uint8 | undefined   |
+
+### RewardTokensWithdrawnByAdmin
+
+```solidity
+event RewardTokensWithdrawnByAdmin(uint256 _amount)
+```
+
+_Emitted when contract admin withdraws reward tokens._
+
+#### Parameters
+
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| \_amount | uint256 | undefined   |
 
 ### RewardsClaimed
 
