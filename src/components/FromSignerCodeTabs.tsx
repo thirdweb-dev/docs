@@ -41,6 +41,10 @@ func main() {
         panic(err)
     }
 }`,
+
+    unity: `// Unity does not support instantiating the SDK with a signer.
+// Learn how to connect users wallets to your Unity app:
+// https://portal.thirdweb.com/gamingkit/setting-up/connect-wallets`,
   };
 
   // TODO import this from const or smthn
@@ -48,6 +52,7 @@ func main() {
     javascript: "typescript",
     python: "python",
     go: "go",
+    unity: "csharp",
   };
 
   return (

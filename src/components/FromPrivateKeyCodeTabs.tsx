@@ -45,6 +45,8 @@ func main() {
         panic(err)
     }
 }`,
+
+    unity: `// Unity does not support instantiating the SDK with a private key.`,
   };
 
   // TODO import this from const or smthn
@@ -52,6 +54,7 @@ func main() {
     javascript: "typescript",
     python: "python",
     go: "go",
+    unity: "csharp",
   };
 
   return (

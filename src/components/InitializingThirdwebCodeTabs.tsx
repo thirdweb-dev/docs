@@ -51,6 +51,22 @@ func main() {
 
 	fmt.Println("New SDK instance create on chain", chainId)
 }`,
+
+    unity: `using UnityEngine;
+using Thirdweb; // 1. Import the ThirdwebSDK
+
+public class DemoClass : MonoBehaviour
+{
+    // 2. Create a ThirdwebSDK instance for us to use throughout the class
+    private ThirdwebSDK sdk;
+
+    void Start()
+    {
+        // 3. When the app starts, set up the ThirdwebSDK
+        // Below, we're setting up a read-only instance on the "goerli" test network.
+        sdk = new ThirdwebSDK("goerli");
+    }
+}`,
   };
 
   // TODO import this from const or smthn
@@ -60,6 +76,7 @@ func main() {
     react: "jsx",
     solidity: "solidity",
     go: "go",
+    unity: "csharp",
   };
 
   return (
