@@ -80,13 +80,13 @@
     "html_url": "https://github.com/thirdweb-example/connect-wallet-button",
     "description": "Learn how to use the ConnectWallet Button component from the React SDK!",
     "created_at": "2022-08-23T04:29:36Z",
-    "updated_at": "2022-12-08T01:15:43Z",
+    "updated_at": "2022-12-12T14:41:49Z",
     "clone_url": "https://github.com/thirdweb-example/connect-wallet-button.git",
     "topics": [
       "ui-components"
     ],
     "language": "JavaScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": "https://connectwallet.thirdweb-example.com/"
   },
@@ -544,13 +544,13 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-with-signature-based-minting",
     "description": "Mint and list NFTs on to a marketplace using signature-based minting",
     "created_at": "2022-07-26T07:48:49Z",
-    "updated_at": "2022-12-08T12:48:09Z",
+    "updated_at": "2022-12-12T14:06:56Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-with-signature-based-minting.git",
     "topics": [
       "marketplace"
     ],
     "language": "JavaScript",
-    "stargazers_count": 6,
+    "stargazers_count": 7,
     "is_template": false,
     "homepage": "https://marketplace-with-signature-based-minting.thirdweb-example.com/"
   },
