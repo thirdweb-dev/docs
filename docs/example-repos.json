@@ -64,14 +64,14 @@
     "html_url": "https://github.com/thirdweb-example/community-rewards",
     "description": "Reward your community using NFTs and thirdweb's signature based minting.",
     "created_at": "2022-05-22T23:33:24Z",
-    "updated_at": "2022-11-23T12:03:53Z",
+    "updated_at": "2022-12-13T08:50:48Z",
     "clone_url": "https://github.com/thirdweb-example/community-rewards.git",
     "topics": [
       "nft-collection",
       "signature-based-minting"
     ],
     "language": "JavaScript",
-    "stargazers_count": 13,
+    "stargazers_count": 14,
     "is_template": false,
     "homepage": "https://community-rewards.thirdweb-example.com"
   },
@@ -661,7 +661,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2022-12-10T08:36:09Z",
+    "updated_at": "2022-12-13T11:58:53Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -672,7 +672,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 70,
+    "stargazers_count": 71,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -697,7 +697,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-12-08T23:20:06Z",
+    "updated_at": "2022-12-14T00:29:07Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "contract-kit",
@@ -710,7 +710,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 66,
+    "stargazers_count": 68,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -894,13 +894,13 @@
     "html_url": "https://github.com/thirdweb-example/signature-drop",
     "description": "Use the signature drop pre-built contract to claim NFTs under a claim phase as well as claim using signature-based minting!",
     "created_at": "2022-07-14T23:58:52Z",
-    "updated_at": "2022-11-17T11:13:32Z",
+    "updated_at": "2022-12-13T11:58:52Z",
     "clone_url": "https://github.com/thirdweb-example/signature-drop.git",
     "topics": [
       "signature-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 9,
+    "stargazers_count": 10,
     "is_template": false,
     "homepage": "http://signature-drop.thirdweb-example.com/"
   },
@@ -1162,7 +1162,7 @@
     "html_url": "https://github.com/thirdweb-example/unity-karting-game",
     "description": "Purchase Vehicle NFTs from an in-game marketplace and start earning ERC20 tokens used to buy upgrades!",
     "created_at": "2022-11-28T07:07:24Z",
-    "updated_at": "2022-12-07T18:24:31Z",
+    "updated_at": "2022-12-13T23:41:27Z",
     "clone_url": "https://github.com/thirdweb-example/unity-karting-game.git",
     "topics": [
       "gaming"
@@ -1192,11 +1192,11 @@
     "html_url": "https://github.com/thirdweb-example/unity-rpg-game",
     "description": "Speak with NPCs and complete quests to earn ERC20 tokens which you can use to buy NFTs from the in-game shop!",
     "created_at": "2022-11-28T07:08:09Z",
-    "updated_at": "2022-12-07T18:25:08Z",
+    "updated_at": "2022-12-13T05:29:19Z",
     "clone_url": "https://github.com/thirdweb-example/unity-rpg-game.git",
     "topics": [],
     "language": "C#",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://unity-rpg-game.thirdweb-example.com"
   },
