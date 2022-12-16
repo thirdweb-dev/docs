@@ -750,7 +750,7 @@
       "summary": "Use this to transfer tokens on your {@link NFTContract}\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: transferNFT,\n    isLoading,\n    error,\n  } = useTransferNFT(contract);\n\n  if (error) {\n    console.error(\"failed to transfer nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferNFT({ to: \"0x...\", tokenId: 2 })}\n    >\n      Transfer\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: transferNFT,\n    isLoading,\n    error,\n  } = useTransferNFT(contract);\n\n  if (error) {\n    console.error(\"failed to transfer nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferNFT({ to: \"0x...\", tokenId: 2, amount: 1 })}\n    >\n      Transfer\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetransfernft"
@@ -1053,7 +1053,7 @@
       "summary": "Use this to transfer tokens on your {@link NFTContract}\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: transferNFT,\n    isLoading,\n    error,\n  } = useTransferNFT(contract);\n\n  if (error) {\n    console.error(\"failed to transfer nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferNFT({ to: \"0x...\", tokenId: 2 })}\n    >\n      Transfer\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(<ContractAddress>);\n  const {\n    mutate: transferNFT,\n    isLoading,\n    error,\n  } = useTransferNFT(contract);\n\n  if (error) {\n    console.error(\"failed to transfer nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferNFT({ to: \"0x...\", tokenId: 2, amount: 1 })}\n    >\n      Transfer\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetransfernft"
