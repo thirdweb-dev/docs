@@ -31,15 +31,16 @@ const balance = await sdk.wallet.balance();
 
 ## Methods
 
-| Method                                                                           | Modifiers | Description                                                        |
-| -------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------ |
-| [balance(currencyAddress)](./sdk.userwallet.balance.md)                          |           | Fetch the native or ERC20 token balance of this wallet             |
-| [connect(network)](./sdk.userwallet.connect.md)                                  |           |                                                                    |
-| [getAddress()](./sdk.userwallet.getaddress.md)                                   |           | Get the currently connected address                                |
-| [recoverAddress(message, signature)](./sdk.userwallet.recoveraddress.md)         |           | Recover the signing address from a signed message                  |
-| [sendRawTransaction(transactionRequest)](./sdk.userwallet.sendrawtransaction.md) |           | Send a raw transaction to the blockchain from the connected wallet |
-| [sign(message)](./sdk.userwallet.sign.md)                                        |           | Sign any message with the connected wallet private key             |
-| [transfer(to, amount, currencyAddress)](./sdk.userwallet.transfer.md)            |           | Transfer native or ERC20 tokens from this wallet to another wallet |
+| Method                                                                           | Modifiers | Description                                                                |
+| -------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------- |
+| [balance(currencyAddress)](./sdk.userwallet.balance.md)                          |           | Fetch the native or ERC20 token balance of this wallet                     |
+| [connect(network)](./sdk.userwallet.connect.md)                                  |           |                                                                            |
+| [getAddress()](./sdk.userwallet.getaddress.md)                                   |           | Get the currently connected address                                        |
+| [recoverAddress(message, signature)](./sdk.userwallet.recoveraddress.md)         |           | Recover the signing address from a signed message                          |
+| [sendRawTransaction(transactionRequest)](./sdk.userwallet.sendrawtransaction.md) |           | Send a raw transaction to the blockchain from the connected wallet         |
+| [sign(message)](./sdk.userwallet.sign.md)                                        |           | Sign any message with the connected wallet private key                     |
+| [signTypedData(domain, types, message)](./sdk.userwallet.signtypeddata.md)       |           | Sign a typed data structure (EIP712) with the connected wallet private key |
+| [transfer(to, amount, currencyAddress)](./sdk.userwallet.transfer.md)            |           | Transfer native or ERC20 tokens from this wallet to another wallet         |
 
 **Signature:**
 

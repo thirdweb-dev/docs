@@ -208,7 +208,7 @@
     "html_url": "https://github.com/thirdweb-example/creator-platform",
     "description": "Authenticate users into a web2 database to build a hybrid web2+web3 creator platform!",
     "created_at": "2022-09-23T01:22:38Z",
-    "updated_at": "2022-12-10T08:35:22Z",
+    "updated_at": "2022-12-16T11:11:32Z",
     "clone_url": "https://github.com/thirdweb-example/creator-platform.git",
     "topics": [
       "auth",
@@ -216,7 +216,7 @@
       "web2"
     ],
     "language": "TypeScript",
-    "stargazers_count": 5,
+    "stargazers_count": 6,
     "is_template": false,
     "homepage": ""
   },
@@ -464,13 +464,13 @@
     "html_url": "https://github.com/thirdweb-example/lens",
     "description": "Starter kit for using Lens Protocol with the thirdweb SDK!",
     "created_at": "2022-10-27T10:15:02Z",
-    "updated_at": "2022-12-14T16:23:48Z",
+    "updated_at": "2022-12-16T11:25:20Z",
     "clone_url": "https://github.com/thirdweb-example/lens.git",
     "topics": [
       "lens-protocol"
     ],
     "language": "TypeScript",
-    "stargazers_count": 18,
+    "stargazers_count": 19,
     "is_template": false,
     "homepage": "https://lens.thirdweb-example.com/"
   },
@@ -527,7 +527,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2022-12-16T08:25:32Z",
+    "updated_at": "2022-12-16T11:10:00Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace.git",
     "topics": [
       "marketplace",
@@ -535,7 +535,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 38,
+    "stargazers_count": 39,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
@@ -760,7 +760,7 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2022-12-14T06:04:22Z",
+    "updated_at": "2022-12-16T11:11:19Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [
       "contract-kit",
@@ -771,7 +771,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 24,
+    "stargazers_count": 25,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },
@@ -1098,6 +1098,19 @@
     "homepage": ""
   },
   {
+    "name": "thirdweb-bundlr",
+    "html_url": "https://github.com/thirdweb-example/thirdweb-bundlr",
+    "description": "Decentralized NFT metadata storage using Bundlr",
+    "created_at": "2022-12-16T19:27:19Z",
+    "updated_at": "2022-12-16T19:28:59Z",
+    "clone_url": "https://github.com/thirdweb-example/thirdweb-bundlr.git",
+    "topics": [],
+    "language": null,
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "thirdweb-stripe",
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
@@ -1221,11 +1234,11 @@
     "html_url": "https://github.com/thirdweb-example/unlock-subscribe",
     "description": "Build a simple on-chain subscription model into your app using the Lock contract by Unlock",
     "created_at": "2022-12-01T17:35:46Z",
-    "updated_at": "2022-12-07T09:36:04Z",
+    "updated_at": "2022-12-16T22:10:31Z",
     "clone_url": "https://github.com/thirdweb-example/unlock-subscribe.git",
     "topics": [],
     "language": "CSS",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://unlock-subscribe.thirdweb-example.com/"
   },

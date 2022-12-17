@@ -3989,6 +3989,23 @@
         }
       },
       {
+        "name": "signTypedData",
+        "summary": "Sign a typed data structure (EIP712) with the connected wallet private key\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// This is the message to be signed\n// Now we can sign the message with the connected wallet\nconst { payload, signature } = await sdk.wallet.signTypedData(\n  {\n            name: \"MyEIP721Domain\",\n            version: \"1\",\n            chainId: 1,\n            verifyingContract: \"0x...\",\n          },\n          { MyStruct: [ { name: \"to\", type: \"address\" }, { name: \"quantity\", type: \"uint256\" } ] },\n          { to: \"0x...\", quantity: 1 },\n);",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\n// This is the message to be signed\n// Now we can sign the message with the connected wallet\nconst { payload, signature } = await sdk.wallet.signTypedData(\n  {\n            name: \"MyEIP721Domain\",\n            version: \"1\",\n            chainId: 1,\n            verifyingContract: \"0x...\",\n          },\n          { MyStruct: [ { name: \"to\", type: \"address\" }, { name: \"quantity\", type: \"uint256\" } ] },\n          { to: \"0x...\", quantity: 1 },\n);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.userwallet.signtypeddata",
+          "python": "",
+          "go": "",
+          "react": "https://portal.thirdweb.com/typescript/sdk.userwallet.signtypeddata"
+        }
+      },
+      {
         "name": "transfer",
         "summary": "Transfer native or ERC20 tokens from this wallet to another wallet\n\n",
         "remarks": null,
