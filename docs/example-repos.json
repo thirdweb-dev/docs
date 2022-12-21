@@ -161,7 +161,7 @@
     "html_url": "https://github.com/thirdweb-example/cra-javascript-starter",
     "description": "thirdweb starter project with Create React App & JavaScript",
     "created_at": "2022-03-18T00:31:36Z",
-    "updated_at": "2022-12-17T00:39:13Z",
+    "updated_at": "2022-12-21T15:16:01Z",
     "clone_url": "https://github.com/thirdweb-example/cra-javascript-starter.git",
     "topics": [
       "javascript",
@@ -169,7 +169,7 @@
       "starter-kit"
     ],
     "language": "JavaScript",
-    "stargazers_count": 18,
+    "stargazers_count": 19,
     "is_template": true,
     "homepage": "https://cra-javascript-starter.thirdweb-example.com"
   },
@@ -495,7 +495,7 @@
     "html_url": "https://github.com/thirdweb-example/magic-link",
     "description": "Connect users to your dApp using just their email using thirdweb's useMagic hook!",
     "created_at": "2022-04-27T07:03:18Z",
-    "updated_at": "2022-12-14T06:11:25Z",
+    "updated_at": "2022-12-21T09:06:31Z",
     "clone_url": "https://github.com/thirdweb-example/magic-link.git",
     "topics": [
       "nextjs",
@@ -503,7 +503,7 @@
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 10,
+    "stargazers_count": 11,
     "is_template": false,
     "homepage": "https://magic-link.thirdweb-example.com"
   },
@@ -697,7 +697,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2022-12-20T03:50:08Z",
+    "updated_at": "2022-12-21T15:28:50Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "contract-kit",
@@ -710,7 +710,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 73,
+    "stargazers_count": 74,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -1085,11 +1085,11 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-bundlr",
     "description": "Decentralized NFT metadata storage using Bundlr",
     "created_at": "2022-12-16T19:27:19Z",
-    "updated_at": "2022-12-20T15:38:19Z",
+    "updated_at": "2022-12-21T11:48:11Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-bundlr.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": null
   },

@@ -223,7 +223,7 @@ _Only admin/authorized-account can call it._
 ### stake
 
 ```solidity
-function stake(uint256 _amount) external nonpayable
+function stake(uint256 _amount) external payable
 ```
 
 Stake ERC20 Tokens.
