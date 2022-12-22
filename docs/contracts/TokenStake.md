@@ -73,6 +73,20 @@ _Returns the version of the contract._
 | ---- | ----- | ----------- |
 | \_0  | uint8 | undefined   |
 
+### depositRewardTokens
+
+```solidity
+function depositRewardTokens(uint256 _amount) external payable
+```
+
+_Admin deposits reward tokens._
+
+#### Parameters
+
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| \_amount | uint256 | undefined   |
+
 ### getRewardRatio
 
 ```solidity
@@ -89,16 +103,16 @@ function getRewardRatio() external view returns (uint256 _numerator, uint256 _de
 ### getRewardTokenBalance
 
 ```solidity
-function getRewardTokenBalance() external view returns (uint256 _rewardsAvailableInContract)
+function getRewardTokenBalance() external view returns (uint256)
 ```
 
 View total rewards available in the staking contract.
 
 #### Returns
 
-| Name                         | Type    | Description |
-| ---------------------------- | ------- | ----------- |
-| \_rewardsAvailableInContract | uint256 | undefined   |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### getRoleAdmin
 
@@ -434,7 +448,7 @@ _Only admin/authorized-account can call it._
 ### stake
 
 ```solidity
-function stake(uint256 _amount) external nonpayable
+function stake(uint256 _amount) external payable
 ```
 
 Stake ERC20 Tokens.
@@ -578,6 +592,20 @@ event Initialized(uint8 version)
 | Name    | Type  | Description |
 | ------- | ----- | ----------- |
 | version | uint8 | undefined   |
+
+### RewardTokensDepositedByAdmin
+
+```solidity
+event RewardTokensDepositedByAdmin(uint256 _amount)
+```
+
+_Emitted when contract admin deposits reward tokens._
+
+#### Parameters
+
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| \_amount | uint256 | undefined   |
 
 ### RewardTokensWithdrawnByAdmin
 
