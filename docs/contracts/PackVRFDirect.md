@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # PackVRFDirect
 
+NOTE: This contract is a work in progress.
+
 ## Methods
 
 ### DEFAULT_ADMIN_ROLE
@@ -703,6 +705,20 @@ _See {IERC1155-safeTransferFrom}._
 | id     | uint256 | undefined   |
 | amount | uint256 | undefined   |
 | data   | bytes   | undefined   |
+
+### sendRewardsIndirect
+
+```solidity
+function sendRewardsIndirect(address _opener) external nonpayable
+```
+
+Lets a pack owner open packs and receive the packs&#39; reward units.
+
+#### Parameters
+
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| \_opener | address | undefined   |
 
 ### setApprovalForAll
 
