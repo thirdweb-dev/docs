@@ -24,17 +24,17 @@ function DEFAULT_ADMIN_ROLE() external view returns (bytes32)
 ### approve
 
 ```solidity
-function approve(address to, uint256 tokenId) external nonpayable
+function approve(address operator, uint256 tokenId) external nonpayable
 ```
 
-_See {IERC721-approve}._
+_See {ERC721-approve}._
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| to      | address | undefined   |
-| tokenId | uint256 | undefined   |
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| operator | address | undefined   |
+| tokenId  | uint256 | undefined   |
 
 ### balanceOf
 
@@ -430,6 +430,18 @@ _The token ID of the next token to mint._
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
 
+### operatorRestriction
+
+```solidity
+function operatorRestriction() external view returns (bool)
+```
+
+#### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
+
 ### owner
 
 ```solidity
@@ -550,7 +562,7 @@ _See EIP-2981_
 function safeTransferFrom(address from, address to, uint256 tokenId) external nonpayable
 ```
 
-_See {IERC721-safeTransferFrom}._
+_See {ERC721-\_safeTransferFrom}._
 
 #### Parameters
 
@@ -566,7 +578,7 @@ _See {IERC721-safeTransferFrom}._
 function safeTransferFrom(address from, address to, uint256 tokenId, bytes data) external nonpayable
 ```
 
-_See {IERC721-safeTransferFrom}._
+_See {ERC721-\_safeTransferFrom}._
 
 #### Parameters
 
@@ -583,7 +595,7 @@ _See {IERC721-safeTransferFrom}._
 function setApprovalForAll(address operator, bool approved) external nonpayable
 ```
 
-_See {IERC721-setApprovalForAll}._
+_See {ERC721-setApprovalForAll}._
 
 #### Parameters
 
@@ -620,6 +632,18 @@ _Lets a module admin update the royalty bps and recipient._
 | ------------------ | ------- | ----------- |
 | \_royaltyRecipient | address | undefined   |
 | \_royaltyBps       | uint256 | undefined   |
+
+### setOperatorRestriction
+
+```solidity
+function setOperatorRestriction(bool _restriction) external nonpayable
+```
+
+#### Parameters
+
+| Name          | Type | Description |
+| ------------- | ---- | ----------- |
+| \_restriction | bool | undefined   |
 
 ### setOwner
 
@@ -793,7 +817,7 @@ _See {IERC721Enumerable-totalSupply}._
 function transferFrom(address from, address to, uint256 tokenId) external nonpayable
 ```
 
-_See {IERC721-transferFrom}._
+_See {ERC721-\_transferFrom}._
 
 #### Parameters
 
@@ -877,6 +901,18 @@ event Initialized(uint8 version)
 | Name    | Type  | Description |
 | ------- | ----- | ----------- |
 | version | uint8 | undefined   |
+
+### OperatorRestriction
+
+```solidity
+event OperatorRestriction(bool restriction)
+```
+
+#### Parameters
+
+| Name        | Type | Description |
+| ----------- | ---- | ----------- |
+| restriction | bool | undefined   |
 
 ### OwnerUpdated
 
@@ -1014,3 +1050,17 @@ event Transfer(address indexed from, address indexed to, uint256 indexed tokenId
 | from `indexed`    | address | undefined   |
 | to `indexed`      | address | undefined   |
 | tokenId `indexed` | uint256 | undefined   |
+
+## Errors
+
+### OperatorNotAllowed
+
+```solidity
+error OperatorNotAllowed(address operator)
+```
+
+#### Parameters
+
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| operator | address | undefined   |

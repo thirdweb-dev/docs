@@ -314,6 +314,18 @@ function subscriptionOf(address addr) external nonpayable returns (address regis
 | ---------- | ------- | ----------- |
 | registrant | address | undefined   |
 
+### unregister
+
+```solidity
+function unregister(address addr) external nonpayable
+```
+
+#### Parameters
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| addr | address | undefined   |
+
 ### unsubscribe
 
 ```solidity

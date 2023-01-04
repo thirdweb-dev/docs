@@ -588,6 +588,18 @@ _The tokenId of the next NFT that will be minted / lazy minted._
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
 
+### operatorRestriction
+
+```solidity
+function operatorRestriction() external view returns (bool)
+```
+
+#### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
+
 ### owner
 
 ```solidity
@@ -736,7 +748,7 @@ _Mapping from token ID =&gt; the address of the recipient of primary sales._
 function setApprovalForAll(address operator, bool approved) external nonpayable
 ```
 
-_See {IERC1155-setApprovalForAll}._
+_See {ERC1155-setApprovalForAll}_
 
 #### Parameters
 
@@ -806,6 +818,18 @@ _Lets a module admin set a max total supply for token._
 | ---------------- | ------- | ----------- |
 | \_tokenId        | uint256 | undefined   |
 | \_maxTotalSupply | uint256 | undefined   |
+
+### setOperatorRestriction
+
+```solidity
+function setOperatorRestriction(bool _restriction) external nonpayable
+```
+
+#### Parameters
+
+| Name          | Type | Description |
+| ------------- | ---- | ----------- |
+| \_restriction | bool | undefined   |
 
 ### setOwner
 
@@ -1068,6 +1092,18 @@ _Emitted when the global max supply of a token is updated._
 | tokenId        | uint256 | undefined   |
 | maxTotalSupply | uint256 | undefined   |
 
+### OperatorRestriction
+
+```solidity
+event OperatorRestriction(bool restriction)
+```
+
+#### Parameters
+
+| Name        | Type | Description |
+| ----------- | ---- | ----------- |
+| restriction | bool | undefined   |
+
 ### OwnerUpdated
 
 ```solidity
@@ -1254,3 +1290,17 @@ event URI(string value, uint256 indexed id)
 | ------------ | ------- | ----------- |
 | value        | string  | undefined   |
 | id `indexed` | uint256 | undefined   |
+
+## Errors
+
+### OperatorNotAllowed
+
+```solidity
+error OperatorNotAllowed(address operator)
+```
+
+#### Parameters
+
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| operator | address | undefined   |

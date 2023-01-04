@@ -1,11 +1,11 @@
 ---
-slug: /OperatorFiltererUpgradeable
-title: OperatorFiltererUpgradeable
+slug: /IOperatorFilterToggle
+title: IOperatorFilterToggle
 hide_title: true
 displayed_sidebar: contracts
 ---
 
-# OperatorFiltererUpgradeable
+# IOperatorFilterToggle
 
 ## Methods
 
@@ -24,14 +24,14 @@ function operatorRestriction() external view returns (bool)
 ### setOperatorRestriction
 
 ```solidity
-function setOperatorRestriction(bool _restriction) external nonpayable
+function setOperatorRestriction(bool restriction) external nonpayable
 ```
 
 #### Parameters
 
-| Name          | Type | Description |
-| ------------- | ---- | ----------- |
-| \_restriction | bool | undefined   |
+| Name        | Type | Description |
+| ----------- | ---- | ----------- |
+| restriction | bool | undefined   |
 
 ## Events
 
@@ -46,17 +46,3 @@ event OperatorRestriction(bool restriction)
 | Name        | Type | Description |
 | ----------- | ---- | ----------- |
 | restriction | bool | undefined   |
-
-## Errors
-
-### OperatorNotAllowed
-
-```solidity
-error OperatorNotAllowed(address operator)
-```
-
-#### Parameters
-
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| operator | address | undefined   |
