@@ -73,8 +73,6 @@ _Returns the version of the contract._
 | ---- | ----- | ----------- |
 | \_0  | uint8 | undefined   |
 
-<<<<<<< HEAD
-
 ### depositRewardTokens
 
 ```solidity
@@ -91,29 +89,17 @@ _Admin deposits reward tokens._
 
 ### getRewardTokenBalance
 
-````solidity
-function getRewardTokenBalance() external view returns (uint256)
-=======
-### getRewardTokenBalance
-
 ```solidity
-function getRewardTokenBalance() external view returns (uint256 _rewardsAvailableInContract)
->>>>>>> main
-````
+function getRewardTokenBalance() external view returns (uint256)
+```
 
 View total rewards available in the staking contract.
 
 #### Returns
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-
-<<<<<<< HEAD
-| \_0 | uint256 | undefined |
-=======
-| \_rewardsAvailableInContract | uint256 | undefined |
-
-> > > > > > > main
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### getRewardsPerUnitTime
 
@@ -311,7 +297,7 @@ function indexedTokens(uint256) external view returns (uint256)
 ### initialize
 
 ```solidity
-function initialize(address _defaultAdmin, string _contractURI, address[] _trustedForwarders, address _rewardToken, address _nftCollection, uint256 _timeUnit, uint256 _rewardsPerUnitTime) external nonpayable
+function initialize(address _defaultAdmin, string _contractURI, address[] _trustedForwarders, address _rewardToken, address _stakingToken, uint256 _timeUnit, uint256 _rewardsPerUnitTime) external nonpayable
 ```
 
 _Initiliazes the contract, like a constructor._
@@ -324,7 +310,7 @@ _Initiliazes the contract, like a constructor._
 | \_contractURI        | string    | undefined   |
 | \_trustedForwarders  | address[] | undefined   |
 | \_rewardToken        | address   | undefined   |
-| \_nftCollection      | address   | undefined   |
+| \_stakingToken       | address   | undefined   |
 | \_timeUnit           | uint256   | undefined   |
 | \_rewardsPerUnitTime | uint256   | undefined   |
 
@@ -383,18 +369,6 @@ _Receives and executes a batch of function calls on this contract._
 | Name    | Type    | Description |
 | ------- | ------- | ----------- |
 | results | bytes[] | undefined   |
-
-### nftCollection
-
-```solidity
-function nftCollection() external view returns (address)
-```
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
 
 ### onERC721Received
 
@@ -586,6 +560,18 @@ function stakersArray(uint256) external view returns (address)
 | ---- | ------- | ----------- |
 | \_0  | address | undefined   |
 
+### stakingToken
+
+```solidity
+function stakingToken() external view returns (address)
+```
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+
 ### supportsInterface
 
 ```solidity
@@ -663,15 +649,11 @@ event Initialized(uint8 version)
 | ------- | ----- | ----------- |
 | version | uint8 | undefined   |
 
-<<<<<<< HEAD
-
 ### RewardTokensDepositedByAdmin
 
 ```solidity
 event RewardTokensDepositedByAdmin(uint256 _amount)
 ```
-
-_Emitted when contract admin deposits reward tokens._
 
 #### Parameters
 
@@ -679,17 +661,11 @@ _Emitted when contract admin deposits reward tokens._
 | -------- | ------- | ----------- |
 | \_amount | uint256 | undefined   |
 
-=======
-
-> > > > > > > main
-
 ### RewardTokensWithdrawnByAdmin
 
 ```solidity
 event RewardTokensWithdrawnByAdmin(uint256 _amount)
 ```
-
-_Emitted when contract admin withdraws reward tokens._
 
 #### Parameters
 

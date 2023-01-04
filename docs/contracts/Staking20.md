@@ -7,8 +7,6 @@ displayed_sidebar: contracts
 
 # Staking20
 
-note: This is a Beta release.
-
 ## Methods
 
 ### claimRewards
@@ -187,6 +185,20 @@ _List of accounts that have staked that token-id._
 | ---- | ------- | ----------- |
 | \_0  | address | undefined   |
 
+### stakingToken
+
+```solidity
+function stakingToken() external view returns (address)
+```
+
+_Address of ERC20 contract -- staked tokens belong to this contract._
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+
 ### stakingTokenBalance
 
 ```solidity
@@ -214,20 +226,6 @@ _Decimals of staking token._
 | Name | Type    | Description |
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
-
-### token
-
-```solidity
-function token() external view returns (address)
-```
-
-_Address of ERC20 contract -- staked tokens belong to this contract._
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
 
 ### withdraw
 

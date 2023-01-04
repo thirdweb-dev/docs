@@ -7,8 +7,6 @@ displayed_sidebar: contracts
 
 # Staking1155
 
-note: This is a Beta release.
-
 ## Methods
 
 ### claimRewards
@@ -26,20 +24,6 @@ _See {\_claimRewards}. Override that to implement custom logic. See {\_calculate
 | Name      | Type    | Description      |
 | --------- | ------- | ---------------- |
 | \_tokenId | uint256 | Staked token Id. |
-
-### edition
-
-```solidity
-function edition() external view returns (address)
-```
-
-_Address of ERC1155 contract -- staked tokens belong to this contract._
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
 
 ### getDefaultRewardsPerUnitTime
 
@@ -320,6 +304,20 @@ _Mapping from token-id to list of accounts that have staked that token-id._
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
 | \_1  | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+
+### stakingToken
+
+```solidity
+function stakingToken() external view returns (address)
+```
+
+_Address of ERC1155 contract -- staked tokens belong to this contract._
 
 #### Returns
 
