@@ -495,7 +495,7 @@
     "html_url": "https://github.com/thirdweb-example/magic-link",
     "description": "Connect users to your dApp using just their email using thirdweb's useMagic hook!",
     "created_at": "2022-04-27T07:03:18Z",
-    "updated_at": "2023-01-02T21:09:57Z",
+    "updated_at": "2023-01-04T19:56:30Z",
     "clone_url": "https://github.com/thirdweb-example/magic-link.git",
     "topics": [
       "nextjs",
@@ -503,7 +503,7 @@
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 12,
+    "stargazers_count": 13,
     "is_template": false,
     "homepage": "https://magic-link.thirdweb-example.com"
   },
@@ -527,7 +527,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2023-01-03T12:24:15Z",
+    "updated_at": "2023-01-04T15:45:34Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace.git",
     "topics": [
       "marketplace",
@@ -535,7 +535,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 43,
+    "stargazers_count": 44,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
