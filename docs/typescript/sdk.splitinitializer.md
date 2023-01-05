@@ -458,55 +458,94 @@ SplitInitializer: {
         }
       | undefined,
   ) => Promise<import("./prebuilt-implementations/split").Split>;
-  getAbi: (address: string, provider: ethers.providers.Provider) =>
+  getAbi: (
+    address: string,
+    provider: ethers.providers.Provider,
+    storage: ThirdwebStorage,
+  ) =>
     Promise<
-      (
-        | {
-            inputs: never[];
-            stateMutability: string;
-            type: string;
-            anonymous?: undefined;
-            name?: undefined;
-            outputs?: undefined;
-          }
-        | {
-            anonymous: boolean;
-            inputs: {
-              indexed: boolean;
-              internalType: string;
+      | {
+          [x: string]: any;
+          name?: string | undefined;
+          inputs?:
+            | {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?:
+                  | {
+                      [x: string]: any;
+                      type: string;
+                      name: string;
+                    }[]
+                  | undefined;
+                type: string;
+                name: string;
+              }[]
+            | undefined;
+          outputs?:
+            | {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?:
+                  | {
+                      [x: string]: any;
+                      type: string;
+                      name: string;
+                    }[]
+                  | undefined;
+                type: string;
+                name: string;
+              }[]
+            | undefined;
+          type: string;
+        }[]
+      | (
+          | {
+              inputs: never[];
+              stateMutability: string;
+              type: string;
+              anonymous?: undefined;
+              name?: undefined;
+              outputs?: undefined;
+            }
+          | {
+              anonymous: boolean;
+              inputs: {
+                indexed: boolean;
+                internalType: string;
+                name: string;
+                type: string;
+              }[];
               name: string;
               type: string;
-            }[];
-            name: string;
-            type: string;
-            stateMutability?: undefined;
-            outputs?: undefined;
-          }
-        | {
-            inputs: {
-              internalType: string;
+              stateMutability?: undefined;
+              outputs?: undefined;
+            }
+          | {
+              inputs: {
+                internalType: string;
+                name: string;
+                type: string;
+              }[];
               name: string;
+              outputs: {
+                internalType: string;
+                name: string;
+                type: string;
+              }[];
+              stateMutability: string;
               type: string;
-            }[];
-            name: string;
-            outputs: {
-              internalType: string;
-              name: string;
+              anonymous?: undefined;
+            }
+          | {
+              stateMutability: string;
               type: string;
-            }[];
-            stateMutability: string;
-            type: string;
-            anonymous?: undefined;
-          }
-        | {
-            stateMutability: string;
-            type: string;
-            inputs?: undefined;
-            anonymous?: undefined;
-            name?: undefined;
-            outputs?: undefined;
-          }
-      )[]
+              inputs?: undefined;
+              anonymous?: undefined;
+              name?: undefined;
+              outputs?: undefined;
+            }
+        )[]
     >;
 }
 ```

@@ -389,8 +389,47 @@ NFTDropInitializer: {
         }
       | undefined,
   ) => Promise<import("./prebuilt-implementations/nft-drop").NFTDrop>;
-  getAbi: (address: string, provider: ethers.providers.Provider) =>
+  getAbi: (
+    address: string,
+    provider: ethers.providers.Provider,
+    storage: ThirdwebStorage,
+  ) =>
     Promise<
+      | {
+          [x: string]: any;
+          name?: string | undefined;
+          inputs?:
+            | {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?:
+                  | {
+                      [x: string]: any;
+                      type: string;
+                      name: string;
+                    }[]
+                  | undefined;
+                type: string;
+                name: string;
+              }[]
+            | undefined;
+          outputs?:
+            | {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?:
+                  | {
+                      [x: string]: any;
+                      type: string;
+                      name: string;
+                    }[]
+                  | undefined;
+                type: string;
+                name: string;
+              }[]
+            | undefined;
+          type: string;
+        }[]
       | (
           | {
               inputs: never[];
@@ -401,7 +440,11 @@ NFTDropInitializer: {
               outputs?: undefined;
             }
           | {
-              inputs: never[];
+              inputs: {
+                internalType: string;
+                name: string;
+                type: string;
+              }[];
               name: string;
               type: string;
               stateMutability?: undefined;

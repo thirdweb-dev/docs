@@ -30,7 +30,7 @@ const contract = await sdk.getContract("{{contract_address}}", "vote");
 
 | Property                             | Modifiers             | Type                                                                                      | Description |
 | ------------------------------------ | --------------------- | ----------------------------------------------------------------------------------------- | ----------- |
-| [abi](./sdk.vote.abi.md)             |                       | typeof ABI                                                                                |             |
+| [abi](./sdk.vote.abi.md)             |                       | [Abi](./sdk.abi.md)                                                                       |             |
 | [chainId](./sdk.vote.chainid.md)     | <code>readonly</code> | number                                                                                    |             |
 | [encoder](./sdk.vote.encoder.md)     |                       | [ContractEncoder](./sdk.contractencoder.md)&lt;VoteERC20&gt;                              |             |
 | [estimator](./sdk.vote.estimator.md) |                       | [GasCostEstimator](./sdk.gascostestimator.md)&lt;VoteERC20&gt;                            |             |

@@ -30,7 +30,7 @@ const contract = await sdk.getContract("{{contract_address}}", "split");
 
 | Property                                      | Modifiers             | Type                                                                                                                               | Description |
 | --------------------------------------------- | --------------------- | ---------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| [abi](./sdk.split.abi.md)                     |                       | typeof ABI                                                                                                                         |             |
+| [abi](./sdk.split.abi.md)                     |                       | [Abi](./sdk.abi.md)                                                                                                                |             |
 | [chainId](./sdk.split.chainid.md)             | <code>readonly</code> | number                                                                                                                             |             |
 | [contractRoles](./sdk.split.contractroles.md) | <code>static</code>   | readonly \["admin"\]                                                                                                               |             |
 | [encoder](./sdk.split.encoder.md)             |                       | [ContractEncoder](./sdk.contractencoder.md)&lt;SplitContract&gt;                                                                   |             |

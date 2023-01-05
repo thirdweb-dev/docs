@@ -139,6 +139,7 @@ displayed_sidebar: typescript
 | [EditionDropInitializer](./sdk.editiondropinitializer.md)             |             |
 | [EditionInitializer](./sdk.editioninitializer.md)                     |             |
 | [GenericRequest](./sdk.genericrequest.md)                             |             |
+| [LINK_TOKEN_ADDRESS](./sdk.link_token_address.md)                     |             |
 | [MarketplaceInitializer](./sdk.marketplaceinitializer.md)             |             |
 | [MintRequest1155](./sdk.mintrequest1155.md)                           |             |
 | [MintRequest20](./sdk.mintrequest20.md)                               |             |

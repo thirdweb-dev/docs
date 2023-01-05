@@ -316,7 +316,119 @@ CONTRACTS_MAP: {
                 };
             } | undefined;
         } | undefined) => Promise<import("./prebuilt-implementations/edition-drop").EditionDrop>;
-        getAbi: (address: string, provider: ethers.providers.Provider) => Promise<({
+        getAbi: (address: string, provider: ethers.providers.Provider, storage: ThirdwebStorage) => Promise<{
+            [x: string]: any;
+            name?: string | undefined;
+            inputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            outputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+        }[] | ({
+            inputs: never[];
+            stateMutability: string;
+            type: string;
+            name?: undefined;
+            anonymous?: undefined;
+            outputs?: undefined;
+        } | {
+            inputs: {
+                internalType: string;
+                name: string;
+                type: string;
+            }[];
+            name: string;
+            type: string;
+            stateMutability?: undefined;
+            anonymous?: undefined;
+            outputs?: undefined;
+        } | {
+            anonymous: boolean;
+            inputs: ({
+                indexed: boolean;
+                internalType: string;
+                name: string;
+                type: string;
+                components?: undefined;
+            } | {
+                components: {
+                    internalType: string;
+                    name: string;
+                    type: string;
+                }[];
+                indexed: boolean;
+                internalType: string;
+                name: string;
+                type: string;
+            })[];
+            name: string;
+            type: string;
+            stateMutability?: undefined;
+            outputs?: undefined;
+        } | {
+            inputs: {
+                internalType: string;
+                name: string;
+                type: string;
+            }[];
+            name: string;
+            outputs: {
+                components: {
+                    internalType: string;
+                    name: string;
+                    type: string;
+                }[];
+                internalType: string;
+                name: string;
+                type: string;
+            }[];
+            stateMutability: string;
+            type: string;
+            anonymous?: undefined;
+        } | {
+            inputs: ({
+                internalType: string;
+                name: string;
+                type: string;
+                components?: undefined;
+            } | {
+                components: {
+                    internalType: string;
+                    name: string;
+                    type: string;
+                }[];
+                internalType: string;
+                name: string;
+                type: string;
+            })[];
+            name: string;
+            outputs: {
+                internalType: string;
+                name: string;
+                type: string;
+            }[];
+            stateMutability: string;
+            type: string;
+            anonymous?: undefined;
+        })[] | ({
             inputs: never[];
             stateMutability: string;
             type: string;
@@ -559,12 +671,49 @@ CONTRACTS_MAP: {
                 };
             } | undefined;
         } | undefined) => Promise<import("./prebuilt-implementations/edition").Edition>;
-        getAbi: (address: string, provider: ethers.providers.Provider) => Promise<({
+        getAbi: (address: string, provider: ethers.providers.Provider, storage: ThirdwebStorage) => Promise<{
+            [x: string]: any;
+            name?: string | undefined;
+            inputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            outputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+        }[] | ({
             inputs: never[];
             stateMutability: string;
             type: string;
-            anonymous?: undefined;
             name?: undefined;
+            anonymous?: undefined;
+            outputs?: undefined;
+        } | {
+            inputs: {
+                internalType: string;
+                name: string;
+                type: string;
+            }[];
+            name: string;
+            type: string;
+            stateMutability?: undefined;
+            anonymous?: undefined;
             outputs?: undefined;
         } | {
             anonymous: boolean;
@@ -736,7 +885,33 @@ CONTRACTS_MAP: {
                 };
             } | undefined;
         } | undefined) => Promise<import("./prebuilt-implementations/marketplace").Marketplace>;
-        getAbi: (address: string, provider: ethers.providers.Provider) => Promise<({
+        getAbi: (address: string, provider: ethers.providers.Provider, storage: ThirdwebStorage) => Promise<{
+            [x: string]: any;
+            name?: string | undefined;
+            inputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            outputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+        }[] | ({
             inputs: {
                 internalType: string;
                 name: string;
@@ -954,7 +1129,33 @@ CONTRACTS_MAP: {
                 };
             } | undefined;
         } | undefined) => Promise<import("./prebuilt-implementations/multiwrap").Multiwrap>;
-        getAbi: (address: string, provider: ethers.providers.Provider) => Promise<({
+        getAbi: (address: string, provider: ethers.providers.Provider, storage: ThirdwebStorage) => Promise<{
+            [x: string]: any;
+            name?: string | undefined;
+            inputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            outputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+        }[] | ({
             inputs: {
                 internalType: string;
                 name: string;
@@ -1197,12 +1398,49 @@ CONTRACTS_MAP: {
                 };
             } | undefined;
         } | undefined) => Promise<import("./prebuilt-implementations/nft-collection").NFTCollection>;
-        getAbi: (address: string, provider: ethers.providers.Provider) => Promise<({
+        getAbi: (address: string, provider: ethers.providers.Provider, storage: ThirdwebStorage) => Promise<{
+            [x: string]: any;
+            name?: string | undefined;
+            inputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            outputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+        }[] | ({
             inputs: never[];
             stateMutability: string;
             type: string;
-            anonymous?: undefined;
             name?: undefined;
+            anonymous?: undefined;
+            outputs?: undefined;
+        } | {
+            inputs: {
+                internalType: string;
+                name: string;
+                type: string;
+            }[];
+            name: string;
+            type: string;
+            stateMutability?: undefined;
+            anonymous?: undefined;
             outputs?: undefined;
         } | {
             anonymous: boolean;
@@ -1421,7 +1659,33 @@ CONTRACTS_MAP: {
                 };
             } | undefined;
         } | undefined) => Promise<import("./prebuilt-implementations/nft-drop").NFTDrop>;
-        getAbi: (address: string, provider: ethers.providers.Provider) => Promise<({
+        getAbi: (address: string, provider: ethers.providers.Provider, storage: ThirdwebStorage) => Promise<{
+            [x: string]: any;
+            name?: string | undefined;
+            inputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            outputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+        }[] | ({
             inputs: never[];
             stateMutability: string;
             type: string;
@@ -1429,7 +1693,11 @@ CONTRACTS_MAP: {
             anonymous?: undefined;
             outputs?: undefined;
         } | {
-            inputs: never[];
+            inputs: {
+                internalType: string;
+                name: string;
+                type: string;
+            }[];
             name: string;
             type: string;
             stateMutability?: undefined;
@@ -1748,98 +2016,7 @@ CONTRACTS_MAP: {
                 };
             } | undefined;
         } | undefined) => Promise<import("./prebuilt-implementations/pack").Pack>;
-        getAbi: (address: string, provider: ethers.providers.Provider) => Promise<({
-            inputs: {
-                internalType: string;
-                name: string;
-                type: string;
-            }[];
-            stateMutability: string;
-            type: string;
-            anonymous?: undefined;
-            name?: undefined;
-            outputs?: undefined;
-        } | {
-            anonymous: boolean;
-            inputs: ({
-                indexed: boolean;
-                internalType: string;
-                name: string;
-                type: string;
-                components?: undefined;
-            } | {
-                components: {
-                    internalType: string;
-                    name: string;
-                    type: string;
-                }[];
-                indexed: boolean;
-                internalType: string;
-                name: string;
-                type: string;
-            })[];
-            name: string;
-            type: string;
-            stateMutability?: undefined;
-            outputs?: undefined;
-        } | {
-            inputs: ({
-                internalType: string;
-                name: string;
-                type: string;
-                components?: undefined;
-            } | {
-                components: {
-                    internalType: string;
-                    name: string;
-                    type: string;
-                }[];
-                internalType: string;
-                name: string;
-                type: string;
-            })[];
-            name: string;
-            outputs: {
-                internalType: string;
-                name: string;
-                type: string;
-            }[];
-            stateMutability: string;
-            type: string;
-            anonymous?: undefined;
-        } | {
-            inputs: {
-                internalType: string;
-                name: string;
-                type: string;
-            }[];
-            name: string;
-            outputs: ({
-                components: {
-                    internalType: string;
-                    name: string;
-                    type: string;
-                }[];
-                internalType: string;
-                name: string;
-                type: string;
-            } | {
-                internalType: string;
-                name: string;
-                type: string;
-                components?: undefined;
-            })[];
-            stateMutability: string;
-            type: string;
-            anonymous?: undefined;
-        } | {
-            stateMutability: string;
-            type: string;
-            inputs?: undefined;
-            anonymous?: undefined;
-            name?: undefined;
-            outputs?: undefined;
-        })[]>;
+        getAbi: (address: string, provider: ethers.providers.Provider, storage: ThirdwebStorage) => Promise<Abi>;
     };
     readonly "signature-drop": {
         name: "SignatureDrop";
@@ -2008,7 +2185,33 @@ CONTRACTS_MAP: {
                 };
             } | undefined;
         } | undefined) => Promise<import("./prebuilt-implementations/signature-drop").SignatureDrop>;
-        getAbi: (address: string, provider: ethers.providers.Provider) => Promise<({
+        getAbi: (address: string, provider: ethers.providers.Provider, storage: ThirdwebStorage) => Promise<{
+            [x: string]: any;
+            name?: string | undefined;
+            inputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            outputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+        }[] | ({
             inputs: never[];
             name: string;
             type: string;
@@ -2281,7 +2484,33 @@ CONTRACTS_MAP: {
                 };
             } | undefined;
         } | undefined) => Promise<import("./prebuilt-implementations/split").Split>;
-        getAbi: (address: string, provider: ethers.providers.Provider) => Promise<({
+        getAbi: (address: string, provider: ethers.providers.Provider, storage: ThirdwebStorage) => Promise<{
+            [x: string]: any;
+            name?: string | undefined;
+            inputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            outputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+        }[] | ({
             inputs: never[];
             stateMutability: string;
             type: string;
@@ -2470,7 +2699,33 @@ CONTRACTS_MAP: {
                 };
             } | undefined;
         } | undefined) => Promise<import("./prebuilt-implementations/token-drop").TokenDrop>;
-        getAbi: (address: string, provider: ethers.providers.Provider) => Promise<({
+        getAbi: (address: string, provider: ethers.providers.Provider, storage: ThirdwebStorage) => Promise<{
+            [x: string]: any;
+            name?: string | undefined;
+            inputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            outputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+        }[] | ({
             inputs: never[];
             stateMutability: string;
             type: string;
@@ -2698,7 +2953,33 @@ CONTRACTS_MAP: {
                 };
             } | undefined;
         } | undefined) => Promise<import("./prebuilt-implementations/token").Token>;
-        getAbi: (address: string, provider: ethers.providers.Provider) => Promise<({
+        getAbi: (address: string, provider: ethers.providers.Provider, storage: ThirdwebStorage) => Promise<{
+            [x: string]: any;
+            name?: string | undefined;
+            inputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            outputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+        }[] | ({
             inputs: never[];
             stateMutability: string;
             type: string;
@@ -2936,7 +3217,33 @@ CONTRACTS_MAP: {
                 };
             } | undefined;
         } | undefined) => Promise<import("./prebuilt-implementations/vote").Vote>;
-        getAbi: (address: string, provider: ethers.providers.Provider) => Promise<({
+        getAbi: (address: string, provider: ethers.providers.Provider, storage: ThirdwebStorage) => Promise<{
+            [x: string]: any;
+            name?: string | undefined;
+            inputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            outputs?: {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?: {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                }[] | undefined;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+        }[] | ({
             inputs: never[];
             stateMutability: string;
             type: string;

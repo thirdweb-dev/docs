@@ -30,7 +30,7 @@ const contract = await sdk.getContract("{{contract_address}}", "edition");
 
 | Property                                        | Modifiers           | Type                                                                                                                                  | Description         |
 | ----------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------------- | ------------------- |
-| [abi](./sdk.edition.abi.md)                     |                     | typeof ABI                                                                                                                            |                     |
+| [abi](./sdk.edition.abi.md)                     |                     | [Abi](./sdk.abi.md)                                                                                                                   |                     |
 | [contractRoles](./sdk.edition.contractroles.md) | <code>static</code> | readonly \["admin", "minter", "transfer"\]                                                                                            |                     |
 | [encoder](./sdk.edition.encoder.md)             |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;TokenERC1155&gt;                                                                       |                     |
 | [erc1155](./sdk.edition.erc1155.md)             |                     | [Erc1155](./sdk.erc1155.md)&lt;TokenERC1155&gt;                                                                                       |                     |

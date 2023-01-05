@@ -59,5 +59,6 @@ featureName: "ERC1155" |
   "ContractMetadata" |
   "AppURI" |
   "Ownable" |
-  "Gasless";
+  "Gasless" |
+  "PackVRF";
 ```
