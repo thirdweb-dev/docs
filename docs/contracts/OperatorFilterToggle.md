@@ -1,11 +1,11 @@
 ---
-slug: /OperatorFiltererUpgradeable
-title: OperatorFiltererUpgradeable
+slug: /OperatorFilterToggle
+title: OperatorFilterToggle
 hide_title: true
 displayed_sidebar: contracts
 ---
 
-# OperatorFiltererUpgradeable
+# OperatorFilterToggle
 
 ## Methods
 
@@ -46,17 +46,3 @@ event OperatorRestriction(bool restriction)
 | Name        | Type | Description |
 | ----------- | ---- | ----------- |
 | restriction | bool | undefined   |
-
-## Errors
-
-### OperatorNotAllowed
-
-```solidity
-error OperatorNotAllowed(address operator)
-```
-
-#### Parameters
-
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| operator | address | undefined   |

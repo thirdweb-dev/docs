@@ -7,8 +7,6 @@ displayed_sidebar: contracts
 
 # Staking721Upgradeable
 
-note: This is a Beta release.
-
 ## Methods
 
 ### claimRewards
@@ -120,20 +118,6 @@ _Mapping from token-id to whether it is indexed or not._
 | ---- | ---- | ----------- |
 | \_0  | bool | undefined   |
 
-### nftCollection
-
-```solidity
-function nftCollection() external view returns (address)
-```
-
-_Address of ERC721 NFT contract -- staked tokens belong to this contract._
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-
 ### setRewardsPerUnitTime
 
 ```solidity
@@ -238,6 +222,20 @@ _List of accounts that have staked their NFTs._
 | Name | Type    | Description |
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+
+### stakingToken
+
+```solidity
+function stakingToken() external view returns (address)
+```
+
+_Address of ERC721 NFT contract -- staked tokens belong to this contract._
 
 #### Returns
 

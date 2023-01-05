@@ -1,11 +1,13 @@
 ---
-slug: /DropERC1155
-title: DropERC1155
+slug: /PackVRFDirect
+title: PackVRFDirect
 hide_title: true
 displayed_sidebar: contracts
 ---
 
-# DropERC1155
+# PackVRFDirect
+
+NOTE: This contract is a work in progress.
 
 ## Methods
 
@@ -63,64 +65,47 @@ _See {IERC1155-balanceOfBatch}. Requirements: - `accounts` and `ids` must have t
 | ---- | --------- | ----------- |
 | \_0  | uint256[] | undefined   |
 
-### burnBatch
+### canClaimRewards
 
 ```solidity
-function burnBatch(address account, uint256[] ids, uint256[] values) external nonpayable
+function canClaimRewards(address _opener) external view returns (bool)
 ```
 
-_Lets a token owner burn multiple tokens they own at once (i.e. destroy for good)_
+Returns whether a pack opener is ready to call `claimRewards`.
 
 #### Parameters
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| account | address   | undefined   |
-| ids     | uint256[] | undefined   |
-| values  | uint256[] | undefined   |
-
-### claim
-
-```solidity
-function claim(address _receiver, uint256 _tokenId, uint256 _quantity, address _currency, uint256 _pricePerToken, IDrop1155.AllowlistProof _allowlistProof, bytes _data) external payable
-```
-
-#### Parameters
-
-| Name             | Type                     | Description |
-| ---------------- | ------------------------ | ----------- |
-| \_receiver       | address                  | undefined   |
-| \_tokenId        | uint256                  | undefined   |
-| \_quantity       | uint256                  | undefined   |
-| \_currency       | address                  | undefined   |
-| \_pricePerToken  | uint256                  | undefined   |
-| \_allowlistProof | IDrop1155.AllowlistProof | undefined   |
-| \_data           | bytes                    | undefined   |
-
-### claimCondition
-
-```solidity
-function claimCondition(uint256) external view returns (uint256 currentStartId, uint256 count)
-```
-
-#### Parameters
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| \_opener | address | undefined   |
 
 #### Returns
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| currentStartId | uint256 | undefined   |
-| count          | uint256 | undefined   |
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
+
+### claimRewards
+
+```solidity
+function claimRewards() external nonpayable returns (struct ITokenBundle.Token[])
+```
+
+Lets a pack owner open packs and receive the packs&#39; reward units.
+
+#### Returns
+
+| Name | Type                 | Description |
+| ---- | -------------------- | ----------- |
+| \_0  | ITokenBundle.Token[] | undefined   |
 
 ### contractType
 
 ```solidity
 function contractType() external pure returns (bytes32)
 ```
+
+_Returns the type of the contract._
 
 #### Returns
 
@@ -148,90 +133,37 @@ Returns the contract metadata URI.
 function contractVersion() external pure returns (uint8)
 ```
 
+_Returns the version of the contract._
+
 #### Returns
 
 | Name | Type  | Description |
 | ---- | ----- | ----------- |
 | \_0  | uint8 | undefined   |
 
-### getActiveClaimConditionId
+### createPack
 
 ```solidity
-function getActiveClaimConditionId(uint256 _tokenId) external view returns (uint256)
+function createPack(ITokenBundle.Token[] _contents, uint256[] _numOfRewardUnits, string _packUri, uint128 _openStartTimestamp, uint128 _amountDistributedPerOpen, address _recipient) external payable returns (uint256 packId, uint256 packTotalSupply)
 ```
-
-_At any given moment, returns the uid for the active claim condition._
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| \_tokenId | uint256 | undefined   |
+| Name                       | Type                 | Description |
+| -------------------------- | -------------------- | ----------- |
+| \_contents                 | ITokenBundle.Token[] | undefined   |
+| \_numOfRewardUnits         | uint256[]            | undefined   |
+| \_packUri                  | string               | undefined   |
+| \_openStartTimestamp       | uint128              | undefined   |
+| \_amountDistributedPerOpen | uint128              | undefined   |
+| \_recipient                | address              | undefined   |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
-
-### getBaseURICount
-
-```solidity
-function getBaseURICount() external view returns (uint256)
-```
-
-Returns the count of batches of NFTs.
-
-_Each batch of tokens has an in ID and an associated `baseURI`. See {batchIds}._
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
-
-### getBatchIdAtIndex
-
-```solidity
-function getBatchIdAtIndex(uint256 _index) external view returns (uint256)
-```
-
-Returns the ID for the batch of tokens the given tokenId belongs to.
-
-_See {getBaseURICount}._
-
-#### Parameters
-
-| Name    | Type    | Description    |
-| ------- | ------- | -------------- |
-| \_index | uint256 | ID of a token. |
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
-
-### getClaimConditionById
-
-```solidity
-function getClaimConditionById(uint256 _tokenId, uint256 _conditionId) external view returns (struct IClaimCondition.ClaimCondition condition)
-```
-
-_Returns the claim condition at the given uid._
-
-#### Parameters
-
-| Name          | Type    | Description |
-| ------------- | ------- | ----------- |
-| \_tokenId     | uint256 | undefined   |
-| \_conditionId | uint256 | undefined   |
-
-#### Returns
-
-| Name      | Type                           | Description |
-| --------- | ------------------------------ | ----------- |
-| condition | IClaimCondition.ClaimCondition | undefined   |
+| Name            | Type    | Description |
+| --------------- | ------- | ----------- |
+| packId          | uint256 | undefined   |
+| packTotalSupply | uint256 | undefined   |
 
 ### getDefaultRoyaltyInfo
 
@@ -248,20 +180,26 @@ Returns the defualt royalty recipient and BPS for this contract&#39;s NFTs.
 | \_0  | address | undefined   |
 | \_1  | uint16  | undefined   |
 
-### getPlatformFeeInfo
+### getPackContents
 
 ```solidity
-function getPlatformFeeInfo() external view returns (address, uint16)
+function getPackContents(uint256 _packId) external view returns (struct ITokenBundle.Token[] contents, uint256[] perUnitAmounts)
 ```
 
-_Returns the platform fee recipient and bps._
+_Returns the underlying contents of a pack._
+
+#### Parameters
+
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| \_packId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint16  | undefined   |
+| Name           | Type                 | Description |
+| -------------- | -------------------- | ----------- |
+| contents       | ITokenBundle.Token[] | undefined   |
+| perUnitAmounts | uint256[]            | undefined   |
 
 ### getRoleAdmin
 
@@ -284,51 +222,6 @@ _See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {\_setRoleA
 | Name | Type    | Description |
 | ---- | ------- | ----------- |
 | \_0  | bytes32 | undefined   |
-
-### getRoleMember
-
-```solidity
-function getRoleMember(bytes32 role, uint256 index) external view returns (address member)
-```
-
-Returns the role-member from a list of members for a role, at a given index.
-
-_Returns `member` who has `role`, at `index` of role-members list. See struct {RoleMembers}, and mapping {roleMembers}_
-
-#### Parameters
-
-| Name  | Type    | Description                                                           |
-| ----- | ------- | --------------------------------------------------------------------- |
-| role  | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
-| index | uint256 | Index in list of current members for the role.                        |
-
-#### Returns
-
-| Name   | Type    | Description                        |
-| ------ | ------- | ---------------------------------- |
-| member | address | Address of account that has `role` |
-
-### getRoleMemberCount
-
-```solidity
-function getRoleMemberCount(bytes32 role) external view returns (uint256 count)
-```
-
-Returns total number of accounts that have a role.
-
-_Returns `count` of accounts that have `role`. See struct {RoleMembers}, and mapping {roleMembers}_
-
-#### Parameters
-
-| Name | Type    | Description                                                           |
-| ---- | ------- | --------------------------------------------------------------------- |
-| role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
-
-#### Returns
-
-| Name  | Type    | Description                               |
-| ----- | ------- | ----------------------------------------- |
-| count | uint256 | Total number of accounts that have `role` |
 
 ### getRoyaltyInfoForToken
 
@@ -353,27 +246,66 @@ _Returns royalty recipient and bps for `_tokenId`._
 | \_0  | address | undefined   |
 | \_1  | uint16  | undefined   |
 
-### getSupplyClaimedByWallet
+### getTokenCountOfBundle
 
 ```solidity
-function getSupplyClaimedByWallet(uint256 _tokenId, uint256 _conditionId, address _claimer) external view returns (uint256 supplyClaimedByWallet)
+function getTokenCountOfBundle(uint256 _bundleId) external view returns (uint256)
 ```
 
-_Returns the supply claimed by claimer for a given conditionId._
+_Returns the total number of assets in a particular bundle._
 
 #### Parameters
 
-| Name          | Type    | Description |
-| ------------- | ------- | ----------- |
-| \_tokenId     | uint256 | undefined   |
-| \_conditionId | uint256 | undefined   |
-| \_claimer     | address | undefined   |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_bundleId | uint256 | undefined   |
 
 #### Returns
 
-| Name                  | Type    | Description |
-| --------------------- | ------- | ----------- |
-| supplyClaimedByWallet | uint256 | undefined   |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### getTokenOfBundle
+
+```solidity
+function getTokenOfBundle(uint256 _bundleId, uint256 index) external view returns (struct ITokenBundle.Token)
+```
+
+_Returns an asset contained in a particular bundle, at a particular index._
+
+#### Parameters
+
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_bundleId | uint256 | undefined   |
+| index      | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type               | Description |
+| ---- | ------------------ | ----------- |
+| \_0  | ITokenBundle.Token | undefined   |
+
+### getUriOfBundle
+
+```solidity
+function getUriOfBundle(uint256 _bundleId) external view returns (string)
+```
+
+_Returns the uri of a particular bundle._
+
+#### Parameters
+
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_bundleId | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### grantRole
 
@@ -441,25 +373,22 @@ _Returns `true` if `account` has been granted `role`. Role restrictions can be s
 ### initialize
 
 ```solidity
-function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _saleRecipient, address _royaltyRecipient, uint128 _royaltyBps, uint128 _platformFeeBps, address _platformFeeRecipient) external nonpayable
+function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
 ```
 
 _Initiliazes the contract, like a constructor._
 
 #### Parameters
 
-| Name                   | Type      | Description |
-| ---------------------- | --------- | ----------- |
-| \_defaultAdmin         | address   | undefined   |
-| \_name                 | string    | undefined   |
-| \_symbol               | string    | undefined   |
-| \_contractURI          | string    | undefined   |
-| \_trustedForwarders    | address[] | undefined   |
-| \_saleRecipient        | address   | undefined   |
-| \_royaltyRecipient     | address   | undefined   |
-| \_royaltyBps           | uint128   | undefined   |
-| \_platformFeeBps       | uint128   | undefined   |
-| \_platformFeeRecipient | address   | undefined   |
+| Name                | Type      | Description |
+| ------------------- | --------- | ----------- |
+| \_defaultAdmin      | address   | undefined   |
+| \_name              | string    | undefined   |
+| \_symbol            | string    | undefined   |
+| \_contractURI       | string    | undefined   |
+| \_trustedForwarders | address[] | undefined   |
+| \_royaltyRecipient  | address   | undefined   |
+| \_royaltyBps        | uint256   | undefined   |
 
 ### isApprovedForAll
 
@@ -500,48 +429,6 @@ function isTrustedForwarder(address forwarder) external view returns (bool)
 | ---- | ---- | ----------- |
 | \_0  | bool | undefined   |
 
-### lazyMint
-
-```solidity
-function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _data) external nonpayable returns (uint256 batchId)
-```
-
-Lets an authorized address lazy mint a given amount of NFTs.
-
-#### Parameters
-
-| Name               | Type    | Description                                                                                                                                       |
-| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \_amount           | uint256 | The number of NFTs to lazy mint.                                                                                                                  |
-| \_baseURIForTokens | string  | The base URI for the &#39;n&#39; number of NFTs being lazy minted, where the metadata for each of those NFTs is `${baseURIForTokens}/${tokenId}`. |
-| \_data             | bytes   | Additional bytes data to be used at the discretion of the consumer of the contract.                                                               |
-
-#### Returns
-
-| Name    | Type    | Description                                                             |
-| ------- | ------- | ----------------------------------------------------------------------- |
-| batchId | uint256 | A unique integer identifier for the batch of NFTs lazy minted together. |
-
-### maxTotalSupply
-
-```solidity
-function maxTotalSupply(uint256) external view returns (uint256)
-```
-
-_Mapping from token ID =&gt; maximum possible total circulating supply of tokens with that ID._
-
-#### Parameters
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
-
 ### multicall
 
 ```solidity
@@ -580,7 +467,7 @@ function name() external view returns (string)
 function nextTokenIdToMint() external view returns (uint256)
 ```
 
-_The tokenId of the next NFT that will be minted / lazy minted._
+_The token Id of the next set of packs to be minted._
 
 #### Returns
 
@@ -588,17 +475,115 @@ _The tokenId of the next NFT that will be minted / lazy minted._
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
 
-### operatorRestriction
+### onERC1155BatchReceived
 
 ```solidity
-function operatorRestriction() external view returns (bool)
+function onERC1155BatchReceived(address, address, uint256[], uint256[], bytes) external nonpayable returns (bytes4)
 ```
+
+#### Parameters
+
+| Name | Type      | Description |
+| ---- | --------- | ----------- |
+| \_0  | address   | undefined   |
+| \_1  | address   | undefined   |
+| \_2  | uint256[] | undefined   |
+| \_3  | uint256[] | undefined   |
+| \_4  | bytes     | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | bytes4 | undefined   |
+
+### onERC1155Received
+
+```solidity
+function onERC1155Received(address, address, uint256, uint256, bytes) external nonpayable returns (bytes4)
+```
+
+#### Parameters
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | address | undefined   |
+| \_2  | uint256 | undefined   |
+| \_3  | uint256 | undefined   |
+| \_4  | bytes   | undefined   |
+
+#### Returns
+
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | bytes4 | undefined   |
+
+### onERC721Received
+
+```solidity
+function onERC721Received(address, address, uint256, bytes) external nonpayable returns (bytes4)
+```
+
+_See {IERC721Receiver-onERC721Received}. Always returns `IERC721Receiver.onERC721Received.selector`._
+
+#### Parameters
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | address | undefined   |
+| \_2  | uint256 | undefined   |
+| \_3  | bytes   | undefined   |
+
+#### Returns
+
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | bytes4 | undefined   |
+
+### openPack
+
+```solidity
+function openPack(uint256 _packId, uint256 _amountToOpen) external nonpayable returns (uint256)
+```
+
+Lets a pack owner open packs and receive the packs&#39; reward units.
+
+#### Parameters
+
+| Name           | Type    | Description |
+| -------------- | ------- | ----------- |
+| \_packId       | uint256 | undefined   |
+| \_amountToOpen | uint256 | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
+
+### openPackAndClaimRewards
+
+```solidity
+function openPackAndClaimRewards(uint256 _packId, uint256 _amountToOpen, uint32 _callBackGasLimit) external nonpayable returns (uint256)
+```
+
+Called by a pack opener to open a pack in a single transaction, instead of calling openPack and claimRewards separately.
+
+#### Parameters
+
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| \_packId           | uint256 | undefined   |
+| \_amountToOpen     | uint256 | undefined   |
+| \_callBackGasLimit | uint32  | undefined   |
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### owner
 
@@ -614,19 +599,18 @@ Returns the owner of the contract.
 | ---- | ------- | ----------- |
 | \_0  | address | undefined   |
 
-### primarySaleRecipient
+### rawFulfillRandomWords
 
 ```solidity
-function primarySaleRecipient() external view returns (address)
+function rawFulfillRandomWords(uint256 _requestId, uint256[] _randomWords) external nonpayable
 ```
 
-_Returns primary sale recipient address._
+#### Parameters
 
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name          | Type      | Description |
+| ------------- | --------- | ----------- |
+| \_requestId   | uint256   | undefined   |
+| \_randomWords | uint256[] | undefined   |
 
 ### renounceRole
 
@@ -722,25 +706,19 @@ _See {IERC1155-safeTransferFrom}._
 | amount | uint256 | undefined   |
 | data   | bytes   | undefined   |
 
-### saleRecipient
+### sendRewardsIndirect
 
 ```solidity
-function saleRecipient(uint256) external view returns (address)
+function sendRewardsIndirect(address _opener) external nonpayable
 ```
 
-_Mapping from token ID =&gt; the address of the recipient of primary sales._
+Lets a pack owner open packs and receive the packs&#39; reward units.
 
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| \_opener | address | undefined   |
 
 ### setApprovalForAll
 
@@ -748,7 +726,7 @@ _Mapping from token ID =&gt; the address of the recipient of primary sales._
 function setApprovalForAll(address operator, bool approved) external nonpayable
 ```
 
-_See {ERC1155-setApprovalForAll}_
+_See {IERC1155-setApprovalForAll}._
 
 #### Parameters
 
@@ -756,20 +734,6 @@ _See {ERC1155-setApprovalForAll}_
 | -------- | ------- | ----------- |
 | operator | address | undefined   |
 | approved | bool    | undefined   |
-
-### setClaimConditions
-
-```solidity
-function setClaimConditions(uint256 _tokenId, IClaimCondition.ClaimCondition[] _conditions, bool _resetClaimEligibility) external nonpayable
-```
-
-#### Parameters
-
-| Name                    | Type                             | Description |
-| ----------------------- | -------------------------------- | ----------- |
-| \_tokenId               | uint256                          | undefined   |
-| \_conditions            | IClaimCondition.ClaimCondition[] | undefined   |
-| \_resetClaimEligibility | bool                             | undefined   |
 
 ### setContractURI
 
@@ -804,33 +768,6 @@ _Caller should be authorized to set royalty info. See {\_canSetRoyaltyInfo}. Emi
 | \_royaltyRecipient | address | Address to be set as default royalty recipient. |
 | \_royaltyBps       | uint256 | Updated royalty bps.                            |
 
-### setMaxTotalSupply
-
-```solidity
-function setMaxTotalSupply(uint256 _tokenId, uint256 _maxTotalSupply) external nonpayable
-```
-
-_Lets a module admin set a max total supply for token._
-
-#### Parameters
-
-| Name             | Type    | Description |
-| ---------------- | ------- | ----------- |
-| \_tokenId        | uint256 | undefined   |
-| \_maxTotalSupply | uint256 | undefined   |
-
-### setOperatorRestriction
-
-```solidity
-function setOperatorRestriction(bool _restriction) external nonpayable
-```
-
-#### Parameters
-
-| Name          | Type | Description |
-| ------------- | ---- | ----------- |
-| \_restriction | bool | undefined   |
-
 ### setOwner
 
 ```solidity
@@ -844,39 +781,6 @@ Lets an authorized wallet set a new owner for the contract.
 | Name       | Type    | Description                                          |
 | ---------- | ------- | ---------------------------------------------------- |
 | \_newOwner | address | The address to set as the new owner of the contract. |
-
-### setPlatformFeeInfo
-
-```solidity
-function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeBps) external nonpayable
-```
-
-Updates the platform fee recipient and bps.
-
-_Caller should be authorized to set platform fee info. See {\_canSetPlatformFeeInfo}. Emits {PlatformFeeInfoUpdated Event}; See {\_setupPlatformFeeInfo}._
-
-#### Parameters
-
-| Name                   | Type    | Description                                    |
-| ---------------------- | ------- | ---------------------------------------------- |
-| \_platformFeeRecipient | address | Address to be set as new platformFeeRecipient. |
-| \_platformFeeBps       | uint256 | Updated platformFeeBps.                        |
-
-### setPrimarySaleRecipient
-
-```solidity
-function setPrimarySaleRecipient(address _saleRecipient) external nonpayable
-```
-
-Updates primary sale recipient.
-
-_Caller should be authorized to set primary sales info. See {\_canSetPrimarySaleRecipient}. Emits {PrimarySaleRecipientUpdated Event}; See {\_setupPrimarySaleRecipient}._
-
-#### Parameters
-
-| Name            | Type    | Description                                          |
-| --------------- | ------- | ---------------------------------------------------- |
-| \_saleRecipient | address | Address to be set as new recipient of primary sales. |
 
 ### setRoyaltyInfoForToken
 
@@ -895,21 +799,6 @@ _Sets royalty info for `_tokenId`. Caller should be authorized to set royalty in
 | \_tokenId   | uint256 | undefined                                                  |
 | \_recipient | address | Address to be set as royalty recipient for given token Id. |
 | \_bps       | uint256 | Updated royalty bps for the token Id.                      |
-
-### setSaleRecipientForToken
-
-```solidity
-function setSaleRecipientForToken(uint256 _tokenId, address _saleRecipient) external nonpayable
-```
-
-_Lets a contract admin set the recipient for all primary sales._
-
-#### Parameters
-
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| \_tokenId       | uint256 | undefined   |
-| \_saleRecipient | address | undefined   |
 
 ### supportsInterface
 
@@ -949,7 +838,7 @@ function symbol() external view returns (string)
 function totalSupply(uint256) external view returns (uint256)
 ```
 
-_Mapping from token ID =&gt; total circulating supply of tokens with that ID._
+_Mapping from token ID =&gt; total circulating supply of token with that ID._
 
 #### Parameters
 
@@ -969,7 +858,7 @@ _Mapping from token ID =&gt; total circulating supply of tokens with that ID._
 function uri(uint256 _tokenId) external view returns (string)
 ```
 
-_Returns the uri for a given tokenId._
+_Returns the URI for a given tokenId._
 
 #### Parameters
 
@@ -982,30 +871,6 @@ _Returns the uri for a given tokenId._
 | Name | Type   | Description |
 | ---- | ------ | ----------- |
 | \_0  | string | undefined   |
-
-### verifyClaim
-
-```solidity
-function verifyClaim(uint256 _conditionId, address _claimer, uint256 _tokenId, uint256 _quantity, address _currency, uint256 _pricePerToken, IDrop1155.AllowlistProof _allowlistProof) external view returns (bool isOverride)
-```
-
-#### Parameters
-
-| Name             | Type                     | Description |
-| ---------------- | ------------------------ | ----------- |
-| \_conditionId    | uint256                  | undefined   |
-| \_claimer        | address                  | undefined   |
-| \_tokenId        | uint256                  | undefined   |
-| \_quantity       | uint256                  | undefined   |
-| \_currency       | address                  | undefined   |
-| \_pricePerToken  | uint256                  | undefined   |
-| \_allowlistProof | IDrop1155.AllowlistProof | undefined   |
-
-#### Returns
-
-| Name       | Type | Description |
-| ---------- | ---- | ----------- |
-| isOverride | bool | undefined   |
 
 ## Events
 
@@ -1022,22 +887,6 @@ event ApprovalForAll(address indexed account, address indexed operator, bool app
 | account `indexed`  | address | undefined   |
 | operator `indexed` | address | undefined   |
 | approved           | bool    | undefined   |
-
-### ClaimConditionsUpdated
-
-```solidity
-event ClaimConditionsUpdated(uint256 indexed tokenId, IClaimCondition.ClaimCondition[] claimConditions, bool resetEligibility)
-```
-
-Emitted when the contract&#39;s claim conditions are updated.
-
-#### Parameters
-
-| Name              | Type                             | Description |
-| ----------------- | -------------------------------- | ----------- |
-| tokenId `indexed` | uint256                          | undefined   |
-| claimConditions   | IClaimCondition.ClaimCondition[] | undefined   |
-| resetEligibility  | bool                             | undefined   |
 
 ### ContractURIUpdated
 
@@ -1077,33 +926,6 @@ event Initialized(uint8 version)
 | ------- | ----- | ----------- |
 | version | uint8 | undefined   |
 
-### MaxTotalSupplyUpdated
-
-```solidity
-event MaxTotalSupplyUpdated(uint256 tokenId, uint256 maxTotalSupply)
-```
-
-_Emitted when the global max supply of a token is updated._
-
-#### Parameters
-
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| tokenId        | uint256 | undefined   |
-| maxTotalSupply | uint256 | undefined   |
-
-### OperatorRestriction
-
-```solidity
-event OperatorRestriction(bool restriction)
-```
-
-#### Parameters
-
-| Name        | Type | Description |
-| ----------- | ---- | ----------- |
-| restriction | bool | undefined   |
-
 ### OwnerUpdated
 
 ```solidity
@@ -1117,30 +939,70 @@ event OwnerUpdated(address indexed prevOwner, address indexed newOwner)
 | prevOwner `indexed` | address | undefined   |
 | newOwner `indexed`  | address | undefined   |
 
-### PlatformFeeInfoUpdated
+### PackCreated
 
 ```solidity
-event PlatformFeeInfoUpdated(address indexed platformFeeRecipient, uint256 platformFeeBps)
+event PackCreated(uint256 indexed packId, address recipient, uint256 totalPacksCreated)
 ```
+
+Emitted when a set of packs is created.
 
 #### Parameters
 
-| Name                           | Type    | Description |
-| ------------------------------ | ------- | ----------- |
-| platformFeeRecipient `indexed` | address | undefined   |
-| platformFeeBps                 | uint256 | undefined   |
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| packId `indexed`  | uint256 | undefined   |
+| recipient         | address | undefined   |
+| totalPacksCreated | uint256 | undefined   |
 
-### PrimarySaleRecipientUpdated
+### PackOpenRequested
 
 ```solidity
-event PrimarySaleRecipientUpdated(address indexed recipient)
+event PackOpenRequested(address indexed opener, uint256 indexed packId, uint256 amountToOpen, uint256 requestId)
 ```
+
+Emitted when the opening of a pack is requested.
+
+#### Parameters
+
+| Name             | Type    | Description |
+| ---------------- | ------- | ----------- |
+| opener `indexed` | address | undefined   |
+| packId `indexed` | uint256 | undefined   |
+| amountToOpen     | uint256 | undefined   |
+| requestId        | uint256 | undefined   |
+
+### PackOpened
+
+```solidity
+event PackOpened(uint256 indexed packId, address indexed opener, uint256 numOfPacksOpened, ITokenBundle.Token[] rewardUnitsDistributed)
+```
+
+Emitted when a pack is opened.
+
+#### Parameters
+
+| Name                   | Type                 | Description |
+| ---------------------- | -------------------- | ----------- |
+| packId `indexed`       | uint256              | undefined   |
+| opener `indexed`       | address              | undefined   |
+| numOfPacksOpened       | uint256              | undefined   |
+| rewardUnitsDistributed | ITokenBundle.Token[] | undefined   |
+
+### PackRandomnessFulfilled
+
+```solidity
+event PackRandomnessFulfilled(uint256 indexed packId, uint256 indexed requestId)
+```
+
+Emitted when Chainlink VRF fulfills a random number request.
 
 #### Parameters
 
 | Name                | Type    | Description |
 | ------------------- | ------- | ----------- |
-| recipient `indexed` | address | undefined   |
+| packId `indexed`    | uint256 | undefined   |
+| requestId `indexed` | uint256 | undefined   |
 
 ### RoleAdminChanged
 
@@ -1198,54 +1060,6 @@ event RoyaltyForToken(uint256 indexed tokenId, address indexed royaltyRecipient,
 | royaltyRecipient `indexed` | address | undefined   |
 | royaltyBps                 | uint256 | undefined   |
 
-### SaleRecipientForTokenUpdated
-
-```solidity
-event SaleRecipientForTokenUpdated(uint256 indexed tokenId, address saleRecipient)
-```
-
-_Emitted when the sale recipient for a particular tokenId is updated._
-
-#### Parameters
-
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| tokenId `indexed` | uint256 | undefined   |
-| saleRecipient     | address | undefined   |
-
-### TokensClaimed
-
-```solidity
-event TokensClaimed(uint256 indexed claimConditionIndex, address indexed claimer, address indexed receiver, uint256 tokenId, uint256 quantityClaimed)
-```
-
-Emitted when tokens are claimed.
-
-#### Parameters
-
-| Name                          | Type    | Description |
-| ----------------------------- | ------- | ----------- |
-| claimConditionIndex `indexed` | uint256 | undefined   |
-| claimer `indexed`             | address | undefined   |
-| receiver `indexed`            | address | undefined   |
-| tokenId                       | uint256 | undefined   |
-| quantityClaimed               | uint256 | undefined   |
-
-### TokensLazyMinted
-
-```solidity
-event TokensLazyMinted(uint256 indexed startTokenId, uint256 endTokenId, string baseURI, bytes encryptedBaseURI)
-```
-
-#### Parameters
-
-| Name                   | Type    | Description |
-| ---------------------- | ------- | ----------- |
-| startTokenId `indexed` | uint256 | undefined   |
-| endTokenId             | uint256 | undefined   |
-| baseURI                | string  | undefined   |
-| encryptedBaseURI       | bytes   | undefined   |
-
 ### TransferBatch
 
 ```solidity
@@ -1290,17 +1104,3 @@ event URI(string value, uint256 indexed id)
 | ------------ | ------- | ----------- |
 | value        | string  | undefined   |
 | id `indexed` | uint256 | undefined   |
-
-## Errors
-
-### OperatorNotAllowed
-
-```solidity
-error OperatorNotAllowed(address operator)
-```
-
-#### Parameters
-
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| operator | address | undefined   |

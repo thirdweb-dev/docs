@@ -79,8 +79,6 @@ _Returns the version of the contract._
 | ---- | ----- | ----------- |
 | \_0  | uint8 | undefined   |
 
-<<<<<<< HEAD
-
 ### depositRewardTokens
 
 ```solidity
@@ -94,22 +92,6 @@ _Admin deposits reward tokens._
 | Name     | Type    | Description |
 | -------- | ------- | ----------- |
 | \_amount | uint256 | undefined   |
-
-=======
-
-> > > > > > > main
-
-### edition
-
-```solidity
-function edition() external view returns (address)
-```
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
 
 ### getDefaultRewardsPerUnitTime
 
@@ -380,7 +362,7 @@ function indexedTokens(uint256) external view returns (uint256)
 ### initialize
 
 ```solidity
-function initialize(address _defaultAdmin, string _contractURI, address[] _trustedForwarders, address _rewardToken, address _edition, uint256 _defaultTimeUnit, uint256 _defaultRewardsPerUnitTime) external nonpayable
+function initialize(address _defaultAdmin, string _contractURI, address[] _trustedForwarders, address _rewardToken, address _stakingToken, uint256 _defaultTimeUnit, uint256 _defaultRewardsPerUnitTime) external nonpayable
 ```
 
 _Initiliazes the contract, like a constructor._
@@ -393,7 +375,7 @@ _Initiliazes the contract, like a constructor._
 | \_contractURI               | string    | undefined   |
 | \_trustedForwarders         | address[] | undefined   |
 | \_rewardToken               | address   | undefined   |
-| \_edition                   | address   | undefined   |
+| \_stakingToken              | address   | undefined   |
 | \_defaultTimeUnit           | uint256   | undefined   |
 | \_defaultRewardsPerUnitTime | uint256   | undefined   |
 
@@ -687,6 +669,18 @@ function stakersArray(uint256, uint256) external view returns (address)
 | ---- | ------- | ----------- |
 | \_0  | address | undefined   |
 
+### stakingToken
+
+```solidity
+function stakingToken() external view returns (address)
+```
+
+#### Returns
+
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+
 ### supportsInterface
 
 ```solidity
@@ -763,15 +757,11 @@ event Initialized(uint8 version)
 | ------- | ----- | ----------- |
 | version | uint8 | undefined   |
 
-<<<<<<< HEAD
-
 ### RewardTokensDepositedByAdmin
 
 ```solidity
 event RewardTokensDepositedByAdmin(uint256 _amount)
 ```
-
-_Emitted when contract admin deposits reward tokens._
 
 #### Parameters
 
@@ -779,17 +769,11 @@ _Emitted when contract admin deposits reward tokens._
 | -------- | ------- | ----------- |
 | \_amount | uint256 | undefined   |
 
-=======
-
-> > > > > > > main
-
 ### RewardTokensWithdrawnByAdmin
 
 ```solidity
 event RewardTokensWithdrawnByAdmin(uint256 _amount)
 ```
-
-_Emitted when contract admin withdraws reward tokens._
 
 #### Parameters
 
