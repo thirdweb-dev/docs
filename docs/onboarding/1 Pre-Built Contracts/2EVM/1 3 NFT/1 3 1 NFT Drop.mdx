@@ -1,5 +1,5 @@
 ---
-title: NFT Drop (ERC721)
+title: NFT Drop
 slug: /pre-built-contracts/nft-drop
 ---
 
@@ -11,7 +11,7 @@ import YoutubeEmbed from "@components/YoutubeEmbed";
 
 <div className="deployContractBtnContainer" style={{ marginTop: -70 }}>
   <DeployThisContractButton
-    link={"https://thirdweb.com/contracts/new/pre-built/drop/nft-drop"}
+    link={"https://thirdweb.com/thirdweb.eth/DropERC721?via=portal"}
     contractType="nft-drop"
   />
 </div>
@@ -20,8 +20,8 @@ import YoutubeEmbed from "@components/YoutubeEmbed";
   <div>
     <p>
       The NFT Drop contract is ideal when you want to release a collection of
-      unique NFTs using the{" "}
-      <a href="https://eips.ethereum.org/EIPS/eip-721">ERC721</a>.
+      unique NFTs using the <a href="https://www.erc721a.org/">ERC721A</a>{" "}
+      standard.
     </p>
     It allows you to define a set of conditions called <b>claim phases</b> in a sequence
     that defines when and how your users can claim an NFT from your drop; including
@@ -33,7 +33,7 @@ import YoutubeEmbed from "@components/YoutubeEmbed";
 </div>
 
 When you add NFTs to your drop contract, they are **not** minted at this point.
-You prepare everything for your users by **lazy minting** them, so that other wallets can mint them
+You prepare everything for your users by **lazy minting** them, so that other wallets can mint them.
 
 ## Use Cases & Examples
 
@@ -116,7 +116,7 @@ Deploy the NFT drop contract to any of our
 
 <div style={{ width: "fit-content" }}>
   <DeployThisContractButton
-    link={"https://thirdweb.com/contracts/new/pre-built/token/nft-drop"}
+    link={"https://thirdweb.com/thirdweb.eth/DropERC721?via=portal"}
     contractType="nft-drop"
   />
 </div>
