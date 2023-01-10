@@ -22,8 +22,9 @@ export declare function useCompilerMetadata(
       [x: string]: any;
       type: string;
       name: string;
-      outputs: {
+      inputs: {
         [x: string]: any;
+        stateMutability?: string | undefined;
         components?:
           | {
               [x: string]: any;
@@ -31,12 +32,12 @@ export declare function useCompilerMetadata(
               name: string;
             }[]
           | undefined;
-        stateMutability?: string | undefined;
         type: string;
         name: string;
       }[];
-      inputs: {
+      outputs: {
         [x: string]: any;
+        stateMutability?: string | undefined;
         components?:
           | {
               [x: string]: any;
@@ -44,7 +45,6 @@ export declare function useCompilerMetadata(
               name: string;
             }[]
           | undefined;
-        stateMutability?: string | undefined;
         type: string;
         name: string;
       }[];
@@ -69,4 +69,4 @@ export declare function useCompilerMetadata(
 
 **Returns:**
 
-UseQueryResult&lt;{ name: string; metadata: Record&lt;string, any&gt;; abi: { \[x: string\]: any; type: string; name: string; outputs: { \[x: string\]: any; components?: { \[x: string\]: any; type: string; name: string; }\[\] \| undefined; stateMutability?: string \| undefined; type: string; name: string; }\[\]; inputs: { \[x: string\]: any; components?: { \[x: string\]: any; type: string; name: string; }\[\] \| undefined; stateMutability?: string \| undefined; type: string; name: string; }\[\]; }\[\]; info: { title?: string \| undefined; author?: string \| undefined; details?: string \| undefined; notice?: string \| undefined; }; licenses: string\[\]; } \| null, unknown&gt;
+UseQueryResult&lt;{ name: string; metadata: Record&lt;string, any&gt;; abi: { \[x: string\]: any; type: string; name: string; inputs: { \[x: string\]: any; stateMutability?: string \| undefined; components?: { \[x: string\]: any; type: string; name: string; }\[\] \| undefined; type: string; name: string; }\[\]; outputs: { \[x: string\]: any; stateMutability?: string \| undefined; components?: { \[x: string\]: any; type: string; name: string; }\[\] \| undefined; type: string; name: string; }\[\]; }\[\]; info: { title?: string \| undefined; author?: string \| undefined; details?: string \| undefined; notice?: string \| undefined; }; licenses: string\[\]; } \| null, unknown&gt;

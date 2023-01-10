@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-abi: typeof ABI;
+abi: Abi;
 ```

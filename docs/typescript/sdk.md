@@ -139,6 +139,7 @@ displayed_sidebar: typescript
 | [EditionDropInitializer](./sdk.editiondropinitializer.md)             |             |
 | [EditionInitializer](./sdk.editioninitializer.md)                     |             |
 | [GenericRequest](./sdk.genericrequest.md)                             |             |
+| [LINK_TOKEN_ADDRESS](./sdk.link_token_address.md)                     |             |
 | [MarketplaceInitializer](./sdk.marketplaceinitializer.md)             |             |
 | [MintRequest1155](./sdk.mintrequest1155.md)                           |             |
 | [MintRequest20](./sdk.mintrequest20.md)                               |             |
@@ -169,6 +170,7 @@ displayed_sidebar: typescript
 | [AbiEvent](./sdk.abievent.md)                                                           |                                                                                      |
 | [AbiFunction](./sdk.abifunction.md)                                                     |                                                                                      |
 | [AbstractClaimConditionContractStruct](./sdk.abstractclaimconditioncontractstruct.md)   |                                                                                      |
+| [AddContractInput](./sdk.addcontractinput.md)                                           |                                                                                      |
 | [AirdropInput](./sdk.airdropinput.md)                                                   | Input model to pass a list of addresses + amount to transfer to each one             |
 | [Amount](./sdk.amount.md)                                                               | Represents a currency amount already formatted. ie. "1" for 1 ether.                 |
 | [AuthenticationOptions](./sdk.authenticationoptions.md)                                 |                                                                                      |
@@ -183,12 +185,14 @@ displayed_sidebar: typescript
 | [CommonContractSchemaInput](./sdk.commoncontractschemainput.md)                         |                                                                                      |
 | [ContractEvent](./sdk.contractevent.md)                                                 | Standardized return type for contract events that returns event arguments            |
 | [ContractForPrebuiltContractType](./sdk.contractforprebuiltcontracttype.md)             |                                                                                      |
+| [ContractInput](./sdk.contractinput.md)                                                 |                                                                                      |
 | [ContractParam](./sdk.contractparam.md)                                                 |                                                                                      |
 | [ContractsMap](./sdk.contractsmap.md)                                                   |                                                                                      |
 | [ContractSource](./sdk.contractsource.md)                                               |                                                                                      |
 | [ContractType](./sdk.contracttype.md)                                                   |                                                                                      |
 | [Currency](./sdk.currency.md)                                                           |                                                                                      |
 | [CurrencyValue](./sdk.currencyvalue.md)                                                 | Currency value and display value                                                     |
+| [DeployedContract](./sdk.deployedcontract.md)                                           |                                                                                      |
 | [DeploySchemaForPrebuiltContractType](./sdk.deployschemaforprebuiltcontracttype.md)     |                                                                                      |
 | [EditionMetadataInput](./sdk.editionmetadatainput.md)                                   |                                                                                      |
 | [EditionMetadataOrUri](./sdk.editionmetadataoruri.md)                                   |                                                                                      |

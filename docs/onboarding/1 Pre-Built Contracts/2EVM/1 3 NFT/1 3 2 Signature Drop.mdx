@@ -1,5 +1,5 @@
 ---
-title: Signature Drop (ERC721A)
+title: Signature Drop
 slug: /pre-built-contracts/signature-drop
 ---
 
@@ -11,7 +11,7 @@ import YoutubeEmbed from "@components/YoutubeEmbed";
 
 <div className="deployContractBtnContainer" style={{ marginTop: -70 }}>
   <DeployThisContractButton
-    link={"https://thirdweb.com/contracts/new/pre-built/drop/signature-drop"}
+    link={"https://thirdweb.com/thirdweb.eth/SignatureDrop?via=portal"}
     contractType="signature-drop"
   />
 </div>
@@ -21,29 +21,21 @@ import YoutubeEmbed from "@components/YoutubeEmbed";
     <p>
       The Signature Drop contract uses the{" "}
       <a href="https://www.erc721a.org/">ERC721A</a>
-      standard to release a collection of unique one-of-one NFTs with lower gas fees
-      for your community compared to the regular ERC721 standard used in the <a href="https://portal.thirdweb.com/pre-built-contracts/nft-drop">
-        NFT Drop
-      </a>.
+      standard to release a collection of unique one-of-one NFTs for your community.
     </p>
-    You <b>lazy-mint</b> your NFTs by uploading the metadata and configuring a <b>
-      single
-    </b>
-    claim phase, laying out the rules for how your users can claim NFTs from
-    your drop; such as an allowlist, release date, or{" "}
-    <a href="https://portal.thirdweb.com/sdk/advanced-features/delayed-reveal">
-      delayed reveal
-    </a>
-    .
+
+It also includes [signature-based minting](/sdk/advanced-features/on-demand-minting) capabilities,
+which allows you to grant users the ability to mint NFT(s)
+based on a custom set of criteria, checked on-demand.
+
   </div>
   <div className="heroGridImageContainer">
     <YoutubeEmbed link={"https://www.youtube.com/embed/2ITg70MPFJ8"} />
   </div>
 </div>
 
-The "signature" in the name refers to the [signature-based minting](/sdk/advanced-features/on-demand-minting) feature,
-that allows you to grant users the ability to mint NFT(s) based on a custom set of criteria, checked
-on-demand. This feature is **optional** and separate from the claim phase conditions.
+You <b>lazy-mint</b> your NFTs by uploading the metadata and configuring a <b> single </b>claim phase,
+laying out the rules for how your users can claim NFTs fromyour drop; such as an allowlist, release date, or<a href="https://portal.thirdweb.com/sdk/advanced-features/delayed-reveal"> delayed reveal</a>.
 
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--12" style={{ marginTop: 8 }}>
@@ -128,7 +120,7 @@ Deploy the signature drop contract to any of our
 
 <div style={{ width: "fit-content" }}>
   <DeployThisContractButton
-    link={"https://thirdweb.com/contracts/new/pre-built/token/signature-drop"}
+    link={"https://thirdweb.com/thirdweb.eth/SignatureDrop?via=portal"}
     contractType="signature-drop"
   />
 </div>
