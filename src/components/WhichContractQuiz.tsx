@@ -83,7 +83,7 @@ export default function WhichContractQuiz() {
           onSelect: () => {
             if (tokenType === "nft") {
               if (nftType === "nft") {
-                setAnswer("signature-drop");
+                setAnswer("nft-drop");
               }
               if (nftType === "edition") {
                 setAnswer("edition-drop");
