@@ -390,74 +390,113 @@ SignatureDropInitializer: {
       | undefined,
   ) =>
     Promise<import("./prebuilt-implementations/signature-drop").SignatureDrop>;
-  getAbi: (address: string, provider: ethers.providers.Provider) =>
+  getAbi: (
+    address: string,
+    provider: ethers.providers.Provider,
+    storage: ThirdwebStorage,
+  ) =>
     Promise<
-      (
-        | {
-            inputs: never[];
-            name: string;
-            type: string;
-            anonymous?: undefined;
-            outputs?: undefined;
-            stateMutability?: undefined;
-          }
-        | {
-            anonymous: boolean;
-            inputs: (
-              | {
-                  components: {
-                    internalType: string;
-                    name: string;
-                    type: string;
-                  }[];
-                  indexed: boolean;
-                  internalType: string;
-                  name: string;
-                  type: string;
-                }
-              | {
-                  indexed: boolean;
-                  internalType: string;
-                  name: string;
-                  type: string;
-                  components?: undefined;
-                }
-            )[];
-            name: string;
-            type: string;
-            outputs?: undefined;
-            stateMutability?: undefined;
-          }
-        | {
-            inputs: (
-              | {
-                  components: {
-                    internalType: string;
-                    name: string;
-                    type: string;
-                  }[];
-                  internalType: string;
-                  name: string;
-                  type: string;
-                }
-              | {
-                  internalType: string;
-                  name: string;
-                  type: string;
-                  components?: undefined;
-                }
-            )[];
-            name: string;
-            outputs: {
-              internalType: string;
+      | {
+          [x: string]: any;
+          name?: string | undefined;
+          inputs?:
+            | {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?:
+                  | {
+                      [x: string]: any;
+                      type: string;
+                      name: string;
+                    }[]
+                  | undefined;
+                type: string;
+                name: string;
+              }[]
+            | undefined;
+          outputs?:
+            | {
+                [x: string]: any;
+                stateMutability?: string | undefined;
+                components?:
+                  | {
+                      [x: string]: any;
+                      type: string;
+                      name: string;
+                    }[]
+                  | undefined;
+                type: string;
+                name: string;
+              }[]
+            | undefined;
+          type: string;
+        }[]
+      | (
+          | {
+              inputs: never[];
               name: string;
               type: string;
-            }[];
-            stateMutability: string;
-            type: string;
-            anonymous?: undefined;
-          }
-      )[]
+              anonymous?: undefined;
+              outputs?: undefined;
+              stateMutability?: undefined;
+            }
+          | {
+              anonymous: boolean;
+              inputs: (
+                | {
+                    components: {
+                      internalType: string;
+                      name: string;
+                      type: string;
+                    }[];
+                    indexed: boolean;
+                    internalType: string;
+                    name: string;
+                    type: string;
+                  }
+                | {
+                    indexed: boolean;
+                    internalType: string;
+                    name: string;
+                    type: string;
+                    components?: undefined;
+                  }
+              )[];
+              name: string;
+              type: string;
+              outputs?: undefined;
+              stateMutability?: undefined;
+            }
+          | {
+              inputs: (
+                | {
+                    components: {
+                      internalType: string;
+                      name: string;
+                      type: string;
+                    }[];
+                    internalType: string;
+                    name: string;
+                    type: string;
+                  }
+                | {
+                    internalType: string;
+                    name: string;
+                    type: string;
+                    components?: undefined;
+                  }
+              )[];
+              name: string;
+              outputs: {
+                internalType: string;
+                name: string;
+                type: string;
+              }[];
+              stateMutability: string;
+              type: string;
+              anonymous?: undefined;
+            }
+        )[]
     >;
 }
 ```

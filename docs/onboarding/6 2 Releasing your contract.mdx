@@ -101,7 +101,7 @@ This feature has a requirement however, the "main" contract, referred to as the 
 
 Here's the step-by-step flow to create a release with proxy deploys enabled:
 
-1. Your contract needs to implement the [upgradeable pattern](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable), generally means it has an "initialize" function instead of a regular constructo
+1. Your contract needs to implement the [upgradeable pattern](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable), generally means it has an "initialize" function instead of a regular constructor
 2. Run `npx thirdweb release` from your project
 3. On the create release page, check "Deployable via proxy"
 4. This will reveal a new section, where you can deploy your implementations on any supported chain in one click.

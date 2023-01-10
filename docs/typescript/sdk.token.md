@@ -30,7 +30,7 @@ const contract = await sdk.getContract("{{contract_address}}", "token");
 
 | Property                                      | Modifiers           | Type                                                                                                                            | Description       |
 | --------------------------------------------- | ------------------- | ------------------------------------------------------------------------------------------------------------------------------- | ----------------- |
-| [abi](./sdk.token.abi.md)                     |                     | typeof ABI                                                                                                                      |                   |
+| [abi](./sdk.token.abi.md)                     |                     | [Abi](./sdk.abi.md)                                                                                                             |                   |
 | [contractRoles](./sdk.token.contractroles.md) | <code>static</code> | readonly \["admin", "minter", "transfer"\]                                                                                      |                   |
 | [encoder](./sdk.token.encoder.md)             |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;TokenERC20&gt;                                                                   |                   |
 | [estimator](./sdk.token.estimator.md)         |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;TokenERC20&gt;                                                                 |                   |

@@ -173,7 +173,33 @@ VoteInitializer: {
             };
         } | undefined;
     } | undefined) => Promise<import("./prebuilt-implementations/vote").Vote>;
-    getAbi: (address: string, provider: ethers.providers.Provider) => Promise<({
+    getAbi: (address: string, provider: ethers.providers.Provider, storage: ThirdwebStorage) => Promise<{
+        [x: string]: any;
+        name?: string | undefined;
+        inputs?: {
+            [x: string]: any;
+            stateMutability?: string | undefined;
+            components?: {
+                [x: string]: any;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+            name: string;
+        }[] | undefined;
+        outputs?: {
+            [x: string]: any;
+            stateMutability?: string | undefined;
+            components?: {
+                [x: string]: any;
+                type: string;
+                name: string;
+            }[] | undefined;
+            type: string;
+            name: string;
+        }[] | undefined;
+        type: string;
+    }[] | ({
         inputs: never[];
         stateMutability: string;
         type: string;

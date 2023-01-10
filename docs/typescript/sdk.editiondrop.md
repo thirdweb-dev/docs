@@ -30,7 +30,7 @@ const contract = await sdk.getContract("{{contract_address}}", "edition-drop");
 
 | Property                                                | Modifiers | Type                                                                                                           | Description                             |
 | ------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
-| [abi](./sdk.editiondrop.abi.md)                         |           | typeof ABI                                                                                                     |                                         |
+| [abi](./sdk.editiondrop.abi.md)                         |           | [Abi](./sdk.abi.md)                                                                                            |                                         |
 | [checkout](./sdk.editiondrop.checkout.md)               |           | PaperCheckout&lt;PrebuiltEditionDrop&gt;                                                                       | Checkout                                |
 | [claimConditions](./sdk.editiondrop.claimconditions.md) |           | [DropErc1155ClaimConditions](./sdk.droperc1155claimconditions.md)&lt;PrebuiltEditionDrop&gt;                   | Configure claim conditions for each NFT |
 | [encoder](./sdk.editiondrop.encoder.md)                 |           | [ContractEncoder](./sdk.contractencoder.md)&lt;PrebuiltEditionDrop&gt;                                         |                                         |
