@@ -30,14 +30,14 @@
     "html_url": "https://github.com/thirdweb-example/artblocks",
     "description": "Create Generative Art NFTs with centralized metadata using the Contracts SDK",
     "created_at": "2022-08-23T02:16:31Z",
-    "updated_at": "2023-01-02T21:11:50Z",
+    "updated_at": "2023-01-11T01:06:04Z",
     "clone_url": "https://github.com/thirdweb-example/artblocks.git",
     "topics": [
       "contract-kit",
       "extensions"
     ],
     "language": "JavaScript",
-    "stargazers_count": 4,
+    "stargazers_count": 5,
     "is_template": false,
     "homepage": ""
   },
@@ -208,7 +208,7 @@
     "html_url": "https://github.com/thirdweb-example/creator-platform",
     "description": "Authenticate users into a web2 database to build a hybrid web2+web3 creator platform!",
     "created_at": "2022-09-23T01:22:38Z",
-    "updated_at": "2023-01-02T23:40:29Z",
+    "updated_at": "2023-01-10T16:14:54Z",
     "clone_url": "https://github.com/thirdweb-example/creator-platform.git",
     "topics": [
       "auth",
@@ -216,7 +216,7 @@
       "web2"
     ],
     "language": "TypeScript",
-    "stargazers_count": 8,
+    "stargazers_count": 9,
     "is_template": false,
     "homepage": ""
   },
@@ -529,13 +529,13 @@
     "html_url": "https://github.com/thirdweb-example/lens",
     "description": "Starter kit for using Lens Protocol with the thirdweb SDK!",
     "created_at": "2022-10-27T10:15:02Z",
-    "updated_at": "2023-01-03T09:29:02Z",
+    "updated_at": "2023-01-11T18:57:42Z",
     "clone_url": "https://github.com/thirdweb-example/lens.git",
     "topics": [
       "lens-protocol"
     ],
     "language": "TypeScript",
-    "stargazers_count": 22,
+    "stargazers_count": 23,
     "is_template": false,
     "homepage": "https://lens.thirdweb-example.com/"
   },
@@ -592,7 +592,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2023-01-10T00:24:46Z",
+    "updated_at": "2023-01-11T15:47:06Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace.git",
     "topics": [
       "marketplace",
@@ -600,7 +600,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 47,
+    "stargazers_count": 49,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
@@ -726,7 +726,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2023-01-10T08:48:01Z",
+    "updated_at": "2023-01-10T22:50:37Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -737,7 +737,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 81,
+    "stargazers_count": 82,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -1011,13 +1011,13 @@
     "html_url": "https://github.com/thirdweb-example/signature-drop",
     "description": "Use the signature drop pre-built contract to claim NFTs under a claim phase as well as claim using signature-based minting!",
     "created_at": "2022-07-14T23:58:52Z",
-    "updated_at": "2023-01-02T21:07:36Z",
+    "updated_at": "2023-01-10T16:50:28Z",
     "clone_url": "https://github.com/thirdweb-example/signature-drop.git",
     "topics": [
       "signature-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 11,
+    "stargazers_count": 12,
     "is_template": false,
     "homepage": "http://signature-drop.thirdweb-example.com/"
   },
