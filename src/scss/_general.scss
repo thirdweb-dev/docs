@@ -630,3 +630,61 @@ html[data-theme="light"] {
   height: 0px;
   overflow: hidden;
 }
+
+// publish
+
+.choose-publish-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 0px;
+  cursor: pointer;
+  height: 100%;
+  min-height: 174px;
+  // when things shift, smooth transition
+  transition: all 0.3s ease-in-out;
+  // animate
+  animation: fadeIn 0.3s ease-in-out;
+
+  .heading {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+
+    .logo {
+      width: 48px;
+      height: 48px;
+    }
+    .title {
+      margin: 0px;
+      margin-left: 8px !important;
+      font-weight: 500;
+      font-size: 20px;
+    }
+  }
+
+  .description {
+    font-size: 16px;
+    opacity: 0.9;
+    margin-left: 8px;
+    margin-top: 6px;
+    margin-bottom: 0px;
+  }
+}
+
+.choose-publish-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 64px;
+  gap: 16px;
+
+  // when things shift, smooth transition
+  transition: all 0.3s ease-in-out;
+  // animate
+  animation: fadeIn 0.3s ease-in-out;
+  height: auto;
+}
