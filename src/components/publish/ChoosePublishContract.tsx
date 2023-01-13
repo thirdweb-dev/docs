@@ -12,7 +12,7 @@ const items = [
     id: "proxy-contract-section",
     title: "Proxy Contract",
     description:
-      "Allow others to deploy a proxy of you pre-deployed contract. Ypur contract must follow the proxy contract pattern",
+      "Allow others to deploy a proxy of you pre-deployed contract. Your contract must follow the proxy contract pattern.",
     icon: "/product/extensions.png",
   },
   {
