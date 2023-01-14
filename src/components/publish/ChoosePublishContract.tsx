@@ -25,7 +25,7 @@ const items = [
 ];
 
 export default function ChoosePublishContract() {
-  const [activeTab, setActiveTab] = useState<number | undefined>(undefined);
+  const [activeTab, setActiveTab] = useState<number | undefined>(0);
 
   useEffect(() => {
     if (activeTab === undefined) return;
@@ -43,6 +43,7 @@ export default function ChoosePublishContract() {
 
       // Set height too
       otherElement.style.height = index === activeTab ? "auto" : "0px";
+
       // Overflow
       otherElement.style.overflow = index === activeTab ? "visible" : "hidden";
 
@@ -54,10 +55,10 @@ export default function ChoosePublishContract() {
     setTimeout(() => {
       // Scroll to the element
       // Scroll to the second h3 element
-      const h3 = element.getElementsByTagName("h3")[0];
+      const h2 = element.getElementsByTagName("h2")[0];
 
       // Get the offset of the h3 element
-      const offset = h3.offsetTop;
+      const offset = h2.offsetTop;
 
       // Scroll to the offset
       window.scrollTo({

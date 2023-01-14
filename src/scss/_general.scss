@@ -676,7 +676,7 @@ html[data-theme="light"] {
 .choose-publish-container {
   display: flex;
   flex-direction: row;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 64px;
@@ -687,4 +687,25 @@ html[data-theme="light"] {
   // animate
   animation: fadeIn 0.3s ease-in-out;
   height: auto;
+}
+
+#standard-contract-section {
+  transition: visibility 0s linear 300ms, opacity 300ms;
+  opacity: 0;
+  height: 0px;
+  overflow: hidden;
+}
+
+#proxy-contract-section {
+  transition: visibility 0s linear 300ms, opacity 300ms;
+  opacity: 0;
+  height: 0px;
+  overflow: hidden;
+}
+
+#factory-contract-section {
+  transition: visibility 0s linear 300ms, opacity 300ms;
+  opacity: 0;
+  height: 0px;
+  overflow: hidden;
 }
