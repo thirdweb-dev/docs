@@ -25,16 +25,11 @@ export declare class ContractDeployer extends RPCConnectionHandler
 | ----------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------- |
 | [(constructor)(network, options, storage)](./sdk.contractdeployer._constructor_.md) |           | Constructs a new instance of the <code>ContractDeployer</code> class |
 
-## Properties
-
-| Property                                   | Modifiers | Type                           | Description |
-| ------------------------------------------ | --------- | ------------------------------ | ----------- |
-| [events](./sdk.contractdeployer.events.md) |           | FactoryEvents &#124; undefined |             |
-
 ## Methods
 
 | Method                                                                                                                                                         | Modifiers | Description                                                             |
 | -------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------- |
+| [addDeployListener(listener)](./sdk.contractdeployer.adddeploylistener.md)                                                                                     |           | Listen to all deploy transactions from this deployer                    |
 | [deployEdition(metadata)](./sdk.contractdeployer.deployedition.md)                                                                                             |           | Deploys a new Edition contract                                          |
 | [deployEditionDrop(metadata)](./sdk.contractdeployer.deployeditiondrop.md)                                                                                     |           | Deploys a new EditionDrop contract                                      |
 | [deployMarketplace(metadata)](./sdk.contractdeployer.deploymarketplace.md)                                                                                     |           | Deploys a new Marketplace contract                                      |
@@ -50,4 +45,6 @@ export declare class ContractDeployer extends RPCConnectionHandler
 | [deployTokenDrop(metadata)](./sdk.contractdeployer.deploytokendrop.md)                                                                                         |           | Deploys a new Token Drop contract                                       |
 | [deployViaFactory(factoryAddress, implementationAddress, implementationAbi, initializerFunction, initializerArgs)](./sdk.contractdeployer.deployviafactory.md) |           | Deploy a proxy contract of a given implementation via the given factory |
 | [deployVote(metadata)](./sdk.contractdeployer.deployvote.md)                                                                                                   |           | Deploys a new Vote contract                                             |
+| [removeAllDeployListeners()](./sdk.contractdeployer.removealldeploylisteners.md)                                                                               |           | Remove all deploy listeners                                             |
+| [removeDeployListener(listener)](./sdk.contractdeployer.removedeploylistener.md)                                                                               |           | Remove a deploy listener                                                |
 | [updateSignerOrProvider(network)](./sdk.contractdeployer.updatesignerorprovider.md)                                                                            |           |                                                                         |

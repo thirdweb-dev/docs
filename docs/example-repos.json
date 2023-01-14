@@ -46,7 +46,7 @@
     "html_url": "https://github.com/thirdweb-example/burn1155-mint721",
     "description": "Similar to the MAYC collection, allow users who hold an NFT from your original NFT Collection to burn an ERC-1155 NFT collection to claim an NFT from your new NFT Collection!",
     "created_at": "2022-09-12T11:18:00Z",
-    "updated_at": "2022-11-23T20:01:12Z",
+    "updated_at": "2023-01-12T02:48:17Z",
     "clone_url": "https://github.com/thirdweb-example/burn1155-mint721.git",
     "topics": [
       "contract-kit",
@@ -55,7 +55,7 @@
       "extensions"
     ],
     "language": "CSS",
-    "stargazers_count": 8,
+    "stargazers_count": 9,
     "is_template": false,
     "homepage": ""
   },
@@ -161,7 +161,7 @@
     "html_url": "https://github.com/thirdweb-example/cra-javascript-starter",
     "description": "thirdweb starter project with Create React App & JavaScript",
     "created_at": "2022-03-18T00:31:36Z",
-    "updated_at": "2023-01-02T21:09:23Z",
+    "updated_at": "2023-01-13T07:44:16Z",
     "clone_url": "https://github.com/thirdweb-example/cra-javascript-starter.git",
     "topics": [
       "javascript",
@@ -255,7 +255,7 @@
     "html_url": "https://github.com/thirdweb-example/dao",
     "description": "Build a DAO using thirdweb's vote, token, and edition drop contracts.",
     "created_at": "2022-05-17T11:42:42Z",
-    "updated_at": "2023-01-10T04:05:38Z",
+    "updated_at": "2023-01-12T02:47:11Z",
     "clone_url": "https://github.com/thirdweb-example/dao.git",
     "topics": [
       "edition-drop",
@@ -263,7 +263,7 @@
       "vote"
     ],
     "language": "JavaScript",
-    "stargazers_count": 15,
+    "stargazers_count": 16,
     "is_template": false,
     "homepage": "https://dao.thirdweb-example.com"
   },
@@ -330,11 +330,11 @@
     "html_url": "https://github.com/thirdweb-example/erc721staking-lockup",
     "description": "NFT Staking contract with lockup period",
     "created_at": "2023-01-09T07:19:08Z",
-    "updated_at": "2023-01-09T07:19:08Z",
+    "updated_at": "2023-01-12T11:56:42Z",
     "clone_url": "https://github.com/thirdweb-example/erc721staking-lockup.git",
     "topics": [],
     "language": null,
-    "stargazers_count": 0,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": null
   },
@@ -592,7 +592,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2023-01-11T15:47:06Z",
+    "updated_at": "2023-01-12T02:39:25Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace.git",
     "topics": [
       "marketplace",
@@ -600,7 +600,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 49,
+    "stargazers_count": 50,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
@@ -624,13 +624,13 @@
     "html_url": "https://github.com/thirdweb-example/multiwrap",
     "description": "Wrap ERC-1155, ERC-721 and ERC-20 tokens in to one ERC-721 token",
     "created_at": "2022-06-03T00:27:59Z",
-    "updated_at": "2022-12-23T00:46:00Z",
+    "updated_at": "2023-01-12T02:44:43Z",
     "clone_url": "https://github.com/thirdweb-example/multiwrap.git",
     "topics": [
       "multiwrap"
     ],
     "language": "JavaScript",
-    "stargazers_count": 6,
+    "stargazers_count": 7,
     "is_template": false,
     "homepage": ""
   },
@@ -711,7 +711,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2023-01-06T09:12:29Z",
+    "updated_at": "2023-01-12T14:32:21Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
@@ -726,7 +726,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2023-01-10T22:50:37Z",
+    "updated_at": "2023-01-12T02:40:08Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -737,7 +737,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 82,
+    "stargazers_count": 83,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -873,6 +873,19 @@
     "homepage": "https://packs.thirdweb-example.com"
   },
   {
+    "name": "phaser-platformer",
+    "html_url": "https://github.com/thirdweb-example/phaser-platformer",
+    "description": null,
+    "created_at": "2023-01-13T16:58:19Z",
+    "updated_at": "2023-01-13T16:58:19Z",
+    "clone_url": "https://github.com/thirdweb-example/phaser-platformer.git",
+    "topics": [],
+    "language": null,
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "play-to-earn-game",
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
@@ -932,6 +945,19 @@
     "stargazers_count": 3,
     "is_template": false,
     "homepage": "https://reddit.thirdweb-example.com/"
+  },
+  {
+    "name": "seamless-stripe-checkout",
+    "html_url": "https://github.com/thirdweb-example/seamless-stripe-checkout",
+    "description": null,
+    "created_at": "2023-01-13T17:47:53Z",
+    "updated_at": "2023-01-13T17:49:07Z",
+    "clone_url": "https://github.com/thirdweb-example/seamless-stripe-checkout.git",
+    "topics": [],
+    "language": null,
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
   },
   {
     "name": "shopify-discount-codes",
@@ -1011,13 +1037,13 @@
     "html_url": "https://github.com/thirdweb-example/signature-drop",
     "description": "Use the signature drop pre-built contract to claim NFTs under a claim phase as well as claim using signature-based minting!",
     "created_at": "2022-07-14T23:58:52Z",
-    "updated_at": "2023-01-10T16:50:28Z",
+    "updated_at": "2023-01-12T02:40:04Z",
     "clone_url": "https://github.com/thirdweb-example/signature-drop.git",
     "topics": [
       "signature-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 12,
+    "stargazers_count": 13,
     "is_template": false,
     "homepage": "http://signature-drop.thirdweb-example.com/"
   },
@@ -1305,11 +1331,11 @@
     "html_url": "https://github.com/thirdweb-example/unity-rpg-game",
     "description": "Speak with NPCs and complete quests to earn ERC20 tokens which you can use to buy NFTs from the in-game shop!",
     "created_at": "2022-11-28T07:08:09Z",
-    "updated_at": "2023-01-07T14:23:00Z",
+    "updated_at": "2023-01-13T02:14:43Z",
     "clone_url": "https://github.com/thirdweb-example/unity-rpg-game.git",
     "topics": [],
     "language": "C#",
-    "stargazers_count": 4,
+    "stargazers_count": 5,
     "is_template": false,
     "homepage": "https://unity-rpg-game.thirdweb-example.com"
   },
@@ -1347,11 +1373,11 @@
     "html_url": "https://github.com/thirdweb-example/updatable-nft-metadata",
     "description": null,
     "created_at": "2022-11-08T03:48:09Z",
-    "updated_at": "2022-11-08T06:02:12Z",
+    "updated_at": "2023-01-12T02:31:18Z",
     "clone_url": "https://github.com/thirdweb-example/updatable-nft-metadata.git",
     "topics": [],
     "language": "JavaScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": null
   },
