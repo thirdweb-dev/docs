@@ -30,14 +30,14 @@
     "html_url": "https://github.com/thirdweb-example/artblocks",
     "description": "Create Generative Art NFTs with centralized metadata using the Contracts SDK",
     "created_at": "2022-08-23T02:16:31Z",
-    "updated_at": "2023-01-11T01:06:04Z",
+    "updated_at": "2023-01-17T23:35:21Z",
     "clone_url": "https://github.com/thirdweb-example/artblocks.git",
     "topics": [
       "contract-kit",
       "extensions"
     ],
     "language": "JavaScript",
-    "stargazers_count": 5,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": ""
   },
@@ -111,7 +111,7 @@
     "html_url": "https://github.com/thirdweb-example/contracts-sdk-with-extensions",
     "description": "Build your own NFT Collection with Solidity using thirdweb deploy and the thirdweb SDK",
     "created_at": "2022-06-16T01:35:06Z",
-    "updated_at": "2022-09-29T01:22:59Z",
+    "updated_at": "2023-01-16T10:32:05Z",
     "clone_url": "https://github.com/thirdweb-example/contracts-sdk-with-extensions.git",
     "topics": [
       "contract-kit",
@@ -119,7 +119,7 @@
       "thirdweb-deploy"
     ],
     "language": "JavaScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": ""
   },
@@ -592,7 +592,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2023-01-15T02:37:06Z",
+    "updated_at": "2023-01-16T18:09:31Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace.git",
     "topics": [
       "marketplace",
@@ -600,7 +600,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 51,
+    "stargazers_count": 52,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
@@ -711,13 +711,13 @@
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2023-01-15T23:44:20Z",
+    "updated_at": "2023-01-17T13:40:17Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 63,
+    "stargazers_count": 64,
     "is_template": false,
     "homepage": "https://custom-minting-page.thirdweb-example.com"
   },
@@ -762,7 +762,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2023-01-14T16:48:40Z",
+    "updated_at": "2023-01-16T22:37:21Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "contract-kit",
@@ -775,7 +775,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 82,
+    "stargazers_count": 83,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -951,11 +951,11 @@
     "html_url": "https://github.com/thirdweb-example/seamless-stripe-checkout",
     "description": null,
     "created_at": "2023-01-13T17:47:53Z",
-    "updated_at": "2023-01-13T17:49:07Z",
+    "updated_at": "2023-01-16T04:59:14Z",
     "clone_url": "https://github.com/thirdweb-example/seamless-stripe-checkout.git",
     "topics": [],
     "language": null,
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": null
   },
@@ -1067,14 +1067,14 @@
     "html_url": "https://github.com/thirdweb-example/solana-nft-gallery",
     "description": "Build an NFT Gallery showcasing all of your collection's NFTs on Solana!",
     "created_at": "2022-10-26T01:06:53Z",
-    "updated_at": "2023-01-10T10:07:18Z",
+    "updated_at": "2023-01-17T10:23:28Z",
     "clone_url": "https://github.com/thirdweb-example/solana-nft-gallery.git",
     "topics": [
       "nft-collection",
       "solana"
     ],
     "language": "TypeScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": "https://solana-nft-gallery.thirdweb-example.com"
   },
@@ -1241,14 +1241,14 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2023-01-02T21:08:47Z",
+    "updated_at": "2023-01-16T19:11:34Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
     "topics": [
       "auth",
       "stripe"
     ],
     "language": "TypeScript",
-    "stargazers_count": 29,
+    "stargazers_count": 30,
     "is_template": false,
     "homepage": ""
   },
@@ -1316,13 +1316,13 @@
     "html_url": "https://github.com/thirdweb-example/unity-nft-lootboxes",
     "description": "Purchase NFT loot boxes from a marketplace and open them to reveal randomly selected NFTs inside!",
     "created_at": "2022-11-30T04:22:51Z",
-    "updated_at": "2023-01-02T21:13:17Z",
+    "updated_at": "2023-01-18T01:43:09Z",
     "clone_url": "https://github.com/thirdweb-example/unity-nft-lootboxes.git",
     "topics": [
       "gaming"
     ],
     "language": "JavaScript",
-    "stargazers_count": 3,
+    "stargazers_count": 5,
     "is_template": false,
     "homepage": "https://unity-nft-lootboxes.thirdweb-example.com"
   },
