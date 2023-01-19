@@ -624,13 +624,13 @@
     "html_url": "https://github.com/thirdweb-example/multiwrap",
     "description": "Wrap ERC-1155, ERC-721 and ERC-20 tokens in to one ERC-721 token",
     "created_at": "2022-06-03T00:27:59Z",
-    "updated_at": "2023-01-12T02:44:43Z",
+    "updated_at": "2023-01-19T02:45:26Z",
     "clone_url": "https://github.com/thirdweb-example/multiwrap.git",
     "topics": [
       "multiwrap"
     ],
     "language": "JavaScript",
-    "stargazers_count": 7,
+    "stargazers_count": 8,
     "is_template": false,
     "homepage": ""
   },

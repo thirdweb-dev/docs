@@ -17,7 +17,8 @@ export interface DeployEvent
 
 ## Properties
 
-| Property                                                | Modifiers | Type   | Description |
-| ------------------------------------------------------- | --------- | ------ | ----------- |
-| [contractAddress](./sdk.deployevent.contractaddress.md) |           | string |             |
-| [transactionHash](./sdk.deployevent.transactionhash.md) |           | string |             |
+| Property                                                 | Modifiers | Type                           | Description       |
+| -------------------------------------------------------- | --------- | ------------------------------ | ----------------- |
+| [contractAddress?](./sdk.deployevent.contractaddress.md) |           | string                         | <i>(Optional)</i> |
+| [status](./sdk.deployevent.status.md)                    |           | "submitted" &#124; "completed" |                   |
+| [transactionHash](./sdk.deployevent.transactionhash.md)  |           | string                         |                   |
