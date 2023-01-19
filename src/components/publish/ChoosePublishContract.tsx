@@ -55,7 +55,7 @@ export default function ChoosePublishContract() {
     setTimeout(() => {
       // Scroll to the element
       // Scroll to the second h3 element
-      const h2 = element.getElementsByTagName("h2")[0];
+      const h2 = element.getElementsByTagName("h3")[0];
 
       // Get the offset of the h3 element
       const offset = h2.offsetTop;
