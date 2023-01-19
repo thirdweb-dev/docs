@@ -1,0 +1,34 @@
+---
+slug: /release/proxy-contracts
+title: Proxy Contracts
+---
+
+import QuickstartCard from "../../../src/components/QuickstartCard";
+import YoutubeEmbed from "@components/YoutubeEmbed";
+
+<h3>EIP-1967 Proxy Contract Release</h3>
+
+When releasing a contract, you can choose to let others deploy a "proxy" of a pre-deployed contract. Since proxies are much lighter weight than the actual full contract, they are much cheaper to deploy. Proxy deploys only requiring a fraction of the gas of a normal deploy.
+
+### Requirements
+
+This feature has a requirement however, the "main" contract, referred to as the "implementation" needs to be deployed on chain already.
+
+To release a proxy contract, your contract needs to implement the [upgradeable pattern](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable), generally means it has an "initialize" function instead of a regular constructor.
+
+Now, you can deploy your implementations on any supported chain in one click.
+Deploy your implementations on your desired chains (addresses are saved automatically).
+
+![Proxy Contract Addresses Form](/assets/publish/proxy-address.png)
+
+Click the "Next" button and fill out the details of the parameters on your contract.
+
+Help users trying to deploy your smart contract by providing a description of each constructor parameter.
+
+![Proxy Contract Parameters](/assets/publish/proxy-params.png)
+
+Finally, release your Proxy contract(s) by clicking the "Publish Contract" button.
+
+![Publish Proxy Contract](/assets/publish/proxy-publish.png)
+
+Now anyone can deploy proxies of your contract simply by clicking "Deploy" on your release page.

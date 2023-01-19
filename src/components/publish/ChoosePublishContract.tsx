@@ -59,12 +59,6 @@ export default function ChoosePublishContract() {
 
       // Get the offset of the h3 element
       const offset = h2.offsetTop;
-
-      // Scroll to the offset
-      window.scrollTo({
-        top: offset - 72,
-        behavior: "smooth",
-      });
     }, 301);
   }, [activeTab]);
 

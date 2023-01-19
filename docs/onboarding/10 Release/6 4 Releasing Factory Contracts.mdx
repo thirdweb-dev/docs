@@ -1,0 +1,29 @@
+---
+slug: /release/factory-contracts
+title: Factory Contracts
+---
+
+import QuickstartCard from "../../../src/components/QuickstartCard";
+import YoutubeEmbed from "@components/YoutubeEmbed";
+
+<h3>Factory Contract Release</h3>
+
+Another way to let users deploy your contracts is by using a factory contract. This allows you to not only provide cheap deployments, but also to add extra logic that will be executed when others deploy your contracts.
+
+### Requirements
+
+To enable factory deploys, you will need to deploy a factory contract that implements the [IContractFactory interface](https://portal.thirdweb.com/contracts/IContractFactory). This is a simple interface with one function that you can implement to add deploy contracts any way you like, and add your custom logic on top. This is extremely useful when deploying a contract requires multiple steps, having the factory take care of the heavy lifting.
+
+Fill in the addresses of your factory contracts on each chain
+
+![Factory Contract Address Form](/assets/publish/factory-addresses.png)
+
+Click the "Next" button and fill out the details of the parameters on your contract.
+
+Help users trying to deploy your smart contract by providing a description of each constructor parameter.
+
+![Factory Contract Parameters](/assets/publish/contract-parameters.png)
+
+Finally to release your contract, click the "Publish Contract" button.
+
+That's it, now when people click deploy from your release page, your factory will be invoked instead.

@@ -3,7 +3,7 @@ slug: /release
 title: Release
 ---
 
-import QuickstartCard from "../../src/components/QuickstartCard";
+import QuickstartCard from "../../../src/components/QuickstartCard";
 import YoutubeEmbed from "@components/YoutubeEmbed";
 import ChoosePublishContract from "@components/publish/ChoosePublishContract";
 
@@ -84,12 +84,6 @@ Once selected, click "Next" to move on to flow corresponding to the contract typ
 
 Select which card best describes your contract needs below:
 
-<ChoosePublishContract />
-
-<!-- Selects Standard Contract -->
-
-<div id="standard-contract-section">
-
 <h3>Standard Contract Release</h3>
 
 This option is for standard contracts which do not follow either the proxy or factory contract patterns.
@@ -103,69 +97,6 @@ Help users trying to deploy your smart contract by providing a description of ea
 ### Create Release
 
 Finally, click the "Publish Contract" button to publish your smart contract to the on-chain registry.
-
-</div>
-
-<!-- Selects Proxy Contract -->
-
-<div id="proxy-contract-section">
-
-<h3>EIP-1967 Proxy Contract Release</h3>
-
-When releasing a contract, you can choose to let others deploy a "proxy" of a pre-deployed contract. Since proxies are much lighter weight than the actual full contract, they are much cheaper to deploy. Proxy deploys only requiring a fraction of the gas of a normal deploy.
-
-### Requirements
-
-This feature has a requirement however, the "main" contract, referred to as the "implementation" needs to be deployed on chain already.
-
-To release a proxy contract, your contract needs to implement the [upgradeable pattern](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable), generally means it has an "initialize" function instead of a regular constructor.
-
-Now, you can deploy your implementations on any supported chain in one click.
-Deploy your implementations on your desired chains (addresses are saved automatically).
-
-![Proxy Contract Addresses Form](/assets/publish/proxy-address.png)
-
-Click the "Next" button and fill out the details of the parameters on your contract.
-
-Help users trying to deploy your smart contract by providing a description of each constructor parameter.
-
-![Proxy Contract Parameters](/assets/publish/proxy-params.png)
-
-Finally, release your Proxy contract(s) by clicking the "Publish Contract" button.
-
-![Publish Proxy Contract](/assets/publish/proxy-publish.png)
-
-Now anyone can deploy proxies of your contract simply by clicking "Deploy" on your release page.
-
-</div>
-
-<!-- Selects Factory Contract -->
-
-<div id="factory-contract-section">
-
-<h3>Factory Contract Release</h3>
-
-Another way to let users deploy your contracts is by using a factory contract. This allows you to not only provide cheap deployments, but also to add extra logic that will be executed when others deploy your contracts.
-
-### Requirements
-
-To enable factory deploys, you will need to deploy a factory contract that implements the [IContractFactory interface](https://portal.thirdweb.com/contracts/IContractFactory). This is a simple interface with one function that you can implement to add deploy contracts any way you like, and add your custom logic on top. This is extremely useful when deploying a contract requires multiple steps, having the factory take care of the heavy lifting.
-
-Fill in the addresses of your factory contracts on each chain
-
-![Factory Contract Address Form](/assets/publish/factory-addresses.png)
-
-Click the "Next" button and fill out the details of the parameters on your contract.
-
-Help users trying to deploy your smart contract by providing a description of each constructor parameter.
-
-![Factory Contract Parameters](/assets/publish/contract-parameters.png)
-
-Finally to release your contract, click the "Publish Contract" button.
-
-That's it, now when people click deploy from your release page, your factory will be invoked instead.
-
-</div>
 
 ### Get Your Release Featured
 
