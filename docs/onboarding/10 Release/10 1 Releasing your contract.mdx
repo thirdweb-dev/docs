@@ -1,39 +1,17 @@
 ---
-slug: /release
-title: Overview
+title: Release A Contract
+slug: /release/how-to-release
 ---
 
 import QuickstartCard from "../../../src/components/QuickstartCard";
 import YoutubeEmbed from "@components/YoutubeEmbed";
 import ChoosePublishContract from "@components/publish/ChoosePublishContract";
 
-# Release
+# Release A Contract
 
 <div className="heroGrid">
 <div>
 
-<p>
-Use the <a href="https://portal.thirdweb.com/cli">CLI</a>,
-to publish a new version of your smart contract to our{" "}
-on-chain registry,
-where anyone can view and deploy it from the <a href="https://thirdweb.com/explore">Explore page</a>.
-
-</p>
-
-```bash
-npx thirdweb release
-```
-
-</div>
-
-<div className="heroGridImageContainer">
-  <YoutubeEmbed link={"https://www.youtube.com/embed/itE25mcYpzU"} />
-</div>
-</div>
-
-## Release A Contract
-
-<div className="heroGrid">
 <div>
 
 From the same directory as your smart contract(s), run the following command
@@ -42,6 +20,8 @@ to:
 - Compile your smart contract.
 - Upload the contract source code (ABI) to IPFS.
 - Open the release flow in the dashboard.
+
+</div>
 
 ```bash
 npx thirdweb release
@@ -82,8 +62,6 @@ Select the contract type for your contract release.
 
 Once selected, click "Next" to move on to flow corresponding to the contract type selected.
 
-Select which card best describes your contract needs below:
-
 <h3>Standard Contract Release</h3>
 
 This option is for standard contracts which do not follow either the proxy or factory contract patterns.
@@ -97,17 +75,3 @@ Help users trying to deploy your smart contract by providing a description of ea
 ### Create Release
 
 Finally, click the "Publish Contract" button to publish your smart contract to the on-chain registry.
-
-### Get Your Release Featured
-
-Releasing your contract on thirdweb is the best way to get your protocol in front of 60k+ web3 developers.
-
-To get your contract featured on the <a href="https://thirdweb.com/explore">Explore page</a>, these are a few **best practices** to follow when releasing your contract:
-
-- Name, description and image for your contract which are clear & concise.
-- _About_ section which is descriptive, detailing the release note, the purpose & uses of your contract.
-- Contract parameters with display names and default values and with directive and intuitive descriptions.
-- In the case of proxy and factory contracts, make it available on as many networks as possible.
-- Linking an audit report.
-
-[Contact Us](https://form.typeform.com/to/FAwehBFl) to apply to have your contract featured on the Explore page.
