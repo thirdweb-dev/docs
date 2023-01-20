@@ -102,6 +102,8 @@ displayed_sidebar: typescript
 | ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------- |
 | [AuctionListing](./sdk.auctionlisting.md)                                       | Represents a new marketplace auction listing.                                                            |
 | [BatchToReveal](./sdk.batchtoreveal.md)                                         |                                                                                                          |
+| [DeployEvent](./sdk.deployevent.md)                                             |                                                                                                          |
+| [DeployEvents](./sdk.deployevents.md)                                           |                                                                                                          |
 | [DirectListing](./sdk.directlisting.md)                                         | Represents a marketplace direct listing.                                                                 |
 | [EventQueryOptions](./sdk.eventqueryoptions.md)                                 | Filters for querying past events                                                                         |
 | [GaslessTransaction](./sdk.gaslesstransaction.md)                               | transaction message contains information that's needed to execute a gasless transaction                  |
