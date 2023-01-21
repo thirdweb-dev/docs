@@ -46,7 +46,7 @@
     "html_url": "https://github.com/thirdweb-example/burn1155-mint721",
     "description": "Similar to the MAYC collection, allow users who hold an NFT from your original NFT Collection to burn an ERC-1155 NFT collection to claim an NFT from your new NFT Collection!",
     "created_at": "2022-09-12T11:18:00Z",
-    "updated_at": "2023-01-12T02:48:17Z",
+    "updated_at": "2023-01-20T18:03:10Z",
     "clone_url": "https://github.com/thirdweb-example/burn1155-mint721.git",
     "topics": [
       "contract-kit",
@@ -55,7 +55,7 @@
       "extensions"
     ],
     "language": "CSS",
-    "stargazers_count": 9,
+    "stargazers_count": 10,
     "is_template": false,
     "homepage": ""
   },
@@ -64,14 +64,14 @@
     "html_url": "https://github.com/thirdweb-example/community-rewards",
     "description": "Reward your community using NFTs and thirdweb's signature based minting.",
     "created_at": "2022-05-22T23:33:24Z",
-    "updated_at": "2023-01-02T21:06:18Z",
+    "updated_at": "2023-01-20T13:27:16Z",
     "clone_url": "https://github.com/thirdweb-example/community-rewards.git",
     "topics": [
       "nft-collection",
       "signature-based-minting"
     ],
     "language": "JavaScript",
-    "stargazers_count": 18,
+    "stargazers_count": 19,
     "is_template": false,
     "homepage": "https://community-rewards.thirdweb-example.com"
   },
@@ -95,14 +95,14 @@
     "html_url": "https://github.com/thirdweb-example/contract-hub",
     "description": "Demonstration of all thirdweb's pre-built contracts with TypeScript + Getting started snippets",
     "created_at": "2022-05-03T10:20:11Z",
-    "updated_at": "2023-01-02T21:10:05Z",
+    "updated_at": "2023-01-20T16:46:30Z",
     "clone_url": "https://github.com/thirdweb-example/contract-hub.git",
     "topics": [
       "demo",
       "thirdweb"
     ],
     "language": "TypeScript",
-    "stargazers_count": 11,
+    "stargazers_count": 12,
     "is_template": false,
     "homepage": "https://contract-hub.thirdweb-example.com/"
   },
@@ -429,7 +429,7 @@
     "html_url": "https://github.com/thirdweb-example/full-stack-web3-app",
     "description": "Build an application on top of a custom contract using the thirdweb SDK",
     "created_at": "2022-06-15T06:28:28Z",
-    "updated_at": "2023-01-14T16:50:35Z",
+    "updated_at": "2023-01-20T18:03:12Z",
     "clone_url": "https://github.com/thirdweb-example/full-stack-web3-app.git",
     "topics": [
       "contract-kit",
@@ -437,7 +437,7 @@
       "thirdweb-deploy"
     ],
     "language": "JavaScript",
-    "stargazers_count": 6,
+    "stargazers_count": 7,
     "is_template": false,
     "homepage": ""
   },
@@ -689,7 +689,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2023-01-15T22:56:08Z",
+    "updated_at": "2023-01-20T13:18:58Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -702,7 +702,7 @@
       "web3js"
     ],
     "language": "CSS",
-    "stargazers_count": 36,
+    "stargazers_count": 37,
     "is_template": true,
     "homepage": "https://next-typescript-starter.thirdweb-example.com"
   },
@@ -762,7 +762,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2023-01-16T22:37:21Z",
+    "updated_at": "2023-01-20T18:02:41Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "contract-kit",
@@ -775,7 +775,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 83,
+    "stargazers_count": 85,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -890,7 +890,7 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2023-01-15T23:04:23Z",
+    "updated_at": "2023-01-20T18:03:17Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [
       "contract-kit",
@@ -901,7 +901,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 31,
+    "stargazers_count": 32,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },
@@ -964,11 +964,11 @@
     "html_url": "https://github.com/thirdweb-example/shopify-discount-codes",
     "description": "Grant users who hold an NFT from your collection a discount code they can use in your Shopify store!",
     "created_at": "2022-10-04T23:36:42Z",
-    "updated_at": "2023-01-06T16:16:56Z",
+    "updated_at": "2023-01-19T12:30:31Z",
     "clone_url": "https://github.com/thirdweb-example/shopify-discount-codes.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": null
   },
@@ -1180,14 +1180,14 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-next-auth",
     "description": "Enable wallet-based login with thirdweb Auth & Next Auth",
     "created_at": "2022-08-30T21:44:52Z",
-    "updated_at": "2023-01-02T21:11:39Z",
+    "updated_at": "2023-01-20T05:23:09Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-next-auth.git",
     "topics": [
       "auth",
       "nextauth"
     ],
     "language": "TypeScript",
-    "stargazers_count": 5,
+    "stargazers_count": 6,
     "is_template": false,
     "homepage": ""
   },
@@ -1211,7 +1211,7 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-supabase",
     "description": "Enable users to login to your backend with their wallet, and store users in supabase. ",
     "created_at": "2022-08-19T19:02:16Z",
-    "updated_at": "2023-01-02T21:11:09Z",
+    "updated_at": "2023-01-20T05:22:44Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-supabase.git",
     "topics": [
       "auth",
@@ -1219,7 +1219,7 @@
       "web2"
     ],
     "language": "TypeScript",
-    "stargazers_count": 8,
+    "stargazers_count": 9,
     "is_template": false,
     "homepage": ""
   },

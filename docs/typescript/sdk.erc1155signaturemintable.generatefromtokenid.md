@@ -24,7 +24,7 @@ const startTime = new Date();
 const endTime = new Date(Date.now() + 60 * 60 * 24 * 1000);
 const payload = {
   tokenId: 0, // Instead of metadata, we specificy the token ID of the NFT to mint supply to
-  to: {{wallet_address}}, // Who will receive the NFT
+  to: {{wallet_address}}, // Who will receive the NFT (or AddressZero for anyone)
   quantity: 2, // the quantity of NFTs to mint
   price: 0.5, // the price per NFT
   currencyAddress: NATIVE_TOKEN_ADDRESS, // the currency to pay with

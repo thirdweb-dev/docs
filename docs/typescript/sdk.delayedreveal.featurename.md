@@ -60,5 +60,6 @@ featureName: "ERC1155" |
   "AppURI" |
   "Ownable" |
   "Gasless" |
-  "PackVRF";
+  "PackVRF" |
+  "PluginRouter";
 ```
