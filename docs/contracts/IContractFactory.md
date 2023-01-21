@@ -15,7 +15,7 @@ displayed_sidebar: contracts
 function deployProxyByImplementation(address implementation, bytes data, bytes32 salt) external nonpayable returns (address)
 ```
 
-Deploys a proxy that points to the given implementation.
+Deploys a proxy that points to that points to the given implementation.
 
 #### Parameters
 

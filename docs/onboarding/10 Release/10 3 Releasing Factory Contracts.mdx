@@ -5,24 +5,22 @@ slug: /release/factory-contracts
 
 import QuickstartCard from "../../../src/components/QuickstartCard";
 
-<h3>Factory Contract Release</h3>
-
 Another way to let users deploy your contracts is by using a factory contract. This allows you to not only provide cheap deployments, but also to add extra logic that will be executed when others deploy your contracts.
 
-### Requirements
+### Releasing factory contracts
 
-To enable factory deploys, you will need to deploy a factory contract that implements the [IContractFactory interface](https://portal.thirdweb.com/contracts/IContractFactory). This is a simple interface with one function that you can implement to deploy contracts any way you like, and add your custom logic on top. This is extremely useful when deploying a contract which requires multiple steps, having the factory take care of the heavy lifting.
+To enable factory deploys, you will need to deploy a factory contract that implements the [IContractFactory interface](https://portal.thirdweb.com/contracts/IContractFactory). This is a simple interface with one function that you can implement to add deploy contracts any way you like, and add your custom logic on top. This is extremely useful when deploying a contract requires multiple steps, having the factory take care of the heavy lifting.
 
-Fill in the addresses of your factory contracts on each chain. This means you need to deploy your factory contract implementations on each of your desired chains.
+Fill in the addresses of your factory contracts on each chain. This means you need to deploy your implementations like for proxy, but also add your factory addresses.
 
 ![Factory Contract Address Form](/assets/publish/factory-addresses.png)
 
 Click the "Next" button and fill out the details of the parameters on your contract.
 
-Help users trying to deploy your smart contract by providing a name, description & default value for each initialization parameter.
+Help users trying to deploy your smart contract by providing a display name, default value, and description of each contract parameter.
 
-![Factory Contract Parameters](/assets/publish/contract-parameters.png)
+![Describe Constructor Parameters](/assets/publish/contract-parameters.png)
 
 Finally to release your contract, click the "Publish Contract" button.
 
-That's it, now when clicking deploy from your release page, your factory will be invoked instead.
+That's it, now when people click deploy from your release page, your factory function will be invoked.

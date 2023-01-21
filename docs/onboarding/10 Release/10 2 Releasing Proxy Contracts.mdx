@@ -6,27 +6,20 @@ slug: /release/proxy-contracts
 import QuickstartCard from "../../../src/components/QuickstartCard";
 import YoutubeEmbed from "@components/YoutubeEmbed";
 
-<h3>EIP-1967 Proxy Contract Release</h3>
+When releasing a contract, you can choose to let others deploy a "proxy" of a pre-deployed contract. Since proxies are much lighter weight than the actual full contract, they are much cheaper to deploy. Proxy deploys only requiring a fraction of the gas of a normal deploy. 
+### Releasing proxy contracts
 
-When releasing a contract, you can choose to let others deploy a "proxy" of a pre-deployed contract. Since proxies are much lighter weight than the full contract, they are much cheaper to deploy. Proxy deploys only require a fraction of the gas of a normal deploy.
+This feature has a requirement. The "main" contract, referred to as the "implementation", needs to be deployed on chain already. You can not release normal contracts as proxies, they need to be written as per the [EIP 1967 spec](https://eips.ethereum.org/EIPS/eip-1967).
 
-### Requirements
+To release a proxy contract, your contract needs to implement the [upgradeable pattern](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable), generally means it has an "initialize" function instead of a regular constructor.
 
-This feature has a requirement however, the "main" contract, referred to as the "implementation" needs to be deployed on-chain already.
-
-To release a proxy contract, your contract needs to implement the [upgradeable pattern](https://docs.openzeppelin.com/upgrades-plugins/1.x/writing-upgradeable), which it has an "initialize" function instead of a regular constructor.
-
-Now, you can deploy your implementations on any supported chain in one click.
-
-Deploy your implementations on your desired chains (addresses are saved automatically).
+If you haven't already deployed your implementation contracts, you can do so using the UI. Just click on the 🚀 button next to the desired network.
 
 ![Proxy Contract Addresses Form](/assets/publish/proxy-address.png)
 
-Click the "Next" button.
+Click the "Next" button and and customize your initializer parameters. This is what will be shown to users when they try to deploy your contract.
 
-Help users trying to deploy your smart contract by providing a name, description & default value for each initialization parameter.
-
-![Proxy Contract Parameters](/assets/publish/contract-parameters.png)
+![Describe Constructor Parameters](/assets/publish/contract-parameters.png)
 
 Finally, release your Proxy contract(s) by clicking the "Publish Contract" button.
 
