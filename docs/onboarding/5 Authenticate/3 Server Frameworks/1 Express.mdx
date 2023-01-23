@@ -74,6 +74,27 @@ app.get("/secret", authMiddleware, async (req, res) => {
 });
 ```
 
+Alternatively, you can add the `authMiddleware` to the entire app if you want to use the `getUser` function across multiple routes.
+
+```ts title="src/index.ts"
+// Now getUser function will be available on all routes
+app.use(authMiddleware);
+
+app.get("/secret", async (req, res) => {
+  const user = await getUser(req);
+
+  if (!user) {
+    return res.status(401).json({
+      message: "Not authorized.",
+    });
+  }
+
+  return res.status(200).json({
+    message: "This is a secret... don't tell anyone.",
+  });
+});
+```
+
 ### Validating the login request
 
 By default, the Auth API will validate the login request by checking that the user requesting to login succesfully signed a valid [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) message. However, this doesn't perform specific checks on the exact contents of the payload, aside from the domain used for anti-phishing.
