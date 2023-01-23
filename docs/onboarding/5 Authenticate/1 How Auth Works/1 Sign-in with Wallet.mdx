@@ -1,0 +1,105 @@
+---
+slug: /auth/how-auth-works/sign-in-with-wallet
+title: Sign-in with Wallet
+---
+
+As we covered in the previous section, Auth makes use of the sign-in with wallet standard to allow users to prove their identity and login to your application. In this section, we'll cover the details of how this process works.
+
+## What is signing-in with a wallet?
+
+We want to allow the user to use their wallet as their identity to login into our applications. So we need a way for them to prove that they are in fact the owner of their wallet address, so that we can trust their identity.
+
+The way we do this is by asking the user to sign a message with their wallet. Because of the way that digital signature algorithms work, when a user signs a message with their wallet, we can be sure that the message was signed by the owner of the wallet. This is because the signature can only be is generated using the private key of the wallet, which only the owner of the wallet knows.
+
+This is the exact insight that motivated the [Sign-in with Ethereum](https://eips.ethereum.org/EIPS/eip-4361) (EIP4361) and [Sign-in with Wallet](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-122.md) (CAIP122) standards. These standards define a uniform structure of the message that wallets should sign in order to login to any applications, taking into account a number of security concerns which we will go over here. Auth makes use of these standards to allow users to login to your application (specifically CAIP122, which is a superset of EIP4361 that works for any blockchain).
+
+## How do we create a sign-in with wallet message?
+
+Each sign-in with wallet message contains a number of fields that are used to specify the details of the login request. These fields are used to prevent phishing attacks, add security, and to ensure that the user is signing in to the correct application. We'll go over the most important fields in more detail below, but here is the full configuration of a sign-in with wallet request:
+
+| Field            | Type                                                            | Description                                                                                                                                                                          |
+| ---------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `type`           | `Ethereum` or `Solana`                                          | Which blockchain ecosystem the logging in wallet is from                                                                                                                             |
+| `domain`         | [RFC 3986 URI](https://www.rfc-editor.org/rfc/rfc3986)          | The application domain used to prevent phishing attacks and specify login payload to the intended resource                                                                           |
+| `address`        | wallet address                                                  | Adress of the wallet attempting to login                                                                                                                                             |
+| `statement`      | string                                                          | (optional) Statement to include upfront information on the login payload, like terms of service. No `\n` characters allowed.                                                         |
+| `uri`            | [RFC 3986 URI](https://www.rfc-editor.org/rfc/rfc3986)          | (optional) URI of the application that the user is logging into.                                                                                                                     |
+| `version`        | `1`                                                             | (optional) Version of the sign-in with wallet request used for forward-compatibility. Defaults to `1`.                                                                               |
+| `chainId`        | string                                                          | (optional) The chainId that the user is signing-in with. This field is required in order to sign-in with smart contract wallets ([EIP1271](https://eips.ethereum.org/EIPS/eip-122)). |
+| `nonce`          | string                                                          | Used to prevent replay attacks by adding a unique nonce to each login payload. Defaults to a uuidv4 string.                                                                          |
+| `issuedAt`       | ISO 8601 date                                                   | The datetime when the login payload was issued.                                                                                                                                      |
+| `expirationTime` | ISO 8601 date                                                   | The datetime when the login payload will expire.                                                                                                                                     |
+| `notBefore`      | ISO 8601 date                                                   | (optional) The datetime when the login payload will start being valid.                                                                                                               |
+| `resources`      | list of [RFC 3986 URIs](https://www.rfc-editor.org/rfc/rfc3986) | (optional) List of resources relevant to the login request expressed as URLs separated by `\n`.                                                                                      |
+
+Using this configuration, we can create a sign-in with wallet message by combining the fields together into the following structure, as specified by EIP4361 and CAIP122
+
+```
+${domain} wants you to sign in with your ${type} account:
+${address}
+
+${statement}
+
+URI: ${uri}
+Version: ${version}
+Chain ID: ${chain-id}
+Nonce: ${nonce}
+Issued At: ${issued-at}
+Expiration Time: ${expiration-time}
+Not Before: ${not-before}
+Resources:
+- ${resources[0]}
+- ${resources[1]}
+...
+- ${resources[n]}
+```
+
+Let's take a look at some of the most important fields here and understand what they are used for.
+
+### `domain`
+
+`domain` is one of the most important fields on the sign-in with wallet message. It is used to prevent phishing attacks by specifying the domain of the application that the user is logging into. This should match the domain of the application that the user is on while making a login request, and should be enforced by the server receiving the login request.
+
+This helps to mitigate the possibility that a user could be tricked into signing a login message to an application by a malicious third-party website, allowing the the third-party to authenticate as the user.
+
+### `address`
+
+`address` is the wallet address that the user is attempting to login with. This is used to help the user ensure that they are signing in with the correct wallet, as they can see the login message when they are signing it.
+
+### `statement`
+
+This is an arbitrary statement displayed as the user is logging in, an is often used to display a link to an applications terms of service. By default, Auth uses this line to further prevent phishing attacks as it prompts the user to double-check that the domain matchs the current URL of the app that they are on: `Please ensure that the domain above matches the URL of the current website.`
+
+### `chainId`
+
+This field specifies the `chainId` of the wallet that's logging in, which is especially important for users logging in with smart contract wallets. Since smart contract wallets exist on only on chain, it's important that the user specifies which chain their wallet exists on, so that the server then knows where to interact with the smart contract wallet to verify the signature.
+
+### `nonce`
+
+The `nonce` is used to prevent replay attacks by adding a unique ID to each login message. This way, servers can keep track of login messages that have already been used, and reject login attempts with old payloads.
+
+### `expirationTime`
+
+`expirationTime` is used to increase security my making login payloads invalid after a certain duration. By default Auth sets login payloads to expire after 5 minutes. This is because anyone who obtains a login payload from another user can use it to login as that user, so it's important that login payloads expire quickly.
+
+## How do we verify a sign-in with wallet message?
+
+Once a user signs a sign-in with wallet message and sends it to the server, the server then needs to verify that the signature is valid. This involves checking that the message was signed by the correct wallet address, as well as by checking the validity of the individual fields on the login payload. Let's take a look at all the key steps involved in verifying a login request.
+
+### 1. Check that static fields are correct
+
+First, we ensure that all the static values on the login payload are correct. This includes checking that the `domain`, `type`, `statement`, `uri`, `version`, and `resources` all match the static values that the server is expecting, as these should be the same across all login requests.
+
+### 2. Check that the payload hasn't already been used
+
+Next, we ensure that the payload hasn't already been used for another login, as that would indicate that there could be a replay attack occuring. This can be accomplished using any data-storage scheme by checking that the `nonce` is not already present in our storage, and if not, we add it to our storage for later validation.
+
+### 3. Check that the payload is currently valid
+
+Next, we check that the payload is currently valid. This includes checking that the `issuedAt` and `notBefore` fields are before the current time, and that the `expirationTime` is after the current time. This ensures that the payload is valid at the time that the server is verifying it.
+
+### 4. Check that the signature is valid
+
+Finally, we check that the user attempting to login actually signed the login payload. This ensures that the user is the one who is attempting to login, and not a malicious third-party.
+
+However, there is one nuance at this step. If a user is signing in with a smart contract wallet ([EIP1271](https://eips.ethereum.org/EIPS/eip-122)), then we need to make a smart contract call to the `isValidSignature` function to check if the signature is valid - and this requires that the `chainId` on the login payload is correct. This is because smart contract wallets exist on only on chain, so we need to know which chain the wallet exists on in order to interact with the smart contract.

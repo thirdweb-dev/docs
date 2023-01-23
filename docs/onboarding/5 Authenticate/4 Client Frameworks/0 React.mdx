@@ -209,7 +209,7 @@ export default function Home() {
 
 ### Cross-origin requests & cookies
 
-As mentioned in the [how auth works section](/auth/how-auth-works/cookies), Auth uses cookies to securely store JWTs in the browser. This means that if our Auth backend and frontend aren't on the same domain, we may run into [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) issues.
+Auth uses cookies to securely store JWTs in the browser context. This means that if our Auth backend and frontend aren't on the same domain, we may run into [CORS](https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS) issues.
 
 Specifically, on the frontend you don't have access to cookies but they need to get sent to the backend in order for your users to authenticate to your API. This is solved because the browser automatically sends cookies on requests to your backend if your frontend and backend are on the same URL.
 
