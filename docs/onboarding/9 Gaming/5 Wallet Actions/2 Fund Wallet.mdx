@@ -45,7 +45,7 @@ Use the `FundWallet` method to begin the following flow:
 
 ```csharp
 // Call the "FundWallet" function to trigger the Coinbase Pay flow.
-await sdk.FundWallet(new FundWalletOptions() {
+await sdk.wallet.FundWallet(new FundWalletOptions() {
     appId = "<your-app-id-here>", // https://docs.cloud.coinbase.com/pay-sdk/docs/using-sdk
     address = address, // The wallet address to fund
     chainId = 137 // The chain ID of the network to fund
