@@ -32,8 +32,6 @@ To add support for Auth to your Next backend, you'll need to install the `@third
 npm install @thirdweb-dev/auth ethers
 ```
 
-import { ThirdwebAuth } from "@thirdweb-dev/auth/express";
-
 Now we can setup our Next.js server by using the `@thirdweb-dev/auth/next` entrypoint. First, we need to setup our [Auth API](/auth/how-auth-works/auth-api) by creating a new file called `pages/api/auth/[...thirdweb].ts`:
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
