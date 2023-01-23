@@ -57,7 +57,7 @@ Finally, we add the `authRouter` to our app with the `app.use("/auth", authRoute
 
 The `getUser` function can be used to authenticate the user on the server. It will return the user's address if the user is authenticated, or `null` if the user is not authenticated. It can be used in any API route that uses the `authMiddleware`:
 
-```ts title="pages/api/auth/[...thirdweb].ts"
+```ts title="src/index.ts"
 // Add the auth middleware to any routes where you want to use the getUser function
 app.get("/secret", authMiddleware, async (req, res) => {
   const user = await getUser(req);
@@ -101,7 +101,7 @@ By default, the Auth API will validate the login request by checking that the us
 
 If you want to add specific checks to enforce the exact data on the login payload signed by users, you can use the `authOptions` configuration:
 
-```ts title="pages/api/auth/[...thirdweb].ts"
+```ts title="src/index.ts"
 const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
   ... // other config
   authOptions: {
@@ -121,7 +121,7 @@ Since the sign-in with wallet payload is used to login to your server, it's impo
 
 Luckily, all sign-in with wallet payloads include a `nonce` field which is a random string generated when the request was created. If you are using a database, or have somewhere to store nonces, you can ensure that each nonce is only used once:
 
-```ts title="pages/api/auth/[...thirdweb].ts"
+```ts title="src/index.ts"
 const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
   ... // other config
   authOptions: {
@@ -143,7 +143,7 @@ const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
 
 By default, the JWTs issued by the server are valid for 5 hours (21600 seconds), after which the user will have to login again. If you want to change this duration, you can use the `authOptions.tokenDurationInSeconds` configuration:
 
-```ts title="pages/api/auth/[...thirdweb].ts"
+```ts title="src/index.ts"
 const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
   ... // other config
   authOptions: {
@@ -158,7 +158,7 @@ The Auth API will set a cookie on the user's browser with the issued JWT token (
 
 If you want to overwrite these, settings, you can with the `cookieOptions` configuration. For example, you may want to set your domain to be less specific - like if you have your api on `api.example.com` and a client on `client.example.com`, you may want to set your domain to `.example.com`, or you want want to set your `SameSite` setting to `strict` if your API and client are on the same domain:
 
-```ts title="pages/api/auth/[...thirdweb].ts"
+```ts title="src/index.ts"
 const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
   ... // other config
   cookieOptions: {
@@ -173,7 +173,7 @@ const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
 
 When the server issues a JWT, the default JWT claims are added to the token (as elaborated in the [how auth works section](/auth/how-auth-works/json-web-tokens)). However, you may want to add additional data to the JWT claims to serve as session context that will persisten on the token, such as certain user level permissions or access information. You can do this with the `callbacks.login.enhanceToken` callback function which allows you to add arbitrary context to the `ctx` claim of the JWTs.
 
-```ts title="pages/api/auth/[...thirdweb].ts"
+```ts title="src/index.ts"
 const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
   ... // other config
   callbacks: {
@@ -199,7 +199,7 @@ const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
 
 Alternatively, you can populate data about a user everytime user data is requested from the `/user` endpoint or `getUser` function. This data is not session-wide as it is not stored on the JWT, so it isn't persisted an can change between requests. It can be useful for populating data that is not stored on the JWT, such as user profile information.
 
-```ts title="pages/api/auth/[...thirdweb].ts"
+```ts title="src/index.ts"
 import type { User } from "@thirdweb/auth/express";
 
 const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
@@ -221,7 +221,7 @@ const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
 
 We can use the `callbacks.login.onLogin` function to remember users in a database whenever they login, enabling a traditional database enabled authentication flow:
 
-```ts title="pages/api/auth/[...thirdweb].ts"
+```ts title="src/index.ts"
 import type { User } from "@thirdweb/auth/express";
 
 const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
