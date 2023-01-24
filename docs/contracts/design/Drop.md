@@ -112,7 +112,7 @@ In all `Drop` contracts, a contract admin specifies the following when setting c
 
 When setting claim conditions, any existing set of claim conditions stored in `ClaimConditionsList` are overwritten with the new claim conditions specified in `conditions`.
 
-The claim conditions specified in `conditions` are expected to be ordered in ascending order, by their ‘start time’. As a result, only one claim condition is active during at any given time.
+The claim conditions specified in `conditions` are expected to be in ordered in ascending order, by their ‘start time’. As a result, only one claim condition is active during at any given time.
 
 Each of the claim conditions specified in `conditions` is assigned a unique integer ID. The UID of the first condition in `conditions` is stored as the `ClaimConditionList.currentStartId` and each next claim condition’s UID is one more than the previous condition’s UID.
 
@@ -160,11 +160,11 @@ There are a few key differences between the three implementations —
 
 The distribution mechanism of thirdweb’s `Drop` contracts is vulnerable to [sybil attacks](https://en.wikipedia.org/wiki/Sybil_attack). That is, despite the various ways in which restrictions can be applied to the minting of tokens, some restrictions that claim conditions can express target wallets and not persons.
 
-For example, the restriction `quantityLimitPerWallet` expresses the max quantity a _wallet_ can claim during the respective claim condition. A sophisticated actor may generate multiple wallets to claim tokens in a way that undermines such restrictions, when viewing such restrictions as restrictions on unique persons, and not wallets.
+For example, the restriction `quantityLimitPerWallet` expresses the max quantity a _wallet_ can claim during the respective claim condition. A sophisticated actor may generate multiple wallets to claim tokens in a way that undermine such restrictions, when viewing such restrictions as restrictions on unique persons, and not wallets.
 
 ### Allowlist behavior
 
-When specifying allowlist of addresses, and quantities, price, etc. for those addresses, contract admins must ensure that they don't list an address more than once in the same merkle tree.
+When specifiying allowlist of addresses, and quantities, price, etc. for those addresses, contract admins must ensure that they don't list an address more than once in the same merkle tree.
 
 For e.g. admin wishes to grant user X permission to mint 2 tokens at 0.25 ETH, and 4 tokens at 0.5 ETH. In this case, the contract design will not permit the user X to claim 6 tokens with different prices as desired. Instead, the user may be limited to claiming just 2 tokens or 4 tokens based on their order of claiming.
 

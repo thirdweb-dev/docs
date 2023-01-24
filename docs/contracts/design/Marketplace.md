@@ -8,7 +8,7 @@ The document is written for technical and non-technical readers. To ask further 
 
 ## Background
 
-The [thirdweb](https://thirdweb.com/) `Marketplace` is a market where people can sell NFTs — [ERC 721](https://eips.ethereum.org/EIPS/eip-721) or [ERC 1155](https://eips.ethereum.org/EIPS/eip-1155) tokens — at a fixed price ( what we'll refer to as a "Direct listing"), or auction them (what we'll refer to as an "Auction listing").
+The [thirdweb](https://thirdweb.com/) `Marketplace` is a market where where people can sell NFTs — [ERC 721](https://eips.ethereum.org/EIPS/eip-721) or [ERC 1155](https://eips.ethereum.org/EIPS/eip-1155) tokens — at a fixed price ( what we'll refer to as a "Direct listing"), or auction them (what we'll refer to as an "Auction listing").
 
 ### Direct Listings
 
@@ -40,7 +40,7 @@ To make an offer to a direct listing, a buyer specifies —
 
 When making an offer to a direct listing, the offer amount is not escrowed in the Marketplace. Instead, making an offer requires the buyer to approve Marketplace to transfer the appropriate amount of currency to let Marketplace transfer the offer amount from the buyer to the lister, in case the lister accepts the buyer's offer.
 
-To buy NFTs from a direct listing buy paying the listing's specified price, a buyer specifies -
+To buy NFTs from a direct listing buy paying the listing's specified price, a buyer specifes -
 
 | Parameter    | Type    | Description                                                                            |
 | ------------ | ------- | -------------------------------------------------------------------------------------- |
@@ -56,7 +56,7 @@ A sale is executed when either a buyer pays the fixed price, or the seller accep
 
 ### Auction listings
 
-An NFT owner (or 'lister') can auction their NFTs. Potential buyers make bids in the auction. At the closing of the auction, the buyer with the winning bid gets the auctioned NFTs, and the lister gets the winning bid amount.
+An NFT owner (or 'lister') can auction their NFTs. Potential buyers make bids in the auction. At the closing of the auction, the buyer with the wining bid gets the auctioned NFTs, and the lister gets the winning bid amount.
 
 Auctions on thirdweb's Marketplace are [english auctions](https://www.wallstreetmojo.com/english-auction/).
 

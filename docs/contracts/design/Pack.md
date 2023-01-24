@@ -79,7 +79,7 @@ uint256 perUnitAmount;
 | ------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | assetContract | The contract address of the token.                                                                                                                                      |
 | tokenType     | The type of the token -- ERC20 / ERC721 / ERC1155                                                                                                                       |
-| tokenId       | The tokenId of the token. (Not applicable for ERC20 tokens. The contract will ignore this value for ERC20 tokens.)                                                  |
+| tokenId       | The tokenId of the the token. (Not applicable for ERC20 tokens. The contract will ignore this value for ERC20 tokens.)                                                  |
 | totalAmount   | The total amount of this token packed in the pack. (Not applicable for ERC721 tokens. The contract will always consider this as 1 for ERC721 tokens.)                   |
 | perUnitAmount | The amount of this token to distribute as a unit, on opening a pack. (Not applicable for ERC721 tokens. The contract will always consider this as 1 for ERC721 tokens.) |
 
@@ -120,7 +120,7 @@ Since packs are ERC1155 tokens, you can publish multiple sets of packs using the
 
 ### Supply of packs
 
-When creating packs, you can specify the number of reward units to distribute to the opener on opening a pack. And so, when creating a set of packs, the total number of packs in that set is calculated as:
+When creating packs, you can specify the numer of reward units to distribute to the opener on opening a pack. And so, when creating a set of packs, the total number of packs in that set is calculated as:
 
 `total_supply_of_packs = (total_reward_units) / (reward_units_to_distribute_per_open)`
 
@@ -128,7 +128,7 @@ This guarantees that each pack can be opened to retrieve the intended _n_ reward
 
 ## Updating packs
 
-You can add more content to a created pack, up till the first transfer of packs. No addition can be made post that.
+You can add more contents to a created pack, up till the first transfer of packs. No addition can be made post that.
 
 ```solidity
 /// @dev Add contents to an existing packId.
