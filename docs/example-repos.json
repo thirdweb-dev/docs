@@ -618,7 +618,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2023-01-16T18:09:31Z",
+    "updated_at": "2023-01-26T11:39:34Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace.git",
     "topics": [
       "marketplace",
@@ -626,7 +626,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 52,
+    "stargazers_count": 53,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
