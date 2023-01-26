@@ -12,7 +12,6 @@ function DocSidebarItems({ items, ...props }) {
     "/platform-overview",
     "/getting-started",
     "/create",
-    "/release",
     "/deploy",
     "/templates",
     "/cli",
