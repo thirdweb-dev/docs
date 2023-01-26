@@ -23,7 +23,7 @@ const { data: claimedNFTs, isLoading, error } = useClaimedNFTs(<YourERC721DropCo
 
 ```typescript
 export declare function useClaimedNFTs(
-  contract: RequiredParam<NFTContract>,
+  contract: RequiredParam<NFTDrop>,
   queryParams?: QueryAllParams,
 ): import("@tanstack/react-query").UseQueryResult<
   import("@thirdweb-dev/sdk").NFT[],
@@ -33,10 +33,10 @@ export declare function useClaimedNFTs(
 
 ## Parameters
 
-| Parameter   | Type                                                                                   | Description                                                                    |
-| ----------- | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
-| contract    | [RequiredParam](./react.requiredparam.md)&lt;[NFTContract](./react.nftcontract.md)&gt; | an instance of a [DropContract](./react.dropcontract.md)                       |
-| queryParams | QueryAllParams                                                                         | <i>(Optional)</i> query params to pass to the query for the sake of pagination |
+| Parameter   | Type                                                     | Description                                                                    |
+| ----------- | -------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| contract    | [RequiredParam](./react.requiredparam.md)&lt;NFTDrop&gt; | an instance of a [DropContract](./react.dropcontract.md)                       |
+| queryParams | QueryAllParams                                           | <i>(Optional)</i> query params to pass to the query for the sake of pagination |
 
 **Returns:**
 
