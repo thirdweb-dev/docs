@@ -130,11 +130,11 @@
         "remarks": "\n\nThis method is paginated. Use the `start` and `count` properties of the queryParams object to control pagination. By default the first 100 NFTs are returned\n\n",
         "examples": {
           "javascript": "// Get all the NFTs that have been minted on this contract\nconst nfts = await program.getAll();\nconsole.log(nfts[0].metadata.name);\nconsole.log(nfts[0].owner);",
-          "react": "import { useProgram, useNFTs } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const { program } = useProgram(\"{{program_address}}\");\n  const { data: metadata, isLoading } = useNFTs(program);\n\n  return (\n    <pre>{JSON.stringify(metadata)}</pre>\n  )\n}"
+          "react": "// Get all the NFTs that have been minted on this contract\nconst nfts = await program.getAll();\nconsole.log(nfts[0].metadata.name);\nconsole.log(nfts[0].owner);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.getall",
-          "react": "https://portal.thirdweb.com/react/solana/react.usenfts"
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.getall"
         }
       },
       {
@@ -221,11 +221,11 @@
         "remarks": null,
         "examples": {
           "javascript": "// Specify who to mint the NFT to\nconst to = \"...\";\n\n// Add the metadata of your NFT\nconst metadata = {\n  name: \"NFT #1\",\n  description: \"My first NFT!\",\n  image: readFileSync(\"files/image.jpg\"),\n  properties: [\n    {\n       name: \"coolness\",\n       value: \"very cool!\"\n    }\n  ]\n}\n\n// Then mint the new NFT and get its address\nconst address = await program.mintTo(to, metadata);\nconsole.log(address);",
-          "react": "import { useProgram, useMintNFT } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const { program } = useProgram(\"{{program_address}}\");\n  const { mutateAsync: mintNFT, isLoading, error } = useMintNFT(program);\n\n  return (\n    <button onClick={() => mintNFT({ metadata: { name: \"First NFT\" } })}>\n      Mint\n    </button>\n  )\n}"
+          "react": "// Specify who to mint the NFT to\nconst to = \"...\";\n\n// Add the metadata of your NFT\nconst metadata = {\n  name: \"NFT #1\",\n  description: \"My first NFT!\",\n  image: readFileSync(\"files/image.jpg\"),\n  properties: [\n    {\n       name: \"coolness\",\n       value: \"very cool!\"\n    }\n  ]\n}\n\n// Then mint the new NFT and get its address\nconst address = await program.mintTo(to, metadata);\nconsole.log(address);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.mintto",
-          "react": "https://portal.thirdweb.com/react/solana/react.usemintnft"
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.mintto"
         }
       },
       {
@@ -260,11 +260,11 @@
         "remarks": null,
         "examples": {
           "javascript": "// The wallet address to transfer the NFTs to\nconst to = \"...\";\n// The mint address of the NFT to transfer\nconst nftAddress = \"...\";\nconst tx = await program.transfer(to, nftAddress);",
-          "react": "import { useProgram, useTransferNFT } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const { program } = useProgram(\"{{program_address}}\");\n  const { mutateAsync: transfer, isLoading, error } = useTransferNFT(program);\n\n  return (\n    <button\n      onClick={() => transfer({\n        receiverAddress: \"{{wallet_address}}\",\n        tokenAddress: \"...\"\n      })}\n    >\n      Transfer\n    </button>\n  )\n}"
+          "react": "// The wallet address to transfer the NFTs to\nconst to = \"...\";\n// The mint address of the NFT to transfer\nconst nftAddress = \"...\";\nconst tx = await program.transfer(to, nftAddress);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.transfer",
-          "react": "https://portal.thirdweb.com/react/solana/react.usetransfernft"
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.transfer"
         }
       }
     ],
@@ -300,11 +300,11 @@
         "remarks": null,
         "examples": {
           "javascript": "const address = \"...\"\nconst balance = await program.balanceOf(address);\nconsole.log(balance.displayValue);",
-          "react": "import { useProgram, useTokenBalance } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const { program } = useProgram(\"{{program_address}}\");\n  const { data: balance, isLoading } = useTokenBalance(program, \"{{wallet_address}}\");\n\n  return (\n    <p>{balance}</p>\n  )\n}"
+          "react": "const address = \"...\"\nconst balance = await program.balanceOf(address);\nconsole.log(balance.displayValue);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.token.balanceof",
-          "react": "https://portal.thirdweb.com/react/solana/react.usetokenbalance"
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.token.balanceof"
         }
       },
       {
@@ -339,11 +339,11 @@
         "remarks": null,
         "examples": {
           "javascript": "// Specify the address to mint tokens to\nconst address = \"{{wallet_address}}\"\";\n// And the amount of tokens to mint\nconst amount = 1;\n// And then you can make a mint transaction\nconst tx = await program.mintTo(address, 1);",
-          "react": "import { useProgram, useMintToken } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const { program } = useProgram(\"{{program_address}}\");\n  const { mutateAsync: mint, isLoading, error } = useMintToken(program);\n\n  return (\n    <button onClick={() => mint({ to: \"{{wallet_address}}\", amount: 1 })}>\n      Mint\n    </button>\n  )\n}"
+          "react": "// Specify the address to mint tokens to\nconst address = \"{{wallet_address}}\"\";\n// And the amount of tokens to mint\nconst amount = 1;\n// And then you can make a mint transaction\nconst tx = await program.mintTo(address, 1);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.token.mintto",
-          "react": "https://portal.thirdweb.com/react/solana/react.useminttoken"
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.token.mintto"
         }
       },
       {
@@ -352,11 +352,11 @@
         "remarks": null,
         "examples": {
           "javascript": "const supply = await program.totalSupply();",
-          "react": "import { useProgram, useMintToken } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const { program } = useProgram(\"{{program_address}}\");\n  const { data: totalSupply, isLoading } = useTokenSupply(program);\n\n  return (\n    <p>{totalSupply}</p>\n  )\n}"
+          "react": "const supply = await program.totalSupply();"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.token.totalsupply",
-          "react": "https://portal.thirdweb.com/react/solana/react.usetokensupply"
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.token.totalsupply"
         }
       },
       {
@@ -365,11 +365,11 @@
         "remarks": null,
         "examples": {
           "javascript": "// Specify the address to transfer tokens to\nconst to = \"...\";\n// And the amount of tokens to transfer\nconst amount = 1;\n// And then you can make the transfer transaction\nconst tx = await program.transfer(to, amount);",
-          "react": "import { useProgram, useTransferToken } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const { program } = useProgram(\"{{program_address}}\");\n  const { mutateAsync: transfer, isLoading, error } = useTransferToken(program);\n\n  return (\n    <button onClick={() => transfer({ to: \"{{wallet_address}}\", amount: 1 })}>\n      Transfer\n    </button>\n  )\n}"
+          "react": "// Specify the address to transfer tokens to\nconst to = \"...\";\n// And the amount of tokens to transfer\nconst amount = 1;\n// And then you can make the transfer transaction\nconst tx = await program.transfer(to, amount);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.token.transfer",
-          "react": "https://portal.thirdweb.com/react/solana/react.usetransfertoken"
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.token.transfer"
         }
       }
     ],
@@ -444,11 +444,11 @@
         "remarks": null,
         "examples": {
           "javascript": "// Specify which address to claim the NFTs to\nconst receiverAddress =  \"...\";\n// Claim the NFTs to the specified wallet and get the mint addresses of the NFTs\nconst claimedAddresses = await program.claimTo(receiverAddress, 1);\nconsole.log(\"Claimed NFT at address\", claimedAddresses[0]);",
-          "react": "import { useProgram, useClaimNFT } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const { program } = useProgram(\"{{program_address}}\");\n  const { mutateAsync: claim, isLoading, error } = useClaimNFT(program);\n\n  return (\n    <button onClick={() => claim({amount: 1})}>\n      Claim\n    </button>\n  )\n}"
+          "react": "// Specify which address to claim the NFTs to\nconst receiverAddress =  \"...\";\n// Claim the NFTs to the specified wallet and get the mint addresses of the NFTs\nconst claimedAddresses = await program.claimTo(receiverAddress, 1);\nconsole.log(\"Claimed NFT at address\", claimedAddresses[0]);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.claimto",
-          "react": "https://portal.thirdweb.com/react/solana/react.useclaimnft"
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.claimto"
         }
       },
       {
@@ -470,11 +470,11 @@
         "remarks": null,
         "examples": {
           "javascript": "// Get all the NFTs that have been minted on this contract\nconst nfts = await program.getAll();\n\nconsole.log(nfts[0].metadata.name);",
-          "react": "import { useProgram, useNFTs } from \"@thirdweb-dev/react/solana\";\n\nexport default function Component() {\n  const { program } = useProgram(\"{{program_address}}\");\n  const { data: metadata, isLoading } = useNFTs(program);\n\n  return (\n    <pre>{JSON.stringify(metadata)}</pre>\n  )\n}"
+          "react": "// Get all the NFTs that have been minted on this contract\nconst nfts = await program.getAll();\n\nconsole.log(nfts[0].metadata.name);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.getall",
-          "react": "https://portal.thirdweb.com/react/solana/react.usenfts"
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.getall"
         }
       },
       {
