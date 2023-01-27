@@ -46,7 +46,7 @@
     "html_url": "https://github.com/thirdweb-example/burn1155-mint721",
     "description": "Similar to the MAYC collection, allow users who hold an NFT from your original NFT Collection to burn an ERC-1155 NFT collection to claim an NFT from your new NFT Collection!",
     "created_at": "2022-09-12T11:18:00Z",
-    "updated_at": "2023-01-20T18:03:10Z",
+    "updated_at": "2023-01-27T18:43:42Z",
     "clone_url": "https://github.com/thirdweb-example/burn1155-mint721.git",
     "topics": [
       "contract-kit",
@@ -55,7 +55,7 @@
       "extensions"
     ],
     "language": "CSS",
-    "stargazers_count": 10,
+    "stargazers_count": 9,
     "is_template": false,
     "homepage": ""
   },
@@ -330,11 +330,11 @@
     "html_url": "https://github.com/thirdweb-example/edition-staking-app",
     "description": "ERC1155 NFT Staking smart contract and web application. Allow users to stake their edition NFTs and earn erc20 tokens as reward!",
     "created_at": "2023-01-22T23:28:16Z",
-    "updated_at": "2023-01-24T21:03:46Z",
+    "updated_at": "2023-01-27T18:36:23Z",
     "clone_url": "https://github.com/thirdweb-example/edition-staking-app.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": null
   },
@@ -458,7 +458,7 @@
     "html_url": "https://github.com/thirdweb-example/full-stack-web3-app",
     "description": "Build an application on top of a custom contract using the thirdweb SDK",
     "created_at": "2022-06-15T06:28:28Z",
-    "updated_at": "2023-01-20T18:03:12Z",
+    "updated_at": "2023-01-27T18:43:41Z",
     "clone_url": "https://github.com/thirdweb-example/full-stack-web3-app.git",
     "topics": [
       "contract-kit",
@@ -466,7 +466,7 @@
       "thirdweb-deploy"
     ],
     "language": "JavaScript",
-    "stargazers_count": 7,
+    "stargazers_count": 6,
     "is_template": false,
     "homepage": ""
   },
@@ -558,13 +558,13 @@
     "html_url": "https://github.com/thirdweb-example/lens",
     "description": "Starter kit for using Lens Protocol with the thirdweb SDK!",
     "created_at": "2022-10-27T10:15:02Z",
-    "updated_at": "2023-01-11T18:57:42Z",
+    "updated_at": "2023-01-27T18:41:38Z",
     "clone_url": "https://github.com/thirdweb-example/lens.git",
     "topics": [
       "lens-protocol"
     ],
     "language": "TypeScript",
-    "stargazers_count": 23,
+    "stargazers_count": 24,
     "is_template": false,
     "homepage": "https://lens.thirdweb-example.com/"
   },
@@ -836,7 +836,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2023-01-21T05:25:25Z",
+    "updated_at": "2023-01-27T18:43:41Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
       "contract-kit",
@@ -849,7 +849,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 86,
+    "stargazers_count": 85,
     "is_template": false,
     "homepage": "https://nft-staking-contract.thirdweb-example.com/"
   },
@@ -964,7 +964,7 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2023-01-23T23:20:13Z",
+    "updated_at": "2023-01-27T18:43:41Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [
       "contract-kit",
@@ -975,7 +975,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 33,
+    "stargazers_count": 32,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },
@@ -1239,13 +1239,13 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-next",
     "description": "Enable wallet-based login with thirdweb Auth & Next",
     "created_at": "2022-08-18T20:13:40Z",
-    "updated_at": "2023-01-02T21:10:56Z",
+    "updated_at": "2023-01-27T19:29:45Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-next.git",
     "topics": [
       "auth"
     ],
     "language": "TypeScript",
-    "stargazers_count": 8,
+    "stargazers_count": 9,
     "is_template": false,
     "homepage": ""
   },
@@ -1328,14 +1328,14 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2023-01-16T19:11:34Z",
+    "updated_at": "2023-01-27T18:42:24Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
     "topics": [
       "auth",
       "stripe"
     ],
     "language": "TypeScript",
-    "stargazers_count": 30,
+    "stargazers_count": 31,
     "is_template": false,
     "homepage": ""
   },
@@ -1460,11 +1460,11 @@
     "html_url": "https://github.com/thirdweb-example/updatable-nft-metadata",
     "description": null,
     "created_at": "2022-11-08T03:48:09Z",
-    "updated_at": "2023-01-12T02:31:18Z",
+    "updated_at": "2023-01-27T19:04:03Z",
     "clone_url": "https://github.com/thirdweb-example/updatable-nft-metadata.git",
     "topics": [],
     "language": "JavaScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": null
   },
