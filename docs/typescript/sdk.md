@@ -71,7 +71,6 @@ displayed_sidebar: typescript
 | [TransactionError](./sdk.transactionerror.md)                                       |                                                                                                                                                                                                    |
 | [UserWallet](./sdk.userwallet.md)                                                   | Connect and Interact with a user wallet                                                                                                                                                            |
 | [Vote](./sdk.vote.md)                                                               | Create a decentralized organization for token holders to vote on proposals.                                                                                                                        |
-| [WalletAuthenticator](./sdk.walletauthenticator.md)                                 | Wallet Authenticator                                                                                                                                                                               |
 
 ## Enumerations
 
@@ -175,9 +174,6 @@ displayed_sidebar: typescript
 | [AddContractInput](./sdk.addcontractinput.md)                                           |                                                                                      |
 | [AirdropInput](./sdk.airdropinput.md)                                                   | Input model to pass a list of addresses + amount to transfer to each one             |
 | [Amount](./sdk.amount.md)                                                               | Represents a currency amount already formatted. ie. "1" for 1 ether.                 |
-| [AuthenticationOptions](./sdk.authenticationoptions.md)                                 |                                                                                      |
-| [AuthenticationPayload](./sdk.authenticationpayload.md)                                 |                                                                                      |
-| [AuthenticationPayloadData](./sdk.authenticationpayloaddata.md)                         |                                                                                      |
 | [ClaimCondition](./sdk.claimcondition.md)                                               | Represents a claim condition fetched from the SDK                                    |
 | [ClaimConditionFetchOptions](./sdk.claimconditionfetchoptions.md)                       |                                                                                      |
 | [ClaimConditionInput](./sdk.claimconditioninput.md)                                     | Input model to create a claim condition with optional snapshot of wallets            |
@@ -210,9 +206,6 @@ displayed_sidebar: typescript
 | [FilledSignaturePayload721](./sdk.filledsignaturepayload721.md)                         |                                                                                      |
 | [ForwardRequestMessage](./sdk.forwardrequestmessage.md)                                 | Forward Request Message that's used for gasless transaction                          |
 | [FullPublishMetadata](./sdk.fullpublishmetadata.md)                                     |                                                                                      |
-| [LoginOptions](./sdk.loginoptions.md)                                                   |                                                                                      |
-| [LoginPayload](./sdk.loginpayload.md)                                                   |                                                                                      |
-| [LoginPayloadData](./sdk.loginpayloaddata.md)                                           |                                                                                      |
 | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md)                         |                                                                                      |
 | [NFT](./sdk.nft.md)                                                                     |                                                                                      |
 | [NFTMetadata](./sdk.nftmetadata.md)                                                     |                                                                                      |
@@ -265,5 +258,4 @@ displayed_sidebar: typescript
 | [TransactionResultWithId](./sdk.transactionresultwithid.md)                             |                                                                                      |
 | [ValidContractInstance](./sdk.validcontractinstance.md)                                 |                                                                                      |
 | [ValueOf](./sdk.valueof.md)                                                             |                                                                                      |
-| [VerifyOptions](./sdk.verifyoptions.md)                                                 |                                                                                      |
 | [WrappedTokens](./sdk.wrappedtokens.md)                                                 | Output for the contents of a bundle wrapped token                                    |

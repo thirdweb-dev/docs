@@ -25,14 +25,14 @@ const sdk = await ThirdwebSDK.fromWallet(wallet, "mainnet");
 **Signature:**
 
 ```typescript
-static fromWallet(wallet: AbstractWallet, network: ChainOrRpc, options?: SDKOptions, storage?: ThirdwebStorage): Promise<ThirdwebSDK>;
+static fromWallet(wallet: EVMWallet, network: ChainOrRpc, options?: SDKOptions, storage?: ThirdwebStorage): Promise<ThirdwebSDK>;
 ```
 
 ## Parameters
 
 | Parameter | Type                              | Description                                                                                                     |
 | --------- | --------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| wallet    | AbstractWallet                    | the implementation of the AbstractWallet class to use for signing                                               |
+| wallet    | EVMWallet                         | the implementation of the AbstractWallet class to use for signing                                               |
 | network   | ChainOrRpc                        | the network (chain) to connect to (e.g. "mainnet", "rinkeby", "polygon", "mumbai"...) or a fully formed RPC url |
 | options   | [SDKOptions](./sdk.sdkoptions.md) | <i>(Optional)</i> the SDK options to use                                                                        |
 | storage   | ThirdwebStorage                   | <i>(Optional)</i> optional storage implementation to use                                                        |

@@ -9,10 +9,8 @@ displayed_sidebar: solana
 
 ## ThirdwebSDK.auth property
 
-Enable wallet-based server-side authentication
-
 **Signature:**
 
 ```typescript
-auth: WalletAuthenticator;
+get auth(): void;
 ```

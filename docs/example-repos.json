@@ -964,7 +964,7 @@
     "html_url": "https://github.com/thirdweb-example/play-to-earn-game",
     "description": "Use thirdweb's token, edition drop, and a custom contract using thirdweb deploy to build a Play-to-Earn game!",
     "created_at": "2022-06-22T11:24:30Z",
-    "updated_at": "2023-01-27T18:43:41Z",
+    "updated_at": "2023-01-27T21:25:36Z",
     "clone_url": "https://github.com/thirdweb-example/play-to-earn-game.git",
     "topics": [
       "contract-kit",
@@ -975,7 +975,7 @@
       "thirdweb-deploy"
     ],
     "language": "TypeScript",
-    "stargazers_count": 32,
+    "stargazers_count": 33,
     "is_template": false,
     "homepage": "https://play-to-earn.thirdweb-example.com"
   },

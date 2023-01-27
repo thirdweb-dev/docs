@@ -9,10 +9,8 @@ displayed_sidebar: typescript
 
 ## ThirdwebSDK.auth property
 
-Enable authentication with the connected wallet
-
 **Signature:**
 
 ```typescript
-auth: WalletAuthenticator;
+get auth(): void;
 ```
