@@ -55,7 +55,7 @@ Now that we have the repository setup, we can continue to looking through and un
 
 Let's first take a look at the backend code for our app. If you look into the `pages/api` folder, you'll see two files: `pages/api/secret.ts` and `pages/api/auth/[...thirdweb].ts`.
 
-`pages/api/auth/[...thirdweb].ts` is where the core of our Auth API setup lives, so we can look at it first. This file is a Next.js catch all route, which will catch any requests to `/api/auth/*` endpoints.
+`pages/api/auth/[...thirdweb].ts` is where the core of our Auth API setup lives, so we can look at it first. In the example project, there's a bit of extra configuration you can explore later that shows you how to use some of the more advanced features of Auth, but for now let's just take a look at what the core configuration of this file looks like (note that this code snippet is simplified to exclude the advanced configuration):
 
 ```ts title="pages/api/auth/[...thirdweb].ts"
 import { ThirdwebAuth } from "@thirdweb-dev/auth/next";
@@ -71,7 +71,7 @@ export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
 export default ThirdwebAuthHandler();
 ```
 
-The `ThirdwebAuth` function takes in configuration for your Auth API. It has many optional parameters that aren't used here (you can read more about them on the [Auth Next.js page](/auth/server-frameworks/next)), but the two mandatory parameters are `domain` and `wallet`.
+This file is a Next.js catch all route, which will catch any requests to `/api/auth/*` endpoints. The `ThirdwebAuth` function takes in configuration for your Auth API. It has many optional parameters that aren't used here (you can read more about them on the [Auth Next.js page](/auth/server-frameworks/next)), but the two mandatory parameters are `domain` and `wallet`.
 
 `domain` is used to prevent phishing attacks on your users - you can learn more about it in the [how auth works section](/auth/how-auth-works/sign-in-with-wallet), but the important thing is that this `domain` matches the `domain` we will later configure on the frontend.
 
@@ -119,7 +119,7 @@ export default handler;
 
 Now we can take a look at the frontend that interacts with these endpoints. The frontend also only has two important files.
 
-First, let's look at the `pages/_app.tsx` file. Here, we need to wrap our app with the `ThirdwebProvider` component and add `authConfig` to it so that our frontend knows that we have an Auth backend setup.
+First, let's look at the `pages/_app.tsx` file. Here, we want to setup the [`@thirdweb-dev/react`](/react) SDK to use with the Auth package. To do this, we need to wrap our app with the `ThirdwebProvider` component and add `authConfig` to it so that our frontend knows that we have an Auth backend setup.
 
 ```tsx title="pages/_app.tsx"
 function MyApp({ Component, pageProps }: AppProps) {
@@ -170,7 +170,7 @@ const Home: NextPage = () => {
       <button onClick={getSecret}>Get Secret</button>
 
       <pre>Connected Wallet: {address}</pre>
-      <pre>User: {user?.address || "N/A"}</pre>
+      <pre>User: {JSON.stringify(user, undefined, 2) || "N/A"}</pre>
       <pre>Secret: {secret || "N/A"}</pre>
     </div>
   );

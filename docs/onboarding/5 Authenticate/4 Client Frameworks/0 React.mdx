@@ -181,6 +181,38 @@ export default function Home() {
 }
 ```
 
+### Customizing the login message
+
+The `login` function automatically uses some default values for the necessary fields of the [EIP4361](https://eips.ethereum.org/EIPS/eip-4361)/[CAIP122](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-122.md) specifications.
+
+However, if you want full access to customize these field values, you can overwrite them by passing an object to the `login` function:
+
+```tsx
+import { useLogin } from "@thirdweb-dev/react";
+
+export default function Home() {
+  const { login } = useLogin();
+
+  async function handleLogin() {
+    // All of these fields are optional
+    login({
+      uri: "https://example.com",
+      statement: "Please agree to our terms of service!",
+      chainId: "123",
+      nonce: "123"
+      version: "1",
+      resources: ["https://tos.example.com"],
+    })
+  }
+
+  return (
+    <div>
+      <button onClick={handleLogin}>Login</button>
+    </div>
+  );
+}
+```
+
 ### Handling errors on login
 
 Since logging in requires the user to sign a message, the `login` fuction is asynchronous and may throw an error if the user rejects the message. You can handle this error case by using a `try/catch` block:

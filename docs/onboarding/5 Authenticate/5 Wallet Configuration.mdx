@@ -91,7 +91,7 @@ const wallet = new PrivateKeyWallet(
 You can also use any Solana `Keypair` signer as your wallet.
 
 ```typescript
-import { SignerWallet } from "@thirdweb-dev/auth/evm";
+import { SignerWallet } from "@thirdweb-dev/auth/solana";
 import { Keypair } from "@solana/web3.js";
 
 // Get a solana keypair from somewhere
@@ -145,12 +145,12 @@ const wallet = new AwsSecretsManagerWallet({
 
 ## Custom Wallets
 
-If none of the above methods are suitable for your project, you can also create your own custom wallet class by implementing the `GenericWalletSigner` interface from the `@thirdweb-dev/wallets` package for a completely custom setup.
+If none of the above methods are suitable for your project, you can also create your own custom wallet class by implementing the `GenericAuthWallet` interface from the `@thirdweb-dev/wallets` package for a completely custom setup.
 
 Auth only requires the following simple wallet interface to facilitate signing and verification of JWTs:
 
 ```typescript
-interface GenericWalletSigner {
+interface GenericAuthWallet {
   // Whether your wallet is an "evm" or "solana" wallet
   type: Ecosystem;
   // Get the address of your wallet
@@ -170,12 +170,12 @@ interface GenericWalletSigner {
 
 You can see how this interface is chain agnostic, and can be used across different blockchain ecosystems.
 
-For example, here is a minimal implementation of the basic `SignerWallet` class from the `@thirdweb-dev/auth/evm` entrypoing, which follows the `GenericSignerWallet` interface:
+For example, here is a minimal implementation of the basic `SignerWallet` class from the `@thirdweb-dev/auth/evm` entrypoing, which follows the `GenericAuthWallet` interface:
 
 ```typescript
-import type { Ecosystem, GenericSignerWallet } from "@thirdweb-dev/wallets";
+import type { Ecosystem, GenericAuthWallet } from "@thirdweb-dev/wallets";
 
-class SignerWallet implements GenericSignerWallet {
+class SignerWallet implements GenericAuthWallet {
   type: Ecosystem = "evm";
   #signer: ethers.Signer;
 
