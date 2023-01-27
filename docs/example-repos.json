@@ -128,13 +128,13 @@
     "html_url": "https://github.com/thirdweb-example/covalent",
     "description": "Load the tokens a wallet owns using the covalent API",
     "created_at": "2022-07-07T07:04:15Z",
-    "updated_at": "2022-10-24T03:20:33Z",
+    "updated_at": "2023-01-27T07:22:26Z",
     "clone_url": "https://github.com/thirdweb-example/covalent.git",
     "topics": [
       "wallets"
     ],
     "language": "CSS",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://covalent.thirdweb-example.com"
   },
@@ -339,6 +339,22 @@
     "homepage": null
   },
   {
+    "name": "erc20-staking-app",
+    "html_url": "https://github.com/thirdweb-example/erc20-staking-app",
+    "description": "Allow users to stake their ERC20 tokens in return for more/other ERC20 tokens!",
+    "created_at": "2023-01-27T08:07:46Z",
+    "updated_at": "2023-01-27T08:36:27Z",
+    "clone_url": "https://github.com/thirdweb-example/erc20-staking-app.git",
+    "topics": [
+      "staking",
+      "token"
+    ],
+    "language": "JavaScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "https://erc20-staking-app.thirdweb-example.com/"
+  },
+  {
     "name": "erc721staking-lockup",
     "html_url": "https://github.com/thirdweb-example/erc721staking-lockup",
     "description": "NFT Staking contract with lockup period",
@@ -356,10 +372,10 @@
     "html_url": "https://github.com/thirdweb-example/express-javascript-solana-starter",
     "description": "Starter template for Express.js and the thirdweb Solana SDK.",
     "created_at": "2023-01-10T03:56:28Z",
-    "updated_at": "2023-01-14T12:33:15Z",
+    "updated_at": "2023-01-27T03:36:00Z",
     "clone_url": "https://github.com/thirdweb-example/express-javascript-solana-starter.git",
     "topics": [],
-    "language": null,
+    "language": "JavaScript",
     "stargazers_count": 3,
     "is_template": false,
     "homepage": null
@@ -369,10 +385,10 @@
     "html_url": "https://github.com/thirdweb-example/express-javascript-starter",
     "description": "Starter template for Express.js and the thirdweb SDK",
     "created_at": "2023-01-10T03:55:53Z",
-    "updated_at": "2023-01-10T03:55:53Z",
+    "updated_at": "2023-01-27T03:36:11Z",
     "clone_url": "https://github.com/thirdweb-example/express-javascript-starter.git",
     "topics": [],
-    "language": null,
+    "language": "JavaScript",
     "stargazers_count": 0,
     "is_template": false,
     "homepage": null
@@ -382,10 +398,10 @@
     "html_url": "https://github.com/thirdweb-example/express-typescript-solana-starter",
     "description": "Starter template for Express.js, TypeScript, and the thirdweb Solana SDK.",
     "created_at": "2023-01-10T03:16:50Z",
-    "updated_at": "2023-01-10T03:18:01Z",
+    "updated_at": "2023-01-27T03:36:23Z",
     "clone_url": "https://github.com/thirdweb-example/express-typescript-solana-starter.git",
     "topics": [],
-    "language": null,
+    "language": "TypeScript",
     "stargazers_count": 0,
     "is_template": false,
     "homepage": ""
@@ -395,10 +411,10 @@
     "html_url": "https://github.com/thirdweb-example/express-typescript-starter",
     "description": "Starter template for Express.js, Typescript, and the thirdweb TypeScript SDK",
     "created_at": "2023-01-10T03:17:42Z",
-    "updated_at": "2023-01-10T03:17:42Z",
+    "updated_at": "2023-01-27T02:57:24Z",
     "clone_url": "https://github.com/thirdweb-example/express-typescript-starter.git",
     "topics": [],
-    "language": null,
+    "language": "TypeScript",
     "stargazers_count": 0,
     "is_template": false,
     "homepage": null
@@ -646,6 +662,22 @@
     "homepage": "https://marketplace-with-signature-based-minting.thirdweb-example.com/"
   },
   {
+    "name": "mint-specific-nft",
+    "html_url": "https://github.com/thirdweb-example/mint-specific-nft",
+    "description": "Allow users to choose which NFT they want to mint from the collection",
+    "created_at": "2023-01-27T10:39:45Z",
+    "updated_at": "2023-01-27T10:52:50Z",
+    "clone_url": "https://github.com/thirdweb-example/mint-specific-nft.git",
+    "topics": [
+      "nft-collection",
+      "signature-based-minting"
+    ],
+    "language": "TypeScript",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": "https://mint-specific-nft.thirdweb-example.com"
+  },
+  {
     "name": "multiwrap",
     "html_url": "https://github.com/thirdweb-example/multiwrap",
     "description": "Wrap ERC-1155, ERC-721 and ERC-20 tokens in to one ERC-721 token",
@@ -715,7 +747,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2023-01-22T01:14:59Z",
+    "updated_at": "2023-01-27T18:31:44Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -728,7 +760,7 @@
       "web3js"
     ],
     "language": "CSS",
-    "stargazers_count": 38,
+    "stargazers_count": 39,
     "is_template": true,
     "homepage": "https://next-typescript-starter.thirdweb-example.com"
   },
@@ -746,6 +778,22 @@
     "stargazers_count": 67,
     "is_template": false,
     "homepage": "https://custom-minting-page.thirdweb-example.com"
+  },
+  {
+    "name": "nft-gallery",
+    "html_url": "https://github.com/thirdweb-example/nft-gallery",
+    "description": "Create a gallery of NFTs from an NFT Collection",
+    "created_at": "2023-01-27T02:51:22Z",
+    "updated_at": "2023-01-27T03:48:56Z",
+    "clone_url": "https://github.com/thirdweb-example/nft-gallery.git",
+    "topics": [
+      "nft-drop",
+      "ui-components"
+    ],
+    "language": "TypeScript",
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": "https://nft-gallery.thirdweb-example.com/"
   },
   {
     "name": "nft-gated-website",
@@ -836,11 +884,11 @@
     "html_url": "https://github.com/thirdweb-example/node-typescript-solana-starter",
     "description": "Starter template for Node.js, TypeScript and the thirdweb Solana SDK",
     "created_at": "2023-01-09T02:37:01Z",
-    "updated_at": "2023-01-09T10:05:09Z",
+    "updated_at": "2023-01-27T02:36:36Z",
     "clone_url": "https://github.com/thirdweb-example/node-typescript-solana-starter.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": null
   },
@@ -903,10 +951,10 @@
     "html_url": "https://github.com/thirdweb-example/phaser-platformer",
     "description": null,
     "created_at": "2023-01-13T16:58:19Z",
-    "updated_at": "2023-01-13T16:58:19Z",
+    "updated_at": "2023-01-27T08:17:59Z",
     "clone_url": "https://github.com/thirdweb-example/phaser-platformer.git",
     "topics": [],
-    "language": null,
+    "language": "TypeScript",
     "stargazers_count": 0,
     "is_template": false,
     "homepage": null
@@ -1340,13 +1388,13 @@
     "html_url": "https://github.com/thirdweb-example/unity-karting-game",
     "description": "Purchase Vehicle NFTs from an in-game marketplace and start earning ERC20 tokens used to buy upgrades!",
     "created_at": "2022-11-28T07:07:24Z",
-    "updated_at": "2023-01-05T03:25:39Z",
+    "updated_at": "2023-01-27T06:38:07Z",
     "clone_url": "https://github.com/thirdweb-example/unity-karting-game.git",
     "topics": [
       "gaming"
     ],
     "language": "C#",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": "https://unity-karting-game.thirdweb-example.com"
   },
