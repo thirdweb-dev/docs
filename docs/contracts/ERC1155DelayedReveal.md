@@ -11,6 +11,18 @@ BASE: ERC1155LazyMint EXTENSION: DelayedReveal The `ERC1155DelayedReveal` contra
 
 ## Methods
 
+### OPERATOR_FILTER_REGISTRY
+
+```solidity
+function OPERATOR_FILTER_REGISTRY() external view returns (contract IOperatorFilterRegistry)
+```
+
+#### Returns
+
+| Name | Type                             | Description |
+| ---- | -------------------------------- | ----------- |
+| \_0  | contract IOperatorFilterRegistry | undefined   |
+
 ### balanceOf
 
 ```solidity
@@ -368,6 +380,18 @@ The tokenId assigned to the next new NFT to be lazy minted.
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
 
+### operatorRestriction
+
+```solidity
+function operatorRestriction() external view returns (bool)
+```
+
+#### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
+
 ### owner
 
 ```solidity
@@ -433,6 +457,8 @@ _Returns royalty amount and recipient for `tokenId` and `salePrice`._
 function safeBatchTransferFrom(address from, address to, uint256[] ids, uint256[] amounts, bytes data) external nonpayable
 ```
 
+_See {IERC1155-safeBatchTransferFrom}._
+
 #### Parameters
 
 | Name    | Type      | Description |
@@ -449,6 +475,8 @@ function safeBatchTransferFrom(address from, address to, uint256[] ids, uint256[
 function safeTransferFrom(address from, address to, uint256 id, uint256 amount, bytes data) external nonpayable
 ```
 
+_See {IERC1155-safeTransferFrom}._
+
 #### Parameters
 
 | Name   | Type    | Description |
@@ -464,6 +492,8 @@ function safeTransferFrom(address from, address to, uint256 id, uint256 amount, 
 ```solidity
 function setApprovalForAll(address operator, bool approved) external nonpayable
 ```
+
+_See {ERC1155-setApprovalForAll}_
 
 #### Parameters
 
@@ -504,6 +534,18 @@ _Caller should be authorized to set royalty info. See {\_canSetRoyaltyInfo}. Emi
 | ------------------ | ------- | ----------------------------------------------- |
 | \_royaltyRecipient | address | Address to be set as default royalty recipient. |
 | \_royaltyBps       | uint256 | Updated royalty bps.                            |
+
+### setOperatorRestriction
+
+```solidity
+function setOperatorRestriction(bool _restriction) external nonpayable
+```
+
+#### Parameters
+
+| Name          | Type | Description |
+| ------------- | ---- | ----------- |
+| \_restriction | bool | undefined   |
 
 ### setOwner
 
@@ -671,6 +713,18 @@ event DefaultRoyalty(address indexed newRoyaltyRecipient, uint256 newRoyaltyBps)
 | newRoyaltyRecipient `indexed` | address | undefined   |
 | newRoyaltyBps                 | uint256 | undefined   |
 
+### OperatorRestriction
+
+```solidity
+event OperatorRestriction(bool restriction)
+```
+
+#### Parameters
+
+| Name        | Type | Description |
+| ----------- | ---- | ----------- |
+| restriction | bool | undefined   |
+
 ### OwnerUpdated
 
 ```solidity
@@ -785,3 +839,17 @@ event URI(string _value, uint256 indexed _id)
 | -------------- | ------- | ----------- |
 | \_value        | string  | undefined   |
 | \_id `indexed` | uint256 | undefined   |
+
+## Errors
+
+### OperatorNotAllowed
+
+```solidity
+error OperatorNotAllowed(address operator)
+```
+
+#### Parameters
+
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| operator | address | undefined   |
