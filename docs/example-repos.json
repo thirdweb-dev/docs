@@ -666,14 +666,14 @@
     "html_url": "https://github.com/thirdweb-example/mint-specific-nft",
     "description": "Allow users to choose which NFT they want to mint from the collection",
     "created_at": "2023-01-27T10:39:45Z",
-    "updated_at": "2023-01-27T10:52:50Z",
+    "updated_at": "2023-01-28T00:31:21Z",
     "clone_url": "https://github.com/thirdweb-example/mint-specific-nft.git",
     "topics": [
       "nft-collection",
       "signature-based-minting"
     ],
     "language": "TypeScript",
-    "stargazers_count": 1,
+    "stargazers_count": 2,
     "is_template": false,
     "homepage": "https://mint-specific-nft.thirdweb-example.com"
   },
@@ -747,7 +747,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2023-01-27T18:31:44Z",
+    "updated_at": "2023-01-28T11:39:45Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -760,7 +760,7 @@
       "web3js"
     ],
     "language": "CSS",
-    "stargazers_count": 39,
+    "stargazers_count": 40,
     "is_template": true,
     "homepage": "https://next-typescript-starter.thirdweb-example.com"
   },
@@ -769,13 +769,13 @@
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2023-01-25T22:17:04Z",
+    "updated_at": "2023-01-29T02:23:26Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 67,
+    "stargazers_count": 68,
     "is_template": false,
     "homepage": "https://custom-minting-page.thirdweb-example.com"
   },
