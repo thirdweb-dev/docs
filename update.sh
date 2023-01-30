@@ -15,6 +15,10 @@ yarn generate-docs
 cd ../react
 mkdir ./etc
 yarn generate-docs
+# generate react-core docs
+cd ../react-core
+mkdir ./etc
+yarn generate-docs
 # generate storage docs
 cd ../storage
 mkdir ./etc
