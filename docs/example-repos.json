@@ -424,7 +424,7 @@
     "html_url": "https://github.com/thirdweb-example/firebase-auth",
     "description": "Integrate sign in with Ethereum using thirdweb Auth into your Firebase application",
     "created_at": "2022-09-09T03:34:01Z",
-    "updated_at": "2023-01-08T22:47:49Z",
+    "updated_at": "2023-01-29T14:57:03Z",
     "clone_url": "https://github.com/thirdweb-example/firebase-auth.git",
     "topics": [
       "auth",
@@ -432,7 +432,7 @@
       "web2"
     ],
     "language": "TypeScript",
-    "stargazers_count": 10,
+    "stargazers_count": 11,
     "is_template": false,
     "homepage": "https://firebase-auth.thirdweb-example.com/"
   },
@@ -634,7 +634,7 @@
     "html_url": "https://github.com/thirdweb-example/marketplace",
     "description": "An NFT Marketplace where you can list NFTs for direct sale or for auction. Users can come and bid on your listings or buy your NFTs, similar to OpenSea.",
     "created_at": "2022-04-27T23:59:14Z",
-    "updated_at": "2023-01-26T11:39:34Z",
+    "updated_at": "2023-01-30T07:31:45Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace.git",
     "topics": [
       "marketplace",
@@ -642,7 +642,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 53,
+    "stargazers_count": 54,
     "is_template": false,
     "homepage": "https://marketplace.thirdweb-example.com"
   },
@@ -651,13 +651,13 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-with-signature-based-minting",
     "description": "Mint and list NFTs on to a marketplace using signature-based minting",
     "created_at": "2022-07-26T07:48:49Z",
-    "updated_at": "2023-01-22T01:08:30Z",
+    "updated_at": "2023-01-30T20:41:02Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-with-signature-based-minting.git",
     "topics": [
       "marketplace"
     ],
     "language": "JavaScript",
-    "stargazers_count": 9,
+    "stargazers_count": 10,
     "is_template": false,
     "homepage": "https://marketplace-with-signature-based-minting.thirdweb-example.com/"
   },
@@ -747,7 +747,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2023-01-28T11:39:45Z",
+    "updated_at": "2023-01-29T09:26:46Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -760,7 +760,7 @@
       "web3js"
     ],
     "language": "CSS",
-    "stargazers_count": 40,
+    "stargazers_count": 41,
     "is_template": true,
     "homepage": "https://next-typescript-starter.thirdweb-example.com"
   },
@@ -800,7 +800,7 @@
     "html_url": "https://github.com/thirdweb-example/nft-gated-website",
     "description": "Restrict access to content based on the ownership of an NFT",
     "created_at": "2022-04-08T17:59:57Z",
-    "updated_at": "2023-01-25T03:58:12Z",
+    "updated_at": "2023-01-30T15:02:33Z",
     "clone_url": "https://github.com/thirdweb-example/nft-gated-website.git",
     "topics": [
       "auth",
@@ -811,7 +811,7 @@
       "wallet-connection"
     ],
     "language": "JavaScript",
-    "stargazers_count": 84,
+    "stargazers_count": 86,
     "is_template": false,
     "homepage": "https://nft-gated-website.thirdweb-example.com"
   },
@@ -1192,13 +1192,13 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-express",
     "description": "Enable wallet-based login with thirdweb Auth & Express",
     "created_at": "2022-08-19T15:40:00Z",
-    "updated_at": "2023-01-02T21:14:49Z",
+    "updated_at": "2023-01-30T15:12:24Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-express.git",
     "topics": [
       "auth"
     ],
     "language": "TypeScript",
-    "stargazers_count": 2,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": ""
   },
@@ -1511,13 +1511,13 @@
     "html_url": "https://github.com/thirdweb-example/web3button",
     "description": "Learn how to use the Web3Button component from the thirdweb React SDK!",
     "created_at": "2022-08-20T00:27:11Z",
-    "updated_at": "2023-01-02T21:07:23Z",
+    "updated_at": "2023-01-29T22:34:05Z",
     "clone_url": "https://github.com/thirdweb-example/web3button.git",
     "topics": [
       "ui-components"
     ],
     "language": "JavaScript",
-    "stargazers_count": 13,
+    "stargazers_count": 14,
     "is_template": false,
     "homepage": "https://web3button.thirdweb-example.com/"
   }
