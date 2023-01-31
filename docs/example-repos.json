@@ -1404,13 +1404,13 @@
     "html_url": "https://github.com/thirdweb-example/unity-karting-game",
     "description": "Purchase Vehicle NFTs from an in-game marketplace and start earning ERC20 tokens used to buy upgrades!",
     "created_at": "2022-11-28T07:07:24Z",
-    "updated_at": "2023-01-27T06:38:07Z",
+    "updated_at": "2023-01-31T21:14:00Z",
     "clone_url": "https://github.com/thirdweb-example/unity-karting-game.git",
     "topics": [
       "gaming"
     ],
     "language": "C#",
-    "stargazers_count": 4,
+    "stargazers_count": 3,
     "is_template": false,
     "homepage": "https://unity-karting-game.thirdweb-example.com"
   },
