@@ -208,7 +208,7 @@
     "html_url": "https://github.com/thirdweb-example/creator-platform",
     "description": "Authenticate users into a web2 database to build a hybrid web2+web3 creator platform!",
     "created_at": "2022-09-23T01:22:38Z",
-    "updated_at": "2023-01-15T23:12:24Z",
+    "updated_at": "2023-01-31T10:33:40Z",
     "clone_url": "https://github.com/thirdweb-example/creator-platform.git",
     "topics": [
       "auth",
@@ -216,7 +216,7 @@
       "web2"
     ],
     "language": "TypeScript",
-    "stargazers_count": 11,
+    "stargazers_count": 12,
     "is_template": false,
     "homepage": ""
   },
@@ -647,6 +647,22 @@
     "homepage": "https://marketplace.thirdweb-example.com"
   },
   {
+    "name": "marketplace-v3",
+    "html_url": "https://github.com/thirdweb-example/marketplace-v3",
+    "description": "Create your own NFT marketplace where users can buy and sell NFTs!",
+    "created_at": "2023-01-31T03:33:27Z",
+    "updated_at": "2023-01-31T10:31:38Z",
+    "clone_url": "https://github.com/thirdweb-example/marketplace-v3.git",
+    "topics": [
+      "marketplace",
+      "nft-marketplace"
+    ],
+    "language": "TypeScript",
+    "stargazers_count": 1,
+    "is_template": false,
+    "homepage": ""
+  },
+  {
     "name": "marketplace-with-signature-based-minting",
     "html_url": "https://github.com/thirdweb-example/marketplace-with-signature-based-minting",
     "description": "Mint and list NFTs on to a marketplace using signature-based minting",
@@ -769,13 +785,13 @@
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2023-01-29T02:23:26Z",
+    "updated_at": "2023-01-31T01:39:34Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 68,
+    "stargazers_count": 69,
     "is_template": false,
     "homepage": "https://custom-minting-page.thirdweb-example.com"
   },
@@ -951,11 +967,11 @@
     "html_url": "https://github.com/thirdweb-example/phaser-platformer",
     "description": null,
     "created_at": "2023-01-13T16:58:19Z",
-    "updated_at": "2023-01-27T08:17:59Z",
+    "updated_at": "2023-01-31T00:20:59Z",
     "clone_url": "https://github.com/thirdweb-example/phaser-platformer.git",
     "topics": [],
     "language": "TypeScript",
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": null
   },
@@ -1505,20 +1521,5 @@
     "stargazers_count": 4,
     "is_template": true,
     "homepage": "https://vite-typescript-starter.thirdweb-example.com"
-  },
-  {
-    "name": "web3button",
-    "html_url": "https://github.com/thirdweb-example/web3button",
-    "description": "Learn how to use the Web3Button component from the thirdweb React SDK!",
-    "created_at": "2022-08-20T00:27:11Z",
-    "updated_at": "2023-01-29T22:34:05Z",
-    "clone_url": "https://github.com/thirdweb-example/web3button.git",
-    "topics": [
-      "ui-components"
-    ],
-    "language": "JavaScript",
-    "stargazers_count": 14,
-    "is_template": false,
-    "homepage": "https://web3button.thirdweb-example.com/"
   }
 ]
