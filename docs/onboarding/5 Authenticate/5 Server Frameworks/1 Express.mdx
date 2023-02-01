@@ -31,6 +31,9 @@ const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
 // Add the auth router to our app to set up the /auth/* endpoints
 app.use("/auth", authRouter);
 
+// Add the auth middleware to the rest of our app to allow user authentication on other endpoints
+app.use(authMiddleware);
+
 app.listen(PORT, () => {
   console.log(`Server listening on port ${PORT}`);
 });
