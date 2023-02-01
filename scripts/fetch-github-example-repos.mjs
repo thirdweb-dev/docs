@@ -1,12 +1,29 @@
 import fetch from "node-fetch";
 import fs from "fs-extra";
 
-const apiUrl =
-  "https://api.github.com/users/thirdweb-example/repos?per_page=100";
-const ghRes = await fetch(apiUrl);
-const ghData = await ghRes.json();
+async function fetchPage(pageNumber) {
+  const apiUrl = `https://api.github.com/users/thirdweb-example/repos?per_page=100&page=${pageNumber}`;
+  const ghRes = await fetch(apiUrl);
+  return await ghRes.json();
+}
 
-const dataWeWant = ghData
+async function fetchAllPages() {
+  let pageNumber = 1;
+  let allData = [];
+  let pageData = await fetchPage(pageNumber);
+
+  while (pageData.length > 0) {
+    allData.push(...pageData);
+    pageNumber++;
+    pageData = await fetchPage(pageNumber);
+  }
+
+  return allData;
+}
+
+const allPageData = await fetchAllPages();
+
+const dataWeWant = allPageData
   .map((repo) => {
     const {
       name,

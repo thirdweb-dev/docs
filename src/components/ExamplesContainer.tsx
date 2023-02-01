@@ -92,9 +92,9 @@ export default function ExamplesContainer() {
         <TemplateCard
           t={exampleRepos.filter((t) => t.name === "connect-wallet-button")[0]}
         />
-        <TemplateCard
+        {/* <TemplateCard
           t={exampleRepos.filter((t) => t.name === "web3button")[0]}
-        />
+        /> */}
       </div>
 
       {/* Login With Wallet */}

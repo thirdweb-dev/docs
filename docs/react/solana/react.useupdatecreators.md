@@ -38,10 +38,7 @@ export default function Component() {
 export declare function useUpdateCreators(
   program: RequiredParam<NFTCollection | NFTDrop>,
 ): import("@tanstack/react-query").UseMutationResult<
-  | import("@thirdweb-dev/sdk/solana").TransactionResult[]
-  | {
-      signature: string;
-    },
+  import("@thirdweb-dev/sdk/solana").TransactionResult[],
   unknown,
   UpdateCreatorInput,
   unknown
@@ -56,4 +53,4 @@ export declare function useUpdateCreators(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/solana").TransactionResult\[\] \| { signature: string; }, unknown, UpdateCreatorInput, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk/solana").TransactionResult\[\], unknown, UpdateCreatorInput, unknown&gt;

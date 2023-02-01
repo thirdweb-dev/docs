@@ -14,17 +14,16 @@ Update the creators of the collection
 **Signature:**
 
 ```typescript
-updateCreators(creators: CreatorInput[]): Promise<{
-        signature: string;
-    }>;
+updateCreators(creators: CreatorInput[], updateAll?: boolean): Promise<TransactionResult[]>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                      | Description            |
-| --------- | ----------------------------------------- | ---------------------- |
-| creators  | [CreatorInput](./sdk.creatorinput.md)\[\] | the creators to update |
+| Parameter | Type                                      | Description                                                                            |
+| --------- | ----------------------------------------- | -------------------------------------------------------------------------------------- |
+| creators  | [CreatorInput](./sdk.creatorinput.md)\[\] | the creators to update                                                                 |
+| updateAll | boolean                                   | <i>(Optional)</i> whether or not to retroactively update the creators of all past NFTs |
 
 **Returns:**
 
-Promise&lt;{ signature: string; }&gt;
+Promise&lt;TransactionResult\[\]&gt;
