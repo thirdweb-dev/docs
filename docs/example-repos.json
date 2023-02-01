@@ -747,14 +747,14 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-solana-starter",
     "description": "Starter Kit for Next.js + TypeScript + Solana",
     "created_at": "2022-09-20T06:27:03Z",
-    "updated_at": "2023-01-02T21:10:48Z",
+    "updated_at": "2023-02-01T07:12:41Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-solana-starter.git",
     "topics": [
       "solana",
       "starter-kit"
     ],
     "language": "TypeScript",
-    "stargazers_count": 7,
+    "stargazers_count": 8,
     "is_template": false,
     "homepage": "https://next-typescript-solana-starter.thirdweb-example.com/"
   },
@@ -1344,14 +1344,14 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-stripe",
     "description": "Subscription based payments for web3 apps using thirdweb authentication and stripe",
     "created_at": "2022-06-19T02:19:09Z",
-    "updated_at": "2023-01-27T18:42:24Z",
+    "updated_at": "2023-02-01T13:47:22Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-stripe.git",
     "topics": [
       "auth",
       "stripe"
     ],
     "language": "TypeScript",
-    "stargazers_count": 31,
+    "stargazers_count": 32,
     "is_template": false,
     "homepage": ""
   },
