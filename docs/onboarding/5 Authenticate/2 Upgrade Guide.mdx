@@ -1,0 +1,158 @@
+---
+slug: /auth/upgrade-guide
+title: Upgrade Guide
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+:::tip
+
+This guide will help you update from **Auth v2** to **Auth v3**, for people who were using `@thirdweb-dev/auth@^2`. If you're new to Auth, use the [Getting Started](/auth/getting-started) guide instead.
+
+:::
+
+There are a few major breaking changes from the Auth v2 to v3 upgrade. In the following sections, we'll go over how to make the necessary updates to your code to get up and running with Auth v3.
+
+## React
+
+In order to upgrade, we can first remove the `loginRedirect` property from the `authConfig` on our `ThirdwebProvider` component at the top level of your app, as Auth no longer utilizes redirects on login or logout (in fact, Auth will never redirect your users now):
+
+```tsx title="_app.tsx"
+import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
+
+export default function MyApp({ Component, pageProps }) {
+  return (
+    <ThirdwebProvider
+      // Required configuration for the provider, but doesn't affect Auth.
+      desiredChainId={ChainId.Mainnet}
+      authConfig={{
+        domain: "example.com",
+        authUrl: "/api/auth",
+        // We no longer need the loginRedirect option
+      }}
+    >
+      <Component {...pageProps} />
+    </ThirdwebProvider>
+  );
+}
+```
+
+If you are using the `ConnectWallet` button component to handle Auth, and you aren't using the `useLogin` and `useLogout` hooks, then this is the only change you'll need to make. However, if you are using these hooks, you'll need to make one more change. In Auth v2, these hooks used to return their respective functions, but in Auth v3, they return objects containing functions as well as `isLoading` states. So you can use the new hooks by destructuring them like this:
+
+```tsx title="pages/index.tsx"
+import { useLogin, useLogout } from "@thirdweb-dev/react";
+
+export default function Component() {
+  const { login, isLoading: loginIsLoading } = useLogin();
+  const { logout, isLoading: logoutIsLoading } = useLogout();
+
+  return (
+    <div>
+      <button onClick={login} disabled={loginIsLoading}>
+        Login
+      </button>
+      <button onClick={logout} disabled={logoutIsLoading}>
+        Logout
+      </button>
+    </div>
+  );
+}
+```
+
+For a more comprehensive look at how to use Auth with React, check out the full Auth and React guide.
+
+<div>
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/auth/client-frameworks/react"
+      description="Learn more about using Auth with React"
+      image="/assets/languages/react.png"
+    />
+  </div>
+</div>
+
+## Next
+
+If you're using Next.js for your Auth backend, you'll also need to update your backend Auth configuration. The main breaking change here is that Auth no longer accepts a `privateKey` in it's configuration, and instead accepts the more generic and flexible `wallet` property of the `GenericAuthWallet` type. Here's how you can update your `pages/api/auth/[...thirdweb].ts` file:
+
+```ts title="pages/api/auth/[...thirdweb].ts"
+import { ThirdwebAuth } from "@thirdweb-dev/auth/next";
+import { PrivateKeyWallet } from "@thirdweb-dev/auth/evm";
+
+export const { ThirdwebAuthHandler, getUser } = ThirdwebAuth({
+  domain: "example.com",
+  wallet: new PrivateKeyWallet(process.env.THIRDWEB_AUTH_PRIVATE_KEY || ""),
+});
+
+export default ThirdwebAuthHandler();
+```
+
+Here, we instantaite a new EVM `PrivateKeyWallet` to use for authentication. For more information on configuring wallets on the backend, checkout the full wallet configuration guide:
+
+<div>
+  <div className="col col--12" style={{ padding: 8, marginBottom: 12 }}>
+    <QuickstartCard
+      name="Wallet Configuration"
+      link="/auth/wallet-configuration"
+      image="/assets/icons/edition.png"
+      description="Learn more about how to configure your wallet for Auth."
+    />
+  </div>
+</div>
+
+This is the main change you'll need to make to your backend Auth configuration. For a more comprehensive look at how to use Auth with Next.js, check out the full Auth and Next guide.
+
+<div>
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Next"
+      link="/auth/server-frameworks/next"
+      description="Learn more about how to use Auth with Next.js"
+      image="/assets/languages/nextjs.png"
+    />
+  </div>
+</div>
+
+## Express
+
+If you're using Express for your Auth backend, you'll also need to update your backend Auth configuration. Auth no longer accepts a `privateKey` in it's configuration, and instead accepts the more generic and flexible `wallet` property of the `GenericAuthWallet` type.
+
+Additionally, the `ThirdwebAuth` configuration now exposes middleware and a router for you to use with your express apps to follow a more idiomatic pattern with express. Here's how you can update your `pages/api/auth/[...thirdweb].ts` file.:
+
+```ts file="src/index.ts"
+import { ThirdwebAuth } from "@thirdweb-dev/auth/express";
+import { PrivateKeyWallet } from "@thirdweb-dev/auth/evm";
+import express from "express";
+
+const PORT = 8000;
+const app = express();
+
+const { authRouter, authMiddleware, getUser } = ThirdwebAuth({
+  domain: process.env.THIRDWEB_AUTH_DOMAIN || "",
+  wallet: new PrivateKeyWallet(process.env.THIRDWEB_AUTH_PRIVATE_KEY || ""),
+});
+
+// Add the auth router to our app to set up the /auth/* endpoints
+app.use("/auth", authRouter);
+
+// Add the auth middleware to the rest of our app to allow user authentication on other endpoints
+app.use(authMiddleware);
+
+app.listen(PORT, () => {
+  console.log(`Server listening on port ${PORT}`);
+});
+```
+
+With this setup, you should be ready to go with Auth and Express. For a more comprehensive look at how to use Auth with Express, check out the full Auth and Express guide.
+
+<div>
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Express"
+      link="/auth/server-frameworks/express"
+      description="Learn more about how to use Auth with Express"
+      image="/assets/languages/javascript.png"
+    />
+  </div>
+</div>
