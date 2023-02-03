@@ -29,7 +29,7 @@ const Component = () => {
 
   return (
     <button disabled={isLoading} onClick={() => cancelListing()}>
-      Create Auction Listing!
+      Cancel Auction Listing!
     </button>
   );
 };
@@ -41,14 +41,13 @@ const Component = () => {
 export declare function useCancelListing(
   contract: RequiredParam<Marketplace>,
 ): import("@tanstack/react-query").UseMutationResult<
-  | Omit<
-      {
-        receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
-        data: () => Promise<unknown>;
-      },
-      "data"
-    >
-  | undefined,
+  Omit<
+    {
+      receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+      data: () => Promise<unknown>;
+    },
+    "data"
+  >,
   unknown,
   Pick<AuctionListing | DirectListing, "id" | "type">,
   unknown
@@ -63,6 +62,6 @@ export declare function useCancelListing(
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt; \| undefined, unknown, Pick&lt;AuctionListing \| DirectListing, "id" \| "type"&gt;, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;, unknown, Pick&lt;AuctionListing \| DirectListing, "id" \| "type"&gt;, unknown&gt;
 
-a mutation object that can be used to create a new auction listing
+a mutation object that can be used to cancel a listing

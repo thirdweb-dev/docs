@@ -41,24 +41,54 @@ const Component = () => {
 **Signature:**
 
 ```typescript
-export declare function useCreateAuctionListing(
-  contract: RequiredParam<Marketplace>,
+export declare function useCreateAuctionListing<
+  TMarketplace extends Marketplace | MarketplaceV3,
+>(
+  contract: RequiredParam<TMarketplace>,
 ): import("@tanstack/react-query").UseMutationResult<
   import("@thirdweb-dev/sdk").TransactionResultWithId<never>,
   unknown,
-  NewAuctionListing,
+  TMarketplace extends Marketplace
+    ? NewAuctionListing
+    : {
+        startTimestamp?: Date | undefined;
+        quantity?:
+          | string
+          | number
+          | bigint
+          | import("ethers").BigNumber
+          | undefined;
+        bidBufferBps?:
+          | string
+          | number
+          | bigint
+          | import("ethers").BigNumber
+          | undefined;
+        endTimestamp?: Date | undefined;
+        timeBufferInSeconds?:
+          | string
+          | number
+          | bigint
+          | import("ethers").BigNumber
+          | undefined;
+        currencyContractAddress?: string | undefined;
+        tokenId: string | number | bigint | import("ethers").BigNumber;
+        minimumBidAmount: string | number;
+        buyoutBidAmount: string | number;
+        assetContractAddress: string;
+      },
   unknown
 >;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                         | Description                           |
-| --------- | ------------------------------------------------------------ | ------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt; | an instance of a Marketplace contract |
+| Parameter | Type                                                          | Description                           |
+| --------- | ------------------------------------------------------------- | ------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;TMarketplace&gt; | an instance of a Marketplace contract |
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;never&gt;, unknown, NewAuctionListing, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;never&gt;, unknown, TMarketplace extends Marketplace ? NewAuctionListing : { startTimestamp?: Date \| undefined; quantity?: string \| number \| bigint \| import("ethers").BigNumber \| undefined; bidBufferBps?: string \| number \| bigint \| import("ethers").BigNumber \| undefined; endTimestamp?: Date \| undefined; timeBufferInSeconds?: string \| number \| bigint \| import("ethers").BigNumber \| undefined; currencyContractAddress?: string \| undefined; tokenId: string \| number \| bigint \| import("ethers").BigNumber; minimumBidAmount: string \| number; buyoutBidAmount: string \| number; assetContractAddress: string; }, unknown&gt;
 
 a mutation object that can be used to create a new auction listing

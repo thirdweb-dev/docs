@@ -20,6 +20,7 @@ export declare function useContractType(
   | "edition-drop"
   | "edition"
   | "marketplace"
+  | "marketplace-v3"
   | "multiwrap"
   | "nft-collection"
   | "nft-drop"
@@ -41,4 +42,4 @@ export declare function useContractType(
 
 **Returns:**
 
-UseQueryResult&lt;"split" \| "custom" \| "edition-drop" \| "edition" \| "marketplace" \| "multiwrap" \| "nft-collection" \| "nft-drop" \| "pack" \| "signature-drop" \| "token-drop" \| "token" \| "vote" \| null, unknown&gt;
+UseQueryResult&lt;"split" \| "custom" \| "edition-drop" \| "edition" \| "marketplace" \| "marketplace-v3" \| "multiwrap" \| "nft-collection" \| "nft-drop" \| "pack" \| "signature-drop" \| "token-drop" \| "token" \| "vote" \| null, unknown&gt;

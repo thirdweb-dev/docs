@@ -16,7 +16,7 @@ Use this to get a count of all listings on your marketplace contract.
 ## Example
 
 ```javascript
-const { data: listings, isLoading, error } = useListings(<YourMarketplaceContractInstance>);
+const { data: listingsCount, isLoading, error } = useListingsCount(<YourMarketplaceContractInstance>);
 ```
 
 **Signature:**
@@ -40,4 +40,4 @@ export declare function useListingsCount(
 
 import("@tanstack/react-query").UseQueryResult&lt;import("ethers").BigNumber, unknown&gt;
 
-a response object that includes an array of listings
+a response object that includes the listing count

@@ -22,7 +22,7 @@ const contracts = sdk.getContractList("{{wallet_address}}");
 ```typescript
 getContractList(walletAddress: string): Promise<{
         address: string;
-        contractType: "custom" | "edition-drop" | "edition" | "marketplace" | "multiwrap" | "nft-collection" | "nft-drop" | "pack" | "signature-drop" | "split" | "token-drop" | "token" | "vote";
+        contractType: "custom" | "edition-drop" | "edition" | "marketplace" | "marketplace-v3" | "multiwrap" | "nft-collection" | "nft-drop" | "pack" | "signature-drop" | "split" | "token-drop" | "token" | "vote";
         metadata: () => Promise<any>;
     }[]>;
 ```
@@ -35,4 +35,4 @@ getContractList(walletAddress: string): Promise<{
 
 **Returns:**
 
-Promise&lt;{ address: string; contractType: "custom" \| "edition-drop" \| "edition" \| "marketplace" \| "multiwrap" \| "nft-collection" \| "nft-drop" \| "pack" \| "signature-drop" \| "split" \| "token-drop" \| "token" \| "vote"; metadata: () =&gt; Promise&lt;any&gt;; }\[\]&gt;
+Promise&lt;{ address: string; contractType: "custom" \| "edition-drop" \| "edition" \| "marketplace" \| "marketplace-v3" \| "multiwrap" \| "nft-collection" \| "nft-drop" \| "pack" \| "signature-drop" \| "split" \| "token-drop" \| "token" \| "vote"; metadata: () =&gt; Promise&lt;any&gt;; }\[\]&gt;
