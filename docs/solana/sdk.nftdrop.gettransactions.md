@@ -16,8 +16,14 @@ Get the all transactions for this program
 **Signature:**
 
 ```typescript
-getTransactions(): Promise<TransactionResponse[]>;
+getTransactions(options?: SignaturesForAddressOptions): Promise<TransactionResponse[]>;
 ```
+
+## Parameters
+
+| Parameter | Type                        | Description       |
+| --------- | --------------------------- | ----------------- |
+| options   | SignaturesForAddressOptions | <i>(Optional)</i> |
 
 **Returns:**
 

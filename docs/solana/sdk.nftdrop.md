@@ -60,7 +60,7 @@ const program = await sdk.getProgram("{{program_address}}", "nft-drop");
 | [getCreators()](./sdk.nftdrop.getcreators.md)                                    |           | Get the creators of this program.                           |
 | [getMetadata()](./sdk.nftdrop.getmetadata.md)                                    |           | Get the metadata for this program.                          |
 | [getRoyalty()](./sdk.nftdrop.getroyalty.md)                                      |           | Get the royalty basis points for this collection            |
-| [getTransactions()](./sdk.nftdrop.gettransactions.md)                            |           | **<i>(BETA)</i>** Get the all transactions for this program |
+| [getTransactions(options)](./sdk.nftdrop.gettransactions.md)                     |           | **<i>(BETA)</i>** Get the all transactions for this program |
 | [lazyMint(metadatas, options)](./sdk.nftdrop.lazymint.md)                        |           | Lazy mint NFTs to be claimed later                          |
 | [ownerOf(nftAddress)](./sdk.nftdrop.ownerof.md)                                  |           | Get the current owner of the given NFT                      |
 | [totalClaimedSupply()](./sdk.nftdrop.totalclaimedsupply.md)                      |           | Get the total claimed supply of this drop                   |

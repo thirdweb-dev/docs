@@ -56,7 +56,7 @@ const program = await sdk.getProgram("{{program_address}}", "nft-collection");
 | [getCreators()](./sdk.nftcollection.getcreators.md)                                             |           | Get the creators of this program.                           |
 | [getMetadata()](./sdk.nftcollection.getmetadata.md)                                             |           | Get the metadata for this program.                          |
 | [getRoyalty()](./sdk.nftcollection.getroyalty.md)                                               |           | Get the royalty basis points for this collection            |
-| [getTransactions()](./sdk.nftcollection.gettransactions.md)                                     |           | **<i>(BETA)</i>** Get the all transactions for this program |
+| [getTransactions(options)](./sdk.nftcollection.gettransactions.md)                              |           | **<i>(BETA)</i>** Get the all transactions for this program |
 | [mint(metadata)](./sdk.nftcollection.mint.md)                                                   |           | Mint NFTs to the connected wallet                           |
 | [mintAdditionalSupply(nftAddress, amount)](./sdk.nftcollection.mintadditionalsupply.md)         |           | Mint additional supply of an NFT to the connected wallet    |
 | [mintAdditionalSupplyTo(to, nftAddress, amount)](./sdk.nftcollection.mintadditionalsupplyto.md) |           | Mint additional supply of an NFT to the specified wallet    |
