@@ -9,7 +9,9 @@ displayed_sidebar: react
 
 ## ThirdwebNftMedia variable
 
-This component can be used to render NFTs from the thirdweb SDK. Props: [ThirdwebNftMediaProps](./react.thirdwebnftmediaprops.md)
+This component can be used to render NFTs from the thirdweb SDK. It will render the animation_url if it exists, otherwise it will render the image. The default size is 300px by 300px, but this can be changed using the `width` and `height` props.
+
+Props: [ThirdwebNftMediaProps](./react.thirdwebnftmediaprops.md)
 
 ## Example
 

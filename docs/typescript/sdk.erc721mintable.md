@@ -33,9 +33,10 @@ await contract.nft.mint.to(walletAddress, nftMetadata);
 
 ## Methods
 
-| Method                                         | Modifiers | Description       |
-| ---------------------------------------------- | --------- | ----------------- |
-| [to(to, metadata)](./sdk.erc721mintable.to.md) |           | Mint a unique NFT |
+| Method                                                                         | Modifiers | Description       |
+| ------------------------------------------------------------------------------ | --------- | ----------------- |
+| [getMintTransaction(to, metadata)](./sdk.erc721mintable.getminttransaction.md) |           |                   |
+| [to(to, metadata)](./sdk.erc721mintable.to.md)                                 |           | Mint a unique NFT |
 
 **Signature:**
 
