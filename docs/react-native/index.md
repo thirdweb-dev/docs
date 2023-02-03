@@ -9,7 +9,7 @@ displayed_sidebar: react
 <a href="https://thirdweb.com"><img src="https://github.com/thirdweb-dev/js/blob/main/packages/sdk/logo.svg?raw=true" width="200" alt=""/></a>
 <br />
 </p>
-<h1 align="center">thirdweb React Native SDK [Alpha]</h1>
+<h1 align="center">thirdweb React Native SDK</h1>
 <p align="center">
 <a href="https://www.npmjs.com/package/@thirdweb-dev/react-native"><img src="https://img.shields.io/npm/v/@thirdweb-dev/react-native?color=red&label=npm&logo=npm" alt="npm version"/></a>
 <a href="https://github.com/thirdweb-dev/js/actions/workflows/CI.yml"><img alt="Build Status" src="https://github.com/thirdweb-dev/js/actions/workflows/CI.yml/badge.svg"/></a>
@@ -133,6 +133,48 @@ Below are examples of where to set this up in your application:
 <p>
   <a href="https://github.com/thirdweb-example/react-native-typescript-starter/blob/main/App.tsx">Create React Native App</a>
 </p>
+
+<br />
+
+### Connect to a wallet using WalletConnect V2
+
+```javascript
+import {useAccount, useThirdwebProvider, useWalletConnect} from '@thirdweb-dev/react-native';
+import React, {useEffect} from 'react';
+import {
+  ActivityIndicator,
+  Button,
+  Linking,
+  View,
+} from 'react-native';
+
+const AppInner = () => {
+  const {isInitializing} = useThirdwebProvider();
+
+  const {isConnected, connector} = useAccount();
+
+  const {connect, error, isLoading, isSuccess, displayUri, connectorError} =
+      useWalletConnect();
+
+  useEffect(() => {
+      if (displayUri && !isConnected) {
+        // show native app chooser to select a wallet to connect to
+        Linking.openUrl(displayUri);
+      }
+    }, [displayUri, isConnected]);
+
+  if (isInitializing) {
+    return <ActivityIndicator />
+  }
+
+  return (
+    <View>
+      <Button title='Connect' onPress={connect}>
+    </View>
+  );
+}
+```
+
 
 <br />
 
@@ -270,11 +312,7 @@ const KitchenSinkExample = () => {
 | Hook                                                                             | Description                                                 |
 | -------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | [`useAddress`](https://portal.thirdweb.com/react/react.useaddress)               | Hook for accessing the address of the connected wallet.     |
-| [`useMetamask`](https://portal.thirdweb.com/react/react.usemetamask)             | Hook for connecting to a Metamask wallet.                   |
 | [`useWalletConnect`](https://portal.thirdweb.com/react/react.usewalletconnect)   | Hook for connecting to a mobile wallet with Wallet Connect. |
-| [`useCoinbaseWallet`](https://portal.thirdweb.com/react/react.usecoinbasewallet) | Hook for connecting to a Coinbase wallet.                   |
-| [`useMagic`](https://portal.thirdweb.com/react/react.usemagic)                   | Hook for connecting to an email wallet using magic link.    |
-| [`useGnosis`](https://portal.thirdweb.com/react/react.usegnosis)                 | Hook for connecting to a Gnosis Safe.                       |
 | [`useDisconnect`](https://portal.thirdweb.com/react/react.usedisconnect)         | Hook for disconnecting the currently connected wallet.      |
 
 ### Network connection
