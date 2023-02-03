@@ -14,17 +14,18 @@ Update the royalty basis points of the collection
 **Signature:**
 
 ```typescript
-updateRoyalty(sellerFeeBasisPoints: number): Promise<{
+updateRoyalty(sellerFeeBasisPoints: number, updateAll?: boolean): Promise<TransactionResult[] | {
         signature: string;
     }>;
 ```
 
 ## Parameters
 
-| Parameter            | Type   | Description                                |
-| -------------------- | ------ | ------------------------------------------ |
-| sellerFeeBasisPoints | number | the royalty basis points of the collection |
+| Parameter            | Type    | Description                                                                                        |
+| -------------------- | ------- | -------------------------------------------------------------------------------------------------- |
+| sellerFeeBasisPoints | number  | the royalty basis points of the collection                                                         |
+| updateAll            | boolean | <i>(Optional)</i> whether or not to retroactively update the royalty basis points of all past NFTs |
 
 **Returns:**
 
-Promise&lt;{ signature: string; }&gt;
+Promise&lt;TransactionResult\[\] \| { signature: string; }&gt;

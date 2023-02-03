@@ -33,9 +33,10 @@ await contract.nft.mint.to(walletAddress, nftMetadata);
 
 ## Methods
 
-| Method                                      | Modifiers | Description |
-| ------------------------------------------- | --------- | ----------- |
-| [to(to, amount)](./sdk.erc20mintable.to.md) |           | Mint Tokens |
+| Method                                                                      | Modifiers | Description |
+| --------------------------------------------------------------------------- | --------- | ----------- |
+| [getMintTransaction(to, amount)](./sdk.erc20mintable.getminttransaction.md) |           |             |
+| [to(to, amount)](./sdk.erc20mintable.to.md)                                 |           | Mint Tokens |
 
 **Signature:**
 

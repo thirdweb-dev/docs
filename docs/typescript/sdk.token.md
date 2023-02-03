@@ -44,18 +44,19 @@ const contract = await sdk.getContract("{{contract_address}}", "token");
 
 ## Methods
 
-| Method                                                        | Modifiers | Description                                              |
-| ------------------------------------------------------------- | --------- | -------------------------------------------------------- |
-| [burn(amount)](./sdk.token.burn.md)                           |           | Burn Tokens                                              |
-| [burnFrom(holder, amount)](./sdk.token.burnfrom.md)           |           | Burn Tokens                                              |
-| [getDelegation()](./sdk.token.getdelegation.md)               |           | Get your voting delegatee address                        |
-| [getDelegationOf(account)](./sdk.token.getdelegationof.md)    |           | Get a specific address voting delegatee address          |
-| [getVoteBalance()](./sdk.token.getvotebalance.md)             |           | Get your wallet voting power for the current checkpoints |
-| [getVoteBalanceOf(account)](./sdk.token.getvotebalanceof.md)  |           |                                                          |
-| [isTransferRestricted()](./sdk.token.istransferrestricted.md) |           | Get whether users can transfer tokens from this contract |
-| [mint(amount)](./sdk.token.mint.md)                           |           | Mint Tokens for the connected wallet                     |
-| [mintBatchTo(args)](./sdk.token.mintbatchto.md)               |           | Mint Tokens To Many Wallets                              |
-| [mintTo(to, amount)](./sdk.token.mintto.md)                   |           | Mint Tokens                                              |
+| Method                                                              | Modifiers | Description                                                                                                                                                                                                         |
+| ------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [burn(amount)](./sdk.token.burn.md)                                 |           | Burn Tokens                                                                                                                                                                                                         |
+| [burnFrom(holder, amount)](./sdk.token.burnfrom.md)                 |           | Burn Tokens                                                                                                                                                                                                         |
+| [getDelegation()](./sdk.token.getdelegation.md)                     |           | Get your voting delegatee address                                                                                                                                                                                   |
+| [getDelegationOf(account)](./sdk.token.getdelegationof.md)          |           | Get a specific address voting delegatee address                                                                                                                                                                     |
+| [getMintTransaction(to, amount)](./sdk.token.getminttransaction.md) |           | Construct a mint transaction without executing it. This is useful for estimating the gas cost of a mint transaction, overriding transaction options and having fine grained control over the transaction execution. |
+| [getVoteBalance()](./sdk.token.getvotebalance.md)                   |           | Get your wallet voting power for the current checkpoints                                                                                                                                                            |
+| [getVoteBalanceOf(account)](./sdk.token.getvotebalanceof.md)        |           |                                                                                                                                                                                                                     |
+| [isTransferRestricted()](./sdk.token.istransferrestricted.md)       |           | Get whether users can transfer tokens from this contract                                                                                                                                                            |
+| [mint(amount)](./sdk.token.mint.md)                                 |           | Mint Tokens for the connected wallet                                                                                                                                                                                |
+| [mintBatchTo(args)](./sdk.token.mintbatchto.md)                     |           | Mint Tokens To Many Wallets                                                                                                                                                                                         |
+| [mintTo(to, amount)](./sdk.token.mintto.md)                         |           | Mint Tokens                                                                                                                                                                                                         |
 
 **Signature:**
 

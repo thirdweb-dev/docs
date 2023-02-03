@@ -36,6 +36,7 @@ await contract.edition.mint.to(walletAddress, nftMetadata);
 | Method                                                                                           | Modifiers | Description                                                                  |
 | ------------------------------------------------------------------------------------------------ | --------- | ---------------------------------------------------------------------------- |
 | [additionalSupplyTo(to, tokenId, additionalSupply)](./sdk.erc1155mintable.additionalsupplyto.md) |           | Increase the supply of an existing NFT and mint it to a given wallet address |
+| [getMintTransaction(to, metadataWithSupply)](./sdk.erc1155mintable.getminttransaction.md)        |           |                                                                              |
 | [to(to, metadataWithSupply)](./sdk.erc1155mintable.to.md)                                        |           | Mint an NFT with a limited supply                                            |
 
 **Signature:**

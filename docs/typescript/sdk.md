@@ -85,15 +85,16 @@ displayed_sidebar: typescript
 
 ## Functions
 
-| Function                                                               | Description                                       |
-| ---------------------------------------------------------------------- | ------------------------------------------------- |
-| [getAllDetectedFeatureNames(abi)](./sdk.getalldetectedfeaturenames.md) | Return all the detected features names in the abi |
-| [getAllDetectedFeatures(abi)](./sdk.getalldetectedfeatures.md)         | Return all the detected features in the abi       |
-| [getContractName(type)](./sdk.getcontractname.md)                      |                                                   |
-| [getNativeTokenByChainId(chainId)](./sdk.getnativetokenbychainid.md)   | Returns the native token for a given chain        |
-| [getReadOnlyProvider(network, chainId)](./sdk.getreadonlyprovider.md)  |                                                   |
-| [getRpcUrl(network, apikey)](./sdk.getrpcurl.md)                       |                                                   |
-| [isDowngradeVersion(current, next)](./sdk.isdowngradeversion.md)       |                                                   |
+| Function                                                                                                                                             | Description                                       |
+| ---------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------- |
+| [fetchSnapshotEntryForAddress(address, merkleRoot, merkleMetadata, provider, storage, snapshotFormatVersion)](./sdk.fetchsnapshotentryforaddress.md) |                                                   |
+| [getAllDetectedFeatureNames(abi)](./sdk.getalldetectedfeaturenames.md)                                                                               | Return all the detected features names in the abi |
+| [getAllDetectedFeatures(abi)](./sdk.getalldetectedfeatures.md)                                                                                       | Return all the detected features in the abi       |
+| [getContractName(type)](./sdk.getcontractname.md)                                                                                                    |                                                   |
+| [getNativeTokenByChainId(chainId)](./sdk.getnativetokenbychainid.md)                                                                                 | Returns the native token for a given chain        |
+| [getReadOnlyProvider(network, chainId)](./sdk.getreadonlyprovider.md)                                                                                |                                                   |
+| [getRpcUrl(network, apikey)](./sdk.getrpcurl.md)                                                                                                     |                                                   |
+| [isDowngradeVersion(current, next)](./sdk.isdowngradeversion.md)                                                                                     |                                                   |
 
 ## Interfaces
 
