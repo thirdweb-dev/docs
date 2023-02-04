@@ -1,11 +1,11 @@
 ---
-slug: /MarketplaceRouter
-title: MarketplaceRouter
+slug: /MarketplaceV3
+title: MarketplaceV3
 hide_title: true
 displayed_sidebar: contracts
 ---
 
-# MarketplaceRouter
+# MarketplaceV3
 
 &quot;Inherited by entrypoint&quot; extensions. - ContractMetadata - PlatformFee - PermissionsEnumerable - ReentrancyGuard - ERC2771Context - Multicall &quot;NOT inherited by entrypoint&quot; extensions. - DirectListings - EnglishAuctions - Offers
 

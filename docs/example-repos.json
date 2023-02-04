@@ -785,13 +785,13 @@
     "html_url": "https://github.com/thirdweb-example/nft-drop",
     "description": "Create your own custom NFT minting page using thirdweb's NFT Drop contract",
     "created_at": "2022-05-16T01:17:47Z",
-    "updated_at": "2023-02-02T07:38:50Z",
+    "updated_at": "2023-02-04T00:54:09Z",
     "clone_url": "https://github.com/thirdweb-example/nft-drop.git",
     "topics": [
       "nft-drop"
     ],
     "language": "TypeScript",
-    "stargazers_count": 70,
+    "stargazers_count": 71,
     "is_template": false,
     "homepage": "https://custom-minting-page.thirdweb-example.com"
   },

@@ -262,6 +262,7 @@ displayed_sidebar: typescript
 | [TokenMetadata](./sdk.tokenmetadata.md)                                                 | Metadata for a token                                                                 |
 | [TokenMintInput](./sdk.tokenmintinput.md)                                               |                                                                                      |
 | [TokensToWrap](./sdk.tokenstowrap.md)                                                   | Input for wrapping any number of tokens                                              |
+| [TransactionErrorInfo](./sdk.transactionerrorinfo.md)                                   |                                                                                      |
 | [TransactionResult](./sdk.transactionresult.md)                                         |                                                                                      |
 | [TransactionResultWithAddress](./sdk.transactionresultwithaddress.md)                   |                                                                                      |
 | [TransactionResultWithId](./sdk.transactionresultwithid.md)                             |                                                                                      |

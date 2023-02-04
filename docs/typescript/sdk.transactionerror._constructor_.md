@@ -19,6 +19,6 @@ constructor(info: TransactionErrorInfo);
 
 ## Parameters
 
-| Parameter | Type                 | Description |
-| --------- | -------------------- | ----------- |
-| info      | TransactionErrorInfo |             |
+| Parameter | Type                                                  | Description |
+| --------- | ----------------------------------------------------- | ----------- |
+| info      | [TransactionErrorInfo](./sdk.transactionerrorinfo.md) |             |

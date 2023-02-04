@@ -296,7 +296,7 @@ Emitted when a auction is cancelled.
 ### NewAuction
 
 ```solidity
-event NewAuction(address indexed auctionCreator, uint256 indexed auctionId, IEnglishAuctions.Auction auction)
+event NewAuction(address indexed auctionCreator, uint256 indexed auctionId, address indexed assetContract, IEnglishAuctions.Auction auction)
 ```
 
 #### Parameters
@@ -305,19 +305,21 @@ event NewAuction(address indexed auctionCreator, uint256 indexed auctionId, IEng
 | ------------------------ | ------------------------ | ----------- |
 | auctionCreator `indexed` | address                  | undefined   |
 | auctionId `indexed`      | uint256                  | undefined   |
+| assetContract `indexed`  | address                  | undefined   |
 | auction                  | IEnglishAuctions.Auction | undefined   |
 
 ### NewBid
 
 ```solidity
-event NewBid(uint256 indexed auctionId, address indexed bidder, uint256 bidAmount, IEnglishAuctions.Auction auction)
+event NewBid(uint256 indexed auctionId, address indexed bidder, address indexed assetContract, uint256 bidAmount, IEnglishAuctions.Auction auction)
 ```
 
 #### Parameters
 
-| Name                | Type                     | Description |
-| ------------------- | ------------------------ | ----------- |
-| auctionId `indexed` | uint256                  | undefined   |
-| bidder `indexed`    | address                  | undefined   |
-| bidAmount           | uint256                  | undefined   |
-| auction             | IEnglishAuctions.Auction | undefined   |
+| Name                    | Type                     | Description |
+| ----------------------- | ------------------------ | ----------- |
+| auctionId `indexed`     | uint256                  | undefined   |
+| bidder `indexed`        | address                  | undefined   |
+| assetContract `indexed` | address                  | undefined   |
+| bidAmount               | uint256                  | undefined   |
+| auction                 | IEnglishAuctions.Auction | undefined   |

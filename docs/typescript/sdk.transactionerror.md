@@ -25,6 +25,7 @@ export declare class TransactionError extends Error
 
 ## Properties
 
-| Property                                   | Modifiers             | Type   | Description |
-| ------------------------------------------ | --------------------- | ------ | ----------- |
-| [reason](./sdk.transactionerror.reason.md) | <code>readonly</code> | string |             |
+| Property                                   | Modifiers             | Type                                                  | Description |
+| ------------------------------------------ | --------------------- | ----------------------------------------------------- | ----------- |
+| [info](./sdk.transactionerror.info.md)     | <code>readonly</code> | [TransactionErrorInfo](./sdk.transactionerrorinfo.md) |             |
+| [reason](./sdk.transactionerror.reason.md) | <code>readonly</code> | string                                                |             |
