@@ -19,18 +19,12 @@ export declare class TransactionError extends Error
 
 ## Constructors
 
-| Constructor                                                                                                          | Modifiers | Description                                                          |
-| -------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------- |
-| [(constructor)(reason, from, to, data, network, rpcUrl, raw, functionInfo)](./sdk.transactionerror._constructor_.md) |           | Constructs a new instance of the <code>TransactionError</code> class |
+| Constructor                                                    | Modifiers | Description                                                          |
+| -------------------------------------------------------------- | --------- | -------------------------------------------------------------------- |
+| [(constructor)(info)](./sdk.transactionerror._constructor_.md) |           | Constructs a new instance of the <code>TransactionError</code> class |
 
 ## Properties
 
-| Property                                               | Modifiers | Type                          | Description |
-| ------------------------------------------------------ | --------- | ----------------------------- | ----------- |
-| [chain](./sdk.transactionerror.chain.md)               |           | providers.Network             |             |
-| [data](./sdk.transactionerror.data.md)                 |           | string                        |             |
-| [from](./sdk.transactionerror.from.md)                 |           | string                        |             |
-| [functionInfo](./sdk.transactionerror.functioninfo.md) |           | FunctionInfo &#124; undefined |             |
-| [reason](./sdk.transactionerror.reason.md)             |           | string                        |             |
-| [rpcUrl](./sdk.transactionerror.rpcurl.md)             |           | string                        |             |
-| [to](./sdk.transactionerror.to.md)                     |           | string                        |             |
+| Property                                   | Modifiers             | Type   | Description |
+| ------------------------------------------ | --------------------- | ------ | ----------- |
+| [reason](./sdk.transactionerror.reason.md) | <code>readonly</code> | string |             |
