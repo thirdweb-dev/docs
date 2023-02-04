@@ -23,20 +23,20 @@ const { data: auctionWinner, isLoading, error } = useAuctionWinner(<YourMarketpl
 
 ```typescript
 export declare function useAuctionWinner(
-  contract: RequiredParam<Marketplace>,
+  contract: RequiredParam<Marketplace | MarketplaceV3>,
   listingId: RequiredParam<BigNumberish>,
-): import("@tanstack/react-query").UseQueryResult<string | undefined, unknown>;
+): import("@tanstack/react-query").UseQueryResult<string, unknown>;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                          | Description                           |
-| --------- | ------------------------------------------------------------- | ------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt;  | an instance of a marketplace contract |
-| listingId | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt; | the listing id to check               |
+| Parameter | Type                                                                              | Description                           |
+| --------- | --------------------------------------------------------------------------------- | ------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace &#124; MarketplaceV3&gt; | an instance of a marketplace contract |
+| listingId | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt;                     | the listing id to check               |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;string \| undefined, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;string, unknown&gt;
 
 a response object that includes the address of the winner of the auction or undefined if there is no winner yet

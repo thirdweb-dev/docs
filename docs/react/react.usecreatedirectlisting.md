@@ -52,16 +52,11 @@ export declare function useCreateDirectListing<
     ? NewDirectListing
     : {
         startTimestamp?: Date | undefined;
-        quantity?:
-          | string
-          | number
-          | bigint
-          | import("ethers").BigNumber
-          | undefined;
+        quantity?: string | number | bigint | BigNumber | undefined;
         endTimestamp?: Date | undefined;
         currencyContractAddress?: string | undefined;
         isReservedListing?: boolean | undefined;
-        tokenId: string | number | bigint | import("ethers").BigNumber;
+        tokenId: string | number | bigint | BigNumber;
         pricePerToken: string | number;
         assetContractAddress: string;
       },
@@ -77,6 +72,6 @@ export declare function useCreateDirectListing<
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;never&gt;, unknown, TMarketplace extends Marketplace ? NewDirectListing : { startTimestamp?: Date \| undefined; quantity?: string \| number \| bigint \| import("ethers").BigNumber \| undefined; endTimestamp?: Date \| undefined; currencyContractAddress?: string \| undefined; isReservedListing?: boolean \| undefined; tokenId: string \| number \| bigint \| import("ethers").BigNumber; pricePerToken: string \| number; assetContractAddress: string; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;never&gt;, unknown, TMarketplace extends Marketplace ? NewDirectListing : { startTimestamp?: Date \| undefined; quantity?: string \| number \| bigint \| BigNumber \| undefined; endTimestamp?: Date \| undefined; currencyContractAddress?: string \| undefined; isReservedListing?: boolean \| undefined; tokenId: string \| number \| bigint \| BigNumber; pricePerToken: string \| number; assetContractAddress: string; }, unknown&gt;
 
 a mutation object that can be used to create a new direct listing

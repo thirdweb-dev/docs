@@ -52,27 +52,12 @@ export declare function useCreateAuctionListing<
     ? NewAuctionListing
     : {
         startTimestamp?: Date | undefined;
-        quantity?:
-          | string
-          | number
-          | bigint
-          | import("ethers").BigNumber
-          | undefined;
-        bidBufferBps?:
-          | string
-          | number
-          | bigint
-          | import("ethers").BigNumber
-          | undefined;
+        quantity?: string | number | bigint | BigNumber | undefined;
+        bidBufferBps?: string | number | bigint | BigNumber | undefined;
         endTimestamp?: Date | undefined;
-        timeBufferInSeconds?:
-          | string
-          | number
-          | bigint
-          | import("ethers").BigNumber
-          | undefined;
+        timeBufferInSeconds?: string | number | bigint | BigNumber | undefined;
         currencyContractAddress?: string | undefined;
-        tokenId: string | number | bigint | import("ethers").BigNumber;
+        tokenId: string | number | bigint | BigNumber;
         minimumBidAmount: string | number;
         buyoutBidAmount: string | number;
         assetContractAddress: string;
@@ -89,6 +74,6 @@ export declare function useCreateAuctionListing<
 
 **Returns:**
 
-import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;never&gt;, unknown, TMarketplace extends Marketplace ? NewAuctionListing : { startTimestamp?: Date \| undefined; quantity?: string \| number \| bigint \| import("ethers").BigNumber \| undefined; bidBufferBps?: string \| number \| bigint \| import("ethers").BigNumber \| undefined; endTimestamp?: Date \| undefined; timeBufferInSeconds?: string \| number \| bigint \| import("ethers").BigNumber \| undefined; currencyContractAddress?: string \| undefined; tokenId: string \| number \| bigint \| import("ethers").BigNumber; minimumBidAmount: string \| number; buyoutBidAmount: string \| number; assetContractAddress: string; }, unknown&gt;
+import("@tanstack/react-query").UseMutationResult&lt;import("@thirdweb-dev/sdk").TransactionResultWithId&lt;never&gt;, unknown, TMarketplace extends Marketplace ? NewAuctionListing : { startTimestamp?: Date \| undefined; quantity?: string \| number \| bigint \| BigNumber \| undefined; bidBufferBps?: string \| number \| bigint \| BigNumber \| undefined; endTimestamp?: Date \| undefined; timeBufferInSeconds?: string \| number \| bigint \| BigNumber \| undefined; currencyContractAddress?: string \| undefined; tokenId: string \| number \| bigint \| BigNumber; minimumBidAmount: string \| number; buyoutBidAmount: string \| number; assetContractAddress: string; }, unknown&gt;
 
 a mutation object that can be used to create a new auction listing

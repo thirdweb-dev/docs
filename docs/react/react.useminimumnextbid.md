@@ -23,12 +23,12 @@ const { data: minimumNextBid, isLoading, error } = useMinimumNextBid(<YourMarket
 
 ```typescript
 export declare function useMinimumNextBid(
-  contract: RequiredParam<Marketplace>,
+  contract: RequiredParam<Marketplace | MarketplaceV3>,
   listingId: RequiredParam<BigNumberish>,
 ): import("@tanstack/react-query").UseQueryResult<
   {
     symbol: string;
-    value: import("ethers").BigNumber;
+    value: BigNumber;
     name: string;
     decimals: number;
     displayValue: string;
@@ -39,13 +39,13 @@ export declare function useMinimumNextBid(
 
 ## Parameters
 
-| Parameter | Type                                                          | Description                           |
-| --------- | ------------------------------------------------------------- | ------------------------------------- |
-| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace&gt;  | an instance of a marketplace contract |
-| listingId | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt; | the listing id to check               |
+| Parameter | Type                                                                              | Description                           |
+| --------- | --------------------------------------------------------------------------------- | ------------------------------------- |
+| contract  | [RequiredParam](./react.requiredparam.md)&lt;Marketplace &#124; MarketplaceV3&gt; | an instance of a marketplace contract |
+| listingId | [RequiredParam](./react.requiredparam.md)&lt;BigNumberish&gt;                     | the listing id to check               |
 
 **Returns:**
 
-import("@tanstack/react-query").UseQueryResult&lt;{ symbol: string; value: import("ethers").BigNumber; name: string; decimals: number; displayValue: string; }, unknown&gt;
+import("@tanstack/react-query").UseQueryResult&lt;{ symbol: string; value: BigNumber; name: string; decimals: number; displayValue: string; }, unknown&gt;
 
 a response object that includes the minimum next bid for the auction listing
