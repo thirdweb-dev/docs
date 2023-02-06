@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-encoder: ContractEncoder<MarketplaceRouter>;
+encoder: ContractEncoder<MarketplaceV3Contract>;
 ```

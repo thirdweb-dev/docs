@@ -12,5 +12,5 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-estimator: GasCostEstimator<MarketplaceRouter>;
+estimator: GasCostEstimator<MarketplaceV3Contract>;
 ```
