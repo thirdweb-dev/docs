@@ -471,6 +471,19 @@
     "homepage": ""
   },
   {
+    "name": "gelato-gasless",
+    "html_url": "https://github.com/thirdweb-example/gelato-gasless",
+    "description": null,
+    "created_at": "2023-02-06T19:35:51Z",
+    "updated_at": "2023-02-06T19:35:51Z",
+    "clone_url": "https://github.com/thirdweb-example/gelato-gasless.git",
+    "topics": [],
+    "language": null,
+    "stargazers_count": 0,
+    "is_template": false,
+    "homepage": null
+  },
+  {
     "name": "getting-started",
     "html_url": "https://github.com/thirdweb-example/getting-started",
     "description": "Get started with thirdweb by building and deploying a full project including a smart contract and react application.",
