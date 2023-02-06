@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # Staking20Base
 
-note: This contract is provided as a base contract.
+EXTENSION: Staking20 The `Staking20Base` smart contract implements Token staking mechanism. Allows users to stake their ERC-20 Tokens and earn rewards in form of another ERC-20 tokens. Following features and implementation setup must be noted: - ERC-20 Tokens from only one contract can be staked. - Contract admin can choose to give out rewards by either transferring or minting the rewardToken, which is ideally a different ERC20 token. See {\_mintRewards}. - To implement custom logic for staking, reward calculation, etc. corresponding functions can be overridden from the extension `Staking20`. - Ownership of the contract, with the ability to restrict certain functions to only be called by the contract&#39;s owner. - Multicall capability to perform multiple actions atomically.
 
 ## Methods
 
@@ -35,20 +35,6 @@ Returns the contract metadata URI.
 | ---- | ------ | ----------- |
 | \_0  | string | undefined   |
 
-### depositRewardTokens
-
-```solidity
-function depositRewardTokens(uint256 _amount) external payable
-```
-
-_Admin deposits reward tokens._
-
-#### Parameters
-
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| \_amount | uint256 | undefined   |
-
 ### getRewardRatio
 
 ```solidity
@@ -65,16 +51,16 @@ function getRewardRatio() external view returns (uint256 _numerator, uint256 _de
 ### getRewardTokenBalance
 
 ```solidity
-function getRewardTokenBalance() external view returns (uint256)
+function getRewardTokenBalance() external view returns (uint256 _rewardsAvailableInContract)
 ```
 
 View total rewards available in the staking contract.
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name                         | Type    | Description |
+| ---------------------------- | ------- | ----------- |
+| \_rewardsAvailableInContract | uint256 | undefined   |
 
 ### getStakeInfo
 
@@ -340,20 +326,6 @@ _See {\_withdraw}. Override that to implement custom logic._
 | Name     | Type    | Description         |
 | -------- | ------- | ------------------- |
 | \_amount | uint256 | Amount to withdraw. |
-
-### withdrawRewardTokens
-
-```solidity
-function withdrawRewardTokens(uint256 _amount) external nonpayable
-```
-
-_Admin can withdraw excess reward tokens._
-
-#### Parameters
-
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| \_amount | uint256 | undefined   |
 
 ## Events
 

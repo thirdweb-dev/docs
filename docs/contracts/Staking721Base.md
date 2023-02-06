@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # Staking721Base
 
-note: This contract is provided as a base contract.
+EXTENSION: Staking721 The `Staking721Base` smart contract implements NFT staking mechanism. Allows users to stake their ERC-721 NFTs and earn rewards in form of ERC-20 tokens. Following features and implementation setup must be noted: - ERC-721 NFTs from only one NFT collection can be staked. - Contract admin can choose to give out rewards by either transferring or minting the rewardToken, which is an ERC20 token. See {\_mintRewards}. - To implement custom logic for staking, reward calculation, etc. corresponding functions can be overridden from the extension `Staking721`. - Ownership of the contract, with the ability to restrict certain functions to only be called by the contract&#39;s owner. - Multicall capability to perform multiple actions atomically.
 
 ## Methods
 
@@ -35,33 +35,19 @@ Returns the contract metadata URI.
 | ---- | ------ | ----------- |
 | \_0  | string | undefined   |
 
-### depositRewardTokens
-
-```solidity
-function depositRewardTokens(uint256 _amount) external payable
-```
-
-_Admin deposits reward tokens._
-
-#### Parameters
-
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| \_amount | uint256 | undefined   |
-
 ### getRewardTokenBalance
 
 ```solidity
-function getRewardTokenBalance() external view returns (uint256)
+function getRewardTokenBalance() external view returns (uint256 _rewardsAvailableInContract)
 ```
 
 View total rewards available in the staking contract.
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name                         | Type    | Description |
+| ---------------------------- | ------- | ----------- |
+| \_rewardsAvailableInContract | uint256 | undefined   |
 
 ### getRewardsPerUnitTime
 
@@ -165,41 +151,6 @@ _Receives and executes a batch of function calls on this contract._
 | Name    | Type    | Description                                                                      |
 | ------- | ------- | -------------------------------------------------------------------------------- |
 | results | bytes[] | The bytes data that makes up the result of the batch of function calls executed. |
-
-### nativeTokenWrapper
-
-```solidity
-function nativeTokenWrapper() external view returns (address)
-```
-
-_The address of the native token wrapper contract._
-
-#### Returns
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-
-### onERC721Received
-
-```solidity
-function onERC721Received(address, address, uint256, bytes) external view returns (bytes4)
-```
-
-#### Parameters
-
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | address | undefined   |
-| \_2  | uint256 | undefined   |
-| \_3  | bytes   | undefined   |
-
-#### Returns
-
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | bytes4 | undefined   |
 
 ### owner
 
@@ -376,26 +327,6 @@ function stakingToken() external view returns (address)
 | ---- | ------- | ----------- |
 | \_0  | address | undefined   |
 
-### supportsInterface
-
-```solidity
-function supportsInterface(bytes4 interfaceId) external view returns (bool)
-```
-
-_See {IERC165-supportsInterface}._
-
-#### Parameters
-
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| interfaceId | bytes4 | undefined   |
-
-#### Returns
-
-| Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
-
 ### withdraw
 
 ```solidity
@@ -411,20 +342,6 @@ _See {\_withdraw}. Override that to implement custom logic._
 | Name       | Type      | Description                 |
 | ---------- | --------- | --------------------------- |
 | \_tokenIds | uint256[] | List of tokens to withdraw. |
-
-### withdrawRewardTokens
-
-```solidity
-function withdrawRewardTokens(uint256 _amount) external nonpayable
-```
-
-_Admin can withdraw excess reward tokens._
-
-#### Parameters
-
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| \_amount | uint256 | undefined   |
 
 ## Events
 
