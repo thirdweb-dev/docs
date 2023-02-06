@@ -1,21 +1,21 @@
 ---
-slug: /contractkit/base-contracts/staking/staking721base
-title: Staking - ERC721
+slug: /contractkit/base-contracts/staking/staking1155base
+title: Staking - ERC1155
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 import ImportSnippet from "@components/ImportSnippet";
 
-# Staking ERC721 Base
+# Staking ERC1155 Base
 
-The `Staking721Base` smart contract implements NFT staking mechanism. It allows composition of NFT Collection and ERC20 Token contract into a staking mechanism.
+The `Staking1155Base` smart contract implements NFT staking mechanism for ERC1155. It allows composition of ERC1155 NFT Collection and ERC20 Token contract into a staking mechanism.
 
 The base contract provides for customization of staking logic. Contract admins can implement their own reward mechanisms by overriding existing functions.
 
 <ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/Staking721Base.sol"
-  name="Staking721Base"
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/Staking1155Base.sol"
+  name="Staking1155Base"
 />
 
 ## Unlocked Features
@@ -41,8 +41,8 @@ Click on each feature to learn more about what functions are available.
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <QuickstartCard
-      name="Staking ERC721"
-      link="/contractkit/extension-contracts/staking721"
+      name="Staking ERC1155"
+      link="/contractkit/extension-contracts/staking1155"
       image="/assets/icons/general.png"
     />
   </div>
@@ -56,15 +56,15 @@ Import the contract extension and make your contract inherit it.
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@thirdweb-dev/contracts/base/Staking721Base.sol";
+import "@thirdweb-dev/contracts/base/Staking1155Base.sol";
 
-contract MyContract is Staking721Base {
+contract MyContract is Staking1155Base {
     constructor(
-        uint256 _timeUnit,
-        uint256 _rewardsPerUnitTime,
+        uint256 _defaultTimeUnit,
+        uint256 _defaultRewardsPerUnitTime,
         address _stakingToken,
         address _rewardToken,
         address _nativeTokenWrapper
-    ) Staking721Base(_timeUnit, _rewardsPerUnitTime, _stakingToken, _rewardToken, _nativeTokenWrapper) {}
+    ) Staking1155Base(_defaultTimeUnit, _defaultRewardsPerUnitTime, _stakingToken, _rewardToken, _nativeTokenWrapper) {}
 }
 ```
