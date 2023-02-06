@@ -21,5 +21,6 @@ export type TransactionErrorInfo = {
   data?: string;
   rpcUrl?: string;
   value?: BigNumber;
+  hash?: string;
 };
 ```
