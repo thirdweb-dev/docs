@@ -16,29 +16,36 @@ const languageToUrlMapping = {
   Unity: `/unity`,
 };
 
-export default function SupportedLanguagesSection(languages?: string[]) {
+export default function SupportedLanguagesSection({
+  languages,
+}: {
+  languages: string[];
+}) {
+  // If no languages are passed in, default to these four
   const arrayToUse =
     languages.length > 0 ? languages : ["JavaScript", "Python", "Go", "Unity"];
 
   return (
     <div className="row supported-language-section">
       {arrayToUse.map((lang) => (
-        <a
-          className="col col--3 card"
-          key={lang}
-          href={languageToUrlMapping[lang]}
-          aria-label={`${lang} SDK`}
-          style={{ flex: 1 }}
-        >
-          <div className="card__body">
-            <img
-              alt={lang}
-              className={`supported-language-section__icon supported-language-section__icon__${lang}`}
-              src={languageToImageMapping[lang]}
-            />
-            <h3>{lang}</h3>
-          </div>
-        </a>
+        <div className="col col--6" style={{ padding: 0 }}>
+          <a
+            className="card"
+            style={{ margin: 8 }}
+            key={lang}
+            href={languageToUrlMapping[lang]}
+            aria-label={`${lang} SDK`}
+          >
+            <div className="card__body">
+              <img
+                alt={lang}
+                className={`supported-language-section__icon supported-language-section__icon__${lang}`}
+                src={languageToImageMapping[lang]}
+              />
+              <h3>{lang}</h3>
+            </div>
+          </a>
+        </div>
       ))}
     </div>
   );
