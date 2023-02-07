@@ -22,5 +22,9 @@ export type TransactionErrorInfo = {
   rpcUrl?: string;
   value?: BigNumber;
   hash?: string;
+  contractName?: string;
+  sources?: ContractSource[];
 };
 ```
+
+**References:** [ContractSource](./sdk.contractsource.md)
