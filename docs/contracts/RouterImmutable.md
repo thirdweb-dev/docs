@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # RouterImmutable
 
+_thirdweb.com_
+
 ## Methods
 
 ### \_getPluginForFunction
