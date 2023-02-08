@@ -28,6 +28,16 @@ const sidebars = {
       label: "ThirdwebProvider",
       id: "ThirdwebProvider",
     },
+    {
+      type: "doc",
+      label: "useContract",
+      id: "useContract",
+    },
+    {
+      type: "doc",
+      label: "useNFT",
+      id: "useNFT",
+    },
   ],
 };
 
