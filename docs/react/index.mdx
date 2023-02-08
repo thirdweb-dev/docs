@@ -70,8 +70,7 @@ import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
 
 const App = () => {
   return (
-    // Change the `desiredChainId` to the chain you want to connect to.
-    <ThirdwebProvider desiredChainId={ChainId.Mainnet}>
+    <ThirdwebProvider>
       <YourApp />
     </ThirdwebProvider>
   );
