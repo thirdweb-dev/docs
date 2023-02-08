@@ -1,0 +1,141 @@
+---
+title: ThirdwebProvider
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+The `ThirdwebProvider` is a wrapper component that provides access to all of the SDK&rsquo;s hooks and UI components.
+It utilizes the [Provider Pattern](https://www.patterns.dev/posts/provider-pattern/)
+to share data to all of the components that are nested within it.
+
+## Usage
+
+```jsx title="App.jsx"
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { Ethereum } from "@thirdweb-dev/chains";
+
+function MyApp() {
+  return (
+    <ThirdwebProvider network={Ethereum.chainId} chains={[Ethereum]}>
+      <YourApp />
+    </ThirdwebProvider>
+  );
+}
+```
+
+## Configuration
+
+The `ThirdwebProvider` component lets you control what networks you want users to connect to,
+what types of wallets can connect to your app,
+and the settings for the [Typescript SDK](https://docs.thirdweb.com/typescript), such as a custom RPC URL.
+
+### Configure Network
+
+The `network` field is suitable for when your smart contracts are deployed to a **single** network,
+and this is the network you want users to connect to.
+
+1. Import the network you want to connect to from the `@thirdweb-dev/chains` package.
+2. Pass the `chainId` of the network to the `network` prop of the `ThirdwebProvider`.
+3. Pass the network in an array to the `chains` prop of the `ThirdwebProvider`.
+
+```jsx title="App.jsx"
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+// highlight-start
+import { Polygon } from "@thirdweb-dev/chains";
+// highlight-end
+
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      // highlight-start
+      network={Polygon.chainId} // Required. Network you want users to connect/switch to.
+      chains={[Polygon]} // Required. Array of networks you want to allow users to connect to.
+      // highlight-end
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+}
+```
+
+### Custom Networks
+
+If your network is not included in the `@thirdweb-dev/chains` package,
+you can provide the network information yourself.
+
+1. Provide the chain ID as the value of the `network` prop.
+2. Create a new `Chain` object and pass it in an array to the `chains` prop.
+
+```js
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+const App = () => {
+  return (
+    <ThirdwebProvider
+      network={59140}
+      chains={[
+        {
+          // === Required information for connecting to the network === \\
+          chainId: 59140, // Chain ID of the network
+          // Array of RPC URLs to use
+          rpc: ["<your-rpc-url-here>"],
+
+          // === Information for adding the network to your wallet (how it will appear for first time users) === \\
+          // Information about the chains native currency (i.e. the currency that is used to pay for gas)
+          nativeCurrency: {
+            decimals: 18,
+            name: "Consensys ETH",
+            symbol: "crETH",
+          },
+          shortName: "Consensys zkEVM", // Display value shown in the wallet UI
+          slug: "consensys", // Display value shown in the wallet UI
+          testnet: true, // Boolean indicating whether the chain is a testnet or mainnet
+          chain: "ConsenSys zkEVM Testnet", // Name of the network
+          name: "ConsenSys zkEVM Testnet", // Name of the network
+        },
+      ]}
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+};
+```
+
+### Override RPC URLs
+
+Override the deafult RPC URL (or any other property) for a given network.
+
+:::info Optional
+By default, the SDK provides a free-to-use RPC. No configuration required!
+
+[View the default RPC URLs for each network](https://github.com/thirdweb-dev/js/blob/main/packages/auth/src/evm/evm.ts).
+:::
+
+Using the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax),
+you can any properties of the chain, such as the `rpc` field.
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+const App = () => {
+  return (
+    <ThirdwebProvider
+      network={Dogechain.chainId}
+      // highlight-start
+      chains={[
+        {
+          ...Dogechain,
+          rpc: ["https://<your-rpc-to-use>.com"], // Override the "rpc" field.
+          // ... Override any other fields you want to customize.
+        },
+      ]}
+      // highlight-end
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+};
+```

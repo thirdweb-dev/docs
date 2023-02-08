@@ -23,6 +23,11 @@ const sidebars = {
       label: "Overview",
       id: "index",
     },
+    {
+      type: "doc",
+      label: "ThirdwebProvider",
+      id: "ThirdwebProvider",
+    },
   ],
 };
 
