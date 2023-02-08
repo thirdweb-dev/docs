@@ -1,0 +1,63 @@
+---
+title: useContract
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for declaring an instance of a type-safe Contract object.
+
+```jsx
+import { useContract } from "@thirdweb-dev/react"
+```
+
+### Usage
+
+```jsx
+const { contract, isLoading, error } = useContract("{{contract_address}}", "contract-type");
+```
+
+### Return Value 
+
+```jsx
+SmartContract | undefined
+```
+
+### Configuration
+
+### Contract Type (optional)
+
+The second parameter can be added to specify the contract type or pass a contract ABI. This provides more functionality from the React SDK.
+
+```jsx
+const { contract, isLoading, error } = useContract("{{contract_address}}", "contract-type");
+```
+
+:::tip Contract type options:
+"contract-type"
+  | "custom"
+  | "edition-drop"
+  | "edition"
+  | "marketplace"
+  | "marketplace-v3"
+  | "multiwrap"
+  | "nft-collection"
+  | "nft-drop"
+  | "pack"
+  | "signature-drop"
+  | "token-drop"
+  | "token"
+  | "vote"
+:::
+
+### ABI (optional)
+
+Alternatively, pass an assertion of an ABI or define inline:
+
+```jsx
+const { contract, isLoading, error } = useContract("{{contract_address}}", myContractABI);
+```
+
+
