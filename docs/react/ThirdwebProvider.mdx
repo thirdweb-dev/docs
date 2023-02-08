@@ -15,13 +15,67 @@ Wrap your app in the `ThirdwebProvider` to access the SDK&rsquo;s functionality 
 
 ## Usage
 
+If you are using a <code>default chain</code>, provide the `network` prop to the `ThirdwebProvider` component.
+
+<details>
+  <summary>View default chains</summary>
+  <div>
+    <ul>
+      <li>
+        <b>Ethereum</b>: <code>"ethereum"</code>
+      </li>
+      <li>
+        <b>Goerli</b>: <code>"goerli"</code>
+      </li>
+      <li>
+        <b>Polygon</b>: <code>"polygon"</code>
+      </li>
+      <li>
+        <b>Mumbai</b>: <code>"mumbai"</code>
+      </li>
+      <li>
+        <b>Arbitrum One</b>: <code>"arbitrum"</code>
+      </li>
+      <li>
+        <b>Arbitrum Goerli</b>: <code>"arbitrum-goerli"</code>
+      </li>
+      <li>
+        <b>Optimism</b>: <code>"optimism"</code>
+      </li>
+      <li>
+        <b>Optimism Goerli Testnet</b>: <code>"optimism-goerli"</code>
+      </li>
+      <li>
+        <b>Binance SmartChain</b>: <code>"binance"</code>
+      </li>
+      <li>
+        <b>Binance SmartChain Testnet</b>: <code>"binance-testnet"</code>
+      </li>
+      <li>
+        <b>Fantom Opera</b>: <code>"fantom"</code>
+      </li>
+      <li>
+        <b>Fantom Testnet</b>: <code>"fantom-testnet"</code>
+      </li>
+      <li>
+        <b>Avalanche C Chain</b>: <code>"avalanche-fuji"</code>
+      </li>
+      <li>
+        <b>Avalanche Fuji Testnet</b>: <code>"avalanche-fuji-testnet"</code>
+      </li>
+      <li>
+        <b>Localhost</b>: <code>"localhost"</code>
+      </li>
+    </ul>
+  </div>
+</details>
+
 ```jsx title="App.jsx"
 import { ThirdwebProvider } from "@thirdweb-dev/react";
-import { Ethereum } from "@thirdweb-dev/chains";
 
 function MyApp() {
   return (
-    <ThirdwebProvider network={Ethereum.chainId} chains={[Ethereum]}>
+    <ThirdwebProvider network="ethereum">
       <YourApp />
     </ThirdwebProvider>
   );
@@ -51,15 +105,15 @@ To set up your app to connect to a single network:
 ```jsx title="App.jsx"
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 // highlight-start
-import { Polygon } from "@thirdweb-dev/chains";
+import { Dogechain } from "@thirdweb-dev/chains";
 // highlight-end
 
 function MyApp() {
   return (
     <ThirdwebProvider
       // highlight-start
-      network={Polygon.chainId} // Required. The chain ID of the network you want users to connect to.
-      chains={[Polygon]} // Required. Array of networks your app supports.
+      network={Dogechain.chainId} // Required. The chain ID of the network you want users to connect to.
+      chains={[Dogechain]} // Required. Array of networks your app supports.
       // highlight-end
     >
       <YourApp />
@@ -112,7 +166,7 @@ import { defaultChains, allChains } from "@thirdweb-dev/chains";
 
 ### Custom Networks
 
-If your network is not included in the `@thirdweb-dev/chains` package,
+If your network is not included in the `@thirdweb-dev/chains` package, (see [configure network section](#configure-network)),
 you can provide the network information yourself as a new `Chain` object in the `chains` prop.
 
 1. Provide the chain ID as the value of the `network` prop.
