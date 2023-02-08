@@ -95,3 +95,20 @@ Below are examples of where to set this up in your application.
 </p>
 
 That&rsquo;s it! You're now ready to use all the hooks and components in the SDK.
+
+The first thing you likely want to do is connect to a smart contract:
+
+```jsx title="index.jsx"
+import { useContract } from "@thirdweb-dev/react";
+
+const Home = () => {
+  const { contract, isLoading, error } = useContract(
+    "0x6604bd9D7770035f26B4ACeab2C746fdCE16473",
+  );
+
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  return <h1>Connected to contract!</h1>;
+};
+```

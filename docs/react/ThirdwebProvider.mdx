@@ -11,6 +11,8 @@ The `ThirdwebProvider` is a wrapper component that provides access to all of the
 It utilizes the [Provider Pattern](https://www.patterns.dev/posts/provider-pattern/)
 to share data to all of the components that are nested within it.
 
+Wrap your app in the `ThirdwebProvider` to access the SDK&rsquo;s functionality from anywhere in your app.
+
 ## Usage
 
 ```jsx title="App.jsx"
@@ -34,8 +36,11 @@ and the settings for the [Typescript SDK](https://docs.thirdweb.com/typescript),
 
 ### Configure Network
 
-The `network` field is suitable for when your smart contracts are deployed to a **single** network,
-and this is the network you want users to connect to.
+The `network` prop determines which network you want your app to be _currently_ operating on.
+For example, if you want your app to be connected to Polygon at this point in time,
+you provide the `chainId` of Polygon (137) to the `network` prop.
+
+The `chains` prop determines which networks your app supports (i.e. the networks that users can switch to).
 
 1. Import the network you want to connect to from the `@thirdweb-dev/chains` package.
 2. Pass the `chainId` of the network to the `network` prop of the `ThirdwebProvider`.
@@ -51,8 +56,8 @@ function MyApp() {
   return (
     <ThirdwebProvider
       // highlight-start
-      network={Polygon.chainId} // Required. Network you want users to connect/switch to.
-      chains={[Polygon]} // Required. Array of networks you want to allow users to connect to.
+      network={Polygon.chainId} // Required. The chain ID of the network you want users to connect to.
+      chains={[Polygon]} // Required. Array of networks your app supports.
       // highlight-end
     >
       <YourApp />
@@ -60,6 +65,50 @@ function MyApp() {
   );
 }
 ```
+
+### Multiple Networks
+
+The `chains` prop defines which networks your app supports.
+
+Provide multiple networks to the `chains` prop to allow users to switch between them.
+
+- If you provide both `network` and `chains` props, the SDK uses the `network` value to as the network your app is **currently** operating on.
+- If you do _not_ provide a `network`, the SDK will default to the first network in the `chains` array as the network your app is **currently** operating on.
+
+This is useful if you want to allow users to switch between networks and define the network your app is currently operating on.
+
+```jsx title="App.jsx"
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+// highlight-start
+import { Ethereum, Polygon } from "@thirdweb-dev/chains";
+// highlight-end
+
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      // highlight-start
+      network={Mumbai.chainId} // The network that the SDK will use at this point in time.
+      chains={[Polygon, Ethereum]} // Allow users to switch between Polygon and Ethereum networks.
+      // highlight-end
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+}
+```
+
+:::tip Helper Values
+
+The `@thirdweb-dev/chains` package also exposes:
+
+- `defaultChains`: An array that contains all of the most common networks.
+- `allChains`: An array that contains all of the networks the SDK is aware of by default.
+
+```jsx
+import { defaultChains, allChains } from "@thirdweb-dev/chains";
+```
+
+:::
 
 ### Custom Networks
 
