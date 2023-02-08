@@ -153,7 +153,7 @@ const App = () => {
 };
 ```
 
-### Override RPC URLs
+### Override Default Values
 
 Override the deafult RPC URL (or any other property) for a given network.
 
@@ -187,4 +187,250 @@ const App = () => {
     </ThirdwebProvider>
   );
 };
+```
+
+### authConfig
+
+The configuration object for setting up [Auth](/auth); allowing users to sign in with their wallet.
+
+| Property  | Type   | Description                                                                                                                                                                |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `authUrl` | string | The backend URL of the authentication endpoints. For example, if your endpoints are at `/api/auth/login`, `/api/auth/logout`, etc. then this should be set to `/api/auth`. |
+| `domain`  | string | The frontend domain used to generate the login payload. This domain should match the domain used on your auth backend.                                                     |
+
+```jsx
+import type { AppProps } from "next/app";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+function MyApp({ Component, pageProps }: AppProps) {
+  return (
+    <ThirdwebProvider
+      // highlight-start
+      authConfig={{
+        authUrl: "/api/auth",
+        domain: "https://example.com",
+      }}
+      // highlight-end
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+}
+```
+
+### autoconnect
+
+When the user has connected their wallet to your site before, this flag determines
+whether or not you want the SDK to automatically connect to the wallet on page load (requires the user
+to be logged in to the wallet).
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      // highlight-start
+      autoConnect={false}
+      // highlight-end
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+}
+```
+
+### dAppMeta
+
+Metadata to pass to [WalletConnect](https://walletconnect.com/), shown in mobile wallets that support it.
+
+Defaults to `thirdweb powered dApp`.
+
+| Property      | Type    | Description                                                      |
+| ------------- | ------- | ---------------------------------------------------------------- |
+| `name`        | string  | the name of your app                                             |
+| `description` | string  | optional - a description of your app                             |
+| `logoUrl`     | string  | optional - a url that points to a logo (or favicon) of your app  |
+| `url`         | string  | optional - the url where your app is hosted                      |
+| `isDarkMode`  | boolean | optional - whether to show the connect dialog in darkmode or not |
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      // highlight-start
+      dAppMeta={{
+        name: "My App",
+        description: "My app description",
+        logoUrl: "https://example.com/logo.png",
+        url: "https://example.com",
+        isDarkMode: true,
+      }}
+      // highlight-end
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+}
+```
+
+### queryClient
+
+If you are using [React Query](https://react-query.tanstack.com/) and have your own `QueryClient`,
+you can pass it as the `queryClient` prop to use this client instead of the SDK's default client.
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+function MyApp() {
+  // Your React Query client (or client from other library such as wagmi)
+  const queryClient = new QueryClient();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThirdwebProvider
+        // highlight-start
+        queryClient={queryClient}
+        // highlight-end
+      >
+        <YourApp />
+      </ThirdwebProvider>
+    </QueryClientProvider>
+  );
+}
+```
+
+### sdkOptions
+
+Override any of the default values for the SDK.
+
+Gas settings, gasless transactions, RPC configuration, and more.
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      // highlight-start
+      sdkOptions={{
+        readonlySettings: {
+          rpcUrl: "<rpc-url>", // force read calls to go through your own RPC url
+          chainId: 1, // reduce RPC calls by sepcifying your chain ID
+        },
+        gasSettings: {
+          maxPriceInGwei: 123, // Maximum gas price for transactions (default 300 gwei)
+          speed: "fastest", // the tx speed setting: 'standard'|'fast|'fastest' (default: 'fastest')
+        },
+        gasless: {
+          // By specifying a gasless configuration - all transactions will get forwarded to enable gasless transactions
+          openzeppelin: {
+            relayerUrl: "<open-zeppelin-relayer-url>", // your OZ Defender relayer URL
+            relayerForwarderAddress: "<open-zeppelin-forwarder-address>", // the OZ defender relayer address (defaults to the standard one)
+          },
+          biconomy: {
+            apiId: "biconomy-api-id", // your Biconomy API Id
+            apiKey: "biconomy-api-key", // your Biconomy API Key
+            deadlineSeconds: 123, // your Biconomy timeout preference
+          },
+        },
+        infuraApiKey: "<infura-api-key>", // your Infura API key
+        alchemyApiKey: "<alchemy-api-key>", // your Alchemy API key
+        thirdwebApiKey: "<thirdweb-api-key>", // your thirdweb API key
+      }}
+      // highlight-end
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+}
+```
+
+### storageInterface
+
+Override the default [Storage](/storage) interface used by the SDK.
+
+Allows you to create an instance of `ThirdwebStorage` with your own customized config, and pass it to the SDK.
+
+:::tip Storage
+
+This requires the `@thirdweb-dev/storage` package to be installed.
+
+[Learn more about Storage](/storage)
+
+:::
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import {
+  ThirdwebStorage,
+  StorageDownloader,
+  IpfsUploader,
+} from "@thirdweb-dev/storage";
+
+// Configure a custom ThirdwebStorage instance
+const gatewayUrls = {
+  "ipfs://": [
+    "https://gateway.ipfscdn.io/ipfs/",
+    "https://cloudflare-ipfs.com/ipfs/",
+    "https://ipfs.io/ipfs/",
+  ],
+};
+const downloader = new StorageDownloader();
+const uploader = new IpfsUploader();
+const storage = new ThirdwebStorage({ uploader, downloader, gatewayUrls });
+
+// Provide the custom storage instance to the SDK
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      // highlight-start
+      storageInterface={storage}
+      // highlight-end
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+}
+```
+
+### walletConnectors
+
+An array of connector types (strings) or wallet connector objects that your app supports.
+
+If not provided, defaults to MetaMask (injected), WalletConnect and Coinbase Wallet.
+
+Useful if you want to add support for [Gnosis Safe](https://gnosis-safe.io/) or [Magic Link](https://magic.link/).
+
+```jsx title="Magic Link example"
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { MagicConnector } from "@thirdweb-dev/react/evm/connectors/magic";
+import { Mumbai } from "@thirdweb-dev/chains";
+
+const magicLinkConnector = new MagicConnector({
+  options: {
+    apiKey: "<your-magic-link-public-key>" as string,
+    rpcUrls: {
+      [Mumbai.chainId]: "https://mumbai.magic.io/rpc",
+    },
+  },
+});
+
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      // highlight-start
+      walletConnectors={[magicLinkConnector, "metamask", "walletConnect"]}
+      // highlight-end
+      network={"mumbai"}
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+}
+
+export default MyApp;
 ```
