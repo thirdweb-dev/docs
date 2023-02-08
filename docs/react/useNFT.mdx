@@ -17,54 +17,57 @@ import { useNFT } from "@thirdweb-dev/react"
 
 :::tip
 
-It is recommended to use `useContract` to initialize your NFT contract before using this hook
+It is mandatory to use [`useContract`](/useContract) to initialize your NFT contract before using this hook
 
 ```jsx
 import { useContract } from "@thirdweb-dev/react";
-const { contract, isLoading, error } = useContract("{{nft_contract_address}}", "nft-contract-type");
+const { contract, isLoading, error } = useContract("{{nft_contract_address}}");
 ```
 :::
 
 
 ```jsx 
-const { contract } = useContract(<ContractAddress>);
-const { data: nft, isLoading, error } = useNFT(contract, <tokenId>);
+function App() {
 
-if (isLoading) return <div>Fetching NFT…</div>
-if (isError) return <div>Error fetching token</div>
-return <div>NFT: {data?.metadata.title}</div>
+    const { contract } = useContract(<ContractAddress>);
+    const { data: nft, isLoading, error } = useNFT(contract, <tokenId>);
+
+    if (isLoading) return <div>Fetching NFT…</div>
+    if (isError) return <div>Error fetching token</div>
+    return <div>NFT: {data?.metadata.title}</div>
+}
 ```
 
 ### Return Value
 
 ```jsx
-data?: {
-    metadata: NFTMetadata;
-    owner: string;
-    type: "ERC1155" | "ERC721" | "metaplex";
-    supply: number;
-    quantityOwned?: number;
-    }
+{
+  data?: {
+      metadata: NFTMetadata;
+      owner: string;
+      type: "ERC1155" | "ERC721";
+      supply: number;
+      quantityOwned?: number;
+  }
+  error?: Error
+  isIdle: boolean
+  isLoading: boolean
+  isFetching: boolean
+  isSuccess: boolean
+  isError: boolean
+  isFetched: boolean
+  isFetchedAfterMount: boolean
+  isRefetching: boolean
+  refetch: (options: {
+      throwOnError: boolean
+      cancelRefetch: boolean
+  }) => Promise<{
+      metadata: NFTMetadata;
+      owner: string;
+      type: "ERC1155" | "ERC721" | "metaplex";
+      supply: number;
+      quantityOwned?: number;
+      }>
+  status: 'idle' | 'error' | 'loading' | 'success'
 }
-error?: Error
-isIdle: boolean
-isLoading: boolean
-isFetching: boolean
-isSuccess: boolean
-isError: boolean
-isFetched: boolean
-isFetchedAfterMount: boolean
-isRefetching: boolean
-refetch: (options: {
-    throwOnError: boolean
-    cancelRefetch: boolean
-}) => Promise<{
-    metadata: NFTMetadata;
-    owner: string;
-    type: "ERC1155" | "ERC721" | "metaplex";
-    supply: number;
-    quantityOwned?: number;
-    }
-  }>
-status: 'idle' | 'error' | 'loading' | 'success'
 ```

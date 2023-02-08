@@ -22,22 +22,37 @@ const { contract, isLoading, error } = useContract("{{contract_address}}", "cont
 ### Return Value 
 
 ```jsx
-SmartContract | undefined
+{
+  contract?: SmartContract
+  error?: Error
+  isIdle: boolean
+  isLoading: boolean
+  isFetching: boolean
+  isSuccess: boolean
+  isError: boolean
+  isFetched: boolean
+  isFetchedAfterMount: boolean
+  isRefetching: boolean
+  refetch: (options: {
+      throwOnError: boolean
+      cancelRefetch: boolean
+  }) => Promise<{SmartContract}>
+  status: 'idle' | 'error' | 'loading' | 'success'
+}
 ```
 
 ### Configuration
 
 ### Contract Type (optional)
 
-The second parameter can be added to specify the contract type or pass a contract ABI. This provides more functionality from the React SDK.
+If your contract is one of [thirdweb's contracts](https://thirdweb.com/explore), you can pass the name of the prebuilt contract to get better type interference and top-level functions.
 
 ```jsx
 const { contract, isLoading, error } = useContract("{{contract_address}}", "contract-type");
 ```
 
 :::tip Contract type options:
-"contract-type"
-  | "custom"
+  "custom"
   | "edition-drop"
   | "edition"
   | "marketplace"
@@ -54,7 +69,7 @@ const { contract, isLoading, error } = useContract("{{contract_address}}", "cont
 
 ### ABI (optional)
 
-Alternatively, pass an assertion of an ABI or define inline:
+If your contract was not deployed with thirdweb and you haven't imported it, you can provide an ABI as a second parameter.
 
 ```jsx
 const { contract, isLoading, error } = useContract("{{contract_address}}", myContractABI);
