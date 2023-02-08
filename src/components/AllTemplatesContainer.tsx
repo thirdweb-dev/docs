@@ -23,6 +23,7 @@ export default function AllTemplatesContainer({ repos }: Props) {
       "multiwrap",
       "pack",
       "marketplace",
+      "marketplace-v3",
       "split",
       "vote",
     ],
