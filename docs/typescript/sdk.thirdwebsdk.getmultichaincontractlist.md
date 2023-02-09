@@ -12,14 +12,15 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-getMultichainContractList(walletAddress: string): Promise<ContractWithMetadata[]>;
+getMultichainContractList(walletAddress: string, chains?: Chain[]): Promise<ContractWithMetadata[]>;
 ```
 
 ## Parameters
 
-| Parameter     | Type   | Description |
-| ------------- | ------ | ----------- |
-| walletAddress | string |             |
+| Parameter     | Type      | Description       |
+| ------------- | --------- | ----------------- |
+| walletAddress | string    |                   |
+| chains        | Chain\[\] | <i>(Optional)</i> |
 
 **Returns:**
 
