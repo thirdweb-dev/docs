@@ -265,126 +265,41 @@ MarketplaceV3Initializer: {
     storage: ThirdwebStorage,
   ) =>
     Promise<
-      | {
-          [x: string]: any;
-          name?: string | undefined;
-          inputs?:
-            | {
-                [x: string]: any;
-                stateMutability?: string | undefined;
-                components?:
-                  | {
-                      [x: string]: any;
-                      type: string;
-                      name: string;
-                    }[]
-                  | undefined;
-                type: string;
-                name: string;
-              }[]
-            | undefined;
-          outputs?:
-            | {
-                [x: string]: any;
-                stateMutability?: string | undefined;
-                components?:
-                  | {
-                      [x: string]: any;
-                      type: string;
-                      name: string;
-                    }[]
-                  | undefined;
-                type: string;
-                name: string;
-              }[]
-            | undefined;
-          type: string;
-        }[]
-      | (
+      {
+        [x: string]: any;
+        name?: string | undefined;
+        inputs?:
           | {
-              inputs: {
-                internalType: string;
-                name: string;
-                type: string;
-              }[];
-              stateMutability: string;
+              [x: string]: any;
+              stateMutability?: string | undefined;
+              components?:
+                | {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                  }[]
+                | undefined;
               type: string;
-              anonymous?: undefined;
-              name?: undefined;
-              outputs?: undefined;
-            }
-          | {
-              anonymous: boolean;
-              inputs: {
-                indexed: boolean;
-                internalType: string;
-                name: string;
-                type: string;
-              }[];
               name: string;
-              type: string;
-              stateMutability?: undefined;
-              outputs?: undefined;
-            }
+            }[]
+          | undefined;
+        outputs?:
           | {
-              stateMutability: string;
+              [x: string]: any;
+              stateMutability?: string | undefined;
+              components?:
+                | {
+                    [x: string]: any;
+                    type: string;
+                    name: string;
+                  }[]
+                | undefined;
               type: string;
-              inputs?: undefined;
-              anonymous?: undefined;
-              name?: undefined;
-              outputs?: undefined;
-            }
-          | {
-              inputs: {
-                internalType: string;
-                name: string;
-                type: string;
-              }[];
               name: string;
-              outputs: {
-                internalType: string;
-                name: string;
-                type: string;
-              }[];
-              stateMutability: string;
-              type: string;
-              anonymous?: undefined;
-            }
-          | {
-              inputs: {
-                components: {
-                  internalType: string;
-                  name: string;
-                  type: string;
-                }[];
-                internalType: string;
-                name: string;
-                type: string;
-              }[];
-              name: string;
-              outputs: never[];
-              stateMutability: string;
-              type: string;
-              anonymous?: undefined;
-            }
-          | {
-              inputs: never[];
-              name: string;
-              outputs: {
-                components: {
-                  internalType: string;
-                  name: string;
-                  type: string;
-                }[];
-                internalType: string;
-                name: string;
-                type: string;
-              }[];
-              stateMutability: string;
-              type: string;
-              anonymous?: undefined;
-            }
-        )[]
+            }[]
+          | undefined;
+        type: string;
+      }[]
     >;
 }
 ```
