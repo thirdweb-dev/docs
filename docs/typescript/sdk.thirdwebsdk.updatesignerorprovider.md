@@ -14,14 +14,14 @@ Update the active signer or provider for all contracts
 **Signature:**
 
 ```typescript
-updateSignerOrProvider(network: NetworkOrSignerOrProvider): void;
+updateSignerOrProvider(network: NetworkInput): void;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                            | Description                |
-| --------- | --------------------------------------------------------------- | -------------------------- |
-| network   | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) | the new signer or provider |
+| Parameter | Type                                  | Description                |
+| --------- | ------------------------------------- | -------------------------- |
+| network   | [NetworkInput](./sdk.networkinput.md) | the new signer or provider |
 
 **Returns:**
 

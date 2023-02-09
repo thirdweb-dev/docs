@@ -14,14 +14,14 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-onNetworkUpdated(network: NetworkOrSignerOrProvider): void;
+onNetworkUpdated(network: NetworkInput): void;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                            | Description |
-| --------- | --------------------------------------------------------------- | ----------- |
-| network   | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) |             |
+| Parameter | Type                                  | Description |
+| --------- | ------------------------------------- | ----------- |
+| network   | [NetworkInput](./sdk.networkinput.md) |             |
 
 **Returns:**
 

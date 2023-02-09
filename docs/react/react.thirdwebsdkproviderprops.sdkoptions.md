@@ -12,5 +12,5 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-sdkOptions?: SDKOptions;
+sdkOptions?: Omit<SDKOptions, "chains">;
 ```

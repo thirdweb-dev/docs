@@ -14,12 +14,12 @@ Constructs a new instance of the `UserWallet` class
 **Signature:**
 
 ```typescript
-constructor(network: NetworkOrSignerOrProvider, options: SDKOptions);
+constructor(network: NetworkInput, options: SDKOptions);
 ```
 
 ## Parameters
 
-| Parameter | Type                                                            | Description |
-| --------- | --------------------------------------------------------------- | ----------- |
-| network   | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) |             |
-| options   | [SDKOptions](./sdk.sdkoptions.md)                               |             |
+| Parameter | Type                                  | Description |
+| --------- | ------------------------------------- | ----------- |
+| network   | [NetworkInput](./sdk.networkinput.md) |             |
+| options   | [SDKOptions](./sdk.sdkoptions.md)     |             |

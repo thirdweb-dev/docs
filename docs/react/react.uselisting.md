@@ -42,4 +42,4 @@ export declare function useListing(
 
 import("@tanstack/react-query").UseQueryResult&lt;AuctionListing \| DirectListing, unknown&gt;
 
-a response object that includes an array of listings
+a response object that includes the desired listing

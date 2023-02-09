@@ -9,10 +9,14 @@ displayed_sidebar: react
 
 ## ThirdwebProviderProps.chainRpc property
 
+> Warning: This API is now obsolete.
+>
+> - use `chains` instead
+
 A partial map of chainIds to rpc urls to use for certain chains If not provided, will default to the rpcUrls of the chain objects for the supported chains
 
 **Signature:**
 
 ```typescript
-chainRpc?: Partial<ChainRpc<TSupportedChain>>;
+chainRpc?: Record<number, string>;
 ```

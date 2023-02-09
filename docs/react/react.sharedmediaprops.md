@@ -19,6 +19,7 @@ export interface SharedMediaProps
 
 | Property                                                              | Modifiers | Type                           | Description                                                                   |
 | --------------------------------------------------------------------- | --------- | ------------------------------ | ----------------------------------------------------------------------------- |
+| [children?](./react.sharedmediaprops.children.md)                     |           | ReactNode                      | <i>(Optional)</i>                                                             |
 | [className?](./react.sharedmediaprops.classname.md)                   |           | string                         | <i>(Optional)</i>                                                             |
 | [controls?](./react.sharedmediaprops.controls.md)                     |           | HTMLVideoElement\["controls"\] | <i>(Optional)</i> Show the media controls (where applicable) (default false)  |
 | [height?](./react.sharedmediaprops.height.md)                         |           | HTMLIFrameElement\["height"\]  | <i>(Optional)</i>                                                             |

@@ -12,18 +12,18 @@ displayed_sidebar: react
 **Signature:**
 
 ```typescript
-export interface ThirdwebSDKProviderProps extends QueryClientProviderProps
+export interface ThirdwebSDKProviderProps<TChains extends Chain[] = typeof defaultChains> extends QueryClientProviderProps
 ```
 
 **Extends:** QueryClientProviderProps
 
 ## Properties
 
-| Property                                                                  | Modifiers | Type                                                                | Description       |
-| ------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------- | ----------------- |
-| [authConfig?](./react.thirdwebsdkproviderprops.authconfig.md)             |           | [ThirdwebAuthConfig](./react.thirdwebauthconfig.md)                 | <i>(Optional)</i> |
-| [desiredChainId](./react.thirdwebsdkproviderprops.desiredchainid.md)      |           | [RequiredParam](./react.requiredparam.md)&lt;SUPPORTED_CHAIN_ID&gt; |                   |
-| [provider](./react.thirdwebsdkproviderprops.provider.md)                  |           | ChainOrRpc &#124; SignerOrProvider                                  |                   |
-| [sdkOptions?](./react.thirdwebsdkproviderprops.sdkoptions.md)             |           | SDKOptions                                                          | <i>(Optional)</i> |
-| [signer?](./react.thirdwebsdkproviderprops.signer.md)                     |           | Signer                                                              | <i>(Optional)</i> |
-| [storageInterface?](./react.thirdwebsdkproviderprops.storageinterface.md) |           | ThirdwebStorage                                                     | <i>(Optional)</i> |
+| Property                                                                  | Modifiers | Type                                                                           | Description       |
+| ------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------ | ----------------- |
+| [activeChain?](./react.thirdwebsdkproviderprops.activechain.md)           |           | TChains\[number\]\["chainId"\] &#124; TChains\[number\]\["slug"\] &#124; Chain | <i>(Optional)</i> |
+| [authConfig?](./react.thirdwebsdkproviderprops.authconfig.md)             |           | [ThirdwebAuthConfig](./react.thirdwebauthconfig.md)                            | <i>(Optional)</i> |
+| [sdkOptions?](./react.thirdwebsdkproviderprops.sdkoptions.md)             |           | Omit&lt;SDKOptions, "chains"&gt;                                               | <i>(Optional)</i> |
+| [signer?](./react.thirdwebsdkproviderprops.signer.md)                     |           | Signer                                                                         | <i>(Optional)</i> |
+| [storageInterface?](./react.thirdwebsdkproviderprops.storageinterface.md) |           | ThirdwebStorage                                                                | <i>(Optional)</i> |
+| [supportedChains?](./react.thirdwebsdkproviderprops.supportedchains.md)   |           | Readonly&lt;TChains&gt;                                                        | <i>(Optional)</i> |

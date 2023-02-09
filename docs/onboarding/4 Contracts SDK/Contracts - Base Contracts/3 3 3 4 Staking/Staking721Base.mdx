@@ -13,8 +13,6 @@ The `Staking721Base` smart contract implements NFT staking mechanism. It allows 
 
 The base contract provides for customization of staking logic. Contract admins can implement their own reward mechanisms by overriding existing functions.
 
-> Note: This is a _Beta_ release.
-
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/Staking721Base.sol"
   name="Staking721Base"
@@ -60,19 +58,13 @@ pragma solidity ^0.8.0;
 
 import "@thirdweb-dev/contracts/base/Staking721Base.sol";
 
-contract MyToken is Staking721Base {
-	  constructor(
+contract MyContract is Staking721Base {
+    constructor(
         uint256 _timeUnit,
         uint256 _rewardsPerUnitTime,
-        address _nftCollection,
-        address _rewardToken
-    )
-        Staking721Base(
-            uint256 _timeUnit,
-            uint256 _rewardsPerUnitTime,
-            address _nftCollection,
-            address _rewardToken
-        )
-    {}
+        address _stakingToken,
+        address _rewardToken,
+        address _nativeTokenWrapper
+    ) Staking721Base(_timeUnit, _rewardsPerUnitTime, _stakingToken, _rewardToken, _nativeTokenWrapper) {}
 }
 ```

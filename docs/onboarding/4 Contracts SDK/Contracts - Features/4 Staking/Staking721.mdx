@@ -23,11 +23,9 @@ The `Staking721` smart contract extension implements NFT staking mechanism. With
 </div>
 </div>
 
-> Note: This is a _Beta_ release.
-
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Staking721.sol"
-  name="Permissions"
+  name="Staking721"
 />
 
 ## Availability in base contracts
@@ -62,11 +60,10 @@ contract MyContract is Staking721 {
     constructor(
         uint256 _timeUnit,
         uint256 _rewardsPerUnitTime,
-        address _nftCollection,
+        address _stakingToken,
         address _rewardToken
-    ) Staking721(_nftCollection) {
-        _setTimeUnit(_timeUnit);
-        _setRewardsPerUnitTime(_rewardsPerUnitTime);
+    ) Staking721(_stakingToken) {
+        _setStakingCondition(_timeUnit, _rewardsPerUnitTime);
 
         rewardToken = _rewardToken;
         deployer = msg.sender;

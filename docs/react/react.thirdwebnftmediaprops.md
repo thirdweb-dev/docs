@@ -23,4 +23,6 @@ export interface ThirdwebNftMediaProps extends SharedMediaProps
 
 | Property                                              | Modifiers | Type        | Description                                               |
 | ----------------------------------------------------- | --------- | ----------- | --------------------------------------------------------- |
+| [height?](./react.thirdwebnftmediaprops.height.md)    |           | string      | <i>(Optional)</i>                                         |
 | [metadata](./react.thirdwebnftmediaprops.metadata.md) |           | NFTMetadata | The NFT metadata of the NFT returned by the thirdweb sdk. |
+| [width?](./react.thirdwebnftmediaprops.width.md)      |           | string      | <i>(Optional)</i>                                         |

@@ -14,18 +14,11 @@ Constructs a new instance of the `TransactionError` class
 **Signature:**
 
 ```typescript
-constructor(reason: string, from: string, to: string, data: string, network: providers.Network, rpcUrl: string, raw: string, functionInfo: FunctionInfo | undefined);
+constructor(info: TransactionErrorInfo);
 ```
 
 ## Parameters
 
-| Parameter    | Type                          | Description |
-| ------------ | ----------------------------- | ----------- |
-| reason       | string                        |             |
-| from         | string                        |             |
-| to           | string                        |             |
-| data         | string                        |             |
-| network      | providers.Network             |             |
-| rpcUrl       | string                        |             |
-| raw          | string                        |             |
-| functionInfo | FunctionInfo &#124; undefined |             |
+| Parameter | Type                                                  | Description |
+| --------- | ----------------------------------------------------- | ----------- |
+| info      | [TransactionErrorInfo](./sdk.transactionerrorinfo.md) |             |
