@@ -1,5 +1,6 @@
 // Read in the react snippets
 import reactSnippets from "../../submodules/js/packages/react/docs/evm/snippets.json" assert { type: "json" };
+import reactCoreSnippets from "../../submodules/js/packages/react-core/docs/evm/snippets.json" assert { type: "json" };
 
 // Takes in a two keys and returns the react snippet defined here for that value
 // TODO: This logic **Probably** doesn't belong here.
@@ -7,7 +8,7 @@ import reactSnippets from "../../submodules/js/packages/react/docs/evm/snippets.
 // that way it is more maintainable.
 
 const reactMapping = {
-  NFTCollectionImpl: {
+  NFTCollection: {
     mainHook: "useNFTCollection",
     subHooks: {
       // methods
@@ -24,7 +25,7 @@ const reactMapping = {
       signature: "",
     },
   },
-  EditionImpl: {
+  Edition: {
     mainHook: "useEdition",
     subHooks: {
       // methods
@@ -42,7 +43,7 @@ const reactMapping = {
       signature: "",
     },
   },
-  TokenDropImpl: {
+  TokenDrop: {
     mainHook: "useTokenDrop",
     subHooks: {
       // methods
@@ -62,7 +63,7 @@ const reactMapping = {
       claimConditions: "",
     },
   },
-  TokenImpl: {
+  Token: {
     mainHook: "useToken",
     subHooks: {
       // methods
@@ -84,7 +85,7 @@ const reactMapping = {
       signature: "",
     },
   },
-  NFTDropImpl: {
+  NFTDrop: {
     mainHook: "useNFTDrop",
     subHooks: {
       // methods
@@ -106,7 +107,7 @@ const reactMapping = {
       royalties: "",
     },
   },
-  EditionDropImpl: {
+  EditionDrop: {
     mainHook: "useEditionDrop",
     subHooks: {
       // methods
@@ -124,7 +125,7 @@ const reactMapping = {
       royalties: "",
     },
   },
-  MarketplaceImpl: {
+  Marketplace: {
     mainHook: "useMarketplace",
     subHooks: {
       // methods
@@ -163,7 +164,7 @@ const reactMapping = {
       makeBid: "useMakeBid",
     },
   },
-  SplitImpl: {
+  Split: {
     mainHook: "useSplit",
     subHooks: {
       // methods
@@ -175,7 +176,7 @@ const reactMapping = {
       withdraw: "",
     },
   },
-  PackImpl: {
+  Pack: {
     mainHook: "usePack",
     subHooks: {
       // methods
@@ -204,7 +205,7 @@ const reactMapping = {
       vote: "",
     },
   },
-  MultiwrapImpl: {
+  Multiwrap: {
     mainHook: "useMultiwrap",
     subHooks: {
       // methods
@@ -217,7 +218,7 @@ const reactMapping = {
       transfer: "",
     },
   },
-  SignatureDropImpl: {
+  SignatureDrop: {
     mainHook: "useSignatureDrop",
     subHooks: {
       // methods
@@ -268,7 +269,7 @@ const reactMapping = {
     subHooks: {
       // methods
       get: "useRoleMembers",
-      getll: "useAllRoleMembers",
+      getAll: "useAllRoleMembers",
       grant: "useGrantRole",
       revoke: "useRevokeRole",
       setAll: "useSetAllRoleMembers",
@@ -309,7 +310,8 @@ export default function createReactSnippet(contractName, methodName) {
   const mainHookName = reactMapping[contractName]?.mainHook;
   const reactSubhookName = reactMapping[contractName]?.subHooks[methodName];
 
-  const reactObject = reactSnippets?.[mainHookName];
+  const snippets = { ...reactSnippets, ...reactCoreSnippets };
+  const reactObject = snippets?.[mainHookName];
 
   const reactSubhooks = reactObject?.subhooks;
 

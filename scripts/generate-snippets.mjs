@@ -38,12 +38,20 @@ const typescript = JSON.parse(
   ),
 );
 
-const react = JSON.parse(
-  fs.readFileSync(
-    `${process.cwd()}/submodules/js/packages/react/docs/evm/snippets.json`,
-    "utf8",
+const react = {
+  ...JSON.parse(
+    fs.readFileSync(
+      `${process.cwd()}/submodules/js/packages/react/docs/evm/snippets.json`,
+      "utf8",
+    ),
   ),
-);
+  ...JSON.parse(
+    fs.readFileSync(
+      `${process.cwd()}/submodules/js/packages/react-core/docs/evm/snippets.json`,
+      "utf8",
+    ),
+  ),
+};
 
 const python = JSON.parse(
   fs.readFileSync(
@@ -252,8 +260,22 @@ fs.writeFileSync(
 // feature_snippets_react
 fs.writeFileSync(
   `${process.cwd()}/docs/feature_snippets_react.json`,
-  fs.readFileSync(
-    `${process.cwd()}/submodules/js/packages/react/docs/evm/feature_snippets.json`,
-    "utf8",
+  JSON.stringify(
+    {
+      ...JSON.parse(
+        fs.readFileSync(
+          `${process.cwd()}/submodules/js/packages/react/docs/evm/feature_snippets.json`,
+          "utf8",
+        ),
+      ),
+      ...JSON.parse(
+        fs.readFileSync(
+          `${process.cwd()}/submodules/js/packages/react-core/docs/evm/feature_snippets.json`,
+          "utf8",
+        ),
+      ),
+    },
+    undefined,
+    2,
   ),
 );
