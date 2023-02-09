@@ -1,0 +1,91 @@
+{
+  "rateLimit": 8,
+  "startUrls": [
+    "https://portal.thirdweb.com"
+  ],
+  "sitemaps": [
+    "https://portal.thirdweb.com/sitemap.xml"
+  ],
+  "ignoreCanonicalTo": true,
+  "discoveryPatterns": [
+    "https://portal.thirdweb.com/**"
+  ],
+  "schedule": "at 12:08 PM on Monday",
+  "actions": [
+    {
+      "indexName": "thirdweb",
+      "pathsToMatch": [
+        "https://portal.thirdweb.com/**"
+      ]
+    }
+  ],
+  "initialIndexSettings": {
+    "thirdweb": {
+      "attributesForFaceting": [
+        "type",
+        "lang",
+        "language",
+        "version",
+        "docusaurus_tag"
+      ],
+      "attributesToRetrieve": [
+        "hierarchy",
+        "content",
+        "anchor",
+        "url",
+        "url_without_anchor",
+        "type"
+      ],
+      "attributesToHighlight": [
+        "hierarchy",
+        "content"
+      ],
+      "attributesToSnippet": [
+        "content:10"
+      ],
+      "camelCaseAttributes": [
+        "hierarchy",
+        "content"
+      ],
+      "searchableAttributes": [
+        "unordered(hierarchy.lvl0)",
+        "unordered(hierarchy.lvl1)",
+        "unordered(hierarchy.lvl2)",
+        "unordered(hierarchy.lvl3)",
+        "unordered(hierarchy.lvl4)",
+        "unordered(hierarchy.lvl5)",
+        "unordered(hierarchy.lvl6)",
+        "content"
+      ],
+      "distinct": true,
+      "attributeForDistinct": "url",
+      "customRanking": [
+        "desc(weight.pageRank)",
+        "desc(weight.level)",
+        "asc(weight.position)"
+      ],
+      "ranking": [
+        "words",
+        "filters",
+        "typo",
+        "attribute",
+        "proximity",
+        "exact",
+        "custom"
+      ],
+      "highlightPreTag": "<span class=\"algolia-docsearch-suggestion--highlight\">",
+      "highlightPostTag": "</span>",
+      "minWordSizefor1Typo": 3,
+      "minWordSizefor2Typos": 7,
+      "allowTyposOnNumericTokens": false,
+      "minProximity": 1,
+      "ignorePlurals": true,
+      "advancedSyntax": true,
+      "attributeCriteriaComputedByMinProximity": true,
+      "removeWordsIfNoResults": "allOptional",
+      "separatorsToIndex": "_"
+    }
+  },
+  "appId": "IAIE3FU2AD",
+  "apiKey": "6d8064ed44c5777c9280b96259d926b1"
+}

@@ -181,15 +181,30 @@ const config = {
     ],
   ],
 
+  themes: ['docusaurus-theme-search-typesense'],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: "img/portal.png",
-      algolia: {
-        appId: "IAIE3FU2AD",
-        apiKey: "1d9ebc991c049c913bedcf3d50916922",
-        indexName: "thirdweb",
-        contextualSearch: false,
+      typesense: {
+        typesenseCollectionName: 'docusaurus-2', // Replace with your own doc site's name. Should match the collection name in the scraper settings.
+        
+        typesenseServerConfig: {
+          nodes: [
+            {
+              host: 'umrsk8vton06b4ifp-1.a1.typesense.net',
+              port: 443,
+              protocol: 'https',
+            },
+          ],
+          apiKey: 'XFnr6SvgSrx8ttSDeb5AgNswzeQymjUU',
+        },
+  
+        // Optional: Typesense search parameters: https://typesense.org/docs/0.21.0/api/search.md#search-parameters
+        typesenseSearchParameters: {},
+  
+        // Optional
+        contextualSearch: true,
       },
       posthog: {
         apiKey: "phc_hKK4bo8cHZrKuAVXfXGpfNSLSJuucUnguAgt2j6dgSV",
