@@ -2858,6 +2858,23 @@
         }
       },
       {
+        "name": "deployMarketplaceV3",
+        "summary": "Deploys a new Marketplace-V3 contract\n\n",
+        "remarks": "\n\nDeploys a Marketplace-V3 contract and returns the address of the deployed contract\n\n",
+        "examples": {
+          "javascript": "const contractAddress = await sdk.deployer.deployMarketplaceV3({\n  name: \"My Marketplace\",\n  primary_sale_recipient: \"your-address\",\n});",
+          "python": "",
+          "go": "",
+          "react": "const sdk = useSDK();\n\nconst contractAddress = await sdk.deployer.deployMarketplaceV3({\n  name: \"My Marketplace\",\n  primary_sale_recipient: \"your-address\",\n});"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploymarketplacev3",
+          "python": "",
+          "go": "",
+          "react": "https://portal.thirdweb.com/typescript/sdk.contractdeployer.deploymarketplacev3"
+        }
+      },
+      {
         "name": "deployMultiwrap",
         "summary": "Deploys a new Multiwrap contract\n\n",
         "remarks": "\n\nDeploys a Multiwrap contract and returns the address of the deployed contract\n\n",

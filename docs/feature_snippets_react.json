@@ -71,7 +71,7 @@
       "summary": "Use this to cancel a listing on your marketplace contract.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const {\n    mutate: cancelListing,\n    isLoading,\n    error,\n  } = useCancelListing(\">>YourMarketplaceContractInstance<<\");\n\n  if (error) {\n    console.error(\"failed to cancel auction listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => cancelListing()}\n    >\n      Create Auction Listing!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const {\n    mutate: cancelListing,\n    isLoading,\n    error,\n  } = useCancelListing(\">>YourMarketplaceContractInstance<<\");\n\n  if (error) {\n    console.error(\"failed to cancel auction listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => cancelListing()}\n    >\n      Cancel Auction Listing!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usecancellisting"
@@ -188,6 +188,17 @@
       }
     },
     {
+      "name": "useEnglishAuctionWinningBid",
+      "summary": "Use this to get a the winning bid for an auction listing from your marketplace v3 contract.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: winningBid, isLoading, error } = useWinningBid(<YourMarketplaceV3ContractInstance>, <listingId>);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useenglishauctionwinningbid"
+      }
+    },
+    {
       "name": "useExecuteAuctionSale",
       "summary": "Execute an auction sale. Can only be executed once the auction has ended and the auction has a winning bid.\n\n",
       "remarks": null,
@@ -225,7 +236,7 @@
       "summary": "Use this to get a count of all listings on your marketplace contract.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: listings, isLoading, error } = useListings(<YourMarketplaceContractInstance>);"
+        "javascript": "const { data: listingsCount, isLoading, error } = useListingsCount(<YourMarketplaceContractInstance>);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.uselistingscount"
@@ -288,7 +299,7 @@
     },
     {
       "name": "useNetworkMismatch",
-      "summary": "Hook for checking whether the connected wallet is on the correct network specified by the `desiredChainId` passed to the `<ThirdwebProvider />`.\n```javascript\nimport { useNetworkMistmatch } from \"@thirdweb-dev/react\"\n```\n\n",
+      "summary": "Hook for checking whether the connected wallet is on the correct network specified by the `network` passed to the `<ThirdwebProvider />`.\n```javascript\nimport { useNetworkMistmatch } from \"@thirdweb-dev/react\"\n```\n\n",
       "remarks": null,
       "examples": {
         "javascript": "import { useNetworkMismatch } from \"@thirdweb-dev/react\"\n\nconst App = () => {\n  const isMismatched = useNetworkMismatch()\n\n  return <div>{isMismatched}</div>\n}"

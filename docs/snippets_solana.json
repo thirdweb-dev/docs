@@ -112,6 +112,19 @@
         }
       },
       {
+        "name": "burnBatch",
+        "summary": "Burn multiple NFTs\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// Specify the address of the NFT to burn\nconst nftAddress1 = \"...\"\nconst nftAddress2 = \"...\"\n// And send the actual burn transaction\nconst tx = await program.burnBatch([nftAddress1, nftAddress2]);",
+          "react": "// Specify the address of the NFT to burn\nconst nftAddress1 = \"...\"\nconst nftAddress2 = \"...\"\n// And send the actual burn transaction\nconst tx = await program.burnBatch([nftAddress1, nftAddress2]);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.burnbatch",
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftcollection.burnbatch"
+        }
+      },
+      {
         "name": "get",
         "summary": "Get the metadata for a specific NFT\n\n",
         "remarks": null,
@@ -423,6 +436,19 @@
         "reference": {
           "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.burn",
           "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.burn"
+        }
+      },
+      {
+        "name": "burnBatch",
+        "summary": "Burn multiple NFTs\n\n",
+        "remarks": null,
+        "examples": {
+          "javascript": "// Specify the address of the NFT to burn\nconst nftAddress1 = \"...\"\nconst nftAddress2 = \"...\"\n// And send the actual burn transaction\nconst tx = await program.burnBatch([nftAddress1, nftAddress2]);",
+          "react": "// Specify the address of the NFT to burn\nconst nftAddress1 = \"...\"\nconst nftAddress2 = \"...\"\n// And send the actual burn transaction\nconst tx = await program.burnBatch([nftAddress1, nftAddress2]);"
+        },
+        "reference": {
+          "javascript": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.burnbatch",
+          "react": "https://portal.thirdweb.com/solana-sdk/sdk.nftdrop.burnbatch"
         }
       },
       {
