@@ -37,6 +37,7 @@ const balance = await sdk.wallet.balance();
 | [connect(network)](./sdk.userwallet.connect.md)                                  |           |                                                                            |
 | [getAddress()](./sdk.userwallet.getaddress.md)                                   |           | Get the currently connected address                                        |
 | [recoverAddress(message, signature)](./sdk.userwallet.recoveraddress.md)         |           | Recover the signing address from a signed message                          |
+| [requestFunds(amount)](./sdk.userwallet.requestfunds.md)                         |           | Request funds from a running local node to the currently connected wallet  |
 | [sendRawTransaction(transactionRequest)](./sdk.userwallet.sendrawtransaction.md) |           | Send a raw transaction to the blockchain from the connected wallet         |
 | [sign(message)](./sdk.userwallet.sign.md)                                        |           | Sign any message with the connected wallet private key                     |
 | [signTypedData(domain, types, message)](./sdk.userwallet.signtypeddata.md)       |           | Sign a typed data structure (EIP712) with the connected wallet private key |

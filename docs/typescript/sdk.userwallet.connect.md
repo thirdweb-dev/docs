@@ -12,14 +12,14 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-connect(network: NetworkOrSignerOrProvider): void;
+connect(network: NetworkInput): void;
 ```
 
 ## Parameters
 
-| Parameter | Type                                                            | Description |
-| --------- | --------------------------------------------------------------- | ----------- |
-| network   | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) |             |
+| Parameter | Type                                  | Description |
+| --------- | ------------------------------------- | ----------- |
+| network   | [NetworkInput](./sdk.networkinput.md) |             |
 
 **Returns:**
 

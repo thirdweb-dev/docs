@@ -9,7 +9,7 @@ displayed_sidebar: react
 
 ## useNetworkMismatch() function
 
-Hook for checking whether the connected wallet is on the correct network specified by the `desiredChainId` passed to the `<ThirdwebProvider />`.
+Hook for checking whether the connected wallet is on the correct network specified by the `network` passed to the `<ThirdwebProvider />`.
 
 ```javascript
 import { useNetworkMistmatch } from "@thirdweb-dev/react";
@@ -41,4 +41,4 @@ export declare function useNetworkMismatch(): boolean;
 
 boolean
 
-`true` if the chainId of the connected wallet is different from the desired chainId passed into <ThirdwebProvider />
+`true` if the chainId of the connected wallet is different from the chainId of the network passed into <ThirdwebProvider />

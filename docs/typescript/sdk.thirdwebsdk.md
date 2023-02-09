@@ -52,6 +52,7 @@ export declare class ThirdwebSDK extends RPCConnectionHandler
 | [getEditionDrop(contractAddress)](./sdk.thirdwebsdk.geteditiondrop.md)                       |                     | Get an instance of a Edition Drop contract                                               |
 | [getMarketplace(contractAddress)](./sdk.thirdwebsdk.getmarketplace.md)                       |                     | Get an instance of a Marketplace contract                                                |
 | [getMarketplaceV3(contractAddress)](./sdk.thirdwebsdk.getmarketplacev3.md)                   |                     | Get an instance of a Marketplace contract                                                |
+| [getMultichainContractList(walletAddress)](./sdk.thirdwebsdk.getmultichaincontractlist.md)   |                     |                                                                                          |
 | [getMultiwrap(contractAddress)](./sdk.thirdwebsdk.getmultiwrap.md)                           |                     | Get an instance of a Pack contract                                                       |
 | [getNFTCollection(contractAddress)](./sdk.thirdwebsdk.getnftcollection.md)                   |                     | Get an instance of a NFT Collection Drop contract                                        |
 | [getNFTDrop(contractAddress)](./sdk.thirdwebsdk.getnftdrop.md)                               |                     | Get an instance of a NFT Drop contract                                                   |

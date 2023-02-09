@@ -9,8 +9,6 @@ displayed_sidebar: react
 
 ## ThirdwebProviderProps.authConfig property
 
-> This feature is currently in beta and may change based on feedback that we receive.
-
 The configuration used for thirdweb auth usage. Enables users to login to backends with their wallet.
 
 **Signature:**

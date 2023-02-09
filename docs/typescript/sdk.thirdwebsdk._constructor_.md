@@ -14,13 +14,13 @@ Constructs a new instance of the `ThirdwebSDK` class
 **Signature:**
 
 ```typescript
-constructor(network: ChainOrRpc | SignerOrProvider, options?: SDKOptions, storage?: ThirdwebStorage);
+constructor(network: NetworkInput, options?: SDKOptions, storage?: ThirdwebStorage);
 ```
 
 ## Parameters
 
-| Parameter | Type                                                            | Description       |
-| --------- | --------------------------------------------------------------- | ----------------- |
-| network   | ChainOrRpc &#124; [SignerOrProvider](./sdk.signerorprovider.md) |                   |
-| options   | [SDKOptions](./sdk.sdkoptions.md)                               | <i>(Optional)</i> |
-| storage   | ThirdwebStorage                                                 | <i>(Optional)</i> |
+| Parameter | Type                                  | Description       |
+| --------- | ------------------------------------- | ----------------- |
+| network   | [NetworkInput](./sdk.networkinput.md) |                   |
+| options   | [SDKOptions](./sdk.sdkoptions.md)     | <i>(Optional)</i> |
+| storage   | ThirdwebStorage                       | <i>(Optional)</i> |

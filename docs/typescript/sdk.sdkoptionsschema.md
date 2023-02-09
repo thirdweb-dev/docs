@@ -15,6 +15,59 @@ displayed_sidebar: typescript
 SDKOptionsSchema: z.ZodDefault<
   z.ZodObject<
     {
+      supportedChains: z.ZodDefault<
+        z.ZodArray<
+          z.ZodObject<
+            {
+              rpc: z.ZodArray<z.ZodString, "many">;
+              chainId: z.ZodNumber;
+              nativeCurrency: z.ZodObject<
+                {
+                  name: z.ZodString;
+                  symbol: z.ZodString;
+                  decimals: z.ZodDefault<z.ZodNumber>;
+                },
+                "strip",
+                z.ZodTypeAny,
+                {
+                  symbol: string;
+                  name: string;
+                  decimals: number;
+                },
+                {
+                  decimals?: number | undefined;
+                  symbol: string;
+                  name: string;
+                }
+              >;
+            },
+            "strip",
+            z.ZodTypeAny,
+            {
+              rpc: string[];
+              chainId: number;
+              nativeCurrency: {
+                symbol: string;
+                name: string;
+                decimals: number;
+              };
+            },
+            {
+              rpc: string[];
+              chainId: number;
+              nativeCurrency: {
+                decimals?: number | undefined;
+                symbol: string;
+                name: string;
+              };
+            }
+          >,
+          "many"
+        >
+      >;
+      thirdwebApiKey: z.ZodDefault<z.ZodOptional<z.ZodString>>;
+      alchemyApiKey: z.ZodOptional<z.ZodOptional<z.ZodString>>;
+      infuraApiKey: z.ZodOptional<z.ZodOptional<z.ZodString>>;
       readonlySettings: z.ZodOptional<
         z.ZodObject<
           {
@@ -142,6 +195,8 @@ SDKOptionsSchema: z.ZodDefault<
     "strip",
     z.ZodTypeAny,
     {
+      alchemyApiKey?: string | undefined;
+      infuraApiKey?: string | undefined;
       readonlySettings?:
         | {
             chainId?: number | undefined;
@@ -165,12 +220,36 @@ SDKOptionsSchema: z.ZodDefault<
             };
           }
         | undefined;
+      supportedChains: {
+        rpc: string[];
+        chainId: number;
+        nativeCurrency: {
+          symbol: string;
+          name: string;
+          decimals: number;
+        };
+      }[];
+      thirdwebApiKey: string;
       gasSettings: {
         maxPriceInGwei: number;
         speed: "standard" | "fast" | "fastest";
       };
     },
     {
+      supportedChains?:
+        | {
+            rpc: string[];
+            chainId: number;
+            nativeCurrency: {
+              decimals?: number | undefined;
+              symbol: string;
+              name: string;
+            };
+          }[]
+        | undefined;
+      thirdwebApiKey?: string | undefined;
+      alchemyApiKey?: string | undefined;
+      infuraApiKey?: string | undefined;
       readonlySettings?:
         | {
             chainId?: number | undefined;

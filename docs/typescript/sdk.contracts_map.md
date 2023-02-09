@@ -162,7 +162,19 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "minter", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+        initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+            supportedChains?: {
+                rpc: string[];
+                chainId: number;
+                nativeCurrency: {
+                    decimals?: number | undefined;
+                    symbol: string;
+                    name: string;
+                };
+            }[] | undefined;
+            thirdwebApiKey?: string | undefined;
+            alchemyApiKey?: string | undefined;
+            infuraApiKey?: string | undefined;
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -517,7 +529,19 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "minter", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+        initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+            supportedChains?: {
+                rpc: string[];
+                chainId: number;
+                nativeCurrency: {
+                    decimals?: number | undefined;
+                    symbol: string;
+                    name: string;
+                };
+            }[] | undefined;
+            thirdwebApiKey?: string | undefined;
+            alchemyApiKey?: string | undefined;
+            infuraApiKey?: string | undefined;
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -731,7 +755,19 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "lister", "asset"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+        initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+            supportedChains?: {
+                rpc: string[];
+                chainId: number;
+                nativeCurrency: {
+                    decimals?: number | undefined;
+                    symbol: string;
+                    name: string;
+                };
+            }[] | undefined;
+            thirdwebApiKey?: string | undefined;
+            alchemyApiKey?: string | undefined;
+            infuraApiKey?: string | undefined;
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -951,7 +987,19 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "lister", "asset"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+        initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+            supportedChains?: {
+                rpc: string[];
+                chainId: number;
+                nativeCurrency: {
+                    decimals?: number | undefined;
+                    symbol: string;
+                    name: string;
+                };
+            }[] | undefined;
+            thirdwebApiKey?: string | undefined;
+            alchemyApiKey?: string | undefined;
+            infuraApiKey?: string | undefined;
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -1200,7 +1248,19 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "transfer", "minter", "unwrap", "asset"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+        initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+            supportedChains?: {
+                rpc: string[];
+                chainId: number;
+                nativeCurrency: {
+                    decimals?: number | undefined;
+                    symbol: string;
+                    name: string;
+                };
+            }[] | undefined;
+            thirdwebApiKey?: string | undefined;
+            alchemyApiKey?: string | undefined;
+            infuraApiKey?: string | undefined;
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -1469,7 +1529,19 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "minter", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+        initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+            supportedChains?: {
+                rpc: string[];
+                chainId: number;
+                nativeCurrency: {
+                    decimals?: number | undefined;
+                    symbol: string;
+                    name: string;
+                };
+            }[] | undefined;
+            thirdwebApiKey?: string | undefined;
+            alchemyApiKey?: string | undefined;
+            infuraApiKey?: string | undefined;
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -1730,7 +1802,19 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "minter", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+        initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+            supportedChains?: {
+                rpc: string[];
+                chainId: number;
+                nativeCurrency: {
+                    decimals?: number | undefined;
+                    symbol: string;
+                    name: string;
+                };
+            }[] | undefined;
+            thirdwebApiKey?: string | undefined;
+            alchemyApiKey?: string | undefined;
+            infuraApiKey?: string | undefined;
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -2087,7 +2171,19 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "minter", "asset", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+        initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+            supportedChains?: {
+                rpc: string[];
+                chainId: number;
+                nativeCurrency: {
+                    decimals?: number | undefined;
+                    symbol: string;
+                    name: string;
+                };
+            }[] | undefined;
+            thirdwebApiKey?: string | undefined;
+            alchemyApiKey?: string | undefined;
+            infuraApiKey?: string | undefined;
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -2256,7 +2352,19 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "minter", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+        initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+            supportedChains?: {
+                rpc: string[];
+                chainId: number;
+                nativeCurrency: {
+                    decimals?: number | undefined;
+                    symbol: string;
+                    name: string;
+                };
+            }[] | undefined;
+            thirdwebApiKey?: string | undefined;
+            alchemyApiKey?: string | undefined;
+            infuraApiKey?: string | undefined;
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -2555,7 +2663,19 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+        initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+            supportedChains?: {
+                rpc: string[];
+                chainId: number;
+                nativeCurrency: {
+                    decimals?: number | undefined;
+                    symbol: string;
+                    name: string;
+                };
+            }[] | undefined;
+            thirdwebApiKey?: string | undefined;
+            alchemyApiKey?: string | undefined;
+            infuraApiKey?: string | undefined;
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -2770,7 +2890,19 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+        initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+            supportedChains?: {
+                rpc: string[];
+                chainId: number;
+                nativeCurrency: {
+                    decimals?: number | undefined;
+                    symbol: string;
+                    name: string;
+                };
+            }[] | undefined;
+            thirdwebApiKey?: string | undefined;
+            alchemyApiKey?: string | undefined;
+            infuraApiKey?: string | undefined;
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -3024,7 +3156,19 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly ["admin", "minter", "transfer"];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+        initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+            supportedChains?: {
+                rpc: string[];
+                chainId: number;
+                nativeCurrency: {
+                    decimals?: number | undefined;
+                    symbol: string;
+                    name: string;
+                };
+            }[] | undefined;
+            thirdwebApiKey?: string | undefined;
+            alchemyApiKey?: string | undefined;
+            infuraApiKey?: string | undefined;
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;
@@ -3288,7 +3432,19 @@ CONTRACTS_MAP: {
             }>;
         };
         roles: readonly [];
-        initialize: (network: NetworkOrSignerOrProvider, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+        initialize: (network: NetworkInput, address: string, storage: ThirdwebStorage<import("@thirdweb-dev/storage").IpfsUploadBatchOptions>, options?: {
+            supportedChains?: {
+                rpc: string[];
+                chainId: number;
+                nativeCurrency: {
+                    decimals?: number | undefined;
+                    symbol: string;
+                    name: string;
+                };
+            }[] | undefined;
+            thirdwebApiKey?: string | undefined;
+            alchemyApiKey?: string | undefined;
+            infuraApiKey?: string | undefined;
             readonlySettings?: {
                 chainId?: number | undefined;
                 rpcUrl: string;

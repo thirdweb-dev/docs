@@ -9,10 +9,14 @@ displayed_sidebar: react
 
 ## ThirdwebProviderProps.desiredChainId property
 
-The chainId that your dApp is running on. While this \*can\* be `undefined` it is required to be passed. Passing `undefined` will cause no SDK to be instantiated. When passing a chainId, it \*\*must\*\* be part of the `supportedChains` array.
+> Warning: This API is now obsolete.
+>
+> - use `network` instead
+
+The chainId that your dApp is running on.
 
 **Signature:**
 
 ```typescript
-desiredChainId: TSupportedChain extends Chain ? TSupportedChain["id"] : TSupportedChain | undefined;
+desiredChainId?: number | undefined;
 ```
