@@ -21,7 +21,7 @@ const sidebars = {
     {
       type: "doc",
       label: "Getting Started",
-      id: "index",
+      id: "react-new/index",
     },
     {
       type: "doc",
@@ -37,7 +37,7 @@ const sidebars = {
         {
           type: "doc",
           label: "ThirdwebProvider",
-          id: "react.thirdwebprovider",
+          id: "react-new/react.thirdwebprovider",
         },
         {
           type: "doc",

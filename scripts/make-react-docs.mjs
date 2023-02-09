@@ -165,7 +165,7 @@ const packageRoot = "./submodules/js/packages/react";
 const corePackageRoot = "./submodules/js/packages/react-core";
 
 async function main() {
-  pkg.rmdirSync("./docs/react", { recursive: true, force: true });
+  pkg.rmdirSync("./docs/react", { force: true });
 
   await makeDocs({
     outDir: "./docs/react",
