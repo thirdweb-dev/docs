@@ -9,13 +9,15 @@ import CodeBlock from "@theme/CodeBlock";
 
 The `ThirdwebProvider` is a wrapper component that provides access to all of the SDK&rsquo;s hooks and UI components.
 It utilizes the [Provider Pattern](https://www.patterns.dev/posts/provider-pattern/)
-to share data to all of the components that are nested within it.
+to share data with all of the components that are nested within it.
 
 Wrap your app in the `ThirdwebProvider` to access the SDK&rsquo;s functionality from anywhere in your app.
 
 ## Usage
 
-If you are using a <code>default chain</code>, provide the `network` prop to the `ThirdwebProvider` component.
+If you are using one of our <code>default chains</code>, provide the `activeChain` prop to the `ThirdwebProvider` component.
+
+For non-default chains, see [configuring active chains](#active-chain) or [custom chains](#custom-chains).
 
 <details>
   <summary>View default chains</summary>
@@ -70,12 +72,12 @@ If you are using a <code>default chain</code>, provide the `network` prop to the
   </div>
 </details>
 
-```jsx title="App.jsx"
+```jsx
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 
-function MyApp() {
+function App() {
   return (
-    <ThirdwebProvider network="ethereum">
+    <ThirdwebProvider activeChain="ethereum">
       <YourApp />
     </ThirdwebProvider>
   );
@@ -84,36 +86,27 @@ function MyApp() {
 
 ## Configuration
 
-The `ThirdwebProvider` component lets you control what networks you want users to connect to,
-what types of wallets can connect to your app,
-and the settings for the [Typescript SDK](https://docs.thirdweb.com/typescript), such as a custom RPC URL.
+### Active Chain
 
-### Configure Network
+The `activeChain` prop determines which chain you want your app to be operating on.
 
-The `network` prop determines which network you want your app to be _currently_ operating on.
-For example, if you want your app to be connected to Polygon at this point in time,
-you provide the `chainId` of Polygon (137) to the `network` prop.
+:::info Available Chains
+There are 700+ chains available in the [`@thirdweb-dev/chains`](https://github.com/thirdweb-dev/js/tree/main/packages/chains) package.
 
-The `chains` prop determines which networks your app supports (i.e. the networks that users can switch to).
+If your chain is not included, see [configuring custom chains](#custom-chains).
+:::
 
-To set up your app to connect to a single network:
-
-1. Import the network you want to connect to from the `@thirdweb-dev/chains` package.
-2. Pass the `chainId` of the network to the `network` prop of the `ThirdwebProvider`.
-3. Pass the network inside an array to the `chains` prop of the `ThirdwebProvider`.
-
-```jsx title="App.jsx"
+```jsx
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 // highlight-start
-import { Dogechain } from "@thirdweb-dev/chains";
+import { Gnosis } from "@thirdweb-dev/chains";
 // highlight-end
 
 function MyApp() {
   return (
     <ThirdwebProvider
       // highlight-start
-      network={Dogechain.chainId} // Required. The chain ID of the network you want users to connect to.
-      chains={[Dogechain]} // Required. Array of networks your app supports.
+      activeChain={Gnosis}
       // highlight-end
     >
       <YourApp />
@@ -122,7 +115,44 @@ function MyApp() {
 }
 ```
 
-### Multiple Networks
+### Custom Chains
+
+If your chain is not included in the `@thirdweb-dev/chains` package,
+you can provide the chain information yourself to the `activeChain` prop.
+
+```js
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+const App = () => {
+  return (
+    <ThirdwebProvider
+      activeChain={{
+        // === Required information for connecting to the network === \\
+        chainId: 59140, // Chain ID of the network
+        // Array of RPC URLs to use
+        rpc: ["<your-rpc-url-here>"],
+
+        // === Information for adding the network to your wallet (how it will appear for first time users) === \\
+        // Information about the chains native currency (i.e. the currency that is used to pay for gas)
+        nativeCurrency: {
+          decimals: 18,
+          name: "Consensys ETH",
+          symbol: "crETH",
+        },
+        shortName: "czkevm", // Display value shown in the wallet UI
+        slug: "consensys", // Display value shown in the wallet UI
+        testnet: true, // Boolean indicating whether the chain is a testnet or mainnet
+        chain: "ConsenSys", // Name of the network
+        name: "ConsenSys zkEVM Testnet", // Name of the network
+      }}
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+};
+```
+
+<!-- ### Multiple Networks
 
 The `chains` prop defines which networks your app supports.
 
@@ -131,7 +161,7 @@ Provide multiple networks to the `chains` prop to allow users to switch between 
 - If you provide both `network` and `chains` props, the SDK uses the `network` value as the network your app is **currently** operating on.
 - If you do _not_ provide a `network`, the SDK will default to the first network in the `chains` array as the network your app is **currently** operating on.
 
-```jsx title="App.jsx"
+```jsx
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 // highlight-start
 import { Mumbai, Polygon } from "@thirdweb-dev/chains";
@@ -141,7 +171,7 @@ function MyApp() {
   return (
     <ThirdwebProvider
       // highlight-start
-      network={Mumbai.chainId} // The network that the SDK will use at this point in time.
+      activeChain={Mumbai.chainId} // The network that the SDK will use at this point in time.
       chains={[Polygon, Mumbai]} // Allow users to switch between Polygon and Mumbai networks.
       // highlight-end
     >
@@ -162,59 +192,16 @@ The `@thirdweb-dev/chains` package also exposes:
 import { defaultChains, allChains } from "@thirdweb-dev/chains";
 ```
 
-:::
-
-### Custom Networks
-
-If your network is not included in the `@thirdweb-dev/chains` package, (see [configure network section](#configure-network)),
-you can provide the network information yourself as a new `Chain` object in the `chains` prop.
-
-1. Provide the chain ID as the value of the `network` prop.
-2. Define the details of your chain as an object in the `chains` prop.
-
-```js
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-
-const App = () => {
-  return (
-    <ThirdwebProvider
-      network={59140}
-      chains={[
-        {
-          // === Required information for connecting to the network === \\
-          chainId: 59140, // Chain ID of the network
-          // Array of RPC URLs to use
-          rpc: ["<your-rpc-url-here>"],
-
-          // === Information for adding the network to your wallet (how it will appear for first time users) === \\
-          // Information about the chains native currency (i.e. the currency that is used to pay for gas)
-          nativeCurrency: {
-            decimals: 18,
-            name: "Consensys ETH",
-            symbol: "crETH",
-          },
-          shortName: "Consensys zkEVM", // Display value shown in the wallet UI
-          slug: "consensys", // Display value shown in the wallet UI
-          testnet: true, // Boolean indicating whether the chain is a testnet or mainnet
-          chain: "ConsenSys zkEVM Testnet", // Name of the network
-          name: "ConsenSys zkEVM Testnet", // Name of the network
-        },
-      ]}
-    >
-      <YourApp />
-    </ThirdwebProvider>
-  );
-};
-```
+::: -->
 
 ### Override Default Values
 
-Override the deafult RPC URL (or any other property) for a given network.
+Override the default values (such as an RPC URL) for any given chain.
 
 :::info Optional
 By default, the SDK provides free-to-use RPCs. No configuration required!
 
-[View the default RPC URLs for each network](https://github.com/thirdweb-dev/js/blob/main/packages/auth/src/evm/evm.ts).
+[View the default RPC URLs for each network](https://github.com/thirdweb-dev/js/tree/main/packages/chains/chains).
 :::
 
 Using the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax),
@@ -222,20 +209,18 @@ you can override any properties of a chain, such as the `rpc` field.
 
 ```jsx
 import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { Dogechain } from "@thirdweb-dev/chains";
 
 const App = () => {
   return (
     <ThirdwebProvider
-      network={Dogechain.chainId}
-      // highlight-start
-      chains={[
-        {
-          ...Dogechain,
-          rpc: ["https://<your-rpc-to-use>.com"], // Override the "rpc" field.
-          // ... Override any other fields you want to customize.
-        },
-      ]}
-      // highlight-end
+      activeChain={{
+        // highlight-start
+        ...Dogechain,
+        rpc: ["https://<your-rpc-to-use>.com"], // Override the "rpc" field.
+        // ... Override any other fields you want to customize.
+        // highlight-end
+      }}
     >
       <YourApp />
     </ThirdwebProvider>
@@ -277,6 +262,8 @@ function MyApp({ Component, pageProps }: AppProps) {
 When the user has connected their wallet to your site before, this flag determines
 whether or not you want the SDK to automatically connect to the wallet on page load (requires the user
 to be logged in to the wallet).
+
+Defaults to `true`.
 
 ```jsx
 import { ThirdwebProvider } from "@thirdweb-dev/react";
@@ -330,33 +317,6 @@ function MyApp() {
 }
 ```
 
-### queryClient
-
-If you are using [React Query](https://react-query.tanstack.com/) and have your own `QueryClient`,
-you can pass it as the `queryClient` prop to use this client instead of the SDK's default client.
-
-```jsx
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-function MyApp() {
-  // Your React Query client (or client from other library such as wagmi)
-  const queryClient = new QueryClient();
-
-  return (
-    <QueryClientProvider client={queryClient}>
-      <ThirdwebProvider
-        // highlight-start
-        queryClient={queryClient}
-        // highlight-end
-      >
-        <YourApp />
-      </ThirdwebProvider>
-    </QueryClientProvider>
-  );
-}
-```
-
 ### sdkOptions
 
 Override any of the default values for the SDK.
@@ -401,6 +361,44 @@ function MyApp() {
     </ThirdwebProvider>
   );
 }
+```
+
+### walletConnectors
+
+An array of connector types (strings) or wallet connector objects that your app supports.
+
+If not provided, defaults to MetaMask (injected), WalletConnect and Coinbase Wallet.
+
+Useful if you want to add support for [Gnosis Safe](https://gnosis-safe.io/) or [Magic Link](https://magic.link/).
+
+```jsx title="Magic Link example"
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { MagicConnector } from "@thirdweb-dev/react/evm/connectors/magic";
+import { Mumbai } from "@thirdweb-dev/chains";
+
+const magicLinkConnector = new MagicConnector({
+  options: {
+    apiKey: "<your-magic-link-public-key>" as string,
+    rpcUrls: {
+      [Mumbai.chainId]: "https://mumbai.magic.io/rpc",
+    },
+  },
+});
+
+function MyApp() {
+  return (
+    <ThirdwebProvider
+      // highlight-start
+      walletConnectors={[magicLinkConnector, "metamask", "walletConnect", "coinbaseWallet"]}
+      // highlight-end
+      activeChain={"mumbai"}
+    >
+      <YourApp />
+    </ThirdwebProvider>
+  );
+}
+
+export default MyApp;
 ```
 
 ### storageInterface
@@ -451,40 +449,29 @@ function MyApp() {
 }
 ```
 
-### walletConnectors
+### queryClient
 
-An array of connector types (strings) or wallet connector objects that your app supports.
+If you are using [React Query](https://react-query.tanstack.com/) and have your own `QueryClient`,
+you can pass it as the `queryClient` prop to use this client instead of the SDK's default client.
 
-If not provided, defaults to MetaMask (injected), WalletConnect and Coinbase Wallet.
-
-Useful if you want to add support for [Gnosis Safe](https://gnosis-safe.io/) or [Magic Link](https://magic.link/).
-
-```jsx title="Magic Link example"
+```jsx
 import { ThirdwebProvider } from "@thirdweb-dev/react";
-import { MagicConnector } from "@thirdweb-dev/react/evm/connectors/magic";
-import { Mumbai } from "@thirdweb-dev/chains";
-
-const magicLinkConnector = new MagicConnector({
-  options: {
-    apiKey: "<your-magic-link-public-key>" as string,
-    rpcUrls: {
-      [Mumbai.chainId]: "https://mumbai.magic.io/rpc",
-    },
-  },
-});
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 
 function MyApp() {
+  // Your React Query client (or client from other library such as wagmi)
+  const queryClient = new QueryClient();
+
   return (
-    <ThirdwebProvider
-      // highlight-start
-      walletConnectors={[magicLinkConnector, "metamask", "walletConnect"]}
-      // highlight-end
-      network={"mumbai"}
-    >
-      <YourApp />
-    </ThirdwebProvider>
+    <QueryClientProvider client={queryClient}>
+      <ThirdwebProvider
+        // highlight-start
+        queryClient={queryClient}
+        // highlight-end
+      >
+        <YourApp />
+      </ThirdwebProvider>
+    </QueryClientProvider>
   );
 }
-
-export default MyApp;
 ```

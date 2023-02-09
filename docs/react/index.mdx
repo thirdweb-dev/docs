@@ -66,7 +66,7 @@ import CodeBlock from "@theme/CodeBlock";
 Wrap your application with the `ThirdwebProvider` component like so:
 
 ```jsx title="App.jsx"
-import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 const App = () => {
   return (
@@ -110,6 +110,6 @@ const Home = () => {
   if (isLoading) return <div>Loading...</div>;
   if (error) return <div>Error: {error.message}</div>;
 
-  return <h1>Connected to contract!</h1>;
+  return <h1>Contract found!</h1>;
 };
 ```

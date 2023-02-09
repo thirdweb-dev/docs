@@ -1,0 +1,115 @@
+---
+title: useContract
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for connecting to a smart contract.
+
+```jsx
+import { useContract } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your smart contract address as the first parameter.
+
+Once connected, `contract` will be an instance of your smart contract.
+
+The [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html) is resolved automatically from our on-chain registry.
+
+```jsx
+import { useContract } from "@thirdweb-dev/react";
+
+function App() {
+  const { contract, isLoading, error } = useContract("{{contract_address}}");
+}
+```
+
+:::info Import Smart Contracts
+If your smart contract was not deployed using thirdweb, you&rsquo;ll need to import it on the [dashboard](/dashboard).
+:::
+
+## Configuration
+
+### Contract Type (optional)
+
+If your contract is a [prebuilt contract](https://thirdweb.com/explore), it is **strongly recommended**
+you provide the contract's name to gain access to improved top-level functions and type inference.
+
+<details>
+  <summary>View available contract types</summary>
+  <div>
+    <ul>
+      <li>
+        <b>NFT Drop</b>: <code>"nft-drop"</code>
+      </li>
+      <li>
+        <b>Signature Drop</b>: <code>"signature-drop"</code>
+      </li>
+      <li>
+        <b>Edition Drop</b>: <code>"edition-drop"</code>
+      </li>
+      <li>
+        <b>NFT Collection</b>: <code>"nft-collection"</code>
+      </li>
+      <li>
+        <b>Edition</b>: <code>"edition"</code>
+      </li>
+      <li>
+        <b>Multiwrap</b>: <code>"multiwrap"</code>
+      </li>
+      <li>
+        <b>Pack</b>: <code>"pack"</code>
+      </li>
+      <li>
+        <b>Token Drop</b>: <code>"token-drop"</code>
+      </li>
+      <li>
+        <b>Token</b>: <code>"token"</code>
+      </li>
+      <li>
+        <b>Marketplace</b>: <code>"marketplace"</code> |{" "}
+        <code>"marketplace-v3"</code>
+      </li>
+      <li>
+        <b>Split</b>: <code>"split"</code>
+      </li>
+      <li>
+        <b>Vote</b>: <code>"vote"</code>
+      </li>
+    </ul>
+  </div>
+</details>
+
+```jsx
+const { contract, isLoading, error } = useContract(
+  "{{contract_address}}",
+  "contract-type",
+);
+```
+
+## Return Value
+
+```jsx
+{
+  contract?: SmartContract
+  error?: Error
+  isIdle: boolean
+  isLoading: boolean
+  isFetching: boolean
+  isSuccess: boolean
+  isError: boolean
+  isFetched: boolean
+  isFetchedAfterMount: boolean
+  isRefetching: boolean
+  refetch: (options: {
+      throwOnError: boolean
+      cancelRefetch: boolean
+  }) => Promise<{SmartContract}>
+  status: 'idle' | 'error' | 'loading' | 'success'
+}
+```

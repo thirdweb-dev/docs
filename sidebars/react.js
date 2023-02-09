@@ -29,14 +29,46 @@ const sidebars = {
       id: "ThirdwebProvider",
     },
     {
-      type: "doc",
-      label: "useContract",
-      id: "useContract",
+      type: "category",
+      label: "UI Components",
+      items: [
+        {
+          type: "doc",
+          label: "Connect Wallet Button",
+          id: "ui-components/ConnectWallet",
+        },
+        {
+          type: "doc",
+          label: "Web3 Button",
+          id: "ui-components/Web3Button",
+        },
+        {
+          type: "doc",
+          label: "NFT Renderer",
+          id: "ui-components/ThirdwebNftMedia",
+        },
+        {
+          type: "doc",
+          label: "IPFS Renderer",
+          id: "ui-components/MediaRenderer",
+        },
+      ],
     },
     {
-      type: "doc",
-      label: "useNFT",
-      id: "useNFT",
+      type: "category",
+      label: "Hooks",
+      items: [
+        {
+          type: "doc",
+          label: "useContract",
+          id: "hooks/useContract",
+        },
+        {
+          type: "doc",
+          label: "useNFT",
+          id: "hooks/useNFT",
+        },
+      ],
     },
   ],
 };
