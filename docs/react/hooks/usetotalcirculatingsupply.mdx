@@ -1,0 +1,49 @@
+---
+title: useTotalCirculatingSupply
+displayed_sidebar: react
+---
+
+Hook for getting the total circulating supply of a given NFT token.
+
+```jsx
+import { useTotalCirculatingSupply } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT collection contract and the token ID as the arguments.
+
+```jsx
+import {
+  useTotalCirculatingSupply,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+// Your NFT token ID
+const tokenId = "{{token_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data: totalSupply, isLoading, error } = useTotalCirculatingSupply(
+    contract,
+    tokenId
+  );
+
+  if (error) {
+    console.error("failed to get total supply", error);
+  }
+
+  return (
+    <div>
+      {isLoading ? (
+        <span>Loading...</span>
+      ) : (
+        <span>Total circulating supply: {totalSupply.toString()}</span>
+      )}
+    </div>
+  );
+}
+```

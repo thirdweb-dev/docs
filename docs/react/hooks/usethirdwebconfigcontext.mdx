@@ -1,0 +1,98 @@
+---
+title: useThirdwebConfigContext
+displayed_sidebar: react
+---
+
+Hook for accessing the `ThirdwebConfigContext` from a React component.
+
+The `ThirdwebConfigContext` contains information about the current chain, including its name, chain ID, RPC endpoints, and more.
+
+```jsx
+import { useThirdwebConfigContext } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+The `useThirdwebConfigContext` hook returns the available `ThirdwebConfigContext`.
+
+```jsx
+import { useThirdwebConfigContext } from "@thirdweb-dev/react";
+
+function App() {
+  const { chains } = useThirdwebConfigContext();
+
+  return (
+    <ul>
+      {chains.map((chain) => (
+        <li key={chain.name}>{chain.name}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+## Return Value
+
+The `useThirdwebConfigContext` hook returns an object with the `ThirdwebConfigContext`:
+
+```ts
+interface ThirdwebConfigContext {
+  chains: Readonly<Chain[]>;
+}
+
+export type Chain = {
+  name: string;
+  chain: string;
+  icon?: {
+    url: string;
+    width: number;
+    height: number;
+    format: string;
+    sizes?: readonly number[];
+  };
+  rpc: readonly string[];
+  features?: Readonly<Array<{ name: string }>>;
+  faucets?: readonly string[];
+  nativeCurrency: {
+    name: string;
+    symbol: string;
+    decimals: number;
+  };
+  infoURL?: string;
+  shortName: string;
+  chainId: number;
+  networkId?: number;
+  ens?: {
+    registry: string;
+  };
+  explorers?: Readonly<
+    Array<{
+      name: string;
+      url: string;
+      standard: string;
+    }>
+  >;
+  testnet: boolean;
+  slug: string;
+  slip44?: number;
+};
+```
+
+The `Chain` array contains `Chain` objects, which contain information about the current chain. The `Chain` object has the following properties:
+
+- `name` - The human-readable name of the chain
+- `chain` - The name of the chain
+- `icon` - The icon of the chain
+- `rpc` - An array of RPC endpoints
+- `features` - An array of features supported by the chain
+- `faucets` - An array of faucets available for the chain
+- `nativeCurrency` - An object containing information about the native currency of the chain
+- `infoURL` - A URL containing information about the chain
+- `shortName` - The short name of the chain
+- `chainId` - The chain ID of the chain
+- `networkId` - The network ID of the chain
+- `ens` - An object containing information about the ENS registry of the chain
+- `explorers` - An array of block explorers available for the chain
+- `testnet` - A boolean indicating whether or not the chain is a testnet
+- `slug` - The slug of the chain
+- `slip44` - The SLIP 44 number of the chain

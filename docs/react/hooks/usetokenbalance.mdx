@@ -1,0 +1,44 @@
+---
+title: useTokenBalance
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for fetching the balance a wallet has for a specific token, such as Ether.
+
+Available on smart contracts that implement the [ERC20](/contractkit/interfaces/erc20) standard.
+
+```jsx
+import { useTokenBalance } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT collection smart contract address and the token ID of the NFT you want to fetch as
+arguments. The information about the NFT will be returned in the `data` field.
+
+```jsx
+import { useContract, useTokenBalance } from "@thirdweb-dev/react";
+
+function App() {
+  const { contract } = useContract("{{contract_address}}");
+  const {
+    data: balance,
+    isLoading,
+    error,
+  } = useTokenBalance(contract, "{{wallet_address}}");
+
+  if (isLoading) return <div>Fetching Balance...</div>;
+  if (error) return <div>Error fetching Balance</div>;
+  if (!balance) return <div>Balance not found</div>;
+
+  return (
+    <div>
+      Balance: {balance.displayValue} {balance.symbol}
+    </div>
+  );
+}
+```

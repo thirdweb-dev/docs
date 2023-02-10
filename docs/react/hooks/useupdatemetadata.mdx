@@ -1,0 +1,70 @@
+---
+title: useUpdateMetadata
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for updating the NFT metadata on a smart contract.
+
+Available to use on smart contracts that implement the [ERC721](/contractkit/interfaces/erc721)
+or [ERC1155](/contractkit/interfaces/erc1155) standard.
+
+```jsx
+import { useUpdateMetadata } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT collection contract as the argument.
+
+```jsx
+import { useUpdateMetadata, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: updateMetadata, isLoading, error } = useUpdateMetadata(contract);
+
+  if (error) {
+    console.error("failed to update metadata", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        updateMetadata({
+          name: "My NFT",
+          description: "This is my NFT",
+          image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
+        })
+      }
+    >
+      Update Metadata
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### `description`
+
+Description of the NFT.
+
+### `image`
+
+URL or File object for the NFT's image.
+
+### `external_link`
+
+An optional link to an external resource related to the NFT.
+
+### `name`
+
+Name of the NFT.

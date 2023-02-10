@@ -1,0 +1,132 @@
+---
+title: useClaimConditions
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for fetching the claim conditions of a drop on a smart contract.
+
+```jsx
+import { useClaimConditions } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your drop collection contract as the argument.
+
+```jsx
+import { useClaimConditions, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data: conditions, isLoading, error } = useClaimConditions(contract);
+
+  if (error) {
+    console.error("failed to fetch conditions", error);
+  }
+
+  return (
+    <div>
+      {conditions &&
+        conditions.map((condition) => (
+          <div>
+            Name: {condition.metadata?.name}
+            Start Time: {condition.startTime}
+            Price: {condition.price}
+            Currency Address: {condition.currencyAddress}
+            Max Claimable: {condition.maxClaimable}
+          </div>
+        ))}
+    </div>
+  );
+}
+```
+
+## Configuration
+
+### tokenId
+
+Optionally, you can provide a token id as the second argument to fetch the conditions for a specific token.
+
+```jsx
+import { useClaimConditions, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  // highlight-start
+  const { data: conditions, isLoading, error } = useClaimConditions(
+    contract,
+    "0x01"
+  );
+  // highlight-end
+
+  if (error) {
+    console.error("failed to fetch conditions", error);
+  }
+
+  return (
+    <div>
+      {conditions &&
+        conditions.map((condition) => (
+          <div>
+            Name: {condition.metadata?.name}
+            Start Time: {condition.startTime}
+            Price: {condition.price}
+            Currency Address: {condition.currencyAddress}
+            Max Claimable: {condition.maxClaimable}
+          </div>
+        ))}
+    </div>
+  );
+}
+```
+
+### options
+
+Optionally, you can provide an `options` object as the third argument to include the [allowlist](/contracts/features/allowlist) when fetching the conditions.
+
+```jsx
+import { useClaimConditions, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  // highlight-start
+  const { data: conditions, isLoading, error } = useClaimConditions(
+    contract,
+    "0x01",
+    { withAllowList: true }
+  );
+  // highlight-end
+
+  if (error) {
+    console.error("failed to fetch conditions", error);
+  }
+
+  return (
+    <div>
+      {conditions &&
+        conditions.map((condition) => (
+          <div>
+            Name: {condition.metadata?.name}
+            Start Time: {condition.startTime}
+            Price: {condition.price}
+            Currency Address: {condition.currencyAddress}
+            Max Claimable: {condition.maxClaimable}
+          </div>
+        ))}
+    </div>
+  );
+}
+```

@@ -1,0 +1,40 @@
+---
+title: useMetamask
+displayed_sidebar: react
+---
+
+Hook for connecting to a [Metamask](https://metamask.io/) enabled web3 provider.
+
+```jsx
+import { useMetamask } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+```jsx
+import { useMetamask } from "@thirdweb-dev/react";
+
+function App() {
+  const [connectMetamask, { data, error }] = useMetamask();
+
+  if (error) {
+    console.error(error);
+  }
+
+  return (
+    <button onClick={connectMetamask}>
+      Connect Metamask
+    </button>
+  );
+}
+```
+
+## Return Value
+
+The hook returns a tuple of `[connectMetamask, { data, error }]`.
+
+The `connectMetamask` function is used to connect to the Metamask provider.
+
+The `data` object contains the web3 provider data when the connection is successful.
+
+The `error` object contains an error message if the connection fails.

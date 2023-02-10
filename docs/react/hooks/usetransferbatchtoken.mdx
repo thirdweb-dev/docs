@@ -1,0 +1,50 @@
+---
+title: useTransferBatchToken
+displayed_sidebar: react
+---
+
+Hook for transferring multiple tokens at once.
+
+```jsx
+import { useTransferBatchToken } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your token contract as the argument.
+
+```jsx
+import { useTransferBatchToken, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: transferBatchToken, isLoading, error } = useTransferBatchToken(contract);
+
+  if (error) {
+    console.error("failed to transfer tokens", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        transferBatchToken([
+          {
+            to: "{{wallet_address_1}}",
+            amount: 10,
+          },
+          {
+            to: "{{wallet_address_2}}",
+            amount: 20,
+          },
+        ])
+      }
+    >
+      Transfer Tokens
+    </Web3Button>
+  );
+}
+```

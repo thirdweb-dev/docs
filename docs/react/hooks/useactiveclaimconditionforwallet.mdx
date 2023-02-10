@@ -1,0 +1,101 @@
+---
+title: useActiveClaimConditionForWallet
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for retrieving an active claim condition for a given wallet and token id.
+
+```jsx
+import { useActiveClaimConditionForWallet } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your drop contract and wallet address as the arguments.
+
+Optionally, provide a token id to get a claim condition for a specific token.
+
+```jsx
+import {
+  useActiveClaimConditionForWallet,
+  useContract,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // highlight-start
+  const address = useAddress();
+  // highlight-end
+  const { contract } = useContract(contractAddress);
+  const {
+    data: claimCondition,
+    isLoading,
+    error,
+  } = useActiveClaimConditionForWallet(contract, address);
+
+  if (error) {
+    console.error("failed to get claim condition", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        useActiveClaimConditionForWallet(
+          contract,
+          address,
+          // highlight-start
+          // Optional
+          "{{token_id}}",
+          // highlight-end
+        )
+      }
+    >
+      Get claim condition
+    </Web3Button>
+  );
+}
+```
+
+## Return value
+
+The hook returns the following object on success.
+
+```jsx
+{
+  metadata?: {
+    [x: string]: unknown;
+    name?: string | undefined;
+  };
+  snapshot?: {
+    price?: string | undefined;
+    currencyAddress?: string | undefined;
+    address: string;
+    maxClaimable: string;
+  }[] | null;
+  maxClaimableSupply: string;
+  startTime: Date;
+  price: import("ethers").BigNumber;
+  currencyAddress: string;
+  maxClaimablePerWallet: string;
+  waitInSeconds: import("ethers").BigNumber;
+  merkleRootHash: string | number[];
+  availableSupply: string;
+  currentMintSupply: string;
+  currencyMetadata: {
+    symbol: string;
+    value: import("ethers").BigNumber;
+    name: string;
+    decimals: number;
+    displayValue: string;
+  };
+}
+```

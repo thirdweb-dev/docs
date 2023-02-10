@@ -1,0 +1,98 @@
+---
+title: useNetwork
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for getting information about the current network and switching to a different chain.
+
+```jsx
+import { useNetwork } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+```jsx
+import { useNetwork } from "@thirdweb-dev/react";
+
+function App() {
+  const [{ data, error, loading }, switchNetwork] = useNetwork();
+  const { chain } = data;
+
+  if (error) {
+    console.error("failed to fetch network data", error);
+  }
+
+  return (
+    <>
+      {loading ? (
+        <span>Loading...</span>
+      ) : (
+        <>
+          {chain && (
+            <>
+              <p>
+                <strong>Chain:</strong> {chain.name} (ID: {chain.id})
+              </p>
+              <p>
+                <strong>Native currency:</strong>{" "}
+                {chain.nativeCurrency?.name} ({chain.nativeCurrency?.symbol})
+              </p>
+            </>
+          )}
+          <button onClick={() => switchNetwork(1)}>Switch to chain 1</button>
+        </>
+      )}
+    </>
+  );
+}
+```
+
+## Configuration
+
+The `useNetwork` hook returns an array with two elements.
+
+The first element is an object containing the network data and two functions: `loading` and `error`.
+
+The second element is a function that can be used to switch to a different chain.
+
+```jsx
+import { useNetwork } from "@thirdweb-dev/react";
+
+function App() {
+  const [{ data, error, loading }, switchNetwork] = useNetwork();
+  const { chain } = data;
+
+  if (error) {
+    console.error("failed to fetch network data", error);
+  }
+
+  return (
+    <>
+      {loading ? (
+        <span>Loading...</span>
+      ) : (
+        <>
+          {chain && (
+            <>
+              <p>
+                <strong>Chain:</strong> {chain.name} (ID: {chain.id})
+              </p>
+              <p>
+                <strong>Native currency:</strong>{" "}
+                {chain.nativeCurrency?.name} ({chain.nativeCurrency?.symbol})
+              </p>
+            </>
+          )}
+          {/* highlight-start */}
+          <button onClick={() => switchNetwork(1)}>Switch to chain 1</button>
+          {/* highlight-end */}
+        </>
+      )}
+    </>
+  );
+}
+```

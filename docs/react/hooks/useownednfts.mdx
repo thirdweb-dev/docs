@@ -1,0 +1,86 @@
+---
+title: useOwnedNFTs
+displayed_sidebar: react
+---
+
+Hook for accessing a list of NFTs owned by a single wallet address.
+
+Available to use on smart contracts that implement the [ERC721](/contractkit/interfaces/erc721)
+or [ERC1155](/contractkit/interfaces/erc1155) standard.
+
+```jsx
+import { useOwnedNFTs } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT collection contract and a wallet address as the arguments.
+
+```jsx
+import { useOwnedNFTs, useAddress, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const address = useAddress();
+  const { data } = useOwnedNFTs(contractAddress, address);
+
+  return (
+    <div>
+      <h1>My NFTs</h1>
+      <ul>
+        {data.map((nft) => (
+          <li key={nft.id}>{nft.name}</li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+```
+
+## Returned data
+
+The hook returns an array of `NFT` objects, each containing the following properties.
+
+```ts
+export type NFT = {
+  metadata: NFTMetadata;
+  owner: string;
+  type: "ERC1155" | "ERC721" | "metaplex";
+  supply: number;
+  quantityOwned?: number;
+};
+```
+
+### metadata
+
+An object containing all the metadata associated with the NFT.
+
+```ts
+export type NFTMetadata = {
+  name: string;
+  description?: string;
+  external_url?: string;
+  image?: string;
+  video?: string;
+  tags?: string[];
+  attributes?: { [key: string]: string };
+};
+```
+
+### owner
+
+The wallet address of the NFT's owner.
+
+### type
+
+The type of the NFT contract.
+
+### supply
+
+The total number of tokens available in this NFT collection.
+
+### quantityOwned (optional)
+
+The number of tokens owned by the provided wallet address.

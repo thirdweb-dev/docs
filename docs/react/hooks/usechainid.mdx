@@ -1,0 +1,30 @@
+---
+title: useChainId
+displayed_sidebar: react
+---
+
+Hook for retrieving the current chain id.
+
+```jsx
+import { useChainId } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+```jsx
+import { useChainId } from "@thirdweb-dev/react";
+
+function App() {
+  const chainId = useChainId();
+
+  // Do something with the chainId...
+
+  return <div>{chainId}</div>;
+}
+```
+
+## Return value
+
+A `number` representing the current chain id.
+
+Returns `undefined` if the chain id could not be found.

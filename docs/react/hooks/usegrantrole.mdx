@@ -1,0 +1,132 @@
+---
+title: useGrantRole
+displayed_sidebar: react
+---
+
+Hook for granting roles on contracts that implement the [ERC-1724](/contractkit/interfaces/erc1724) standard.
+
+```jsx
+import { useGrantRole } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your contract as the argument.
+
+```jsx
+import { useGrantRole, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: grantRole, isLoading, error } = useGrantRole(contract);
+
+  if (error) {
+    console.error("failed to grant role", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        grantRole({
+          role: "admin",
+          address: "{{wallet_address}}",
+        })
+      }
+    >
+      Grant Role
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### role
+
+The `role` parameter is required and should be one of the following, depending on the smart contract.
+
+- A string, matching an existing role, if your contract implements the [ERC-1724 standard](/contractkit/interfaces/erc1724)
+- An enum value, if your contract implements the [ERC-1724 standard](/contractkit/interfaces/erc1724)
+- A string, matching an existing role, if your contract implements a custom role system
+
+```jsx
+import { useGrantRole, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: grantRole, isLoading, error } = useGrantRole(contract);
+
+  if (error) {
+    console.error("failed to grant role", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        grantRole({
+          // highlight-start
+          role: "admin", // Accepts a string, enum, or custom role
+          // highlight-end
+          address: "{{wallet_address}}",
+        })
+      }
+    >
+      Grant Role
+    </Web3Button>
+  );
+}
+```
+
+### address
+
+Likely, you will want to grant the role to the currently connected wallet address.
+
+You can use the [`useAddress`](/react/hooks/useAddress) hook to get this value.
+
+```jsx
+import {
+  useGrantRole,
+  useContract,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // highlight-start
+  const address = useAddress();
+  // highlight-end
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: grantRole, isLoading, error } = useGrantRole(contract);
+
+  if (error) {
+    console.error("failed to grant role", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        grantRole({
+          role: "admin",
+          // highlight-start
+          address: address, // Use useAddress hook to get current wallet address
+          // highlight-end
+        })
+      }
+    >
+      Grant Role
+    </Web3Button>
+  );
+}
+```

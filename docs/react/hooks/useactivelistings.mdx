@@ -1,0 +1,82 @@
+---
+title: useActiveListings
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for fetching active listings from a [Marketplace](/contractkit/interfaces/marketplace)
+contract.
+
+```jsx
+import { useActiveListings } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your marketplace contract as the argument.
+
+```jsx
+import { useActiveListings, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useActiveListings(contract);
+
+  if (error) {
+    console.error("failed to fetch active listings", error);
+  }
+
+  return (
+    <>
+      {isLoading && <div>Loading...</div>}
+      {data &&
+        data.map((listing) => (
+          <div>{listing.tokenId}</div>
+        ))}
+    </>
+  );
+}
+```
+
+## Configuration
+
+By default, the hook returns all active listings from the marketplace.
+
+You can filter the results by providing a `filter` object as the second argument. 
+
+```jsx
+import { useActiveListings, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useActiveListings(contract, {
+    seller: "{{wallet_address}}", // Filter by seller
+    tokenContract: "{{contract_address}}", // Filter by token contract
+    offeror: "{{wallet_address}}", // Filter by offeror
+    tokenId: "{{token_id}}", // Filter by token ID
+  });
+
+  if (error) {
+    console.error("failed to fetch active listings", error);
+  }
+
+  return (
+    <>
+      {isLoading && <div>Loading...</div>}
+      {data &&
+        data.map((listing) => (
+          <div>{listing.tokenId}</div>
+        ))}
+    </>
+  );
+}
+```

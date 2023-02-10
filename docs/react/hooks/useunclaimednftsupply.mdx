@@ -1,0 +1,44 @@
+---
+title: useUnclaimedNFTSupply
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for querying the total supply of unclaimed NFTs on a {@link DropContract}.
+
+```jsx
+import { useUnclaimedNFTSupply } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT drop contract as the argument.
+
+```jsx
+import { useUnclaimedNFTSupply, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useUnclaimedNFTSupply(contract);
+
+  if (error) {
+    console.error("failed to fetch unclaimed NFTs", error);
+  }
+
+  return (
+    <>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <p>Total unclaimed NFTs: {data.toString()}</p>
+      )}
+    </>
+  );
+}
+```

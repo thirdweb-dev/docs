@@ -1,0 +1,139 @@
+---
+title: useCreateAuctionListing
+displayed_sidebar: react
+---
+
+Hook for creating an auction listing on a smart contract.
+
+Available to use on smart contracts that implement the [Marketplace](/contractkit/interfaces/marketplace) 
+or [MarketplaceV3](/contractkit/interfaces/marketplacev3) standard.
+
+```jsx
+import { useCreateAuctionListing } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your Marketplace contract as the argument.
+
+```jsx
+import { useCreateAuctionListing, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: createAuctionListing, isLoading, data, error } = useCreateAuctionListing(
+    contract
+  );
+
+  if (error) {
+    console.error("failed to create auction listing", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        createAuctionListing({
+          tokenId: "{{token_id}}",
+          assetContractAddress: "{{asset_contract_address}}",
+          minimumBidAmount: "{{minimum_bid_amount}}",
+          buyoutBidAmount: "{{buyout_bid_amount}}",
+          startTimestamp: new Date(),
+          endTimestamp: new Date(Date.now() + 60 * 60 * 24 * 7), // 7 days
+        })
+      }
+    >
+      Create Auction Listing
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### startTimestamp
+
+The starting timestamp of the auction.
+
+```jsx
+import { useCreateAuctionListing, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: createAuctionListing, isLoading, data, error } = useCreateAuctionListing(
+    contract
+  );
+
+  if (error) {
+    console.error("failed to create auction listing", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        createAuctionListing({
+          tokenId: "{{token_id}}",
+          assetContractAddress: "{{asset_contract_address}}",
+          minimumBidAmount: "{{minimum_bid_amount}}",
+          buyoutBidAmount: "{{buyout_bid_amount}}",
+          // highlight-start
+          startTimestamp: new Date(),
+          // highlight-end
+          endTimestamp: new Date(Date.now() + 60 * 60 * 24 * 7), // 7 days
+        })
+      }
+    >
+      Create Auction Listing
+    </Web3Button>
+  );
+}
+```
+
+### endTimestamp
+
+The ending timestamp of the auction.
+
+```jsx
+import { useCreateAuctionListing, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: createAuctionListing, isLoading, data, error } = useCreateAuctionListing(
+    contract
+  );
+
+  if (error) {
+    console.error("failed to create auction listing", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        createAuctionListing({
+          tokenId: "{{token_id}}",
+          assetContractAddress: "{{asset_contract_address}}",
+          minimumBidAmount: "{{minimum_bid_amount}}",
+          buyoutBidAmount: "{{buyout_bid_amount}}",
+          startTimestamp: new Date(),
+          // highlight-start
+          endTimestamp: new Date(Date.now() + 60 * 60 * 24 * 7), // 7 days
+          // highlight-end
+        })
+      }
+    >
+      Create Auction Listing
+    </Web3Button>
+  );
+}
+```

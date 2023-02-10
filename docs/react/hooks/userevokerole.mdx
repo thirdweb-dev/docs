@@ -1,0 +1,93 @@
+---
+title: useRevokeRole
+displayed_sidebar: react
+---
+
+Hook for revoking a role from a smart contract that implements the [`Roles`](/contractkit/interfaces/roles) interface.
+
+```jsx
+import { useRevokeRole } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide the contract instance as the argument.
+
+```jsx
+import { useRevokeRole, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: revokeRole, isLoading, error } = useRevokeRole(contract);
+
+  if (error) {
+    console.error("failed to revoke role", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        revokeRole({
+          role: "{{role_name}}",
+          address: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+        })
+      }
+    >
+      Revoke Role
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### role
+
+The `role` argument should be provided as a string.
+
+It should match a role declared in the smart contract.
+
+### address
+
+The `address` argument should be provided as a valid Ethereum wallet address.
+
+You can use the [`useAddress`](/react/hooks/useAddress) hook to get this value.
+
+```jsx
+import { useRevokeRole, useContract, Web3Button, useAddress } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // highlight-start
+  const address = useAddress();
+  // highlight-end
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: revokeRole, isLoading, error } = useRevokeRole(contract);
+
+  if (error) {
+    console.error("failed to revoke role", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        revokeRole({
+          role: "{{role_name}}",
+          // highlight-start
+          address: address, // Use useAddress hook to get current wallet address
+          // highlight-end
+        })
+      }
+    >
+      Revoke Role
+    </Web3Button>
+  );
+}
+```

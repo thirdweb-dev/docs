@@ -1,0 +1,72 @@
+---
+title: useBidBuffer
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for determining the current bid buffer on a marketplace contract.
+
+```jsx
+import { useBidBuffer } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your marketplace contract as the argument.
+
+Optionally, provide a listing ID to determine the buffer for a specific listing.
+
+```jsx
+import { useBidBuffer, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data: bidBuffer, isLoading, error } = useBidBuffer(contract);
+
+  if (error) {
+    console.error("failed to get bid buffer", error);
+  }
+
+  return (
+    <div>
+      <p>The current bid buffer is {bidBuffer?.toString() ?? ""}</p>
+    </div>
+  );
+}
+```
+
+If you provide a listing ID, you will get the buffer for that listing.
+
+```jsx
+import { useBidBuffer, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data: bidBuffer, isLoading, error } = useBidBuffer(
+    contract,
+    listingId
+  );
+
+  if (error) {
+    console.error("failed to get bid buffer", error);
+  }
+
+  return (
+    <div>
+      <p>
+        The bid buffer for listing {listingId} is {bidBuffer?.toString() ?? ""}
+      </p>
+    </div>
+  );
+}
+```

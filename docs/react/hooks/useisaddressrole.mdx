@@ -1,0 +1,119 @@
+---
+title: useIsAddressRole
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook to check if a given wallet address has a specific role on a smart contract.
+
+```jsx
+import { useIsAddressRole } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your smart contract instance and a role to check for.
+
+```jsx
+import { useIsAddressRole, useContract, useAddress } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: mintNft, isLoading, error } = useMintNFT(contract);
+  const address = useAddress();
+
+  // highlight-start
+  const isOwner = useIsAddressRole(contract, "owner", address);
+  // highlight-end
+
+  if (error) {
+    console.error("failed to mint nft", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mintNft({
+          metadata: {
+            name: "My NFT",
+            description: "This is my NFT",
+            image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
+          },
+          // highlight-start
+          to: address, // Use useAddress hook to get current wallet address
+          // highlight-end
+        })
+      }
+      // highlight-start
+      disabled={!isOwner}
+      // highlight-end
+    >
+      Mint NFT
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+The `role` argument must be a string or a role key from the smart contract's `roles` array.
+
+The `walletAddress` argument must be a valid wallet address.
+
+You can use the [`useAddress`](/react/hooks/useAddress) hook to get this value.
+
+```jsx
+import {
+  useIsAddressRole,
+  useContract,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // highlight-start
+  const address = useAddress();
+  // highlight-end
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: mintNft, isLoading, error } = useMintNFT(contract);
+
+  // highlight-start
+  const isOwner = useIsAddressRole(contract, "owner", address);
+  // highlight-end
+
+  if (error) {
+    console.error("failed to mint nft", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mintNft({
+          metadata: {
+            name: "My NFT",
+            description: "This is my NFT",
+            image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
+          },
+          to: address,
+        })
+      }
+      // highlight-start
+      disabled={!isOwner}
+      // highlight-end
+    >
+      Mint NFT
+    </Web3Button>
+  );
+}
+```

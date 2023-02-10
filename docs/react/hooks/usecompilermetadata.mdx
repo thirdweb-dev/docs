@@ -1,0 +1,90 @@
+---
+title: useCompilerMetadata
+displayed_sidebar: react
+---
+
+Hook for retrieving metadata and ABIs from a contract address.
+
+```jsx
+import { useCompilerMetadata } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your contract address as the argument.
+
+```jsx
+import { useCompilerMetadata, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useCompilerMetadata(contractAddress);
+
+  if (error) {
+    console.error("failed to retrieve contract metadata", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => console.log(data)}
+    >
+      Log Contract Metadata
+    </Web3Button>
+  );
+}
+```
+
+## Return Type
+
+The hook returns an object with the following properties:
+
+- `name`: The name of the contract
+- `metadata`: The compiler metadata of the contract
+- `abi`: The ABIs of the contract
+- `info`: The details of the contract
+- `licenses`: The licenses of the contract
+
+```js
+{
+  name: string;
+  metadata: Record<string, any>;
+  abi: {
+      [x: string]: any;
+      type: string;
+      name: string;
+      inputs: {
+          [x: string]: any;
+          stateMutability?: string | undefined;
+          components?: {
+              [x: string]: any;
+              type: string;
+              name: string;
+          }[] | undefined;
+          type: string;
+          name: string;
+      }[];
+      outputs: {
+          [x: string]: any;
+          stateMutability?: string | undefined;
+          components?: {
+              [x: string]: any;
+              type: string;
+              name: string;
+          }[] | undefined;
+          type: string;
+          name: string;
+      }[];
+  }[];
+  info: {
+      title?: string | undefined;
+      author?: string | undefined;
+      details?: string | undefined;
+      notice?: string | undefined;
+  };
+  licenses: string[];
+}
+```

@@ -1,0 +1,106 @@
+---
+title: useLogin
+displayed_sidebar: react
+---
+
+Hook for logging in with a [ThirdWeb](/thirdweb) account.
+
+```jsx
+import { useLogin } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Call the `login` function with a set of options.
+
+```jsx
+import { useLogin, Web3Button } from "@thirdweb-dev/react";
+
+function App() {
+  const { login, isLoading } = useLogin();
+
+  return (
+    <Web3Button
+      action={() =>
+        login({
+          domain: "https://your-domain.com",
+          statement: "My statement",
+          resources: ["balance", "history", "info"],
+        })
+      }
+    >
+      Login
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+The `login` function accepts an optional `LoginOptions` object as its argument.
+
+```jsx
+import { useLogin, Web3Button } from "@thirdweb-dev/react";
+
+function App() {
+  const { login, isLoading } = useLogin();
+
+  return (
+    <Web3Button
+      action={() =>
+        login({
+          // highlight-start
+          domain: "https://your-domain.com",
+          statement: "My statement",
+          uri: "https://your-domain.com/login",
+          version: "1.0",
+          chainId: "mainnet",
+          nonce: "my-nonce",
+          expirationTime: new Date(2021, 1, 1),
+          invalidBefore: new Date(2020, 12, 1),
+          resources: ["balance", "history", "info"],
+          // highlight-end
+        })
+      }
+    >
+      Login
+    </Web3Button>
+  );
+}
+```
+
+### domain
+
+The domain to connect to.
+
+### statement
+
+A statement for the user to approve.
+
+### uri
+
+An optional URI to redirect to after a successful login.
+
+### version
+
+The version of the protocol being used.
+
+### chainId
+
+The blockchain network the user is connecting to.
+
+### nonce
+
+A unique nonce for the login request.
+
+### expirationTime
+
+A timestamp of when the login request will expire.
+
+### invalidBefore
+
+A timestamp after which the login request will be invalid.
+
+### resources
+
+A list of resources to request access to.

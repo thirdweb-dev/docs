@@ -1,0 +1,102 @@
+---
+title: useUpdatePlatformFees
+displayed_sidebar: react
+---
+
+Hook for updating the platform fees on a smart contract.
+
+```jsx
+import { useUpdatePlatformFees } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your contract as the argument.
+
+```jsx
+import { useUpdatePlatformFees, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: updatePlatformFees, isLoading, error } = useUpdatePlatformFees(contract);
+
+  if (error) {
+    console.error("failed to update platform fees", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        updatePlatformFees({
+          platform_fee_basis_points: 1, // Must be a number between 0 and 100
+          fee_recipient: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+        })
+      }
+    >
+      Update Fees
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### platform_fee_basis_points
+
+This is the fee, in basis points, that will be charged for each transaction made on the platform.
+
+The basis point is equal to 1/100th of a percent. Therefore, a fee of 1 basis point is equal to 0.01%.
+
+For example, a fee of 1 basis point would be equal to 0.01%, and a fee of 10 basis points would be equal to 0.1%.
+
+The value must be a number between 0 and 100.
+
+### fee_recipient
+
+The wallet address that will be receiving the collected fees.
+
+You can use the [`useAddress`](/react/hooks/useAddress) hook to get this value.
+
+```jsx
+import {
+  useUpdatePlatformFees,
+  useContract,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // highlight-start
+  const address = useAddress();
+  // highlight-end
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: updatePlatformFees, isLoading, error } = useUpdatePlatformFees(contract);
+
+  if (error) {
+    console.error("failed to update platform fees", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        updatePlatformFees({
+          platform_fee_basis_points: 1, // Must be a number between 0 and 100
+          // highlight-start
+          fee_recipient: address, // Use useAddress hook to get current wallet address
+          // highlight-end
+        })
+      }
+    >
+      Update Fees
+    </Web3Button>
+  );
+}
+```

@@ -1,0 +1,96 @@
+---
+title: useMakeBid
+displayed_sidebar: react
+---
+
+Hook for placing a bid on a marketplace listing.
+
+```jsx
+import { useMakeBid } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your Marketplace contract as the argument.
+
+```jsx
+import { useMakeBid, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: makeBid, isLoading, error } = useMakeBid(contract);
+
+  if (error) {
+    console.error("failed to make bid", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        makeBid({
+          listingId: "1234567890",
+          bid: "1.00 ether",
+        })
+      }
+    >
+      Make Bid
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### listingId
+
+The id of the listing you are placing the bid on.
+
+### bid
+
+The amount you are bidding in wei.
+
+You can use the [`useBalance`](/react/hooks/useBalance) hook to get this value.
+
+```jsx
+import {
+  useMakeBid,
+  useContract,
+  Web3Button,
+  useBalance,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // highlight-start
+  const balance = useBalance();
+  // highlight-end
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: makeBid, isLoading, error } = useMakeBid(contract);
+
+  if (error) {
+    console.error("failed to make bid", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        makeBid({
+          listingId: "1234567890",
+          // highlight-start
+          bid: balance, // Use useBalance hook to get current wallet balance
+          // highlight-end
+        })
+      }
+    >
+      Make Bid
+    </Web3Button>
+  );
+}
+```

@@ -1,0 +1,46 @@
+---
+title: useEnglishAuctionWinningBid
+displayed_sidebar: react
+---
+
+Hook for retrieving the winning bid for an English auction.
+
+```jsx
+import { useEnglishAuctionWinningBid } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your MarketplaceV3 contract address and the auction ID.
+
+```jsx
+import { useEnglishAuctionWinningBid, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+const auctionId = "{{auction_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data: bid, isLoading, error } = useEnglishAuctionWinningBid(
+    contract,
+    auctionId
+  );
+
+  if (error) {
+    console.error("failed to get bid", error);
+  }
+
+  return <div>{bid && bid.bidderAddress}</div>;
+}
+```
+
+## Return value
+
+This hook returns a `Bid` object, with the following properties:
+
+- `auctionId`: the id of the auction.
+- `bidderAddress`: the address of the buyer who made the offer.
+- `currencyContractAddress`: the currency contract address of the offer token.
+- `bidAmount`: the amount of coins offered per token.
+- `bidAmountCurrencyValue`: the `CurrencyValue` of the listing. Useful for displaying the price information.

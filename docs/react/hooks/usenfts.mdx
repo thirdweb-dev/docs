@@ -1,0 +1,101 @@
+---
+title: useNFTs
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook to query all NFTs associated with a smart contract.
+
+Available to use on smart contracts that implement the [ERC721](/contractkit/interfaces/erc721)
+or [ERC1155](/contractkit/interfaces/erc1155) standard.
+
+```jsx
+import { useNFTs } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT collection contract as the argument.
+
+```jsx
+import { useNFTs, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useNFTs(contract);
+
+  if (error) {
+    console.error("Failed to fetch NFTs", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => {
+        // Do something with NFTs
+      }}
+    >
+      Do something
+    </Web3Button>
+  );
+}
+```
+
+## Return Value
+
+The hook returns an array of NFT objects.
+
+```typescript
+NFT = {
+  metadata: NFTMetadata;
+  owner: string;
+  type: "ERC1155" | "ERC721" | "metaplex";
+  supply: number;
+  quantityOwned?: number;
+};
+```
+
+## Configuration
+
+By default, the hook will return all NFTs associated with the contract.
+
+You can use the `queryParams` argument to filter the NFTs that are returned.
+
+```jsx
+import { useNFTs, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  // highlight-start
+  const { data, isLoading, error } = useNFTs(contract, {
+    owner: "{{wallet_address}}",
+    type: "ERC1155",
+    supply: 1000,
+  });
+  // highlight-end
+
+  if (error) {
+    console.error("Failed to fetch NFTs", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => {
+        // Do something with NFTs
+      }}
+    >
+      Do something
+    </Web3Button>
+  );
+}
+```

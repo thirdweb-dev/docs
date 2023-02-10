@@ -1,0 +1,51 @@
+---
+title: useExecuteAuctionSale
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for executing a sale of an auction listing.
+
+Available to use on smart contracts that implement the [Marketplace](/contractkit/interfaces/marketplace)
+standard.
+
+```jsx
+import { useExecuteAuctionSale } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your Marketplace contract as the argument.
+
+```jsx
+import { useExecuteAuctionSale, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: executeAuctionSale, isLoading, error } = useExecuteAuctionSale(contract);
+
+  if (error) {
+    console.error("failed to execute auction sale", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        executeAuctionSale({
+          // The listingId of the auction to execute
+          listingId: "{{listing_id}}", 
+        })
+      }
+    >
+      Execute Auction Sale
+    </Web3Button>
+  );
+}
+```

@@ -1,0 +1,151 @@
+---
+title: useClaimNFT
+displayed_sidebar: react
+---
+
+Hook for claiming an NFT from a smart contract.
+
+Available to use on smart contracts that implement the [ERC721](/contractkit/interfaces/erc721)
+or [ERC1155](/contractkit/interfaces/erc1155) standard.
+
+```jsx
+import { useClaimNFT } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT collection contract as the argument.
+
+```jsx
+import { useContract, useClaimNFT } from "@thirdweb-dev/react";
+
+function App() {
+  const { contract } = useContract("{{contract_address}}");
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(contract);
+
+  if (error) {
+    console.error("failed to claim nft", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading} // While the transaction is processing, disable the button
+      onClick={() =>
+        claimNft({
+          to: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+          quantity: 1,
+        })
+      }
+    >
+      {isLoading ? "Claiming NFT..." : "Claim NFT"}
+    </button>
+  );
+}
+```
+
+## Configuration
+
+### to
+
+Likely, you will want to claim the NFT to the currently connected wallet address.
+
+You can use the [`useAddress`](/react/hooks/useAddress) hook to get this value.
+
+```jsx
+import { useContract, useClaimNFT, useAddress } from "@thirdweb-dev/react";
+
+function App() {
+  const { contract } = useContract("{{contract_address}}");
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(contract);
+  // highlight-start
+  const address = useAddress();
+  // highlight-end
+
+  return (
+    <button
+      disabled={isLoading} // While the transaction is processing, disable the button
+      onClick={() =>
+        claimNft({
+          // highlight-start
+          to: address,
+          // highlight-end
+          quantity: 1,
+        })
+      }
+    >
+      {isLoading ? "Claiming NFT..." : "Claim NFT"}
+    </button>
+  );
+}
+```
+
+### quantity
+
+Quantity represents the number of NFTs you wish to claim.
+
+Note that this is only supported on ERC1155 contracts.
+
+```jsx
+import { useContract, useClaimNFT } from "@thirdweb-dev/react";
+
+function App() {
+  const { contract } = useContract("{{contract_address}}");
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(contract);
+
+  if (error) {
+    console.error("failed to claim nft", error);
+  }
+
+  return (
+    <button
+      disabled={isLoading} // While the transaction is processing, disable the button
+      onClick={() =>
+        claimNft({
+          to: "{{wallet_address}}",
+          // highlight-start
+          // Only use this for ERC1155 contracts
+          quantity: 10,
+          // highlight-end
+        })
+      }
+    >
+      {isLoading ? "Claiming NFT..." : "Claim NFT"}
+    </button>
+  );
+}
+```
+
+### tokenId
+
+For ERC1155 contracts only, you can specify a specific `tokenId` to claim.
+
+To get the `tokenId` of a specific NFT, see the [`useTokenId`](/react/hooks/useTokenId) hook.
+
+```jsx
+import { useContract, useClaimNFT, useTokenId } from "@thirdweb-dev/react";
+
+function App() {
+  const { contract } = useContract("{{contract_address}}");
+  const { mutate: claimNft, isLoading, error } = useClaimNFT(contract);
+  // highlight-start
+  const tokenId = useTokenId("my-nft");
+  // highlight-end
+
+  return (
+    <button
+      disabled={isLoading} // While the transaction is processing, disable the button
+      onClick={() =>
+        claimNft({
+          to: "{{wallet_address}}",
+          quantity: 1,
+          // highlight-start
+          tokenId,
+          // highlight-end
+        })
+      }
+    >
+      {isLoading ? "Claiming NFT..." : "Claim NFT"}
+    </button>
+  );
+}
+```

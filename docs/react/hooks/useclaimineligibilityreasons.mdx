@@ -1,0 +1,104 @@
+---
+title: useClaimIneligibilityReasons
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for fetching the eligibility reasons of a specific wallet address for a given drop.
+
+```jsx
+import { useClaimIneligibilityReasons } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your Drop contract as the argument.
+
+```jsx
+import { useClaimIneligibilityReasons, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useClaimIneligibilityReasons(contract, {
+    walletAddress: "{{wallet_address}}",
+    quantity: 1,
+  });
+
+  if (error) {
+    console.error("failed to fetch reasons", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => useClaimIneligibilityReasons(contract, {
+        walletAddress: "{{wallet_address}}",
+        quantity: 1,
+      })}
+    >
+      Fetch Reasons
+    </Web3Button>
+  );
+}
+```
+
+## Parameters
+
+### walletAddress
+
+The address that you are checking eligibility for.
+
+### quantity
+
+The amount of tokens you are trying to claim.
+
+## Return
+
+Returns an array of eligibility reasons if the address is not eligible.
+
+```jsx
+import {
+  useClaimIneligibilityReasons,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useClaimIneligibilityReasons(contract, {
+    walletAddress: "{{wallet_address}}",
+    quantity: 1,
+  });
+
+  if (error) {
+    console.error("failed to fetch reasons", error);
+  }
+  
+  // highlight-start
+  if (data) {
+    console.log("ineligibility reasons", data);
+  }
+  // highlight-end
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => useClaimIneligibilityReasons(contract, {
+        walletAddress: "{{wallet_address}}",
+        quantity: 1,
+      })}
+    >
+      Fetch Reasons
+    </Web3Button>
+  );
+}
+```

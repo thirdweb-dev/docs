@@ -1,0 +1,47 @@
+---
+title: useUpdatePrimarySaleRecipient
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for updating the primary recipient of tokens from a smart contract.
+
+```jsx
+import { useUpdatePrimarySaleRecipient } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your contract as the argument.
+
+```jsx
+import { useUpdatePrimarySaleRecipient, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: updatePrimarySaleRecipient, isLoading, error } = useUpdatePrimarySaleRecipient(contract);
+
+  if (error) {
+    console.error("failed to update primary recipient", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        updatePrimarySaleRecipient({
+          to: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+        })
+      }
+    >
+      Update Primary Recipient
+    </Web3Button>
+  );
+}
+```

@@ -1,0 +1,54 @@
+---
+title: useBatchesToReveal
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for fetching batches of tokens that need to be revealed.
+
+This is only available for contracts that implement the [Revealable](/contractkit/interfaces/revealable) interface.
+
+```jsx
+import { useBatchesToReveal } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT collection contract as the argument.
+
+```jsx
+import { useBatchesToReveal, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data: batches, isLoading, error } = useBatchesToReveal(contract);
+
+  if (error) {
+    console.error("failed to fetch batches to reveal", error);
+  }
+
+  return <div>Batches to reveal: {batches.length}</div>;
+}
+```
+
+## Returned Data
+
+The hook will return an array of [`BatchToReveal`](/sdk/batchToReveal) objects.
+
+```ts
+export interface BatchToReveal {
+  batchId: BigNumber;
+  batchUri: string;
+  placeholderMetadata: NFTMetadata;
+}
+```
+
+Each `BatchToReveal` object has a unique `batchId` and an `batchUri` which points to an IPFS URI containing metadata for each token in the batch.
+
+The `placeholderMetadata` property is a generic placeholder object that can be used to render a preview of the batch until it can be revealed.

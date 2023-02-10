@@ -1,0 +1,65 @@
+---
+title: useMakeOffer
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for making an offer on an NFT listing.
+
+```jsx
+import { useMakeOffer } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide an instance of a {@link Marketplace} contract as the argument.
+
+```jsx
+import { useMakeOffer, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: makeOffer, isLoading, error } = useMakeOffer(contract);
+
+  if (error) {
+    console.error("failed to make offer", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        makeOffer({
+          listingId: "{{listing_id}}",
+          pricePerToken: "1 ether",
+          quantity: 10,
+        })
+      }
+    >
+      Make Offer
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### listingId
+
+The ID of the listing to make an offer on.
+
+### pricePerToken
+
+The price you are offering per token.
+
+### quantity
+
+The number of tokens you are offering.
+
+If omitted, the offer will be for all tokens.

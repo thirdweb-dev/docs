@@ -1,0 +1,33 @@
+---
+title: useClaimedNFTSupply
+displayed_sidebar: react
+---
+
+Hook for retrieving the total supply of NFTs claimed from a {@link DropContract}.
+
+```jsx
+import { useClaimedNFTSupply } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT drop contract as the argument.
+
+```jsx
+import { useClaimedNFTSupply, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data: claimedTokens, isLoading } = useClaimedNFTSupply(contract);
+
+  return (
+    <div>
+      <p>Claimed Tokens: {claimedTokens?.toString()}</p>
+      <p>Loading: {isLoading.toString()}</p>
+    </div>
+  );
+}
+```

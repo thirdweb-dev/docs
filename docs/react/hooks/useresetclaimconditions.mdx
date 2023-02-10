@@ -1,0 +1,102 @@
+---
+title: useResetClaimConditions
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for resetting a claim condition on a [NFTDropCollection](/contractkit/interfaces/nftdropcollection) contract.
+
+```jsx
+import { useResetClaimConditions } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT collection contract as the argument.
+
+```jsx
+import {
+  useResetClaimConditions,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The token ID of the NFT to reset the claim condition for
+const tokenId = "{{token_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: resetClaimConditions,
+    isLoading,
+    error,
+  } = useResetClaimConditions(contract, tokenId);
+
+  if (error) {
+    console.error("failed to reset claim condition", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => resetClaimConditions()}
+    >
+      Reset Claim Condition
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### tokenId
+
+If provided, the action will only reset the claim condition for the specific token ID.
+
+If not provided, the action will reset the claim condition for all tokens in the collection.
+
+```jsx
+import {
+  useResetClaimConditions,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The token ID of the NFT to reset the claim condition for
+const tokenId = "{{token_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: resetClaimConditions,
+    isLoading,
+    error,
+  } = useResetClaimConditions(contract, tokenId);
+
+  if (error) {
+    console.error("failed to reset claim condition", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        // highlight-start
+        resetClaimConditions(tokenId)
+        // highlight-end
+      }
+    >
+      Reset Claim Condition
+    </Web3Button>
+  );
+}
+```

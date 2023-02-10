@@ -1,0 +1,109 @@
+---
+title: useCreateDirectListing
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for creating direct listing on a marketplace smart contract.
+
+Available to use on smart contracts that implement the [Marketplace](/contractkit/interfaces/marketplace)
+or [MarketplaceV3](/contractkit/interfaces/marketplacev3) standard.
+
+```jsx
+import { useCreateDirectListing } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your marketplace contract as the argument.
+
+```jsx
+import { useCreateDirectListing, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: createDirectListing, isLoading, error } = useCreateDirectListing(contract);
+
+  if (error) {
+    console.error("failed to create direct listing", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        createDirectListing({
+          tokenId: "{{token_id}}", // Token ID of the asset you want to list
+          pricePerToken: "{{price_per_token}}", // Price of the token you want to list
+          assetContractAddress: "{{asset_contract_address}}", // Address of the asset contract
+        })
+      }
+    >
+      Create Direct Listing
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### tokenId
+
+The ID of the asset you want to list.
+
+### pricePerToken
+
+The price in Wei per token you want to list the asset for.
+
+### assetContractAddress
+
+The address of the asset contract.
+
+You can use the [`useContract`](/react/hooks/useContract) hook to get this value.
+
+```jsx
+import {
+  useCreateDirectListing,
+  useContract,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // highlight-start
+  const assetContract = useContract("{{asset_contract_address}}");
+  // highlight-end
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: createDirectListing, isLoading, error } = useCreateDirectListing(contract);
+
+  if (error) {
+    console.error("failed to create direct listing", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        createDirectListing({
+          tokenId: "{{token_id}}",
+          pricePerToken: "{{price_per_token}}",
+          // highlight-start
+          assetContractAddress: assetContract.address,
+          // highlight-end
+        })
+      }
+    >
+      Create Direct Listing
+    </Web3Button>
+  );
+}
+```

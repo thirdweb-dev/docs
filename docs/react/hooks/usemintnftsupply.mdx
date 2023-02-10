@@ -1,0 +1,106 @@
+---
+title: useMintNFTSupply
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for minting additional supply to an NFT token on a smart contract.
+
+```jsx
+import { useMintNFTSupply } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your ERC1155 collection contract as the argument.
+
+```jsx
+import { useMintNFTSupply, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: mintNftSupply, isLoading, error } = useMintNFTSupply(contract);
+
+  if (error) {
+    console.error("failed to mint nft supply", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mintNftSupply({
+          tokenId: "{{token_id}}",
+          additionalSupply: 100,
+          to: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+        })
+      }
+    >
+      Mint NFT Supply
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### tokenId
+
+The `tokenId` is the unique identifier of the NFT you want to mint additional supply to.
+
+### additionalSupply
+
+The `additionalSupply` is the amount of tokens you want to mint.
+
+### to
+
+Likely, you will want to mint the NFT to the currently connected wallet address.
+
+You can use the [`useAddress`](/react/hooks/useAddress) hook to get this value.
+
+```jsx
+import {
+  useMintNFTSupply,
+  useContract,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // highlight-start
+  const address = useAddress();
+  // highlight-end
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: mintNftSupply, isLoading, error } = useMintNFTSupply(contract);
+
+  if (error) {
+    console.error("failed to mint nft supply", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mintNftSupply({
+          tokenId: "{{token_id}}",
+          additionalSupply: 100,
+          // highlight-start
+          to: address, // Use useAddress hook to get current wallet address
+          // highlight-end
+        })
+      }
+    >
+      Mint NFT Supply
+    </Web3Button>
+  );
+}
+```

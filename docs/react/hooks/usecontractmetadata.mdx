@@ -1,0 +1,37 @@
+---
+title: useContractMetadata
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for retrieving the metadata of a given contract.
+
+```jsx
+import { useContractMetadata } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide a contract instance as the argument.
+
+```jsx
+import { useContract, useContractMetadata } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data: metadata } = useContractMetadata(contract);
+
+  return (
+    <div>
+      <h2>{metadata.name}</h2>
+      <p>{metadata.description}</p>
+    </div>
+  );
+}
+```

@@ -1,0 +1,58 @@
+---
+title: useAirdropNFT
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for airdropping NFT tokens on smart contracts that implement the [ERC1155](/contractkit/interfaces/erc1155) standard.
+
+```jsx
+import { useAirdropNFT } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your ERC1155 NFT collection contract as the argument.
+
+```jsx
+import { useAirdropNFT, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: airdropNft, isLoading, error } = useAirdropNFT(contract);
+
+  if (error) {
+    console.error("failed to airdrop nft", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        airdropNft({
+          id: 1, // NFT ID
+          to: ["0x..."], // Array of addresses to receive the NFT
+        })
+      }
+    >
+      Airdrop NFT
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### id
+
+ID of the NFT token to airdrop.
+
+### to
+
+Array of wallet addresses to airdrop the NFT to.

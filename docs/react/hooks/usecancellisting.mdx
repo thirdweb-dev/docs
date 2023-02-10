@@ -1,0 +1,60 @@
+---
+title: useCancelListing
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for canceling an existing auction or listing on a marketplace contract.
+
+```jsx
+import { useCancelListing } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your marketplace contract as the argument.
+
+```jsx
+import { useCancelListing, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: cancelListing, isLoading, error } = useCancelListing(contract);
+
+  if (error) {
+    console.error("failed to cancel listing", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        cancelListing({
+          id: "{{listing_id}}",
+          type: "auction" | "direct",
+        })
+      }
+    >
+      Cancel Listing
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### id
+
+The ID of the listing you want to cancel.
+
+### type
+
+The type of the listing you want to cancel.
+
+Options are `auction` or `direct`.

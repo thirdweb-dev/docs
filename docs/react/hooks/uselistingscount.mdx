@@ -1,0 +1,40 @@
+---
+title: useListingsCount
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for retrieving the current number of listings on a {@link Marketplace}.
+
+```jsx
+import { useListingsCount } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your marketplace contract as the argument.
+
+```jsx
+import { useListingsCount, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useListingsCount(contract);
+
+  if (error) {
+    console.error("failed to get listing count", error);
+  }
+
+  return (
+    <div>
+      {isLoading ? <div>Loading...</div> : <div>Listings: {data.toString()}</div>}
+    </div>
+  );
+}
+```

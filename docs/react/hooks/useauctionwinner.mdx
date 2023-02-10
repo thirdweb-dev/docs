@@ -1,0 +1,53 @@
+---
+title: useAuctionWinner
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for getting the winner of an auction for a specific item on a smart contract.
+
+Available to use on smart contracts that implement the [Marketplace](/contractkit/interfaces/marketplace)
+or [MarketplaceV3](/contractkit/interfaces/marketplace-v3) standard.
+
+```jsx
+import { useAuctionWinner } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your Marketplace contract and the item id as the arguments.
+
+```jsx
+import { useAuctionWinner, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data: auctionWinner, isLoading, error } = useAuctionWinner(
+    contract,
+    itemId // The id of the item that you want to get the auction winner for
+  );
+
+  if (error) {
+    console.error("failed to get auction winner", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => getAuctionWinner(contract, itemId)}
+    >
+      Get Auction Winner
+    </Web3Button>
+  );
+}
+```
+
+## Return Value
+
+A string containing the address of the auction winner.

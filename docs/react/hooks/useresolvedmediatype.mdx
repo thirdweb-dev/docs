@@ -1,0 +1,48 @@
+---
+title: useResolvedMediaType
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for resolving the media type and URL of a given URI.
+
+```jsx
+import { useResolvedMediaType } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide the URI of the media asset as the argument.
+
+```jsx
+import { useResolvedMediaType } from "@thirdweb-dev/react";
+
+function App() {
+  const { url, mimeType } = useResolvedMediaType("https://example.com/image.jpg");
+
+  return <img src={url} type={mimeType} />;
+}
+```
+
+## Configuration
+
+### uri
+
+The `uri` argument must be a valid URL or file path.
+
+It will be resolved to the appropriate media type and URL for use in the `<img>` tag.
+
+```jsx
+import { useResolvedMediaType } from "@thirdweb-dev/react";
+
+function App() {
+  // highlight-start
+  const { url, mimeType } = useResolvedMediaType("/path/to/image.jpg");
+  // highlight-end
+
+  return <img src={url} type={mimeType} />;
+}
+```

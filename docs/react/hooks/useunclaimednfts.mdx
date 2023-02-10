@@ -1,0 +1,90 @@
+---
+title: useUnclaimedNFTs
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for fetching unclaimed NFTs from a {@link NFTDrop} smart contract.
+
+```jsx
+import { useUnclaimedNFTs } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT collection contract as the argument.
+
+```jsx
+import { useUnclaimedNFTs, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    data: unclaimedNFTs,
+    isLoading,
+    error,
+  } = useUnclaimedNFTs(contract);
+
+  if (error) {
+    console.error("failed to fetch unclaimed nfts", error);
+  }
+
+  return (
+    <div>
+      {unclaimedNFTs.map((nft) => (
+        <div key={nft.id}>
+          <h3>{nft.name}</h3>
+          <p>{nft.description}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+```
+
+## Configuration
+
+You can pass an optional `queryParams` object to specify the query parameters.
+
+The available `queryParams` are the same as the [`QueryAllParams`](/contractkit/contracts/nftdrop#queryallparams)
+
+```jsx
+import { useUnclaimedNFTs, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    data: unclaimedNFTs,
+    isLoading,
+    error,
+  } = useUnclaimedNFTs(contract, {
+    orderBy: "name",
+    orderDirection: "desc",
+    limit: 10,
+  });
+
+  if (error) {
+    console.error("failed to fetch unclaimed nfts", error);
+  }
+
+  return (
+    <div>
+      {unclaimedNFTs.map((nft) => (
+        <div key={nft.id}>
+          <h3>{nft.name}</h3>
+          <p>{nft.description}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+```

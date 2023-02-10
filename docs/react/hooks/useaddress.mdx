@@ -1,0 +1,31 @@
+
+---
+title: useAddress
+displayed_sidebar: react
+---
+
+Hook for getting the current wallet address.
+
+```jsx
+import { useAddress } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Call the hook to get the current wallet address.
+
+```jsx
+import { useAddress } from "@thirdweb-dev/react";
+
+function App() {
+  const address = useAddress();
+
+  return <div>My wallet address is {address}</div>;
+}
+```
+
+## Return value
+
+Returns a `string` containing the wallet address.
+
+Returns `undefined` if no wallet is connected.

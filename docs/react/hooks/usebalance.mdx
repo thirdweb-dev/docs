@@ -1,0 +1,45 @@
+---
+title: useBalance
+displayed_sidebar: react
+---
+
+Hook for getting a users current balance of a ERC20 token.
+
+```jsx
+import { useBalance } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide the token contract address as the argument.
+
+```jsx
+import { useBalance, Web3Button } from "@thirdweb-dev/react";
+
+// Your token contract address
+const tokenAddress = "{{token_address}}";
+
+function App() {
+  const { data, isLoading } = useBalance(tokenAddress);
+
+  return (
+    <Web3Button
+      contractAddress={tokenAddress}
+      action={() => {
+        console.log("Balance:", data?.displayValue);
+      }}
+    >
+      Check Balance
+    </Web3Button>
+  );
+}
+```
+
+## Return Value
+
+The hook returns an object with the following values:
+
+| Key       | Type                                 | Description                                                                                                                                                                                                    |
+| --------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `data`    | `{ symbol, value, name, decimals }`  | The balance of the token. `value` is the amount in `BigNumber` form, `displayValue` is the amount in a human friendly format. `name` and `symbol` are the token's metadata. `decimals` is the number of decimals used. |
+| `isLoading` | `boolean`                         | `true` when the balance is being fetched, `false` when the balance is ready.                                                                                                                                     |

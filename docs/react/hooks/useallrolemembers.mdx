@@ -1,0 +1,95 @@
+---
+title: useAllRoleMembers
+displayed_sidebar: react
+---
+
+Hook for getting all the members of a given role in a smart contract.
+
+Use this hook to get a list of all the members of a given role in your smart contract.
+
+```jsx
+import { useAllRoleMembers } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your contract instance as the argument.
+
+```jsx
+import { useAllRoleMembers, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useAllRoleMembers(contract);
+
+  if (error) {
+    console.error("failed to get role members", error);
+  }
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  // highlight-start
+  const admins = data?.admin;
+  // highlight-end
+
+  return (
+    <ul>
+      {admins?.map((member) => (
+        <li key={member}>{member}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+## Roles
+
+The `useAllRoleMembers` hook accepts any role defined in your smart contract.
+
+For example, if you have defined roles `owners`, `minters`, `admins`, and `operators` in your contract - you can use this hook to get members of any of those roles.
+
+```jsx
+import {
+  useAllRoleMembers,
+  useContract,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useAllRoleMembers(contract);
+
+  if (error) {
+    console.error("failed to get role members", error);
+  }
+
+  if (isLoading) {
+    return <p>Loading...</p>;
+  }
+
+  const admins = data?.admin;
+  const minters = data?.minter;
+  const operators = data?.operator;
+
+  const address = useAddress();
+  const isAdmin = admins?.includes(address);
+  const isMinter = minters?.includes(address);
+  const isOperator = operators?.includes(address);
+
+  return (
+    <ul>
+      <li>Admin: {isAdmin ? "yes" : "no"}</li>
+      <li>Minter: {isMinter ? "yes" : "no"}</li>
+      <li>Operator: {isOperator ? "yes" : "no"}</li>
+    </ul>
+  );
+}
+```

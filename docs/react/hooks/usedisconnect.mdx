@@ -1,0 +1,60 @@
+---
+title: useDisconnect
+displayed_sidebar: react
+---
+
+Hook for disconnecting from an Ethereum node.
+
+```jsx
+import { useDisconnect } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+```jsx
+import { useDisconnect, Web3Button } from "@thirdweb-dev/react";
+
+function App() {
+  const disconnect = useDisconnect();
+
+  return (
+    <Web3Button
+      action={() =>
+        disconnect()
+      }
+    >
+      Disconnect
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### reconnectPrevious
+
+By default, the hook will not attempt to reconnect to the previously connected node.
+
+If you want the hook to attempt to reconnect to the last node, set this option to `true`.
+
+```jsx
+import { useDisconnect, Web3Button } from "@thirdweb-dev/react";
+
+function App() {
+  const disconnect = useDisconnect({
+    // highlight-start
+    reconnectPrevious: true,
+    // highlight-end
+  });
+
+  return (
+    <Web3Button
+      action={() =>
+        disconnect()
+      }
+    >
+      Disconnect
+    </Web3Button>
+  );
+}
+```

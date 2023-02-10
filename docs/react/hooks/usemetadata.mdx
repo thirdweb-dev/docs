@@ -1,0 +1,70 @@
+---
+title: useMetadata
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for fetching NFT metadata from a smart contract.
+
+Available to use on smart contracts that implement the [ERC721](/contractkit/interfaces/erc721)
+or [ERC1155](/contractkit/interfaces/erc1155) standard.
+
+```jsx
+import { useMetadata } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT collection contract as the argument.
+
+```jsx
+import { useMetadata, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data } = useMetadata(contract);
+
+  return (
+    <div>
+      <h1>{data.name}</h1>
+      <p>{data.description}</p>
+      <img src={data.image} />
+      <a href={data.external_link}>External Link</a>
+    </div>
+  );
+}
+```
+
+## Configuration
+
+### contract
+
+The `contract` argument is required and must be an instance of a valid contract implementation, such as [Erc721](/contractkit/interfaces/erc721)
+or [Erc1155](/contractkit/interfaces/erc1155).
+
+```jsx
+import { useMetadata, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data } = useMetadata(contract);
+
+  return (
+    <div>
+      <h1>{data.name}</h1>
+      <p>{data.description}</p>
+      <img src={data.image} />
+      <a href={data.external_link}>External Link</a>
+    </div>
+  );
+}
+```

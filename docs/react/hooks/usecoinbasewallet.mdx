@@ -1,0 +1,56 @@
+
+---
+title: useCoinbaseWallet
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook that enables users to connect to their Coinbase wallet.
+
+```jsx
+import { useCoinbaseWallet } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+```jsx
+import { useCoinbaseWallet, Web3Button } from "@thirdweb-dev/react";
+
+function App() {
+  const coinbaseWallet = useCoinbaseWallet();
+
+  return (
+    <Web3Button
+      providerName="Coinbase"
+      action={() => coinbaseWallet()}
+    >
+      Connect to Coinbase
+    </Web3Button>
+  );
+}
+```
+
+## Returns
+
+Returns a `Promise` that resolves to the Coinbase `ConnectorData` object.
+
+```js
+{
+  data?: ConnectorData<any> | undefined;
+  error?: Error | undefined;
+}
+```
+
+The `ConnectorData` object has the following structure:
+
+```js
+{
+  provider: string;
+  chainId: string;
+  accounts: string[];
+  library: any;
+}
+```

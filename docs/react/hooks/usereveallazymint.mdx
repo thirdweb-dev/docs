@@ -1,0 +1,57 @@
+---
+title: useRevealLazyMint
+displayed_sidebar: react
+---
+
+Hook for revealing a lazy-minted NFT token on a smart contract.
+
+Available to use on smart contracts that implement the [Revealable](/contractkit/interfaces/revealable)
+standard.
+
+```jsx
+import { useRevealLazyMint } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT collection contract as the argument.
+
+```jsx
+import { useRevealLazyMint, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: revealLazyMint, isLoading, error } = useRevealLazyMint(contract);
+
+  if (error) {
+    console.error("failed to reveal lazy minted token", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        revealLazyMint({
+          batchId: 12345,
+          password: "{{password}}",
+        })
+      }
+    >
+      Reveal Lazy Minted Token
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### batchId
+
+The `batchId` of the token to be revealed.
+
+### password
+
+The `password` used to encrypt the token before minting.

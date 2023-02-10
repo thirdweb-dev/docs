@@ -1,0 +1,58 @@
+---
+title: useRoyaltySettings
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for getting royalty settings from a smart contract.
+
+```jsx
+import { useRoyaltySettings } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your royalty collection contract as the argument.
+
+```jsx
+import { useRoyaltySettings, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useRoyaltySettings(contract);
+
+  if (error) {
+    console.error("failed to get royalty settings", error);
+  }
+
+  return (
+    <div>
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <p>Seller Fee Basis Points: {data.seller_fee_basis_points}</p>
+          <p>Fee Recipient: {data.fee_recipient}</p>
+        </>
+      )}
+    </div>
+  );
+}
+```
+
+## Signature
+
+```ts
+export declare function useRoyaltySettings(
+  contract: RequiredParam<ValidContractInstance>
+): import("@tanstack/react-query").UseQueryResult<{
+  seller_fee_basis_points: number;
+  fee_recipient: string;
+}, unknown>;
+```

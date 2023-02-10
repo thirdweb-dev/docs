@@ -1,0 +1,43 @@
+---
+title: useWalletConnect
+displayed_sidebar: react
+---
+
+Hook for connecting to a WalletConnect wallet.
+
+```jsx
+import { useWalletConnect } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Call the hook to initialize the connection.
+
+```jsx
+import { useWalletConnect, Web3Button } from "@thirdweb-dev/react";
+
+function App() {
+  const [walletConnect, setWalletConnect] = useState<null | any>(null);
+  const { data, error } = useWalletConnect();
+  if (data) {
+    setWalletConnect(data);
+  }
+
+  if (error) {
+    console.error("failed to connect to wallet", error);
+  }
+
+  return (
+    <>
+      {walletConnect && (
+        <Web3Button
+          walletConnect={walletConnect}
+          action={() => console.log("Do something")}
+        >
+          Do something
+        </Web3Button>
+      )}
+    </>
+  );
+}
+```

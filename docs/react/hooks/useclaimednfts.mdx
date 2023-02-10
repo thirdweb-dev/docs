@@ -1,0 +1,84 @@
+---
+title: useClaimedNFTs
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for fetching all claimed NFTs from a given NFTDrop contract.
+
+```jsx
+import { useClaimedNFTs } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFTDrop contract as the argument.
+
+```jsx
+import { useClaimedNFTs, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data: nfts, isLoading, error } = useClaimedNFTs(contract);
+
+  if (error) {
+    console.error("failed to fetch nfts", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        fetchNfts({
+          limit: 10,
+        })
+      }
+    >
+      Fetch NFTs
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### limit
+
+The `limit` parameter allows you to control the maximum number of NFTs that will be fetched.
+
+```jsx
+import { useClaimedNFTs, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data: nfts, isLoading, error } = useClaimedNFTs(contract);
+
+  if (error) {
+    console.error("failed to fetch nfts", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        fetchNfts({
+          // highlight-start
+          limit: 10, // Limit the maximum number of NFTs that will be fetched
+          // highlight-end
+        })
+      }
+    >
+      Fetch NFTs
+    </Web3Button>
+  );
+}
+```

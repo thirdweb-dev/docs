@@ -1,0 +1,94 @@
+---
+title: useActiveClaimCondition
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for getting the active claim condition for a given drop contract.
+
+```jsx
+import { useActiveClaimCondition } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your drop contract as the argument.
+
+Optionally, you can pass a token ID to get the claim condition associated with that token.
+
+```jsx
+import { 
+  useActiveClaimCondition, 
+  useContract 
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useActiveClaimCondition(contract);
+
+  if (error) {
+    console.error("failed to get claim condition", error);
+  }
+
+  return (
+    <>
+      {isLoading && <p>Loading...</p>}
+      {data && (
+        <>
+          <p>Start time: {data.startTime}</p>
+          <p>Price: {data.price}</p>
+        </>
+      )}
+    </>
+  );
+}
+```
+
+## Configuration
+
+### withAllowlist
+
+By default, the hook will not include the allowlist in the returned data.
+
+To include the allowlist in the returned data, set the `withAllowlist` option to `true`.
+
+```jsx
+import { 
+  useActiveClaimCondition, 
+  useContract 
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  // highlight-start
+  const { data, isLoading, error } = useActiveClaimCondition(contract, undefined, {
+    withAllowlist: true,
+  });
+  // highlight-end
+
+  if (error) {
+    console.error("failed to get claim condition", error);
+  }
+
+  return (
+    <>
+      {isLoading && <p>Loading...</p>}
+      {data && (
+        <>
+          <p>Start time: {data.startTime}</p>
+          <p>Price: {data.price}</p>
+        </>
+      )}
+    </>
+  );
+}
+```

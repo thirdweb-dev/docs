@@ -1,0 +1,211 @@
+---
+title: useBuyNow
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for buying a listing on a marketplace smart contract.
+
+```jsx
+import { useBuyNow } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your marketplace contract as the argument.
+
+```jsx
+import { useBuyNow, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: buyNow, isLoading, error } = useBuyNow(contract);
+
+  if (error) {
+    console.error("failed to buy listing", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        buyNow({
+          id: "{{listing_id}}", // ID of the listing to buy
+          type: "{{listing_type}}", // Direct or Auction
+          buyAmount: "{{buy_amount}}" // Amount to buy
+          buyForWallet: "{{wallet_address}}", // Wallet to buy for, defaults to current wallet
+        })
+      }
+    >
+      Buy Now
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### id
+
+The ID of the listing you want to buy.
+
+```jsx
+import { useBuyNow, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: buyNow, isLoading, error } = useBuyNow(contract);
+
+  if (error) {
+    console.error("failed to buy listing", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        buyNow({
+          // highlight-start
+          id: "{{listing_id}}", // ID of the listing to buy
+          // highlight-end
+          type: "{{listing_type}}",
+          buyAmount: "{{buy_amount}}",
+        })
+      }
+    >
+      Buy Now
+    </Web3Button>
+  );
+}
+```
+
+### type
+
+The type of listing you want to buy.
+
+Valid values are `Direct` or `Auction`.
+
+```jsx
+import { useBuyNow, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: buyNow, isLoading, error } = useBuyNow(contract);
+
+  if (error) {
+    console.error("failed to buy listing", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        buyNow({
+          id: "{{listing_id}}",
+          // highlight-start
+          type: "{{listing_type}}", // Direct or Auction
+          // highlight-end
+          buyAmount: "{{buy_amount}}",
+        })
+      }
+    >
+      Buy Now
+    </Web3Button>
+  );
+}
+```
+
+### buyAmount
+
+The amount of tokens you want to buy.
+
+```jsx
+import { useBuyNow, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: buyNow, isLoading, error } = useBuyNow(contract);
+
+  if (error) {
+    console.error("failed to buy listing", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        buyNow({
+          id: "{{listing_id}}",
+          type: "{{listing_type}}",
+          // highlight-start
+          buyAmount: "{{buy_amount}}" // Amount to buy
+          // highlight-end
+        })
+      }
+    >
+      Buy Now
+    </Web3Button>
+  );
+}
+```
+
+### buyForWallet
+
+Optionally, specify a different wallet address to buy the listing for.
+
+```jsx
+import {
+  useBuyNow,
+  useContract,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // highlight-start
+  const address = useAddress();
+  // highlight-end
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: buyNow, isLoading, error } = useBuyNow(contract);
+
+  if (error) {
+    console.error("failed to buy listing", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        buyNow({
+          id: "{{listing_id}}",
+          type: "{{listing_type}}",
+          buyAmount: "{{buy_amount}}",
+          // highlight-start
+          buyForWallet: address, // Wallet to buy for, defaults to current wallet
+          // highlight-end
+        })
+      }
+    >
+      Buy Now
+    </Web3Button>
+  );
+}
+```

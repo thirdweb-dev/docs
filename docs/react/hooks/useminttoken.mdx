@@ -1,0 +1,95 @@
+---
+title: useMintToken
+displayed_sidebar: react
+---
+
+Hook for minting a new token to the connected wallet.
+
+Available to use on smart contracts that implement the [ERC20](/contractkit/interfaces/erc20)
+or [ERC223](/contractkit/interfaces/erc223) standard.
+
+```jsx
+import { useMintToken } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your token contract as the argument.
+
+```jsx
+import { useMintToken, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: mintToken, isLoading, error } = useMintToken(contract);
+
+  if (error) {
+    console.error("failed to mint token", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mintToken({
+          to: "{{wallet_address}}", // Use useAddress hook to get the current wallet address
+          amount: 10, // The amount of tokens to mint
+        })
+      }
+    >
+      Mint Token
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### to
+
+Likely, you will want to mint the token to the currently connected wallet address.
+
+You can use the [`useAddress`](/react/hooks/useAddress) hook to get this value.
+
+```jsx
+import {
+  useMintToken,
+  useContract,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // highlight-start
+  const address = useAddress();
+  // highlight-end
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: mintToken, isLoading, error } = useMintToken(contract);
+
+  if (error) {
+    console.error("failed to mint token", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mintToken({
+          // highlight-start
+          to: address, // Use useAddress hook to get current wallet address
+          // highlight-end
+          amount: 10, // The amount of tokens to mint
+        })
+      }
+    >
+      Mint Token
+    </Web3Button>
+  );
+}
+```

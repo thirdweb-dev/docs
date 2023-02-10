@@ -1,0 +1,47 @@
+---
+title: usePlatformFees
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for fetching platform fee information from a given smart contract.
+
+```jsx
+import { usePlatformFees } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your smart contract as the argument.
+
+```jsx
+import { usePlatformFees, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = usePlatformFees(contract);
+
+  if (error) {
+    console.error("failed to fetch platform fees", error);
+  }
+
+  return (
+    <div>
+      {isLoading ? (
+        <p>Loading platform fee information...</p>
+      ) : (
+        <p>
+          Platform fee is {data.platform_fee_basis_points} basis points
+          (recipient: {data.platform_fee_recipient})
+        </p>
+      )}
+    </div>
+  );
+}
+```

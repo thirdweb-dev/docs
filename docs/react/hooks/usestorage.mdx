@@ -1,0 +1,187 @@
+---
+title: useStorage
+displayed_sidebar: react
+---
+
+Hook for uploading files and directories to storage.
+
+```jsx
+import { useStorage } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+```jsx
+import { useStorage, Web3Button } from "@thirdweb-dev/react";
+
+function App() {
+  const storage = useStorage();
+  if (!storage) {
+    return <div>Please connect a wallet</div>;
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        storage.uploadBatch(files, {
+          // highlight-start
+          rewriteFileNames: {
+            fileStartNumber: 1,
+          },
+          uploadWithGatewayUrl: true,
+          onProgress: (event) => console.log("upload progress", event),
+          uploadWithoutDirectory: false,
+          // highlight-end
+        })
+      }
+    >
+      Upload
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### rewriteFileNames
+
+If specified, will rewrite file names to numbers for use on-chain.
+
+Useful to use with NFT contracts that map token IDs to files.
+
+```jsx
+import { useStorage, Web3Button } from "@thirdweb-dev/react";
+
+function App() {
+  const storage = useStorage();
+  if (!storage) {
+    return <div>Please connect a wallet</div>;
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        storage.uploadBatch(files, {
+          // highlight-start
+          rewriteFileNames: {
+            fileStartNumber: 1,
+          },
+          // highlight-end
+          uploadWithGatewayUrl: true,
+          onProgress: (event) => console.log("upload progress", event),
+          uploadWithoutDirectory: false,
+        })
+      }
+    >
+      Upload
+    </Web3Button>
+  );
+}
+```
+
+### uploadWithGatewayUrl
+
+If specified, any URLs with schemes will be replaced with resolved URLs before upload.
+
+```jsx
+import { useStorage, Web3Button } from "@thirdweb-dev/react";
+
+function App() {
+  const storage = useStorage();
+  if (!storage) {
+    return <div>Please connect a wallet</div>;
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        storage.uploadBatch(files, {
+          rewriteFileNames: {
+            fileStartNumber: 1,
+          },
+          // highlight-start
+          uploadWithGatewayUrl: true,
+          // highlight-end
+          onProgress: (event) => console.log("upload progress", event),
+          uploadWithoutDirectory: false,
+        })
+      }
+    >
+      Upload
+    </Web3Button>
+  );
+}
+```
+
+### onProgress
+
+Callback that gets triggered when file upload progresses.
+
+```jsx
+import { useStorage, Web3Button } from "@thirdweb-dev/react";
+
+function App() {
+  const storage = useStorage();
+  if (!storage) {
+    return <div>Please connect a wallet</div>;
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        storage.uploadBatch(files, {
+          rewriteFileNames: {
+            fileStartNumber: 1,
+          },
+          uploadWithGatewayUrl: true,
+          // highlight-start
+          onProgress: (event) => console.log("upload progress", event),
+          // highlight-end
+          uploadWithoutDirectory: false,
+        })
+      }
+    >
+      Upload
+    </Web3Button>
+  );
+}
+```
+
+### uploadWithoutDirectory
+
+If specified, will upload a single file without wrapping it in a directory.
+
+```jsx
+import { useStorage, Web3Button } from "@thirdweb-dev/react";
+
+function App() {
+  const storage = useStorage();
+  if (!storage) {
+    return <div>Please connect a wallet</div>;
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        storage.uploadBatch(files, {
+          rewriteFileNames: {
+            fileStartNumber: 1,
+          },
+          uploadWithGatewayUrl: true,
+          onProgress: (event) => console.log("upload progress", event),
+          // highlight-start
+          uploadWithoutDirectory: false,
+          // highlight-end
+        })
+      }
+    >
+      Upload
+    </Web3Button>
+  );
+}
+```

@@ -1,0 +1,40 @@
+---
+title: useNFTBalance
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for getting the balance of a specific NFT token owned by a wallet address.
+
+```jsx
+import { useNFTBalance } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT collection contract and the wallet address of the owner.
+
+```jsx
+import { useNFTBalance, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { isLoading, data, error } = useNFTBalance(
+    contract,
+    "{{wallet_address}}",
+    "{{token_id}}"
+  );
+
+  if (error) {
+    console.error("failed to get balance", error);
+  }
+
+  return <p>Balance: {isLoading ? "Loading..." : data}</p>;
+}
+```

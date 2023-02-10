@@ -1,0 +1,66 @@
+---
+title: useClaimProofs
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook to fetch the proof for a claim made on a {@link DropContract}.
+
+```jsx
+import { useClaimProofs } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your Drop contract as the first argument and the claimer's address as the second argument.
+
+Optionally, you can provide a `tokenId` and `claimConditionId` to filter for a specific claim.
+
+```jsx
+import { useClaimProofs, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data: proof, isLoading, error } = useClaimProofs(
+    contract,
+    "{{claimer_address}}",
+    // highlight-start
+    // Optionally, you can filter by tokenId and claimConditionId
+    tokenId,
+    claimConditionId
+    // highlight-end
+  );
+
+  if (error) {
+    console.error("failed to fetch proof", error);
+  }
+
+  return (
+    <Web3Button
+      disabled={isLoading}
+      contractAddress={contractAddress}
+      action={() => {
+        // ...
+      }}
+    >
+      {isLoading ? "Loading..." : "Fetch Proof"}
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### tokenId
+
+The `tokenId` of the target NFT.
+
+### claimConditionId
+
+The `claimConditionId` of the target claim condition.

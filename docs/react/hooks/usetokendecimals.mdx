@@ -1,0 +1,36 @@
+---
+title: useTokenDecimals
+displayed_sidebar: react
+---
+
+Hook for retrieving the decimals of a token from its smart contract.
+
+```jsx
+import { useTokenDecimals } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide the token contract instance as the argument.
+
+```jsx
+import { useTokenDecimals, useContract } from "@thirdweb-dev/react";
+
+// Your token contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data: decimals, isLoading, error } = useTokenDecimals(contract);
+
+  if (error) {
+    console.error("failed to fetch decimals", error);
+  }
+
+  return <div>Decimals: {isLoading ? "Loading..." : decimals}</div>;
+}
+```
+
+## Configuration
+
+No configuration is needed.

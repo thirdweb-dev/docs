@@ -7,67 +7,36 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook for fetching an NFT token from an NFT Contract.
+Hook for fetching information about an NFT from a smart contract.
+
+Available to use on smart contracts that implement the [ERC721](/contractkit/interfaces/erc721)
+or [ERC1155](/contractkit/interfaces/erc1155) standard.
+
+NFT metadata is automatically fetched from where the `tokenUri` is hosted (e.g. IPFS), and makes the `image`
+property available as a URL through our IPFS gateway (if the image is hosted on IPFS).
 
 ```jsx
-import { useNFT } from "@thirdweb-dev/react"
+import { useNFT } from "@thirdweb-dev/react";
 ```
 
-### Usage
+## Usage
 
-:::tip
-
-It is mandatory to use [`useContract`](/useContract) to initialize your NFT contract before using this hook
+Provide your NFT collection contract object and the token ID of the NFT you want to fetch as
+arguments. The information about the NFT will be returned in the `data` field.
 
 ```jsx
-import { useContract } from "@thirdweb-dev/react";
-const { contract, isLoading, error } = useContract("{{nft_contract_address}}");
-```
-:::
+import { useContract, useNFT } from "@thirdweb-dev/react";
 
+// The token ID of the NFT you want to fetch
+const tokenId = 0;
 
-```jsx 
 function App() {
+  const { contract } = useContract("{{contract_address}}");
+  const { data: nft, isLoading, error } = useNFT(contract, tokenId);
 
-    const { contract } = useContract(<ContractAddress>);
-    const { data: nft, isLoading, error } = useNFT(contract, <tokenId>);
-
-    if (isLoading) return <div>Fetching NFT…</div>
-    if (isError) return <div>Error fetching token</div>
-    return <div>NFT: {data?.metadata.title}</div>
-}
-```
-
-### Return Value
-
-```jsx
-{
-  data?: {
-      metadata: NFTMetadata;
-      owner: string;
-      type: "ERC1155" | "ERC721";
-      supply: number;
-      quantityOwned?: number;
-  }
-  error?: Error
-  isIdle: boolean
-  isLoading: boolean
-  isFetching: boolean
-  isSuccess: boolean
-  isError: boolean
-  isFetched: boolean
-  isFetchedAfterMount: boolean
-  isRefetching: boolean
-  refetch: (options: {
-      throwOnError: boolean
-      cancelRefetch: boolean
-  }) => Promise<{
-      metadata: NFTMetadata;
-      owner: string;
-      type: "ERC1155" | "ERC721" | "metaplex";
-      supply: number;
-      quantityOwned?: number;
-      }>
-  status: 'idle' | 'error' | 'loading' | 'success'
+  if (isLoading) return <div>Fetching NFT…</div>;
+  if (error) return <div>Error fetching NFT</div>;
+  if (!nft) return <div>NFT not found</div>;
+  return <div>NFT: {nft.metadata.name}</div>;
 }
 ```

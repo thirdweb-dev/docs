@@ -1,0 +1,36 @@
+---
+title: usePrimarySaleRecipient
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for retrieving the current primary sale recipient for an NFT collection contract.
+
+```jsx
+import { usePrimarySaleRecipient } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT collection contract as the argument.
+
+```jsx
+import { usePrimarySaleRecipient, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = usePrimarySaleRecipient(contract);
+
+  if (error) {
+    console.error("failed to get primary recipient", error);
+  }
+
+  return <div>{isLoading ? "Loading..." : data}</div>;
+}
+```

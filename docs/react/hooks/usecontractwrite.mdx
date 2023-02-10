@@ -1,0 +1,232 @@
+---
+title: useContractWrite
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for writing to a smart contract.
+
+```jsx
+import { useContractWrite } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your contract instance and the name of the contract function as the arguments.
+
+```jsx
+import { useContractWrite, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // Your contract instance
+  const { contract } = useContract(contractAddress);
+  // Function name that you want to call
+  const functionName = "setName";
+  // Arguments array
+  const args = ["My Name"];
+  // Call overrides
+  const overrides = {
+    gas: 5000000,
+    gasPrice: 20000000000,
+  };
+  // Mutate function
+  const { mutateAsync, isLoading, error } = useContractWrite(
+    contract,
+    functionName
+  );
+
+  if (error) {
+    console.error("failed to call contract write", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => mutateAsync(args, overrides)}
+    >
+      Send
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### contract
+
+Provide your contract instance as the first argument.
+
+```jsx
+import { useContractWrite, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // Your contract instance
+  const { contract } = useContract(contractAddress);
+  // highlight-start
+  const { mutateAsync, isLoading, error } = useContractWrite(contract);
+  // highlight-end
+
+  if (error) {
+    console.error("failed to call contract write", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mutateAsync(
+          ["My Name"],
+          {
+            gas: 5000000,
+            gasPrice: 20000000000,
+          }
+        )
+      }
+    >
+      Send
+    </Web3Button>
+  );
+}
+```
+
+### functionName
+
+Provide the name of the contract function as the second argument.
+
+```jsx
+import { useContractWrite, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // Your contract instance
+  const { contract } = useContract(contractAddress);
+  // highlight-start
+  const functionName = "setName";
+  // highlight-end
+  const { mutateAsync, isLoading, error } = useContractWrite(
+    contract,
+    functionName
+  );
+
+  if (error) {
+    console.error("failed to call contract write", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mutateAsync(
+          ["My Name"],
+          {
+            gas: 5000000,
+            gasPrice: 20000000000,
+          }
+        )
+      }
+    >
+      Send
+    </Web3Button>
+  );
+}
+```
+
+### args
+
+Provide the arguments array as the third argument.
+
+```jsx
+import { useContractWrite, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // Your contract instance
+  const { contract } = useContract(contractAddress);
+  const functionName = "setName";
+  // highlight-start
+  const args = ["My Name"];
+  // highlight-end
+  const { mutateAsync, isLoading, error } = useContractWrite(
+    contract,
+    functionName,
+    args
+  );
+
+  if (error) {
+    console.error("failed to call contract write", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mutateAsync(
+          args,
+          {
+            gas: 5000000,
+            gasPrice: 20000000000,
+          }
+        )
+      }
+    >
+      Send
+    </Web3Button>
+  );
+}
+```
+
+### overrides
+
+Provide the call overrides as the fourth argument.
+
+```jsx
+import { useContractWrite, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // Your contract instance
+  const { contract } = useContract(contractAddress);
+  const functionName = "setName";
+  const args = ["My Name"];
+  // highlight-start
+  const overrides = {
+    gas: 5000000,
+    gasPrice: 20000000000,
+  };
+  // highlight-end
+  const { mutateAsync, isLoading, error } = useContractWrite(
+    contract,
+    functionName,
+    args,
+    overrides
+  );
+
+  if (error) {
+    console.error("failed to call contract write", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => mutateAsync(args, overrides)}
+    >
+      Send
+    </Web3Button>
+  );
+}
+```

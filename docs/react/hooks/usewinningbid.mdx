@@ -1,0 +1,74 @@
+---
+title: useWinningBid
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook to get the winning bid of a listing on a marketplace smart contract.
+
+```jsx
+import { useWinningBid } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your marketplace contract as the argument.
+
+```jsx
+import { useWinningBid, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const winningBid = useWinningBid(contract, "{{listing_id}}");
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => {
+        // Do something with the winning bid
+        console.log(winningBid);
+      }}
+    >
+      Get winning bid
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### listingId
+
+Provide the `listingId` of the listing you want to get the winning bid of.
+
+```jsx
+import { useWinningBid, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  // highlight-start
+  const winningBid = useWinningBid(contract, "{{listing_id}}");
+  // highlight-end
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => {
+        // Do something with the winning bid
+        console.log(winningBid);
+      }}
+    >
+      Get winning bid
+    </Web3Button>
+  );
+}
+```
