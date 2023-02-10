@@ -45,7 +45,7 @@ function DocSidebarItems({ items, ...props }) {
     },
     {
       title: "Deploy Contracts",
-      items: ["Release", "Deploy", "Prebuilt Contracts"],
+      items: ["Publish", "Deploy", "Prebuilt Contracts"],
     },
     {
       title: "Build Apps",
@@ -74,7 +74,7 @@ function DocSidebarItems({ items, ...props }) {
     "Prebuilt Contracts": "contracts.png",
     Dashboard: "dashboard.png",
     Deploy: "deploy.png",
-    Release: "release.png",
+    Publish: "publish.png",
     SDK: "sdk.png",
     Solana: "sdk.png",
     GamingKit: "sdk.png",

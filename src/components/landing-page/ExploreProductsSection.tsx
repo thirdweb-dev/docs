@@ -62,10 +62,10 @@ const products: Product[] = [
     link: "/auth",
   },
   {
-    image: "/assets/product/release.png",
-    name: "Release",
+    image: "/assets/product/publish.png",
+    name: "Publish",
     description: "Publish your contracts to our on-chain contract registry",
-    link: "/release",
+    link: "/publish",
   },
   {
     image: "/assets/product/deploy.png",

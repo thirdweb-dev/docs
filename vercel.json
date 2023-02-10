@@ -489,6 +489,14 @@
     {
       "source": "/gaming-kit/:match*",
       "destination": "/gamingkit/:match*"
-    }
+    },
+    {
+      "source": "/release",
+      "destination": "/publish"
+    },
+    {
+      "source": "/release/:match*",
+      "destination": "/publish/:match*"
+    },
   ]
 }

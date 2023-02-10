@@ -28,16 +28,16 @@ Deploy any [prebuilt contract](/pre-built-contracts) such as the
 | [`TokenDrop`](/pre-built-contracts/token-drop)         | DeployTokenDrop     | [`TokenContractDeployMetadata`](/unity/TokenContractDeployMetadata#struct_thirdweb_1_1_token_contract_deploy_metadata)                   |
 | [`Marketplace`](/pre-built-contracts/marketplace)      | DeployMarketplace   | [`MarketplaceContractDeployMetadata`](/unity/MarketplaceContractDeployMetadata#struct_thirdweb_1_1_marketplace_contract_deploy_metadata) |
 
-## Released Contracts
+## Published Contracts
 
-Deploy a contract that has been [released](/release) by passing
+Deploy a contract that has been [published](/publish) by passing
 the author and name of the contract.
 
 ```csharp
 await sdk.deployer.DeployFromContractUri(
     // Wallet address of the author of the contract
-    "<releaser-wallet-address>",
-    // Name of the released contract
+    "<publisher-wallet-address>",
+    // Name of the published contract
     "<contract-name>",
     // Each value in the list represents a constructor argument
     new object[] { }
