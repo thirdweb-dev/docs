@@ -29,7 +29,7 @@ The `@thirweb-dev/auth/next` entrypoint is currently built for Next.js apps usin
 To add support for Auth to your Next backend, you'll need to install the `@thirdweb-dev/auth` package (as well as any other packages you'll need for your [wallet configuration](/auth/wallet-configuration), we'll need the `ethers` package for this example as we'll be using the `PrivateKeyWallet`):
 
 ```bash npm2yarn
-npm install @thirdweb-dev/auth ethers
+npm install @thirdweb-dev/auth ethers@5
 ```
 
 Now we can setup our Next.js server by using the `@thirdweb-dev/auth/next` entrypoint. First, we need to setup our [Auth API](/auth/how-auth-works/auth-api) by creating a new file called `pages/api/auth/[...thirdweb].ts`:
