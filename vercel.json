@@ -497,6 +497,6 @@
     {
       "source": "/release/:match*",
       "destination": "/publish/:match*"
-    },
+    }
   ]
 }
