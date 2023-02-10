@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # MarketplaceV3
 
-&quot;Inherited by entrypoint&quot; extensions. - ContractMetadata - PlatformFee - PermissionsEnumerable - ReentrancyGuard - ERC2771Context - Multicall &quot;NOT inherited by entrypoint&quot; extensions. - DirectListings - EnglishAuctions - Offers
+_thirdweb.com_
 
 ## Methods
 

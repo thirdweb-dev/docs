@@ -9,10 +9,10 @@ displayed_sidebar: react
 
 ## ThirdwebProviderProps.supportedChains property
 
-An array of chainIds or objects that the dApp supports If not provided, all chains supported by the SDK will be supported by default
+Chains to support. If not provided, will default to the chains supported by the SDK.
 
 **Signature:**
 
 ```typescript
-supportedChains?: TSupportedChain[];
+supportedChains?: Readonly<TChains>;
 ```

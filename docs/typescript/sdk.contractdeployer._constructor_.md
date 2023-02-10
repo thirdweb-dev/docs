@@ -14,13 +14,13 @@ Constructs a new instance of the `ContractDeployer` class
 **Signature:**
 
 ```typescript
-constructor(network: NetworkOrSignerOrProvider, options: SDKOptions, storage: ThirdwebStorage);
+constructor(network: NetworkInput, options: SDKOptions, storage: ThirdwebStorage);
 ```
 
 ## Parameters
 
-| Parameter | Type                                                            | Description |
-| --------- | --------------------------------------------------------------- | ----------- |
-| network   | [NetworkOrSignerOrProvider](./sdk.networkorsignerorprovider.md) |             |
-| options   | [SDKOptions](./sdk.sdkoptions.md)                               |             |
-| storage   | ThirdwebStorage                                                 |             |
+| Parameter | Type                                  | Description |
+| --------- | ------------------------------------- | ----------- |
+| network   | [NetworkInput](./sdk.networkinput.md) |             |
+| options   | [SDKOptions](./sdk.sdkoptions.md)     |             |
+| storage   | ThirdwebStorage                       |             |

@@ -419,13 +419,27 @@ SplitInitializer: {
   }
   roles: readonly["admin"];
   initialize: (
-    network: NetworkOrSignerOrProvider,
+    network: NetworkInput,
     address: string,
     storage: ThirdwebStorage<
       import("@thirdweb-dev/storage").IpfsUploadBatchOptions
     >,
     options?:
       | {
+          supportedChains?:
+            | {
+                rpc: string[];
+                chainId: number;
+                nativeCurrency: {
+                  decimals?: number | undefined;
+                  symbol: string;
+                  name: string;
+                };
+              }[]
+            | undefined;
+          thirdwebApiKey?: string | undefined;
+          alchemyApiKey?: string | undefined;
+          infuraApiKey?: string | undefined;
           readonlySettings?:
             | {
                 chainId?: number | undefined;

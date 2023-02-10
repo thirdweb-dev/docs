@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # ContractMetadataLogic
 
+_thirdweb.com_
+
 > Contract Metadata
 
 Thirdweb&#39;s `ContractMetadata` is a contract extension for any base contracts. It lets you set a metadata URI for you contract. Additionally, `ContractMetadata` is necessary for NFT contracts that want royalties to get distributed on OpenSea.
