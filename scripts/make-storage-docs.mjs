@@ -79,6 +79,9 @@ async function main() {
         "---",
       ];
 
+      const titleLineIndex = output.findIndex((line) => line.startsWith("##"));
+      output[titleLineIndex] = output[titleLineIndex].replace("##", "#");
+
       await writeFile(docPathOut, header.concat(output).join("\n"));
     } catch (err) {
       console.error(`Could not process ${docFile}: ${err}`);

@@ -4,10 +4,15 @@ title: IDropSinglePhase
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # IDropSinglePhase
 
-The interface `IDropSinglePhase` is written for thirdweb&#39;s &#39;DropSinglePhase&#39; contracts, which are distribution mechanisms for tokens. An authorized wallet can set a claim condition for the distribution of the contract&#39;s tokens. A claim condition defines criteria under which accounts can mint tokens. Claim conditions can be overwritten or added to by the contract admin. At any moment, there is only one active claim condition.
+
+
+
+
+The interface `IDropSinglePhase` is written for thirdweb&#39;s &#39;DropSinglePhase&#39; contracts, which are distribution mechanisms for tokens.  An authorized wallet can set a claim condition for the distribution of the contract&#39;s tokens.  A claim condition defines criteria under which accounts can mint tokens. Claim conditions can be overwritten  or added to by the contract admin. At any moment, there is only one active claim condition.
+
+
 
 ## Methods
 
@@ -17,16 +22,20 @@ The interface `IDropSinglePhase` is written for thirdweb&#39;s &#39;DropSinglePh
 function claim(address receiver, uint256 quantity, address currency, uint256 pricePerToken, IDropSinglePhase.AllowlistProof allowlistProof, bytes data) external payable
 ```
 
+
+
+
+
 #### Parameters
 
-| Name           | Type                            | Description |
-| -------------- | ------------------------------- | ----------- |
-| receiver       | address                         | undefined   |
-| quantity       | uint256                         | undefined   |
-| currency       | address                         | undefined   |
-| pricePerToken  | uint256                         | undefined   |
-| allowlistProof | IDropSinglePhase.AllowlistProof | undefined   |
-| data           | bytes                           | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| receiver | address | undefined |
+| quantity | uint256 | undefined |
+| currency | address | undefined |
+| pricePerToken | uint256 | undefined |
+| allowlistProof | IDropSinglePhase.AllowlistProof | undefined |
+| data | bytes | undefined |
 
 ### setClaimConditions
 
@@ -34,12 +43,18 @@ function claim(address receiver, uint256 quantity, address currency, uint256 pri
 function setClaimConditions(IClaimCondition.ClaimCondition phase, bool resetClaimEligibility) external nonpayable
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                  | Type                           | Description |
-| --------------------- | ------------------------------ | ----------- |
-| phase                 | IClaimCondition.ClaimCondition | undefined   |
-| resetClaimEligibility | bool                           | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| phase | IClaimCondition.ClaimCondition | undefined |
+| resetClaimEligibility | bool | undefined |
+
+
 
 ## Events
 
@@ -51,12 +66,14 @@ event ClaimConditionUpdated(IClaimCondition.ClaimCondition condition, bool reset
 
 Emitted when the contract&#39;s claim conditions are updated.
 
+
+
 #### Parameters
 
-| Name             | Type                           | Description |
-| ---------------- | ------------------------------ | ----------- |
-| condition        | IClaimCondition.ClaimCondition | undefined   |
-| resetEligibility | bool                           | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| condition  | IClaimCondition.ClaimCondition | undefined |
+| resetEligibility  | bool | undefined |
 
 ### TokensClaimed
 
@@ -66,11 +83,15 @@ event TokensClaimed(address indexed claimer, address indexed receiver, uint256 i
 
 Emitted when tokens are claimed via `claim`.
 
+
+
 #### Parameters
 
-| Name                   | Type    | Description |
-| ---------------------- | ------- | ----------- |
-| claimer `indexed`      | address | undefined   |
-| receiver `indexed`     | address | undefined   |
-| startTokenId `indexed` | uint256 | undefined   |
-| quantityClaimed        | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| claimer `indexed` | address | undefined |
+| receiver `indexed` | address | undefined |
+| startTokenId `indexed` | uint256 | undefined |
+| quantityClaimed  | uint256 | undefined |
+
+

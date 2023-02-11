@@ -78,6 +78,9 @@ async function main() {
       await new Promise((resolve) => lines.once("close", resolve));
       input.close();
 
+      const titleLineIndex = output.findIndex((line) => line.startsWith("##"));
+      output[titleLineIndex] = output[titleLineIndex].replace("##", "#");  
+
       await writeFile(docPathOut.replace("Thirdweb::", ""), output.join("\n"));
       if (docPath.includes("Thirdweb::")) {
         await remove(docPath);

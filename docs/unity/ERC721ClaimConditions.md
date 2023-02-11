@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ERC721ClaimConditions` {#class_thirdweb_1_1_e_r_c721_claim_conditions}
+# class `ERC721ClaimConditions` {#class_thirdweb_1_1_e_r_c721_claim_conditions}
 
 ```
 class ERC721ClaimConditions

@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## Marketplace
+# Marketplace
 
 You can access the Marketplace interface from the SDK as follows:
 
@@ -32,7 +32,7 @@ type Marketplace struct {
 }
 ```
 
-### func \(\*Marketplace\) [BuyoutListing](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L192)
+### func \(\*Marketplace\) [BuyoutListing](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L192>)
 
 ```go
 func (marketplace *Marketplace) BuyoutListing(ctx context.Context, listingId int, quantityDesired int) (*types.Transaction, error)
@@ -46,7 +46,7 @@ quantityDesired: the quantity of the asset to buy from the listing
 
 returns: transaction receipt of the purchase
 
-### func \(\*Marketplace\) [BuyoutListingTo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L212)
+### func \(\*Marketplace\) [BuyoutListingTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L212>)
 
 ```go
 func (marketplace *Marketplace) BuyoutListingTo(ctx context.Context, listingId int, quantityDesired int, receiver string) (*types.Transaction, error)
@@ -71,7 +71,7 @@ receiver := "0x..."
 receipt, err := marketplace.BuyoutListingTo(context.Background(), listingId, quantityDesired, receiver)
 ```
 
-### func \(\*Marketplace\) [CancelListing](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L171)
+### func \(\*Marketplace\) [CancelListing](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L171>)
 
 ```go
 func (marketplace *Marketplace) CancelListing(ctx context.Context, listingId int) (*types.Transaction, error)
@@ -90,7 +90,7 @@ listingId := 0
 receipt, err := marketplace.CancelListing(context.Background(), listingId)
 ```
 
-### func \(\*Marketplace\) [CreateListing](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L279)
+### func \(\*Marketplace\) [CreateListing](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L279>)
 
 ```go
 func (marketplace *Marketplace) CreateListing(ctx context.Context, listing *NewDirectListing) (int, error)
@@ -118,7 +118,7 @@ listing := &NewDirectListing{
 listingId, err := marketplace.CreateListing(context.Background(), listing)
 ```
 
-### func \(\*Marketplace\) [GetActiveListings](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L106)
+### func \(\*Marketplace\) [GetActiveListings](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L106>)
 
 ```go
 func (marketplace *Marketplace) GetActiveListings(ctx context.Context, filter *MarketplaceFilter) ([]*DirectListing, error)
@@ -138,7 +138,7 @@ listings, err := marketplace.GetActiveListings(context.Background(), nil)
 listings[0].BuyoutCurrencyValuePerToken.DisplayValue
 ```
 
-### func \(\*Marketplace\) [GetAllListings](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L138)
+### func \(\*Marketplace\) [GetAllListings](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L138>)
 
 ```go
 func (marketplace *Marketplace) GetAllListings(ctx context.Context, filter *MarketplaceFilter) ([]*DirectListing, error)
@@ -158,7 +158,7 @@ listings, err := marketplace.GetAllListings(context.Background(), nil)
 listings[0].BuyoutCurrencyValuePerToken.DisplayValue
 ```
 
-### func \(\*Marketplace\) [GetListing](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L75)
+### func \(\*Marketplace\) [GetListing](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L75>)
 
 ```go
 func (marketplace *Marketplace) GetListing(ctx context.Context, listingId int) (*DirectListing, error)
@@ -177,7 +177,7 @@ listingId := 0
 listing, err := marketplace.GetListing(context.Background(), listingId)
 ```
 
-### func \(\*Marketplace\) [GetTotalCount](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L150)
+### func \(\*Marketplace\) [GetTotalCount](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace.go#L150>)
 
 ```go
 func (marketplace *Marketplace) GetTotalCount(ctx context.Context) (int, error)

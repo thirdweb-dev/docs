@@ -3,7 +3,6 @@ title: Thirdweb Python SDK
 hide_title: true
 displayed_sidebar: python
 ---
-
 <p align="center">
 <br />
 <a href="https://thirdweb.com"><img src="https://github.com/thirdweb-dev/typescript-sdk/blob/main/logo.svg?raw=true" width="200" alt=""/></a>
@@ -28,7 +27,6 @@ pip install thirdweb-sdk
 ## Getting Started
 
 To start using this SDK, you just need to pass in a provider configuration.
-
 ### Instantiating the SDK
 
 Once you have all the necessary dependencies, you can follow the following setup steps to get started with the SDK read-only functions:

@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `MarketplaceContractDeployMetadata` {#struct_thirdweb_1_1_marketplace_contract_deploy_metadata}
+# struct `MarketplaceContractDeployMetadata` {#struct_thirdweb_1_1_marketplace_contract_deploy_metadata}
 
 ### Summary
 

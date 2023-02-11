@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ERC20Reward` {#class_thirdweb_1_1_e_r_c20_reward}
+# class `ERC20Reward` {#class_thirdweb_1_1_e_r_c20_reward}
 
 ### Summary
 

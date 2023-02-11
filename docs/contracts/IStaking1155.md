@@ -4,8 +4,15 @@ title: IStaking1155
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # IStaking1155
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -17,10 +24,12 @@ function claimRewards(uint256 tokenId) external nonpayable
 
 Claim accumulated rewards.
 
+
+
 #### Parameters
 
-| Name    | Type    | Description      |
-| ------- | ------- | ---------------- |
+| Name | Type | Description |
+|---|---|---|
 | tokenId | uint256 | Staked token Id. |
 
 ### getStakeInfo
@@ -31,19 +40,21 @@ function getStakeInfo(address staker) external view returns (uint256[] _tokensSt
 
 View amount staked and total rewards for a user.
 
+
+
 #### Parameters
 
-| Name   | Type    | Description                              |
-| ------ | ------- | ---------------------------------------- |
+| Name | Type | Description |
+|---|---|---|
 | staker | address | Address for which to calculated rewards. |
 
 #### Returns
 
-| Name           | Type      | Description |
-| -------------- | --------- | ----------- |
-| \_tokensStaked | uint256[] | undefined   |
-| \_tokenAmounts | uint256[] | undefined   |
-| \_totalRewards | uint256   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _tokensStaked | uint256[] | undefined |
+| _tokenAmounts | uint256[] | undefined |
+| _totalRewards | uint256 | undefined |
 
 ### getStakeInfoForToken
 
@@ -53,19 +64,21 @@ function getStakeInfoForToken(uint256 tokenId, address staker) external view ret
 
 View amount staked and total rewards for a user.
 
+
+
 #### Parameters
 
-| Name    | Type    | Description                              |
-| ------- | ------- | ---------------------------------------- |
-| tokenId | uint256 | Staked token Id.                         |
-| staker  | address | Address for which to calculated rewards. |
+| Name | Type | Description |
+|---|---|---|
+| tokenId | uint256 | Staked token Id. |
+| staker | address | Address for which to calculated rewards. |
 
 #### Returns
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| \_tokensStaked | uint256 | undefined   |
-| \_rewards      | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _tokensStaked | uint256 | undefined |
+| _rewards | uint256 | undefined |
 
 ### stake
 
@@ -75,12 +88,14 @@ function stake(uint256 tokenId, uint256 amount) external nonpayable
 
 Stake ERC721 Tokens.
 
+
+
 #### Parameters
 
-| Name    | Type    | Description                |
-| ------- | ------- | -------------------------- |
+| Name | Type | Description |
+|---|---|---|
 | tokenId | uint256 | ERC1155 token-id to stake. |
-| amount  | uint256 | Amount to stake.           |
+| amount | uint256 | Amount to stake. |
 
 ### withdraw
 
@@ -90,12 +105,16 @@ function withdraw(uint256 tokenId, uint256 amount) external nonpayable
 
 Withdraw staked tokens.
 
+
+
 #### Parameters
 
-| Name    | Type    | Description                   |
-| ------- | ------- | ----------------------------- |
+| Name | Type | Description |
+|---|---|---|
 | tokenId | uint256 | ERC1155 token-id to withdraw. |
-| amount  | uint256 | Amount to withdraw.           |
+| amount | uint256 | Amount to withdraw. |
+
+
 
 ## Events
 
@@ -105,14 +124,16 @@ Withdraw staked tokens.
 event RewardsClaimed(address indexed staker, uint256 rewardAmount)
 ```
 
-_Emitted when a staker claims staking rewards._
+
+
+*Emitted when a staker claims staking rewards.*
 
 #### Parameters
 
-| Name             | Type    | Description |
-| ---------------- | ------- | ----------- |
-| staker `indexed` | address | undefined   |
-| rewardAmount     | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| staker `indexed` | address | undefined |
+| rewardAmount  | uint256 | undefined |
 
 ### TokensStaked
 
@@ -120,15 +141,17 @@ _Emitted when a staker claims staking rewards._
 event TokensStaked(address indexed staker, uint256 indexed tokenId, uint256 amount)
 ```
 
-_Emitted when tokens are staked._
+
+
+*Emitted when tokens are staked.*
 
 #### Parameters
 
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| staker `indexed`  | address | undefined   |
-| tokenId `indexed` | uint256 | undefined   |
-| amount            | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| staker `indexed` | address | undefined |
+| tokenId `indexed` | uint256 | undefined |
+| amount  | uint256 | undefined |
 
 ### TokensWithdrawn
 
@@ -136,15 +159,17 @@ _Emitted when tokens are staked._
 event TokensWithdrawn(address indexed staker, uint256 indexed tokenId, uint256 amount)
 ```
 
-_Emitted when a set of staked token-ids are withdrawn._
+
+
+*Emitted when a set of staked token-ids are withdrawn.*
 
 #### Parameters
 
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| staker `indexed`  | address | undefined   |
-| tokenId `indexed` | uint256 | undefined   |
-| amount            | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| staker `indexed` | address | undefined |
+| tokenId `indexed` | uint256 | undefined |
+| amount  | uint256 | undefined |
 
 ### UpdatedDefaultRewardsPerUnitTime
 
@@ -152,14 +177,16 @@ _Emitted when a set of staked token-ids are withdrawn._
 event UpdatedDefaultRewardsPerUnitTime(uint256 oldRewardsPerUnitTime, uint256 newRewardsPerUnitTime)
 ```
 
-_Emitted when contract admin updates rewardsPerUnitTime._
+
+
+*Emitted when contract admin updates rewardsPerUnitTime.*
 
 #### Parameters
 
-| Name                  | Type    | Description |
-| --------------------- | ------- | ----------- |
-| oldRewardsPerUnitTime | uint256 | undefined   |
-| newRewardsPerUnitTime | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| oldRewardsPerUnitTime  | uint256 | undefined |
+| newRewardsPerUnitTime  | uint256 | undefined |
 
 ### UpdatedDefaultTimeUnit
 
@@ -167,14 +194,16 @@ _Emitted when contract admin updates rewardsPerUnitTime._
 event UpdatedDefaultTimeUnit(uint256 oldTimeUnit, uint256 newTimeUnit)
 ```
 
-_Emitted when contract admin updates timeUnit._
+
+
+*Emitted when contract admin updates timeUnit.*
 
 #### Parameters
 
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| oldTimeUnit | uint256 | undefined   |
-| newTimeUnit | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| oldTimeUnit  | uint256 | undefined |
+| newTimeUnit  | uint256 | undefined |
 
 ### UpdatedRewardsPerUnitTime
 
@@ -182,15 +211,17 @@ _Emitted when contract admin updates timeUnit._
 event UpdatedRewardsPerUnitTime(uint256 indexed _tokenId, uint256 oldRewardsPerUnitTime, uint256 newRewardsPerUnitTime)
 ```
 
-_Emitted when contract admin updates rewardsPerUnitTime._
+
+
+*Emitted when contract admin updates rewardsPerUnitTime.*
 
 #### Parameters
 
-| Name                  | Type    | Description |
-| --------------------- | ------- | ----------- |
-| \_tokenId `indexed`   | uint256 | undefined   |
-| oldRewardsPerUnitTime | uint256 | undefined   |
-| newRewardsPerUnitTime | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _tokenId `indexed` | uint256 | undefined |
+| oldRewardsPerUnitTime  | uint256 | undefined |
+| newRewardsPerUnitTime  | uint256 | undefined |
 
 ### UpdatedTimeUnit
 
@@ -198,12 +229,16 @@ _Emitted when contract admin updates rewardsPerUnitTime._
 event UpdatedTimeUnit(uint256 indexed _tokenId, uint256 oldTimeUnit, uint256 newTimeUnit)
 ```
 
-_Emitted when contract admin updates timeUnit._
+
+
+*Emitted when contract admin updates timeUnit.*
 
 #### Parameters
 
-| Name                | Type    | Description |
-| ------------------- | ------- | ----------- |
-| \_tokenId `indexed` | uint256 | undefined   |
-| oldTimeUnit         | uint256 | undefined   |
-| newTimeUnit         | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _tokenId `indexed` | uint256 | undefined |
+| oldTimeUnit  | uint256 | undefined |
+| newTimeUnit  | uint256 | undefined |
+
+

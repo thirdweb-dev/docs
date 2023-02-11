@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `NewListing` {#class_thirdweb_1_1_new_listing}
+# class `NewListing` {#class_thirdweb_1_1_new_listing}
 
 ### Summary
 

@@ -4,10 +4,9 @@ title: ContractPrimarySale Objects
 hide_title: true
 displayed_sidebar: python
 ---
-
 <a id="core.classes.contract_sales"></a>
 
-# core.classes.contract_sales
+# core.classes.contract\_sales
 
 <a id="core.classes.contract_sales.ContractPrimarySale"></a>
 
@@ -19,7 +18,7 @@ class ContractPrimarySale(Generic[TPrimarySaleABI])
 
 <a id="core.classes.contract_sales.ContractPrimarySale.get_recipient"></a>
 
-#### get_recipient
+#### get\_recipient
 
 ```python
 def get_recipient() -> str
@@ -33,7 +32,7 @@ the address of the primary sale recipient.
 
 <a id="core.classes.contract_sales.ContractPrimarySale.set_recipient"></a>
 
-#### set_recipient
+#### set\_recipient
 
 ```python
 def set_recipient(recipient: str) -> TxReceipt

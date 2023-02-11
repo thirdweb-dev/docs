@@ -4,10 +4,15 @@ title: Upgradeable
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # Upgradeable
 
-_An upgradeability mechanism designed for UUPS proxies. The functions included here can perform an upgrade of an {ERC1967Proxy}, when this contract is set as the implementation behind such a proxy. A security mechanism ensures that an upgrade does not turn off upgradeability accidentally, although this risk is reinstated if the upgrade retains upgradeability but removes the security mechanism, e.g. by replacing `UUPSUpgradeable` with a custom implementation of upgrades. The {*authorizeUpgrade} function must be overridden to include access restriction to the upgrade mechanism. \_Available since v4.1.*_
+
+
+
+
+
+
+*An upgradeability mechanism designed for UUPS proxies. The functions included here can perform an upgrade of an {ERC1967Proxy}, when this contract is set as the implementation behind such a proxy. A security mechanism ensures that an upgrade does not turn off upgradeability accidentally, although this risk is reinstated if the upgrade retains upgradeability but removes the security mechanism, e.g. by replacing `UUPSUpgradeable` with a custom implementation of upgrades. The {_authorizeUpgrade} function must be overridden to include access restriction to the upgrade mechanism. _Available since v4.1._*
 
 ## Methods
 
@@ -17,13 +22,16 @@ _An upgradeability mechanism designed for UUPS proxies. The functions included h
 function proxiableUUID() external view returns (bytes32)
 ```
 
-_Implementation of the ERC1822 {proxiableUUID} function. This returns the storage slot used by the implementation. It is used to validate that the this implementation remains valid after an upgrade. IMPORTANT: A proxy pointing at a proxiable contract should not be considered proxiable itself, because this risks bricking a proxy that upgrades to it, by delegating to itself until out of gas. Thus it is critical that this function revert if invoked through a proxy. This is guaranteed by the `notDelegated` modifier._
+
+
+*Implementation of the ERC1822 {proxiableUUID} function. This returns the storage slot used by the implementation. It is used to validate that the this implementation remains valid after an upgrade. IMPORTANT: A proxy pointing at a proxiable contract should not be considered proxiable itself, because this risks bricking a proxy that upgrades to it, by delegating to itself until out of gas. Thus it is critical that this function revert if invoked through a proxy. This is guaranteed by the `notDelegated` modifier.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes32 | undefined |
 
 ### upgradeTo
 
@@ -31,13 +39,15 @@ _Implementation of the ERC1822 {proxiableUUID} function. This returns the storag
 function upgradeTo(address newImplementation) external nonpayable
 ```
 
-_Upgrade the implementation of the proxy to `newImplementation`. Calls {\_authorizeUpgrade}. Emits an {Upgraded} event._
+
+
+*Upgrade the implementation of the proxy to `newImplementation`. Calls {_authorizeUpgrade}. Emits an {Upgraded} event.*
 
 #### Parameters
 
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| newImplementation | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| newImplementation | address | undefined |
 
 ### upgradeToAndCall
 
@@ -45,14 +55,18 @@ _Upgrade the implementation of the proxy to `newImplementation`. Calls {\_author
 function upgradeToAndCall(address newImplementation, bytes data) external payable
 ```
 
-_Upgrade the implementation of the proxy to `newImplementation`, and subsequently execute the function call encoded in `data`. Calls {\_authorizeUpgrade}. Emits an {Upgraded} event._
+
+
+*Upgrade the implementation of the proxy to `newImplementation`, and subsequently execute the function call encoded in `data`. Calls {_authorizeUpgrade}. Emits an {Upgraded} event.*
 
 #### Parameters
 
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| newImplementation | address | undefined   |
-| data              | bytes   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| newImplementation | address | undefined |
+| data | bytes | undefined |
+
+
 
 ## Events
 
@@ -62,12 +76,16 @@ _Upgrade the implementation of the proxy to `newImplementation`, and subsequentl
 event AdminChanged(address previousAdmin, address newAdmin)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name          | Type    | Description |
-| ------------- | ------- | ----------- |
-| previousAdmin | address | undefined   |
-| newAdmin      | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| previousAdmin  | address | undefined |
+| newAdmin  | address | undefined |
 
 ### BeaconUpgraded
 
@@ -75,11 +93,15 @@ event AdminChanged(address previousAdmin, address newAdmin)
 event BeaconUpgraded(address indexed beacon)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name             | Type    | Description |
-| ---------------- | ------- | ----------- |
-| beacon `indexed` | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| beacon `indexed` | address | undefined |
 
 ### Upgraded
 
@@ -87,8 +109,14 @@ event BeaconUpgraded(address indexed beacon)
 event Upgraded(address indexed implementation)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                     | Type    | Description |
-| ------------------------ | ------- | ----------- |
-| implementation `indexed` | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| implementation `indexed` | address | undefined |
+
+
