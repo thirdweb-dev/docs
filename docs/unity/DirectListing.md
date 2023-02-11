@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `DirectListing` {#class_thirdweb_1_1_direct_listing}
+# class `DirectListing` {#class_thirdweb_1_1_direct_listing}
 
 ```
 class DirectListing

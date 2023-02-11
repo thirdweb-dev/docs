@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `WalletProvider` {#class_thirdweb_1_1_wallet_provider}
+# class `WalletProvider` {#class_thirdweb_1_1_wallet_provider}
 
 ### Summary
 

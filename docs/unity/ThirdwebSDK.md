@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ThirdwebSDK` {#class_thirdweb_1_1_thirdweb_s_d_k}
+# class `ThirdwebSDK` {#class_thirdweb_1_1_thirdweb_s_d_k}
 
 The entry point for the thirdweb SDK.
 

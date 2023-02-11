@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `LoginPayload` {#struct_thirdweb_1_1_login_payload}
+# struct `LoginPayload` {#struct_thirdweb_1_1_login_payload}
 
 ### Summary
 
