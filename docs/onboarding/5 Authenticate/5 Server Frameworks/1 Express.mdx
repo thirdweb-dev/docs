@@ -10,7 +10,7 @@ This page will help you get started with Auth using the [Express.js](https://exp
 To add support for Auth to your Express.js backend, you'll need to install the `@thirdweb-dev/auth` package as well as its peer dependencies (as well as any other packages you'll need for your [wallet configuration](/auth/wallet-configuration), we'll need the `ethers` package for this example as we'll be using the `PrivateKeyWallet`):
 
 ```bash npm2yarn
-npm install @thirdweb-dev/auth cookie-parser ethers
+npm install @thirdweb-dev/auth cookie-parser ethers@5
 ```
 
 Now we can setup our Express.js server by using the `@thirdweb-dev/auth/express` entrypoint. First, we need to setup our [Auth API](/auth/how-auth-works/auth-api) by adding the auth router to our app:
