@@ -4,10 +4,15 @@ title: IERC2981Upgradeable
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # IERC2981Upgradeable
 
-_Interface for the NFT Royalty Standard. A standardized way to retrieve royalty payment information for non-fungible tokens (NFTs) to enable universal support for royalty payments across all NFT marketplaces and ecosystem participants. *Available since v4.5.*_
+
+
+
+
+
+
+*Interface for the NFT Royalty Standard. A standardized way to retrieve royalty payment information for non-fungible tokens (NFTs) to enable universal support for royalty payments across all NFT marketplaces and ecosystem participants. _Available since v4.5._*
 
 ## Methods
 
@@ -17,21 +22,23 @@ _Interface for the NFT Royalty Standard. A standardized way to retrieve royalty 
 function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (address receiver, uint256 royaltyAmount)
 ```
 
-_Returns how much royalty is owed and to whom, based on a sale price that may be denominated in any unit of exchange. The royalty amount is denominated and should be paid in that same unit of exchange._
+
+
+*Returns how much royalty is owed and to whom, based on a sale price that may be denominated in any unit of exchange. The royalty amount is denominated and should be paid in that same unit of exchange.*
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| tokenId   | uint256 | undefined   |
-| salePrice | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| tokenId | uint256 | undefined |
+| salePrice | uint256 | undefined |
 
 #### Returns
 
-| Name          | Type    | Description |
-| ------------- | ------- | ----------- |
-| receiver      | address | undefined   |
-| royaltyAmount | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| receiver | address | undefined |
+| royaltyAmount | uint256 | undefined |
 
 ### supportsInterface
 
@@ -39,16 +46,21 @@ _Returns how much royalty is owed and to whom, based on a sale price that may be
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
-_Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas._
+
+
+*Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas.*
 
 #### Parameters
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| interfaceId | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| interfaceId | bytes4 | undefined |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
+
+
+

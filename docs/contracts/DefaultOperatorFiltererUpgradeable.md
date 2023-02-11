@@ -4,8 +4,15 @@ title: DefaultOperatorFiltererUpgradeable
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # DefaultOperatorFiltererUpgradeable
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,11 +22,16 @@ displayed_sidebar: contracts
 function operatorRestriction() external view returns (bool)
 ```
 
+
+
+
+
+
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### setOperatorRestriction
 
@@ -27,11 +39,17 @@ function operatorRestriction() external view returns (bool)
 function setOperatorRestriction(bool _restriction) external nonpayable
 ```
 
+
+
+
+
 #### Parameters
 
-| Name          | Type | Description |
-| ------------- | ---- | ----------- |
-| \_restriction | bool | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _restriction | bool | undefined |
+
+
 
 ## Events
 
@@ -41,11 +59,17 @@ function setOperatorRestriction(bool _restriction) external nonpayable
 event OperatorRestriction(bool restriction)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name        | Type | Description |
-| ----------- | ---- | ----------- |
-| restriction | bool | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| restriction  | bool | undefined |
+
+
 
 ## Errors
 
@@ -55,8 +79,13 @@ event OperatorRestriction(bool restriction)
 error OperatorNotAllowed(address operator)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| operator | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| operator | address | undefined |
+

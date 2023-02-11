@@ -3,7 +3,6 @@ title: Thirdweb Storage SDK
 hide_title: true
 displayed_sidebar: storage
 ---
-
 <p align="center">
 <br />
 <a href="https://thirdweb.com"><img src="https://github.com/thirdweb-dev/js/blob/main/packages/sdk/logo.svg?raw=true" width="200" alt=""/></a>

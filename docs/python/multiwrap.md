@@ -4,7 +4,6 @@ title: Multiwrap Objects
 hide_title: true
 displayed_sidebar: python
 ---
-
 <a id="contracts.multiwrap"></a>
 
 # contracts.multiwrap
@@ -37,7 +36,7 @@ contract = sdk.get_multiwrap("{{contract_address}}")
 
 <a id="contracts.multiwrap.Multiwrap.get_wrapped_contents"></a>
 
-#### get_wrapped_contents
+#### get\_wrapped\_contents
 
 ```python
 def get_wrapped_contents(wrapped_token_id: int) -> WrappedTokens
@@ -52,7 +51,6 @@ Get the contents of a wrapped token bundle
 **Returns**:
 
 The contents of the wrapped token bundle
-
 ```python
 token_id = 0
 contents = contract.get_wrapped_contents(token_id)
@@ -84,7 +82,6 @@ Wrap any number of ERC20, ERC721, or ERC1155 tokens into a single wrapped token
 **Returns**:
 
 The transaction receipt of the token wrapping
-
 ```python
 from thirdweb.types import (
     TokensToWrap,
@@ -137,7 +134,6 @@ Unwrap a wrapped token bundle
 **Returns**:
 
 The transaction receipt of the token unwrapping
-
 ```python
 tx = contract.unwrap(wrapped_token_id, receipientAddress)
 ```

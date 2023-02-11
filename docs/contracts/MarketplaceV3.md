@@ -4,10 +4,15 @@ title: MarketplaceV3
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # MarketplaceV3
 
-_thirdweb.com_
+*thirdweb.com*
+
+
+
+
+
+
 
 ## Methods
 
@@ -17,31 +22,38 @@ _thirdweb.com_
 function DEFAULT_ADMIN_ROLE() external view returns (bytes32)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes32 | undefined |
 
-### \_getPluginForFunction
+### _getPluginForFunction
 
 ```solidity
 function _getPluginForFunction(bytes4 _selector) external view returns (address)
 ```
 
-_View address of the plugged-in functionality contract for a given function signature._
+
+
+*View address of the plugged-in functionality contract for a given function signature.*
 
 #### Parameters
 
-| Name       | Type   | Description |
-| ---------- | ------ | ----------- |
-| \_selector | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _selector | bytes4 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
 
 ### addPlugin
 
@@ -49,11 +61,15 @@ _View address of the plugged-in functionality contract for a given function sign
 function addPlugin(IPluginMap.Plugin _plugin) external nonpayable
 ```
 
+
+
+
+
 #### Parameters
 
-| Name     | Type              | Description |
-| -------- | ----------------- | ----------- |
-| \_plugin | IPluginMap.Plugin | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _plugin | IPluginMap.Plugin | undefined |
 
 ### contractType
 
@@ -61,13 +77,16 @@ function addPlugin(IPluginMap.Plugin _plugin) external nonpayable
 function contractType() external pure returns (bytes32)
 ```
 
-_Returns the type of the contract._
+
+
+*Returns the type of the contract.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes32 | undefined |
 
 ### contractURI
 
@@ -75,13 +94,16 @@ _Returns the type of the contract._
 function contractURI() external view returns (string)
 ```
 
-_Returns the metadata URI of the contract._
+
+
+*Returns the metadata URI of the contract.*
+
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined |
 
 ### contractVersion
 
@@ -89,13 +111,16 @@ _Returns the metadata URI of the contract._
 function contractVersion() external pure returns (uint8)
 ```
 
-_Returns the version of the contract._
+
+
+*Returns the version of the contract.*
+
 
 #### Returns
 
-| Name | Type  | Description |
-| ---- | ----- | ----------- |
-| \_0  | uint8 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint8 | undefined |
 
 ### getAllFunctionsOfPlugin
 
@@ -103,19 +128,21 @@ _Returns the version of the contract._
 function getAllFunctionsOfPlugin(address _pluginAddress) external view returns (bytes4[] registered)
 ```
 
-_View all funtionality as list of function signatures._
+
+
+*View all funtionality as list of function signatures.*
 
 #### Parameters
 
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| \_pluginAddress | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _pluginAddress | address | undefined |
 
 #### Returns
 
-| Name       | Type     | Description |
-| ---------- | -------- | ----------- |
-| registered | bytes4[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| registered | bytes4[] | undefined |
 
 ### getAllPlugins
 
@@ -123,13 +150,16 @@ _View all funtionality as list of function signatures._
 function getAllPlugins() external view returns (struct IPluginMap.Plugin[] registered)
 ```
 
-_View all funtionality existing on the contract._
+
+
+*View all funtionality existing on the contract.*
+
 
 #### Returns
 
-| Name       | Type                | Description |
-| ---------- | ------------------- | ----------- |
-| registered | IPluginMap.Plugin[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| registered | IPluginMap.Plugin[] | undefined |
 
 ### getPlatformFeeInfo
 
@@ -137,14 +167,17 @@ _View all funtionality existing on the contract._
 function getPlatformFeeInfo() external view returns (address, uint16)
 ```
 
-_Returns the platform fee recipient and bps._
+
+
+*Returns the platform fee recipient and bps.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint16  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
+| _1 | uint16 | undefined |
 
 ### getPluginForFunction
 
@@ -152,19 +185,21 @@ _Returns the platform fee recipient and bps._
 function getPluginForFunction(bytes4 _selector) external view returns (address)
 ```
 
-_View address of the plugged-in functionality contract for a given function signature._
+
+
+*View address of the plugged-in functionality contract for a given function signature.*
 
 #### Parameters
 
-| Name       | Type   | Description |
-| ---------- | ------ | ----------- |
-| \_selector | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _selector | bytes4 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
 
 ### getRoleAdmin
 
@@ -174,19 +209,19 @@ function getRoleAdmin(bytes32 role) external view returns (bytes32)
 
 Returns the admin role that controls the specified role.
 
-_See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {\_setRoleAdmin}._
+*See {grantRole} and {revokeRole}.                  To change a role&#39;s admin, use {_setRoleAdmin}.*
 
 #### Parameters
 
-| Name | Type    | Description                                                           |
-| ---- | ------- | --------------------------------------------------------------------- |
+| Name | Type | Description |
+|---|---|---|
 | role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes32 | undefined |
 
 ### getRoleMember
 
@@ -194,22 +229,22 @@ _See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {\_setRoleA
 function getRoleMember(bytes32 role, uint256 index) external view returns (address member)
 ```
 
-Returns the role-member from a list of members for a role, at a given index.
+Returns the role-member from a list of members for a role,                  at a given index.
 
-_Returns `member` who has `role`, at `index` of role-members list. See struct {RoleMembers}, and mapping {roleMembers}_
+*Returns `member` who has `role`, at `index` of role-members list.                  See struct {RoleMembers}, and mapping {roleMembers}*
 
 #### Parameters
 
-| Name  | Type    | Description                                                           |
-| ----- | ------- | --------------------------------------------------------------------- |
-| role  | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
-| index | uint256 | Index in list of current members for the role.                        |
+| Name | Type | Description |
+|---|---|---|
+| role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| index | uint256 | Index in list of current members for the role. |
 
 #### Returns
 
-| Name   | Type    | Description                        |
-| ------ | ------- | ---------------------------------- |
-| member | address | Address of account that has `role` |
+| Name | Type | Description |
+|---|---|---|
+| member | address |  Address of account that has `role` |
 
 ### getRoleMemberCount
 
@@ -219,19 +254,19 @@ function getRoleMemberCount(bytes32 role) external view returns (uint256 count)
 
 Returns total number of accounts that have a role.
 
-_Returns `count` of accounts that have `role`. See struct {RoleMembers}, and mapping {roleMembers}_
+*Returns `count` of accounts that have `role`.                  See struct {RoleMembers}, and mapping {roleMembers}*
 
 #### Parameters
 
-| Name | Type    | Description                                                           |
-| ---- | ------- | --------------------------------------------------------------------- |
+| Name | Type | Description |
+|---|---|---|
 | role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
 #### Returns
 
-| Name  | Type    | Description                               |
-| ----- | ------- | ----------------------------------------- |
-| count | uint256 | Total number of accounts that have `role` |
+| Name | Type | Description |
+|---|---|---|
+| count | uint256 |   Total number of accounts that have `role` |
 
 ### grantRole
 
@@ -241,14 +276,14 @@ function grantRole(bytes32 role, address account) external nonpayable
 
 Grants a role to an account, if not previously granted.
 
-_Caller must have admin role for the `role`. Emits {RoleGranted Event}._
+*Caller must have admin role for the `role`.                  Emits {RoleGranted Event}.*
 
 #### Parameters
 
-| Name    | Type    | Description                                                           |
-| ------- | ------- | --------------------------------------------------------------------- |
-| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
-| account | address | Address of the account to which the role is being granted.            |
+| Name | Type | Description |
+|---|---|---|
+| role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account to which the role is being granted. |
 
 ### hasRole
 
@@ -258,20 +293,20 @@ function hasRole(bytes32 role, address account) external view returns (bool)
 
 Checks whether an account has a particular role.
 
-_Returns `true` if `account` has been granted `role`._
+*Returns `true` if `account` has been granted `role`.*
 
 #### Parameters
 
-| Name    | Type    | Description                                                           |
-| ------- | ------- | --------------------------------------------------------------------- |
-| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
-| account | address | Address of the account for which the role is being checked.           |
+| Name | Type | Description |
+|---|---|---|
+| role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account for which the role is being checked. |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### hasRoleWithSwitch
 
@@ -279,22 +314,22 @@ _Returns `true` if `account` has been granted `role`._
 function hasRoleWithSwitch(bytes32 role, address account) external view returns (bool)
 ```
 
-Checks whether an account has a particular role; role restrictions can be swtiched on and off.
+Checks whether an account has a particular role;                  role restrictions can be swtiched on and off.
 
-_Returns `true` if `account` has been granted `role`. Role restrictions can be swtiched on and off: - If address(0) has ROLE, then the ROLE restrictions don&#39;t apply. - If address(0) does not have ROLE, then the ROLE restrictions will apply._
+*Returns `true` if `account` has been granted `role`.                  Role restrictions can be swtiched on and off:                      - If address(0) has ROLE, then the ROLE restrictions                        don&#39;t apply.                      - If address(0) does not have ROLE, then the ROLE                        restrictions will apply.*
 
 #### Parameters
 
-| Name    | Type    | Description                                                           |
-| ------- | ------- | --------------------------------------------------------------------- |
-| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
-| account | address | Address of the account for which the role is being checked.           |
+| Name | Type | Description |
+|---|---|---|
+| role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account for which the role is being checked. |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### initialize
 
@@ -302,17 +337,19 @@ _Returns `true` if `account` has been granted `role`. Role restrictions can be s
 function initialize(address _defaultAdmin, string _contractURI, address[] _trustedForwarders, address _platformFeeRecipient, uint16 _platformFeeBps) external nonpayable
 ```
 
-_Initiliazes the contract, like a constructor._
+
+
+*Initiliazes the contract, like a constructor.*
 
 #### Parameters
 
-| Name                   | Type      | Description |
-| ---------------------- | --------- | ----------- |
-| \_defaultAdmin         | address   | undefined   |
-| \_contractURI          | string    | undefined   |
-| \_trustedForwarders    | address[] | undefined   |
-| \_platformFeeRecipient | address   | undefined   |
-| \_platformFeeBps       | uint16    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _defaultAdmin | address | undefined |
+| _contractURI | string | undefined |
+| _trustedForwarders | address[] | undefined |
+| _platformFeeRecipient | address | undefined |
+| _platformFeeBps | uint16 | undefined |
 
 ### isTrustedForwarder
 
@@ -320,17 +357,21 @@ _Initiliazes the contract, like a constructor._
 function isTrustedForwarder(address forwarder) external view returns (bool)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| forwarder | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| forwarder | address | undefined |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### multicall
 
@@ -340,18 +381,18 @@ function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 
 Receives and executes a batch of function calls on this contract.
 
-_Receives and executes a batch of function calls on this contract._
+*Receives and executes a batch of function calls on this contract.*
 
 #### Parameters
 
-| Name | Type    | Description                                                          |
-| ---- | ------- | -------------------------------------------------------------------- |
+| Name | Type | Description |
+|---|---|---|
 | data | bytes[] | The bytes data that makes up the batch of function calls to execute. |
 
 #### Returns
 
-| Name    | Type    | Description                                                                      |
-| ------- | ------- | -------------------------------------------------------------------------------- |
+| Name | Type | Description |
+|---|---|---|
 | results | bytes[] | The bytes data that makes up the result of the batch of function calls executed. |
 
 ### onERC1155BatchReceived
@@ -360,21 +401,25 @@ _Receives and executes a batch of function calls on this contract._
 function onERC1155BatchReceived(address, address, uint256[], uint256[], bytes) external nonpayable returns (bytes4)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| \_0  | address   | undefined   |
-| \_1  | address   | undefined   |
-| \_2  | uint256[] | undefined   |
-| \_3  | uint256[] | undefined   |
-| \_4  | bytes     | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
+| _1 | address | undefined |
+| _2 | uint256[] | undefined |
+| _3 | uint256[] | undefined |
+| _4 | bytes | undefined |
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes4 | undefined |
 
 ### onERC1155Received
 
@@ -382,21 +427,25 @@ function onERC1155BatchReceived(address, address, uint256[], uint256[], bytes) e
 function onERC1155Received(address, address, uint256, uint256, bytes) external nonpayable returns (bytes4)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | address | undefined   |
-| \_2  | uint256 | undefined   |
-| \_3  | uint256 | undefined   |
-| \_4  | bytes   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
+| _1 | address | undefined |
+| _2 | uint256 | undefined |
+| _3 | uint256 | undefined |
+| _4 | bytes | undefined |
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes4 | undefined |
 
 ### onERC721Received
 
@@ -404,20 +453,24 @@ function onERC1155Received(address, address, uint256, uint256, bytes) external n
 function onERC721Received(address, address, uint256, bytes) external pure returns (bytes4)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | address | undefined   |
-| \_2  | uint256 | undefined   |
-| \_3  | bytes   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
+| _1 | address | undefined |
+| _2 | uint256 | undefined |
+| _3 | bytes | undefined |
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes4 | undefined |
 
 ### pluginMap
 
@@ -425,11 +478,16 @@ function onERC721Received(address, address, uint256, bytes) external pure return
 function pluginMap() external view returns (address)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
 
 ### removePlugin
 
@@ -437,13 +495,15 @@ function pluginMap() external view returns (address)
 function removePlugin(bytes4 _selector) external nonpayable
 ```
 
-_Remove existing functionality from the contract._
+
+
+*Remove existing functionality from the contract.*
 
 #### Parameters
 
-| Name       | Type   | Description |
-| ---------- | ------ | ----------- |
-| \_selector | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _selector | bytes4 | undefined |
 
 ### renounceRole
 
@@ -453,14 +513,14 @@ function renounceRole(bytes32 role, address account) external nonpayable
 
 Revokes role from the account.
 
-_Caller must have the `role`, with caller being the same as `account`. Emits {RoleRevoked Event}._
+*Caller must have the `role`, with caller being the same as `account`.                  Emits {RoleRevoked Event}.*
 
 #### Parameters
 
-| Name    | Type    | Description                                                           |
-| ------- | ------- | --------------------------------------------------------------------- |
-| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
-| account | address | Address of the account from which the role is being revoked.          |
+| Name | Type | Description |
+|---|---|---|
+| role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account from which the role is being revoked. |
 
 ### revokeRole
 
@@ -470,14 +530,14 @@ function revokeRole(bytes32 role, address account) external nonpayable
 
 Revokes role from an account.
 
-_Caller must have admin role for the `role`. Emits {RoleRevoked Event}._
+*Caller must have admin role for the `role`.                  Emits {RoleRevoked Event}.*
 
 #### Parameters
 
-| Name    | Type    | Description                                                           |
-| ------- | ------- | --------------------------------------------------------------------- |
-| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
-| account | address | Address of the account from which the role is being revoked.          |
+| Name | Type | Description |
+|---|---|---|
+| role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account from which the role is being revoked. |
 
 ### setContractURI
 
@@ -487,13 +547,13 @@ function setContractURI(string _uri) external nonpayable
 
 Lets a contract admin set the URI for contract-level metadata.
 
-_Caller should be authorized to setup contractURI, e.g. contract admin. See {\_canSetContractURI}. Emits {ContractURIUpdated Event}._
+*Caller should be authorized to setup contractURI, e.g. contract admin.                  See {_canSetContractURI}.                  Emits {ContractURIUpdated Event}.*
 
 #### Parameters
 
-| Name  | Type   | Description                                                           |
-| ----- | ------ | --------------------------------------------------------------------- |
-| \_uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| Name | Type | Description |
+|---|---|---|
+| _uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
 ### setPlatformFeeInfo
 
@@ -503,14 +563,14 @@ function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeB
 
 Updates the platform fee recipient and bps.
 
-_Caller should be authorized to set platform fee info. See {\_canSetPlatformFeeInfo}. Emits {PlatformFeeInfoUpdated Event}; See {\_setupPlatformFeeInfo}._
+*Caller should be authorized to set platform fee info.                  See {_canSetPlatformFeeInfo}.                  Emits {PlatformFeeInfoUpdated Event}; See {_setupPlatformFeeInfo}.*
 
 #### Parameters
 
-| Name                   | Type    | Description                                    |
-| ---------------------- | ------- | ---------------------------------------------- |
-| \_platformFeeRecipient | address | Address to be set as new platformFeeRecipient. |
-| \_platformFeeBps       | uint256 | Updated platformFeeBps.                        |
+| Name | Type | Description |
+|---|---|---|
+| _platformFeeRecipient | address | Address to be set as new platformFeeRecipient. |
+| _platformFeeBps | uint256 | Updated platformFeeBps. |
 
 ### supportsInterface
 
@@ -518,17 +578,21 @@ _Caller should be authorized to set platform fee info. See {\_canSetPlatformFeeI
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| interfaceId | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| interfaceId | bytes4 | undefined |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### updatePlugin
 
@@ -536,11 +600,17 @@ function supportsInterface(bytes4 interfaceId) external view returns (bool)
 function updatePlugin(IPluginMap.Plugin _plugin) external nonpayable
 ```
 
+
+
+
+
 #### Parameters
 
-| Name     | Type              | Description |
-| -------- | ----------------- | ----------- |
-| \_plugin | IPluginMap.Plugin | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _plugin | IPluginMap.Plugin | undefined |
+
+
 
 ## Events
 
@@ -550,12 +620,16 @@ function updatePlugin(IPluginMap.Plugin _plugin) external nonpayable
 event ContractURIUpdated(string prevURI, string newURI)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name    | Type   | Description |
-| ------- | ------ | ----------- |
-| prevURI | string | undefined   |
-| newURI  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| prevURI  | string | undefined |
+| newURI  | string | undefined |
 
 ### PlatformFeeInfoUpdated
 
@@ -563,12 +637,16 @@ event ContractURIUpdated(string prevURI, string newURI)
 event PlatformFeeInfoUpdated(address indexed platformFeeRecipient, uint256 platformFeeBps)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                           | Type    | Description |
-| ------------------------------ | ------- | ----------- |
-| platformFeeRecipient `indexed` | address | undefined   |
-| platformFeeBps                 | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| platformFeeRecipient `indexed` | address | undefined |
+| platformFeeBps  | uint256 | undefined |
 
 ### PluginAdded
 
@@ -576,12 +654,16 @@ event PlatformFeeInfoUpdated(address indexed platformFeeRecipient, uint256 platf
 event PluginAdded(bytes4 indexed functionSelector, address indexed pluginAddress)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                       | Type    | Description |
-| -------------------------- | ------- | ----------- |
-| functionSelector `indexed` | bytes4  | undefined   |
-| pluginAddress `indexed`    | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| functionSelector `indexed` | bytes4 | undefined |
+| pluginAddress `indexed` | address | undefined |
 
 ### PluginRemoved
 
@@ -589,12 +671,16 @@ event PluginAdded(bytes4 indexed functionSelector, address indexed pluginAddress
 event PluginRemoved(bytes4 indexed functionSelector, address indexed pluginAddress)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                       | Type    | Description |
-| -------------------------- | ------- | ----------- |
-| functionSelector `indexed` | bytes4  | undefined   |
-| pluginAddress `indexed`    | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| functionSelector `indexed` | bytes4 | undefined |
+| pluginAddress `indexed` | address | undefined |
 
 ### PluginSet
 
@@ -602,13 +688,17 @@ event PluginRemoved(bytes4 indexed functionSelector, address indexed pluginAddre
 event PluginSet(bytes4 indexed functionSelector, string indexed functionSignature, address indexed pluginAddress)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                        | Type    | Description |
-| --------------------------- | ------- | ----------- |
-| functionSelector `indexed`  | bytes4  | undefined   |
-| functionSignature `indexed` | string  | undefined   |
-| pluginAddress `indexed`     | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| functionSelector `indexed` | bytes4 | undefined |
+| functionSignature `indexed` | string | undefined |
+| pluginAddress `indexed` | address | undefined |
 
 ### PluginUpdated
 
@@ -616,13 +706,17 @@ event PluginSet(bytes4 indexed functionSelector, string indexed functionSignatur
 event PluginUpdated(bytes4 indexed functionSelector, address indexed oldPluginAddress, address indexed newPluginAddress)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                       | Type    | Description |
-| -------------------------- | ------- | ----------- |
-| functionSelector `indexed` | bytes4  | undefined   |
-| oldPluginAddress `indexed` | address | undefined   |
-| newPluginAddress `indexed` | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| functionSelector `indexed` | bytes4 | undefined |
+| oldPluginAddress `indexed` | address | undefined |
+| newPluginAddress `indexed` | address | undefined |
 
 ### RoleAdminChanged
 
@@ -630,13 +724,17 @@ event PluginUpdated(bytes4 indexed functionSelector, address indexed oldPluginAd
 event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                        | Type    | Description |
-| --------------------------- | ------- | ----------- |
-| role `indexed`              | bytes32 | undefined   |
-| previousAdminRole `indexed` | bytes32 | undefined   |
-| newAdminRole `indexed`      | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| role `indexed` | bytes32 | undefined |
+| previousAdminRole `indexed` | bytes32 | undefined |
+| newAdminRole `indexed` | bytes32 | undefined |
 
 ### RoleGranted
 
@@ -644,13 +742,17 @@ event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, 
 event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| role `indexed`    | bytes32 | undefined   |
-| account `indexed` | address | undefined   |
-| sender `indexed`  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| role `indexed` | bytes32 | undefined |
+| account `indexed` | address | undefined |
+| sender `indexed` | address | undefined |
 
 ### RoleRevoked
 
@@ -658,10 +760,16 @@ event RoleGranted(bytes32 indexed role, address indexed account, address indexed
 event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| role `indexed`    | bytes32 | undefined   |
-| account `indexed` | address | undefined   |
-| sender `indexed`  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| role `indexed` | bytes32 | undefined |
+| account `indexed` | address | undefined |
+| sender `indexed` | address | undefined |
+
+

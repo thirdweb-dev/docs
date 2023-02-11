@@ -4,14 +4,15 @@ title: PlatformFeeLogic
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # PlatformFeeLogic
 
-_thirdweb.com_
+*thirdweb.com*
 
 > Platform Fee
 
-Thirdweb&#39;s `PlatformFee` is a contract extension to be used with any base contract. It exposes functions for setting and reading the recipient of platform fee and the platform fee basis points, and lets the inheriting contract perform conditional logic that uses information about platform fees, if desired.
+Thirdweb&#39;s `PlatformFee` is a contract extension to be used with any base contract. It exposes functions for setting and reading           the recipient of platform fee and the platform fee basis points, and lets the inheriting contract perform conditional logic           that uses information about platform fees, if desired.
+
+
 
 ## Methods
 
@@ -21,14 +22,17 @@ Thirdweb&#39;s `PlatformFee` is a contract extension to be used with any base co
 function getPlatformFeeInfo() external view returns (address, uint16)
 ```
 
-_Returns the platform fee recipient and bps._
+
+
+*Returns the platform fee recipient and bps.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint16  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
+| _1 | uint16 | undefined |
 
 ### setPlatformFeeInfo
 
@@ -38,14 +42,16 @@ function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeB
 
 Updates the platform fee recipient and bps.
 
-_Caller should be authorized to set platform fee info. See {\_canSetPlatformFeeInfo}. Emits {PlatformFeeInfoUpdated Event}; See {\_setupPlatformFeeInfo}._
+*Caller should be authorized to set platform fee info.                  See {_canSetPlatformFeeInfo}.                  Emits {PlatformFeeInfoUpdated Event}; See {_setupPlatformFeeInfo}.*
 
 #### Parameters
 
-| Name                   | Type    | Description                                    |
-| ---------------------- | ------- | ---------------------------------------------- |
-| \_platformFeeRecipient | address | Address to be set as new platformFeeRecipient. |
-| \_platformFeeBps       | uint256 | Updated platformFeeBps.                        |
+| Name | Type | Description |
+|---|---|---|
+| _platformFeeRecipient | address | Address to be set as new platformFeeRecipient. |
+| _platformFeeBps | uint256 | Updated platformFeeBps. |
+
+
 
 ## Events
 
@@ -55,9 +61,15 @@ _Caller should be authorized to set platform fee info. See {\_canSetPlatformFeeI
 event PlatformFeeInfoUpdated(address indexed platformFeeRecipient, uint256 platformFeeBps)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                           | Type    | Description |
-| ------------------------------ | ------- | ----------- |
-| platformFeeRecipient `indexed` | address | undefined   |
-| platformFeeBps                 | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| platformFeeRecipient `indexed` | address | undefined |
+| platformFeeBps  | uint256 | undefined |
+
+

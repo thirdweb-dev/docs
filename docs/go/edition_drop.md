@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## Edition Drop
+# Edition Drop
 
 You can access the Edition Drop interface from the SDK as follows:
 
@@ -32,7 +32,7 @@ type EditionDrop struct {
 }
 ```
 
-### func \(\*EditionDrop\) [Claim](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition_drop.go#L158)
+### func \(\*EditionDrop\) [Claim](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition_drop.go#L158>)
 
 ```go
 func (drop *EditionDrop) Claim(ctx context.Context, tokenId int, quantity int) (*types.Transaction, error)
@@ -46,7 +46,7 @@ quantity: the number of NFTs to claim
 
 returns: the transaction receipt of the claim
 
-### func \(\*EditionDrop\) [ClaimTo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition_drop.go#L180)
+### func \(\*EditionDrop\) [ClaimTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition_drop.go#L180>)
 
 ```go
 func (drop *EditionDrop) ClaimTo(ctx context.Context, destinationAddress string, tokenId int, quantity int) (*types.Transaction, error)
@@ -72,7 +72,7 @@ quantity = 1
 tx, err := contract.ClaimTo(context.Background(), address, tokenId, quantity)
 ```
 
-### func \(\*EditionDrop\) [CreateBatch](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition_drop.go#L110)
+### func \(\*EditionDrop\) [CreateBatch](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/edition_drop.go#L110>)
 
 ```go
 func (drop *EditionDrop) CreateBatch(ctx context.Context, metadatas []*NFTMetadataInput) (*types.Transaction, error)

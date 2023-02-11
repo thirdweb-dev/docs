@@ -3,7 +3,6 @@ title: Migration Guide
 hide_title: true
 displayed_sidebar: typescript
 ---
-
 # Migration Guide
 
 If you are looking to upgrade from an earlier version of the SDK, below are the breaking changes that you should be aware of between each version.

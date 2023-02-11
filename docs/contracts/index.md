@@ -3,7 +3,6 @@ title: Thirdweb Contracts
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 <p align="center">
 <br />
 <a href="https://thirdweb.com"><img src="https://github.com/thirdweb-dev/typescript-sdk/blob/main/logo.svg?raw=true" width="200" alt=""/></a>
@@ -121,6 +120,7 @@ The thirdweb registry (`TWRegistry`) and factory (`TWFactory`) have been deploye
 
 - `TWFactory`: [0x5DBC7B840baa9daBcBe9D2492E45D7244B54A2A0](https://blockscan.com/address/0x5DBC7B840baa9daBcBe9D2492E45D7244B54A2A0)
 - `TWFactory` (Fantom mainnet): [0x97EA0Fcc552D5A8Fb5e9101316AAd0D62Ea0876B](https://blockscan.com/address/0x97EA0Fcc552D5A8Fb5e9101316AAd0D62Ea0876B)
+
 
 ## Bug reports
 

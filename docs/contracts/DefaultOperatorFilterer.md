@@ -4,12 +4,15 @@ title: DefaultOperatorFilterer
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # DefaultOperatorFilterer
+
+
 
 > DefaultOperatorFilterer
 
 Inherits from OperatorFilterer and automatically subscribes to the default OpenSea subscription.
+
+
 
 ## Methods
 
@@ -19,11 +22,16 @@ Inherits from OperatorFilterer and automatically subscribes to the default OpenS
 function OPERATOR_FILTER_REGISTRY() external view returns (contract IOperatorFilterRegistry)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type                             | Description |
-| ---- | -------------------------------- | ----------- |
-| \_0  | contract IOperatorFilterRegistry | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | contract IOperatorFilterRegistry | undefined |
 
 ### operatorRestriction
 
@@ -31,11 +39,16 @@ function OPERATOR_FILTER_REGISTRY() external view returns (contract IOperatorFil
 function operatorRestriction() external view returns (bool)
 ```
 
+
+
+
+
+
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### setOperatorRestriction
 
@@ -43,11 +56,17 @@ function operatorRestriction() external view returns (bool)
 function setOperatorRestriction(bool _restriction) external nonpayable
 ```
 
+
+
+
+
 #### Parameters
 
-| Name          | Type | Description |
-| ------------- | ---- | ----------- |
-| \_restriction | bool | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _restriction | bool | undefined |
+
+
 
 ## Events
 
@@ -57,11 +76,17 @@ function setOperatorRestriction(bool _restriction) external nonpayable
 event OperatorRestriction(bool restriction)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name        | Type | Description |
-| ----------- | ---- | ----------- |
-| restriction | bool | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| restriction  | bool | undefined |
+
+
 
 ## Errors
 
@@ -71,8 +96,13 @@ event OperatorRestriction(bool restriction)
 error OperatorNotAllowed(address operator)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| operator | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| operator | address | undefined |
+

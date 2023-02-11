@@ -4,8 +4,15 @@ title: SignatureAction
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # SignatureAction
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,19 +22,25 @@ displayed_sidebar: contracts
 function verify(ISignatureAction.GenericRequest _req, bytes _signature) external view returns (bool success, address signer)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name        | Type                            | Description |
-| ----------- | ------------------------------- | ----------- |
-| \_req       | ISignatureAction.GenericRequest | undefined   |
-| \_signature | bytes                           | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _req | ISignatureAction.GenericRequest | undefined |
+| _signature | bytes | undefined |
 
 #### Returns
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| success | bool    | undefined   |
-| signer  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| success | bool | undefined |
+| signer | address | undefined |
+
+
 
 ## Events
 
@@ -39,10 +52,14 @@ event RequestExecuted(address indexed user, address indexed signer, ISignatureAc
 
 Emitted when a payload is verified and executed.
 
+
+
 #### Parameters
 
-| Name             | Type                            | Description |
-| ---------------- | ------------------------------- | ----------- |
-| user `indexed`   | address                         | undefined   |
-| signer `indexed` | address                         | undefined   |
-| \_req            | ISignatureAction.GenericRequest | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| user `indexed` | address | undefined |
+| signer `indexed` | address | undefined |
+| _req  | ISignatureAction.GenericRequest | undefined |
+
+
