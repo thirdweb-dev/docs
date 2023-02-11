@@ -48,6 +48,7 @@ function BreadcrumbsItem({ children, active, index, addMicrodata }) {
     >
       {children}
       <meta itemProp="position" content={String(index + 1)} />
+      <meta name="docsearch:{$NAME}_tag" content="{$CONTENT}" />
     </li>
   );
 }
