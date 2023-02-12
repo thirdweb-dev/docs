@@ -9,13 +9,25 @@ import CodeBlock from "@theme/CodeBlock";
 
 Hook for accepting an offer from a direct listing.
 
+Allows the seller _(the user who listed the NFT for sale)_ to accept an offer on their listing.
+
+This process will trigger a sale event, meaning the:
+
+- NFT(s) are transferred from the seller to the buyer,
+- Funds from the offeror are sent to the seller.
+
 ```jsx
 import { useAcceptDirectListingOffer } from "@thirdweb-dev/react";
 ```
 
 ## Usage
 
-Provide a {@link Marketplace} instance as the argument.
+Provide a `Marketplace` contract instance from the [`useContract`](/docs/react/usecontract) hook as the first argument.
+
+Provide the:
+
+- `listingId`: the ID of the listing you wish to accept the offer for.
+- `addressOfOfferor`: the wallet address of the offeror.
 
 ```jsx
 import {
@@ -28,7 +40,7 @@ import {
 const contractAddress = "{{contract_address}}";
 
 function App() {
-  const { contract } = useContract(contractAddress);
+  const { contract } = useContract(contractAddress, "marketplace");
   const {
     mutateAsync: acceptDirectOffer,
     isLoading,
@@ -61,6 +73,10 @@ function App() {
 
 The `listingId` of the listing you wish to accept.
 
+Each listing has a unique `listingId` on the marketplace contract.
+
 ### addressOfOfferor
 
-The wallet address of the offeror.
+The wallet address of the user who made the offer you wish to accept.
+
+The [`useEvents`](/docs/react/useevents) hook can be used to read all `NewOffer` events on your marketplace contract.
