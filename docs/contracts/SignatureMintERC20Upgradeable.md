@@ -4,8 +4,15 @@ title: SignatureMintERC20Upgradeable
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # SignatureMintERC20Upgradeable
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,18 +22,22 @@ displayed_sidebar: contracts
 function mintWithSignature(ISignatureMintERC20.MintRequest req, bytes signature) external payable returns (address signer)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name      | Type                            | Description |
-| --------- | ------------------------------- | ----------- |
-| req       | ISignatureMintERC20.MintRequest | undefined   |
-| signature | bytes                           | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| req | ISignatureMintERC20.MintRequest | undefined |
+| signature | bytes | undefined |
 
 #### Returns
 
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| signer | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| signer | address | undefined |
 
 ### verify
 
@@ -34,19 +45,25 @@ function mintWithSignature(ISignatureMintERC20.MintRequest req, bytes signature)
 function verify(ISignatureMintERC20.MintRequest _req, bytes _signature) external view returns (bool success, address signer)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name        | Type                            | Description |
-| ----------- | ------------------------------- | ----------- |
-| \_req       | ISignatureMintERC20.MintRequest | undefined   |
-| \_signature | bytes                           | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _req | ISignatureMintERC20.MintRequest | undefined |
+| _signature | bytes | undefined |
 
 #### Returns
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| success | bool    | undefined   |
-| signer  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| success | bool | undefined |
+| signer | address | undefined |
+
+
 
 ## Events
 
@@ -56,11 +73,15 @@ function verify(ISignatureMintERC20.MintRequest _req, bytes _signature) external
 event Initialized(uint8 version)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name    | Type  | Description |
-| ------- | ----- | ----------- |
-| version | uint8 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| version  | uint8 | undefined |
 
 ### TokensMintedWithSignature
 
@@ -68,10 +89,16 @@ event Initialized(uint8 version)
 event TokensMintedWithSignature(address indexed signer, address indexed mintedTo, ISignatureMintERC20.MintRequest mintRequest)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name               | Type                            | Description |
-| ------------------ | ------------------------------- | ----------- |
-| signer `indexed`   | address                         | undefined   |
-| mintedTo `indexed` | address                         | undefined   |
-| mintRequest        | ISignatureMintERC20.MintRequest | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| signer `indexed` | address | undefined |
+| mintedTo `indexed` | address | undefined |
+| mintRequest  | ISignatureMintERC20.MintRequest | undefined |
+
+

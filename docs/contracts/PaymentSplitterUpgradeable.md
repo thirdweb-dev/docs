@@ -4,12 +4,15 @@ title: PaymentSplitterUpgradeable
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # PaymentSplitterUpgradeable
+
+
 
 > PaymentSplitter
 
-_This contract allows to split Ether payments among a group of accounts. The sender does not need to be aware that the Ether will be split in this way, since it is handled transparently by the contract. The split can be in equal parts or in any other arbitrary proportion. The way this is specified is by assigning each account to a number of shares. Of all the Ether that this contract receives, each account will then be able to claim an amount proportional to the percentage of total shares they were assigned. `PaymentSplitter` follows a *pull payment* model. This means that payments are not automatically forwarded to the accounts but kept in this contract, and the actual transfer is triggered as a separate step by calling the {release} function. NOTE: This contract assumes that ERC20 tokens will behave similarly to native tokens (Ether). Rebasing tokens, and tokens that apply fees during transfers, are likely to not be supported as expected. If in doubt, we encourage you to run tests before sending real value to this contract._
+
+
+*This contract allows to split Ether payments among a group of accounts. The sender does not need to be aware that the Ether will be split in this way, since it is handled transparently by the contract. The split can be in equal parts or in any other arbitrary proportion. The way this is specified is by assigning each account to a number of shares. Of all the Ether that this contract receives, each account will then be able to claim an amount proportional to the percentage of total shares they were assigned. `PaymentSplitter` follows a _pull payment_ model. This means that payments are not automatically forwarded to the accounts but kept in this contract, and the actual transfer is triggered as a separate step by calling the {release} function. NOTE: This contract assumes that ERC20 tokens will behave similarly to native tokens (Ether). Rebasing tokens, and tokens that apply fees during transfers, are likely to not be supported as expected. If in doubt, we encourage you to run tests before sending real value to this contract.*
 
 ## Methods
 
@@ -19,19 +22,21 @@ _This contract allows to split Ether payments among a group of accounts. The sen
 function payee(uint256 index) external view returns (address)
 ```
 
-_Getter for the address of the payee number `index`._
+
+
+*Getter for the address of the payee number `index`.*
 
 #### Parameters
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| index | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| index | uint256 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
 
 ### payeeCount
 
@@ -39,13 +44,16 @@ _Getter for the address of the payee number `index`._
 function payeeCount() external view returns (uint256)
 ```
 
-_Get the number of payees_
+
+
+*Get the number of payees*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### releasable
 
@@ -53,19 +61,21 @@ _Get the number of payees_
 function releasable(address account) external view returns (uint256)
 ```
 
-_Getter for the amount of payee&#39;s releasable Ether._
+
+
+*Getter for the amount of payee&#39;s releasable Ether.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| account | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| account | address | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### releasable
 
@@ -73,20 +83,22 @@ _Getter for the amount of payee&#39;s releasable Ether._
 function releasable(contract IERC20Upgradeable token, address account) external view returns (uint256)
 ```
 
-_Getter for the amount of payee&#39;s releasable `token` tokens. `token` should be the address of an IERC20 contract._
+
+
+*Getter for the amount of payee&#39;s releasable `token` tokens. `token` should be the address of an IERC20 contract.*
 
 #### Parameters
 
-| Name    | Type                       | Description |
-| ------- | -------------------------- | ----------- |
-| token   | contract IERC20Upgradeable | undefined   |
-| account | address                    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| token | contract IERC20Upgradeable | undefined |
+| account | address | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### release
 
@@ -94,13 +106,15 @@ _Getter for the amount of payee&#39;s releasable `token` tokens. `token` should 
 function release(address payable account) external nonpayable
 ```
 
-_Triggers a transfer to `account` of the amount of Ether they are owed, according to their percentage of the total shares and their previous withdrawals._
+
+
+*Triggers a transfer to `account` of the amount of Ether they are owed, according to their percentage of the total shares and their previous withdrawals.*
 
 #### Parameters
 
-| Name    | Type            | Description |
-| ------- | --------------- | ----------- |
-| account | address payable | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| account | address payable | undefined |
 
 ### release
 
@@ -108,14 +122,16 @@ _Triggers a transfer to `account` of the amount of Ether they are owed, accordin
 function release(contract IERC20Upgradeable token, address account) external nonpayable
 ```
 
-_Triggers a transfer to `account` of the amount of `token` tokens they are owed, according to their percentage of the total shares and their previous withdrawals. `token` must be the address of an IERC20 contract._
+
+
+*Triggers a transfer to `account` of the amount of `token` tokens they are owed, according to their percentage of the total shares and their previous withdrawals. `token` must be the address of an IERC20 contract.*
 
 #### Parameters
 
-| Name    | Type                       | Description |
-| ------- | -------------------------- | ----------- |
-| token   | contract IERC20Upgradeable | undefined   |
-| account | address                    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| token | contract IERC20Upgradeable | undefined |
+| account | address | undefined |
 
 ### released
 
@@ -123,20 +139,22 @@ _Triggers a transfer to `account` of the amount of `token` tokens they are owed,
 function released(contract IERC20Upgradeable token, address account) external view returns (uint256)
 ```
 
-_Getter for the amount of `token` tokens already released to a payee. `token` should be the address of an IERC20 contract._
+
+
+*Getter for the amount of `token` tokens already released to a payee. `token` should be the address of an IERC20 contract.*
 
 #### Parameters
 
-| Name    | Type                       | Description |
-| ------- | -------------------------- | ----------- |
-| token   | contract IERC20Upgradeable | undefined   |
-| account | address                    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| token | contract IERC20Upgradeable | undefined |
+| account | address | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### released
 
@@ -144,19 +162,21 @@ _Getter for the amount of `token` tokens already released to a payee. `token` sh
 function released(address account) external view returns (uint256)
 ```
 
-_Getter for the amount of Ether already released to a payee._
+
+
+*Getter for the amount of Ether already released to a payee.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| account | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| account | address | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### shares
 
@@ -164,19 +184,21 @@ _Getter for the amount of Ether already released to a payee._
 function shares(address account) external view returns (uint256)
 ```
 
-_Getter for the amount of shares held by an account._
+
+
+*Getter for the amount of shares held by an account.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| account | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| account | address | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### totalReleased
 
@@ -184,19 +206,21 @@ _Getter for the amount of shares held by an account._
 function totalReleased(contract IERC20Upgradeable token) external view returns (uint256)
 ```
 
-_Getter for the total amount of `token` already released. `token` should be the address of an IERC20 contract._
+
+
+*Getter for the total amount of `token` already released. `token` should be the address of an IERC20 contract.*
 
 #### Parameters
 
-| Name  | Type                       | Description |
-| ----- | -------------------------- | ----------- |
-| token | contract IERC20Upgradeable | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| token | contract IERC20Upgradeable | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### totalReleased
 
@@ -204,13 +228,16 @@ _Getter for the total amount of `token` already released. `token` should be the 
 function totalReleased() external view returns (uint256)
 ```
 
-_Getter for the total amount of Ether already released._
+
+
+*Getter for the total amount of Ether already released.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### totalShares
 
@@ -218,13 +245,18 @@ _Getter for the total amount of Ether already released._
 function totalShares() external view returns (uint256)
 ```
 
-_Getter for the total shares held by payees._
+
+
+*Getter for the total shares held by payees.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
+
+
 
 ## Events
 
@@ -234,13 +266,17 @@ _Getter for the total shares held by payees._
 event ERC20PaymentReleased(contract IERC20Upgradeable indexed token, address to, uint256 amount)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name            | Type                       | Description |
-| --------------- | -------------------------- | ----------- |
-| token `indexed` | contract IERC20Upgradeable | undefined   |
-| to              | address                    | undefined   |
-| amount          | uint256                    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| token `indexed` | contract IERC20Upgradeable | undefined |
+| to  | address | undefined |
+| amount  | uint256 | undefined |
 
 ### Initialized
 
@@ -248,11 +284,15 @@ event ERC20PaymentReleased(contract IERC20Upgradeable indexed token, address to,
 event Initialized(uint8 version)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name    | Type  | Description |
-| ------- | ----- | ----------- |
-| version | uint8 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| version  | uint8 | undefined |
 
 ### PayeeAdded
 
@@ -260,12 +300,16 @@ event Initialized(uint8 version)
 event PayeeAdded(address account, uint256 shares)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| account | address | undefined   |
-| shares  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| account  | address | undefined |
+| shares  | uint256 | undefined |
 
 ### PaymentReceived
 
@@ -273,12 +317,16 @@ event PayeeAdded(address account, uint256 shares)
 event PaymentReceived(address from, uint256 amount)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| from   | address | undefined   |
-| amount | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| from  | address | undefined |
+| amount  | uint256 | undefined |
 
 ### PaymentReleased
 
@@ -286,9 +334,15 @@ event PaymentReceived(address from, uint256 amount)
 event PaymentReleased(address to, uint256 amount)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| to     | address | undefined   |
-| amount | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| to  | address | undefined |
+| amount  | uint256 | undefined |
+
+

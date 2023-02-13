@@ -4,10 +4,15 @@ title: IPlatformFee
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # IPlatformFee
 
-Thirdweb&#39;s `PlatformFee` is a contract extension to be used with any base contract. It exposes functions for setting and reading the recipient of platform fee and the platform fee basis points, and lets the inheriting contract perform conditional logic that uses information about platform fees, if desired.
+
+
+
+
+Thirdweb&#39;s `PlatformFee` is a contract extension to be used with any base contract. It exposes functions for setting and reading  the recipient of platform fee and the platform fee basis points, and lets the inheriting contract perform conditional logic  that uses information about platform fees, if desired.
+
+
 
 ## Methods
 
@@ -17,14 +22,17 @@ Thirdweb&#39;s `PlatformFee` is a contract extension to be used with any base co
 function getPlatformFeeInfo() external view returns (address, uint16)
 ```
 
-_Returns the platform fee bps and recipient._
+
+
+*Returns the platform fee bps and recipient.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint16  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
+| _1 | uint16 | undefined |
 
 ### setPlatformFeeInfo
 
@@ -32,14 +40,18 @@ _Returns the platform fee bps and recipient._
 function setPlatformFeeInfo(address _platformFeeRecipient, uint256 _platformFeeBps) external nonpayable
 ```
 
-_Lets a module admin update the fees on primary sales._
+
+
+*Lets a module admin update the fees on primary sales.*
 
 #### Parameters
 
-| Name                   | Type    | Description |
-| ---------------------- | ------- | ----------- |
-| \_platformFeeRecipient | address | undefined   |
-| \_platformFeeBps       | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _platformFeeRecipient | address | undefined |
+| _platformFeeBps | uint256 | undefined |
+
+
 
 ## Events
 
@@ -49,11 +61,15 @@ _Lets a module admin update the fees on primary sales._
 event PlatformFeeInfoUpdated(address indexed platformFeeRecipient, uint256 platformFeeBps)
 ```
 
-_Emitted when fee on primary sales is updated._
+
+
+*Emitted when fee on primary sales is updated.*
 
 #### Parameters
 
-| Name                           | Type    | Description |
-| ------------------------------ | ------- | ----------- |
-| platformFeeRecipient `indexed` | address | undefined   |
-| platformFeeBps                 | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| platformFeeRecipient `indexed` | address | undefined |
+| platformFeeBps  | uint256 | undefined |
+
+

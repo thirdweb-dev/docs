@@ -4,7 +4,6 @@ title: ThirdwebSDK Objects
 hide_title: true
 displayed_sidebar: python
 ---
-
 <a id="core.sdk"></a>
 
 # core.sdk
@@ -41,7 +40,7 @@ Initialize the thirdweb SDK.
 
 <a id="core.sdk.ThirdwebSDK.get_nft_collection"></a>
 
-#### get_nft_collection
+#### get\_nft\_collection
 
 ```python
 def get_nft_collection(address: str) -> NFTCollection
@@ -59,7 +58,7 @@ NFT Collection contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.get_edition"></a>
 
-#### get_edition
+#### get\_edition
 
 ```python
 def get_edition(address: str) -> Edition
@@ -77,7 +76,7 @@ Edition contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.get_token"></a>
 
-#### get_token
+#### get\_token
 
 ```python
 def get_token(address: str) -> Token
@@ -95,7 +94,7 @@ Token contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.get_marketplace"></a>
 
-#### get_marketplace
+#### get\_marketplace
 
 ```python
 def get_marketplace(address: str) -> Marketplace
@@ -113,7 +112,7 @@ Marketplace contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.get_nft_drop"></a>
 
-#### get_nft_drop
+#### get\_nft\_drop
 
 ```python
 def get_nft_drop(address: str) -> NFTDrop
@@ -131,7 +130,7 @@ NFT Drop contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.get_edition_drop"></a>
 
-#### get_edition_drop
+#### get\_edition\_drop
 
 ```python
 def get_edition_drop(address: str) -> EditionDrop
@@ -149,7 +148,7 @@ Edition Drop contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.get_multiwrap"></a>
 
-#### get_multiwrap
+#### get\_multiwrap
 
 ```python
 def get_multiwrap(address: str) -> Multiwrap
@@ -167,7 +166,7 @@ multiwrap contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.get_contract"></a>
 
-#### get_contract
+#### get\_contract
 
 ```python
 def get_contract(address: str) -> CustomContract
@@ -185,7 +184,7 @@ custom contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.get_contract_from_abi"></a>
 
-#### get_contract_from_abi
+#### get\_contract\_from\_abi
 
 ```python
 def get_contract_from_abi(address: str, abi: str) -> CustomContract
@@ -204,7 +203,7 @@ custom contract SDK instance
 
 <a id="core.sdk.ThirdwebSDK.update_provider"></a>
 
-#### update_provider
+#### update\_provider
 
 ```python
 def update_provider(provider: Web3)
@@ -218,7 +217,7 @@ Update the provider instance used by the SDK.
 
 <a id="core.sdk.ThirdwebSDK.update_signer"></a>
 
-#### update_signer
+#### update\_signer
 
 ```python
 def update_signer(signer: Optional[LocalAccount] = None)

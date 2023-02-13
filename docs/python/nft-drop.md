@@ -4,10 +4,9 @@ title: NFTDrop Objects
 hide_title: true
 displayed_sidebar: python
 ---
-
 <a id="contracts.nft_drop"></a>
 
-# contracts.nft_drop
+# contracts.nft\_drop
 
 <a id="contracts.nft_drop.NFTDrop"></a>
 
@@ -36,7 +35,7 @@ contract = sdk.get_nft_drop("{{contract_address}}")
 
 <a id="contracts.nft_drop.NFTDrop.get_owned"></a>
 
-#### get_owned
+#### get\_owned
 
 ```python
 def get_owned(address: str = "") -> List[NFTMetadataOwner]
@@ -59,7 +58,7 @@ the metadata of all tokens owned by the address
 
 <a id="contracts.nft_drop.NFTDrop.get_owned_token_ids"></a>
 
-#### get_owned_token_ids
+#### get\_owned\_token\_ids
 
 ```python
 def get_owned_token_ids(address: str = "") -> List[int]
@@ -77,7 +76,7 @@ the token IDs owned by the address
 
 <a id="contracts.nft_drop.NFTDrop.get_all_claimed"></a>
 
-#### get_all_claimed
+#### get\_all\_claimed
 
 ```python
 def get_all_claimed(query_params: QueryAllParams = QueryAllParams()
@@ -101,7 +100,7 @@ List of nft metadatas and owners for claimed nfts.
 
 <a id="contracts.nft_drop.NFTDrop.get_all_unclaimed"></a>
 
-#### get_all_unclaimed
+#### get\_all\_unclaimed
 
 ```python
 def get_all_unclaimed(query_params: QueryAllParams = QueryAllParams()
@@ -125,7 +124,7 @@ List of nft metadatas.
 
 <a id="contracts.nft_drop.NFTDrop.total_claimed_supply"></a>
 
-#### total_claimed_supply
+#### total\_claimed\_supply
 
 ```python
 def total_claimed_supply() -> int
@@ -143,7 +142,7 @@ Total number of NFTs claimed from this contract
 
 <a id="contracts.nft_drop.NFTDrop.total_unclaimed_supply"></a>
 
-#### total_unclaimed_supply
+#### total\_unclaimed\_supply
 
 ```python
 def total_unclaimed_supply() -> int
@@ -161,7 +160,7 @@ Total number of unclaimed NFTs in this contract
 
 <a id="contracts.nft_drop.NFTDrop.create_batch"></a>
 
-#### create_batch
+#### create\_batch
 
 ```python
 def create_batch(
@@ -203,7 +202,7 @@ List of tx results with ids for created NFTs.
 
 <a id="contracts.nft_drop.NFTDrop.claim_to"></a>
 
-#### claim_to
+#### claim\_to
 
 ```python
 def claim_to(

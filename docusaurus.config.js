@@ -189,7 +189,7 @@ const config = {
         appId: "IAIE3FU2AD",
         apiKey: "1d9ebc991c049c913bedcf3d50916922",
         indexName: "thirdweb",
-        contextualSearch: false,
+        contextualSearch: true,
       },
       posthog: {
         apiKey: "phc_hKK4bo8cHZrKuAVXfXGpfNSLSJuucUnguAgt2j6dgSV",

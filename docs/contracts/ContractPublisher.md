@@ -4,8 +4,15 @@ title: ContractPublisher
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # ContractPublisher
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,11 +22,16 @@ displayed_sidebar: contracts
 function DEFAULT_ADMIN_ROLE() external view returns (bytes32)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes32 | undefined |
 
 ### getAllPublishedContracts
 
@@ -29,17 +41,19 @@ function getAllPublishedContracts(address _publisher) external view returns (str
 
 Returns the latest version of all contracts published by a publisher.
 
+
+
 #### Parameters
 
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| \_publisher | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _publisher | address | undefined |
 
 #### Returns
 
-| Name      | Type                                        | Description |
-| --------- | ------------------------------------------- | ----------- |
-| published | IContractPublisher.CustomContractInstance[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| published | IContractPublisher.CustomContractInstance[] | undefined |
 
 ### getPublishedContract
 
@@ -49,18 +63,20 @@ function getPublishedContract(address _publisher, string _contractId) external v
 
 Returns the latest version of a contract published by a publisher.
 
+
+
 #### Parameters
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| \_publisher  | address | undefined   |
-| \_contractId | string  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _publisher | address | undefined |
+| _contractId | string | undefined |
 
 #### Returns
 
-| Name      | Type                                      | Description |
-| --------- | ----------------------------------------- | ----------- |
-| published | IContractPublisher.CustomContractInstance | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| published | IContractPublisher.CustomContractInstance | undefined |
 
 ### getPublishedContractVersions
 
@@ -70,18 +86,20 @@ function getPublishedContractVersions(address _publisher, string _contractId) ex
 
 Returns all versions of a published contract.
 
+
+
 #### Parameters
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| \_publisher  | address | undefined   |
-| \_contractId | string  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _publisher | address | undefined |
+| _contractId | string | undefined |
 
 #### Returns
 
-| Name      | Type                                        | Description |
-| --------- | ------------------------------------------- | ----------- |
-| published | IContractPublisher.CustomContractInstance[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| published | IContractPublisher.CustomContractInstance[] | undefined |
 
 ### getPublishedUriFromCompilerUri
 
@@ -91,17 +109,19 @@ function getPublishedUriFromCompilerUri(string compilerMetadataUri) external vie
 
 Retrieve the published metadata URI from a compiler metadata URI
 
+
+
 #### Parameters
 
-| Name                | Type   | Description |
-| ------------------- | ------ | ----------- |
-| compilerMetadataUri | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| compilerMetadataUri | string | undefined |
 
 #### Returns
 
-| Name                  | Type     | Description |
-| --------------------- | -------- | ----------- |
-| publishedMetadataUris | string[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| publishedMetadataUris | string[] | undefined |
 
 ### getPublisherProfileUri
 
@@ -111,17 +131,19 @@ function getPublisherProfileUri(address publisher) external view returns (string
 
 Get the publisher profile uri for a given publisher.
 
+
+
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| publisher | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| publisher | address | undefined |
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| uri  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| uri | string | undefined |
 
 ### getRoleAdmin
 
@@ -129,19 +151,21 @@ Get the publisher profile uri for a given publisher.
 function getRoleAdmin(bytes32 role) external view returns (bytes32)
 ```
 
-_Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {\_setRoleAdmin}._
+
+
+*Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {_setRoleAdmin}.*
 
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| role | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| role | bytes32 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes32 | undefined |
 
 ### getRoleMember
 
@@ -149,20 +173,22 @@ _Returns the admin role that controls `role`. See {grantRole} and {revokeRole}. 
 function getRoleMember(bytes32 role, uint256 index) external view returns (address)
 ```
 
-_Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296 for more information._
+
+
+*Returns one of the accounts that have `role`. `index` must be a value between 0 and {getRoleMemberCount}, non-inclusive. Role bearers are not sorted in any particular way, and their ordering may change at any point. WARNING: When using {getRoleMember} and {getRoleMemberCount}, make sure you perform all queries on the same block. See the following https://forum.openzeppelin.com/t/iterating-over-elements-on-enumerableset-in-openzeppelin-contracts/2296 for more information.*
 
 #### Parameters
 
-| Name  | Type    | Description |
-| ----- | ------- | ----------- |
-| role  | bytes32 | undefined   |
-| index | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| role | bytes32 | undefined |
+| index | uint256 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
 
 ### getRoleMemberCount
 
@@ -170,19 +196,21 @@ _Returns one of the accounts that have `role`. `index` must be a value between 0
 function getRoleMemberCount(bytes32 role) external view returns (uint256)
 ```
 
-_Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role._
+
+
+*Returns the number of accounts that have `role`. Can be used together with {getRoleMember} to enumerate all bearers of a role.*
 
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| role | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| role | bytes32 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### grantRole
 
@@ -190,14 +218,16 @@ _Returns the number of accounts that have `role`. Can be used together with {get
 function grantRole(bytes32 role, address account) external nonpayable
 ```
 
-_Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have `role`&#39;s admin role. May emit a {RoleGranted} event._
+
+
+*Grants `role` to `account`. If `account` had not been already granted `role`, emits a {RoleGranted} event. Requirements: - the caller must have ``role``&#39;s admin role. May emit a {RoleGranted} event.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| role    | bytes32 | undefined   |
-| account | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| role | bytes32 | undefined |
+| account | address | undefined |
 
 ### hasRole
 
@@ -205,20 +235,22 @@ _Grants `role` to `account`. If `account` had not been already granted `role`, e
 function hasRole(bytes32 role, address account) external view returns (bool)
 ```
 
-_Returns `true` if `account` has been granted `role`._
+
+
+*Returns `true` if `account` has been granted `role`.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| role    | bytes32 | undefined   |
-| account | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| role | bytes32 | undefined |
+| account | address | undefined |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### isPaused
 
@@ -228,11 +260,14 @@ function isPaused() external view returns (bool)
 
 Whether the contract publisher is paused.
 
+
+
+
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### isTrustedForwarder
 
@@ -240,17 +275,21 @@ Whether the contract publisher is paused.
 function isTrustedForwarder(address forwarder) external view returns (bool)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| forwarder | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| forwarder | address | undefined |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### multicall
 
@@ -258,19 +297,21 @@ function isTrustedForwarder(address forwarder) external view returns (bool)
 function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 ```
 
-_Receives and executes a batch of function calls on this contract._
+
+
+*Receives and executes a batch of function calls on this contract.*
 
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| data | bytes[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| data | bytes[] | undefined |
 
 #### Returns
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| results | bytes[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| results | bytes[] | undefined |
 
 ### prevPublisher
 
@@ -278,11 +319,16 @@ _Receives and executes a batch of function calls on this contract._
 function prevPublisher() external view returns (contract IContractPublisher)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type                        | Description |
-| ---- | --------------------------- | ----------- |
-| \_0  | contract IContractPublisher | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | contract IContractPublisher | undefined |
 
 ### publishContract
 
@@ -292,16 +338,18 @@ function publishContract(address _publisher, string _contractId, string _publish
 
 Let&#39;s an account publish a contract.
 
+
+
 #### Parameters
 
-| Name                  | Type    | Description |
-| --------------------- | ------- | ----------- |
-| \_publisher           | address | undefined   |
-| \_contractId          | string  | undefined   |
-| \_publishMetadataUri  | string  | undefined   |
-| \_compilerMetadataUri | string  | undefined   |
-| \_bytecodeHash        | bytes32 | undefined   |
-| \_implementation      | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _publisher | address | undefined |
+| _contractId | string | undefined |
+| _publishMetadataUri | string | undefined |
+| _compilerMetadataUri | string | undefined |
+| _bytecodeHash | bytes32 | undefined |
+| _implementation | address | undefined |
 
 ### renounceRole
 
@@ -309,14 +357,16 @@ Let&#39;s an account publish a contract.
 function renounceRole(bytes32 role, address account) external nonpayable
 ```
 
-_Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function&#39;s purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`. May emit a {RoleRevoked} event._
+
+
+*Revokes `role` from the calling account. Roles are often managed via {grantRole} and {revokeRole}: this function&#39;s purpose is to provide a mechanism for accounts to lose their privileges if they are compromised (such as when a trusted device is misplaced). If the calling account had been revoked `role`, emits a {RoleRevoked} event. Requirements: - the caller must be `account`. May emit a {RoleRevoked} event.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| role    | bytes32 | undefined   |
-| account | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| role | bytes32 | undefined |
+| account | address | undefined |
 
 ### revokeRole
 
@@ -324,14 +374,16 @@ _Revokes `role` from the calling account. Roles are often managed via {grantRole
 function revokeRole(bytes32 role, address account) external nonpayable
 ```
 
-_Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have `role`&#39;s admin role. May emit a {RoleRevoked} event._
+
+
+*Revokes `role` from `account`. If `account` had been granted `role`, emits a {RoleRevoked} event. Requirements: - the caller must have ``role``&#39;s admin role. May emit a {RoleRevoked} event.*
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| role    | bytes32 | undefined   |
-| account | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| role | bytes32 | undefined |
+| account | address | undefined |
 
 ### setPause
 
@@ -339,13 +391,15 @@ _Revokes `role` from `account`. If `account` had been granted `role`, emits a {R
 function setPause(bool _pause) external nonpayable
 ```
 
-_Lets a contract admin pause the registry._
+
+
+*Lets a contract admin pause the registry.*
 
 #### Parameters
 
-| Name    | Type | Description |
-| ------- | ---- | ----------- |
-| \_pause | bool | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _pause | bool | undefined |
 
 ### setPublisherProfileUri
 
@@ -355,12 +409,14 @@ function setPublisherProfileUri(address publisher, string uri) external nonpayab
 
 Lets an account set its own publisher profile uri
 
+
+
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| publisher | address | undefined   |
-| uri       | string  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| publisher | address | undefined |
+| uri | string | undefined |
 
 ### supportsInterface
 
@@ -368,19 +424,21 @@ Lets an account set its own publisher profile uri
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
-_See {IERC165-supportsInterface}._
+
+
+*See {IERC165-supportsInterface}.*
 
 #### Parameters
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| interfaceId | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| interfaceId | bytes4 | undefined |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### unpublishContract
 
@@ -390,12 +448,16 @@ function unpublishContract(address _publisher, string _contractId) external nonp
 
 Lets a publisher unpublish a contract and all its versions.
 
+
+
 #### Parameters
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| \_publisher  | address | undefined   |
-| \_contractId | string  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _publisher | address | undefined |
+| _contractId | string | undefined |
+
+
 
 ## Events
 
@@ -405,13 +467,17 @@ Lets a publisher unpublish a contract and all its versions.
 event ContractPublished(address indexed operator, address indexed publisher, IContractPublisher.CustomContractInstance publishedContract)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                | Type                                      | Description |
-| ------------------- | ----------------------------------------- | ----------- |
-| operator `indexed`  | address                                   | undefined   |
-| publisher `indexed` | address                                   | undefined   |
-| publishedContract   | IContractPublisher.CustomContractInstance | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| operator `indexed` | address | undefined |
+| publisher `indexed` | address | undefined |
+| publishedContract  | IContractPublisher.CustomContractInstance | undefined |
 
 ### ContractUnpublished
 
@@ -419,13 +485,17 @@ event ContractPublished(address indexed operator, address indexed publisher, ICo
 event ContractUnpublished(address indexed operator, address indexed publisher, string indexed contractId)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| operator `indexed`   | address | undefined   |
-| publisher `indexed`  | address | undefined   |
-| contractId `indexed` | string  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| operator `indexed` | address | undefined |
+| publisher `indexed` | address | undefined |
+| contractId `indexed` | string | undefined |
 
 ### Paused
 
@@ -433,11 +503,15 @@ event ContractUnpublished(address indexed operator, address indexed publisher, s
 event Paused(bool isPaused)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name     | Type | Description |
-| -------- | ---- | ----------- |
-| isPaused | bool | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| isPaused  | bool | undefined |
 
 ### PublisherProfileUpdated
 
@@ -445,13 +519,17 @@ event Paused(bool isPaused)
 event PublisherProfileUpdated(address indexed publisher, string prevURI, string newURI)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                | Type    | Description |
-| ------------------- | ------- | ----------- |
-| publisher `indexed` | address | undefined   |
-| prevURI             | string  | undefined   |
-| newURI              | string  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| publisher `indexed` | address | undefined |
+| prevURI  | string | undefined |
+| newURI  | string | undefined |
 
 ### RoleAdminChanged
 
@@ -459,13 +537,17 @@ event PublisherProfileUpdated(address indexed publisher, string prevURI, string 
 event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                        | Type    | Description |
-| --------------------------- | ------- | ----------- |
-| role `indexed`              | bytes32 | undefined   |
-| previousAdminRole `indexed` | bytes32 | undefined   |
-| newAdminRole `indexed`      | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| role `indexed` | bytes32 | undefined |
+| previousAdminRole `indexed` | bytes32 | undefined |
+| newAdminRole `indexed` | bytes32 | undefined |
 
 ### RoleGranted
 
@@ -473,13 +555,17 @@ event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, 
 event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| role `indexed`    | bytes32 | undefined   |
-| account `indexed` | address | undefined   |
-| sender `indexed`  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| role `indexed` | bytes32 | undefined |
+| account `indexed` | address | undefined |
+| sender `indexed` | address | undefined |
 
 ### RoleRevoked
 
@@ -487,10 +573,16 @@ event RoleGranted(bytes32 indexed role, address indexed account, address indexed
 event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name              | Type    | Description |
-| ----------------- | ------- | ----------- |
-| role `indexed`    | bytes32 | undefined   |
-| account `indexed` | address | undefined   |
-| sender `indexed`  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| role `indexed` | bytes32 | undefined |
+| account `indexed` | address | undefined |
+| sender `indexed` | address | undefined |
+
+

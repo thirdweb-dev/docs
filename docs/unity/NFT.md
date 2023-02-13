@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `NFT` {#struct_thirdweb_1_1_n_f_t}
+# struct `NFT` {#struct_thirdweb_1_1_n_f_t}
 
 ### Summary
 

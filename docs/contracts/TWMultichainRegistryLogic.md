@@ -4,8 +4,15 @@ title: TWMultichainRegistryLogic
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # TWMultichainRegistryLogic
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,35 +22,50 @@ displayed_sidebar: contracts
 function OPERATOR_ROLE() external view returns (bytes32)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes32 | undefined |
 
-### \_msgData
+### _msgData
 
 ```solidity
 function _msgData() external view returns (bytes)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type  | Description |
-| ---- | ----- | ----------- |
-| \_0  | bytes | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes | undefined |
 
-### \_msgSender
+### _msgSender
 
 ```solidity
 function _msgSender() external view returns (address sender)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| sender | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| sender | address | undefined |
 
 ### add
 
@@ -53,14 +75,16 @@ function add(address _deployer, address _deployment, uint256 _chainId, string me
 
 Add a deployment for a deployer.
 
+
+
 #### Parameters
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| \_deployer   | address | undefined   |
-| \_deployment | address | undefined   |
-| \_chainId    | uint256 | undefined   |
-| metadataUri  | string  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _deployer | address | undefined |
+| _deployment | address | undefined |
+| _chainId | uint256 | undefined |
+| metadataUri | string | undefined |
 
 ### contractType
 
@@ -68,13 +92,16 @@ Add a deployment for a deployer.
 function contractType() external pure returns (bytes32)
 ```
 
-_Returns the type of the contract._
+
+
+*Returns the type of the contract.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes32 | undefined |
 
 ### contractVersion
 
@@ -82,13 +109,16 @@ _Returns the type of the contract._
 function contractVersion() external pure returns (uint8)
 ```
 
-_Returns the version of the contract._
+
+
+*Returns the version of the contract.*
+
 
 #### Returns
 
-| Name | Type  | Description |
-| ---- | ----- | ----------- |
-| \_0  | uint8 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint8 | undefined |
 
 ### count
 
@@ -98,17 +128,19 @@ function count(address _deployer) external view returns (uint256 deploymentCount
 
 Get the total number of deployments for a deployer.
 
+
+
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_deployer | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _deployer | address | undefined |
 
 #### Returns
 
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| deploymentCount | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| deploymentCount | uint256 | undefined |
 
 ### getAll
 
@@ -118,17 +150,19 @@ function getAll(address _deployer) external view returns (struct ITWMultichainRe
 
 Get all deployments for a deployer.
 
+
+
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_deployer | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _deployer | address | undefined |
 
 #### Returns
 
-| Name           | Type                               | Description |
-| -------------- | ---------------------------------- | ----------- |
-| allDeployments | ITWMultichainRegistry.Deployment[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| allDeployments | ITWMultichainRegistry.Deployment[] | undefined |
 
 ### getMetadataUri
 
@@ -138,18 +172,20 @@ function getMetadataUri(uint256 _chainId, address _deployment) external view ret
 
 Returns the metadata IPFS URI for a deployment on a given chain if previously registered via add().
 
+
+
 #### Parameters
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| \_chainId    | uint256 | undefined   |
-| \_deployment | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _chainId | uint256 | undefined |
+| _deployment | address | undefined |
 
 #### Returns
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| metadataUri | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| metadataUri | string | undefined |
 
 ### remove
 
@@ -159,13 +195,17 @@ function remove(address _deployer, address _deployment, uint256 _chainId) extern
 
 Remove a deployment for a deployer.
 
+
+
 #### Parameters
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| \_deployer   | address | undefined   |
-| \_deployment | address | undefined   |
-| \_chainId    | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _deployer | address | undefined |
+| _deployment | address | undefined |
+| _chainId | uint256 | undefined |
+
+
 
 ## Events
 
@@ -175,14 +215,18 @@ Remove a deployment for a deployer.
 event Added(address indexed deployer, address indexed deployment, uint256 indexed chainId, string metadataUri)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| deployer `indexed`   | address | undefined   |
-| deployment `indexed` | address | undefined   |
-| chainId `indexed`    | uint256 | undefined   |
-| metadataUri          | string  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| deployer `indexed` | address | undefined |
+| deployment `indexed` | address | undefined |
+| chainId `indexed` | uint256 | undefined |
+| metadataUri  | string | undefined |
 
 ### Deleted
 
@@ -190,10 +234,16 @@ event Added(address indexed deployer, address indexed deployment, uint256 indexe
 event Deleted(address indexed deployer, address indexed deployment, uint256 indexed chainId)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| deployer `indexed`   | address | undefined   |
-| deployment `indexed` | address | undefined   |
-| chainId `indexed`    | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| deployer `indexed` | address | undefined |
+| deployment `indexed` | address | undefined |
+| chainId `indexed` | uint256 | undefined |
+
+

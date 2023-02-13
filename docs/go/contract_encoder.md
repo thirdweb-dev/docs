@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## Contract Encoder
+# Contract Encoder
 
 This interface is currently supported by all contract encoder classes and provides a generic method to encode write function calls\.
 
@@ -13,7 +13,7 @@ This interface is currently supported by all contract encoder classes and provid
 type ContractEncoder struct {}
 ```
 
-### func \(\*ContractEncoder\) [Encode](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_encoder.go#L59)
+### func \(\*ContractEncoder\) [Encode](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_encoder.go#L59>)
 
 ```go
 func (encoder *ContractEncoder) Encode(ctx context.Context, signerAddress string, method string, args ...interface{}) (*types.Transaction, error)
@@ -42,7 +42,7 @@ fmt.Println(tx.Nonce())
 fmt.Println(tx.Value())
 ```
 
-## type [ContractEvent](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_events.go#L49-L53)
+## type [ContractEvent](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_events.go#L49-L53>)
 
 ```go
 type ContractEvent struct {
