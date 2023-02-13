@@ -25,58 +25,19 @@ import { useBurnNFT, useContract, Web3Button } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
+// The tokenId of the NFT you want to burn
+const tokenIdToBurn = 1;
 
 function App() {
   const { contract } = useContract(contractAddress);
   const { mutateAsync: burnNft, isLoading, error } = useBurnNFT(contract);
-
-  if (error) {
-    console.error("failed to burn nft", error);
-  }
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         burnNft({
-          tokenId: <tokenId>,
-        })
-      }
-    >
-      Burn NFT
-    </Web3Button>
-  );
-}
-```
-
-## Configuration
-
-### tokenId
-
-The `tokenId` of the NFT you want to burn.
-
-```jsx
-import { useBurnNFT, useContract, Web3Button } from "@thirdweb-dev/react";
-
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
-
-function App() {
-  const { contract } = useContract(contractAddress);
-  const { mutateAsync: burnNft, isLoading, error } = useBurnNFT(contract);
-
-  if (error) {
-    console.error("failed to burn nft", error);
-  }
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        burnNft({
-          // highlight-start
-          tokenId: <tokenId>,
-          // highlight-end
+          tokenId: tokenIdToBurn,
         })
       }
     >

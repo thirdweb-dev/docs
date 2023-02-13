@@ -3,7 +3,7 @@ title: useBalance
 displayed_sidebar: react
 ---
 
-Hook for getting a users current balance of a ERC20 token.
+Hook for getting a wallet's current balance of an ERC20 token, (including native tokens such as Ether).
 
 ```jsx
 import { useBalance } from "@thirdweb-dev/react";
@@ -14,32 +14,39 @@ import { useBalance } from "@thirdweb-dev/react";
 Provide the token contract address as the argument.
 
 ```jsx
-import { useBalance, Web3Button } from "@thirdweb-dev/react";
+import { useBalance } from "@thirdweb-dev/react";
 
-// Your token contract address
+// Your ERC20 token smart contract address
 const tokenAddress = "{{token_address}}";
 
 function App() {
   const { data, isLoading } = useBalance(tokenAddress);
+}
+```
 
-  return (
-    <Web3Button
-      contractAddress={tokenAddress}
-      action={() => {
-        console.log("Balance:", data?.displayValue);
-      }}
-    >
-      Check Balance
-    </Web3Button>
-  );
+## Configuration
+
+To load the balance of the native token to your chain, such as Ether on Ethereum, import the `NATIVE_TOKEN_ADDRESS` constant from `@thirdweb-dev/sdk`.
+
+```jsx
+import { useBalance } from "@thirdweb-dev/react";
+import { NATIVE_TOKEN_ADDRESS } from "@thirdweb-dev/sdk";
+
+function App() {
+  const { data, isLoading } = useBalance(NATIVE_TOKEN_ADDRESS);
 }
 ```
 
 ## Return Value
 
-The hook returns an object with the following values:
+The hook's `data` property, once loaded, contains the following properties:
 
-| Key       | Type                                 | Description                                                                                                                                                                                                    |
-| --------- | ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `data`    | `{ symbol, value, name, decimals }`  | The balance of the token. `value` is the amount in `BigNumber` form, `displayValue` is the amount in a human friendly format. `name` and `symbol` are the token's metadata. `decimals` is the number of decimals used. |
-| `isLoading` | `boolean`                         | `true` when the balance is being fetched, `false` when the balance is ready.                                                                                                                                     |
+```jsx
+{
+  symbol: string;
+  value: BigNumber;
+  name: string;
+  decimals: number;
+  displayValue: string;
+} | undefined>;
+```

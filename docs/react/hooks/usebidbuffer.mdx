@@ -9,25 +9,33 @@ import CodeBlock from "@theme/CodeBlock";
 
 Hook for determining the current bid buffer on a marketplace contract.
 
+The bid buffer is what percentage higher the next bid must be than the current highest bid.
+
+Available to use on marketplace contracts.
+
 ```jsx
 import { useBidBuffer } from "@thirdweb-dev/react";
 ```
 
 ## Usage
 
-Provide your marketplace contract as the argument.
-
-Optionally, provide a listing ID to determine the buffer for a specific listing.
+Provide your marketplace contract as the first argument, and the listing ID as the second argument.
 
 ```jsx
-import { useBidBuffer, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useBidBuffer, useContract } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
+// Listing ID to get the bid buffer for
+const listingId = 1;
 
 function App() {
-  const { contract } = useContract(contractAddress);
-  const { data: bidBuffer, isLoading, error } = useBidBuffer(contract);
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    data: bidBuffer,
+    isLoading,
+    error,
+  } = useBidBuffer(contract, listingId);
 
   if (error) {
     console.error("failed to get bid buffer", error);
@@ -41,32 +49,12 @@ function App() {
 }
 ```
 
-If you provide a listing ID, you will get the buffer for that listing.
+## Return Value
+
+The hook's `data` property, once loaded, contains the following properties:
 
 ```jsx
-import { useBidBuffer, useContract, Web3Button } from "@thirdweb-dev/react";
-
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
-const listingId = "{{listing_id}}";
-
-function App() {
-  const { contract } = useContract(contractAddress);
-  const { data: bidBuffer, isLoading, error } = useBidBuffer(
-    contract,
-    listingId
-  );
-
-  if (error) {
-    console.error("failed to get bid buffer", error);
-  }
-
-  return (
-    <div>
-      <p>
-        The bid buffer for listing {listingId} is {bidBuffer?.toString() ?? ""}
-      </p>
-    </div>
-  );
-}
+bidBuffer: BigNumber;
 ```
+
+The `bidBuffer` value returned is in percentage format. For example, a value of `500` means that the next bid must be 5% higher than the current highest bid.

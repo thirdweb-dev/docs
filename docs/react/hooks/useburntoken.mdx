@@ -3,10 +3,9 @@ title: useBurnToken
 displayed_sidebar: react
 ---
 
-Hook for burning a token on a smart contract.
+Hook for burning ERC20 tokens on a smart contract.
 
-Available to use on smart contracts that implement the [ERC20](/contractkit/interfaces/erc20)
-or [ERC721](/contractkit/interfaces/erc721) standard.
+Available to use on smart contracts that implement the [ERC20](/contractkit/interfaces/erc20) standard.
 
 ```jsx
 import { useBurnToken } from "@thirdweb-dev/react";
@@ -26,16 +25,12 @@ function App() {
   const { contract } = useContract(contractAddress);
   const { mutateAsync: burnToken, isLoading, error } = useBurnToken(contract);
 
-  if (error) {
-    console.error("failed to burn token", error);
-  }
-
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         burnToken({
-          to: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+          to: "{{wallet_address}}",
           amount: "10", // Amount of tokens to burn
         })
       }
@@ -66,24 +61,49 @@ import {
 const contractAddress = "{{contract_address}}";
 
 function App() {
-  // highlight-start
+  // highlight-next-line
   const address = useAddress();
-  // highlight-end
   const { contract } = useContract(contractAddress);
   const { mutateAsync: burnToken, isLoading, error } = useBurnToken(contract);
-
-  if (error) {
-    console.error("failed to burn token", error);
-  }
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         burnToken({
-          // highlight-start
-          to: address, // Use useAddress hook to get current wallet address
-          // highlight-end
+          // highlight-next-line
+          to: address,
+          amount: "10", // Amount of tokens to burn
+        })
+      }
+    >
+      Burn Token
+    </Web3Button>
+  );
+}
+```
+
+### amount
+
+The amount of tokens to burn.
+
+```jsx
+import { useBurnToken, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: burnToken, isLoading, error } = useBurnToken(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        burnToken({
+          to: "{{wallet_address}}",
+          // highlight-next-line
           amount: "10", // Amount of tokens to burn
         })
       }

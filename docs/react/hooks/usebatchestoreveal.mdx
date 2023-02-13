@@ -7,9 +7,9 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook for fetching batches of tokens that need to be revealed.
+Hook for fetching batches of lazy-minted NFTs that were set to be revealed at a later date, but have not yet been revealed.
 
-This is only available for contracts that implement the [Revealable](/contractkit/interfaces/revealable) interface.
+Available for contracts that implement the [Delayed reveal](/contractkit/extension-contracts/delayedreveal) interface, such as the [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721).
 
 ```jsx
 import { useBatchesToReveal } from "@thirdweb-dev/react";
@@ -17,7 +17,7 @@ import { useBatchesToReveal } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your NFT collection contract as the argument.
+Provide your NFT collection smart contract as the argument.
 
 ```jsx
 import { useBatchesToReveal, useContract } from "@thirdweb-dev/react";
@@ -26,29 +26,36 @@ import { useBatchesToReveal, useContract } from "@thirdweb-dev/react";
 const contractAddress = "{{contract_address}}";
 
 function App() {
+  // Contract must implement the Delayed reveal interface.
   const { contract } = useContract(contractAddress);
   const { data: batches, isLoading, error } = useBatchesToReveal(contract);
 
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
   if (error) {
     console.error("failed to fetch batches to reveal", error);
+  }
+
+  if (!batches) {
+    return <div>No batches to reveal</div>;
   }
 
   return <div>Batches to reveal: {batches.length}</div>;
 }
 ```
 
-## Returned Data
+## Return Value
 
-The hook will return an array of [`BatchToReveal`](/sdk/batchToReveal) objects.
+The hook's `data` property, once loaded, contains an array of batches that need to be revealed.
 
-```ts
-export interface BatchToReveal {
+Each batch is an object with the following properties:
+
+```jsx
+{
   batchId: BigNumber;
   batchUri: string;
   placeholderMetadata: NFTMetadata;
 }
 ```
-
-Each `BatchToReveal` object has a unique `batchId` and an `batchUri` which points to an IPFS URI containing metadata for each token in the batch.
-
-The `placeholderMetadata` property is a generic placeholder object that can be used to render a preview of the batch until it can be revealed.

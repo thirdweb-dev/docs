@@ -21,33 +21,26 @@ import { useAuctionWinner } from "@thirdweb-dev/react";
 Provide your Marketplace contract and the item id as the arguments.
 
 ```jsx
-import { useAuctionWinner, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useAuctionWinner, useContract } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
-  const { contract } = useContract(contractAddress);
-  const { data: auctionWinner, isLoading, error } = useAuctionWinner(
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data, isLoading, error } = useAuctionWinner(
     contract,
-    itemId // The id of the item that you want to get the auction winner for
-  );
-
-  if (error) {
-    console.error("failed to get auction winner", error);
-  }
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() => getAuctionWinner(contract, itemId)}
-    >
-      Get Auction Winner
-    </Web3Button>
+    1, // The listing id of the item that you want to get the auction winner for
   );
 }
 ```
 
 ## Return Value
 
-A string containing the address of the auction winner.
+The hook's `data` property, once loaded, contains the following properties:
+
+```jsx
+string | undefined;
+```
+
+A string containing the address of the auction winner, or undefined if there is no winner.

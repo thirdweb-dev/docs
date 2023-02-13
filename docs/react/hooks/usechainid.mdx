@@ -3,7 +3,7 @@ title: useChainId
 displayed_sidebar: react
 ---
 
-Hook for retrieving the current chain id.
+Hook for retrieving the chain ID of the network the user is connected to.
 
 ```jsx
 import { useChainId } from "@thirdweb-dev/react";
@@ -17,13 +17,15 @@ import { useChainId } from "@thirdweb-dev/react";
 function App() {
   const chainId = useChainId();
 
-  // Do something with the chainId...
-
   return <div>{chainId}</div>;
 }
 ```
 
 ## Return value
+
+```jsx
+number | undefined;
+```
 
 A `number` representing the current chain id.
 
