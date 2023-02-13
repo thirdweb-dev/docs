@@ -62,7 +62,7 @@ async function main() {
         }
         if (line.includes("<!-- -->")) {
           line = line.replace(/<!-- -->/g, "");
-        }
+        }  
 
         output.push(line);
       });
@@ -78,6 +78,9 @@ async function main() {
         `displayed_sidebar: solana`,
         "---",
       ];
+
+      const titleLineIndex = output.findIndex((line) => line.startsWith("##"));
+      output[titleLineIndex] = output[titleLineIndex].replace("##", "#");
 
       await writeFile(docPathOut, header.concat(output).join("\n"));
     } catch (err) {

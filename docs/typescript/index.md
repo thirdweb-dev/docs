@@ -3,7 +3,6 @@ title: thirdweb TypeScript SDK
 hide_title: true
 displayed_sidebar: typescript
 ---
-
 <p align="center">
 <br />
 <a href="https://thirdweb.com"><img src="https://github.com/thirdweb-dev/js/blob/main/packages/sdk/logo.svg?raw=true" width="200" alt=""/></a>

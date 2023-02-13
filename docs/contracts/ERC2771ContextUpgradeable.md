@@ -4,10 +4,15 @@ title: ERC2771ContextUpgradeable
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # ERC2771ContextUpgradeable
 
-_Context variant with ERC2771 support._
+
+
+
+
+
+
+*Context variant with ERC2771 support.*
 
 ## Methods
 
@@ -17,17 +22,23 @@ _Context variant with ERC2771 support._
 function isTrustedForwarder(address forwarder) external view returns (bool)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| forwarder | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| forwarder | address | undefined |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
+
+
 
 ## Events
 
@@ -37,8 +48,14 @@ function isTrustedForwarder(address forwarder) external view returns (bool)
 event Initialized(uint8 version)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name    | Type  | Description |
-| ------- | ----- | ----------- |
-| version | uint8 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| version  | uint8 | undefined |
+
+

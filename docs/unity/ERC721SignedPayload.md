@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `ERC721SignedPayload` {#struct_thirdweb_1_1_e_r_c721_signed_payload}
+# struct `ERC721SignedPayload` {#struct_thirdweb_1_1_e_r_c721_signed_payload}
 
 ### Summary
 

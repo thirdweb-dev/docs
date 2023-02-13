@@ -4,8 +4,15 @@ title: RouterStorage
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # RouterStorage
+
+*thirdweb.com*
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,8 +22,16 @@ displayed_sidebar: contracts
 function ROUTER_STORAGE_POSITION() external view returns (bytes32)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes32 | undefined |
+
+
+

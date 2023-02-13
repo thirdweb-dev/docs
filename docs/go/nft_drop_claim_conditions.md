@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## NFT Drop Claim Conditions
+# NFT Drop Claim Conditions
 
 This interface is currently accessible from the NFT Drop contract contract type via the ClaimConditions property\.
 
@@ -13,13 +13,13 @@ This interface is currently accessible from the NFT Drop contract contract type 
 type NFTDropClaimConditions struct {}
 ```
 
-### func \(\*NFTDropClaimConditions\) [Get](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop_claim_conditions.go#L83)
+### func \(\*NFTDropClaimConditions\) [Get](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop_claim_conditions.go#L83>)
 
 ```go
 func (claim *NFTDropClaimConditions) Get(claimConditionId int) (*ClaimConditionOutput, error)
 ```
 
-### func \(\*NFTDropClaimConditions\) [GetActive](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop_claim_conditions.go#L52)
+### func \(\*NFTDropClaimConditions\) [GetActive](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop_claim_conditions.go#L52>)
 
 ```go
 func (claim *NFTDropClaimConditions) GetActive() (*ClaimConditionOutput, error)
@@ -43,7 +43,7 @@ fmt.Println("Price:", condition.Price)
 fmt.Println("Wait In Seconds", condition.WaitInSeconds)
 ```
 
-### func \(\*NFTDropClaimConditions\) [GetAll](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop_claim_conditions.go#L125)
+### func \(\*NFTDropClaimConditions\) [GetAll](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop_claim_conditions.go#L125>)
 
 ```go
 func (claim *NFTDropClaimConditions) GetAll() ([]*ClaimConditionOutput, error)
@@ -68,13 +68,13 @@ fmt.Println("Price:", condition.Price)
 fmt.Println("Wait In Seconds", condition.WaitInSeconds)
 ```
 
-### func \(\*NFTDropClaimConditions\) [GetClaimerProofs](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop_claim_conditions.go#L185-L189)
+### func \(\*NFTDropClaimConditions\) [GetClaimerProofs](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop_claim_conditions.go#L185-L189>)
 
 ```go
 func (claim *NFTDropClaimConditions) GetClaimerProofs(ctx context.Context, claimerAddress string, claimConditionId int) (*SnapshotEntryWithProof, error)
 ```
 
-### func \(\*NFTDropClaimConditions\) [GetMerkleMetadata](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop_claim_conditions.go#L164)
+### func \(\*NFTDropClaimConditions\) [GetMerkleMetadata](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop_claim_conditions.go#L164>)
 
 ```go
 func (claim *NFTDropClaimConditions) GetMerkleMetadata() (*map[string]string, error)

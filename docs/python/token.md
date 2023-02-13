@@ -4,7 +4,6 @@ title: Token Objects
 hide_title: true
 displayed_sidebar: python
 ---
-
 <a id="contracts.token"></a>
 
 # contracts.token
@@ -38,7 +37,7 @@ contract = sdk.get_token("{{contract_address}}")
 
 <a id="contracts.token.Token.get_vote_balance"></a>
 
-#### get_vote_balance
+#### get\_vote\_balance
 
 ```python
 def get_vote_balance() -> CurrencyValue
@@ -52,7 +51,7 @@ vote balance of the connected wallet
 
 <a id="contracts.token.Token.get_vote_balance_of"></a>
 
-#### get_vote_balance_of
+#### get\_vote\_balance\_of
 
 ```python
 def get_vote_balance_of(account: str) -> CurrencyValue
@@ -70,7 +69,7 @@ vote balance of the specified wallet
 
 <a id="contracts.token.Token.get_delegation"></a>
 
-#### get_delegation
+#### get\_delegation
 
 ```python
 def get_delegation() -> str
@@ -84,7 +83,7 @@ delegation address of the connected wallet
 
 <a id="contracts.token.Token.get_delegation_of"></a>
 
-#### get_delegation_of
+#### get\_delegation\_of
 
 ```python
 def get_delegation_of(account: str) -> str
@@ -120,7 +119,7 @@ transaction receipt of the mint
 
 <a id="contracts.token.Token.mint_to"></a>
 
-#### mint_to
+#### mint\_to
 
 ```python
 def mint_to(to: str, amount: Price) -> TxReceipt
@@ -143,7 +142,7 @@ transaction receipt of the mint
 
 <a id="contracts.token.Token.mint_batch_to"></a>
 
-#### mint_batch_to
+#### mint\_batch\_to
 
 ```python
 def mint_batch_to(args: List[TokenAmount]) -> TxReceipt
@@ -172,7 +171,7 @@ transaction receipt of the mint
 
 <a id="contracts.token.Token.delegate_to"></a>
 
-#### delegate_to
+#### delegate\_to
 
 ```python
 def delegate_to(delegatee_address: str) -> TxReceipt

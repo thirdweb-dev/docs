@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `Receipt` {#struct_thirdweb_1_1_receipt}
+# struct `Receipt` {#struct_thirdweb_1_1_receipt}
 
 ### Summary
 

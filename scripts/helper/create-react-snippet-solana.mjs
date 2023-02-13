@@ -1,5 +1,6 @@
 // Read in the react snippets
 import reactSnippets from "../../submodules/js/packages/react/docs/solana/snippets.json" assert { type: "json" };
+import reactCoreSnippets from "../../submodules/js/packages/react-core/docs/solana/snippets.json" assert { type: "json" };
 
 // Takes in a two keys and returns the react snippet defined here for that value
 // TODO: This logic **Probably** doesn't belong here.
@@ -60,7 +61,8 @@ export default function createReactSnippetSolana(contractName, methodName) {
   const mainHookName = reactMapping[contractName]?.mainHook;
   const reactSubhookName = reactMapping[contractName]?.subHooks[methodName];
 
-  const reactObject = reactSnippets?.[mainHookName];
+  const allSnippets = { ...reactSnippets, ...reactCoreSnippets };
+  const reactObject = allSnippets?.[mainHookName];
 
   const reactSubhooks = reactObject?.subhooks;
 

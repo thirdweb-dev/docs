@@ -5,7 +5,7 @@ import CodeBlock from "@theme/CodeBlock";
 
 export default function ThirdwebCodeSnippet() {
   const installationSnippets = {
-    javascript: `npm install @thirdweb-dev/sdk ethers`,
+    javascript: `npm install @thirdweb-dev/sdk ethers@5`,
     // react: `npm install @thirdweb-dev/react @thirdweb-dev/sdk ethers`,
     python: `pip install thirdweb-sdk`,
     // solidity: `npm install @thirdweb-dev/contracts`,

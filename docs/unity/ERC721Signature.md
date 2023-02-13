@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ERC721Signature` {#class_thirdweb_1_1_e_r_c721_signature}
+# class `ERC721Signature` {#class_thirdweb_1_1_e_r_c721_signature}
 
 ```
 class ERC721Signature

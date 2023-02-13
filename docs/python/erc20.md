@@ -4,10 +4,9 @@ title: ERC20 Objects
 hide_title: true
 displayed_sidebar: python
 ---
-
 <a id="core.classes.erc_20"></a>
 
-# core.classes.erc_20
+# core.classes.erc\_20
 
 <a id="core.classes.erc_20.ERC20"></a>
 
@@ -57,7 +56,7 @@ balance of the connected wallet
 
 <a id="core.classes.erc_20.ERC20.balance_of"></a>
 
-#### balance_of
+#### balance\_of
 
 ```python
 def balance_of(address: str) -> CurrencyValue
@@ -81,7 +80,7 @@ balance of the specified wallet
 
 <a id="core.classes.erc_20.ERC20.total_supply"></a>
 
-#### total_supply
+#### total\_supply
 
 ```python
 def total_supply() -> CurrencyValue
@@ -118,7 +117,7 @@ allowance of the connected wallet
 
 <a id="core.classes.erc_20.ERC20.allowance_of"></a>
 
-#### allowance_of
+#### allowance\_of
 
 ```python
 def allowance_of(owner: str, spender: str) -> CurrencyValue
@@ -148,7 +147,7 @@ allowance of the specified spender for the specified owner
 
 <a id="core.classes.erc_20.ERC20.is_transfer_restricted"></a>
 
-#### is_transfer_restricted
+#### is\_transfer\_restricted
 
 ```python
 def is_transfer_restricted() -> bool
@@ -191,7 +190,7 @@ transaction receipt of the transfer
 
 <a id="core.classes.erc_20.ERC20.transfer_from"></a>
 
-#### transfer_from
+#### transfer\_from
 
 ```python
 def transfer_from(fr: str, to: str, amount: Price) -> TxReceipt
@@ -224,7 +223,7 @@ transaction receipt of the transfer
 
 <a id="core.classes.erc_20.ERC20.set_allowance"></a>
 
-#### set_allowance
+#### set\_allowance
 
 ```python
 def set_allowance(spender: str, amount: Price) -> TxReceipt
@@ -251,7 +250,7 @@ transaction receipt of the allowance set
 
 <a id="core.classes.erc_20.ERC20.transfer_batch"></a>
 
-#### transfer_batch
+#### transfer\_batch
 
 ```python
 def transfer_batch(args: List[TokenAmount])
@@ -303,7 +302,7 @@ transaction receipt of the burn
 
 <a id="core.classes.erc_20.ERC20.burn_from"></a>
 
-#### burn_from
+#### burn\_from
 
 ```python
 def burn_from(holder: str, amount: Price) -> TxReceipt

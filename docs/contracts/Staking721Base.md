@@ -4,10 +4,15 @@ title: Staking721Base
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # Staking721Base
 
-EXTENSION: Staking721 The `Staking721Base` smart contract implements NFT staking mechanism. Allows users to stake their ERC-721 NFTs and earn rewards in form of ERC-20 tokens. Following features and implementation setup must be noted: - ERC-721 NFTs from only one NFT collection can be staked. - Contract admin can choose to give out rewards by either transferring or minting the rewardToken, which is an ERC20 token. See {\_mintRewards}. - To implement custom logic for staking, reward calculation, etc. corresponding functions can be overridden from the extension `Staking721`. - Ownership of the contract, with the ability to restrict certain functions to only be called by the contract&#39;s owner. - Multicall capability to perform multiple actions atomically.
+
+
+
+
+note: This contract is provided as a base contract.
+
+
 
 ## Methods
 
@@ -19,7 +24,8 @@ function claimRewards() external nonpayable
 
 Claim accumulated rewards.
 
-_See {\_claimRewards}. Override that to implement custom logic. See {\_calculateRewards} for reward-calculation logic._
+*See {_claimRewards}. Override that to implement custom logic.             See {_calculateRewards} for reward-calculation logic.*
+
 
 ### contractURI
 
@@ -29,25 +35,47 @@ function contractURI() external view returns (string)
 
 Returns the contract metadata URI.
 
+
+
+
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined |
+
+### depositRewardTokens
+
+```solidity
+function depositRewardTokens(uint256 _amount) external payable
+```
+
+
+
+*Admin deposits reward tokens.*
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| _amount | uint256 | undefined |
 
 ### getRewardTokenBalance
 
 ```solidity
-function getRewardTokenBalance() external view returns (uint256 _rewardsAvailableInContract)
+function getRewardTokenBalance() external view returns (uint256)
 ```
 
 View total rewards available in the staking contract.
 
+
+
+
 #### Returns
 
-| Name                         | Type    | Description |
-| ---------------------------- | ------- | ----------- |
-| \_rewardsAvailableInContract | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### getRewardsPerUnitTime
 
@@ -55,11 +83,16 @@ View total rewards available in the staking contract.
 function getRewardsPerUnitTime() external view returns (uint256 _rewardsPerUnitTime)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| \_rewardsPerUnitTime | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _rewardsPerUnitTime | uint256 | undefined |
 
 ### getStakeInfo
 
@@ -69,18 +102,20 @@ function getStakeInfo(address _staker) external view returns (uint256[] _tokensS
 
 View amount staked and total rewards for a user.
 
+
+
 #### Parameters
 
-| Name     | Type    | Description                              |
-| -------- | ------- | ---------------------------------------- |
-| \_staker | address | Address for which to calculated rewards. |
+| Name | Type | Description |
+|---|---|---|
+| _staker | address | Address for which to calculated rewards. |
 
 #### Returns
 
-| Name           | Type      | Description                         |
-| -------------- | --------- | ----------------------------------- |
-| \_tokensStaked | uint256[] | List of token-ids staked by staker. |
-| \_rewards      | uint256   | Available reward amount.            |
+| Name | Type | Description |
+|---|---|---|
+| _tokensStaked | uint256[] |   List of token-ids staked by staker. |
+| _rewards | uint256 |        Available reward amount. |
 
 ### getTimeUnit
 
@@ -88,11 +123,16 @@ View amount staked and total rewards for a user.
 function getTimeUnit() external view returns (uint256 _timeUnit)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_timeUnit | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _timeUnit | uint256 | undefined |
 
 ### indexedTokens
 
@@ -100,17 +140,21 @@ function getTimeUnit() external view returns (uint256 _timeUnit)
 function indexedTokens(uint256) external view returns (uint256)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### isIndexed
 
@@ -118,17 +162,21 @@ function indexedTokens(uint256) external view returns (uint256)
 function isIndexed(uint256) external view returns (bool)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### multicall
 
@@ -138,19 +186,61 @@ function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 
 Receives and executes a batch of function calls on this contract.
 
-_Receives and executes a batch of function calls on this contract._
+*Receives and executes a batch of function calls on this contract.*
 
 #### Parameters
 
-| Name | Type    | Description                                                          |
-| ---- | ------- | -------------------------------------------------------------------- |
+| Name | Type | Description |
+|---|---|---|
 | data | bytes[] | The bytes data that makes up the batch of function calls to execute. |
 
 #### Returns
 
-| Name    | Type    | Description                                                                      |
-| ------- | ------- | -------------------------------------------------------------------------------- |
+| Name | Type | Description |
+|---|---|---|
 | results | bytes[] | The bytes data that makes up the result of the batch of function calls executed. |
+
+### nativeTokenWrapper
+
+```solidity
+function nativeTokenWrapper() external view returns (address)
+```
+
+
+
+*The address of the native token wrapper contract.*
+
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
+
+### onERC721Received
+
+```solidity
+function onERC721Received(address, address, uint256, bytes) external view returns (bytes4)
+```
+
+
+
+
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
+| _1 | address | undefined |
+| _2 | uint256 | undefined |
+| _3 | bytes | undefined |
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes4 | undefined |
 
 ### owner
 
@@ -160,11 +250,14 @@ function owner() external view returns (address)
 
 Returns the owner of the contract.
 
+
+
+
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
 
 ### rewardToken
 
@@ -172,13 +265,16 @@ Returns the owner of the contract.
 function rewardToken() external view returns (address)
 ```
 
-_ERC20 Reward Token address. See {\_mintRewards} below._
+
+
+*ERC20 Reward Token address. See {_mintRewards} below.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
 
 ### setContractURI
 
@@ -188,13 +284,13 @@ function setContractURI(string _uri) external nonpayable
 
 Lets a contract admin set the URI for contract-level metadata.
 
-_Caller should be authorized to setup contractURI, e.g. contract admin. See {\_canSetContractURI}. Emits {ContractURIUpdated Event}._
+*Caller should be authorized to setup contractURI, e.g. contract admin.                  See {_canSetContractURI}.                  Emits {ContractURIUpdated Event}.*
 
 #### Parameters
 
-| Name  | Type   | Description                                                           |
-| ----- | ------ | --------------------------------------------------------------------- |
-| \_uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| Name | Type | Description |
+|---|---|---|
+| _uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
 ### setOwner
 
@@ -204,11 +300,13 @@ function setOwner(address _newOwner) external nonpayable
 
 Lets an authorized wallet set a new owner for the contract.
 
+
+
 #### Parameters
 
-| Name       | Type    | Description                                          |
-| ---------- | ------- | ---------------------------------------------------- |
-| \_newOwner | address | The address to set as the new owner of the contract. |
+| Name | Type | Description |
+|---|---|---|
+| _newOwner | address | The address to set as the new owner of the contract. |
 
 ### setRewardsPerUnitTime
 
@@ -216,15 +314,15 @@ Lets an authorized wallet set a new owner for the contract.
 function setRewardsPerUnitTime(uint256 _rewardsPerUnitTime) external nonpayable
 ```
 
-Set rewards per unit of time. Interpreted as x rewards per second/per day/etc based on time-unit.
+Set rewards per unit of time.           Interpreted as x rewards per second/per day/etc based on time-unit.
 
-_Only admin/authorized-account can call it._
+*Only admin/authorized-account can call it.*
 
 #### Parameters
 
-| Name                 | Type    | Description                |
-| -------------------- | ------- | -------------------------- |
-| \_rewardsPerUnitTime | uint256 | New rewards per unit time. |
+| Name | Type | Description |
+|---|---|---|
+| _rewardsPerUnitTime | uint256 | New rewards per unit time. |
 
 ### setTimeUnit
 
@@ -232,15 +330,15 @@ _Only admin/authorized-account can call it._
 function setTimeUnit(uint256 _timeUnit) external nonpayable
 ```
 
-Set time unit. Set as a number of seconds. Could be specified as -- x _ 1 hours, x _ 1 days, etc.
+Set time unit. Set as a number of seconds.           Could be specified as -- x * 1 hours, x * 1 days, etc.
 
-_Only admin/authorized-account can call it._
+*Only admin/authorized-account can call it.*
 
 #### Parameters
 
-| Name       | Type    | Description    |
-| ---------- | ------- | -------------- |
-| \_timeUnit | uint256 | New time unit. |
+| Name | Type | Description |
+|---|---|---|
+| _timeUnit | uint256 | New time unit. |
 
 ### stake
 
@@ -250,13 +348,13 @@ function stake(uint256[] _tokenIds) external nonpayable
 
 Stake ERC721 Tokens.
 
-_See {\_stake}. Override that to implement custom logic._
+*See {_stake}. Override that to implement custom logic.*
 
 #### Parameters
 
-| Name       | Type      | Description              |
-| ---------- | --------- | ------------------------ |
-| \_tokenIds | uint256[] | List of tokens to stake. |
+| Name | Type | Description |
+|---|---|---|
+| _tokenIds | uint256[] | List of tokens to stake. |
 
 ### stakerAddress
 
@@ -264,17 +362,21 @@ _See {\_stake}. Override that to implement custom logic._
 function stakerAddress(uint256) external view returns (address)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
 
 ### stakers
 
@@ -282,20 +384,24 @@ function stakerAddress(uint256) external view returns (address)
 function stakers(address) external view returns (uint256 amountStaked, uint256 timeOfLastUpdate, uint256 unclaimedRewards, uint256 conditionIdOflastUpdate)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
 
 #### Returns
 
-| Name                    | Type    | Description |
-| ----------------------- | ------- | ----------- |
-| amountStaked            | uint256 | undefined   |
-| timeOfLastUpdate        | uint256 | undefined   |
-| unclaimedRewards        | uint256 | undefined   |
-| conditionIdOflastUpdate | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| amountStaked | uint256 | undefined |
+| timeOfLastUpdate | uint256 | undefined |
+| unclaimedRewards | uint256 | undefined |
+| conditionIdOflastUpdate | uint256 | undefined |
 
 ### stakersArray
 
@@ -303,17 +409,21 @@ function stakers(address) external view returns (uint256 amountStaked, uint256 t
 function stakersArray(uint256) external view returns (address)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
 
 ### stakingToken
 
@@ -321,11 +431,38 @@ function stakersArray(uint256) external view returns (address)
 function stakingToken() external view returns (address)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
+
+### supportsInterface
+
+```solidity
+function supportsInterface(bytes4 interfaceId) external view returns (bool)
+```
+
+
+
+*See {IERC165-supportsInterface}.*
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| interfaceId | bytes4 | undefined |
+
+#### Returns
+
+| Name | Type | Description |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### withdraw
 
@@ -335,13 +472,31 @@ function withdraw(uint256[] _tokenIds) external nonpayable
 
 Withdraw staked tokens.
 
-_See {\_withdraw}. Override that to implement custom logic._
+*See {_withdraw}. Override that to implement custom logic.*
 
 #### Parameters
 
-| Name       | Type      | Description                 |
-| ---------- | --------- | --------------------------- |
-| \_tokenIds | uint256[] | List of tokens to withdraw. |
+| Name | Type | Description |
+|---|---|---|
+| _tokenIds | uint256[] | List of tokens to withdraw. |
+
+### withdrawRewardTokens
+
+```solidity
+function withdrawRewardTokens(uint256 _amount) external nonpayable
+```
+
+
+
+*Admin can withdraw excess reward tokens.*
+
+#### Parameters
+
+| Name | Type | Description |
+|---|---|---|
+| _amount | uint256 | undefined |
+
+
 
 ## Events
 
@@ -351,12 +506,16 @@ _See {\_withdraw}. Override that to implement custom logic._
 event ContractURIUpdated(string prevURI, string newURI)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name    | Type   | Description |
-| ------- | ------ | ----------- |
-| prevURI | string | undefined   |
-| newURI  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| prevURI  | string | undefined |
+| newURI  | string | undefined |
 
 ### OwnerUpdated
 
@@ -364,12 +523,16 @@ event ContractURIUpdated(string prevURI, string newURI)
 event OwnerUpdated(address indexed prevOwner, address indexed newOwner)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                | Type    | Description |
-| ------------------- | ------- | ----------- |
-| prevOwner `indexed` | address | undefined   |
-| newOwner `indexed`  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| prevOwner `indexed` | address | undefined |
+| newOwner `indexed` | address | undefined |
 
 ### RewardsClaimed
 
@@ -377,12 +540,16 @@ event OwnerUpdated(address indexed prevOwner, address indexed newOwner)
 event RewardsClaimed(address indexed staker, uint256 rewardAmount)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name             | Type    | Description |
-| ---------------- | ------- | ----------- |
-| staker `indexed` | address | undefined   |
-| rewardAmount     | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| staker `indexed` | address | undefined |
+| rewardAmount  | uint256 | undefined |
 
 ### TokensStaked
 
@@ -390,12 +557,16 @@ event RewardsClaimed(address indexed staker, uint256 rewardAmount)
 event TokensStaked(address indexed staker, uint256[] indexed tokenIds)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name               | Type      | Description |
-| ------------------ | --------- | ----------- |
-| staker `indexed`   | address   | undefined   |
-| tokenIds `indexed` | uint256[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| staker `indexed` | address | undefined |
+| tokenIds `indexed` | uint256[] | undefined |
 
 ### TokensWithdrawn
 
@@ -403,12 +574,16 @@ event TokensStaked(address indexed staker, uint256[] indexed tokenIds)
 event TokensWithdrawn(address indexed staker, uint256[] indexed tokenIds)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name               | Type      | Description |
-| ------------------ | --------- | ----------- |
-| staker `indexed`   | address   | undefined   |
-| tokenIds `indexed` | uint256[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| staker `indexed` | address | undefined |
+| tokenIds `indexed` | uint256[] | undefined |
 
 ### UpdatedRewardsPerUnitTime
 
@@ -416,12 +591,16 @@ event TokensWithdrawn(address indexed staker, uint256[] indexed tokenIds)
 event UpdatedRewardsPerUnitTime(uint256 oldRewardsPerUnitTime, uint256 newRewardsPerUnitTime)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                  | Type    | Description |
-| --------------------- | ------- | ----------- |
-| oldRewardsPerUnitTime | uint256 | undefined   |
-| newRewardsPerUnitTime | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| oldRewardsPerUnitTime  | uint256 | undefined |
+| newRewardsPerUnitTime  | uint256 | undefined |
 
 ### UpdatedTimeUnit
 
@@ -429,9 +608,15 @@ event UpdatedRewardsPerUnitTime(uint256 oldRewardsPerUnitTime, uint256 newReward
 event UpdatedTimeUnit(uint256 oldTimeUnit, uint256 newTimeUnit)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| oldTimeUnit | uint256 | undefined   |
-| newTimeUnit | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| oldTimeUnit  | uint256 | undefined |
+| newTimeUnit  | uint256 | undefined |
+
+

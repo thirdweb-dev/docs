@@ -4,8 +4,15 @@ title: IRouter
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # IRouter
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -15,11 +22,15 @@ displayed_sidebar: contracts
 function addPlugin(IPluginMap.Plugin plugin) external nonpayable
 ```
 
+
+
+
+
 #### Parameters
 
-| Name   | Type              | Description |
-| ------ | ----------------- | ----------- |
-| plugin | IPluginMap.Plugin | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| plugin | IPluginMap.Plugin | undefined |
 
 ### getAllFunctionsOfPlugin
 
@@ -27,19 +38,21 @@ function addPlugin(IPluginMap.Plugin plugin) external nonpayable
 function getAllFunctionsOfPlugin(address pluginAddress) external view returns (bytes4[])
 ```
 
-_Returns all functions that are mapped to the given plug-in contract._
+
+
+*Returns all functions that are mapped to the given plug-in contract.*
 
 #### Parameters
 
-| Name          | Type    | Description |
-| ------------- | ------- | ----------- |
-| pluginAddress | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| pluginAddress | address | undefined |
 
 #### Returns
 
-| Name | Type     | Description |
-| ---- | -------- | ----------- |
-| \_0  | bytes4[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes4[] | undefined |
 
 ### getAllPlugins
 
@@ -47,13 +60,16 @@ _Returns all functions that are mapped to the given plug-in contract._
 function getAllPlugins() external view returns (struct IPluginMap.Plugin[])
 ```
 
-_Returns all plug-ins known by Map._
+
+
+*Returns all plug-ins known by Map.*
+
 
 #### Returns
 
-| Name | Type                | Description |
-| ---- | ------------------- | ----------- |
-| \_0  | IPluginMap.Plugin[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | IPluginMap.Plugin[] | undefined |
 
 ### getPluginForFunction
 
@@ -61,19 +77,21 @@ _Returns all plug-ins known by Map._
 function getPluginForFunction(bytes4 functionSelector) external view returns (address)
 ```
 
-_Returns the plug-in contract for a given function._
+
+
+*Returns the plug-in contract for a given function.*
 
 #### Parameters
 
-| Name             | Type   | Description |
-| ---------------- | ------ | ----------- |
-| functionSelector | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| functionSelector | bytes4 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
 
 ### removePlugin
 
@@ -81,13 +99,15 @@ _Returns the plug-in contract for a given function._
 function removePlugin(bytes4 functionSelector) external nonpayable
 ```
 
-_Remove an existing plugin from the contract._
+
+
+*Remove an existing plugin from the contract.*
 
 #### Parameters
 
-| Name             | Type   | Description |
-| ---------------- | ------ | ----------- |
-| functionSelector | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| functionSelector | bytes4 | undefined |
 
 ### updatePlugin
 
@@ -95,11 +115,17 @@ _Remove an existing plugin from the contract._
 function updatePlugin(IPluginMap.Plugin plugin) external nonpayable
 ```
 
+
+
+
+
 #### Parameters
 
-| Name   | Type              | Description |
-| ------ | ----------------- | ----------- |
-| plugin | IPluginMap.Plugin | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| plugin | IPluginMap.Plugin | undefined |
+
+
 
 ## Events
 
@@ -109,14 +135,16 @@ function updatePlugin(IPluginMap.Plugin plugin) external nonpayable
 event PluginAdded(bytes4 indexed functionSelector, address indexed pluginAddress)
 ```
 
-_Emitted when a functionality is added, or plugged-in._
+
+
+*Emitted when a functionality is added, or plugged-in.*
 
 #### Parameters
 
-| Name                       | Type    | Description |
-| -------------------------- | ------- | ----------- |
-| functionSelector `indexed` | bytes4  | undefined   |
-| pluginAddress `indexed`    | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| functionSelector `indexed` | bytes4 | undefined |
+| pluginAddress `indexed` | address | undefined |
 
 ### PluginRemoved
 
@@ -124,14 +152,16 @@ _Emitted when a functionality is added, or plugged-in._
 event PluginRemoved(bytes4 indexed functionSelector, address indexed pluginAddress)
 ```
 
-_Emitted when a functionality is removed._
+
+
+*Emitted when a functionality is removed.*
 
 #### Parameters
 
-| Name                       | Type    | Description |
-| -------------------------- | ------- | ----------- |
-| functionSelector `indexed` | bytes4  | undefined   |
-| pluginAddress `indexed`    | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| functionSelector `indexed` | bytes4 | undefined |
+| pluginAddress `indexed` | address | undefined |
 
 ### PluginSet
 
@@ -139,13 +169,17 @@ _Emitted when a functionality is removed._
 event PluginSet(bytes4 indexed functionSelector, string indexed functionSignature, address indexed pluginAddress)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                        | Type    | Description |
-| --------------------------- | ------- | ----------- |
-| functionSelector `indexed`  | bytes4  | undefined   |
-| functionSignature `indexed` | string  | undefined   |
-| pluginAddress `indexed`     | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| functionSelector `indexed` | bytes4 | undefined |
+| functionSignature `indexed` | string | undefined |
+| pluginAddress `indexed` | address | undefined |
 
 ### PluginUpdated
 
@@ -153,12 +187,16 @@ event PluginSet(bytes4 indexed functionSelector, string indexed functionSignatur
 event PluginUpdated(bytes4 indexed functionSelector, address indexed oldPluginAddress, address indexed newPluginAddress)
 ```
 
-_Emitted when a functionality is updated or overridden._
+
+
+*Emitted when a functionality is updated or overridden.*
 
 #### Parameters
 
-| Name                       | Type    | Description |
-| -------------------------- | ------- | ----------- |
-| functionSelector `indexed` | bytes4  | undefined   |
-| oldPluginAddress `indexed` | address | undefined   |
-| newPluginAddress `indexed` | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| functionSelector `indexed` | bytes4 | undefined |
+| oldPluginAddress `indexed` | address | undefined |
+| newPluginAddress `indexed` | address | undefined |
+
+

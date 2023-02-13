@@ -4,10 +4,15 @@ title: ERC1155Drop
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # ERC1155Drop
 
-BASE: ERC1155Base EXTENSION: DropSinglePhase1155 The `ERC1155Base` smart contract implements the ERC1155 NFT standard. It includes the following additions to standard ERC1155 logic: - Contract metadata for royalty support on platforms such as OpenSea that use off-chain information to distribute roaylties. - Ownership of the contract, with the ability to restrict certain functions to only be called by the contract&#39;s owner. - Multicall capability to perform multiple actions atomically - EIP 2981 compliance for royalty support on NFT marketplaces. The `drop` mechanism in the `DropSinglePhase1155` extension is a distribution mechanism for lazy minted tokens. It lets you set restrictions such as a price to charge, an allowlist etc. when an address atttempts to mint lazy minted tokens. The `ERC721Drop` contract lets you lazy mint tokens, and distribute those lazy minted tokens via the drop mechanism.
+
+
+
+
+BASE:      ERC1155Base      EXTENSION: DropSinglePhase1155  The `ERC1155Base` smart contract implements the ERC1155 NFT standard.  It includes the following additions to standard ERC1155 logic:      - Contract metadata for royalty support on platforms such as OpenSea that use        off-chain information to distribute roaylties.      - Ownership of the contract, with the ability to restrict certain functions to        only be called by the contract&#39;s owner.      - Multicall capability to perform multiple actions atomically      - EIP 2981 compliance for royalty support on NFT marketplaces.  The `drop` mechanism in the `DropSinglePhase1155` extension is a distribution mechanism for lazy minted tokens. It lets  you set restrictions such as a price to charge, an allowlist etc. when an address atttempts to mint lazy minted tokens.  The `ERC721Drop` contract lets you lazy mint tokens, and distribute those lazy minted tokens via the drop mechanism.
+
+
 
 ## Methods
 
@@ -17,11 +22,16 @@ BASE: ERC1155Base EXTENSION: DropSinglePhase1155 The `ERC1155Base` smart contrac
 function OPERATOR_FILTER_REGISTRY() external view returns (contract IOperatorFilterRegistry)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type                             | Description |
-| ---- | -------------------------------- | ----------- |
-| \_0  | contract IOperatorFilterRegistry | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | contract IOperatorFilterRegistry | undefined |
 
 ### balanceOf
 
@@ -31,18 +41,20 @@ function balanceOf(address, uint256) external view returns (uint256)
 
 Get the balance of an account&#39;s Tokens.
 
+
+
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
+| _1 | uint256 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### balanceOfBatch
 
@@ -50,18 +62,22 @@ Get the balance of an account&#39;s Tokens.
 function balanceOfBatch(address[] accounts, uint256[] ids) external view returns (uint256[])
 ```
 
+
+
+
+
 #### Parameters
 
-| Name     | Type      | Description |
-| -------- | --------- | ----------- |
-| accounts | address[] | undefined   |
-| ids      | uint256[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| accounts | address[] | undefined |
+| ids | uint256[] | undefined |
 
 #### Returns
 
-| Name | Type      | Description |
-| ---- | --------- | ----------- |
-| \_0  | uint256[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256[] | undefined |
 
 ### burn
 
@@ -71,13 +87,15 @@ function burn(address _owner, uint256 _tokenId, uint256 _amount) external nonpay
 
 Lets an owner or approved operator burn NFTs of the given tokenId.
 
+
+
 #### Parameters
 
-| Name      | Type    | Description                     |
-| --------- | ------- | ------------------------------- |
-| \_owner   | address | The owner of the NFT to burn.   |
-| \_tokenId | uint256 | The tokenId of the NFT to burn. |
-| \_amount  | uint256 | The amount of the NFT to burn.  |
+| Name | Type | Description |
+|---|---|---|
+| _owner | address | The owner of the NFT to burn. |
+| _tokenId | uint256 | The tokenId of the NFT to burn. |
+| _amount | uint256 | The amount of the NFT to burn. |
 
 ### burnBatch
 
@@ -87,13 +105,15 @@ function burnBatch(address _owner, uint256[] _tokenIds, uint256[] _amounts) exte
 
 Lets an owner or approved operator burn NFTs of the given tokenIds.
 
+
+
 #### Parameters
 
-| Name       | Type      | Description                       |
-| ---------- | --------- | --------------------------------- |
-| \_owner    | address   | The owner of the NFTs to burn.    |
-| \_tokenIds | uint256[] | The tokenIds of the NFTs to burn. |
-| \_amounts  | uint256[] | The amounts of the NFTs to burn.  |
+| Name | Type | Description |
+|---|---|---|
+| _owner | address | The owner of the NFTs to burn. |
+| _tokenIds | uint256[] | The tokenIds of the NFTs to burn. |
+| _amounts | uint256[] | The amounts of the NFTs to burn. |
 
 ### claim
 
@@ -101,17 +121,21 @@ Lets an owner or approved operator burn NFTs of the given tokenIds.
 function claim(address _receiver, uint256 _tokenId, uint256 _quantity, address _currency, uint256 _pricePerToken, IDropSinglePhase1155.AllowlistProof _allowlistProof, bytes _data) external payable
 ```
 
+
+
+
+
 #### Parameters
 
-| Name             | Type                                | Description |
-| ---------------- | ----------------------------------- | ----------- |
-| \_receiver       | address                             | undefined   |
-| \_tokenId        | uint256                             | undefined   |
-| \_quantity       | uint256                             | undefined   |
-| \_currency       | address                             | undefined   |
-| \_pricePerToken  | uint256                             | undefined   |
-| \_allowlistProof | IDropSinglePhase1155.AllowlistProof | undefined   |
-| \_data           | bytes                               | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _receiver | address | undefined |
+| _tokenId | uint256 | undefined |
+| _quantity | uint256 | undefined |
+| _currency | address | undefined |
+| _pricePerToken | uint256 | undefined |
+| _allowlistProof | IDropSinglePhase1155.AllowlistProof | undefined |
+| _data | bytes | undefined |
 
 ### claimCondition
 
@@ -119,24 +143,28 @@ function claim(address _receiver, uint256 _tokenId, uint256 _quantity, address _
 function claimCondition(uint256) external view returns (uint256 startTimestamp, uint256 maxClaimableSupply, uint256 supplyClaimed, uint256 quantityLimitPerWallet, bytes32 merkleRoot, uint256 pricePerToken, address currency, string metadata)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 #### Returns
 
-| Name                   | Type    | Description |
-| ---------------------- | ------- | ----------- |
-| startTimestamp         | uint256 | undefined   |
-| maxClaimableSupply     | uint256 | undefined   |
-| supplyClaimed          | uint256 | undefined   |
-| quantityLimitPerWallet | uint256 | undefined   |
-| merkleRoot             | bytes32 | undefined   |
-| pricePerToken          | uint256 | undefined   |
-| currency               | address | undefined   |
-| metadata               | string  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| startTimestamp | uint256 | undefined |
+| maxClaimableSupply | uint256 | undefined |
+| supplyClaimed | uint256 | undefined |
+| quantityLimitPerWallet | uint256 | undefined |
+| merkleRoot | bytes32 | undefined |
+| pricePerToken | uint256 | undefined |
+| currency | address | undefined |
+| metadata | string | undefined |
 
 ### contractURI
 
@@ -146,11 +174,14 @@ function contractURI() external view returns (string)
 
 Returns the contract metadata URI.
 
+
+
+
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined |
 
 ### encryptDecrypt
 
@@ -160,20 +191,20 @@ function encryptDecrypt(bytes data, bytes key) external pure returns (bytes resu
 
 Encrypt/decrypt data on chain.
 
-_Encrypt/decrypt given `data` with `key`. Uses inline assembly. See: https://ethereum.stackexchange.com/questions/69825/decrypt-message-on-chain_
+*Encrypt/decrypt given `data` with `key`. Uses inline assembly.                  See: https://ethereum.stackexchange.com/questions/69825/decrypt-message-on-chain*
 
 #### Parameters
 
-| Name | Type  | Description                                          |
-| ---- | ----- | ---------------------------------------------------- |
-| data | bytes | Bytes of data to encrypt/decrypt.                    |
-| key  | bytes | Secure key used by caller for encryption/decryption. |
+| Name | Type | Description |
+|---|---|---|
+| data | bytes | Bytes of data to encrypt/decrypt. |
+| key | bytes | Secure key used by caller for encryption/decryption. |
 
 #### Returns
 
-| Name   | Type  | Description                                       |
-| ------ | ----- | ------------------------------------------------- |
-| result | bytes | Output after encryption/decryption of given data. |
+| Name | Type | Description |
+|---|---|---|
+| result | bytes |  Output after encryption/decryption of given data. |
 
 ### encryptedData
 
@@ -181,17 +212,21 @@ _Encrypt/decrypt given `data` with `key`. Uses inline assembly. See: https://eth
 function encryptedData(uint256) external view returns (bytes)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 #### Returns
 
-| Name | Type  | Description |
-| ---- | ----- | ----------- |
-| \_0  | bytes | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | bytes | undefined |
 
 ### getBaseURICount
 
@@ -201,13 +236,14 @@ function getBaseURICount() external view returns (uint256)
 
 Returns the count of batches of NFTs.
 
-_Each batch of tokens has an in ID and an associated `baseURI`. See {batchIds}._
+*Each batch of tokens has an in ID and an associated `baseURI`.                  See {batchIds}.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### getBatchIdAtIndex
 
@@ -217,19 +253,19 @@ function getBatchIdAtIndex(uint256 _index) external view returns (uint256)
 
 Returns the ID for the batch of tokens the given tokenId belongs to.
 
-_See {getBaseURICount}._
+*See {getBaseURICount}.*
 
 #### Parameters
 
-| Name    | Type    | Description    |
-| ------- | ------- | -------------- |
-| \_index | uint256 | ID of a token. |
+| Name | Type | Description |
+|---|---|---|
+| _index | uint256 | ID of a token. |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### getDefaultRoyaltyInfo
 
@@ -239,12 +275,15 @@ function getDefaultRoyaltyInfo() external view returns (address, uint16)
 
 Returns the defualt royalty recipient and BPS for this contract&#39;s NFTs.
 
+
+
+
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint16  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
+| _1 | uint16 | undefined |
 
 ### getRevealURI
 
@@ -254,19 +293,19 @@ function getRevealURI(uint256 _batchId, bytes _key) external view returns (strin
 
 Returns revealed URI for a batch of NFTs.
 
-_Reveal encrypted base URI for `_batchId` with caller/admin&#39;s `_key` used for encryption. Reverts if there&#39;s no encrypted URI for `_batchId`. See {encryptDecrypt}._
+*Reveal encrypted base URI for `_batchId` with caller/admin&#39;s `_key` used for encryption.                      Reverts if there&#39;s no encrypted URI for `_batchId`.                      See {encryptDecrypt}.*
 
 #### Parameters
 
-| Name      | Type    | Description                                                |
-| --------- | ------- | ---------------------------------------------------------- |
-| \_batchId | uint256 | ID of the batch for which URI is being revealed.           |
-| \_key     | bytes   | Secure key used by caller/admin for encryption of baseURI. |
+| Name | Type | Description |
+|---|---|---|
+| _batchId | uint256 | ID of the batch for which URI is being revealed. |
+| _key | bytes | Secure key used by caller/admin for encryption of baseURI. |
 
 #### Returns
 
-| Name        | Type   | Description         |
-| ----------- | ------ | ------------------- |
+| Name | Type | Description |
+|---|---|---|
 | revealedURI | string | Decrypted base URI. |
 
 ### getRoyaltyInfoForToken
@@ -277,20 +316,20 @@ function getRoyaltyInfoForToken(uint256 _tokenId) external view returns (address
 
 View royalty info for a given token.
 
-_Returns royalty recipient and bps for `_tokenId`._
+*Returns royalty recipient and bps for `_tokenId`.*
 
 #### Parameters
 
-| Name      | Type    | Description                                             |
-| --------- | ------- | ------------------------------------------------------- |
-| \_tokenId | uint256 | The tokenID of the NFT for which to query royalty info. |
+| Name | Type | Description |
+|---|---|---|
+| _tokenId | uint256 | The tokenID of the NFT for which to query royalty info. |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | uint16  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
+| _1 | uint16 | undefined |
 
 ### getSupplyClaimedByWallet
 
@@ -298,20 +337,22 @@ _Returns royalty recipient and bps for `_tokenId`._
 function getSupplyClaimedByWallet(uint256 _tokenId, address _claimer) external view returns (uint256)
 ```
 
-_Returns the supply claimed by claimer for active conditionId._
+
+
+*Returns the supply claimed by claimer for active conditionId.*
 
 #### Parameters
 
-| Name      | Type    | Description |
-| --------- | ------- | ----------- |
-| \_tokenId | uint256 | undefined   |
-| \_claimer | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _tokenId | uint256 | undefined |
+| _claimer | address | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### isApprovedForAll
 
@@ -321,18 +362,20 @@ function isApprovedForAll(address, address) external view returns (bool)
 
 Queries the approval status of an operator for a given owner.
 
+
+
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
-| \_1  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
+| _1 | address | undefined |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### isEncryptedBatch
 
@@ -342,19 +385,19 @@ function isEncryptedBatch(uint256 _batchId) external view returns (bool)
 
 Returns whether the relvant batch of NFTs is subject to a delayed reveal.
 
-_Returns `true` if `_batchId`&#39;s base URI is encrypted._
+*Returns `true` if `_batchId`&#39;s base URI is encrypted.*
 
 #### Parameters
 
-| Name      | Type    | Description            |
-| --------- | ------- | ---------------------- |
-| \_batchId | uint256 | ID of a batch of NFTs. |
+| Name | Type | Description |
+|---|---|---|
+| _batchId | uint256 | ID of a batch of NFTs. |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### lazyMint
 
@@ -364,19 +407,21 @@ function lazyMint(uint256 _amount, string _baseURIForTokens, bytes _data) extern
 
 Lets an authorized address lazy mint a given amount of NFTs.
 
+
+
 #### Parameters
 
-| Name               | Type    | Description                                                                                                                                                   |
-| ------------------ | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| \_amount           | uint256 | The number of NFTs to lazy mint.                                                                                                                              |
-| \_baseURIForTokens | string  | The placeholder base URI for the &#39;n&#39; number of NFTs being lazy minted, where the metadata for each of those NFTs is `${baseURIForTokens}/${tokenId}`. |
-| \_data             | bytes   | The encrypted base URI + provenance hash for the batch of NFTs being lazy minted.                                                                             |
+| Name | Type | Description |
+|---|---|---|
+| _amount | uint256 | The number of NFTs to lazy mint. |
+| _baseURIForTokens | string | The placeholder base URI for the &#39;n&#39; number of NFTs being lazy minted, where the                           metadata for each of those NFTs is `${baseURIForTokens}/${tokenId}`. |
+| _data | bytes | The encrypted base URI + provenance hash for the batch of NFTs being lazy minted. |
 
 #### Returns
 
-| Name    | Type    | Description                                                             |
-| ------- | ------- | ----------------------------------------------------------------------- |
-| batchId | uint256 | A unique integer identifier for the batch of NFTs lazy minted together. |
+| Name | Type | Description |
+|---|---|---|
+| batchId | uint256 |          A unique integer identifier for the batch of NFTs lazy minted together. |
 
 ### multicall
 
@@ -386,18 +431,18 @@ function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 
 Receives and executes a batch of function calls on this contract.
 
-_Receives and executes a batch of function calls on this contract._
+*Receives and executes a batch of function calls on this contract.*
 
 #### Parameters
 
-| Name | Type    | Description                                                          |
-| ---- | ------- | -------------------------------------------------------------------- |
+| Name | Type | Description |
+|---|---|---|
 | data | bytes[] | The bytes data that makes up the batch of function calls to execute. |
 
 #### Returns
 
-| Name    | Type    | Description                                                                      |
-| ------- | ------- | -------------------------------------------------------------------------------- |
+| Name | Type | Description |
+|---|---|---|
 | results | bytes[] | The bytes data that makes up the result of the batch of function calls executed. |
 
 ### name
@@ -406,11 +451,16 @@ _Receives and executes a batch of function calls on this contract._
 function name() external view returns (string)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined |
 
 ### nextTokenIdToMint
 
@@ -420,11 +470,14 @@ function nextTokenIdToMint() external view returns (uint256)
 
 The tokenId assigned to the next new NFT to be lazy minted.
 
+
+
+
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### operatorRestriction
 
@@ -432,11 +485,16 @@ The tokenId assigned to the next new NFT to be lazy minted.
 function operatorRestriction() external view returns (bool)
 ```
 
+
+
+
+
+
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### owner
 
@@ -446,11 +504,14 @@ function owner() external view returns (address)
 
 Returns the owner of the contract.
 
+
+
+
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
 
 ### primarySaleRecipient
 
@@ -458,13 +519,16 @@ Returns the owner of the contract.
 function primarySaleRecipient() external view returns (address)
 ```
 
-_Returns primary sale recipient address._
+
+
+*Returns primary sale recipient address.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
 
 ### reveal
 
@@ -474,18 +538,20 @@ function reveal(uint256 _index, bytes _key) external nonpayable returns (string 
 
 Lets an authorized address reveal a batch of delayed reveal NFTs.
 
+
+
 #### Parameters
 
-| Name    | Type    | Description                                                                   |
-| ------- | ------- | ----------------------------------------------------------------------------- |
-| \_index | uint256 | The ID for the batch of delayed-reveal NFTs to reveal.                        |
-| \_key   | bytes   | The key with which the base URI for the relevant batch of NFTs was encrypted. |
+| Name | Type | Description |
+|---|---|---|
+| _index | uint256 | The ID for the batch of delayed-reveal NFTs to reveal. |
+| _key | bytes | The key with which the base URI for the relevant batch of NFTs was encrypted. |
 
 #### Returns
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| revealedURI | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| revealedURI | string | undefined |
 
 ### royaltyInfo
 
@@ -495,21 +561,21 @@ function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (
 
 View royalty info for a given token and sale price.
 
-_Returns royalty amount and recipient for `tokenId` and `salePrice`._
+*Returns royalty amount and recipient for `tokenId` and `salePrice`.*
 
 #### Parameters
 
-| Name      | Type    | Description                                             |
-| --------- | ------- | ------------------------------------------------------- |
-| tokenId   | uint256 | The tokenID of the NFT for which to query royalty info. |
-| salePrice | uint256 | Sale price of the token.                                |
+| Name | Type | Description |
+|---|---|---|
+| tokenId | uint256 | The tokenID of the NFT for which to query royalty info. |
+| salePrice | uint256 | Sale price of the token. |
 
 #### Returns
 
-| Name          | Type    | Description                                            |
-| ------------- | ------- | ------------------------------------------------------ |
-| receiver      | address | Address of royalty recipient account.                  |
-| royaltyAmount | uint256 | Royalty amount calculated at current royaltyBps value. |
+| Name | Type | Description |
+|---|---|---|
+| receiver | address |        Address of royalty recipient account. |
+| royaltyAmount | uint256 |   Royalty amount calculated at current royaltyBps value. |
 
 ### safeBatchTransferFrom
 
@@ -517,17 +583,19 @@ _Returns royalty amount and recipient for `tokenId` and `salePrice`._
 function safeBatchTransferFrom(address from, address to, uint256[] ids, uint256[] amounts, bytes data) external nonpayable
 ```
 
-_See {IERC1155-safeBatchTransferFrom}._
+
+
+*See {IERC1155-safeBatchTransferFrom}.*
 
 #### Parameters
 
-| Name    | Type      | Description |
-| ------- | --------- | ----------- |
-| from    | address   | undefined   |
-| to      | address   | undefined   |
-| ids     | uint256[] | undefined   |
-| amounts | uint256[] | undefined   |
-| data    | bytes     | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| from | address | undefined |
+| to | address | undefined |
+| ids | uint256[] | undefined |
+| amounts | uint256[] | undefined |
+| data | bytes | undefined |
 
 ### safeTransferFrom
 
@@ -535,17 +603,19 @@ _See {IERC1155-safeBatchTransferFrom}._
 function safeTransferFrom(address from, address to, uint256 id, uint256 amount, bytes data) external nonpayable
 ```
 
-_See {IERC1155-safeTransferFrom}._
+
+
+*See {IERC1155-safeTransferFrom}.*
 
 #### Parameters
 
-| Name   | Type    | Description |
-| ------ | ------- | ----------- |
-| from   | address | undefined   |
-| to     | address | undefined   |
-| id     | uint256 | undefined   |
-| amount | uint256 | undefined   |
-| data   | bytes   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| from | address | undefined |
+| to | address | undefined |
+| id | uint256 | undefined |
+| amount | uint256 | undefined |
+| data | bytes | undefined |
 
 ### setApprovalForAll
 
@@ -553,14 +623,16 @@ _See {IERC1155-safeTransferFrom}._
 function setApprovalForAll(address operator, bool approved) external nonpayable
 ```
 
-_See {ERC1155-setApprovalForAll}_
+
+
+*See {ERC1155-setApprovalForAll}*
 
 #### Parameters
 
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| operator | address | undefined   |
-| approved | bool    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| operator | address | undefined |
+| approved | bool | undefined |
 
 ### setClaimConditions
 
@@ -568,13 +640,17 @@ _See {ERC1155-setApprovalForAll}_
 function setClaimConditions(uint256 _tokenId, IClaimCondition.ClaimCondition _condition, bool _resetClaimEligibility) external nonpayable
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                    | Type                           | Description |
-| ----------------------- | ------------------------------ | ----------- |
-| \_tokenId               | uint256                        | undefined   |
-| \_condition             | IClaimCondition.ClaimCondition | undefined   |
-| \_resetClaimEligibility | bool                           | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _tokenId | uint256 | undefined |
+| _condition | IClaimCondition.ClaimCondition | undefined |
+| _resetClaimEligibility | bool | undefined |
 
 ### setContractURI
 
@@ -584,13 +660,13 @@ function setContractURI(string _uri) external nonpayable
 
 Lets a contract admin set the URI for contract-level metadata.
 
-_Caller should be authorized to setup contractURI, e.g. contract admin. See {\_canSetContractURI}. Emits {ContractURIUpdated Event}._
+*Caller should be authorized to setup contractURI, e.g. contract admin.                  See {_canSetContractURI}.                  Emits {ContractURIUpdated Event}.*
 
 #### Parameters
 
-| Name  | Type   | Description                                                           |
-| ----- | ------ | --------------------------------------------------------------------- |
-| \_uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| Name | Type | Description |
+|---|---|---|
+| _uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
 ### setDefaultRoyaltyInfo
 
@@ -600,14 +676,14 @@ function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) e
 
 Updates default royalty recipient and bps.
 
-_Caller should be authorized to set royalty info. See {\_canSetRoyaltyInfo}. Emits {DefaultRoyalty Event}; See {\_setupDefaultRoyaltyInfo}._
+*Caller should be authorized to set royalty info.                  See {_canSetRoyaltyInfo}.                  Emits {DefaultRoyalty Event}; See {_setupDefaultRoyaltyInfo}.*
 
 #### Parameters
 
-| Name               | Type    | Description                                     |
-| ------------------ | ------- | ----------------------------------------------- |
-| \_royaltyRecipient | address | Address to be set as default royalty recipient. |
-| \_royaltyBps       | uint256 | Updated royalty bps.                            |
+| Name | Type | Description |
+|---|---|---|
+| _royaltyRecipient | address | Address to be set as default royalty recipient. |
+| _royaltyBps | uint256 | Updated royalty bps. |
 
 ### setOperatorRestriction
 
@@ -615,11 +691,15 @@ _Caller should be authorized to set royalty info. See {\_canSetRoyaltyInfo}. Emi
 function setOperatorRestriction(bool _restriction) external nonpayable
 ```
 
+
+
+
+
 #### Parameters
 
-| Name          | Type | Description |
-| ------------- | ---- | ----------- |
-| \_restriction | bool | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _restriction | bool | undefined |
 
 ### setOwner
 
@@ -629,11 +709,13 @@ function setOwner(address _newOwner) external nonpayable
 
 Lets an authorized wallet set a new owner for the contract.
 
+
+
 #### Parameters
 
-| Name       | Type    | Description                                          |
-| ---------- | ------- | ---------------------------------------------------- |
-| \_newOwner | address | The address to set as the new owner of the contract. |
+| Name | Type | Description |
+|---|---|---|
+| _newOwner | address | The address to set as the new owner of the contract. |
 
 ### setPrimarySaleRecipient
 
@@ -643,13 +725,13 @@ function setPrimarySaleRecipient(address _saleRecipient) external nonpayable
 
 Updates primary sale recipient.
 
-_Caller should be authorized to set primary sales info. See {\_canSetPrimarySaleRecipient}. Emits {PrimarySaleRecipientUpdated Event}; See {\_setupPrimarySaleRecipient}._
+*Caller should be authorized to set primary sales info.                  See {_canSetPrimarySaleRecipient}.                  Emits {PrimarySaleRecipientUpdated Event}; See {_setupPrimarySaleRecipient}.*
 
 #### Parameters
 
-| Name            | Type    | Description                                          |
-| --------------- | ------- | ---------------------------------------------------- |
-| \_saleRecipient | address | Address to be set as new recipient of primary sales. |
+| Name | Type | Description |
+|---|---|---|
+| _saleRecipient | address | Address to be set as new recipient of primary sales. |
 
 ### setRoyaltyInfoForToken
 
@@ -659,15 +741,15 @@ function setRoyaltyInfoForToken(uint256 _tokenId, address _recipient, uint256 _b
 
 Updates default royalty recipient and bps for a particular token.
 
-_Sets royalty info for `_tokenId`. Caller should be authorized to set royalty info. See {\_canSetRoyaltyInfo}. Emits {RoyaltyForToken Event}; See {\_setupRoyaltyInfoForToken}._
+*Sets royalty info for `_tokenId`. Caller should be authorized to set royalty info.                  See {_canSetRoyaltyInfo}.                  Emits {RoyaltyForToken Event}; See {_setupRoyaltyInfoForToken}.*
 
 #### Parameters
 
-| Name        | Type    | Description                                                |
-| ----------- | ------- | ---------------------------------------------------------- |
-| \_tokenId   | uint256 | undefined                                                  |
-| \_recipient | address | Address to be set as royalty recipient for given token Id. |
-| \_bps       | uint256 | Updated royalty bps for the token Id.                      |
+| Name | Type | Description |
+|---|---|---|
+| _tokenId | uint256 | undefined |
+| _recipient | address | Address to be set as royalty recipient for given token Id. |
+| _bps | uint256 | Updated royalty bps for the token Id. |
 
 ### supportsInterface
 
@@ -677,17 +759,19 @@ function supportsInterface(bytes4 interfaceId) external view returns (bool)
 
 Returns whether this contract supports the given interface.
 
+
+
 #### Parameters
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| interfaceId | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| interfaceId | bytes4 | undefined |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### symbol
 
@@ -695,11 +779,16 @@ Returns whether this contract supports the given interface.
 function symbol() external view returns (string)
 ```
 
+
+
+
+
+
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined |
 
 ### totalSupply
 
@@ -709,19 +798,19 @@ function totalSupply(uint256) external view returns (uint256)
 
 Returns the total supply of NFTs of a given tokenId
 
-_Mapping from tokenId =&gt; total circulating supply of NFTs of that tokenId._
+*Mapping from tokenId =&gt; total circulating supply of NFTs of that tokenId.*
 
 #### Parameters
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### uri
 
@@ -731,19 +820,19 @@ function uri(uint256 _tokenId) external view returns (string)
 
 Returns the metadata URI for an NFT.
 
-_See `BatchMintMetadata` for handling of metadata in this contract._
+*See `BatchMintMetadata` for handling of metadata in this contract.*
 
 #### Parameters
 
-| Name      | Type    | Description            |
-| --------- | ------- | ---------------------- |
-| \_tokenId | uint256 | The tokenId of an NFT. |
+| Name | Type | Description |
+|---|---|---|
+| _tokenId | uint256 | The tokenId of an NFT. |
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined |
 
 ### verifyClaim
 
@@ -751,22 +840,28 @@ _See `BatchMintMetadata` for handling of metadata in this contract._
 function verifyClaim(uint256 _tokenId, address _claimer, uint256 _quantity, address _currency, uint256 _pricePerToken, IDropSinglePhase1155.AllowlistProof _allowlistProof) external view returns (bool isOverride)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name             | Type                                | Description |
-| ---------------- | ----------------------------------- | ----------- |
-| \_tokenId        | uint256                             | undefined   |
-| \_claimer        | address                             | undefined   |
-| \_quantity       | uint256                             | undefined   |
-| \_currency       | address                             | undefined   |
-| \_pricePerToken  | uint256                             | undefined   |
-| \_allowlistProof | IDropSinglePhase1155.AllowlistProof | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _tokenId | uint256 | undefined |
+| _claimer | address | undefined |
+| _quantity | uint256 | undefined |
+| _currency | address | undefined |
+| _pricePerToken | uint256 | undefined |
+| _allowlistProof | IDropSinglePhase1155.AllowlistProof | undefined |
 
 #### Returns
 
-| Name       | Type | Description |
-| ---------- | ---- | ----------- |
-| isOverride | bool | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| isOverride | bool | undefined |
+
+
 
 ## Events
 
@@ -776,13 +871,17 @@ function verifyClaim(uint256 _tokenId, address _claimer, uint256 _quantity, addr
 event ApprovalForAll(address indexed _owner, address indexed _operator, bool _approved)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| \_owner `indexed`    | address | undefined   |
-| \_operator `indexed` | address | undefined   |
-| \_approved           | bool    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _owner `indexed` | address | undefined |
+| _operator `indexed` | address | undefined |
+| _approved  | bool | undefined |
 
 ### ClaimConditionUpdated
 
@@ -792,13 +891,15 @@ event ClaimConditionUpdated(uint256 indexed tokenId, IClaimCondition.ClaimCondit
 
 Emitted when the contract&#39;s claim conditions are updated.
 
+
+
 #### Parameters
 
-| Name              | Type                           | Description |
-| ----------------- | ------------------------------ | ----------- |
-| tokenId `indexed` | uint256                        | undefined   |
-| condition         | IClaimCondition.ClaimCondition | undefined   |
-| resetEligibility  | bool                           | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| tokenId `indexed` | uint256 | undefined |
+| condition  | IClaimCondition.ClaimCondition | undefined |
+| resetEligibility  | bool | undefined |
 
 ### ContractURIUpdated
 
@@ -806,12 +907,16 @@ Emitted when the contract&#39;s claim conditions are updated.
 event ContractURIUpdated(string prevURI, string newURI)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name    | Type   | Description |
-| ------- | ------ | ----------- |
-| prevURI | string | undefined   |
-| newURI  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| prevURI  | string | undefined |
+| newURI  | string | undefined |
 
 ### DefaultRoyalty
 
@@ -819,12 +924,16 @@ event ContractURIUpdated(string prevURI, string newURI)
 event DefaultRoyalty(address indexed newRoyaltyRecipient, uint256 newRoyaltyBps)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                          | Type    | Description |
-| ----------------------------- | ------- | ----------- |
-| newRoyaltyRecipient `indexed` | address | undefined   |
-| newRoyaltyBps                 | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| newRoyaltyRecipient `indexed` | address | undefined |
+| newRoyaltyBps  | uint256 | undefined |
 
 ### OperatorRestriction
 
@@ -832,11 +941,15 @@ event DefaultRoyalty(address indexed newRoyaltyRecipient, uint256 newRoyaltyBps)
 event OperatorRestriction(bool restriction)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name        | Type | Description |
-| ----------- | ---- | ----------- |
-| restriction | bool | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| restriction  | bool | undefined |
 
 ### OwnerUpdated
 
@@ -844,12 +957,16 @@ event OperatorRestriction(bool restriction)
 event OwnerUpdated(address indexed prevOwner, address indexed newOwner)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                | Type    | Description |
-| ------------------- | ------- | ----------- |
-| prevOwner `indexed` | address | undefined   |
-| newOwner `indexed`  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| prevOwner `indexed` | address | undefined |
+| newOwner `indexed` | address | undefined |
 
 ### PrimarySaleRecipientUpdated
 
@@ -857,11 +974,15 @@ event OwnerUpdated(address indexed prevOwner, address indexed newOwner)
 event PrimarySaleRecipientUpdated(address indexed recipient)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                | Type    | Description |
-| ------------------- | ------- | ----------- |
-| recipient `indexed` | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| recipient `indexed` | address | undefined |
 
 ### RoyaltyForToken
 
@@ -869,13 +990,17 @@ event PrimarySaleRecipientUpdated(address indexed recipient)
 event RoyaltyForToken(uint256 indexed tokenId, address indexed royaltyRecipient, uint256 royaltyBps)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                       | Type    | Description |
-| -------------------------- | ------- | ----------- |
-| tokenId `indexed`          | uint256 | undefined   |
-| royaltyRecipient `indexed` | address | undefined   |
-| royaltyBps                 | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| tokenId `indexed` | uint256 | undefined |
+| royaltyRecipient `indexed` | address | undefined |
+| royaltyBps  | uint256 | undefined |
 
 ### TokenURIRevealed
 
@@ -883,12 +1008,16 @@ event RoyaltyForToken(uint256 indexed tokenId, address indexed royaltyRecipient,
 event TokenURIRevealed(uint256 indexed index, string revealedURI)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| index `indexed` | uint256 | undefined   |
-| revealedURI     | string  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| index `indexed` | uint256 | undefined |
+| revealedURI  | string | undefined |
 
 ### TokensClaimed
 
@@ -898,14 +1027,16 @@ event TokensClaimed(address indexed claimer, address indexed receiver, uint256 i
 
 Emitted when tokens are claimed via `claim`.
 
+
+
 #### Parameters
 
-| Name               | Type    | Description |
-| ------------------ | ------- | ----------- |
-| claimer `indexed`  | address | undefined   |
-| receiver `indexed` | address | undefined   |
-| tokenId `indexed`  | uint256 | undefined   |
-| quantityClaimed    | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| claimer `indexed` | address | undefined |
+| receiver `indexed` | address | undefined |
+| tokenId `indexed` | uint256 | undefined |
+| quantityClaimed  | uint256 | undefined |
 
 ### TokensLazyMinted
 
@@ -913,14 +1044,18 @@ Emitted when tokens are claimed via `claim`.
 event TokensLazyMinted(uint256 indexed startTokenId, uint256 endTokenId, string baseURI, bytes encryptedBaseURI)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                   | Type    | Description |
-| ---------------------- | ------- | ----------- |
-| startTokenId `indexed` | uint256 | undefined   |
-| endTokenId             | uint256 | undefined   |
-| baseURI                | string  | undefined   |
-| encryptedBaseURI       | bytes   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| startTokenId `indexed` | uint256 | undefined |
+| endTokenId  | uint256 | undefined |
+| baseURI  | string | undefined |
+| encryptedBaseURI  | bytes | undefined |
 
 ### TransferBatch
 
@@ -928,15 +1063,19 @@ event TokensLazyMinted(uint256 indexed startTokenId, uint256 endTokenId, string 
 event TransferBatch(address indexed _operator, address indexed _from, address indexed _to, uint256[] _ids, uint256[] _values)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                 | Type      | Description |
-| -------------------- | --------- | ----------- |
-| \_operator `indexed` | address   | undefined   |
-| \_from `indexed`     | address   | undefined   |
-| \_to `indexed`       | address   | undefined   |
-| \_ids                | uint256[] | undefined   |
-| \_values             | uint256[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _operator `indexed` | address | undefined |
+| _from `indexed` | address | undefined |
+| _to `indexed` | address | undefined |
+| _ids  | uint256[] | undefined |
+| _values  | uint256[] | undefined |
 
 ### TransferSingle
 
@@ -944,15 +1083,19 @@ event TransferBatch(address indexed _operator, address indexed _from, address in
 event TransferSingle(address indexed _operator, address indexed _from, address indexed _to, uint256 _id, uint256 _value)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| \_operator `indexed` | address | undefined   |
-| \_from `indexed`     | address | undefined   |
-| \_to `indexed`       | address | undefined   |
-| \_id                 | uint256 | undefined   |
-| \_value              | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _operator `indexed` | address | undefined |
+| _from `indexed` | address | undefined |
+| _to `indexed` | address | undefined |
+| _id  | uint256 | undefined |
+| _value  | uint256 | undefined |
 
 ### URI
 
@@ -960,12 +1103,18 @@ event TransferSingle(address indexed _operator, address indexed _from, address i
 event URI(string _value, uint256 indexed _id)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name           | Type    | Description |
-| -------------- | ------- | ----------- |
-| \_value        | string  | undefined   |
-| \_id `indexed` | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _value  | string | undefined |
+| _id `indexed` | uint256 | undefined |
+
+
 
 ## Errors
 
@@ -975,8 +1124,13 @@ event URI(string _value, uint256 indexed _id)
 error OperatorNotAllowed(address operator)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name     | Type    | Description |
-| -------- | ------- | ----------- |
-| operator | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| operator | address | undefined |
+

@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `Marketplace` {#class_thirdweb_1_1_marketplace}
+# class `Marketplace` {#class_thirdweb_1_1_marketplace}
 
 ```
 class Marketplace
