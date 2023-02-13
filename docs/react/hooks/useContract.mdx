@@ -6,6 +6,7 @@ displayed_sidebar: react
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import UseContractHook from "@components/live-code/snippets/UseContractHook";
 
 Hook for connecting to a smart contract.
 
@@ -16,6 +17,8 @@ import { useContract } from "@thirdweb-dev/react";
 ## Usage
 
 Provide your smart contract address as the first parameter.
+The second parameter is [contract type](#contract-type-optional); which is strongly recommended if your contract is a [prebuilt contract](/pre-built-contracts), but
+not required.
 
 Once connected, `contract` will be an instance of your smart contract.
 
@@ -33,11 +36,15 @@ function App() {
 If your smart contract was not deployed using thirdweb, you&rsquo;ll need to import it on the [dashboard](/dashboard).
 :::
 
+## Demo
+
+<UseContractHook />
+
 ## Configuration
 
 ### Contract Type (optional)
 
-If your contract is a [prebuilt contract](https://thirdweb.com/explore), it is **strongly recommended**
+If your contract is a [prebuilt contract](/pre-built-contracts), it is **strongly recommended**
 you provide the contract's name to gain access to improved top-level functions and type inference.
 
 <details>

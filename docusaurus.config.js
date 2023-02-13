@@ -67,6 +67,7 @@ const config = {
   ],
   plugins: [
     disableCachePlugin,
+    "docusaurus-node-polyfills",
     [
       "ideal-image",
       /** @type {import('@docusaurus/plugin-ideal-image').PluginOptions} */
@@ -189,7 +190,7 @@ const config = {
         appId: "IAIE3FU2AD",
         apiKey: "1d9ebc991c049c913bedcf3d50916922",
         indexName: "thirdweb",
-        contextualSearch: false,
+        contextualSearch: true,
       },
       posthog: {
         apiKey: "phc_hKK4bo8cHZrKuAVXfXGpfNSLSJuucUnguAgt2j6dgSV",
