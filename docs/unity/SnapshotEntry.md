@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `SnapshotEntry` {#class_thirdweb_1_1_snapshot_entry}
+# class `SnapshotEntry` {#class_thirdweb_1_1_snapshot_entry}
 
 ### Summary
 

@@ -4,10 +4,9 @@ title: MarketplaceAuction Objects
 hide_title: true
 displayed_sidebar: python
 ---
-
 <a id="core.classes.marketplace_auction"></a>
 
-# core.classes.marketplace_auction
+# core.classes.marketplace\_auction
 
 <a id="core.classes.marketplace_auction.MarketplaceAuction"></a>
 
@@ -19,7 +18,7 @@ class MarketplaceAuction(BaseContract[Marketplace])
 
 <a id="core.classes.marketplace_auction.MarketplaceAuction.get_listing"></a>
 
-#### get_listing
+#### get\_listing
 
 ```python
 def get_listing(listing_id: int) -> AuctionListing
@@ -37,7 +36,7 @@ The auction listing
 
 <a id="core.classes.marketplace_auction.MarketplaceAuction.get_winning_bid"></a>
 
-#### get_winning_bid
+#### get\_winning\_bid
 
 ```python
 def get_winning_bid(listing_id: int) -> Optional[Offer]
@@ -55,7 +54,7 @@ The winning bid
 
 <a id="core.classes.marketplace_auction.MarketplaceAuction.get_winner"></a>
 
-#### get_winner
+#### get\_winner
 
 ```python
 def get_winner(listing_id) -> str
@@ -73,7 +72,7 @@ The winning bidder
 
 <a id="core.classes.marketplace_auction.MarketplaceAuction.create_listing"></a>
 
-#### create_listing
+#### create\_listing
 
 ```python
 def create_listing(listing: NewAuctionListing) -> int
@@ -91,7 +90,7 @@ The ID of the listing
 
 <a id="core.classes.marketplace_auction.MarketplaceAuction.buyout_listing"></a>
 
-#### buyout_listing
+#### buyout\_listing
 
 ```python
 def buyout_listing(listing_id: int) -> TxReceipt
@@ -109,7 +108,7 @@ The transaction receipt
 
 <a id="core.classes.marketplace_auction.MarketplaceAuction.make_bid"></a>
 
-#### make_bid
+#### make\_bid
 
 ```python
 def make_bid(listing_id: int, price_per_token: Price) -> TxReceipt
@@ -128,7 +127,7 @@ The transaction receipt
 
 <a id="core.classes.marketplace_auction.MarketplaceAuction.cancel_listing"></a>
 
-#### cancel_listing
+#### cancel\_listing
 
 ```python
 def cancel_listing(listing_id: int) -> TxReceipt
@@ -146,7 +145,7 @@ The transaction receipt
 
 <a id="core.classes.marketplace_auction.MarketplaceAuction.update_listing"></a>
 
-#### update_listing
+#### update\_listing
 
 ```python
 def update_listing(listing: AuctionListing) -> TxReceipt

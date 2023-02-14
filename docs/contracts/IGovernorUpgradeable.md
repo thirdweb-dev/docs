@@ -4,10 +4,15 @@ title: IGovernorUpgradeable
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # IGovernorUpgradeable
 
-_Interface of the {Governor} core. *Available since v4.3.*_
+
+
+
+
+
+
+*Interface of the {Governor} core. _Available since v4.3._*
 
 ## Methods
 
@@ -19,13 +24,14 @@ function COUNTING_MODE() external pure returns (string)
 
 module:voting
 
-_A description of the possible `support` values for {castVote} and the way these votes are counted, meant to be consumed by UIs to show correct vote options and interpret the results. The string is a URL-encoded sequence of key-value pairs that each describe one aspect, for example `support=bravo&amp;quorum=for,abstain`. There are 2 standard keys: `support` and `quorum`. - `support=bravo` refers to the vote options 0 = Against, 1 = For, 2 = Abstain, as in `GovernorBravo`. - `quorum=bravo` means that only For votes are counted towards quorum. - `quorum=for,abstain` means that both For and Abstain votes are counted towards quorum. If a counting module makes use of encoded `params`, it should include this under a `params` key with a unique name that describes the behavior. For example: - `params=fractional` might refer to a scheme where votes are divided fractionally between for/against/abstain. - `params=erc721` might refer to a scheme where specific NFTs are delegated to vote. NOTE: The string can be decoded by the standard https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams JavaScript class._
+*A description of the possible `support` values for {castVote} and the way these votes are counted, meant to be consumed by UIs to show correct vote options and interpret the results. The string is a URL-encoded sequence of key-value pairs that each describe one aspect, for example `support=bravo&amp;quorum=for,abstain`. There are 2 standard keys: `support` and `quorum`. - `support=bravo` refers to the vote options 0 = Against, 1 = For, 2 = Abstain, as in `GovernorBravo`. - `quorum=bravo` means that only For votes are counted towards quorum. - `quorum=for,abstain` means that both For and Abstain votes are counted towards quorum. If a counting module makes use of encoded `params`, it should  include this under a `params` key with a unique name that describes the behavior. For example: - `params=fractional` might refer to a scheme where votes are divided fractionally between for/against/abstain. - `params=erc721` might refer to a scheme where specific NFTs are delegated to vote. NOTE: The string can be decoded by the standard https://developer.mozilla.org/en-US/docs/Web/API/URLSearchParams JavaScript class.*
+
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined |
 
 ### castVote
 
@@ -33,20 +39,22 @@ _A description of the possible `support` values for {castVote} and the way these
 function castVote(uint256 proposalId, uint8 support) external nonpayable returns (uint256 balance)
 ```
 
-_Cast a vote Emits a {VoteCast} event._
+
+
+*Cast a vote Emits a {VoteCast} event.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
-| support    | uint8   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined |
+| support | uint8 | undefined |
 
 #### Returns
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| balance | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| balance | uint256 | undefined |
 
 ### castVoteBySig
 
@@ -54,23 +62,25 @@ _Cast a vote Emits a {VoteCast} event._
 function castVoteBySig(uint256 proposalId, uint8 support, uint8 v, bytes32 r, bytes32 s) external nonpayable returns (uint256 balance)
 ```
 
-_Cast a vote using the user&#39;s cryptographic signature. Emits a {VoteCast} event._
+
+
+*Cast a vote using the user&#39;s cryptographic signature. Emits a {VoteCast} event.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
-| support    | uint8   | undefined   |
-| v          | uint8   | undefined   |
-| r          | bytes32 | undefined   |
-| s          | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined |
+| support | uint8 | undefined |
+| v | uint8 | undefined |
+| r | bytes32 | undefined |
+| s | bytes32 | undefined |
 
 #### Returns
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| balance | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| balance | uint256 | undefined |
 
 ### castVoteWithReason
 
@@ -78,21 +88,23 @@ _Cast a vote using the user&#39;s cryptographic signature. Emits a {VoteCast} ev
 function castVoteWithReason(uint256 proposalId, uint8 support, string reason) external nonpayable returns (uint256 balance)
 ```
 
-_Cast a vote with a reason Emits a {VoteCast} event._
+
+
+*Cast a vote with a reason Emits a {VoteCast} event.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
-| support    | uint8   | undefined   |
-| reason     | string  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined |
+| support | uint8 | undefined |
+| reason | string | undefined |
 
 #### Returns
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| balance | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| balance | uint256 | undefined |
 
 ### castVoteWithReasonAndParams
 
@@ -100,22 +112,24 @@ _Cast a vote with a reason Emits a {VoteCast} event._
 function castVoteWithReasonAndParams(uint256 proposalId, uint8 support, string reason, bytes params) external nonpayable returns (uint256 balance)
 ```
 
-_Cast a vote with a reason and additional encoded parameters Emits a {VoteCast} or {VoteCastWithParams} event depending on the length of params._
+
+
+*Cast a vote with a reason and additional encoded parameters Emits a {VoteCast} or {VoteCastWithParams} event depending on the length of params.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
-| support    | uint8   | undefined   |
-| reason     | string  | undefined   |
-| params     | bytes   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined |
+| support | uint8 | undefined |
+| reason | string | undefined |
+| params | bytes | undefined |
 
 #### Returns
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| balance | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| balance | uint256 | undefined |
 
 ### castVoteWithReasonAndParamsBySig
 
@@ -123,25 +137,27 @@ _Cast a vote with a reason and additional encoded parameters Emits a {VoteCast} 
 function castVoteWithReasonAndParamsBySig(uint256 proposalId, uint8 support, string reason, bytes params, uint8 v, bytes32 r, bytes32 s) external nonpayable returns (uint256 balance)
 ```
 
-_Cast a vote with a reason and additional encoded parameters using the user&#39;s cryptographic signature. Emits a {VoteCast} or {VoteCastWithParams} event depending on the length of params._
+
+
+*Cast a vote with a reason and additional encoded parameters using the user&#39;s cryptographic signature. Emits a {VoteCast} or {VoteCastWithParams} event depending on the length of params.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
-| support    | uint8   | undefined   |
-| reason     | string  | undefined   |
-| params     | bytes   | undefined   |
-| v          | uint8   | undefined   |
-| r          | bytes32 | undefined   |
-| s          | bytes32 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined |
+| support | uint8 | undefined |
+| reason | string | undefined |
+| params | bytes | undefined |
+| v | uint8 | undefined |
+| r | bytes32 | undefined |
+| s | bytes32 | undefined |
 
 #### Returns
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| balance | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| balance | uint256 | undefined |
 
 ### execute
 
@@ -149,22 +165,24 @@ _Cast a vote with a reason and additional encoded parameters using the user&#39;
 function execute(address[] targets, uint256[] values, bytes[] calldatas, bytes32 descriptionHash) external payable returns (uint256 proposalId)
 ```
 
-_Execute a successful proposal. This requires the quorum to be reached, the vote to be successful, and the deadline to be reached. Emits a {ProposalExecuted} event. Note: some module can modify the requirements for execution, for example by adding an additional timelock._
+
+
+*Execute a successful proposal. This requires the quorum to be reached, the vote to be successful, and the deadline to be reached. Emits a {ProposalExecuted} event. Note: some module can modify the requirements for execution, for example by adding an additional timelock.*
 
 #### Parameters
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| targets         | address[] | undefined   |
-| values          | uint256[] | undefined   |
-| calldatas       | bytes[]   | undefined   |
-| descriptionHash | bytes32   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| targets | address[] | undefined |
+| values | uint256[] | undefined |
+| calldatas | bytes[] | undefined |
+| descriptionHash | bytes32 | undefined |
 
 #### Returns
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined |
 
 ### getVotes
 
@@ -174,20 +192,20 @@ function getVotes(address account, uint256 blockNumber) external view returns (u
 
 module:reputation
 
-_Voting power of an `account` at a specific `blockNumber`. Note: this can be implemented in a number of ways, for example by reading the delegated balance from one (or multiple), {ERC20Votes} tokens._
+*Voting power of an `account` at a specific `blockNumber`. Note: this can be implemented in a number of ways, for example by reading the delegated balance from one (or multiple), {ERC20Votes} tokens.*
 
 #### Parameters
 
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| account     | address | undefined   |
-| blockNumber | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| account | address | undefined |
+| blockNumber | uint256 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### getVotesWithParams
 
@@ -197,21 +215,21 @@ function getVotesWithParams(address account, uint256 blockNumber, bytes params) 
 
 module:reputation
 
-_Voting power of an `account` at a specific `blockNumber` given additional encoded parameters._
+*Voting power of an `account` at a specific `blockNumber` given additional encoded parameters.*
 
 #### Parameters
 
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| account     | address | undefined   |
-| blockNumber | uint256 | undefined   |
-| params      | bytes   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| account | address | undefined |
+| blockNumber | uint256 | undefined |
+| params | bytes | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### hasVoted
 
@@ -221,20 +239,20 @@ function hasVoted(uint256 proposalId, address account) external view returns (bo
 
 module:voting
 
-_Returns weither `account` has cast a vote on `proposalId`._
+*Returns weither `account` has cast a vote on `proposalId`.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
-| account    | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined |
+| account | address | undefined |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### hashProposal
 
@@ -244,22 +262,22 @@ function hashProposal(address[] targets, uint256[] values, bytes[] calldatas, by
 
 module:core
 
-_Hashing function used to (re)build the proposal id from the proposal details.._
+*Hashing function used to (re)build the proposal id from the proposal details..*
 
 #### Parameters
 
-| Name            | Type      | Description |
-| --------------- | --------- | ----------- |
-| targets         | address[] | undefined   |
-| values          | uint256[] | undefined   |
-| calldatas       | bytes[]   | undefined   |
-| descriptionHash | bytes32   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| targets | address[] | undefined |
+| values | uint256[] | undefined |
+| calldatas | bytes[] | undefined |
+| descriptionHash | bytes32 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### name
 
@@ -269,13 +287,14 @@ function name() external view returns (string)
 
 module:core
 
-_Name of the governor instance (used in building the ERC712 domain separator)._
+*Name of the governor instance (used in building the ERC712 domain separator).*
+
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined |
 
 ### proposalDeadline
 
@@ -285,19 +304,19 @@ function proposalDeadline(uint256 proposalId) external view returns (uint256)
 
 module:core
 
-_Block number at which votes close. Votes close at the end of this block, so it is possible to cast a vote during this block._
+*Block number at which votes close. Votes close at the end of this block, so it is possible to cast a vote during this block.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### proposalSnapshot
 
@@ -307,19 +326,19 @@ function proposalSnapshot(uint256 proposalId) external view returns (uint256)
 
 module:core
 
-_Block number used to retrieve user&#39;s votes and quorum. As per Compound&#39;s Comp and OpenZeppelin&#39;s ERC20Votes, the snapshot is performed at the end of this block. Hence, voting for this proposal starts at the beginning of the following block._
+*Block number used to retrieve user&#39;s votes and quorum. As per Compound&#39;s Comp and OpenZeppelin&#39;s ERC20Votes, the snapshot is performed at the end of this block. Hence, voting for this proposal starts at the beginning of the following block.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### propose
 
@@ -327,22 +346,24 @@ _Block number used to retrieve user&#39;s votes and quorum. As per Compound&#39;
 function propose(address[] targets, uint256[] values, bytes[] calldatas, string description) external nonpayable returns (uint256 proposalId)
 ```
 
-_Create a new proposal. Vote start {IGovernor-votingDelay} blocks after the proposal is created and ends {IGovernor-votingPeriod} blocks after the voting starts. Emits a {ProposalCreated} event._
+
+
+*Create a new proposal. Vote start {IGovernor-votingDelay} blocks after the proposal is created and ends {IGovernor-votingPeriod} blocks after the voting starts. Emits a {ProposalCreated} event.*
 
 #### Parameters
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| targets     | address[] | undefined   |
-| values      | uint256[] | undefined   |
-| calldatas   | bytes[]   | undefined   |
-| description | string    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| targets | address[] | undefined |
+| values | uint256[] | undefined |
+| calldatas | bytes[] | undefined |
+| description | string | undefined |
 
 #### Returns
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined |
 
 ### quorum
 
@@ -352,19 +373,19 @@ function quorum(uint256 blockNumber) external view returns (uint256)
 
 module:user-config
 
-_Minimum number of cast voted required for a proposal to be successful. Note: The `blockNumber` parameter corresponds to the snapshot used for counting vote. This allows to scale the quorum depending on values such as the totalSupply of a token at this block (see {ERC20Votes})._
+*Minimum number of cast voted required for a proposal to be successful. Note: The `blockNumber` parameter corresponds to the snapshot used for counting vote. This allows to scale the quorum depending on values such as the totalSupply of a token at this block (see {ERC20Votes}).*
 
 #### Parameters
 
-| Name        | Type    | Description |
-| ----------- | ------- | ----------- |
-| blockNumber | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| blockNumber | uint256 | undefined |
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### state
 
@@ -374,19 +395,19 @@ function state(uint256 proposalId) external view returns (enum IGovernorUpgradea
 
 module:core
 
-_Current state of a proposal, following Compound&#39;s convention_
+*Current state of a proposal, following Compound&#39;s convention*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId | uint256 | undefined |
 
 #### Returns
 
-| Name | Type                                    | Description |
-| ---- | --------------------------------------- | ----------- |
-| \_0  | enum IGovernorUpgradeable.ProposalState | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | enum IGovernorUpgradeable.ProposalState | undefined |
 
 ### supportsInterface
 
@@ -394,19 +415,21 @@ _Current state of a proposal, following Compound&#39;s convention_
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
-_Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas._
+
+
+*Returns true if this contract implements the interface defined by `interfaceId`. See the corresponding https://eips.ethereum.org/EIPS/eip-165#how-interfaces-are-identified[EIP section] to learn more about how these ids are created. This function call must use less than 30 000 gas.*
 
 #### Parameters
 
-| Name        | Type   | Description |
-| ----------- | ------ | ----------- |
-| interfaceId | bytes4 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| interfaceId | bytes4 | undefined |
 
 #### Returns
 
 | Name | Type | Description |
-| ---- | ---- | ----------- |
-| \_0  | bool | undefined   |
+|---|---|---|
+| _0 | bool | undefined |
 
 ### version
 
@@ -416,13 +439,14 @@ function version() external view returns (string)
 
 module:core
 
-_Version of the governor instance (used in building the ERC712 domain separator). Default: &quot;1&quot;_
+*Version of the governor instance (used in building the ERC712 domain separator). Default: &quot;1&quot;*
+
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined |
 
 ### votingDelay
 
@@ -432,13 +456,14 @@ function votingDelay() external view returns (uint256)
 
 module:user-config
 
-_Delay, in number of block, between the proposal is created and the vote starts. This can be increassed to leave time for users to buy voting power, or delegate it, before the voting of a proposal starts._
+*Delay, in number of block, between the proposal is created and the vote starts. This can be increassed to leave time for users to buy voting power, or delegate it, before the voting of a proposal starts.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
 
 ### votingPeriod
 
@@ -448,13 +473,16 @@ function votingPeriod() external view returns (uint256)
 
 module:user-config
 
-_Delay, in number of blocks, between the vote start and vote ends. NOTE: The {votingDelay} can delay the start of the vote. This must be considered when setting the voting duration compared to the voting delay._
+*Delay, in number of blocks, between the vote start and vote ends. NOTE: The {votingDelay} can delay the start of the vote. This must be considered when setting the voting duration compared to the voting delay.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | uint256 | undefined |
+
+
 
 ## Events
 
@@ -464,11 +492,15 @@ _Delay, in number of blocks, between the vote start and vote ends. NOTE: The {vo
 event Initialized(uint8 version)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name    | Type  | Description |
-| ------- | ----- | ----------- |
-| version | uint8 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| version  | uint8 | undefined |
 
 ### ProposalCanceled
 
@@ -476,13 +508,15 @@ event Initialized(uint8 version)
 event ProposalCanceled(uint256 proposalId)
 ```
 
-_Emitted when a proposal is canceled._
+
+
+*Emitted when a proposal is canceled.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId  | uint256 | undefined |
 
 ### ProposalCreated
 
@@ -490,21 +524,23 @@ _Emitted when a proposal is canceled._
 event ProposalCreated(uint256 proposalId, address proposer, address[] targets, uint256[] values, string[] signatures, bytes[] calldatas, uint256 startBlock, uint256 endBlock, string description)
 ```
 
-_Emitted when a proposal is created._
+
+
+*Emitted when a proposal is created.*
 
 #### Parameters
 
-| Name        | Type      | Description |
-| ----------- | --------- | ----------- |
-| proposalId  | uint256   | undefined   |
-| proposer    | address   | undefined   |
-| targets     | address[] | undefined   |
-| values      | uint256[] | undefined   |
-| signatures  | string[]  | undefined   |
-| calldatas   | bytes[]   | undefined   |
-| startBlock  | uint256   | undefined   |
-| endBlock    | uint256   | undefined   |
-| description | string    | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId  | uint256 | undefined |
+| proposer  | address | undefined |
+| targets  | address[] | undefined |
+| values  | uint256[] | undefined |
+| signatures  | string[] | undefined |
+| calldatas  | bytes[] | undefined |
+| startBlock  | uint256 | undefined |
+| endBlock  | uint256 | undefined |
+| description  | string | undefined |
 
 ### ProposalExecuted
 
@@ -512,13 +548,15 @@ _Emitted when a proposal is created._
 event ProposalExecuted(uint256 proposalId)
 ```
 
-_Emitted when a proposal is executed._
+
+
+*Emitted when a proposal is executed.*
 
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| proposalId | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| proposalId  | uint256 | undefined |
 
 ### VoteCast
 
@@ -526,17 +564,19 @@ _Emitted when a proposal is executed._
 event VoteCast(address indexed voter, uint256 proposalId, uint8 support, uint256 weight, string reason)
 ```
 
-_Emitted when a vote is cast without params. Note: `support` values should be seen as buckets. Their interpretation depends on the voting module used._
+
+
+*Emitted when a vote is cast without params. Note: `support` values should be seen as buckets. Their interpretation depends on the voting module used.*
 
 #### Parameters
 
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| voter `indexed` | address | undefined   |
-| proposalId      | uint256 | undefined   |
-| support         | uint8   | undefined   |
-| weight          | uint256 | undefined   |
-| reason          | string  | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| voter `indexed` | address | undefined |
+| proposalId  | uint256 | undefined |
+| support  | uint8 | undefined |
+| weight  | uint256 | undefined |
+| reason  | string | undefined |
 
 ### VoteCastWithParams
 
@@ -544,15 +584,19 @@ _Emitted when a vote is cast without params. Note: `support` values should be se
 event VoteCastWithParams(address indexed voter, uint256 proposalId, uint8 support, uint256 weight, string reason, bytes params)
 ```
 
-_Emitted when a vote is cast with params. Note: `support` values should be seen as buckets. Their interpretation depends on the voting module used. `params` are additional encoded parameters. Their intepepretation also depends on the voting module used._
+
+
+*Emitted when a vote is cast with params. Note: `support` values should be seen as buckets. Their interpretation depends on the voting module used. `params` are additional encoded parameters. Their intepepretation also depends on the voting module used.*
 
 #### Parameters
 
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| voter `indexed` | address | undefined   |
-| proposalId      | uint256 | undefined   |
-| support         | uint8   | undefined   |
-| weight          | uint256 | undefined   |
-| reason          | string  | undefined   |
-| params          | bytes   | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| voter `indexed` | address | undefined |
+| proposalId  | uint256 | undefined |
+| support  | uint8 | undefined |
+| weight  | uint256 | undefined |
+| reason  | string | undefined |
+| params  | bytes | undefined |
+
+

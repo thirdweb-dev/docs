@@ -4,10 +4,15 @@ title: IPrimarySale
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # IPrimarySale
 
-Thirdweb&#39;s `Primary` is a contract extension to be used with any base contract. It exposes functions for setting and reading the recipient of primary sales, and lets the inheriting contract perform conditional logic that uses information about primary sales, if desired.
+
+
+
+
+Thirdweb&#39;s `Primary` is a contract extension to be used with any base contract. It exposes functions for setting and reading  the recipient of primary sales, and lets the inheriting contract perform conditional logic that uses information about  primary sales, if desired.
+
+
 
 ## Methods
 
@@ -17,13 +22,16 @@ Thirdweb&#39;s `Primary` is a contract extension to be used with any base contra
 function primarySaleRecipient() external view returns (address)
 ```
 
-_The adress that receives all primary sales value._
+
+
+*The adress that receives all primary sales value.*
+
 
 #### Returns
 
-| Name | Type    | Description |
-| ---- | ------- | ----------- |
-| \_0  | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | address | undefined |
 
 ### setPrimarySaleRecipient
 
@@ -31,13 +39,17 @@ _The adress that receives all primary sales value._
 function setPrimarySaleRecipient(address _saleRecipient) external nonpayable
 ```
 
-_Lets a module admin set the default recipient of all primary sales._
+
+
+*Lets a module admin set the default recipient of all primary sales.*
 
 #### Parameters
 
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| \_saleRecipient | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _saleRecipient | address | undefined |
+
+
 
 ## Events
 
@@ -47,10 +59,14 @@ _Lets a module admin set the default recipient of all primary sales._
 event PrimarySaleRecipientUpdated(address indexed recipient)
 ```
 
-_Emitted when a new sale recipient is set._
+
+
+*Emitted when a new sale recipient is set.*
 
 #### Parameters
 
-| Name                | Type    | Description |
-| ------------------- | ------- | ----------- |
-| recipient `indexed` | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| recipient `indexed` | address | undefined |
+
+

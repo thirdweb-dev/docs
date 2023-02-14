@@ -4,10 +4,15 @@ title: AppURI
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # AppURI
 
-Thirdweb&#39;s `AppURI` is a contract extension for any contract that wants to add an official App URI that follows the appUri spec
+
+
+
+
+Thirdweb&#39;s `AppURI` is a contract extension for any contract  that wants to add an official App URI that follows the appUri spec
+
+
 
 ## Methods
 
@@ -17,13 +22,16 @@ Thirdweb&#39;s `AppURI` is a contract extension for any contract that wants to a
 function appURI() external view returns (string)
 ```
 
-_appURI_
+
+
+*appURI*
+
 
 #### Returns
 
-| Name | Type   | Description |
-| ---- | ------ | ----------- |
-| \_0  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _0 | string | undefined |
 
 ### setAppURI
 
@@ -31,13 +39,17 @@ _appURI_
 function setAppURI(string _uri) external nonpayable
 ```
 
-_Lets a contract admin set the URI for app metadata._
+
+
+*Lets a contract admin set the URI for app metadata.*
 
 #### Parameters
 
-| Name  | Type   | Description |
-| ----- | ------ | ----------- |
-| \_uri | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _uri | string | undefined |
+
+
 
 ## Events
 
@@ -47,9 +59,15 @@ _Lets a contract admin set the URI for app metadata._
 event AppURIUpdated(string prevURI, string newURI)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name    | Type   | Description |
-| ------- | ------ | ----------- |
-| prevURI | string | undefined   |
-| newURI  | string | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| prevURI  | string | undefined |
+| newURI  | string | undefined |
+
+

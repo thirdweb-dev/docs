@@ -3,7 +3,6 @@ title: Migration Guide
 hide_title: true
 displayed_sidebar: react
 ---
-
 # Migration Guide
 
 If you are looking to upgrade from an earlier version of the React SDK, below are the breaking changes that you should be aware of between each version.

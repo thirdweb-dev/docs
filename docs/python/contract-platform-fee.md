@@ -4,10 +4,9 @@ title: ContractPlatformFee Objects
 hide_title: true
 displayed_sidebar: python
 ---
-
 <a id="core.classes.contract_platform_fee"></a>
 
-# core.classes.contract_platform_fee
+# core.classes.contract\_platform\_fee
 
 <a id="core.classes.contract_platform_fee.ContractPlatformFee"></a>
 

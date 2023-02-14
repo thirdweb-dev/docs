@@ -4,8 +4,15 @@ title: ITWRegistry
 hide_title: true
 displayed_sidebar: contracts
 ---
-
 # ITWRegistry
+
+
+
+
+
+
+
+
 
 ## Methods
 
@@ -17,13 +24,15 @@ function add(address _deployer, address _deployment, uint256 _chainId) external 
 
 Add a deployment for a deployer.
 
+
+
 #### Parameters
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| \_deployer   | address | undefined   |
-| \_deployment | address | undefined   |
-| \_chainId    | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _deployer | address | undefined |
+| _deployment | address | undefined |
+| _chainId | uint256 | undefined |
 
 ### count
 
@@ -33,17 +42,19 @@ function count(address _deployer) external view returns (uint256 deploymentCount
 
 Get the total number of deployments for a deployer.
 
+
+
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_deployer | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _deployer | address | undefined |
 
 #### Returns
 
-| Name            | Type    | Description |
-| --------------- | ------- | ----------- |
-| deploymentCount | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| deploymentCount | uint256 | undefined |
 
 ### getAll
 
@@ -53,17 +64,19 @@ function getAll(address _deployer) external view returns (struct ITWRegistry.Dep
 
 Get all deployments for a deployer.
 
+
+
 #### Parameters
 
-| Name       | Type    | Description |
-| ---------- | ------- | ----------- |
-| \_deployer | address | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _deployer | address | undefined |
 
 #### Returns
 
-| Name           | Type                     | Description |
-| -------------- | ------------------------ | ----------- |
-| allDeployments | ITWRegistry.Deployment[] | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| allDeployments | ITWRegistry.Deployment[] | undefined |
 
 ### remove
 
@@ -73,13 +86,17 @@ function remove(address _deployer, address _deployment, uint256 _chainId) extern
 
 Remove a deployment for a deployer.
 
+
+
 #### Parameters
 
-| Name         | Type    | Description |
-| ------------ | ------- | ----------- |
-| \_deployer   | address | undefined   |
-| \_deployment | address | undefined   |
-| \_chainId    | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| _deployer | address | undefined |
+| _deployment | address | undefined |
+| _chainId | uint256 | undefined |
+
+
 
 ## Events
 
@@ -89,13 +106,17 @@ Remove a deployment for a deployer.
 event Added(address indexed deployer, address indexed deployment, uint256 indexed chainId)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| deployer `indexed`   | address | undefined   |
-| deployment `indexed` | address | undefined   |
-| chainId `indexed`    | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| deployer `indexed` | address | undefined |
+| deployment `indexed` | address | undefined |
+| chainId `indexed` | uint256 | undefined |
 
 ### Deleted
 
@@ -103,10 +124,16 @@ event Added(address indexed deployer, address indexed deployment, uint256 indexe
 event Deleted(address indexed deployer, address indexed deployment, uint256 indexed chainId)
 ```
 
+
+
+
+
 #### Parameters
 
-| Name                 | Type    | Description |
-| -------------------- | ------- | ----------- |
-| deployer `indexed`   | address | undefined   |
-| deployment `indexed` | address | undefined   |
-| chainId `indexed`    | uint256 | undefined   |
+| Name | Type | Description |
+|---|---|---|
+| deployer `indexed` | address | undefined |
+| deployment `indexed` | address | undefined |
+| chainId `indexed` | uint256 | undefined |
+
+

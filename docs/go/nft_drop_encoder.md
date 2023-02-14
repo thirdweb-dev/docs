@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## NFT Drop Encoder
+# NFT Drop Encoder
 
 The nft drop encoder class is used to get the unsigned transaction data for nft drop contract contract calls that can be signed at a later time after generation\.
 
@@ -36,7 +36,7 @@ type NFTDropEncoder struct {
 }
 ```
 
-### func \(\*NFTDropEncoder\) [ApproveClaimTo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop_encoder.go#L86)
+### func \(\*NFTDropEncoder\) [ApproveClaimTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop_encoder.go#L86>)
 
 ```go
 func (encoder *NFTDropEncoder) ApproveClaimTo(ctx context.Context, signerAddress string, quantity int) (*types.Transaction, error)
@@ -67,7 +67,7 @@ fmt.Println(tx.Data()) // Ex: get the data field or the nonce field (others are 
 fmt.Println(tx.Nonce())
 ```
 
-### func \(\*NFTDropEncoder\) [ClaimTo](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop_encoder.go#L125)
+### func \(\*NFTDropEncoder\) [ClaimTo](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/nft_drop_encoder.go#L125>)
 
 ```go
 func (encoder *NFTDropEncoder) ClaimTo(ctx context.Context, signerAddress string, destinationAddress string, quantity int) (*types.Transaction, error)
