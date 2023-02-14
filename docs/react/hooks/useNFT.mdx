@@ -23,7 +23,7 @@ import { useNFT } from "@thirdweb-dev/react";
 ## Usage
 
 Provide your NFT collection contract object and the token ID of the NFT you want to fetch as
-arguments. The information about the NFT will be returned in the `data` field.
+arguments.
 
 ```jsx
 import { useContract, useNFT } from "@thirdweb-dev/react";
@@ -74,6 +74,6 @@ The hook's `data` property, once loaded, contains the following properties:
     owner: string;
     type: "ERC1155" | "ERC721";
     supply: number;
-    quantityOwned?: number;
+    quantityOwned?: number;  // Only available for ERC1155
 }
 ```

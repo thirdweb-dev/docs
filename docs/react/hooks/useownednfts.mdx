@@ -17,70 +17,97 @@ import { useOwnedNFTs } from "@thirdweb-dev/react";
 Provide your NFT collection contract and a wallet address as the arguments.
 
 ```jsx
-import { useOwnedNFTs, useAddress, Web3Button } from "@thirdweb-dev/react";
+import { useOwnedNFTs, useContract } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
-  const address = useAddress();
-  const { data } = useOwnedNFTs(contractAddress, address);
-
-  return (
-    <div>
-      <h1>My NFTs</h1>
-      <ul>
-        {data.map((nft) => (
-          <li key={nft.id}>{nft.name}</li>
-        ))}
-      </ul>
-    </div>
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useOwnedNFTs(
+    contract,
+    "{{wallet_address}}",
   );
 }
 ```
 
-## Returned data
+## Configuration
 
-The hook returns an array of `NFT` objects, each containing the following properties.
+### ownerWalletAddress
 
-```ts
-export type NFT = {
-  metadata: NFTMetadata;
-  owner: string;
-  type: "ERC1155" | "ERC721" | "metaplex";
-  supply: number;
-  quantityOwned?: number;
-};
+The wallet address you want to query for.
+
+Likely, you will want to view the connected wallet&rsquo;s NFTs. You can use the [`useAddress`](/react/hooks/useaddress) hook to get this value.
+
+```jsx
+import { useOwnedNFTs, useContract, useAddress } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // highlight-next-line
+  const address = useAddress();
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useOwnedNFTs(
+    contract,
+    // highlight-next-line
+    address,
+  );
+}
 ```
 
-### metadata
+### queryParams
 
-An object containing all the metadata associated with the NFT.
+By default, the hook will return all NFTs associated with the contract.
 
-```ts
-export type NFTMetadata = {
-  name: string;
-  description?: string;
-  external_url?: string;
-  image?: string;
-  video?: string;
-  tags?: string[];
-  attributes?: { [key: string]: string };
-};
+You can use the `queryParams` argument to filter the NFTs that are returned.
+
+```jsx
+import { useNFTs, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useNFTs(
+    contract,
+    // highlight-start
+    {
+      // For example, to only return the first 50 NFTs in the collection
+      count: 50,
+      start: 0,
+    },
+    // highlight-end
+  );
+}
 ```
 
-### owner
+## Return Value
 
-The wallet address of the NFT's owner.
+The hook's `data` property, once loaded, contains an array of `NFT` objects, each containing the following properties:
 
-### type
-
-The type of the NFT contract.
-
-### supply
-
-The total number of tokens available in this NFT collection.
-
-### quantityOwned (optional)
-
-The number of tokens owned by the provided wallet address.
+```typescript
+{
+    metadata: {
+      id: string;
+      uri: string;
+      name?: string | number | undefined;
+      description?: string | null | undefined;
+      image?: string | null | undefined;
+      external_url?: string | null | undefined;
+      animation_url?: string | null | undefined;
+      background_color?: string | undefined;
+      properties?: {
+          [x: string]: unknown;
+      } | {
+          [x: string]: unknown;
+      }[] | undefined;
+  };
+    owner: string;
+    type: "ERC1155" | "ERC721";
+    supply: number;
+    quantityOwned?: number; // Only available for ERC1155
+}[];
+```

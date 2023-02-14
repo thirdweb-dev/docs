@@ -1,15 +1,15 @@
 ---
-title: useCancelDirectListing
+title: useCancelEnglishAuction
 displayed_sidebar: react
 ---
 
-Hook for canceling a direct listing on a marketplace v3 contract.
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
 
-Only the creator of the listing can cancel it.
+Hook for canceling an english auction on a marketplace v3 contract.
 
-Direct listings can be canceled at any time, (unless the listing has already been sold).
-
-:::info Marketplace V3
+**Note**: English auctions cannot be canceled if a bid has been placed.
 
 **Note: This hook is only for [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contracts.**
 
@@ -19,18 +19,19 @@ contracts, use [useCancelListing](/react/hooks/usecancellisting) instead.
 :::
 
 ```jsx
-import { useCancelDirectListing } from "@thirdweb-dev/react";
+import { useCancelEnglishAuction } from "@thirdweb-dev/react";
 ```
 
 ## Usage
 
+Provide your marketplace v3 contract as the argument.
+
 ```jsx
 import {
-  useCancelDirectListing,
+  useCancelEnglishAuction,
   useContract,
   Web3Button,
 } from "@thirdweb-dev/react";
-import { ListingType } from "@thirdweb-dev/sdk";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
@@ -41,17 +42,17 @@ const listingId = "{{listing_id}}";
 function App() {
   const { contract } = useContract(contractAddress, "marketplace-v3");
   const {
-    mutateAsync: cancelDirectListing,
+    mutateAsync: cancelEnglishAuction,
     isLoading,
     error,
-  } = useCancelDirectListing(contract);
+  } = useCancelEnglishAuction(contract);
 
   return (
     <Web3Button
       contractAddress={contractAddress}
-      action={() => cancelDirectListing(listingId)}
+      action={() => cancelEnglishAuction(listingId)}
     >
-      Cancel Direct Listing
+      Cancel English Auction
     </Web3Button>
   );
 }

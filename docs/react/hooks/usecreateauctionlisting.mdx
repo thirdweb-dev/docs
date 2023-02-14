@@ -3,9 +3,9 @@ title: useCreateAuctionListing
 displayed_sidebar: react
 ---
 
-Hook for creating an auction listing on a smart contract.
+Hook for creating an auction listing on a marketplace smart contract.
 
-Available to use on smart contracts that implement the [Marketplace](/contractkit/interfaces/marketplace) 
+Available to use on smart contracts that implement the [Marketplace](/contractkit/interfaces/marketplace)
 or [MarketplaceV3](/contractkit/interfaces/marketplacev3) standard.
 
 ```jsx
@@ -14,35 +14,42 @@ import { useCreateAuctionListing } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your Marketplace contract as the argument.
+Provide your [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace)
+or
+[MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3)
+contract as the argument to the hook.
 
 ```jsx
-import { useCreateAuctionListing, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useCreateAuctionListing,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
-  const { contract } = useContract(contractAddress);
-  const { mutateAsync: createAuctionListing, isLoading, data, error } = useCreateAuctionListing(
-    contract
-  );
-
-  if (error) {
-    console.error("failed to create auction listing", error);
-  }
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: createAuctionListing,
+    isLoading,
+    error,
+  } = useCreateAuctionListing(contract);
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         createAuctionListing({
-          tokenId: "{{token_id}}",
-          assetContractAddress: "{{asset_contract_address}}",
-          minimumBidAmount: "{{minimum_bid_amount}}",
-          buyoutBidAmount: "{{buyout_bid_amount}}",
-          startTimestamp: new Date(),
-          endTimestamp: new Date(Date.now() + 60 * 60 * 24 * 7), // 7 days
+          tokenId: "{{token_id}}", // The ID of the token to list.
+          assetContractAddress: "{{asset_contract_address}}", // The contract address of the asset being listed.
+          buyoutPricePerToken: "{{buyout_price_per_token}}", // The buyout price per token on the listing.
+          currencyContractAddress: "{{currency_contract_address}}", // The address of the currency to accept for the listing.
+          listingDurationInSeconds: "{{listing_duration_in_seconds}}", // The duration of the listing in seconds.
+          quantity: "{{quantity}}", // The quantity of tokens to include in the listing. (always 1 for ERC721)
+          reservePricePerToken: "{{reserve_price_per_token}}", // Minimum price that a bid must be in order to be accepted, per token.
+          startTimestamp: new Date(), // The start time of the listing.
         })
       }
     >
@@ -54,39 +61,42 @@ function App() {
 
 ## Configuration
 
-### startTimestamp
+### tokenId
 
-The starting timestamp of the auction.
+The ID of the NFT you are listing for auction.
 
 ```jsx
-import { useCreateAuctionListing, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useCreateAuctionListing,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
-  const { contract } = useContract(contractAddress);
-  const { mutateAsync: createAuctionListing, isLoading, data, error } = useCreateAuctionListing(
-    contract
-  );
-
-  if (error) {
-    console.error("failed to create auction listing", error);
-  }
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: createAuctionListing,
+    isLoading,
+    error,
+  } = useCreateAuctionListing(contract);
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         createAuctionListing({
-          tokenId: "{{token_id}}",
-          assetContractAddress: "{{asset_contract_address}}",
-          minimumBidAmount: "{{minimum_bid_amount}}",
-          buyoutBidAmount: "{{buyout_bid_amount}}",
-          // highlight-start
-          startTimestamp: new Date(),
-          // highlight-end
-          endTimestamp: new Date(Date.now() + 60 * 60 * 24 * 7), // 7 days
+          // highlight-next-line
+          tokenId: "{{token_id}}", // The ID of the token to list.
+          assetContractAddress: "{{asset_contract_address}}", // The contract address of the asset being listed.
+          buyoutPricePerToken: "{{buyout_price_per_token}}", // The buyout price per token on the listing.
+          currencyContractAddress: "{{currency_contract_address}}", // The address of the currency to accept for the listing.
+          listingDurationInSeconds: "{{listing_duration_in_seconds}}", // The duration of the listing in seconds.
+          quantity: "{{quantity}}", // The quantity of tokens to include in the listing. (always 1 for ERC721)
+          reservePricePerToken: "{{reserve_price_per_token}}", // Minimum price that a bid must be in order to be accepted, per token.
+          startTimestamp: new Date(), // The start time of the listing.
         })
       }
     >
@@ -96,39 +106,326 @@ function App() {
 }
 ```
 
-### endTimestamp
+### assetContractAddress
 
-The ending timestamp of the auction.
+The smart contract address of the NFT you are listing for auction.
 
 ```jsx
-import { useCreateAuctionListing, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useCreateAuctionListing,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
-  const { contract } = useContract(contractAddress);
-  const { mutateAsync: createAuctionListing, isLoading, data, error } = useCreateAuctionListing(
-    contract
-  );
-
-  if (error) {
-    console.error("failed to create auction listing", error);
-  }
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: createAuctionListing,
+    isLoading,
+    error,
+  } = useCreateAuctionListing(contract);
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         createAuctionListing({
-          tokenId: "{{token_id}}",
-          assetContractAddress: "{{asset_contract_address}}",
-          minimumBidAmount: "{{minimum_bid_amount}}",
-          buyoutBidAmount: "{{buyout_bid_amount}}",
-          startTimestamp: new Date(),
-          // highlight-start
-          endTimestamp: new Date(Date.now() + 60 * 60 * 24 * 7), // 7 days
-          // highlight-end
+          tokenId: "{{token_id}}", // The ID of the token to list.
+          // highlight-next-line
+          assetContractAddress: "{{asset_contract_address}}", // The contract address of the asset being listed.
+          buyoutPricePerToken: "{{buyout_price_per_token}}", // The buyout price per token on the listing.
+          currencyContractAddress: "{{currency_contract_address}}", // The address of the currency to accept for the listing.
+          listingDurationInSeconds: "{{listing_duration_in_seconds}}", // The duration of the listing in seconds.
+          quantity: "{{quantity}}", // The quantity of tokens to include in the listing. (always 1 for ERC721)
+          reservePricePerToken: "{{reserve_price_per_token}}", // Minimum price that a bid must be in order to be accepted, per token.
+          startTimestamp: new Date(), // The start time of the listing.
+        })
+      }
+    >
+      Create Auction Listing
+    </Web3Button>
+  );
+}
+```
+
+### buyoutPricePerToken
+
+The price to **buy** each token in the listing.
+
+- For ERC721 NFTs, this is the price to buy the NFT outright.
+- For ERC1155 NFTs, this is the price to `1` quantity of the NFT.
+
+```jsx
+import {
+  useCreateAuctionListing,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: createAuctionListing,
+    isLoading,
+    error,
+  } = useCreateAuctionListing(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        createAuctionListing({
+          tokenId: "{{token_id}}", // The ID of the token to list.
+          assetContractAddress: "{{asset_contract_address}}", // The contract address of the asset being listed.
+          // highlight-next-line
+          buyoutPricePerToken: "{{buyout_price_per_token}}", // The buyout price per token on the listing.
+          currencyContractAddress: "{{currency_contract_address}}", // The address of the currency to accept for the listing.
+          listingDurationInSeconds: "{{listing_duration_in_seconds}}", // The duration of the listing in seconds.
+          quantity: "{{quantity}}", // The quantity of tokens to include in the listing. (always 1 for ERC721)
+          reservePricePerToken: "{{reserve_price_per_token}}", // Minimum price that a bid must be in order to be accepted, per token.
+          startTimestamp: new Date(), // The start time of the listing.
+        })
+      }
+    >
+      Create Auction Listing
+    </Web3Button>
+  );
+}
+```
+
+### currencyContractAddress
+
+The address of the currency you want users to pay with and make bids in.
+
+You likely want to use the token native to the chain you are on, e.g. Ether on Ethereum.
+
+To do that, you can import the `NATIVE_TOKEN_ADDRESS` constant from `@thirdweb-dev/sdk`.
+
+```jsx
+import {
+  useCreateAuctionListing,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+// highlight-next-line
+import { NATIVE_TOKEN_ADDRESS } from "@thirdweb-dev/sdk";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: createAuctionListing,
+    isLoading,
+    error,
+  } = useCreateAuctionListing(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        createAuctionListing({
+          tokenId: "{{token_id}}", // The ID of the token to list.
+          assetContractAddress: "{{asset_contract_address}}", // The contract address of the asset being listed.
+          buyoutPricePerToken: "{{buyout_price_per_token}}", // The buyout price per token on the listing.
+          // highlight-next-line
+          currencyContractAddress: NATIVE_TOKEN_ADDRESS, // The address of the currency to accept for the listing.
+          listingDurationInSeconds: "{{listing_duration_in_seconds}}", // The duration of the listing in seconds.
+          quantity: "{{quantity}}", // The quantity of tokens to include in the listing. (always 1 for ERC721)
+          reservePricePerToken: "{{reserve_price_per_token}}", // Minimum price that a bid must be in order to be accepted, per token.
+          startTimestamp: new Date(), // The start time of the listing.
+        })
+      }
+    >
+      Create Auction Listing
+    </Web3Button>
+  );
+}
+```
+
+### listingDurationInSeconds
+
+How long to keep the auction open in seconds.
+
+```jsx
+import {
+  useCreateAuctionListing,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: createAuctionListing,
+    isLoading,
+    error,
+  } = useCreateAuctionListing(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        createAuctionListing({
+          tokenId: "{{token_id}}", // The ID of the token to list.
+          assetContractAddress: "{{asset_contract_address}}", // The contract address of the asset being listed.
+          buyoutPricePerToken: "{{buyout_price_per_token}}", // The buyout price per token on the listing.
+          currencyContractAddress: "{{currency_contract_address}}", // The address of the currency to accept for the listing.
+          // highlight-next-line
+          listingDurationInSeconds: "{{listing_duration_in_seconds}}", // The duration of the listing in seconds.
+          quantity: "{{quantity}}", // The quantity of tokens to include in the listing. (always 1 for ERC721)
+          reservePricePerToken: "{{reserve_price_per_token}}", // Minimum price that a bid must be in order to be accepted, per token.
+          startTimestamp: new Date(), // The start time of the listing.
+        })
+      }
+    >
+      Create Auction Listing
+    </Web3Button>
+  );
+}
+```
+
+### quantity
+
+How many tokens to include in the listing.
+
+- For ERC721 NFTs, this is always `1`.
+- For ERC1155 NFTs, this is the quantity of tokens to include in the listing.
+
+```jsx
+import {
+  useCreateAuctionListing,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: createAuctionListing,
+    isLoading,
+    error,
+  } = useCreateAuctionListing(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        createAuctionListing({
+          tokenId: "{{token_id}}", // The ID of the token to list.
+          assetContractAddress: "{{asset_contract_address}}", // The contract address of the asset being listed.
+          buyoutPricePerToken: "{{buyout_price_per_token}}", // The buyout price per token on the listing.
+          currencyContractAddress: "{{currency_contract_address}}", // The address of the currency to accept for the listing.
+          listingDurationInSeconds: "{{listing_duration_in_seconds}}", // The duration of the listing in seconds.
+          // highlight-next-line
+          quantity: "{{quantity}}", // The quantity of tokens to include in the listing. (always 1 for ERC721)
+          reservePricePerToken: "{{reserve_price_per_token}}", // Minimum price that a bid must be in order to be accepted, per token.
+          startTimestamp: new Date(), // The start time of the listing.
+        })
+      }
+    >
+      Create Auction Listing
+    </Web3Button>
+  );
+}
+```
+
+### reservePricePerToken
+
+The minimum price that a bid must be in order to be placed on the listing, per token.
+
+Bids that are lower than the reserve price will be rejected by the contract.
+
+```jsx
+import {
+  useCreateAuctionListing,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: createAuctionListing,
+    isLoading,
+    error,
+  } = useCreateAuctionListing(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        createAuctionListing({
+          tokenId: "{{token_id}}", // The ID of the token to list.
+          assetContractAddress: "{{asset_contract_address}}", // The contract address of the asset being listed.
+          buyoutPricePerToken: "{{buyout_price_per_token}}", // The buyout price per token on the listing.
+          currencyContractAddress: "{{currency_contract_address}}", // The address of the currency to accept for the listing.
+          listingDurationInSeconds: "{{listing_duration_in_seconds}}", // The duration of the listing in seconds.
+          quantity: "{{quantity}}", // The quantity of tokens to include in the listing. (always 1 for ERC721)
+          // highlight-next-line
+          reservePricePerToken: "{{reserve_price_per_token}}", // Minimum price that a bid must be in order to be accepted, per token.
+          startTimestamp: new Date(), // The start time of the listing.
+        })
+      }
+    >
+      Create Auction Listing
+    </Web3Button>
+  );
+}
+```
+
+### startTimestamp
+
+A `Date` object for the start time of the listing.
+
+```jsx
+import {
+  useCreateAuctionListing,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: createAuctionListing,
+    isLoading,
+    error,
+  } = useCreateAuctionListing(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        createAuctionListing({
+          tokenId: "{{token_id}}", // The ID of the token to list.
+          assetContractAddress: "{{asset_contract_address}}", // The contract address of the asset being listed.
+          buyoutPricePerToken: "{{buyout_price_per_token}}", // The buyout price per token on the listing.
+          currencyContractAddress: "{{currency_contract_address}}", // The address of the currency to accept for the listing.
+          listingDurationInSeconds: "{{listing_duration_in_seconds}}", // The duration of the listing in seconds.
+          quantity: "{{quantity}}", // The quantity of tokens to include in the listing. (always 1 for ERC721)
+          reservePricePerToken: "{{reserve_price_per_token}}", // Minimum price that a bid must be in order to be accepted, per token.
+          // highlight-next-line
+          startTimestamp: new Date(), // The start time of the listing.
         })
       }
     >
