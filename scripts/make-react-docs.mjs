@@ -102,8 +102,12 @@ async function makeDocs({ outDir, inDir, readmePath, migrationGuidePath }) {
           output.splice(output.indexOf(betaLine), 1, `${betaText}`);
         }
 
-        const titleLineIndex = output.findIndex((line) => line.startsWith("##"));
-        output[titleLineIndex] = output[titleLineIndex].replace("() function", "").replace("##", "#");
+        const titleLineIndex = output.findIndex((line) =>
+          line.startsWith("##"),
+        );
+        output[titleLineIndex] = output[titleLineIndex]
+          .replace("() function", "")
+          .replace("##", "#");
 
         // The signature line is the first line that starts with "**Signature:**"
         const signatureLine = output.findIndex((line) =>
@@ -137,6 +141,7 @@ async function makeDocs({ outDir, inDir, readmePath, migrationGuidePath }) {
         `title: ${title}`,
         `hide_title: true`,
         `displayed_sidebar: react`,
+        `slug: /react/old`,
         "---",
       ];
     }

@@ -25,33 +25,7 @@ import CodeBlock from "@theme/CodeBlock";
   <i>any </i>
   blockchain.
 </p>
-<br />
-<div
-  align="center"
-  style={{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  }}
->
-  <Tabs>
-    <TabItem value="npm" label="npm" default>
-      <CodeBlock
-        language={"bash"}
-      >{`npm i @thirdweb-dev/react @thirdweb-dev/sdk ethers`}</CodeBlock>
-    </TabItem>
-    <TabItem value="yarn" label="yarn">
-      <CodeBlock
-        language={"bash"}
-      >{`yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers`}</CodeBlock>
-    </TabItem>
-    <TabItem value="pnpm" label="pnpm">
-      <CodeBlock
-        language={"bash"}
-      >{`pnpm i @thirdweb-dev/react @thirdweb-dev/sdk ethers`}</CodeBlock>
-    </TabItem>
-  </Tabs>
-</div>
+
 <p align="center" style={{ marginTop: 16 }}>
   <a href="https://github.com/thirdweb-example#starter-kits">Starter Kits</a> •{" "}
   <a href="/templates">Templates</a> •{" "}
@@ -61,6 +35,28 @@ import CodeBlock from "@theme/CodeBlock";
 <hr />
 
 <h2>Get Started</h2>
+
+Add the thirdweb React SDK to your project:
+
+<Tabs>
+<TabItem value="npm" label="npm" default>
+  <CodeBlock
+    language={"bash"}
+  >npm i @thirdweb-dev/react @thirdweb-dev/sdk ethers</CodeBlock>
+</TabItem>  
+<TabItem value="yarn" label="yarn">
+  <CodeBlock
+    language={"bash"}
+  >yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers</CodeBlock>
+</TabItem>
+<TabItem value="pnpm" label="pnpm">
+    <CodeBlock
+      language={"bash"}
+    >pnpm i @thirdweb-dev/react @thirdweb-dev/sdk ethers</CodeBlock>
+</TabItem>
+</Tabs>
+
+<br/>
 
 Wrap your application with the `ThirdwebProvider` component like so:
 

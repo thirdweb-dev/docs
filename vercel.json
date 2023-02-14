@@ -489,6 +489,10 @@
     {
       "source": "/gaming-kit/:match*",
       "destination": "/gamingkit/:match*"
+    },
+    {
+      "source": "/react",
+      "destination": "/react/react-new"
     }
   ]
 }
