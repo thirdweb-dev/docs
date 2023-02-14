@@ -8,7 +8,9 @@ import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 import UseClaimerProofs from "@components/live-code/snippets/UseClaimerProofs";
 
-Hook to get the claimer proofs for an address for ERC20, ERC721 or ERC1155 based contracts.
+Hook to get the claimer proofs for an address for [ERC20](https://portal.thirdweb.com/contractkit/base-contracts/erc-20/erc20drop), [ERC721](https://portal.thirdweb.com/contractkit/base-contracts/erc-721/erc721drop), and [ERC1155](https://portal.thirdweb.com/contractkit/base-contracts/erc-1155/erc1155drop) drop contracts.
+
+A claimer Proof is a set of data about a claimer's claim condition, including the claimer's address, the claimer's proof, and the claimer's max claimable amount, price, and currency address.
 
 ```jsx
 import { useClaimerProofs } from "@thirdweb-dev/react";
@@ -18,7 +20,7 @@ import { useClaimerProofs } from "@thirdweb-dev/react";
 
 Provide your Drop contract as the first argument and the claimer's address as the second argument.
 
-Optionally, you can provide a `tokenId` and `claimConditionId` to filter for a specific claim.
+Optionally, you can provide a `tokenId` for ERC1155 contracts, and a `claimConditionId` for a specific claim condition.
 
 ```jsx
 import { useClaimerProofs, useContract } from "@thirdweb-dev/react";
@@ -26,19 +28,15 @@ import { useClaimerProofs, useContract } from "@thirdweb-dev/react";
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
-const { contract } = useContract(contractAddress, "nft-drop");
-const address = useAddress();
-const {
-  data: proof,
-  isLoading,
-  error,
-} = useClaimerProofs(
-  contract,
-  "{{claimer_address}}",
-  // Optionally, you can filter by tokenId and claimConditionId
-  tokenId,
-  claimConditionId,
-);
+function App() {
+  const { contract } = useContract(contractAddress, "nft-drop");
+
+  const {
+    data: proof,
+    isLoading,
+    error,
+  } = useClaimerProofs(contract, "{{claimer_address}}");
+}
 ```
 
 ## Demo Playground
@@ -60,7 +58,7 @@ Likely, you will want to check proofs of the currently connected wallet address.
 You can use the useAddress hook to get this value.
 
 ```jsx
-import { useClaimerProofs, useContract } from "@thirdweb-dev/react";
+import { useAddress, useClaimerProofs, useContract } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
