@@ -17,74 +17,115 @@ displayed_sidebar: react
 
 </p>
 <p align="center"><strong>Ultimate collection of React Native hooks for your web3 apps</strong></p>
-<br />
 
-<br />
+The React Native SDK provides convenient hooks for connecting to wallets and communicating with blockchains.
 
-React Native is based on [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore?language=objc) (part of WebKit) and does not use Node.js or the common Web and DOM APIs. As such, there are many operations missing that a normal web environment or Node.js instance would provide. [[1]](https://docs.ethers.org/v5/cookbook/react-native/#cookbook-reactnative-security)
+## Creating a new React Native app
 
-For this reason we need to add Shims to some of the operations not available in closed out environments like React Native
+If you already have a React Native app you can jump to the *[Installation](#installation)* section in this guide; otherwise follow the development environment setup steps for React Native [in this guide](https://reactnative.dev/docs/environment-setup). Once your environment is setup, read along.
 
-## Installation
+### Thirdweb React Native App Template
 
-The easiest way to get started with the React Native SDK is to use the CLI to generate a sample app:
+The easiest way to get started with the React Native SDK is to use the CLI to generate a sample app which will have all the setup needed to connect a wallet and begin interacting with your favorite chain:
 
 ```sh
 npx thirdweb create --template react-native-typescript-starter
 ```
 
-Alternatively, you can install the SDK into your existing project using npm or yarn by following these steps:
+### React Native CLI
+
+Alternatively create you can use the React Native CLI:
 
 ```sh
-npm install @thirdweb-dev/react-native ethers wagmi @react-native-async-storage/async-storage react-native-quick-crypto react-native-quick-base64 @walletconnect/react-native-compat react-native-get-random-values @ethersproject/shims && npm install babel-plugin-module-resolver --save-dev
+npx react-native init MyRNApp --template react-native-template-typescript
+```
+
+### Expo CLI
+
+```sh
+npx create-expo-app --template
+```
+
+## Installation
+First, move into your app's folder:
+
+```
+cd your-react-native-app
+```
+
+Install the following packages using your favorite package manager:
+
+```sh
+npm install ethers@^5.0.0 @react-native-async-storage/async-storage node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values @thirdweb-dev/react-native @thirdweb-dev/react-native-compat
 ```
 
 ```sh
-yarn add @thirdweb-dev/react-native ethers wagmi @react-native-async-storage/async-storage react-native-quick-crypto react-native-quick-base64 @walletconnect/react-native-compat react-native-get-random-values @ethersproject/shims && yarn add babel-plugin-module-resolver --dev
+yarn add ethers@^5.0.0 @react-native-async-storage/async-storage node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values @thirdweb-dev/react-native @thirdweb-dev/react-native-compat
 ```
 
-### Setting up the crypto package
+Move into your `/ios` folder and run the following command to install ios' pods:
 
-In your `babel.config.js`, add a module resolver to replace `crypto` with `react-native-quick-crypto` :
-
-```javascript
-module.exports = {
-  presets: ['module:metro-react-native-babel-preset'],
-  plugins: [
-    [
-      'module-resolver',
-      {
-        alias: {
-          crypto: 'react-native-quick-crypto',
-          stream: 'stream-browserify',
-          buffer: '@craftzdog/react-native-buffer',
-        },
-      },
-    ],
-  ],
-};
+```sh
+cd ios/ && pod install
 ```
 
-Import the shims on your `index.js` file:
+### Android (React Native CLI)
+
+If you are targeting Android 11 (API level 30) or higher [you need to specify the app schemes you are going to call from your application](https://developer.android.com/training/package-visibility). Since we are using wallet connect and their scheme is wc: then you need to define the following in your AndroidManifest.xml
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+  ...
+	<queries>
+	  <intent>
+	    <action android:name="android.intent.action.VIEW" />
+	    <data android:scheme="wc"/>
+	  </intent>
+	</queries>
+
+  <application>
+  ...
+  </application>
+</manifest>
+```
+
+### Adding shims for nodejs' libraries
+
+React Native is based on [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore?language=objc) (part of WebKit) and does not use Node.js or the common Web and DOM APIs. As such, there are many operations missing that a normal web environment or Node.js instance would provide. [[1]](https://docs.ethers.org/v5/cookbook/react-native/#cookbook-reactnative-security).
+
+For this reason we need to add shims for some of the operations not available in closed out environments like React Native:
+
+In your `metro.config.js` (please, create one if you don’t have it) add the following to shim the nodejs modules needed:
 
 ```javascript
 /**
+ * Metro configuration for React Native
+ * https://github.com/facebook/react-native
+ *
  * @format
  */
-// Step 1: Import the crypto shim for walletconnect
-import 'crypto';
+const extraNodeModules = require('node-libs-browser');
 
-// Step 2: Import the ethers shims (**BEFORE** the thirdweb SDK)
-import '@ethersproject/shims';
+module.exports = {
+  resolver: {
+    extraNodeModules,
+  },
+  transformer: {
+    getTransformOptions: async () => ({
+      transform: {
+        experimentalImportSupport: false,
+        inlineRequires: true,
+      },
+    }),
+  },
+};
+```
 
-// Step 3: Import react-native-compat for walletconnect
-import '@walletconnect/react-native-compat';
+We provide a package that imports all the necessary polyfills for you, please, import this package into your `index.js` file. Make sure it is at the top of your imports.
 
-import {AppRegistry} from 'react-native';
-import App from './App';
-import {name as appName} from './app.json';
-
-AppRegistry.registerComponent(appName, () => App);
+```javascript
+// Import polyfills
+import '@thirdweb-dev/react-native-compat';
 ```
 
 ### Why are all these packages needed?
@@ -94,89 +135,90 @@ As explained in the intro of this doc, we need to shim some of the packages avai
 **WalletConnect**
 
 - WalletConnect has a dependency on `@react-native-async-storage/async-storage` . They use it to store sessions on devices.
-- WalletConnect uses Node’s `crypto` package when signing transactions. Since this package is not available in React Native we need an alternative implementation. There are a few solutions for this but the fastest and easier to setup is: `react-native-quick-crypto` which depends on `react-native-quick-base64` . You can find more info on it [here](https://github.com/margelo/react-native-quick-crypto).
-    - **NOTE:** There’s currently an open issue for supporting React Native 0.71.0. We’re trying to fix it but for now please use React Native < 0.71.0
-- WalletConnect also has a dependency on `@walletconnect/react-native-compat` and `react-native-get-random-values` to shim text encoding and getting random values
-
-**Ethers**
-
-- Shims for atob, ArrayBuffer, FileReader.readAsArrayBuffer are set in `@ethersproject/shims` More info [here](https://docs.ethers.org/v5/cookbook/react-native/)
-
-<br />
-
+- WalletConnect uses Node’s `crypto` package when signing transactions. Since this package is not available in React Native we need an alternative implementation for it and its dependencies, the following packages accomplishes this:
+    - `node-libs-browser`
+    - `react-native-crypto`
+    - `react-native-randombytes`
+    - `react-native-get-random-values`
 ## Getting Started
 
-Our SDK uses a [Provider Pattern](https://flexiple.com/react/provider-pattern-with-react-context-api/); meaning any component within the `ThirdwebProvider` will have access to the SDK. If you use the CLI to initialize your project, this is already set up for you.
+Our SDK uses a [Provider Pattern](https://flexiple.com/react/provider-pattern-with-react-context-api/); meaning any component within the `ThirdwebProvider` will have access to the SDK.
 
 Let's take a look at a typical setup:
-
-<br />
 
 ### Configure the `ThirdwebProvider`
 
 Specify the network your smart contracts are deployed to in the `desiredChainId` prop and wrap your application like so:
 
-```jsx title="App.jsx"
-import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react-native";
+```tsx title="App.tsx"
+import {ChanId, ThirdwebProvider} from '@thirdweb-dev/react-native';
 
 const App = () => {
   return (
-    <ThirdwebProvider desiredChainId={ChainId.Mainnet}>
-      <YourApp />
+    <ThirdwebProvider activeChain={ChainId.Mainnet}>
+      <AppInner />
     </ThirdwebProvider>
   );
 };
 ```
 
-Below are examples of where to set this up in your application:
+Below is an example of where to set this up in your application:
 
 <p>
   <a href="https://github.com/thirdweb-example/react-native-typescript-starter/blob/main/App.tsx">Create React Native App</a>
 </p>
 
-<br />
+Finally, we can run our app!
+
+```sh
+yarn android
+```
+```sh
+yarn ios
+```
 
 ### Connect to a wallet using WalletConnect V2
 
 ```javascript
-import {useAccount, useThirdwebProvider, useWalletConnect} from '@thirdweb-dev/react-native';
-import React, {useEffect} from 'react';
+import React from 'react';
 import {
-  ActivityIndicator,
-  Button,
-  Linking,
-  View,
+  SafeAreaView,
+  Text,
+  TouchableOpacity,
 } from 'react-native';
 
+import {
+  useAccount,
+  useDisconnect,
+  useWalletConnect,
+} from '@thirdweb-dev/react-native';
+
 const AppInner = () => {
-  const {isInitializing} = useThirdwebProvider();
+  const disconnect = useDisconnect();
 
-  const {isConnected, connector} = useAccount();
+  const {connect, displayUri} = useWalletConnect();
 
-  const {connect, error, isLoading, isSuccess, displayUri, connectorError} =
-      useWalletConnect();
+  const {address: account} = useAccount();
 
-  useEffect(() => {
-      if (displayUri && !isConnected) {
-        // show native app chooser to select a wallet to connect to
-        Linking.openUrl(displayUri);
-      }
-    }, [displayUri, isConnected]);
-
-  if (isInitializing) {
-    return <ActivityIndicator />
-  }
+  const onConnectPress = () => {
+    if (account) {
+      disconnect();
+    } else {
+      connect();
+    }
+  };
 
   return (
-    <View>
-      <Button title='Connect' onPress={connect}>
-    </View>
+    <SafeAreaView style={styles.backgroundStyle}>
+      <Text>{account ? `Account: ${account}` : 'Wallet not connected'}</Text>
+
+      <TouchableOpacity style={styles.button} onPress={onConnectPress}>
+        <Text style={styles.text}>{account ? 'Disconnect' : 'Connect'}</Text>
+      </TouchableOpacity>
+    </SafeAreaView>
   );
-}
+};
 ```
-
-
-<br />
 
 ### Interact With Contracts
 
@@ -219,8 +261,6 @@ export default function Home() {
 }
 ```
 
-<br />
-
 ### Using Extensions
 
 Each [extension](https://portal.thirdweb.com/extensions) you implement in your smart contract unlocks new functionality in the SDK.
@@ -250,8 +290,6 @@ export default function Home() {
 }
 ```
 
-<br />
-
 ## Advanced Configuration
 
 The `ThirdwebProvider` offers a number of configuration options to control the behavior of the React and Typescript SDK.
@@ -275,7 +313,7 @@ const KitchenSinkExample = () => {
         url: 'https://example.com',
       }}
       supportedChains={[ChainId.Mainnet]}
-      walletConnectors={['walletConnect']}
+      walletConnectors={['walletConnect', {projectId: 'wallet-connect-cloud-project-id'}]}
       sdkOptions={{
         gasSettings: {maxPriceInGwei: 500, speed: 'fast'},
         readonlySettings: {
