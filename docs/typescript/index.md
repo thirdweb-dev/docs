@@ -3,6 +3,7 @@ title: thirdweb TypeScript SDK
 hide_title: true
 displayed_sidebar: typescript
 ---
+
 <p align="center">
 <br />
 <a href="https://thirdweb.com"><img src="https://github.com/thirdweb-dev/js/blob/main/packages/sdk/logo.svg?raw=true" width="200" alt=""/></a>
@@ -23,13 +24,13 @@ displayed_sidebar: typescript
 Install the latest version of the SDK with `npm`:
 
 ```shell
-npm install @thirdweb-dev/sdk ethers
+npm install @thirdweb-dev/sdk ethers@5
 ```
 
 or with `yarn`:
 
 ```shell
-yarn add @thirdweb-dev/sdk ethers
+yarn add @thirdweb-dev/sdk ethers@5
 ```
 
 ## Quick start

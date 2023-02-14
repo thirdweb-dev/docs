@@ -4,9 +4,10 @@ title: WalletAuthenticator Objects
 hide_title: true
 displayed_sidebar: python
 ---
+
 <a id="core.auth.wallet_authenticator"></a>
 
-# core.auth.wallet\_authenticator
+# core.auth.wallet_authenticator
 
 <a id="core.auth.wallet_authenticator.WalletAuthenticator"></a>
 
@@ -17,7 +18,6 @@ class WalletAuthenticator(ProviderHandler)
 ```
 
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment.
->
 
 The wallet authenticator enables server-side applications to securely identify the
 connected wallet address of users on the client-side, and also enables users to authenticate
@@ -106,7 +106,7 @@ The address of the logged in wallet that signed the payload
 
 <a id="core.auth.wallet_authenticator.WalletAuthenticator.generate_auth_token"></a>
 
-#### generate\_auth\_token
+#### generate_auth_token
 
 ```python
 def generate_auth_token(

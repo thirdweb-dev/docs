@@ -95,14 +95,14 @@
     "html_url": "https://github.com/thirdweb-example/contract-hub",
     "description": "Demonstration of all thirdweb's pre-built contracts with TypeScript + Getting started snippets",
     "created_at": "2022-05-03T10:20:11Z",
-    "updated_at": "2023-01-20T16:46:30Z",
+    "updated_at": "2023-02-11T02:14:44Z",
     "clone_url": "https://github.com/thirdweb-example/contract-hub.git",
     "topics": [
       "demo",
       "thirdweb"
     ],
     "language": "TypeScript",
-    "stargazers_count": 12,
+    "stargazers_count": 13,
     "is_template": false,
     "homepage": "https://contract-hub.thirdweb-example.com/"
   },
@@ -272,7 +272,7 @@
     "html_url": "https://github.com/thirdweb-example/discord-role-granter",
     "description": "Grant users who own NFTs a role in your Discord server!",
     "created_at": "2022-07-22T03:52:48Z",
-    "updated_at": "2023-01-06T16:16:48Z",
+    "updated_at": "2023-02-14T06:26:46Z",
     "clone_url": "https://github.com/thirdweb-example/discord-role-granter.git",
     "topics": [
       "auth",
@@ -280,7 +280,7 @@
       "wallet-connection"
     ],
     "language": "TypeScript",
-    "stargazers_count": 6,
+    "stargazers_count": 7,
     "is_template": false,
     "homepage": "https://discord-role-granter.thirdweb-example.com/"
   },
@@ -475,11 +475,11 @@
     "html_url": "https://github.com/thirdweb-example/gelato-gasless",
     "description": null,
     "created_at": "2023-02-06T19:35:51Z",
-    "updated_at": "2023-02-06T19:35:51Z",
+    "updated_at": "2023-02-10T19:26:49Z",
     "clone_url": "https://github.com/thirdweb-example/gelato-gasless.git",
     "topics": [],
     "language": null,
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": null
   },
@@ -538,11 +538,11 @@
     "html_url": "https://github.com/thirdweb-example/hardhat-local-node",
     "description": "Deploy your smart contracts to a local node and use the thirdweb SDK to interact with them",
     "created_at": "2023-02-09T10:58:41Z",
-    "updated_at": "2023-02-09T10:58:41Z",
+    "updated_at": "2023-02-10T19:26:41Z",
     "clone_url": "https://github.com/thirdweb-example/hardhat-local-node.git",
     "topics": [],
     "language": null,
-    "stargazers_count": 0,
+    "stargazers_count": 1,
     "is_template": false,
     "homepage": null
   },
@@ -584,13 +584,13 @@
     "html_url": "https://github.com/thirdweb-example/lens",
     "description": "Starter kit for using Lens Protocol with the thirdweb SDK!",
     "created_at": "2022-10-27T10:15:02Z",
-    "updated_at": "2023-02-05T09:51:59Z",
+    "updated_at": "2023-02-13T20:14:17Z",
     "clone_url": "https://github.com/thirdweb-example/lens.git",
     "topics": [
       "lens-protocol"
     ],
     "language": "TypeScript",
-    "stargazers_count": 25,
+    "stargazers_count": 27,
     "is_template": false,
     "homepage": "https://lens.thirdweb-example.com/"
   },
@@ -677,14 +677,14 @@
     "html_url": "https://github.com/thirdweb-example/marketplace-v3",
     "description": "Create your own NFT marketplace where users can buy and sell NFTs!",
     "created_at": "2023-01-31T03:33:27Z",
-    "updated_at": "2023-02-09T16:18:48Z",
+    "updated_at": "2023-02-13T14:51:46Z",
     "clone_url": "https://github.com/thirdweb-example/marketplace-v3.git",
     "topics": [
       "marketplace",
       "nft-marketplace"
     ],
     "language": "TypeScript",
-    "stargazers_count": 4,
+    "stargazers_count": 6,
     "is_template": false,
     "homepage": "https://marketplace-v3.thirdweb-preview.com"
   },
@@ -708,14 +708,14 @@
     "html_url": "https://github.com/thirdweb-example/mint-specific-nft",
     "description": "Allow users to choose which NFT they want to mint from the collection",
     "created_at": "2023-01-27T10:39:45Z",
-    "updated_at": "2023-02-06T12:28:32Z",
+    "updated_at": "2023-02-13T03:56:24Z",
     "clone_url": "https://github.com/thirdweb-example/mint-specific-nft.git",
     "topics": [
       "nft-collection",
       "signature-based-minting"
     ],
     "language": "TypeScript",
-    "stargazers_count": 3,
+    "stargazers_count": 4,
     "is_template": false,
     "homepage": "https://mint-specific-nft.thirdweb-example.com"
   },
@@ -789,7 +789,7 @@
     "html_url": "https://github.com/thirdweb-example/next-typescript-starter",
     "description": "thirdweb starter project with Next.js & TypeScript",
     "created_at": "2022-03-17T18:18:45Z",
-    "updated_at": "2023-01-29T09:26:46Z",
+    "updated_at": "2023-02-14T16:04:09Z",
     "clone_url": "https://github.com/thirdweb-example/next-typescript-starter.git",
     "topics": [
       "nextjs",
@@ -802,7 +802,7 @@
       "web3js"
     ],
     "language": "CSS",
-    "stargazers_count": 41,
+    "stargazers_count": 42,
     "is_template": true,
     "homepage": "https://next-typescript-starter.thirdweb-example.com"
   },
@@ -1284,13 +1284,13 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-next",
     "description": "Enable wallet-based login with thirdweb Auth & Next",
     "created_at": "2022-08-18T20:13:40Z",
-    "updated_at": "2023-02-03T13:48:39Z",
+    "updated_at": "2023-02-12T05:05:14Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-next.git",
     "topics": [
       "auth"
     ],
     "language": "TypeScript",
-    "stargazers_count": 11,
+    "stargazers_count": 12,
     "is_template": false,
     "homepage": ""
   },
@@ -1299,7 +1299,7 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-next-auth",
     "description": "Enable wallet-based login with thirdweb Auth & Next Auth",
     "created_at": "2022-08-30T21:44:52Z",
-    "updated_at": "2023-01-20T05:23:09Z",
+    "updated_at": "2023-02-14T06:27:27Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-next-auth.git",
     "topics": [
       "auth",
@@ -1463,11 +1463,11 @@
     "html_url": "https://github.com/thirdweb-example/unity-rpg-game",
     "description": "Speak with NPCs and complete quests to earn ERC20 tokens which you can use to buy NFTs from the in-game shop!",
     "created_at": "2022-11-28T07:08:09Z",
-    "updated_at": "2023-02-09T09:58:52Z",
+    "updated_at": "2023-02-12T01:54:59Z",
     "clone_url": "https://github.com/thirdweb-example/unity-rpg-game.git",
     "topics": [],
     "language": "C#",
-    "stargazers_count": 6,
+    "stargazers_count": 7,
     "is_template": false,
     "homepage": "https://unity-rpg-game.thirdweb-example.com"
   },
@@ -1492,11 +1492,11 @@
     "html_url": "https://github.com/thirdweb-example/unlock-subscribe",
     "description": "Build a simple on-chain subscription model into your app using the Lock contract by Unlock",
     "created_at": "2022-12-01T17:35:46Z",
-    "updated_at": "2023-01-23T09:12:56Z",
+    "updated_at": "2023-02-14T06:27:53Z",
     "clone_url": "https://github.com/thirdweb-example/unlock-subscribe.git",
     "topics": [],
     "language": "CSS",
-    "stargazers_count": 4,
+    "stargazers_count": 5,
     "is_template": true,
     "homepage": "https://unlock-subscribe.thirdweb-example.com/"
   },

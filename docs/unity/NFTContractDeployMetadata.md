@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # struct `NFTContractDeployMetadata` {#struct_thirdweb_1_1_n_f_t_contract_deploy_metadata}
 
-### Summary
+# Summary
 
 | Members                   | Type     | Descriptions |
 | ------------------------- | -------- | ------------ |

@@ -4,15 +4,8 @@ title: IPluginMap
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # IPluginMap
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,21 +15,19 @@ displayed_sidebar: contracts
 function getAllFunctionsOfPlugin(address pluginAddress) external view returns (bytes4[])
 ```
 
-
-
-*Returns all functions that are mapped to the given plug-in contract.*
+_Returns all functions that are mapped to the given plug-in contract._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| pluginAddress | address | undefined |
+| Name          | Type    | Description |
+| ------------- | ------- | ----------- |
+| pluginAddress | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes4[] | undefined |
+| Name | Type     | Description |
+| ---- | -------- | ----------- |
+| \_0  | bytes4[] | undefined   |
 
 ### getAllPlugins
 
@@ -44,16 +35,13 @@ function getAllFunctionsOfPlugin(address pluginAddress) external view returns (b
 function getAllPlugins() external view returns (struct IPluginMap.Plugin[])
 ```
 
-
-
-*Returns all plug-ins known by Map.*
-
+_Returns all plug-ins known by Map._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | IPluginMap.Plugin[] | undefined |
+| Name | Type                | Description |
+| ---- | ------------------- | ----------- |
+| \_0  | IPluginMap.Plugin[] | undefined   |
 
 ### getPluginForFunction
 
@@ -61,23 +49,19 @@ function getAllPlugins() external view returns (struct IPluginMap.Plugin[])
 function getPluginForFunction(bytes4 functionSelector) external view returns (address)
 ```
 
-
-
-*Returns the plug-in contract for a given function.*
+_Returns the plug-in contract for a given function._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| functionSelector | bytes4 | undefined |
+| Name             | Type   | Description |
+| ---------------- | ------ | ----------- |
+| functionSelector | bytes4 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
-
-
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ## Events
 
@@ -87,16 +71,12 @@ function getPluginForFunction(bytes4 functionSelector) external view returns (ad
 event PluginSet(bytes4 indexed functionSelector, string indexed functionSignature, address indexed pluginAddress)
 ```
 
-
-
-*Emitted when a function selector is mapped to a particular plug-in smart contract, during construction of Map.*
+_Emitted when a function selector is mapped to a particular plug-in smart contract, during construction of Map._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| functionSelector `indexed` | bytes4 | undefined |
-| functionSignature `indexed` | string | undefined |
-| pluginAddress `indexed` | address | undefined |
-
-
+| Name                        | Type    | Description |
+| --------------------------- | ------- | ----------- |
+| functionSelector `indexed`  | bytes4  | undefined   |
+| functionSignature `indexed` | string  | undefined   |
+| pluginAddress `indexed`     | address | undefined   |

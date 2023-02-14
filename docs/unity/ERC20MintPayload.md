@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # class `ERC20MintPayload` {#class_thirdweb_1_1_e_r_c20_mint_payload}
 
-### Summary
+# Summary
 
 | Members              | Type     | Descriptions |
 | -------------------- | -------- | ------------ |

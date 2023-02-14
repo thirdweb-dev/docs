@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # struct `Receipt` {#struct_thirdweb_1_1_receipt}
 
-### Summary
+# Summary
 
 | Members          | Type     | Descriptions |
 | ---------------- | -------- | ------------ |

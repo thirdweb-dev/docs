@@ -4,15 +4,8 @@ title: IWETH
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # IWETH
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,33 +15,24 @@ displayed_sidebar: contracts
 function deposit() external payable
 ```
 
-
-
-
-
-
 ### transfer
 
 ```solidity
 function transfer(address to, uint256 value) external nonpayable returns (bool)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| to | address | undefined |
-| value | uint256 | undefined |
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| to    | address | undefined   |
+| value | uint256 | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### withdraw
 
@@ -56,15 +40,8 @@ function transfer(address to, uint256 value) external nonpayable returns (bool)
 function withdraw(uint256 amount) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| amount | uint256 | undefined |
-
-
-
+| Name   | Type    | Description |
+| ------ | ------- | ----------- |
+| amount | uint256 | undefined   |

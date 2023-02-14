@@ -4,15 +4,8 @@ title: DropSinglePhase1155
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # DropSinglePhase1155
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,21 +15,17 @@ displayed_sidebar: contracts
 function claim(address _receiver, uint256 _tokenId, uint256 _quantity, address _currency, uint256 _pricePerToken, IDropSinglePhase1155.AllowlistProof _allowlistProof, bytes _data) external payable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _receiver | address | undefined |
-| _tokenId | uint256 | undefined |
-| _quantity | uint256 | undefined |
-| _currency | address | undefined |
-| _pricePerToken | uint256 | undefined |
-| _allowlistProof | IDropSinglePhase1155.AllowlistProof | undefined |
-| _data | bytes | undefined |
+| Name             | Type                                | Description |
+| ---------------- | ----------------------------------- | ----------- |
+| \_receiver       | address                             | undefined   |
+| \_tokenId        | uint256                             | undefined   |
+| \_quantity       | uint256                             | undefined   |
+| \_currency       | address                             | undefined   |
+| \_pricePerToken  | uint256                             | undefined   |
+| \_allowlistProof | IDropSinglePhase1155.AllowlistProof | undefined   |
+| \_data           | bytes                               | undefined   |
 
 ### claimCondition
 
@@ -44,28 +33,26 @@ function claim(address _receiver, uint256 _tokenId, uint256 _quantity, address _
 function claimCondition(uint256) external view returns (uint256 startTimestamp, uint256 maxClaimableSupply, uint256 supplyClaimed, uint256 quantityLimitPerWallet, bytes32 merkleRoot, uint256 pricePerToken, address currency, string metadata)
 ```
 
-
-
-*Mapping from tokenId =&gt; active claim condition for the tokenId.*
+_Mapping from tokenId =&gt; active claim condition for the tokenId._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| startTimestamp | uint256 | undefined |
-| maxClaimableSupply | uint256 | undefined |
-| supplyClaimed | uint256 | undefined |
-| quantityLimitPerWallet | uint256 | undefined |
-| merkleRoot | bytes32 | undefined |
-| pricePerToken | uint256 | undefined |
-| currency | address | undefined |
-| metadata | string | undefined |
+| Name                   | Type    | Description |
+| ---------------------- | ------- | ----------- |
+| startTimestamp         | uint256 | undefined   |
+| maxClaimableSupply     | uint256 | undefined   |
+| supplyClaimed          | uint256 | undefined   |
+| quantityLimitPerWallet | uint256 | undefined   |
+| merkleRoot             | bytes32 | undefined   |
+| pricePerToken          | uint256 | undefined   |
+| currency               | address | undefined   |
+| metadata               | string  | undefined   |
 
 ### getSupplyClaimedByWallet
 
@@ -73,22 +60,20 @@ function claimCondition(uint256) external view returns (uint256 startTimestamp, 
 function getSupplyClaimedByWallet(uint256 _tokenId, address _claimer) external view returns (uint256)
 ```
 
-
-
-*Returns the supply claimed by claimer for active conditionId.*
+_Returns the supply claimed by claimer for active conditionId._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _tokenId | uint256 | undefined |
-| _claimer | address | undefined |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| \_tokenId | uint256 | undefined   |
+| \_claimer | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### setClaimConditions
 
@@ -96,17 +81,13 @@ function getSupplyClaimedByWallet(uint256 _tokenId, address _claimer) external v
 function setClaimConditions(uint256 _tokenId, IClaimCondition.ClaimCondition _condition, bool _resetClaimEligibility) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _tokenId | uint256 | undefined |
-| _condition | IClaimCondition.ClaimCondition | undefined |
-| _resetClaimEligibility | bool | undefined |
+| Name                    | Type                           | Description |
+| ----------------------- | ------------------------------ | ----------- |
+| \_tokenId               | uint256                        | undefined   |
+| \_condition             | IClaimCondition.ClaimCondition | undefined   |
+| \_resetClaimEligibility | bool                           | undefined   |
 
 ### verifyClaim
 
@@ -114,28 +95,22 @@ function setClaimConditions(uint256 _tokenId, IClaimCondition.ClaimCondition _co
 function verifyClaim(uint256 _tokenId, address _claimer, uint256 _quantity, address _currency, uint256 _pricePerToken, IDropSinglePhase1155.AllowlistProof _allowlistProof) external view returns (bool isOverride)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _tokenId | uint256 | undefined |
-| _claimer | address | undefined |
-| _quantity | uint256 | undefined |
-| _currency | address | undefined |
-| _pricePerToken | uint256 | undefined |
-| _allowlistProof | IDropSinglePhase1155.AllowlistProof | undefined |
+| Name             | Type                                | Description |
+| ---------------- | ----------------------------------- | ----------- |
+| \_tokenId        | uint256                             | undefined   |
+| \_claimer        | address                             | undefined   |
+| \_quantity       | uint256                             | undefined   |
+| \_currency       | address                             | undefined   |
+| \_pricePerToken  | uint256                             | undefined   |
+| \_allowlistProof | IDropSinglePhase1155.AllowlistProof | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| isOverride | bool | undefined |
-
-
+| Name       | Type | Description |
+| ---------- | ---- | ----------- |
+| isOverride | bool | undefined   |
 
 ## Events
 
@@ -147,15 +122,13 @@ event ClaimConditionUpdated(uint256 indexed tokenId, IClaimCondition.ClaimCondit
 
 Emitted when the contract&#39;s claim conditions are updated.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId `indexed` | uint256 | undefined |
-| condition  | IClaimCondition.ClaimCondition | undefined |
-| resetEligibility  | bool | undefined |
+| Name              | Type                           | Description |
+| ----------------- | ------------------------------ | ----------- |
+| tokenId `indexed` | uint256                        | undefined   |
+| condition         | IClaimCondition.ClaimCondition | undefined   |
+| resetEligibility  | bool                           | undefined   |
 
 ### TokensClaimed
 
@@ -165,15 +138,11 @@ event TokensClaimed(address indexed claimer, address indexed receiver, uint256 i
 
 Emitted when tokens are claimed via `claim`.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| claimer `indexed` | address | undefined |
-| receiver `indexed` | address | undefined |
-| tokenId `indexed` | uint256 | undefined |
-| quantityClaimed  | uint256 | undefined |
-
-
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| claimer `indexed`  | address | undefined   |
+| receiver `indexed` | address | undefined   |
+| tokenId `indexed`  | uint256 | undefined   |
+| quantityClaimed    | uint256 | undefined   |

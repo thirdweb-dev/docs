@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # struct `TransactionRequest` {#struct_thirdweb_1_1_transaction_request}
 
-### Summary
+# Summary
 
 | Members  | Type     | Descriptions |
 | -------- | -------- | ------------ |

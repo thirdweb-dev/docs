@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # class `ERC1155Reward` {#class_thirdweb_1_1_e_r_c1155_reward}
 
-### Summary
+# Summary
 
 | Members           | Type     | Descriptions                                                                         |
 | ----------------- | -------- | ------------------------------------------------------------------------------------ |

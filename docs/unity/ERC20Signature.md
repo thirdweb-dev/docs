@@ -14,7 +14,7 @@ class ERC20Signature
 
 Generate, verify and mint signed mintable payloads
 
-### Summary
+# Summary
 
 | Members        | Type     | Descriptions                                                     |
 | -------------- | -------- | ---------------------------------------------------------------- |

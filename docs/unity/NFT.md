@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # struct `NFT` {#struct_thirdweb_1_1_n_f_t}
 
-### Summary
+# Summary
 
 | Members       | Type     | Descriptions |
 | ------------- | -------- | ------------ |
