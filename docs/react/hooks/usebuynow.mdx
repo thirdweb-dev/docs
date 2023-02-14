@@ -37,7 +37,7 @@ function App() {
       action={() =>
         buyNow({
           id: "{{listing_id}}", // ID of the listing to buy
-          type: ListingType.Direct, // Direct or Auction
+          type: ListingType.Direct, // Direct (0) or Auction (1)
           buyAmount: "{{buy_amount}}", // Amount to buy
           buyForWallet: "{{wallet_address}}", // Wallet to buy for, defaults to current wallet
         })
@@ -74,7 +74,7 @@ function App() {
           // highlight-start
           id: "{{listing_id}}", // ID of the listing to buy
           // highlight-end
-          type: ListingType.Direct, // Direct or Auction
+          type: ListingType.Direct, // Direct (0) or Auction (1)
           buyAmount: "{{buy_amount}}",
         })
       }
@@ -109,7 +109,7 @@ function App() {
         buyNow({
           id: "{{listing_id}}",
           // highlight-start
-          type: ListingType.Direct, // Direct or Auction
+          type: ListingType.Direct, // Direct (0) or Auction (1)
           // highlight-end
           buyAmount: "{{buy_amount}}",
         })
@@ -142,7 +142,7 @@ function App() {
       action={() =>
         buyNow({
           id: "{{listing_id}}",
-          type: ListingType.Direct, // Direct or Auction
+          type: ListingType.Direct, // Direct (0) or Auction (1)
           // highlight-start
           buyAmount: "{{buy_amount}}", // Amount to buy
           // highlight-end
@@ -184,7 +184,7 @@ function App() {
       action={() =>
         buyNow({
           id: "{{listing_id}}",
-          type: ListingType.Direct, // Direct or Auction
+          type: ListingType.Direct, // Direct (0) or Auction (1)
           buyAmount: "{{buy_amount}}",
           // highlight-start
           buyForWallet: address, // Wallet to buy for, defaults to current wallet

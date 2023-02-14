@@ -7,7 +7,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook for retrieving the metadata of a given contract.
+Generic hook for reading any data from a smart contract via it&rsquo;s function/view/variable name.
 
 ```jsx
 import { useContractMetadata } from "@thirdweb-dev/react";
@@ -26,12 +26,16 @@ const contractAddress = "{{contract_address}}";
 function App() {
   const { contract } = useContract(contractAddress);
   const { data: metadata } = useContractMetadata(contract);
-
-  return (
-    <div>
-      <h2>{metadata.name}</h2>
-      <p>{metadata.description}</p>
-    </div>
-  );
 }
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, contains the following properties:
+
+```jsx
+name?: string;
+description?: string;
+symbol?: string;
+image?: string;
 ```

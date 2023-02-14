@@ -12,7 +12,7 @@ type Props = {
   scope: any;
 };
 
-export default function ConnectWalletEditor({ code, scope }: Props) {
+export default function LiveCodeEditor({ code, scope }: Props) {
   const { colorMode } = useColorMode();
 
   return (

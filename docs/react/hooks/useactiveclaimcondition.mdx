@@ -9,7 +9,9 @@ import CodeBlock from "@theme/CodeBlock";
 
 Hook for getting the active claim condition for a given drop contract.
 
-Available for contracts that implement claim phases; such as NFT Drop, Edition Drop, and Token Drop.
+Available for contracts that implement the [claim conditions](/contractkit/interfaces/erc721claimablewithconditions)
+interface; such as [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721), [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155),
+and [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20).
 
 ```jsx
 import { useActiveClaimCondition } from "@thirdweb-dev/react";

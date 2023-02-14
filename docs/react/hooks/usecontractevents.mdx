@@ -3,7 +3,7 @@ title: useContractEvents
 displayed_sidebar: react
 ---
 
-Hook for subscribing to and querying events emitted by a Contract.
+Hook for reading events emitted by a smart contract, including new events as they are emitted (optional).
 
 ```jsx
 import { useContractEvents } from "@thirdweb-dev/react";
@@ -12,7 +12,27 @@ import { useContractEvents } from "@thirdweb-dev/react";
 ## Usage
 
 ```jsx
-import { useContractEvents, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useContractEvents, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error, isError } = useContractEvents(contract);
+}
+```
+
+## Configuration
+
+### eventName
+
+The name of the event to query for. For example, if your smart contract emits an event called `MyEvent`, you would pass `"MyEvent"` to this parameter.
+
+Omit this parameter or provide `undefined` to query for all events emitted by the smart contract.
+
+```jsx
+import { useContractEvents, useContract } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
@@ -21,48 +41,25 @@ function App() {
   const { contract } = useContract(contractAddress);
   const { data, isLoading, error, isError } = useContractEvents(
     contract,
-    "MyEvent"
-  );
-
-  if (error) {
-    console.error("failed to subscribe to events", error);
-  }
-
-  return (
-    <div>
-      <Web3Button
-        contractAddress={contractAddress}
-        action={() => {
-          // Perform action that emits MyEvent
-        }}
-      >
-        Trigger Event
-      </Web3Button>
-
-      {!isLoading && data.length > 0 && (
-        <div>
-          <h3>Events</h3>
-          {data.map((event, index) => (
-            <ul key={index}>
-              <li>name: {event.eventName}</li>
-              <li>data: {JSON.stringify(event.data)}</li>
-            </ul>
-          ))}
-        </div>
-      )}
-    </div>
+    // highlight-start
+    "MyEvent", // Event name being emitted by your smart contract
+    // highlight-end
   );
 }
 ```
 
-## Options
-
-### queryFilter
+### options
 
 An object containing options to filter the events being queried.
 
+Available options include `queryFilter` to refine which events you want to read, and a boolean `subscribe` flag.
+
 ```jsx
-import { useContractEvents, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useContractEvents,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
@@ -75,94 +72,37 @@ function App() {
     {
       // highlight-start
       queryFilter: {
-        fromBlock: 0,
-        toBlock: "latest",
+        filters: {
+          tokenId: 123, // e.g. Only events where tokenId = 123
+        },
+        fromBlock: 0, // Events starting from this block
+        toBlock: 100, // Events up to this block
+        order = "asc", // Order of events ("asc" or "desc")
       },
+      subscribe: true, // Subscribe to new events
       // highlight-end
-    }
+    },
   );
-
-  if (error) {
-    console.error("failed to subscribe to events", error);
-  }
-
-  return (
-    <div>
-      <Web3Button
-        contractAddress={contractAddress}
-        action={() => {
-          // Perform action that emits MyEvent
-        }}
-      >
-        Trigger Event
-      </Web3Button>
-
-      {!isLoading && data.length > 0 && (
-        <div>
-          <h3>Events</h3>
-          {data.map((event, index) => (
-            <ul key={index}>
-              <li>name: {event.eventName}</li>
-              <li>data: {JSON.stringify(event.data)}</li>
-            </ul>
-          ))}
-        </div>
-      )}
-    </div>
-  );
-}
 ```
 
-The `queryFilter` object accepts the following properties:
+## Return Value
 
-#### fromBlock
+The hook's `data` property, once loaded, contains an array of event objects, each containing the following properties:
 
-The block (inclusive) from which to start querying for events.
-
-The valid values for `fromBlock` are:
-
-- A `string` representing a block number (e.g. `"10"`)
-- A `number` representing a block number (e.g. `10`)
-- A `string` representing a block hash (e.g. `"0x1234..."`)
-
-The default value is `0` (the beginning of the blockchain).
-
-#### toBlock
-
-The block (inclusive) at which to stop querying for events.
-
-The valid values for `toBlock` are:
-
-- A `string` representing a block number (e.g. `"10"`)
-- A `number` representing a block number (e.g. `10`)
-- A `string` representing a block hash (e.g. `"0x1234..."`)
-- The special value `"latest"`
-
-The default value is `"latest"` (the current head of the blockchain).
-
-#### order
-
-The order in which to query for events.
-
-The valid values for `order` are:
-
-- `"asc"`
-- `"desc"`
-
-The default value is `"asc"`.
-
-#### filters
-
-An object containing filters to apply to the query.
-
-The filters object is specific to the smart contract and event being queried. Refer to the documentation for your contract for more information.
-
-### subscribe
-
-A boolean indicating whether or not to subscribe to future events.
-
-When `subscribe` is `true`, the hook will continue to listen for new events and update the `data` property.
-
-When `subscribe` is `false`, the hook will only query for existing events and will not listen for new events.
-
-The default value is `true`.
+```jsx
+{
+    eventName: string;
+    data: Record<string, any>;
+    transaction: {
+        blockNumber: number;
+        blockHash: string;
+        transactionIndex: number;
+        removed: boolean;
+        address: string;
+        data: string;
+        topics: Array<string>;
+        transactionHash: string;
+        logIndex: number;
+    };
+}
+```

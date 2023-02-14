@@ -7,7 +7,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook for reading from a smart contract.
+Generic hook for reading any data from a smart contract via it&rsquo;s function/view/variable name.
 
 ```jsx
 import { useContractRead } from "@thirdweb-dev/react";
@@ -15,33 +15,19 @@ import { useContractRead } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your contract instance and a function name as the arguments.
+Provide your smart contract instance from [`useContract`](/react/usecontract) and a function name as the arguments.
+
+For example, to read the value of a `view` on your smart contract called `getName` you would do the following:
 
 ```jsx
-import { useContractRead, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useContractRead, useContract } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-
-  // Read contract with no arguments
   const { data, isLoading, error } = useContractRead(contract, "getName");
-
-  if (error) {
-    console.error("failed to read contract", error);
-  }
-
-  return (
-    <div>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <p>Contract Name: {data}</p>
-      )}
-    </div>
-  );
 }
 ```
 
@@ -51,11 +37,27 @@ function App() {
 
 The function name you provide should be the name of the function in your smart contract.
 
-If you are unsure of the function name you can check your contract's ABI or source code.
+This can be any function, view, variable, etc. that does _not_ require a **transaction** to occur.
+
+```jsx
+import { useContractRead, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useContractRead(
+    contract,
+    // highlight-next-line
+    "myContractFunction",
+  );
+}
+```
 
 ### Arguments
 
-You can optionally provide arguments to the read function.
+If your function requires arguments, pass them as additional arguments to the hook.
 
 ```jsx
 import { useContractRead, useContract, Web3Button } from "@thirdweb-dev/react";
@@ -70,8 +72,10 @@ function App() {
   const { data, isLoading, error } = useContractRead(
     contract,
     "getName",
-    arg1,
-    arg2
+    // highlight-start
+    "arg1",
+    "arg2",
+    // highlight-end
   );
 
   if (error) {
@@ -79,13 +83,46 @@ function App() {
   }
 
   return (
-    <div>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <p>Contract Name: {data}</p>
-      )}
-    </div>
+    <div>{isLoading ? <p>Loading...</p> : <p>Contract Name: {data}</p>}</div>
+  );
+}
+```
+
+### Call Overrides
+
+If you provide an additional argument to the hook, it will be used as the `CallOverrides` object send with your request.
+
+```jsx
+import { useContractRead, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+
+  // Read contract with arguments
+  const { data, isLoading, error } = useContractRead(
+    contract,
+    "getName",
+    // function arguments
+    "arg1",
+    "arg2",
+    // highlight-start
+    // Final argument is the call overrides
+    {
+      blockTag: 123,
+      from: "0x123",
+    },
+    // highlight-end
+  );
+
+  if (error) {
+    console.error("failed to read contract", error);
+  }
+
+  return (
+    <div>{isLoading ? <p>Loading...</p> : <p>Contract Name: {data}</p>}</div>
   );
 }
 ```

@@ -30,7 +30,6 @@ function App() {
       contractAddress={contractAddress}
       action={() =>
         burnToken({
-          to: "{{wallet_address}}",
           amount: "10", // Amount of tokens to burn
         })
       }
@@ -42,46 +41,6 @@ function App() {
 ```
 
 ## Configuration
-
-### to
-
-Likely, you will want to burn the token from the currently connected wallet address.
-
-You can use the [`useAddress`](/react/hooks/useAddress) hook to get this value.
-
-```jsx
-import {
-  useBurnToken,
-  useContract,
-  Web3Button,
-  useAddress,
-} from "@thirdweb-dev/react";
-
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
-
-function App() {
-  // highlight-next-line
-  const address = useAddress();
-  const { contract } = useContract(contractAddress);
-  const { mutateAsync: burnToken, isLoading, error } = useBurnToken(contract);
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        burnToken({
-          // highlight-next-line
-          to: address,
-          amount: "10", // Amount of tokens to burn
-        })
-      }
-    >
-      Burn Token
-    </Web3Button>
-  );
-}
-```
 
 ### amount
 
@@ -102,7 +61,6 @@ function App() {
       contractAddress={contractAddress}
       action={() =>
         burnToken({
-          to: "{{wallet_address}}",
           // highlight-next-line
           amount: "10", // Amount of tokens to burn
         })
