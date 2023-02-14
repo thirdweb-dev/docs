@@ -1,0 +1,54 @@
+---
+title: useContractMetadataUpdate
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for updating the metadata associated with a smart contract.
+
+```jsx
+import { useContractMetadataUpdate } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your contract instance from the [`useContract`](/react/hooks/usecontract) hook as the argument.
+
+```jsx
+import {
+  useContractMetadataUpdate,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: updateMetadata,
+    isLoading,
+    error,
+  } = useContractMetadataUpdate(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        updateMetadata({
+          name: "New Contract Name", // (required)
+          description: "This is a new contract description", // (optional)
+          image: "{{image_url}}", // (optional)
+          external_link: "{{external_link}}", // (optional) Link that appears beneath the image on OpenSea, to view asset on *your* website.
+        })
+      }
+    >
+      Update Metadata
+    </Web3Button>
+  );
+}
+```
