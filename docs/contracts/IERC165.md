@@ -4,15 +4,8 @@ title: IERC165
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # IERC165
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,21 +15,14 @@ displayed_sidebar: contracts
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| interfaceId | bytes4 | undefined |
+| Name        | Type   | Description |
+| ----------- | ------ | ----------- |
+| interfaceId | bytes4 | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
-
-
-
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |

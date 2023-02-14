@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # struct `Currency` {#struct_thirdweb_1_1_currency}
 
-### Summary
+## Summary
 
 | Members  | Type     | Descriptions |
 | -------- | -------- | ------------ |

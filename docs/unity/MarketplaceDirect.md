@@ -12,7 +12,7 @@ class MarketplaceDirect
   : public Thirdweb.Routable
 ```
 
-### Summary
+## Summary
 
 | Members           | Type     | Descriptions |
 | ----------------- | -------- | ------------ |

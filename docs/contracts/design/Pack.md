@@ -256,6 +256,6 @@ We’ll now discuss some possible solutions for this design problem along with t
     - No one can predict the block hash of the stored future block unless the pack creator is the miner of the block with that block number (highly unlikely).
     - The seed is controlled by the creator, submitted at the time of pack creation, and cannot be changed after submission.
     - Since packs are non-transferrable in the way described above, as long as the pack opener is not approved to transfer packs, the opener cannot manipulate the value of `random` by transferring packs to a desirable address and then opening the pack from that address.
-  **Why we’re not using this solution:**
+      **Why we’re not using this solution:**
   - Active involvement from the pack creator. They’re trusted to reveal the unencrypted seed once packs are eligible to be opened.
   - Packs _must_ be non-transferrable in the way described above, which means they can’t be purchased on a marketplace, etc. Lack of a built-in distribution mechanism for the packs.

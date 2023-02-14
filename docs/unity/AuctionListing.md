@@ -12,7 +12,7 @@ class AuctionListing
   : public Thirdweb.Listing
 ```
 
-### Summary
+## Summary
 
 | Members                           | Type     | Descriptions |
 | --------------------------------- | -------- | ------------ |

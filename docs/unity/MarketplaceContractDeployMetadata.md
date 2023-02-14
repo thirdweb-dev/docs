@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # struct `MarketplaceContractDeployMetadata` {#struct_thirdweb_1_1_marketplace_contract_deploy_metadata}
 
-### Summary
+## Summary
 
 | Members                   | Type     | Descriptions |
 | ------------------------- | -------- | ------------ |

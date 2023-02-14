@@ -4,9 +4,10 @@ title: ContractEvents Objects
 hide_title: true
 displayed_sidebar: python
 ---
+
 <a id="core.classes.contract_events"></a>
 
-# core.classes.contract\_events
+# core.classes.contract_events
 
 <a id="core.classes.contract_events.ContractEvents"></a>
 
@@ -18,7 +19,7 @@ class ContractEvents(Generic[TContractABI])
 
 <a id="core.classes.contract_events.ContractEvents.add_transaction_listener"></a>
 
-#### add\_transaction\_listener
+#### add_transaction_listener
 
 ```python
 def add_transaction_listener(listener: Callable[[TxEvent], Any])
@@ -34,7 +35,7 @@ whenever a transaction event is executed from the SDK interface.
 
 <a id="core.classes.contract_events.ContractEvents.remove_transaction_listener"></a>
 
-#### remove\_transaction\_listener
+#### remove_transaction_listener
 
 ```python
 def remove_transaction_listener(listener: Callable[[TxEvent], Any])
@@ -48,7 +49,7 @@ Remove a listener from transaction events.
 
 <a id="core.classes.contract_events.ContractEvents.add_event_listener"></a>
 
-#### add\_event\_listener
+#### add_event_listener
 
 ```python
 def add_event_listener(event_name: str, listener: Callable[[Dict[str, Any]],
@@ -64,7 +65,7 @@ Add an event listener to this contract to listen for a specific event type.
 
 <a id="core.classes.contract_events.ContractEvents.remove_event_listener"></a>
 
-#### remove\_event\_listener
+#### remove_event_listener
 
 ```python
 def remove_event_listener(event_name: str, listener)
@@ -79,7 +80,7 @@ Remove an event listener listening to a specific event type.
 
 <a id="core.classes.contract_events.ContractEvents.remove_all_listeners"></a>
 
-#### remove\_all\_listeners
+#### remove_all_listeners
 
 ```python
 def remove_all_listeners()
@@ -89,7 +90,7 @@ Remove all event listeners from this contract.
 
 <a id="core.classes.contract_events.ContractEvents.get_events"></a>
 
-#### get\_events
+#### get_events
 
 ```python
 def get_events(

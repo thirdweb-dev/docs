@@ -4,16 +4,8 @@ title: ReentrancyGuardUpgradeable
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # ReentrancyGuardUpgradeable
-
-
-
-
-
-
-
-
-
 
 ## Events
 
@@ -23,14 +15,8 @@ displayed_sidebar: contracts
 event Initialized(uint8 version)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| version  | uint8 | undefined |
-
-
+| Name    | Type  | Description |
+| ------- | ----- | ----------- |
+| version | uint8 | undefined   |

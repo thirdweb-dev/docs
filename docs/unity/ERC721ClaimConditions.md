@@ -14,7 +14,7 @@ class ERC721ClaimConditions
 
 Fetch claim conditions for a given [ERC721](docs/unity/ERC721.md#class_thirdweb_1_1_e_r_c721) drop contract
 
-### Summary
+## Summary
 
 | Members                 | Type     | Descriptions                                                      |
 | ----------------------- | -------- | ----------------------------------------------------------------- |

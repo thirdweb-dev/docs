@@ -4,15 +4,8 @@ title: IOperatorFilterRegistry
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # IOperatorFilterRegistry
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,21 +15,17 @@ displayed_sidebar: contracts
 function codeHashOf(address addr) external nonpayable returns (bytes32)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| addr | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| addr | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
 ### copyEntriesOf
 
@@ -44,16 +33,12 @@ function codeHashOf(address addr) external nonpayable returns (bytes32)
 function copyEntriesOf(address registrant, address registrantToCopy) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| registrantToCopy | address | undefined |
+| Name             | Type    | Description |
+| ---------------- | ------- | ----------- |
+| registrant       | address | undefined   |
+| registrantToCopy | address | undefined   |
 
 ### filteredCodeHashAt
 
@@ -61,22 +46,18 @@ function copyEntriesOf(address registrant, address registrantToCopy) external no
 function filteredCodeHashAt(address registrant, uint256 index) external nonpayable returns (bytes32)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| index | uint256 | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| registrant | address | undefined   |
+| index      | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
 ### filteredCodeHashes
 
@@ -84,21 +65,17 @@ function filteredCodeHashAt(address registrant, uint256 index) external nonpayab
 function filteredCodeHashes(address addr) external nonpayable returns (bytes32[])
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| addr | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| addr | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32[] | undefined |
+| Name | Type      | Description |
+| ---- | --------- | ----------- |
+| \_0  | bytes32[] | undefined   |
 
 ### filteredOperatorAt
 
@@ -106,22 +83,18 @@ function filteredCodeHashes(address addr) external nonpayable returns (bytes32[]
 function filteredOperatorAt(address registrant, uint256 index) external nonpayable returns (address)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| index | uint256 | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| registrant | address | undefined   |
+| index      | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### filteredOperators
 
@@ -129,21 +102,17 @@ function filteredOperatorAt(address registrant, uint256 index) external nonpayab
 function filteredOperators(address addr) external nonpayable returns (address[])
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| addr | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| addr | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address[] | undefined |
+| Name | Type      | Description |
+| ---- | --------- | ----------- |
+| \_0  | address[] | undefined   |
 
 ### isCodeHashFiltered
 
@@ -151,22 +120,18 @@ function filteredOperators(address addr) external nonpayable returns (address[])
 function isCodeHashFiltered(address registrant, bytes32 codeHash) external nonpayable returns (bool)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| codeHash | bytes32 | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| registrant | address | undefined   |
+| codeHash   | bytes32 | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### isCodeHashOfFiltered
 
@@ -174,22 +139,18 @@ function isCodeHashFiltered(address registrant, bytes32 codeHash) external nonpa
 function isCodeHashOfFiltered(address registrant, address operatorWithCode) external nonpayable returns (bool)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| operatorWithCode | address | undefined |
+| Name             | Type    | Description |
+| ---------------- | ------- | ----------- |
+| registrant       | address | undefined   |
+| operatorWithCode | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### isOperatorAllowed
 
@@ -197,22 +158,18 @@ function isCodeHashOfFiltered(address registrant, address operatorWithCode) exte
 function isOperatorAllowed(address registrant, address operator) external view returns (bool)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| operator | address | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| registrant | address | undefined   |
+| operator   | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### isOperatorFiltered
 
@@ -220,22 +177,18 @@ function isOperatorAllowed(address registrant, address operator) external view r
 function isOperatorFiltered(address registrant, address operator) external nonpayable returns (bool)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| operator | address | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| registrant | address | undefined   |
+| operator   | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### isRegistered
 
@@ -243,21 +196,17 @@ function isOperatorFiltered(address registrant, address operator) external nonpa
 function isRegistered(address addr) external nonpayable returns (bool)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| addr | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| addr | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### register
 
@@ -265,15 +214,11 @@ function isRegistered(address addr) external nonpayable returns (bool)
 function register(address registrant) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| registrant | address | undefined   |
 
 ### registerAndCopyEntries
 
@@ -281,16 +226,12 @@ function register(address registrant) external nonpayable
 function registerAndCopyEntries(address registrant, address registrantToCopy) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| registrantToCopy | address | undefined |
+| Name             | Type    | Description |
+| ---------------- | ------- | ----------- |
+| registrant       | address | undefined   |
+| registrantToCopy | address | undefined   |
 
 ### registerAndSubscribe
 
@@ -298,16 +239,12 @@ function registerAndCopyEntries(address registrant, address registrantToCopy) ex
 function registerAndSubscribe(address registrant, address subscription) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| subscription | address | undefined |
+| Name         | Type    | Description |
+| ------------ | ------- | ----------- |
+| registrant   | address | undefined   |
+| subscription | address | undefined   |
 
 ### subscribe
 
@@ -315,16 +252,12 @@ function registerAndSubscribe(address registrant, address subscription) external
 function subscribe(address registrant, address registrantToSubscribe) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| registrantToSubscribe | address | undefined |
+| Name                  | Type    | Description |
+| --------------------- | ------- | ----------- |
+| registrant            | address | undefined   |
+| registrantToSubscribe | address | undefined   |
 
 ### subscriberAt
 
@@ -332,22 +265,18 @@ function subscribe(address registrant, address registrantToSubscribe) external n
 function subscriberAt(address registrant, uint256 index) external nonpayable returns (address)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| index | uint256 | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| registrant | address | undefined   |
+| index      | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### subscribers
 
@@ -355,21 +284,17 @@ function subscriberAt(address registrant, uint256 index) external nonpayable ret
 function subscribers(address registrant) external nonpayable returns (address[])
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| registrant | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address[] | undefined |
+| Name | Type      | Description |
+| ---- | --------- | ----------- |
+| \_0  | address[] | undefined   |
 
 ### subscriptionOf
 
@@ -377,21 +302,17 @@ function subscribers(address registrant) external nonpayable returns (address[])
 function subscriptionOf(address addr) external nonpayable returns (address registrant)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| addr | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| addr | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| registrant | address | undefined   |
 
 ### unregister
 
@@ -399,15 +320,11 @@ function subscriptionOf(address addr) external nonpayable returns (address regis
 function unregister(address addr) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| addr | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| addr | address | undefined   |
 
 ### unsubscribe
 
@@ -415,16 +332,12 @@ function unregister(address addr) external nonpayable
 function unsubscribe(address registrant, bool copyExistingEntries) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| copyExistingEntries | bool | undefined |
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| registrant          | address | undefined   |
+| copyExistingEntries | bool    | undefined   |
 
 ### updateCodeHash
 
@@ -432,17 +345,13 @@ function unsubscribe(address registrant, bool copyExistingEntries) external nonp
 function updateCodeHash(address registrant, bytes32 codehash, bool filtered) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| codehash | bytes32 | undefined |
-| filtered | bool | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| registrant | address | undefined   |
+| codehash   | bytes32 | undefined   |
+| filtered   | bool    | undefined   |
 
 ### updateCodeHashes
 
@@ -450,17 +359,13 @@ function updateCodeHash(address registrant, bytes32 codehash, bool filtered) ext
 function updateCodeHashes(address registrant, bytes32[] codeHashes, bool filtered) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| codeHashes | bytes32[] | undefined |
-| filtered | bool | undefined |
+| Name       | Type      | Description |
+| ---------- | --------- | ----------- |
+| registrant | address   | undefined   |
+| codeHashes | bytes32[] | undefined   |
+| filtered   | bool      | undefined   |
 
 ### updateOperator
 
@@ -468,17 +373,13 @@ function updateCodeHashes(address registrant, bytes32[] codeHashes, bool filtere
 function updateOperator(address registrant, address operator, bool filtered) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| operator | address | undefined |
-| filtered | bool | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| registrant | address | undefined   |
+| operator   | address | undefined   |
+| filtered   | bool    | undefined   |
 
 ### updateOperators
 
@@ -486,17 +387,10 @@ function updateOperator(address registrant, address operator, bool filtered) ext
 function updateOperators(address registrant, address[] operators, bool filtered) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| registrant | address | undefined |
-| operators | address[] | undefined |
-| filtered | bool | undefined |
-
-
-
+| Name       | Type      | Description |
+| ---------- | --------- | ----------- |
+| registrant | address   | undefined   |
+| operators  | address[] | undefined   |
+| filtered   | bool      | undefined   |

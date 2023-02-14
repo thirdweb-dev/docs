@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # class `QueryAllParams` {#class_thirdweb_1_1_query_all_params}
 
-### Summary
+## Summary
 
 | Members  | Type     | Descriptions |
 | -------- | -------- | ------------ |

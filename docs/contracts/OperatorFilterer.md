@@ -4,15 +4,14 @@ title: OperatorFilterer
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # OperatorFilterer
-
-
 
 > OperatorFilterer
 
-Abstract contract whose constructor automatically registers and optionally subscribes to or copies another         registrant&#39;s entries in the OperatorFilterRegistry.
+Abstract contract whose constructor automatically registers and optionally subscribes to or copies another registrant&#39;s entries in the OperatorFilterRegistry.
 
-*This smart contract is meant to be inherited by token contracts so they can use the following:         - `onlyAllowedOperator` modifier for `transferFrom` and `safeTransferFrom` methods.         - `onlyAllowedOperatorApproval` modifier for `approve` and `setApprovalForAll` methods.*
+_This smart contract is meant to be inherited by token contracts so they can use the following: - `onlyAllowedOperator` modifier for `transferFrom` and `safeTransferFrom` methods. - `onlyAllowedOperatorApproval` modifier for `approve` and `setApprovalForAll` methods._
 
 ## Methods
 
@@ -22,16 +21,11 @@ Abstract contract whose constructor automatically registers and optionally subsc
 function OPERATOR_FILTER_REGISTRY() external view returns (contract IOperatorFilterRegistry)
 ```
 
-
-
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | contract IOperatorFilterRegistry | undefined |
+| Name | Type                             | Description |
+| ---- | -------------------------------- | ----------- |
+| \_0  | contract IOperatorFilterRegistry | undefined   |
 
 ### operatorRestriction
 
@@ -39,16 +33,11 @@ function OPERATOR_FILTER_REGISTRY() external view returns (contract IOperatorFil
 function operatorRestriction() external view returns (bool)
 ```
 
-
-
-
-
-
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### setOperatorRestriction
 
@@ -56,17 +45,11 @@ function operatorRestriction() external view returns (bool)
 function setOperatorRestriction(bool _restriction) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _restriction | bool | undefined |
-
-
+| Name          | Type | Description |
+| ------------- | ---- | ----------- |
+| \_restriction | bool | undefined   |
 
 ## Events
 
@@ -76,17 +59,11 @@ function setOperatorRestriction(bool _restriction) external nonpayable
 event OperatorRestriction(bool restriction)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| restriction  | bool | undefined |
-
-
+| Name        | Type | Description |
+| ----------- | ---- | ----------- |
+| restriction | bool | undefined   |
 
 ## Errors
 
@@ -96,13 +73,8 @@ event OperatorRestriction(bool restriction)
 error OperatorNotAllowed(address operator)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| operator | address | undefined |
-
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| operator | address | undefined   |

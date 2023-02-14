@@ -4,15 +4,8 @@ title: IRouter
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # IRouter
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,15 +15,11 @@ displayed_sidebar: contracts
 function addPlugin(IPluginMap.Plugin plugin) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| plugin | IPluginMap.Plugin | undefined |
+| Name   | Type              | Description |
+| ------ | ----------------- | ----------- |
+| plugin | IPluginMap.Plugin | undefined   |
 
 ### getAllFunctionsOfPlugin
 
@@ -38,21 +27,19 @@ function addPlugin(IPluginMap.Plugin plugin) external nonpayable
 function getAllFunctionsOfPlugin(address pluginAddress) external view returns (bytes4[])
 ```
 
-
-
-*Returns all functions that are mapped to the given plug-in contract.*
+_Returns all functions that are mapped to the given plug-in contract._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| pluginAddress | address | undefined |
+| Name          | Type    | Description |
+| ------------- | ------- | ----------- |
+| pluginAddress | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes4[] | undefined |
+| Name | Type     | Description |
+| ---- | -------- | ----------- |
+| \_0  | bytes4[] | undefined   |
 
 ### getAllPlugins
 
@@ -60,16 +47,13 @@ function getAllFunctionsOfPlugin(address pluginAddress) external view returns (b
 function getAllPlugins() external view returns (struct IPluginMap.Plugin[])
 ```
 
-
-
-*Returns all plug-ins known by Map.*
-
+_Returns all plug-ins known by Map._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | IPluginMap.Plugin[] | undefined |
+| Name | Type                | Description |
+| ---- | ------------------- | ----------- |
+| \_0  | IPluginMap.Plugin[] | undefined   |
 
 ### getPluginForFunction
 
@@ -77,21 +61,19 @@ function getAllPlugins() external view returns (struct IPluginMap.Plugin[])
 function getPluginForFunction(bytes4 functionSelector) external view returns (address)
 ```
 
-
-
-*Returns the plug-in contract for a given function.*
+_Returns the plug-in contract for a given function._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| functionSelector | bytes4 | undefined |
+| Name             | Type   | Description |
+| ---------------- | ------ | ----------- |
+| functionSelector | bytes4 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### removePlugin
 
@@ -99,15 +81,13 @@ function getPluginForFunction(bytes4 functionSelector) external view returns (ad
 function removePlugin(bytes4 functionSelector) external nonpayable
 ```
 
-
-
-*Remove an existing plugin from the contract.*
+_Remove an existing plugin from the contract._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| functionSelector | bytes4 | undefined |
+| Name             | Type   | Description |
+| ---------------- | ------ | ----------- |
+| functionSelector | bytes4 | undefined   |
 
 ### updatePlugin
 
@@ -115,17 +95,11 @@ function removePlugin(bytes4 functionSelector) external nonpayable
 function updatePlugin(IPluginMap.Plugin plugin) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| plugin | IPluginMap.Plugin | undefined |
-
-
+| Name   | Type              | Description |
+| ------ | ----------------- | ----------- |
+| plugin | IPluginMap.Plugin | undefined   |
 
 ## Events
 
@@ -135,16 +109,14 @@ function updatePlugin(IPluginMap.Plugin plugin) external nonpayable
 event PluginAdded(bytes4 indexed functionSelector, address indexed pluginAddress)
 ```
 
-
-
-*Emitted when a functionality is added, or plugged-in.*
+_Emitted when a functionality is added, or plugged-in._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| functionSelector `indexed` | bytes4 | undefined |
-| pluginAddress `indexed` | address | undefined |
+| Name                       | Type    | Description |
+| -------------------------- | ------- | ----------- |
+| functionSelector `indexed` | bytes4  | undefined   |
+| pluginAddress `indexed`    | address | undefined   |
 
 ### PluginRemoved
 
@@ -152,16 +124,14 @@ event PluginAdded(bytes4 indexed functionSelector, address indexed pluginAddress
 event PluginRemoved(bytes4 indexed functionSelector, address indexed pluginAddress)
 ```
 
-
-
-*Emitted when a functionality is removed.*
+_Emitted when a functionality is removed._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| functionSelector `indexed` | bytes4 | undefined |
-| pluginAddress `indexed` | address | undefined |
+| Name                       | Type    | Description |
+| -------------------------- | ------- | ----------- |
+| functionSelector `indexed` | bytes4  | undefined   |
+| pluginAddress `indexed`    | address | undefined   |
 
 ### PluginSet
 
@@ -169,17 +139,13 @@ event PluginRemoved(bytes4 indexed functionSelector, address indexed pluginAddre
 event PluginSet(bytes4 indexed functionSelector, string indexed functionSignature, address indexed pluginAddress)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| functionSelector `indexed` | bytes4 | undefined |
-| functionSignature `indexed` | string | undefined |
-| pluginAddress `indexed` | address | undefined |
+| Name                        | Type    | Description |
+| --------------------------- | ------- | ----------- |
+| functionSelector `indexed`  | bytes4  | undefined   |
+| functionSignature `indexed` | string  | undefined   |
+| pluginAddress `indexed`     | address | undefined   |
 
 ### PluginUpdated
 
@@ -187,16 +153,12 @@ event PluginSet(bytes4 indexed functionSelector, string indexed functionSignatur
 event PluginUpdated(bytes4 indexed functionSelector, address indexed oldPluginAddress, address indexed newPluginAddress)
 ```
 
-
-
-*Emitted when a functionality is updated or overridden.*
+_Emitted when a functionality is updated or overridden._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| functionSelector `indexed` | bytes4 | undefined |
-| oldPluginAddress `indexed` | address | undefined |
-| newPluginAddress `indexed` | address | undefined |
-
-
+| Name                       | Type    | Description |
+| -------------------------- | ------- | ----------- |
+| functionSelector `indexed` | bytes4  | undefined   |
+| oldPluginAddress `indexed` | address | undefined   |
+| newPluginAddress `indexed` | address | undefined   |

@@ -12,7 +12,7 @@ class MarketplaceAuction
   : public Thirdweb.Routable
 ```
 
-### Summary
+## Summary
 
 | Members            | Type     | Descriptions |
 | ------------------ | -------- | ------------ |

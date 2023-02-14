@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # class `ERC1155MintAdditionalPayload` {#class_thirdweb_1_1_e_r_c1155_mint_additional_payload}
 
-### Summary
+## Summary
 
 | Members                      | Type     | Descriptions |
 | ---------------------------- | -------- | ------------ |

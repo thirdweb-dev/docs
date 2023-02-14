@@ -9,7 +9,7 @@ displayed_sidebar: unity
 
 The entry point for the thirdweb SDK.
 
-### Summary
+## Summary
 
 | Members     | Type     | Descriptions                                                              |
 | ----------- | -------- | ------------------------------------------------------------------------- |
