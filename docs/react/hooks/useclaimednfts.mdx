@@ -7,7 +7,10 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook for fetching all claimed NFTs from a given NFTDrop contract.
+Hook for fetching all claimed NFTs from a given NFT Drop contract.
+
+Available to use on contracts that implement [`ERC721Claimable`], such as the
+[NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721) prebuilt contract.
 
 ```jsx
 import { useClaimedNFTs } from "@thirdweb-dev/react";
@@ -15,70 +18,75 @@ import { useClaimedNFTs } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your NFTDrop contract as the argument.
+Provide your NFT Drop contract as the argument to the hook.
 
 ```jsx
-import { useClaimedNFTs, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useClaimedNFTs, useContract } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
-  const { contract } = useContract(contractAddress);
+  // Contract must implement ERC721Claimable, e.g. nft-drop
+  const { contract } = useContract(contractAddress, "nft-drop");
   const { data: nfts, isLoading, error } = useClaimedNFTs(contract);
-
-  if (error) {
-    console.error("failed to fetch nfts", error);
-  }
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        fetchNfts({
-          limit: 10,
-        })
-      }
-    >
-      Fetch NFTs
-    </Web3Button>
-  );
 }
 ```
 
 ## Configuration
 
-### limit
+### queryParams
 
-The `limit` parameter allows you to control the maximum number of NFTs that will be fetched.
+By default, the hook will return the first `100` claimed NFTs.
+
+You can use the `queryParams` argument to paginate the NFTs that are returned.
 
 ```jsx
-import { useClaimedNFTs, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useClaimedNFTs, useContract } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
-  const { contract } = useContract(contractAddress);
-  const { data: nfts, isLoading, error } = useClaimedNFTs(contract);
-
-  if (error) {
-    console.error("failed to fetch nfts", error);
-  }
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        fetchNfts({
-          // highlight-start
-          limit: 10, // Limit the maximum number of NFTs that will be fetched
-          // highlight-end
-        })
-      }
-    >
-      Fetch NFTs
-    </Web3Button>
+  const { contract } = useContract(contractAddress, "nft-drop");
+  const { data, isLoading, error } = useClaimedNFTs(
+    contract,
+    // highlight-start
+    {
+      // For example, to only return the first 50 claimed NFTs in the collection
+      // in order of token ID
+      count: 50,
+      start: 0,
+    },
+    // highlight-end
   );
 }
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, contains an array of `NFT` objects, each containing the following properties:
+
+```typescript
+{
+    metadata: {
+      id: string;
+      uri: string;
+      name?: string | number | undefined;
+      description?: string | null | undefined;
+      image?: string | null | undefined;
+      external_url?: string | null | undefined;
+      animation_url?: string | null | undefined;
+      background_color?: string | undefined;
+      properties?: {
+          [x: string]: unknown;
+      } | {
+          [x: string]: unknown;
+      }[] | undefined;
+  };
+    owner: string;
+    type: "ERC1155" | "ERC721";
+    supply: number;
+    quantityOwned?: number; // Only available for ERC1155
+}[];
 ```

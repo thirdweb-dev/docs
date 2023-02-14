@@ -3,7 +3,10 @@ title: useClaimedNFTSupply
 displayed_sidebar: react
 ---
 
-Hook for retrieving the total supply of NFTs claimed from a {@link DropContract}.
+Hook for retrieving the total supply of NFTs claimed from an NFT Drop contract.
+
+Available to use on contracts that implement [`ERC721Claimable`](/contractkit/interfaces/erc721claimable)
+or [`ERC1155Claimable`](/contractkit/interfaces/erc1155claimable).
 
 ```jsx
 import { useClaimedNFTSupply } from "@thirdweb-dev/react";
@@ -22,12 +25,14 @@ const contractAddress = "{{contract_address}}";
 function App() {
   const { contract } = useContract(contractAddress);
   const { data: claimedTokens, isLoading } = useClaimedNFTSupply(contract);
-
-  return (
-    <div>
-      <p>Claimed Tokens: {claimedTokens?.toString()}</p>
-      <p>Loading: {isLoading.toString()}</p>
-    </div>
-  );
 }
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, is a `BigNumber`
+representing the total supply of NFTs claimed from the NFT drop contract so far.
+
+```jsx
+BigNumber;
 ```

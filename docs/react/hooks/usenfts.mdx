@@ -43,9 +43,9 @@ function App() {
 
 ### queryParams
 
-By default, the hook will return all NFTs associated with the contract.
+By default, the hook will return the first 100 NFTs associated with the contract.
 
-You can use the `queryParams` argument to filter the NFTs that are returned.
+You can use the `queryParams` argument to paginate the NFTs that are returned.
 
 ```jsx
 import { useNFTs, useContract } from "@thirdweb-dev/react";
