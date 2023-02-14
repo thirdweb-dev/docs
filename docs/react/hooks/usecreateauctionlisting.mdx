@@ -23,51 +23,7 @@ contract as the argument to the hook.
 
 ### tokenId
 
-The ID of the NFT you are listing for auction.
-
-```jsx
-import {
-  useCreateAuctionListing,
-  useContract,
-  Web3Button,
-} from "@thirdweb-dev/react";
-
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
-
-function App() {
-  const { contract } = useContract(contractAddress, "marketplace-v3");
-  const {
-    mutateAsync: createAuctionListing,
-    isLoading,
-    error,
-  } = useCreateAuctionListing(contract);
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        createAuctionListing({
-          assetContractAddress: "{{asset_contract_address}}",
-          tokenId: "{{token_id}}",
-          currencyContractAddress: "{{currency_contract_address}}",
-          quantity: "{{quantity}}",
-          buyoutBidAmount: "{{buyout_bid_amount}}",
-          minimumBidAmount: "{{minimum_bid_amount}}",
-          startTimestamp: new Date(),
-          endTimestamp: new Date(
-            new Date().getTime() + 7 * 24 * 60 * 60 * 1000, // e.g. 7 days from now
-          ),
-          bidBufferBps: "{{bid_buffer_bps}}",
-          timeBufferInSeconds: "{{time_buffer_in_seconds}}",
-        })
-      }
-    >
-      Create Auction Listing
-    </Web3Button>
-  );
-}
-```
+The token ID of the NFT you are listing for auction.
 
 ### assetContractAddress
 
