@@ -14,7 +14,7 @@ class Marketplace
 
 Interact with a [Marketplace](#class_thirdweb_1_1_marketplace) contract.
 
-## Summary
+# Summary
 
 | Members           | Type     | Descriptions                                                             |
 | ----------------- | -------- | ------------------------------------------------------------------------ |

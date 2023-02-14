@@ -14,7 +14,7 @@ class ERC20ClaimConditions
 
 Fetch claim conditions for a given [ERC20](docs/unity/ERC20.md#class_thirdweb_1_1_e_r_c20) drop contract
 
-## Summary
+# Summary
 
 | Members                 | Type     | Descriptions                                                      |
 | ----------------------- | -------- | ----------------------------------------------------------------- |

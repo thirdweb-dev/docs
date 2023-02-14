@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # struct `Offer` {#struct_thirdweb_1_1_offer}
 
-## Summary
+# Summary
 
 | Members                 | Type     | Descriptions |
 | ----------------------- | -------- | ------------ |

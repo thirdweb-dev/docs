@@ -12,7 +12,7 @@ class ERC20Contents
   : public Thirdweb.ERC20Reward
 ```
 
-## Summary
+# Summary
 
 | Members      | Type     | Descriptions |
 | ------------ | -------- | ------------ |

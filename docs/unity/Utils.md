@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # class `Utils` {#class_thirdweb_1_1_utils}
 
-## Summary
+# Summary
 
 | Members | Type | Descriptions |
 | ------- | ---- | ------------ |

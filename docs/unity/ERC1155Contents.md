@@ -12,7 +12,7 @@ class ERC1155Contents
   : public Thirdweb.ERC1155Reward
 ```
 
-## Summary
+# Summary
 
 | Members      | Type     | Descriptions |
 | ------------ | -------- | ------------ |

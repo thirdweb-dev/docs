@@ -12,7 +12,7 @@ class MarketplaceFilter
   : public Thirdweb.QueryAllParams
 ```
 
-## Summary
+# Summary
 
 | Members       | Type     | Descriptions |
 | ------------- | -------- | ------------ |

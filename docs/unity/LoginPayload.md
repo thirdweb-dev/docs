@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # struct `LoginPayload` {#struct_thirdweb_1_1_login_payload}
 
-## Summary
+# Summary
 
 | Members   | Type     | Descriptions |
 | --------- | -------- | ------------ |
