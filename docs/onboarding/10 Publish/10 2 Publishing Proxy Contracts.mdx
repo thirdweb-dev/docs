@@ -3,9 +3,9 @@ title: Proxy Contracts
 slug: /publish/proxy-contracts
 ---
 
-When releasing a contract, you can choose to let others deploy a "proxy" of a pre-deployed contract. Since proxies are much lighter weight than the actual full contract, they are much cheaper to deploy. Proxy deploys only requiring a fraction of the gas of a normal deploy.
+When publishing a contract, you can choose to let others deploy a "proxy" of a pre-deployed contract. Since proxies are much lighter weight than the actual full contract, they are much cheaper to deploy. Proxy deploys only requiring a fraction of the gas of a normal deploy.
 
-### Releasing proxy contracts
+### Publishing proxy contracts
 
 This feature has a requirement. The "main" contract, referred to as the "implementation", needs to be deployed on chain already. You can not publish normal contracts as proxies, they need to be written as per the [EIP 1967 spec](https://eips.ethereum.org/EIPS/eip-1967).
 
