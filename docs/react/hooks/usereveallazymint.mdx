@@ -3,10 +3,12 @@ title: useRevealLazyMint
 displayed_sidebar: react
 ---
 
-Hook for revealing a lazy-minted NFT token on a smart contract.
+Hook for revealing a batch of delayed reveal NFTs using [delayed reveal](https://portal.thirdweb.com/sdk/advanced-features/delayed-reveal).
 
-Available to use on smart contracts that implement the [Revealable](/contractkit/interfaces/revealable)
-standard.
+Available to use on contracts that implement the
+[ERC721Revealable](https://portal.thirdweb.com/contractkit/interfaces/erc721revealable)
+or [ERC1155Revealable](https://portal.thirdweb.com/contractkit/interfaces/erc1155revealable)
+interfaces.
 
 ```jsx
 import { useRevealLazyMint } from "@thirdweb-dev/react";
@@ -14,44 +16,38 @@ import { useRevealLazyMint } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your NFT collection contract as the argument.
+Provide your contract from the [`useContract`](react/hooks/usecontract) hook as an argument.
 
 ```jsx
-import { useRevealLazyMint, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useContract,
+  useRevealLazyMint,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
-// Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
+  // Contract must be an ERC-721 or ERC-1155 contract that implements the ERC721Revealable or ERC1155Revealable interface
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: revealLazyMint, isLoading, error } = useRevealLazyMint(contract);
-
-  if (error) {
-    console.error("failed to reveal lazy minted token", error);
-  }
+  const {
+    mutateAsync: revealLazyMint,
+    isLoading,
+    error,
+  } = useRevealLazyMint(contract);
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         revealLazyMint({
-          batchId: 12345,
-          password: "{{password}}",
+          batchId: "{{batch_id}}", // ID of the batch to reveal (use useBatchesToReveal to get the batch IDs)
+          password: "{{password}}", // Password to reveal the batch
         })
       }
     >
-      Reveal Lazy Minted Token
+      Reveal Lazy Mint
     </Web3Button>
   );
 }
 ```
-
-## Configuration
-
-### batchId
-
-The `batchId` of the token to be revealed.
-
-### password
-
-The `password` used to encrypt the token before minting.

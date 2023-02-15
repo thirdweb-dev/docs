@@ -3,10 +3,12 @@ title: useMintToken
 displayed_sidebar: react
 ---
 
-Hook for minting a new token to the connected wallet.
+Hook for minting new tokens in an ERC20 smart contract.
 
-Available to use on smart contracts that implement the [ERC20](/contractkit/interfaces/erc20)
-or [ERC223](/contractkit/interfaces/erc223) standard.
+Available to use on contracts that implement the [ERC20Mintable](https://portal.thirdweb.com/contractkit/interfaces/erc20mintable)
+interface, such as the [Token](https://thirdweb.com/thirdweb.eth/TokenERC20) contract.
+
+The wallet address that initiates this transaction must have minting permissions on the contract.
 
 ```jsx
 import { useMintToken } from "@thirdweb-dev/react";
@@ -14,29 +16,27 @@ import { useMintToken } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your token contract as the argument.
+Provide your ER20 contract as an argument to the hook.
 
 ```jsx
-import { useMintToken, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useContract, useMintToken, Web3Button } from "@thirdweb-dev/react";
 
-// Your smart contract address
 const contractAddress = "{{contract_address}}";
+const walletAddress = "{{wallet_address}}";
+const tokenAmount = "{{token_amount}}";
 
 function App() {
-  const { contract } = useContract(contractAddress);
+  // Contract must be an ERC-20 contract that implements the ERC20Mintable interface
+  const { contract } = useContract(contractAddress, "token");
   const { mutateAsync: mintToken, isLoading, error } = useMintToken(contract);
-
-  if (error) {
-    console.error("failed to mint token", error);
-  }
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         mintToken({
-          to: "{{wallet_address}}", // Use useAddress hook to get the current wallet address
-          amount: 10, // The amount of tokens to mint
+          amount: tokenAmount, // Quantity to mint
+          to: walletAddress, // Address to mint to
         })
       }
     >
@@ -48,43 +48,72 @@ function App() {
 
 ## Configuration
 
-### to
+### amount
 
-Likely, you will want to mint the token to the currently connected wallet address.
-
-You can use the [`useAddress`](/react/hooks/useAddress) hook to get this value.
+The quantity of tokens to mint. Can be a `string` or `number`.
 
 ```jsx
-import {
-  useMintToken,
-  useContract,
-  Web3Button,
-  useAddress,
-} from "@thirdweb-dev/react";
+import { useContract, useMintToken, Web3Button } from "@thirdweb-dev/react";
 
-// Your smart contract address
 const contractAddress = "{{contract_address}}";
+const walletAddress = "{{wallet_address}}";
+// highlight-next-line
+const tokenAmount = "{{token_amount}}";
 
 function App() {
-  // highlight-start
-  const address = useAddress();
-  // highlight-end
+  // Contract must be an ERC-20 contract that implements the ERC20Mintable interface
   const { contract } = useContract(contractAddress);
   const { mutateAsync: mintToken, isLoading, error } = useMintToken(contract);
-
-  if (error) {
-    console.error("failed to mint token", error);
-  }
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         mintToken({
-          // highlight-start
-          to: address, // Use useAddress hook to get current wallet address
-          // highlight-end
-          amount: 10, // The amount of tokens to mint
+          // highlight-next-line
+          amount: tokenAmount, // Quantity to mint
+          to: walletAddress, // Address to mint to
+        })
+      }
+    >
+      Mint Token
+    </Web3Button>
+  );
+}
+```
+
+### to
+
+The wallet address to mint the new tokens to.
+
+To use the connected wallet address, use the [`useAddress`](/react/hooks/useaddress) hook.
+
+```jsx
+import {
+  useContract,
+  useMintToken,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+const tokenAmount = "{{token_amount}}";
+
+function App() {
+  // Contract must be an ERC-20 contract that implements the ERC20Mintable interface
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: mintToken, isLoading, error } = useMintToken(contract);
+  // highlight-next-line
+  const address = useAddress();
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mintToken({
+          amount: tokenAmount, // Quantity to mint
+          // highlight-next-line
+          to: address, // Address to mint to
         })
       }
     >

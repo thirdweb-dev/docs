@@ -3,11 +3,9 @@ title: usePlatformFees
 displayed_sidebar: react
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
+Hook for getting the platform fees settings of a contract.
 
-Hook for fetching platform fee information from a given smart contract.
+Available to use on contracts that implement the [PlatformFee](/contractkit/extension-contracts/platformfee) interface.
 
 ```jsx
 import { usePlatformFees } from "@thirdweb-dev/react";
@@ -15,33 +13,32 @@ import { usePlatformFees } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your smart contract as the argument.
+Provide your contract instance as the argument.
 
 ```jsx
-import { usePlatformFees, useContract } from "@thirdweb-dev/react";
+import { useContract, usePlatformFees } from "@thirdweb-dev/react";
 
-// Your smart contract address
+// Your smart contract address (must implement PlatformFee)
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
   const { data, isLoading, error } = usePlatformFees(contract);
+}
+```
 
-  if (error) {
-    console.error("failed to fetch platform fees", error);
-  }
+## Return Value
 
-  return (
-    <div>
-      {isLoading ? (
-        <p>Loading platform fee information...</p>
-      ) : (
-        <p>
-          Platform fee is {data.platform_fee_basis_points} basis points
-          (recipient: {data.platform_fee_recipient})
-        </p>
-      )}
-    </div>
-  );
+The hook's `data` property, once loaded, is an object containing two fields:
+
+- `platform_fee_basis_points`: the platform fee basis points set on the contract
+- `platform_fee_recipient`: the wallet address of the platform fee recipient
+
+_Note_: The basis points are in percentage format, meaning that a value of `500` is equivalent to a `5%` fee.
+
+```jsx
+{
+  platform_fee_basis_points: number;
+  platform_fee_recipient: string;
 }
 ```
