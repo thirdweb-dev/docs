@@ -3,11 +3,10 @@ title: useWinningBid
 displayed_sidebar: react
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
+Hook for getting the winning bid of an auction listing on a marketplace contract.
 
-Hook to get the winning bid of a listing on a marketplace smart contract.
+Available to use on [Marketplace](https://portal.thirdweb.com/contractkit/interfaces/marketplace)
+contracts.
 
 ```jsx
 import { useWinningBid } from "@thirdweb-dev/react";
@@ -15,60 +14,51 @@ import { useWinningBid } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your marketplace contract as the argument.
+Provide your marketplace contract instance and the listing ID as arguments.
 
 ```jsx
-import { useWinningBid, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useContract, useWinningBid } from "@thirdweb-dev/react";
 
-// Your smart contract address
+// Your marketplace contract address
 const contractAddress = "{{contract_address}}";
+// The listing ID to check
+const listingId = "{{listing_id}}";
 
 function App() {
-  const { contract } = useContract(contractAddress);
-  const winningBid = useWinningBid(contract, "{{listing_id}}");
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() => {
-        // Do something with the winning bid
-        console.log(winningBid);
-      }}
-    >
-      Get winning bid
-    </Web3Button>
-  );
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data, isLoading, error } = useWinningBid(contract, listingId);
 }
 ```
 
-## Configuration
+## Return Value
 
-### listingId
-
-Provide the `listingId` of the listing you want to get the winning bid of.
+The hook's `data` property, once loaded, is an object of type `Offer`, or `undefined` if no winning bid exists.
 
 ```jsx
-import { useWinningBid, useContract, Web3Button } from "@thirdweb-dev/react";
-
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
-
-function App() {
-  const { contract } = useContract(contractAddress);
-  // highlight-start
-  const winningBid = useWinningBid(contract, "{{listing_id}}");
-  // highlight-end
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() => {
-        // Do something with the winning bid
-        console.log(winningBid);
-      }}
-    >
-      Get winning bid
-    </Web3Button>
-  );
-}
+{
+    /**
+     * The id of the listing.
+     */
+    listingId: BigNumberish;
+    /**
+     * The address of the buyer who made the offer.
+     */
+    buyerAddress: string;
+    /**
+     * The quantity of tokens to be bought.
+     */
+    quantityDesired: BigNumberish;
+    /**
+     * The amount of coins offered per token.
+     */
+    pricePerToken: BigNumber;
+    /**
+     * The `CurrencyValue` of the listing. Useful for displaying the price information.
+     */
+    currencyValue: CurrencyValue;
+    /**
+     * The currency contract address of the offer token.
+     */
+    currencyContractAddress: string;
+} | undefined;
 ```
