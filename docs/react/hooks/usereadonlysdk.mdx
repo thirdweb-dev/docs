@@ -1,0 +1,28 @@
+---
+title: useReadonlySDK
+displayed_sidebar: react
+---
+
+Hook to get the thirdweb readonly SDK instance.
+
+This SDK can only be used to perform read operations on the blockchain.
+
+```jsx
+import { useReadonlySDK } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide an RPC URL to the hook as an argument and it will return the readonly SDK instance.
+
+```jsx
+import { useReadonlySDK } from "@thirdweb-dev/react";
+
+const readOnlySdk = useReadonlySDK(rpcUrl);
+
+const balance = readOnlySdk.getBalance("{{ wallet or contract address }}");
+```
+
+## Return Value
+
+The hook returns the readonly SDK instance. See [ThirdwebSDK](/typescript/sdk.thirdwebsdk).
