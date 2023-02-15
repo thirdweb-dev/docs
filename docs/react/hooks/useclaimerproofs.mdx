@@ -1,66 +1,157 @@
 ---
-title: useClaimProofs
+title: useClaimerProofs
 displayed_sidebar: react
 ---
 
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import UseClaimerProofs from "@components/live-code/snippets/UseClaimerProofs";
 
-Hook to fetch the proof for a claim made on a {@link DropContract}.
+Hook to get the claimer proofs for an address for [ERC20](https://portal.thirdweb.com/contractkit/base-contracts/erc-20/erc20drop), [ERC721](https://portal.thirdweb.com/contractkit/base-contracts/erc-721/erc721drop), and [ERC1155](https://portal.thirdweb.com/contractkit/base-contracts/erc-1155/erc1155drop) drop contracts.
+
+A claimer Proof is a set of data about a claimer's claim condition, including the claimer's address, the claimer's proof, and the claimer's max claimable amount, price, and currency address.
 
 ```jsx
-import { useClaimProofs } from "@thirdweb-dev/react";
+import { useClaimerProofs } from "@thirdweb-dev/react";
 ```
 
 ## Usage
 
 Provide your Drop contract as the first argument and the claimer's address as the second argument.
 
-Optionally, you can provide a `tokenId` and `claimConditionId` to filter for a specific claim.
+Optionally, you can provide a `tokenId` for ERC1155 contracts, and a `claimConditionId` for a specific claim condition.
 
 ```jsx
-import { useClaimProofs, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useClaimerProofs, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "nft-drop");
+
+  const {
+    data: proof,
+    isLoading,
+    error,
+  } = useClaimerProofs(contract, "{{claimer_address}}");
+}
+```
+
+## Demo Playground
+
+Edit the code below to see how the hook works and what data is returned.
+
+_Note: Playground uses the Goerli test network._
+
+<UseClaimerProofs />
+
+## Configuration
+
+### claimerAddress
+
+The second parameter is the `claimerAddress`. This is the address of the user you want to get the proof for.
+
+Likely, you will want to check proofs of the currently connected wallet address.
+
+You can use the useAddress hook to get this value.
+
+```jsx
+import { useAddress, useClaimerProofs, useContract } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { data: proof, isLoading, error } = useClaimProofs(
+  // highlight-start
+  const address = useAddress();
+  // highlight-end
+
+  const {
+    data: proof,
+    isLoading,
+    error,
+  } = useClaimerProofs(
     contract,
-    "{{claimer_address}}",
     // highlight-start
-    // Optionally, you can filter by tokenId and claimConditionId
-    tokenId,
-    claimConditionId
+    address, // Use useAddress hook to get current wallet address
     // highlight-end
-  );
-
-  if (error) {
-    console.error("failed to fetch proof", error);
-  }
-
-  return (
-    <Web3Button
-      disabled={isLoading}
-      contractAddress={contractAddress}
-      action={() => {
-        // ...
-      }}
-    >
-      {isLoading ? "Loading..." : "Fetch Proof"}
-    </Web3Button>
   );
 }
 ```
 
-## Configuration
-
 ### tokenId
 
-The `tokenId` of the target NFT.
+The third parameter is the `tokenId`.
 
-### claimConditionId
+When using the hook with ERC1155 contracts, pass the `tokenId` as the third parameter; as each token can have unique claim conditions.
 
-The `claimConditionId` of the target claim condition.
+Pass `undefined`, or leave this field out if you are using ERC721 or ERC20 drop contracts.
+
+```jsx
+import { useClaimerProofs, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+
+  const {
+    data: proof,
+    isLoading,
+    error,
+  } = useClaimerProofs(
+    contract,
+    "{{claimer_address}}",
+    // highlight-start
+    0, // Token ID required for ERC1155 contracts here.
+    // highlight-end
+  );
+}
+```
+
+### claimConditionID
+
+The fourth parameter is `claimConditionId`. This is the ID of the claim condition you want to get the proof for.
+
+```jsx
+import { useClaimerProofs, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+
+  // "data" now includes a proof for the claim condition with ID 0.
+  const {
+    data: proof,
+    isLoading,
+    error,
+  } = useClaimerProofs(
+    contract,
+    "{{claimer_address}}",
+    undefined,
+    // highlight-start
+    0, // Claim condition ID here.
+    // highlight-end
+  );
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, contains the following properties:
+
+```jsx
+{
+    price?: string | undefined;
+    currencyAddress?: string | undefined;
+    address: string;
+    proof: string[];
+    maxClaimable: string;
+}
+```
