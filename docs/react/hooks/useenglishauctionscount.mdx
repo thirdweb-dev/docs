@@ -1,0 +1,42 @@
+---
+title: useEnglishAuctionsCount
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook to get a count of all direct listings from a [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
+
+```jsx
+import { useEnglishAuctionsCount } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+To get a count of all direct listings, provide your Marketplace v3 contract instance.
+
+```jsx
+import { useEnglishAuctionsCount, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    data: englishAuctionsCount,
+    isLoading,
+    error,
+  } = useEnglishAuctionsCount(contract);
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, is a `BigNumber` representing the number of direct listings on the Marketplace V3 contract.
+
+```jsx
+BigNumber;
+```

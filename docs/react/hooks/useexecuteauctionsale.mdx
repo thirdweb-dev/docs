@@ -9,8 +9,7 @@ import CodeBlock from "@theme/CodeBlock";
 
 Hook for executing a sale of an auction listing.
 
-Available to use on smart contracts that implement the [Marketplace](/contractkit/interfaces/marketplace)
-standard.
+Available to use on [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) smart contracts.
 
 ```jsx
 import { useExecuteAuctionSale } from "@thirdweb-dev/react";
@@ -21,18 +20,22 @@ import { useExecuteAuctionSale } from "@thirdweb-dev/react";
 Provide your Marketplace contract as the argument.
 
 ```jsx
-import { useExecuteAuctionSale, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useExecuteAuctionSale,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
-  const { contract } = useContract(contractAddress);
-  const { mutateAsync: executeAuctionSale, isLoading, error } = useExecuteAuctionSale(contract);
-
-  if (error) {
-    console.error("failed to execute auction sale", error);
-  }
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: executeAuctionSale,
+    isLoading,
+    error,
+  } = useExecuteAuctionSale(contract);
 
   return (
     <Web3Button
@@ -40,7 +43,7 @@ function App() {
       action={() =>
         executeAuctionSale({
           // The listingId of the auction to execute
-          listingId: "{{listing_id}}", 
+          listingId: "{{listing_id}}",
         })
       }
     >

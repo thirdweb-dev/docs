@@ -189,4 +189,5 @@ async function main() {
   });
 }
 
-main();
+// Don't autogenerate React docs anymore
+// main();

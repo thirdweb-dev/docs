@@ -3,7 +3,12 @@ title: useEnglishAuctionWinningBid
 displayed_sidebar: react
 ---
 
-Hook for retrieving the winning bid for an English auction.
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook to get the winning bid for an English auction listing from a
+[Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
 
 ```jsx
 import { useEnglishAuctionWinningBid } from "@thirdweb-dev/react";
@@ -11,36 +16,62 @@ import { useEnglishAuctionWinningBid } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your MarketplaceV3 contract address and the auction ID.
+Provide your Marketplace V3 contract instance and the listing ID as
+arguments to the hook.
 
 ```jsx
 import { useEnglishAuctionWinningBid, useContract } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
+
+// The auction id you want to check
 const auctionId = "{{auction_id}}";
 
 function App() {
-  const { contract } = useContract(contractAddress);
-  const { data: bid, isLoading, error } = useEnglishAuctionWinningBid(
-    contract,
-    auctionId
-  );
-
-  if (error) {
-    console.error("failed to get bid", error);
-  }
-
-  return <div>{bid && bid.bidderAddress}</div>;
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    data: winningBid,
+    isLoading,
+    error,
+  } = useEnglishAuctionWinningBid(contract, auctionId);
 }
 ```
 
-## Return value
+## Return Value
 
-This hook returns a `Bid` object, with the following properties:
+The hook's `data` property, once loaded, will be an object of type `Bid`, containing the following properties:
 
-- `auctionId`: the id of the auction.
-- `bidderAddress`: the address of the buyer who made the offer.
-- `currencyContractAddress`: the currency contract address of the offer token.
-- `bidAmount`: the amount of coins offered per token.
-- `bidAmountCurrencyValue`: the `CurrencyValue` of the listing. Useful for displaying the price information.
+If there are no bids, the `data` property will be `undefined`. Use the `isLoading` property to differentiate between
+the loading state and the no bids state.
+
+```jsx
+{
+  /**
+   * The id of the auction.
+   */
+  auctionId: string;
+  /**
+   * The address of the buyer who made the offer.
+   */
+  bidderAddress: string;
+  /**
+   * The currency contract address of the offer token.
+   */
+  currencyContractAddress: string;
+  /**
+   * The amount of coins offered per token.
+   */
+  bidAmount: string;
+  /**
+   * The `CurrencyValue` of the listing. Useful for displaying the price information.
+   */
+  bidAmountCurrencyValue: {
+    symbol: string;
+    value: BigNumber;
+    name: string;
+    decimals: number;
+    displayValue: string;
+  }
+}
+```

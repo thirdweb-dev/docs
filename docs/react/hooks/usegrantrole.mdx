@@ -3,37 +3,42 @@ title: useGrantRole
 displayed_sidebar: react
 ---
 
-Hook for granting roles on contracts that implement the [ERC-1724](/contractkit/interfaces/erc1724) standard.
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for granting a role on a smart contract.
+
+Available to use on smart contracts that implement the [Permissions](/contractkit/extension-contracts/permissions)
+interface.
 
 ```jsx
-import { useGrantRole } from "@thirdweb-dev/react";
+import { useGrantRole, useContract, Web3Button } from "@thirdweb-dev/react";
 ```
 
 ## Usage
 
-Provide your contract as the argument.
+Provide your contract from the [`useContract`](/react/hooks/usecontract) as the argument.
 
 ```jsx
 import { useGrantRole, useContract, Web3Button } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
+const roleToGrant = "{{role}}";
+const walletAddressToGrant = "{{wallet_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
   const { mutateAsync: grantRole, isLoading, error } = useGrantRole(contract);
-
-  if (error) {
-    console.error("failed to grant role", error);
-  }
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         grantRole({
-          role: "admin",
-          address: "{{wallet_address}}",
+          role: roleToGrant, // name of your role.
+          address: walletAddressToGrant, // address to grant the role to.
         })
       }
     >
@@ -47,49 +52,29 @@ function App() {
 
 ### role
 
-The `role` parameter is required and should be one of the following, depending on the smart contract.
+The name of the role to grant the address.
 
-- A string, matching an existing role, if your contract implements the [ERC-1724 standard](/contractkit/interfaces/erc1724)
-- An enum value, if your contract implements the [ERC-1724 standard](/contractkit/interfaces/erc1724)
-- A string, matching an existing role, if your contract implements a custom role system
+Accepts any `string` value to include custom-defined roles.
 
-```jsx
-import { useGrantRole, useContract, Web3Button } from "@thirdweb-dev/react";
+Also accepts the default roles available on the [prebuilt contracts](https://portal.thirdweb.com/pre-built-contracts):
 
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
-
-function App() {
-  const { contract } = useContract(contractAddress);
-  const { mutateAsync: grantRole, isLoading, error } = useGrantRole(contract);
-
-  if (error) {
-    console.error("failed to grant role", error);
-  }
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        grantRole({
-          // highlight-start
-          role: "admin", // Accepts a string, enum, or custom role
-          // highlight-end
-          address: "{{wallet_address}}",
-        })
-      }
-    >
-      Grant Role
-    </Web3Button>
-  );
-}
+```ts
+string |
+  "admin" |
+  "minter" |
+  "transfer" |
+  "lister" |
+  "asset" |
+  "unwrap" |
+  "pauser" |
+  "factory";
 ```
 
 ### address
 
-Likely, you will want to grant the role to the currently connected wallet address.
+The address to grant the role to.
 
-You can use the [`useAddress`](/react/hooks/useAddress) hook to get this value.
+To use the address of the connected wallet, use the [`useAddress`](/react/hooks/useaddress) hook.
 
 ```jsx
 import {
@@ -101,27 +86,23 @@ import {
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
+// name of your role.
+const roleToGrant = "{{role}}";
 
 function App() {
-  // highlight-start
+  // highlight-next-line
   const address = useAddress();
-  // highlight-end
   const { contract } = useContract(contractAddress);
   const { mutateAsync: grantRole, isLoading, error } = useGrantRole(contract);
-
-  if (error) {
-    console.error("failed to grant role", error);
-  }
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         grantRole({
-          role: "admin",
-          // highlight-start
-          address: address, // Use useAddress hook to get current wallet address
-          // highlight-end
+          role: roleToGrant,
+          // highlight-next-line
+          address: address,
         })
       }
     >

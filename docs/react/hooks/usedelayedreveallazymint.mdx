@@ -7,9 +7,10 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook for performing a delayed-reveal lazy minting.
+Hook to lazy-mint a batch of NFTs with [delayed reveal](https://portal.thirdweb.com/sdk/advanced-features/delayed-reveal);
+allowing the owner to set placeholder metadata and reveal the metadata of the NFTs at a later time.
 
-Available to use on smart contracts that implement the [Revealable](/contractkit/interfaces/revealable)
+Available to use on smart contracts that implement the [Revealable](/contractkit/interfaces/erc721revealable)
 interface.
 
 ```jsx
@@ -18,17 +19,25 @@ import { useDelayedRevealLazyMint } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your Revealable contract as the argument.
+Provide your contract from the [`useContract`](/react/hooks/usecontract) as the argument.
 
 ```jsx
-import { useDelayedRevealLazyMint, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useDelayedRevealLazyMint,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: mintNft, isLoading, error } = useDelayedRevealLazyMint(contract);
+  const {
+    mutateAsync: mintNft,
+    isLoading,
+    error,
+  } = useDelayedRevealLazyMint(contract);
 
   if (error) {
     console.error("failed to mint nft", error);
@@ -45,13 +54,11 @@ function App() {
             image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
           },
           metadatas: [
-            // You can provide up to 1000 metadata objects
             {
               name: "My NFT",
               description: "This is my NFT",
               image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
             },
-            ...
           ],
           password: "{{password}}", // Password to be used for encryption
         })
@@ -67,23 +74,25 @@ function App() {
 
 ### placeholder
 
-The placeholder object is used as a placeholder while the metadatas are being encrypted.
-
-It will be replaced with the first metadata object in the metadatas array.
+The placeholder object represents the metadata the NFTs will have until the owner reveals the metadata.
 
 ```jsx
-import { useDelayedRevealLazyMint, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useDelayedRevealLazyMint,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: mintNft, isLoading, error } = useDelayedRevealLazyMint(contract);
-
-  if (error) {
-    console.error("failed to mint nft", error);
-  }
+  const {
+    mutateAsync: mintNft,
+    isLoading,
+    error,
+  } = useDelayedRevealLazyMint(contract);
 
   return (
     <Web3Button
@@ -104,13 +113,12 @@ function App() {
               description: "This is my NFT",
               image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
             },
-            ...
           ],
           password: "{{password}}", // Password to be used for encryption
         })
       }
     >
-      Mint NFTs
+      Lazy Mint NFTs
     </Web3Button>
   );
 }
@@ -118,23 +126,27 @@ function App() {
 
 ### metadatas
 
-An array of metadata objects up to 1000.
+An array of metadata objects for the NFTs to be minted.
 
 Each metadata object must conform to the [standard metadata properties](https://docs.opensea.io/docs/metadata-standards).
 
 ```jsx
-import { useDelayedRevealLazyMint, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useDelayedRevealLazyMint,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: mintNft, isLoading, error } = useDelayedRevealLazyMint(contract);
-
-  if (error) {
-    console.error("failed to mint nft", error);
-  }
+  const {
+    mutateAsync: mintNft,
+    isLoading,
+    error,
+  } = useDelayedRevealLazyMint(contract);
 
   return (
     <Web3Button
@@ -154,14 +166,13 @@ function App() {
               description: "This is my NFT",
               image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
             },
-            ...
           ],
           // highlight-end
           password: "{{password}}", // Password to be used for encryption
         })
       }
     >
-      Mint NFTs
+      Lazy Mint NFTs
     </Web3Button>
   );
 }
@@ -171,19 +182,29 @@ function App() {
 
 The password used to encrypt the metadatas.
 
+:::warning
+The password **CANNOT** be recovered once it is set.
+
+If you lose the password, you will not be able to reveal the metadata.
+:::
+
 ```jsx
-import { useDelayedRevealLazyMint, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useDelayedRevealLazyMint,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: mintNft, isLoading, error } = useDelayedRevealLazyMint(contract);
-
-  if (error) {
-    console.error("failed to mint nft", error);
-  }
+  const {
+    mutateAsync: mintNft,
+    isLoading,
+    error,
+  } = useDelayedRevealLazyMint(contract);
 
   return (
     <Web3Button
@@ -202,7 +223,6 @@ function App() {
               description: "This is my NFT",
               image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
             },
-            ...
           ],
           // highlight-start
           password: "{{password}}", // Password to be used for encryption
