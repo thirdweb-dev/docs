@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `TransactionResult` {#class_thirdweb_1_1_transaction_result}
+# class `TransactionResult` {#class_thirdweb_1_1_transaction_result}
 
-### Summary
+# Summary
 
 | Members      | Type     | Descriptions |
 | ------------ | -------- | ------------ |

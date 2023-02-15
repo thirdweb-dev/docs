@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `NFTMetadataWithSupply` {#struct_thirdweb_1_1_n_f_t_metadata_with_supply}
+# struct `NFTMetadataWithSupply` {#struct_thirdweb_1_1_n_f_t_metadata_with_supply}
 
-### Summary
+# Summary
 
 | Members  | Type     | Descriptions |
 | -------- | -------- | ------------ |

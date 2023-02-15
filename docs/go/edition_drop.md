@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## Edition Drop
+# Edition Drop
 
 You can access the Edition Drop interface from the SDK as follows:
 

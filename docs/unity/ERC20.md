@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ERC20` {#class_thirdweb_1_1_e_r_c20}
+# class `ERC20` {#class_thirdweb_1_1_e_r_c20}
 
 ```
 class ERC20
@@ -14,7 +14,7 @@ class ERC20
 
 Interact with any [ERC20](#class_thirdweb_1_1_e_r_c20) compatible contract.
 
-### Summary
+# Summary
 
 | Members         | Type     | Descriptions                                                                                   |
 | --------------- | -------- | ---------------------------------------------------------------------------------------------- |

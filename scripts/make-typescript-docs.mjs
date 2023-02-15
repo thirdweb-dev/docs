@@ -81,6 +81,9 @@ async function main() {
         "---",
       ];
 
+      const titleLineIndex = output.findIndex((line) => line.startsWith("##"));
+      output[titleLineIndex] = output[titleLineIndex].replace("##", "#");
+
       // The signature line is the first line that starts with "**Signature:**"
       const signatureLine = output.findIndex((line) =>
         line.startsWith("**Signature:**"),

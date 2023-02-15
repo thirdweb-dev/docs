@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `PackContents` {#class_thirdweb_1_1_pack_contents}
+# class `PackContents` {#class_thirdweb_1_1_pack_contents}
 
-### Summary
+# Summary
 
 | Members        | Type     | Descriptions |
 | -------------- | -------- | ------------ |

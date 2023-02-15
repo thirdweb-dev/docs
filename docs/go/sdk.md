@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## ThirdwebSDK
+# ThirdwebSDK
 
 ```go
 type ThirdwebSDK struct {

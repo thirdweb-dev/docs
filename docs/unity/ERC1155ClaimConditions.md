@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ERC1155ClaimConditions` {#class_thirdweb_1_1_e_r_c1155_claim_conditions}
+# class `ERC1155ClaimConditions` {#class_thirdweb_1_1_e_r_c1155_claim_conditions}
 
 ```
 class ERC1155ClaimConditions
@@ -14,7 +14,7 @@ class ERC1155ClaimConditions
 
 Fetch claim conditions for a given [ERC1155](docs/unity/ERC1155.md#class_thirdweb_1_1_e_r_c1155) drop contract
 
-### Summary
+# Summary
 
 | Members                 | Type     | Descriptions                                                      |
 | ----------------------- | -------- | ----------------------------------------------------------------- |

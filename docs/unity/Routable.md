@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `Routable` {#class_thirdweb_1_1_routable}
+# class `Routable` {#class_thirdweb_1_1_routable}
 
-### Summary
+# Summary
 
 | Members   | Type     | Descriptions |
 | --------- | -------- | ------------ |

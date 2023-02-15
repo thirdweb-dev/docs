@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ClaimConditions` {#class_thirdweb_1_1_claim_conditions}
+# class `ClaimConditions` {#class_thirdweb_1_1_claim_conditions}
 
-### Summary
+# Summary
 
 | Members               | Type     | Descriptions |
 | --------------------- | -------- | ------------ |

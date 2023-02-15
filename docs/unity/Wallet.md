@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `Wallet` {#class_thirdweb_1_1_wallet}
+# class `Wallet` {#class_thirdweb_1_1_wallet}
 
 ```
 class Wallet
@@ -14,7 +14,7 @@ class Wallet
 
 Connect and Interact with a [Wallet](#class_thirdweb_1_1_wallet).
 
-### Summary
+# Summary
 
 | Members            | Type     | Descriptions                                                                                                                                                     |
 | ------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |

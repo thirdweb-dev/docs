@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## IPFS Storage
+# IPFS Storage
 
 ```go
 type IpfsStorage struct {

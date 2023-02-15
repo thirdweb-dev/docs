@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `WalletConnection` {#struct_thirdweb_1_1_wallet_connection}
+# struct `WalletConnection` {#struct_thirdweb_1_1_wallet_connection}
 
-### Summary
+# Summary
 
 | Members  | Type     | Descriptions |
 | -------- | -------- | ------------ |

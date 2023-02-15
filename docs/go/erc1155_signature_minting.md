@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## ERC1155 Signature Minting
+# ERC1155 Signature Minting
 
 You can access this interface from the edition contract under the signature interface
 

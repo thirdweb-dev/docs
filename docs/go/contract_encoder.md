@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## Contract Encoder
+# Contract Encoder
 
 This interface is currently supported by all contract encoder classes and provides a generic method to encode write function calls\.
 

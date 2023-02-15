@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `Bridge` {#class_thirdweb_1_1_bridge}
+# class `Bridge` {#class_thirdweb_1_1_bridge}
 
-### Summary
+# Summary
 
 | Members | Type | Descriptions |
 | ------- | ---- | ------------ |

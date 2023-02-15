@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `PackRewards` {#struct_thirdweb_1_1_pack_rewards}
+# struct `PackRewards` {#struct_thirdweb_1_1_pack_rewards}
 
-### Summary
+# Summary
 
 | Members        | Type     | Descriptions |
 | -------------- | -------- | ------------ |

@@ -5,14 +5,14 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `NewPackInput` {#class_thirdweb_1_1_new_pack_input}
+# class `NewPackInput` {#class_thirdweb_1_1_new_pack_input}
 
 ```
 class NewPackInput
   : public Thirdweb.PackContents
 ```
 
-### Summary
+# Summary
 
 | Members        | Type     | Descriptions                                                                        |
 | -------------- | -------- | ----------------------------------------------------------------------------------- |

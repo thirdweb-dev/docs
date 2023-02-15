@@ -1,0 +1,76 @@
+---
+slug: /auth/how-auth-works
+title: Overview
+---
+
+In this section, we'll cover the fundamentals of how Auth enables web3-native authentication and authorization. Let's start by briefly going over the basics of authentication and authorization.
+
+## What are authentication and authorization?
+
+**Authentication** is the process of verifying the identity of a user. Meanwhile, **authorization** is the process of verifying what a specific user has access to and what they are allowed to do.
+
+Being able to authenticate and authorize users is a critical part of any web application. It allows us to store, manipulate, an access user-specific data, and it allows us to restrict access to certain features based on a user's identity. These are essential capabilities all applications, including web3 apps.
+
+## How does authentication work?
+
+A common web2 authentication method involves using JSON Web Tokens (JWTs) to send authentication data between clients and servers. A standard JWT flow looks like the following:
+
+![how-auth-works-1](../assets/how-auth-works-1.png)
+
+Typically, the flow is initiated by a user sending a request to login to an application. This request must contain some data that proves to the server that the user is who they claim to be, which we'll call a **proof-of-identity.** An example of a proof-of-identity is a user sending the server a _username_ and _password_.
+
+The server then has to be able to verify this proof-of-identity, after which it can successfully identify the authenticated user. This verification process is what's known as **authentication.** However, it would be inefficient if users had to submit a proof-of-identity every time they wanted to access a resource.
+
+To prevent this, we need a way for the server to **remember** that a user has already authenticated before, and consequently remember the identity of a user.
+
+This is exactly what JWTs are used for. When a server succesfully authenticates a user, it can issue a signed JWT to the user. This JWT contains the user's identity, which the user can then send to the server in subsequent requests to access resources.
+
+Most importantly, because the JWT has been signed by the server, the server can verify that it already previously authenticated the user, an can instantly access the user's intity without having to authenticate them again.
+
+This is the core intuition behind how standard JWT authentication flows work. _Auth also uses JWT authentication, but with a few key differences that make it optimal for web3 applications._
+
+## What makes auth unique?
+
+There are three key factors that differentiate Auth and make it the ideal web3 authentication flow:
+
+1. Auth uses web3 identity
+2. Auth uses web3 proof-of-identity
+3. Auth uses web3 authority
+
+### Identity
+
+Every application needs a way to identify its users. In traditional web2 applications, user&apos;s are often identified with a unique _username_ or _email_ that all of their application-specific data is associated with.
+
+However, with this pattern, user identities are always app-specific, and thus, they can only be associated with app-specific data and are not portable across applications. Aditionally, users have to create a new identity for every new application they want to access. There's also no obvious way to associate a user's identity with their on-chain identities to access on-chain data.
+
+Auth solves all of these problems by using web3 identities. With Auth, users are identified with their _wallet address_, rather than with usernames or emails. This means that user identities are universal across applications, and can be associated with rich ecosystem-level data. Additionally, applications can use their users wallet addresses to access on-chain data.
+
+### Proof-of-Identity
+
+In order to login to an application, users need to prove that they are who they claim to be. In web2, this meant providing the **password** associated with their **username**, to prove that you are the owner of the username. This requires users to constantly remember multiple passwords across their applications, creating a need for password managers, security questions, and other complex password management methods.
+
+However, in web3, users have a much easier way to prove that they own a specific identity - digital signatures. By simply signing a message and sending it to the server, users can prove that they own a specific wallet address securely, without any passwords. The server can then use that signed message to verify the wallet address of the user.
+
+This is exactly the pattern specified in the Sign-in with Ethereum ([EIP4361](https://eips.ethereum.org/EIPS/eip-4361)) and Sign-in with Wallet ([CAIP122](https://github.com/ChainAgnostic/CAIPs/blob/master/CAIPs/caip-122.md)) standards, which are what Auth implements to let users securely sign-in with their wallets.
+
+So with this information, we can update the first the simplified diagram we made above to clarify how Auth works:
+
+![how-auth-works-2](../assets/how-auth-works-2.png)
+
+### Authority
+
+Finally, as we mentioned earlier, Auth uses JWTs to help the server "remember" when a user has already succesfully authenticated and proven their identity before. These JWTs must be signed by the server-side **authority** so that the server can later verify that the JWT is valid.
+
+In standard web2 flows, this issuing and verification of JWT tokens is often handled by a third party service like auth0, who manages the signing private key and JWTs for your users. This leads to a dependency on external third-party services for your applications authentication.
+
+However, Auth eliminates this dependence on third-parties by using web3 wallets on the backend to issue and verify JWT tokens. Instead of letting a third-party service manage and sign your users' JWTs, you can use your own web3 wallet as the authority that signs and verifies JWTs for your own application.
+
+This enables a truly **self-custodied** authentication flow with no external dependencies. With this information, we can now visualized the Auth flow most accurately:
+
+![how-auth-works-3](../assets/how-auth-works-3.png)
+
+## Putting it all together
+
+So in summary, by using web3 identity, proof-of-identity, and authority, Auth enables a web3-native, self-custodied authentication flow for your applications that lets users login with their wallets.
+
+This lets us securely access the on-chain identity of users on the server-side, unlocking the connection between web2 and web3 experiences.

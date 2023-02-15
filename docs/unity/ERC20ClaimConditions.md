@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ERC20ClaimConditions` {#class_thirdweb_1_1_e_r_c20_claim_conditions}
+# class `ERC20ClaimConditions` {#class_thirdweb_1_1_e_r_c20_claim_conditions}
 
 ```
 class ERC20ClaimConditions
@@ -14,7 +14,7 @@ class ERC20ClaimConditions
 
 Fetch claim conditions for a given [ERC20](docs/unity/ERC20.md#class_thirdweb_1_1_e_r_c20) drop contract
 
-### Summary
+# Summary
 
 | Members                 | Type     | Descriptions                                                      |
 | ----------------------- | -------- | ----------------------------------------------------------------- |

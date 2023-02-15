@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `Marketplace` {#class_thirdweb_1_1_marketplace}
+# class `Marketplace` {#class_thirdweb_1_1_marketplace}
 
 ```
 class Marketplace
@@ -14,7 +14,7 @@ class Marketplace
 
 Interact with a [Marketplace](#class_thirdweb_1_1_marketplace) contract.
 
-### Summary
+# Summary
 
 | Members           | Type     | Descriptions                                                             |
 | ----------------- | -------- | ------------------------------------------------------------------------ |

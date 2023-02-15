@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # PermissionsLogic
 
+_thirdweb.com_
+
 > Permissions
 
 _This contracts provides extending-contracts with role-based access control mechanisms_

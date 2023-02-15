@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `TokenContractDeployMetadata` {#struct_thirdweb_1_1_token_contract_deploy_metadata}
+# struct `TokenContractDeployMetadata` {#struct_thirdweb_1_1_token_contract_deploy_metadata}
 
-### Summary
+# Summary
 
 | Members                   | Type     | Descriptions |
 | ------------------------- | -------- | ------------ |

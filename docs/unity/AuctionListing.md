@@ -5,14 +5,14 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `AuctionListing` {#class_thirdweb_1_1_auction_listing}
+# class `AuctionListing` {#class_thirdweb_1_1_auction_listing}
 
 ```
 class AuctionListing
   : public Thirdweb.Listing
 ```
 
-### Summary
+# Summary
 
 | Members                           | Type     | Descriptions |
 | --------------------------------- | -------- | ------------ |

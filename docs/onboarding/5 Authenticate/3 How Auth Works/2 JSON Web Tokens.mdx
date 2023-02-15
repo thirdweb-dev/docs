@@ -1,0 +1,73 @@
+---
+slug: /auth/how-auth-works/json-web-tokens
+title: JSON Web Tokens
+---
+
+We've now seen how the user can login to the server with a sign-in with wallet request, and how the server can verify the identity of the user by using that request. But if we were to stop here, the user would have to sign a new sign-in with wallet message every time they wanted to make a request to the server, which would be very inconvenient.
+
+To solve this problem, we need a way to remember that the user is authenticated after they sign-in once, so that they don't need sign-in on every request. As mentioned in an earlier section, this is exactly what JSON Web Tokens (JWTs) are used for.
+
+## How do JWTs work?
+
+JWTs are a way to encode information about a user in a format that's easy to transfer between the client and the server. Importantly, they are signed by the server, so that the server can later verify that the information in the JWT is correct and hasn't been tampered with or falsified.
+
+Once a user succesfully logs in, our server can store data about their identity inside of a signed JWT, and send this JWT back to the client. Then, when the client sends this JWT with future requests, the server can verify that the user previously authenticated succesfully, and can also read the identity of the user off the data embedded in the JWT.
+
+## What is the structure of a JWT?
+
+Each JWT contains three key parts: the header, the payload, and the signature. The header contains information about the type of token, and the algorithm used to sign the token. The payload contains the user-specific data that we want to save. The signature is a cryptographic hash of the header and payload, which is used to verify that the token hasn't been tampered with.
+
+Let's look at how Auth uses all three of these parts to create a JWT.
+
+### Headers
+
+As mentioned above, the headers are meant to store metadata about the nature of the token itself. In the case of Auth, the headers are always the same, and look like this:
+
+```json
+{
+  "alg": "ES256",
+  "typ": "JWT"
+}
+```
+
+Here, we specify that our token is in fact a `JWT` token, using the `typ` property, and we specify that our JWTs will use the `ECDSA SHA-256` signature algorithm to sign the token, which is what the admin wallet will use on the server.
+
+### Payload
+
+The payload is the most important part of the JWT, as it contains the data that we want to save about the user. In the case of Auth, the payload allows follows the following structure:
+
+```json
+{
+  "iss": "0x...", // Address of the admin wallet generating the payload
+  "sub": "0x...", // Address of the user wallet logging in
+  "aud": "example.com", // Domain that the payload was intended for
+  "iat": 1653884584, // Unix time (epoch seconds) when payload was issued
+  "exp": 1653884613, // Unix time (epoch seconds) when payload expires
+  "nbf": 1653884584, // Time before which payload is invalid, should default to iat
+  "jti": "82da3d83-9b7b-4cdd-a890-f4d9b25415be" // uuidv4
+}
+```
+
+This payload makes use of [standard JWT claims](https://www.iana.org/assignments/jwt/jwt.xhtml#claims) to store data on the token. Most importantly, we store information about when the token expires in the `exp` claim (defaults to 5 hours from when it was issued in the case of Auth), and we also store the address of the user's wallet in the `sub` claim. This allows the server to verify that the user is who they say they are, and that the token hasn't expired.
+
+### Signature
+
+Finally, when creating a JWT, the server must sign the token with the admin wallet private key. As we covered earlier, this signature is used to verify that the token was indeed created by the server, and that the token hasn't been tampered with.
+
+Having completed this signature, we can create a full JWT with the following process:
+
+1. First, we stringify both the header and the payload, with a function like `JSON.stringify()`
+2. Next, we separately base64 encode the stringified header, stringified payload, and the signature (which is already a hashed string)
+3. Finally, we concatenate these three strings together with `.` characters to create the full JWT
+
+For example, here is a JWT token constructed with the exact process outlined above:
+
+```
+eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiIweDllMWI4QTg2ZkZFRTRhNzE3NURBRTRiREIxY0MxMmQxMTFEY2IzRDYiLCJzdWIiOiIweDllMWI4QTg2ZkZFRTRhNzE3NURBRTRiREIxY0MxMmQxMTFEY2IzRDYiLCJhdWQiOiJ0aGlyZHdlYi5jb20iLCJleHAiOjE2NTU1MTcwNjYsIm5iZiI6MTY1NTQ5OTA2NiwiaWF0IjoxNjU1NDk5MDY2LCJqdGkiOiI1M2I1M2JlOC0zMWVmLTQzZjAtYjE4OS0zYTFiMWZjOTU4MjUifQ.MHg5ZTlkZTkxYmVmZTlmZGRjOWQzYWQxY2M5ODNjOWIzNzFhMmUwNGU2OTM1OGVkNjg1MWU5ZDM2ZTEzMWJmNjU4NDUwNDYxOTM1ZDlkMjcxODgwYTRkMTE1ZGVlNjk0OTkwNzMwN2ViZWM4ZmRkZTI3NTgxMDczNjllMTFkNWU5ZTFi
+```
+
+You can verify that this is a valid JWT fully compatible with JWT standards by pasting it into a tool like the JWT visualizer on [jwt.io](https://jwt.io), where you'll see a screen like the following:
+
+![json-web-tokens-1](../assets/json-web-tokens-1.png)
+
+As you can see, the correct header and body data is picked up from our JWT and rendered on the right side of the screen!

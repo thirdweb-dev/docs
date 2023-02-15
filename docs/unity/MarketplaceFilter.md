@@ -5,14 +5,14 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `MarketplaceFilter` {#class_thirdweb_1_1_marketplace_filter}
+# class `MarketplaceFilter` {#class_thirdweb_1_1_marketplace_filter}
 
 ```
 class MarketplaceFilter
   : public Thirdweb.QueryAllParams
 ```
 
-### Summary
+# Summary
 
 | Members       | Type     | Descriptions |
 | ------------- | -------- | ------------ |

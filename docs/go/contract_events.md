@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## Contract Events
+# Contract Events
 
 This interface provides a way to query past events or listen for future events on any contract\. It's currently support on all pre\-built and custom contracts\!
 

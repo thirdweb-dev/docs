@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## NFT Collection
+# NFT Collection
 
 You can access the NFT Collection interface from the SDK as follows:
 

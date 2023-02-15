@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## NFT Drop Claim Conditions
+# NFT Drop Claim Conditions
 
 This interface is currently accessible from the NFT Drop contract contract type via the ClaimConditions property\.
 

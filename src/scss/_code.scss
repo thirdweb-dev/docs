@@ -50,3 +50,15 @@ code {
 .sp-wrapper *::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.3);
 }
+
+[data-theme='light'] {
+  .theme-code-block-highlighted-line {
+    background-color: #f2f0f0;
+  }
+}
+
+[data-theme='dark'] {
+  .theme-code-block-highlighted-line {
+    background-color: #101010;
+  }
+}

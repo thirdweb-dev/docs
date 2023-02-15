@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `CurrencyValue` {#struct_thirdweb_1_1_currency_value}
+# struct `CurrencyValue` {#struct_thirdweb_1_1_currency_value}
 
-### Summary
+# Summary
 
 | Members      | Type     | Descriptions |
 | ------------ | -------- | ------------ |

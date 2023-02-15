@@ -5,14 +5,14 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `MarketplaceAuction` {#class_thirdweb_1_1_marketplace_auction}
+# class `MarketplaceAuction` {#class_thirdweb_1_1_marketplace_auction}
 
 ```
 class MarketplaceAuction
   : public Thirdweb.Routable
 ```
 
-### Summary
+# Summary
 
 | Members            | Type     | Descriptions |
 | ------------------ | -------- | ------------ |

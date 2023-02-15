@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## NFT Drop
+# NFT Drop
 
 You can access the NFT Drop interface from the SDK as follows:
 

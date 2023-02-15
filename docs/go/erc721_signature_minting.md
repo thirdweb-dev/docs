@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## ERC721 Signature Minting
+# ERC721 Signature Minting
 
 You can access this interface from the NFT Collection contract under the signature interface\.
 

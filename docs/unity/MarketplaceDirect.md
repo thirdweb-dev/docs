@@ -5,14 +5,14 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `MarketplaceDirect` {#class_thirdweb_1_1_marketplace_direct}
+# class `MarketplaceDirect` {#class_thirdweb_1_1_marketplace_direct}
 
 ```
 class MarketplaceDirect
   : public Thirdweb.Routable
 ```
 
-### Summary
+# Summary
 
 | Members           | Type     | Descriptions |
 | ----------------- | -------- | ------------ |

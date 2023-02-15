@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `Utils` {#class_thirdweb_1_1_utils}
+# class `Utils` {#class_thirdweb_1_1_utils}
 
-### Summary
+# Summary
 
 | Members | Type | Descriptions |
 | ------- | ---- | ------------ |

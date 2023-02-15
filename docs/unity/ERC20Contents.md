@@ -5,14 +5,14 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ERC20Contents` {#class_thirdweb_1_1_e_r_c20_contents}
+# class `ERC20Contents` {#class_thirdweb_1_1_e_r_c20_contents}
 
 ```
 class ERC20Contents
   : public Thirdweb.ERC20Reward
 ```
 
-### Summary
+# Summary
 
 | Members      | Type     | Descriptions |
 | ------------ | -------- | ------------ |

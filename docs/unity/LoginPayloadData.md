@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `LoginPayloadData` {#struct_thirdweb_1_1_login_payload_data}
+# struct `LoginPayloadData` {#struct_thirdweb_1_1_login_payload_data}
 
-### Summary
+# Summary
 
 | Members         | Type     | Descriptions |
 | --------------- | -------- | ------------ |

@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `ERC1155SignedPayload` {#struct_thirdweb_1_1_e_r_c1155_signed_payload}
+# struct `ERC1155SignedPayload` {#struct_thirdweb_1_1_e_r_c1155_signed_payload}
 
-### Summary
+# Summary
 
 | Members   | Type     | Descriptions |
 | --------- | -------- | ------------ |

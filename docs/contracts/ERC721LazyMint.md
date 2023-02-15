@@ -11,20 +11,32 @@ BASE: ERC721A EXTENSION: LazyMint The `ERC721LazyMint` smart contract implements
 
 ## Methods
 
+### OPERATOR_FILTER_REGISTRY
+
+```solidity
+function OPERATOR_FILTER_REGISTRY() external view returns (contract IOperatorFilterRegistry)
+```
+
+#### Returns
+
+| Name | Type                             | Description |
+| ---- | -------------------------------- | ----------- |
+| \_0  | contract IOperatorFilterRegistry | undefined   |
+
 ### approve
 
 ```solidity
-function approve(address to, uint256 tokenId) external nonpayable
+function approve(address operator, uint256 tokenId) external nonpayable
 ```
 
-_See {IERC721-approve}._
+_See {ERC721-approve}._
 
 #### Parameters
 
-| Name    | Type    | Description |
-| ------- | ------- | ----------- |
-| to      | address | undefined   |
-| tokenId | uint256 | undefined   |
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| operator | address | undefined   |
+| tokenId  | uint256 | undefined   |
 
 ### balanceOf
 
@@ -296,6 +308,18 @@ The tokenId assigned to the next new NFT to be lazy minted.
 | ---- | ------- | ----------- |
 | \_0  | uint256 | undefined   |
 
+### operatorRestriction
+
+```solidity
+function operatorRestriction() external view returns (bool)
+```
+
+#### Returns
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
+
 ### owner
 
 ```solidity
@@ -360,7 +384,7 @@ _Returns royalty amount and recipient for `tokenId` and `salePrice`._
 function safeTransferFrom(address from, address to, uint256 tokenId) external nonpayable
 ```
 
-_See {IERC721-safeTransferFrom}._
+_See {ERC721-\_safeTransferFrom}._
 
 #### Parameters
 
@@ -373,10 +397,10 @@ _See {IERC721-safeTransferFrom}._
 ### safeTransferFrom
 
 ```solidity
-function safeTransferFrom(address from, address to, uint256 tokenId, bytes _data) external nonpayable
+function safeTransferFrom(address from, address to, uint256 tokenId, bytes data) external nonpayable
 ```
 
-_See {IERC721-safeTransferFrom}._
+_See {ERC721-\_safeTransferFrom}._
 
 #### Parameters
 
@@ -385,7 +409,7 @@ _See {IERC721-safeTransferFrom}._
 | from    | address | undefined   |
 | to      | address | undefined   |
 | tokenId | uint256 | undefined   |
-| \_data  | bytes   | undefined   |
+| data    | bytes   | undefined   |
 
 ### setApprovalForAll
 
@@ -393,7 +417,7 @@ _See {IERC721-safeTransferFrom}._
 function setApprovalForAll(address operator, bool approved) external nonpayable
 ```
 
-_See {IERC721-setApprovalForAll}._
+_See {ERC721-setApprovalForAll}._
 
 #### Parameters
 
@@ -434,6 +458,18 @@ _Caller should be authorized to set royalty info. See {\_canSetRoyaltyInfo}. Emi
 | ------------------ | ------- | ----------------------------------------------- |
 | \_royaltyRecipient | address | Address to be set as default royalty recipient. |
 | \_royaltyBps       | uint256 | Updated royalty bps.                            |
+
+### setOperatorRestriction
+
+```solidity
+function setOperatorRestriction(bool _restriction) external nonpayable
+```
+
+#### Parameters
+
+| Name          | Type | Description |
+| ------------- | ---- | ----------- |
+| \_restriction | bool | undefined   |
 
 ### setOwner
 
@@ -543,7 +579,7 @@ _Burned tokens are calculated here, use \_totalMinted() if you want to count jus
 function transferFrom(address from, address to, uint256 tokenId) external nonpayable
 ```
 
-_See {IERC721-transferFrom}._
+_See {ERC721-\_transferFrom}._
 
 #### Parameters
 
@@ -625,6 +661,18 @@ event DefaultRoyalty(address indexed newRoyaltyRecipient, uint256 newRoyaltyBps)
 | ----------------------------- | ------- | ----------- |
 | newRoyaltyRecipient `indexed` | address | undefined   |
 | newRoyaltyBps                 | uint256 | undefined   |
+
+### OperatorRestriction
+
+```solidity
+event OperatorRestriction(bool restriction)
+```
+
+#### Parameters
+
+| Name        | Type | Description |
+| ----------- | ---- | ----------- |
+| restriction | bool | undefined   |
 
 ### OwnerUpdated
 
@@ -754,6 +802,18 @@ error MintZeroQuantity()
 ```
 
 The quantity of tokens minted must be more than zero.
+
+### OperatorNotAllowed
+
+```solidity
+error OperatorNotAllowed(address operator)
+```
+
+#### Parameters
+
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| operator | address | undefined   |
 
 ### OwnerQueryForNonexistentToken
 

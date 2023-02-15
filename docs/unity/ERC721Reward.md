@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ERC721Reward` {#class_thirdweb_1_1_e_r_c721_reward}
+# class `ERC721Reward` {#class_thirdweb_1_1_e_r_c721_reward}
 
-### Summary
+# Summary
 
 | Members         | Type     | Descriptions                                                                         |
 | --------------- | -------- | ------------------------------------------------------------------------------------ |

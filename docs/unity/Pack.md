@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `Pack` {#class_thirdweb_1_1_pack}
+# class `Pack` {#class_thirdweb_1_1_pack}
 
 ```
 class Pack
@@ -14,7 +14,7 @@ class Pack
 
 Interact with a [Pack](#class_thirdweb_1_1_pack) contract.
 
-### Summary
+# Summary
 
 | Members           | Type     | Descriptions                                                                                                                                                                 |
 | ----------------- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

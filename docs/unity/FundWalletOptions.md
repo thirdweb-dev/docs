@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `FundWalletOptions` {#struct_thirdweb_1_1_fund_wallet_options}
+# struct `FundWalletOptions` {#struct_thirdweb_1_1_fund_wallet_options}
 
-### Summary
+# Summary
 
 | Members | Type     | Descriptions |
 | ------- | -------- | ------------ |

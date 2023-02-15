@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `Contract` {#class_thirdweb_1_1_contract}
+# class `Contract` {#class_thirdweb_1_1_contract}
 
 ```
 class Contract
@@ -14,7 +14,7 @@ class Contract
 
 Convenient wrapper to interact with any EVM contract
 
-### Summary
+# Summary
 
 | Members     | Type     | Descriptions                                                                                         |
 | ----------- | -------- | ---------------------------------------------------------------------------------------------------- |

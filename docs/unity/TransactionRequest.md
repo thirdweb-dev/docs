@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `TransactionRequest` {#struct_thirdweb_1_1_transaction_request}
+# struct `TransactionRequest` {#struct_thirdweb_1_1_transaction_request}
 
-### Summary
+# Summary
 
 | Members  | Type     | Descriptions |
 | -------- | -------- | ------------ |

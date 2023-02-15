@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ERC1155Signature` {#class_thirdweb_1_1_e_r_c1155_signature}
+# class `ERC1155Signature` {#class_thirdweb_1_1_e_r_c1155_signature}
 
 ```
 class ERC1155Signature
@@ -14,7 +14,7 @@ class ERC1155Signature
 
 Generate, verify and mint signed mintable payloads
 
-### Summary
+# Summary
 
 | Members             | Type     | Descriptions                                                     |
 | ------------------- | -------- | ---------------------------------------------------------------- |

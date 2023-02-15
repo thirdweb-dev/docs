@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## Marketplace
+# Marketplace
 
 You can access the Marketplace interface from the SDK as follows:
 
