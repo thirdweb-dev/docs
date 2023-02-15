@@ -3,12 +3,12 @@ title: useLazyMint
 displayed_sidebar: react
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
+Hook for lazy minting a batch of NFTs on a drop contract.
 
-Hook for minting a new NFT on a smart contract using the [`LazyMint`](/contractkit/methods/lazy-mint)
-API.
+Available to use on smart contracts that implement the
+[LazyMintable](/contractkit/interfaces/erc721lazymintable) interface, and
+follow either the [ERC721](/contractkit/interfaces/erc721)
+or [ERC1155](/contractkit/interfaces/erc1155) standard.
 
 ```jsx
 import { useLazyMint } from "@thirdweb-dev/react";
@@ -16,86 +16,36 @@ import { useLazyMint } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your NFT collection contract as the argument.
+Provide your drop contract (ERC721 or ERC1155) as the argument to the hook.
+
+Your metadata objects must follow the [Metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
 
 ```jsx
-import { useLazyMint, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useContract, useLazyMint, Web3Button } from "@thirdweb-dev/react";
 
-// Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
   const { mutateAsync: lazyMint, isLoading, error } = useLazyMint(contract);
 
-  if (error) {
-    console.error("failed to lazy mint", error);
-  }
-
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         lazyMint({
+          // Metadata of the NFTs to upload
           metadatas: [
             {
               name: "My NFT",
-              description: "This is my NFT",
-              image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
-            },
-            // You can mint multiple NFTs at once
-            {
-              name: "Another NFT",
-              description: "This is another NFT",
-              image: "ipfs://example.com/another-nft.png", // Accepts any URL or File type
+              description: "An example NFT",
+              image: "{{image_url}}",
             },
           ],
         })
       }
     >
-      Mint NFT
-    </Web3Button>
-  );
-}
-```
-
-## Configuration
-
-### metadatas
-
-By default, your `metadatas` object is uploaded and pinned to IPFS before minting.
-
-You can override this behavior by providing a `string` to the metadata property.
-
-The string must point to a valid JSON array containing [standard metadata properties](https://docs.opensea.io/docs/metadata-standards).
-
-```jsx
-import { useLazyMint, useContract, Web3Button } from "@thirdweb-dev/react";
-
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
-
-function App() {
-  const { contract } = useContract(contractAddress);
-  const { mutateAsync: lazyMint, isLoading, error } = useLazyMint(contract);
-
-  if (error) {
-    console.error("failed to lazy mint", error);
-  }
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        lazyMint({
-          // highlight-start
-          // Any valid IPFS or HTTP URL that points to a JSON array
-          metadatas: "https://<url>/<to>/<your>/<metadatas>.json",
-          // highlight-end
-        })
-      }
-    >
-      Mint NFT
+      Lazy Mint NFTs
     </Web3Button>
   );
 }
