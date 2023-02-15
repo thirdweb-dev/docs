@@ -3,10 +3,12 @@ title: useMinimumNextBid
 displayed_sidebar: react
 ---
 
-Hook for getting the minimum next bid for a given listing on a smart contract.
+Hook for getting the minimum next bid for an auction listing in a marketplace.
 
-Available to use on smart contracts that implement the [Marketplace](/contractkit/interfaces/marketplace)
-or [MarketplaceV3](/contractkit/interfaces/marketplacev3) standard.
+Takes into account the current highest bid, and increments this amount by the bid buffer BPS to calculate the minimum next bid.
+
+Available to use on
+[Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) and [MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contracts.
 
 ```jsx
 import { useMinimumNextBid } from "@thirdweb-dev/react";
@@ -14,46 +16,30 @@ import { useMinimumNextBid } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your Marketplace contract as the argument, as well as the listing ID.
+Provide your marketplace contract and the listing ID you wish to check as the arguments.
 
 ```jsx
-import { useMinimumNextBid, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useContract, useMinimumNextBid } from "@thirdweb-dev/react";
 
-// Your smart contract address
 const contractAddress = "{{contract_address}}";
+const listingId = 0;
 
 function App() {
-  const { contract } = useContract(contractAddress);
-  const { data: minimumNextBid, isLoading, error } = useMinimumNextBid(
-    contract,
-    "{{listing_id}}"
-  );
-
-  if (error) {
-    console.error("failed to get minimum next bid", error);
-  }
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        // TODO: Call bid action
-      }
-    >
-      Bid {minimumNextBid.displayValue} {minimumNextBid.symbol}
-    </Web3Button>
-  );
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data, isLoading, error } = useMinimumNextBid(contract, listingId);
 }
 ```
 
-## Return Values
+## Return Value
 
-The hook returns an object with the following properties:
+The hook's `data` property, once loaded, is an object containing the minimum next bid for the listing.
 
-| Property   | Type        | Description                                                                                                                                                                                                                      |
-| ---------- | ----------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| symbol     | `string`    | The currency symbol of the next minimum bid                                                                                                                                                                                       |
-| value      | `BigNumber` | The raw value of the next minimum bid                                                                                                                                                                                            |
-| name       | `string`    | The name of the currency                                                                                                                                                                                                         |
-| decimals   | `number`    | The number of decimals for the currency                                                                                                                                                                                          |
-| displayValue | `string`  | The formatted value of the next minimum bid, with the correct number of decimal points and correct currency symbol. This is the value that you should display to the user (e.g. `"10.00 ETH"` or `"500.00 DAI"`)  |
+```jsx
+{
+  symbol: string;
+  value: BigNumber;
+  name: string;
+  decimals: number;
+  displayValue: string;
+} | undefined
+```

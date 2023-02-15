@@ -32,10 +32,6 @@ function App() {
   const { contract } = useContract(contractAddress);
   const { mutateAsync: mintNft, isLoading, error } = useMintNFT(contract);
 
-  if (error) {
-    console.error("failed to mint nft", error);
-  }
-
   return (
     <Web3Button
       contractAddress={contractAddress}
@@ -75,10 +71,6 @@ const contractAddress = "{{contract_address}}";
 function App() {
   const { contract } = useContract(contractAddress);
   const { mutateAsync: mintNft, isLoading, error } = useMintNFT(contract);
-
-  if (error) {
-    console.error("failed to mint nft", error);
-  }
 
   return (
     <Web3Button
@@ -122,10 +114,6 @@ function App() {
   // highlight-end
   const { contract } = useContract(contractAddress);
   const { mutateAsync: mintNft, isLoading, error } = useMintNFT(contract);
-
-  if (error) {
-    console.error("failed to mint nft", error);
-  }
 
   return (
     <Web3Button

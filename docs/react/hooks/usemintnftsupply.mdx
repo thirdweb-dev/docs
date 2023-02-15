@@ -3,11 +3,13 @@ title: useMintNFTSupply
 displayed_sidebar: react
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
+Hook for minting additional supply to an _existing_ ERC-1155 token.
 
-Hook for minting additional supply to an NFT token on a smart contract.
+Available to use on contracts that implement the
+[ERC1155Mintable](https://portal.thirdweb.com/contractkit/interfaces/erc1155mintable)
+interface, such as the [Edition](https://thirdweb.com/thirdweb.eth/TokenERC1155) or [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155).
+
+The wallet address that initiates this transaction must have minting permissions on the contract.
 
 ```jsx
 import { useMintNFTSupply } from "@thirdweb-dev/react";
@@ -15,30 +17,33 @@ import { useMintNFTSupply } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your ERC1155 collection contract as the argument.
+Provide your ERC-1155 contract as an argument to the hook.
 
 ```jsx
-import { useMintNFTSupply, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useContract, useMintNFTSupply, Web3Button } from "@thirdweb-dev/react";
 
-// Your smart contract address
 const contractAddress = "{{contract_address}}";
+const walletAddress = "{{wallet_address}}";
+const tokenId = "{{token_id}}";
+const additionalSupply = "{{additional_supply}}";
 
 function App() {
+  // Contract must be an ERC-1155 contract that implements the ERC1155Mintable interface
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: mintNftSupply, isLoading, error } = useMintNFTSupply(contract);
-
-  if (error) {
-    console.error("failed to mint nft supply", error);
-  }
+  const {
+    mutateAsync: mintNftSupply,
+    isLoading,
+    error,
+  } = useMintNFTSupply(contract);
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         mintNftSupply({
-          tokenId: "{{token_id}}",
-          additionalSupply: 100,
-          to: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+          additionalSupply: additionalSupply, // Quantity to mint
+          to: walletAddress, // Address to mint to
+          tokenId: tokenId, // Token ID to add supply to
         })
       }
     >
@@ -50,52 +55,126 @@ function App() {
 
 ## Configuration
 
-### tokenId
-
-The `tokenId` is the unique identifier of the NFT you want to mint additional supply to.
-
 ### additionalSupply
 
-The `additionalSupply` is the amount of tokens you want to mint.
+The quantity of additional supply to mint. For example, if you have 10 tokens minted and you want to mint 5 more, you would set `additionalSupply` to `5`.
 
-### to
-
-Likely, you will want to mint the NFT to the currently connected wallet address.
-
-You can use the [`useAddress`](/react/hooks/useAddress) hook to get this value.
+Can be a `string` or `number`.
 
 ```jsx
-import {
-  useMintNFTSupply,
-  useContract,
-  Web3Button,
-  useAddress,
-} from "@thirdweb-dev/react";
+import { useContract, useMintNFTSupply, Web3Button } from "@thirdweb-dev/react";
 
-// Your smart contract address
 const contractAddress = "{{contract_address}}";
+const walletAddress = "{{wallet_address}}";
+const tokenId = "{{token_id}}";
+// highlight-next-line
+const additionalSupply = "{{additional_supply}}";
 
 function App() {
-  // highlight-start
-  const address = useAddress();
-  // highlight-end
+  // Contract must be an ERC-1155 contract that implements the ERC1155Mintable interface
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: mintNftSupply, isLoading, error } = useMintNFTSupply(contract);
-
-  if (error) {
-    console.error("failed to mint nft supply", error);
-  }
+  const {
+    mutateAsync: mintNftSupply,
+    isLoading,
+    error,
+  } = useMintNFTSupply(contract);
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         mintNftSupply({
-          tokenId: "{{token_id}}",
-          additionalSupply: 100,
-          // highlight-start
-          to: address, // Use useAddress hook to get current wallet address
-          // highlight-end
+          // highlight-next-line
+          additionalSupply: additionalSupply, // Quantity to mint
+          to: walletAddress, // Address to mint to
+          tokenId: tokenId, // Token ID to add supply to
+        })
+      }
+    >
+      Mint NFT Supply
+    </Web3Button>
+  );
+}
+```
+
+### to
+
+The wallet address to mint the new supply to.
+
+To use the connected wallet address, use the [`useAddress`](/react/hooks/useaddress) hook.
+
+```jsx
+import {
+  useContract,
+  useMintNFTSupply,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+const tokenId = "{{token_id}}";
+const additionalSupply = "{{additional_supply}}";
+
+function App() {
+  // Contract must be an ERC-1155 contract that implements the ERC1155Mintable interface
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: mintNftSupply,
+    isLoading,
+    error,
+  } = useMintNFTSupply(contract);
+  // highlight-next-line
+  const address = useAddress();
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mintNftSupply({
+          additionalSupply: additionalSupply, // Quantity to mint
+          // highlight-next-line
+          to: address, // Address to mint to
+          tokenId: tokenId, // Token ID to add supply to
+        })
+      }
+    >
+      Mint NFT Supply
+    </Web3Button>
+  );
+}
+```
+
+### tokenId
+
+The token ID to mint additional supply to. Can be a `string` or `number`.
+
+```jsx
+import { useContract, useMintNFTSupply, Web3Button } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+const walletAddress = "{{wallet_address}}";
+// highlight-next-line
+const tokenId = "{{token_id}}";
+const additionalSupply = "{{additional_supply}}";
+
+function App() {
+  // Contract must be an ERC-1155 contract that implements the ERC1155Mintable interface
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: mintNftSupply,
+    isLoading,
+    error,
+  } = useMintNFTSupply(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mintNftSupply({
+          additionalSupply: additionalSupply, // Quantity to mint
+          to: walletAddress, // Address to mint to
+          // highlight-next-line
+          tokenId: tokenId, // Token ID to add supply to
         })
       }
     >

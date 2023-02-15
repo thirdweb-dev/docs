@@ -3,14 +3,9 @@ title: useMetadata
 displayed_sidebar: react
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
+Hook for getting the metadata associated with a smart contract.
 
-Hook for fetching NFT metadata from a smart contract.
-
-Available to use on smart contracts that implement the [ERC721](/contractkit/interfaces/erc721)
-or [ERC1155](/contractkit/interfaces/erc1155) standard.
+Available to use on contracts that implement the [Contract Metadata](/contractkit/extension-contracts/contractmetadata) interface.
 
 ```jsx
 import { useMetadata } from "@thirdweb-dev/react";
@@ -18,53 +13,46 @@ import { useMetadata } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your NFT collection contract as the argument.
+Provide your contract instance as the argument.
 
 ```jsx
-import { useMetadata, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useContract, useMetadata } from "@thirdweb-dev/react";
 
-// Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { data } = useMetadata(contract);
-
-  return (
-    <div>
-      <h1>{data.name}</h1>
-      <p>{data.description}</p>
-      <img src={data.image} />
-      <a href={data.external_link}>External Link</a>
-    </div>
-  );
+  const { data, isLoading, error } = useMetadata(contract);
 }
 ```
 
-## Configuration
+## Return Value
 
-### contract
-
-The `contract` argument is required and must be an instance of a valid contract implementation, such as [Erc721](/contractkit/interfaces/erc721)
-or [Erc1155](/contractkit/interfaces/erc1155).
+The hook's `data` property, once loaded, is an object containing the contract's metadata.
 
 ```jsx
-import { useMetadata, useContract, Web3Button } from "@thirdweb-dev/react";
+CustomContractMetadata | undefined;
+```
 
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
+The exact shape of the object depends on the type of metadata provided by the contract.
 
-function App() {
-  const { contract } = useContract(contractAddress);
-  const { data } = useMetadata(contract);
-
-  return (
-    <div>
-      <h1>{data.name}</h1>
-      <p>{data.description}</p>
-      <img src={data.image} />
-      <a href={data.external_link}>External Link</a>
-    </div>
-  );
+```jsx
+interface CustomContractMetadata {
+  /**
+   * A description of the contract.
+   */
+  description?: string;
+  /**
+   * The image associated with the contract.
+   */
+  image?: any;
+  /**
+   * An external link associated with the contract.
+   */
+  external_link?: string;
+  /**
+   * The name of the contract.
+   */
+  name: string;
 }
 ```

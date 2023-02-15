@@ -3,7 +3,7 @@ title: useMetamask
 displayed_sidebar: react
 ---
 
-Hook for connecting to a [Metamask](https://metamask.io/) enabled web3 provider.
+Hook for connecting to a Metamask wallet.
 
 ```jsx
 import { useMetamask } from "@thirdweb-dev/react";
@@ -11,30 +11,16 @@ import { useMetamask } from "@thirdweb-dev/react";
 
 ## Usage
 
+Call the function returned by the hook to prompt the user to connect their MetaMask wallet to your dApp.
+
+You can then use the [`useAddress`](/react/hooks/useAddress) hook to get the user's address.
+
 ```jsx
 import { useMetamask } from "@thirdweb-dev/react";
 
 function App() {
-  const [connectMetamask, { data, error }] = useMetamask();
+  const connectWithMetamask = useMetamask();
 
-  if (error) {
-    console.error(error);
-  }
-
-  return (
-    <button onClick={connectMetamask}>
-      Connect Metamask
-    </button>
-  );
+  return <button onClick={connectWithMetamask}>Connect Metamask</button>;
 }
 ```
-
-## Return Value
-
-The hook returns a tuple of `[connectMetamask, { data, error }]`.
-
-The `connectMetamask` function is used to connect to the Metamask provider.
-
-The `data` object contains the web3 provider data when the connection is successful.
-
-The `error` object contains an error message if the connection fails.
