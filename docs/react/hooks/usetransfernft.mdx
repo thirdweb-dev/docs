@@ -1,13 +1,18 @@
-
 ---
 title: useTransferNFT
 displayed_sidebar: react
 ---
 
-Hook for transferring a NFT token on a smart contract.
+Hook for transferring ERC721 or ERC1155 tokens.
 
-Available to use on smart contracts that implement the [ERC721](/contractkit/interfaces/erc721)
-or [ERC1155](/contractkit/interfaces/erc1155) standard.
+Available to use on contracts that implement either the
+[ERC721](https://portal.thirdweb.com/contractkit/interfaces/erc721)
+and [ERC1155](https://portal.thirdweb.com/contractkit/interfaces/erc1155)
+interfaces, such as the [Edition](https://thirdweb.com/thirdweb.eth/TokenERC1155)
+or [NFT Collection](https://thirdweb.com/thirdweb.eth/TokenERC721).
+
+The wallet address that initiates this transaction must have transfer permissions on the contract (i.e. the tokens are not soulbound).
+It also must have the required amount of token(s) available to transfer.
 
 ```jsx
 import { useTransferNFT } from "@thirdweb-dev/react";
@@ -15,33 +20,36 @@ import { useTransferNFT } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your NFT collection contract as the argument.
+Provide your NFT contract instance as the argument to the hook.
 
 ```jsx
-import { useTransferNFT, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useContract, useTransferNFT, Web3Button } from "@thirdweb-dev/react";
 
-// Your smart contract address
+// Your NFT collection contract address
 const contractAddress = "{{contract_address}}";
+const walletAddress = "{{wallet_address}}";
+const tokenId = "{{token_id}}";
 
 function App() {
+  // Contract must be an ERC-721 or ERC-1155 contract
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: transferNft, isLoading, error } = useTransferNFT(contract);
-
-  if (error) {
-    console.error("failed to transfer nft", error);
-  }
+  const {
+    mutateAsync: transferNFT,
+    isLoading,
+    error,
+  } = useTransferNFT(contract);
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
-        transferNft({
-          tokenId: "{{token_id}}",
-          to: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+        transferNFT({
+          to: walletAddress, // Address to transfer the token to
+          tokenId: tokenId, // Token ID to transfer
         })
       }
     >
-      Transfer NFT
+      Transfer
     </Web3Button>
   );
 }
@@ -49,83 +57,124 @@ function App() {
 
 ## Configuration
 
-### tokenId
+### to
 
-Specify the `tokenId` of the NFT you want to transfer.
+The wallet address to transfer the token(s) to.
+
+To use the connected wallet address, use the [`useAddress`](/react/hooks/useaddress) hook.
 
 ```jsx
-import { useTransferNFT, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useContract,
+  useTransferNFT,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
 
-// Your smart contract address
 const contractAddress = "{{contract_address}}";
+const tokenId = "{{token_id}}";
 
 function App() {
+  // Contract must be an ERC-721 or ERC-1155 contract
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: transferNft, isLoading, error } = useTransferNFT(contract);
-
-  if (error) {
-    console.error("failed to transfer nft", error);
-  }
+  const {
+    mutateAsync: transferNFT,
+    isLoading,
+    error,
+  } = useTransferNFT(contract);
+  // highlight-next-line
+  const address = useAddress();
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
-        transferNft({
-          // highlight-start
-          tokenId: "{{token_id}}",
-          // highlight-end
-          to: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+        transferNFT({
+          // highlight-next-line
+          to: address, // Address to transfer the token to
+          tokenId: tokenId, // Token ID to transfer
         })
       }
     >
-      Transfer NFT
+      Transfer
     </Web3Button>
   );
 }
 ```
 
-### to
+### tokenId
 
-Likely, you will want to transfer the NFT to the currently connected wallet address.
-
-You can use the [`useAddress`](/react/hooks/useAddress) hook to get this value.
+The token ID to transfer. Can be a `string` or `number`.
 
 ```jsx
-import {
-  useTransferNFT,
-  useContract,
-  Web3Button,
-  useAddress,
-} from "@thirdweb-dev/react";
+import { useContract, useTransferNFT, Web3Button } from "@thirdweb-dev/react";
 
-// Your smart contract address
 const contractAddress = "{{contract_address}}";
+const walletAddress = "{{wallet_address}}";
+// highlight-next-line
+const tokenId = "{{token_id}}";
 
 function App() {
-  // highlight-start
-  const address = useAddress();
-  // highlight-end
+  // Contract must be an ERC-721 or ERC-1155 contract
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: transferNft, isLoading, error } = useTransferNFT(contract);
-
-  if (error) {
-    console.error("failed to transfer nft", error);
-  }
+  const {
+    mutateAsync: transferNFT,
+    isLoading,
+    error,
+  } = useTransferNFT(contract);
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
-        transferNft({
-          tokenId: "{{token_id}}",
-          // highlight-start
-          to: address, // Use useAddress hook to get current wallet address
-          // highlight-end
+        transferNFT({
+          to: walletAddress, // Address to transfer the token to
+          // highlight-next-line
+          tokenId: tokenId, // Token ID to transfer
         })
       }
     >
-      Transfer NFT
+      Transfer
+    </Web3Button>
+  );
+}
+```
+
+### amount (ERC-1155 only)
+
+If you are using an ERC1155 contract, specify the amount of tokens to transfer.
+
+```jsx
+import { useContract, useTransferNFT, Web3Button } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+const walletAddress = "{{wallet_address}}";
+const tokenId = "{{token_id}}";
+// highlight-next-line
+const amount = "{{amount}}"; // string or number
+
+function App() {
+  // Contract must be an ERC-721 or ERC-1155 contract
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: transferNFT,
+    isLoading,
+    error,
+  } = useTransferNFT(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        transferNFT({
+          to: walletAddress, // Address to transfer the token to
+          tokenId: tokenId, // Token ID to transfer
+          // highlight-next-line
+          amount: amount, // Amount of tokens to transfer (ERC-1155 only)
+        })
+      }
+    >
+      Transfer
     </Web3Button>
   );
 }

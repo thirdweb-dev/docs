@@ -3,11 +3,9 @@ title: useRoleMembers
 displayed_sidebar: react
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
+Hook for getting all wallet addresses that have a specific role in a smart contract.
 
-Hook for fetching the list of accounts with a given role in a smart contract.
+Available to use on contracts that implement the [PermissionsEnumerable](/contractkit/extension-contracts/permissions) interface.
 
 ```jsx
 import { useRoleMembers } from "@thirdweb-dev/react";
@@ -15,69 +13,24 @@ import { useRoleMembers } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your smart contract and role name as the arguments.
+Provide your contract instance from the [`useContract`](react/hooks/usecontract) and role name as the arguments.
 
 ```jsx
-import { useRoleMembers, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useContract, useRoleMembers } from "@thirdweb-dev/react";
 
-// Your smart contract address
+// Your smart contract address (must implement permission controls)
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { data: members, isLoading, error } = useRoleMembers(contract, "admin");
-
-  if (error) {
-    console.error("failed to fetch members", error);
-  }
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        // Do something with the members array
-      }
-    >
-      Get Members
-    </Web3Button>
-  );
+  const { data, isLoading, error } = useRoleMembers(contract, "admin");
 }
 ```
 
-## Configuration
+## Return Value
 
-### role
-
-The role should correspond to one of the roles available in your smart contract.
-
-For example, if your smart contract implements the [`Ownable`](/contractkit/interfaces/ownable) interface,
-your role should be either `owner` or `admin`.
+The hook's `data` property, once loaded, is an array of wallet addresses that have the specified role.
 
 ```jsx
-import { useRoleMembers, useContract, Web3Button } from "@thirdweb-dev/react";
-
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
-
-function App() {
-  const { contract } = useContract(contractAddress);
-  // highlight-start
-  const { data: members, isLoading, error } = useRoleMembers(contract, "owner");
-  // highlight-end
-
-  if (error) {
-    console.error("failed to fetch members", error);
-  }
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        // Do something with the members array
-      }
-    >
-      Get Members
-    </Web3Button>
-  );
-}
+string[] | undefined
 ```

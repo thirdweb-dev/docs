@@ -3,7 +3,11 @@ title: useRevokeRole
 displayed_sidebar: react
 ---
 
-Hook for revoking a role from a smart contract that implements the [`Roles`](/contractkit/interfaces/roles) interface.
+Hook for revoking a wallet address from a role on a smart contract.
+
+Available to use on contracts that implement [Permission Controls](/contractkit/extension-contracts/permissions).
+
+The wallet address that initiates this transaction must have the relevant permissions on the contract to remove the role from the wallet address (typically `admin` level required).
 
 ```jsx
 import { useRevokeRole } from "@thirdweb-dev/react";
@@ -11,29 +15,27 @@ import { useRevokeRole } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide the contract instance as the argument.
+Provide your contract instance from the [`useContract`](react/hooks/usecontract) hook as the argument.
 
 ```jsx
-import { useRevokeRole, useContract, Web3Button } from "@thirdweb-dev/react";
+import { useContract, useRevokeRole, Web3Button } from "@thirdweb-dev/react";
 
-// Your smart contract address
+// Your smart contract address (must implement permission controls)
 const contractAddress = "{{contract_address}}";
+const walletAddress = "{{wallet_address}}";
 
 function App() {
+  // Contract must be a contract that implements the Permission Controls interface
   const { contract } = useContract(contractAddress);
   const { mutateAsync: revokeRole, isLoading, error } = useRevokeRole(contract);
-
-  if (error) {
-    console.error("failed to revoke role", error);
-  }
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         revokeRole({
-          role: "{{role_name}}",
-          address: "{{wallet_address}}", // Use useAddress hook to get current wallet address
+          role: "admin",
+          address: walletAddress,
         })
       }
     >
@@ -47,42 +49,76 @@ function App() {
 
 ### role
 
-The `role` argument should be provided as a string.
+The role to revoke from the wallet address.
 
-It should match a role declared in the smart contract.
+Can be any string or default role from the [Permission Controls](/contractkit/extension-contracts/permissions) interface.
 
-### address
-
-The `address` argument should be provided as a valid Ethereum wallet address.
-
-You can use the [`useAddress`](/react/hooks/useAddress) hook to get this value.
+`string | "admin" | "minter" | "transfer" | "lister" | "asset" | "unwrap" | "pauser" | "factory"`
 
 ```jsx
-import { useRevokeRole, useContract, Web3Button, useAddress } from "@thirdweb-dev/react";
+import { useContract, useRevokeRole, Web3Button } from "@thirdweb-dev/react";
 
-// Your smart contract address
+// Your smart contract address (must implement permission controls)
 const contractAddress = "{{contract_address}}";
+const walletAddress = "{{wallet_address}}";
+// highlight-next-line
+const role = "{{role}}";
 
 function App() {
-  // highlight-start
-  const address = useAddress();
-  // highlight-end
+  // Contract must be a contract that implements the Permission Controls interface
   const { contract } = useContract(contractAddress);
   const { mutateAsync: revokeRole, isLoading, error } = useRevokeRole(contract);
-
-  if (error) {
-    console.error("failed to revoke role", error);
-  }
 
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         revokeRole({
-          role: "{{role_name}}",
-          // highlight-start
-          address: address, // Use useAddress hook to get current wallet address
-          // highlight-end
+          // highlight-next-line
+          role: role,
+          address: walletAddress,
+        })
+      }
+    >
+      Revoke Role
+    </Web3Button>
+  );
+}
+```
+
+### address
+
+The wallet address to revoke the role from.
+
+To use the connected wallet address, use the [`useAddress`](/react/hooks/useaddress) hook.
+
+```jsx
+import {
+  useContract,
+  useRevokeRole,
+  Web3Button,
+  useAddress,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address (must implement permission controls)
+const contractAddress = "{{contract_address}}";
+const role = "{{role}}";
+
+function App() {
+  // Contract must be a contract that implements the Permission Controls interface
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: revokeRole, isLoading, error } = useRevokeRole(contract);
+  // highlight-next-line
+  const address = useAddress();
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        revokeRole({
+          role: role,
+          // highlight-next-line
+          address: address,
         })
       }
     >
