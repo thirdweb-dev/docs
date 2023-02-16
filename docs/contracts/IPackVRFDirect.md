@@ -4,15 +4,10 @@ title: IPackVRFDirect
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # IPackVRFDirect
 
-
-
-
-
-The thirdweb `Pack` contract is a lootbox mechanism. An account can bundle up arbitrary ERC20, ERC721 and ERC1155 tokens into  a set of packs. A pack can then be opened in return for a selection of the tokens in the pack. The selection of tokens distributed  on opening a pack depends on the relative supply of all tokens in the packs.
-
-
+The thirdweb `Pack` contract is a lootbox mechanism. An account can bundle up arbitrary ERC20, ERC721 and ERC1155 tokens into a set of packs. A pack can then be opened in return for a selection of the tokens in the pack. The selection of tokens distributed on opening a pack depends on the relative supply of all tokens in the packs.
 
 ## Methods
 
@@ -24,19 +19,17 @@ function canClaimRewards(address _opener) external view returns (bool)
 
 Returns whether a pack opener is ready to call `claimRewards`.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _opener | address | undefined |
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| \_opener | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### claimRewards
 
@@ -46,14 +39,11 @@ function claimRewards() external nonpayable returns (struct ITokenBundle.Token[]
 
 Called by a pack opener to claim rewards from the opened pack.
 
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| rewardUnits | ITokenBundle.Token[] | undefined |
+| Name        | Type                 | Description |
+| ----------- | -------------------- | ----------- |
+| rewardUnits | ITokenBundle.Token[] | undefined   |
 
 ### createPack
 
@@ -61,27 +51,23 @@ Called by a pack opener to claim rewards from the opened pack.
 function createPack(ITokenBundle.Token[] contents, uint256[] numOfRewardUnits, string packUri, uint128 openStartTimestamp, uint128 amountDistributedPerOpen, address recipient) external payable returns (uint256 packId, uint256 packTotalSupply)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| contents | ITokenBundle.Token[] | undefined |
-| numOfRewardUnits | uint256[] | undefined |
-| packUri | string | undefined |
-| openStartTimestamp | uint128 | undefined |
-| amountDistributedPerOpen | uint128 | undefined |
-| recipient | address | undefined |
+| Name                     | Type                 | Description |
+| ------------------------ | -------------------- | ----------- |
+| contents                 | ITokenBundle.Token[] | undefined   |
+| numOfRewardUnits         | uint256[]            | undefined   |
+| packUri                  | string               | undefined   |
+| openStartTimestamp       | uint128              | undefined   |
+| amountDistributedPerOpen | uint128              | undefined   |
+| recipient                | address              | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| packId | uint256 | undefined |
-| packTotalSupply | uint256 | undefined |
+| Name            | Type    | Description |
+| --------------- | ------- | ----------- |
+| packId          | uint256 | undefined   |
+| packTotalSupply | uint256 | undefined   |
 
 ### openPack
 
@@ -91,20 +77,18 @@ function openPack(uint256 packId, uint256 amountToOpen) external nonpayable retu
 
 Lets a pack owner request to open a pack.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| packId | uint256 | The identifier of the pack to open. |
+| Name         | Type    | Description                          |
+| ------------ | ------- | ------------------------------------ |
+| packId       | uint256 | The identifier of the pack to open.  |
 | amountToOpen | uint256 | The number of packs to open at once. |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| requestId | uint256 | undefined |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| requestId | uint256 | undefined   |
 
 ### openPackAndClaimRewards
 
@@ -114,23 +98,19 @@ function openPackAndClaimRewards(uint256 _packId, uint256 _amountToOpen, uint32 
 
 Called by a pack opener to open a pack in a single transaction, instead of calling openPack and claimRewards separately.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _packId | uint256 | undefined |
-| _amountToOpen | uint256 | undefined |
-| _callBackGasLimit | uint32 | undefined |
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| \_packId           | uint256 | undefined   |
+| \_amountToOpen     | uint256 | undefined   |
+| \_callBackGasLimit | uint32  | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
-
-
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ## Events
 
@@ -142,15 +122,13 @@ event PackCreated(uint256 indexed packId, address recipient, uint256 totalPacksC
 
 Emitted when a set of packs is created.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| packId `indexed` | uint256 | undefined |
-| recipient  | address | undefined |
-| totalPacksCreated  | uint256 | undefined |
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| packId `indexed`  | uint256 | undefined   |
+| recipient         | address | undefined   |
+| totalPacksCreated | uint256 | undefined   |
 
 ### PackOpenRequested
 
@@ -160,16 +138,14 @@ event PackOpenRequested(address indexed opener, uint256 indexed packId, uint256 
 
 Emitted when the opening of a pack is requested.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| opener `indexed` | address | undefined |
-| packId `indexed` | uint256 | undefined |
-| amountToOpen  | uint256 | undefined |
-| requestId  | uint256 | undefined |
+| Name             | Type    | Description |
+| ---------------- | ------- | ----------- |
+| opener `indexed` | address | undefined   |
+| packId `indexed` | uint256 | undefined   |
+| amountToOpen     | uint256 | undefined   |
+| requestId        | uint256 | undefined   |
 
 ### PackOpened
 
@@ -179,16 +155,14 @@ event PackOpened(uint256 indexed packId, address indexed opener, uint256 numOfPa
 
 Emitted when a pack is opened.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| packId `indexed` | uint256 | undefined |
-| opener `indexed` | address | undefined |
-| numOfPacksOpened  | uint256 | undefined |
-| rewardUnitsDistributed  | ITokenBundle.Token[] | undefined |
+| Name                   | Type                 | Description |
+| ---------------------- | -------------------- | ----------- |
+| packId `indexed`       | uint256              | undefined   |
+| opener `indexed`       | address              | undefined   |
+| numOfPacksOpened       | uint256              | undefined   |
+| rewardUnitsDistributed | ITokenBundle.Token[] | undefined   |
 
 ### PackRandomnessFulfilled
 
@@ -198,13 +172,9 @@ event PackRandomnessFulfilled(uint256 indexed packId, uint256 indexed requestId)
 
 Emitted when Chainlink VRF fulfills a random number request.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| packId `indexed` | uint256 | undefined |
-| requestId `indexed` | uint256 | undefined |
-
-
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| packId `indexed`    | uint256 | undefined   |
+| requestId `indexed` | uint256 | undefined   |

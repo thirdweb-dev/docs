@@ -4,14 +4,7 @@ title: InitStorage
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # InitStorage
 
-*thirdweb.com*
-
-
-
-
-
-
-
-
+_thirdweb.com_

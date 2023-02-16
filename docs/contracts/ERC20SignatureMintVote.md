@@ -4,15 +4,10 @@ title: ERC20SignatureMintVote
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # ERC20SignatureMintVote
 
-
-
-
-
-BASE:      ERC20Vote      EXTENSION: SignatureMintERC20  The `ERC20SignatureMint` contract uses the `ERC20Vote` contract, along with the `SignatureMintERC20` extension.  The &#39;signature minting&#39; mechanism in the `SignatureMintERC20` extension uses EIP 712, and is a way for a contract  admin to authorize an external party&#39;s request to mint tokens on the admin&#39;s contract. At a high level, this means  you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by  that external party.
-
-
+BASE: ERC20Vote EXTENSION: SignatureMintERC20 The `ERC20SignatureMint` contract uses the `ERC20Vote` contract, along with the `SignatureMintERC20` extension. The &#39;signature minting&#39; mechanism in the `SignatureMintERC20` extension uses EIP 712, and is a way for a contract admin to authorize an external party&#39;s request to mint tokens on the admin&#39;s contract. At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
 
 ## Methods
 
@@ -22,16 +17,13 @@ BASE:      ERC20Vote      EXTENSION: SignatureMintERC20  The `ERC20SignatureMint
 function DOMAIN_SEPARATOR() external view returns (bytes32)
 ```
 
-
-
-*See {IERC20Permit-DOMAIN_SEPARATOR}.*
-
+_See {IERC20Permit-DOMAIN_SEPARATOR}._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
 ### allowance
 
@@ -39,22 +31,20 @@ function DOMAIN_SEPARATOR() external view returns (bytes32)
 function allowance(address owner, address spender) external view returns (uint256)
 ```
 
-
-
-*See {IERC20-allowance}.*
+_See {IERC20-allowance}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner | address | undefined |
-| spender | address | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| owner   | address | undefined   |
+| spender | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### approve
 
@@ -62,22 +52,20 @@ function allowance(address owner, address spender) external view returns (uint25
 function approve(address spender, uint256 amount) external nonpayable returns (bool)
 ```
 
-
-
-*See {IERC20-approve}. NOTE: If `amount` is the maximum `uint256`, the allowance is not updated on `transferFrom`. This is semantically equivalent to an infinite approval. Requirements: - `spender` cannot be the zero address.*
+_See {IERC20-approve}. NOTE: If `amount` is the maximum `uint256`, the allowance is not updated on `transferFrom`. This is semantically equivalent to an infinite approval. Requirements: - `spender` cannot be the zero address._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| spender | address | undefined |
-| amount | uint256 | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| spender | address | undefined   |
+| amount  | uint256 | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### balanceOf
 
@@ -85,21 +73,19 @@ function approve(address spender, uint256 amount) external nonpayable returns (b
 function balanceOf(address account) external view returns (uint256)
 ```
 
-
-
-*See {IERC20-balanceOf}.*
+_See {IERC20-balanceOf}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account | address | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| account | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### burn
 
@@ -109,13 +95,13 @@ function burn(uint256 _amount) external nonpayable
 
 Lets an owner a given amount of their tokens.
 
-*Caller should own the `_amount` of tokens.*
+_Caller should own the `_amount` of tokens._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _amount | uint256 | The number of tokens to burn. |
+| Name     | Type    | Description                   |
+| -------- | ------- | ----------------------------- |
+| \_amount | uint256 | The number of tokens to burn. |
 
 ### checkpoints
 
@@ -123,22 +109,20 @@ Lets an owner a given amount of their tokens.
 function checkpoints(address account, uint32 pos) external view returns (struct ERC20Votes.Checkpoint)
 ```
 
-
-
-*Get the `pos`-th checkpoint for `account`.*
+_Get the `pos`-th checkpoint for `account`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account | address | undefined |
-| pos | uint32 | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| account | address | undefined   |
+| pos     | uint32  | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | ERC20Votes.Checkpoint | undefined |
+| Name | Type                  | Description |
+| ---- | --------------------- | ----------- |
+| \_0  | ERC20Votes.Checkpoint | undefined   |
 
 ### contractURI
 
@@ -148,14 +132,11 @@ function contractURI() external view returns (string)
 
 Returns the contract metadata URI.
 
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### decimals
 
@@ -163,16 +144,13 @@ Returns the contract metadata URI.
 function decimals() external view returns (uint8)
 ```
 
-
-
-*Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless this function is overridden; NOTE: This information is only used for _display_ purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}.*
-
+_Returns the number of decimals used to get its user representation. For example, if `decimals` equals `2`, a balance of `505` tokens should be displayed to a user as `5.05` (`505 / 10 ** 2`). Tokens usually opt for a value of 18, imitating the relationship between Ether and Wei. This is the value {ERC20} uses, unless this function is overridden; NOTE: This information is only used for *display* purposes: it in no way affects any of the arithmetic of the contract, including {IERC20-balanceOf} and {IERC20-transfer}._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint8 | undefined |
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| \_0  | uint8 | undefined   |
 
 ### decreaseAllowance
 
@@ -180,22 +158,20 @@ function decimals() external view returns (uint8)
 function decreaseAllowance(address spender, uint256 subtractedValue) external nonpayable returns (bool)
 ```
 
-
-
-*Atomically decreases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`.*
+_Atomically decreases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address. - `spender` must have allowance for the caller of at least `subtractedValue`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| spender | address | undefined |
-| subtractedValue | uint256 | undefined |
+| Name            | Type    | Description |
+| --------------- | ------- | ----------- |
+| spender         | address | undefined   |
+| subtractedValue | uint256 | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### delegate
 
@@ -203,15 +179,13 @@ function decreaseAllowance(address spender, uint256 subtractedValue) external no
 function delegate(address delegatee) external nonpayable
 ```
 
-
-
-*Delegate votes from the sender to `delegatee`.*
+_Delegate votes from the sender to `delegatee`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| delegatee | address | undefined |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| delegatee | address | undefined   |
 
 ### delegateBySig
 
@@ -219,20 +193,18 @@ function delegate(address delegatee) external nonpayable
 function delegateBySig(address delegatee, uint256 nonce, uint256 expiry, uint8 v, bytes32 r, bytes32 s) external nonpayable
 ```
 
-
-
-*Delegates votes from signer to `delegatee`*
+_Delegates votes from signer to `delegatee`_
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| delegatee | address | undefined |
-| nonce | uint256 | undefined |
-| expiry | uint256 | undefined |
-| v | uint8 | undefined |
-| r | bytes32 | undefined |
-| s | bytes32 | undefined |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| delegatee | address | undefined   |
+| nonce     | uint256 | undefined   |
+| expiry    | uint256 | undefined   |
+| v         | uint8   | undefined   |
+| r         | bytes32 | undefined   |
+| s         | bytes32 | undefined   |
 
 ### delegates
 
@@ -240,21 +212,19 @@ function delegateBySig(address delegatee, uint256 nonce, uint256 expiry, uint8 v
 function delegates(address account) external view returns (address)
 ```
 
-
-
-*Get the address `account` is currently delegating to.*
+_Get the address `account` is currently delegating to._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account | address | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| account | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### getPastTotalSupply
 
@@ -262,21 +232,19 @@ function delegates(address account) external view returns (address)
 function getPastTotalSupply(uint256 blockNumber) external view returns (uint256)
 ```
 
-
-
-*Retrieve the `totalSupply` at the end of `blockNumber`. Note, this value is the sum of all balances. It is but NOT the sum of all the delegated votes! Requirements: - `blockNumber` must have been already mined*
+_Retrieve the `totalSupply` at the end of `blockNumber`. Note, this value is the sum of all balances. It is but NOT the sum of all the delegated votes! Requirements: - `blockNumber` must have been already mined_
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| blockNumber | uint256 | undefined |
+| Name        | Type    | Description |
+| ----------- | ------- | ----------- |
+| blockNumber | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### getPastVotes
 
@@ -284,22 +252,20 @@ function getPastTotalSupply(uint256 blockNumber) external view returns (uint256)
 function getPastVotes(address account, uint256 blockNumber) external view returns (uint256)
 ```
 
-
-
-*Retrieve the number of votes for `account` at the end of `blockNumber`. Requirements: - `blockNumber` must have been already mined*
+_Retrieve the number of votes for `account` at the end of `blockNumber`. Requirements: - `blockNumber` must have been already mined_
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account | address | undefined |
-| blockNumber | uint256 | undefined |
+| Name        | Type    | Description |
+| ----------- | ------- | ----------- |
+| account     | address | undefined   |
+| blockNumber | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### getVotes
 
@@ -307,21 +273,19 @@ function getPastVotes(address account, uint256 blockNumber) external view return
 function getVotes(address account) external view returns (uint256)
 ```
 
-
-
-*Gets the current votes balance for `account`*
+_Gets the current votes balance for `account`_
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account | address | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| account | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### increaseAllowance
 
@@ -329,22 +293,20 @@ function getVotes(address account) external view returns (uint256)
 function increaseAllowance(address spender, uint256 addedValue) external nonpayable returns (bool)
 ```
 
-
-
-*Atomically increases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address.*
+_Atomically increases the allowance granted to `spender` by the caller. This is an alternative to {approve} that can be used as a mitigation for problems described in {IERC20-approve}. Emits an {Approval} event indicating the updated allowance. Requirements: - `spender` cannot be the zero address._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| spender | address | undefined |
-| addedValue | uint256 | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| spender    | address | undefined   |
+| addedValue | uint256 | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### mintTo
 
@@ -354,14 +316,14 @@ function mintTo(address _to, uint256 _amount) external nonpayable
 
 Lets an authorized address mint tokens to a recipient.
 
-*The logic in the `_canMint` function determines whether the caller is authorized to mint tokens.*
+_The logic in the `_canMint` function determines whether the caller is authorized to mint tokens._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _to | address | The recipient of the tokens to mint. |
-| _amount | uint256 | Quantity of tokens to mint. |
+| Name     | Type    | Description                          |
+| -------- | ------- | ------------------------------------ |
+| \_to     | address | The recipient of the tokens to mint. |
+| \_amount | uint256 | Quantity of tokens to mint.          |
 
 ### mintWithSignature
 
@@ -369,22 +331,18 @@ Lets an authorized address mint tokens to a recipient.
 function mintWithSignature(ISignatureMintERC20.MintRequest _req, bytes _signature) external payable returns (address signer)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _req | ISignatureMintERC20.MintRequest | undefined |
-| _signature | bytes | undefined |
+| Name        | Type                            | Description |
+| ----------- | ------------------------------- | ----------- |
+| \_req       | ISignatureMintERC20.MintRequest | undefined   |
+| \_signature | bytes                           | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| signer | address | undefined |
+| Name   | Type    | Description |
+| ------ | ------- | ----------- |
+| signer | address | undefined   |
 
 ### multicall
 
@@ -394,18 +352,18 @@ function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 
 Receives and executes a batch of function calls on this contract.
 
-*Receives and executes a batch of function calls on this contract.*
+_Receives and executes a batch of function calls on this contract._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
+| Name | Type    | Description                                                          |
+| ---- | ------- | -------------------------------------------------------------------- |
 | data | bytes[] | The bytes data that makes up the batch of function calls to execute. |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
+| Name    | Type    | Description                                                                      |
+| ------- | ------- | -------------------------------------------------------------------------------- |
 | results | bytes[] | The bytes data that makes up the result of the batch of function calls executed. |
 
 ### name
@@ -414,16 +372,13 @@ Receives and executes a batch of function calls on this contract.
 function name() external view returns (string)
 ```
 
-
-
-*Returns the name of the token.*
-
+_Returns the name of the token._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### nonces
 
@@ -431,21 +386,19 @@ function name() external view returns (string)
 function nonces(address owner) external view returns (uint256)
 ```
 
-
-
-*See {IERC20Permit-nonces}.*
+_See {IERC20Permit-nonces}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner | address | undefined |
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| owner | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### numCheckpoints
 
@@ -453,21 +406,19 @@ function nonces(address owner) external view returns (uint256)
 function numCheckpoints(address account) external view returns (uint32)
 ```
 
-
-
-*Get number of checkpoints for `account`.*
+_Get number of checkpoints for `account`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account | address | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| account | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint32 | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | uint32 | undefined   |
 
 ### owner
 
@@ -477,14 +428,11 @@ function owner() external view returns (address)
 
 Returns the owner of the contract.
 
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### permit
 
@@ -492,21 +440,19 @@ Returns the owner of the contract.
 function permit(address owner, address spender, uint256 value, uint256 deadline, uint8 v, bytes32 r, bytes32 s) external nonpayable
 ```
 
-
-
-*See {IERC20Permit-permit}.*
+_See {IERC20Permit-permit}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner | address | undefined |
-| spender | address | undefined |
-| value | uint256 | undefined |
-| deadline | uint256 | undefined |
-| v | uint8 | undefined |
-| r | bytes32 | undefined |
-| s | bytes32 | undefined |
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| owner    | address | undefined   |
+| spender  | address | undefined   |
+| value    | uint256 | undefined   |
+| deadline | uint256 | undefined   |
+| v        | uint8   | undefined   |
+| r        | bytes32 | undefined   |
+| s        | bytes32 | undefined   |
 
 ### primarySaleRecipient
 
@@ -514,16 +460,13 @@ function permit(address owner, address spender, uint256 value, uint256 deadline,
 function primarySaleRecipient() external view returns (address)
 ```
 
-
-
-*Returns primary sale recipient address.*
-
+_Returns primary sale recipient address._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### setContractURI
 
@@ -533,13 +476,13 @@ function setContractURI(string _uri) external nonpayable
 
 Lets a contract admin set the URI for contract-level metadata.
 
-*Caller should be authorized to setup contractURI, e.g. contract admin.                  See {_canSetContractURI}.                  Emits {ContractURIUpdated Event}.*
+_Caller should be authorized to setup contractURI, e.g. contract admin. See {\_canSetContractURI}. Emits {ContractURIUpdated Event}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| Name  | Type   | Description                                                           |
+| ----- | ------ | --------------------------------------------------------------------- |
+| \_uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
 ### setOwner
 
@@ -549,13 +492,11 @@ function setOwner(address _newOwner) external nonpayable
 
 Lets an authorized wallet set a new owner for the contract.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _newOwner | address | The address to set as the new owner of the contract. |
+| Name       | Type    | Description                                          |
+| ---------- | ------- | ---------------------------------------------------- |
+| \_newOwner | address | The address to set as the new owner of the contract. |
 
 ### setPrimarySaleRecipient
 
@@ -565,13 +506,13 @@ function setPrimarySaleRecipient(address _saleRecipient) external nonpayable
 
 Updates primary sale recipient.
 
-*Caller should be authorized to set primary sales info.                  See {_canSetPrimarySaleRecipient}.                  Emits {PrimarySaleRecipientUpdated Event}; See {_setupPrimarySaleRecipient}.*
+_Caller should be authorized to set primary sales info. See {\_canSetPrimarySaleRecipient}. Emits {PrimarySaleRecipientUpdated Event}; See {\_setupPrimarySaleRecipient}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _saleRecipient | address | Address to be set as new recipient of primary sales. |
+| Name            | Type    | Description                                          |
+| --------------- | ------- | ---------------------------------------------------- |
+| \_saleRecipient | address | Address to be set as new recipient of primary sales. |
 
 ### symbol
 
@@ -579,16 +520,13 @@ Updates primary sale recipient.
 function symbol() external view returns (string)
 ```
 
-
-
-*Returns the symbol of the token, usually a shorter version of the name.*
-
+_Returns the symbol of the token, usually a shorter version of the name._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### totalSupply
 
@@ -596,16 +534,13 @@ function symbol() external view returns (string)
 function totalSupply() external view returns (uint256)
 ```
 
-
-
-*See {IERC20-totalSupply}.*
-
+_See {IERC20-totalSupply}._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### transfer
 
@@ -613,22 +548,20 @@ function totalSupply() external view returns (uint256)
 function transfer(address to, uint256 amount) external nonpayable returns (bool)
 ```
 
-
-
-*See {IERC20-transfer}. Requirements: - `to` cannot be the zero address. - the caller must have a balance of at least `amount`.*
+_See {IERC20-transfer}. Requirements: - `to` cannot be the zero address. - the caller must have a balance of at least `amount`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| to | address | undefined |
-| amount | uint256 | undefined |
+| Name   | Type    | Description |
+| ------ | ------- | ----------- |
+| to     | address | undefined   |
+| amount | uint256 | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### transferFrom
 
@@ -636,23 +569,21 @@ function transfer(address to, uint256 amount) external nonpayable returns (bool)
 function transferFrom(address from, address to, uint256 amount) external nonpayable returns (bool)
 ```
 
-
-
-*See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `from` and `to` cannot be the zero address. - `from` must have a balance of at least `amount`. - the caller must have allowance for ``from``&#39;s tokens of at least `amount`.*
+_See {IERC20-transferFrom}. Emits an {Approval} event indicating the updated allowance. This is not required by the EIP. See the note at the beginning of {ERC20}. NOTE: Does not update the allowance if the current allowance is the maximum `uint256`. Requirements: - `from` and `to` cannot be the zero address. - `from` must have a balance of at least `amount`. - the caller must have allowance for `from`&#39;s tokens of at least `amount`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from | address | undefined |
-| to | address | undefined |
-| amount | uint256 | undefined |
+| Name   | Type    | Description |
+| ------ | ------- | ----------- |
+| from   | address | undefined   |
+| to     | address | undefined   |
+| amount | uint256 | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### verify
 
@@ -660,25 +591,19 @@ function transferFrom(address from, address to, uint256 amount) external nonpaya
 function verify(ISignatureMintERC20.MintRequest _req, bytes _signature) external view returns (bool success, address signer)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _req | ISignatureMintERC20.MintRequest | undefined |
-| _signature | bytes | undefined |
+| Name        | Type                            | Description |
+| ----------- | ------------------------------- | ----------- |
+| \_req       | ISignatureMintERC20.MintRequest | undefined   |
+| \_signature | bytes                           | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| success | bool | undefined |
-| signer | address | undefined |
-
-
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| success | bool    | undefined   |
+| signer  | address | undefined   |
 
 ## Events
 
@@ -688,17 +613,13 @@ function verify(ISignatureMintERC20.MintRequest _req, bytes _signature) external
 event Approval(address indexed owner, address indexed spender, uint256 value)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner `indexed` | address | undefined |
-| spender `indexed` | address | undefined |
-| value  | uint256 | undefined |
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| owner `indexed`   | address | undefined   |
+| spender `indexed` | address | undefined   |
+| value             | uint256 | undefined   |
 
 ### ContractURIUpdated
 
@@ -706,16 +627,12 @@ event Approval(address indexed owner, address indexed spender, uint256 value)
 event ContractURIUpdated(string prevURI, string newURI)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| prevURI  | string | undefined |
-| newURI  | string | undefined |
+| Name    | Type   | Description |
+| ------- | ------ | ----------- |
+| prevURI | string | undefined   |
+| newURI  | string | undefined   |
 
 ### DelegateChanged
 
@@ -723,17 +640,13 @@ event ContractURIUpdated(string prevURI, string newURI)
 event DelegateChanged(address indexed delegator, address indexed fromDelegate, address indexed toDelegate)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| delegator `indexed` | address | undefined |
-| fromDelegate `indexed` | address | undefined |
-| toDelegate `indexed` | address | undefined |
+| Name                   | Type    | Description |
+| ---------------------- | ------- | ----------- |
+| delegator `indexed`    | address | undefined   |
+| fromDelegate `indexed` | address | undefined   |
+| toDelegate `indexed`   | address | undefined   |
 
 ### DelegateVotesChanged
 
@@ -741,17 +654,13 @@ event DelegateChanged(address indexed delegator, address indexed fromDelegate, a
 event DelegateVotesChanged(address indexed delegate, uint256 previousBalance, uint256 newBalance)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| delegate `indexed` | address | undefined |
-| previousBalance  | uint256 | undefined |
-| newBalance  | uint256 | undefined |
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| delegate `indexed` | address | undefined   |
+| previousBalance    | uint256 | undefined   |
+| newBalance         | uint256 | undefined   |
 
 ### OwnerUpdated
 
@@ -759,16 +668,12 @@ event DelegateVotesChanged(address indexed delegate, uint256 previousBalance, ui
 event OwnerUpdated(address indexed prevOwner, address indexed newOwner)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| prevOwner `indexed` | address | undefined |
-| newOwner `indexed` | address | undefined |
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| prevOwner `indexed` | address | undefined   |
+| newOwner `indexed`  | address | undefined   |
 
 ### PrimarySaleRecipientUpdated
 
@@ -776,15 +681,11 @@ event OwnerUpdated(address indexed prevOwner, address indexed newOwner)
 event PrimarySaleRecipientUpdated(address indexed recipient)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| recipient `indexed` | address | undefined |
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| recipient `indexed` | address | undefined   |
 
 ### TokensMintedWithSignature
 
@@ -792,17 +693,13 @@ event PrimarySaleRecipientUpdated(address indexed recipient)
 event TokensMintedWithSignature(address indexed signer, address indexed mintedTo, ISignatureMintERC20.MintRequest mintRequest)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| signer `indexed` | address | undefined |
-| mintedTo `indexed` | address | undefined |
-| mintRequest  | ISignatureMintERC20.MintRequest | undefined |
+| Name               | Type                            | Description |
+| ------------------ | ------------------------------- | ----------- |
+| signer `indexed`   | address                         | undefined   |
+| mintedTo `indexed` | address                         | undefined   |
+| mintRequest        | ISignatureMintERC20.MintRequest | undefined   |
 
 ### Transfer
 
@@ -810,16 +707,10 @@ event TokensMintedWithSignature(address indexed signer, address indexed mintedTo
 event Transfer(address indexed from, address indexed to, uint256 value)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from `indexed` | address | undefined |
-| to `indexed` | address | undefined |
-| value  | uint256 | undefined |
-
-
+| Name           | Type    | Description |
+| -------------- | ------- | ----------- |
+| from `indexed` | address | undefined   |
+| to `indexed`   | address | undefined   |
+| value          | uint256 | undefined   |

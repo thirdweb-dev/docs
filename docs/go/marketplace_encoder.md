@@ -36,7 +36,7 @@ type MarketplaceEncoder struct {
 }
 ```
 
-### func \(\*MarketplaceEncoder\) [ApproveBuyoutListing](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace_encoder.go#L119-L125>)
+### func \(\*MarketplaceEncoder\) [ApproveBuyoutListing](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace_encoder.go#L119-L125)
 
 ```go
 func (encoder *MarketplaceEncoder) ApproveBuyoutListing(ctx context.Context, signerAddress string, listingId int, quantityDesired int, receiver string) (*types.Transaction, error)
@@ -74,7 +74,7 @@ fmt.Println(tx.Data()) // Ex: get the data field or the nonce field (others are 
 fmt.Println(tx.Nonce())
 ```
 
-### func \(\*MarketplaceEncoder\) [ApproveCreateListing](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace_encoder.go#L257>)
+### func \(\*MarketplaceEncoder\) [ApproveCreateListing](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace_encoder.go#L257)
 
 ```go
 func (encoder *MarketplaceEncoder) ApproveCreateListing(ctx context.Context, signerAddress string, listing *NewDirectListing) (*types.Transaction, error)
@@ -112,7 +112,7 @@ fmt.Println(tx.Data()) // Ex: get the data field or the nonce field (others are 
 fmt.Println(tx.Nonce())
 ```
 
-### func \(\*MarketplaceEncoder\) [BuyoutListing](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace_encoder.go#L183-L189>)
+### func \(\*MarketplaceEncoder\) [BuyoutListing](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace_encoder.go#L183-L189)
 
 ```go
 func (encoder *MarketplaceEncoder) BuyoutListing(ctx context.Context, signerAddress string, listingId int, quantityDesired int, receiver string) (*types.Transaction, error)
@@ -150,7 +150,7 @@ fmt.Println(tx.Data()) // Ex: get the data field or the nonce field (others are 
 fmt.Println(tx.Nonce())
 ```
 
-### func \(\*MarketplaceEncoder\) [CancelListing](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace_encoder.go#L80>)
+### func \(\*MarketplaceEncoder\) [CancelListing](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace_encoder.go#L80)
 
 ```go
 func (encoder *MarketplaceEncoder) CancelListing(ctx context.Context, signerAddress string, listingId int) (*types.Transaction, error)
@@ -180,7 +180,7 @@ fmt.Println(tx.Data()) // Ex: get the data field or the nonce field (others are 
 fmt.Println(tx.Nonce())
 ```
 
-### func \(\*MarketplaceEncoder\) [CreateListing](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace_encoder.go#L302>)
+### func \(\*MarketplaceEncoder\) [CreateListing](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/marketplace_encoder.go#L302)
 
 ```go
 func (encoder *MarketplaceEncoder) CreateListing(ctx context.Context, signerAddress string, listing *NewDirectListing) (*types.Transaction, error)
@@ -218,7 +218,7 @@ fmt.Println(tx.Data()) // Ex: get the data field or the nonce field (others are 
 fmt.Println(tx.Nonce())
 ```
 
-## type [MarketplaceFilter](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L515-L520>)
+## type [MarketplaceFilter](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L515-L520)
 
 ```go
 type MarketplaceFilter struct {
@@ -229,37 +229,37 @@ type MarketplaceFilter struct {
 }
 ```
 
-## type [MerkleContent](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L34-L36>)
+## type [MerkleContent](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L34-L36)
 
 ```go
 type MerkleContent struct {}
 ```
 
-### func \(MerkleContent\) [CalculateHash](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L38>)
+### func \(MerkleContent\) [CalculateHash](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L38)
 
 ```go
 func (t MerkleContent) CalculateHash() ([]byte, error)
 ```
 
-### func \(MerkleContent\) [Equals](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L47>)
+### func \(MerkleContent\) [Equals](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/snapshots.go#L47)
 
 ```go
 func (t MerkleContent) Equals(other merkletree.Content) (bool, error)
 ```
 
-## type [MerkleNode](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/sharded_merkle_tree.go#L259-L261>)
+## type [MerkleNode](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/sharded_merkle_tree.go#L259-L261)
 
 ```go
 type MerkleNode struct {}
 ```
 
-### func \(\*MerkleNode\) [Serialize](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/sharded_merkle_tree.go#L263>)
+### func \(\*MerkleNode\) [Serialize](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/sharded_merkle_tree.go#L263)
 
 ```go
 func (t *MerkleNode) Serialize() ([]byte, error)
 ```
 
-## type [Metadata](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L17-L20>)
+## type [Metadata](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/types.go#L17-L20)
 
 ```go
 type Metadata struct {

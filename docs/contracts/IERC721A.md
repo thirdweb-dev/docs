@@ -4,15 +4,10 @@ title: IERC721A
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # IERC721A
 
-
-
-
-
-
-
-*Interface of an ERC721A compliant contract.*
+_Interface of an ERC721A compliant contract._
 
 ## Methods
 
@@ -22,16 +17,14 @@ displayed_sidebar: contracts
 function approve(address to, uint256 tokenId) external nonpayable
 ```
 
-
-
-*Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event.*
+_Gives permission to `to` to transfer `tokenId` token to another account. The approval is cleared when the token is transferred. Only a single account can be approved at a time, so approving the zero address clears previous approvals. Requirements: - The caller must own the token or be an approved operator. - `tokenId` must exist. Emits an {Approval} event._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| to | address | undefined |
-| tokenId | uint256 | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
 
 ### balanceOf
 
@@ -39,21 +32,19 @@ function approve(address to, uint256 tokenId) external nonpayable
 function balanceOf(address owner) external view returns (uint256)
 ```
 
-
-
-*Returns the number of tokens in ``owner``&#39;s account.*
+_Returns the number of tokens in `owner`&#39;s account._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner | address | undefined |
+| Name  | Type    | Description |
+| ----- | ------- | ----------- |
+| owner | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### getApproved
 
@@ -61,21 +52,19 @@ function balanceOf(address owner) external view returns (uint256)
 function getApproved(uint256 tokenId) external view returns (address)
 ```
 
-
-
-*Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist.*
+_Returns the account approved for `tokenId` token. Requirements: - `tokenId` must exist._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### isApprovedForAll
 
@@ -83,22 +72,20 @@ function getApproved(uint256 tokenId) external view returns (address)
 function isApprovedForAll(address owner, address operator) external view returns (bool)
 ```
 
-
-
-*Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}*
+_Returns if the `operator` is allowed to manage all of the assets of `owner`. See {setApprovalForAll}_
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner | address | undefined |
-| operator | address | undefined |
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| owner    | address | undefined   |
+| operator | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### name
 
@@ -108,14 +95,11 @@ function name() external view returns (string)
 
 A descriptive name for a collection of NFTs in this contract
 
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### ownerOf
 
@@ -123,21 +107,19 @@ A descriptive name for a collection of NFTs in this contract
 function ownerOf(uint256 tokenId) external view returns (address)
 ```
 
-
-
-*Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist.*
+_Returns the owner of the `tokenId` token. Requirements: - `tokenId` must exist._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| tokenId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### safeTransferFrom
 
@@ -145,17 +127,15 @@ function ownerOf(uint256 tokenId) external view returns (address)
 function safeTransferFrom(address from, address to, uint256 tokenId) external nonpayable
 ```
 
-
-
-*Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients are aware of the ERC721 protocol to prevent tokens from being forever locked. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be have been allowed to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.*
+_Safely transfers `tokenId` token from `from` to `to`, checking first that contract recipients are aware of the ERC721 protocol to prevent tokens from being forever locked. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be have been allowed to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from | address | undefined |
-| to | address | undefined |
-| tokenId | uint256 | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
 
 ### safeTransferFrom
 
@@ -163,18 +143,16 @@ function safeTransferFrom(address from, address to, uint256 tokenId) external no
 function safeTransferFrom(address from, address to, uint256 tokenId, bytes data) external nonpayable
 ```
 
-
-
-*Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event.*
+_Safely transfers `tokenId` token from `from` to `to`. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must exist and be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. - If `to` refers to a smart contract, it must implement {IERC721Receiver-onERC721Received}, which is called upon a safe transfer. Emits a {Transfer} event._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from | address | undefined |
-| to | address | undefined |
-| tokenId | uint256 | undefined |
-| data | bytes | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
+| data    | bytes   | undefined   |
 
 ### setApprovalForAll
 
@@ -182,16 +160,14 @@ function safeTransferFrom(address from, address to, uint256 tokenId, bytes data)
 function setApprovalForAll(address operator, bool _approved) external nonpayable
 ```
 
-
-
-*Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event.*
+_Approve or remove `operator` as an operator for the caller. Operators can call {transferFrom} or {safeTransferFrom} for any token owned by the caller. Requirements: - The `operator` cannot be the caller. Emits an {ApprovalForAll} event._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| operator | address | undefined |
-| _approved | bool | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| operator   | address | undefined   |
+| \_approved | bool    | undefined   |
 
 ### symbol
 
@@ -201,14 +177,11 @@ function symbol() external view returns (string)
 
 An abbreviated name for NFTs in this contract
 
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### tokenURI
 
@@ -218,19 +191,19 @@ function tokenURI(uint256 _tokenId) external view returns (string)
 
 A distinct Uniform Resource Identifier (URI) for a given asset.
 
-*Throws if `_tokenId` is not a valid NFT. URIs are defined in RFC  3986. The URI may point to a JSON file that conforms to the &quot;ERC721  Metadata JSON Schema&quot;.*
+_Throws if `_tokenId` is not a valid NFT. URIs are defined in RFC 3986. The URI may point to a JSON file that conforms to the &quot;ERC721 Metadata JSON Schema&quot;._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _tokenId | uint256 | undefined |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| \_tokenId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### totalSupply
 
@@ -238,16 +211,13 @@ A distinct Uniform Resource Identifier (URI) for a given asset.
 function totalSupply() external view returns (uint256)
 ```
 
-
-
-*Returns the total amount of tokens stored by the contract. Burned tokens are calculated here, use `_totalMinted()` if you want to count just minted tokens.*
-
+_Returns the total amount of tokens stored by the contract. Burned tokens are calculated here, use `_totalMinted()` if you want to count just minted tokens._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### transferFrom
 
@@ -255,19 +225,15 @@ function totalSupply() external view returns (uint256)
 function transferFrom(address from, address to, uint256 tokenId) external nonpayable
 ```
 
-
-
-*Transfers `tokenId` token from `from` to `to`. WARNING: Usage of this method is discouraged, use {safeTransferFrom} whenever possible. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event.*
+_Transfers `tokenId` token from `from` to `to`. WARNING: Usage of this method is discouraged, use {safeTransferFrom} whenever possible. Requirements: - `from` cannot be the zero address. - `to` cannot be the zero address. - `tokenId` token must be owned by `from`. - If the caller is not `from`, it must be approved to move this token by either {approve} or {setApprovalForAll}. Emits a {Transfer} event._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from | address | undefined |
-| to | address | undefined |
-| tokenId | uint256 | undefined |
-
-
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| from    | address | undefined   |
+| to      | address | undefined   |
+| tokenId | uint256 | undefined   |
 
 ## Events
 
@@ -277,17 +243,13 @@ function transferFrom(address from, address to, uint256 tokenId) external nonpay
 event Approval(address indexed owner, address indexed approved, uint256 indexed tokenId)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner `indexed` | address | undefined |
-| approved `indexed` | address | undefined |
-| tokenId `indexed` | uint256 | undefined |
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| owner `indexed`    | address | undefined   |
+| approved `indexed` | address | undefined   |
+| tokenId `indexed`  | uint256 | undefined   |
 
 ### ApprovalForAll
 
@@ -295,17 +257,13 @@ event Approval(address indexed owner, address indexed approved, uint256 indexed 
 event ApprovalForAll(address indexed owner, address indexed operator, bool approved)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| owner `indexed` | address | undefined |
-| operator `indexed` | address | undefined |
-| approved  | bool | undefined |
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| owner `indexed`    | address | undefined   |
+| operator `indexed` | address | undefined   |
+| approved           | bool    | undefined   |
 
 ### Transfer
 
@@ -313,19 +271,13 @@ event ApprovalForAll(address indexed owner, address indexed operator, bool appro
 event Transfer(address indexed from, address indexed to, uint256 indexed tokenId)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from `indexed` | address | undefined |
-| to `indexed` | address | undefined |
-| tokenId `indexed` | uint256 | undefined |
-
-
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| from `indexed`    | address | undefined   |
+| to `indexed`      | address | undefined   |
+| tokenId `indexed` | uint256 | undefined   |
 
 ## Errors
 
@@ -337,9 +289,6 @@ error ApprovalCallerNotOwnerNorApproved()
 
 The caller must own the token or be an approved operator.
 
-
-
-
 ### ApprovalQueryForNonexistentToken
 
 ```solidity
@@ -347,9 +296,6 @@ error ApprovalQueryForNonexistentToken()
 ```
 
 The token does not exist.
-
-
-
 
 ### ApprovalToCurrentOwner
 
@@ -359,9 +305,6 @@ error ApprovalToCurrentOwner()
 
 The caller cannot approve to the current owner.
 
-
-
-
 ### ApproveToCaller
 
 ```solidity
@@ -369,9 +312,6 @@ error ApproveToCaller()
 ```
 
 The caller cannot approve to their own address.
-
-
-
 
 ### BalanceQueryForZeroAddress
 
@@ -381,9 +321,6 @@ error BalanceQueryForZeroAddress()
 
 Cannot query the balance for the zero address.
 
-
-
-
 ### MintToZeroAddress
 
 ```solidity
@@ -391,9 +328,6 @@ error MintToZeroAddress()
 ```
 
 Cannot mint to the zero address.
-
-
-
 
 ### MintZeroQuantity
 
@@ -403,9 +337,6 @@ error MintZeroQuantity()
 
 The quantity of tokens minted must be more than zero.
 
-
-
-
 ### OwnerQueryForNonexistentToken
 
 ```solidity
@@ -413,9 +344,6 @@ error OwnerQueryForNonexistentToken()
 ```
 
 The token does not exist.
-
-
-
 
 ### TransferCallerNotOwnerNorApproved
 
@@ -425,9 +353,6 @@ error TransferCallerNotOwnerNorApproved()
 
 The caller must own the token or be an approved operator.
 
-
-
-
 ### TransferFromIncorrectOwner
 
 ```solidity
@@ -435,9 +360,6 @@ error TransferFromIncorrectOwner()
 ```
 
 The token must be owned by `from`.
-
-
-
 
 ### TransferToNonERC721ReceiverImplementer
 
@@ -447,9 +369,6 @@ error TransferToNonERC721ReceiverImplementer()
 
 Cannot safely transfer to a contract that does not implement the ERC721Receiver interface.
 
-
-
-
 ### TransferToZeroAddress
 
 ```solidity
@@ -458,9 +377,6 @@ error TransferToZeroAddress()
 
 Cannot transfer to the zero address.
 
-
-
-
 ### URIQueryForNonexistentToken
 
 ```solidity
@@ -468,7 +384,3 @@ error URIQueryForNonexistentToken()
 ```
 
 The token does not exist.
-
-
-
-

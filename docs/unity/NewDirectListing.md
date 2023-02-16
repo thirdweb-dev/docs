@@ -12,7 +12,7 @@ class NewDirectListing
   : public Thirdweb.NewListing
 ```
 
-### Summary
+# Summary
 
 | Members          | Type     | Descriptions |
 | ---------------- | -------- | ------------ |

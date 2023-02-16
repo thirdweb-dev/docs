@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # class `NewListing` {#class_thirdweb_1_1_new_listing}
 
-### Summary
+# Summary
 
 | Members                  | Type     | Descriptions |
 | ------------------------ | -------- | ------------ |

@@ -13,7 +13,7 @@ You can access this interface from the edition contract under the signature inte
 type ERC1155SignatureMinting struct {}
 ```
 
-### func \(\*ERC1155SignatureMinting\) [Generate](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_signature_minting.go#L177>)
+### func \(\*ERC1155SignatureMinting\) [Generate](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_signature_minting.go#L177)
 
 ```go
 func (signature *ERC1155SignatureMinting) Generate(ctx context.Context, payloadToSign *Signature1155PayloadInput) (*SignedPayload1155, error)
@@ -46,7 +46,7 @@ payload := &thirdweb.Signature721PayloadInput{
 signedPayload, err := contract.Signature.Generate(context.Background(), payload)
 ```
 
-### func \(\*ERC1155SignatureMinting\) [GenerateBatch](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_signature_minting.go#L272>)
+### func \(\*ERC1155SignatureMinting\) [GenerateBatch](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_signature_minting.go#L272)
 
 ```go
 func (signature *ERC1155SignatureMinting) GenerateBatch(ctx context.Context, payloadsToSign []*Signature1155PayloadInput) ([]*SignedPayload1155, error)
@@ -95,7 +95,7 @@ payload := []*thirdweb.Signature1155PayloadInput{
 signedPayload, err := contract.Signature.GenerateBatch(context.Background(), payload)
 ```
 
-### func \(\*ERC1155SignatureMinting\) [GenerateBatchFromTokenIds](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_signature_minting.go#L339>)
+### func \(\*ERC1155SignatureMinting\) [GenerateBatchFromTokenIds](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_signature_minting.go#L339)
 
 ```go
 func (signature *ERC1155SignatureMinting) GenerateBatchFromTokenIds(ctx context.Context, payloadsToSign []*Signature1155PayloadInputWithTokenId) ([]*SignedPayload1155, error)
@@ -144,7 +144,7 @@ payload := []*thirdweb.Signature1155PayloadInputWithTokenId{
 signedPayload, err := contract.Signature.GenerateBatchFromTokenIds(context.Background(), payload)
 ```
 
-### func \(\*ERC1155SignatureMinting\) [GenerateFromTokenId](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_signature_minting.go#L223>)
+### func \(\*ERC1155SignatureMinting\) [GenerateFromTokenId](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_signature_minting.go#L223)
 
 ```go
 func (signature *ERC1155SignatureMinting) GenerateFromTokenId(ctx context.Context, payloadToSign *Signature1155PayloadInputWithTokenId) (*SignedPayload1155, error)
@@ -176,7 +176,7 @@ payload := &thirdweb.Signature1155PayloadInputWithTokenId{
 	signedPayload, err := contract.Signature.GenerateFromTokenId(context.Background(), payload)
 ```
 
-### func \(\*ERC1155SignatureMinting\) [Mint](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_signature_minting.go#L52>)
+### func \(\*ERC1155SignatureMinting\) [Mint](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_signature_minting.go#L52)
 
 ```go
 func (signature *ERC1155SignatureMinting) Mint(ctx context.Context, signedPayload *SignedPayload1155) (*types.Transaction, error)
@@ -196,7 +196,7 @@ signedPayload, err := contract.Signature.Generate(payload)
 tx, err := contract.Signature.Mint(signedPayload)
 ```
 
-### func \(\*ERC1155SignatureMinting\) [MintBatch](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_signature_minting.go#L88>)
+### func \(\*ERC1155SignatureMinting\) [MintBatch](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_signature_minting.go#L88)
 
 ```go
 func (signature *ERC1155SignatureMinting) MintBatch(ctx context.Context, signedPayloads []*SignedPayload1155) (*types.Transaction, error)
@@ -216,7 +216,7 @@ signedPayloads, err := contract.Signature.GenerateBatch(payloads)
 tx, err := contract.Signature.MintBatch(signedPayloads)
 ```
 
-### func \(\*ERC1155SignatureMinting\) [Verify](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_signature_minting.go#L140>)
+### func \(\*ERC1155SignatureMinting\) [Verify](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/erc1155_signature_minting.go#L140)
 
 ```go
 func (signature *ERC1155SignatureMinting) Verify(ctx context.Context, signedPayload *SignedPayload1155) (bool, error)

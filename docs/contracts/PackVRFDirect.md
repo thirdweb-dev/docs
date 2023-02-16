@@ -4,15 +4,10 @@ title: PackVRFDirect
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # PackVRFDirect
 
-
-
-
-
 NOTE: This contract is a work in progress.
-
-
 
 ## Methods
 
@@ -22,16 +17,11 @@ NOTE: This contract is a work in progress.
 function DEFAULT_ADMIN_ROLE() external view returns (bytes32)
 ```
 
-
-
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
 ### balanceOf
 
@@ -39,22 +29,20 @@ function DEFAULT_ADMIN_ROLE() external view returns (bytes32)
 function balanceOf(address account, uint256 id) external view returns (uint256)
 ```
 
-
-
-*See {IERC1155-balanceOf}. Requirements: - `account` cannot be the zero address.*
+_See {IERC1155-balanceOf}. Requirements: - `account` cannot be the zero address._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account | address | undefined |
-| id | uint256 | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| account | address | undefined   |
+| id      | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### balanceOfBatch
 
@@ -62,22 +50,20 @@ function balanceOf(address account, uint256 id) external view returns (uint256)
 function balanceOfBatch(address[] accounts, uint256[] ids) external view returns (uint256[])
 ```
 
-
-
-*See {IERC1155-balanceOfBatch}. Requirements: - `accounts` and `ids` must have the same length.*
+_See {IERC1155-balanceOfBatch}. Requirements: - `accounts` and `ids` must have the same length._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| accounts | address[] | undefined |
-| ids | uint256[] | undefined |
+| Name     | Type      | Description |
+| -------- | --------- | ----------- |
+| accounts | address[] | undefined   |
+| ids      | uint256[] | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256[] | undefined |
+| Name | Type      | Description |
+| ---- | --------- | ----------- |
+| \_0  | uint256[] | undefined   |
 
 ### canClaimRewards
 
@@ -87,19 +73,17 @@ function canClaimRewards(address _opener) external view returns (bool)
 
 Returns whether a pack opener is ready to call `claimRewards`.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _opener | address | undefined |
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| \_opener | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### claimRewards
 
@@ -109,14 +93,11 @@ function claimRewards() external nonpayable returns (struct ITokenBundle.Token[]
 
 Lets a pack owner open packs and receive the packs&#39; reward units.
 
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | ITokenBundle.Token[] | undefined |
+| Name | Type                 | Description |
+| ---- | -------------------- | ----------- |
+| \_0  | ITokenBundle.Token[] | undefined   |
 
 ### contractType
 
@@ -124,16 +105,13 @@ Lets a pack owner open packs and receive the packs&#39; reward units.
 function contractType() external pure returns (bytes32)
 ```
 
-
-
-*Returns the type of the contract.*
-
+_Returns the type of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
 ### contractURI
 
@@ -143,14 +121,11 @@ function contractURI() external view returns (string)
 
 Returns the contract metadata URI.
 
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### contractVersion
 
@@ -158,16 +133,13 @@ Returns the contract metadata URI.
 function contractVersion() external pure returns (uint8)
 ```
 
-
-
-*Returns the version of the contract.*
-
+_Returns the version of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint8 | undefined |
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| \_0  | uint8 | undefined   |
 
 ### createPack
 
@@ -175,27 +147,23 @@ function contractVersion() external pure returns (uint8)
 function createPack(ITokenBundle.Token[] _contents, uint256[] _numOfRewardUnits, string _packUri, uint128 _openStartTimestamp, uint128 _amountDistributedPerOpen, address _recipient) external payable returns (uint256 packId, uint256 packTotalSupply)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _contents | ITokenBundle.Token[] | undefined |
-| _numOfRewardUnits | uint256[] | undefined |
-| _packUri | string | undefined |
-| _openStartTimestamp | uint128 | undefined |
-| _amountDistributedPerOpen | uint128 | undefined |
-| _recipient | address | undefined |
+| Name                       | Type                 | Description |
+| -------------------------- | -------------------- | ----------- |
+| \_contents                 | ITokenBundle.Token[] | undefined   |
+| \_numOfRewardUnits         | uint256[]            | undefined   |
+| \_packUri                  | string               | undefined   |
+| \_openStartTimestamp       | uint128              | undefined   |
+| \_amountDistributedPerOpen | uint128              | undefined   |
+| \_recipient                | address              | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| packId | uint256 | undefined |
-| packTotalSupply | uint256 | undefined |
+| Name            | Type    | Description |
+| --------------- | ------- | ----------- |
+| packId          | uint256 | undefined   |
+| packTotalSupply | uint256 | undefined   |
 
 ### getDefaultRoyaltyInfo
 
@@ -205,15 +173,12 @@ function getDefaultRoyaltyInfo() external view returns (address, uint16)
 
 Returns the defualt royalty recipient and BPS for this contract&#39;s NFTs.
 
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
-| _1 | uint16 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | uint16  | undefined   |
 
 ### getPackContents
 
@@ -221,22 +186,20 @@ Returns the defualt royalty recipient and BPS for this contract&#39;s NFTs.
 function getPackContents(uint256 _packId) external view returns (struct ITokenBundle.Token[] contents, uint256[] perUnitAmounts)
 ```
 
-
-
-*Returns the underlying contents of a pack.*
+_Returns the underlying contents of a pack._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _packId | uint256 | undefined |
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| \_packId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| contents | ITokenBundle.Token[] | undefined |
-| perUnitAmounts | uint256[] | undefined |
+| Name           | Type                 | Description |
+| -------------- | -------------------- | ----------- |
+| contents       | ITokenBundle.Token[] | undefined   |
+| perUnitAmounts | uint256[]            | undefined   |
 
 ### getRoleAdmin
 
@@ -246,19 +209,19 @@ function getRoleAdmin(bytes32 role) external view returns (bytes32)
 
 Returns the admin role that controls the specified role.
 
-*See {grantRole} and {revokeRole}.                  To change a role&#39;s admin, use {_setRoleAdmin}.*
+_See {grantRole} and {revokeRole}. To change a role&#39;s admin, use {\_setRoleAdmin}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
+| Name | Type    | Description                                                           |
+| ---- | ------- | --------------------------------------------------------------------- |
 | role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes32 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | bytes32 | undefined   |
 
 ### getRoyaltyInfoForToken
 
@@ -268,20 +231,20 @@ function getRoyaltyInfoForToken(uint256 _tokenId) external view returns (address
 
 View royalty info for a given token.
 
-*Returns royalty recipient and bps for `_tokenId`.*
+_Returns royalty recipient and bps for `_tokenId`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _tokenId | uint256 | The tokenID of the NFT for which to query royalty info. |
+| Name      | Type    | Description                                             |
+| --------- | ------- | ------------------------------------------------------- |
+| \_tokenId | uint256 | The tokenID of the NFT for which to query royalty info. |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
-| _1 | uint16 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | uint16  | undefined   |
 
 ### getTokenCountOfBundle
 
@@ -289,21 +252,19 @@ View royalty info for a given token.
 function getTokenCountOfBundle(uint256 _bundleId) external view returns (uint256)
 ```
 
-
-
-*Returns the total number of assets in a particular bundle.*
+_Returns the total number of assets in a particular bundle._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _bundleId | uint256 | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_bundleId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### getTokenOfBundle
 
@@ -311,22 +272,20 @@ function getTokenCountOfBundle(uint256 _bundleId) external view returns (uint256
 function getTokenOfBundle(uint256 _bundleId, uint256 index) external view returns (struct ITokenBundle.Token)
 ```
 
-
-
-*Returns an asset contained in a particular bundle, at a particular index.*
+_Returns an asset contained in a particular bundle, at a particular index._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _bundleId | uint256 | undefined |
-| index | uint256 | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_bundleId | uint256 | undefined   |
+| index      | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | ITokenBundle.Token | undefined |
+| Name | Type               | Description |
+| ---- | ------------------ | ----------- |
+| \_0  | ITokenBundle.Token | undefined   |
 
 ### getUriOfBundle
 
@@ -334,21 +293,19 @@ function getTokenOfBundle(uint256 _bundleId, uint256 index) external view return
 function getUriOfBundle(uint256 _bundleId) external view returns (string)
 ```
 
-
-
-*Returns the uri of a particular bundle.*
+_Returns the uri of a particular bundle._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _bundleId | uint256 | undefined |
+| Name       | Type    | Description |
+| ---------- | ------- | ----------- |
+| \_bundleId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### grantRole
 
@@ -358,14 +315,14 @@ function grantRole(bytes32 role, address account) external nonpayable
 
 Grants a role to an account, if not previously granted.
 
-*Caller must have admin role for the `role`.                  Emits {RoleGranted Event}.*
+_Caller must have admin role for the `role`. Emits {RoleGranted Event}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
-| account | address | Address of the account to which the role is being granted. |
+| Name    | Type    | Description                                                           |
+| ------- | ------- | --------------------------------------------------------------------- |
+| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account to which the role is being granted.            |
 
 ### hasRole
 
@@ -375,20 +332,20 @@ function hasRole(bytes32 role, address account) external view returns (bool)
 
 Checks whether an account has a particular role.
 
-*Returns `true` if `account` has been granted `role`.*
+_Returns `true` if `account` has been granted `role`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
-| account | address | Address of the account for which the role is being checked. |
+| Name    | Type    | Description                                                           |
+| ------- | ------- | --------------------------------------------------------------------- |
+| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account for which the role is being checked.           |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### hasRoleWithSwitch
 
@@ -396,22 +353,22 @@ Checks whether an account has a particular role.
 function hasRoleWithSwitch(bytes32 role, address account) external view returns (bool)
 ```
 
-Checks whether an account has a particular role;                  role restrictions can be swtiched on and off.
+Checks whether an account has a particular role; role restrictions can be swtiched on and off.
 
-*Returns `true` if `account` has been granted `role`.                  Role restrictions can be swtiched on and off:                      - If address(0) has ROLE, then the ROLE restrictions                        don&#39;t apply.                      - If address(0) does not have ROLE, then the ROLE                        restrictions will apply.*
+_Returns `true` if `account` has been granted `role`. Role restrictions can be swtiched on and off: - If address(0) has ROLE, then the ROLE restrictions don&#39;t apply. - If address(0) does not have ROLE, then the ROLE restrictions will apply._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
-| account | address | Address of the account for which the role is being checked. |
+| Name    | Type    | Description                                                           |
+| ------- | ------- | --------------------------------------------------------------------- |
+| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account for which the role is being checked.           |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### initialize
 
@@ -419,21 +376,19 @@ Checks whether an account has a particular role;                  role restricti
 function initialize(address _defaultAdmin, string _name, string _symbol, string _contractURI, address[] _trustedForwarders, address _royaltyRecipient, uint256 _royaltyBps) external nonpayable
 ```
 
-
-
-*Initiliazes the contract, like a constructor.*
+_Initiliazes the contract, like a constructor._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _defaultAdmin | address | undefined |
-| _name | string | undefined |
-| _symbol | string | undefined |
-| _contractURI | string | undefined |
-| _trustedForwarders | address[] | undefined |
-| _royaltyRecipient | address | undefined |
-| _royaltyBps | uint256 | undefined |
+| Name                | Type      | Description |
+| ------------------- | --------- | ----------- |
+| \_defaultAdmin      | address   | undefined   |
+| \_name              | string    | undefined   |
+| \_symbol            | string    | undefined   |
+| \_contractURI       | string    | undefined   |
+| \_trustedForwarders | address[] | undefined   |
+| \_royaltyRecipient  | address   | undefined   |
+| \_royaltyBps        | uint256   | undefined   |
 
 ### isApprovedForAll
 
@@ -441,22 +396,20 @@ function initialize(address _defaultAdmin, string _name, string _symbol, string 
 function isApprovedForAll(address account, address operator) external view returns (bool)
 ```
 
-
-
-*See {IERC1155-isApprovedForAll}.*
+_See {IERC1155-isApprovedForAll}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account | address | undefined |
-| operator | address | undefined |
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| account  | address | undefined   |
+| operator | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### isTrustedForwarder
 
@@ -464,21 +417,17 @@ function isApprovedForAll(address account, address operator) external view retur
 function isTrustedForwarder(address forwarder) external view returns (bool)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| forwarder | address | undefined |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| forwarder | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### multicall
 
@@ -486,21 +435,19 @@ function isTrustedForwarder(address forwarder) external view returns (bool)
 function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 ```
 
-
-
-*Receives and executes a batch of function calls on this contract.*
+_Receives and executes a batch of function calls on this contract._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| data | bytes[] | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| data | bytes[] | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| results | bytes[] | undefined |
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| results | bytes[] | undefined   |
 
 ### name
 
@@ -508,16 +455,11 @@ function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 function name() external view returns (string)
 ```
 
-
-
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### nextTokenIdToMint
 
@@ -525,16 +467,13 @@ function name() external view returns (string)
 function nextTokenIdToMint() external view returns (uint256)
 ```
 
-
-
-*The token Id of the next set of packs to be minted.*
-
+_The token Id of the next set of packs to be minted._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### onERC1155BatchReceived
 
@@ -542,25 +481,21 @@ function nextTokenIdToMint() external view returns (uint256)
 function onERC1155BatchReceived(address, address, uint256[], uint256[], bytes) external nonpayable returns (bytes4)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
-| _1 | address | undefined |
-| _2 | uint256[] | undefined |
-| _3 | uint256[] | undefined |
-| _4 | bytes | undefined |
+| Name | Type      | Description |
+| ---- | --------- | ----------- |
+| \_0  | address   | undefined   |
+| \_1  | address   | undefined   |
+| \_2  | uint256[] | undefined   |
+| \_3  | uint256[] | undefined   |
+| \_4  | bytes     | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes4 | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | bytes4 | undefined   |
 
 ### onERC1155Received
 
@@ -568,25 +503,21 @@ function onERC1155BatchReceived(address, address, uint256[], uint256[], bytes) e
 function onERC1155Received(address, address, uint256, uint256, bytes) external nonpayable returns (bytes4)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
-| _1 | address | undefined |
-| _2 | uint256 | undefined |
-| _3 | uint256 | undefined |
-| _4 | bytes | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | address | undefined   |
+| \_2  | uint256 | undefined   |
+| \_3  | uint256 | undefined   |
+| \_4  | bytes   | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes4 | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | bytes4 | undefined   |
 
 ### onERC721Received
 
@@ -594,24 +525,22 @@ function onERC1155Received(address, address, uint256, uint256, bytes) external n
 function onERC721Received(address, address, uint256, bytes) external nonpayable returns (bytes4)
 ```
 
-
-
-*See {IERC721Receiver-onERC721Received}. Always returns `IERC721Receiver.onERC721Received.selector`.*
+_See {IERC721Receiver-onERC721Received}. Always returns `IERC721Receiver.onERC721Received.selector`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
-| _1 | address | undefined |
-| _2 | uint256 | undefined |
-| _3 | bytes | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
+| \_1  | address | undefined   |
+| \_2  | uint256 | undefined   |
+| \_3  | bytes   | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes4 | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | bytes4 | undefined   |
 
 ### openPack
 
@@ -621,20 +550,18 @@ function openPack(uint256 _packId, uint256 _amountToOpen) external nonpayable re
 
 Lets a pack owner open packs and receive the packs&#39; reward units.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _packId | uint256 | undefined |
-| _amountToOpen | uint256 | undefined |
+| Name           | Type    | Description |
+| -------------- | ------- | ----------- |
+| \_packId       | uint256 | undefined   |
+| \_amountToOpen | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### openPackAndClaimRewards
 
@@ -644,21 +571,19 @@ function openPackAndClaimRewards(uint256 _packId, uint256 _amountToOpen, uint32 
 
 Called by a pack opener to open a pack in a single transaction, instead of calling openPack and claimRewards separately.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _packId | uint256 | undefined |
-| _amountToOpen | uint256 | undefined |
-| _callBackGasLimit | uint32 | undefined |
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| \_packId           | uint256 | undefined   |
+| \_amountToOpen     | uint256 | undefined   |
+| \_callBackGasLimit | uint32  | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### owner
 
@@ -668,14 +593,11 @@ function owner() external view returns (address)
 
 Returns the owner of the contract.
 
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### rawFulfillRandomWords
 
@@ -683,16 +605,12 @@ Returns the owner of the contract.
 function rawFulfillRandomWords(uint256 _requestId, uint256[] _randomWords) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _requestId | uint256 | undefined |
-| _randomWords | uint256[] | undefined |
+| Name          | Type      | Description |
+| ------------- | --------- | ----------- |
+| \_requestId   | uint256   | undefined   |
+| \_randomWords | uint256[] | undefined   |
 
 ### renounceRole
 
@@ -702,14 +620,14 @@ function renounceRole(bytes32 role, address account) external nonpayable
 
 Revokes role from the account.
 
-*Caller must have the `role`, with caller being the same as `account`.                  Emits {RoleRevoked Event}.*
+_Caller must have the `role`, with caller being the same as `account`. Emits {RoleRevoked Event}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
-| account | address | Address of the account from which the role is being revoked. |
+| Name    | Type    | Description                                                           |
+| ------- | ------- | --------------------------------------------------------------------- |
+| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account from which the role is being revoked.          |
 
 ### revokeRole
 
@@ -719,14 +637,14 @@ function revokeRole(bytes32 role, address account) external nonpayable
 
 Revokes role from an account.
 
-*Caller must have admin role for the `role`.                  Emits {RoleRevoked Event}.*
+_Caller must have admin role for the `role`. Emits {RoleRevoked Event}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
-| account | address | Address of the account from which the role is being revoked. |
+| Name    | Type    | Description                                                           |
+| ------- | ------- | --------------------------------------------------------------------- |
+| role    | bytes32 | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| account | address | Address of the account from which the role is being revoked.          |
 
 ### royaltyInfo
 
@@ -736,21 +654,21 @@ function royaltyInfo(uint256 tokenId, uint256 salePrice) external view returns (
 
 View royalty info for a given token and sale price.
 
-*Returns royalty amount and recipient for `tokenId` and `salePrice`.*
+_Returns royalty amount and recipient for `tokenId` and `salePrice`._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId | uint256 | The tokenID of the NFT for which to query royalty info. |
-| salePrice | uint256 | Sale price of the token. |
+| Name      | Type    | Description                                             |
+| --------- | ------- | ------------------------------------------------------- |
+| tokenId   | uint256 | The tokenID of the NFT for which to query royalty info. |
+| salePrice | uint256 | Sale price of the token.                                |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| receiver | address |        Address of royalty recipient account. |
-| royaltyAmount | uint256 |   Royalty amount calculated at current royaltyBps value. |
+| Name          | Type    | Description                                            |
+| ------------- | ------- | ------------------------------------------------------ |
+| receiver      | address | Address of royalty recipient account.                  |
+| royaltyAmount | uint256 | Royalty amount calculated at current royaltyBps value. |
 
 ### safeBatchTransferFrom
 
@@ -758,19 +676,17 @@ View royalty info for a given token and sale price.
 function safeBatchTransferFrom(address from, address to, uint256[] ids, uint256[] amounts, bytes data) external nonpayable
 ```
 
-
-
-*See {IERC1155-safeBatchTransferFrom}.*
+_See {IERC1155-safeBatchTransferFrom}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from | address | undefined |
-| to | address | undefined |
-| ids | uint256[] | undefined |
-| amounts | uint256[] | undefined |
-| data | bytes | undefined |
+| Name    | Type      | Description |
+| ------- | --------- | ----------- |
+| from    | address   | undefined   |
+| to      | address   | undefined   |
+| ids     | uint256[] | undefined   |
+| amounts | uint256[] | undefined   |
+| data    | bytes     | undefined   |
 
 ### safeTransferFrom
 
@@ -778,19 +694,17 @@ function safeBatchTransferFrom(address from, address to, uint256[] ids, uint256[
 function safeTransferFrom(address from, address to, uint256 id, uint256 amount, bytes data) external nonpayable
 ```
 
-
-
-*See {IERC1155-safeTransferFrom}.*
+_See {IERC1155-safeTransferFrom}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| from | address | undefined |
-| to | address | undefined |
-| id | uint256 | undefined |
-| amount | uint256 | undefined |
-| data | bytes | undefined |
+| Name   | Type    | Description |
+| ------ | ------- | ----------- |
+| from   | address | undefined   |
+| to     | address | undefined   |
+| id     | uint256 | undefined   |
+| amount | uint256 | undefined   |
+| data   | bytes   | undefined   |
 
 ### sendRewardsIndirect
 
@@ -800,13 +714,11 @@ function sendRewardsIndirect(address _opener) external nonpayable
 
 Lets a pack owner open packs and receive the packs&#39; reward units.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _opener | address | undefined |
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| \_opener | address | undefined   |
 
 ### setApprovalForAll
 
@@ -814,16 +726,14 @@ Lets a pack owner open packs and receive the packs&#39; reward units.
 function setApprovalForAll(address operator, bool approved) external nonpayable
 ```
 
-
-
-*See {IERC1155-setApprovalForAll}.*
+_See {IERC1155-setApprovalForAll}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| operator | address | undefined |
-| approved | bool | undefined |
+| Name     | Type    | Description |
+| -------- | ------- | ----------- |
+| operator | address | undefined   |
+| approved | bool    | undefined   |
 
 ### setContractURI
 
@@ -833,13 +743,13 @@ function setContractURI(string _uri) external nonpayable
 
 Lets a contract admin set the URI for contract-level metadata.
 
-*Caller should be authorized to setup contractURI, e.g. contract admin.                  See {_canSetContractURI}.                  Emits {ContractURIUpdated Event}.*
+_Caller should be authorized to setup contractURI, e.g. contract admin. See {\_canSetContractURI}. Emits {ContractURIUpdated Event}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
+| Name  | Type   | Description                                                           |
+| ----- | ------ | --------------------------------------------------------------------- |
+| \_uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
 ### setDefaultRoyaltyInfo
 
@@ -849,14 +759,14 @@ function setDefaultRoyaltyInfo(address _royaltyRecipient, uint256 _royaltyBps) e
 
 Updates default royalty recipient and bps.
 
-*Caller should be authorized to set royalty info.                  See {_canSetRoyaltyInfo}.                  Emits {DefaultRoyalty Event}; See {_setupDefaultRoyaltyInfo}.*
+_Caller should be authorized to set royalty info. See {\_canSetRoyaltyInfo}. Emits {DefaultRoyalty Event}; See {\_setupDefaultRoyaltyInfo}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _royaltyRecipient | address | Address to be set as default royalty recipient. |
-| _royaltyBps | uint256 | Updated royalty bps. |
+| Name               | Type    | Description                                     |
+| ------------------ | ------- | ----------------------------------------------- |
+| \_royaltyRecipient | address | Address to be set as default royalty recipient. |
+| \_royaltyBps       | uint256 | Updated royalty bps.                            |
 
 ### setOwner
 
@@ -866,13 +776,11 @@ function setOwner(address _newOwner) external nonpayable
 
 Lets an authorized wallet set a new owner for the contract.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _newOwner | address | The address to set as the new owner of the contract. |
+| Name       | Type    | Description                                          |
+| ---------- | ------- | ---------------------------------------------------- |
+| \_newOwner | address | The address to set as the new owner of the contract. |
 
 ### setRoyaltyInfoForToken
 
@@ -882,15 +790,15 @@ function setRoyaltyInfoForToken(uint256 _tokenId, address _recipient, uint256 _b
 
 Updates default royalty recipient and bps for a particular token.
 
-*Sets royalty info for `_tokenId`. Caller should be authorized to set royalty info.                  See {_canSetRoyaltyInfo}.                  Emits {RoyaltyForToken Event}; See {_setupRoyaltyInfoForToken}.*
+_Sets royalty info for `_tokenId`. Caller should be authorized to set royalty info. See {\_canSetRoyaltyInfo}. Emits {RoyaltyForToken Event}; See {\_setupRoyaltyInfoForToken}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _tokenId | uint256 | undefined |
-| _recipient | address | Address to be set as royalty recipient for given token Id. |
-| _bps | uint256 | Updated royalty bps for the token Id. |
+| Name        | Type    | Description                                                |
+| ----------- | ------- | ---------------------------------------------------------- |
+| \_tokenId   | uint256 | undefined                                                  |
+| \_recipient | address | Address to be set as royalty recipient for given token Id. |
+| \_bps       | uint256 | Updated royalty bps for the token Id.                      |
 
 ### supportsInterface
 
@@ -898,21 +806,19 @@ Updates default royalty recipient and bps for a particular token.
 function supportsInterface(bytes4 interfaceId) external view returns (bool)
 ```
 
-
-
-*See ERC 165*
+_See ERC 165_
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| interfaceId | bytes4 | undefined |
+| Name        | Type   | Description |
+| ----------- | ------ | ----------- |
+| interfaceId | bytes4 | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### symbol
 
@@ -920,16 +826,11 @@ function supportsInterface(bytes4 interfaceId) external view returns (bool)
 function symbol() external view returns (string)
 ```
 
-
-
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### totalSupply
 
@@ -937,21 +838,19 @@ function symbol() external view returns (string)
 function totalSupply(uint256) external view returns (uint256)
 ```
 
-
-
-*Mapping from token ID =&gt; total circulating supply of token with that ID.*
+_Mapping from token ID =&gt; total circulating supply of token with that ID._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### uri
 
@@ -959,23 +858,19 @@ function totalSupply(uint256) external view returns (uint256)
 function uri(uint256 _tokenId) external view returns (string)
 ```
 
-
-
-*Returns the URI for a given tokenId.*
+_Returns the URI for a given tokenId._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _tokenId | uint256 | undefined |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| \_tokenId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined |
-
-
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ## Events
 
@@ -985,17 +880,13 @@ function uri(uint256 _tokenId) external view returns (string)
 event ApprovalForAll(address indexed account, address indexed operator, bool approved)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| account `indexed` | address | undefined |
-| operator `indexed` | address | undefined |
-| approved  | bool | undefined |
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| account `indexed`  | address | undefined   |
+| operator `indexed` | address | undefined   |
+| approved           | bool    | undefined   |
 
 ### ContractURIUpdated
 
@@ -1003,16 +894,12 @@ event ApprovalForAll(address indexed account, address indexed operator, bool app
 event ContractURIUpdated(string prevURI, string newURI)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| prevURI  | string | undefined |
-| newURI  | string | undefined |
+| Name    | Type   | Description |
+| ------- | ------ | ----------- |
+| prevURI | string | undefined   |
+| newURI  | string | undefined   |
 
 ### DefaultRoyalty
 
@@ -1020,16 +907,12 @@ event ContractURIUpdated(string prevURI, string newURI)
 event DefaultRoyalty(address indexed newRoyaltyRecipient, uint256 newRoyaltyBps)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| newRoyaltyRecipient `indexed` | address | undefined |
-| newRoyaltyBps  | uint256 | undefined |
+| Name                          | Type    | Description |
+| ----------------------------- | ------- | ----------- |
+| newRoyaltyRecipient `indexed` | address | undefined   |
+| newRoyaltyBps                 | uint256 | undefined   |
 
 ### Initialized
 
@@ -1037,15 +920,11 @@ event DefaultRoyalty(address indexed newRoyaltyRecipient, uint256 newRoyaltyBps)
 event Initialized(uint8 version)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| version  | uint8 | undefined |
+| Name    | Type  | Description |
+| ------- | ----- | ----------- |
+| version | uint8 | undefined   |
 
 ### OwnerUpdated
 
@@ -1053,16 +932,12 @@ event Initialized(uint8 version)
 event OwnerUpdated(address indexed prevOwner, address indexed newOwner)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| prevOwner `indexed` | address | undefined |
-| newOwner `indexed` | address | undefined |
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| prevOwner `indexed` | address | undefined   |
+| newOwner `indexed`  | address | undefined   |
 
 ### PackCreated
 
@@ -1072,15 +947,13 @@ event PackCreated(uint256 indexed packId, address recipient, uint256 totalPacksC
 
 Emitted when a set of packs is created.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| packId `indexed` | uint256 | undefined |
-| recipient  | address | undefined |
-| totalPacksCreated  | uint256 | undefined |
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| packId `indexed`  | uint256 | undefined   |
+| recipient         | address | undefined   |
+| totalPacksCreated | uint256 | undefined   |
 
 ### PackOpenRequested
 
@@ -1090,16 +963,14 @@ event PackOpenRequested(address indexed opener, uint256 indexed packId, uint256 
 
 Emitted when the opening of a pack is requested.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| opener `indexed` | address | undefined |
-| packId `indexed` | uint256 | undefined |
-| amountToOpen  | uint256 | undefined |
-| requestId  | uint256 | undefined |
+| Name             | Type    | Description |
+| ---------------- | ------- | ----------- |
+| opener `indexed` | address | undefined   |
+| packId `indexed` | uint256 | undefined   |
+| amountToOpen     | uint256 | undefined   |
+| requestId        | uint256 | undefined   |
 
 ### PackOpened
 
@@ -1109,16 +980,14 @@ event PackOpened(uint256 indexed packId, address indexed opener, uint256 numOfPa
 
 Emitted when a pack is opened.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| packId `indexed` | uint256 | undefined |
-| opener `indexed` | address | undefined |
-| numOfPacksOpened  | uint256 | undefined |
-| rewardUnitsDistributed  | ITokenBundle.Token[] | undefined |
+| Name                   | Type                 | Description |
+| ---------------------- | -------------------- | ----------- |
+| packId `indexed`       | uint256              | undefined   |
+| opener `indexed`       | address              | undefined   |
+| numOfPacksOpened       | uint256              | undefined   |
+| rewardUnitsDistributed | ITokenBundle.Token[] | undefined   |
 
 ### PackRandomnessFulfilled
 
@@ -1128,14 +997,12 @@ event PackRandomnessFulfilled(uint256 indexed packId, uint256 indexed requestId)
 
 Emitted when Chainlink VRF fulfills a random number request.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| packId `indexed` | uint256 | undefined |
-| requestId `indexed` | uint256 | undefined |
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| packId `indexed`    | uint256 | undefined   |
+| requestId `indexed` | uint256 | undefined   |
 
 ### RoleAdminChanged
 
@@ -1143,17 +1010,13 @@ Emitted when Chainlink VRF fulfills a random number request.
 event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, bytes32 indexed newAdminRole)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role `indexed` | bytes32 | undefined |
-| previousAdminRole `indexed` | bytes32 | undefined |
-| newAdminRole `indexed` | bytes32 | undefined |
+| Name                        | Type    | Description |
+| --------------------------- | ------- | ----------- |
+| role `indexed`              | bytes32 | undefined   |
+| previousAdminRole `indexed` | bytes32 | undefined   |
+| newAdminRole `indexed`      | bytes32 | undefined   |
 
 ### RoleGranted
 
@@ -1161,17 +1024,13 @@ event RoleAdminChanged(bytes32 indexed role, bytes32 indexed previousAdminRole, 
 event RoleGranted(bytes32 indexed role, address indexed account, address indexed sender)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role `indexed` | bytes32 | undefined |
-| account `indexed` | address | undefined |
-| sender `indexed` | address | undefined |
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| role `indexed`    | bytes32 | undefined   |
+| account `indexed` | address | undefined   |
+| sender `indexed`  | address | undefined   |
 
 ### RoleRevoked
 
@@ -1179,17 +1038,13 @@ event RoleGranted(bytes32 indexed role, address indexed account, address indexed
 event RoleRevoked(bytes32 indexed role, address indexed account, address indexed sender)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| role `indexed` | bytes32 | undefined |
-| account `indexed` | address | undefined |
-| sender `indexed` | address | undefined |
+| Name              | Type    | Description |
+| ----------------- | ------- | ----------- |
+| role `indexed`    | bytes32 | undefined   |
+| account `indexed` | address | undefined   |
+| sender `indexed`  | address | undefined   |
 
 ### RoyaltyForToken
 
@@ -1197,17 +1052,13 @@ event RoleRevoked(bytes32 indexed role, address indexed account, address indexed
 event RoyaltyForToken(uint256 indexed tokenId, address indexed royaltyRecipient, uint256 royaltyBps)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| tokenId `indexed` | uint256 | undefined |
-| royaltyRecipient `indexed` | address | undefined |
-| royaltyBps  | uint256 | undefined |
+| Name                       | Type    | Description |
+| -------------------------- | ------- | ----------- |
+| tokenId `indexed`          | uint256 | undefined   |
+| royaltyRecipient `indexed` | address | undefined   |
+| royaltyBps                 | uint256 | undefined   |
 
 ### TransferBatch
 
@@ -1215,19 +1066,15 @@ event RoyaltyForToken(uint256 indexed tokenId, address indexed royaltyRecipient,
 event TransferBatch(address indexed operator, address indexed from, address indexed to, uint256[] ids, uint256[] values)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| operator `indexed` | address | undefined |
-| from `indexed` | address | undefined |
-| to `indexed` | address | undefined |
-| ids  | uint256[] | undefined |
-| values  | uint256[] | undefined |
+| Name               | Type      | Description |
+| ------------------ | --------- | ----------- |
+| operator `indexed` | address   | undefined   |
+| from `indexed`     | address   | undefined   |
+| to `indexed`       | address   | undefined   |
+| ids                | uint256[] | undefined   |
+| values             | uint256[] | undefined   |
 
 ### TransferSingle
 
@@ -1235,19 +1082,15 @@ event TransferBatch(address indexed operator, address indexed from, address inde
 event TransferSingle(address indexed operator, address indexed from, address indexed to, uint256 id, uint256 value)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| operator `indexed` | address | undefined |
-| from `indexed` | address | undefined |
-| to `indexed` | address | undefined |
-| id  | uint256 | undefined |
-| value  | uint256 | undefined |
+| Name               | Type    | Description |
+| ------------------ | ------- | ----------- |
+| operator `indexed` | address | undefined   |
+| from `indexed`     | address | undefined   |
+| to `indexed`       | address | undefined   |
+| id                 | uint256 | undefined   |
+| value              | uint256 | undefined   |
 
 ### URI
 
@@ -1255,15 +1098,9 @@ event TransferSingle(address indexed operator, address indexed from, address ind
 event URI(string value, uint256 indexed id)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| value  | string | undefined |
-| id `indexed` | uint256 | undefined |
-
-
+| Name         | Type    | Description |
+| ------------ | ------- | ----------- |
+| value        | string  | undefined   |
+| id `indexed` | uint256 | undefined   |
