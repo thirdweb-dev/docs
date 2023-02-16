@@ -100,7 +100,7 @@ Inside the [\_app.jsx](./page/_app.jsx) file, we configured the redirect users t
 function MyApp({ Component, pageProps }) {
   return (
     <ThirdwebProvider
-      desiredChainId={activeChainId}
+      activeChain="ethereum"
       authConfig={{
         domain: "example.com",
         authUrl: "/api/auth",
@@ -123,7 +123,7 @@ and the `getServersideProps` logic runs again; checking to see if they have an N
 function MyApp({ Component, pageProps }) {
   return (
     <ThirdwebProvider
-      desiredChainId={activeChainId}
+      activeChain="ethereum"
       authConfig={{
         domain: "example.com",
         authUrl: "/api/auth",

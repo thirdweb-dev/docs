@@ -7,8 +7,8 @@ export default function ThirdwebCodeSnippet() {
   const installationSnippets = {
     javascript: `import { ThirdwebSDK } from "@thirdweb-dev/sdk";
 
-// Create a READ-ONLY instance of the ThirdwebSDK on the Mumbai network
-const sdk = new ThirdwebSDK("mumbai"); // configure this to your network
+// Create a READ-ONLY instance of the ThirdwebSDK on the Polygon network
+const sdk = new ThirdwebSDK("polygon"); // configure this to your network
 `,
 
     python: `from thirdweb import ThirdwebSDK

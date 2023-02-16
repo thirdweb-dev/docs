@@ -16,13 +16,13 @@ npm install @thirdweb-dev/react @thirdweb-dev/sdk @thirdweb-dev/auth ethers@5
 Now we'll need to wrap our app with the `ThirdwebProvider` which stores the necessary context for Auth, and we'll provide some configuration with the `authConfig` option so that our frontend knows how to communicate with our Auth API.
 
 ```tsx title="_app.tsx"
-import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export default function MyApp({ Component, pageProps }) {
   return (
     <ThirdwebProvider
       // Required configuration for the provider, but doesn't affect Auth.
-      desiredChainId={ChainId.Mainnet}
+      activeChain="ethereum"
       authConfig={{
         // Set this to your domain to prevent phishing attacks
         domain: "example.com",
