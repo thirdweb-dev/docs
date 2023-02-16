@@ -18,13 +18,13 @@ There are a few major breaking changes from the Auth v2 to v3 upgrade. In the fo
 In order to upgrade, we can first remove the `loginRedirect` property from the `authConfig` on our `ThirdwebProvider` component at the top level of your app, as Auth no longer utilizes redirects on login or logout (in fact, Auth will never redirect your users now):
 
 ```tsx title="_app.tsx"
-import { ThirdwebProvider, ChainId } from "@thirdweb-dev/react";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export default function MyApp({ Component, pageProps }) {
   return (
     <ThirdwebProvider
       // Required configuration for the provider, but doesn't affect Auth.
-      desiredChainId={ChainId.Mainnet}
+      activeChain="ethereum"
       authConfig={{
         domain: "example.com",
         authUrl: "/api/auth",
