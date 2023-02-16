@@ -43,18 +43,21 @@ Then wrap your application in the `ThirdwebProvider` to get started!
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 export const MyApp = () => {
-  return <ThirdwebProvider>{/* Your App Goes Here */}</ThirdwebProvider>;
+  return (
+    <ThirdwebProvider activeChain="ethereum">
+      <YourApp />
+    </ThirdwebProvider>
+  );
 };
 ```
 
 ### Configure Chain
 
 If you are using one of our <code>default chains</code>, provide the `activeChain` prop to the `ThirdwebProvider` component.
-
-The `activeChain` prop determines which chain you want your app to be operating on.
+This prop determines which chain you want your app to be operating on.
 
 <details>
-  <summary>View default chains</summary>
+  <summary>View all pre-defined chains</summary>
   <div>
     <ul>
       <li>
@@ -111,20 +114,22 @@ import { ThirdwebProvider } from "@thirdweb-dev/react";
 
 function App() {
   return (
-    <ThirdwebProvider activeChain="ethereum">
+    <ThirdwebProvider activeChain="polygon">
       <YourApp />
     </ThirdwebProvider>
   );
 }
 ```
 
-For non-default chains, import the chain from the `@thirdweb-dev/chains` package and pass it to the `activeChain` prop.
+For non-default chains, import one of the 700+ chains available in the
+[`@thirdweb-dev/chains`](https://github.com/thirdweb-dev/js/tree/main/packages/chains)
+package and pass it to the `activeChain` prop. You can install this package with:
 
-:::info Available Chains
-There are 700+ chains available in the [`@thirdweb-dev/chains`](https://github.com/thirdweb-dev/js/tree/main/packages/chains) package.
+```bash npm2yarn
+npm install @thirdweb-dev/chains
+```
 
-If your chain is not included, see [configuring custom chains](#custom-chains).
-:::
+Import the chain you want to use and pass it to the `activeChain` prop:
 
 ```jsx
 import { ThirdwebProvider } from "@thirdweb-dev/react";
@@ -189,7 +194,7 @@ If you are running a local node using a tool such as
 [Anvil](https://github.com/foundry-rs/foundry/blob/master/anvil/README.md), provide `"localhost"` as the `activeChain` prop,
 _(or `Localhost` imported from `@thirdweb-dev/chains`)_.
 
-You can then import your contracts into the [dashboard](/dashboard) to interact with them in your app.
+You can then deploy or import your contracts to the [dashboard](/dashboard) to interact with them in your app.
 
 :::tip Local Node templates
 

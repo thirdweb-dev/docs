@@ -33,6 +33,8 @@ There are two different kinds of SDK instances you can create:
 
 ### Read-only Connection
 
+Provide the name of the chain you want to connect to as a string.
+
 <InitializingThirdwebCodeTabs />
 
 ### From a Private key
@@ -62,3 +64,125 @@ You can use a signer such as one from an
 [Ethers Web3Provider](https://docs.ethers.io/v4/cookbook-providers.html) to instantiate the SDK.
 
 <FromSignerCodeTabs />
+
+## Configuring Chain
+
+If you are using one of our <code>default chains</code>, provide the name of the chain as a string.
+
+<details>
+  <summary>View all pre-defined chains</summary>
+  <div>
+    <ul>
+      <li>
+        <b>Ethereum</b>: <code>"ethereum"</code>
+      </li>
+      <li>
+        <b>Goerli</b>: <code>"goerli"</code>
+      </li>
+      <li>
+        <b>Polygon</b>: <code>"polygon"</code>
+      </li>
+      <li>
+        <b>Mumbai</b>: <code>"mumbai"</code>
+      </li>
+      <li>
+        <b>Arbitrum One</b>: <code>"arbitrum"</code>
+      </li>
+      <li>
+        <b>Arbitrum Goerli</b>: <code>"arbitrum-goerli"</code>
+      </li>
+      <li>
+        <b>Optimism</b>: <code>"optimism"</code>
+      </li>
+      <li>
+        <b>Optimism Goerli Testnet</b>: <code>"optimism-goerli"</code>
+      </li>
+      <li>
+        <b>Binance SmartChain</b>: <code>"binance"</code>
+      </li>
+      <li>
+        <b>Binance SmartChain Testnet</b>: <code>"binance-testnet"</code>
+      </li>
+      <li>
+        <b>Fantom Opera</b>: <code>"fantom"</code>
+      </li>
+      <li>
+        <b>Fantom Testnet</b>: <code>"fantom-testnet"</code>
+      </li>
+      <li>
+        <b>Avalanche C Chain</b>: <code>"avalanche-fuji"</code>
+      </li>
+      <li>
+        <b>Avalanche Fuji Testnet</b>: <code>"avalanche-fuji-testnet"</code>
+      </li>
+      <li>
+        <b>Localhost</b>: <code>"localhost"</code>
+      </li>
+    </ul>
+  </div>
+</details>
+
+For non-default chains, import one of the 700+ chains available in the
+[`@thirdweb-dev/chains`](https://github.com/thirdweb-dev/js/tree/main/packages/chains) package.
+
+You can install this package with:
+
+```bash npm2yarn
+npm install @thirdweb-dev/chains
+```
+
+Then, import the chain you want to use and pass it as the argument, rather than a string.
+
+```jsx
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+// highlight-next-line
+import { Gnosis } from "@thirdweb-dev/chains";
+
+const sdk = ThirdwebSDK.fromPrivateKey(
+  // Learn more about securely accessing your private key: https://portal.thirdweb.com/sdk/set-up-the-sdk/securing-your-private-key
+  "<your-private-key-here>",
+  // highlight-next-line
+  Gnosis,
+);
+```
+
+### Custom Chains
+
+If your chain is not included in the `@thirdweb-dev/chains` package,
+you can provide the chain information yourself as an object.
+
+```jsx
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+const sdk = ThirdwebSDK.fromPrivateKey(
+  // Learn more about securely accessing your private key: https://portal.thirdweb.com/sdk/set-up-the-sdk/securing-your-private-key
+  "<your-private-key-here>",
+  {
+    // === Required information for connecting to the network === \\
+    chainId: 59140, // Chain ID of the network
+    // Array of RPC URLs to use
+    rpc: ["<your-rpc-url-here>"],
+
+    // === Information for adding the network to your wallet (how it will appear for first time users) === \\
+    // Information about the chains native currency (i.e. the currency that is used to pay for gas)
+    nativeCurrency: {
+      decimals: 18,
+      name: "Consensys ETH",
+      symbol: "crETH",
+    },
+    shortName: "czkevm", // Display value shown in the wallet UI
+    slug: "consensys", // Display value shown in the wallet UI
+    testnet: true, // Boolean indicating whether the chain is a testnet or mainnet
+    chain: "ConsenSys", // Name of the network
+    name: "ConsenSys zkEVM Testnet", // Name of the network
+  },
+);
+```
+
+### Local Nodes
+
+If you are running a local node using a tool such as
+[Hardhat](https://hardhat.org/hardhat-network/docs/overview) or
+[Anvil](https://github.com/foundry-rs/foundry/blob/master/anvil/README.md), provide `"localhost"` as the name.
+
+You can then deploy or import your contracts to the [dashboard](/dashboard) to interact with them in your app.

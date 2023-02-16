@@ -6,10 +6,9 @@ import CodeBlock from "@theme/CodeBlock";
 export default function ThirdwebCodeSnippet() {
   const installationSnippets = {
     javascript: `import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { Polygon } from "@thirdweb-dev/chains";
 
 // Create a READ-ONLY instance of the ThirdwebSDK on the Polygon network
-const sdk = new ThirdwebSDK(Polygon); // configure this to your network
+const sdk = new ThirdwebSDK("polygon"); // configure this to your network
 `,
 
     python: `from thirdweb import ThirdwebSDK

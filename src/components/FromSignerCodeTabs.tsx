@@ -6,12 +6,14 @@ import CodeBlock from "@theme/CodeBlock";
 export default function FromSignerCodeTabs() {
   const installationSnippets = {
     javascript: `import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { Polygon } from "@thirdweb-dev/chains";
 
 // Instantiate the ThirdwebSDK using the signer
 // the signer variable comes from a signer you have previously created,
 // or from our React SDK's useSigner hook.
-const sdk = ThirdwebSDK.fromSigner(signer, Polygon);
+const sdk = ThirdwebSDK.fromSigner(
+  signer, 
+  "polygon", // configure this to your network
+);
 `,
 
     python: `from thirdweb import ThirdwebSDK

@@ -6,12 +6,11 @@ import CodeBlock from "@theme/CodeBlock";
 export default function FromPrivateKeyCodeTabs() {
   const installationSnippets = {
     javascript: `import { ThirdwebSDK } from "@thirdweb-dev/sdk";
-import { Polygon } from "@thirdweb-dev/chains";  // configure this to your network
 
 const sdk = ThirdwebSDK.fromPrivateKey(
   // Learn more about securely accessing your private key: https://portal.thirdweb.com/sdk/set-up-the-sdk/securing-your-private-key
   "<your-private-key-here>",
-  Polygon,
+  "polygon", // configure this to your network
 );
 `,
 
