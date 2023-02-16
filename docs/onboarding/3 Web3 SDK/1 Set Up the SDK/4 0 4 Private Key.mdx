@@ -39,9 +39,10 @@ Use the `accessSecretVersion` function from the guide to instantiate the SDK wit
 
 ```jsx
 import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { Polygon } from "@thirdweb-dev/chains"; // configure this to your network
 
 const sdk = ThirdwebSDK.fromPrivateKey(
   accessSecretVersion(), // Your wallet private key
-  "goerli", // configure this to your network
+  Polygon,
 );
 ```
