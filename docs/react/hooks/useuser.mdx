@@ -1,5 +1,6 @@
 ---
 title: useUser
+slug: /react/react.useuser
 displayed_sidebar: react
 ---
 
@@ -41,7 +42,7 @@ The `useUser` hook will return a `user` object which is of type `UserWithData`.
 ```ts
 export interface UserWithData<
   TData extends Json = Json,
-  TContext extends Json = Json
+  TContext extends Json = Json,
 > extends User<TContext> {
   data?: TData;
 }

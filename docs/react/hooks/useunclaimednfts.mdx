@@ -1,5 +1,6 @@
 ---
 title: useUnclaimedNFTs
+slug: /react/react.useunclaimednfts
 displayed_sidebar: react
 ---
 
@@ -25,11 +26,7 @@ const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const {
-    data: unclaimedNFTs,
-    isLoading,
-    error,
-  } = useUnclaimedNFTs(contract);
+  const { data: unclaimedNFTs, isLoading, error } = useUnclaimedNFTs(contract);
 
   if (error) {
     console.error("failed to fetch unclaimed nfts", error);

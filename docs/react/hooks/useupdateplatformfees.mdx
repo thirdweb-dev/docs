@@ -1,5 +1,6 @@
 ---
 title: useUpdatePlatformFees
+slug: /react/react.useupdateplatformfees
 displayed_sidebar: react
 ---
 
@@ -14,14 +15,22 @@ import { useUpdatePlatformFees } from "@thirdweb-dev/react";
 Provide your contract as the argument.
 
 ```jsx
-import { useUpdatePlatformFees, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useUpdatePlatformFees,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: updatePlatformFees, isLoading, error } = useUpdatePlatformFees(contract);
+  const {
+    mutateAsync: updatePlatformFees,
+    isLoading,
+    error,
+  } = useUpdatePlatformFees(contract);
 
   if (error) {
     console.error("failed to update platform fees", error);
@@ -77,7 +86,11 @@ function App() {
   const address = useAddress();
   // highlight-end
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: updatePlatformFees, isLoading, error } = useUpdatePlatformFees(contract);
+  const {
+    mutateAsync: updatePlatformFees,
+    isLoading,
+    error,
+  } = useUpdatePlatformFees(contract);
 
   if (error) {
     console.error("failed to update platform fees", error);

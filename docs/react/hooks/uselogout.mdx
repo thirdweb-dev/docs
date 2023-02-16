@@ -1,5 +1,6 @@
 ---
 title: useLogout
+slug: /react/react.uselogout
 displayed_sidebar: react
 ---
 
@@ -22,10 +23,7 @@ function App() {
   const { logout, isLoading } = useLogout();
 
   return (
-    <Web3Button
-      action={() => logout()}
-      disabled={isLoading}
-    >
+    <Web3Button action={() => logout()} disabled={isLoading}>
       Logout
     </Web3Button>
   );

@@ -1,5 +1,6 @@
 ---
 title: useUpdatePrimarySaleRecipient
+slug: /react/react.useupdateprimarysalerecipient
 displayed_sidebar: react
 ---
 
@@ -18,14 +19,22 @@ import { useUpdatePrimarySaleRecipient } from "@thirdweb-dev/react";
 Provide your contract as the argument.
 
 ```jsx
-import { useUpdatePrimarySaleRecipient, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useUpdatePrimarySaleRecipient,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: updatePrimarySaleRecipient, isLoading, error } = useUpdatePrimarySaleRecipient(contract);
+  const {
+    mutateAsync: updatePrimarySaleRecipient,
+    isLoading,
+    error,
+  } = useUpdatePrimarySaleRecipient(contract);
 
   if (error) {
     console.error("failed to update primary recipient", error);

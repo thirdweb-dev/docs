@@ -1,5 +1,6 @@
 ---
 title: useUpdateMetadata
+slug: /react/react.useupdatemetadata
 displayed_sidebar: react
 ---
 
@@ -21,14 +22,22 @@ import { useUpdateMetadata } from "@thirdweb-dev/react";
 Provide your NFT collection contract as the argument.
 
 ```jsx
-import { useUpdateMetadata, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useUpdateMetadata,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: updateMetadata, isLoading, error } = useUpdateMetadata(contract);
+  const {
+    mutateAsync: updateMetadata,
+    isLoading,
+    error,
+  } = useUpdateMetadata(contract);
 
   if (error) {
     console.error("failed to update metadata", error);

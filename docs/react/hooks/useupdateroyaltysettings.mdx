@@ -1,5 +1,6 @@
 ---
 title: useUpdateRoyaltySettings
+slug: /react/react.useupdateroyaltysettings
 displayed_sidebar: react
 ---
 
@@ -14,14 +15,22 @@ import { useUpdateRoyaltySettings } from "@thirdweb-dev/react";
 Provide your contract instance as the argument.
 
 ```jsx
-import { useUpdateRoyaltySettings, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useUpdateRoyaltySettings,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: updateRoyaltySettings, isLoading, error } = useUpdateRoyaltySettings(contract);
+  const {
+    mutateAsync: updateRoyaltySettings,
+    isLoading,
+    error,
+  } = useUpdateRoyaltySettings(contract);
 
   if (error) {
     console.error("failed to update royalty settings", error);
@@ -52,14 +61,22 @@ The `seller_fee_basis_points` property is a `number` between 0 - 10000 that defi
 This rate is the percentage of a sale that will be allocated to the fee recipient.
 
 ```jsx
-import { useUpdateRoyaltySettings, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useUpdateRoyaltySettings,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: updateRoyaltySettings, isLoading, error } = useUpdateRoyaltySettings(contract);
+  const {
+    mutateAsync: updateRoyaltySettings,
+    isLoading,
+    error,
+  } = useUpdateRoyaltySettings(contract);
 
   if (error) {
     console.error("failed to update royalty settings", error);
@@ -105,7 +122,11 @@ function App() {
   const address = useAddress();
   // highlight-end
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: updateRoyaltySettings, isLoading, error } = useUpdateRoyaltySettings(contract);
+  const {
+    mutateAsync: updateRoyaltySettings,
+    isLoading,
+    error,
+  } = useUpdateRoyaltySettings(contract);
 
   if (error) {
     console.error("failed to update royalty settings", error);

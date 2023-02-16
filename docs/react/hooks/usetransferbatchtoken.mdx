@@ -1,5 +1,6 @@
 ---
 title: useTransferBatchToken
+slug: /react/react.usetransferbatchtoken
 displayed_sidebar: react
 ---
 
@@ -14,14 +15,22 @@ import { useTransferBatchToken } from "@thirdweb-dev/react";
 Provide your token contract as the argument.
 
 ```jsx
-import { useTransferBatchToken, useContract, Web3Button } from "@thirdweb-dev/react";
+import {
+  useTransferBatchToken,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { mutateAsync: transferBatchToken, isLoading, error } = useTransferBatchToken(contract);
+  const {
+    mutateAsync: transferBatchToken,
+    isLoading,
+    error,
+  } = useTransferBatchToken(contract);
 
   if (error) {
     console.error("failed to transfer tokens", error);
