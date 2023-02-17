@@ -1,0 +1,121 @@
+---
+title: useSetClaimConditions
+slug: /react.usesetclaimconditions
+displayed_sidebar: react
+---
+
+Hook for setting claim conditions on a [DropContract](https://thirdweb.com/thirdweb.eth/DropContract).
+
+```jsx
+import { useSetClaimConditions } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your drop contract instance as the argument.
+
+Optionally, provide a token ID to set claim conditions on a specific token.
+
+```jsx
+import { useSetClaimConditions, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The ID of the token you want to set claim conditions on
+const tokenId = "{{token_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: setClaimConditions,
+    isLoading,
+    error,
+  } = useSetClaimConditions(contract, tokenId);
+
+  if (error) {
+    console.error("failed to set claim conditions", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        setClaimConditions({
+          conditions: [
+            {
+              conditionType: "owner",
+              address: "{{wallet_address}}",
+            },
+            {
+              conditionType: "min_value",
+              value: 100000000000000000,
+            },
+            {
+              conditionType: "max_value",
+              value: 100000000000000000,
+            },
+          ],
+        })
+      }
+    >
+      Set Claim Conditions
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+The `conditions` parameter is an array of objects, where each object is a claim condition.
+
+Each object should contain two properties:
+
+- `conditionType`: the type of condition. Can be `owner`, `min_value`, or `max_value`.
+- `address` or `value`: Depending on the type of condition, this value should be an address (for `owner` conditions) or a number (for `min_value` and `max_value` conditions).
+
+```jsx
+import { useSetClaimConditions, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The ID of the token you want to set claim conditions on
+const tokenId = "{{token_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: setClaimConditions,
+    isLoading,
+    error,
+  } = useSetClaimConditions(contract, tokenId);
+
+  if (error) {
+    console.error("failed to set claim conditions", error);
+  }
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        // highlight-start
+        setClaimConditions({
+          conditions: [
+            {
+              conditionType: "owner", // Set condition type to "owner"
+              address: "{{wallet_address}}", // Set the address of the owner
+            },
+            {
+              conditionType: "min_value", // Set condition type to "min_value"
+              value: 100000000000000000, // Set the minimum value
+            },
+            {
+              conditionType: "max_value", // Set condition type to "max_value"
+              value: 100000000000000000, // Set the maximum value
+            },
+          ],
+        })
+      }
+    >
+```

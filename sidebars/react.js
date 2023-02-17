@@ -250,6 +250,11 @@ const sidebars = {
             //   label: "useGnosis",
             //   id: "hooks/core/usegnosis",
             // },
+            {
+              type: "doc",
+              label: "useSigner",
+              id: "hooks/wallet/usesigner",
+            },
           ],
         },
       ],

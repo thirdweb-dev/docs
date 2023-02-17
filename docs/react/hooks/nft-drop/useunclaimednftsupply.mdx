@@ -1,14 +1,16 @@
 ---
 title: useUnclaimedNFTSupply
-slug: /react/react.useunclaimednftsupply
+slug: /react.useunclaimednftsupply
 displayed_sidebar: react
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
+Hook for fetching the number of unclaimed NFTs from an NFT/Edition Drop contract.
 
-Hook for querying the total supply of unclaimed NFTs on a {@link DropContract}.
+Unclaimed NFTs are tokens that were lazy-minted but have not yet been claimed by a user.
+
+Available to use on contracts that implement either the [ERC721LazyMintable](/contractkit/interfaces/erc721lazymintable)
+or [ERC1155LazyMintable](/contractkit/interfaces/erc1155lazymintable) interfaces;
+such as the [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721) and [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155) contracts.
 
 ```jsx
 import { useUnclaimedNFTSupply } from "@thirdweb-dev/react";
@@ -16,7 +18,9 @@ import { useUnclaimedNFTSupply } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your NFT drop contract as the argument.
+Provide your drop contract from the [`useContract`](react/hooks/usecontract) hook as the argument.
+
+Returns the number of NFTs that are still unclaimed.
 
 ```jsx
 import { useUnclaimedNFTSupply, useContract } from "@thirdweb-dev/react";
@@ -25,7 +29,7 @@ import { useUnclaimedNFTSupply, useContract } from "@thirdweb-dev/react";
 const contractAddress = "{{contract_address}}";
 
 function App() {
-  const { contract } = useContract(contractAddress);
+  const { contract } = useContract(contractAddress, "nftDrop");
   const { data, isLoading, error } = useUnclaimedNFTSupply(contract);
 
   if (error) {
@@ -34,12 +38,17 @@ function App() {
 
   return (
     <>
-      {isLoading ? (
-        <p>Loading...</p>
-      ) : (
-        <p>Total unclaimed NFTs: {data.toString()}</p>
-      )}
+      {isLoading && <div>Loading...</div>}
+      {data && <div>{data.toNumber()} unclaimed NFTs</div>}
     </>
   );
 }
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, contains a `BigNumber` representing the number of unclaimed NFTs.
+
+```ts
+BigNumber;
 ```

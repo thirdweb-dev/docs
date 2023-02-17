@@ -1,14 +1,12 @@
 ---
 title: useUnclaimedNFTs
-slug: /react/react.useunclaimednfts
+slug: /react.useunclaimednfts
 displayed_sidebar: react
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
+Hook for fetching information about all NFTs that haven't been claimed yet from an NFT Drop contract.
 
-Hook for fetching unclaimed NFTs from a {@link NFTDrop} smart contract.
+Available to use on contracts that implement the [ERC721LazyMintable](/contractkit/interfaces/erc721lazymintable) interface.
 
 ```jsx
 import { useUnclaimedNFTs } from "@thirdweb-dev/react";
@@ -16,7 +14,7 @@ import { useUnclaimedNFTs } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your NFT collection contract as the argument.
+Provide your contract instance as the first argument.
 
 ```jsx
 import { useUnclaimedNFTs, useContract } from "@thirdweb-dev/react";
@@ -26,30 +24,17 @@ const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { data: unclaimedNFTs, isLoading, error } = useUnclaimedNFTs(contract);
-
-  if (error) {
-    console.error("failed to fetch unclaimed nfts", error);
-  }
-
-  return (
-    <div>
-      {unclaimedNFTs.map((nft) => (
-        <div key={nft.id}>
-          <h3>{nft.name}</h3>
-          <p>{nft.description}</p>
-        </div>
-      ))}
-    </div>
-  );
+  const { data, isLoading, error } = useUnclaimedNFTs(contract);
 }
 ```
 
 ## Configuration
 
-You can pass an optional `queryParams` object to specify the query parameters.
+### queryParams (optional)
 
-The available `queryParams` are the same as the [`QueryAllParams`](/contractkit/contracts/nftdrop#queryallparams)
+By default, the hook returns the first 100 unclaimed NFTs from the contract.
+
+You can filter or paginate the results by providing a `queryParams` object as the second argument.
 
 ```jsx
 import { useUnclaimedNFTs, useContract } from "@thirdweb-dev/react";
@@ -59,29 +44,36 @@ const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const {
-    data: unclaimedNFTs,
-    isLoading,
-    error,
-  } = useUnclaimedNFTs(contract, {
-    orderBy: "name",
-    orderDirection: "desc",
-    limit: 10,
-  });
-
-  if (error) {
-    console.error("failed to fetch unclaimed nfts", error);
-  }
-
-  return (
-    <div>
-      {unclaimedNFTs.map((nft) => (
-        <div key={nft.id}>
-          <h3>{nft.name}</h3>
-          <p>{nft.description}</p>
-        </div>
-      ))}
-    </div>
+  const { data, isLoading, error } = useUnclaimedNFTs(
+    contract,
+    // highlight-start
+    {
+      count: 10, // Limit the number of results
+      start: 0, // Start from the nth result (useful for pagination)
+    },
+    // highlight-end
   );
 }
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, contains an array of `NFTMetadata` objects.
+
+```jsx
+{
+  name?: string | number | undefined;
+  description?: string | null | undefined;
+  image?: string | null | undefined;
+  external_url?: string | null | undefined;
+  animation_url?: string | null | undefined;
+  background_color?: string | undefined;
+  properties?: {
+      [x: string]: unknown;
+  } | {
+      [x: string]: unknown;
+  }[] | undefined;
+  id: string;
+  uri: string;
+}[]
 ```

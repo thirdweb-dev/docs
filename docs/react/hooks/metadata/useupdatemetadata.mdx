@@ -1,17 +1,14 @@
 ---
 title: useUpdateMetadata
-slug: /react/react.useupdatemetadata
+slug: /react.useupdatemetadata
 displayed_sidebar: react
 ---
 
-import Tabs from "@theme/Tabs";
-import TabItem from "@theme/TabItem";
-import CodeBlock from "@theme/CodeBlock";
+Hook for updating the metadata of a smart contract.
 
-Hook for updating the NFT metadata on a smart contract.
+Available to use on smart contracts that implement the [ContractMetadata](/contractkit/extension-contracts/contractmetadata) interface.
 
-Available to use on smart contracts that implement the [ERC721](/contractkit/interfaces/erc721)
-or [ERC1155](/contractkit/interfaces/erc1155) standard.
+The wallet initiating this transaction must have the required permissions to update the metadata, (`admin` permissions required by default).
 
 ```jsx
 import { useUpdateMetadata } from "@thirdweb-dev/react";
@@ -19,7 +16,14 @@ import { useUpdateMetadata } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your NFT collection contract as the argument.
+Provide your contract instance from the [`useContract`](/react/react.usecontract) hook as the argument.
+
+Provide an object fitting the [contract-level metadata standards](https://docs.opensea.io/docs/contract-level-metadata), including:
+
+- `name`: A `string` for the name of the smart contract (required).
+- `description`: A `string` to describe the smart contract (optional).
+- `image`: A `string` or `File` object containing the URL or file data of an image to associate with the contract (optional).
+- `external_link`: A `string` containing a URL to view the smart contract on your website (optional).
 
 ```jsx
 import {
@@ -39,18 +43,15 @@ function App() {
     error,
   } = useUpdateMetadata(contract);
 
-  if (error) {
-    console.error("failed to update metadata", error);
-  }
-
   return (
     <Web3Button
       contractAddress={contractAddress}
       action={() =>
         updateMetadata({
-          name: "My NFT",
-          description: "This is my NFT",
-          image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
+          name: "My App",
+          description: "My awesome Ethereum App",
+          image: "/path/to/image.jpg", // URL, URI, or File object
+          external_link: "https://myapp.com",
         })
       }
     >
@@ -59,21 +60,3 @@ function App() {
   );
 }
 ```
-
-## Configuration
-
-### `description`
-
-Description of the NFT.
-
-### `image`
-
-URL or File object for the NFT's image.
-
-### `external_link`
-
-An optional link to an external resource related to the NFT.
-
-### `name`
-
-Name of the NFT.

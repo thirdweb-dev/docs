@@ -1,6 +1,6 @@
 ---
 title: useTokenBalance
-slug: /react/react.usetokenbalance
+slug: /react.usetokenbalance
 displayed_sidebar: react
 ---
 
@@ -8,9 +8,11 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook for fetching the balance a wallet has for a specific token, such as Ether.
+Hook for fetching the balance a wallet has for a specific ERC20 token.
 
-Available on smart contracts that implement the [ERC20](/contractkit/interfaces/erc20) standard.
+_Note: This hook is for **custom** ERC20 tokens. For native tokens such as Ether, use [useBalance](/react/react.usebalance) instead._
+
+Available to use on contracts that implement the [ERC20](/contractkit/interfaces/erc20) interface.
 
 ```jsx
 import { useTokenBalance } from "@thirdweb-dev/react";
@@ -18,28 +20,44 @@ import { useTokenBalance } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your NFT collection smart contract address and the token ID of the NFT you want to fetch as
-arguments. The information about the NFT will be returned in the `data` field.
+Provide your token contract instance and a wallet address as the arguments.
+
+The wallet address provided as the second argument is the address you want to fetch the balance for.
 
 ```jsx
-import { useContract, useTokenBalance } from "@thirdweb-dev/react";
+import { useTokenBalance, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// Your wallet address
+const walletAddress = "{{wallet_address}}";
 
 function App() {
-  const { contract } = useContract("{{contract_address}}");
-  const {
-    data: balance,
-    isLoading,
-    error,
-  } = useTokenBalance(contract, "{{wallet_address}}");
+  const { contract } = useContract(contractAddress, "token");
+  const { data, isLoading, error } = useTokenBalance(contract, walletAddress);
+}
+```
 
-  if (isLoading) return <div>Fetching Balance...</div>;
-  if (error) return <div>Error fetching Balance</div>;
-  if (!balance) return <div>Balance not found</div>;
+## Return Value
 
-  return (
-    <div>
-      Balance: {balance.displayValue} {balance.symbol}
-    </div>
-  );
+The hook returns an object containing the following properties:
+
+```jsx
+{
+  // The symbol of the token
+  symbol: string;
+
+  // The balance of the address
+  value: BigNumber;
+
+  // The name of the token
+  name: string;
+
+  // The number of decimals off the token
+  decimals: number;
+
+  // The formatted balance
+  displayValue: string;
 }
 ```
