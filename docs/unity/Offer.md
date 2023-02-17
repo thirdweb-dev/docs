@@ -19,7 +19,7 @@ displayed_sidebar: unity
 | currencyContractAddress | variable |              |
 | ToString                | function |              |
 
-### Members
+## Members
 
 **`public string `[`listingId`](#struct_thirdweb_1_1_offer_1abfdaf0e8afd88bfdc63492d787cf263a)**
 

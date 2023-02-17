@@ -20,7 +20,7 @@ class NewAuctionListing
 | NewAuctionListing    | function |              |
 | ToString             | function |              |
 
-### Members
+## Members
 
 **`public new string `[`reservePricePerToken`](#class_thirdweb_1_1_new_auction_listing_1ac604e20179a38181fa0de9fa096940b9)**
 

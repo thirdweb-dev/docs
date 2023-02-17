@@ -20,7 +20,7 @@ class DirectListing
 | secondsUntilEnd    | variable |              |
 | ToString           | function |              |
 
-### Members
+## Members
 
 **`public string `[`startTimeInSeconds`](#class_thirdweb_1_1_direct_listing_1a9c0ed51e62bd3ca4d0dd2e632b2442a1)**
 

@@ -16,7 +16,7 @@ displayed_sidebar: unity
 | chainId | variable |              |
 | assets  | variable |              |
 
-### Members
+## Members
 
 **`public string `[`appId`](#struct_thirdweb_1_1_fund_wallet_options_1ad7507b03d4357558674b152ea18a145a)**
 

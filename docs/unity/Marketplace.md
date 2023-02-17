@@ -30,7 +30,7 @@ Interact with a [Marketplace](#class_thirdweb_1_1_marketplace) contract.
 | BuyListing        | function | WRITE FUNCTIONS.                                                         |
 | MakeOffer         | function | Make an offer on a listing                                               |
 
-### Members
+## Members
 
 **`public string `[`chain`](#class_thirdweb_1_1_marketplace_1a29198058e94889f280093d44b4ee55d2)**
 

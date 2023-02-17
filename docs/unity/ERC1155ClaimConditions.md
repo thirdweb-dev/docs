@@ -24,7 +24,7 @@ Fetch claim conditions for a given [ERC1155](docs/unity/ERC1155.md#class_thirdwe
 | GetIneligibilityReasons | function | Get the reasons why the connected wallet is not eligible to claim |
 | GetClaimerProofs        | function | Get the special values set in the allowlist for the given wallet  |
 
-### Members
+## Members
 
 **`public inline `[`ERC1155ClaimConditions`](#class_thirdweb_1_1_e_r_c1155_claim_conditions_1a56d86a9c9855fb91895d7a3dbaae2185)`(string parentRoute)`**
 

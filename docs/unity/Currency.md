@@ -16,7 +16,7 @@ displayed_sidebar: unity
 | decimals | variable |              |
 | ToString | function |              |
 
-### Members
+## Members
 
 **`public string `[`name`](#struct_thirdweb_1_1_currency_1aac7e4f2b290296020f60b218fecbb15b)**
 

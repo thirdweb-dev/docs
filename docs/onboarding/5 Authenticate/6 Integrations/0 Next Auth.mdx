@@ -3,10 +3,271 @@ slug: /auth/integrations/next-auth
 title: Next Auth
 ---
 
-This page will show you how to integrate Auth with [Next Auth](https://next-auth.js.org/) to integrate wallet authentication into your OAuth authentication flows.
+import QuickstartCard from "@components/QuickstartCard";
 
-:::info
+This page will show you how to integrate Auth with [NextAuth](https://next-auth.js.org/) to let your users login with their wallets.
 
-Support for Next Auth is currently in development and coming soon. It will be released later this week - check back here for updates!
+More specifically, we'll show you how to use our `ThirdwebAuthProvider` which is fully compatible with standard [NextAuth providers](https://next-auth.js.org/providers/) to add support for thirdweb Auth to your apps.
+
+:::tip
+
+If you want to interact with a working version of the Auth + NextAuth integration that we'll be building in this guide, you can checkout the following GitHub repository, or clone it with the command below:
+
+```
+npx thirdweb create app --template thirdweb-auth-next-auth
+```
+
+<div>
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="thirdweb-auth-next-auth"
+      link="https://github.com/thirdweb-example/thirdweb-auth-next-auth"
+      image="/assets/languages/nextauth.png"
+    />
+  </div>
+</div>
 
 :::
+
+## Getting Started
+
+To add Auth + NextAuth to your application, you'll need to install the `@thirdweb-dev/auth` and `@thirdweb-dev/react` packages and the `ethers` peer dependency, along with the actual `next-auth` package itself:
+
+```bash npm2yarn
+npm install next-auth @thirdweb-dev/auth @thirdweb-dev/react ethers@5
+```
+
+Now, we can configure the `ThirdwebAuthProvider` on our [NextAuth API routes](https://next-auth.js.org/getting-started/example#add-api-route) to add support for wallet based login, in addition to all other existing authentication methods:
+
+```ts title="pages/api/auth/[...nextauth].ts"
+import {
+  ThirdwebAuthProvider,
+  authSession,
+} from "@thirdweb-dev/auth/next-auth";
+import NextAuth from "next-auth";
+
+export default NextAuth({
+  providers: [
+    // Add the thirdweb auth provider to the providers configuration
+    ThirdwebAuthProvider({
+      domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || "",
+    }),
+    // other providers...
+  ],
+  callbacks: {
+    // Add the authSession callback to the callbacks configuration
+    session: authSession,
+  },
+});
+```
+
+Here, we configure the `ThirdwebAuthProvider` with a `domain` coming from `NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN` environment variable, which we can set in the `.env.local` file as follows:
+
+```bash title=".env.local"
+NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN=example.com
+```
+
+The `domain` is used to prevent phishing attacks when your users login with their wallets - you can learn more about this in the [how auth works documentation](http://localhost:3000/auth/how-auth-works/sign-in-with-wallet#domain).
+
+Additionally, we pass the `authSession` callback function to the `session` callback of NextAuth. This is used to ensure that we always extract the wallet address of the logged in user to expose it on the session object for the client and server to access. We'll discuss custom usage of this function more in later sections.
+
+Then, on the frontend, we first need to configure the necessary `SessionProvider` and `ThirdwebProvider` in our `pages/_app.tsx` file to be able to use Auth:
+
+```tsx title="pages/_app.tsx"
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { SessionProvider } from "next-auth/react";
+
+export default function MyApp({
+  Component,
+  pageProps: { session, ...pageProps },
+}) {
+  return (
+    <SessionProvider session={session}>
+      <ThirdwebProvider
+        authConfig={{
+          // Here we specify the domain, which should match the domain
+          // conigured on the backend
+          domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || "",
+        }}
+      >
+        <Component {...pageProps} />
+      </ThirdwebProvider>
+    </SessionProvider>
+  );
+}
+```
+
+With this setup, we can now use the `useAuth` hook and NextAuth's `signIn` function to login the user with their wallet:
+
+```tsx title="pages/index.tsx"
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useAuth, useAddress, useMetaMask } from "@thirdweb-dev/react";
+
+export default function Home() {
+  const address = useAddress();
+  const connect = useMetamask();
+  const auth = useAuth();
+  const { data: session } = useSession();
+
+  async function loginWithWallet() {
+    // Prompt the user to sign a login with wallet message
+    const payload = await auth?.login();
+
+    // Then send the payload to next auth as login credentials
+    // using the "credentials" provider method
+    await signIn("credentials", {
+      payload: JSON.stringify(payload),
+      redirect: false,
+    });
+  }
+
+  return (
+    <div>
+      {isLoggedIn ? (
+        <button onClick={() => logout()}>Logout</button>
+      ) : address ? (
+        <button onClick={() => loginWithWallet()}>Login</button>
+      ) : (
+        <button onClick={() => connect()}>Connect</button>
+      )}
+
+      <pre>Connected Wallet: {address}</pre>
+      <pre>User: {session.user || "N/A"}</pre>
+    </div>
+  );
+}
+```
+
+Here, we use the `useMetaMask` and `useAddress` to let the user connect their wallet and get the address of the connected wallet on the client. Then, we use the `loginWithWallet` function to log th user into the backend, and the user will then be accessible via the `useSession` hook.
+
+## Usage
+
+### Authenticating the user on the server
+
+The `getSession` function can be used to authenticate the user on the server. It will return the active session data if the user is logged in, or `null` if the user is not authenticated.
+
+It can be used in any server-side context, including in Next.js API routes, as well as server-side functions like `getServerSideProps` and `getStaticProps`.
+
+If the user is logged in with their wallet (via the `ThirdwebAuthProvider`), then the `session.user.address` value will be exposed to read the wallet address of the logged in user:
+
+```ts title="pages/api/secret.ts"
+import { getSession } from "next-auth/react";
+
+export default async (req, res) => {
+  const session = await getSession({ req });
+
+  if (!session) {
+    res.status(401).json({ message: "Not authorized." });
+    return;
+  }
+
+  // Get the wallet address if the user is logged in with their wallet
+  // Otherwise get their email
+  return res.status(200).json({
+    message: `This is a secret for ${
+      session.user?.address || session.user?.email
+    }`,
+  });
+};
+```
+
+### Validating the login request
+
+By default, the Auth API will validate the login request by checking that the user requesting to login succesfully signed a valid [sign-in with wallet](/auth/how-auth-works/sign-in-with-wallet) message. However, this doesn't perform specific checks on the exact contents of the payload, aside from the domain used for anti-phishing.
+
+If you want to add specific checks to enforce the exact data on the login payload signed by users, you can use the `authOptions` configuratio on the `ThirdwebAuthProvider`:
+
+```ts title="pages/api/auth/[...thirdweb].ts"
+export default NextAuth({
+  providers: [
+    ThirdwebAuthProvider({
+      domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || "",
+      // Enforce that the user's login message has these exact values
+      authOptions: {
+        statement: "I agree to the terms of service",
+        uri: "https://frontend.example.com",
+        resources: ["https://terms-of-service.example.com"],
+        version: "1",
+        chainId: "1",
+      },
+    }),
+  ],
+  ...
+});
+```
+
+Note that when you enforce these checks on the server-side, you'll also want to pass in the proper parameters to the `login` function on your client-side application to ensure that the login payload gets the correct format. You can see an [example of how to do this in the React section](/auth/client-frameworks/react#customizing-the-login-message).
+
+**Prevent replay attacks**
+
+Since the sign-in with wallet payload is used to login to your server, it's important to prevent third parties from being able to reuse old login payloads to falsely authenticate as other users. This reuse of old login payloads is called a replay attack.
+
+Luckily, all sign-in with wallet payloads include a `nonce` field which is a random string generated when the request was created. If you are using a database, or have somewhere to store nonces, you can ensure that each nonce is only used once:
+
+```ts title="pages/api/auth/[...thirdweb].ts"
+export default NextAuth({
+  providers: [
+    ThirdwebAuthProvider({
+      domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || "",
+      // Enforce that the user's login message has these exact values
+      authOptions: {
+        validateNonce: async (nonce: string) => {
+          // Check in database or storage if nonce exists
+          const nonceExists = await dbExample.nonceExists(nonce);
+          if (nonceExists) {
+            throw new Error("Nonce has already been used!");
+          }
+
+          // Otherwise save nonce in database or storage for later validation
+          await dbExample.saveNonce(nonce);
+        }
+      },
+    }),
+  ],
+  ...
+});
+```
+
+### Add custom logic to the session callback
+
+By default, you can pass the `authSession` function straight to the `session` callback, but in some cases you may want to add your own custom logic into the `session` callback. In this case, you can wrap the `authSession` function as follows:
+
+```ts title="pages/api/auth/[...nextauth].ts"
+export default NextAuth({
+  providers: [
+    ...
+  ],
+  calbacks: {
+    async session({ session, user, token }) {
+      const sessionWithAddress = authSession({ session, token });
+
+      // Run your own custom logic here
+      sessionWithAddress.user.customData = "custom data";
+
+      // Make sure to return the session with the address
+      return sessionWithAddress;
+    }
+  }
+});
+```
+
+### Getting proper user types for TypeScript
+
+By default, TypeScript won't know about the `session.user.address` field that's populated onto the user object and available through the `useSession` and `getSession` functions, so it will give you type errors if you try to access that value, even if it's defined. To solve this, you can override the type for the `Session` object by creating a `next-auth.d.ts` file in your project root:
+
+```ts title="next-auth.d.ts"
+import NextAuth from "next-auth";
+
+declare module "next-auth" {
+  interface Session {
+    user: {
+      id: string;
+      username: string;
+      email: string;
+      // Here we add that the user object may have an address field
+      address?: string;
+      [key: string]: string;
+    };
+  }
+}
+```

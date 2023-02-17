@@ -15,7 +15,7 @@ displayed_sidebar: unity
 | supply   | variable |              |
 | ToString | function |              |
 
-### Members
+## Members
 
 **`public `[`NFTMetadata`](docs/unity/NFTMetadata.md#struct_thirdweb_1_1_n_f_t_metadata)` `[`metadata`](#struct_thirdweb_1_1_n_f_t_metadata_with_supply_1a9a54a32ca68fd73dc71d86519616284d)**
 
