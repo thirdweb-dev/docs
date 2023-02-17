@@ -24,7 +24,7 @@ Generate, verify and mint signed mintable payloads
 | Verify              | function | Verify that a signed mintable payload is valid                   |
 | Mint                | function | Mint a signed mintable payload                                   |
 
-### Members
+## Members
 
 **`public inline `[`ERC1155Signature`](#class_thirdweb_1_1_e_r_c1155_signature_1a4096b9488c1a50363c78fee5d3835d90)`(string parentRoute)`**
 

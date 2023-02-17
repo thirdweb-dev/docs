@@ -19,7 +19,7 @@ class NewPackInput
 | packMetadata   | variable | The Metadata of the pack [NFT](docs/unity/NFT.md#struct_thirdweb_1_1_n_f_t) itself. |
 | rewardsPerPack | variable | How many rewards can be obtained by opening a single pack.                          |
 
-### Members
+## Members
 
 **`public `[`NFTMetadata`](docs/unity/NFTMetadata.md#struct_thirdweb_1_1_n_f_t_metadata)` `[`packMetadata`](#class_thirdweb_1_1_new_pack_input_1a70dca3812ef8caf50b2ef4aa72034e0a)**
 

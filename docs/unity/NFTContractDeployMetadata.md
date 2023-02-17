@@ -23,7 +23,7 @@ displayed_sidebar: unity
 | platform_fee_recipient    | variable |              |
 | platform_fee_basis_points | variable |              |
 
-### Members
+## Members
 
 **`public string `[`name`](#struct_thirdweb_1_1_n_f_t_contract_deploy_metadata_1a4b97d41d487ee6334e4974e1a8381147)**
 

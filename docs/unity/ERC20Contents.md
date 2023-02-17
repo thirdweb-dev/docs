@@ -18,7 +18,7 @@ class ERC20Contents
 | ------------ | -------- | ------------ |
 | totalRewards | variable |              |
 
-### Members
+## Members
 
 **`public string `[`totalRewards`](#class_thirdweb_1_1_e_r_c20_contents_1a16f23a3f71887fed96908273954f472d)**
 
