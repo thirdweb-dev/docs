@@ -1,0 +1,59 @@
+---
+title: useOffers
+slug: /react.useoffers
+displayed_sidebar: react
+---
+
+Hook for getting all of the offers made on a
+direct listing on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contract.
+
+```jsx
+import { useOffers } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contract from the
+[`useContract`](/react.usecontract) hook and the `listingId` of the listing you want to get the offers for as
+arguments to the hook.
+
+```jsx
+import { useOffers, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The listing ID you want to fetch offers for
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data: offers, isLoading, error } = useOffers(contract, listingId);
+}
+```
+
+## Return Value
+
+This hook uses the [`useEvents`](/react.useevents) hook under the hood to fetch `NewOffer` events for the given listing ID.
+
+The return value is an array of `NewOffer` event objects. Each event object has the following properties:
+
+```jsx
+{
+  offeror: string;
+  offerId: BigNumber;
+  assetContract: string;
+  offer: {
+    offerId: BigNumber;
+    offeror: string;
+    assetContract: string;
+    tokenId: BigNumber;
+    quantity: BigNumber;
+    currency: string;
+    totalPrice: BigNumber;
+    expirationTimestamp: BigNumber;
+    tokenType: "ERC721" | "ERC1155";
+    status: "UNSET" | "CREATED" | "COMPLETED" | "CANCELLED";
+  }
+}
+```
