@@ -145,6 +145,11 @@ const sidebars = {
         },
         {
           type: "link",
+          label: "React Native",
+          href: "/react-native",
+        },
+        {
+          type: "link",
           label: "Storage",
           href: "/storage-sdk",
         },
