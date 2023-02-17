@@ -56,11 +56,11 @@ cd your-react-native-app
 Install the following packages using your favorite package manager:
 
 ```sh
-npm install ethers@^5.0.0 @react-native-async-storage/async-storage node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values @thirdweb-dev/react-native @thirdweb-dev/react-native-compat
+npm install 'ethers@^5.0.0' @react-native-async-storage/async-storage node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values @thirdweb-dev/react-native @thirdweb-dev/react-native-compat
 ```
 
 ```sh
-yarn add ethers@^5.0.0 @react-native-async-storage/async-storage node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values @thirdweb-dev/react-native @thirdweb-dev/react-native-compat
+yarn add 'ethers@^5.0.0' @react-native-async-storage/async-storage node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values @thirdweb-dev/react-native @thirdweb-dev/react-native-compat
 ```
 
 Move into your `/ios` folder and run the following command to install ios' pods:
