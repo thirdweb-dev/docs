@@ -16,7 +16,7 @@ displayed_sidebar: unity
 | isSuccessful | function |              |
 | ToString     | function |              |
 
-### Members
+## Members
 
 **`public `[`Receipt`](docs/unity/Receipt.md#struct_thirdweb_1_1_receipt)` `[`receipt`](#class_thirdweb_1_1_transaction_result_1a43906eaec4db5192518da598ae40d73b)**
 

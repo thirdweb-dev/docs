@@ -23,7 +23,7 @@ Generate, verify and mint signed mintable payloads
 | Verify          | function | Verify that a signed mintable payload is valid                   |
 | Mint            | function | Mint a signed mintable payload                                   |
 
-### Members
+## Members
 
 **`public inline `[`ERC721Signature`](#class_thirdweb_1_1_e_r_c721_signature_1a5db94bfc2ba2c2f8963ede713ac0d035)`(string parentRoute)`**
 
