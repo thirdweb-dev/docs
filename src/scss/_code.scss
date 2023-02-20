@@ -62,3 +62,43 @@ code {
     background-color: rgba(0, 0, 0, 0.15);
   }
 }
+
+.live-code-block-container {
+  border: 1px solid var(--thirdweb-border-color);
+  border-radius: 8px;
+  padding: 16px;
+  display: flex;
+  flex-direction: row;
+  gap: 2%;
+  width: 125%;
+  max-width: 92.5vw;
+  padding-top: 24;
+}
+
+.live-code-block {
+  padding-right: 16px;
+  border-right: 1px solid var(--thirdweb-border-color);
+  width: 60%;
+}
+
+.live-code-block .token-line {
+  font: inherit;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.85rem;
+}
+
+// Between 1596 and 996px
+@media (max-width: 1596px) {
+  .live-code-block-container {
+    flex-direction: column;
+  }
+
+  .live-code-block {
+    border-right: 0;
+    padding-right: 0;
+    margin-bottom: 16px;
+    width: 100%;
+    border-bottom: 1px solid var(--thirdweb-border-color);
+    padding-bottom: 16px;
+  }
+}

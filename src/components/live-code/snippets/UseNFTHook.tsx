@@ -1,4 +1,3 @@
-// Scope is the global scope of the code editor
 import React from "react";
 import { ThirdwebProvider, useContract, useNFT } from "@thirdweb-dev/react";
 import LiveCodeEditor from "../LiveCodeEditor";

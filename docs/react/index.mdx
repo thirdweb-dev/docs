@@ -7,6 +7,7 @@ displayed_sidebar: react
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
+import QuickstartCard from "@components/QuickstartCard";
 
 <p align="center">
   <br />
@@ -20,96 +21,108 @@ import CodeBlock from "@theme/CodeBlock";
   <br />
 </p>
 <h1 align="center">thirdweb React SDK</h1>
-<p align="center">
-  A collection of React hooks and UI components for your web3 apps, on{" "}
-  <i>any </i>
-  blockchain.
-</p>
-<br />
-<div
-  align="center"
-  style={{
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  }}
->
-  <Tabs>
-    <TabItem value="npm" label="npm" default>
-      <CodeBlock
-        language={"bash"}
-      >{`npm i @thirdweb-dev/react @thirdweb-dev/sdk ethers`}</CodeBlock>
-    </TabItem>
-    <TabItem value="yarn" label="yarn">
-      <CodeBlock
-        language={"bash"}
-      >{`yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers`}</CodeBlock>
-    </TabItem>
-    <TabItem value="pnpm" label="pnpm">
-      <CodeBlock
-        language={"bash"}
-      >{`pnpm i @thirdweb-dev/react @thirdweb-dev/sdk ethers`}</CodeBlock>
-    </TabItem>
-  </Tabs>
+
+A collection of 100+ React hooks and UI components for your web3 apps, for <i>any</i> EVM-compatible blockchain.
+
+Connect to user&rsquo;s wallets, interact with smart contracts, sign
+messages, and utilize common standards such as tokens, NFTs, marketplaces; all with built-in caching, RPC URLs, IPFS gateways, and more.
+
+## Installation
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+    <CodeBlock
+      language={"bash"}
+    >{`npm i @thirdweb-dev/react @thirdweb-dev/sdk ethers`}</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock
+      language={"bash"}
+    >{`yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers`}</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock
+      language={"bash"}
+    >{`pnpm i @thirdweb-dev/react @thirdweb-dev/sdk ethers`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+<a href="https://github.com/thirdweb-example#starter-kits">Starter Kits</a> • <a href="/templates">
+  Templates
+</a> • <a href="https://github.com/thirdweb-dev/js"> GitHub</a>
+
+## Get Started
+
+Check out the [getting started](/react/getting-started) guide to learn how to use the SDK in less than 2 minutes.
+
+<div className="row" style={{ marginBottom: 24, padding: 8 }}>
+  <div className="col col--12" style={{ padding: 8, paddingTop: 0 }}>
+    <QuickstartCard
+      name="Get started with the React SDK"
+      link="/react/getting-started"
+      image="/assets/icons/education.png"
+    />
+  </div>
 </div>
 
-<p align="center" style={{ marginTop: 16 }}>
-  <a href="https://github.com/thirdweb-example#starter-kits">Starter Kits</a> •{" "}
-  <a href="/templates">Templates</a> •{" "}
-  <a href="https://github.com/thirdweb-dev/js"> GitHub Repository</a>
-</p>
+## How It Works
 
-<hr />
+The React SDK uses [React Query](https://tanstack.com/query/v4/docs/react/overview) under the hood to
+expose a collection of [query](https://tanstack.com/query/v4/docs/react/guides/queries) and [mutation](https://tanstack.com/query/v4/docs/react/guides/mutations)
+hooks, each with built-in [caching](https://tanstack.com/query/v4/docs/react/guides/caching),
+[query invalidation](https://tanstack.com/query/v4/docs/react/guides/query-invalidation), [query retries](https://tanstack.com/query/v4/docs/react/guides/query-retries),
+and more.
 
-<h2>Get Started</h2>
+Each hook _(except for wallet/network management)_ wraps some functionality of the [TypeScript SDK](/typescript),
+which are made available as either a [query](https://tanstack.com/query/v4/docs/react/guides/queries) hook to read data,
+or as a [mutation](https://tanstack.com/query/v4/docs/react/guides/mutations) hook to write transactions to the blockchain.
 
-Wrap your application with the `ThirdwebProvider` component like so:
+When mutations are called (when a user executes a transaction), [query invalidation](https://tanstack.com/query/v4/docs/react/guides/query-invalidation) is automatically triggered
+to update the relevant queries that depend on the data that was changed. For example, when minting a new NFT, queries that view information about
+NFTs are re-fetched to load the new NFT automatically.
 
-```jsx title="App.jsx"
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+### Queries
 
-const App = () => {
-  return (
-    <ThirdwebProvider>
-      <YourApp />
-    </ThirdwebProvider>
-  );
-};
+All query hooks are used to **read** data from the blockchain, smart contracts, a user&rsquo;s wallet, etc.
+
+Each one comes with some helpful properties to create a powerful user experience:
+
+- `data` - The data returned from the query (e.g. the NFTs of a contract).
+- `isLoading` - Whether the query is currently loading.
+- `error` - The error returned from the query, if any.
+
+```tsx
+import { useContractRead, useContract } from "@thirdweb-dev/react";
+
+function App() {
+  const { data: contract } = useContract("{{contract_address}}");
+  const { data, isLoading, error } = useContractRead(contract, "functionName");
+}
 ```
 
-Below are examples of where to set this up in your application.
+### Mutations
 
-<p>
-  <a href="https://github.com/thirdweb-example/cra-javascript-starter/blob/main/src/index.js">
-    Create React App
-  </a>{" "}
-  •{" "}
-  <a href="https://github.com/thirdweb-example/next-javascript-starter/blob/main/pages/_app.js">
-    Next.js
-  </a>{" "}
-  •{" "}
-  <a href="https://github.com/thirdweb-example/vite-javascript-starter/blob/main/src/main.jsx">
-    Vite
-  </a>
-</p>
+Mutations are used to **write** data to the blockchain when a transaction is required.
 
-### Using the SDK
+They require a wallet to be connected, and by default, are executed from the currently connected wallet.
 
-That&rsquo;s it! You're now ready to use all the hooks and components in the SDK.
+Each mutation comes with similar properties to queries:
 
-The first thing you likely want to do is connect to a smart contract:
+- `mutate` - The function to execute the mutation (e.g. mint a new NFT).
+- `mutateAsync` - The function to execute the mutation, but returns a promise (allowing `await` to be used).
+- `isLoading` - Whether the mutation is currently executing.
+- `error` - The error returned from the mutation, if any.
 
-```jsx title="index.jsx"
-import { useContract } from "@thirdweb-dev/react";
+```tsx
+import { useContractWrite, useContract, Web3Button } from "@thirdweb-dev/react";
 
-const Home = () => {
-  const { contract, isLoading, error } = useContract(
-    "0x6604bd9D7770035f26B4ACeab2C746fdCE16473",
+function App() {
+  const { data: contract } = useContract("{{contract_address}}");
+  const { mutateAsync, isLoading, error } = useContractWrite(
+    contract,
+    "functionName",
   );
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
-
-  return <h1>Contract found!</h1>;
-};
+}
 ```
+
+Upon execution of a mutation, the relevant queries are automatically invalidated to fetch the latest data.

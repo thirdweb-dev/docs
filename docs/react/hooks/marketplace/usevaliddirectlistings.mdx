@@ -1,0 +1,140 @@
+---
+title: useValidDirectListings
+slug: /react.usevaliddirectlistings
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook to get a list of valid direct listings from a [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
+
+A listing is considered valid if the:
+
+- Seller still owns the NFT
+- Listing has not expired (time is before `endTimeInSeconds`)
+- Listing has not been canceled
+- Listing has not been purchased (all `quantity` of the NFTs have not been purchased)
+
+```jsx
+import { useValidDirectListings } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+To get a list of all valid direct listings, provide your Marketplace v3 contract instance and an optional filter object.
+
+```jsx
+import { useValidDirectListings, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    data: directListings,
+    isLoading,
+    error,
+  } = useValidDirectListings(contract);
+}
+```
+
+## Configuration
+
+### filter
+
+The `filter` object allows you to filter the listings returned by the hook.
+
+```jsx
+import { useValidDirectListings, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    data: directListings,
+    isLoading,
+    error,
+  } = useValidDirectListings(
+    contract,
+    // highlight-start
+    {
+      count: 100, // Number of listings to fetch
+      offeror: "{{offeror_address}}", // Has offers from this address
+      seller: "{{seller_address}}", // Being sold by this address
+      start: 0, // Start from this index (pagination)
+      tokenContract: "{{token_contract_address}}", // Only show NFTs from this collection
+      tokenId: "{{token_id}}", // Only show NFTs with this token ID
+    },
+    // highlight-end
+  );
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, is an array of `DirectListingV3` objects, each containing the following properties:
+
+```jsx
+{
+  /**
+   * The id of the listing.
+   */
+  id: string;
+  /**
+   * The address of the creator of listing.
+   */
+  creatorAddress: string;
+  /**
+   * The address of the asset being listed.
+   */
+  assetContractAddress: string;
+  /**
+   * The ID of the token to list.
+   */
+  tokenId: string;
+  /**
+   * The quantity of tokens to include in the listing.
+   *
+   * For ERC721s, this value should always be 1 (and will be forced internally regardless of what is passed here).
+   */
+  quantity: string;
+  /**
+   * The address of the currency to accept for the listing.
+   */
+  currencyContractAddress: string;
+  /**
+   * The `CurrencyValue` of the listing. Useful for displaying the price information.
+   */
+  currencyValuePerToken: CurrencyValue;
+  /**
+   * The price to pay per unit of NFTs listed.
+   */
+  pricePerToken: string;
+  /**
+   * The asset being listed.
+   */
+  asset: NFTMetadata;
+  /**
+   * The start time of the listing.
+   */
+  startTimeInSeconds: number;
+  /**
+   * The end time of the listing.
+   */
+  endTimeInSeconds: number;
+  /**
+   * Whether the listing is reserved to be bought from a specific set of buyers.
+   */
+  isReservedListing: boolean;
+  /**
+   * Whether the listing is CREATED, COMPLETED, or CANCELLED.
+   */
+  status: Status;
+}
+[];
+```

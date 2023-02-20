@@ -1,49 +1,70 @@
 import React from "react";
-import { ThirdwebProvider } from "@thirdweb-dev/react";
+import { ThirdwebProvider, ConnectWallet } from "@thirdweb-dev/react";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 import { useColorMode } from "@docusaurus/theme-common";
 import lightCodeTheme from "prism-react-renderer/themes/vsLight";
 import darkCodeTheme from "prism-react-renderer/themes/oceanicNext";
 
-console.log({ lightCodeTheme, darkCodeTheme });
-
 type Props = {
   code: string;
-  scope: any;
+  additionalScope?: any;
+  wrapInProvider?: boolean;
+  network?: string;
 };
 
-export default function LiveCodeEditor({ code, scope }: Props) {
+const defaultScope = {
+  React,
+  ThirdwebProvider,
+  ConnectWallet,
+};
+
+function LiveCodeEditor({ code, additionalScope, network }: Props) {
   const { colorMode } = useColorMode();
 
   return (
-    <ThirdwebProvider activeChain="goerli">
-      <LiveProvider code={code} scope={scope}>
-        <div
-          style={{
-            border: "1px solid rgba(255,255,255,0.1)",
-            borderRadius: "8px",
-            padding: "8px",
-            display: "flex",
-            flexDirection: "row",
-            gap: "2%",
-            maxWidth: "95vw",
-          }}
-        >
-          <div style={{ width: "60%" }}>
+    <ThirdwebProvider activeChain={network}>
+      <LiveProvider
+        code={code}
+        scope={{
+          ...defaultScope,
+          ...additionalScope,
+        }}
+      >
+        <div className="live-code-block-container">
+          <div className="live-code-block">
+            <h3>Editor</h3>
             <LiveEditor
-              about=""
               theme={colorMode === "dark" ? darkCodeTheme : lightCodeTheme}
               style={{
-                "--ifm-pre-background": "#282c34",
+                // @ts-expect-error
+                "--ifm-pre-background":
+                  colorMode === "dark" ? "#282c34" : "#fff",
               }}
             />
           </div>
           <div style={{ width: "38%" }}>
+            <h3>Preview</h3>
             <LivePreview />
             <LiveError />
           </div>
         </div>
       </LiveProvider>
     </ThirdwebProvider>
+  );
+}
+
+function WrappedLiveCodeEditor(props: Props) {
+  return (
+    <ThirdwebProvider activeChain="goerli">
+      <LiveCodeEditor {...props} />
+    </ThirdwebProvider>
+  );
+}
+
+export default function LiveCodeEditorWrapper(props: Props) {
+  return props.wrapInProvider ? (
+    <WrappedLiveCodeEditor {...props} />
+  ) : (
+    <LiveCodeEditor {...props} />
   );
 }

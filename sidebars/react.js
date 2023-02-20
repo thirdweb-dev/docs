@@ -25,6 +25,11 @@ const sidebars = {
     },
     {
       type: "doc",
+      label: "Getting Started",
+      id: "getting-started",
+    },
+    {
+      type: "doc",
       label: "ThirdwebProvider",
       id: "ThirdwebProvider",
     },
@@ -255,6 +260,13 @@ const sidebars = {
           dirName: "storage",
         },
       ],
+    },
+
+    // Migration guide
+    {
+      type: "doc",
+      label: "Migration Guide",
+      id: "migration-guide",
     },
   ],
 };
