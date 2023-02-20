@@ -122,7 +122,7 @@ Now we can take a look at the frontend that interacts with these endpoints. The 
 First, let's look at the `pages/_app.tsx` file. Here, we want to setup the [`@thirdweb-dev/react`](/react) SDK to use with the Auth package. To do this, we need to wrap our app with the `ThirdwebProvider` component and add `authConfig` to it so that our frontend knows that we have an Auth backend setup.
 
 ```tsx title="pages/_app.tsx"
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp() {
   return (
     <ThirdwebProvider
       desiredChainId={activeChainId}

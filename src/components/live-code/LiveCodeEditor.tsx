@@ -1,5 +1,5 @@
 import React from "react";
-import { ThirdwebProvider, ConnectWallet } from "@thirdweb-dev/react";
+import { ThirdwebProvider } from "@thirdweb-dev/react";
 import { LiveProvider, LiveEditor, LiveError, LivePreview } from "react-live";
 import { useColorMode } from "@docusaurus/theme-common";
 import lightCodeTheme from "prism-react-renderer/themes/vsLight";
@@ -15,14 +15,14 @@ type Props = {
 const defaultScope = {
   React,
   ThirdwebProvider,
-  ConnectWallet,
 };
 
 function LiveCodeEditor({ code, additionalScope, network }: Props) {
   const { colorMode } = useColorMode();
 
   return (
-    <ThirdwebProvider activeChain={network}>
+    // Default to goerli if no network is provided
+    <ThirdwebProvider activeChain={network || "goerli"}>
       <LiveProvider
         code={code}
         scope={{
@@ -30,9 +30,13 @@ function LiveCodeEditor({ code, additionalScope, network }: Props) {
           ...additionalScope,
         }}
       >
+        <p>Edit the code below to see how it works!</p>
+        <p>
+          <i>Note: this playground uses the Goerli test network.</i>
+        </p>
         <div className="live-code-block-container">
           <div className="live-code-block">
-            <h3>Editor</h3>
+            <p className="live-code-subtitle">Editor</p>
             <LiveEditor
               theme={colorMode === "dark" ? darkCodeTheme : lightCodeTheme}
               style={{
@@ -43,7 +47,7 @@ function LiveCodeEditor({ code, additionalScope, network }: Props) {
             />
           </div>
           <div style={{ width: "38%" }}>
-            <h3>Preview</h3>
+            <p className="live-code-subtitle">Preview</p>
             <LivePreview />
             <LiveError />
           </div>

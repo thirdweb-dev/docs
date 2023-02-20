@@ -239,10 +239,9 @@ The configuration object for setting up [Auth](/auth); allowing users to sign in
 | `domain`  | string | The frontend domain used to generate the login payload. This domain should match the domain used on your auth backend.                                                     |
 
 ```jsx
-import type { AppProps } from "next/app";
 import { ThirdwebProvider } from "@thirdweb-dev/react";
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp() {
   return (
     <ThirdwebProvider
       // highlight-start

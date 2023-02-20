@@ -42,7 +42,8 @@ If your smart contract was not deployed using thirdweb, you&rsquo;ll need to imp
 ### Contract Type (optional)
 
 If your contract is a [prebuilt contract](/pre-built-contracts), it is **strongly recommended**
-you provide the contract's name to gain access to improved top-level functions and type inference.
+you provide the contract's name as the second argument
+to gain access to improved top-level functions and type inference.
 
 <details>
   <summary>View available contract types</summary>
@@ -88,6 +89,11 @@ you provide the contract's name to gain access to improved top-level functions a
     </ul>
   </div>
 </details>
+
+When a contract type is provided, the `contract` object will be typed as the contract's class.
+For example, if you provide the contract type `pack`, the `contract`
+object will be returned typed as an instance of the [Pack](/typescript/sdk.pack) class, unlocking
+all of the top-level functions specific to the pack.
 
 ```jsx
 const { contract, isLoading, error } = useContract(
