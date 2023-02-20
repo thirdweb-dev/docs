@@ -8,15 +8,15 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook for canceling an english auction on a marketplace v3 contract.
+Hook for canceling an english auction on a [MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
 
 **Note**: English auctions cannot be canceled if a bid has been placed.
 
+:::info Marketplace V3
 **Note: This hook is only for [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contracts.**
 
 For [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace)
 contracts, use [useCancelListing](/react/react.usecancellisting) instead.
-
 :::
 
 ```jsx
@@ -26,6 +26,8 @@ import { useCancelEnglishAuction } from "@thirdweb-dev/react";
 ## Usage
 
 Provide your marketplace v3 contract as the argument.
+
+Then, provide the ID of the listing you want to cancel to the mutation.
 
 ```jsx
 import {

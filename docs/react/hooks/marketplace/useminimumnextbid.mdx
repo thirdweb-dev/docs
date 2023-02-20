@@ -4,12 +4,12 @@ slug: /react.useminimumnextbid
 displayed_sidebar: react
 ---
 
-Hook for getting the minimum next bid for an auction listing in a marketplace.
+Hook for getting the minimum value a bid must be to be valid
+in an auction listing on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) or
+[MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
 
-Takes into account the current highest bid, or the minimum bid required, and increments this amount by the bid buffer BPS to calculate the minimum next bid.
-
-Available to use on
-[Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) and [MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contracts.
+Takes into account the current highest bid, or the reserve price if there is no bid,
+and increments it by the bid buffer to calculate the minimum next bid.
 
 ```jsx
 import { useMinimumNextBid } from "@thirdweb-dev/react";

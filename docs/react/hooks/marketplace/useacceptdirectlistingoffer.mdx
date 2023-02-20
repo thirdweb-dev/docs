@@ -8,11 +8,9 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook for accepting an offer from a direct listing.
+Hook for accepting an offer from a direct listing on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contract.
 
-Allows the seller _(the user who listed the NFT for sale)_ to accept an offer on their listing.
-
-This process will trigger a sale event, meaning the:
+Allows the seller _(the user who listed the NFT for sale)_ to accept an offer on their listing, triggering a sale event, meaning the:
 
 - NFT(s) are transferred from the seller to the buyer.
 - Funds from the offeror are sent to the seller.
@@ -23,7 +21,8 @@ import { useAcceptDirectListingOffer } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide a `Marketplace` contract instance from the [`useContract`](/docs/react/react.usecontract) hook as the first argument.
+Provide a [`Marketplace`](https://thirdweb.com/thirdweb.eth/Marketplace) contract instance from the
+[`useContract`](/docs/react/react.usecontract) hook as the first argument.
 
 Provide the:
 
@@ -66,14 +65,14 @@ function App() {
 
 ## Configuration
 
-### listingId
+### listingId (required)
 
 The `listingId` of the listing you wish to accept.
 
 Each listing has a unique `listingId` on the marketplace contract.
 
-### addressOfOfferor
+### addressOfOfferor (required)
 
 The wallet address of the user who made the offer you wish to accept.
 
-The [`useEvents`](/docs/react/useevents) hook can be used to read all `NewOffer` events on your marketplace contract.
+The [`useContractEvents`](/react/react.usecontractevents) hook can be used to read all `NewOffer` events on your marketplace contract.

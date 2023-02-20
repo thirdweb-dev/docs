@@ -6,8 +6,8 @@ displayed_sidebar: react
 
 Hook for creating an auction listing on a marketplace smart contract.
 
-Available to use on smart contracts that implement the [Marketplace](/contractkit/interfaces/marketplace)
-or [MarketplaceV3](/contractkit/interfaces/marketplacev3) standard.
+Available to use on [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace)
+and [MarketplaceV3](https://thirdweb.com/thirdweb.eth/Marketplacev3) smart contracts.
 
 ```jsx
 import { useCreateAuctionListing } from "@thirdweb-dev/react";
@@ -20,27 +20,77 @@ or
 [MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3)
 contract as the argument to the hook.
 
+Then, provide the information about the listing you want to create as the argument to the mutation.
+
+```jsx
+import {
+  useCreateAuctionListing,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+import { NATIVE_TOKEN_ADDRESS } from "@thirdweb-dev/sdk";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    mutateAsync: createAuctionListing,
+    isLoading,
+    error,
+  } = useCreateAuctionListing(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        createAuctionListing({
+          tokenId: "{{token_id}}", // The ID of the token to list.
+          assetContractAddress: "{{asset_contract_address}}", // The contract address of the asset being listed.
+          currencyContractAddress: NATIVE_TOKEN_ADDRESS, // The address of the currency to accept for the listing.
+          quantity: "{{quantity}}",
+          startTimestamp: new Date(),
+          buyoutBidAmount: "{{buyout_bid_amount}}",
+          minimumBidAmount: "{{minimum_bid_amount}}",
+          endTimestamp: new Date(),
+          bidBufferBps: "{{bid_buffer_bps}}",
+          timeBufferInSeconds: "{{time_buffer_in_seconds}}",
+        })
+      }
+    >
+      Create Auction Listing
+    </Web3Button>
+  );
+}
+```
+
 ## Configuration
 
-### tokenId
+### tokenId (required)
 
 The token ID of the NFT you are listing for auction.
 
-### assetContractAddress
+### assetContractAddress (required)
 
 The smart contract address of the NFT you are listing for auction.
 
-### tokenId
+### buyoutBidAmount (required)
 
-The ID of the NFT you are listing for auction.
+The price to **buy** each token in the listing.
 
-### currencyContractAddress
+- For ERC721 NFTs, this is the price to buy the NFT outright.
+- For ERC1155 NFTs, this is the price to `1` quantity of the NFT.
+
+### currencyContractAddress (optional)
 
 The address of the currency you want users to pay with and make bids in.
 
 You likely want to use the token native to the chain you are on, e.g. Ether on Ethereum.
 
 To do that, you can import the `NATIVE_TOKEN_ADDRESS` constant from `@thirdweb-dev/sdk`.
+
+The default value is `NATIVE_TOKEN_ADDRESS`.
 
 ```jsx
 import {
@@ -87,29 +137,28 @@ function App() {
 }
 ```
 
-### quantity
+### quantity (optional)
 
 How many tokens to include in the listing.
 
 - For ERC721 NFTs, this is always `1`.
 - For ERC1155 NFTs, this is the quantity of tokens to include in the listing.
 
-### buyoutBidAmount
+The default value is `1`.
 
-The price to **buy** each token in the listing.
-
-- For ERC721 NFTs, this is the price to buy the NFT outright.
-- For ERC1155 NFTs, this is the price to `1` quantity of the NFT.
-
-### minimumBidAmount
+### minimumBidAmount (required)
 
 The minimum price that a bid must be in order to be placed on the listing, per token.
 
 Bids that are lower than the reserve price will be rejected by the contract.
 
-### startTimestamp
+The default value is `0`.
+
+### startTimestamp (optional)
 
 A `Date` object for the start time of the listing.
+
+The default value is `new Date()`, which is the current time.
 
 ### endTimestamp (optional)
 

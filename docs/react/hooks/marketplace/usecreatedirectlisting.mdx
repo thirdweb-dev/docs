@@ -8,10 +8,8 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook for creating a new direct listing on a marketplace smart contract.
-
-Available to use on smart contracts that implement the [Marketplace](/contractkit/interfaces/marketplace)
-or [MarketplaceV3](/contractkit/interfaces/marketplacev3) standard.
+Hook for creating a new direct listing on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace)
+or [MarketplaceV3](https://thirdweb.com/thirdweb.eth/Marketplacev3) smart contract.
 
 ```jsx
 import { useCreateDirectListing } from "@thirdweb-dev/react";
@@ -38,10 +36,6 @@ function App() {
     isLoading,
     error,
   } = useCreateDirectListing(contract);
-
-  if (error) {
-    console.error("failed to create direct listing", error);
-  }
 
   return (
     <Web3Button

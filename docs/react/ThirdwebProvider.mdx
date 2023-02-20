@@ -16,7 +16,7 @@ Wrap your app in the `ThirdwebProvider` to access the SDK&rsquo;s functionality 
 
 ## Usage
 
-If you are using one of our <code>default chains</code>, provide the `activeChain` prop to the `ThirdwebProvider` component.
+If you are using one of our <code>default chains</code>, provide the name of the chain as a `string` to the `activeChain` prop.
 
 For non-default chains, see [configuring active chains](#active-chain) or [custom chains](#custom-chains).
 
@@ -87,14 +87,22 @@ function App() {
 
 ## Configuration
 
-### Active Chain
+### activeChain
 
 The `activeChain` prop determines which chain you want your app to be operating on.
 
-:::info Available Chains
 There are 700+ chains available in the [`@thirdweb-dev/chains`](https://github.com/thirdweb-dev/js/tree/main/packages/chains) package.
-
+Import the chain you want to use from the package and pass it to the `activeChain` prop.
 If your chain is not included, see [configuring custom chains](#custom-chains).
+
+:::tip Install Package
+
+Install the `@thirdweb-dev/chains` package to use non-default chains.
+
+```bash npm2yarn
+npm install @thirdweb-dev/chains
+```
+
 :::
 
 ```jsx
@@ -116,7 +124,7 @@ function MyApp() {
 }
 ```
 
-### Custom Chains
+### Custom EVM Chains
 
 If your chain is not included in the `@thirdweb-dev/chains` package,
 you can provide the chain information yourself to the `activeChain` prop.
@@ -369,7 +377,7 @@ An array of connector types (strings) or wallet connector objects that your app 
 
 If not provided, defaults to MetaMask (injected), WalletConnect and Coinbase Wallet.
 
-Useful if you want to add support for [Gnosis Safe](https://gnosis-safe.io/) or [Magic Link](https://magic.link/).
+Useful if you want to add support for [Gnosis Safe](/react/react.usegnosis) or [Magic Link](/react/react.usemagic).
 
 ```jsx title="Magic Link example"
 import { ThirdwebProvider } from "@thirdweb-dev/react";

@@ -4,7 +4,7 @@ slug: /react.usemakebid
 displayed_sidebar: react
 ---
 
-Hook for placing a bid on a marketplace auction listing.
+Hook for placing a bid on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) auction listing.
 
 Bids have several important properties:
 
@@ -20,6 +20,8 @@ import { useMakeBid } from "@thirdweb-dev/react";
 ## Usage
 
 Provide your Marketplace contract instance from the [`useContract`](/react/react.usecontract) hook as the argument.
+
+Then, provide the `listingId` and `bid` value to the mutation.
 
 ```jsx
 import { useMakeBid, useContract, Web3Button } from "@thirdweb-dev/react";

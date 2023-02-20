@@ -35,11 +35,10 @@ function App() {
 
 ## Configuration
 
-### tokenId
+### tokenId (ERC1155)
 
-The second parameter is the `tokenId`.
-
-When using the hook with ERC1155 contracts, pass the `tokenId` as the second parameter; as each token can have unique claim conditions.
+When using the hook with ERC1155 contracts such as the [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155),
+pass the `tokenId` as the second parameter; as each token can have unique claim conditions.
 
 Pass `undefined`, or leave this field out if you are using ERC721 or ERC20 drop contracts.
 
@@ -64,7 +63,7 @@ function App() {
 
 ### withAllowlist
 
-By default, the hook will not include the allowlist in the returned data.
+By default, the hook will not include the allowlist or "snapshot" in the returned data.
 
 To include the allowlist in the returned data, set the `withAllowlist` option to `true`.
 

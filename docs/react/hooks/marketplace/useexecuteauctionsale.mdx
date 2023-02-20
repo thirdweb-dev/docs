@@ -8,9 +8,9 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook for executing a sale of an auction listing.
+Hook for executing a sale of an auction listing on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contract.
 
-Available to use on [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) smart contracts.
+Triggers a new sale, transferring the NFT(s) to the buyer and the funds to the seller.
 
 ```jsx
 import { useExecuteAuctionSale } from "@thirdweb-dev/react";
@@ -18,7 +18,9 @@ import { useExecuteAuctionSale } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your Marketplace contract as the argument.
+Provide your Marketplace contract as the argument to the hook.
+
+Then, provide the `listingId` of the auction you want to execute the sale on to the mutation.
 
 ```jsx
 import {

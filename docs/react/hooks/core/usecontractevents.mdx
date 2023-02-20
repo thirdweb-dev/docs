@@ -30,7 +30,7 @@ function App() {
 
 ## Configuration
 
-### eventName
+### eventName (optional)
 
 The name of the event to query for. For example, if your smart contract emits an event called `MyEvent`, you would pass `"MyEvent"` to this parameter.
 
@@ -53,11 +53,11 @@ function App() {
 }
 ```
 
-### options
+### options (optional)
 
 An object containing options to filter the events being queried.
 
-Available options include `queryFilter` to refine which events you want to read, and a boolean `subscribe` flag.
+Available options include `queryFilter` to refine which events you want to read, and a boolean `subscribe` flag to subscribe to new events as they are emitted.
 
 ```jsx
 import {

@@ -4,7 +4,7 @@ slug: /react.usemakeoffer
 displayed_sidebar: react
 ---
 
-Hook for placing an offer on a marketplace direct listing.
+Hook for placing an offer on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) direct listing.
 
 ```jsx
 import { useMakeOffer } from "@thirdweb-dev/react";
@@ -13,6 +13,8 @@ import { useMakeOffer } from "@thirdweb-dev/react";
 ## Usage
 
 Provide your Marketplace contract instance from the [`useContract`](/react/react.usecontract) hook as the argument.
+
+Then, provide the `listingId`, `pricePerToken`, and `quantity` to the mutation.
 
 ```jsx
 import { useMakeOffer, useContract, Web3Button } from "@thirdweb-dev/react";
@@ -30,7 +32,7 @@ function App() {
       action={() =>
         makeOffer({
           listingId: 1, // ID of the listing to make an offer on
-          pricePerToken: 1, // Price per token to offer (used for ERC1155 NFTs)
+          pricePerToken: 1, // Price per token to offer (in the listing's currency)
           quantity: 1, // Number of NFTs you want to buy (used for ERC1155 NFTs)
         })
       }

@@ -11,7 +11,7 @@ import ThirdwebNftMediaEditor from "@components/live-code/snippets/ThirdwebNftMe
 
 Component that renders an NFT from given a `metadata` object.
 
-Under the hood, if the `image` property of the metadata is a URL/IPFS URI, it is fetched from the source.
+Under the hood, if the `image` property of the metadata is an URL/IPFS URI, it is fetched from the source.
 The [mime type](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types) of the
 asset is determined and the appropriate component is rendered on the UI.
 
@@ -35,7 +35,7 @@ import { ThirdwebNftMedia } from "@thirdweb-dev/react";
 
 Provide the `metadata` object to the component to render the NFT.
 
-The `image` is used as the media, and the `name` is used as the alt text for the media.
+The NFT&rsquo;s `image` is used as the media, and the `name` is used as the alt text for the media.
 
 ```jsx
 import { ThirdwebNftMedia, useContract, useNFT } from "@thirdweb-dev/react";

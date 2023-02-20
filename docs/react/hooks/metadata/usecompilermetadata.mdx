@@ -15,13 +15,12 @@ import { useCompilerMetadata } from "@thirdweb-dev/react";
 Provide your contract address as the argument.
 
 ```jsx
-import { useCompilerMetadata, useContract } from "@thirdweb-dev/react";
+import { useCompilerMetadata } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}}";
 
 function App() {
-  const { contract } = useContract(contractAddress);
   const { data, isLoading, error } = useCompilerMetadata(contractAddress);
 }
 

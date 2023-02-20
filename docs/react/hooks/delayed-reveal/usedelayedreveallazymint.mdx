@@ -11,8 +11,10 @@ import CodeBlock from "@theme/CodeBlock";
 Hook to lazy-mint a batch of NFTs with [delayed reveal](https://portal.thirdweb.com/sdk/advanced-features/delayed-reveal);
 allowing the owner to set placeholder metadata and reveal the metadata of the NFTs at a later time.
 
-Available to use on smart contracts that implement the [Revealable](/contractkit/interfaces/erc721revealable)
-interface.
+Available to use on contracts that implement the
+[ERC721Revealable](https://portal.thirdweb.com/contractkit/interfaces/erc721revealable)
+or [ERC1155Revealable](https://portal.thirdweb.com/contractkit/interfaces/erc1155revealable)
+interfaces.
 
 ```jsx
 import { useDelayedRevealLazyMint } from "@thirdweb-dev/react";
@@ -20,7 +22,7 @@ import { useDelayedRevealLazyMint } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your contract from the [`useContract`](/react/react.usecontract) as the argument.
+Provide your contract instance from the [`useContract`](/react/react.usecontract) hook as the argument.
 
 ```jsx
 import {
@@ -69,7 +71,7 @@ function App() {
 
 ## Configuration
 
-### placeholder
+### placeholder (required)
 
 The placeholder object represents the metadata the NFTs will have until the owner reveals the metadata.
 
@@ -121,9 +123,9 @@ function App() {
 }
 ```
 
-### metadatas
+### metadatas (required)
 
-An array of metadata objects for the NFTs to be minted.
+An array of metadata objects, representing the metadata of the NFTs to be lazy-minted.
 
 Each metadata object must conform to the [standard metadata properties](https://docs.opensea.io/docs/metadata-standards).
 
@@ -175,7 +177,7 @@ function App() {
 }
 ```
 
-### password
+### password (required)
 
 The password used to encrypt the metadatas.
 

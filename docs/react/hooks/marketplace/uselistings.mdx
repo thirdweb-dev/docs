@@ -4,10 +4,7 @@ slug: /react.uselistings
 displayed_sidebar: react
 ---
 
-Hook for getting all listings (including expired ones) from a marketplace contract.
-
-Available to use on contracts that implement the
-[Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) interface.
+Hook for getting all listings (including expired ones) from a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contract.
 
 :::info Marketplace V3
 Note: this hook is only available for [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contracts.
@@ -23,7 +20,7 @@ import { useListings } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your marketplace contract and the filter you wish to use as the arguments.
+Provide your marketplace contract and an optional filter you wish to use as the arguments.
 
 ```jsx
 import { useContract, useListings } from "@thirdweb-dev/react";
@@ -38,7 +35,7 @@ function App() {
 
 ## Configuration
 
-### filter
+### filter (optional)
 
 ```jsx
 import { useContract, useListings } from "@thirdweb-dev/react";
@@ -67,7 +64,7 @@ function App() {
 
 The hook's `data` property, once loaded, is an array of listing objects.
 
-The exact shape of the object depends on the type of listing.
+The exact shape of each object depends on the type of listing.
 
 For auctions, it will be a
 `AuctionListing` object.

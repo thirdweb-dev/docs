@@ -8,10 +8,8 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook for getting the winner of an auction for a specific item on a smart contract.
-
-Available to use on [Marketplace](/contractkit/interfaces/marketplace)
-or [MarketplaceV3](/contractkit/interfaces/marketplace-v3) smart contracts.
+Hook for getting the winner of an auction (or english auction) on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace)
+or [MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
 
 ```jsx
 import { useAuctionWinner } from "@thirdweb-dev/react";
@@ -19,7 +17,7 @@ import { useAuctionWinner } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your Marketplace contract and the item id as the arguments.
+Provide your Marketplace contract and the listing ID as the arguments.
 
 ```jsx
 import { useAuctionWinner, useContract } from "@thirdweb-dev/react";

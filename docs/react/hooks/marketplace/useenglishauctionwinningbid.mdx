@@ -26,8 +26,8 @@ import { useEnglishAuctionWinningBid, useContract } from "@thirdweb-dev/react";
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
-// The auction id you want to check
-const auctionId = "{{auction_id}}";
+// The id of the auction listing you want to check
+const listingId = "{{auction_id}}";
 
 function App() {
   const { contract } = useContract(contractAddress, "marketplace-v3");
@@ -35,16 +35,16 @@ function App() {
     data: winningBid,
     isLoading,
     error,
-  } = useEnglishAuctionWinningBid(contract, auctionId);
+  } = useEnglishAuctionWinningBid(contract, listingId);
 }
 ```
 
 ## Return Value
 
-The hook's `data` property, once loaded, will be an object of type `Bid`, containing the following properties:
-
 If there are no bids, the `data` property will be `undefined`. Use the `isLoading` property to differentiate between
 the loading state and the no bids state.
+
+If there is a bid, the hook's `data` property, once loaded, will be an object of type `Bid`, containing the following properties:
 
 ```ts
 {

@@ -14,7 +14,7 @@ Button to connect a user&rsquo;s wallet to your app, with support for
 [Coinbase](/react/react.usecoinbasewallet), and
 [WalletConnect](/react/react.usewalletconnect).
 
-Options you provide to the [`ThirdwebProvider`'s walletConnectors](/react/react.thirdwebprovider#walletconnectors)
+Wallets you provide to the [`ThirdwebProvider`'s walletConnectors](/react/react.thirdwebprovider#walletconnectors)
 prop are shown as options
 in the button&rsquo;s dropdown menu (if not configured, the default three options are shown).
 
@@ -39,13 +39,6 @@ function App() {
 <ConnectWalletEditor />
 
 ## Configuration
-
-| Prop          | Required | Description                                                                                 | Type                                    |
-| ------------- | -------- | ------------------------------------------------------------------------------------------- | --------------------------------------- |
-| `accentColor` | Optional | The background color of the button                                                          | [Hex Code](https://htmlcolorcodes.com/) |
-| `colorMode`   | Optional | Change the color of the text inside the button                                              | `light` or `dark`                       |
-| `btnTitle`    | Optional | Change the text of the button in the disconnected state. Default value is "Connect Wallet". | `string`                                |
-| `auth`        | Optional | Ask users to sign in using [auth](/auth) after connecting their wallet                      | `LoginOptions`                          |
 
 ### accentColor (optional)
 

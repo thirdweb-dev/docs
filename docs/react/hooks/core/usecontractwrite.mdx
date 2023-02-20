@@ -19,6 +19,9 @@ import { useContractWrite } from "@thirdweb-dev/react";
 Provide your smart contract instance returned from the [`useContract`](/react/react.usecontract) hook, along
 with the name of the function you wish to call on your smart contract as arguments to the hook.
 
+Then call the `mutate` or `mutateAsync` function returned by the hook, providing an array of arguments
+to send to your smart contract function.
+
 ```jsx
 import { useContractWrite, useContract, Web3Button } from "@thirdweb-dev/react";
 
@@ -88,6 +91,8 @@ For example, if your smart contract has a function called `setName` that require
 you would provide `["My Name"]` as the arguments to the `mutate` or `mutateAsync` function.
 
 If you provide too many or too few arguments, the `error` property will be populated with an error message.
+
+If your function has no arguments, provide an empty array.
 
 ```jsx
 import { useContractWrite, useContract, Web3Button } from "@thirdweb-dev/react";

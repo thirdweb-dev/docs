@@ -4,10 +4,7 @@ slug: /react.usewinningbid
 displayed_sidebar: react
 ---
 
-Hook for getting the winning bid of an auction listing on a marketplace contract.
-
-Available to use on [Marketplace](https://portal.thirdweb.com/contractkit/interfaces/marketplace)
-contracts.
+Hook for getting the winning bid of an auction listing on a [Marketplace](https://portal.thirdweb.comhttps://thirdweb.com/thirdweb.eth/Marketplace) contract.
 
 ```jsx
 import { useWinningBid } from "@thirdweb-dev/react";
@@ -15,7 +12,7 @@ import { useWinningBid } from "@thirdweb-dev/react";
 
 ## Usage
 
-Provide your marketplace contract instance and the listing ID as arguments.
+Provide your marketplace contract instance and the listing ID as arguments to the hook.
 
 ```jsx
 import { useContract, useWinningBid } from "@thirdweb-dev/react";
@@ -37,29 +34,29 @@ The hook's `data` property, once loaded, is an object of type `Offer`, or `undef
 
 ```ts
 {
-    /**
-     * The id of the listing.
-     */
-    listingId: BigNumberish;
-    /**
-     * The address of the buyer who made the offer.
-     */
-    buyerAddress: string;
-    /**
-     * The quantity of tokens to be bought.
-     */
-    quantityDesired: BigNumberish;
-    /**
-     * The amount of coins offered per token.
-     */
-    pricePerToken: BigNumber;
-    /**
-     * The `CurrencyValue` of the listing. Useful for displaying the price information.
-     */
-    currencyValue: CurrencyValue;
-    /**
-     * The currency contract address of the offer token.
-     */
-    currencyContractAddress: string;
+  /**
+   * The id of the listing.
+   */
+  listingId: BigNumberish;
+  /**
+   * The address of the buyer who made the offer.
+   */
+  buyerAddress: string;
+  /**
+   * The quantity of tokens to be bought.
+   */
+  quantityDesired: BigNumberish;
+  /**
+   * The amount of coins offered per token.
+   */
+  pricePerToken: BigNumber;
+  /**
+   * The `CurrencyValue` of the listing. Useful for displaying the price information.
+   */
+  currencyValue: CurrencyValue;
+  /**
+   * The currency contract address of the offer token.
+   */
+  currencyContractAddress: string;
 } | undefined;
 ```

@@ -8,11 +8,9 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook for determining the current bid buffer on a marketplace contract.
+Hook for determining the current bid buffer on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contract.
 
-The bid buffer is what percentage higher the next bid must be than the current highest bid.
-
-Available to use on marketplace contracts.
+The bid buffer is what percentage higher the next bid must be than the current highest bid, or the starting price if there are no bids.
 
 ```jsx
 import { useBidBuffer } from "@thirdweb-dev/react";
@@ -37,25 +35,16 @@ function App() {
     isLoading,
     error,
   } = useBidBuffer(contract, listingId);
-
-  if (error) {
-    console.error("failed to get bid buffer", error);
-  }
-
-  return (
-    <div>
-      <p>The current bid buffer is {bidBuffer?.toString() ?? ""}</p>
-    </div>
-  );
 }
 ```
 
 ## Return Value
 
-The hook's `data` property, once loaded, contains the following properties:
+The hook's `data` property, once loaded, returns a `BigNumber` value representing the current bid buffer.
 
 ```ts
 bidBuffer: BigNumber;
 ```
 
-The `bidBuffer` value returned is in percentage format. For example, a value of `500` means that the next bid must be 5% higher than the current highest bid.
+The `bidBuffer` value returned is in percentage format.
+For example, a value of `500` means that the next bid must be 5% higher than the current highest bid.

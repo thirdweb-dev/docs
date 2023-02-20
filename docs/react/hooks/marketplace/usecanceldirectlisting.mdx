@@ -4,7 +4,7 @@ slug: /react.usecanceldirectlisting
 displayed_sidebar: react
 ---
 
-Hook for canceling a direct listing on a marketplace v3 contract.
+Hook for canceling a direct listing on a [MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
 
 Only the creator of the listing can cancel it.
 
@@ -24,6 +24,10 @@ import { useCancelDirectListing } from "@thirdweb-dev/react";
 ```
 
 ## Usage
+
+Provide your marketplace contract as an argument to the hook.
+
+Then, provide the ID of the listing you want to cancel to the mutation.
 
 ```jsx
 import {
