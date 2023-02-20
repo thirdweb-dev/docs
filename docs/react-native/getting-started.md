@@ -15,7 +15,7 @@ Let's take a look at a typical setup:
 Specify the network your smart contracts are deployed to in the `desiredChainId` prop and wrap your application like so:
 
 ```tsx title="App.tsx"
-import {ChanId, ThirdwebProvider} from '@thirdweb-dev/react-native';
+import {ChainId, ThirdwebProvider} from '@thirdweb-dev/react-native';
 
 const App = () => {
   return (
