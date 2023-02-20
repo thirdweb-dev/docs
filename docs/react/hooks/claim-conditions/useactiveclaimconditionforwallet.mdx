@@ -13,7 +13,9 @@ Hook for getting the active claim condition on a drop contract for a specific wa
 As part of our [improved claim conditions](https://blog.thirdweb.com/announcing-improved-claim-conditions/) update, each wallet address can
 have unique claim conditions at any given time. This hook allows you to get the active claim condition for a specific wallet address at this time.
 
-Available for contracts that implement claim phases; such as NFT Drop, Edition Drop, and Token Drop.
+Available for contracts that implement the [claim conditions](/contractkit/interfaces/erc721claimablewithconditions)
+interface; such as [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721), [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155),
+and [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20).
 
 ```jsx
 import { useActiveClaimConditionForWallet } from "@thirdweb-dev/react";
@@ -50,7 +52,37 @@ function App() {
 
 ## Configuration
 
-### tokenId
+### address (required)
+
+The second parameter is the `address` of the wallet you want to get the active claim condition for.
+
+Use the [`useAddress`](/react/react.useaddress) hook to get the currently connected wallet address.
+
+```jsx
+import {
+  useActiveClaimConditionForWallet,
+  useContract,
+  // highlight-next-line
+  useAddress,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  // highlight-next-line
+  const address = useAddress();
+
+  const { data, isLoading, error } = useActiveClaimConditionForWallet(
+    contract,
+    // highlight-next-line
+    address,
+  );
+}
+```
+
+### tokenId (ERC1155 only)
 
 The third (optional) parameter is the `tokenId`.
 
@@ -72,7 +104,6 @@ function App() {
   const { contract } = useContract(contractAddress);
   const address = useAddress();
 
-  // "data" now includes a "snapshot" property that contains the allowlist.
   const { data, isLoading, error } = useActiveClaimConditionForWallet(
     contract,
     address,
@@ -87,7 +118,7 @@ function App() {
 
 The hook's `data` property, once loaded, contains the following properties:
 
-```jsx
+```ts
 {
   maxClaimableSupply: string;
   startTime: Date;

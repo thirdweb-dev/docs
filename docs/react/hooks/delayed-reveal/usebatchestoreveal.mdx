@@ -30,20 +30,6 @@ function App() {
   // Contract must implement the Delayed reveal interface.
   const { contract } = useContract(contractAddress);
   const { data: batches, isLoading, error } = useBatchesToReveal(contract);
-
-  if (isLoading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    console.error("failed to fetch batches to reveal", error);
-  }
-
-  if (!batches) {
-    return <div>No batches to reveal</div>;
-  }
-
-  return <div>Batches to reveal: {batches.length}</div>;
 }
 ```
 
@@ -53,7 +39,7 @@ The hook's `data` property, once loaded, contains an array of batches that need 
 
 Each batch is an object with the following properties:
 
-```jsx
+```ts
 {
   batchId: BigNumber;
   batchUri: string;

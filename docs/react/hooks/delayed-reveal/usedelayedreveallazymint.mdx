@@ -40,10 +40,6 @@ function App() {
     error,
   } = useDelayedRevealLazyMint(contract);
 
-  if (error) {
-    console.error("failed to mint nft", error);
-  }
-
   return (
     <Web3Button
       contractAddress={contractAddress}

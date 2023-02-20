@@ -38,7 +38,7 @@ function App() {
 
 ## Configuration
 
-### tokenId
+### tokenId (ERC1155 only)
 
 The second parameter is the `tokenId`.
 
@@ -55,7 +55,6 @@ const contractAddress = "{{contract_address}}";
 function App() {
   const { contract } = useContract(contractAddress);
 
-  // "data" now includes a "snapshot" property that contains the allowlist.
   const { data, isLoading, error } = useClaimConditions(
     contract,
     // highlight-start
@@ -65,7 +64,7 @@ function App() {
 }
 ```
 
-### withAllowlist
+### withAllowlist (optional)
 
 By default, the hook will not include the allowlist in the returned data.
 
@@ -99,7 +98,7 @@ function App() {
 
 The hook's `data` property, once loaded, contains an array of objects with the following properties:
 
-```jsx
+```ts
 {
   maxClaimableSupply: string;
   startTime: Date;

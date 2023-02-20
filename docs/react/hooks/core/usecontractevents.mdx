@@ -12,6 +12,10 @@ import { useContractEvents } from "@thirdweb-dev/react";
 
 ## Usage
 
+Provide your smart contract instance from [`useContract`](/react/react.usecontract) hook as the argument.
+
+By default, reads all events emitted by the smart contract.
+
 ```jsx
 import { useContractEvents, useContract } from "@thirdweb-dev/react";
 
@@ -20,7 +24,7 @@ const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { data, isLoading, error, isError } = useContractEvents(contract);
+  const { data, isLoading, error } = useContractEvents(contract);
 }
 ```
 
@@ -40,7 +44,7 @@ const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { data, isLoading, error, isError } = useContractEvents(
+  const { data, isLoading, error } = useContractEvents(
     contract,
     // highlight-start
     "MyEvent", // Event name being emitted by your smart contract
@@ -67,7 +71,7 @@ const contractAddress = "{{contract_address}}";
 
 function App() {
   const { contract } = useContract(contractAddress);
-  const { data, isLoading, error, isError } = useContractEvents(
+  const { data, isLoading, error } = useContractEvents(
     contract,
     "MyEvent",
     {
@@ -90,20 +94,20 @@ function App() {
 
 The hook's `data` property, once loaded, contains an array of event objects, each containing the following properties:
 
-```jsx
+```ts
 {
-    eventName: string;
-    data: Record<string, any>;
-    transaction: {
-        blockNumber: number;
-        blockHash: string;
-        transactionIndex: number;
-        removed: boolean;
-        address: string;
-        data: string;
-        topics: Array<string>;
-        transactionHash: string;
-        logIndex: number;
-    };
+  eventName: string;
+  data: Record<string, any>;
+  transaction: {
+    blockNumber: number;
+    blockHash: string;
+    transactionIndex: number;
+    removed: boolean;
+    address: string;
+    data: string;
+    topics: Array<string>;
+    transactionHash: string;
+    logIndex: number;
+  }
 }
 ```

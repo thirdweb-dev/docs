@@ -10,11 +10,9 @@ import CodeBlock from "@theme/CodeBlock";
 
 Hook for fetching the reasons a user is not eligible to claim tokens from a drop.
 
-For example, if the user is not in the allowlist, this hook will return `["This address is not on the allowlist."]`.
-
-Available to use on contracts that implement a [Drop](https://portal.thirdweb.com/contractkit/extension-contracts/dropsinglephase) interface.
-
-If the user is eligible to claim tokens, the hook will return an empty array.
+Available for contracts that implement the [claim conditions](/contractkit/interfaces/erc721claimablewithconditions)
+interface; such as [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721), [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155),
+and [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20).
 
 ```jsx
 import { useClaimIneligibilityReasons } from "@thirdweb-dev/react";
@@ -34,14 +32,18 @@ function App() {
   const { contract } = useContract(contractAddress);
   const { data, isLoading, error } = useClaimIneligibilityReasons(contract, {
     walletAddress: "{{wallet_address}}", // Use useAddress hook to get the user's wallet address
-    quantity: 1,
+    quantity: 1, // Quantity to check eligibility for
   });
 }
 ```
 
 ## Configuration
 
-### eligibilityParams
+### eligibilityParams (required)
+
+The conditions to check eligibility for. The `walletAddress` and `quantity` properties are required.
+
+Use the [`useaddress`](/react/react.useaddress) hook to get the connected wallet address.
 
 ```jsx
 import { useClaimIneligibilityReasons, useContract } from "@thirdweb-dev/react";
@@ -66,7 +68,7 @@ function App() {
 }
 ```
 
-### tokenId
+### tokenId (ERC1155)
 
 When using ERC1155 contracts, provide a third argument to specify the token ID.
 
@@ -97,7 +99,11 @@ function App() {
 
 The hook's `data` property, once loaded, contains an array of `ClaimEligibility` strings, which may be empty.
 
-```jsx
+For example, if the user is not in the allowlist, this hook will return `["This address is not on the allowlist."]`.
+
+If the user _is_ eligible to claim tokens, the hook will return an empty array.
+
+```ts
 ClaimEligibility[]
 
 // ClaimEligibility Enum

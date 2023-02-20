@@ -14,7 +14,7 @@ Allows the seller _(the user who listed the NFT for sale)_ to accept an offer on
 
 This process will trigger a sale event, meaning the:
 
-- NFT(s) are transferred from the seller to the buyer,
+- NFT(s) are transferred from the seller to the buyer.
 - Funds from the offeror are sent to the seller.
 
 ```jsx
@@ -47,10 +47,6 @@ function App() {
     isLoading,
     error,
   } = useAcceptDirectListingOffer(contract);
-
-  if (error) {
-    console.error("failed to accept direct offer", error);
-  }
 
   return (
     <Web3Button

@@ -74,27 +74,16 @@ function App() {
     },
     // highlight-end
   );
-
-  if (error) {
-    console.error("failed to fetch active listings", error);
-  }
-
-  return (
-    <>
-      {isLoading && <div>Loading...</div>}
-      {data && data.map((listing) => <div key={listing.id}>{listing.id}</div>)}
-    </>
-  );
 }
 ```
 
 ## Return Value
 
-The hook returns an array containing both `AuctionListing` and `DirectListing` objects.
+The hook's `data` property, once loaded, returns an array containing both
+`AuctionListing` and `DirectListing` objects.
+Use the `type` property to determine which type of listing each one is.
 
-The hook's `data` property, once loaded, contains the following properties:
-
-```jsx
+```ts
 (AuctionListing | DirectListing)[]
 
 // Properties available on both listing types below...

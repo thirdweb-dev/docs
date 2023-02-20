@@ -87,7 +87,7 @@ The function takes in two arguments:
    All properties of a phase are **optional**, with the default being a free, open,
    unlimited claim, in the native currency, starting immediately.
 
-### reset
+### reset (optional)
 
 A boolean value that determines whether to reset the claim conditions or to keep the existing state.
 
@@ -97,9 +97,11 @@ For example, if you had a limit of 1 token per wallet, and a user claimed a toke
 
 Default value is `false`.
 
-### phases
+### phases (required)
 
-Below, each property of a phase is described.
+Provide an array of phases that occur in chronological order.
+
+Below, each property of a phase is described. Each property is optional.
 
 ### metadata
 

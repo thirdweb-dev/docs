@@ -31,13 +31,13 @@ function App() {
 
 The hook's `data` property, once loaded, is an object containing the contract's metadata.
 
-```jsx
+```ts
 CustomContractMetadata | undefined;
 ```
 
 The exact shape of the object depends on the type of metadata provided by the contract.
 
-```jsx
+```ts
 interface CustomContractMetadata {
   /**
    * A description of the contract.

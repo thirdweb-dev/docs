@@ -10,8 +10,8 @@ import CodeBlock from "@theme/CodeBlock";
 
 Hook for getting the winner of an auction for a specific item on a smart contract.
 
-Available to use on smart contracts that implement the [Marketplace](/contractkit/interfaces/marketplace)
-or [MarketplaceV3](/contractkit/interfaces/marketplace-v3) standard.
+Available to use on [Marketplace](/contractkit/interfaces/marketplace)
+or [MarketplaceV3](/contractkit/interfaces/marketplace-v3) smart contracts.
 
 ```jsx
 import { useAuctionWinner } from "@thirdweb-dev/react";
@@ -38,10 +38,9 @@ function App() {
 
 ## Return Value
 
-The hook's `data` property, once loaded, contains the following properties:
+The hook's `data` property, once loaded, contains a string
+representing the address of the auction winner, or undefined if there is no winner.
 
-```jsx
+```ts
 string | undefined;
 ```
-
-A string containing the address of the auction winner, or undefined if there is no winner.

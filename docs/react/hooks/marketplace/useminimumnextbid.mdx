@@ -6,7 +6,7 @@ displayed_sidebar: react
 
 Hook for getting the minimum next bid for an auction listing in a marketplace.
 
-Takes into account the current highest bid, and increments this amount by the bid buffer BPS to calculate the minimum next bid.
+Takes into account the current highest bid, or the minimum bid required, and increments this amount by the bid buffer BPS to calculate the minimum next bid.
 
 Available to use on
 [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) and [MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contracts.
@@ -35,7 +35,7 @@ function App() {
 
 The hook's `data` property, once loaded, is an object containing the minimum next bid for the listing.
 
-```jsx
+```ts
 {
   symbol: string;
   value: BigNumber;
