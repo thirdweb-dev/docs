@@ -4,185 +4,26 @@ slug: /react.usestorage
 displayed_sidebar: react
 ---
 
-Hook for uploading files and directories to storage.
+Get the instance of the `ThirdwebStorage` class being used by the [`ThirdwebProvider`](/react/react.thirdwebprovider).
+
+Allows you to use the TypeScript SDK functionality of [Storage](/storage) in your React app.
+
+Configurable in the [`storageInterface`](/react/react.thirdwebprovider#storageinterface-optional) prop of the [`ThirdwebProvider`](/react/react.thirdwebprovider).
 
 ```jsx
-import { useStorage } from "@thirdweb-dev/react";
+import { useStorage } from "@thirdweb/react";
 ```
 
 ## Usage
 
 ```jsx
-import { useStorage, Web3Button } from "@thirdweb-dev/react";
+import { useStorage } from "@thirdweb-dev/react";
 
-function App() {
+export default function Component() {
   const storage = useStorage();
-  if (!storage) {
-    return <div>Please connect a wallet</div>;
-  }
 
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        storage.uploadBatch(files, {
-          // highlight-start
-          rewriteFileNames: {
-            fileStartNumber: 1,
-          },
-          uploadWithGatewayUrl: true,
-          onProgress: (event) => console.log("upload progress", event),
-          uploadWithoutDirectory: false,
-          // highlight-end
-        })
-      }
-    >
-      Upload
-    </Web3Button>
-  );
-}
-```
-
-## Configuration
-
-### rewriteFileNames
-
-If specified, will rewrite file names to numbers for use on-chain.
-
-Useful to use with NFT contracts that map token IDs to files.
-
-```jsx
-import { useStorage, Web3Button } from "@thirdweb-dev/react";
-
-function App() {
-  const storage = useStorage();
-  if (!storage) {
-    return <div>Please connect a wallet</div>;
-  }
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        storage.uploadBatch(files, {
-          // highlight-start
-          rewriteFileNames: {
-            fileStartNumber: 1,
-          },
-          // highlight-end
-          uploadWithGatewayUrl: true,
-          onProgress: (event) => console.log("upload progress", event),
-          uploadWithoutDirectory: false,
-        })
-      }
-    >
-      Upload
-    </Web3Button>
-  );
-}
-```
-
-### uploadWithGatewayUrl
-
-If specified, any URLs with schemes will be replaced with resolved URLs before upload.
-
-```jsx
-import { useStorage, Web3Button } from "@thirdweb-dev/react";
-
-function App() {
-  const storage = useStorage();
-  if (!storage) {
-    return <div>Please connect a wallet</div>;
-  }
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        storage.uploadBatch(files, {
-          rewriteFileNames: {
-            fileStartNumber: 1,
-          },
-          // highlight-start
-          uploadWithGatewayUrl: true,
-          // highlight-end
-          onProgress: (event) => console.log("upload progress", event),
-          uploadWithoutDirectory: false,
-        })
-      }
-    >
-      Upload
-    </Web3Button>
-  );
-}
-```
-
-### onProgress
-
-Callback that gets triggered when file upload progresses.
-
-```jsx
-import { useStorage, Web3Button } from "@thirdweb-dev/react";
-
-function App() {
-  const storage = useStorage();
-  if (!storage) {
-    return <div>Please connect a wallet</div>;
-  }
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        storage.uploadBatch(files, {
-          rewriteFileNames: {
-            fileStartNumber: 1,
-          },
-          uploadWithGatewayUrl: true,
-          // highlight-start
-          onProgress: (event) => console.log("upload progress", event),
-          // highlight-end
-          uploadWithoutDirectory: false,
-        })
-      }
-    >
-      Upload
-    </Web3Button>
-  );
-}
-```
-
-### uploadWithoutDirectory
-
-If specified, will upload a single file without wrapping it in a directory.
-
-```jsx
-import { useStorage, Web3Button } from "@thirdweb-dev/react";
-
-function App() {
-  const storage = useStorage();
-  if (!storage) {
-    return <div>Please connect a wallet</div>;
-  }
-
-  return (
-    <Web3Button
-      contractAddress={contractAddress}
-      action={() =>
-        storage.uploadBatch(files, {
-          rewriteFileNames: {
-            fileStartNumber: 1,
-          },
-          uploadWithGatewayUrl: true,
-          onProgress: (event) => console.log("upload progress", event),
-          // highlight-start
-          uploadWithoutDirectory: false,
-          // highlight-end
-        })
-      }
-    >
-      Upload
-    </Web3Button>
-  );
+  // Now you can use the functionality of the ThirdwebStorage class:
+  storage?.download(); // Download a file from IPFS
+  storage?.upload(); // Upload a file to IPFS
 }
 ```
