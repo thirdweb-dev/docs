@@ -1,0 +1,93 @@
+---
+title: useLazyMint
+slug: /react.uselazymint
+displayed_sidebar: react
+---
+
+Hook for lazy minting a batch of NFTs on a drop contract.
+
+Available to use on smart contracts that implement the
+[LazyMintable](/contractkit/interfaces/erc721lazymintable) interface, and
+follow either the [ERC721](/contractkit/interfaces/erc721)
+or [ERC1155](/contractkit/interfaces/erc1155) standard.
+
+```jsx
+import { useLazyMint } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your drop contract (ERC721 or ERC1155) as the argument to the hook, and an array
+of metadata objects to lazy-mint.
+
+```jsx
+import { useContract, useLazyMint, Web3Button } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: lazyMint, isLoading, error } = useLazyMint(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        lazyMint({
+          // Metadata of the NFTs to upload
+          metadatas: [
+            {
+              name: "My NFT",
+              description: "An example NFT",
+              image: "{{image_url}}",
+            },
+          ],
+        })
+      }
+    >
+      Lazy Mint NFTs
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### metadatas (required)
+
+An array of objects containing the metadata of the NFTs to lazy mint.
+
+Your metadata objects must follow the [Metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+
+```jsx
+import { useContract, useLazyMint, Web3Button } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: lazyMint, isLoading, error } = useLazyMint(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        lazyMint({
+          // highlight-start
+          // Metadata of the NFTs to upload
+          metadatas: [
+            {
+              name: "My NFT",
+              description: "An example NFT",
+              image: "{{image_url}}",
+            },
+          ],
+          // highlight-end
+        })
+      }
+    >
+      Lazy Mint NFTs
+    </Web3Button>
+  );
+}
+```

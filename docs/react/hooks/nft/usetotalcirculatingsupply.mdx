@@ -1,0 +1,64 @@
+---
+title: useTotalCirculatingSupply
+slug: /react.usetotalcirculatingsupply
+displayed_sidebar: react
+---
+
+Hook for fetching the total number of NFTs in circulation for a given smart contract.
+
+This takes into account the increase in supply due to minting and the decrease in supply due to burning.
+
+Available to use on contracts that implement either the [ERC721](https://portal.thirdweb.com/contractkit/interfaces/erc721)
+or [ERC1155](https://portal.thirdweb.com/contractkit/interfaces/erc1155) standard.
+
+```jsx
+import { useTotalCirculatingSupply } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT contract from the [`useContract`](/react/react.usecontract) hook as the first argument.
+
+```jsx
+import { useTotalCirculatingSupply, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useTotalCirculatingSupply(contract);
+}
+```
+
+## Configuration
+
+### tokenId (ERC1155 only)
+
+If you are using an ERC1155 contract, provide the `tokenId` as the second argument.
+
+This will return the total quantity of the given token ID in circulation.
+
+```jsx
+import { useTotalCirculatingSupply, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useTotalCirculatingSupply(
+    contract,
+    // highlight-next-line
+    "{{token_id}}",
+  );
+}
+```
+
+## Return Value
+
+The hook returns a `BigNumber` representing the total circulating supply.
+
+```ts
+BigNumber;
+```

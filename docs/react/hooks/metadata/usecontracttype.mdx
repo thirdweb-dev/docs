@@ -1,0 +1,54 @@
+---
+title: useContractType
+slug: /react.usecontracttype
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for determining the type of contract for a contract address.
+
+This is useful if you want to determine if a contract is a [prebuilt contract](https://portal.thirdweb.com/pre-built-contracts).
+
+```jsx
+import { useContractType } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your contract address as the argument.
+
+```jsx
+import { useContractType } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { data, isLoading, error } = useContractType(contractAddress);
+}
+```
+
+## Return Values
+
+The hook's `data` property, once loaded, will be one of the following values:
+
+```ts
+`split` |
+  `custom` | // If the contract is not prebuilt, it will be "custom".
+  `edition-drop` |
+  `edition` |
+  `marketplace` |
+  `marketplace-v3` |
+  `multiwrap` |
+  `nft-collection` |
+  `nft-drop` |
+  `pack` |
+  `signature-drop` |
+  `token-drop` |
+  `token` |
+  `vote` |
+  `null`;
+```

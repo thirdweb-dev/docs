@@ -1,0 +1,150 @@
+---
+title: useClaimerProofs
+slug: /react.useclaimerproofs
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import UseClaimerProofs from "@components/live-code/snippets/UseClaimerProofs";
+
+Hook to get the claimer proofs for an address for [ERC20](https://portal.thirdweb.com/contractkit/base-contracts/erc-20/erc20drop), [ERC721](https://portal.thirdweb.com/contractkit/base-contracts/erc-721/erc721drop), and [ERC1155](https://portal.thirdweb.com/contractkit/base-contracts/erc-1155/erc1155drop) drop contracts.
+
+A claimer proof is a set of data about a claimer's claim condition, including the claimer's address, the claimer's proof, and the claimer's max claimable amount, price, and currency address.
+
+Available for contracts that implement the [claim conditions](/contractkit/interfaces/erc721claimablewithconditions)
+interface; such as [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721), [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155),
+and [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20).
+
+```jsx
+import { useClaimerProofs } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your Drop contract as the first argument and the claimer's address as the second argument.
+
+```jsx
+import { useClaimerProofs, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+
+  const {
+    data: proof,
+    isLoading,
+    error,
+  } = useClaimerProofs(contract, "{{claimer_address}}");
+}
+```
+
+## Configuration
+
+### claimerAddress (required)
+
+The second parameter is the `claimerAddress`. This is the address of the user you want to get the proof for.
+
+Likely, you will want to check proofs of the currently connected wallet address.
+
+You can use the useAddress hook to get this value.
+
+```jsx
+import { useAddress, useClaimerProofs, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  // highlight-start
+  const address = useAddress();
+  // highlight-end
+
+  const {
+    data: proof,
+    isLoading,
+    error,
+  } = useClaimerProofs(
+    contract,
+    // highlight-start
+    address, // Use useAddress hook to get current wallet address
+    // highlight-end
+  );
+}
+```
+
+### tokenId (ERC1155 only)
+
+When using the hook with ERC1155 contracts, pass the `tokenId` as the third parameter; as each token can have unique claim conditions.
+
+Pass `undefined`, or leave this field out if you are using ERC721 or ERC20 drop contracts.
+
+```jsx
+import { useClaimerProofs, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+
+  const {
+    data: proof,
+    isLoading,
+    error,
+  } = useClaimerProofs(
+    contract,
+    "{{claimer_address}}",
+    // highlight-start
+    0, // Token ID required for ERC1155 contracts here.
+    // highlight-end
+  );
+}
+```
+
+### claimConditionID (optional)
+
+The fourth parameter is `claimConditionId`. This is the ID of the claim condition you want to get the proof for.
+
+```jsx
+import { useClaimerProofs, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+
+  // "data" now includes a proof for the claim condition with ID 0.
+  const {
+    data: proof,
+    isLoading,
+    error,
+  } = useClaimerProofs(
+    contract,
+    "{{claimer_address}}",
+    undefined,
+    // highlight-start
+    0, // Claim condition ID here.
+    // highlight-end
+  );
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, contains the following properties:
+
+```ts
+{
+    price?: string | undefined;
+    currencyAddress?: string | undefined;
+    address: string;
+    proof: string[];
+    maxClaimable: string;
+}
+```

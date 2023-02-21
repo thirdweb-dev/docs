@@ -1,0 +1,52 @@
+---
+title: useResolvedMediaType
+slug: /react.useresolvedmediatype
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for resolving the media type and URL of a given URI (including IPFS URIs).
+
+```jsx
+import { useResolvedMediaType } from "@thirdweb-dev/react";
+```
+
+:::tip IPFS Media Renderer
+
+The [IPFS Media Renderer](/react/react.mediarenderer) component renders the relevant
+HTML element for a given URL, including IPFS URIs. e.g. `<img>` for images, `<video>` for videos, etc.
+
+:::
+
+## Usage
+
+Provide the URI of the media asset as the argument.
+
+```jsx
+import { useResolvedMediaType } from "@thirdweb-dev/react";
+
+function App() {
+  const { url, mimeType } = useResolvedMediaType(
+    "https://example.com/image.jpg", // URL or URI of the media asset
+  );
+
+  return <img src={url} type={mimeType} />;
+}
+```
+
+## Return Value
+
+The hook returns an object containing two properties: :
+
+- `url`: The fully resolved URL, or `undefined` if the URI is invalid.
+- `mimeType`: The mime type of the media, or `undefined` if the URI is invalid.
+
+```ts
+{
+  url: string | undefined;
+  mimeType: string | undefined;
+}
+```

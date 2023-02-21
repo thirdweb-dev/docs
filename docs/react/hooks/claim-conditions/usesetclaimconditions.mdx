@@ -1,0 +1,225 @@
+---
+title: useSetClaimConditions
+slug: /react.usesetclaimconditions
+displayed_sidebar: react
+---
+
+Hook for setting claim conditions on a drop contract.
+
+Available for contracts that implement the [claim conditions](/contractkit/interfaces/erc721claimablewithconditions)
+interface; such as [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721), [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155),
+and [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20).
+
+```jsx
+import { useSetClaimConditions } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your drop contract instance as the argument.
+
+When using an ERC1155 contract, you must also
+provide the token ID of the NFT you want to
+set claim conditions on as the second parameter to the hook.
+
+```jsx
+import {
+  useSetClaimConditions,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: setClaimConditions,
+    isLoading,
+    error,
+  } = useSetClaimConditions(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        setClaimConditions({
+          phases: [
+            {
+              metadata: {
+                name: "Phase 1", // The name of the phase
+              },
+              currencyAddress: "0x...", // The address of the currency you want users to pay in
+              price: 1, // The price of the token in the currency specified above
+              maxClaimablePerWallet: 1, // The maximum number of tokens a wallet can claim
+              maxClaimableSupply: 100, // The total number of tokens that can be claimed in this phase
+              startTime: new Date(), // When the phase starts (i.e. when users can start claiming tokens)
+              waitInSeconds: 60 * 60 * 24 * 7, // The period of time users must wait between repeat claims
+              snapshot: [
+                {
+                  address: "0x...", // The address of the wallet
+                  currencyAddress: "0x...", // Override the currency address this wallet pays in
+                  maxClaimable: 5, // Override the maximum number of tokens this wallet can claim
+                  price: 0.5, // Override the price this wallet pays
+                },
+              ],
+              merkleRootHash: "0x...", // The merkle root hash of the snapshot
+            },
+          ],
+        })
+      }
+    >
+      Set Claim Conditions
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+The function takes in two arguments:
+
+1. `reset` - A boolean that determines whether to reset the claim conditions.
+   This means you reset any previous claim conditions that existed and allow users to claim again as if the drop had just started.
+2. `phases` - An array of claim phases that occur in chronological order.
+   You can only have one phase occur at a time.
+   All properties of a phase are **optional**, with the default being a free, open,
+   unlimited claim, in the native currency, starting immediately.
+
+### reset (optional)
+
+A boolean value that determines whether to reset the claim conditions or to keep the existing state.
+
+By resetting them, any previous claims that were made will be ignored by the claim condition restrictions.
+
+For example, if you had a limit of 1 token per wallet, and a user claimed a token, then you reset the claim conditions, that user will be able to claim another token.
+
+Default value is `false`.
+
+### phases (required)
+
+Provide an array of phases that occur in chronological order.
+
+Below, each property of a phase is described. Each property is optional.
+
+### metadata
+
+An object representing the metadata of the phase.
+
+This is only for display purposes in the dashboard and isn&rsquo;t used elsewhere.
+
+```jsx
+{
+  name: string;
+}
+```
+
+### currencyAddress
+
+The address of the currency you want users to pay in.
+
+This can be any ERC20 token value.
+If you want users to pay in the native currency (e.g. Ether on Ethereum),
+you can import the `NATIVE_TOKEN_ADDRESS` constant from `@thirdweb-dev/sdk`.
+
+The default value is `NATIVE_TOKEN_ADDRESS`.
+
+```jsx
+import {
+  useSetClaimConditions,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// highlight-next-line
+import { NATIVE_TOKEN_ADDRESS } from "@thirdweb-dev/sdk";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: setClaimConditions,
+    isLoading,
+    error,
+  } = useSetClaimConditions(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        setClaimConditions({
+          phases: [
+            {
+              // highlight-next-line
+              currencyAddress: NATIVE_TOKEN_ADDRESS,
+            },
+          ],
+        })
+      }
+    >
+      Set Claim Conditions
+    </Web3Button>
+  );
+}
+```
+
+### price
+
+The price per token in the currency specified above.
+
+The default value is `0`.
+
+### maxClaimablePerWallet
+
+The maximum number of tokens a wallet can claim.
+
+The default value is `unlimited`.
+
+### maxClaimableSupply
+
+The total number of tokens that can be claimed in this phase.
+
+For example, if you lazy mint 1000 tokens and set the `maxClaimableSupply` to 100,
+then only 100 tokens will be claimable in this phase, leaving 900 tokens to be claimed in the next phases (if you have any).
+
+This is useful for "early bird" use cases, where you allow users to claim a limited number of tokens at a discounted price during
+the first X amount of time.
+
+### startTime
+
+When the phase starts (i.e. when users can start claiming tokens).
+
+The default value is immediately.
+
+### waitInSeconds
+
+The amount of time between claims a wallet must wait before they can claim again.
+
+The default value is `0`, meaning users can claim again immediately after claiming.
+
+### snapshot
+
+A list of wallets that you want to override the default claim conditions for.
+
+Wallet addresses within this list can be set to pay in a
+different currency, have a different price, and have a different maximum claimable amount.
+
+```ts
+{
+  address: string;
+  currencyAddress?: string;
+  maxClaimable?: number;
+  price?: number;
+}
+```
+
+[Learn more about improved claim conditions](https://blog.thirdweb.com/announcing-improved-claim-conditions/).
+
+### merkleRootHash
+
+If you want to provide your own merkle tree for your snapshot, provide the merkle root hash here.
+
+This is only recommended for advanced use cases.

@@ -1,0 +1,43 @@
+---
+title: useDirectListingsCount
+slug: /react.usedirectlistingscount
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook to get the total number of direct listings on a [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
+
+```jsx
+import { useDirectListingsCount } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your Marketplace V3 contract instance as an argument to the hook.
+
+```jsx
+import { useDirectListingsCount, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    data: listingsCount,
+    isLoading,
+    error,
+  } = useDirectListingsCount(contract);
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, is a `BigNumber` containing the number of direct listings on the Marketplace V3 contract.
+
+```ts
+BigNumber;
+```

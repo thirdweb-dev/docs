@@ -67,6 +67,7 @@ const config = {
   ],
   plugins: [
     disableCachePlugin,
+    "docusaurus-node-polyfills",
     [
       "ideal-image",
       /** @type {import('@docusaurus/plugin-ideal-image').PluginOptions} */
