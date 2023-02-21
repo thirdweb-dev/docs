@@ -92,6 +92,11 @@ const sidebars = {
           label: "useContractEvents",
           id: "hooks/core/usecontractevents",
         },
+        {
+          type: "doc",
+          label: "useSDK",
+          id: "hooks/core/usesdk",
+        },
 
         // === Claim Conditions === \\
         {
