@@ -8,7 +8,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook for logging out a connected wallet.
+Hook for signing out of a wallet after a user has [logged in](/react/react.uselogin) using [auth](auth).
 
 ```jsx
 import { useLogout } from "@thirdweb-dev/react";
@@ -16,16 +16,20 @@ import { useLogout } from "@thirdweb-dev/react";
 
 ## Usage
 
+Call the `login` function to have the user sign out.
+
+The `isLoading` boolean can be used to display a loading state on the UI while the user is signing out.
+
 ```jsx
-import { useLogout, Web3Button } from "@thirdweb-dev/react";
+import { useLogout } from "@thirdweb-dev/react";
 
 function App() {
   const { logout, isLoading } = useLogout();
 
   return (
-    <Web3Button action={() => logout()} disabled={isLoading}>
-      Logout
-    </Web3Button>
+    <button onClick={() => logout()}>
+      {isLoading ? "Logging out..." : "Logout"}
+    </button>
   );
 }
 ```
