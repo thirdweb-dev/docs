@@ -34,11 +34,12 @@ function App() {
 
 ## Configuration
 
-### ownerWalletAddress
+### ownerWalletAddress (required)
 
 The wallet address you want to query for.
 
-Likely, you will want to view the connected wallet&rsquo;s NFTs. You can use the [`useAddress`](/react/react.useaddress) hook to get this value.
+Likely, you will want to view the connected wallet&rsquo;s NFTs.
+se the [`useAddress`](/react/react.useaddress) hook to get this value.
 
 ```jsx
 import { useOwnedNFTs, useContract, useAddress } from "@thirdweb-dev/react";
@@ -54,33 +55,6 @@ function App() {
     contract,
     // highlight-next-line
     address,
-  );
-}
-```
-
-### queryParams
-
-By default, the hook will return all NFTs associated with the contract.
-
-You can use the `queryParams` argument to filter the NFTs that are returned.
-
-```jsx
-import { useNFTs, useContract } from "@thirdweb-dev/react";
-
-// Your smart contract address
-const contractAddress = "{{contract_address}}";
-
-function App() {
-  const { contract } = useContract(contractAddress);
-  const { data, isLoading, error } = useNFTs(
-    contract,
-    // highlight-start
-    {
-      // For example, to only return the first 50 NFTs in the collection
-      count: 50,
-      start: 0,
-    },
-    // highlight-end
   );
 }
 ```

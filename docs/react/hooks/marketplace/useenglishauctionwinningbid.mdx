@@ -39,6 +39,38 @@ function App() {
 }
 ```
 
+## Configuration
+
+### listingId (required)
+
+The id of the auction listing you want to check.
+
+If the listing cannot be found, or is not an English auction, the `error` property will be set.
+
+```jsx
+import { useEnglishAuctionWinningBid, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The id of the auction listing you want to check
+// highlight-next-line
+const listingId = "{{auction_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    data: winningBid,
+    isLoading,
+    error,
+  } = useEnglishAuctionWinningBid(
+    contract,
+    // highlight-next-line
+    listingId,
+  );
+}
+```
+
 ## Return Value
 
 If there are no bids, the `data` property will be `undefined`. Use the `isLoading` property to differentiate between

@@ -15,7 +15,7 @@ A listing is considered valid if the:
 - Seller still owns the NFT
 - Listing has not expired (time is before `endTimeInSeconds`)
 - Listing has not been canceled
-- Listing has not been purchased (all `quantity` of the NFTs have not been purchased)
+- Listing has not been bought out (all `quantity` of the NFTs have not been purchased)
 
 ```jsx
 import { useValidDirectListings } from "@thirdweb-dev/react";
@@ -23,7 +23,7 @@ import { useValidDirectListings } from "@thirdweb-dev/react";
 
 ## Usage
 
-To get a list of all valid direct listings, provide your Marketplace V3 contract instance and an optional filter object
+To get all valid direct listings, provide your Marketplace V3 contract instance and an optional filter object
 to the hook.
 
 ```jsx
@@ -44,7 +44,7 @@ function App() {
 
 ## Configuration
 
-### filter
+### filter (optional)
 
 The `filter` object allows you to filter the listings returned by the hook.
 

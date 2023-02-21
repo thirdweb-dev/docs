@@ -44,7 +44,7 @@ function App() {
 
 ## Configuration
 
-### claimerAddress
+### claimerAddress (required)
 
 The second parameter is the `claimerAddress`. This is the address of the user you want to get the proof for.
 
@@ -77,7 +77,7 @@ function App() {
 }
 ```
 
-### tokenId
+### tokenId (ERC1155 only)
 
 When using the hook with ERC1155 contracts, pass the `tokenId` as the third parameter; as each token can have unique claim conditions.
 
@@ -106,7 +106,7 @@ function App() {
 }
 ```
 
-### claimConditionID
+### claimConditionID (optional)
 
 The fourth parameter is `claimConditionId`. This is the ID of the claim condition you want to get the proof for.
 

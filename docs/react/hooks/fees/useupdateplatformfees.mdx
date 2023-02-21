@@ -52,7 +52,7 @@ function App() {
 
 ## Configuration
 
-### platform_fee_basis_points
+### platform_fee_basis_points (required)
 
 The `platform_fee_basis_points` property is a `number` between `0` - `10000` that defines the fee rate.
 
@@ -93,9 +93,11 @@ function App() {
 }
 ```
 
-### fee_recipient
+### fee_recipient (required)
 
 The `fee_recipient` property is the address of the wallet that will receive the fees.
+
+Use the [`useAddress`](/react/react.useaddress) hook to get the current wallet address.
 
 ```jsx
 import {

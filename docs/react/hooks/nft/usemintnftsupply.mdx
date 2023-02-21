@@ -56,9 +56,11 @@ function App() {
 
 ## Configuration
 
-### additionalSupply
+### additionalSupply (required)
 
-The quantity of additional supply to mint. For example, if you have 10 tokens minted and you want to mint 5 more, you would set `additionalSupply` to `5`.
+The quantity of additional supply to mint.
+
+For example, if you have 10 quantity so far, and you want to mint 5 more, set `additionalSupply` to `5`.
 
 Can be a `string` or `number`.
 
@@ -98,7 +100,7 @@ function App() {
 }
 ```
 
-### to
+### to (required)
 
 The wallet address to mint the new supply to.
 
@@ -145,9 +147,11 @@ function App() {
 }
 ```
 
-### tokenId
+### tokenId (required)
 
-The token ID to mint additional supply to. Can be a `string` or `number`.
+The token ID of the NFT to mint additional supply to.
+
+Can be a `string` or `number`.
 
 ```jsx
 import { useContract, useMintNFTSupply, Web3Button } from "@thirdweb-dev/react";

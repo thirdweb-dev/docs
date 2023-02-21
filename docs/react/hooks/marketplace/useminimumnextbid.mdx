@@ -31,6 +31,31 @@ function App() {
 }
 ```
 
+## Configuration
+
+### listingId (required)
+
+The ID of the listing to get the minimum next bid for.
+
+If the listing cannot be found, is not an auction listing, or is not active, the `error` property will be set.
+
+```jsx
+import { useContract, useMinimumNextBid } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data, isLoading, error } = useMinimumNextBid(
+    contract,
+    // highlight-next-line
+    listingId,
+  );
+}
+```
+
 ## Return Value
 
 The hook's `data` property, once loaded, is an object containing the minimum next bid for the listing.

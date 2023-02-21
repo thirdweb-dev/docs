@@ -8,7 +8,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook to get an english auction from a [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
+Hook to get an english auction listing from a [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
 
 ```jsx
 import { useEnglishAuction } from "@thirdweb-dev/react";
@@ -27,6 +27,34 @@ const contractAddress = "{{contract_address}}";
 
 // The auction id you want to check
 const listingId = "{{auction_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    data: englishAuction,
+    isLoading,
+    error,
+  } = useEnglishAuction(contract, listingId);
+}
+```
+
+## Configuration
+
+### listingId (required)
+
+The ID of the listing to get.
+
+If the listing with this ID cannot be found (or is not an auction), the `error` property will be set.
+
+````jsx
+import { useEnglishAuction, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The auction id you want to check
+// highlight-next-line
+const listingId = "{{listing_id}}";
 
 function App() {
   const { contract } = useContract(contractAddress, "marketplace-v3");
@@ -119,4 +147,4 @@ The hook's `data` property, once loaded, will be an `EnglishAuction` object, con
    */
   status: Status;
 }
-```
+````

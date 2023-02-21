@@ -43,6 +43,33 @@ function App() {
 }
 ```
 
+## Configuration
+
+### tokenId
+
+The token ID of the NFT you want to fetch.
+
+```jsx
+import { useContract, useNFT } from "@thirdweb-dev/react";
+
+// The token ID of the NFT you want to fetch
+// highlight-next-line
+const tokenId = 0;
+
+function App() {
+  const { contract } = useContract("{{contract_address}}");
+  const {
+    data: nft,
+    isLoading,
+    error,
+  } = useNFT(
+    contract,
+    // highlight-next-line
+    tokenId,
+  );
+}
+```
+
 <!-- ## Demo Playground
 
 Edit the code below to see how the hook works and what data is returned.

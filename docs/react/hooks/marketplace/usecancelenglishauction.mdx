@@ -60,3 +60,49 @@ function App() {
   );
 }
 ```
+
+## Configuration
+
+### listingId (required)
+
+The ID of the listing you want to cancel.
+
+Will populate the `error` property if the listing is not active, cannot be canceled, or was not created by the wallet.
+
+```jsx
+import {
+  useCancelEnglishAuction,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The ID of the listing you want to cancel
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    mutateAsync: cancelEnglishAuction,
+    isLoading,
+    error,
+  } = useCancelEnglishAuction(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        cancelEnglishAuction(
+          // highlight-next-line
+          listingId,
+        )
+      }
+    >
+      Cancel English Auction
+    </Web3Button>
+  );
+}
+```

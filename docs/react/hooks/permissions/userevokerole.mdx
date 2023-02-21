@@ -48,13 +48,11 @@ function App() {
 
 ## Configuration
 
-### role
+### role (reuqired)
 
 The role to revoke from the wallet address.
 
-Can be any string or default role from the [Permission Controls](/contractkit/extension-contracts/permissions) interface.
-
-`string | "admin" | "minter" | "transfer" | "lister" | "asset" | "unwrap" | "pauser" | "factory"`
+Can be any custom role, or a built-in role, such as `admin`, `transfer`, `minter`, `pauser`, `lister`, `asset`, `unwrap`, or `factory`.
 
 ```jsx
 import { useContract, useRevokeRole, Web3Button } from "@thirdweb-dev/react";

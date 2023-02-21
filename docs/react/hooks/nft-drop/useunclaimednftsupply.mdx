@@ -31,17 +31,6 @@ const contractAddress = "{{contract_address}}";
 function App() {
   const { contract } = useContract(contractAddress, "nftDrop");
   const { data, isLoading, error } = useUnclaimedNFTSupply(contract);
-
-  if (error) {
-    console.error("failed to fetch unclaimed NFTs", error);
-  }
-
-  return (
-    <>
-      {isLoading && <div>Loading...</div>}
-      {data && <div>{data.toNumber()} unclaimed NFTs</div>}
-    </>
-  );
 }
 ```
 

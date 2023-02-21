@@ -46,13 +46,11 @@ function App() {
 
 ## Configuration
 
-### to
+### to (required)
 
-The wallet address to mint the NFT to.
+The wallet address to mint the NFT(s) to.
 
-Likely, you will want to claim the NFT to the currently connected wallet address.
-
-You can use the [`useAddress`](/react/react.useAddress) hook to get this value.
+Use the [`useAddress`](/react/react.useAddress) hook to get the currently connected wallet address.
 
 ```jsx
 import {
@@ -87,7 +85,7 @@ function App() {
 }
 ```
 
-### quantity
+### quantity (required)
 
 The number of NFTs you wish to claim.
 
@@ -120,7 +118,7 @@ function App() {
 }
 ```
 
-### tokenId
+### tokenId (required)
 
 For ERC1155 contracts, you must specify a specific `tokenId` to claim.
 
@@ -162,7 +160,7 @@ There are three options available:
 
 - `checkERC20Allowance` - Whether to check the ERC20 allowance of the sender, defaults to true.
 - `currencyAddress` - The currency to pay for each token claimed, defaults to `NATIVE_TOKEN_ADDRESS` for native currency.
-- `pricePerToken`: The price to pay for each token claimed.
+- `pricePerToken`: The price to pay for each token claimed. Not relevant when using claim conditions.
 
 ```jsx
 import { useContract, useClaimNFT, Web3Button } from "@thirdweb-dev/react";

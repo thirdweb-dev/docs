@@ -12,7 +12,7 @@ Hook for airdropping ERC1155 NFT tokens to multiple wallet addresses at once.
 
 Available to use on smart contracts that implement the [ERC1155](/contractkit/interfaces/erc1155) standard.
 
-Performs a batch transfer from the connected wallet to the specified addresses
+Performs a batch transfer from the connected wallet to the specified addresses.
 This means you need to have the total number of tokens you wish to airdrop available in the wallet that performs this transaction.
 
 ```jsx
@@ -59,7 +59,7 @@ function App() {
 
 ## Configuration
 
-### tokenId
+### tokenId (required)
 
 The token ID of the NFT to airdrop.
 
@@ -92,7 +92,7 @@ function App() {
 }
 ```
 
-### addresses
+### addresses (required)
 
 An array of objects containing an `address` and `quantity` of NFTs to airdrop to each address.
 

@@ -39,6 +39,80 @@ function App() {
       action={() =>
         burnNft({
           tokenId: tokenIdToBurn,
+          amount: 1,
+        })
+      }
+    >
+      Burn NFT
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### tokenId (required)
+
+The token ID of the NFT you want to burn.
+
+```jsx
+import { useBurnNFT, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+// The tokenId of the NFT you want to burn
+// highlight-next-line
+const tokenIdToBurn = "{{tokenId}}}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: burnNft, isLoading, error } = useBurnNFT(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        burnNft({
+          // highlight-next-line
+          tokenId: tokenIdToBurn,
+          amount: 1,
+        })
+      }
+    >
+      Burn NFT
+    </Web3Button>
+  );
+}
+```
+
+### amount (optional)
+
+When using ERC1155 NFTs, you can specify the quantity you want to burn.
+
+Defaults value is `1`.
+
+```jsx
+import { useBurnNFT, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+// The tokenId of the NFT you want to burn
+const tokenIdToBurn = "{{tokenId}}}}";
+// highlight-next-line
+const amount = 1;
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: burnNft, isLoading, error } = useBurnNFT(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        burnNft({
+          tokenId: tokenIdToBurn,
+          // highlight-next-line
+          amount: amount,
         })
       }
     >

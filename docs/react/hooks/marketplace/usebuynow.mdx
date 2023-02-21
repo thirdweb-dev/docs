@@ -52,7 +52,7 @@ function App() {
 
 ## Configuration
 
-### id
+### id (required)
 
 The ID of the listing you want to buy.
 
@@ -86,11 +86,9 @@ function App() {
 }
 ```
 
-### type
+### type (required)
 
-The type of listing you want to buy.
-
-Valid values are `Direct` or `Auction`.
+The type of listing. Either `ListingType.Direct` (0) or `ListingType.Auction` (1).
 
 ```jsx
 import { useBuyNow, useContract, Web3Button } from "@thirdweb-dev/react";
@@ -122,7 +120,7 @@ function App() {
 }
 ```
 
-### buyAmount
+### buyAmount (required)
 
 The amount of tokens you want to buy from the listing.
 
@@ -163,21 +161,13 @@ function App() {
 Optionally, specify a different wallet address to buy the listing for.
 
 ```jsx
-import {
-  useBuyNow,
-  useContract,
-  Web3Button,
-  useAddress,
-} from "@thirdweb-dev/react";
+import { useBuyNow, useContract, Web3Button } from "@thirdweb-dev/react";
 import { ListingType } from "@thirdweb-dev/sdk";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 
 function App() {
-  // highlight-start
-  const address = useAddress();
-  // highlight-end
   const { contract } = useContract(contractAddress, "marketplace");
   const { mutateAsync: buyNow, isLoading, error } = useBuyNow(contract);
 
@@ -189,9 +179,8 @@ function App() {
           id: "{{listing_id}}",
           type: ListingType.Direct, // Direct (0) or Auction (1)
           buyAmount: "{{buy_amount}}",
-          // highlight-start
-          buyForWallet: address, // Wallet to buy for, defaults to current wallet
-          // highlight-end
+          // highlight-next-line
+          buyForWallet: "{{some_other_wallet_address}}", // Wallet to buy for, defaults to current wallet
         })
       }
     >

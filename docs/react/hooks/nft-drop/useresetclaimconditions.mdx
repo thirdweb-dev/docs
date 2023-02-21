@@ -27,7 +27,6 @@ import {
 } from "@thirdweb-dev/react";
 
 const contractAddress = "{{contract_address}}";
-const tokenId = "{{token_id}}"; // optional
 
 function App() {
   // Contract must be a drop contract that implements claim conditions
@@ -36,7 +35,48 @@ function App() {
     mutateAsync: resetClaimConditions,
     isLoading,
     error,
-  } = useResetClaimConditions(contract, tokenId);
+  } = useResetClaimConditions(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => resetClaimConditions()}
+    >
+      Reset Claim Conditions
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### tokenId (ERC1155 only)
+
+For ERC1155 NFTs, provide the token ID of the NFT as the second argument to the hook.
+
+```jsx
+import {
+  useContract,
+  useResetClaimConditions,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+// highlight-next-line
+const tokenId = "{{token_id}}";
+
+function App() {
+  // Contract must be a drop contract that implements claim conditions
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: resetClaimConditions,
+    isLoading,
+    error,
+  } = useResetClaimConditions(
+    contract,
+    // highlight-next-line
+    tokenId,
+  );
 
   return (
     <Web3Button

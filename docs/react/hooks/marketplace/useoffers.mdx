@@ -32,6 +32,38 @@ function App() {
 }
 ```
 
+## Configuration
+
+### listingId (required)
+
+The ID of the listing to get the offers for.
+
+If the listing cannot be found, is not a direct listing, or is not active, the `error` property will be set.
+
+```jsx
+import { useOffers, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The listing ID you want to fetch offers for
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    data: offers,
+    isLoading,
+    error,
+  } = useOffers(
+    contract,
+    // highlight-next-line
+    listingId,
+  );
+}
+```
+
 ## Return Value
 
 This hook uses the [`useEvents`](/react.useevents) hook under the hood to fetch `NewOffer` events for the given listing ID.

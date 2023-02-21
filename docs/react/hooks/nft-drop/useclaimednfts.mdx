@@ -10,8 +10,8 @@ import CodeBlock from "@theme/CodeBlock";
 
 Hook for fetching all claimed NFTs from a given NFT Drop contract.
 
-Available to use on contracts that implement [`ERC721Claimable`], such as the
-[NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721) prebuilt contract.
+Available to use on contracts that implement [`ERC721Claimable`](/contractkit/interfaces/erc721claimable),
+such as the [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721).
 
 ```jsx
 import { useClaimedNFTs } from "@thirdweb-dev/react";
@@ -36,7 +36,7 @@ function App() {
 
 ## Configuration
 
-### queryParams
+### queryParams (optional)
 
 By default, the hook will return the first `100` claimed NFTs.
 

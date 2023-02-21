@@ -4,7 +4,7 @@ slug: /react.usewinningbid
 displayed_sidebar: react
 ---
 
-Hook for getting the winning bid of an auction listing on a [Marketplace](https://portal.thirdweb.comhttps://thirdweb.com/thirdweb.eth/Marketplace) contract.
+Hook for getting the winning bid of an auction listing on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contract.
 
 ```jsx
 import { useWinningBid } from "@thirdweb-dev/react";
@@ -25,6 +25,33 @@ const listingId = "{{listing_id}}";
 function App() {
   const { contract } = useContract(contractAddress, "marketplace");
   const { data, isLoading, error } = useWinningBid(contract, listingId);
+}
+```
+
+## Configuration
+
+### listingId (required)
+
+The ID of the listing to get the winning bid for.
+
+If the listing cannot be found, is not an auction listing, or is not active, the `error` property will be set.
+
+```jsx
+import { useContract, useWinningBid } from "@thirdweb-dev/react";
+
+// Your marketplace contract address
+const contractAddress = "{{contract_address}}";
+// The listing ID to check
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data, isLoading, error } = useWinningBid(
+    contract,
+    // highlight-next-line
+    listingId,
+  );
 }
 ```
 

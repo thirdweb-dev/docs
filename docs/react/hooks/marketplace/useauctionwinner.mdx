@@ -34,6 +34,32 @@ function App() {
 }
 ```
 
+## Configuration
+
+### listingId (required)
+
+The listing ID of the item that you want to get the auction winner for.
+
+The listing must be an auction (or english auction) listing, the hook will populate the `error` property if it is not.
+
+```ts
+import { useAuctionWinner, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data, isLoading, error } = useAuctionWinner(
+    contract,
+    // highlight-next-line
+    listingId, // The listing id of the item that you want to get the auction winner for
+  );
+}
+```
+
 ## Return Value
 
 The hook's `data` property, once loaded, contains a string

@@ -4,10 +4,11 @@ slug: /react.usecreateauctionlisting
 displayed_sidebar: react
 ---
 
-Hook for creating an auction listing on a marketplace smart contract.
+Hook for creating an auction listing on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) or
+[MarketplaceV3](https://thirdweb.com/thirdweb.eth/Marketplacev3) smart contract.
 
-Available to use on [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace)
-and [MarketplaceV3](https://thirdweb.com/thirdweb.eth/Marketplacev3) smart contracts.
+Auction listings hold the NFTs in escrow; requiring the seller to transfer the NFTs to the marketplace contract
+as part of the listing creation process.
 
 ```jsx
 import { useCreateAuctionListing } from "@thirdweb-dev/react";

@@ -33,12 +33,12 @@ The hook's `data` property, once loaded, is an object containing the contract's 
 
 ```ts
 CustomContractMetadata | undefined;
-```
 
-The exact shape of the object depends on the type of metadata provided by the contract.
-
-```ts
 interface CustomContractMetadata {
+  /**
+   * The name of the contract.
+   */
+  name: string;
   /**
    * A description of the contract.
    */
@@ -51,9 +51,5 @@ interface CustomContractMetadata {
    * An external link associated with the contract.
    */
   external_link?: string;
-  /**
-   * The name of the contract.
-   */
-  name: string;
 }
 ```

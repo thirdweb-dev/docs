@@ -55,13 +55,48 @@ function App() {
 
 ## Configuration
 
-### metadata
+### metadata (required)
 
-By default, your `metadata` object is uploaded and pinned to IPFS before minting.
+The metadata of the NFT to mint.
+
+By default, the `metadata` object is uploaded and pinned to IPFS before minting.
+
+```jsx
+import { useMintNFT, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { mutateAsync: mintNft, isLoading, error } = useMintNFT(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        mintNft({
+          // highlight-start
+          // Any valid IPFS or HTTP URL that points to a JSON object
+          metadata: {
+            name: "My NFT",
+            description: "This is my NFT",
+            image: "ipfs://example.com/my-nft.png", // Accepts any URL or File type
+          },
+          // highlight-end
+          to: "{{wallet_address}}",
+        })
+      }
+    >
+      Mint NFT
+    </Web3Button>
+  );
+}
+```
 
 You can override this behavior by providing a `string` to the metadata property.
 
-The string must point to a valid JSON object containing [standard metadata properties](https://docs.opensea.io/docs/metadata-standards).
+The string must be a URL that points to a valid JSON object containing [standard metadata properties](https://docs.opensea.io/docs/metadata-standards).
 
 ```jsx
 import { useMintNFT, useContract, Web3Button } from "@thirdweb-dev/react";
@@ -92,11 +127,12 @@ function App() {
 }
 ```
 
-### to
+### to (required)
+
+The wallet address to mint the NFT to.
 
 Likely, you will want to mint the NFT to the currently connected wallet address.
-
-You can use the [`useAddress`](/react/react.useAddress) hook to get this value.
+Use the [`useAddress`](/react/react.useaddress) hook to get this value.
 
 ```jsx
 import {

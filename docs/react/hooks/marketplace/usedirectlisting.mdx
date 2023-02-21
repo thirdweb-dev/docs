@@ -38,6 +38,38 @@ function App() {
 }
 ```
 
+## Configuration
+
+### listingId (required)
+
+The ID of the listing to get.
+
+If the listing is not found (or is not a direct listing), the `error` property will be set.
+
+```jsx
+import { useDirectListing, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The listing id you want to check
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    data: directListing,
+    isLoading,
+    error,
+  } = useDirectListing(
+    contract,
+    // highlight-next-line
+    listingId,
+  );
+}
+```
+
 ## Return Value
 
 The hook's `data` property, once loaded, is a `DirectListingV3` object, containing the following properties:

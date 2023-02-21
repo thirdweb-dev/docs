@@ -12,6 +12,10 @@ Hook for executing a sale of an auction listing on a [Marketplace](https://third
 
 Triggers a new sale, transferring the NFT(s) to the buyer and the funds to the seller.
 
+A sale must be executed when an auction ends, and the auction has a winning bid that was below the buyout price. This means the
+auction has finished, and the highest bidder has won the auction. **Any wallet** can now execute the sale, transferring the NFT(s)
+to the buyer and the funds to the seller.
+
 ```jsx
 import { useExecuteAuctionSale } from "@thirdweb-dev/react";
 ```
@@ -46,6 +50,49 @@ function App() {
       action={() =>
         executeAuctionSale({
           // The listingId of the auction to execute
+          listingId: "{{listing_id}}",
+        })
+      }
+    >
+      Execute Auction Sale
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### listingId
+
+The ID of the auction listing to execute the sale on.
+
+If the listing cannot be found, is not an auction, or is not ready to be executed, the `error` property will be set.
+
+```jsx
+import {
+  useExecuteAuctionSale,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: executeAuctionSale,
+    isLoading,
+    error,
+  } = useExecuteAuctionSale(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        executeAuctionSale({
+          // The listingId of the auction to execute
+          // highlight-next-line
           listingId: "{{listing_id}}",
         })
       }

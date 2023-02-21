@@ -11,6 +11,9 @@ import CodeBlock from "@theme/CodeBlock";
 Hook for creating a new direct listing on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace)
 or [MarketplaceV3](https://thirdweb.com/thirdweb.eth/Marketplacev3) smart contract.
 
+Direct listings require the user to approve the marketplace to transfer the NFTs on their behalf as part of the listing creation process.
+This is because the marketplace needs permission to execute sales and transfer the NFTs to the buyer when a sale is made.
+
 ```jsx
 import { useCreateDirectListing } from "@thirdweb-dev/react";
 ```
@@ -18,6 +21,8 @@ import { useCreateDirectListing } from "@thirdweb-dev/react";
 ## Usage
 
 Provide your marketplace contract as the argument.
+
+Then, provide the information about the listing you want to create as the argument to the mutation.
 
 ```jsx
 import {
@@ -63,28 +68,30 @@ function App() {
 
 ## Configuration
 
-### assetContractAddress
+### assetContractAddress (required)
 
 The address of the NFT smart contract that you want to list.
 
-### tokenId
+### tokenId (required)
 
 The token ID of the NFT that you want to list.
 
-### pricePerToken
+### pricePerToken (required)
 
 The price to **buy** each token in the listing.
 
 - For ERC721 NFTs, this is the price to buy the NFT outright.
 - For ERC1155 NFTs, this is the price to `1` quantity of the NFT.
 
-### currencyContractAddress
+### currencyContractAddress (optional)
 
 The address of the currency you want users to pay with and make bids in.
 
 You likely want to use the token native to the chain you are on, e.g. Ether on Ethereum.
 
 To do that, you can import the `NATIVE_TOKEN_ADDRESS` constant from `@thirdweb-dev/sdk`.
+
+The default value is `NATIVE_TOKEN_ADDRESS`.
 
 ```jsx
 import {
@@ -135,20 +142,22 @@ function App() {
 }
 ```
 
-### isReservedListing
+### isReservedListing (optional)
 
 When set to true, the seller must explicitly approve which wallet addresses can buy the NFT.
 
-### quantity
+### quantity (optional)
 
 How many tokens to include in the listing.
 
 - For ERC721 NFTs, this is always `1`.
 - For ERC1155 NFTs, this is the quantity of tokens to include in the listing.
 
-### startTimestamp
+### startTimestamp (optional)
 
 A `Date` object for the start time of the listing.
+
+The default value is `new Date()`, which is the current time.
 
 ### endTimestamp (optional)
 

@@ -50,7 +50,7 @@ function App() {
 
 ## Parameters
 
-### to
+### to (required)
 
 Likely, you will want to claim the token to the currently connected wallet address.
 
@@ -92,9 +92,9 @@ function App() {
 }
 ```
 
-### amount
+### amount (required)
 
-The amount of token to be claimed.
+The amount of tokens to be claimed.
 
 ```jsx
 import { useClaimToken, useContract, Web3Button } from "@thirdweb-dev/react";
@@ -124,11 +124,12 @@ function App() {
 }
 ```
 
-### checkERC20Allowance
+### checkERC20Allowance (optional)
 
-Boolean value to check whether the current wallet has enough allowance to claim the token.
+Boolean value to check whether the current wallet has enough allowance to pay for claiming the tokens before
+attempting to claim the tokens.
 
-Defaults to true.
+Defaults to `true`.
 
 ```jsx
 import {

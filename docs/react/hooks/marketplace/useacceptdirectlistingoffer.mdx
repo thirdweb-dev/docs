@@ -66,8 +66,78 @@ The `listingId` of the listing you wish to accept.
 
 Each listing has a unique `listingId` on the marketplace contract.
 
+```jsx
+import {
+  useAcceptDirectListingOffer,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: acceptDirectOffer,
+    isLoading,
+    error,
+  } = useAcceptDirectListingOffer(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        acceptDirectOffer({
+          // highlight-next-line
+          listingId: "{{listing_id}}",
+          addressOfOfferor: "{{offeror_address}}",
+        })
+      }
+    >
+      Accept Offer
+    </Web3Button>
+  );
+}
+```
+
 ### addressOfOfferor (required)
 
 The wallet address of the user who made the offer you wish to accept.
 
 The [`useContractEvents`](/react/react.usecontractevents) hook can be used to read all `NewOffer` events on your marketplace contract.
+
+```jsx
+import {
+  useAcceptDirectListingOffer,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: acceptDirectOffer,
+    isLoading,
+    error,
+  } = useAcceptDirectListingOffer(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        acceptDirectOffer({
+          listingId: "{{listing_id}}",
+          // highlight-next-line
+          addressOfOfferor: "{{offeror_address}}",
+        })
+      }
+    >
+      Accept Offer
+    </Web3Button>
+  );
+}
+```

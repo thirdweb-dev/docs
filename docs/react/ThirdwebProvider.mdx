@@ -87,7 +87,7 @@ function App() {
 
 ## Configuration
 
-### activeChain
+### activeChain (recommended)
 
 The `activeChain` prop determines which chain you want your app to be operating on.
 
@@ -237,7 +237,7 @@ const App = () => {
 };
 ```
 
-### authConfig
+### authConfig (optional)
 
 The configuration object for setting up [Auth](/auth); allowing users to sign in with their wallet.
 
@@ -265,7 +265,7 @@ function MyApp() {
 }
 ```
 
-### autoconnect
+### autoconnect (optional)
 
 When the user has connected their wallet to your site before, this flag determines
 whether or not you want the SDK to automatically connect to the wallet on page load (requires the user
@@ -289,7 +289,7 @@ function MyApp() {
 }
 ```
 
-### dAppMeta
+### dAppMeta (optional)
 
 Metadata to pass to [WalletConnect](https://walletconnect.com/), shown in mobile wallets that support it.
 
@@ -325,7 +325,7 @@ function MyApp() {
 }
 ```
 
-### sdkOptions
+### sdkOptions (optional)
 
 Override any of the default values for the SDK.
 
@@ -371,7 +371,7 @@ function MyApp() {
 }
 ```
 
-### walletConnectors
+### walletConnectors (optional)
 
 An array of connector types (strings) or wallet connector objects that your app supports.
 
@@ -409,7 +409,7 @@ function MyApp() {
 export default MyApp;
 ```
 
-### storageInterface
+### storageInterface (optional)
 
 Override the default [Storage](/storage) interface used by the SDK.
 
@@ -457,7 +457,7 @@ function MyApp() {
 }
 ```
 
-### queryClient
+### queryClient (optional)
 
 If you are using [React Query](https://react-query.tanstack.com/) and have your own `QueryClient`,
 you can pass it as the `queryClient` prop to use this client instead of the SDK's default client.

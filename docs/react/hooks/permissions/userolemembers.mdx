@@ -28,6 +28,31 @@ function App() {
 }
 ```
 
+## Configuration
+
+### roleName
+
+The name of the role to get the members of. Can be any custom role, or a built-in role, such as `admin`, `transfer`, `minter`, `pauser`, `lister`, `asset`, `unwrap`, or `factory`.
+
+```jsx
+import { useContract, useRoleMembers } from "@thirdweb-dev/react";
+
+// Your smart contract address (must implement permission controls)
+const contractAddress = "{{contract_address}}";
+
+// highlight-next-line
+const roleName = "admin";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useRoleMembers(
+    contract,
+    // highlight-next-line
+    roleName,
+  );
+}
+```
+
 ## Return Value
 
 The hook's `data` property, once loaded, is an array of wallet addresses that have the specified role.

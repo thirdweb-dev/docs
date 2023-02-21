@@ -8,7 +8,7 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import CodeBlock from "@theme/CodeBlock";
 
-Hook to get a list of all direct listings from a [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
+Hook to get all the direct listings from a [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
 
 ```jsx
 import { useDirectListings } from "@thirdweb-dev/react";
@@ -16,7 +16,7 @@ import { useDirectListings } from "@thirdweb-dev/react";
 
 ## Usage
 
-To get a list of all direct listings, provide your Marketplace V3 contract instance and an optional filter object.
+To get all the direct listings, provide your Marketplace V3 contract instance and an optional filter object.
 
 ```jsx
 import { useDirectListings, useContract } from "@thirdweb-dev/react";
@@ -36,7 +36,7 @@ function App() {
 
 ## Configuration
 
-### filter
+### filter (optional)
 
 The `filter` object allows you to filter the listings returned by the hook.
 
