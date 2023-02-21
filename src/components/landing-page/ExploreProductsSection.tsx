@@ -51,33 +51,6 @@ const products: Product[] = [
       "Publish your contracts to be discovered by our community of 70k+ web3 developers",
     link: "/release",
   },
-  // {
-  //   image: "/assets/product/sdk.png",
-  //   name: "Solana SDK",
-  //   description:
-  //     "Powerful SDKs for every stack. Support for Javascript, React, Python, Go, Node.js, Unity",
-  //   link: "/solana",
-  // },
-  // {
-  //   image: "/assets/product/sdk.png",
-  //   name: "GamingKit",
-  //   description:
-  //     "Unity interface for building web3 games on EVM compatible networks",
-  //   link: "/gamingkit",
-  // },
-
-  // {
-  //   image: "/assets/product/auth.png",
-  //   name: "Auth",
-  //   description: "Easily integrate wallet-based login flows",
-  //   link: "/auth",
-  // },
-  // {
-  //   image: "/assets/product/storage.png",
-  //   name: "Storage",
-  //   description: "Store off-chain data using decentralized storage systems",
-  //   link: "/storage",
-  // },
   {
     image: "/assets/product/dashboard.png",
     name: "Dashboard",
@@ -90,6 +63,9 @@ const products: Product[] = [
 export default function ExploreProductsSection() {
   return (
     <div className="explore-products-container">
+      <h2 className="explore-products-heading" style={{ marginBottom: 12 }}>
+        Tools
+      </h2>
       <div className="row" style={{ marginBottom: 64 }}>
         {products.map((p, i) => (
           <div className="col col--4" key={i} style={{ padding: 8 }}>

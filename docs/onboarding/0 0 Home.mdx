@@ -7,6 +7,7 @@ hide_table_of_contents: true
 
 import Hero from "../../src/components/landing-page/Hero";
 import GettingStartedCard from "../../src/components/landing-page/GettingStartedCard";
+import LanguageCard from "../../src/components/landing-page/LanguageCard";
 import ExploreProductsSection from "../../src/components/landing-page/ExploreProductsSection";
 import LearnSection from "../../src/components/landing-page/LearnSection";
 import InfrastructureCards from "../../src/components/landing-page/InfrastructureCards";
@@ -16,37 +17,79 @@ import InfrastructureCards from "../../src/components/landing-page/Infrastructur
 }}>
 
 <Hero />
-<h2>Get Started</h2>
-<p>A series of quickstarts to get you off localhost.</p>
-
-<h2>Tools</h2>
+<h2>Getting Started</h2>
+<p>
+  Discover how to build and launch a web3 application in your preferred language.
+</p>
+<div className="row" style={{ marginBottom: 64 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <LanguageCard
+      name="JavaScript"
+      link="/typescript"
+      image="/assets/languages/javascript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <LanguageCard
+      name="React"
+      link="/react"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <LanguageCard
+      name="Python"
+      link="/python"
+      image="/assets/languages/python.png"
+    />
+  </div>
+    <div className="col col--3" style={{ padding: 8 }}>
+    <LanguageCard
+      name="Go"
+      link="/go"
+      image="/assets/languages/go.png"
+    />
+  </div>
+    <div className="col col--3" style={{ padding: 8 }}>
+    <LanguageCard
+      name="Unity"
+      link="/unity"
+      image="/assets/languages/unity.webp"
+    />
+  </div> <div className="col col--3" style={{ padding: 8 }}>
+    <LanguageCard
+      name="Solidity"
+      link="/solidity"
+      image="/assets/languages/solidity.png"
+    />
+  </div>
+</div>
 <ExploreProductsSection />
-<h2>Infrastructure</h2>
 <InfrastructureCards/>
-<h2>Resources</h2>
+<h3>Additional Resources</h3>
 <div className="row" style={{ marginBottom: 64 }}>
   <div className="col col--4" style={{ padding: 8 }}>
     <GettingStartedCard
       name="Guides"
-      description="insert some text about templates here"
+      description="Written tutorials to assist you in building apps and games"
       link="https://blog.thirdweb.com/guides/"
-      image="/assets/flag.svg"
+      image="/assets/guides.svg"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <GettingStartedCard
       name="Templates"
-      description="insert some text about templates here"
-      link="/sdk"
+      description="Pre-built code templates to help you get started quickly"
+      link="/templates"
       image="/assets/sdk-reference.svg"
     />
   </div>
   <div className="col col--4" style={{ padding: 8 }}>
     <GettingStartedCard
-      name="Videos"
-      description="insert text about Videos"
+      name="YouTube"
+      description="Video tutorials to aid in learning web3 development"
       link="https://www.youtube.com/thirdweb"
-      image="/assets/support.svg"
+      image="/assets/youtube.svg"
     />
   </div>
 </div>
