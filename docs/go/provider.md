@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## Provider
+# Provider
 
 ```go
 type ProviderHandler struct {}

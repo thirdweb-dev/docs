@@ -10,7 +10,7 @@ export default function FromPrivateKeyCodeTabs() {
 const sdk = ThirdwebSDK.fromPrivateKey(
   // Learn more about securely accessing your private key: https://portal.thirdweb.com/sdk/set-up-the-sdk/securing-your-private-key
   "<your-private-key-here>",
-  "mumbai", // configure this to your network
+  "polygon", // configure this to your network
 );
 `,
 

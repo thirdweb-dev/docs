@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `NFTMetadata` {#struct_thirdweb_1_1_n_f_t_metadata}
+# struct `NFTMetadata` {#struct_thirdweb_1_1_n_f_t_metadata}
 
-### Summary
+# Summary
 
 | Members      | Type     | Descriptions |
 | ------------ | -------- | ------------ |
@@ -20,7 +20,7 @@ displayed_sidebar: unity
 | properties   | variable |              |
 | ToString     | function |              |
 
-### Members
+## Members
 
 **`public string `[`id`](#struct_thirdweb_1_1_n_f_t_metadata_1a6c858ecd59369ec8f8baaa4e3a4c56ec)**
 

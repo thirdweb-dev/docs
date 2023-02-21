@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## Multiwrap
+# Multiwrap
 
 You can access the Multiwrap interface from the SDK as follows:
 

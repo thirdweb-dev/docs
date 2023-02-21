@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## ERC20
+# ERC20
 
 This interface is currently support by the Token contract\. You can access all of its functions through a Token contract instance\.
 

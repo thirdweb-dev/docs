@@ -10,7 +10,10 @@ export default function FromSignerCodeTabs() {
 // Instantiate the ThirdwebSDK using the signer
 // the signer variable comes from a signer you have previously created,
 // or from our React SDK's useSigner hook.
-const sdk = ThirdwebSDK.fromSigner(signer, "mumbai");
+const sdk = ThirdwebSDK.fromSigner(
+  signer, 
+  "polygon", // configure this to your network
+);
 `,
 
     python: `from thirdweb import ThirdwebSDK

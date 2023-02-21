@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## NFT Drop Encoder
+# NFT Drop Encoder
 
 The nft drop encoder class is used to get the unsigned transaction data for nft drop contract contract calls that can be signed at a later time after generation\.
 

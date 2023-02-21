@@ -125,7 +125,7 @@ First, let's look at the `pages/_app.tsx` file. Here, we want to setup the [`@th
 function MyApp() {
   return (
     <ThirdwebProvider
-      desiredChainId={activeChainId}
+      activeChain="ethereum"
       authConfig={{
         // This domain should match the backend
         domain: process.env.NEXT_PUBLIC_THIRDWEB_AUTH_DOMAIN || "",

@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `Contract` {#class_thirdweb_1_1_contract}
+# class `Contract` {#class_thirdweb_1_1_contract}
 
 ```
 class Contract
@@ -14,7 +14,7 @@ class Contract
 
 Convenient wrapper to interact with any EVM contract
 
-### Summary
+# Summary
 
 | Members     | Type     | Descriptions                                                                                         |
 | ----------- | -------- | ---------------------------------------------------------------------------------------------------- |
@@ -32,7 +32,7 @@ Convenient wrapper to interact with any EVM contract
 | Write       | function | Execute a write transaction on a contract                                                            |
 | Write       | function | Execute a write transaction on a contract                                                            |
 
-### Members
+## Members
 
 **`public string `[`chain`](#class_thirdweb_1_1_contract_1ab674895831e2f9aae85200f6125d0ba6)**
 

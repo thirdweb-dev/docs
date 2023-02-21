@@ -5,14 +5,14 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `AuctionListing` {#class_thirdweb_1_1_auction_listing}
+# class `AuctionListing` {#class_thirdweb_1_1_auction_listing}
 
 ```
 class AuctionListing
   : public Thirdweb.Listing
 ```
 
-### Summary
+# Summary
 
 | Members                           | Type     | Descriptions |
 | --------------------------------- | -------- | ------------ |
@@ -22,7 +22,7 @@ class AuctionListing
 | reservePriceCurrencyValuePerToken | variable |              |
 | ToString                          | function |              |
 
-### Members
+## Members
 
 **`public string `[`startTimeInEpochSeconds`](#class_thirdweb_1_1_auction_listing_1a789662e7964a41dc1f32b339ba836cbe)**
 

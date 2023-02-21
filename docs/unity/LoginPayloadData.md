@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `LoginPayloadData` {#struct_thirdweb_1_1_login_payload_data}
+# struct `LoginPayloadData` {#struct_thirdweb_1_1_login_payload_data}
 
-### Summary
+# Summary
 
 | Members         | Type     | Descriptions |
 | --------------- | -------- | ------------ |
@@ -18,7 +18,7 @@ displayed_sidebar: unity
 | chain_id        | variable |              |
 | ToString        | function |              |
 
-### Members
+## Members
 
 **`public string `[`domain`](#struct_thirdweb_1_1_login_payload_data_1a378926241eafd1ff4ec7a99961ab8281)**
 

@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## Token
+# Token
 
 You can access the Token interface from the SDK as follows:
 

@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## Edition Drop
+# Edition Drop
 
 This interface is currently accessible from the Edition Drop contract contract type via the ClaimConditions property\.
 

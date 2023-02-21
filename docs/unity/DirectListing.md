@@ -5,14 +5,14 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `DirectListing` {#class_thirdweb_1_1_direct_listing}
+# class `DirectListing` {#class_thirdweb_1_1_direct_listing}
 
 ```
 class DirectListing
   : public Thirdweb.Listing
 ```
 
-### Summary
+# Summary
 
 | Members            | Type     | Descriptions |
 | ------------------ | -------- | ------------ |
@@ -20,7 +20,7 @@ class DirectListing
 | secondsUntilEnd    | variable |              |
 | ToString           | function |              |
 
-### Members
+## Members
 
 **`public string `[`startTimeInSeconds`](#class_thirdweb_1_1_direct_listing_1a9c0ed51e62bd3ca4d0dd2e632b2442a1)**
 

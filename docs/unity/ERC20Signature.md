@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ERC20Signature` {#class_thirdweb_1_1_e_r_c20_signature}
+# class `ERC20Signature` {#class_thirdweb_1_1_e_r_c20_signature}
 
 ```
 class ERC20Signature
@@ -14,7 +14,7 @@ class ERC20Signature
 
 Generate, verify and mint signed mintable payloads
 
-### Summary
+# Summary
 
 | Members        | Type     | Descriptions                                                     |
 | -------------- | -------- | ---------------------------------------------------------------- |
@@ -23,7 +23,7 @@ Generate, verify and mint signed mintable payloads
 | Verify         | function | Verify that a signed mintable payload is valid                   |
 | Mint           | function | Mint a signed mintable payload                                   |
 
-### Members
+## Members
 
 **`public inline `[`ERC20Signature`](#class_thirdweb_1_1_e_r_c20_signature_1a24462dd79c205e7cda11618a76423550)`(string parentRoute)`**
 

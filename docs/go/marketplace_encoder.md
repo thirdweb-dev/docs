@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## Marketplace Encoder
+# Marketplace Encoder
 
 The marketplace encoder class is used to get the unsigned transaction data for marketplace contract contract calls that can be signed at a later time after generation\.
 

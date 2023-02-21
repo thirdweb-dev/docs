@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # PermissionsStorage
 
+_thirdweb.com_
+
 ## Methods
 
 ### PERMISSIONS_STORAGE_POSITION

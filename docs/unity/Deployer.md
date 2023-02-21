@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `Deployer` {#class_thirdweb_1_1_deployer}
+# class `Deployer` {#class_thirdweb_1_1_deployer}
 
 ```
 class Deployer
@@ -14,7 +14,7 @@ class Deployer
 
 Deploy contracts to the blockchain.
 
-### Summary
+# Summary
 
 | Members                | Type     | Descriptions |
 | ---------------------- | -------- | ------------ |
@@ -32,7 +32,7 @@ Deploy contracts to the blockchain.
 | DeployReleasedContract | function |              |
 | DeployFromContractUri  | function |              |
 
-### Members
+## Members
 
 **`public inline `[`Deployer`](#class_thirdweb_1_1_deployer_1a6b3329ae934d3e34f566026e0ea08d57)`()`**
 

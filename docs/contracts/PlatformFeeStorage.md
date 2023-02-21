@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # PlatformFeeStorage
 
+_thirdweb.com_
+
 ## Methods
 
 ### PLATFORM_FEE_STORAGE_POSITION

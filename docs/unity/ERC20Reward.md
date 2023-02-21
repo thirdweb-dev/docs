@@ -5,16 +5,16 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ERC20Reward` {#class_thirdweb_1_1_e_r_c20_reward}
+# class `ERC20Reward` {#class_thirdweb_1_1_e_r_c20_reward}
 
-### Summary
+# Summary
 
 | Members           | Type     | Descriptions                                                                  |
 | ----------------- | -------- | ----------------------------------------------------------------------------- |
 | contractAddress   | variable | the Token contract address                                                    |
 | quantityPerReward | variable | How many tokens can be otained when opening a pack and receiving this reward. |
 
-### Members
+## Members
 
 **`public string `[`contractAddress`](#class_thirdweb_1_1_e_r_c20_reward_1abca3100fcdb1b66cebd9a5a75f5b4c45)**
 

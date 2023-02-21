@@ -38,6 +38,7 @@ async function makeDocs({ outDir, inDir, readmePath, migrationGuidePath }) {
             const titleLine = line.match(/## (.*)/);
             if (titleLine) {
               title = titleLine[1];
+              title = title.replace("() function", "");
             }
           }
           const homeLink = line.match(/\[Home\]\(.\/index\.md\) &gt; (.*)/);
@@ -100,6 +101,9 @@ async function makeDocs({ outDir, inDir, readmePath, migrationGuidePath }) {
         if (betaLine) {
           output.splice(output.indexOf(betaLine), 1, `${betaText}`);
         }
+
+        const titleLineIndex = output.findIndex((line) => line.startsWith("##"));
+        output[titleLineIndex] = output[titleLineIndex].replace("() function", "").replace("##", "#");
 
         // The signature line is the first line that starts with "**Signature:**"
         const signatureLine = output.findIndex((line) =>

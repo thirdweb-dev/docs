@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## Edition
+# Edition
 
 You can access the Edition interface from the SDK as follows:
 

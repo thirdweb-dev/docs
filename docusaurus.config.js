@@ -104,6 +104,17 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
+        id: "react-native",
+        path: "docs/react-native",
+        routeBasePath: "react-native",
+        sidebarPath: require.resolve("./sidebars/react-native.js"),
+        remarkPlugins: [[npm2yarn, { sync: true }]],
+        // ... other options
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
         id: "storage",
         path: "docs/storage",
         routeBasePath: "storage-sdk",

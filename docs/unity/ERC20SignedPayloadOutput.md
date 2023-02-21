@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## struct `ERC20SignedPayloadOutput` {#struct_thirdweb_1_1_e_r_c20_signed_payload_output}
+# struct `ERC20SignedPayloadOutput` {#struct_thirdweb_1_1_e_r_c20_signed_payload_output}
 
-### Summary
+# Summary
 
 | Members              | Type     | Descriptions |
 | -------------------- | -------- | ------------ |
@@ -20,7 +20,7 @@ displayed_sidebar: unity
 | mintStartTime        | variable |              |
 | mintEndTime          | variable |              |
 
-### Members
+## Members
 
 **`public string `[`to`](#struct_thirdweb_1_1_e_r_c20_signed_payload_output_1a4255b69635c89109830e7d375d83a51f)**
 

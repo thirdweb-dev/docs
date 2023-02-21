@@ -5,7 +5,11 @@ title: Next
 
 import QuickstartCard from "@components/QuickstartCard";
 
-This page will focus mainly on integrating Auth on the server-side with [Next.js](https://nextjs.org) by implementing an [Auth API](/auth/how-auth-works/auth-api). To learn more about how to implement Auth on the client-side with Next.js, see the Auth [React page](/auth/client-frameworks/react) as Next uses React for the frontend:
+This page will focus mainly on integrating Auth on the server-side with [Next.js](https://nextjs.org) by implementing the [Auth API](/auth/how-auth-works/auth-api).
+
+:::info
+
+To learn more about how to implement Auth on the client-side with Next.js (which you will likely need after implementing the server-side), see the Auth [React page](/auth/client-frameworks/react) as Next uses React for the frontend:
 
 <div>
   <div className="col col--12" style={{ padding: 8 }}>
@@ -18,6 +22,28 @@ This page will focus mainly on integrating Auth on the server-side with [Next.js
   </div>
 </div>
 
+:::
+
+:::tip
+
+If you want to interact with a working version of the Auth + Next integration that we'll be building in this guide, you can checkout the following GitHub repository, or clone it with the command below:
+
+```
+npx thirdweb create app --template thirdweb-auth-next
+```
+
+<div>
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="thirdweb-auth-next"
+      link="https://github.com/thirdweb-example/thirdweb-auth-next"
+      image="/assets/languages/nextjs.png"
+    />
+  </div>
+</div>
+
+:::
+
 ## Getting Started
 
 :::info
@@ -29,7 +55,7 @@ The `@thirweb-dev/auth/next` entrypoint is currently built for Next.js apps usin
 To add support for Auth to your Next backend, you'll need to install the `@thirdweb-dev/auth` package (as well as any other packages you'll need for your [wallet configuration](/auth/wallet-configuration), we'll need the `ethers` package for this example as we'll be using the `PrivateKeyWallet`):
 
 ```bash npm2yarn
-npm install @thirdweb-dev/auth ethers
+npm install @thirdweb-dev/auth ethers@5
 ```
 
 Now we can setup our Next.js server by using the `@thirdweb-dev/auth/next` entrypoint. First, we need to setup our [Auth API](/auth/how-auth-works/auth-api) by creating a new file called `pages/api/auth/[...thirdweb].ts`:

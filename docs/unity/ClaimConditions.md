@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ClaimConditions` {#class_thirdweb_1_1_claim_conditions}
+# class `ClaimConditions` {#class_thirdweb_1_1_claim_conditions}
 
-### Summary
+# Summary
 
 | Members               | Type     | Descriptions |
 | --------------------- | -------- | ------------ |
@@ -20,7 +20,7 @@ displayed_sidebar: unity
 | waitInSeconds         | variable |              |
 | ToString              | function |              |
 
-### Members
+## Members
 
 **`public string `[`availableSupply`](#class_thirdweb_1_1_claim_conditions_1a05063b44ef4382620ac534bee0e0ed0b)**
 

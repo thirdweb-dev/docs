@@ -5,9 +5,9 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `ERC1155Reward` {#class_thirdweb_1_1_e_r_c1155_reward}
+# class `ERC1155Reward` {#class_thirdweb_1_1_e_r_c1155_reward}
 
-### Summary
+# Summary
 
 | Members           | Type     | Descriptions                                                                         |
 | ----------------- | -------- | ------------------------------------------------------------------------------------ |
@@ -15,7 +15,7 @@ displayed_sidebar: unity
 | tokenId           | variable | the tokenId of the [NFT](docs/unity/NFT.md#struct_thirdweb_1_1_n_f_t) to be rewarded |
 | quantityPerReward | variable | How many NFTs can be otained when opening a pack and receiving this reward.          |
 
-### Members
+## Members
 
 **`public string `[`contractAddress`](#class_thirdweb_1_1_e_r_c1155_reward_1ade07670ece1fde5ab5cc90e99c0b6602)**
 

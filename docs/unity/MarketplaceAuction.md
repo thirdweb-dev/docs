@@ -5,14 +5,14 @@ hide_title: true
 displayed_sidebar: unity
 ---
 
-## class `MarketplaceAuction` {#class_thirdweb_1_1_marketplace_auction}
+# class `MarketplaceAuction` {#class_thirdweb_1_1_marketplace_auction}
 
 ```
 class MarketplaceAuction
   : public Thirdweb.Routable
 ```
 
-### Summary
+# Summary
 
 | Members            | Type     | Descriptions |
 | ------------------ | -------- | ------------ |
@@ -25,7 +25,7 @@ class MarketplaceAuction
 | CancelListing      | function |              |
 | ExecuteSale        | function |              |
 
-### Members
+## Members
 
 **`public inline `[`MarketplaceAuction`](#class_thirdweb_1_1_marketplace_auction_1a4e2dd160750e3621c04c6736b82614f1)`(string parentRoute)`**
 

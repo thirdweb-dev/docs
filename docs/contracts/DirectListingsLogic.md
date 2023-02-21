@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # DirectListingsLogic
 
+_thirdweb.com_
+
 ## Methods
 
 ### MAX_BPS

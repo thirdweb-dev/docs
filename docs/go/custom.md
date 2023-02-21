@@ -5,7 +5,7 @@ hide_title: true
 displayed_sidebar: go
 ---
 
-## Custom Contracts
+# Custom Contracts
 
 ### Custom Contracts
 

@@ -25,10 +25,13 @@ import YoutubeEmbed from "@components/YoutubeEmbed";
   </div>
 </div>
 <p>
-  We support the following languages <i>(and are working on more)</i> to make it
-  easier for you to build applications.
+  We support the following frameworks <i>(and are working on more)</i> to make
+  it easier for you to build applications.
 </p>
-<SupportedLanguagesSection />
+
+<SupportedLanguagesSection
+  languages={["React", "JavaScript", "Python", "Go"]}
+/>
 
 ## Quick Start
 
@@ -47,4 +50,5 @@ Depending on the type of application you want to build, we've separated the gett
 flow into two pages.
 
 1. [Frontend Applications](/sdk/set-up-the-sdk/frontend): **Web-applications** that connect to users' wallets to let them interact with smart contracts.
-2. [Backend & Scripting](/sdk/set-up-the-sdk/backend): Use your own wallet to interact with smart contracts.
+2. [React Native Applications](/react-native): Mobile applications that connect to users' wallets to let them interact with smart contracts.
+3. [Backend & Scripting](/sdk/set-up-the-sdk/backend): Use your own wallet to interact with smart contracts.

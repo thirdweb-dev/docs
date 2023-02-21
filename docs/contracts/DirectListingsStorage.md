@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # DirectListingsStorage
 
+_thirdweb.com_
+
 ## Methods
 
 ### DIRECT_LISTINGS_STORAGE_POSITION
