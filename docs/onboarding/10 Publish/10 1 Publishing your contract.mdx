@@ -1,9 +1,9 @@
 ---
-title: How to release your contract
-slug: /release/how-to-release
+title: How to publish your contract
+slug: /publish/how-to-publish
 ---
 
-# Releasing your contract
+# Publishing your contract
 
 <div className="heroGrid">
 <div>
@@ -15,23 +15,23 @@ Run the following command in the same directory as your contract
 </div>
 
 ```bash
-npx thirdweb release
+npx thirdweb publish
 ```
 
 This does a few things in the background
 
 - Compiles your smart contract.
 - Uploads the contract source code (ABI) to IPFS.
-- Opens the release flow in the dashboard.
+- Opens the publish flow in the dashboard.
 
 </div>
 
 <div className="heroGridImageContainer">
-  <img src="/assets/release.png"/>
+  <img src="/assets/publish.svg"/>
 </div>
 </div>
 
-Open the generated URL in your browser and follow the steps below to release your contract.
+Open the generated URL in your browser and follow the steps below to publish your contract.
 
 ### Configure Contract Metadata
 
@@ -43,7 +43,7 @@ This information is what users will see when they visit your smart contract from
 
 ### Add A Version
 
-Use [semantic versioning](https://semver.org/) to incrementally release new versions of your smart contract;
+Use [semantic versioning](https://semver.org/) to incrementally publish new versions of your smart contract;
 ideal for when you want to make changes to your smart contract but don't want to break existing integrations.
 
 Each version of your smart contract is stored on-chain and can be deployed by anyone. You
@@ -55,9 +55,9 @@ You can also link each version to an audit report. You can paste a link to it, o
 
 ### Choose your Contract Type
 
-Select the contract type for your contract release. Choose the "standard contract" option (selected by default) if your contract does not follow the proxy or factory contract patterns.
-Proxy contracts let your released contracts have cheaper deploys, and factory contracts let you invoke a factory function when the contract gets deployed.
-Learn more about proxy contracts [here](https://portal.thirdweb.com/release/proxy-contracts) and factory contracts [here](https://portal.thirdweb.com/release/factory-contracts).
+Select the contract type for your published contract. Choose the "standard contract" option (selected by default) if your contract does not follow the proxy or factory contract patterns.
+Proxy contracts let your published contracts have cheaper deploys, and factory contracts let you invoke a factory function when the contract gets deployed.
+Learn more about proxy contracts [here](https://portal.thirdweb.com/publish/proxy-contracts) and factory contracts [here](https://portal.thirdweb.com/publish/factory-contracts).
 
 ![Choose Contract Type](/assets/publish/choose-contract-type.png)
 
@@ -73,8 +73,8 @@ Help users trying to deploy your smart contract by changing what your contract p
 
 ![Describe Constructor Parameters](/assets/publish/contract-parameters.png)
 
-### Create Release
+### Publish Contract
 
 Finally, click the "Publish Contract" button to publish your smart contract to the on-chain registry.
 
-For best practices and getting your contract on [Explore]("https://thirdweb.com/explore"), refer to [this page]("https://portal.thirdweb.com/release/get-featured-on-explore").
+For best practices and getting your contract on [Explore]("https://thirdweb.com/explore"), refer to [this page]("https://portal.thirdweb.com/publish/get-featured-on-explore").

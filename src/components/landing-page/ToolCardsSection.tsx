@@ -45,11 +45,11 @@ const products: Product[] = [
     link: "/deploy",
   },
   {
-    image: "/assets/product/release.png",
-    name: "Release",
+    image: "/assets/product/publish.png",
+    name: "Publish",
     description:
       "Publish your contracts to be discovered by our community of 70k+ web3 developers",
-    link: "/release",
+    link: "/publish",
   },
   {
     image: "/assets/product/dashboard.png",
