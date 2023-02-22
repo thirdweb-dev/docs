@@ -25,9 +25,12 @@ const products: Product[] = [
   },
 ];
 
-export default function ExploreProductsSection() {
+export default function SolutionsSection() {
   return (
     <div className="explore-products-container">
+      <h2 className="explore-products-heading" style={{ marginBottom: 12 }}>
+        Solutions
+      </h2>
       <div className="row" style={{ marginBottom: 64 }}>
         {products.map((p, i) => (
           <div className="col col--4" key={i} style={{ padding: 8 }}>

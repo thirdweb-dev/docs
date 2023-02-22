@@ -8,7 +8,7 @@ type Props = {
   openInNewTab?: boolean;
 };
 
-export default function GettingStartedCard({
+export default function LanguageCard({
   name,
   description,
   link,
