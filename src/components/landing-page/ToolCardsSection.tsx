@@ -12,41 +12,23 @@ const products: Product[] = [
   {
     image: "/assets/product/extensions.png",
     name: "ContractKit",
-    description: "Build and extend smart contracts using our Solidity SDK",
+    description:
+      "Base contracts that can be configured with extensions to meet your specific use case",
     link: "/contractkit",
   },
   {
     image: "/assets/product/contracts.png",
-    name: "Prebuilt contracts",
-    description: "Prebuilt and audited contracts",
+    name: "Explore",
+    description:
+      "Discover and deploy contracts from world-class protocols & developers in 1-click",
     link: "/pre-built-contracts",
   },
   {
-    image: "/assets/product/dashboard.png",
-    name: "Dashboard",
-    description: "Easily analyze and manage your smart contracts",
-    link: "/dashboard",
-  },
-  {
     image: "/assets/product/sdk.png",
-    name: "EVM SDK",
+    name: "SDK",
     description:
-      "Components and hooks to integrate smart contracts into your apps",
+      "Powerful SDKs for every stack. Support for Javascript, React, Python, Go, Node.js, Unity",
     link: "/sdk",
-  },
-  {
-    image: "/assets/product/sdk.png",
-    name: "Solana SDK",
-    description:
-      "JavaScript interface for building web3 applications on Solana",
-    link: "/solana",
-  },
-  {
-    image: "/assets/product/sdk.png",
-    name: "GamingKit",
-    description:
-      "Unity interface for building web3 games on EVM compatible networks",
-    link: "/gamingkit",
   },
   {
     image: "/assets/product/ui.png",
@@ -56,28 +38,25 @@ const products: Product[] = [
     link: "/ui-components",
   },
   {
-    image: "/assets/product/auth.png",
-    name: "Auth",
-    description: "Easily integrate wallet-based login flows",
-    link: "/auth",
+    image: "/assets/product/deploy.png",
+    name: "Deploy",
+    description:
+      "Deploy contracts on-chain with a simple deployment workflow designed for team collaboration",
+    link: "/deploy",
   },
   {
     image: "/assets/product/release.png",
     name: "Release",
-    description: "Publish your contracts to our on-chain contract registry",
+    description:
+      "Publish your contracts to be discovered by our community of 70k+ web3 developers",
     link: "/release",
   },
   {
-    image: "/assets/product/deploy.png",
-    name: "Deploy",
-    description: "A seamless contract deployment framework",
-    link: "/deploy",
-  },
-  {
-    image: "/assets/product/storage.png",
-    name: "Storage",
-    description: "Store off-chain data using decentralized storage systems",
-    link: "/storage",
+    image: "/assets/product/dashboard.png",
+    name: "Dashboard",
+    description:
+      "Manage, analyze, and interact with all your deployed contracts conveniently from a single place",
+    link: "/dashboard",
   },
 ];
 
@@ -85,9 +64,8 @@ export default function ExploreProductsSection() {
   return (
     <div className="explore-products-container">
       <h2 className="explore-products-heading" style={{ marginBottom: 12 }}>
-        Explore Products
+        Tools
       </h2>
-
       <div className="row" style={{ marginBottom: 64 }}>
         {products.map((p, i) => (
           <div className="col col--4" key={i} style={{ padding: 8 }}>

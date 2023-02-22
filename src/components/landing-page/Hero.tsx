@@ -10,8 +10,9 @@ export default function Hero() {
             thirdweb <br /> documentation
           </h1>
           <p className="hero-left-description">
-            Welcome to the docs! Here you will find guides, references and
-            resources that will help you build with thirdweb.
+            thirdweb is a complete web3 development framework that provides
+            everything you need to connect your apps and games to decentralized
+            networks
           </p>
         </div>
 
