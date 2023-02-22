@@ -1,0 +1,93 @@
+---
+title: useNFTBalance
+slug: /react.usenftbalance
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook to get the quantity a user owns of a specific ERC1155 NFT.
+
+Available to use on smart contracts that implement the [ERC1155](/contractkit/interfaces/erc1155) standard.
+
+```jsx
+import { useNFTBalance } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your smart contract instance, the wallet address to check, and the token ID to check.
+
+```jsx
+import { useNFTBalance, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { isLoading, data, error } = useNFTBalance(
+    contract,
+    "{{wallet_address}}",
+    "{{token_id}}",
+  );
+}
+```
+
+## Configuration
+
+### walletAddress (required)
+
+The address of the wallet to check.
+
+Use the [`useAddress`](/react/react.useaddress) hook to get the current wallet address.
+
+```jsx
+import { useNFTBalance, useContract, useAddress } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // highlight-next-line
+  const address = useAddress();
+  const { contract } = useContract(contractAddress);
+  const { isLoading, data, error } = useNFTBalance(
+    contract,
+    // highlight-next-line
+    address,
+    "{{token_id}}",
+  );
+}
+```
+
+### tokenId (required)
+
+The token ID of the NFT to check.
+
+```jsx
+import { useNFTBalance, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { isLoading, data, error } = useNFTBalance(
+    contract,
+    "{{wallet_address}}",
+    // highlight-next-line
+    "{{token_id}}",
+  );
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, returns a `BigNumber` representing the quantity of the NFT owned by the wallet.
+
+```ts
+BigNumber;
+```

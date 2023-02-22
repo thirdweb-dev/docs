@@ -4,14 +4,7 @@ title: AddressUpgradeable
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # AddressUpgradeable
 
-
-
-
-
-
-
-*Collection of functions related to the address type*
-
-
+_Collection of functions related to the address type_

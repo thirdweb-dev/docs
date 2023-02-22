@@ -4,16 +4,10 @@ title: ERC1967Upgrade
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # ERC1967Upgrade
 
-
-
-
-
-
-
-*This abstract contract provides getters and event emitting update functions for https://eips.ethereum.org/EIPS/eip-1967[EIP1967] slots. _Available since v4.1._*
-
+_This abstract contract provides getters and event emitting update functions for https://eips.ethereum.org/EIPS/eip-1967[EIP1967] slots. *Available since v4.1.*_
 
 ## Events
 
@@ -23,16 +17,14 @@ displayed_sidebar: contracts
 event AdminChanged(address previousAdmin, address newAdmin)
 ```
 
-
-
-*Emitted when the admin account has changed.*
+_Emitted when the admin account has changed._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| previousAdmin  | address | undefined |
-| newAdmin  | address | undefined |
+| Name          | Type    | Description |
+| ------------- | ------- | ----------- |
+| previousAdmin | address | undefined   |
+| newAdmin      | address | undefined   |
 
 ### BeaconUpgraded
 
@@ -40,15 +32,13 @@ event AdminChanged(address previousAdmin, address newAdmin)
 event BeaconUpgraded(address indexed beacon)
 ```
 
-
-
-*Emitted when the beacon is upgraded.*
+_Emitted when the beacon is upgraded._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| beacon `indexed` | address | undefined |
+| Name             | Type    | Description |
+| ---------------- | ------- | ----------- |
+| beacon `indexed` | address | undefined   |
 
 ### Upgraded
 
@@ -56,14 +46,10 @@ event BeaconUpgraded(address indexed beacon)
 event Upgraded(address indexed implementation)
 ```
 
-
-
-*Emitted when the implementation is upgraded.*
+_Emitted when the implementation is upgraded._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| implementation `indexed` | address | undefined |
-
-
+| Name                     | Type    | Description |
+| ------------------------ | ------- | ----------- |
+| implementation `indexed` | address | undefined   |

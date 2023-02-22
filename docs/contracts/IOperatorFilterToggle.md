@@ -4,15 +4,8 @@ title: IOperatorFilterToggle
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # IOperatorFilterToggle
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -22,16 +15,11 @@ displayed_sidebar: contracts
 function operatorRestriction() external view returns (bool)
 ```
 
-
-
-
-
-
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### setOperatorRestriction
 
@@ -39,17 +27,11 @@ function operatorRestriction() external view returns (bool)
 function setOperatorRestriction(bool restriction) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| restriction | bool | undefined |
-
-
+| Name        | Type | Description |
+| ----------- | ---- | ----------- |
+| restriction | bool | undefined   |
 
 ## Events
 
@@ -59,14 +41,8 @@ function setOperatorRestriction(bool restriction) external nonpayable
 event OperatorRestriction(bool restriction)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| restriction  | bool | undefined |
-
-
+| Name        | Type | Description |
+| ----------- | ---- | ----------- |
+| restriction | bool | undefined   |

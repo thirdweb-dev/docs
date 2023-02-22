@@ -7,9 +7,9 @@ displayed_sidebar: unity
 
 # class `Bridge` {#class_thirdweb_1_1_bridge}
 
-### Summary
+# Summary
 
 | Members | Type | Descriptions |
 | ------- | ---- | ------------ |
 
-### Members
+## Members

@@ -14,7 +14,7 @@ class Wallet
 
 Connect and Interact with a [Wallet](#class_thirdweb_1_1_wallet).
 
-### Summary
+# Summary
 
 | Members            | Type     | Descriptions                                                                                                                                                     |
 | ------------------ | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -33,7 +33,7 @@ Connect and Interact with a [Wallet](#class_thirdweb_1_1_wallet).
 | SendRawTransaction | function | Send a raw transaction from the connected wallet                                                                                                                 |
 | FundWallet         | function | Prompt the user to fund their wallet using one of the thirdweb pay providers (defaults to Coinbase Pay).                                                         |
 
-### Members
+## Members
 
 **`public inline `[`Wallet`](#class_thirdweb_1_1_wallet_1ab74001ead1e4a01b8f8d368af03d9eac)`()`**
 

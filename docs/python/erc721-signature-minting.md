@@ -4,9 +4,10 @@ title: ERC721SignatureMinting Objects
 hide_title: true
 displayed_sidebar: python
 ---
+
 <a id="core.classes.erc_721_signature_minting"></a>
 
-# core.classes.erc\_721\_signature\_minting
+# core.classes.erc_721_signature_minting
 
 <a id="core.classes.erc_721_signature_minting.ERC721SignatureMinting"></a>
 
@@ -36,7 +37,7 @@ transaction result with the token ID of the minted token
 
 <a id="core.classes.erc_721_signature_minting.ERC721SignatureMinting.mint_batch"></a>
 
-#### mint\_batch
+#### mint_batch
 
 ```python
 def mint_batch(
@@ -91,7 +92,7 @@ Signed payload
 
 <a id="core.classes.erc_721_signature_minting.ERC721SignatureMinting.generate_batch"></a>
 
-#### generate\_batch
+#### generate_batch
 
 ```python
 def generate_batch(

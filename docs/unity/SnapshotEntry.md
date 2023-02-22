@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # class `SnapshotEntry` {#class_thirdweb_1_1_snapshot_entry}
 
-### Summary
+# Summary
 
 | Members         | Type     | Descriptions |
 | --------------- | -------- | ------------ |
@@ -17,7 +17,7 @@ displayed_sidebar: unity
 | currencyAddress | variable |              |
 | ToString        | function |              |
 
-### Members
+## Members
 
 **`public string `[`address`](#class_thirdweb_1_1_snapshot_entry_1aa55bb6a3638f1ac69aa6a01374c3c5a3)**
 

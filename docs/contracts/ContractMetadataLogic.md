@@ -4,15 +4,14 @@ title: ContractMetadataLogic
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # ContractMetadataLogic
 
-*thirdweb.com*
+_thirdweb.com_
 
 > Contract Metadata
 
-Thirdweb&#39;s `ContractMetadata` is a contract extension for any base contracts. It lets you set a metadata URI           for you contract.           Additionally, `ContractMetadata` is necessary for NFT contracts that want royalties to get distributed on OpenSea.
-
-
+Thirdweb&#39;s `ContractMetadata` is a contract extension for any base contracts. It lets you set a metadata URI for you contract. Additionally, `ContractMetadata` is necessary for NFT contracts that want royalties to get distributed on OpenSea.
 
 ## Methods
 
@@ -22,16 +21,13 @@ Thirdweb&#39;s `ContractMetadata` is a contract extension for any base contracts
 function contractURI() external view returns (string)
 ```
 
-
-
-*Returns the metadata URI of the contract.*
-
+_Returns the metadata URI of the contract._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | string | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | string | undefined   |
 
 ### setContractURI
 
@@ -41,15 +37,13 @@ function setContractURI(string _uri) external nonpayable
 
 Lets a contract admin set the URI for contract-level metadata.
 
-*Caller should be authorized to setup contractURI, e.g. contract admin.                  See {_canSetContractURI}.                  Emits {ContractURIUpdated Event}.*
+_Caller should be authorized to setup contractURI, e.g. contract admin. See {\_canSetContractURI}. Emits {ContractURIUpdated Event}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
-
-
+| Name  | Type   | Description                                                           |
+| ----- | ------ | --------------------------------------------------------------------- |
+| \_uri | string | keccak256 hash of the role. e.g. keccak256(&quot;TRANSFER_ROLE&quot;) |
 
 ## Events
 
@@ -59,15 +53,9 @@ Lets a contract admin set the URI for contract-level metadata.
 event ContractURIUpdated(string prevURI, string newURI)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| prevURI  | string | undefined |
-| newURI  | string | undefined |
-
-
+| Name    | Type   | Description |
+| ------- | ------ | ----------- |
+| prevURI | string | undefined   |
+| newURI  | string | undefined   |

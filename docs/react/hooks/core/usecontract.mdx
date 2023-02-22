@@ -1,0 +1,107 @@
+---
+title: useContract
+slug: /react.usecontract
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import UseContractHook from "@components/live-code/snippets/UseContractHook";
+
+Hook for connecting to a smart contract.
+
+```jsx
+import { useContract } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your smart contract address as the first parameter.
+The second parameter is [contract type](#contract-type-optional); which is strongly recommended if your contract is a [prebuilt contract](/pre-built-contracts), but
+not required.
+
+Once connected, `contract` will be an instance of your smart contract.
+
+The [ABI](https://docs.soliditylang.org/en/v0.8.17/abi-spec.html) is resolved automatically from our on-chain registry.
+
+```jsx
+import { useContract } from "@thirdweb-dev/react";
+
+function App() {
+  const { contract, isLoading, error } = useContract("{{contract_address}}");
+}
+```
+
+:::info Import Smart Contracts
+If your smart contract was not deployed using thirdweb, you&rsquo;ll need to import it on the [dashboard](/dashboard).
+:::
+
+## Configuration
+
+### Contract Type (optional)
+
+If your contract is a [prebuilt contract](/pre-built-contracts), it is **strongly recommended**
+you provide the contract's name as the second argument
+to gain access to improved top-level functions and type inference.
+
+<details>
+  <summary>View available contract types</summary>
+  <div>
+    <ul>
+      <li>
+        <b>NFT Drop</b>: <code>"nft-drop"</code>
+      </li>
+      <li>
+        <b>Signature Drop</b>: <code>"signature-drop"</code>
+      </li>
+      <li>
+        <b>Edition Drop</b>: <code>"edition-drop"</code>
+      </li>
+      <li>
+        <b>NFT Collection</b>: <code>"nft-collection"</code>
+      </li>
+      <li>
+        <b>Edition</b>: <code>"edition"</code>
+      </li>
+      <li>
+        <b>Multiwrap</b>: <code>"multiwrap"</code>
+      </li>
+      <li>
+        <b>Pack</b>: <code>"pack"</code>
+      </li>
+      <li>
+        <b>Token Drop</b>: <code>"token-drop"</code>
+      </li>
+      <li>
+        <b>Token</b>: <code>"token"</code>
+      </li>
+      <li>
+        <b>Marketplace</b>: <code>"marketplace"</code> |{" "}
+        <code>"marketplace-v3"</code>
+      </li>
+      <li>
+        <b>Split</b>: <code>"split"</code>
+      </li>
+      <li>
+        <b>Vote</b>: <code>"vote"</code>
+      </li>
+    </ul>
+  </div>
+</details>
+
+When a contract type is provided, the `contract` object will be typed as the contract's class.
+For example, if you provide the contract type `pack`, the `contract`
+object will be returned typed as an instance of the [Pack](/typescript/sdk.pack) class, unlocking
+all of the top-level functions specific to the pack.
+
+```jsx
+const { contract, isLoading, error } = useContract(
+  "{{contract_address}}",
+  "contract-type",
+);
+```
+
+<!-- ## Demo Playground
+
+<UseContractHook /> -->

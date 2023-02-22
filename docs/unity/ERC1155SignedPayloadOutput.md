@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # struct `ERC1155SignedPayloadOutput` {#struct_thirdweb_1_1_e_r_c1155_signed_payload_output}
 
-### Summary
+# Summary
 
 | Members              | Type     | Descriptions |
 | -------------------- | -------- | ------------ |
@@ -24,7 +24,7 @@ displayed_sidebar: unity
 | mintStartTime        | variable |              |
 | mintEndTime          | variable |              |
 
-### Members
+## Members
 
 **`public string `[`to`](#struct_thirdweb_1_1_e_r_c1155_signed_payload_output_1ae81b0aaf196fb29a0fe7bc308131c85f)**
 

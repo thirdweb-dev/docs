@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # struct `TokenContractDeployMetadata` {#struct_thirdweb_1_1_token_contract_deploy_metadata}
 
-### Summary
+# Summary
 
 | Members                   | Type     | Descriptions |
 | ------------------------- | -------- | ------------ |
@@ -21,7 +21,7 @@ displayed_sidebar: unity
 | platform_fee_recipient    | variable |              |
 | platform_fee_basis_points | variable |              |
 
-### Members
+## Members
 
 **`public string `[`name`](#struct_thirdweb_1_1_token_contract_deploy_metadata_1aa8da49d4f291b03f142f97f756caf8c3)**
 

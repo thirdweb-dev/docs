@@ -4,15 +4,8 @@ title: IContractPublisher
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # IContractPublisher
-
-
-
-
-
-
-
-
 
 ## Methods
 
@@ -24,18 +17,16 @@ function getAllPublishedContracts(address publisher) external view returns (stru
 
 Returns the latest version of all contracts published by a publisher.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
+| Name      | Type    | Description                   |
+| --------- | ------- | ----------------------------- |
 | publisher | address | The address of the publisher. |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
+| Name      | Type                                        | Description                                           |
+| --------- | ------------------------------------------- | ----------------------------------------------------- |
 | published | IContractPublisher.CustomContractInstance[] | An array of all contracts published by the publisher. |
 
 ### getPublishedContract
@@ -46,19 +37,17 @@ function getPublishedContract(address publisher, string contractId) external vie
 
 Returns the latest version of a contract published by a publisher.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| publisher | address | The address of the publisher. |
-| contractId | string | The identifier for a published contract (that can have multiple verisons). |
+| Name       | Type    | Description                                                                |
+| ---------- | ------- | -------------------------------------------------------------------------- |
+| publisher  | address | The address of the publisher.                                              |
+| contractId | string  | The identifier for a published contract (that can have multiple verisons). |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
+| Name      | Type                                      | Description                                      |
+| --------- | ----------------------------------------- | ------------------------------------------------ |
 | published | IContractPublisher.CustomContractInstance | The desired contract published by the publisher. |
 
 ### getPublishedContractVersions
@@ -69,19 +58,17 @@ function getPublishedContractVersions(address publisher, string contractId) exte
 
 Returns all versions of a published contract.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| publisher | address | The address of the publisher. |
-| contractId | string | The identifier for a published contract (that can have multiple verisons). |
+| Name       | Type    | Description                                                                |
+| ---------- | ------- | -------------------------------------------------------------------------- |
+| publisher  | address | The address of the publisher.                                              |
+| contractId | string  | The identifier for a published contract (that can have multiple verisons). |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
+| Name      | Type                                        | Description                                       |
+| --------- | ------------------------------------------- | ------------------------------------------------- |
 | published | IContractPublisher.CustomContractInstance[] | The desired contracts published by the publisher. |
 
 ### getPublishedUriFromCompilerUri
@@ -92,19 +79,17 @@ function getPublishedUriFromCompilerUri(string compilerMetadataUri) external vie
 
 Retrieve the published metadata URI from a compiler metadata URI.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| compilerMetadataUri | string | undefined |
+| Name                | Type   | Description |
+| ------------------- | ------ | ----------- |
+| compilerMetadataUri | string | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| publishedMetadataUris | string[] | undefined |
+| Name                  | Type     | Description |
+| --------------------- | -------- | ----------- |
+| publishedMetadataUris | string[] | undefined   |
 
 ### getPublisherProfileUri
 
@@ -114,19 +99,17 @@ function getPublisherProfileUri(address publisher) external view returns (string
 
 Get the publisher profile uri for a given publisher.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| publisher | address | undefined |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| publisher | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| uri | string | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| uri  | string | undefined   |
 
 ### publishContract
 
@@ -136,18 +119,16 @@ function publishContract(address publisher, string contractId, string publishMet
 
 Let&#39;s an account publish a contract.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| publisher | address | The address of the publisher. |
-| contractId | string | The identifier for a published contract (that can have multiple verisons). |
-| publishMetadataUri | string | The IPFS URI of the publish metadata. |
-| compilerMetadataUri | string | The IPFS URI of the compiler metadata. |
-| bytecodeHash | bytes32 | The keccak256 hash of the contract bytecode. |
-| implementation | address | (Optional) An implementation address that proxy contracts / clones can point to. Default value                             if such an implementation does not exist - address(0); |
+| Name                | Type    | Description                                                                                                                                           |
+| ------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| publisher           | address | The address of the publisher.                                                                                                                         |
+| contractId          | string  | The identifier for a published contract (that can have multiple verisons).                                                                            |
+| publishMetadataUri  | string  | The IPFS URI of the publish metadata.                                                                                                                 |
+| compilerMetadataUri | string  | The IPFS URI of the compiler metadata.                                                                                                                |
+| bytecodeHash        | bytes32 | The keccak256 hash of the contract bytecode.                                                                                                          |
+| implementation      | address | (Optional) An implementation address that proxy contracts / clones can point to. Default value if such an implementation does not exist - address(0); |
 
 ### setPublisherProfileUri
 
@@ -157,14 +138,12 @@ function setPublisherProfileUri(address publisher, string uri) external nonpayab
 
 Lets an account set its publisher profile uri
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| publisher | address | undefined |
-| uri | string | undefined |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| publisher | address | undefined   |
+| uri       | string  | undefined   |
 
 ### unpublishContract
 
@@ -174,16 +153,12 @@ function unpublishContract(address publisher, string contractId) external nonpay
 
 Lets a publisher unpublish a contract and all its versions.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| publisher | address | The address of the publisher. |
-| contractId | string | The identifier for a published contract (that can have multiple verisons). |
-
-
+| Name       | Type    | Description                                                                |
+| ---------- | ------- | -------------------------------------------------------------------------- |
+| publisher  | address | The address of the publisher.                                              |
+| contractId | string  | The identifier for a published contract (that can have multiple verisons). |
 
 ## Events
 
@@ -193,17 +168,15 @@ Lets a publisher unpublish a contract and all its versions.
 event ContractPublished(address indexed operator, address indexed publisher, IContractPublisher.CustomContractInstance publishedContract)
 ```
 
-
-
-*Emitted when a contract is published.*
+_Emitted when a contract is published._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| operator `indexed` | address | undefined |
-| publisher `indexed` | address | undefined |
-| publishedContract  | IContractPublisher.CustomContractInstance | undefined |
+| Name                | Type                                      | Description |
+| ------------------- | ----------------------------------------- | ----------- |
+| operator `indexed`  | address                                   | undefined   |
+| publisher `indexed` | address                                   | undefined   |
+| publishedContract   | IContractPublisher.CustomContractInstance | undefined   |
 
 ### ContractUnpublished
 
@@ -211,17 +184,15 @@ event ContractPublished(address indexed operator, address indexed publisher, ICo
 event ContractUnpublished(address indexed operator, address indexed publisher, string indexed contractId)
 ```
 
-
-
-*Emitted when a contract is unpublished.*
+_Emitted when a contract is unpublished._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| operator `indexed` | address | undefined |
-| publisher `indexed` | address | undefined |
-| contractId `indexed` | string | undefined |
+| Name                 | Type    | Description |
+| -------------------- | ------- | ----------- |
+| operator `indexed`   | address | undefined   |
+| publisher `indexed`  | address | undefined   |
+| contractId `indexed` | string  | undefined   |
 
 ### Paused
 
@@ -229,15 +200,13 @@ event ContractUnpublished(address indexed operator, address indexed publisher, s
 event Paused(bool isPaused)
 ```
 
-
-
-*Emitted when the registry is paused.*
+_Emitted when the registry is paused._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| isPaused  | bool | undefined |
+| Name     | Type | Description |
+| -------- | ---- | ----------- |
+| isPaused | bool | undefined   |
 
 ### PublisherProfileUpdated
 
@@ -245,16 +214,12 @@ event Paused(bool isPaused)
 event PublisherProfileUpdated(address indexed publisher, string prevURI, string newURI)
 ```
 
-
-
-*Emitted when a publisher updates their profile URI.*
+_Emitted when a publisher updates their profile URI._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| publisher `indexed` | address | undefined |
-| prevURI  | string | undefined |
-| newURI  | string | undefined |
-
-
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| publisher `indexed` | address | undefined   |
+| prevURI             | string  | undefined   |
+| newURI              | string  | undefined   |

@@ -1,0 +1,108 @@
+---
+title: useIsAddressRole
+slug: /react.useisaddressrole
+displayed_sidebar: react
+---
+
+Hook to check if an address is a member of a role on a smart contract.
+
+Available to use on contracts that implement [Permission Controls](/contractkit/extension-contracts/permissions).
+
+```jsx
+import { useIsAddressRole } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide the following arguments to the hook:
+
+1. `contract` - The contract instance to check the role on.
+2. `roleName` - The name of the role to check.
+3. `address` - The wallet address to see if it is a member of the role.
+
+```jsx
+import { useIsAddressRole, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address (must implement permission controls)
+const contractAddress = "{{contract_address}}";
+
+// Address of the wallet to check
+const walletAddress = "{{wallet_address}}";
+
+// Name of the role to check
+const roleName = "admin";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const isMember = useIsAddressRole(contract, roleName, walletAddress);
+}
+```
+
+## Configuration
+
+### roleName (reuqired)
+
+The name of the role to check.
+Can be any custom role, or a built-in role, such as `admin`, `transfer`, `minter`, `pauser`, `lister`, `asset`, `unwrap`, or `factory`.
+
+```jsx
+import { useIsAddressRole, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address (must implement permission controls)
+const contractAddress = "{{contract_address}}";
+
+// Address of the wallet to check
+const walletAddress = "{{wallet_address}}";
+
+// Name of the role to check
+// highlight-next-line
+const roleName = "admin";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  // Address of the wallet to check
+  const isMember = useIsAddressRole(
+    contract,
+    // highlight-next-line
+    roleName,
+    walletAddress,
+  );
+}
+```
+
+### walletAddress (reuqired)
+
+The wallet address to check if it is a member of the role.
+
+Use the [`useAddress`](/react/react.useaddress) hook to get the current wallet address.
+
+```jsx
+import { useIsAddressRole, useContract, useAddress } from "@thirdweb-dev/react";
+
+// Your smart contract address (must implement permission controls)
+const contractAddress = "{{contract_address}}";
+
+// Name of the role to check
+const roleName = "admin";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  // Address of the wallet to check
+  // highlight-next-line
+  const address = useAddress();
+  const isMember = useIsAddressRole(
+    contract,
+    roleName,
+    // highlight-next-line
+    address,
+  );
+}
+```
+
+## Return Value
+
+The hook's returns a boolean, indicating if the given address is a member of the role. `true` if it is, and `false` if it isn't.
+
+```ts
+boolean;
+```

@@ -4,15 +4,12 @@ title: PrimarySale
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # PrimarySale
-
-
 
 > Primary Sale
 
-Thirdweb&#39;s `PrimarySale` is a contract extension to be used with any base contract. It exposes functions for setting and reading           the recipient of primary sales, and lets the inheriting contract perform conditional logic that uses information about           primary sales, if desired.
-
-
+Thirdweb&#39;s `PrimarySale` is a contract extension to be used with any base contract. It exposes functions for setting and reading the recipient of primary sales, and lets the inheriting contract perform conditional logic that uses information about primary sales, if desired.
 
 ## Methods
 
@@ -22,16 +19,13 @@ Thirdweb&#39;s `PrimarySale` is a contract extension to be used with any base co
 function primarySaleRecipient() external view returns (address)
 ```
 
-
-
-*Returns primary sale recipient address.*
-
+_Returns primary sale recipient address._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | address | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | address | undefined   |
 
 ### setPrimarySaleRecipient
 
@@ -41,15 +35,13 @@ function setPrimarySaleRecipient(address _saleRecipient) external nonpayable
 
 Updates primary sale recipient.
 
-*Caller should be authorized to set primary sales info.                  See {_canSetPrimarySaleRecipient}.                  Emits {PrimarySaleRecipientUpdated Event}; See {_setupPrimarySaleRecipient}.*
+_Caller should be authorized to set primary sales info. See {\_canSetPrimarySaleRecipient}. Emits {PrimarySaleRecipientUpdated Event}; See {\_setupPrimarySaleRecipient}._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _saleRecipient | address | Address to be set as new recipient of primary sales. |
-
-
+| Name            | Type    | Description                                          |
+| --------------- | ------- | ---------------------------------------------------- |
+| \_saleRecipient | address | Address to be set as new recipient of primary sales. |
 
 ## Events
 
@@ -59,14 +51,8 @@ Updates primary sale recipient.
 event PrimarySaleRecipientUpdated(address indexed recipient)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| recipient `indexed` | address | undefined |
-
-
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| recipient `indexed` | address | undefined   |

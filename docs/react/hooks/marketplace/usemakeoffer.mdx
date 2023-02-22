@@ -1,0 +1,159 @@
+---
+title: useMakeOffer
+slug: /react.usemakeoffer
+displayed_sidebar: react
+---
+
+Hook for placing an offer on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) direct listing.
+
+```jsx
+import { useMakeOffer } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your Marketplace contract instance from the [`useContract`](/react/react.usecontract) hook as the argument.
+
+Then, provide the `listingId`, `pricePerToken`, and `quantity` to the mutation.
+
+```jsx
+import { useMakeOffer, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { mutateAsync: makeOffer, isLoading, error } = useMakeOffer(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        makeOffer({
+          listingId: 1, // ID of the listing to make an offer on
+          pricePerToken: 1, // Price per token to offer (in the listing's currency)
+          quantity: 1, // Number of NFTs you want to buy (used for ERC1155 NFTs)
+        })
+      }
+    >
+      Make Bid
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### listingId (required)
+
+The ID of the listing to make an offer on.
+
+If the listing cannot be found, is not a direct listing, or is not active, the `error` property will be set.
+
+```jsx
+import { useMakeOffer, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { mutateAsync: makeOffer, isLoading, error } = useMakeOffer(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        makeOffer({
+          // highlight-next-line
+          listingId: listingId, // ID of the listing to make an offer on
+          pricePerToken: 1,
+          quantity: 1,
+        })
+      }
+    >
+      Make Bid
+    </Web3Button>
+  );
+}
+```
+
+### pricePerToken (required)
+
+The price to offer per token.
+
+- For ERC1155, this is the price to offer per quantity of the NFT (see [`quantity`](#quantity) below).
+- For ERC721, this is the price to offer to buy the NFT.
+
+```jsx
+import { useMakeOffer, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// highlight-next-line
+const pricePerToken = "{{price_per_token}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { mutateAsync: makeOffer, isLoading, error } = useMakeOffer(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        makeOffer({
+          listingId: 1,
+          // highlight-next-line
+          pricePerToken: pricePerToken, // Price per token to offer (in the listing's currency)
+          quantity: 1,
+        })
+      }
+    >
+      Make Bid
+    </Web3Button>
+  );
+}
+```
+
+### quantity (optional)
+
+Used for ERC1155 NFTs, where multiple quantity of the same NFT can be bought at once.
+
+This field works with the `pricePerToken` field to calculate the total price of the offer.
+For example, if you want to buy 5 NFTs at a price of 1 ETH each, you would set `pricePerToken` to `1` and `quantity` to `5`, for a total of `5` ETH as the offer.
+
+For ERC721 NFTs, this value is ignored and `1` is used instead.
+
+The default value is `1`.
+
+```jsx
+import { useMakeOffer, useContract, Web3Button } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { mutateAsync: makeOffer, isLoading, error } = useMakeOffer(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        makeOffer({
+          listingId: 1, // ID of the listing to make an offer on
+          pricePerToken: 1, // Price per token to offer (in the listing's currency)
+          quantity: 1, // Number of NFTs you want to buy (used for ERC1155 NFTs)
+        })
+      }
+    >
+      Make Bid
+    </Web3Button>
+  );
+}
+```

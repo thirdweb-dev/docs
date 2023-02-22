@@ -4,16 +4,10 @@ title: ERC1967Proxy
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # ERC1967Proxy
 
-
-
-
-
-
-
-*This contract implements an upgradeable proxy. It is upgradeable because calls are delegated to an implementation address that can be changed. This address is stored in storage in the location specified by https://eips.ethereum.org/EIPS/eip-1967[EIP1967], so that it doesn&#39;t conflict with the storage layout of the implementation behind the proxy.*
-
+_This contract implements an upgradeable proxy. It is upgradeable because calls are delegated to an implementation address that can be changed. This address is stored in storage in the location specified by https://eips.ethereum.org/EIPS/eip-1967[EIP1967], so that it doesn&#39;t conflict with the storage layout of the implementation behind the proxy._
 
 ## Events
 
@@ -23,16 +17,12 @@ displayed_sidebar: contracts
 event AdminChanged(address previousAdmin, address newAdmin)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| previousAdmin  | address | undefined |
-| newAdmin  | address | undefined |
+| Name          | Type    | Description |
+| ------------- | ------- | ----------- |
+| previousAdmin | address | undefined   |
+| newAdmin      | address | undefined   |
 
 ### BeaconUpgraded
 
@@ -40,15 +30,11 @@ event AdminChanged(address previousAdmin, address newAdmin)
 event BeaconUpgraded(address indexed beacon)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| beacon `indexed` | address | undefined |
+| Name             | Type    | Description |
+| ---------------- | ------- | ----------- |
+| beacon `indexed` | address | undefined   |
 
 ### Upgraded
 
@@ -56,14 +42,8 @@ event BeaconUpgraded(address indexed beacon)
 event Upgraded(address indexed implementation)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| implementation `indexed` | address | undefined |
-
-
+| Name                     | Type    | Description |
+| ------------------------ | ------- | ----------- |
+| implementation `indexed` | address | undefined   |

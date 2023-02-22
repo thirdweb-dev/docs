@@ -1,0 +1,62 @@
+---
+title: useTransferBatchToken
+slug: /react.usetransferbatchtoken
+displayed_sidebar: react
+---
+
+Hook for transferring ERC20 tokens to multiple recipients in a single transaction (i.e. airdrop).
+
+Available to use on contracts that implement the [ERC20](https://portal.thirdweb.com/contractkit/interfaces/erc20) interface.
+
+The wallet that initiates this transaction must have sufficient balance to cover the total amount of tokens being transferred
+and must have transfer permissions on the contract, i.e. tokens are not soulbound.
+
+```jsx
+import { useTransferBatchToken } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your token contract instance from the [`useContract`](/react/react.usecontract) hook to the hook.
+
+Then, provide an array of objects with the `to` and `amount` properties to the function.
+
+```jsx
+import {
+  useTransferBatchToken,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "token");
+  const {
+    mutateAsync: transferBatchToken,
+    isLoading,
+    error,
+  } = useTransferBatchToken(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        transferBatchToken([
+          {
+            to: "{{wallet_address}}", // Transfer 10 tokens to a wallet
+            amount: 10,
+          },
+          {
+            to: "{{wallet_address}}", // Transfer 20 tokens to another wallet
+            amount: 20,
+          },
+        ])
+      }
+    >
+      Transfer Batch Tokens
+    </Web3Button>
+  );
+}
+```

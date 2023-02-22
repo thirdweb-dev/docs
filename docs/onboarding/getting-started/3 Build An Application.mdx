@@ -27,15 +27,10 @@ Open this directory in your text editor.
 Inside the [`index.js`](https://github.com/thirdweb-example/cra-javascript-starter/blob/main/src/index.js#L15-L17) file,
 you'll find the [`ThirdwebProvider`](/sdk/set-up-the-sdk/frontend#manual-installation) wrapping the entire application.
 
-This wrapper allows us to use all of the [React SDK](/react)'s hooks and [UI Components](/ui-components) throughout the application, as well as configure a `desiredChainId`;
-which declares [which blockchain & network](https://blog.thirdweb.com/guides/which-network-should-you-use/) our smart contracts live on.
+This wrapper allows us to use all of the [React SDK](/react)'s hooks and [UI Components](/ui-components) throughout the application, as well as configure an `activeChain`;
+which declares which chain our smart contracts are deployed to.
 
-Since we deployed our smart contract to the `Goerli` network, we'll set the `desiredChainId` to `ChainId.Goerli`:
-
-```jsx title="src/index.js"
-// This is the chainId your dApp will work on.
-const activeChainId = ChainId.Goerli;
-```
+Since we deployed our smart contract to the `Goerli` network, we'll set the `activeChain` to `"goerli"`:
 
 ## Interact With Contracts
 

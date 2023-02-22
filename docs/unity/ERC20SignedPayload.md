@@ -7,14 +7,14 @@ displayed_sidebar: unity
 
 # struct `ERC20SignedPayload` {#struct_thirdweb_1_1_e_r_c20_signed_payload}
 
-### Summary
+# Summary
 
 | Members   | Type     | Descriptions |
 | --------- | -------- | ------------ |
 | signature | variable |              |
 | payload   | variable |              |
 
-### Members
+## Members
 
 **`public string `[`signature`](#struct_thirdweb_1_1_e_r_c20_signed_payload_1a5d6e23abcad608ccf3a9f88002e4c7c4)**
 

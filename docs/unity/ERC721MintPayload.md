@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # class `ERC721MintPayload` {#class_thirdweb_1_1_e_r_c721_mint_payload}
 
-### Summary
+# Summary
 
 | Members              | Type     | Descriptions |
 | -------------------- | -------- | ------------ |
@@ -22,7 +22,7 @@ displayed_sidebar: unity
 | uid                  | variable |              |
 | ERC721MintPayload    | function |              |
 
-### Members
+## Members
 
 **`public string `[`to`](#class_thirdweb_1_1_e_r_c721_mint_payload_1abba50928c7897ea225c843fe6e5434de)**
 

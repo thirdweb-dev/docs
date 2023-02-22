@@ -1,0 +1,93 @@
+---
+title: useClaimedNFTs
+slug: /react.useclaimednfts
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for fetching all claimed NFTs from a given NFT Drop contract.
+
+Available to use on contracts that implement [`ERC721Claimable`](/contractkit/interfaces/erc721claimable),
+such as the [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721).
+
+```jsx
+import { useClaimedNFTs } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT Drop contract as the argument to the hook.
+
+```jsx
+import { useClaimedNFTs, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // Contract must implement ERC721Claimable, e.g. nft-drop
+  const { contract } = useContract(contractAddress, "nft-drop");
+  const { data: nfts, isLoading, error } = useClaimedNFTs(contract);
+}
+```
+
+## Configuration
+
+### queryParams (optional)
+
+By default, the hook will return the first `100` claimed NFTs.
+
+You can use the `queryParams` argument to paginate the NFTs that are returned.
+
+```jsx
+import { useClaimedNFTs, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "nft-drop");
+  const { data, isLoading, error } = useClaimedNFTs(
+    contract,
+    // highlight-start
+    {
+      // For example, to only return the first 50 claimed NFTs in the collection
+      // in order of token ID
+      count: 50,
+      start: 0,
+    },
+    // highlight-end
+  );
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, contains an array of `NFT` objects, each containing the following properties:
+
+```ts
+{
+    metadata: {
+      id: string;
+      uri: string;
+      name?: string | number | undefined;
+      description?: string | null | undefined;
+      image?: string | null | undefined;
+      external_url?: string | null | undefined;
+      animation_url?: string | null | undefined;
+      background_color?: string | undefined;
+      properties?: {
+          [x: string]: unknown;
+      } | {
+          [x: string]: unknown;
+      }[] | undefined;
+  };
+    owner: string;
+    type: "ERC1155" | "ERC721";
+    supply: number;
+    quantityOwned?: number; // Only available for ERC1155
+}[];
+```

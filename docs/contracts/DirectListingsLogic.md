@@ -4,15 +4,10 @@ title: DirectListingsLogic
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # DirectListingsLogic
 
-*thirdweb.com*
-
-
-
-
-
-
+_thirdweb.com_
 
 ## Methods
 
@@ -22,50 +17,37 @@ displayed_sidebar: contracts
 function MAX_BPS() external view returns (uint64)
 ```
 
-
-
-*The max bps of the contract. So, 10_000 == 100 %*
-
+_The max bps of the contract. So, 10_000 == 100 %_
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint64 | undefined |
+| Name | Type   | Description |
+| ---- | ------ | ----------- |
+| \_0  | uint64 | undefined   |
 
-### _msgData
+### \_msgData
 
 ```solidity
 function _msgData() external view returns (bytes)
 ```
 
-
-
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | bytes | undefined |
+| Name | Type  | Description |
+| ---- | ----- | ----------- |
+| \_0  | bytes | undefined   |
 
-### _msgSender
+### \_msgSender
 
 ```solidity
 function _msgSender() external view returns (address sender)
 ```
 
-
-
-
-
-
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| sender | address | undefined |
+| Name   | Type    | Description |
+| ------ | ------- | ----------- |
+| sender | address | undefined   |
 
 ### approveBuyerForListing
 
@@ -75,15 +57,13 @@ function approveBuyerForListing(uint256 _listingId, address _buyer, bool _toAppr
 
 Approve a buyer to buy from a reserved listing.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _listingId | uint256 | undefined |
-| _buyer | address | undefined |
-| _toApprove | bool | undefined |
+| Name        | Type    | Description |
+| ----------- | ------- | ----------- |
+| \_listingId | uint256 | undefined   |
+| \_buyer     | address | undefined   |
+| \_toApprove | bool    | undefined   |
 
 ### approveCurrencyForListing
 
@@ -93,15 +73,13 @@ function approveCurrencyForListing(uint256 _listingId, address _currency, uint25
 
 Approve a currency as a form of payment for the listing.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _listingId | uint256 | undefined |
-| _currency | address | undefined |
-| _pricePerTokenInCurrency | uint256 | undefined |
+| Name                      | Type    | Description |
+| ------------------------- | ------- | ----------- |
+| \_listingId               | uint256 | undefined   |
+| \_currency                | address | undefined   |
+| \_pricePerTokenInCurrency | uint256 | undefined   |
 
 ### buyFromListing
 
@@ -111,17 +89,15 @@ function buyFromListing(uint256 _listingId, address _buyFor, uint256 _quantity, 
 
 Buy NFTs from a listing.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _listingId | uint256 | undefined |
-| _buyFor | address | undefined |
-| _quantity | uint256 | undefined |
-| _currency | address | undefined |
-| _expectedTotalPrice | uint256 | undefined |
+| Name                 | Type    | Description |
+| -------------------- | ------- | ----------- |
+| \_listingId          | uint256 | undefined   |
+| \_buyFor             | address | undefined   |
+| \_quantity           | uint256 | undefined   |
+| \_currency           | address | undefined   |
+| \_expectedTotalPrice | uint256 | undefined   |
 
 ### cancelListing
 
@@ -131,13 +107,11 @@ function cancelListing(uint256 _listingId) external nonpayable
 
 Cancel a listing.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _listingId | uint256 | undefined |
+| Name        | Type    | Description |
+| ----------- | ------- | ----------- |
+| \_listingId | uint256 | undefined   |
 
 ### createListing
 
@@ -145,21 +119,17 @@ Cancel a listing.
 function createListing(IDirectListings.ListingParameters _params) external nonpayable returns (uint256 listingId)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _params | IDirectListings.ListingParameters | undefined |
+| Name     | Type                              | Description |
+| -------- | --------------------------------- | ----------- |
+| \_params | IDirectListings.ListingParameters | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| listingId | uint256 | undefined |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| listingId | uint256 | undefined   |
 
 ### currencyPriceForListing
 
@@ -169,20 +139,18 @@ function currencyPriceForListing(uint256 _listingId, address _currency) external
 
 Returns the price per token for a listing, in the given currency.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _listingId | uint256 | undefined |
-| _currency | address | undefined |
+| Name        | Type    | Description |
+| ----------- | ------- | ----------- |
+| \_listingId | uint256 | undefined   |
+| \_currency  | address | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### getAllListings
 
@@ -192,20 +160,18 @@ function getAllListings(uint256 _startId, uint256 _endId) external view returns 
 
 Returns all non-cancelled listings.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _startId | uint256 | undefined |
-| _endId | uint256 | undefined |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| \_startId | uint256 | undefined   |
+| \_endId   | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _allListings | IDirectListings.Listing[] | undefined |
+| Name          | Type                      | Description |
+| ------------- | ------------------------- | ----------- |
+| \_allListings | IDirectListings.Listing[] | undefined   |
 
 ### getAllValidListings
 
@@ -213,22 +179,20 @@ Returns all non-cancelled listings.
 function getAllValidListings(uint256 _startId, uint256 _endId) external view returns (struct IDirectListings.Listing[] _validListings)
 ```
 
-Returns all valid listings between the start and end Id (both inclusive) provided.          A valid listing is where the listing creator still owns and has approved Marketplace          to transfer the listed NFTs.
-
-
+Returns all valid listings between the start and end Id (both inclusive) provided. A valid listing is where the listing creator still owns and has approved Marketplace to transfer the listed NFTs.
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _startId | uint256 | undefined |
-| _endId | uint256 | undefined |
+| Name      | Type    | Description |
+| --------- | ------- | ----------- |
+| \_startId | uint256 | undefined   |
+| \_endId   | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _validListings | IDirectListings.Listing[] | undefined |
+| Name            | Type                      | Description |
+| --------------- | ------------------------- | ----------- |
+| \_validListings | IDirectListings.Listing[] | undefined   |
 
 ### getListing
 
@@ -238,19 +202,17 @@ function getListing(uint256 _listingId) external view returns (struct IDirectLis
 
 Returns a listing at a particular listing ID.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _listingId | uint256 | undefined |
+| Name        | Type    | Description |
+| ----------- | ------- | ----------- |
+| \_listingId | uint256 | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| listing | IDirectListings.Listing | undefined |
+| Name    | Type                    | Description |
+| ------- | ----------------------- | ----------- |
+| listing | IDirectListings.Listing | undefined   |
 
 ### isBuyerApprovedForListing
 
@@ -260,20 +222,18 @@ function isBuyerApprovedForListing(uint256 _listingId, address _buyer) external 
 
 Returns whether a buyer is approved for a listing.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _listingId | uint256 | undefined |
-| _buyer | address | undefined |
+| Name        | Type    | Description |
+| ----------- | ------- | ----------- |
+| \_listingId | uint256 | undefined   |
+| \_buyer     | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### isCurrencyApprovedForListing
 
@@ -283,20 +243,18 @@ function isCurrencyApprovedForListing(uint256 _listingId, address _currency) ext
 
 Returns whether a currency is approved for a listing.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _listingId | uint256 | undefined |
-| _currency | address | undefined |
+| Name        | Type    | Description |
+| ----------- | ------- | ----------- |
+| \_listingId | uint256 | undefined   |
+| \_currency  | address | undefined   |
 
 #### Returns
 
 | Name | Type | Description |
-|---|---|---|
-| _0 | bool | undefined |
+| ---- | ---- | ----------- |
+| \_0  | bool | undefined   |
 
 ### totalListings
 
@@ -306,14 +264,13 @@ function totalListings() external view returns (uint256)
 
 Returns the total number of listings created.
 
-*At any point, the return value is the ID of the next listing created.*
-
+_At any point, the return value is the ID of the next listing created._
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| _0 | uint256 | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| \_0  | uint256 | undefined   |
 
 ### updateListing
 
@@ -321,18 +278,12 @@ Returns the total number of listings created.
 function updateListing(uint256 _listingId, IDirectListings.ListingParameters _params) external nonpayable
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| _listingId | uint256 | undefined |
-| _params | IDirectListings.ListingParameters | undefined |
-
-
+| Name        | Type                              | Description |
+| ----------- | --------------------------------- | ----------- |
+| \_listingId | uint256                           | undefined   |
+| \_params    | IDirectListings.ListingParameters | undefined   |
 
 ## Events
 
@@ -344,15 +295,13 @@ event BuyerApprovedForListing(uint256 indexed listingId, address indexed buyer, 
 
 Emitted when a buyer is approved to buy from a reserved listing.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| listingId `indexed` | uint256 | undefined |
-| buyer `indexed` | address | undefined |
-| approved  | bool | undefined |
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| listingId `indexed` | uint256 | undefined   |
+| buyer `indexed`     | address | undefined   |
+| approved            | bool    | undefined   |
 
 ### CancelledListing
 
@@ -362,14 +311,12 @@ event CancelledListing(address indexed listingCreator, uint256 indexed listingId
 
 Emitted when a listing is cancelled.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| listingCreator `indexed` | address | undefined |
-| listingId `indexed` | uint256 | undefined |
+| Name                     | Type    | Description |
+| ------------------------ | ------- | ----------- |
+| listingCreator `indexed` | address | undefined   |
+| listingId `indexed`      | uint256 | undefined   |
 
 ### CurrencyApprovedForListing
 
@@ -379,15 +326,13 @@ event CurrencyApprovedForListing(uint256 indexed listingId, address indexed curr
 
 Emitted when a currency is approved as a form of payment for the listing.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| listingId `indexed` | uint256 | undefined |
-| currency `indexed` | address | undefined |
-| pricePerToken  | uint256 | undefined |
+| Name                | Type    | Description |
+| ------------------- | ------- | ----------- |
+| listingId `indexed` | uint256 | undefined   |
+| currency `indexed`  | address | undefined   |
+| pricePerToken       | uint256 | undefined   |
 
 ### NewListing
 
@@ -397,16 +342,14 @@ event NewListing(address indexed listingCreator, uint256 indexed listingId, addr
 
 Emitted when a new listing is created.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| listingCreator `indexed` | address | undefined |
-| listingId `indexed` | uint256 | undefined |
-| assetContract `indexed` | address | undefined |
-| listing  | IDirectListings.Listing | undefined |
+| Name                     | Type                    | Description |
+| ------------------------ | ----------------------- | ----------- |
+| listingCreator `indexed` | address                 | undefined   |
+| listingId `indexed`      | uint256                 | undefined   |
+| assetContract `indexed`  | address                 | undefined   |
+| listing                  | IDirectListings.Listing | undefined   |
 
 ### NewSale
 
@@ -416,19 +359,17 @@ event NewSale(address indexed listingCreator, uint256 indexed listingId, address
 
 Emitted when NFTs are bought from a listing.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| listingCreator `indexed` | address | undefined |
-| listingId `indexed` | uint256 | undefined |
-| assetContract `indexed` | address | undefined |
-| tokenId  | uint256 | undefined |
-| buyer  | address | undefined |
-| quantityBought  | uint256 | undefined |
-| totalPricePaid  | uint256 | undefined |
+| Name                     | Type    | Description |
+| ------------------------ | ------- | ----------- |
+| listingCreator `indexed` | address | undefined   |
+| listingId `indexed`      | uint256 | undefined   |
+| assetContract `indexed`  | address | undefined   |
+| tokenId                  | uint256 | undefined   |
+| buyer                    | address | undefined   |
+| quantityBought           | uint256 | undefined   |
+| totalPricePaid           | uint256 | undefined   |
 
 ### UpdatedListing
 
@@ -438,15 +379,11 @@ event UpdatedListing(address indexed listingCreator, uint256 indexed listingId, 
 
 Emitted when a listing is updated.
 
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| listingCreator `indexed` | address | undefined |
-| listingId `indexed` | uint256 | undefined |
-| assetContract `indexed` | address | undefined |
-| listing  | IDirectListings.Listing | undefined |
-
-
+| Name                     | Type                    | Description |
+| ------------------------ | ----------------------- | ----------- |
+| listingCreator `indexed` | address                 | undefined   |
+| listingId `indexed`      | uint256                 | undefined   |
+| assetContract `indexed`  | address                 | undefined   |
+| listing                  | IDirectListings.Listing | undefined   |

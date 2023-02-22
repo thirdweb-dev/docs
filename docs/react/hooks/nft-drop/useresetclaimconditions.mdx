@@ -1,0 +1,90 @@
+---
+title: useResetClaimConditions
+slug: /react.useresetclaimconditions
+displayed_sidebar: react
+---
+
+Hook for resetting the claim conditions on a drop contract.
+
+Available to use on contracts that implement
+[ERC721ClaimableWithConditions](/contractkit/extension-contracts/claimable-conditions),
+[ERC1155ClaimableWithConditions](/contractkit/extension-contracts/claimable-conditions),
+or [ERC20ClaimableWithConditions](/contractkit/extension-contracts/claimable-conditions).
+
+```jsx
+import { useResetClaimConditions } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your drop contract from the [`useContract`](react/hooks/usecontract) hook as an argument to the hook.
+
+```jsx
+import {
+  useContract,
+  useResetClaimConditions,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  // Contract must be a drop contract that implements claim conditions
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: resetClaimConditions,
+    isLoading,
+    error,
+  } = useResetClaimConditions(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => resetClaimConditions()}
+    >
+      Reset Claim Conditions
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### tokenId (ERC1155 only)
+
+For ERC1155 NFTs, provide the token ID of the NFT as the second argument to the hook.
+
+```jsx
+import {
+  useContract,
+  useResetClaimConditions,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+// highlight-next-line
+const tokenId = "{{token_id}}";
+
+function App() {
+  // Contract must be a drop contract that implements claim conditions
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: resetClaimConditions,
+    isLoading,
+    error,
+  } = useResetClaimConditions(
+    contract,
+    // highlight-next-line
+    tokenId,
+  );
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() => resetClaimConditions()}
+    >
+      Reset Claim Conditions
+    </Web3Button>
+  );
+}
+```

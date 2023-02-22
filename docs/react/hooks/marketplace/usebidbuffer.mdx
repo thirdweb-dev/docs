@@ -1,0 +1,81 @@
+---
+title: useBidBuffer
+slug: /react.usebidbuffer
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for determining the current bid buffer on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace)
+or [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
+
+The bid buffer is what percentage higher the next bid must be than the current highest bid, or the starting price if there are no bids.
+
+```jsx
+import { useBidBuffer } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your marketplace contract as the first argument, and the listing ID as the second argument.
+
+```jsx
+import { useBidBuffer, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+// Listing ID to get the bid buffer for
+const listingId = 1;
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    data: bidBuffer,
+    isLoading,
+    error,
+  } = useBidBuffer(contract, listingId);
+}
+```
+
+## Configuration
+
+### listingId (required)
+
+The listing ID of the item that you want to get the bid buffer for.
+
+The listing must be an auction (or english auction) listing, the hook will populate the `error` property if it is not.
+
+```ts
+import { useBidBuffer, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    data: bidBuffer,
+    isLoading,
+    error,
+  } = useBidBuffer(
+    contract,
+    // highlight-next-line
+    listingId,
+  );
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, returns a `BigNumber` value representing the current bid buffer.
+
+```ts
+bidBuffer: BigNumber;
+```
+
+The `bidBuffer` value returned is in percentage format.
+For example, a value of `500` means that the next bid must be 5% higher than the current highest bid.

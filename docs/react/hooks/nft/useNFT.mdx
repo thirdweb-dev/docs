@@ -1,0 +1,107 @@
+---
+title: useNFT
+slug: /react.usenft
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import UseNFTHook from "@components/live-code/snippets/UseNFTHook";
+
+Hook for fetching information about an NFT from a smart contract.
+
+Available to use on smart contracts that implement the [ERC721](/contractkit/interfaces/erc721)
+or [ERC1155](/contractkit/interfaces/erc1155) standard.
+
+NFT metadata is automatically fetched from where the `tokenUri` is hosted (e.g. IPFS), and makes the `image`
+property available as a URL through our IPFS gateway (if the image is hosted on IPFS).
+
+```jsx
+import { useNFT } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your NFT collection contract object and the token ID of the NFT you want to fetch as
+arguments.
+
+```jsx
+import { useContract, useNFT } from "@thirdweb-dev/react";
+
+// The token ID of the NFT you want to fetch
+const tokenId = 0;
+
+function App() {
+  const { contract } = useContract("{{contract_address}}");
+  const { data: nft, isLoading, error } = useNFT(contract, tokenId);
+
+  if (isLoading) return <div>Fetching NFT…</div>;
+  if (error) return <div>Error fetching NFT</div>;
+  if (!nft) return <div>NFT not found</div>;
+  return <div>NFT: {nft.metadata.name}</div>;
+}
+```
+
+## Configuration
+
+### tokenId
+
+The token ID of the NFT you want to fetch.
+
+```jsx
+import { useContract, useNFT } from "@thirdweb-dev/react";
+
+// The token ID of the NFT you want to fetch
+// highlight-next-line
+const tokenId = 0;
+
+function App() {
+  const { contract } = useContract("{{contract_address}}");
+  const {
+    data: nft,
+    isLoading,
+    error,
+  } = useNFT(
+    contract,
+    // highlight-next-line
+    tokenId,
+  );
+}
+```
+
+<!-- ## Demo Playground
+
+Edit the code below to see how the hook works and what data is returned.
+
+_Note: Playground uses the Goerli test network._
+
+<UseNFTHook /> -->
+
+## Return Value
+
+The hook's `data` property, once loaded, contains the following properties:
+
+```ts
+{
+    metadata: {
+      id: string;
+      uri: string;
+      name?: string | number | undefined;
+      description?: string | null | undefined;
+      image?: string | null | undefined;
+      external_url?: string | null | undefined;
+      animation_url?: string | null | undefined;
+      background_color?: string | undefined;
+      properties?: {
+          [x: string]: unknown;
+      } | {
+          [x: string]: unknown;
+      }[] | undefined;
+  };
+    owner: string;
+    type: "ERC1155" | "ERC721";
+    supply: number;
+    quantityOwned?: number;  // Only available for ERC1155
+}
+```

@@ -31,7 +31,7 @@ contract.Events.AddEventListener("Transfer", func (event thirdweb.ContractEvent)
 type ContractEvents struct {}
 ```
 
-### func \(\*ContractEvents\) [AddEventListener](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_events.go#L95>)
+### func \(\*ContractEvents\) [AddEventListener](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_events.go#L95)
 
 ```go
 func (events *ContractEvents) AddEventListener(ctx context.Context, eventName string, listener func(event ContractEvent)) EventSubscription
@@ -60,7 +60,7 @@ subscription := contract.Events.AddEventListener(context.Background(), "Transfer
 subscription.Unsubscribe()
 ```
 
-### func \(\*ContractEvents\) [GetEvents](<https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_events.go#L175>)
+### func \(\*ContractEvents\) [GetEvents](https://github.com/thirdweb-dev/go-sdk/blob/main/thirdweb/contract_events.go#L175)
 
 ```go
 func (events *ContractEvents) GetEvents(ctx context.Context, eventName string, options EventQueryOptions) ([]ContractEvent, error)

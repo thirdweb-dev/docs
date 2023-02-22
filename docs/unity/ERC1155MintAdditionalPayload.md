@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # class `ERC1155MintAdditionalPayload` {#class_thirdweb_1_1_e_r_c1155_mint_additional_payload}
 
-### Summary
+# Summary
 
 | Members                      | Type     | Descriptions |
 | ---------------------------- | -------- | ------------ |
@@ -22,7 +22,7 @@ displayed_sidebar: unity
 | uid                          | variable |              |
 | ERC1155MintAdditionalPayload | function |              |
 
-### Members
+## Members
 
 **`public string `[`tokenId`](#class_thirdweb_1_1_e_r_c1155_mint_additional_payload_1abe4e4019c08a3139ba613721ee630ab9)**
 

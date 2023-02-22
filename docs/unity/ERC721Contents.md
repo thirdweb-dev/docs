@@ -12,9 +12,9 @@ class ERC721Contents
   : public Thirdweb.ERC721Reward
 ```
 
-### Summary
+# Summary
 
 | Members | Type | Descriptions |
 | ------- | ---- | ------------ |
 
-### Members
+## Members

@@ -67,6 +67,7 @@ const config = {
   ],
   plugins: [
     disableCachePlugin,
+    "docusaurus-node-polyfills",
     [
       "ideal-image",
       /** @type {import('@docusaurus/plugin-ideal-image').PluginOptions} */
@@ -96,6 +97,17 @@ const config = {
         path: "docs/react",
         routeBasePath: "react",
         sidebarPath: require.resolve("./sidebars/react.js"),
+        remarkPlugins: [[npm2yarn, { sync: true }]],
+        // ... other options
+      },
+    ],
+    [
+      "@docusaurus/plugin-content-docs",
+      {
+        id: "react-native",
+        path: "docs/react-native",
+        routeBasePath: "react-native",
+        sidebarPath: require.resolve("./sidebars/react-native.js"),
         remarkPlugins: [[npm2yarn, { sync: true }]],
         // ... other options
       },

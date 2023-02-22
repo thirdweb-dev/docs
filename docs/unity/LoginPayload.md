@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # struct `LoginPayload` {#struct_thirdweb_1_1_login_payload}
 
-### Summary
+# Summary
 
 | Members   | Type     | Descriptions |
 | --------- | -------- | ------------ |
@@ -15,7 +15,7 @@ displayed_sidebar: unity
 | signature | variable |              |
 | ToString  | function |              |
 
-### Members
+## Members
 
 **`public `[`LoginPayloadData`](docs/unity/LoginPayloadData.md#struct_thirdweb_1_1_login_payload_data)` `[`payload`](#struct_thirdweb_1_1_login_payload_1a9e5746b4fecccc6577901768ad131c0b)**
 

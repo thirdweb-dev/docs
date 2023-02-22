@@ -1,0 +1,191 @@
+---
+title: useBuyNow
+slug: /react.usebuynow
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for buying a listing on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) smart contract.
+
+If the listing is in a currency that is not native to the chain (e.g. not Ether on Ethereum), the hook will prompt the user
+to approve the marketplace contract to spend the currency on their behalf before performing the buy.
+
+```jsx
+import { useBuyNow } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your marketplace contract as the argument.
+
+```jsx
+import { useBuyNow, useContract, Web3Button } from "@thirdweb-dev/react";
+import { ListingType } from "@thirdweb-dev/sdk";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { mutateAsync: buyNow, isLoading, error } = useBuyNow(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        buyNow({
+          id: "{{listing_id}}", // ID of the listing to buy
+          type: ListingType.Direct, // Direct (0) or Auction (1)
+          buyAmount: "{{buy_amount}}", // Amount to buy
+          buyForWallet: "{{wallet_address}}", // Wallet to buy for, defaults to current wallet
+        })
+      }
+    >
+      Buy Now
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### id (required)
+
+The ID of the listing you want to buy.
+
+```jsx
+import { useBuyNow, useContract, Web3Button } from "@thirdweb-dev/react";
+import { ListingType } from "@thirdweb-dev/sdk";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { mutateAsync: buyNow, isLoading, error } = useBuyNow(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        buyNow({
+          // highlight-start
+          id: "{{listing_id}}", // ID of the listing to buy
+          // highlight-end
+          type: ListingType.Direct, // Direct (0) or Auction (1)
+          buyAmount: "{{buy_amount}}",
+        })
+      }
+    >
+      Buy Now
+    </Web3Button>
+  );
+}
+```
+
+### type (required)
+
+The type of listing. Either `ListingType.Direct` (0) or `ListingType.Auction` (1).
+
+```jsx
+import { useBuyNow, useContract, Web3Button } from "@thirdweb-dev/react";
+import { ListingType } from "@thirdweb-dev/sdk";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { mutateAsync: buyNow, isLoading, error } = useBuyNow(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        buyNow({
+          id: "{{listing_id}}",
+          // highlight-start
+          type: ListingType.Direct, // Direct (0) or Auction (1)
+          // highlight-end
+          buyAmount: "{{buy_amount}}",
+        })
+      }
+    >
+      Buy Now
+    </Web3Button>
+  );
+}
+```
+
+### buyAmount (required)
+
+The amount of tokens you want to buy from the listing.
+
+Applicable for ERC1155 listings only, should always be `1` for ERC721 listings.
+
+```jsx
+import { useBuyNow, useContract, Web3Button } from "@thirdweb-dev/react";
+import { ListingType } from "@thirdweb-dev/sdk";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { mutateAsync: buyNow, isLoading, error } = useBuyNow(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        buyNow({
+          id: "{{listing_id}}",
+          type: ListingType.Direct, // Direct (0) or Auction (1)
+          // highlight-start
+          buyAmount: "{{buy_amount}}", // Amount to buy
+          // highlight-end
+        })
+      }
+    >
+      Buy Now
+    </Web3Button>
+  );
+}
+```
+
+### buyForWallet (optional)
+
+Optionally, specify a different wallet address to buy the listing for.
+
+```jsx
+import { useBuyNow, useContract, Web3Button } from "@thirdweb-dev/react";
+import { ListingType } from "@thirdweb-dev/sdk";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { mutateAsync: buyNow, isLoading, error } = useBuyNow(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        buyNow({
+          id: "{{listing_id}}",
+          type: ListingType.Direct, // Direct (0) or Auction (1)
+          buyAmount: "{{buy_amount}}",
+          // highlight-next-line
+          buyForWallet: "{{some_other_wallet_address}}", // Wallet to buy for, defaults to current wallet
+        })
+      }
+    >
+      Buy Now
+    </Web3Button>
+  );
+}
+```

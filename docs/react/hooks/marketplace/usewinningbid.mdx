@@ -1,0 +1,89 @@
+---
+title: useWinningBid
+slug: /react.usewinningbid
+displayed_sidebar: react
+---
+
+Hook for getting the winning bid of an auction listing on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contract.
+
+```jsx
+import { useWinningBid } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your marketplace contract instance and the listing ID as arguments to the hook.
+
+```jsx
+import { useContract, useWinningBid } from "@thirdweb-dev/react";
+
+// Your marketplace contract address
+const contractAddress = "{{contract_address}}";
+// The listing ID to check
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data, isLoading, error } = useWinningBid(contract, listingId);
+}
+```
+
+## Configuration
+
+### listingId (required)
+
+The ID of the listing to get the winning bid for.
+
+If the listing cannot be found, is not an auction listing, or is not active, the `error` property will be set.
+
+```jsx
+import { useContract, useWinningBid } from "@thirdweb-dev/react";
+
+// Your marketplace contract address
+const contractAddress = "{{contract_address}}";
+// The listing ID to check
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data, isLoading, error } = useWinningBid(
+    contract,
+    // highlight-next-line
+    listingId,
+  );
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, is an object of type `Offer`, or `undefined` if no winning bid exists.
+
+```ts
+{
+  /**
+   * The id of the listing.
+   */
+  listingId: BigNumberish;
+  /**
+   * The address of the buyer who made the offer.
+   */
+  buyerAddress: string;
+  /**
+   * The quantity of tokens to be bought.
+   */
+  quantityDesired: BigNumberish;
+  /**
+   * The amount of coins offered per token.
+   */
+  pricePerToken: BigNumber;
+  /**
+   * The `CurrencyValue` of the listing. Useful for displaying the price information.
+   */
+  currencyValue: CurrencyValue;
+  /**
+   * The currency contract address of the offer token.
+   */
+  currencyContractAddress: string;
+} | undefined;
+```

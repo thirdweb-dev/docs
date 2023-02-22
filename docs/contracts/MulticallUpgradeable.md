@@ -4,15 +4,10 @@ title: MulticallUpgradeable
 hide_title: true
 displayed_sidebar: contracts
 ---
+
 # MulticallUpgradeable
 
-
-
-
-
-
-
-*Provides a function to batch together multiple calls in a single external call. _Available since v4.1._*
+_Provides a function to batch together multiple calls in a single external call. *Available since v4.1.*_
 
 ## Methods
 
@@ -22,23 +17,19 @@ displayed_sidebar: contracts
 function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 ```
 
-
-
-*Receives and executes a batch of function calls on this contract.*
+_Receives and executes a batch of function calls on this contract._
 
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| data | bytes[] | undefined |
+| Name | Type    | Description |
+| ---- | ------- | ----------- |
+| data | bytes[] | undefined   |
 
 #### Returns
 
-| Name | Type | Description |
-|---|---|---|
-| results | bytes[] | undefined |
-
-
+| Name    | Type    | Description |
+| ------- | ------- | ----------- |
+| results | bytes[] | undefined   |
 
 ## Events
 
@@ -48,14 +39,8 @@ function multicall(bytes[] data) external nonpayable returns (bytes[] results)
 event Initialized(uint8 version)
 ```
 
-
-
-
-
 #### Parameters
 
-| Name | Type | Description |
-|---|---|---|
-| version  | uint8 | undefined |
-
-
+| Name    | Type  | Description |
+| ------- | ----- | ----------- |
+| version | uint8 | undefined   |

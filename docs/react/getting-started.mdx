@@ -1,0 +1,84 @@
+---
+title: Getting Started
+hide_title: true
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import GettingStartedLiveEditor from "@components/live-code/snippets/GettingStartedLiveEditor";
+
+# Getting Started
+
+To get started, install the required dependencies into your React project.
+
+<Tabs>
+<TabItem value="existing" label="Existing Projects">
+
+```bash
+npm install @thirdweb-dev/react @thirdweb-dev/sdk @ethers^5
+```
+
+</TabItem>
+<TabItem value="new" label="New Projects">
+
+```bash
+npx thirdweb create app
+```
+
+</TabItem>
+</Tabs>
+
+<br />
+
+Wrap your application in the [`ThirdwebProvider`](/react/react.thirdwebprovider) component to start using the SDK.
+
+```jsx
+import { ThirdwebProvider } from "@thirdweb-dev/react";
+
+const App = () => {
+  return (
+    <ThirdwebProvider activeChain="ethereum">
+      <YourApp />
+    </ThirdwebProvider>
+  );
+};
+```
+
+<p style={{ opacity: 0.8, marginTop: -8 }}>
+  <i>
+    Examples of where to set this up:{" "}
+    <a href="https://github.com/thirdweb-example/cra-javascript-starter/blob/main/src/index.js">
+      Create React App
+    </a>{" "}
+    •{" "}
+    <a href="https://github.com/thirdweb-example/next-javascript-starter/blob/main/pages/_app.js">
+      Next.js
+    </a>{" "}
+    •{" "}
+    <a href="https://github.com/thirdweb-example/vite-javascript-starter/blob/main/src/main.jsx">
+      Vite
+    </a>
+  </i>
+</p>
+
+<br />
+
+With the provider set up, all of the SDK&rsquo;s hooks and components work out of the box!
+
+Now you can connect to the user&rsquo;s wallet and start calling functions on your smart contracts like so:
+
+```jsx
+import { Web3Button } from "@thirdweb-dev/react";
+
+const Home = () => {
+  return (
+    <Web3Button
+      contractAddress={"{{contract_address}}"}
+      action={async (contract) => contract.call("myFunctionName")}
+    >
+      Call myFunctionName from the connected wallet
+    </Web3Button>
+  );
+};
+```

@@ -14,7 +14,7 @@ class ERC20
 
 Interact with any [ERC20](#class_thirdweb_1_1_e_r_c20) compatible contract.
 
-### Summary
+# Summary
 
 | Members         | Type     | Descriptions                                                                                   |
 | --------------- | -------- | ---------------------------------------------------------------------------------------------- |
@@ -35,7 +35,7 @@ Interact with any [ERC20](#class_thirdweb_1_1_e_r_c20) compatible contract.
 | Mint            | function | Mint a given amount of currency                                                                |
 | MintTo          | function | Mint a given amount of currency to a given destination wallet                                  |
 
-### Members
+## Members
 
 **`public `[`ERC20Signature`](docs/unity/ERC20Signature.md#class_thirdweb_1_1_e_r_c20_signature)` `[`signature`](#class_thirdweb_1_1_e_r_c20_1a898630b9be6c9c1d251f79f01d54216c)**
 

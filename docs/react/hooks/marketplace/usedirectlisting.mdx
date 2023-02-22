@@ -1,0 +1,134 @@
+---
+title: useDirectListing
+slug: /react.usedirectlisting
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook to get a specific direct listing from a [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
+
+```jsx
+import { useDirectListing } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+To get a specific direct listing, provide your Marketplace V3 contract instance and the listing ID as
+arguments to the hook.
+
+```jsx
+import { useDirectListing, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The listing id you want to check
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    data: directListing,
+    isLoading,
+    error,
+  } = useDirectListing(contract, listingId);
+}
+```
+
+## Configuration
+
+### listingId (required)
+
+The ID of the listing to get.
+
+If the listing is not found (or is not a direct listing), the `error` property will be set.
+
+```jsx
+import { useDirectListing, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The listing id you want to check
+// highlight-next-line
+const listingId = "{{listing_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    data: directListing,
+    isLoading,
+    error,
+  } = useDirectListing(
+    contract,
+    // highlight-next-line
+    listingId,
+  );
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, is a `DirectListingV3` object, containing the following properties:
+
+```ts
+{
+  /**
+   * The id of the listing.
+   */
+  id: string;
+  /**
+   * The address of the creator of listing.
+   */
+  creatorAddress: string;
+  /**
+   * The address of the asset being listed.
+   */
+  assetContractAddress: string;
+  /**
+   * The ID of the token to list.
+   */
+  tokenId: string;
+  /**
+   * The quantity of tokens to include in the listing.
+   *
+   * For ERC721s, this value should always be 1 (and will be forced internally regardless of what is passed here).
+   */
+  quantity: string;
+  /**
+   * The address of the currency to accept for the listing.
+   */
+  currencyContractAddress: string;
+  /**
+   * The `CurrencyValue` of the listing. Useful for displaying the price information.
+   */
+  currencyValuePerToken: CurrencyValue;
+  /**
+   * The price to pay per unit of NFTs listed.
+   */
+  pricePerToken: string;
+  /**
+   * The asset being listed.
+   */
+  asset: NFTMetadata;
+  /**
+   * The start time of the listing.
+   */
+  startTimeInSeconds: number;
+  /**
+   * The end time of the listing.
+   */
+  endTimeInSeconds: number;
+  /**
+   * Whether the listing is reserved to be bought from a specific set of buyers.
+   */
+  isReservedListing: boolean;
+  /**
+   * Whether the listing is CREATED, COMPLETED, or CANCELLED.
+   */
+  status: Status;
+}
+```

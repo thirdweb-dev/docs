@@ -7,7 +7,7 @@ displayed_sidebar: unity
 
 # struct `CurrencyValue` {#struct_thirdweb_1_1_currency_value}
 
-### Summary
+# Summary
 
 | Members      | Type     | Descriptions |
 | ------------ | -------- | ------------ |
@@ -18,7 +18,7 @@ displayed_sidebar: unity
 | displayValue | variable |              |
 | ToString     | function |              |
 
-### Members
+## Members
 
 **`public string `[`name`](#struct_thirdweb_1_1_currency_value_1ac33046105d8e1998b42f6b6069310053)**
 
