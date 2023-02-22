@@ -47,8 +47,8 @@ const products: Product[] = [
   {
     image: "/assets/product/publish.png",
     name: "Publish",
-  description:
-"Publish your contracts to be discovered by our community of 70k+ web3 developers",
+    description:
+      "Publish your contracts to be discovered by our community of 70k+ web3 developers",
     link: "/publish",
   },
   {
