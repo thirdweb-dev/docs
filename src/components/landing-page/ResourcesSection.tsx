@@ -39,16 +39,14 @@ export default function ResourceCards() {
         Additional Resources
       </h2>
       <div className="row" style={{ marginBottom: 64 }}>
-        {resources.map((r, i) => (
-          <div className="row" style={{ marginBottom: 64 }}>
-            <div className="col col--3" style={{ padding: 8 }}>
-              <GettingStartedCard
-                name={r.name}
-                description={r.description}
-                link={r.link}
-                image={r.image}
-              />
-            </div>
+        {resources.map((p, i) => (
+          <div className="col col--4" key={i} style={{ padding: 8 }}>
+            <GettingStartedCard
+              name={p.name}
+              description={p.description}
+              link={p.link}
+              image={p.image}
+            />
           </div>
         ))}
       </div>
