@@ -20,7 +20,7 @@ displayed_sidebar: react-native
 
 The React Native SDK provides convenient hooks for connecting to wallets and communicating with blockchains.
 
-**Note**: The SDK can connect to wallets that support WalletConnect V2. To find a list of such wallets please search in the [Wallet Connect Explorer](https://explorer.walletconnect.com/?type=wallet&version=2).
+**Note**: The SDK can connect to wallets that support WalletConnect V2. To find a list of such wallets please search in the [Wallet Connect Explorer](https://explorer.walletconnect.com/?type=wallet&version=2). Please note that some of these wallets haven't added support for test chains yet. One wallet that worked great for us during development was the Trust Wallet on Ethereum mainnet.
 ## Creating a new React Native app
 
 If you already have a React Native app you can jump to the *[Installation](#installation)* section in this guide; otherwise follow the development environment setup steps for React Native [in this guide](https://reactnative.dev/docs/environment-setup). Once your environment is setup, read along.
