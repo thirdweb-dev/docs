@@ -1,0 +1,51 @@
+---
+title: useBalance
+slug: /react.usebalance
+displayed_sidebar: react
+---
+
+Hook for getting a wallet's current balance of an ERC20 token, (including native tokens such as Ether).
+
+```jsx
+import { useBalance } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide the token contract address as the argument.
+
+```jsx
+import { useBalance } from "@thirdweb-dev/react";
+
+// Your ERC20 token smart contract address
+const tokenAddress = "{{token_address}}";
+
+function App() {
+  const { data, isLoading } = useBalance(tokenAddress);
+}
+```
+
+To load the balance of the native token to the chain, such as Ether on Ethereum, import the `NATIVE_TOKEN_ADDRESS` constant from `@thirdweb-dev/sdk`.
+
+```jsx
+import { useBalance } from "@thirdweb-dev/react";
+import { NATIVE_TOKEN_ADDRESS } from "@thirdweb-dev/sdk";
+
+function App() {
+  const { data, isLoading } = useBalance(NATIVE_TOKEN_ADDRESS);
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, contains the following properties:
+
+```ts
+{
+  symbol: string;
+  value: BigNumber;
+  name: string;
+  decimals: number;
+  displayValue: string;
+} | undefined>;
+```

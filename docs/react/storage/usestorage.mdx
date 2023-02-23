@@ -1,0 +1,29 @@
+---
+title: useStorage
+slug: /react.usestorage
+displayed_sidebar: react
+---
+
+Get the instance of the `ThirdwebStorage` class being used by the [`ThirdwebProvider`](/react/react.thirdwebprovider).
+
+Allows you to use the TypeScript SDK functionality of [Storage](/storage) in your React app.
+
+Configurable in the [`storageInterface`](/react/react.thirdwebprovider#storageinterface-optional) prop of the [`ThirdwebProvider`](/react/react.thirdwebprovider).
+
+```jsx
+import { useStorage } from "@thirdweb/react";
+```
+
+## Usage
+
+```jsx
+import { useStorage } from "@thirdweb-dev/react";
+
+export default function Component() {
+  const storage = useStorage();
+
+  // Now you can use the functionality of the ThirdwebStorage class:
+  storage?.download(); // Download a file from IPFS
+  storage?.upload(); // Upload a file to IPFS
+}
+```

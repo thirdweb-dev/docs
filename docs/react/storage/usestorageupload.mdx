@@ -1,0 +1,93 @@
+---
+title: useStorageUpload
+slug: /react.usestorageupload
+displayed_sidebar: react
+---
+
+Hook for uploading files to IPFS and retrieving the IPFS URI.
+
+```jsx
+import { useStorage } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+```jsx
+import { useStorageUpload } from "@thirdweb-dev/react";
+
+function App() {
+  const { mutateAsync: upload } = useStorageUpload();
+}
+```
+
+## Configuration
+
+### rewriteFileNames (optional)
+
+If specified, will rewrite file names to numbers for use on-chain.
+
+Useful to use with NFT contracts that map token IDs to files.
+
+```jsx
+import { useStorageUpload } from "@thirdweb-dev/react";
+
+function App() {
+  const { mutateAsync: upload } = useStorageUpload({
+    // highlight-start
+    rewriteFileNames: {
+      fileStartNumber: 1,
+    },
+    // highlight-end
+  });
+}
+```
+
+### uploadWithGatewayUrl (optional)
+
+If specified, any URLs with schemes will be replaced with resolved URLs before upload.
+
+```jsx
+import { useStorageUpload } from "@thirdweb-dev/react";
+
+function App() {
+  const { mutateAsync: upload } = useStorageUpload({
+    // highlight-start
+    uploadWithGatewayUrl: true,
+    // highlight-end
+  });
+}
+```
+
+### onProgress (optional)
+
+Callback that gets triggered when file upload progresses.
+
+```jsx
+import { useStorageUpload } from "@thirdweb-dev/react";
+
+function App() {
+  const { mutateAsync: upload } = useStorageUpload({
+    // highlight-start
+    onProgress: (progress) => {
+      console.log(progress);
+    },
+    // highlight-end
+  });
+}
+```
+
+### uploadWithoutDirectory (optional)
+
+If specified, will upload a single file without wrapping it in a directory.
+
+```jsx
+import { useStorageUpload } from "@thirdweb-dev/react";
+
+function App() {
+  const { mutateAsync: upload } = useStorageUpload({
+    // highlight-start
+    uploadWithoutDirectory: true,
+    // highlight-end
+  });
+}
+```

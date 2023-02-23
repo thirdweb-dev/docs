@@ -1,0 +1,62 @@
+---
+title: useRoleMembers
+slug: /react.userolemembers
+displayed_sidebar: react
+---
+
+Hook for getting all wallet addresses that have a specific role in a smart contract.
+
+Available to use on contracts that implement the [PermissionsEnumerable](/contractkit/extension-contracts/permissions) interface.
+
+```jsx
+import { useRoleMembers } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your contract instance from the [`useContract`](react/hooks/usecontract) and role name as the arguments.
+
+```jsx
+import { useContract, useRoleMembers } from "@thirdweb-dev/react";
+
+// Your smart contract address (must implement permission controls)
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useRoleMembers(contract, "admin");
+}
+```
+
+## Configuration
+
+### roleName
+
+The name of the role to get the members of. Can be any custom role, or a built-in role, such as `admin`, `transfer`, `minter`, `pauser`, `lister`, `asset`, `unwrap`, or `factory`.
+
+```jsx
+import { useContract, useRoleMembers } from "@thirdweb-dev/react";
+
+// Your smart contract address (must implement permission controls)
+const contractAddress = "{{contract_address}}";
+
+// highlight-next-line
+const roleName = "admin";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useRoleMembers(
+    contract,
+    // highlight-next-line
+    roleName,
+  );
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, is an array of wallet addresses that have the specified role.
+
+```ts
+string[] | undefined
+```

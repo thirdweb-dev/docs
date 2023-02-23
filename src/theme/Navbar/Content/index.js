@@ -10,7 +10,7 @@ import SearchBar from "@theme/SearchBar";
 import NavbarMobileSidebarToggle from "@theme/Navbar/MobileSidebar/Toggle";
 import NavbarLogo from "@theme/Navbar/Logo";
 import NavbarSearch from "@theme/Navbar/Search";
-import DocBreadcrumbs from "../../DocBreadcrumbs/index";
+import DocBreadcrumbs from "../../DocBreadcrumbs";
 import styles from "./styles.module.css";
 
 function useNavbarItems() {

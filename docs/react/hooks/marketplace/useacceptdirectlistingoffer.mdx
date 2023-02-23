@@ -1,0 +1,143 @@
+---
+title: useAcceptDirectListingOffer
+slug: /react.useacceptdirectlistingoffer
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for accepting an offer from a direct listing on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contract.
+
+Allows the seller _(the user who listed the NFT for sale)_ to accept an offer on their listing, triggering a sale event, meaning the:
+
+- NFT(s) are transferred from the seller to the buyer.
+- Funds from the offeror are sent to the seller.
+
+```jsx
+import { useAcceptDirectListingOffer } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide a [`Marketplace`](https://thirdweb.com/thirdweb.eth/Marketplace) contract instance from the
+[`useContract`](/docs/react/react.usecontract) hook as the first argument.
+
+```jsx
+import {
+  useAcceptDirectListingOffer,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: acceptDirectOffer,
+    isLoading,
+    error,
+  } = useAcceptDirectListingOffer(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        acceptDirectOffer({
+          listingId: "{{listing_id}}",
+          addressOfOfferor: "{{offeror_address}}",
+        })
+      }
+    >
+      Accept Offer
+    </Web3Button>
+  );
+}
+```
+
+## Configuration
+
+### listingId (required)
+
+The `listingId` of the listing you wish to accept.
+
+Each listing has a unique `listingId` on the marketplace contract.
+
+```jsx
+import {
+  useAcceptDirectListingOffer,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: acceptDirectOffer,
+    isLoading,
+    error,
+  } = useAcceptDirectListingOffer(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        acceptDirectOffer({
+          // highlight-next-line
+          listingId: "{{listing_id}}",
+          addressOfOfferor: "{{offeror_address}}",
+        })
+      }
+    >
+      Accept Offer
+    </Web3Button>
+  );
+}
+```
+
+### addressOfOfferor (required)
+
+The wallet address of the user who made the offer you wish to accept.
+
+The [`useContractEvents`](/react/react.usecontractevents) hook can be used to read all `NewOffer` events on your marketplace contract.
+
+```jsx
+import {
+  useAcceptDirectListingOffer,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const {
+    mutateAsync: acceptDirectOffer,
+    isLoading,
+    error,
+  } = useAcceptDirectListingOffer(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        acceptDirectOffer({
+          listingId: "{{listing_id}}",
+          // highlight-next-line
+          addressOfOfferor: "{{offeror_address}}",
+        })
+      }
+    >
+      Accept Offer
+    </Web3Button>
+  );
+}
+```

@@ -63,7 +63,7 @@ const sidebars = {
         },
         {
           type: "doc",
-          label: "Deploy A Released Contract",
+          label: "Deploy A Published Contract",
           id: "sdk.contractdeployer.deployreleasedcontract",
         },
         {

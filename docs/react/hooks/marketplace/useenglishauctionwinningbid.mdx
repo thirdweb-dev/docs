@@ -1,0 +1,110 @@
+---
+title: useEnglishAuctionWinningBid
+slug: /react.useenglishauctionwinningbid
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook to get the winning bid for an English auction listing from a
+[Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
+
+```jsx
+import { useEnglishAuctionWinningBid } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your Marketplace V3 contract instance and the listing ID as
+arguments to the hook.
+
+```jsx
+import { useEnglishAuctionWinningBid, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The id of the auction listing you want to check
+const listingId = "{{auction_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    data: winningBid,
+    isLoading,
+    error,
+  } = useEnglishAuctionWinningBid(contract, listingId);
+}
+```
+
+## Configuration
+
+### listingId (required)
+
+The id of the auction listing you want to check.
+
+If the listing cannot be found, or is not an English auction, the `error` property will be set.
+
+```jsx
+import { useEnglishAuctionWinningBid, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+// The id of the auction listing you want to check
+// highlight-next-line
+const listingId = "{{auction_id}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace-v3");
+  const {
+    data: winningBid,
+    isLoading,
+    error,
+  } = useEnglishAuctionWinningBid(
+    contract,
+    // highlight-next-line
+    listingId,
+  );
+}
+```
+
+## Return Value
+
+If there are no bids, the `data` property will be `undefined`. Use the `isLoading` property to differentiate between
+the loading state and the no bids state.
+
+If there is a bid, the hook's `data` property, once loaded, will be an object of type `Bid`, containing the following properties:
+
+```ts
+{
+  /**
+   * The id of the auction.
+   */
+  auctionId: string;
+  /**
+   * The address of the buyer who made the offer.
+   */
+  bidderAddress: string;
+  /**
+   * The currency contract address of the offer token.
+   */
+  currencyContractAddress: string;
+  /**
+   * The amount of coins offered per token.
+   */
+  bidAmount: string;
+  /**
+   * The `CurrencyValue` of the listing. Useful for displaying the price information.
+   */
+  bidAmountCurrencyValue: {
+    symbol: string;
+    value: BigNumber;
+    name: string;
+    decimals: number;
+    displayValue: string;
+  }
+}
+```

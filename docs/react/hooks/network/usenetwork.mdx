@@ -1,0 +1,74 @@
+---
+title: useNetwork
+slug: /react.usenetwork
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Hook for getting information about the current network and switching to a different network.
+
+Returns an array value containing two elements.
+
+1. An object containing a `data` field; which contains information about the wallet's current and known networks.
+   Also contains `loading` and `error` properties to indicate the status of the request.
+2. A function that can be used to switch to a different chain.
+
+```jsx
+import { useNetwork } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+```jsx
+import { ChainId, useNetwork } from "@thirdweb-dev/react";
+
+function App() {
+  const [{ data, error, loading }, switchNetwork] = useNetwork();
+
+  // Button to switch network to Goerli
+  return (
+    <button onClick={() => switchNetwork?.(ChainId.Goerli)}>
+      Switch to Goerli
+    </button>
+  );
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, contains the following properties:
+
+```ts
+readonly [{
+    readonly data: {
+        readonly chain: {
+            id: number;
+            unsupported: boolean | undefined;
+            name?: string | undefined;
+            nativeCurrency?: {
+                name: string;
+                symbol: string;
+                decimals: 18;
+            } | undefined;
+            rpcUrls?: string[] | undefined;
+            blockExplorers?: {
+                name: string;
+                url: string;
+            }[] | undefined;
+            testnet?: boolean | undefined;
+        } | undefined;
+        readonly chains: Chain[];
+    };
+    readonly error: Error | undefined;
+    readonly loading: boolean | undefined;
+}, ((chainId: number) => Promise<{
+    data: undefined;
+    error: SwitchChainError;
+} | {
+    data: Chain | undefined;
+    error: undefined;
+}>) | undefined];
+```

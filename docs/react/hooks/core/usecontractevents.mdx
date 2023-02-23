@@ -1,0 +1,113 @@
+---
+title: useContractEvents
+slug: /react.usecontractevents
+displayed_sidebar: react
+---
+
+Hook for reading events emitted by a smart contract, including new events as they are emitted (optional).
+
+```jsx
+import { useContractEvents } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your smart contract instance from [`useContract`](/react/react.usecontract) hook as the argument.
+
+By default, reads all events emitted by the smart contract.
+
+```jsx
+import { useContractEvents, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useContractEvents(contract);
+}
+```
+
+## Configuration
+
+### eventName (optional)
+
+The name of the event to query for. For example, if your smart contract emits an event called `MyEvent`, you would pass `"MyEvent"` to this parameter.
+
+Omit this parameter or provide `undefined` to query for all events emitted by the smart contract.
+
+```jsx
+import { useContractEvents, useContract } from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useContractEvents(
+    contract,
+    // highlight-start
+    "MyEvent", // Event name being emitted by your smart contract
+    // highlight-end
+  );
+}
+```
+
+### options (optional)
+
+An object containing options to filter the events being queried.
+
+Available options include `queryFilter` to refine which events you want to read, and a boolean `subscribe` flag to subscribe to new events as they are emitted.
+
+```jsx
+import {
+  useContractEvents,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const { data, isLoading, error } = useContractEvents(
+    contract,
+    "MyEvent",
+    {
+      // highlight-start
+      queryFilter: {
+        filters: {
+          tokenId: 123, // e.g. Only events where tokenId = 123
+        },
+        fromBlock: 0, // Events starting from this block
+        toBlock: 100, // Events up to this block
+        order = "asc", // Order of events ("asc" or "desc")
+      },
+      subscribe: true, // Subscribe to new events
+      // highlight-end
+    },
+  );
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, contains an array of event objects, each containing the following properties:
+
+```ts
+{
+  eventName: string;
+  data: Record<string, any>;
+  transaction: {
+    blockNumber: number;
+    blockHash: string;
+    transactionIndex: number;
+    removed: boolean;
+    address: string;
+    data: string;
+    topics: Array<string>;
+    transactionHash: string;
+    logIndex: number;
+  }
+}
+```

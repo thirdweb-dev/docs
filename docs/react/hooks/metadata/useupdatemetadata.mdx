@@ -1,0 +1,62 @@
+---
+title: useUpdateMetadata
+slug: /react.useupdatemetadata
+displayed_sidebar: react
+---
+
+Hook for updating the metadata of a smart contract.
+
+Available to use on smart contracts that implement the [ContractMetadata](/contractkit/extension-contracts/contractmetadata) interface.
+
+The wallet initiating this transaction must have the required permissions to update the metadata, (`admin` permissions required by default).
+
+```jsx
+import { useUpdateMetadata } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your contract instance from the [`useContract`](/react/react.usecontract) hook as the first argument, and
+an object fitting the [contract-level metadata standards](https://docs.opensea.io/docs/contract-level-metadata) of
+the new metadata as the second argument, including:
+
+- `name`: A `string` for the name of the smart contract (required).
+- `description`: A `string` to describe the smart contract (optional).
+- `image`: A `string` or `File` object containing the URL or file data of an image to associate with the contract (optional).
+- `external_link`: A `string` containing a URL to view the smart contract on your website (optional).
+
+```jsx
+import {
+  useUpdateMetadata,
+  useContract,
+  Web3Button,
+} from "@thirdweb-dev/react";
+
+// Your smart contract address
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress);
+  const {
+    mutateAsync: updateMetadata,
+    isLoading,
+    error,
+  } = useUpdateMetadata(contract);
+
+  return (
+    <Web3Button
+      contractAddress={contractAddress}
+      action={() =>
+        updateMetadata({
+          name: "My App",
+          description: "My awesome Ethereum App",
+          image: "/path/to/image.jpg", // URL, URI, or File object
+          external_link: "https://myapp.com",
+        })
+      }
+    >
+      Update Metadata
+    </Web3Button>
+  );
+}
+```

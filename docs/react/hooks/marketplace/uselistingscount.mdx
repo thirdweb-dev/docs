@@ -1,0 +1,42 @@
+---
+title: useListingsCount
+slug: /react.uselistingscount
+displayed_sidebar: react
+---
+
+Hook for getting the total number of listings on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contract.
+
+:::info Marketplace V3
+Note: this hook is only available for [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) contracts.
+
+If you are using [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3),
+use [useListingsCount](/react/react.usedirectlistingscount) or [useEnglishAuctionsCount](/react/react.useenglishauctionscount) instead.
+
+:::
+
+```jsx
+import { useListingsCount } from "@thirdweb-dev/react";
+```
+
+## Usage
+
+Provide your marketplace contract as the argument.
+
+```jsx
+import { useContract, useListingsCount } from "@thirdweb-dev/react";
+
+const contractAddress = "{{contract_address}}";
+
+function App() {
+  const { contract } = useContract(contractAddress, "marketplace");
+  const { data: listingsCount, isLoading, error } = useListingsCount(contract);
+}
+```
+
+## Return Value
+
+The hook's `data` property, once loaded, is a `BigNumber` containing the total number of listings on the contract.
+
+```ts
+BigNumber | undefined;
+```
