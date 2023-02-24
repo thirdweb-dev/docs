@@ -24,7 +24,7 @@ Hide color mode toggle in small viewports
   padding-left: 16px;
   padding-right: 16px;
   height: 32px;
-  background: linear-gradient(86.62deg, #c643f4 0%, #8b43f4 82.93%);
+  background-color: var(--thirdweb-primary-color);
   border-radius: 4px;
   font-style: normal;
   font-weight: 600;

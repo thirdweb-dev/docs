@@ -1,22 +1,21 @@
 :root {
-  --thirdweb-primary-color: #9045fe;
+  --thirdweb-primary-color: #4a92fe;
   --thirdweb-secondary-color: #5204bf;
   --thirdweb-tertiary-color: #55c0f9;
   --thirdweb-gradient: linear-gradient(86.62deg, #c643f4 0%, #8b43f4 82.93%);
   --thirdweb-gradient-text-color: #fff;
   --thirdweb-text-color: rgba(0, 0, 0, 0.8);
-  --thirdweb-body-text-color: #000;
+  --thirdweb-body-text-color: rgba(39, 46, 54, 0.9);
   --thirdweb-text-secondary-color: #82857c;
-  --thirdweb-background-color: #ffffff;
+  --thirdweb-background-color: #f5f6f8;
   --thirdweb-border-color: #e2e3dc;
   --thirdweb-menu-border-color: rgba(0, 0, 0, 0.1);
   --thirdweb-menu-selected-background-color: rgba(0, 0, 0, 0.05);
   --thirdweb-border-radius: 10px;
+  --thirdweb-heading-color: #262a36;
 
-  // Active menu item background color
-  --ifm-menu-color-background-active: var(
-    --thirdweb-menu-selected-background-color
-  );
+  // Active menu item background color (same as background)
+  --ifm-menu-color-background-active: var(--thirdweb-background-color);
 
   // Menu icon
   --ifm-menu-link-sublist-icon: url("../../static/assets/sublist-icon.svg");
@@ -40,38 +39,28 @@
   --ifm-toc-border-color: var(--thirdweb-border-color);
   --ifm-footer-background-color: white;
   --ifm-global-radius: 10px;
-  // --ifm-spacing-horizontal: 0.5rem;
   --ifm-hr-border-color: var(--thirdweb-border-color);
   --ifm-footer-padding-vertical: 5rem;
   --ifm-navbar-padding-horizontal: 1.5rem;
   --ifm-navbar-background-color: var(--thirdweb-background-color);
-
   --ifm-hover-overlay: rgba(82, 4, 191, 0.05);
-
   --ifm-toc-link-color: var(--thirdweb-text-color);
-
   --ifm-alert-padding-horizontal: 1.5rem;
   --ifm-color-secondary-contrast-background: #f8f9fb;
-
   --docusaurus-btt-background: var(--thirdweb-primary-color);
   --docusaurus-btt-color: var(--thirdweb-background-color);
-
   --ifm-menu-color: var(--thirdweb-text-color);
-
   --docusaurus-tag-list-border: var(--thirdweb-border-color);
-
   --ifm-background-surface-color: #f5f6f8;
-}
-
-/// ---
-
-:root {
-  --thirdweb-primary-color: #9045fe;
+  --ifm-link-color: #3385ff;
 }
 
 /* For readability concerns, you should choose a lighter palette in dark mode. */
 html[data-theme="dark"] {
-  --thirdweb-primary-color: #c29afe;
+  --thirdweb-primary-color: #3385ff;
+  --thirdweb-heading-color: #ececec;
+  --ifm-link-color: #4a92fe;
+  --ifm-card-background-color: #131417;
 
   --thirdweb-gradient: linear-gradient(
     83.27deg,
@@ -80,7 +69,7 @@ html[data-theme="dark"] {
   );
 
   --thirdweb-gradient-text-color: #000;
-  --thirdweb-body-text-color: #fff;
+  --thirdweb-body-text-color: #b2b2b2;
 
   --thirdweb-menu-border-color: rgba(255, 255, 255, 0.1);
   --thirdweb-text-color: rgba(255, 255, 255, 0.8);
@@ -91,10 +80,10 @@ html[data-theme="dark"] {
 
   --thirdweb-text-secondary-color: #979993;
 
-  --thirdweb-background-color: #0f1318;
-  --thirdweb-surface-color: #1b2129;
-  --thirdweb-border-color: #242424;
-  --ifm-code-background: #1d1d1d;
+  --thirdweb-background-color: #0e0e10;
+  --thirdweb-surface-color: var(--thirdweb-background-color);
+  --thirdweb-border-color: #272b30;
+  --ifm-code-background: #131417;
 
   --ifm-hover-overlay: rgba(168, 85, 247, 0.05);
   --ifm-background-color: var(--thirdweb-background-color);
