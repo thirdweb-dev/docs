@@ -61,7 +61,6 @@ export default function TwitterCard({ text, title, link }: Props) {
               style={{
                 fontWeight: 600,
                 marginBottom: 0,
-                fontSize: "1.25rem",
                 pointerEvents: "none",
               }}
             >

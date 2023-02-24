@@ -50,6 +50,7 @@ export default function QuickstartCard({
         className="card__header"
         style={{
           pointerEvents: "none",
+          padding: 8,
         }}
       >
         <div
@@ -77,9 +78,7 @@ export default function QuickstartCard({
             />
             <h5
               style={{
-                fontWeight: 600,
                 marginBottom: 0,
-                fontSize: "1.25rem",
                 pointerEvents: "none",
               }}
             >

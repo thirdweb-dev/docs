@@ -40,13 +40,17 @@ export default function LanguageCard({
           ? "noopener noreferrer"
           : undefined
       }
-      //   data-quickstart={"quickstart"} // Generic flag to capture all events
       data-card-name={name}
       data-card-description={description}
       data-card-link={link}
     >
       <div className="tw-card-icon-container">
-        <img className="tw-card-icon" src={image} alt={name} />
+        <img
+          className={`tw-card-icon
+               supported-language-section__icon__${name}`}
+          src={image}
+          alt={name}
+        />
       </div>
 
       <div className="tw-card-text-container">
