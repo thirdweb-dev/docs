@@ -30,42 +30,39 @@ function DocSidebarItems({ items, ...props }) {
     props?.level === 1 && !checkIfShowCategoryPages(props?.activePath);
 
   const sidebarItems = [
-    {
-      title: "",
-      items: [
-        "Home",
-        "Platform Overview",
-        "Getting Started",
-        "Create A Project",
-      ],
-    },
-    {
-      title: "Build Contracts",
-      items: ["ContractKit"],
-    },
-    {
-      title: "Deploy Contracts",
-      items: ["Publish", "Deploy", "Prebuilt Contracts"],
-    },
-    {
-      title: "Build Apps",
-      items: [
-        "EVM SDK",
-        "Solana SDK",
-        "GamingKit",
-        "UI Components",
-        "Auth",
-        "Storage",
-      ],
-    },
-    {
-      title: "Manage Projects",
-      items: ["Dashboard"],
-    },
-    {
-      title: "",
-      items: ["CLI", "Templates", "Guides", "SDK References"],
-    },
+    // Overview pages
+    ["Home", "Platform Overview", "Getting Started"],
+
+    // Tools
+    [
+      "ContractKit",
+      "Prebuilt Contracts",
+      "EVM SDK",
+      "Solana SDK",
+      "GamingKit",
+      "UI Components",
+      "Deploy",
+      "Publish",
+      "Dashboard",
+    ],
+
+    // Infrastructure
+    ["Auth", "Storage"],
+
+    // SDK References
+    [
+      "React",
+      "React Native",
+      "TypeScript",
+      "Python",
+      "Go",
+      "Unity",
+      "Solidity",
+      // "Solana",
+    ],
+
+    // Resources
+    ["Templates", "Guides", "CLI"],
   ];
 
   const categoryNameToIcon = {
@@ -115,20 +112,17 @@ function DocSidebarItems({ items, ...props }) {
     }
   };
 
+  console.log("items", items);
+
   if (showCategories) {
     return (
       <DocSidebarItemsExpandedStateProvider>
         {sidebarItems.map((section, index) => (
           <div key={index} className="sidebar-section-container">
-            {section.title && (
-              <p className="sidebar-section-title">{section.title}</p>
-            )}
             {items
-              .filter((item) => section.items.includes(item.label))
+              .filter((item) => section.includes(item.label))
               .sort(
-                (a, b) =>
-                  section.items.indexOf(a.label) -
-                  section.items.indexOf(b.label),
+                (a, b) => section.indexOf(a.label) - section.indexOf(b.label),
               )
               .map((item, index) => (
                 <DocSidebarItem
@@ -140,19 +134,6 @@ function DocSidebarItems({ items, ...props }) {
               ))}
           </div>
         ))}
-
-        {/* Now the rest of the items */}
-        {items
-          .filter(
-            (item) =>
-              !sidebarItems.some((section) =>
-                section.items.includes(item.label),
-              ),
-          )
-          .filter((item) => item.label !== "Guides")
-          .map((item, index) => (
-            <DocSidebarItem key={index} item={item} index={index} {...props} />
-          ))}
       </DocSidebarItemsExpandedStateProvider>
     );
   }

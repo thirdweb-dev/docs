@@ -497,6 +497,54 @@
     {
       "source": "/release/:match*",
       "destination": "/publish/:match*"
+    },
+    {
+      "source": "/templates/nft-drop",
+      "destination": "/templates"
+    },
+    {
+      "source": "/templates/nft-drop/creating-the-nft-drop-contract",
+      "destination": "/templates"
+    },
+    {
+      "source": "/templates/nft-drop/lazy-minting-nfts",
+      "destination": "/templates"
+    },
+    {
+      "source": "/templates/nft-drop/creating-an-nft-minting-page",
+      "destination": "/templates"
+    },
+    {
+      "source": "/templates/marketplace",
+      "destination": "/templates"
+    },
+    {
+      "source": "/templates/marketplace/creating-the-marketplace-contract",
+      "destination": "/templates"
+    },
+    {
+      "source": "/templates/marketplace/listing-nfts-for-sale",
+      "destination": "/templates"
+    },
+    {
+      "source": "/templates/marketplace/exploring-the-example-repo",
+      "destination": "/templates"
+    },
+    {
+      "source": "/templates/token-gated-membership",
+      "destination": "/templates"
+    },
+    {
+      "source": "/templates/token-gated-membership/creating-the-nft-drop-contract",
+      "destination": "/templates"
+    },
+    {
+      "source": "/templates/token-gated-membership/using-the-example-repo",
+      "destination": "/templates"
+    },
+    {
+      "source": "/templates/token-gated-membership/exploring-the-example-repo",
+      "destination": "/templates"
     }
   ]
 }

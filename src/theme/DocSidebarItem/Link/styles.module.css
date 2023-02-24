@@ -1,0 +1,16 @@
+.menuExternalLink {
+  align-items: center;
+}
+
+.icon {
+  height: 18px;
+  margin-right: 12px;
+}
+
+html[data-theme="dark"] .invertDarkIcon {
+  filter: invert(1);
+}
+
+html[data-theme="light"] .invertLightIcon {
+  filter: invert(1);
+}
