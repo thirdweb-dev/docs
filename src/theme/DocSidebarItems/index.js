@@ -3,6 +3,8 @@ import { DocSidebarItemsExpandedStateProvider } from "@docusaurus/theme-common/i
 import DocSidebarItem from "@theme/DocSidebarItem";
 import IconHome from "@theme/Icon/Home";
 import Link from "@docusaurus/Link";
+import { iconMapping } from "../DocSidebarItem/Link";
+import styles from "../DocSidebarItem/Link/styles.module.css";
 
 // TODO this item should probably not receive the "activePath" props
 // TODO this triggers whole sidebar re-renders on navigation
@@ -10,8 +12,6 @@ function DocSidebarItems({ items, ...props }) {
   // Category logic (i.e. "Build contracts", etc.)
   const showCategoryPages = [
     "/platform-overview",
-    "/getting-started",
-    "/create",
     "/deploy",
     "/templates",
     "/cli",
@@ -30,57 +30,43 @@ function DocSidebarItems({ items, ...props }) {
     props?.level === 1 && !checkIfShowCategoryPages(props?.activePath);
 
   const sidebarItems = [
-    {
-      title: "",
-      items: [
-        "Home",
-        "Platform Overview",
-        "Getting Started",
-        "Create A Project",
-      ],
-    },
-    {
-      title: "Build Contracts",
-      items: ["ContractKit"],
-    },
-    {
-      title: "Deploy Contracts",
-      items: ["Publish", "Deploy", "Prebuilt Contracts"],
-    },
-    {
-      title: "Build Apps",
-      items: [
-        "EVM SDK",
-        "Solana SDK",
-        "GamingKit",
-        "UI Components",
-        "Auth",
-        "Storage",
-      ],
-    },
-    {
-      title: "Manage Projects",
-      items: ["Dashboard"],
-    },
-    {
-      title: "",
-      items: ["CLI", "Templates", "Guides", "SDK References"],
-    },
-  ];
+    // Overview pages
+    ["Home", "Platform Overview", "Getting Started"],
 
-  const categoryNameToIcon = {
-    Auth: "auth.png",
-    ContractKit: "extensions.png",
-    "Prebuilt Contracts": "contracts.png",
-    Dashboard: "dashboard.png",
-    Deploy: "deploy.png",
-    Publish: "publish.png",
-    SDK: "sdk.png",
-    Solana: "sdk.png",
-    GamingKit: "sdk.png",
-    Storage: "storage.png",
-    "UI Components": "ui.png",
-  };
+    // Tools
+    [
+      "ContractKit",
+      "Prebuilt Contracts",
+      "EVM SDK",
+      "Solana SDK",
+      "GamingKit",
+      "UI Components",
+      "Deploy",
+      "Publish",
+      "Dashboard",
+    ],
+
+    // Infrastructure
+    ["Auth", "Storage"],
+
+    // SDK References
+    [
+      "React",
+      "React Native",
+      "TypeScript",
+      "Python",
+      "Go",
+      "Unity",
+      "Solidity",
+    ],
+
+    // Resources
+    [
+      "Templates",
+      "Guides",
+      // "CLI" // Should we have this here?
+    ],
+  ];
 
   const formatCategoryName = (name) => {
     const formatted =
@@ -102,6 +88,14 @@ function DocSidebarItems({ items, ...props }) {
       return "GamingKit";
     }
 
+    if (formatted === "Typescript") {
+      return "TypeScript";
+    }
+
+    if (formatted === "Contracts") {
+      return "Solidity";
+    }
+
     // If not the word pre-built, split by dash and capitalize each word
     if (formatted !== "Pre-built-contracts") {
       return formatted
@@ -120,15 +114,10 @@ function DocSidebarItems({ items, ...props }) {
       <DocSidebarItemsExpandedStateProvider>
         {sidebarItems.map((section, index) => (
           <div key={index} className="sidebar-section-container">
-            {section.title && (
-              <p className="sidebar-section-title">{section.title}</p>
-            )}
             {items
-              .filter((item) => section.items.includes(item.label))
+              .filter((item) => section.includes(item.label))
               .sort(
-                (a, b) =>
-                  section.items.indexOf(a.label) -
-                  section.items.indexOf(b.label),
+                (a, b) => section.indexOf(a.label) - section.indexOf(b.label),
               )
               .map((item, index) => (
                 <DocSidebarItem
@@ -140,19 +129,6 @@ function DocSidebarItems({ items, ...props }) {
               ))}
           </div>
         ))}
-
-        {/* Now the rest of the items */}
-        {items
-          .filter(
-            (item) =>
-              !sidebarItems.some((section) =>
-                section.items.includes(item.label),
-              ),
-          )
-          .filter((item) => item.label !== "Guides")
-          .map((item, index) => (
-            <DocSidebarItem key={index} item={item} index={index} {...props} />
-          ))}
       </DocSidebarItemsExpandedStateProvider>
     );
   }
@@ -172,12 +148,41 @@ function DocSidebarItems({ items, ...props }) {
             {"All Docs"}
           </Link>
 
-          {categoryNameToIcon[formatCategoryName(props?.activePath)] && (
+          {iconMapping[formatCategoryName(props?.activePath)] && (
             <div>
               <img
-                src={`/assets/product/${
-                  categoryNameToIcon[formatCategoryName(props?.activePath)]
-                }`}
+                src={iconMapping[formatCategoryName(props?.activePath)]}
+                // Below (hacky) styling rules:
+                // - Invert the icon for Solidity on dark mode
+                // - Invert the icon for React and React Native on light mode
+                // - Add padding for the svg icons (guides and templates)
+                // - Invert the icon for "Home", "Platform Overview", and "Getting Started" on light mode
+                className={`
+            
+            ${styles.icon} ${
+                  formatCategoryName(props?.activePath) === "Solidity" &&
+                  styles.invertDarkIcon
+                }
+
+            ${
+              (formatCategoryName(props?.activePath) === "React" ||
+                formatCategoryName(props?.activePath) === "React Native") &&
+              styles.invertLightIcon
+            }
+
+            ${
+              (formatCategoryName(props?.activePath) === "Templates" ||
+                formatCategoryName(props?.activePath) === "Guides") &&
+              styles.paddingIcon
+            }
+
+            ${
+              (formatCategoryName(props?.activePath) === "Home" ||
+                formatCategoryName(props?.activePath) === "Platform Overview" ||
+                formatCategoryName(props?.activePath) === "Getting Started") &&
+              styles.invertLightIcon
+            }
+            `}
               />
               <p>{formatCategoryName(props?.activePath)}</p>
             </div>
@@ -186,7 +191,13 @@ function DocSidebarItems({ items, ...props }) {
       )}
 
       {items.map((item, index) => (
-        <DocSidebarItem key={index} item={item} index={index} {...props} />
+        <DocSidebarItem
+          key={index}
+          item={item}
+          index={index}
+          showBackToHome={showBackToHome}
+          {...props}
+        />
       ))}
     </DocSidebarItemsExpandedStateProvider>
   );
