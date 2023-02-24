@@ -89,6 +89,7 @@ export default function AllTemplatesContainer({ repos }: Props) {
                 setSelectedCategory(key === selectedCategory ? undefined : key)
               }
               role="button"
+              key={key}
             >
               {key}
             </li>

@@ -9,7 +9,7 @@ import styles from "./styles.module.css";
 
 // List of sidebar items that have icons, display name (label) of icon is the key
 
-const iconMapping = {
+export const iconMapping = {
   React: "/assets/languages/react.png",
   "React Native": "/assets/languages/react-native.png",
   TypeScript: "/assets/languages/typescript.png",
@@ -30,6 +30,11 @@ const iconMapping = {
   GamingKit: "/assets/product/sdk.png",
   Storage: "/assets/product/storage.png",
   "UI Components": "/assets/product/ui.png",
+  Home: "/assets/icons/home.png",
+  "Platform Overview": "/assets/icons/wrench.png",
+  "Getting Started": "/assets/icons/rocket.png",
+  Templates: "/assets/sdk-reference.svg",
+  Guides: "/assets/guides.svg",
 };
 
 export default function DocSidebarItemLink({
@@ -38,6 +43,7 @@ export default function DocSidebarItemLink({
   activePath,
   level,
   index,
+  showBackToHome, // Added this prop: if true, means we show the back to home icon, which we use to determine whether to show icons next to
   ...props
 }) {
   const { href, label, className } = item;
@@ -68,21 +74,42 @@ export default function DocSidebarItemLink({
         })}
         {...props}
       >
-        {iconMapping[label] && (
+        {!showBackToHome && iconMapping[label] && (
           <img
             src={iconMapping[label]}
             alt={label}
-            className={`${styles.icon} ${
-              label === "Solidity" && styles.invertDarkIcon
-            }
+            // Below (hacky) styling rules:
+            // - Invert the icon for Solidity on dark mode
+            // - Invert the icon for React and React Native on light mode
+            // - Add padding for the svg icons (guides and templates)
+            // - Invert the icon for "Home", "Platform Overview", and "Getting Started" on light mode
+            className={`
+            
+            ${styles.icon} ${label === "Solidity" && styles.invertDarkIcon}
+
             ${
               (label === "React" || label === "React Native") &&
               styles.invertLightIcon
-            }`}
+            }
+
+            ${
+              (label === "Templates" || label === "Guides") &&
+              styles.paddingIcon
+            }
+
+            ${
+              (label === "Home" ||
+                label === "Platform Overview" ||
+                label === "Getting Started") &&
+              styles.invertLightIcon
+            }
+              
+            `}
           />
         )}
         {label}
-        {!isInternalLink && <IconExternalLink />}
+        {/* Uncomment to re-add the external link icon */}
+        {/* {!isInternalLink && <IconExternalLink />} */}
       </Link>
     </li>
   );

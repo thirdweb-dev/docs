@@ -14,3 +14,8 @@ html[data-theme="dark"] .invertDarkIcon {
 html[data-theme="light"] .invertLightIcon {
   filter: invert(1);
 }
+
+/* Add padding to the templates and guides icons */
+.paddingIcon {
+  padding: 2px;
+}
