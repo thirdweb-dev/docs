@@ -3358,13 +3358,13 @@
     "methods": [
       {
         "name": "get",
-        "summary": "Get the metadata of a contract\n\n",
+        "summary": "Get the metadata of this contract\n\n",
         "remarks": "\n\nGet the metadata of a contract\n\n",
         "examples": {
-          "javascript": "const metadata = await contract.metadata.get();",
+          "javascript": "const metadata = await contract.metadata.get();\nconsole.log(metadata);",
           "python": "",
           "go": "",
-          "react": "const metadata = await contract.metadata.get();"
+          "react": "const metadata = await contract.metadata.get();\nconsole.log(metadata);"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractmetadata.get",
@@ -3375,13 +3375,13 @@
       },
       {
         "name": "set",
-        "summary": "Set the metadata of a contract\n\n",
+        "summary": "Set the metadata of this contract\n\n",
         "remarks": "\n\nOVERWRITE the metadata of a contract\n\n",
         "examples": {
-          "javascript": "await contract.metadata.set({\n name: \"My Contract\",\n description: \"My contract description\"\n})",
+          "javascript": "await contract.metadata.set({\n  name: \"My Contract\",\n  description: \"My contract description\"\n})",
           "python": "",
           "go": "",
-          "react": "await contract.metadata.set({\n name: \"My Contract\",\n description: \"My contract description\"\n})"
+          "react": "await contract.metadata.set({\n  name: \"My Contract\",\n  description: \"My contract description\"\n})"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractmetadata.set",
@@ -3395,10 +3395,10 @@
         "summary": "Update the metadata of a contract\n\n",
         "remarks": "\n\nUpdate the metadata of a contract\n\n",
         "examples": {
-          "javascript": "await contract.metadata.update({\n  name: \"My Contract\",\n  description: \"My contract description\"\n})",
+          "javascript": "await contract.metadata.update({\n  description: \"My new contract description\"\n})",
           "python": "",
           "go": "",
-          "react": "await contract.metadata.update({\n  name: \"My Contract\",\n  description: \"My contract description\"\n})"
+          "react": "await contract.metadata.update({\n  description: \"My new contract description\"\n})"
         },
         "reference": {
           "javascript": "https://portal.thirdweb.com/typescript/sdk.contractmetadata.update",
@@ -3422,7 +3422,7 @@
     "methods": [
       {
         "name": "get",
-        "summary": "Call this to get a list of addresses that are members of a specific role.\n\n",
+        "summary": "Get a list of addresses that are members of a specific role\n\n",
         "remarks": "\n\nSee {@link ContractRoles.getAll} to get get a list of addresses for all supported roles on the contract.\n\n",
         "examples": {
           "javascript": "const minterAddresses = await contract.roles.get(\"minter\");",
@@ -3439,7 +3439,7 @@
       },
       {
         "name": "getAll",
-        "summary": "Call this to get get a list of addresses for all supported roles on the contract.\n\n",
+        "summary": "Get get a list of addresses for all supported roles\n\n",
         "remarks": "\n\nSee {@link ContractRoles.get} to get a list of addresses that are members of a specific role.\n\n",
         "examples": {
           "javascript": "const rolesAndMembers = await contract.roles.getAll();",
@@ -3456,7 +3456,7 @@
       },
       {
         "name": "grant",
-        "summary": "Call this to grant a role to a specific address.\n\n",
+        "summary": "Grant a role to a specific address\n\n",
         "remarks": "\n\nMake sure you are sure you want to grant the role to the address.\n\n",
         "examples": {
           "javascript": "await contract.roles.grant(\"minter\", \"0x1234567890123456789012345678901234567890\");",
@@ -3473,7 +3473,7 @@
       },
       {
         "name": "revoke",
-        "summary": "Call this to revoke a role from a specific address.\n\n",
+        "summary": "Revoke a role from a specific address\n\n",
         "remarks": "\n\n-- Caution --\n\nThis will let you remove yourself from the role, too. If you remove yourself from the admin role, you will no longer be able to administer the contract. There is no way to recover from this.\n\n",
         "examples": {
           "javascript": "await contract.roles.revoke(\"minter\", \"0x1234567890123456789012345678901234567890\");",
@@ -3490,8 +3490,8 @@
       },
       {
         "name": "setAll",
-        "summary": "Call this to OVERWRITE the list of addresses that are members of specific roles.\n\nEvery role in the list will be overwritten with the new list of addresses provided with them. If you want to add or remove addresses for a single address use {@link ContractRoles.grant} and {@link ContractRoles.revoke} respectively instead.\n\n",
-        "remarks": null,
+        "summary": "Overwrite the list of addresses for specific roles\n\n",
+        "remarks": "\n\nEvery role in the list will be overwritten with the new list of addresses provided with them. If you want to add or remove addresses for a single address use {@link ContractRoles.grant} and {@link ContractRoles.revoke} respectively instead.\n\n",
         "examples": {
           "javascript": "const minterAddresses = await contract.roles.get(\"minter\");\nawait contract.roles.setAll({\n minter: []\n});\nconsole.log(await contract.roles.get(\"minter\")); // No matter what members had the role before, the new list will be set to []",
           "python": "",
