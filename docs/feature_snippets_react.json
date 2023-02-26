@@ -1,6 +1,17 @@
 {
   "": [
     {
+      "name": "useAcceptDirectListingOffer",
+      "summary": "Accept a specific offer on a direct listing\n\n",
+      "remarks": "\n\nwill accept the latest offer by the given offeror.\n\n",
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: acceptOffer,\n    isLoading,\n    error,\n  } = useAcceptDirectListingOffer(contract);\n\n  if (error) {\n    console.error(\"failed to accept offer\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => acceptOffer({ listingId: 1, addressOfOfferor: \"{{wallet_address}}\" })}\n    >\n      Accept offer\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useacceptdirectlistingoffer"
+      }
+    },
+    {
       "name": "useActiveListings",
       "summary": "Get all active listings\n\n",
       "remarks": null,
@@ -364,6 +375,17 @@
       }
     },
     {
+      "name": "useUpdateMetadata",
+      "summary": "Set the metadata of this contract\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: updateMetadata,\n    isLoading,\n    error,\n  } = useUpdateMetadata(contract);\n\n  if (error) {\n    console.error(\"failed to update metadata\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updateMetadata({\n       name: \"My Contract\",\n       description: \"This is my contract\"\n      })}\n    >\n      Update Contract Metadata\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useupdatemetadata"
+      }
+    },
+    {
       "name": "useVote",
       "summary": "Hook for getting an instance of an `Vote` contract. This contract enables fully featured voting-based decentralized governance systems.\n\n",
       "remarks": null,
@@ -383,85 +405,6 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usewinningbid"
-      }
-    }
-  ],
-  "DirectListings": [
-    {
-      "name": "useAcceptDirectListingOffer",
-      "summary": "Accept an offer on a direct listing from an offeror, will accept the latest offer by the given offeror.\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: acceptOffer,\n    isLoading,\n    error,\n  } = useAcceptDirectListingOffer(contract);\n\n  if (error) {\n    console.error(\"failed to accept offer\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => acceptOffer({ listingId: 1, addressOfOfferor: \"{{wallet_address}}\" })}\n    >\n      Accept offer\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useacceptdirectlistingoffer"
-      }
-    },
-    {
-      "name": "useCancelDirectListing",
-      "summary": "Cancel a direct listing\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: cancelDirectListing,\n    isLoading,\n    error,\n  } = useCancelDirectListing(contract);\n\n  if (error) {\n    console.error(\"failed to cancel direct listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={cancelDirectListing}\n    >\n      Cancel Direct Listing\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usecanceldirectlisting"
-      }
-    },
-    {
-      "name": "useCreateDirectListing",
-      "summary": "Create a new direct listing\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: createDirectListing,\n    isLoading,\n    error,\n  } = useCreateDirectListing(contract);\n\n  if (error) {\n    console.error(\"failed to create direct listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => createDirectListing(directListingData)}\n    >\n      Create Direct Listing!\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usecreatedirectlisting"
-      }
-    },
-    {
-      "name": "useDirectListing",
-      "summary": "Get a direct listing\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const listingId = 0; // the listing id to check\nconst { data: directListing, isLoading, error } = useListing(contract, listingId);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usedirectlisting"
-      }
-    },
-    {
-      "name": "useDirectListings",
-      "summary": "Get all direct listings\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: directListings, isLoading, error } = useDirectListings(contract, { start: 0, count: 100 });"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usedirectlistings"
-      }
-    },
-    {
-      "name": "useDirectListingsCount",
-      "summary": "Get the total count of direct listings\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: directListingsCount, isLoading, error } = useDirectListingsCount(contract);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usedirectlistingscount"
-      }
-    },
-    {
-      "name": "useValidDirectListings",
-      "summary": "Get all valid direct listings\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: validDirectListings, isLoading, error } = useValidDirectListings(contract, { start: 0, count: 100 });"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usevaliddirectlistings"
       }
     }
   ],
@@ -515,7 +458,7 @@
       "summary": "Get the reasons why a specific wallet can't claim\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: {{wallet_address}} });"
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: \"{{wallet_address}}\" });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
@@ -605,7 +548,7 @@
       "summary": "Get the reasons why a specific wallet can't claim\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: {{wallet_address}} });"
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: \"{{wallet_address}}\" });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
@@ -695,7 +638,7 @@
       "summary": "Get the reasons why a specific wallet can't claim\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: {{wallet_address}} });"
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: \"{{wallet_address}}\" });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
@@ -785,7 +728,7 @@
       "summary": "Get the reasons why a specific wallet can't claim\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: {{wallet_address}} });"
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: \"{{wallet_address}}\" });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
@@ -875,7 +818,7 @@
       "summary": "Get the reasons why a specific wallet can't claim\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: {{wallet_address}} });"
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: \"{{wallet_address}}\" });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
@@ -954,7 +897,7 @@
       "summary": "Get the reasons why a specific wallet can't claim\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: {{wallet_address}} });"
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: \"{{wallet_address}}\" });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
@@ -1033,7 +976,7 @@
       "summary": "Get the reasons why a specific wallet can't claim\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: {{wallet_address}} });"
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: \"{{wallet_address}}\" });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
@@ -1112,7 +1055,7 @@
       "summary": "Get the reasons why a specific wallet can't claim\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: {{wallet_address}} });"
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: \"{{wallet_address}}\" });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
@@ -1191,7 +1134,7 @@
       "summary": "Get the reasons why a specific wallet can't claim\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: {{wallet_address}} });"
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: \"{{wallet_address}}\" });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
@@ -1270,7 +1213,7 @@
       "summary": "Get the reasons why a specific wallet can't claim\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: {{wallet_address}} });"
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: \"{{wallet_address}}\" });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
@@ -1349,7 +1292,7 @@
       "summary": "Get the reasons why a specific wallet can't claim\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: {{wallet_address}} });"
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: \"{{wallet_address}}\" });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
@@ -1428,7 +1371,7 @@
       "summary": "Get the reasons why a specific wallet can't claim\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: {{wallet_address}} });"
+        "javascript": "const { data: claimIneligibilityReasons, isLoading, error } = useClaimIneligibilityReasons(contract, { walletAddress: \"{{wallet_address}}\" });"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimineligibilityreasons"
@@ -1689,6 +1632,74 @@
       }
     }
   ],
+  "DirectListings": [
+    {
+      "name": "useCancelDirectListing",
+      "summary": "Cancel a direct listing\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: cancelDirectListing,\n    isLoading,\n    error,\n  } = useCancelDirectListing(contract);\n\n  if (error) {\n    console.error(\"failed to cancel direct listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={cancelDirectListing}\n    >\n      Cancel Direct Listing\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usecanceldirectlisting"
+      }
+    },
+    {
+      "name": "useCreateDirectListing",
+      "summary": "Create a new direct listing\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: createDirectListing,\n    isLoading,\n    error,\n  } = useCreateDirectListing(contract);\n\n  if (error) {\n    console.error(\"failed to create direct listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => createDirectListing(directListingData)}\n    >\n      Create Direct Listing!\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usecreatedirectlisting"
+      }
+    },
+    {
+      "name": "useDirectListing",
+      "summary": "Get a direct listing\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const listingId = 0; // the listing id to check\nconst { data: directListing, isLoading, error } = useListing(contract, listingId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usedirectlisting"
+      }
+    },
+    {
+      "name": "useDirectListings",
+      "summary": "Get all direct listings\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: directListings, isLoading, error } = useDirectListings(contract, { start: 0, count: 100 });"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usedirectlistings"
+      }
+    },
+    {
+      "name": "useDirectListingsCount",
+      "summary": "Get the total count of direct listings\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: directListingsCount, isLoading, error } = useDirectListingsCount(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usedirectlistingscount"
+      }
+    },
+    {
+      "name": "useValidDirectListings",
+      "summary": "Get all valid direct listings\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: validDirectListings, isLoading, error } = useValidDirectListings(contract, { start: 0, count: 100 });"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usevaliddirectlistings"
+      }
+    }
+  ],
   "ERC721LazyMintable": [
     {
       "name": "useClaimedNFTs",
@@ -1806,17 +1817,6 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usecontractmetadataupdate"
-      }
-    },
-    {
-      "name": "useUpdateMetadata",
-      "summary": "Set the metadata of this contract\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: updateMetadata,\n    isLoading,\n    error,\n  } = useUpdateMetadata(contract);\n\n  if (error) {\n    console.error(\"failed to update metadata\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updateMetadata({\n       name: \"My Contract\",\n       description: \"This is my contract\"\n      })}\n    >\n      Update Contract Metadata\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useupdatemetadata"
       }
     }
   ],
