@@ -74,6 +74,7 @@ export default function DocSidebarItemLink({
         })}
         {...props}
       >
+        {/* TODO: something is wrong here (see console) */}
         {!showBackToHome && iconMapping[label] && (
           <img
             src={iconMapping[label]}
