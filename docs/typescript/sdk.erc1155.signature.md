@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc1155.signature property
 
-Signature Minting
+Mint with signature
 
 ## Example
 

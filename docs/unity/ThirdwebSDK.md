@@ -18,7 +18,7 @@ The entry point for the thirdweb SDK.
 | ThirdwebSDK | function | Create an instance of the thirdweb SDK. Requires a webGL browser context. |
 | GetContract | function | Get an instance of a deployed contract.                                   |
 
-## Members
+# Members
 
 **`public `[`Wallet`](docs/unity/Wallet.md#class_thirdweb_1_1_wallet)` `[`wallet`](#class_thirdweb_1_1_thirdweb_s_d_k_1ab7b329ee63841aa20c31bd82b93ecdb1)**
 

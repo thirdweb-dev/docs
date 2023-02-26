@@ -27,10 +27,10 @@ canClaim(quantity: Amount, addressToCheck?: string): Promise<boolean>;
 
 ## Parameters
 
-| Parameter      | Type                      | Description       |
-| -------------- | ------------------------- | ----------------- |
-| quantity       | [Amount](./sdk.amount.md) |                   |
-| addressToCheck | string                    | <i>(Optional)</i> |
+| Parameter      | Type                      | Description  |
+| -------------- | ------------------------- | ------------ |
+| quantity       | [Amount](./sdk.amount.md) |              |
+| addressToCheck | string                    | _(Optional)_ |
 
 **Returns:**
 

@@ -23,7 +23,8 @@ CONTRACTS_MAP: {
         name: "DropERC1155";
         contractType: "edition-drop";
         schema: {
-            deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            deploy: import("zod").ZodObject<{
+                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -37,21 +38,14 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
-            }>, {
-                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, {
                 platform_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 platform_fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 primary_sale_recipient: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }>, {
                 trusted_forwarders: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -78,30 +72,16 @@ CONTRACTS_MAP: {
                 name: string;
                 primary_sale_recipient: string;
             }>;
-            output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            output: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                    name: import("zod").ZodString;
-                }, "strip", import("zod").ZodTypeAny, {
-                    data?: any;
-                    name: string;
-                }, {
-                    data?: any;
-                    name: string;
-                }>]>, import("zod").ZodString]>>;
-                external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, {
+                external_link: import("zod").ZodOptional<import("zod").ZodString>;
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -120,7 +100,7 @@ CONTRACTS_MAP: {
                 merkle?: Record<string, string> | undefined;
                 name: string;
             }>;
-            input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            input: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -134,14 +114,11 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -167,9 +144,9 @@ CONTRACTS_MAP: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                    decimals?: number | undefined;
                     symbol: string;
                     name: string;
+                    decimals: 18;
                 };
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
@@ -402,7 +379,8 @@ CONTRACTS_MAP: {
         name: "TokenERC1155";
         contractType: "edition";
         schema: {
-            deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            deploy: import("zod").ZodObject<{
+                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -416,19 +394,13 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
-                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, {
                 platform_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 platform_fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 primary_sale_recipient: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }>, {
                 trusted_forwarders: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -453,28 +425,15 @@ CONTRACTS_MAP: {
                 name: string;
                 primary_sale_recipient: string;
             }>;
-            output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            output: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                    name: import("zod").ZodString;
-                }, "strip", import("zod").ZodTypeAny, {
-                    data?: any;
-                    name: string;
-                }, {
-                    data?: any;
-                    name: string;
-                }>]>, import("zod").ZodString]>>;
-                external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, {
+                external_link: import("zod").ZodOptional<import("zod").ZodString>;
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -491,7 +450,7 @@ CONTRACTS_MAP: {
                 fee_recipient?: string | undefined;
                 name: string;
             }>;
-            input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
+            input: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -505,12 +464,10 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -534,9 +491,9 @@ CONTRACTS_MAP: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                    decimals?: number | undefined;
                     symbol: string;
                     name: string;
+                    decimals: 18;
                 };
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
@@ -663,7 +620,7 @@ CONTRACTS_MAP: {
         name: "Marketplace";
         contractType: "marketplace";
         schema: {
-            deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
+            deploy: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -677,12 +634,10 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 platform_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 platform_fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 trusted_forwarders: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -699,23 +654,12 @@ CONTRACTS_MAP: {
                 trusted_forwarders?: string[] | undefined;
                 name: string;
             }>;
-            output: import("zod").ZodObject<import("zod").extendShape<{
+            output: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                    name: import("zod").ZodString;
-                }, "strip", import("zod").ZodTypeAny, {
-                    data?: any;
-                    name: string;
-                }, {
-                    data?: any;
-                    name: string;
-                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, "strip", import("zod").ZodUnknown, {
+            }, "strip", import("zod").ZodUnknown, {
                 [x: string]: unknown;
                 description?: string | undefined;
                 image?: string | undefined;
@@ -760,9 +704,9 @@ CONTRACTS_MAP: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                    decimals?: number | undefined;
                     symbol: string;
                     name: string;
+                    decimals: 18;
                 };
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
@@ -895,7 +839,7 @@ CONTRACTS_MAP: {
         name: "MarketplaceRouter";
         contractType: "marketplace-v3";
         schema: {
-            deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
+            deploy: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -909,12 +853,10 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 platform_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 platform_fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 trusted_forwarders: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -931,23 +873,12 @@ CONTRACTS_MAP: {
                 trusted_forwarders?: string[] | undefined;
                 name: string;
             }>;
-            output: import("zod").ZodObject<import("zod").extendShape<{
+            output: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                    name: import("zod").ZodString;
-                }, "strip", import("zod").ZodTypeAny, {
-                    data?: any;
-                    name: string;
-                }, {
-                    data?: any;
-                    name: string;
-                }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, "strip", import("zod").ZodUnknown, {
+            }, "strip", import("zod").ZodUnknown, {
                 [x: string]: unknown;
                 description?: string | undefined;
                 image?: string | undefined;
@@ -992,9 +923,9 @@ CONTRACTS_MAP: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                    decimals?: number | undefined;
                     symbol: string;
                     name: string;
+                    decimals: 18;
                 };
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
@@ -1055,7 +986,8 @@ CONTRACTS_MAP: {
         name: "Multiwrap";
         contractType: "multiwrap";
         schema: {
-            deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            deploy: import("zod").ZodObject<{
+                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -1069,14 +1001,10 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
-                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, {
                 trusted_forwarders: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -1095,28 +1023,15 @@ CONTRACTS_MAP: {
                 trusted_forwarders?: string[] | undefined;
                 name: string;
             }>;
-            output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            output: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                    name: import("zod").ZodString;
-                }, "strip", import("zod").ZodTypeAny, {
-                    data?: any;
-                    name: string;
-                }, {
-                    data?: any;
-                    name: string;
-                }>]>, import("zod").ZodString]>>;
-                external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, {
+                external_link: import("zod").ZodOptional<import("zod").ZodString>;
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -1133,7 +1048,7 @@ CONTRACTS_MAP: {
                 fee_recipient?: string | undefined;
                 name: string;
             }>;
-            input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
+            input: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -1147,12 +1062,10 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -1176,9 +1089,9 @@ CONTRACTS_MAP: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                    decimals?: number | undefined;
                     symbol: string;
                     name: string;
+                    decimals: 18;
                 };
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
@@ -1325,7 +1238,8 @@ CONTRACTS_MAP: {
         name: "TokenERC721";
         contractType: "nft-collection";
         schema: {
-            deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            deploy: import("zod").ZodObject<{
+                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -1339,19 +1253,13 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
-                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, {
                 platform_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 platform_fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 primary_sale_recipient: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }>, {
                 trusted_forwarders: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -1376,28 +1284,15 @@ CONTRACTS_MAP: {
                 name: string;
                 primary_sale_recipient: string;
             }>;
-            output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            output: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                    name: import("zod").ZodString;
-                }, "strip", import("zod").ZodTypeAny, {
-                    data?: any;
-                    name: string;
-                }, {
-                    data?: any;
-                    name: string;
-                }>]>, import("zod").ZodString]>>;
-                external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, {
+                external_link: import("zod").ZodOptional<import("zod").ZodString>;
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -1414,7 +1309,7 @@ CONTRACTS_MAP: {
                 fee_recipient?: string | undefined;
                 name: string;
             }>;
-            input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
+            input: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -1428,12 +1323,10 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -1457,9 +1350,9 @@ CONTRACTS_MAP: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                    decimals?: number | undefined;
                     symbol: string;
                     name: string;
+                    decimals: 18;
                 };
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
@@ -1586,7 +1479,8 @@ CONTRACTS_MAP: {
         name: "DropERC721";
         contractType: "nft-drop";
         schema: {
-            deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            deploy: import("zod").ZodObject<{
+                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -1600,21 +1494,14 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
-            }>, {
-                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, {
                 platform_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 platform_fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 primary_sale_recipient: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }>, {
                 trusted_forwarders: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -1641,30 +1528,16 @@ CONTRACTS_MAP: {
                 name: string;
                 primary_sale_recipient: string;
             }>;
-            output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            output: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                    name: import("zod").ZodString;
-                }, "strip", import("zod").ZodTypeAny, {
-                    data?: any;
-                    name: string;
-                }, {
-                    data?: any;
-                    name: string;
-                }>]>, import("zod").ZodString]>>;
-                external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, {
+                external_link: import("zod").ZodOptional<import("zod").ZodString>;
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -1683,7 +1556,7 @@ CONTRACTS_MAP: {
                 merkle?: Record<string, string> | undefined;
                 name: string;
             }>;
-            input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            input: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -1697,14 +1570,11 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -1730,9 +1600,9 @@ CONTRACTS_MAP: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                    decimals?: number | undefined;
                     symbol: string;
                     name: string;
+                    decimals: 18;
                 };
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
@@ -1971,7 +1841,8 @@ CONTRACTS_MAP: {
         name: "Pack";
         contractType: "pack";
         schema: {
-            deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            deploy: import("zod").ZodObject<{
+                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -1985,17 +1856,12 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
-                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, {
                 platform_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 platform_fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 trusted_forwarders: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -2018,28 +1884,15 @@ CONTRACTS_MAP: {
                 trusted_forwarders?: string[] | undefined;
                 name: string;
             }>;
-            output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            output: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                    name: import("zod").ZodString;
-                }, "strip", import("zod").ZodTypeAny, {
-                    data?: any;
-                    name: string;
-                }, {
-                    data?: any;
-                    name: string;
-                }>]>, import("zod").ZodString]>>;
-                external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, {
+                external_link: import("zod").ZodOptional<import("zod").ZodString>;
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -2056,7 +1909,7 @@ CONTRACTS_MAP: {
                 fee_recipient?: string | undefined;
                 name: string;
             }>;
-            input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
+            input: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -2070,12 +1923,10 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -2099,9 +1950,9 @@ CONTRACTS_MAP: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                    decimals?: number | undefined;
                     symbol: string;
                     name: string;
+                    decimals: 18;
                 };
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
@@ -2136,7 +1987,8 @@ CONTRACTS_MAP: {
         name: "SignatureDrop";
         contractType: "signature-drop";
         schema: {
-            deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            deploy: import("zod").ZodObject<{
+                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -2150,21 +2002,14 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
-            }>, {
-                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, {
                 platform_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 platform_fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 primary_sale_recipient: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }>, {
                 trusted_forwarders: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -2191,30 +2036,16 @@ CONTRACTS_MAP: {
                 name: string;
                 primary_sale_recipient: string;
             }>;
-            output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            output: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                    name: import("zod").ZodString;
-                }, "strip", import("zod").ZodTypeAny, {
-                    data?: any;
-                    name: string;
-                }, {
-                    data?: any;
-                    name: string;
-                }>]>, import("zod").ZodString]>>;
-                external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, {
+                external_link: import("zod").ZodOptional<import("zod").ZodString>;
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -2233,7 +2064,7 @@ CONTRACTS_MAP: {
                 merkle?: Record<string, string> | undefined;
                 name: string;
             }>;
-            input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            input: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -2247,14 +2078,11 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 seller_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -2280,9 +2108,9 @@ CONTRACTS_MAP: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                    decimals?: number | undefined;
                     symbol: string;
                     name: string;
+                    decimals: 18;
                 };
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
@@ -2398,7 +2226,7 @@ CONTRACTS_MAP: {
         name: "Split";
         contractType: "split";
         schema: {
-            deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            deploy: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -2412,7 +2240,6 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 recipients: import("zod").ZodEffects<import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodObject<{
                     address: import("zod").ZodEffects<import("zod").ZodString, string, string>;
                     sharesBps: import("zod").ZodNumber;
@@ -2429,40 +2256,8 @@ CONTRACTS_MAP: {
                     address: string;
                     sharesBps: number;
                 }[] | undefined>;
-            }>, import("zod").extendShape<{
-                name: import("zod").ZodString;
-                description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                    name: import("zod").ZodString;
-                }, "strip", import("zod").ZodTypeAny, {
-                    data?: any;
-                    name: string;
-                }, {
-                    data?: any;
-                    name: string;
-                }>]>, import("zod").ZodString]>>;
-                external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
-                recipients: import("zod").ZodEffects<import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodObject<{
-                    address: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                    sharesBps: import("zod").ZodNumber;
-                }, "strip", import("zod").ZodTypeAny, {
-                    address: string;
-                    sharesBps: number;
-                }, {
-                    address: string;
-                    sharesBps: number;
-                }>, "many">>, {
-                    address: string;
-                    sharesBps: number;
-                }[], {
-                    address: string;
-                    sharesBps: number;
-                }[] | undefined>;
-            }>>, {
                 trusted_forwarders: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -2483,37 +2278,22 @@ CONTRACTS_MAP: {
                 }[] | undefined;
                 name: string;
             }>;
-            output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
+            output: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                    name: import("zod").ZodString;
-                }, "strip", import("zod").ZodTypeAny, {
-                    data?: any;
-                    name: string;
-                }, {
-                    data?: any;
-                    name: string;
-                }>]>, import("zod").ZodString]>>;
-                external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, {
-                recipients: import("zod").ZodArray<import("zod").ZodObject<import("zod").extendShape<{
+                external_link: import("zod").ZodOptional<import("zod").ZodString>;
+                recipients: import("zod").ZodArray<import("zod").ZodObject<{
                     address: import("zod").ZodEffects<import("zod").ZodString, string, string>;
                     sharesBps: import("zod").ZodNumber;
-                }, {
-                    address: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-                    sharesBps: import("zod").ZodNumber;
-                }>, "strip", import("zod").ZodTypeAny, {
+                }, "strip", import("zod").ZodTypeAny, {
                     address: string;
                     sharesBps: number;
                 }, {
                     address: string;
                     sharesBps: number;
                 }>, "many">;
-            }>, "strip", import("zod").ZodUnknown, {
+            }, "strip", import("zod").ZodUnknown, {
                 [x: string]: unknown;
                 description?: string | undefined;
                 image?: string | undefined;
@@ -2534,7 +2314,7 @@ CONTRACTS_MAP: {
                     sharesBps: number;
                 }[];
             }>;
-            input: import("zod").ZodObject<import("zod").extendShape<{
+            input: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -2548,7 +2328,6 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 recipients: import("zod").ZodEffects<import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodObject<{
                     address: import("zod").ZodEffects<import("zod").ZodString, string, string>;
                     sharesBps: import("zod").ZodNumber;
@@ -2565,7 +2344,7 @@ CONTRACTS_MAP: {
                     address: string;
                     sharesBps: number;
                 }[] | undefined>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -2591,9 +2370,9 @@ CONTRACTS_MAP: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                    decimals?: number | undefined;
                     symbol: string;
                     name: string;
+                    decimals: 18;
                 };
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
@@ -2695,7 +2474,8 @@ CONTRACTS_MAP: {
         name: "DropERC20";
         contractType: "token-drop";
         schema: {
-            deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            deploy: import("zod").ZodObject<{
+                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -2709,18 +2489,12 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
-            }>, {
-                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, {
                 platform_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 platform_fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 primary_sale_recipient: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }>, {
                 trusted_forwarders: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -2743,27 +2517,14 @@ CONTRACTS_MAP: {
                 name: string;
                 primary_sale_recipient: string;
             }>;
-            output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            output: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                    name: import("zod").ZodString;
-                }, "strip", import("zod").ZodTypeAny, {
-                    data?: any;
-                    name: string;
-                }, {
-                    data?: any;
-                    name: string;
-                }>]>, import("zod").ZodString]>>;
-                external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, {
+                external_link: import("zod").ZodOptional<import("zod").ZodString>;
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -2778,7 +2539,7 @@ CONTRACTS_MAP: {
                 merkle?: Record<string, string> | undefined;
                 name: string;
             }>;
-            input: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
+            input: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -2792,11 +2553,9 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 merkle: import("zod").ZodDefault<import("zod").ZodRecord<import("zod").ZodString, import("zod").ZodString>>;
-            }>, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -2818,9 +2577,9 @@ CONTRACTS_MAP: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                    decimals?: number | undefined;
                     symbol: string;
                     name: string;
+                    decimals: 18;
                 };
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
@@ -2973,7 +2732,8 @@ CONTRACTS_MAP: {
         name: "TokenERC20";
         contractType: "token";
         schema: {
-            deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<import("zod").extendShape<{
+            deploy: import("zod").ZodObject<{
+                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -2987,16 +2747,11 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
-                symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, {
                 platform_fee_basis_points: import("zod").ZodDefault<import("zod").ZodNumber>;
                 platform_fee_recipient: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodString, string, string>>;
-            }>, {
                 primary_sale_recipient: import("zod").ZodEffects<import("zod").ZodString, string, string>;
-            }>, {
                 trusted_forwarders: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -3017,25 +2772,13 @@ CONTRACTS_MAP: {
                 name: string;
                 primary_sale_recipient: string;
             }>;
-            output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
+            output: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                    name: import("zod").ZodString;
-                }, "strip", import("zod").ZodTypeAny, {
-                    data?: any;
-                    name: string;
-                }, {
-                    data?: any;
-                    name: string;
-                }>]>, import("zod").ZodString]>>;
-                external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, {
+                external_link: import("zod").ZodOptional<import("zod").ZodString>;
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -3048,7 +2791,7 @@ CONTRACTS_MAP: {
                 external_link?: string | undefined;
                 name: string;
             }>;
-            input: import("zod").ZodObject<import("zod").extendShape<{
+            input: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -3062,9 +2805,8 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 symbol: import("zod").ZodDefault<import("zod").ZodOptional<import("zod").ZodString>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -3084,9 +2826,9 @@ CONTRACTS_MAP: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                    decimals?: number | undefined;
                     symbol: string;
                     name: string;
+                    decimals: 18;
                 };
             }[] | undefined;
             thirdwebApiKey?: string | undefined;
@@ -3222,7 +2964,7 @@ CONTRACTS_MAP: {
         name: "VoteERC20";
         contractType: "vote";
         schema: {
-            deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
+            deploy: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -3236,15 +2978,13 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 voting_delay_in_blocks: import("zod").ZodDefault<import("zod").ZodNumber>;
                 voting_period_in_blocks: import("zod").ZodDefault<import("zod").ZodNumber>;
                 voting_token_address: import("zod").ZodEffects<import("zod").ZodString, string, string>;
                 voting_quorum_fraction: import("zod").ZodDefault<import("zod").ZodNumber>;
                 proposal_token_threshold: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodEffects<import("zod").ZodUnion<[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType<ethers.BigNumber, import("zod").ZodTypeDef, ethers.BigNumber>]>, ethers.BigNumber, string | number | bigint | ethers.BigNumber>, string, string | number | bigint | ethers.BigNumber>>;
-            }>, {
                 trusted_forwarders: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -3267,31 +3007,17 @@ CONTRACTS_MAP: {
                 name: string;
                 voting_token_address: string;
             }>;
-            output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
+            output: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
-                image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                    data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                    name: import("zod").ZodString;
-                }, "strip", import("zod").ZodTypeAny, {
-                    data?: any;
-                    name: string;
-                }, {
-                    data?: any;
-                    name: string;
-                }>]>, import("zod").ZodString]>>;
-                external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 image: import("zod").ZodOptional<import("zod").ZodString>;
-            }>, import("zod").extendShape<{
+                external_link: import("zod").ZodOptional<import("zod").ZodString>;
                 voting_delay_in_blocks: import("zod").ZodDefault<import("zod").ZodNumber>;
                 voting_period_in_blocks: import("zod").ZodDefault<import("zod").ZodNumber>;
                 voting_token_address: import("zod").ZodEffects<import("zod").ZodString, string, string>;
                 voting_quorum_fraction: import("zod").ZodDefault<import("zod").ZodNumber>;
-                proposal_token_threshold: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodEffects<import("zod").ZodUnion<[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType<ethers.BigNumber, import("zod").ZodTypeDef, ethers.BigNumber>]>, ethers.BigNumber, string | number | bigint | ethers.BigNumber>, string, string | number | bigint | ethers.BigNumber>>;
-            }, {
                 proposal_token_threshold: import("zod").ZodEffects<import("zod").ZodUnion<[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType<ethers.BigNumber, import("zod").ZodTypeDef, ethers.BigNumber>]>, ethers.BigNumber, string | number | bigint | ethers.BigNumber>;
-            }>>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: string | undefined;
                 external_link?: string | undefined;
@@ -3312,7 +3038,7 @@ CONTRACTS_MAP: {
                 voting_token_address: string;
                 proposal_token_threshold: string | number | bigint | ethers.BigNumber;
             }>;
-            input: import("zod").ZodObject<import("zod").extendShape<{
+            input: import("zod").ZodObject<{
                 name: import("zod").ZodString;
                 description: import("zod").ZodOptional<import("zod").ZodString>;
                 image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -3326,13 +3052,12 @@ CONTRACTS_MAP: {
                     name: string;
                 }>]>, import("zod").ZodString]>>;
                 external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            }, {
                 voting_delay_in_blocks: import("zod").ZodDefault<import("zod").ZodNumber>;
                 voting_period_in_blocks: import("zod").ZodDefault<import("zod").ZodNumber>;
                 voting_token_address: import("zod").ZodEffects<import("zod").ZodString, string, string>;
                 voting_quorum_fraction: import("zod").ZodDefault<import("zod").ZodNumber>;
                 proposal_token_threshold: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodEffects<import("zod").ZodUnion<[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType<ethers.BigNumber, import("zod").ZodTypeDef, ethers.BigNumber>]>, ethers.BigNumber, string | number | bigint | ethers.BigNumber>, string, string | number | bigint | ethers.BigNumber>>;
-            }>, "strip", import("zod").ZodTypeAny, {
+            }, "strip", import("zod").ZodTypeAny, {
                 description?: string | undefined;
                 image?: any;
                 external_link?: string | undefined;
@@ -3360,9 +3085,9 @@ CONTRACTS_MAP: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                    decimals?: number | undefined;
                     symbol: string;
                     name: string;
+                    decimals: 18;
                 };
             }[] | undefined;
             thirdwebApiKey?: string | undefined;

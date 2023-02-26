@@ -22,7 +22,7 @@ displayed_sidebar: unity
 | uid                  | variable |              |
 | ERC1155MintPayload   | function |              |
 
-## Members
+# Members
 
 **`public string `[`to`](#class_thirdweb_1_1_e_r_c1155_mint_payload_1a90c8efd94461cd473fe7fbc62ffade5b)**
 

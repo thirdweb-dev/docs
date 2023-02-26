@@ -11,17 +11,7 @@ displayed_sidebar: typescript
 
 Set the platform fee recipient and basis points
 
-**Signature:**
-
-```typescript
-set(platformFeeInfo: z.input<typeof CommonPlatformFeeSchema>): Promise<TransactionResult>;
-```
-
-## Parameters
-
-| Parameter       | Type                                          | Description                         |
-| --------------- | --------------------------------------------- | ----------------------------------- |
-| platformFeeInfo | z.input&lt;typeof CommonPlatformFeeSchema&gt; | <p>the platform fee information</p> |
+## Example
 
 ```javascript
 await contract.platformFee.set({
@@ -30,7 +20,17 @@ await contract.platformFee.set({
 });
 ```
 
-|
+**Signature:**
+
+```typescript
+set(platformFeeInfo: z.input<typeof CommonPlatformFeeSchema>): Promise<TransactionResult>;
+```
+
+## Parameters
+
+| Parameter       | Type                                          | Description                  |
+| --------------- | --------------------------------------------- | ---------------------------- |
+| platformFeeInfo | z.input&lt;typeof CommonPlatformFeeSchema&gt; | the platform fee information |
 
 **Returns:**
 

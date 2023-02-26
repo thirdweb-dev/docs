@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.burnFrom() method
 
-Burn Tokens
+Burn tokens from a specific wallet
 
 ## Example
 

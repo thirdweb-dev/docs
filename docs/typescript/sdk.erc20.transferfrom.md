@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.transferFrom() method
 
-Transfer Tokens From Address
+Transfer tokens from a specific address
 
 ## Example
 

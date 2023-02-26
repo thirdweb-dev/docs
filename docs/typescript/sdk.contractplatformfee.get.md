@@ -9,12 +9,14 @@ displayed_sidebar: typescript
 
 # ContractPlatformFee.get() method
 
-Get the platform fee recipient and basis points \*
+Get the platform fee recipient and basis points
 
 ## Example
 
 ```javascript
 const feeInfo = await contract.platformFee.get();
+console.log(feeInfo.platform_fee_recipient);
+console.log(feeInfo.platform_fee_basis_points);
 ```
 
 **Signature:**

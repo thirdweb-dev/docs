@@ -56,11 +56,11 @@ wrap(contents: TokensToWrap, wrappedTokenMetadata: NFTMetadataOrUri, recipientAd
 
 ## Parameters
 
-| Parameter            | Type                                          | Description                                                                 |
-| -------------------- | --------------------------------------------- | --------------------------------------------------------------------------- |
-| contents             | [TokensToWrap](./sdk.tokenstowrap.md)         | the contents to wrap                                                        |
-| wrappedTokenMetadata | [NFTMetadataOrUri](./sdk.nftmetadataoruri.md) | metadata to represent the wrapped token bundle                              |
-| recipientAddress     | string                                        | <i>(Optional)</i> Optional. The address to send the wrapped token bundle to |
+| Parameter            | Type                                          | Description                                                            |
+| -------------------- | --------------------------------------------- | ---------------------------------------------------------------------- |
+| contents             | [TokensToWrap](./sdk.tokenstowrap.md)         | the contents to wrap                                                   |
+| wrappedTokenMetadata | [NFTMetadataOrUri](./sdk.nftmetadataoruri.md) | metadata to represent the wrapped token bundle                         |
+| recipientAddress     | string                                        | _(Optional)_ Optional. The address to send the wrapped token bundle to |
 
 **Returns:**
 

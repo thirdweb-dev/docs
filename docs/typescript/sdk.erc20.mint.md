@@ -9,13 +9,13 @@ displayed_sidebar: typescript
 
 # Erc20.mint() method
 
-Mint Tokens
+Mint tokens
 
 ## Example
 
 ```javascript
 const amount = "1.5"; // The amount of this token you want to mint
-await contract.erc20.mint(toAddress, amount);
+await contract.erc20.mint(amount);
 ```
 
 **Signature:**

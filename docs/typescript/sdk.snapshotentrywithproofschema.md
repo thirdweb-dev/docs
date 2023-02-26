@@ -13,45 +13,41 @@ displayed_sidebar: typescript
 
 ```typescript
 SnapshotEntryWithProofSchema: z.ZodObject<
-  z.extendShape<
-    {
-      address: z.ZodEffects<z.ZodString, string, string>;
-      maxClaimable: z.ZodDefault<
-        z.ZodDefault<
-          z.ZodUnion<
-            [
-              z.ZodEffects<
-                z.ZodUnion<[z.ZodString, z.ZodNumber]>,
-                string,
-                string | number
-              >,
-              z.ZodLiteral<"unlimited">,
-            ]
-          >
+  {
+    address: z.ZodEffects<z.ZodString, string, string>;
+    price: z.ZodOptional<
+      z.ZodDefault<
+        z.ZodUnion<
+          [
+            z.ZodEffects<
+              z.ZodUnion<[z.ZodString, z.ZodNumber]>,
+              string,
+              string | number
+            >,
+            z.ZodLiteral<"unlimited">,
+          ]
         >
-      >;
-      price: z.ZodOptional<
-        z.ZodDefault<
-          z.ZodUnion<
-            [
-              z.ZodEffects<
-                z.ZodUnion<[z.ZodString, z.ZodNumber]>,
-                string,
-                string | number
-              >,
-              z.ZodLiteral<"unlimited">,
-            ]
-          >
+      >
+    >;
+    currencyAddress: z.ZodOptional<
+      z.ZodDefault<z.ZodEffects<z.ZodString, string, string>>
+    >;
+    maxClaimable: z.ZodDefault<
+      z.ZodDefault<
+        z.ZodUnion<
+          [
+            z.ZodEffects<
+              z.ZodUnion<[z.ZodString, z.ZodNumber]>,
+              string,
+              string | number
+            >,
+            z.ZodLiteral<"unlimited">,
+          ]
         >
-      >;
-      currencyAddress: z.ZodOptional<
-        z.ZodDefault<z.ZodEffects<z.ZodString, string, string>>
-      >;
-    },
-    {
-      proof: z.ZodArray<z.ZodString, "many">;
-    }
-  >,
+      >
+    >;
+    proof: z.ZodArray<z.ZodString, "many">;
+  },
   "strip",
   z.ZodTypeAny,
   {

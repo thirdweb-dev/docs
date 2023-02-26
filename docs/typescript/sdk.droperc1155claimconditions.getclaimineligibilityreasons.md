@@ -19,11 +19,11 @@ getClaimIneligibilityReasons(tokenId: BigNumberish, quantity: BigNumberish, addr
 
 ## Parameters
 
-| Parameter      | Type         | Description                                                             |
-| -------------- | ------------ | ----------------------------------------------------------------------- |
-| tokenId        | BigNumberish | the token id to check                                                   |
-| quantity       | BigNumberish | The desired quantity that would be claimed.                             |
-| addressToCheck | string       | <i>(Optional)</i> The wallet address, defaults to the connected wallet. |
+| Parameter      | Type         | Description                                                        |
+| -------------- | ------------ | ------------------------------------------------------------------ |
+| tokenId        | BigNumberish | the token id to check                                              |
+| quantity       | BigNumberish | The desired quantity that would be claimed.                        |
+| addressToCheck | string       | _(Optional)_ The wallet address, defaults to the connected wallet. |
 
 **Returns:**
 

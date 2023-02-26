@@ -19,9 +19,9 @@ getOwnedTokenIds(walletAddress?: string): Promise<BigNumber[]>;
 
 ## Parameters
 
-| Parameter     | Type   | Description       |
-| ------------- | ------ | ----------------- |
-| walletAddress | string | <i>(Optional)</i> |
+| Parameter     | Type   | Description  |
+| ------------- | ------ | ------------ |
+| walletAddress | string | _(Optional)_ |
 
 **Returns:**
 

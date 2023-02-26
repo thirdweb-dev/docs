@@ -24,7 +24,7 @@ getClaimTransaction(destinationAddress: string, tokenId: BigNumberish, quantity:
 | destinationAddress | string                                | Address you want to send the token to    |
 | tokenId            | BigNumberish                          | Id of the token you want to claim        |
 | quantity           | BigNumberish                          | Quantity of the tokens you want to claim |
-| options            | [ClaimOptions](./sdk.claimoptions.md) | <i>(Optional)</i>                        |
+| options            | [ClaimOptions](./sdk.claimoptions.md) | _(Optional)_                             |
 
 **Returns:**
 

@@ -33,10 +33,10 @@ await contract.sales.setRecipient(recipientWalletAddress);
 
 ## Methods
 
-| Method                                                               | Modifiers | Description                     |
-| -------------------------------------------------------------------- | --------- | ------------------------------- |
-| [getRecipient()](./sdk.contractprimarysale.getrecipient.md)          |           | Get the primary sale recipient. |
-| [setRecipient(recipient)](./sdk.contractprimarysale.setrecipient.md) |           | Set the primary sale recipient  |
+| Method                                                               | Modifiers | Description                    |
+| -------------------------------------------------------------------- | --------- | ------------------------------ |
+| [getRecipient()](./sdk.contractprimarysale.getrecipient.md)          |           | Get the primary sale recipient |
+| [setRecipient(recipient)](./sdk.contractprimarysale.setrecipient.md) |           | Set the primary sale recipient |
 
 **Signature:**
 

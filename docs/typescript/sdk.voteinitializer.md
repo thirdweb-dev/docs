@@ -16,7 +16,7 @@ VoteInitializer: {
     name: "VoteERC20";
     contractType: "vote";
     schema: {
-        deploy: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
+        deploy: import("zod").ZodObject<{
             name: import("zod").ZodString;
             description: import("zod").ZodOptional<import("zod").ZodString>;
             image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -30,15 +30,13 @@ VoteInitializer: {
                 name: string;
             }>]>, import("zod").ZodString]>>;
             external_link: import("zod").ZodOptional<import("zod").ZodString>;
-        }, {
             voting_delay_in_blocks: import("zod").ZodDefault<import("zod").ZodNumber>;
             voting_period_in_blocks: import("zod").ZodDefault<import("zod").ZodNumber>;
             voting_token_address: import("zod").ZodEffects<import("zod").ZodString, string, string>;
             voting_quorum_fraction: import("zod").ZodDefault<import("zod").ZodNumber>;
             proposal_token_threshold: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodEffects<import("zod").ZodUnion<[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType<ethers.BigNumber, import("zod").ZodTypeDef, ethers.BigNumber>]>, ethers.BigNumber, string | number | bigint | ethers.BigNumber>, string, string | number | bigint | ethers.BigNumber>>;
-        }>, {
             trusted_forwarders: import("zod").ZodDefault<import("zod").ZodArray<import("zod").ZodEffects<import("zod").ZodString, string, string>, "many">>;
-        }>, "strip", import("zod").ZodTypeAny, {
+        }, "strip", import("zod").ZodTypeAny, {
             description?: string | undefined;
             image?: any;
             external_link?: string | undefined;
@@ -61,31 +59,17 @@ VoteInitializer: {
             name: string;
             voting_token_address: string;
         }>;
-        output: import("zod").ZodObject<import("zod").extendShape<import("zod").extendShape<{
+        output: import("zod").ZodObject<{
             name: import("zod").ZodString;
             description: import("zod").ZodOptional<import("zod").ZodString>;
-            image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
-                data: import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodString]>;
-                name: import("zod").ZodString;
-            }, "strip", import("zod").ZodTypeAny, {
-                data?: any;
-                name: string;
-            }, {
-                data?: any;
-                name: string;
-            }>]>, import("zod").ZodString]>>;
-            external_link: import("zod").ZodOptional<import("zod").ZodString>;
-        }, {
             image: import("zod").ZodOptional<import("zod").ZodString>;
-        }>, import("zod").extendShape<{
+            external_link: import("zod").ZodOptional<import("zod").ZodString>;
             voting_delay_in_blocks: import("zod").ZodDefault<import("zod").ZodNumber>;
             voting_period_in_blocks: import("zod").ZodDefault<import("zod").ZodNumber>;
             voting_token_address: import("zod").ZodEffects<import("zod").ZodString, string, string>;
             voting_quorum_fraction: import("zod").ZodDefault<import("zod").ZodNumber>;
-            proposal_token_threshold: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodEffects<import("zod").ZodUnion<[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType<ethers.BigNumber, import("zod").ZodTypeDef, ethers.BigNumber>]>, ethers.BigNumber, string | number | bigint | ethers.BigNumber>, string, string | number | bigint | ethers.BigNumber>>;
-        }, {
             proposal_token_threshold: import("zod").ZodEffects<import("zod").ZodUnion<[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType<ethers.BigNumber, import("zod").ZodTypeDef, ethers.BigNumber>]>, ethers.BigNumber, string | number | bigint | ethers.BigNumber>;
-        }>>, "strip", import("zod").ZodTypeAny, {
+        }, "strip", import("zod").ZodTypeAny, {
             description?: string | undefined;
             image?: string | undefined;
             external_link?: string | undefined;
@@ -106,7 +90,7 @@ VoteInitializer: {
             voting_token_address: string;
             proposal_token_threshold: string | number | bigint | ethers.BigNumber;
         }>;
-        input: import("zod").ZodObject<import("zod").extendShape<{
+        input: import("zod").ZodObject<{
             name: import("zod").ZodString;
             description: import("zod").ZodOptional<import("zod").ZodString>;
             image: import("zod").ZodOptional<import("zod").ZodUnion<[import("zod").ZodUnion<[import("zod").ZodTypeAny, import("zod").ZodObject<{
@@ -120,13 +104,12 @@ VoteInitializer: {
                 name: string;
             }>]>, import("zod").ZodString]>>;
             external_link: import("zod").ZodOptional<import("zod").ZodString>;
-        }, {
             voting_delay_in_blocks: import("zod").ZodDefault<import("zod").ZodNumber>;
             voting_period_in_blocks: import("zod").ZodDefault<import("zod").ZodNumber>;
             voting_token_address: import("zod").ZodEffects<import("zod").ZodString, string, string>;
             voting_quorum_fraction: import("zod").ZodDefault<import("zod").ZodNumber>;
             proposal_token_threshold: import("zod").ZodDefault<import("zod").ZodEffects<import("zod").ZodEffects<import("zod").ZodUnion<[import("zod").ZodString, import("zod").ZodNumber, import("zod").ZodBigInt, import("zod").ZodType<ethers.BigNumber, import("zod").ZodTypeDef, ethers.BigNumber>]>, ethers.BigNumber, string | number | bigint | ethers.BigNumber>, string, string | number | bigint | ethers.BigNumber>>;
-        }>, "strip", import("zod").ZodTypeAny, {
+        }, "strip", import("zod").ZodTypeAny, {
             description?: string | undefined;
             image?: any;
             external_link?: string | undefined;
@@ -154,9 +137,9 @@ VoteInitializer: {
             rpc: string[];
             chainId: number;
             nativeCurrency: {
-                decimals?: number | undefined;
                 symbol: string;
                 name: string;
+                decimals: 18;
             };
         }[] | undefined;
         thirdwebApiKey?: string | undefined;

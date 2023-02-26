@@ -19,9 +19,9 @@ export interface MarketplaceFilter extends QueryAllParams
 
 ## Properties
 
-| Property                                                   | Modifiers | Type         | Description       |
-| ---------------------------------------------------------- | --------- | ------------ | ----------------- |
-| [offeror?](./sdk.marketplacefilter.offeror.md)             |           | string       | <i>(Optional)</i> |
-| [seller?](./sdk.marketplacefilter.seller.md)               |           | string       | <i>(Optional)</i> |
-| [tokenContract?](./sdk.marketplacefilter.tokencontract.md) |           | string       | <i>(Optional)</i> |
-| [tokenId?](./sdk.marketplacefilter.tokenid.md)             |           | BigNumberish | <i>(Optional)</i> |
+| Property                                                   | Modifiers | Type         | Description  |
+| ---------------------------------------------------------- | --------- | ------------ | ------------ |
+| [offeror?](./sdk.marketplacefilter.offeror.md)             |           | string       | _(Optional)_ |
+| [seller?](./sdk.marketplacefilter.seller.md)               |           | string       | _(Optional)_ |
+| [tokenContract?](./sdk.marketplacefilter.tokencontract.md) |           | string       | _(Optional)_ |
+| [tokenId?](./sdk.marketplacefilter.tokenid.md)             |           | BigNumberish | _(Optional)_ |

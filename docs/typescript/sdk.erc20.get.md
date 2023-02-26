@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.get() method
 
-Get the token Metadata (name, symbol, etc...)
+Get the token metadata
 
 ## Example
 
@@ -28,3 +28,7 @@ get(): Promise<Currency>;
 Promise&lt;[Currency](./sdk.currency.md)&gt;
 
 The token metadata
+
+## Remarks
+
+name, symbol, etc...

@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc1155.burnFrom() method
 
-Burn a specified amount of a NFTs
+Burn NFTs from a specific wallet
 
 ## Example
 

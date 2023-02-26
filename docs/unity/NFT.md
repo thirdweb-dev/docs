@@ -18,7 +18,7 @@ displayed_sidebar: unity
 | quantityOwned | variable |              |
 | ToString      | function |              |
 
-## Members
+# Members
 
 **`public `[`NFTMetadata`](docs/unity/NFTMetadata.md#struct_thirdweb_1_1_n_f_t_metadata)` `[`metadata`](#struct_thirdweb_1_1_n_f_t_1a3e0d0155d135eec24ab1d40445f34850)**
 

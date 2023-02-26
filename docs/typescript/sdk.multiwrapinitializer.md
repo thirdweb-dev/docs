@@ -17,75 +17,56 @@ MultiwrapInitializer: {
   contractType: "multiwrap";
   schema: {
     deploy: import("zod").ZodObject<
-      import("zod").extendShape<
-        import("zod").extendShape<
-          import("zod").extendShape<
-            {
-              name: import("zod").ZodString;
-              description: import("zod").ZodOptional<import("zod").ZodString>;
-              image: import("zod").ZodOptional<
-                import("zod").ZodUnion<
-                  [
-                    import("zod").ZodUnion<
-                      [
-                        import("zod").ZodTypeAny,
-                        import("zod").ZodObject<
-                          {
-                            data: import("zod").ZodUnion<
-                              [
-                                import("zod").ZodTypeAny,
-                                import("zod").ZodString,
-                              ]
-                            >;
-                            name: import("zod").ZodString;
-                          },
-                          "strip",
-                          import("zod").ZodTypeAny,
-                          {
-                            data?: any;
-                            name: string;
-                          },
-                          {
-                            data?: any;
-                            name: string;
-                          }
-                        >,
-                      ]
-                    >,
-                    import("zod").ZodString,
-                  ]
-                >
-              >;
-              external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            },
-            {
-              seller_fee_basis_points: import("zod").ZodDefault<
-                import("zod").ZodNumber
-              >;
-              fee_recipient: import("zod").ZodDefault<
-                import("zod").ZodEffects<
-                  import("zod").ZodString,
-                  string,
-                  string
-                >
-              >;
-            }
-          >,
-          {
-            symbol: import("zod").ZodDefault<
-              import("zod").ZodOptional<import("zod").ZodString>
-            >;
-          }
-        >,
-        {
-          trusted_forwarders: import("zod").ZodDefault<
-            import("zod").ZodArray<
-              import("zod").ZodEffects<import("zod").ZodString, string, string>,
-              "many"
-            >
-          >;
-        }
-      >,
+      {
+        symbol: import("zod").ZodDefault<
+          import("zod").ZodOptional<import("zod").ZodString>
+        >;
+        name: import("zod").ZodString;
+        description: import("zod").ZodOptional<import("zod").ZodString>;
+        image: import("zod").ZodOptional<
+          import("zod").ZodUnion<
+            [
+              import("zod").ZodUnion<
+                [
+                  import("zod").ZodTypeAny,
+                  import("zod").ZodObject<
+                    {
+                      data: import("zod").ZodUnion<
+                        [import("zod").ZodTypeAny, import("zod").ZodString]
+                      >;
+                      name: import("zod").ZodString;
+                    },
+                    "strip",
+                    import("zod").ZodTypeAny,
+                    {
+                      data?: any;
+                      name: string;
+                    },
+                    {
+                      data?: any;
+                      name: string;
+                    }
+                  >,
+                ]
+              >,
+              import("zod").ZodString,
+            ]
+          >
+        >;
+        external_link: import("zod").ZodOptional<import("zod").ZodString>;
+        seller_fee_basis_points: import("zod").ZodDefault<
+          import("zod").ZodNumber
+        >;
+        fee_recipient: import("zod").ZodDefault<
+          import("zod").ZodEffects<import("zod").ZodString, string, string>
+        >;
+        trusted_forwarders: import("zod").ZodDefault<
+          import("zod").ZodArray<
+            import("zod").ZodEffects<import("zod").ZodString, string, string>,
+            "many"
+          >
+        >;
+      },
       "strip",
       import("zod").ZodTypeAny,
       {
@@ -110,66 +91,21 @@ MultiwrapInitializer: {
       }
     >;
     output: import("zod").ZodObject<
-      import("zod").extendShape<
-        import("zod").extendShape<
-          import("zod").extendShape<
-            {
-              name: import("zod").ZodString;
-              description: import("zod").ZodOptional<import("zod").ZodString>;
-              image: import("zod").ZodOptional<
-                import("zod").ZodUnion<
-                  [
-                    import("zod").ZodUnion<
-                      [
-                        import("zod").ZodTypeAny,
-                        import("zod").ZodObject<
-                          {
-                            data: import("zod").ZodUnion<
-                              [
-                                import("zod").ZodTypeAny,
-                                import("zod").ZodString,
-                              ]
-                            >;
-                            name: import("zod").ZodString;
-                          },
-                          "strip",
-                          import("zod").ZodTypeAny,
-                          {
-                            data?: any;
-                            name: string;
-                          },
-                          {
-                            data?: any;
-                            name: string;
-                          }
-                        >,
-                      ]
-                    >,
-                    import("zod").ZodString,
-                  ]
-                >
-              >;
-              external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            },
-            {
-              image: import("zod").ZodOptional<import("zod").ZodString>;
-            }
-          >,
-          {
-            seller_fee_basis_points: import("zod").ZodDefault<
-              import("zod").ZodNumber
-            >;
-            fee_recipient: import("zod").ZodDefault<
-              import("zod").ZodEffects<import("zod").ZodString, string, string>
-            >;
-          }
-        >,
-        {
-          symbol: import("zod").ZodDefault<
-            import("zod").ZodOptional<import("zod").ZodString>
-          >;
-        }
-      >,
+      {
+        name: import("zod").ZodString;
+        description: import("zod").ZodOptional<import("zod").ZodString>;
+        image: import("zod").ZodOptional<import("zod").ZodString>;
+        external_link: import("zod").ZodOptional<import("zod").ZodString>;
+        seller_fee_basis_points: import("zod").ZodDefault<
+          import("zod").ZodNumber
+        >;
+        fee_recipient: import("zod").ZodDefault<
+          import("zod").ZodEffects<import("zod").ZodString, string, string>
+        >;
+        symbol: import("zod").ZodDefault<
+          import("zod").ZodOptional<import("zod").ZodString>
+        >;
+      },
       "strip",
       import("zod").ZodTypeAny,
       {
@@ -192,58 +128,50 @@ MultiwrapInitializer: {
       }
     >;
     input: import("zod").ZodObject<
-      import("zod").extendShape<
-        import("zod").extendShape<
-          {
-            name: import("zod").ZodString;
-            description: import("zod").ZodOptional<import("zod").ZodString>;
-            image: import("zod").ZodOptional<
+      {
+        name: import("zod").ZodString;
+        description: import("zod").ZodOptional<import("zod").ZodString>;
+        image: import("zod").ZodOptional<
+          import("zod").ZodUnion<
+            [
               import("zod").ZodUnion<
                 [
-                  import("zod").ZodUnion<
-                    [
-                      import("zod").ZodTypeAny,
-                      import("zod").ZodObject<
-                        {
-                          data: import("zod").ZodUnion<
-                            [import("zod").ZodTypeAny, import("zod").ZodString]
-                          >;
-                          name: import("zod").ZodString;
-                        },
-                        "strip",
-                        import("zod").ZodTypeAny,
-                        {
-                          data?: any;
-                          name: string;
-                        },
-                        {
-                          data?: any;
-                          name: string;
-                        }
-                      >,
-                    ]
+                  import("zod").ZodTypeAny,
+                  import("zod").ZodObject<
+                    {
+                      data: import("zod").ZodUnion<
+                        [import("zod").ZodTypeAny, import("zod").ZodString]
+                      >;
+                      name: import("zod").ZodString;
+                    },
+                    "strip",
+                    import("zod").ZodTypeAny,
+                    {
+                      data?: any;
+                      name: string;
+                    },
+                    {
+                      data?: any;
+                      name: string;
+                    }
                   >,
-                  import("zod").ZodString,
                 ]
-              >
-            >;
-            external_link: import("zod").ZodOptional<import("zod").ZodString>;
-          },
-          {
-            seller_fee_basis_points: import("zod").ZodDefault<
-              import("zod").ZodNumber
-            >;
-            fee_recipient: import("zod").ZodDefault<
-              import("zod").ZodEffects<import("zod").ZodString, string, string>
-            >;
-          }
-        >,
-        {
-          symbol: import("zod").ZodDefault<
-            import("zod").ZodOptional<import("zod").ZodString>
-          >;
-        }
-      >,
+              >,
+              import("zod").ZodString,
+            ]
+          >
+        >;
+        external_link: import("zod").ZodOptional<import("zod").ZodString>;
+        seller_fee_basis_points: import("zod").ZodDefault<
+          import("zod").ZodNumber
+        >;
+        fee_recipient: import("zod").ZodDefault<
+          import("zod").ZodEffects<import("zod").ZodString, string, string>
+        >;
+        symbol: import("zod").ZodDefault<
+          import("zod").ZodOptional<import("zod").ZodString>
+        >;
+      },
       "strip",
       import("zod").ZodTypeAny,
       {
@@ -280,9 +208,9 @@ MultiwrapInitializer: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                  decimals?: number | undefined;
                   symbol: string;
                   name: string;
+                  decimals: 18;
                 };
               }[]
             | undefined;

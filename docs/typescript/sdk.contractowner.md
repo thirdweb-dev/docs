@@ -33,7 +33,7 @@ export declare class ContractOwner<TContract extends Ownable> implements Detecta
 
 ## Methods
 
-| Method                                     | Modifiers | Description                              |
-| ------------------------------------------ | --------- | ---------------------------------------- |
-| [get()](./sdk.contractowner.get.md)        |           | Return the current owner of the contract |
-| [set(address)](./sdk.contractowner.set.md) |           | Set the new owner of the contract        |
+| Method                                     | Modifiers | Description                           |
+| ------------------------------------------ | --------- | ------------------------------------- |
+| [get()](./sdk.contractowner.get.md)        |           | Get the current owner of the contract |
+| [set(address)](./sdk.contractowner.set.md) |           | Set the new owner of the contract     |

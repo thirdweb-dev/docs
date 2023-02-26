@@ -62,6 +62,7 @@ featureName: "ERC1155" |
   "Gasless" |
   "PackVRF" |
   "PluginRouter" |
+  "ExtensionRouter" |
   "DirectListings" |
   "EnglishAuctions" |
   "Offers";

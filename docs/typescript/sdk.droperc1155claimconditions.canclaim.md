@@ -27,11 +27,11 @@ canClaim(tokenId: BigNumberish, quantity: BigNumberish, addressToCheck?: string)
 
 ## Parameters
 
-| Parameter      | Type         | Description       |
-| -------------- | ------------ | ----------------- |
-| tokenId        | BigNumberish |                   |
-| quantity       | BigNumberish |                   |
-| addressToCheck | string       | <i>(Optional)</i> |
+| Parameter      | Type         | Description  |
+| -------------- | ------------ | ------------ |
+| tokenId        | BigNumberish |              |
+| quantity       | BigNumberish |              |
+| addressToCheck | string       | _(Optional)_ |
 
 **Returns:**
 

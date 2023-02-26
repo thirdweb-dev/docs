@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # StandardErc721.transfer() method
 
-Transfer a single NFT
+Transfer an NFT
 
 ## Example
 

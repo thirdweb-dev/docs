@@ -14,7 +14,7 @@ displayed_sidebar: unity
 | provider | variable |              |
 | chainId  | variable |              |
 
-## Members
+# Members
 
 **`public `[`WalletProvider`](docs/unity/WalletProvider.md#class_thirdweb_1_1_wallet_provider)` `[`provider`](#struct_thirdweb_1_1_wallet_connection_1a4e0dc3ec8e5174aaab9bbb029fe45f02)**
 

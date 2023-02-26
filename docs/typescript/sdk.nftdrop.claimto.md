@@ -31,11 +31,11 @@ claimTo(destinationAddress: string, quantity: BigNumberish, checkERC20Allowance?
 
 ## Parameters
 
-| Parameter           | Type         | Description                                                                                                                      |
-| ------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| destinationAddress  | string       | Address you want to send the token to                                                                                            |
-| quantity            | BigNumberish | Quantity of the tokens you want to claim                                                                                         |
-| checkERC20Allowance | boolean      | <i>(Optional)</i> Optional, check if the wallet has enough ERC20 allowance to claim the tokens, and if not, approve the transfer |
+| Parameter           | Type         | Description                                                                                                                 |
+| ------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| destinationAddress  | string       | Address you want to send the token to                                                                                       |
+| quantity            | BigNumberish | Quantity of the tokens you want to claim                                                                                    |
+| checkERC20Allowance | boolean      | _(Optional)_ Optional, check if the wallet has enough ERC20 allowance to claim the tokens, and if not, approve the transfer |
 
 **Returns:**
 

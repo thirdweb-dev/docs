@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # StandardErc721.totalSupply() method
 
-Get the total count NFTs minted in this contract
+Get total minted supply count
 
 **Signature:**
 

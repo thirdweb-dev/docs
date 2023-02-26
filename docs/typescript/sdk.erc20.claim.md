@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.claim() method
 
-Claim a certain amount of tokens to the connected Wallet
+Claim tokens
 
 ## Example
 
@@ -32,7 +32,7 @@ claim(amount: Amount, options?: ClaimOptions): Promise<TransactionResult>;
 | Parameter | Type                                  | Description                              |
 | --------- | ------------------------------------- | ---------------------------------------- |
 | amount    | [Amount](./sdk.amount.md)             | Quantity of the tokens you want to claim |
-| options   | [ClaimOptions](./sdk.claimoptions.md) | <i>(Optional)</i>                        |
+| options   | [ClaimOptions](./sdk.claimoptions.md) | _(Optional)_                             |
 
 **Returns:**
 

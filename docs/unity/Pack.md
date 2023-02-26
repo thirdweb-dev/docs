@@ -37,7 +37,7 @@ Interact with a [Pack](#class_thirdweb_1_1_pack) contract.
 | AddPackContents   | function | Add new contents to an existing pack                                                                                                                                         |
 | Open              | function | Open a pack and transfer the rewards to the connected wallet                                                                                                                 |
 
-## Members
+# Members
 
 **`public string `[`chain`](#class_thirdweb_1_1_pack_1ae65c4c6bbb9e1fc75686d4fb25274ed4)**
 

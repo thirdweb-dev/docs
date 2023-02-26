@@ -9,9 +9,7 @@ displayed_sidebar: typescript
 
 # ContractRoles.setAll() method
 
-Call this to OVERWRITE the list of addresses that are members of specific roles.
-
-Every role in the list will be overwritten with the new list of addresses provided with them. If you want to add or remove addresses for a single address use [ContractRoles.grant()](./sdk.contractroles.grant.md) and [ContractRoles.revoke()](./sdk.contractroles.revoke.md) respectively instead.
+Overwrite the list of members for specific roles
 
 ## Example
 
@@ -46,3 +44,7 @@ Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
 ## Exceptions
 
 If you are requestiong a role that does not exist on the contract this will throw an error.
+
+## Remarks
+
+Every role in the list will be overwritten with the new list of addresses provided with them. If you want to add or remove addresses for a single address use [ContractRoles.grant()](./sdk.contractroles.grant.md) and [ContractRoles.revoke()](./sdk.contractroles.revoke.md) respectively instead.

@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.transferBatch() method
 
-Transfer Tokens To Many Wallets
+Transfer tokens to many wallets
 
 ## Example
 

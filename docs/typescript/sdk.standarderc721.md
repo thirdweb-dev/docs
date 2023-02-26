@@ -39,15 +39,15 @@ await contract.nft.transfer(walletAddress, tokenId);
 | --------------------------------------------------------------------------- | --------- | ---------------------------------------------------------------------- |
 | [balance()](./sdk.standarderc721.balance.md)                                |           | Get NFT Balance for the currently connected wallet                     |
 | [balanceOf(address)](./sdk.standarderc721.balanceof.md)                     |           | Get NFT Balance                                                        |
-| [get(tokenId)](./sdk.standarderc721.get.md)                                 |           | Get a single NFT Metadata                                              |
+| [get(tokenId)](./sdk.standarderc721.get.md)                                 |           | Get a single NFT                                                       |
 | [getAddress()](./sdk.standarderc721.getaddress.md)                          |           |                                                                        |
-| [getAll(queryParams)](./sdk.standarderc721.getall.md)                       |           | Get All Minted NFTs                                                    |
-| [getOwned(walletAddress)](./sdk.standarderc721.getowned.md)                 |           | Get Owned NFTs                                                         |
+| [getAll(queryParams)](./sdk.standarderc721.getall.md)                       |           | Get all NFTs                                                           |
+| [getOwned(walletAddress)](./sdk.standarderc721.getowned.md)                 |           | Get all NFTs owned by a specific wallet                                |
 | [getOwnedTokenIds(walletAddress)](./sdk.standarderc721.getownedtokenids.md) |           | Get Owned Token Ids                                                    |
 | [isApproved(address, operator)](./sdk.standarderc721.isapproved.md)         |           | Get whether this wallet has approved transfers from the given operator |
 | [ownerOf(tokenId)](./sdk.standarderc721.ownerof.md)                         |           | Get the current owner of a given NFT within this Contract              |
-| [totalSupply()](./sdk.standarderc721.totalsupply.md)                        |           | Get the total count NFTs minted in this contract                       |
-| [transfer(to, tokenId)](./sdk.standarderc721.transfer.md)                   |           | Transfer a single NFT                                                  |
+| [totalSupply()](./sdk.standarderc721.totalsupply.md)                        |           | Get total minted supply count                                          |
+| [transfer(to, tokenId)](./sdk.standarderc721.transfer.md)                   |           | Transfer an NFT                                                        |
 
 **Signature:**
 

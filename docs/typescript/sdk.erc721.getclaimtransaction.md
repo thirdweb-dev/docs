@@ -19,11 +19,11 @@ getClaimTransaction(destinationAddress: string, quantity: BigNumberish, options?
 
 ## Parameters
 
-| Parameter          | Type                                  | Description       |
-| ------------------ | ------------------------------------- | ----------------- |
-| destinationAddress | string                                |                   |
-| quantity           | BigNumberish                          |                   |
-| options            | [ClaimOptions](./sdk.claimoptions.md) | <i>(Optional)</i> |
+| Parameter          | Type                                  | Description  |
+| ------------------ | ------------------------------------- | ------------ |
+| destinationAddress | string                                |              |
+| quantity           | BigNumberish                          |              |
+| options            | [ClaimOptions](./sdk.claimoptions.md) | _(Optional)_ |
 
 **Returns:**
 

@@ -17,61 +17,53 @@ MarketplaceV3Initializer: {
   contractType: "marketplace-v3";
   schema: {
     deploy: import("zod").ZodObject<
-      import("zod").extendShape<
-        import("zod").extendShape<
-          {
-            name: import("zod").ZodString;
-            description: import("zod").ZodOptional<import("zod").ZodString>;
-            image: import("zod").ZodOptional<
+      {
+        name: import("zod").ZodString;
+        description: import("zod").ZodOptional<import("zod").ZodString>;
+        image: import("zod").ZodOptional<
+          import("zod").ZodUnion<
+            [
               import("zod").ZodUnion<
                 [
-                  import("zod").ZodUnion<
-                    [
-                      import("zod").ZodTypeAny,
-                      import("zod").ZodObject<
-                        {
-                          data: import("zod").ZodUnion<
-                            [import("zod").ZodTypeAny, import("zod").ZodString]
-                          >;
-                          name: import("zod").ZodString;
-                        },
-                        "strip",
-                        import("zod").ZodTypeAny,
-                        {
-                          data?: any;
-                          name: string;
-                        },
-                        {
-                          data?: any;
-                          name: string;
-                        }
-                      >,
-                    ]
+                  import("zod").ZodTypeAny,
+                  import("zod").ZodObject<
+                    {
+                      data: import("zod").ZodUnion<
+                        [import("zod").ZodTypeAny, import("zod").ZodString]
+                      >;
+                      name: import("zod").ZodString;
+                    },
+                    "strip",
+                    import("zod").ZodTypeAny,
+                    {
+                      data?: any;
+                      name: string;
+                    },
+                    {
+                      data?: any;
+                      name: string;
+                    }
                   >,
-                  import("zod").ZodString,
                 ]
-              >
-            >;
-            external_link: import("zod").ZodOptional<import("zod").ZodString>;
-          },
-          {
-            platform_fee_basis_points: import("zod").ZodDefault<
-              import("zod").ZodNumber
-            >;
-            platform_fee_recipient: import("zod").ZodDefault<
-              import("zod").ZodEffects<import("zod").ZodString, string, string>
-            >;
-          }
-        >,
-        {
-          trusted_forwarders: import("zod").ZodDefault<
-            import("zod").ZodArray<
-              import("zod").ZodEffects<import("zod").ZodString, string, string>,
-              "many"
-            >
-          >;
-        }
-      >,
+              >,
+              import("zod").ZodString,
+            ]
+          >
+        >;
+        external_link: import("zod").ZodOptional<import("zod").ZodString>;
+        platform_fee_basis_points: import("zod").ZodDefault<
+          import("zod").ZodNumber
+        >;
+        platform_fee_recipient: import("zod").ZodDefault<
+          import("zod").ZodEffects<import("zod").ZodString, string, string>
+        >;
+        trusted_forwarders: import("zod").ZodDefault<
+          import("zod").ZodArray<
+            import("zod").ZodEffects<import("zod").ZodString, string, string>,
+            "many"
+          >
+        >;
+      },
       "strip",
       import("zod").ZodTypeAny,
       {
@@ -94,46 +86,12 @@ MarketplaceV3Initializer: {
       }
     >;
     output: import("zod").ZodObject<
-      import("zod").extendShape<
-        {
-          name: import("zod").ZodString;
-          description: import("zod").ZodOptional<import("zod").ZodString>;
-          image: import("zod").ZodOptional<
-            import("zod").ZodUnion<
-              [
-                import("zod").ZodUnion<
-                  [
-                    import("zod").ZodTypeAny,
-                    import("zod").ZodObject<
-                      {
-                        data: import("zod").ZodUnion<
-                          [import("zod").ZodTypeAny, import("zod").ZodString]
-                        >;
-                        name: import("zod").ZodString;
-                      },
-                      "strip",
-                      import("zod").ZodTypeAny,
-                      {
-                        data?: any;
-                        name: string;
-                      },
-                      {
-                        data?: any;
-                        name: string;
-                      }
-                    >,
-                  ]
-                >,
-                import("zod").ZodString,
-              ]
-            >
-          >;
-          external_link: import("zod").ZodOptional<import("zod").ZodString>;
-        },
-        {
-          image: import("zod").ZodOptional<import("zod").ZodString>;
-        }
-      >,
+      {
+        name: import("zod").ZodString;
+        description: import("zod").ZodOptional<import("zod").ZodString>;
+        external_link: import("zod").ZodOptional<import("zod").ZodString>;
+        image: import("zod").ZodOptional<import("zod").ZodString>;
+      },
       "strip",
       import("zod").ZodUnknown,
       {
@@ -217,9 +175,9 @@ MarketplaceV3Initializer: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                  decimals?: number | undefined;
                   symbol: string;
                   name: string;
+                  decimals: 18;
                 };
               }[]
             | undefined;

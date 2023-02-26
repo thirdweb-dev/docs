@@ -26,7 +26,7 @@ const snapshots = ['0x...', '0x...']
 const claimConditions = [
   {
     startTime: presaleStartTime, // start the presale now
-    maxQuantity: 2, // limit how many mints for this presale
+    maxClaimableSupply: 2, // limit how many mints for this presale
     price: 0.01, // presale price
     snapshot: snapshots, // limit minting to only certain addresses
   },
@@ -48,11 +48,11 @@ set(tokenId: BigNumberish, claimConditionInputs: ClaimConditionInput[], resetCla
 
 ## Parameters
 
-| Parameter                   | Type                                                    | Description                                                                         |
-| --------------------------- | ------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| tokenId                     | BigNumberish                                            | The id of the NFT to set the claim conditions on                                    |
-| claimConditionInputs        | [ClaimConditionInput](./sdk.claimconditioninput.md)\[\] | The claim conditions                                                                |
-| resetClaimEligibilityForAll | boolean                                                 | <i>(Optional)</i> Whether to reset the state of who already claimed NFTs previously |
+| Parameter                   | Type                                                    | Description                                                                    |
+| --------------------------- | ------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| tokenId                     | BigNumberish                                            | The id of the NFT to set the claim conditions on                               |
+| claimConditionInputs        | [ClaimConditionInput](./sdk.claimconditioninput.md)\[\] | The claim conditions                                                           |
+| resetClaimEligibilityForAll | boolean                                                 | _(Optional)_ Whether to reset the state of who already claimed NFTs previously |
 
 **Returns:**
 

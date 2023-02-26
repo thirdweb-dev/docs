@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.totalSupply() method
 
-The total supply for this Token
+Get the total supply for this token
 
 ## Example
 

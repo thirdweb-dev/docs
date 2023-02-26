@@ -19,11 +19,11 @@ export interface SplitContractDeployMetadata
 
 ## Properties
 
-| Property                                                                       | Modifiers | Type                                                    | Description                                                  |
-| ------------------------------------------------------------------------------ | --------- | ------------------------------------------------------- | ------------------------------------------------------------ |
-| [description?](./sdk.splitcontractdeploymetadata.description.md)               |           | string                                                  | <i>(Optional)</i> Optional description of the contract       |
-| [external_link?](./sdk.splitcontractdeploymetadata.external_link.md)           |           | string                                                  | <i>(Optional)</i> Optional url for the contract              |
-| [image?](./sdk.splitcontractdeploymetadata.image.md)                           |           | FileOrBufferOrString                                    | <i>(Optional)</i> Optional image for the contract            |
-| [name](./sdk.splitcontractdeploymetadata.name.md)                              |           | string                                                  | name of the contract                                         |
-| [recipients](./sdk.splitcontractdeploymetadata.recipients.md)                  |           | [SplitRecipientInput](./sdk.splitrecipientinput.md)\[\] | The list of recipients and their share of the split          |
-| [trusted_forwarders?](./sdk.splitcontractdeploymetadata.trusted_forwarders.md) |           | string\[\]                                              | <i>(Optional)</i> Custom gasless trusted forwarder addresses |
+| Property                                                                       | Modifiers | Type                                                    | Description                                             |
+| ------------------------------------------------------------------------------ | --------- | ------------------------------------------------------- | ------------------------------------------------------- |
+| [description?](./sdk.splitcontractdeploymetadata.description.md)               |           | string                                                  | _(Optional)_ Optional description of the contract       |
+| [external_link?](./sdk.splitcontractdeploymetadata.external_link.md)           |           | string                                                  | _(Optional)_ Optional url for the contract              |
+| [image?](./sdk.splitcontractdeploymetadata.image.md)                           |           | FileOrBufferOrString                                    | _(Optional)_ Optional image for the contract            |
+| [name](./sdk.splitcontractdeploymetadata.name.md)                              |           | string                                                  | name of the contract                                    |
+| [recipients](./sdk.splitcontractdeploymetadata.recipients.md)                  |           | [SplitRecipientInput](./sdk.splitrecipientinput.md)\[\] | The list of recipients and their share of the split     |
+| [trusted_forwarders?](./sdk.splitcontractdeploymetadata.trusted_forwarders.md) |           | string\[\]                                              | _(Optional)_ Custom gasless trusted forwarder addresses |

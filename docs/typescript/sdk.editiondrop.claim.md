@@ -19,11 +19,11 @@ claim(tokenId: BigNumberish, quantity: BigNumberish, checkERC20Allowance?: boole
 
 ## Parameters
 
-| Parameter           | Type         | Description                                                                                                                      |
-| ------------------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------- |
-| tokenId             | BigNumberish | Id of the token you want to claim                                                                                                |
-| quantity            | BigNumberish | Quantity of the tokens you want to claim                                                                                         |
-| checkERC20Allowance | boolean      | <i>(Optional)</i> Optional, check if the wallet has enough ERC20 allowance to claim the tokens, and if not, approve the transfer |
+| Parameter           | Type         | Description                                                                                                                 |
+| ------------------- | ------------ | --------------------------------------------------------------------------------------------------------------------------- |
+| tokenId             | BigNumberish | Id of the token you want to claim                                                                                           |
+| quantity            | BigNumberish | Quantity of the tokens you want to claim                                                                                    |
+| checkERC20Allowance | boolean      | _(Optional)_ Optional, check if the wallet has enough ERC20 allowance to claim the tokens, and if not, approve the transfer |
 
 **Returns:**
 

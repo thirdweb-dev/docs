@@ -14,6 +14,7 @@ Set the royalty recipient and fee for a particular token
 ## Example
 
 ```javascript
+const tokenId = 0;
 await contract.roles.setTokenRoyaltyInfo(tokenId, {
   seller_fee_basis_points: 100, // 1% royalty fee
   fee_recipient: "0x...", // the fee recipient

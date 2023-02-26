@@ -20,7 +20,7 @@ export declare function buildDefaultMap(sdkOptions?: SDKOptions): Record<
     nativeCurrency: {
       symbol: string;
       name: string;
-      decimals: number;
+      decimals: 18;
     };
   }
 >;
@@ -28,10 +28,10 @@ export declare function buildDefaultMap(sdkOptions?: SDKOptions): Record<
 
 ## Parameters
 
-| Parameter  | Type                              | Description       |
-| ---------- | --------------------------------- | ----------------- |
-| sdkOptions | [SDKOptions](./sdk.sdkoptions.md) | <i>(Optional)</i> |
+| Parameter  | Type                              | Description  |
+| ---------- | --------------------------------- | ------------ |
+| sdkOptions | [SDKOptions](./sdk.sdkoptions.md) | _(Optional)_ |
 
 **Returns:**
 
-Record&lt;number, { rpc: string\[\]; chainId: number; nativeCurrency: { symbol: string; name: string; decimals: number; }; }&gt;
+Record&lt;number, { rpc: string\[\]; chainId: number; nativeCurrency: { symbol: string; name: string; decimals: 18; }; }&gt;

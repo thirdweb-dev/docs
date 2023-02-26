@@ -19,11 +19,11 @@ getClaimerProofs(tokenId: BigNumberish, claimerAddress: string, claimConditionId
 
 ## Parameters
 
-| Parameter        | Type         | Description                                                             |
-| ---------------- | ------------ | ----------------------------------------------------------------------- |
-| tokenId          | BigNumberish | the token ID to check                                                   |
-| claimerAddress   | string       | the claimer address                                                     |
-| claimConditionId | BigNumberish | <i>(Optional)</i> optional the claim condition id to get the proofs for |
+| Parameter        | Type         | Description                                                        |
+| ---------------- | ------------ | ------------------------------------------------------------------ |
+| tokenId          | BigNumberish | the token ID to check                                              |
+| claimerAddress   | string       | the claimer address                                                |
+| claimConditionId | BigNumberish | _(Optional)_ optional the claim condition id to get the proofs for |
 
 **Returns:**
 

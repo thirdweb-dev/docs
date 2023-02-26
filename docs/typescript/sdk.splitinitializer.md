@@ -17,174 +17,83 @@ SplitInitializer: {
   contractType: "split";
   schema: {
     deploy: import("zod").ZodObject<
-      import("zod").extendShape<
-        import("zod").extendShape<
-          import("zod").extendShape<
-            {
-              name: import("zod").ZodString;
-              description: import("zod").ZodOptional<import("zod").ZodString>;
-              image: import("zod").ZodOptional<
-                import("zod").ZodUnion<
-                  [
-                    import("zod").ZodUnion<
-                      [
-                        import("zod").ZodTypeAny,
-                        import("zod").ZodObject<
-                          {
-                            data: import("zod").ZodUnion<
-                              [
-                                import("zod").ZodTypeAny,
-                                import("zod").ZodString,
-                              ]
-                            >;
-                            name: import("zod").ZodString;
-                          },
-                          "strip",
-                          import("zod").ZodTypeAny,
-                          {
-                            data?: any;
-                            name: string;
-                          },
-                          {
-                            data?: any;
-                            name: string;
-                          }
-                        >,
-                      ]
-                    >,
-                    import("zod").ZodString,
-                  ]
-                >
-              >;
-              external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            },
-            {
-              recipients: import("zod").ZodEffects<
-                import("zod").ZodDefault<
-                  import("zod").ZodArray<
-                    import("zod").ZodObject<
-                      {
-                        address: import("zod").ZodEffects<
-                          import("zod").ZodString,
-                          string,
-                          string
-                        >;
-                        sharesBps: import("zod").ZodNumber;
-                      },
-                      "strip",
-                      import("zod").ZodTypeAny,
-                      {
-                        address: string;
-                        sharesBps: number;
-                      },
-                      {
-                        address: string;
-                        sharesBps: number;
-                      }
-                    >,
-                    "many"
-                  >
-                >,
-                {
-                  address: string;
-                  sharesBps: number;
-                }[],
-                | {
-                    address: string;
-                    sharesBps: number;
-                  }[]
-                | undefined
-              >;
-            }
-          >,
-          import("zod").extendShape<
-            {
-              name: import("zod").ZodString;
-              description: import("zod").ZodOptional<import("zod").ZodString>;
-              image: import("zod").ZodOptional<
-                import("zod").ZodUnion<
-                  [
-                    import("zod").ZodUnion<
-                      [
-                        import("zod").ZodTypeAny,
-                        import("zod").ZodObject<
-                          {
-                            data: import("zod").ZodUnion<
-                              [
-                                import("zod").ZodTypeAny,
-                                import("zod").ZodString,
-                              ]
-                            >;
-                            name: import("zod").ZodString;
-                          },
-                          "strip",
-                          import("zod").ZodTypeAny,
-                          {
-                            data?: any;
-                            name: string;
-                          },
-                          {
-                            data?: any;
-                            name: string;
-                          }
-                        >,
-                      ]
-                    >,
-                    import("zod").ZodString,
-                  ]
-                >
-              >;
-              external_link: import("zod").ZodOptional<import("zod").ZodString>;
-            },
-            {
-              recipients: import("zod").ZodEffects<
-                import("zod").ZodDefault<
-                  import("zod").ZodArray<
-                    import("zod").ZodObject<
-                      {
-                        address: import("zod").ZodEffects<
-                          import("zod").ZodString,
-                          string,
-                          string
-                        >;
-                        sharesBps: import("zod").ZodNumber;
-                      },
-                      "strip",
-                      import("zod").ZodTypeAny,
-                      {
-                        address: string;
-                        sharesBps: number;
-                      },
-                      {
-                        address: string;
-                        sharesBps: number;
-                      }
-                    >,
-                    "many"
-                  >
-                >,
-                {
-                  address: string;
-                  sharesBps: number;
-                }[],
-                | {
-                    address: string;
-                    sharesBps: number;
-                  }[]
-                | undefined
-              >;
-            }
+      {
+        name: import("zod").ZodString;
+        description: import("zod").ZodOptional<import("zod").ZodString>;
+        image: import("zod").ZodOptional<
+          import("zod").ZodUnion<
+            [
+              import("zod").ZodUnion<
+                [
+                  import("zod").ZodTypeAny,
+                  import("zod").ZodObject<
+                    {
+                      data: import("zod").ZodUnion<
+                        [import("zod").ZodTypeAny, import("zod").ZodString]
+                      >;
+                      name: import("zod").ZodString;
+                    },
+                    "strip",
+                    import("zod").ZodTypeAny,
+                    {
+                      data?: any;
+                      name: string;
+                    },
+                    {
+                      data?: any;
+                      name: string;
+                    }
+                  >,
+                ]
+              >,
+              import("zod").ZodString,
+            ]
           >
-        >,
-        {
-          trusted_forwarders: import("zod").ZodDefault<
+        >;
+        external_link: import("zod").ZodOptional<import("zod").ZodString>;
+        recipients: import("zod").ZodEffects<
+          import("zod").ZodDefault<
             import("zod").ZodArray<
-              import("zod").ZodEffects<import("zod").ZodString, string, string>,
+              import("zod").ZodObject<
+                {
+                  address: import("zod").ZodEffects<
+                    import("zod").ZodString,
+                    string,
+                    string
+                  >;
+                  sharesBps: import("zod").ZodNumber;
+                },
+                "strip",
+                import("zod").ZodTypeAny,
+                {
+                  address: string;
+                  sharesBps: number;
+                },
+                {
+                  address: string;
+                  sharesBps: number;
+                }
+              >,
               "many"
             >
-          >;
-        }
-      >,
+          >,
+          {
+            address: string;
+            sharesBps: number;
+          }[],
+          | {
+              address: string;
+              sharesBps: number;
+            }[]
+          | undefined
+        >;
+        trusted_forwarders: import("zod").ZodDefault<
+          import("zod").ZodArray<
+            import("zod").ZodEffects<import("zod").ZodString, string, string>,
+            "many"
+          >
+        >;
+      },
       "strip",
       import("zod").ZodTypeAny,
       {
@@ -213,83 +122,35 @@ SplitInitializer: {
       }
     >;
     output: import("zod").ZodObject<
-      import("zod").extendShape<
-        import("zod").extendShape<
-          {
-            name: import("zod").ZodString;
-            description: import("zod").ZodOptional<import("zod").ZodString>;
-            image: import("zod").ZodOptional<
-              import("zod").ZodUnion<
-                [
-                  import("zod").ZodUnion<
-                    [
-                      import("zod").ZodTypeAny,
-                      import("zod").ZodObject<
-                        {
-                          data: import("zod").ZodUnion<
-                            [import("zod").ZodTypeAny, import("zod").ZodString]
-                          >;
-                          name: import("zod").ZodString;
-                        },
-                        "strip",
-                        import("zod").ZodTypeAny,
-                        {
-                          data?: any;
-                          name: string;
-                        },
-                        {
-                          data?: any;
-                          name: string;
-                        }
-                      >,
-                    ]
-                  >,
-                  import("zod").ZodString,
-                ]
-              >
-            >;
-            external_link: import("zod").ZodOptional<import("zod").ZodString>;
-          },
-          {
-            image: import("zod").ZodOptional<import("zod").ZodString>;
-          }
-        >,
-        {
-          recipients: import("zod").ZodArray<
-            import("zod").ZodObject<
-              import("zod").extendShape<
-                {
-                  address: import("zod").ZodEffects<
-                    import("zod").ZodString,
-                    string,
-                    string
-                  >;
-                  sharesBps: import("zod").ZodNumber;
-                },
-                {
-                  address: import("zod").ZodEffects<
-                    import("zod").ZodString,
-                    string,
-                    string
-                  >;
-                  sharesBps: import("zod").ZodNumber;
-                }
-              >,
-              "strip",
-              import("zod").ZodTypeAny,
-              {
-                address: string;
-                sharesBps: number;
-              },
-              {
-                address: string;
-                sharesBps: number;
-              }
-            >,
-            "many"
-          >;
-        }
-      >,
+      {
+        name: import("zod").ZodString;
+        description: import("zod").ZodOptional<import("zod").ZodString>;
+        image: import("zod").ZodOptional<import("zod").ZodString>;
+        external_link: import("zod").ZodOptional<import("zod").ZodString>;
+        recipients: import("zod").ZodArray<
+          import("zod").ZodObject<
+            {
+              address: import("zod").ZodEffects<
+                import("zod").ZodString,
+                string,
+                string
+              >;
+              sharesBps: import("zod").ZodNumber;
+            },
+            "strip",
+            import("zod").ZodTypeAny,
+            {
+              address: string;
+              sharesBps: number;
+            },
+            {
+              address: string;
+              sharesBps: number;
+            }
+          >,
+          "many"
+        >;
+      },
       "strip",
       import("zod").ZodUnknown,
       {
@@ -316,81 +177,77 @@ SplitInitializer: {
       }
     >;
     input: import("zod").ZodObject<
-      import("zod").extendShape<
-        {
-          name: import("zod").ZodString;
-          description: import("zod").ZodOptional<import("zod").ZodString>;
-          image: import("zod").ZodOptional<
-            import("zod").ZodUnion<
-              [
-                import("zod").ZodUnion<
-                  [
-                    import("zod").ZodTypeAny,
-                    import("zod").ZodObject<
-                      {
-                        data: import("zod").ZodUnion<
-                          [import("zod").ZodTypeAny, import("zod").ZodString]
-                        >;
-                        name: import("zod").ZodString;
-                      },
-                      "strip",
-                      import("zod").ZodTypeAny,
-                      {
-                        data?: any;
-                        name: string;
-                      },
-                      {
-                        data?: any;
-                        name: string;
-                      }
-                    >,
-                  ]
-                >,
-                import("zod").ZodString,
-              ]
-            >
-          >;
-          external_link: import("zod").ZodOptional<import("zod").ZodString>;
-        },
-        {
-          recipients: import("zod").ZodEffects<
-            import("zod").ZodDefault<
-              import("zod").ZodArray<
-                import("zod").ZodObject<
-                  {
-                    address: import("zod").ZodEffects<
-                      import("zod").ZodString,
-                      string,
-                      string
-                    >;
-                    sharesBps: import("zod").ZodNumber;
-                  },
-                  "strip",
+      {
+        name: import("zod").ZodString;
+        description: import("zod").ZodOptional<import("zod").ZodString>;
+        image: import("zod").ZodOptional<
+          import("zod").ZodUnion<
+            [
+              import("zod").ZodUnion<
+                [
                   import("zod").ZodTypeAny,
-                  {
-                    address: string;
-                    sharesBps: number;
-                  },
-                  {
-                    address: string;
-                    sharesBps: number;
-                  }
-                >,
-                "many"
-              >
-            >,
-            {
+                  import("zod").ZodObject<
+                    {
+                      data: import("zod").ZodUnion<
+                        [import("zod").ZodTypeAny, import("zod").ZodString]
+                      >;
+                      name: import("zod").ZodString;
+                    },
+                    "strip",
+                    import("zod").ZodTypeAny,
+                    {
+                      data?: any;
+                      name: string;
+                    },
+                    {
+                      data?: any;
+                      name: string;
+                    }
+                  >,
+                ]
+              >,
+              import("zod").ZodString,
+            ]
+          >
+        >;
+        external_link: import("zod").ZodOptional<import("zod").ZodString>;
+        recipients: import("zod").ZodEffects<
+          import("zod").ZodDefault<
+            import("zod").ZodArray<
+              import("zod").ZodObject<
+                {
+                  address: import("zod").ZodEffects<
+                    import("zod").ZodString,
+                    string,
+                    string
+                  >;
+                  sharesBps: import("zod").ZodNumber;
+                },
+                "strip",
+                import("zod").ZodTypeAny,
+                {
+                  address: string;
+                  sharesBps: number;
+                },
+                {
+                  address: string;
+                  sharesBps: number;
+                }
+              >,
+              "many"
+            >
+          >,
+          {
+            address: string;
+            sharesBps: number;
+          }[],
+          | {
               address: string;
               sharesBps: number;
-            }[],
-            | {
-                address: string;
-                sharesBps: number;
-              }[]
-            | undefined
-          >;
-        }
-      >,
+            }[]
+          | undefined
+        >;
+      },
       "strip",
       import("zod").ZodTypeAny,
       {
@@ -431,9 +288,9 @@ SplitInitializer: {
                 rpc: string[];
                 chainId: number;
                 nativeCurrency: {
-                  decimals?: number | undefined;
                   symbol: string;
                   name: string;
+                  decimals: 18;
                 };
               }[]
             | undefined;

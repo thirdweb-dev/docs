@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc721.claim() method
 
-Claim unique NFTs to the connected wallet
+Claim NFTs
 
 ## Example
 
@@ -33,7 +33,7 @@ claim(quantity: BigNumberish, options?: ClaimOptions): Promise<TransactionResult
 | Parameter | Type                                  | Description                              |
 | --------- | ------------------------------------- | ---------------------------------------- |
 | quantity  | BigNumberish                          | Quantity of the tokens you want to claim |
-| options   | [ClaimOptions](./sdk.claimoptions.md) | <i>(Optional)</i>                        |
+| options   | [ClaimOptions](./sdk.claimoptions.md) | _(Optional)_                             |
 
 **Returns:**
 

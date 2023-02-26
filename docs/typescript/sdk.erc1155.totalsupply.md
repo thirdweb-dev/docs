@@ -9,7 +9,14 @@ displayed_sidebar: typescript
 
 # Erc1155.totalSupply() method
 
-Returns the total supply of a specific token
+Get the total supply of a specific token
+
+## Example
+
+```javascript
+const tokenId = 0;
+const nft = await contract.erc1155.totalSupply(tokenId);
+```
 
 **Signature:**
 

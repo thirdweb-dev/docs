@@ -19,10 +19,10 @@ claim(quantity: BigNumberish, options?: ClaimOptions): Promise<TransactionResult
 
 ## Parameters
 
-| Parameter | Type                                  | Description       |
-| --------- | ------------------------------------- | ----------------- |
-| quantity  | BigNumberish                          |                   |
-| options   | [ClaimOptions](./sdk.claimoptions.md) | <i>(Optional)</i> |
+| Parameter | Type                                  | Description  |
+| --------- | ------------------------------------- | ------------ |
+| quantity  | BigNumberish                          |              |
+| options   | [ClaimOptions](./sdk.claimoptions.md) | _(Optional)_ |
 
 **Returns:**
 

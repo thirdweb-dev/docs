@@ -30,10 +30,10 @@ hasVoted(proposalId: string, account?: string): Promise<boolean>;
 
 ## Parameters
 
-| Parameter  | Type   | Description                                                                        |
-| ---------- | ------ | ---------------------------------------------------------------------------------- |
-| proposalId | string | The unique identifier of a proposal .                                              |
-| account    | string | <i>(Optional)</i> (optional) wallet account address. Defaults to connected signer. |
+| Parameter  | Type   | Description                                                                   |
+| ---------- | ------ | ----------------------------------------------------------------------------- |
+| proposalId | string | The unique identifier of a proposal .                                         |
+| account    | string | _(Optional)_ (optional) wallet account address. Defaults to connected signer. |
 
 **Returns:**
 

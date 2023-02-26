@@ -42,10 +42,10 @@ getEvents<TEvent extends Record<string, any> = Record<string, any>, TFilter exte
 
 ## Parameters
 
-| Parameter | Type                                                           | Description                                                                                        |
-| --------- | -------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
-| eventName | string                                                         | The name of the event to get logs for                                                              |
-| options   | [EventQueryOptions](./sdk.eventqueryoptions.md)&lt;TFilter&gt; | <i>(Optional)</i> Specify the from and to block numbers to get events for, defaults to all blocks. |
+| Parameter | Type                                                           | Description                                                                                   |
+| --------- | -------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| eventName | string                                                         | The name of the event to get logs for                                                         |
+| options   | [EventQueryOptions](./sdk.eventqueryoptions.md)&lt;TFilter&gt; | _(Optional)_ Specify the from and to block numbers to get events for, defaults to all blocks. |
 
 **Returns:**
 

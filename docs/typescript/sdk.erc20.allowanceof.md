@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.allowanceOf() method
 
-Get Token Allowance
+Get token allowance of a specific wallet
 
 ## Example
 

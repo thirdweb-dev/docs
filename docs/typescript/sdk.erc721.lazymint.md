@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc721.lazyMint() method
 
-Create a batch of unique NFTs to be claimed in the future
+Lazy mint NFTs
 
 ## Example
 
@@ -63,10 +63,10 @@ lazyMint(metadatas: NFTMetadataOrUri[], options?: {
 
 ## Parameters
 
-| Parameter | Type                                                                                     | Description                                         |
-| --------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------- |
-| metadatas | [NFTMetadataOrUri](./sdk.nftmetadataoruri.md)\[\]                                        | The metadata to include in the batch.               |
-| options   | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | <i>(Optional)</i> optional upload progress callback |
+| Parameter | Type                                                                                     | Description                                    |
+| --------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------- |
+| metadatas | [NFTMetadataOrUri](./sdk.nftmetadataoruri.md)\[\]                                        | The metadata to include in the batch.          |
+| options   | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | _(Optional)_ optional upload progress callback |
 
 **Returns:**
 

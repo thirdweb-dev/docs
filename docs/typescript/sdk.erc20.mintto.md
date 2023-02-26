@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.mintTo() method
 
-Mint Tokens
+Mint tokens to a specific wallet
 
 ## Example
 

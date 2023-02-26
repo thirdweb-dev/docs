@@ -19,13 +19,13 @@ export interface MultiwrapContractDeployMetadata
 
 ## Properties
 
-| Property                                                                                     | Modifiers | Type                 | Description                                                                                   |
-| -------------------------------------------------------------------------------------------- | --------- | -------------------- | --------------------------------------------------------------------------------------------- |
-| [description?](./sdk.multiwrapcontractdeploymetadata.description.md)                         |           | string               | <i>(Optional)</i> Optional description of the contract                                        |
-| [external_link?](./sdk.multiwrapcontractdeploymetadata.external_link.md)                     |           | string               | <i>(Optional)</i> Optional url for the contract                                               |
-| [fee_recipient?](./sdk.multiwrapcontractdeploymetadata.fee_recipient.md)                     |           | string               | <i>(Optional)</i> The address that will receive the proceeds from secondary sales (royalties) |
-| [image?](./sdk.multiwrapcontractdeploymetadata.image.md)                                     |           | FileOrBufferOrString | <i>(Optional)</i> Optional image for the contract                                             |
-| [name](./sdk.multiwrapcontractdeploymetadata.name.md)                                        |           | string               | name of the contract                                                                          |
-| [seller_fee_basis_points?](./sdk.multiwrapcontractdeploymetadata.seller_fee_basis_points.md) |           | number               | <i>(Optional)</i> The percentage (in basis points) of royalties for secondary sales           |
-| [symbol?](./sdk.multiwrapcontractdeploymetadata.symbol.md)                                   |           | string               | <i>(Optional)</i> Symbol for the NFTs                                                         |
-| [trusted_forwarders?](./sdk.multiwrapcontractdeploymetadata.trusted_forwarders.md)           |           | string\[\]           | <i>(Optional)</i> Custom gasless trusted forwarder addresses                                  |
+| Property                                                                                     | Modifiers | Type                 | Description                                                                              |
+| -------------------------------------------------------------------------------------------- | --------- | -------------------- | ---------------------------------------------------------------------------------------- |
+| [description?](./sdk.multiwrapcontractdeploymetadata.description.md)                         |           | string               | _(Optional)_ Optional description of the contract                                        |
+| [external_link?](./sdk.multiwrapcontractdeploymetadata.external_link.md)                     |           | string               | _(Optional)_ Optional url for the contract                                               |
+| [fee_recipient?](./sdk.multiwrapcontractdeploymetadata.fee_recipient.md)                     |           | string               | _(Optional)_ The address that will receive the proceeds from secondary sales (royalties) |
+| [image?](./sdk.multiwrapcontractdeploymetadata.image.md)                                     |           | FileOrBufferOrString | _(Optional)_ Optional image for the contract                                             |
+| [name](./sdk.multiwrapcontractdeploymetadata.name.md)                                        |           | string               | name of the contract                                                                     |
+| [seller_fee_basis_points?](./sdk.multiwrapcontractdeploymetadata.seller_fee_basis_points.md) |           | number               | _(Optional)_ The percentage (in basis points) of royalties for secondary sales           |
+| [symbol?](./sdk.multiwrapcontractdeploymetadata.symbol.md)                                   |           | string               | _(Optional)_ Symbol for the NFTs                                                         |
+| [trusted_forwarders?](./sdk.multiwrapcontractdeploymetadata.trusted_forwarders.md)           |           | string\[\]           | _(Optional)_ Custom gasless trusted forwarder addresses                                  |

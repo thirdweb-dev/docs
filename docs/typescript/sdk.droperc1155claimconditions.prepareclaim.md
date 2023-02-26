@@ -19,12 +19,12 @@ prepareClaim(tokenId: BigNumberish, quantity: BigNumberish, checkERC20Allowance:
 
 ## Parameters
 
-| Parameter           | Type         | Description       |
-| ------------------- | ------------ | ----------------- |
-| tokenId             | BigNumberish |                   |
-| quantity            | BigNumberish |                   |
-| checkERC20Allowance | boolean      |                   |
-| address             | string       | <i>(Optional)</i> |
+| Parameter           | Type         | Description  |
+| ------------------- | ------------ | ------------ |
+| tokenId             | BigNumberish |              |
+| quantity            | BigNumberish |              |
+| checkERC20Allowance | boolean      |              |
+| address             | string       | _(Optional)_ |
 
 **Returns:**
 

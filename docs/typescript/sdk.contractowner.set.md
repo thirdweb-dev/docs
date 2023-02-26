@@ -14,7 +14,8 @@ Set the new owner of the contract
 ## Example
 
 ```javascript
-await contract.owner.set("0x1234567890123456789012345678901234567890");
+const newOwnerAddress = "{{wallet_address}}";
+await contract.owner.set(newOwnerAddress);
 ```
 
 **Signature:**

@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc1155Enumerable.owned() method
 
-Get Owned NFTs
+Get all NFTs owned by a specific wallet
 
 ## Example
 
@@ -27,9 +27,9 @@ owned(walletAddress?: string): Promise<NFT[]>;
 
 ## Parameters
 
-| Parameter     | Type   | Description       |
-| ------------- | ------ | ----------------- |
-| walletAddress | string | <i>(Optional)</i> |
+| Parameter     | Type   | Description  |
+| ------------- | ------ | ------------ |
+| walletAddress | string | _(Optional)_ |
 
 **Returns:**
 

@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc721.mintBatchTo() method
 
-Mint Many unique NFTs
+Mint many NFTs to a specific wallet
 
 ## Example
 

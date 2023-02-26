@@ -22,7 +22,7 @@ displayed_sidebar: unity
 | buyoutPricePerToken      | variable |              |
 | ToString                 | function |              |
 
-## Members
+# Members
 
 **`public string `[`type`](#class_thirdweb_1_1_new_listing_1a001b9b37e9e0bb014c45726714c17252)**
 

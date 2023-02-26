@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.allowance() method
 
-Get Token Allowance
+Get token allowance
 
 ## Example
 

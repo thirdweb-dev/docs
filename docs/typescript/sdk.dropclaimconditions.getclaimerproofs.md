@@ -19,10 +19,10 @@ getClaimerProofs(claimerAddress: string, claimConditionId?: BigNumberish): Promi
 
 ## Parameters
 
-| Parameter        | Type         | Description                                                             |
-| ---------------- | ------------ | ----------------------------------------------------------------------- |
-| claimerAddress   | string       | the claimer address                                                     |
-| claimConditionId | BigNumberish | <i>(Optional)</i> optional the claim condition id to get the proofs for |
+| Parameter        | Type         | Description                                                        |
+| ---------------- | ------------ | ------------------------------------------------------------------ |
+| claimerAddress   | string       | the claimer address                                                |
+| claimConditionId | BigNumberish | _(Optional)_ optional the claim condition id to get the proofs for |
 
 **Returns:**
 

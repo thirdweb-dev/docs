@@ -19,9 +19,9 @@ tokenIds(walletAddress?: string): Promise<BigNumber[]>;
 
 ## Parameters
 
-| Parameter     | Type   | Description                                                                     |
-| ------------- | ------ | ------------------------------------------------------------------------------- |
-| walletAddress | string | <i>(Optional)</i> the wallet address to query, defaults to the connected wallet |
+| Parameter     | Type   | Description                                                                |
+| ------------- | ------ | -------------------------------------------------------------------------- |
+| walletAddress | string | _(Optional)_ the wallet address to query, defaults to the connected wallet |
 
 **Returns:**
 

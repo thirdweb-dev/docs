@@ -17,10 +17,10 @@ getMultichainContractList(walletAddress: string, chains?: Chain[]): Promise<Cont
 
 ## Parameters
 
-| Parameter     | Type      | Description       |
-| ------------- | --------- | ----------------- |
-| walletAddress | string    |                   |
-| chains        | Chain\[\] | <i>(Optional)</i> |
+| Parameter     | Type      | Description  |
+| ------------- | --------- | ------------ |
+| walletAddress | string    |              |
+| chains        | Chain\[\] | _(Optional)_ |
 
 **Returns:**
 

@@ -9,12 +9,11 @@ displayed_sidebar: typescript
 
 # Erc20.balanceOf() method
 
-Get Token Balance
+Get token balance for a specific wallet
 
 ## Example
 
 ```javascript
-// Address of the wallet to check token balance
 const walletAddress = "{{wallet_address}}";
 const balance = await contract.erc20.balanceOf(walletAddress);
 ```

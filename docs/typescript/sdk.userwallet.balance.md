@@ -28,9 +28,9 @@ balance(currencyAddress?: string): Promise<CurrencyValue>;
 
 ## Parameters
 
-| Parameter       | Type   | Description       |
-| --------------- | ------ | ----------------- |
-| currencyAddress | string | <i>(Optional)</i> |
+| Parameter       | Type   | Description  |
+| --------------- | ------ | ------------ |
+| currencyAddress | string | _(Optional)_ |
 
 **Returns:**
 

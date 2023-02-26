@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.burn() method
 
-Burn Tokens
+Burn tokens
 
 ## Example
 

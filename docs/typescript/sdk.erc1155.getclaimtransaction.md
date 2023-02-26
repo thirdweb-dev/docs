@@ -19,12 +19,12 @@ getClaimTransaction(destinationAddress: string, tokenId: BigNumberish, quantity:
 
 ## Parameters
 
-| Parameter          | Type                                  | Description                                                                       |
-| ------------------ | ------------------------------------- | --------------------------------------------------------------------------------- |
-| destinationAddress | string                                | Address you want to send the token to                                             |
-| tokenId            | BigNumberish                          | Id of the token you want to claim                                                 |
-| quantity           | BigNumberish                          | Quantity of the tokens you want to claim                                          |
-| options            | [ClaimOptions](./sdk.claimoptions.md) | <i>(Optional)</i> Optional claim verification data (e.g. price, currency, etc...) |
+| Parameter          | Type                                  | Description                                                                  |
+| ------------------ | ------------------------------------- | ---------------------------------------------------------------------------- |
+| destinationAddress | string                                | Address you want to send the token to                                        |
+| tokenId            | BigNumberish                          | Id of the token you want to claim                                            |
+| quantity           | BigNumberish                          | Quantity of the tokens you want to claim                                     |
+| options            | [ClaimOptions](./sdk.claimoptions.md) | _(Optional)_ Optional claim verification data (e.g. price, currency, etc...) |
 
 **Returns:**
 

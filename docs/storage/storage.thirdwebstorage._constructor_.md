@@ -19,6 +19,6 @@ constructor(options?: ThirdwebStorageOptions<T>);
 
 ## Parameters
 
-| Parameter | Type                                                                   | Description       |
-| --------- | ---------------------------------------------------------------------- | ----------------- |
-| options   | [ThirdwebStorageOptions](./storage.thirdwebstorageoptions.md)&lt;T&gt; | <i>(Optional)</i> |
+| Parameter | Type                                                                   | Description  |
+| --------- | ---------------------------------------------------------------------- | ------------ |
+| options   | [ThirdwebStorageOptions](./storage.thirdwebstorageoptions.md)&lt;T&gt; | _(Optional)_ |

@@ -17,10 +17,10 @@ export declare function getRpcUrl(network: string, apikey?: string): string;
 
 ## Parameters
 
-| Parameter | Type   | Description       |
-| --------- | ------ | ----------------- |
-| network   | string |                   |
-| apikey    | string | <i>(Optional)</i> |
+| Parameter | Type   | Description  |
+| --------- | ------ | ------------ |
+| network   | string |              |
+| apikey    | string | _(Optional)_ |
 
 **Returns:**
 

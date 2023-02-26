@@ -40,11 +40,11 @@ await contract.edition.transfer(walletAddress, tokenId, quantity);
 | [airdrop(tokenId, addresses, data)](./sdk.standarderc1155.airdrop.md)    |           | Airdrop multiple NFTs                                                  |
 | [balance(tokenId)](./sdk.standarderc1155.balance.md)                     |           | Get NFT Balance for the currently connected wallet                     |
 | [balanceOf(address, tokenId)](./sdk.standarderc1155.balanceof.md)        |           | Get NFT Balance                                                        |
-| [get(tokenId)](./sdk.standarderc1155.get.md)                             |           | Get a single NFT Metadata                                              |
+| [get(tokenId)](./sdk.standarderc1155.get.md)                             |           | Get a single NFT                                                       |
 | [getAddress()](./sdk.standarderc1155.getaddress.md)                      |           |                                                                        |
 | [isApproved(address, operator)](./sdk.standarderc1155.isapproved.md)     |           | Get whether this wallet has approved transfers from the given operator |
 | [totalSupply(tokenId)](./sdk.standarderc1155.totalsupply.md)             |           | Returns the total supply of a specific token                           |
-| [transfer(to, tokenId, amount, data)](./sdk.standarderc1155.transfer.md) |           | Transfer a single NFT                                                  |
+| [transfer(to, tokenId, amount, data)](./sdk.standarderc1155.transfer.md) |           | Transfer an NFT                                                        |
 
 **Signature:**
 

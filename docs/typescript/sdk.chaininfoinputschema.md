@@ -20,19 +20,19 @@ ChainInfoInputSchema: z.ZodObject<
       {
         name: z.ZodString;
         symbol: z.ZodString;
-        decimals: z.ZodDefault<z.ZodNumber>;
+        decimals: z.ZodLiteral<18>;
       },
       "strip",
       z.ZodTypeAny,
       {
         symbol: string;
         name: string;
-        decimals: number;
+        decimals: 18;
       },
       {
-        decimals?: number | undefined;
         symbol: string;
         name: string;
+        decimals: 18;
       }
     >;
   },
@@ -44,16 +44,16 @@ ChainInfoInputSchema: z.ZodObject<
     nativeCurrency: {
       symbol: string;
       name: string;
-      decimals: number;
+      decimals: 18;
     };
   },
   {
     rpc: string[];
     chainId: number;
     nativeCurrency: {
-      decimals?: number | undefined;
       symbol: string;
       name: string;
+      decimals: 18;
     };
   }
 >;

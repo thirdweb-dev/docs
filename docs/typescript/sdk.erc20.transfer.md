@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.transfer() method
 
-Transfer Tokens
+Transfer tokens
 
 ## Example
 

@@ -26,9 +26,9 @@ getActiveListings(filter?: MarketplaceFilter): Promise<(AuctionListing | DirectL
 
 ## Parameters
 
-| Parameter | Type                                            | Description                                  |
-| --------- | ----------------------------------------------- | -------------------------------------------- |
-| filter    | [MarketplaceFilter](./sdk.marketplacefilter.md) | <i>(Optional)</i> optional filter parameters |
+| Parameter | Type                                            | Description                             |
+| --------- | ----------------------------------------------- | --------------------------------------- |
+| filter    | [MarketplaceFilter](./sdk.marketplacefilter.md) | _(Optional)_ optional filter parameters |
 
 **Returns:**
 

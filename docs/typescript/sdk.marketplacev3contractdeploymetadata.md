@@ -19,12 +19,12 @@ export interface MarketplaceV3ContractDeployMetadata
 
 ## Properties
 
-| Property                                                                                             | Modifiers | Type                 | Description                                                                     |
-| ---------------------------------------------------------------------------------------------------- | --------- | -------------------- | ------------------------------------------------------------------------------- |
-| [description?](./sdk.marketplacev3contractdeploymetadata.description.md)                             |           | string               | <i>(Optional)</i> Optional description of the contract                          |
-| [external_link?](./sdk.marketplacev3contractdeploymetadata.external_link.md)                         |           | string               | <i>(Optional)</i> Optional url for the contract                                 |
-| [image?](./sdk.marketplacev3contractdeploymetadata.image.md)                                         |           | FileOrBufferOrString | <i>(Optional)</i> Optional image for the contract                               |
-| [name](./sdk.marketplacev3contractdeploymetadata.name.md)                                            |           | string               | name of the contract                                                            |
-| [platform_fee_basis_points?](./sdk.marketplacev3contractdeploymetadata.platform_fee_basis_points.md) |           | number               | <i>(Optional)</i> The percentage (in basis points) of platform fees             |
-| [platform_fee_recipient?](./sdk.marketplacev3contractdeploymetadata.platform_fee_recipient.md)       |           | string               | <i>(Optional)</i> The address that will receive the proceeds from platform fees |
-| [trusted_forwarders?](./sdk.marketplacev3contractdeploymetadata.trusted_forwarders.md)               |           | string\[\]           | <i>(Optional)</i> Custom gasless trusted forwarder addresses                    |
+| Property                                                                                             | Modifiers | Type                 | Description                                                                |
+| ---------------------------------------------------------------------------------------------------- | --------- | -------------------- | -------------------------------------------------------------------------- |
+| [description?](./sdk.marketplacev3contractdeploymetadata.description.md)                             |           | string               | _(Optional)_ Optional description of the contract                          |
+| [external_link?](./sdk.marketplacev3contractdeploymetadata.external_link.md)                         |           | string               | _(Optional)_ Optional url for the contract                                 |
+| [image?](./sdk.marketplacev3contractdeploymetadata.image.md)                                         |           | FileOrBufferOrString | _(Optional)_ Optional image for the contract                               |
+| [name](./sdk.marketplacev3contractdeploymetadata.name.md)                                            |           | string               | name of the contract                                                       |
+| [platform_fee_basis_points?](./sdk.marketplacev3contractdeploymetadata.platform_fee_basis_points.md) |           | number               | _(Optional)_ The percentage (in basis points) of platform fees             |
+| [platform_fee_recipient?](./sdk.marketplacev3contractdeploymetadata.platform_fee_recipient.md)       |           | string               | _(Optional)_ The address that will receive the proceeds from platform fees |
+| [trusted_forwarders?](./sdk.marketplacev3contractdeploymetadata.trusted_forwarders.md)               |           | string\[\]           | _(Optional)_ Custom gasless trusted forwarder addresses                    |

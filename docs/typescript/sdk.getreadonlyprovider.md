@@ -20,10 +20,10 @@ export declare function getReadOnlyProvider(
 
 ## Parameters
 
-| Parameter | Type   | Description                             |
-| --------- | ------ | --------------------------------------- |
-| network   | string | the chain name or rpc url               |
-| chainId   | number | <i>(Optional)</i> the optional chain id |
+| Parameter | Type   | Description                        |
+| --------- | ------ | ---------------------------------- |
+| network   | string | the chain name or rpc url          |
+| chainId   | number | _(Optional)_ the optional chain id |
 
 **Returns:**
 

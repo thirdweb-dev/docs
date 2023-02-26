@@ -27,10 +27,10 @@ unwrap(wrappedTokenId: BigNumberish, recipientAddress?: string): Promise<Transac
 
 ## Parameters
 
-| Parameter        | Type         | Description                                                             |
-| ---------------- | ------------ | ----------------------------------------------------------------------- |
-| wrappedTokenId   | BigNumberish | the id of the wrapped token bundle                                      |
-| recipientAddress | string       | <i>(Optional)</i> Optional. The address to send the unwrapped tokens to |
+| Parameter        | Type         | Description                                                        |
+| ---------------- | ------------ | ------------------------------------------------------------------ |
+| wrappedTokenId   | BigNumberish | the id of the wrapped token bundle                                 |
+| recipientAddress | string       | _(Optional)_ Optional. The address to send the unwrapped tokens to |
 
 **Returns:**
 

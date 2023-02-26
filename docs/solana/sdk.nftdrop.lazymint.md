@@ -24,7 +24,7 @@ lazyMint(metadatas: NFTMetadataInput[], options?: {
 | Parameter | Type                                                     | Description                           |
 | --------- | -------------------------------------------------------- | ------------------------------------- |
 | metadatas | NFTMetadataInput\[\]                                     | The metadata of the NFTs to lazy mint |
-| options   | { onProgress: (event: UploadProgressEvent) =&gt; void; } | <i>(Optional)</i>                     |
+| options   | { onProgress: (event: UploadProgressEvent) =&gt; void; } | _(Optional)_                          |
 
 **Returns:**
 
