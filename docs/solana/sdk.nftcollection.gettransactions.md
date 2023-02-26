@@ -21,9 +21,9 @@ getTransactions(options?: SignaturesForAddressOptions): Promise<TransactionRespo
 
 ## Parameters
 
-| Parameter | Type                        | Description       |
-| --------- | --------------------------- | ----------------- |
-| options   | SignaturesForAddressOptions | <i>(Optional)</i> |
+| Parameter | Type                        | Description  |
+| --------- | --------------------------- | ------------ |
+| options   | SignaturesForAddressOptions | _(Optional)_ |
 
 **Returns:**
 

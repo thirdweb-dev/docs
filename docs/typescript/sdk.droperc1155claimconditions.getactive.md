@@ -19,10 +19,10 @@ getActive(tokenId: BigNumberish, options?: ClaimConditionFetchOptions): Promise<
 
 ## Parameters
 
-| Parameter | Type                                                              | Description       |
-| --------- | ----------------------------------------------------------------- | ----------------- |
-| tokenId   | BigNumberish                                                      |                   |
-| options   | [ClaimConditionFetchOptions](./sdk.claimconditionfetchoptions.md) | <i>(Optional)</i> |
+| Parameter | Type                                                              | Description  |
+| --------- | ----------------------------------------------------------------- | ------------ |
+| tokenId   | BigNumberish                                                      |              |
+| options   | [ClaimConditionFetchOptions](./sdk.claimconditionfetchoptions.md) | _(Optional)_ |
 
 **Returns:**
 

@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.claimTo() method
 
-Claim a certain amount of tokens to a specific Wallet
+Claim tokens to a specific wallet
 
 ## Example
 
@@ -33,7 +33,7 @@ claimTo(destinationAddress: string, amount: Amount, options?: ClaimOptions): Pro
 | ------------------ | ------------------------------------- | ---------------------------------------- |
 | destinationAddress | string                                | Address you want to send the token to    |
 | amount             | [Amount](./sdk.amount.md)             | Quantity of the tokens you want to claim |
-| options            | [ClaimOptions](./sdk.claimoptions.md) | <i>(Optional)</i>                        |
+| options            | [ClaimOptions](./sdk.claimoptions.md) | _(Optional)_                             |
 
 **Returns:**
 

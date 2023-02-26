@@ -20,7 +20,7 @@ const claimConditionsForTokens = [
     claimConditions: [
       {
         startTime: new Date(), // start the claim phase now
-        maxQuantity: 2, // limit how many mints for this tokenId
+        maxClaimableSupply: 2, // limit how many mints for this tokenId
         price: 0.01, // price for this tokenId
         snapshot: ["0x...", "0x..."], // limit minting to only certain addresses
       },
@@ -50,10 +50,10 @@ setBatch(claimConditionsForToken: ClaimConditionsForToken[], resetClaimEligibili
 
 ## Parameters
 
-| Parameter                   | Type                                                            | Description                                                                         |
-| --------------------------- | --------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| claimConditionsForToken     | [ClaimConditionsForToken](./sdk.claimconditionsfortoken.md)\[\] | The claim conditions for each NFT                                                   |
-| resetClaimEligibilityForAll | boolean                                                         | <i>(Optional)</i> Whether to reset the state of who already claimed NFTs previously |
+| Parameter                   | Type                                                            | Description                                                                    |
+| --------------------------- | --------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| claimConditionsForToken     | [ClaimConditionsForToken](./sdk.claimconditionsfortoken.md)\[\] | The claim conditions for each NFT                                              |
+| resetClaimEligibilityForAll | boolean                                                         | _(Optional)_ Whether to reset the state of who already claimed NFTs previously |
 
 **Returns:**
 

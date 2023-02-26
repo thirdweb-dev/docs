@@ -17,9 +17,9 @@ export interface IStorageUploader<T extends UploadOptions>
 
 ## Properties
 
-| Property                                                                    | Modifiers | Type    | Description                                                                              |
-| --------------------------------------------------------------------------- | --------- | ------- | ---------------------------------------------------------------------------------------- |
-| [uploadWithGatewayUrl?](./storage.istorageuploader.uploadwithgatewayurl.md) |           | boolean | <i>(Optional)</i> If specified, will upload objects with gateway URLs instead of schemes |
+| Property                                                                    | Modifiers | Type    | Description                                                                         |
+| --------------------------------------------------------------------------- | --------- | ------- | ----------------------------------------------------------------------------------- |
+| [uploadWithGatewayUrl?](./storage.istorageuploader.uploadwithgatewayurl.md) |           | boolean | _(Optional)_ If specified, will upload objects with gateway URLs instead of schemes |
 
 ## Methods
 

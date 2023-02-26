@@ -35,7 +35,7 @@ claimTo(destinationAddress: string, quantity: BigNumberish, options?: ClaimOptio
 | ------------------ | ------------------------------------- | ---------------------------------------- |
 | destinationAddress | string                                | Address you want to send the token to    |
 | quantity           | BigNumberish                          | Quantity of the tokens you want to claim |
-| options            | [ClaimOptions](./sdk.claimoptions.md) | <i>(Optional)</i>                        |
+| options            | [ClaimOptions](./sdk.claimoptions.md) | _(Optional)_                             |
 
 **Returns:**
 

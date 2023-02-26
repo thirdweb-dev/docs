@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.setAllowance() method
 
-Allows the specified `spender` wallet to transfer the given `amount` of tokens to another wallet
+Set token allowance
 
 ## Example
 
@@ -37,3 +37,7 @@ setAllowance(spender: string, amount: Amount): Promise<TransactionResult>;
 **Returns:**
 
 Promise&lt;[TransactionResult](./sdk.transactionresult.md)&gt;
+
+## Remarks
+
+Allows the specified `spender` wallet to transfer the given `amount` of tokens to another wallet

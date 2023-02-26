@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc721.ownerOf() method
 
-Get the current owner of a given NFT within this Contract
+Get the current owner of an NFT
 
 **Signature:**
 

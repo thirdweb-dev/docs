@@ -50,7 +50,7 @@ const address = sdk.wallet.getAddress();
 | [getAddress()](./sdk.userwallet.getaddress.md)                                        |           | Get the address of the connected wallet                                      |
 | [getBalance()](./sdk.userwallet.getbalance.md)                                        |           | Get the native balance of the connected wallet                               |
 | [getSigner()](./sdk.userwallet.getsigner.md)                                          |           | Get the connected signer                                                     |
-| [getTransactions(options)](./sdk.userwallet.gettransactions.md)                       |           | **<i>(BETA)</i>** Get the all transactions for this program                  |
+| [getTransactions(options)](./sdk.userwallet.gettransactions.md)                       |           | **_(BETA)_** Get the all transactions for this program                       |
 | [isConnected()](./sdk.userwallet.isconnected.md)                                      |           | Return whether a wallet is connected                                         |
 | [sign(message)](./sdk.userwallet.sign.md)                                             |           |                                                                              |
 | [verifySignature(message, signature, publicKey)](./sdk.userwallet.verifysignature.md) |           |                                                                              |

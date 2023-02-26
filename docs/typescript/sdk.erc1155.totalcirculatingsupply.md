@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc1155.totalCirculatingSupply() method
 
-Get the supply of token for a given tokenId.
+Get the total supply of a specific NFT
 
 **Signature:**
 

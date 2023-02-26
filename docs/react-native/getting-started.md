@@ -15,7 +15,7 @@ Let's take a look at a typical setup:
 Specify the network your smart contracts are deployed to in the `desiredChainId` prop and wrap your application like so:
 
 ```tsx title="App.tsx"
-import {ChainId, ThirdwebProvider} from '@thirdweb-dev/react-native';
+import { ChainId, ThirdwebProvider } from "@thirdweb-dev/react-native";
 
 const App = () => {
   return (
@@ -37,6 +37,7 @@ Finally, we can run our app!
 ```sh
 yarn android
 ```
+
 ```sh
 yarn ios
 ```
@@ -44,25 +45,21 @@ yarn ios
 ## Connect to a wallet using WalletConnect V2
 
 ```javascript
-import React from 'react';
-import {
-  SafeAreaView,
-  Text,
-  TouchableOpacity,
-} from 'react-native';
+import React from "react";
+import { SafeAreaView, Text, TouchableOpacity } from "react-native";
 
 import {
   useAccount,
   useDisconnect,
   useWalletConnect,
-} from '@thirdweb-dev/react-native';
+} from "@thirdweb-dev/react-native";
 
 const AppInner = () => {
   const disconnect = useDisconnect();
 
-  const {connect, displayUri} = useWalletConnect();
+  const { connect, displayUri } = useWalletConnect();
 
-  const {address: account} = useAccount();
+  const { address: account } = useAccount();
 
   const onConnectPress = () => {
     if (account) {
@@ -74,10 +71,10 @@ const AppInner = () => {
 
   return (
     <SafeAreaView style={styles.backgroundStyle}>
-      <Text>{account ? `Account: ${account}` : 'Wallet not connected'}</Text>
+      <Text>{account ? `Account: ${account}` : "Wallet not connected"}</Text>
 
       <TouchableOpacity style={styles.button} onPress={onConnectPress}>
-        <Text style={styles.text}>{account ? 'Disconnect' : 'Connect'}</Text>
+        <Text style={styles.text}>{account ? "Disconnect" : "Connect"}</Text>
       </TouchableOpacity>
     </SafeAreaView>
   );
@@ -162,34 +159,42 @@ These are all the configuration options of the `<ThirdwebProvider />`.
 We provide defaults for all of these, but you customize them to suit your needs.
 
 ```jsx title="App.jsx"
-import { ChainId, IpfsStorage, ThirdwebProvider } from "@thirdweb-dev/react-native";
+import {
+  ChainId,
+  IpfsStorage,
+  ThirdwebProvider,
+} from "@thirdweb-dev/react-native";
 
 const KitchenSinkExample = () => {
   return (
     <ThirdwebProvider
       desiredChainId={ChainId.Mainnet}
-      chainRpc={{[ChainId.Mainnet]: 'https://mainnet.infura.io/v3'}}
+      chainRpc={{ [ChainId.Mainnet]: "https://mainnet.infura.io/v3" }}
       dAppMeta={{
-        name: 'Example App',
-        description: 'This is an example app',
+        name: "Example App",
+        description: "This is an example app",
         isDarkMode: false,
-        logoUrl: 'https://example.com/logo.png',
-        url: 'https://example.com',
+        logoUrl: "https://example.com/logo.png",
+        url: "https://example.com",
       }}
       supportedChains={[ChainId.Mainnet]}
-      walletConnectors={['walletConnect', {projectId: 'wallet-connect-cloud-project-id'}]}
+      walletConnectors={[
+        "walletConnect",
+        { projectId: "wallet-connect-cloud-project-id" },
+      ]}
       sdkOptions={{
-        gasSettings: {maxPriceInGwei: 500, speed: 'fast'},
+        gasSettings: { maxPriceInGwei: 500, speed: "fast" },
         readonlySettings: {
           chainId: ChainId.Mainnet,
-          rpcUrl: 'https://mainnet.infura.io/v3',
+          rpcUrl: "https://mainnet.infura.io/v3",
         },
         gasless: {
           openzeppelin: {
-            relayerUrl: 'your-relayer-url',
+            relayerUrl: "your-relayer-url",
           },
         },
-      }}>
+      }}
+    >
       <YourApp />
     </ThirdwebProvider>
   );

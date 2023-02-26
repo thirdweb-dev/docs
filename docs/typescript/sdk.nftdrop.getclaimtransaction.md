@@ -19,11 +19,11 @@ getClaimTransaction(destinationAddress: string, quantity: BigNumberish, checkERC
 
 ## Parameters
 
-| Parameter           | Type         | Description       |
-| ------------------- | ------------ | ----------------- |
-| destinationAddress  | string       |                   |
-| quantity            | BigNumberish |                   |
-| checkERC20Allowance | boolean      | <i>(Optional)</i> |
+| Parameter           | Type         | Description  |
+| ------------------- | ------------ | ------------ |
+| destinationAddress  | string       |              |
+| quantity            | BigNumberish |              |
+| checkERC20Allowance | boolean      | _(Optional)_ |
 
 **Returns:**
 

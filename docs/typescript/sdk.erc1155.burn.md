@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc1155.burn() method
 
-Burn a specified amount of a NFTs
+Burn NFTs
 
 ## Example
 

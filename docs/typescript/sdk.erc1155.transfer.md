@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc1155.transfer() method
 
-Transfer a single NFT
+Transfer an NFT
 
 ## Example
 
@@ -29,12 +29,12 @@ transfer(to: string, tokenId: BigNumberish, amount: BigNumberish, data?: BytesLi
 
 ## Parameters
 
-| Parameter | Type         | Description       |
-| --------- | ------------ | ----------------- |
-| to        | string       |                   |
-| tokenId   | BigNumberish |                   |
-| amount    | BigNumberish |                   |
-| data      | BytesLike    | <i>(Optional)</i> |
+| Parameter | Type         | Description  |
+| --------- | ------------ | ------------ |
+| to        | string       |              |
+| tokenId   | BigNumberish |              |
+| amount    | BigNumberish |              |
+| data      | BytesLike    | _(Optional)_ |
 
 **Returns:**
 

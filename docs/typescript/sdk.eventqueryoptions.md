@@ -19,9 +19,9 @@ export interface EventQueryOptions<TFilter extends Record<string, any> = Record<
 
 ## Properties
 
-| Property                                           | Modifiers | Type                 | Description       |
-| -------------------------------------------------- | --------- | -------------------- | ----------------- |
-| [filters?](./sdk.eventqueryoptions.filters.md)     |           | TFilter              | <i>(Optional)</i> |
-| [fromBlock?](./sdk.eventqueryoptions.fromblock.md) |           | string &#124; number | <i>(Optional)</i> |
-| [order?](./sdk.eventqueryoptions.order.md)         |           | "asc" &#124; "desc"  | <i>(Optional)</i> |
-| [toBlock?](./sdk.eventqueryoptions.toblock.md)     |           | string &#124; number | <i>(Optional)</i> |
+| Property                                           | Modifiers | Type                 | Description  |
+| -------------------------------------------------- | --------- | -------------------- | ------------ |
+| [filters?](./sdk.eventqueryoptions.filters.md)     |           | TFilter              | _(Optional)_ |
+| [fromBlock?](./sdk.eventqueryoptions.fromblock.md) |           | string &#124; number | _(Optional)_ |
+| [order?](./sdk.eventqueryoptions.order.md)         |           | "asc" &#124; "desc"  | _(Optional)_ |
+| [toBlock?](./sdk.eventqueryoptions.toblock.md)     |           | string &#124; number | _(Optional)_ |

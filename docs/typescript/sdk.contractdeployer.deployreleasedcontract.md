@@ -9,23 +9,23 @@ displayed_sidebar: typescript
 
 # ContractDeployer.deployReleasedContract() method
 
-Deploy any released contract by its name
+Deploy any published contract by its name
 
 **Signature:**
 
 ```typescript
-deployReleasedContract(releaserAddress: string, contractName: string, constructorParams: any[], version?: string, options?: DeployOptions): Promise<string>;
+deployReleasedContract(publisherAddress: string, contractName: string, constructorParams: any[], version?: string, options?: DeployOptions): Promise<string>;
 ```
 
 ## Parameters
 
 | Parameter         | Type                                    | Description                                    |
 | ----------------- | --------------------------------------- | ---------------------------------------------- |
-| releaserAddress   | string                                  | the address of the releaser                    |
+| publisherAddress  | string                                  | the address of the publisher                   |
 | contractName      | string                                  | the name of the contract to deploy             |
 | constructorParams | any\[\]                                 | the constructor params to pass to the contract |
-| version           | string                                  | <i>(Optional)</i>                              |
-| options           | [DeployOptions](./sdk.deployoptions.md) | <i>(Optional)</i>                              |
+| version           | string                                  | _(Optional)_                                   |
+| options           | [DeployOptions](./sdk.deployoptions.md) | _(Optional)_                                   |
 
 **Returns:**
 

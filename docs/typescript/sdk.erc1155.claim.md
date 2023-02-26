@@ -29,11 +29,11 @@ claim(tokenId: BigNumberish, quantity: BigNumberish, options?: ClaimOptions): Pr
 
 ## Parameters
 
-| Parameter | Type                                  | Description                                                                       |
-| --------- | ------------------------------------- | --------------------------------------------------------------------------------- |
-| tokenId   | BigNumberish                          | Id of the token you want to claim                                                 |
-| quantity  | BigNumberish                          | Quantity of the tokens you want to claim                                          |
-| options   | [ClaimOptions](./sdk.claimoptions.md) | <i>(Optional)</i> Optional claim verification data (e.g. price, currency, etc...) |
+| Parameter | Type                                  | Description                                                                  |
+| --------- | ------------------------------------- | ---------------------------------------------------------------------------- |
+| tokenId   | BigNumberish                          | Id of the token you want to claim                                            |
+| quantity  | BigNumberish                          | Quantity of the tokens you want to claim                                     |
+| options   | [ClaimOptions](./sdk.claimoptions.md) | _(Optional)_ Optional claim verification data (e.g. price, currency, etc...) |
 
 **Returns:**
 

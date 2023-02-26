@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # ContractPrimarySale.getRecipient() method
 
-Get the primary sale recipient.
+Get the primary sale recipient
 
 ## Example
 

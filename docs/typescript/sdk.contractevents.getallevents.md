@@ -32,9 +32,9 @@ getAllEvents<TEvent extends Record<string, any>>(filters?: Omit<EventQueryOption
 
 ## Parameters
 
-| Parameter | Type                                                                   | Description                                                                                       |
-| --------- | ---------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------- |
-| filters   | Omit&lt;[EventQueryOptions](./sdk.eventqueryoptions.md), "filters"&gt; | <i>(Optional)</i> Specify the from and to block numbers to get events for, defaults to all blocks |
+| Parameter | Type                                                                   | Description                                                                                  |
+| --------- | ---------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| filters   | Omit&lt;[EventQueryOptions](./sdk.eventqueryoptions.md), "filters"&gt; | _(Optional)_ Specify the from and to block numbers to get events for, defaults to all blocks |
 
 **Returns:**
 

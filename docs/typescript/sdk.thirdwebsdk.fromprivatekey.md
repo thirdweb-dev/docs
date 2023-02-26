@@ -20,17 +20,17 @@ const sdk = ThirdwebSDK.fromPrivateKey("SecretPrivateKey", "mainnet");
 **Signature:**
 
 ```typescript
-static fromPrivateKey(privateKey: string, network: ChainIdOrName, options?: SDKOptions, storage?: ThirdwebStorage): ThirdwebSDK;
+static fromPrivateKey(privateKey: string, network: ChainIdOrNameOrChain, options?: SDKOptions, storage?: ThirdwebStorage): ThirdwebSDK;
 ```
 
 ## Parameters
 
-| Parameter  | Type                                    | Description                                                                                                     |
-| ---------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
-| privateKey | string                                  | the private key - \*\*DO NOT EXPOSE THIS TO THE PUBLIC\*\*                                                      |
-| network    | [ChainIdOrName](./sdk.chainidorname.md) | the network (chain) to connect to (e.g. "mainnet", "rinkeby", "polygon", "mumbai"...) or a fully formed RPC url |
-| options    | [SDKOptions](./sdk.sdkoptions.md)       | <i>(Optional)</i> the SDK options to use                                                                        |
-| storage    | ThirdwebStorage                         | <i>(Optional)</i> optional storage implementation to use                                                        |
+| Parameter  | Type                                                  | Description                                                                                                     |
+| ---------- | ----------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| privateKey | string                                                | the private key - \*\*DO NOT EXPOSE THIS TO THE PUBLIC\*\*                                                      |
+| network    | [ChainIdOrNameOrChain](./sdk.chainidornameorchain.md) | the network (chain) to connect to (e.g. "mainnet", "rinkeby", "polygon", "mumbai"...) or a fully formed RPC url |
+| options    | [SDKOptions](./sdk.sdkoptions.md)                     | _(Optional)_ the SDK options to use                                                                             |
+| storage    | ThirdwebStorage                                       | _(Optional)_ optional storage implementation to use                                                             |
 
 **Returns:**
 

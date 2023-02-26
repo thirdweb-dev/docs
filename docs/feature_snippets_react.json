@@ -27,7 +27,7 @@
       "summary": "Buy out an auction listing\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: buyNow,\n    isLoading,\n    error,\n  } = useBuyNow(contract);\n\n  if (error) {\n    console.error(\"failed to buyout listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => buyNow({listingId: 1, type: ListingType.Auction})}\n    >\n      Buy listing!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: buyNow,\n    isLoading,\n    error,\n  } = useBuyNow(contract);\n\n  if (error) {\n    console.error(\"failed to buyout listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => buyNow({listingId: 1, type: ListingType.Auction})}\n    >\n      Buy listing!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usebuynow"
@@ -38,7 +38,7 @@
       "summary": "Cancel a listing\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: cancelListing,\n    isLoading,\n    error,\n  } = useCancelListing(contract);\n\n  if (error) {\n    console.error(\"failed to cancel auction listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={cancelListing}\n    >\n      Cancel Auction Listing!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: cancelListing,\n    isLoading,\n    error,\n  } = useCancelListing(contract);\n\n  if (error) {\n    console.error(\"failed to cancel auction listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={cancelListing}\n    >\n      Cancel Auction Listing!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usecancellisting"
@@ -148,7 +148,7 @@
       "summary": "Execute an auction sale. Can only be executed once the auction has ended and the auction has a winning bid.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: executeAuctionSale,\n    isLoading,\n    error,\n  } = useExecuteAuctionSale(contract);\n\n  if (error) {\n    console.error(\"failed to execute sale\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => executeAuctionSale({ listingId: 1 })}\n    >\n      Execute sale\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: executeAuctionSale,\n    isLoading,\n    error,\n  } = useExecuteAuctionSale(contract);\n\n  if (error) {\n    console.error(\"failed to execute sale\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => executeAuctionSale({ listingId: 1 })}\n    >\n      Execute sale\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useexecuteauctionsale"
@@ -192,7 +192,7 @@
       "summary": "Make a bid on an auction listing\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: makeBid,\n    isLoading,\n    error,\n  } = useMakeBid(contract);\n\n  if (error) {\n    console.error(\"failed to make a bid\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => makeBid({ listingId: 1, bid: 2 })}\n    >\n      Bid!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: makeBid,\n    isLoading,\n    error,\n  } = useMakeBid(contract);\n\n  if (error) {\n    console.error(\"failed to make a bid\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => makeBid({ listingId: 1, bid: 2 })}\n    >\n      Bid!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usemakebid"
@@ -203,7 +203,7 @@
       "summary": "Nake an offer on a direct or auction listing\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: makeOffer,\n    isLoading,\n    error,\n  } = useMakeOffer(contract);\n\n  if (error) {\n    console.error(\"failed to make a bid\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => makeOffer({ listingId: 1, pricePerToken: 0.5, quantity: 1 })}\n    >\n      Bid!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: makeOffer,\n    isLoading,\n    error,\n  } = useMakeOffer(contract);\n\n  if (error) {\n    console.error(\"failed to make a bid\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => makeOffer({ listingId: 1, pricePerToken: 0.5, quantity: 1 })}\n    >\n      Bid!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usemakeoffer"
@@ -386,13 +386,13 @@
       }
     }
   ],
-  "DirectListing": [
+  "DirectListings": [
     {
       "name": "useAcceptDirectListingOffer",
       "summary": "Accept an offer on a direct listing from an offeror, will accept the latest offer by the given offeror.\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: acceptOffer,\n    isLoading,\n    error,\n  } = useAcceptDirectListingOffer(contract);\n\n  if (error) {\n    console.error(\"failed to accept offer\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => acceptOffer({ listingId: 1, addressOfOfferor: \"{{wallet_address}}\" })}\n    >\n      Accept offer\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: acceptOffer,\n    isLoading,\n    error,\n  } = useAcceptDirectListingOffer(contract);\n\n  if (error) {\n    console.error(\"failed to accept offer\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => acceptOffer({ listingId: 1, addressOfOfferor: \"{{wallet_address}}\" })}\n    >\n      Accept offer\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useacceptdirectlistingoffer"
@@ -403,7 +403,7 @@
       "summary": "Cancel a direct listing\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: cancelDirectListing,\n    isLoading,\n    error,\n  } = useCancelDirectListing(contract);\n\n  if (error) {\n    console.error(\"failed to cancel direct listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={cancelDirectListing}\n    >\n      Cancel Direct Listing\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: cancelDirectListing,\n    isLoading,\n    error,\n  } = useCancelDirectListing(contract);\n\n  if (error) {\n    console.error(\"failed to cancel direct listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={cancelDirectListing}\n    >\n      Cancel Direct Listing\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usecanceldirectlisting"
@@ -414,7 +414,7 @@
       "summary": "Create a new direct listing\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: createDirectListing,\n    isLoading,\n    error,\n  } = useCreateDirectListing(contract);\n\n  if (error) {\n    console.error(\"failed to create direct listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => createDirectListing(directListingData)}\n    >\n      Create Direct Listing!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: createDirectListing,\n    isLoading,\n    error,\n  } = useCreateDirectListing(contract);\n\n  if (error) {\n    console.error(\"failed to create direct listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => createDirectListing(directListingData)}\n    >\n      Create Direct Listing!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usecreatedirectlisting"
@@ -482,7 +482,7 @@
       "summary": "Get the active claim condition for a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, {{wallet_address}});"
+        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimconditionforwallet"
@@ -526,7 +526,7 @@
       "summary": "Claim tokens to a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: claimTokens,\n    isLoading,\n    error,\n  } = useClaimToken(contract);\n\n  if (error) {\n    console.error(\"failed to claim tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimTokens({ to: \"{{wallet_address}}\", amount: 100 })}\n    >\n      Claim Tokens!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: claimTokens,\n    isLoading,\n    error,\n  } = useClaimToken(contract);\n\n  if (error) {\n    console.error(\"failed to claim tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimTokens({ to: \"{{wallet_address}}\", amount: 100 })}\n    >\n      Claim Tokens!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimtoken"
@@ -537,7 +537,7 @@
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
@@ -548,7 +548,7 @@
       "summary": "Set claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
@@ -572,7 +572,7 @@
       "summary": "Get the active claim condition for a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, {{wallet_address}});"
+        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimconditionforwallet"
@@ -616,7 +616,7 @@
       "summary": "Claim tokens to a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: claimTokens,\n    isLoading,\n    error,\n  } = useClaimToken(contract);\n\n  if (error) {\n    console.error(\"failed to claim tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimTokens({ to: \"{{wallet_address}}\", amount: 100 })}\n    >\n      Claim Tokens!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: claimTokens,\n    isLoading,\n    error,\n  } = useClaimToken(contract);\n\n  if (error) {\n    console.error(\"failed to claim tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimTokens({ to: \"{{wallet_address}}\", amount: 100 })}\n    >\n      Claim Tokens!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimtoken"
@@ -627,7 +627,7 @@
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
@@ -638,7 +638,7 @@
       "summary": "Set claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
@@ -662,7 +662,7 @@
       "summary": "Get the active claim condition for a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, {{wallet_address}});"
+        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimconditionforwallet"
@@ -706,7 +706,7 @@
       "summary": "Claim tokens to a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: claimTokens,\n    isLoading,\n    error,\n  } = useClaimToken(contract);\n\n  if (error) {\n    console.error(\"failed to claim tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimTokens({ to: \"{{wallet_address}}\", amount: 100 })}\n    >\n      Claim Tokens!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: claimTokens,\n    isLoading,\n    error,\n  } = useClaimToken(contract);\n\n  if (error) {\n    console.error(\"failed to claim tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimTokens({ to: \"{{wallet_address}}\", amount: 100 })}\n    >\n      Claim Tokens!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimtoken"
@@ -717,7 +717,7 @@
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
@@ -728,7 +728,7 @@
       "summary": "Set claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
@@ -752,7 +752,7 @@
       "summary": "Get the active claim condition for a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, {{wallet_address}});"
+        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimconditionforwallet"
@@ -796,7 +796,7 @@
       "summary": "Claim tokens to a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: claimTokens,\n    isLoading,\n    error,\n  } = useClaimToken(contract);\n\n  if (error) {\n    console.error(\"failed to claim tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimTokens({ to: \"{{wallet_address}}\", amount: 100 })}\n    >\n      Claim Tokens!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: claimTokens,\n    isLoading,\n    error,\n  } = useClaimToken(contract);\n\n  if (error) {\n    console.error(\"failed to claim tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimTokens({ to: \"{{wallet_address}}\", amount: 100 })}\n    >\n      Claim Tokens!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimtoken"
@@ -807,7 +807,7 @@
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
@@ -818,7 +818,7 @@
       "summary": "Set claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
@@ -842,7 +842,7 @@
       "summary": "Get the active claim condition for a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, {{wallet_address}});"
+        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimconditionforwallet"
@@ -886,7 +886,7 @@
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
@@ -897,7 +897,7 @@
       "summary": "Set claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
@@ -921,7 +921,7 @@
       "summary": "Get the active claim condition for a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, {{wallet_address}});"
+        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimconditionforwallet"
@@ -965,7 +965,7 @@
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
@@ -976,7 +976,7 @@
       "summary": "Set claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
@@ -1000,7 +1000,7 @@
       "summary": "Get the active claim condition for a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, {{wallet_address}});"
+        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimconditionforwallet"
@@ -1044,7 +1044,7 @@
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
@@ -1055,7 +1055,7 @@
       "summary": "Set claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
@@ -1079,7 +1079,7 @@
       "summary": "Get the active claim condition for a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, {{wallet_address}});"
+        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimconditionforwallet"
@@ -1123,7 +1123,7 @@
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
@@ -1134,7 +1134,7 @@
       "summary": "Set claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
@@ -1158,7 +1158,7 @@
       "summary": "Get the active claim condition for a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, {{wallet_address}});"
+        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimconditionforwallet"
@@ -1202,7 +1202,7 @@
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
@@ -1213,7 +1213,7 @@
       "summary": "Set claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
@@ -1237,7 +1237,7 @@
       "summary": "Get the active claim condition for a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, {{wallet_address}});"
+        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimconditionforwallet"
@@ -1281,7 +1281,7 @@
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
@@ -1292,7 +1292,7 @@
       "summary": "Set claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
@@ -1316,7 +1316,7 @@
       "summary": "Get the active claim condition for a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, {{wallet_address}});"
+        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimconditionforwallet"
@@ -1360,7 +1360,7 @@
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
@@ -1371,7 +1371,7 @@
       "summary": "Set claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
@@ -1395,7 +1395,7 @@
       "summary": "Get the active claim condition for a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, {{wallet_address}});"
+        "javascript": "const { data: activeClaimConditionForWallet, isLoading, error } = useActiveClaimConditionForWallet(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useactiveclaimconditionforwallet"
@@ -1439,7 +1439,7 @@
       "summary": "Reset claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: resetClaimConditions,\n    isLoading,\n    error,\n  } = useResetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to reset claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={resetClaimConditions}\n    >\n      Reset Claim Conditions\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useresetclaimconditions"
@@ -1450,7 +1450,7 @@
       "summary": "Set claim conditions\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: setClaimConditions,\n    isLoading,\n    error,\n  } = useSetClaimConditions(contract);\n\n  if (error) {\n    console.error(\"failed to set claim conditions\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => setClaimConditions({ phases: [{ price: 2, maxClaimableSupply: 100 }] })}\n    >\n      Set Claim Conditions!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usesetclaimconditions"
@@ -1463,7 +1463,7 @@
       "summary": "Airdrop NFTs to a list of wallets\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: airdropNFT,\n    isLoading,\n    error,\n  } = useAirdropNFT(contract);\n\n  if (error) {\n    console.error(\"failed to transfer batch NFTs\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => airdropNFT({\n         tokenId: 2,\n         addresses: [\n           { address: \"{{wallet_address}}\", quantity: 2 },\n           { address: \"{{wallet_address}}\", quantity: 4 } }\n         ]\n      )}\n    >\n      Airdrop NFT\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: airdropNFT,\n    isLoading,\n    error,\n  } = useAirdropNFT(contract);\n\n  if (error) {\n    console.error(\"failed to transfer batch NFTs\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => airdropNFT({\n         tokenId: 2,\n         addresses: [\n           { address: \"{{wallet_address}}\", quantity: 2 },\n           { address: \"{{wallet_address}}\", quantity: 4 } }\n         ]\n      )}\n    >\n      Airdrop NFT\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useairdropnft"
@@ -1485,7 +1485,7 @@
       "summary": "Get NFT balance of a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { contract } = useContract({{contract_address}});\nconst { data: ownerBalance, isLoading, error } = useNFTBalance(contract, {{wallet_address}});\n// for ERC1155 contracts, you can also pass a tokenId\nconst tokenId = 0;\nconst { data: ownerBalance, isLoading, error } = useNFTBalance(contract, {{wallet_address}}, tokenId);"
+        "javascript": "const { data: ownerBalance, isLoading, error } = useNFTBalance(contract, \"{{wallet_address}}\");\n// for ERC1155 contracts, you can also pass a tokenId\nconst tokenId = 0;\nconst { data: ownerBalance, isLoading, error } = useNFTBalance(contract, \"{{wallet_address}}\", tokenId);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usenftbalance"
@@ -1496,14 +1496,14 @@
       "summary": "Transfer an NFT\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: transferNFT,\n    isLoading,\n    error,\n  } = useTransferNFT(contract);\n\n  if (error) {\n    console.error(\"failed to transfer NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferNFT({ to: \"{{wallet_address}}\", tokenId: 2 })}\n    >\n      Transfer\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: transferNFT,\n    isLoading,\n    error,\n  } = useTransferNFT(contract);\n\n  if (error) {\n    console.error(\"failed to transfer NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferNFT({\n        to: \"{{wallet_address}}\",\n        tokenId: 2\n      })}\n    >\n      Transfer\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetransfernft"
       }
     }
   ],
-  "Permissions": [
+  "PermissionsEnumerable": [
     {
       "name": "useAllRoleMembers",
       "summary": "Get all members of all roles\n\n",
@@ -1520,7 +1520,7 @@
       "summary": "Grant a role to a specific address\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const {\n    mutate: grantRole,\n    isLoading,\n    error,\n  } = useGrantRole(contract);\n\n  if (error) {\n    console.error(\"failed to grant role\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => grantRole({ role: \"admin\", address: {{wallet_address}} })}\n    >\n      Grant Role\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: grantRole,\n    isLoading,\n    error,\n  } = useGrantRole(contract);\n\n  if (error) {\n    console.error(\"failed to grant role\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => grantRole({ role: \"admin\", address: {{wallet_address}} })}\n    >\n      Grant Role\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usegrantrole"
@@ -1542,36 +1542,14 @@
       "summary": "Revoke a role from a specific address\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const {\n    mutate: revokeRole,\n    isLoading,\n    error,\n  } = useRevokeRole(contract);\n\n  if (error) {\n    console.error(\"failed to revoke role\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => revokeRole({ role: \"admin\", address: {{wallet_address}} })}\n    >\n      Revoke Role\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: revokeRole,\n    isLoading,\n    error,\n  } = useRevokeRole(contract);\n\n  if (error) {\n    console.error(\"failed to revoke role\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => revokeRole({ role: \"admin\", address: {{wallet_address}} })}\n    >\n      Revoke Role\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.userevokerole"
       }
-    },
-    {
-      "name": "useRoleMembers",
-      "summary": "Get all member of a specific role\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: members, isLoading, error } = useRoleMembers(SmartContract, \"admin\");"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.userolemembers"
-      }
-    },
-    {
-      "name": "useSetAllRoleMembers",
-      "summary": "Overwrite the list of members for specific roles\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const {\n    mutate: overwriteRoles,\n    isLoading,\n    error,\n  } = useSetAllRoleMembers(contract);\n\n  if (error) {\n    console.error(\"failed to overwrite roles\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => overwriteRoles({ rolesWithAddresses: { minter: [\"{{wallet_address}\"] } })}\n    >\n      Overwrite Roles\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usesetallrolemembers"
-      }
     }
   ],
-  "EnglishAuction": [
+  "EnglishAuctions": [
     {
       "name": "useAuctionWinner",
       "summary": "Get the winner of an english auction\n\n",
@@ -1599,7 +1577,7 @@
       "summary": "Cancel an english auction\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: cancelEnglishAuction,\n    isLoading,\n    error,\n  } = useCancelEnglishAuction(contract);\n\n  if (error) {\n    console.error(\"failed to cancel english auction\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={cancelEnglishAuction}\n    >\n      Cancel English Auction\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: cancelEnglishAuction,\n    isLoading,\n    error,\n  } = useCancelEnglishAuction(contract);\n\n  if (error) {\n    console.error(\"failed to cancel english auction\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={cancelEnglishAuction}\n    >\n      Cancel English Auction\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usecancelenglishauction"
@@ -1610,7 +1588,7 @@
       "summary": "Create a new english auction\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: createAuctionListing,\n    isLoading,\n    error,\n  } = useCreateAuctionListing(contract);\n\n  if (error) {\n    console.error(\"failed to create auction listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => createAuctionListing(auctionListingData)}\n    >\n      Create Auction Listing!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: createAuctionListing,\n    isLoading,\n    error,\n  } = useCreateAuctionListing(contract);\n\n  if (error) {\n    console.error(\"failed to create auction listing\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => createAuctionListing(auctionListingData)}\n    >\n      Create Auction Listing!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usecreateauctionlisting"
@@ -1678,7 +1656,7 @@
       "summary": "Burn an NFT\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: burnNFT,\n    isLoading,\n    error,\n  } = useBurnNFT(contract);\n\n  if (error) {\n    console.error(\"failed to burn NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => burnNFT({ tokenId: 0, amount: 1 })}\n    >\n      Burn!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: burnNFT,\n    isLoading,\n    error,\n  } = useBurnNFT(contract);\n\n  if (error) {\n    console.error(\"failed to burn NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => burnNFT({ tokenId: 0, amount: 1 })}\n    >\n      Burn!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useburnnft"
@@ -1691,7 +1669,7 @@
       "summary": "Burn an NFT\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: burnNFT,\n    isLoading,\n    error,\n  } = useBurnNFT(contract);\n\n  if (error) {\n    console.error(\"failed to burn NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => burnNFT({ tokenId: 0, amount: 1 })}\n    >\n      Burn!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: burnNFT,\n    isLoading,\n    error,\n  } = useBurnNFT(contract);\n\n  if (error) {\n    console.error(\"failed to burn NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => burnNFT({ tokenId: 0, amount: 1 })}\n    >\n      Burn!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useburnnft"
@@ -1704,7 +1682,7 @@
       "summary": "Burn tokens\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: burnTokens,\n    isLoading,\n    error,\n  } = useBurnToken(contract);\n\n  if (error) {\n    console.error(\"failed to burn tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => burnTokens({ amount: 1000 })}\n    >\n      Burn!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: burnTokens,\n    isLoading,\n    error,\n  } = useBurnToken(contract);\n\n  if (error) {\n    console.error(\"failed to burn tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => burnTokens({ amount: 1000 })}\n    >\n      Burn!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useburntoken"
@@ -1728,7 +1706,7 @@
       "summary": "Lazy mint NFTs\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: lazyMint,\n    isLoading,\n    error,\n  } = useLazyMint(contract);\n\n  if (error) {\n    console.error(\"failed to lazy mint NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => lazyMint({ metadatas: [{ name: \"My NFT!\"}] })}\n    >\n      Lazy mint NFT!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: lazyMint,\n    isLoading,\n    error,\n  } = useLazyMint(contract);\n\n  if (error) {\n    console.error(\"failed to lazy mint NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => lazyMint({ metadatas: [{ name: \"My NFT!\"}] })}\n    >\n      Lazy mint NFT!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.uselazymint"
@@ -1763,7 +1741,7 @@
       "summary": "Lazy mint NFTs\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: lazyMint,\n    isLoading,\n    error,\n  } = useLazyMint(contract);\n\n  if (error) {\n    console.error(\"failed to lazy mint NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => lazyMint({ metadatas: [{ name: \"My NFT!\"}] })}\n    >\n      Lazy mint NFT!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: lazyMint,\n    isLoading,\n    error,\n  } = useLazyMint(contract);\n\n  if (error) {\n    console.error(\"failed to lazy mint NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => lazyMint({ metadatas: [{ name: \"My NFT!\"}] })}\n    >\n      Lazy mint NFT!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.uselazymint"
@@ -1787,7 +1765,7 @@
       "summary": "Claim an NFT to a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: claimNFT,\n    isLoading,\n    error,\n  } = useClaimNFT(contract);\n\n  if (error) {\n    console.error(\"failed to claim nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimNFT({ to: \"{{wallet_address}}\", quantity: 1 })}\n    >\n      Claim NFT!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: claimNFT,\n    isLoading,\n    error,\n  } = useClaimNFT(contract);\n\n  if (error) {\n    console.error(\"failed to claim nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimNFT({ to: \"{{wallet_address}}\", quantity: 1 })}\n    >\n      Claim NFT!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimnft"
@@ -1800,7 +1778,7 @@
       "summary": "Claim an NFT to a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: claimNFT,\n    isLoading,\n    error,\n  } = useClaimNFT(contract);\n\n  if (error) {\n    console.error(\"failed to claim nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimNFT({ to: \"{{wallet_address}}\", quantity: 1 })}\n    >\n      Claim NFT!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: claimNFT,\n    isLoading,\n    error,\n  } = useClaimNFT(contract);\n\n  if (error) {\n    console.error(\"failed to claim nft\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => claimNFT({ to: \"{{wallet_address}}\", quantity: 1 })}\n    >\n      Claim NFT!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimnft"
@@ -1824,7 +1802,7 @@
       "summary": "Update the metadata of this contract\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: updateContractMetadata,\n    isLoading,\n    error,\n  } = useContractMetadataUpdate(contract);\n\n  if (error) {\n    console.error(\"failed to update contract metadata\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updateContractMetadata({ name: \"New name\", description: \"New description\" })}\n    >\n      Update contract metadata\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: updateContractMetadata,\n    isLoading,\n    error,\n  } = useContractMetadataUpdate(contract);\n\n  if (error) {\n    console.error(\"failed to update contract metadata\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updateContractMetadata({ name: \"New name\", description: \"New description\" })}\n    >\n      Update contract metadata\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usecontractmetadataupdate"
@@ -1835,7 +1813,7 @@
       "summary": "Set the metadata of this contract\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: updateMetadata,\n    isLoading,\n    error,\n  } = useUpdateMetadata(contract);\n\n  if (error) {\n    console.error(\"failed to update metadata\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updateMetadata({\n       name: \"My Contract\",\n       description: \"This is my contract\"\n      })}\n    >\n      Update Contract Metadata\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: updateMetadata,\n    isLoading,\n    error,\n  } = useUpdateMetadata(contract);\n\n  if (error) {\n    console.error(\"failed to update metadata\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updateMetadata({\n       name: \"My Contract\",\n       description: \"This is my contract\"\n      })}\n    >\n      Update Contract Metadata\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useupdatemetadata"
@@ -1848,7 +1826,7 @@
       "summary": "Lazy mint NFTs with delayed reveal\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: delayedRevealLazyMint,\n    isLoading,\n    error,\n  } = useDelayedRevealLazyMint(contract);\n\n  if (error) {\n    console.error(\"failed to lazy mint NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => delayedRevealLazyMint({ metadatas: [{ name: \"My NFT!\"}] })}\n    >\n      Delayed Reveal Lazy mint NFT!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: delayedRevealLazyMint,\n    isLoading,\n    error,\n  } = useDelayedRevealLazyMint(contract);\n\n  if (error) {\n    console.error(\"failed to lazy mint NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => delayedRevealLazyMint({ metadatas: [{ name: \"My NFT!\"}] })}\n    >\n      Delayed Reveal Lazy mint NFT!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usedelayedreveallazymint"
@@ -1859,7 +1837,7 @@
       "summary": "Reveal a batch of delayed reveal NFTs\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: revealLazyMint,\n    isLoading,\n    error,\n  } = useRevealLazyMint(contract);\n\n  if (error) {\n    console.error(\"failed to reveal batch\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => revealLazyMint({ batchId: \"0\", password: \"my-password\" })}\n    >\n      Reveal batch!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: revealLazyMint,\n    isLoading,\n    error,\n  } = useRevealLazyMint(contract);\n\n  if (error) {\n    console.error(\"failed to reveal batch\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => revealLazyMint({ batchId: \"0\", password: \"my-password\" })}\n    >\n      Reveal batch!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usereveallazymint"
@@ -1872,7 +1850,7 @@
       "summary": "Lazy mint NFTs with delayed reveal\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: delayedRevealLazyMint,\n    isLoading,\n    error,\n  } = useDelayedRevealLazyMint(contract);\n\n  if (error) {\n    console.error(\"failed to lazy mint NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => delayedRevealLazyMint({ metadatas: [{ name: \"My NFT!\"}] })}\n    >\n      Delayed Reveal Lazy mint NFT!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: delayedRevealLazyMint,\n    isLoading,\n    error,\n  } = useDelayedRevealLazyMint(contract);\n\n  if (error) {\n    console.error(\"failed to lazy mint NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => delayedRevealLazyMint({ metadatas: [{ name: \"My NFT!\"}] })}\n    >\n      Delayed Reveal Lazy mint NFT!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usedelayedreveallazymint"
@@ -1883,10 +1861,56 @@
       "summary": "Reveal a batch of delayed reveal NFTs\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: revealLazyMint,\n    isLoading,\n    error,\n  } = useRevealLazyMint(contract);\n\n  if (error) {\n    console.error(\"failed to reveal batch\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => revealLazyMint({ batchId: \"0\", password: \"my-password\" })}\n    >\n      Reveal batch!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: revealLazyMint,\n    isLoading,\n    error,\n  } = useRevealLazyMint(contract);\n\n  if (error) {\n    console.error(\"failed to reveal batch\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => revealLazyMint({ batchId: \"0\", password: \"my-password\" })}\n    >\n      Reveal batch!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usereveallazymint"
+      }
+    }
+  ],
+  "Permissions": [
+    {
+      "name": "useGrantRole",
+      "summary": "Grant a role to a specific address\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: grantRole,\n    isLoading,\n    error,\n  } = useGrantRole(contract);\n\n  if (error) {\n    console.error(\"failed to grant role\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => grantRole({ role: \"admin\", address: {{wallet_address}} })}\n    >\n      Grant Role\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usegrantrole"
+      }
+    },
+    {
+      "name": "useRevokeRole",
+      "summary": "Revoke a role from a specific address\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: revokeRole,\n    isLoading,\n    error,\n  } = useRevokeRole(contract);\n\n  if (error) {\n    console.error(\"failed to revoke role\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => revokeRole({ role: \"admin\", address: {{wallet_address}} })}\n    >\n      Revoke Role\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.userevokerole"
+      }
+    },
+    {
+      "name": "useRoleMembers",
+      "summary": "Get all members of a specific role\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: members, isLoading, error } = useRoleMembers(SmartContract, \"admin\");"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.userolemembers"
+      }
+    },
+    {
+      "name": "useSetAllRoleMembers",
+      "summary": "Overwrite the list of members for specific roles\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: overwriteRoles,\n    isLoading,\n    error,\n  } = useSetAllRoleMembers(contract);\n\n  if (error) {\n    console.error(\"failed to overwrite roles\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => overwriteRoles({ rolesWithAddresses: { minter: [\"{{wallet_address}\"] } })}\n    >\n      Overwrite Roles\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usesetallrolemembers"
       }
     }
   ],
@@ -1909,7 +1933,7 @@
       "summary": "Mint an NFT to a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: mintNft,\n    isLoading,\n    error,\n  } = useMintNFT(contract);\n\n  if (error) {\n    console.error(\"failed to mint NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => mintNft({ name: \"My awesome NFT!\", to: \"{{wallet_address}}\" })}\n    >\n      Mint!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: mintNft,\n    isLoading,\n    error,\n  } = useMintNFT(contract);\n\n  if (error) {\n    console.error(\"failed to mint NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => mintNft({ name: \"My awesome NFT!\", to: \"{{wallet_address}}\" })}\n    >\n      Mint!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usemintnft"
@@ -1922,7 +1946,7 @@
       "summary": "Mint an NFT to a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: mintNft,\n    isLoading,\n    error,\n  } = useMintNFT(contract);\n\n  if (error) {\n    console.error(\"failed to mint NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => mintNft({ name: \"My awesome NFT!\", to: \"{{wallet_address}}\" })}\n    >\n      Mint!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: mintNft,\n    isLoading,\n    error,\n  } = useMintNFT(contract);\n\n  if (error) {\n    console.error(\"failed to mint NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => mintNft({ name: \"My awesome NFT!\", to: \"{{wallet_address}}\" })}\n    >\n      Mint!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usemintnft"
@@ -1933,7 +1957,7 @@
       "summary": "Increase the supply of an existing NFT\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: mintNftSupply,\n    isLoading,\n    error,\n  } = useMintNFTSupply(contract);\n\n  if (error) {\n    console.error(\"failed to mint additional supply\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => mintNftSupply({ tokenId: 0, additionalSupply: 100, to: \"{{wallet_address}}\"})}\n    >\n      Mint Additional Supply!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: mintNftSupply,\n    isLoading,\n    error,\n  } = useMintNFTSupply(contract);\n\n  if (error) {\n    console.error(\"failed to mint additional supply\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => mintNftSupply({ tokenId: 0, additionalSupply: 100, to: \"{{wallet_address}}\"})}\n    >\n      Mint Additional Supply!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usemintnftsupply"
@@ -1946,7 +1970,7 @@
       "summary": "Mint tokens\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: mintTokens,\n    isLoading,\n    error,\n  } = useMintToken(contract);\n\n  if (error) {\n    console.error(\"failed to mint tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => mintTokens({ to: \"{{wallet_address}}\", amount: 1000 })}\n    >\n      Mint!\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: mintTokens,\n    isLoading,\n    error,\n  } = useMintToken(contract);\n\n  if (error) {\n    console.error(\"failed to mint tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => mintTokens({ to: \"{{wallet_address}}\", amount: 1000 })}\n    >\n      Mint!\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useminttoken"
@@ -1970,7 +1994,7 @@
       "summary": "Get NFT balance of a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { contract } = useContract({{contract_address}});\nconst { data: ownerBalance, isLoading, error } = useNFTBalance(contract, {{wallet_address}});\n// for ERC1155 contracts, you can also pass a tokenId\nconst tokenId = 0;\nconst { data: ownerBalance, isLoading, error } = useNFTBalance(contract, {{wallet_address}}, tokenId);"
+        "javascript": "const { data: ownerBalance, isLoading, error } = useNFTBalance(contract, \"{{wallet_address}}\");\n// for ERC1155 contracts, you can also pass a tokenId\nconst tokenId = 0;\nconst { data: ownerBalance, isLoading, error } = useNFTBalance(contract, \"{{wallet_address}}\", tokenId);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usenftbalance"
@@ -1981,7 +2005,7 @@
       "summary": "Transfer an NFT\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: transferNFT,\n    isLoading,\n    error,\n  } = useTransferNFT(contract);\n\n  if (error) {\n    console.error(\"failed to transfer NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferNFT({ to: \"{{wallet_address}}\", tokenId: 2 })}\n    >\n      Transfer\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: transferNFT,\n    isLoading,\n    error,\n  } = useTransferNFT(contract);\n\n  if (error) {\n    console.error(\"failed to transfer NFT\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferNFT({\n        to: \"{{wallet_address}}\",\n        tokenId: 2\n      })}\n    >\n      Transfer\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetransfernft"
@@ -2005,7 +2029,7 @@
       "summary": "Get all NFTs owned by a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, {{wallet_address}});"
+        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useownednfts"
@@ -2016,7 +2040,7 @@
       "summary": "Get total minted supply count\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { contract } = useContract({{contract_address}});\nconst { data: totalCirculatingSupply, isLoading, error } = useTotalCirculatingSupply(contract);"
+        "javascript": "const { contract } = useContract(\"{{contract_address}}\");\nconst { data: totalCirculatingSupply, isLoading, error } = useTotalCirculatingSupply(contract);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetotalcirculatingsupply"
@@ -2024,10 +2048,10 @@
     },
     {
       "name": "useTotalCount",
-      "summary": "Use this to get the total count of NFT tokens of your {@link NFTContract}.\n\n",
+      "summary": "Get total supply count\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { contract } = useContract({{contract_address}});\nconst { data: count, isLoading, error } = useTotalCount(contract);"
+        "javascript": "const { contract } = useContract(\"{{contract_address}}\");\nconst { data: count, isLoading, error } = useTotalCount(contract);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetotalcount"
@@ -2051,31 +2075,7 @@
       "summary": "Get all NFTs owned by a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, {{wallet_address}});"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.useownednfts"
-      }
-    }
-  ],
-  "ERC1155Supply": [
-    {
-      "name": "useNFTs",
-      "summary": "Get all NFTs\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: nfts, isLoading, error } = useNFTs(contract, { start: 0, count: 100 });"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usenfts"
-      }
-    },
-    {
-      "name": "useOwnedNFTs",
-      "summary": "Get all NFTs owned by a specific wallet\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, {{wallet_address}});"
+        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useownednfts"
@@ -2099,7 +2099,7 @@
       "summary": "Get all NFTs owned by a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, {{wallet_address}});"
+        "javascript": "const { data: ownedNFTs, isLoading, error } = useOwnedNFTs(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useownednfts"
@@ -2110,7 +2110,7 @@
       "summary": "Get total minted supply count\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { contract } = useContract({{contract_address}});\nconst { data: totalCirculatingSupply, isLoading, error } = useTotalCirculatingSupply(contract);"
+        "javascript": "const { contract } = useContract(\"{{contract_address}}\");\nconst { data: totalCirculatingSupply, isLoading, error } = useTotalCirculatingSupply(contract);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetotalcirculatingsupply"
@@ -2118,10 +2118,10 @@
     },
     {
       "name": "useTotalCount",
-      "summary": "Use this to get the total count of NFT tokens of your {@link NFTContract}.\n\n",
+      "summary": "Get total supply count\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { contract } = useContract({{contract_address}});\nconst { data: count, isLoading, error } = useTotalCount(contract);"
+        "javascript": "const { contract } = useContract(\"{{contract_address}}\");\nconst { data: count, isLoading, error } = useTotalCount(contract);"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetotalcount"
@@ -2145,7 +2145,7 @@
       "summary": "Set the platform fee recipient and basis points\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: updatePlatformFees,\n    isLoading,\n    error,\n  } = useUpdatePlatformFees(contract);\n\n  if (error) {\n    console.error(\"failed to update platform fees\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updatePlatformFees({ updatePayload: { fee_recipient: \"{{wallet_address}}\", platform_fee_basis_points: 5_00 } })}\n    >\n      Update Platform fees\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: updatePlatformFees,\n    isLoading,\n    error,\n  } = useUpdatePlatformFees(contract);\n\n  if (error) {\n    console.error(\"failed to update platform fees\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updatePlatformFees({ updatePayload: { fee_recipient: \"{{wallet_address}}\", platform_fee_basis_points: 5_00 } })}\n    >\n      Update Platform fees\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useupdateplatformfees"
@@ -2169,7 +2169,7 @@
       "summary": "Set the primary sale recipient\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: updatePrimarySalesRecipient,\n    isLoading,\n    error,\n  } = useUpdatePrimarySaleRecipient(contract);\n\n  if (error) {\n    console.error(\"failed to update recipient\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updatePrimarySalesRecipient({ newRecipient: \"{{wallet_address}}\" })}\n    >\n      Update Recipient\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: updatePrimarySalesRecipient,\n    isLoading,\n    error,\n  } = useUpdatePrimarySaleRecipient(contract);\n\n  if (error) {\n    console.error(\"failed to update recipient\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updatePrimarySalesRecipient({ newRecipient: \"{{wallet_address}}\" })}\n    >\n      Update Recipient\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useupdateprimarysalerecipient"
@@ -2193,7 +2193,7 @@
       "summary": "Set the royalty recipient and fee\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: updateRoyaltySettings,\n    isLoading,\n    error,\n  } = useUpdateRoyaltySettings(contract);\n\n  if (error) {\n    console.error(\"failed to update royalty settings\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updateRoyaltySettings({ updatePayload: { fee_recipient: \"{{wallet_address}}\", seller_fee_basis_points: 5_00 } })}\n    >\n      Update Royalty Settings\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: updateRoyaltySettings,\n    isLoading,\n    error,\n  } = useUpdateRoyaltySettings(contract);\n\n  if (error) {\n    console.error(\"failed to update royalty settings\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updateRoyaltySettings({ updatePayload: { fee_recipient: \"{{wallet_address}}\", seller_fee_basis_points: 5_00 } })}\n    >\n      Update Royalty Settings\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useupdateroyaltysettings"
@@ -2206,7 +2206,7 @@
       "summary": "Get token balance for a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const { data: balance, isLoading, error } = useTokenBalance(contract, {{wallet_address}});"
+        "javascript": "const { data: balance, isLoading, error } = useTokenBalance(contract, \"{{wallet_address}}\");"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetokenbalance"
@@ -2239,7 +2239,7 @@
       "summary": "Airdrop tokens to a list of wallets\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: transferBatchTokens,\n    isLoading,\n    error,\n  } = useTransferToken(contract);\n\n  if (error) {\n    console.error(\"failed to transfer batch tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferBatchTokens([{ to: \"{{wallet_address}}\", amount: 1000 }, { to: \"{{wallet_address}}\", amount: 2000 }])}\n    >\n      Airdrop\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: transferBatchTokens,\n    isLoading,\n    error,\n  } = useTransferToken(contract);\n\n  if (error) {\n    console.error(\"failed to transfer batch tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferBatchTokens([{ to: \"{{wallet_address}}\", amount: 1000 }, { to: \"{{wallet_address}}\", amount: 2000 }])}\n    >\n      Airdrop\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetransferbatchtoken"
@@ -2250,7 +2250,7 @@
       "summary": "Transfer tokens to a specific wallet\n\n",
       "remarks": null,
       "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract({{contract_address}});\n  const {\n    mutate: transferTokens,\n    isLoading,\n    error,\n  } = useTransferToken(contract);\n\n  if (error) {\n    console.error(\"failed to transfer tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferTokens({ to: \"{{wallet_address}}\", amount: 1000 })}\n    >\n      Transfer\n    </button>\n  );\n};"
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: transferTokens,\n    isLoading,\n    error,\n  } = useTransferToken(contract);\n\n  if (error) {\n    console.error(\"failed to transfer tokens\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => transferTokens({ to: \"{{wallet_address}}\", amount: 1000 })}\n    >\n      Transfer\n    </button>\n  );\n};"
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.usetransfertoken"

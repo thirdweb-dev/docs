@@ -50,12 +50,12 @@ createDelayedRevealBatch(placeholder: NFTMetadataInput, metadatas: NFTMetadataIn
 
 ## Parameters
 
-| Parameter   | Type                                                                                     | Description                                               |
-| ----------- | ---------------------------------------------------------------------------------------- | --------------------------------------------------------- |
-| placeholder | [NFTMetadataInput](./sdk.nftmetadatainput.md)                                            | the placeholder NFT to show before the reveal             |
-| metadatas   | [NFTMetadataInput](./sdk.nftmetadatainput.md)\[\]                                        | the final NFTs that will be hidden                        |
-| password    | string                                                                                   | the password that will be used to reveal these NFTs       |
-| options     | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | <i>(Optional)</i> additional options like upload progress |
+| Parameter   | Type                                                                                     | Description                                          |
+| ----------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------- |
+| placeholder | [NFTMetadataInput](./sdk.nftmetadatainput.md)                                            | the placeholder NFT to show before the reveal        |
+| metadatas   | [NFTMetadataInput](./sdk.nftmetadatainput.md)\[\]                                        | the final NFTs that will be hidden                   |
+| password    | string                                                                                   | the password that will be used to reveal these NFTs  |
+| options     | { onProgress: (event: [UploadProgressEvent](./sdk.uploadprogressevent.md)) =&gt; void; } | _(Optional)_ additional options like upload progress |
 
 **Returns:**
 

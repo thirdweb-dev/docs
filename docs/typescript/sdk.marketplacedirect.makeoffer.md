@@ -41,13 +41,13 @@ makeOffer(listingId: BigNumberish, quantityDesired: BigNumberish, currencyContra
 
 ## Parameters
 
-| Parameter               | Type                    | Description       |
-| ----------------------- | ----------------------- | ----------------- |
-| listingId               | BigNumberish            |                   |
-| quantityDesired         | BigNumberish            |                   |
-| currencyContractAddress | string                  |                   |
-| pricePerToken           | [Price](./sdk.price.md) |                   |
-| expirationDate          | Date                    | <i>(Optional)</i> |
+| Parameter               | Type                    | Description  |
+| ----------------------- | ----------------------- | ------------ |
+| listingId               | BigNumberish            |              |
+| quantityDesired         | BigNumberish            |              |
+| currencyContractAddress | string                  |              |
+| pricePerToken           | [Price](./sdk.price.md) |              |
+| expirationDate          | Date                    | _(Optional)_ |
 
 **Returns:**
 

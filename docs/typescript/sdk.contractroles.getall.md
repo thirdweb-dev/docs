@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # ContractRoles.getAll() method
 
-Call this to get get a list of addresses for all supported roles on the contract.
+Get all members of all roles
 
 ## Example
 

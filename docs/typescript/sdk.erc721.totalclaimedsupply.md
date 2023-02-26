@@ -9,6 +9,15 @@ displayed_sidebar: typescript
 
 # Erc721.totalClaimedSupply() method
 
+Get the claimed supply
+
+## Example
+
+```javascript
+const claimedNFTCount = await contract.totalClaimedSupply();
+console.log(`NFTs claimed: ${claimedNFTCount}`);
+```
+
 **Signature:**
 
 ```typescript
@@ -18,3 +27,11 @@ totalClaimedSupply(): Promise<BigNumber>;
 **Returns:**
 
 Promise&lt;BigNumber&gt;
+
+the unclaimed supply
+
+## Remarks
+
+Get the number of claimed NFTs in this Drop.
+
+\*

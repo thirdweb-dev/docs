@@ -9,7 +9,14 @@ displayed_sidebar: typescript
 
 # ContractOwner.get() method
 
-Return the current owner of the contract
+Get the current owner of the contract
+
+## Example
+
+```javascript
+await contract.owner.get();
+console.log("Owner address: ", ownerAddress);
+```
 
 **Signature:**
 

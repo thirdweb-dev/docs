@@ -9,15 +9,12 @@ displayed_sidebar: typescript
 
 # ContractRoles.revoke() method
 
-Call this to revoke a role from a specific address.
+Revoke a role from a specific address
 
 ## Example
 
 ```javascript
-await contract.roles.revoke(
-  "minter",
-  "0x1234567890123456789012345678901234567890",
-);
+await contract.roles.revoke("minter", "{{wallet_address}}");
 ```
 
 **Signature:**

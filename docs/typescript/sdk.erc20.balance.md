@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.balance() method
 
-Get Token Balance for the currently connected wallet
+Get token balance for the currently connected wallet
 
 ## Example
 

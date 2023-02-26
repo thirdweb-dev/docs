@@ -15,8 +15,7 @@ Update the metadata of a contract
 
 ```javascript
 await contract.metadata.update({
-  name: "My Contract",
-  description: "My contract description",
+  description: "My new contract description",
 });
 ```
 

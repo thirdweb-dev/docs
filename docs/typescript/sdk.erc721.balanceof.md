@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc721.balanceOf() method
 
-Get NFT Balance
+Get NFT balance of a specific wallet
 
 ## Example
 

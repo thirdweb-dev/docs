@@ -30,11 +30,11 @@ buyoutListing(listingId: BigNumberish, quantityDesired: BigNumberish, receiver?:
 
 ## Parameters
 
-| Parameter       | Type         | Description                                                                                      |
-| --------------- | ------------ | ------------------------------------------------------------------------------------------------ |
-| listingId       | BigNumberish | The listing id to buy                                                                            |
-| quantityDesired | BigNumberish | the quantity to buy                                                                              |
-| receiver        | string       | <i>(Optional)</i> optional receiver of the bought listing if different from the connected wallet |
+| Parameter       | Type         | Description                                                                                 |
+| --------------- | ------------ | ------------------------------------------------------------------------------------------- |
+| listingId       | BigNumberish | The listing id to buy                                                                       |
+| quantityDesired | BigNumberish | the quantity to buy                                                                         |
+| receiver        | string       | _(Optional)_ optional receiver of the bought listing if different from the connected wallet |
 
 **Returns:**
 

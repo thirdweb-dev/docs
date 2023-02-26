@@ -19,9 +19,9 @@ getActive(options?: ClaimConditionFetchOptions): Promise<ClaimCondition>;
 
 ## Parameters
 
-| Parameter | Type                                                              | Description       |
-| --------- | ----------------------------------------------------------------- | ----------------- |
-| options   | [ClaimConditionFetchOptions](./sdk.claimconditionfetchoptions.md) | <i>(Optional)</i> |
+| Parameter | Type                                                              | Description  |
+| --------- | ----------------------------------------------------------------- | ------------ |
+| options   | [ClaimConditionFetchOptions](./sdk.claimconditionfetchoptions.md) | _(Optional)_ |
 
 **Returns:**
 

@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc20.mintBatchTo() method
 
-Mint Tokens To Many Wallets
+Mint tokens to many wallets
 
 ## Example
 

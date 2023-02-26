@@ -19,11 +19,11 @@ static fromPrivateKey(network: Network, privateKey: string, storage?: ThirdwebSt
 
 ## Parameters
 
-| Parameter  | Type                        | Description                                                      |
-| ---------- | --------------------------- | ---------------------------------------------------------------- |
-| network    | [Network](./sdk.network.md) | The network to connect to                                        |
-| privateKey | string                      | The private key to use                                           |
-| storage    | ThirdwebStorage             | <i>(Optional)</i> The storage provider to use or IPFS by default |
+| Parameter  | Type                        | Description                                                 |
+| ---------- | --------------------------- | ----------------------------------------------------------- |
+| network    | [Network](./sdk.network.md) | The network to connect to                                   |
+| privateKey | string                      | The private key to use                                      |
+| storage    | ThirdwebStorage             | _(Optional)_ The storage provider to use or IPFS by default |
 
 **Returns:**
 

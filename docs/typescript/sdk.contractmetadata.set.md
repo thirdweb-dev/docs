@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # ContractMetadata.set() method
 
-Set the metadata of a contract
+Set the metadata of this contract
 
 ## Example
 

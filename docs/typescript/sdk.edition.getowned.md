@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Edition.getOwned() method
 
-Get Owned NFTs
+Get all NFTs owned by a specific wallet
 
 ## Example
 
@@ -27,9 +27,9 @@ getOwned(walletAddress?: string): Promise<NFT[]>;
 
 ## Parameters
 
-| Parameter     | Type   | Description       |
-| ------------- | ------ | ----------------- |
-| walletAddress | string | <i>(Optional)</i> |
+| Parameter     | Type   | Description  |
+| ------------- | ------ | ------------ |
+| walletAddress | string | _(Optional)_ |
 
 **Returns:**
 

@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc1155.burnBatchFrom() method
 
-Burn a batch of NFTs
+Burn a batch of NFTs from a specific wallet
 
 ## Example
 

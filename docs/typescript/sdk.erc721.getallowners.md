@@ -9,7 +9,14 @@ displayed_sidebar: typescript
 
 # Erc721.getAllOwners() method
 
-Get All owners of minted NFTs on this contract
+Get all NFT owners
+
+## Example
+
+```javascript
+const owners = await contract.erc721.getAllOwners();
+console.log(owners);
+```
 
 **Signature:**
 

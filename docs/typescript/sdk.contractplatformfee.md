@@ -36,10 +36,10 @@ await contract.platformFee.set({
 
 ## Methods
 
-| Method                                                   | Modifiers | Description                                        |
-| -------------------------------------------------------- | --------- | -------------------------------------------------- |
-| [get()](./sdk.contractplatformfee.get.md)                |           | Get the platform fee recipient and basis points \* |
-| [set(platformFeeInfo)](./sdk.contractplatformfee.set.md) |           | Set the platform fee recipient and basis points    |
+| Method                                                   | Modifiers | Description                                     |
+| -------------------------------------------------------- | --------- | ----------------------------------------------- |
+| [get()](./sdk.contractplatformfee.get.md)                |           | Get the platform fee recipient and basis points |
+| [set(platformFeeInfo)](./sdk.contractplatformfee.set.md) |           | Set the platform fee recipient and basis points |
 
 **Signature:**
 

@@ -9,7 +9,14 @@ displayed_sidebar: typescript
 
 # Erc1155.totalCount() method
 
-Get the number of NFTs minted
+Get the total number of NFTs minted
+
+## Example
+
+```javascript
+const count = await contract.erc1155.totalCount();
+console.log(count);
+```
 
 **Signature:**
 

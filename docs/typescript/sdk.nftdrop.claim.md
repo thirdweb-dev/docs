@@ -19,10 +19,10 @@ claim(quantity: BigNumberish, checkERC20Allowance?: boolean): Promise<Transactio
 
 ## Parameters
 
-| Parameter           | Type         | Description       |
-| ------------------- | ------------ | ----------------- |
-| quantity            | BigNumberish |                   |
-| checkERC20Allowance | boolean      | <i>(Optional)</i> |
+| Parameter           | Type         | Description  |
+| ------------------- | ------------ | ------------ |
+| quantity            | BigNumberish |              |
+| checkERC20Allowance | boolean      | _(Optional)_ |
 
 **Returns:**
 

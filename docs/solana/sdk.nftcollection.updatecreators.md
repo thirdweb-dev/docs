@@ -19,10 +19,10 @@ updateCreators(creators: CreatorInput[], updateAll?: boolean): Promise<Transacti
 
 ## Parameters
 
-| Parameter | Type                                      | Description                                                                            |
-| --------- | ----------------------------------------- | -------------------------------------------------------------------------------------- |
-| creators  | [CreatorInput](./sdk.creatorinput.md)\[\] | the creators to update                                                                 |
-| updateAll | boolean                                   | <i>(Optional)</i> whether or not to retroactively update the creators of all past NFTs |
+| Parameter | Type                                      | Description                                                                       |
+| --------- | ----------------------------------------- | --------------------------------------------------------------------------------- |
+| creators  | [CreatorInput](./sdk.creatorinput.md)\[\] | the creators to update                                                            |
+| updateAll | boolean                                   | _(Optional)_ whether or not to retroactively update the creators of all past NFTs |
 
 **Returns:**
 

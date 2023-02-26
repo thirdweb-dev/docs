@@ -12,14 +12,14 @@ displayed_sidebar: typescript
 **Signature:**
 
 ```typescript
-export declare function toChainId(network: ChainIdOrName): number;
+export declare function toChainId(network: ChainIdOrNameOrChain): number;
 ```
 
 ## Parameters
 
-| Parameter | Type                                    | Description |
-| --------- | --------------------------------------- | ----------- |
-| network   | [ChainIdOrName](./sdk.chainidorname.md) |             |
+| Parameter | Type                                                  | Description |
+| --------- | ----------------------------------------------------- | ----------- |
+| network   | [ChainIdOrNameOrChain](./sdk.chainidornameorchain.md) |             |
 
 **Returns:**
 

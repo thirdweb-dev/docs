@@ -9,15 +9,12 @@ displayed_sidebar: typescript
 
 # ContractRoles.grant() method
 
-Call this to grant a role to a specific address.
+Grant a role to a specific address
 
 ## Example
 
 ```javascript
-await contract.roles.grant(
-  "minter",
-  "0x1234567890123456789012345678901234567890",
-);
+await contract.roles.grant("minter", "{{wallet_address}}");
 ```
 
 **Signature:**

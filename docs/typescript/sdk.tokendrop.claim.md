@@ -19,10 +19,10 @@ claim(amount: Amount, checkERC20Allowance?: boolean): Promise<TransactionResult>
 
 ## Parameters
 
-| Parameter           | Type                      | Description                                                                                                                      |
-| ------------------- | ------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| amount              | [Amount](./sdk.amount.md) | the amount of tokens to mint                                                                                                     |
-| checkERC20Allowance | boolean                   | <i>(Optional)</i> Optional, check if the wallet has enough ERC20 allowance to claim the tokens, and if not, approve the transfer |
+| Parameter           | Type                      | Description                                                                                                                 |
+| ------------------- | ------------------------- | --------------------------------------------------------------------------------------------------------------------------- |
+| amount              | [Amount](./sdk.amount.md) | the amount of tokens to mint                                                                                                |
+| checkERC20Allowance | boolean                   | _(Optional)_ Optional, check if the wallet has enough ERC20 allowance to claim the tokens, and if not, approve the transfer |
 
 **Returns:**
 

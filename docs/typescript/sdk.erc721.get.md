@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc721.get() method
 
-Get a single NFT Metadata
+Get a single NFT
 
 ## Example
 

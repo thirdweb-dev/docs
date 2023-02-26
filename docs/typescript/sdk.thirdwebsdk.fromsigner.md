@@ -26,17 +26,17 @@ const sdk = ThirdwebSDK.fromSigner(signer, "mainnet");
 **Signature:**
 
 ```typescript
-static fromSigner(signer: Signer, network?: ChainIdOrName, options?: SDKOptions, storage?: ThirdwebStorage): ThirdwebSDK;
+static fromSigner(signer: Signer, network?: ChainIdOrNameOrChain, options?: SDKOptions, storage?: ThirdwebStorage): ThirdwebSDK;
 ```
 
 ## Parameters
 
-| Parameter | Type                                    | Description                                                                                                                       |
-| --------- | --------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| signer    | Signer                                  | a ethers Signer to be used for transactions                                                                                       |
-| network   | [ChainIdOrName](./sdk.chainidorname.md) | <i>(Optional)</i> the network (chain) to connect to (e.g. "mainnet", "rinkeby", "polygon", "mumbai"...) or a fully formed RPC url |
-| options   | [SDKOptions](./sdk.sdkoptions.md)       | <i>(Optional)</i> the SDK options to use                                                                                          |
-| storage   | ThirdwebStorage                         | <i>(Optional)</i> optional storage implementation to use                                                                          |
+| Parameter | Type                                                  | Description                                                                                                                  |
+| --------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| signer    | Signer                                                | a ethers Signer to be used for transactions                                                                                  |
+| network   | [ChainIdOrNameOrChain](./sdk.chainidornameorchain.md) | _(Optional)_ the network (chain) to connect to (e.g. "mainnet", "rinkeby", "polygon", "mumbai"...) or a fully formed RPC url |
+| options   | [SDKOptions](./sdk.sdkoptions.md)                     | _(Optional)_ the SDK options to use                                                                                          |
+| storage   | ThirdwebStorage                                       | _(Optional)_ optional storage implementation to use                                                                          |
 
 **Returns:**
 

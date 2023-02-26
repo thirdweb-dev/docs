@@ -9,12 +9,13 @@ displayed_sidebar: typescript
 
 # Erc1155.get() method
 
-Get a single NFT Metadata
+Get a single NFT
 
 ## Example
 
 ```javascript
-const nft = await contract.erc1155.get(0);
+const tokenId = 0;
+const nft = await contract.erc1155.get(tokenId);
 ```
 
 **Signature:**

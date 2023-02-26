@@ -9,12 +9,13 @@ displayed_sidebar: typescript
 
 # ContractMetadata.get() method
 
-Get the metadata of a contract
+Get the metadata of this contract
 
 ## Example
 
 ```javascript
 const metadata = await contract.metadata.get();
+console.log(metadata);
 ```
 
 **Signature:**

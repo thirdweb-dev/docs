@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # ContractRoyalty.setDefaultRoyaltyInfo() method
 
-Set the royalty recipient and fee for a contract
+Set the royalty recipient and fee
 
 ## Example
 

@@ -19,14 +19,14 @@ export interface TokenContractDeployMetadata
 
 ## Properties
 
-| Property                                                                                     | Modifiers | Type                 | Description                                                                     |
-| -------------------------------------------------------------------------------------------- | --------- | -------------------- | ------------------------------------------------------------------------------- |
-| [description?](./sdk.tokencontractdeploymetadata.description.md)                             |           | string               | <i>(Optional)</i> Optional description of the contract                          |
-| [external_link?](./sdk.tokencontractdeploymetadata.external_link.md)                         |           | string               | <i>(Optional)</i> Optional url for the contract                                 |
-| [image?](./sdk.tokencontractdeploymetadata.image.md)                                         |           | FileOrBufferOrString | <i>(Optional)</i> Optional image for the contract                               |
-| [name](./sdk.tokencontractdeploymetadata.name.md)                                            |           | string               | name of the contract                                                            |
-| [platform_fee_basis_points?](./sdk.tokencontractdeploymetadata.platform_fee_basis_points.md) |           | number               | <i>(Optional)</i> The percentage (in basis points) of platform fees             |
-| [platform_fee_recipient?](./sdk.tokencontractdeploymetadata.platform_fee_recipient.md)       |           | string               | <i>(Optional)</i> The address that will receive the proceeds from platform fees |
-| [primary_sale_recipient](./sdk.tokencontractdeploymetadata.primary_sale_recipient.md)        |           | string               | The address that will receive the proceeds from primary sales                   |
-| [symbol?](./sdk.tokencontractdeploymetadata.symbol.md)                                       |           | string               | <i>(Optional)</i> Symbol for the NFTs                                           |
-| [trusted_forwarders?](./sdk.tokencontractdeploymetadata.trusted_forwarders.md)               |           | string\[\]           | <i>(Optional)</i> Custom gasless trusted forwarder addresses                    |
+| Property                                                                                     | Modifiers | Type                 | Description                                                                |
+| -------------------------------------------------------------------------------------------- | --------- | -------------------- | -------------------------------------------------------------------------- |
+| [description?](./sdk.tokencontractdeploymetadata.description.md)                             |           | string               | _(Optional)_ Optional description of the contract                          |
+| [external_link?](./sdk.tokencontractdeploymetadata.external_link.md)                         |           | string               | _(Optional)_ Optional url for the contract                                 |
+| [image?](./sdk.tokencontractdeploymetadata.image.md)                                         |           | FileOrBufferOrString | _(Optional)_ Optional image for the contract                               |
+| [name](./sdk.tokencontractdeploymetadata.name.md)                                            |           | string               | name of the contract                                                       |
+| [platform_fee_basis_points?](./sdk.tokencontractdeploymetadata.platform_fee_basis_points.md) |           | number               | _(Optional)_ The percentage (in basis points) of platform fees             |
+| [platform_fee_recipient?](./sdk.tokencontractdeploymetadata.platform_fee_recipient.md)       |           | string               | _(Optional)_ The address that will receive the proceeds from platform fees |
+| [primary_sale_recipient](./sdk.tokencontractdeploymetadata.primary_sale_recipient.md)        |           | string               | The address that will receive the proceeds from primary sales              |
+| [symbol?](./sdk.tokencontractdeploymetadata.symbol.md)                                       |           | string               | _(Optional)_ Symbol for the NFTs                                           |
+| [trusted_forwarders?](./sdk.tokencontractdeploymetadata.trusted_forwarders.md)               |           | string\[\]           | _(Optional)_ Custom gasless trusted forwarder addresses                    |

@@ -27,7 +27,7 @@ const addresses = [
     quantity: 3,
   },
 ];
-await contract.airdrop(tokenId, addresses);
+await contract.erc1155.airdrop(tokenId, addresses);
 
 // You can also pass an array of addresses, it will airdrop 1 NFT per address
 const tokenId = "0";
@@ -43,11 +43,11 @@ airdrop(tokenId: BigNumberish, addresses: AirdropInput, data?: BytesLike): Promi
 
 ## Parameters
 
-| Parameter | Type                                  | Description       |
-| --------- | ------------------------------------- | ----------------- |
-| tokenId   | BigNumberish                          |                   |
-| addresses | [AirdropInput](./sdk.airdropinput.md) |                   |
-| data      | BytesLike                             | <i>(Optional)</i> |
+| Parameter | Type                                  | Description  |
+| --------- | ------------------------------------- | ------------ |
+| tokenId   | BigNumberish                          |              |
+| addresses | [AirdropInput](./sdk.airdropinput.md) |              |
+| data      | BytesLike                             | _(Optional)_ |
 
 **Returns:**
 

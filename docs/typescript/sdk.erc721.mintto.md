@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc721.mintTo() method
 
-Mint a unique NFT
+Mint an NFT to a specific wallet
 
 ## Example
 

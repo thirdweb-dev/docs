@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # NFTDrop.transfer() method
 
-Transfer a single NFT
+Transfer an NFT
 
 ## Example
 

@@ -32,11 +32,11 @@ makeOffer(listingId: BigNumberish, pricePerToken: Price, quantity?: BigNumberish
 
 ## Parameters
 
-| Parameter     | Type                    | Description       |
-| ------------- | ----------------------- | ----------------- |
-| listingId     | BigNumberish            |                   |
-| pricePerToken | [Price](./sdk.price.md) |                   |
-| quantity      | BigNumberish            | <i>(Optional)</i> |
+| Parameter     | Type                    | Description  |
+| ------------- | ----------------------- | ------------ |
+| listingId     | BigNumberish            |              |
+| pricePerToken | [Price](./sdk.price.md) |              |
+| quantity      | BigNumberish            | _(Optional)_ |
 
 **Returns:**
 

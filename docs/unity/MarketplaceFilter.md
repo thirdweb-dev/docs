@@ -21,7 +21,7 @@ class MarketplaceFilter
 | tokenId       | variable |              |
 | ToString      | function |              |
 
-## Members
+# Members
 
 **`public string `[`seller`](#class_thirdweb_1_1_marketplace_filter_1a01a1657d30a52f9b46df4dbe4fee3aed)**
 

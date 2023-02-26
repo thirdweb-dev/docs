@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc1155.mintBatchTo() method
 
-Mint Many NFTs with limited supplies
+Mint multiple NFTs at once to a specific wallet
 
 ## Example
 
@@ -62,4 +62,4 @@ Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFT](
 
 ## Remarks
 
-Mint many different NFTs with limited supplies to a specified wallet.
+Mint multiple different NFTs with limited supplies to a specified wallet.

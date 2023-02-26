@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc1155.revealer property
 
-Delayed reveal
+Mint delayed reveal NFTs
 
 ## Example
 

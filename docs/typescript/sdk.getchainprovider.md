@@ -13,17 +13,17 @@ displayed_sidebar: typescript
 
 ```typescript
 export declare function getChainProvider(
-  network: ChainIdOrName,
+  network: ChainIdOrNameOrChain,
   sdkOptions: SDKOptions,
 ): ethers.providers.Provider;
 ```
 
 ## Parameters
 
-| Parameter  | Type                                    | Description |
-| ---------- | --------------------------------------- | ----------- |
-| network    | [ChainIdOrName](./sdk.chainidorname.md) |             |
-| sdkOptions | [SDKOptions](./sdk.sdkoptions.md)       |             |
+| Parameter  | Type                                                  | Description |
+| ---------- | ----------------------------------------------------- | ----------- |
+| network    | [ChainIdOrNameOrChain](./sdk.chainidornameorchain.md) |             |
+| sdkOptions | [SDKOptions](./sdk.sdkoptions.md)                     |             |
 
 **Returns:**
 

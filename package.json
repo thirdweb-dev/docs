@@ -25,7 +25,7 @@
     "make-docs:python": "node scripts/make-python-docs.mjs",
     "make-docs:go": "node scripts/make-go-docs.mjs",
     "make-docs:unity": "node scripts/make-unity-docs.mjs",
-    "make-docs": "yarn make-docs:typescript && yarn make-docs:react && yarn make-docs:storage && yarn make-docs:solana && yarn make-docs:contracts && yarn make-docs:python && yarn make-docs:go && yarn make-docs:unity",
+    "make-docs": "yarn make-docs:typescript && yarn make-docs:storage && yarn make-docs:solana && yarn make-docs:contracts && yarn make-docs:python && yarn make-docs:go && yarn make-docs:unity",
     "prettier": "prettier --write '(docs|guides|blog)/**/*.{js,jsx,ts,tsx,md,mdx}'"
   },
   "dependencies": {

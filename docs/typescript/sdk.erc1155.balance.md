@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc1155.balance() method
 
-Get NFT Balance for the currently connected wallet
+Get NFT balance for the currently connected wallet
 
 **Signature:**
 

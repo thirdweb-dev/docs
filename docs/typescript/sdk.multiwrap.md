@@ -24,31 +24,31 @@ const contract = await sdk.getContract("{{contract_address}}", "multiwrap");
 
 ## Constructors
 
-| Constructor                                                                                                          | Modifiers | Description                                                                     |
-| -------------------------------------------------------------------------------------------------------------------- | --------- | ------------------------------------------------------------------------------- |
-| [(constructor)(network, address, storage, options, abi, chainId, contractWrapper)](./sdk.multiwrap._constructor_.md) |           | **<i>(BETA)</i>** Constructs a new instance of the <code>Multiwrap</code> class |
+| Constructor                                                                                                          | Modifiers | Description                                                                |
+| -------------------------------------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------- |
+| [(constructor)(network, address, storage, options, abi, chainId, contractWrapper)](./sdk.multiwrap._constructor_.md) |           | **_(BETA)_** Constructs a new instance of the <code>Multiwrap</code> class |
 
 ## Properties
 
-| Property                                          | Modifiers           | Type                                                                                                                                           | Description                           |
-| ------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- |
-| [abi](./sdk.multiwrap.abi.md)                     |                     | [Abi](./sdk.abi.md)                                                                                                                            | **<i>(BETA)</i>**                     |
-| [contractRoles](./sdk.multiwrap.contractroles.md) | <code>static</code> | readonly \["admin", "transfer", "minter", "unwrap", "asset"\]                                                                                  | **<i>(BETA)</i>**                     |
-| [encoder](./sdk.multiwrap.encoder.md)             |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;MultiwrapContract&gt;                                                                           | **<i>(BETA)</i>**                     |
-| [estimator](./sdk.multiwrap.estimator.md)         |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;MultiwrapContract&gt;                                                                         | **<i>(BETA)</i>**                     |
-| [events](./sdk.multiwrap.events.md)               |                     | [ContractEvents](./sdk.contractevents.md)&lt;MultiwrapContract&gt;                                                                             | **<i>(BETA)</i>**                     |
-| [metadata](./sdk.multiwrap.metadata.md)           |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;MultiwrapContract, typeof MultiwrapContractSchema&gt;                                         | **<i>(BETA)</i>**                     |
-| [owner](./sdk.multiwrap.owner.md)                 |                     | [ContractOwner](./sdk.contractowner.md)&lt;MultiwrapContract&gt;                                                                               | **<i>(BETA)</i>**                     |
-| [roles](./sdk.multiwrap.roles.md)                 |                     | [ContractRoles](./sdk.contractroles.md)&lt;MultiwrapContract, typeof [Multiwrap.contractRoles](./sdk.multiwrap.contractroles.md)\[number\]&gt; | **<i>(BETA)</i>**                     |
-| [royalties](./sdk.multiwrap.royalties.md)         |                     | [ContractRoyalty](./sdk.contractroyalty.md)&lt;MultiwrapContract, typeof MultiwrapContractSchema&gt;                                           | **<i>(BETA)</i>** Configure royalties |
+| Property                                          | Modifiers           | Type                                                                                                                                           | Description                      |
+| ------------------------------------------------- | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------- |
+| [abi](./sdk.multiwrap.abi.md)                     |                     | [Abi](./sdk.abi.md)                                                                                                                            | **_(BETA)_**                     |
+| [contractRoles](./sdk.multiwrap.contractroles.md) | <code>static</code> | readonly \["admin", "transfer", "minter", "unwrap", "asset"\]                                                                                  | **_(BETA)_**                     |
+| [encoder](./sdk.multiwrap.encoder.md)             |                     | [ContractEncoder](./sdk.contractencoder.md)&lt;MultiwrapContract&gt;                                                                           | **_(BETA)_**                     |
+| [estimator](./sdk.multiwrap.estimator.md)         |                     | [GasCostEstimator](./sdk.gascostestimator.md)&lt;MultiwrapContract&gt;                                                                         | **_(BETA)_**                     |
+| [events](./sdk.multiwrap.events.md)               |                     | [ContractEvents](./sdk.contractevents.md)&lt;MultiwrapContract&gt;                                                                             | **_(BETA)_**                     |
+| [metadata](./sdk.multiwrap.metadata.md)           |                     | [ContractMetadata](./sdk.contractmetadata.md)&lt;MultiwrapContract, typeof MultiwrapContractSchema&gt;                                         | **_(BETA)_**                     |
+| [owner](./sdk.multiwrap.owner.md)                 |                     | [ContractOwner](./sdk.contractowner.md)&lt;MultiwrapContract&gt;                                                                               | **_(BETA)_**                     |
+| [roles](./sdk.multiwrap.roles.md)                 |                     | [ContractRoles](./sdk.contractroles.md)&lt;MultiwrapContract, typeof [Multiwrap.contractRoles](./sdk.multiwrap.contractroles.md)\[number\]&gt; | **_(BETA)_**                     |
+| [royalties](./sdk.multiwrap.royalties.md)         |                     | [ContractRoyalty](./sdk.contractroyalty.md)&lt;MultiwrapContract, typeof MultiwrapContractSchema&gt;                                           | **_(BETA)_** Configure royalties |
 
 ## Methods
 
-| Method                                                                            | Modifiers | Description                                                                                  |
-| --------------------------------------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------- |
-| [getWrappedContents(wrappedTokenId)](./sdk.multiwrap.getwrappedcontents.md)       |           | **<i>(BETA)</i>** Get the contents of a wrapped token bundle                                 |
-| [unwrap(wrappedTokenId, recipientAddress)](./sdk.multiwrap.unwrap.md)             |           | **<i>(BETA)</i>** Unwrap a wrapped token bundle, and retrieve its contents                   |
-| [wrap(contents, wrappedTokenMetadata, recipientAddress)](./sdk.multiwrap.wrap.md) |           | **<i>(BETA)</i>** Wrap any number of ERC20/ERC721/ERC1155 tokens into a single wrapped token |
+| Method                                                                            | Modifiers | Description                                                                             |
+| --------------------------------------------------------------------------------- | --------- | --------------------------------------------------------------------------------------- |
+| [getWrappedContents(wrappedTokenId)](./sdk.multiwrap.getwrappedcontents.md)       |           | **_(BETA)_** Get the contents of a wrapped token bundle                                 |
+| [unwrap(wrappedTokenId, recipientAddress)](./sdk.multiwrap.unwrap.md)             |           | **_(BETA)_** Unwrap a wrapped token bundle, and retrieve its contents                   |
+| [wrap(contents, wrappedTokenMetadata, recipientAddress)](./sdk.multiwrap.wrap.md) |           | **_(BETA)_** Wrap any number of ERC20/ERC721/ERC1155 tokens into a single wrapped token |
 
 **Signature:**
 

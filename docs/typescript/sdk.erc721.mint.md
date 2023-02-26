@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc721.mint() method
 
-Mint a unique NFT
+Mint an NFT
 
 ## Example
 
@@ -45,4 +45,4 @@ Promise&lt;[TransactionResultWithId](./sdk.transactionresultwithid.md)&lt;[NFT](
 
 ## Remarks
 
-Mint a unique NFT to the connected wallet.
+Mint an NFT to the connected wallet.

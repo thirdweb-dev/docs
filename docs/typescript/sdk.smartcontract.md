@@ -36,39 +36,39 @@ const tx = await contract.erc721.mint({
 
 ## Constructors
 
-| Constructor                                                                                                              | Modifiers | Description                                                                         |
-| ------------------------------------------------------------------------------------------------------------------------ | --------- | ----------------------------------------------------------------------------------- |
-| [(constructor)(network, address, abi, storage, options, chainId, contractWrapper)](./sdk.smartcontract._constructor_.md) |           | **<i>(BETA)</i>** Constructs a new instance of the <code>SmartContract</code> class |
+| Constructor                                                                                                              | Modifiers | Description                                                                    |
+| ------------------------------------------------------------------------------------------------------------------------ | --------- | ------------------------------------------------------------------------------ |
+| [(constructor)(network, address, abi, storage, options, chainId, contractWrapper)](./sdk.smartcontract._constructor_.md) |           | **_(BETA)_** Constructs a new instance of the <code>SmartContract</code> class |
 
 ## Properties
 
-| Property                                                      | Modifiers             | Type                                                                    | Description                                                |
-| ------------------------------------------------------------- | --------------------- | ----------------------------------------------------------------------- | ---------------------------------------------------------- |
-| [abi](./sdk.smartcontract.abi.md)                             |                       | ContractInterface                                                       | **<i>(BETA)</i>**                                          |
-| [appURI](./sdk.smartcontract.appuri.md)                       |                       | ContractAppURI&lt;BaseContract&gt;                                      | **<i>(BETA)</i>**                                          |
-| [chainId](./sdk.smartcontract.chainid.md)                     | <code>readonly</code> | number                                                                  | **<i>(BETA)</i>**                                          |
-| [encoder](./sdk.smartcontract.encoder.md)                     |                       | [ContractEncoder](./sdk.contractencoder.md)&lt;TContract&gt;            | **<i>(BETA)</i>**                                          |
-| [erc1155](./sdk.smartcontract.erc1155.md)                     | <code>readonly</code> | [Erc1155](./sdk.erc1155.md)                                             | **<i>(BETA)</i>** Auto-detects ERC1155 standard functions. |
-| [erc20](./sdk.smartcontract.erc20.md)                         | <code>readonly</code> | [Erc20](./sdk.erc20.md)                                                 | **<i>(BETA)</i>** Auto-detects ERC20 standard functions.   |
-| [erc721](./sdk.smartcontract.erc721.md)                       | <code>readonly</code> | [Erc721](./sdk.erc721.md)                                               | **<i>(BETA)</i>** Auto-detects ERC721 standard functions.  |
-| [estimator](./sdk.smartcontract.estimator.md)                 |                       | [GasCostEstimator](./sdk.gascostestimator.md)&lt;TContract&gt;          | **<i>(BETA)</i>**                                          |
-| [events](./sdk.smartcontract.events.md)                       |                       | [ContractEvents](./sdk.contractevents.md)&lt;TContract&gt;              | **<i>(BETA)</i>**                                          |
-| [interceptor](./sdk.smartcontract.interceptor.md)             |                       | [ContractInterceptor](./sdk.contractinterceptor.md)&lt;TContract&gt;    | **<i>(BETA)</i>**                                          |
-| [metadata](./sdk.smartcontract.metadata.md)                   |                       | [ContractMetadata](./sdk.contractmetadata.md)&lt;BaseContract, any&gt;  | **<i>(BETA)</i>**                                          |
-| [owner](./sdk.smartcontract.owner.md)                         | <code>readonly</code> | [ContractOwner](./sdk.contractowner.md)&lt;Ownable&gt;                  | **<i>(BETA)</i>** Set and get the owner of the contract    |
-| [platformFees](./sdk.smartcontract.platformfees.md)           | <code>readonly</code> | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;IPlatformFee&gt; | **<i>(BETA)</i>** Handle platform fees                     |
-| [publishedMetadata](./sdk.smartcontract.publishedmetadata.md) |                       | ContractPublishedMetadata&lt;TContract&gt;                              | **<i>(BETA)</i>**                                          |
-| [roles](./sdk.smartcontract.roles.md)                         | <code>readonly</code> | [ContractRoles](./sdk.contractroles.md)&lt;IPermissions, any&gt;        | **<i>(BETA)</i>** Handle permissions                       |
-| [royalties](./sdk.smartcontract.royalties.md)                 | <code>readonly</code> | [ContractRoyalty](./sdk.contractroyalty.md)&lt;IRoyalty, any&gt;        | **<i>(BETA)</i>** Handle royalties                         |
-| [sales](./sdk.smartcontract.sales.md)                         | <code>readonly</code> | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;IPrimarySale&gt; | **<i>(BETA)</i>** Handle primary sales                     |
+| Property                                                      | Modifiers             | Type                                                                    | Description                                           |
+| ------------------------------------------------------------- | --------------------- | ----------------------------------------------------------------------- | ----------------------------------------------------- |
+| [abi](./sdk.smartcontract.abi.md)                             |                       | ContractInterface                                                       | **_(BETA)_**                                          |
+| [appURI](./sdk.smartcontract.appuri.md)                       |                       | ContractAppURI&lt;BaseContract&gt;                                      | **_(BETA)_**                                          |
+| [chainId](./sdk.smartcontract.chainid.md)                     | <code>readonly</code> | number                                                                  | **_(BETA)_**                                          |
+| [encoder](./sdk.smartcontract.encoder.md)                     |                       | [ContractEncoder](./sdk.contractencoder.md)&lt;TContract&gt;            | **_(BETA)_**                                          |
+| [erc1155](./sdk.smartcontract.erc1155.md)                     | <code>readonly</code> | [Erc1155](./sdk.erc1155.md)                                             | **_(BETA)_** Auto-detects ERC1155 standard functions. |
+| [erc20](./sdk.smartcontract.erc20.md)                         | <code>readonly</code> | [Erc20](./sdk.erc20.md)                                                 | **_(BETA)_** Auto-detects ERC20 standard functions.   |
+| [erc721](./sdk.smartcontract.erc721.md)                       | <code>readonly</code> | [Erc721](./sdk.erc721.md)                                               | **_(BETA)_** Auto-detects ERC721 standard functions.  |
+| [estimator](./sdk.smartcontract.estimator.md)                 |                       | [GasCostEstimator](./sdk.gascostestimator.md)&lt;TContract&gt;          | **_(BETA)_**                                          |
+| [events](./sdk.smartcontract.events.md)                       |                       | [ContractEvents](./sdk.contractevents.md)&lt;TContract&gt;              | **_(BETA)_**                                          |
+| [interceptor](./sdk.smartcontract.interceptor.md)             |                       | [ContractInterceptor](./sdk.contractinterceptor.md)&lt;TContract&gt;    | **_(BETA)_**                                          |
+| [metadata](./sdk.smartcontract.metadata.md)                   |                       | [ContractMetadata](./sdk.contractmetadata.md)&lt;BaseContract, any&gt;  | **_(BETA)_**                                          |
+| [owner](./sdk.smartcontract.owner.md)                         | <code>readonly</code> | [ContractOwner](./sdk.contractowner.md)&lt;Ownable&gt;                  | **_(BETA)_** Set and get the owner of the contract    |
+| [platformFees](./sdk.smartcontract.platformfees.md)           | <code>readonly</code> | [ContractPlatformFee](./sdk.contractplatformfee.md)&lt;IPlatformFee&gt; | **_(BETA)_** Handle platform fees                     |
+| [publishedMetadata](./sdk.smartcontract.publishedmetadata.md) |                       | ContractPublishedMetadata&lt;TContract&gt;                              | **_(BETA)_**                                          |
+| [roles](./sdk.smartcontract.roles.md)                         | <code>readonly</code> | [ContractRoles](./sdk.contractroles.md)&lt;IPermissions, any&gt;        | **_(BETA)_** Handle permissions                       |
+| [royalties](./sdk.smartcontract.royalties.md)                 | <code>readonly</code> | [ContractRoyalty](./sdk.contractroyalty.md)&lt;IRoyalty, any&gt;        | **_(BETA)_** Handle royalties                         |
+| [sales](./sdk.smartcontract.sales.md)                         | <code>readonly</code> | [ContractPrimarySale](./sdk.contractprimarysale.md)&lt;IPrimarySale&gt; | **_(BETA)_** Handle primary sales                     |
 
 ## Methods
 
-| Method                                                               | Modifiers | Description                                          |
-| -------------------------------------------------------------------- | --------- | ---------------------------------------------------- |
-| [call(functionName, args)](./sdk.smartcontract.call.md)              |           | **<i>(BETA)</i>** Call any function on this contract |
-| [getAddress()](./sdk.smartcontract.getaddress.md)                    |           | **<i>(BETA)</i>**                                    |
-| [onNetworkUpdated(network)](./sdk.smartcontract.onnetworkupdated.md) |           | **<i>(BETA)</i>**                                    |
+| Method                                                               | Modifiers | Description                                     |
+| -------------------------------------------------------------------- | --------- | ----------------------------------------------- |
+| [call(functionName, args)](./sdk.smartcontract.call.md)              |           | **_(BETA)_** Call any function on this contract |
+| [getAddress()](./sdk.smartcontract.getaddress.md)                    |           | **_(BETA)_**                                    |
+| [onNetworkUpdated(network)](./sdk.smartcontract.onnetworkupdated.md) |           | **_(BETA)_**                                    |
 
 **Signature:**
 

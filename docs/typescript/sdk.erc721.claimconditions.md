@@ -19,7 +19,7 @@ const publicSaleStartTime = new Date(Date.now() + 60 * 60 * 24 * 1000);
 const claimConditions = [
   {
     startTime: presaleStartTime, // start the presale now
-    maxQuantity: 2, // limit how many mints for this presale
+    maxClaimableSupply: 2, // limit how many mints for this presale
     price: 0.01, // presale price
     snapshot: ['0x...', '0x...'], // limit minting to only certain addresses
   },

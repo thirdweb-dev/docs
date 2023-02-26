@@ -27,10 +27,10 @@ open(tokenId: BigNumberish, amount?: BigNumberish): Promise<PackRewards>;
 
 ## Parameters
 
-| Parameter | Type         | Description                                            |
-| --------- | ------------ | ------------------------------------------------------ |
-| tokenId   | BigNumberish | the token ID of the pack you want to open              |
-| amount    | BigNumberish | <i>(Optional)</i> the amount of packs you want to open |
+| Parameter | Type         | Description                                       |
+| --------- | ------------ | ------------------------------------------------- |
+| tokenId   | BigNumberish | the token ID of the pack you want to open         |
+| amount    | BigNumberish | _(Optional)_ the amount of packs you want to open |
 
 **Returns:**
 

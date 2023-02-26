@@ -25,9 +25,9 @@ all(queryParams?: QueryAllParams): Promise<NFT[]>;
 
 ## Parameters
 
-| Parameter   | Type                                      | Description                                                             |
-| ----------- | ----------------------------------------- | ----------------------------------------------------------------------- |
-| queryParams | [QueryAllParams](./sdk.queryallparams.md) | <i>(Optional)</i> optional filtering to only fetch a subset of results. |
+| Parameter   | Type                                      | Description                                                        |
+| ----------- | ----------------------------------------- | ------------------------------------------------------------------ |
+| queryParams | [QueryAllParams](./sdk.queryallparams.md) | _(Optional)_ optional filtering to only fetch a subset of results. |
 
 **Returns:**
 

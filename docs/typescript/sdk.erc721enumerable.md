@@ -35,7 +35,7 @@ const ownedNFTs = await contract.nft.query.owned.all(walletAddress);
 
 | Method                                                        | Modifiers | Description                                           |
 | ------------------------------------------------------------- | --------- | ----------------------------------------------------- |
-| [all(walletAddress)](./sdk.erc721enumerable.all.md)           |           | Get Owned NFTs                                        |
+| [all(walletAddress)](./sdk.erc721enumerable.all.md)           |           | Get all NFTs owned by a specific wallet               |
 | [tokenIds(walletAddress)](./sdk.erc721enumerable.tokenids.md) |           | Get all token ids of NFTs owned by a specific wallet. |
 
 **Signature:**

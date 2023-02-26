@@ -35,7 +35,7 @@ const nfts = await contract.nft.query.all();
 
 | Method                                                                   | Modifiers | Description                                                          |
 | ------------------------------------------------------------------------ | --------- | -------------------------------------------------------------------- |
-| [all(queryParams)](./sdk.erc721supply.all.md)                            |           | Get All Minted NFTs                                                  |
+| [all(queryParams)](./sdk.erc721supply.all.md)                            |           | Get all NFTs                                                         |
 | [allOwners()](./sdk.erc721supply.allowners.md)                           |           | Return all the owners of each token id in this contract              |
 | [totalCirculatingSupply()](./sdk.erc721supply.totalcirculatingsupply.md) |           | Get the number of NFTs of this contract currently owned by end users |
 | [totalCount()](./sdk.erc721supply.totalcount.md)                         |           | Get the number of NFTs minted                                        |

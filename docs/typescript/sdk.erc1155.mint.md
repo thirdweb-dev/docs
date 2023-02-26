@@ -9,7 +9,7 @@ displayed_sidebar: typescript
 
 # Erc1155.mint() method
 
-Mint an NFT with a limited supply
+Mint an NFT
 
 ## Example
 

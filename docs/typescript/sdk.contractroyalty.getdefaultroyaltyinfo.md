@@ -9,12 +9,14 @@ displayed_sidebar: typescript
 
 # ContractRoyalty.getDefaultRoyaltyInfo() method
 
-Gets the royalty recipient and BPS (basis points) of the contract
+Get the royalty recipient and fee
 
 ## Example
 
 ```javascript
 const royaltyInfo = await contract.royalties.getDefaultRoyaltyInfo();
+console.log(royaltyInfo.fee_recipient);
+console.log(royaltyInfo.seller_fee_basis_points);
 ```
 
 **Signature:**

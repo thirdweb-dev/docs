@@ -36,12 +36,12 @@ await contract.roles.setTokenRoyaltyInfo(tokenId, {
 
 ## Methods
 
-| Method                                                                                    | Modifiers | Description                                                             |
-| ----------------------------------------------------------------------------------------- | --------- | ----------------------------------------------------------------------- |
-| [getDefaultRoyaltyInfo()](./sdk.contractroyalty.getdefaultroyaltyinfo.md)                 |           | Gets the royalty recipient and BPS (basis points) of the contract       |
-| [getTokenRoyaltyInfo(tokenId)](./sdk.contractroyalty.gettokenroyaltyinfo.md)              |           | Gets the royalty recipient and BPS (basis points) of a particular token |
-| [setDefaultRoyaltyInfo(royaltyData)](./sdk.contractroyalty.setdefaultroyaltyinfo.md)      |           | Set the royalty recipient and fee for a contract                        |
-| [setTokenRoyaltyInfo(tokenId, royaltyData)](./sdk.contractroyalty.settokenroyaltyinfo.md) |           | Set the royalty recipient and fee for a particular token                |
+| Method                                                                                    | Modifiers | Description                                              |
+| ----------------------------------------------------------------------------------------- | --------- | -------------------------------------------------------- |
+| [getDefaultRoyaltyInfo()](./sdk.contractroyalty.getdefaultroyaltyinfo.md)                 |           | Get the royalty recipient and fee                        |
+| [getTokenRoyaltyInfo(tokenId)](./sdk.contractroyalty.gettokenroyaltyinfo.md)              |           | Get the royalty recipient and fee of a particular token  |
+| [setDefaultRoyaltyInfo(royaltyData)](./sdk.contractroyalty.setdefaultroyaltyinfo.md)      |           | Set the royalty recipient and fee                        |
+| [setTokenRoyaltyInfo(tokenId, royaltyData)](./sdk.contractroyalty.settokenroyaltyinfo.md) |           | Set the royalty recipient and fee for a particular token |
 
 **Signature:**
 

@@ -19,7 +19,7 @@ displayed_sidebar: unity
 | transactionHash  | variable |              |
 | ToString         | function |              |
 
-## Members
+# Members
 
 **`public string `[`from`](#struct_thirdweb_1_1_receipt_1acb33634282376b83cf8a0147d96769aa)**
 
