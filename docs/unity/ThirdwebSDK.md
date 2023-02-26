@@ -36,7 +36,7 @@ Deploy new contracts
 
 Create an instance of the thirdweb SDK. Requires a webGL browser context.
 
-### Parameters
+## Parameters
 
 - `chainOrRPC` The chain name or RPC url to connect to
 

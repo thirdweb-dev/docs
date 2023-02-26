@@ -1,5 +1,51 @@
 {
+  "AppURI": [
+    {
+      "name": "get",
+      "summary": "Get App URI\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const appURI = await contract.appURI.get(appURI);\nconsole.log(appURI) // \"ipfs://some_ipfs_hash\";"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractappuri.get"
+      }
+    },
+    {
+      "name": "set",
+      "summary": "Set App URI\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const appURI = \"ipfs://some_ipfs_hash\";\nawait contract.appURI.set(appURI);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractappuri.set"
+      }
+    }
+  ],
   "ContractMetadata": [
+    {
+      "name": "get",
+      "summary": "Get App URI\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const appURI = await contract.appURI.get(appURI);\nconsole.log(appURI) // \"ipfs://some_ipfs_hash\";"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractappuri.get"
+      }
+    },
+    {
+      "name": "set",
+      "summary": "Set App URI\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const appURI = \"ipfs://some_ipfs_hash\";\nawait contract.appURI.set(appURI);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.contractappuri.set"
+      }
+    },
     {
       "name": "get",
       "summary": "Get the metadata of this contract\n\n",
@@ -1000,6 +1046,17 @@
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.erc721supply.all"
       }
+    },
+    {
+      "name": "revokeBuyerApprovalForReservedListing",
+      "summary": "Revoke approval of a buyer for a reserved direct listing\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "// The listing ID of the direct listing you want approve buyer for\nconst listingId = \"0\";\n\nawait contract.directListings.revokeBuyerApprovalForReservedListing(listingId, \"{{wallet_address}}\");"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.revokebuyerapprovalforreservedlisting"
+      }
     }
   ],
   "ERC20ClaimPhasesV2": [
@@ -1863,6 +1920,408 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/typescript/sdk.erc721withquantitysignaturemintable.verify"
+      }
+    }
+  ],
+  "DirectListings": [
+    {
+      "name": "approveBuyerForReservedListing",
+      "summary": "Approve buyer for a reserved direct listing\n\n",
+      "remarks": "\n\nApprove a buyer to buy from a reserved listing.\n\n",
+      "examples": {
+        "javascript": "// The listing ID of the direct listing you want approve buyer for\nconst listingId = \"0\";\n\nawait contract.directListings.approveBuyerForReservedListing(listingId, \"{{wallet_address}}\");"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.approvebuyerforreservedlisting"
+      }
+    },
+    {
+      "name": "approveCurrencyForListing",
+      "summary": "Approve a currency for a direct listing\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "// The listing ID of the direct listing you want approve currency for\nconst listingId = \"0\";\n\nawait contract.directListings.approveCurrencyForListing(listingId, currencyContractAddress, pricePerTokenInCurrency);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.approvecurrencyforlisting"
+      }
+    },
+    {
+      "name": "buyFromListing",
+      "summary": "Buy direct listing for a specific wallet\n\n",
+      "remarks": "\n\nBuy from a specific direct listing from the marketplace.\n\n",
+      "examples": {
+        "javascript": "// The ID of the listing you want to buy from\nconst listingId = 0;\n// Quantity of the asset you want to buy\nconst quantityDesired = 1;\n\nawait contract.directListings.buyFromListing(listingId, quantityDesired, \"{{wallet_address}}\");"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.buyfromlisting"
+      }
+    },
+    {
+      "name": "cancelListing",
+      "summary": "Cancel Direct Listing\n\n",
+      "remarks": "\n\nCancel a direct listing on the marketplace\n\n",
+      "examples": {
+        "javascript": "// The listing ID of the direct listing you want to cancel\nconst listingId = 0;\n\nawait contract.directListings.cancelListing(listingId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.cancellisting"
+      }
+    },
+    {
+      "name": "createListing",
+      "summary": "Create new direct listing\n\n",
+      "remarks": "\n\nCreate a new listing on the marketplace where people can buy an asset directly.\n\n",
+      "examples": {
+        "javascript": "// Data of the listing you want to create\nconst listing = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to list\n  tokenId: \"0\",\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // The price to pay per unit of NFTs listed.\n  pricePerToken: 1.5,\n  // when should the listing open up for offers\n  startTimestamp: new Date(Date.now()),\n  // how long the listing will be open for\n  endTimestamp: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),\n  // Whether the listing is reserved for a specific set of buyers.\n  isReservedListing: false\n}\n\nconst tx = await contract.directListings.createListing(listing);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.createlisting"
+      }
+    },
+    {
+      "name": "currencyPriceForListing",
+      "summary": "Check price per token for an approved currency\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const listingId = 0;\nconst currencyContractAddress = '0x1234';\nconst price = await contract.directListings.currencyPriceForListing(listingId, currencyContractAddress);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.currencypriceforlisting"
+      }
+    },
+    {
+      "name": "getAll",
+      "summary": "Get all direct listings\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const listings = await contract.directListings.getAll();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.getall"
+      }
+    },
+    {
+      "name": "getAllValid",
+      "summary": "Get all valid direct listings\n\n@remark A valid listing is where the listing is active, and the creator still owns & has approved Marketplace to transfer the listed NFTs.\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const listings = await contract.directListings.getAllValid();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.getallvalid"
+      }
+    },
+    {
+      "name": "getListing",
+      "summary": "Get a single direct listing\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const listingId = 0;\nconst listing = await contract.directListings.getListing(listingId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.getlisting"
+      }
+    },
+    {
+      "name": "getTotalCount",
+      "summary": "Get the total number of direct listings\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const totalListings = await contract.directListings.getTotalCount();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.gettotalcount"
+      }
+    },
+    {
+      "name": "isCurrencyApprovedForListing",
+      "summary": "Check if a currency is approved for a specific direct listing\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const listingId = 0;\nconst currencyContractAddress = '0x1234';\nconst isApproved = await contract.directListings.isCurrencyApprovedForListing(listingId, currencyContractAddress);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.iscurrencyapprovedforlisting"
+      }
+    },
+    {
+      "name": "revokeCurrencyApprovalForListing",
+      "summary": "Revoke approval of a currency for a direct listing\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "// The listing ID of the direct listing you want to revoke currency for\nconst listingId = \"0\";\n\nawait contract.directListings.revokeCurrencyApprovalForListing(listingId, currencyContractAddress);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.revokecurrencyapprovalforlisting"
+      }
+    },
+    {
+      "name": "updateListing",
+      "summary": "Update a direct listing\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "// Data of the listing you want to update\n\nconst listingId = 0; // ID of the listing you want to update\n\nconst listing = {\n  // address of the contract the asset you want to list is on\n  assetContractAddress: \"0x...\", // should be same as original listing\n  // token ID of the asset you want to list\n  tokenId: \"0\", // should be same as original listing\n  // how many of the asset you want to list\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the listing\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // The price to pay per unit of NFTs listed.\n  pricePerToken: 1.5,\n  // when should the listing open up for offers\n  startTimestamp: new Date(Date.now()), // can't change this if listing already active\n  // how long the listing will be open for\n  endTimestamp: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),\n  // Whether the listing is reserved for a specific set of buyers.\n  isReservedListing: false\n}\n\nconst tx = await contract.directListings.updateListing(listingId, listing);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created listing"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3directlistings.updatelisting"
+      }
+    }
+  ],
+  "EnglishAuctions": [
+    {
+      "name": "buyoutAuction",
+      "summary": "Buyout an english auction\n\n",
+      "remarks": "\n\nBuy a specific auction from the marketplace.\n\n",
+      "examples": {
+        "javascript": "// The auction ID you want to buy\nconst auctionId = 0;\n\nawait contract.englishAuctions.buyoutAuction(auctionId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.buyoutauction"
+      }
+    },
+    {
+      "name": "cancelAuction",
+      "summary": "Cancel an english auction\n\n",
+      "remarks": "\n\nCancel an auction on the marketplace\n\n",
+      "examples": {
+        "javascript": "// The ID of the auction you want to cancel\nconst auctionId = \"0\";\n\nawait contract.englishAuctions.cancelAuction(auctionId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.cancelauction"
+      }
+    },
+    {
+      "name": "closeAuctionForBidder",
+      "summary": "Close the english auction for the bidder\n\n",
+      "remarks": "\n\nCloses the Auction and executes the sale for the buyer.\n\n",
+      "examples": {
+        "javascript": "// The ID of the auction you want to close\nconst auction = \"0\";\nawait contract.englishAuctions.closeAuctionForBidder(auctionId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.closeauctionforbidder"
+      }
+    },
+    {
+      "name": "closeAuctionForSeller",
+      "summary": "Close the english auction for the seller\n\n",
+      "remarks": "\n\nCloses the Auction and executes the sale for the seller.\n\n",
+      "examples": {
+        "javascript": "// The ID of the auction you want to close\nconst auctionId = \"0\";\nawait contract.englishAuctions.closeAuctionForSeller(auctionId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.closeauctionforseller"
+      }
+    },
+    {
+      "name": "createAuction",
+      "summary": "Create an english auction\n\n",
+      "remarks": "\n\nCreate a new auction where people can bid on an asset.\n\n",
+      "examples": {
+        "javascript": "// Data of the auction you want to create\nconst auction = {\n  // address of the contract of the asset you want to auction\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to auction\n  tokenId: \"0\",\n  // how many of the asset you want to auction\n  quantity: 1,\n  // address of the currency contract that will be used to pay for the auctioned tokens\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // the minimum bid that will be accepted for the token\n  minimumBidAmount: \"1.5\",\n  // how much people would have to bid to instantly buy the asset\n  buyoutBidAmount: \"10\",\n  // If a bid is made less than these many seconds before expiration, the expiration time is increased by this.\n  timeBufferInSeconds: \"900\", // 15 minutes by default\n  // A bid must be at least this much bps greater than the current winning bid\n  bidBufferBps: \"500\", // 5% by default\n  // when should the auction open up for bidding\n  startTimestamp: new Date(Date.now()),\n  // end time of auction\n  endTimestamp: new Date(Date.now() + 5 * 24 * 60 * 60 * 1000),\n}\n\nconst tx = await contract.englishAuctions.createAuction(auction);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created auction"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.createauction"
+      }
+    },
+    {
+      "name": "executeSale",
+      "summary": "Close the english auction for both the seller and the bidder\n\n",
+      "remarks": "\n\nCloses the Auction and executes the sale for both parties.\n\n",
+      "examples": {
+        "javascript": "// The ID of the auction you want to close\nconst auction = \"0\";\nawait contract.englishAuctions.executeSale(auctionId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.executesale"
+      }
+    },
+    {
+      "name": "getAll",
+      "summary": "Get all english auctions\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const auctions = await contract.englishAuctions.getAll();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.getall"
+      }
+    },
+    {
+      "name": "getAllValid",
+      "summary": "Get all valid english auctions\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const auctions = await contract.englishAuctions.getAllValid();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.getallvalid"
+      }
+    },
+    {
+      "name": "getAuction",
+      "summary": "Get a single english auction\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const auctionId = 0;\nconst auction = await contract.englishAuctions.getAuction(auctionId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.getauction"
+      }
+    },
+    {
+      "name": "getBidBufferBps",
+      "summary": "Get the buffer for an english auction\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "// The ID of the auction you want to get the buffer for\nconst auctionId = \"0\";\nconst buffer = await contract.englishAuctions.getBidBufferBps(auctionId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.getbidbufferbps"
+      }
+    },
+    {
+      "name": "getMinimumNextBid",
+      "summary": "Get the minimum next bid for an english auction\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "// The ID of the auction you want to get the minimum next bid for\nconst auctionId = \"0\";\nconst minimumNextBid = await contract.englishAuctions.getMinimumNextBid(auctionId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.getminimumnextbid"
+      }
+    },
+    {
+      "name": "getTotalCount",
+      "summary": "Get the total number of english auctions\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const totalAuctions = await contract.englishAuctions.getTotalCount();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.gettotalcount"
+      }
+    },
+    {
+      "name": "getWinner",
+      "summary": "Get the winner for a specific english auction\n\n",
+      "remarks": "\n\nGet the winner of the auction after an auction ends.\n\n",
+      "examples": {
+        "javascript": "// The auction ID of a closed english auction\nconst auctionId = 0;\nconst auctionWinner = await contract.englishAuctions.getWinner(auctionId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.getwinner"
+      }
+    },
+    {
+      "name": "getWinningBid",
+      "summary": "Get winning bid of an english auction\n\n",
+      "remarks": "\n\nGet the current highest bid of an active auction.\n\n",
+      "examples": {
+        "javascript": "// The ID of the auction\nconst auctionId = 0;\nconst winningBid = await contract.englishAuctions.getWinningBid(auctionId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.getwinningbid"
+      }
+    },
+    {
+      "name": "isWinningBid",
+      "summary": "Check if a bid is or will be a winning bid\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const auctionId = 0;\nconst bidAmount = 100;\nconst isWinningBid = await contract.englishAuctions.isWinningBid(auctionId, bidAmount);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.iswinningbid"
+      }
+    },
+    {
+      "name": "makeBid",
+      "summary": "Bid on an english auction\n\n",
+      "remarks": "\n\nMake a bid on an auction\n\n",
+      "examples": {
+        "javascript": "// The auction ID of the asset you want to bid on\nconst auctionId = 0;\n// The total amount you are willing to bid for auctioned tokens\nconst bidAmount = 1;\n\nawait contract.englishAuctions.makeBid(auctionId, bidAmount);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3englishauctions.makebid"
+      }
+    }
+  ],
+  "Offers": [
+    {
+      "name": "acceptOffer",
+      "summary": "Accept an offer\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "// The ID of the offer you want to accept\nconst offerId = 0;\n\nawait contract.offers.acceptOffer(offerId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3offers.acceptoffer"
+      }
+    },
+    {
+      "name": "cancelOffer",
+      "summary": "Cancel an offer\n\n",
+      "remarks": "\n\nCancel an offer on the marketplace\n\n",
+      "examples": {
+        "javascript": "// The ID of the offer you want to cancel\nconst offerId = \"0\";\n\nawait contract.offers.cancelOffer(offerId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3offers.canceloffer"
+      }
+    },
+    {
+      "name": "getAll",
+      "summary": "Get all offers\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const offers = await contract.offers.getAll();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3offers.getall"
+      }
+    },
+    {
+      "name": "getAllValid",
+      "summary": "Get all valid offers\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const offers = await contract.offers.getAllValid();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3offers.getallvalid"
+      }
+    },
+    {
+      "name": "getOffer",
+      "summary": "Get a single offer\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const offerId = 0;\nconst offer = await contract.offers.getOffer(offerId);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3offers.getoffer"
+      }
+    },
+    {
+      "name": "getTotalCount",
+      "summary": "Get the total number of offers\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const totalOffers = await contract.offers.getTotalCount();"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3offers.gettotalcount"
+      }
+    },
+    {
+      "name": "makeOffer",
+      "summary": "Make an offer\n\n",
+      "remarks": "\n\nMake an offer on the marketplace for an asset.\n\n",
+      "examples": {
+        "javascript": "// Data of the offer you want to make\nconst offer = {\n  // address of the contract the asset you want to make an offer for\n  assetContractAddress: \"0x...\",\n  // token ID of the asset you want to buy\n  tokenId: \"0\",\n  // how many of the asset you want to buy\n  quantity: 1,\n  // address of the currency contract that you offer to pay in\n  currencyContractAddress: NATIVE_TOKEN_ADDRESS,\n  // Total price you offer to pay for the mentioned token(s)\n  totalPrice: \"1.5\",\n  // Offer valid until\n  endTimestamp: new Date(),\n}\n\nconst tx = await contract.offers.makeOffer(offer);\nconst receipt = tx.receipt; // the transaction receipt\nconst id = tx.id; // the id of the newly created offer"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/typescript/sdk.marketplacev3offers.makeoffer"
       }
     }
   ]
