@@ -1,0 +1,108 @@
+---
+title: ThirdwebSDK.fromWallet
+slug: /sdk.thirdwebsdk.fromwallet
+---
+
+Instantiate the [`ThirdwebSDK`](/sdk.thirdwebsdk) in read-write mode using a `Wallet` object.
+
+The [`@thirdweb-dev/wallets`](https://github.com/thirdweb-dev/js/tree/main/packages/wallets) package provides a set
+of wallets for you to use to instantiate the SDK.
+
+It includes support for secret manager services
+such as [AWS Key Management Service](https://aws.amazon.com/kms/) and [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/).
+
+This is the recommended method to instantiate the SDK in a production environment.
+
+## Usage
+
+First, install the [`@thirdweb-dev/wallets`](https://github.com/thirdweb-dev/js/tree/main/packages/wallets) package:
+
+```bash npm2yarn
+npm install @thirdweb/wallets
+```
+
+Then, you can use the `ThirdwebSDK.fromWallet` method to instantiate the SDK.
+
+Below is an example of how to instantiate the SDK with the [AWS Key Management Service](https://aws.amazon.com/kms/).
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { AwsKmsWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new AwsKmsWallet({
+  region: "us-east-1",
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+  sessionToken: process.env.AWS_SESSION_TOKEN,
+  keyId: process.env.AWS_KEY_ID,
+});
+
+const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum");
+```
+
+## Configuration
+
+### chain
+
+The chain you want to use. See [configuring chain](/typescript/sdk.thirdwebsdk#chain-required)
+on the `ThirdwebSDK` for more information.
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+const wallet = {
+  // ... Your wallet implementation
+};
+
+const sdk = ThirdwebSDK.fromWallet(
+  wallet,
+  // highlight-next-line
+  "ethereum", // Can be a string, a Chain object from @thirdweb-dev/chains, or a custom chain.
+);
+```
+
+### Using AwsKmsWallet
+
+Use [AWS Key Management Service](https://aws.amazon.com/kms/) to instantiate the SDK.
+
+The value stored in your secret value should be your wallet&rsquo;s private key.
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { AwsKmsWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new AwsKmsWallet({
+  region: "us-east-1", // Region where your secret is stored
+  accessKeyId: process.env.AWS_ACCESS_KEY_ID, // Add environment variables to store your AWS credentials
+  secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY, // Add environment variables to store your AWS credentials
+  sessionToken: process.env.AWS_SESSION_TOKEN, // Add environment variables to store your AWS credentials
+  keyId: process.env.AWS_KEY_ID, // Add environment variables to store your AWS credentials
+});
+
+const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum");
+```
+
+### Using AwsSecretsManagerWallet
+
+Use [AWS Secrets Manager](https://aws.amazon.com/secrets-manager/) to instantiate the SDK.
+
+The value stored in your secret value should be your wallet&rsquo;s private key.
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { AwsSecretsManagerWallet } from "@thirdweb-dev/wallets";
+
+const wallet = new AwsSecretsManagerWallet({
+  secretId: "{{secret-id}}", // ID of the secret value
+  secretKeyName: "{{secret-key-name}}", // Name of the secret value
+  awsConfig: {
+    region: "us-east-1", // Region where your secret is stored
+    credentials: {
+      accessKeyId: process.env.AWS_ACCESS_KEY_ID, // Add environment variables to store your AWS credentials
+      secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY, // Add environment variables to store your AWS credentials
+    },
+  },
+});
+
+const sdk = ThirdwebSDK.fromWallet(wallet, "ethereum");
+```
