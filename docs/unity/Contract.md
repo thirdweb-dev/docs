@@ -88,7 +88,7 @@ Call any [Pack](docs/unity/Pack.md#class_thirdweb_1_1_pack) supported functions
 
 Read data from a contract
 
-## Parameters
+# Parameters
 
 - `functionName` The contract function name to call
 

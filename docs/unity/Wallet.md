@@ -43,7 +43,7 @@ Connect and Interact with a [Wallet](#class_thirdweb_1_1_wallet).
 
 Connect a user's wallet via a given wallet provider
 
-## Parameters
+# Parameters
 
 - `walletConnection` The wallet provider and chainId to connect to. Defaults to the injected browser extension.
 
