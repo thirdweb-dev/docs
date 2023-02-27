@@ -1492,6 +1492,76 @@
       }
     }
   ],
+  "AppURI": [
+    {
+      "name": "useAppURI",
+      "summary": "Get App URI\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: contractMetadata, isLoading, error } = useAppURI(SmartContract;"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useappuri"
+      }
+    },
+    {
+      "name": "useSetAppURI",
+      "summary": "Set App URI\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const {\n    mutate: useSetAppURI,\n    isLoading,\n    error,\n  } = useSetAppURI(SmartContract);\n\n  if (error) {\n    console.error(\"failed to update appURI\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => useSetAppURI({ uri })}\n    >\n      Update App URI\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usesetappuri"
+      }
+    }
+  ],
+  "ContractMetadata": [
+    {
+      "name": "useAppURI",
+      "summary": "Get App URI\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: contractMetadata, isLoading, error } = useAppURI(SmartContract;"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.useappuri"
+      }
+    },
+    {
+      "name": "useContractMetadata",
+      "summary": "Get the metadata of this contract\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const { data: contractMetadata, isLoading } = useContractMetadata(contract);"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usecontractmetadata"
+      }
+    },
+    {
+      "name": "useContractMetadataUpdate",
+      "summary": "Update the metadata of this contract\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: updateContractMetadata,\n    isLoading,\n    error,\n  } = useContractMetadataUpdate(contract);\n\n  if (error) {\n    console.error(\"failed to update contract metadata\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updateContractMetadata({ name: \"New name\", description: \"New description\" })}\n    >\n      Update contract metadata\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usecontractmetadataupdate"
+      }
+    },
+    {
+      "name": "useSetAppURI",
+      "summary": "Set App URI\n\n",
+      "remarks": null,
+      "examples": {
+        "javascript": "const Component = () => {\n  const {\n    mutate: useSetAppURI,\n    isLoading,\n    error,\n  } = useSetAppURI(SmartContract);\n\n  if (error) {\n    console.error(\"failed to update appURI\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => useSetAppURI({ uri })}\n    >\n      Update App URI\n    </button>\n  );\n};"
+      },
+      "reference": {
+        "javascript": "https://docs.thirdweb.com/react/react.usesetappuri"
+      }
+    }
+  ],
   "EnglishAuctions": [
     {
       "name": "useAuctionWinner",
@@ -1793,30 +1863,6 @@
       },
       "reference": {
         "javascript": "https://docs.thirdweb.com/react/react.useclaimnft"
-      }
-    }
-  ],
-  "ContractMetadata": [
-    {
-      "name": "useContractMetadata",
-      "summary": "Get the metadata of this contract\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const { data: contractMetadata, isLoading } = useContractMetadata(contract);"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usecontractmetadata"
-      }
-    },
-    {
-      "name": "useContractMetadataUpdate",
-      "summary": "Update the metadata of this contract\n\n",
-      "remarks": null,
-      "examples": {
-        "javascript": "const Component = () => {\n  const { contract } = useContract(\"{{contract_address}}\");\n  const {\n    mutate: updateContractMetadata,\n    isLoading,\n    error,\n  } = useContractMetadataUpdate(contract);\n\n  if (error) {\n    console.error(\"failed to update contract metadata\", error);\n  }\n\n  return (\n    <button\n      disabled={isLoading}\n      onClick={() => updateContractMetadata({ name: \"New name\", description: \"New description\" })}\n    >\n      Update contract metadata\n    </button>\n  );\n};"
-      },
-      "reference": {
-        "javascript": "https://docs.thirdweb.com/react/react.usecontractmetadataupdate"
       }
     }
   ],
