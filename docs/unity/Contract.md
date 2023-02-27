@@ -94,7 +94,7 @@ Read data from a contract
 
 - `args` Optional function arguments. Structs and Lists will get serialized automatically
 
-## Returns
+# Returns
 
 The data deserialized to the given typed
 

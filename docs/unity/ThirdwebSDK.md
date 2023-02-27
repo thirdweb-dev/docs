@@ -48,7 +48,7 @@ Create an instance of the thirdweb SDK. Requires a webGL browser context.
 
 Get an instance of a deployed contract.
 
-## Parameters
+# Parameters
 
 - `address` The contract address
 
