@@ -25,13 +25,8 @@ export declare class Erc20Burnable implements DetectableFeature
 
 ## Properties
 
-| Property                                          | Modifiers | Type            | Description |
-| ------------------------------------------------- | --------- | --------------- | ----------- |
-| [featureName](./sdk.erc20burnable.featurename.md) |           | "ERC20Burnable" |             |
-
-## Methods
-
-| Method                                              | Modifiers | Description |
-| --------------------------------------------------- | --------- | ----------- |
-| [from(holder, amount)](./sdk.erc20burnable.from.md) |           | Burn Tokens |
-| [tokens(amount)](./sdk.erc20burnable.tokens.md)     |           | Burn Tokens |
+| Property                                          | Modifiers | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | Description |
+| ------------------------------------------------- | --------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| [featureName](./sdk.erc20burnable.featurename.md) |           | "ERC20Burnable"                                                                                                                                                                                                                                                                                                                                                                                                                                                            |             |
+| [from](./sdk.erc20burnable.from.md)               |           | { (holder: string, amount: string &#124; number): Promise&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;&gt;; prepare: (holder: string, amount: string &#124; number) =&gt; Promise&lt;[Transaction](./sdk.transaction.md)&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;&gt;&gt;; } | Burn Tokens |
+| [tokens](./sdk.erc20burnable.tokens.md)           |           | { (amount: string &#124; number): Promise&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;&gt;; prepare: (amount: string &#124; number) =&gt; Promise&lt;[Transaction](./sdk.transaction.md)&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;&gt;&gt;; }                                 | Burn Tokens |

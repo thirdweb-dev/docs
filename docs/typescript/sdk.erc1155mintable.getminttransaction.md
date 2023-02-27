@@ -9,10 +9,14 @@ displayed_sidebar: typescript
 
 # Erc1155Mintable.getMintTransaction() method
 
+> Warning: This API is now obsolete.
+>
+> Use `contract.erc1155.mint.prepare(...args)` instead
+
 **Signature:**
 
 ```typescript
-getMintTransaction(to: string, metadataWithSupply: EditionMetadataOrUri): Promise<TransactionTask>;
+getMintTransaction(to: string, metadataWithSupply: EditionMetadataOrUri): Promise<Transaction>;
 ```
 
 ## Parameters
@@ -24,4 +28,4 @@ getMintTransaction(to: string, metadataWithSupply: EditionMetadataOrUri): Promis
 
 **Returns:**
 
-Promise&lt;TransactionTask&gt;
+Promise&lt;[Transaction](./sdk.transaction.md)&gt;

@@ -26,12 +26,13 @@ await contract.nft.transfer(walletAddress, tokenId);
 
 ## Properties
 
-| Property                                                   | Modifiers              | Type                               | Description |
-| ---------------------------------------------------------- | ---------------------- | ---------------------------------- | ----------- |
-| [chainId](./sdk.standarderc721.chainid.md)                 | <code>readonly</code>  | number                             |             |
-| [contractWrapper](./sdk.standarderc721.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;           |             |
-| [erc721](./sdk.standarderc721.erc721.md)                   |                        | [Erc721](./sdk.erc721.md)&lt;T&gt; |             |
-| [storage](./sdk.standarderc721.storage.md)                 | <code>protected</code> | ThirdwebStorage                    |             |
+| Property                                                   | Modifiers              | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                 | Description     |
+| ---------------------------------------------------------- | ---------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------- |
+| [chainId](./sdk.standarderc721.chainid.md)                 | <code>readonly</code>  | number                                                                                                                                                                                                                                                                                                                                                                                                                                               |                 |
+| [contractWrapper](./sdk.standarderc721.contractwrapper.md) | <code>protected</code> | ContractWrapper&lt;T&gt;                                                                                                                                                                                                                                                                                                                                                                                                                             |                 |
+| [erc721](./sdk.standarderc721.erc721.md)                   |                        | [Erc721](./sdk.erc721.md)&lt;T&gt;                                                                                                                                                                                                                                                                                                                                                                                                                   |                 |
+| [storage](./sdk.standarderc721.storage.md)                 | <code>protected</code> | ThirdwebStorage                                                                                                                                                                                                                                                                                                                                                                                                                                      |                 |
+| [transfer](./sdk.standarderc721.transfer.md)               |                        | { (to: string, tokenId: BigNumberish): Promise&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;&gt;; prepare: (to: string, tokenId: BigNumberish) =&gt; Promise&lt;[Transaction](./sdk.transaction.md)&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;&gt;&gt;; } | Transfer an NFT |
 
 ## Methods
 
@@ -47,7 +48,6 @@ await contract.nft.transfer(walletAddress, tokenId);
 | [isApproved(address, operator)](./sdk.standarderc721.isapproved.md)         |           | Get whether this wallet has approved transfers from the given operator |
 | [ownerOf(tokenId)](./sdk.standarderc721.ownerof.md)                         |           | Get the current owner of a given NFT within this Contract              |
 | [totalSupply()](./sdk.standarderc721.totalsupply.md)                        |           | Get total minted supply count                                          |
-| [transfer(to, tokenId)](./sdk.standarderc721.transfer.md)                   |           | Transfer an NFT                                                        |
 
 **Signature:**
 

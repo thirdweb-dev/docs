@@ -73,7 +73,9 @@ displayed_sidebar: typescript
 | [Token](./sdk.token.md)                                                             | Create a standard crypto token or cryptocurrency.                                                                                                                                                  |
 | [TokenDrop](./sdk.tokendrop.md)                                                     | Create a Drop contract for a standard crypto token or cryptocurrency.                                                                                                                              |
 | [TokenERC20History](./sdk.tokenerc20history.md)                                     | Manages history for Token contracts                                                                                                                                                                |
+| [Transaction](./sdk.transaction.md)                                                 |                                                                                                                                                                                                    |
 | [TransactionError](./sdk.transactionerror.md)                                       |                                                                                                                                                                                                    |
+| [Transactions](./sdk.transactions.md)                                               |                                                                                                                                                                                                    |
 | [UserWallet](./sdk.userwallet.md)                                                   | Connect and Interact with a user wallet                                                                                                                                                            |
 | [Vote](./sdk.vote.md)                                                               | Create a decentralized organization for token holders to vote on proposals.                                                                                                                        |
 
@@ -244,6 +246,7 @@ displayed_sidebar: typescript
 | [NFTMetadataInput](./sdk.nftmetadatainput.md)                                           |                                                                                      |
 | [NFTMetadataOrUri](./sdk.nftmetadataoruri.md)                                           |                                                                                      |
 | [PaperCreateCheckoutLinkShardParams](./sdk.papercreatecheckoutlinkshardparams.md)       | The parameters for creating a paper.xyz checkout link.                               |
+| [ParseTransactionReceipt](./sdk.parsetransactionreceipt.md)                             |                                                                                      |
 | [PayloadToSign1155](./sdk.payloadtosign1155.md)                                         |                                                                                      |
 | [PayloadToSign1155WithTokenId](./sdk.payloadtosign1155withtokenid.md)                   |                                                                                      |
 | [PayloadToSign20](./sdk.payloadtosign20.md)                                             |                                                                                      |
@@ -286,6 +289,9 @@ displayed_sidebar: typescript
 | [TokenMintInput](./sdk.tokenmintinput.md)                                               |                                                                                      |
 | [TokensToWrap](./sdk.tokenstowrap.md)                                                   | Input for wrapping any number of tokens                                              |
 | [TransactionErrorInfo](./sdk.transactionerrorinfo.md)                                   |                                                                                      |
+| [TransactionOptionsWithContract](./sdk.transactionoptionswithcontract.md)               |                                                                                      |
+| [TransactionOptionsWithContractInfo](./sdk.transactionoptionswithcontractinfo.md)       |                                                                                      |
+| [TransactionOptionsWithContractWrapper](./sdk.transactionoptionswithcontractwrapper.md) |                                                                                      |
 | [TransactionResult](./sdk.transactionresult.md)                                         |                                                                                      |
 | [TransactionResultWithAddress](./sdk.transactionresultwithaddress.md)                   |                                                                                      |
 | [TransactionResultWithId](./sdk.transactionresultwithid.md)                             |                                                                                      |

@@ -25,12 +25,7 @@ export declare class Erc721Burnable implements DetectableFeature
 
 ## Properties
 
-| Property                                           | Modifiers | Type             | Description |
-| -------------------------------------------------- | --------- | ---------------- | ----------- |
-| [featureName](./sdk.erc721burnable.featurename.md) |           | "ERC721Burnable" |             |
-
-## Methods
-
-| Method                                          | Modifiers | Description |
-| ----------------------------------------------- | --------- | ----------- |
-| [token(tokenId)](./sdk.erc721burnable.token.md) |           | Burn NFTs   |
+| Property                                           | Modifiers | Type                                                                                                                                                                                                                                                                                                                                                                                                                         | Description |
+| -------------------------------------------------- | --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
+| [featureName](./sdk.erc721burnable.featurename.md) |           | "ERC721Burnable"                                                                                                                                                                                                                                                                                                                                                                                                             |             |
+| [token](./sdk.erc721burnable.token.md)             |           | { (tokenId: BigNumberish): Promise&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;&gt;; prepare: (tokenId: BigNumberish) =&gt; Promise&lt;[Transaction](./sdk.transaction.md)&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;&gt;&gt;; } | Burn NFTs   |

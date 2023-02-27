@@ -69,7 +69,7 @@ Authenticate the user by signing a payload that can be used to securely identify
 
 Get the balance of the connected wallet
 
-#### Parameters
+### Parameters
 
 - `currencyAddress` Optional address of the currency to check balance of
 

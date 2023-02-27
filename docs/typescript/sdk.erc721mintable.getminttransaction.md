@@ -9,10 +9,14 @@ displayed_sidebar: typescript
 
 # Erc721Mintable.getMintTransaction() method
 
+> Warning: This API is now obsolete.
+>
+> Use `contract.erc721.mint.prepare(...args)` instead
+
 **Signature:**
 
 ```typescript
-getMintTransaction(to: string, metadata: NFTMetadataOrUri): Promise<TransactionTask>;
+getMintTransaction(to: string, metadata: NFTMetadataOrUri): Promise<Transaction>;
 ```
 
 ## Parameters
@@ -24,4 +28,4 @@ getMintTransaction(to: string, metadata: NFTMetadataOrUri): Promise<TransactionT
 
 **Returns:**
 
-Promise&lt;TransactionTask&gt;
+Promise&lt;[Transaction](./sdk.transaction.md)&gt;

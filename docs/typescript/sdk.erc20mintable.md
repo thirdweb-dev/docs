@@ -26,17 +26,17 @@ await contract.nft.mint.to(walletAddress, nftMetadata);
 
 ## Properties
 
-| Property                                          | Modifiers | Type                                                               | Description                         |
-| ------------------------------------------------- | --------- | ------------------------------------------------------------------ | ----------------------------------- |
-| [batch](./sdk.erc20mintable.batch.md)             |           | [Erc20BatchMintable](./sdk.erc20batchmintable.md) &#124; undefined | Batch mint Tokens to many addresses |
-| [featureName](./sdk.erc20mintable.featurename.md) |           | "ERC20Mintable"                                                    |                                     |
+| Property                                          | Modifiers | Type                                                                                                                                                                                                                                                                                                                                                                                                                                                               | Description                         |
+| ------------------------------------------------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------- |
+| [batch](./sdk.erc20mintable.batch.md)             |           | [Erc20BatchMintable](./sdk.erc20batchmintable.md) &#124; undefined                                                                                                                                                                                                                                                                                                                                                                                                 | Batch mint Tokens to many addresses |
+| [featureName](./sdk.erc20mintable.featurename.md) |           | "ERC20Mintable"                                                                                                                                                                                                                                                                                                                                                                                                                                                    |                                     |
+| [to](./sdk.erc20mintable.to.md)                   |           | { (to: string, amount: string &#124; number): Promise&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;&gt;; prepare: (to: string, amount: string &#124; number) =&gt; Promise&lt;[Transaction](./sdk.transaction.md)&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;&gt;&gt;; } | Mint Tokens                         |
 
 ## Methods
 
 | Method                                                                      | Modifiers | Description |
 | --------------------------------------------------------------------------- | --------- | ----------- |
 | [getMintTransaction(to, amount)](./sdk.erc20mintable.getminttransaction.md) |           |             |
-| [to(to, amount)](./sdk.erc20mintable.to.md)                                 |           | Mint Tokens |
 
 **Signature:**
 

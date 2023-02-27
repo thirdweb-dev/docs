@@ -32,7 +32,10 @@ await contract.transferBatch(data);
 **Signature:**
 
 ```typescript
-transferBatch(args: TokenMintInput[]): Promise<void>;
+transferBatch(args: TokenMintInput[]): Promise<Omit<{
+        receipt: import("@ethersproject/abstract-provider").TransactionReceipt;
+        data: () => Promise<unknown>;
+    }, "data">>;
 ```
 
 ## Parameters
@@ -43,7 +46,7 @@ transferBatch(args: TokenMintInput[]): Promise<void>;
 
 **Returns:**
 
-Promise&lt;void&gt;
+Promise&lt;Omit&lt;{ receipt: import("@ethersproject/abstract-provider").TransactionReceipt; data: () =&gt; Promise&lt;unknown&gt;; }, "data"&gt;&gt;
 
 ## Remarks
 

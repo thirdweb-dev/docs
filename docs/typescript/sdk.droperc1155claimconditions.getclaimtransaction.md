@@ -9,12 +9,16 @@ displayed_sidebar: typescript
 
 # DropErc1155ClaimConditions.getClaimTransaction() method
 
+> Warning: This API is now obsolete.
+>
+> Use `contract.erc1155.claim.prepare(...args)` instead
+
 Construct a claim transaction without executing it. This is useful for estimating the gas cost of a claim transaction, overriding transaction options and having fine grained control over the transaction execution.
 
 **Signature:**
 
 ```typescript
-getClaimTransaction(destinationAddress: string, tokenId: BigNumberish, quantity: BigNumberish, options?: ClaimOptions): Promise<TransactionTask>;
+getClaimTransaction(destinationAddress: string, tokenId: BigNumberish, quantity: BigNumberish, options?: ClaimOptions): Promise<Transaction>;
 ```
 
 ## Parameters
@@ -28,4 +32,4 @@ getClaimTransaction(destinationAddress: string, tokenId: BigNumberish, quantity:
 
 **Returns:**
 
-Promise&lt;TransactionTask&gt;
+Promise&lt;[Transaction](./sdk.transaction.md)&gt;

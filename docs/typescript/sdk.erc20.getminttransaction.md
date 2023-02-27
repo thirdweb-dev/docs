@@ -9,12 +9,16 @@ displayed_sidebar: typescript
 
 # Erc20.getMintTransaction() method
 
+> Warning: This API is now obsolete.
+>
+> Use `contract.erc20.mint.prepare(...args)` instead
+
 Construct a mint transaction without executing it This is useful for estimating the gas cost of a mint transaction, overriding transaction options and having fine grained control over the transaction execution.
 
 **Signature:**
 
 ```typescript
-getMintTransaction(receiver: string, amount: Amount): Promise<import("./TransactionTask").TransactionTask>;
+getMintTransaction(receiver: string, amount: Amount): Promise<Transaction>;
 ```
 
 ## Parameters
@@ -26,4 +30,4 @@ getMintTransaction(receiver: string, amount: Amount): Promise<import("./Transact
 
 **Returns:**
 
-Promise&lt;import("./TransactionTask").TransactionTask&gt;
+Promise&lt;[Transaction](./sdk.transaction.md)&gt;
