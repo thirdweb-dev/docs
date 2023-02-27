@@ -59,7 +59,7 @@ Disconnect the user's wallet
 
 Authenticate the user by signing a payload that can be used to securely identify users. See [https://portal.thirdweb.com/auth](https://portal.thirdweb.com/auth)
 
-### Parameters
+## Parameters
 
 - `domain` The domain to authenticate to
 
