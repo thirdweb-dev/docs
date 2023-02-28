@@ -19,10 +19,10 @@ upload(data: unknown, options?: T): Promise<string>;
 
 ## Parameters
 
-| Parameter | Type    | Description                                                             |
-| --------- | ------- | ----------------------------------------------------------------------- |
-| data      | unknown | Arbitrary file or JSON data to upload                                   |
-| options   | T       | <i>(Optional)</i> Options to pass through to the storage uploader class |
+| Parameter | Type    | Description                                                        |
+| --------- | ------- | ------------------------------------------------------------------ |
+| data      | unknown | Arbitrary file or JSON data to upload                              |
+| options   | T       | _(Optional)_ Options to pass through to the storage uploader class |
 
 **Returns:**
 

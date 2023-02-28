@@ -9,6 +9,10 @@ code {
   border-radius: 6px;
 }
 
+pre code {
+  background-color: var(--ifm-code-background);
+}
+
 .sp-wrapper {
   --sp-border-radius: var(--thirdweb-border-radius) !important;
 

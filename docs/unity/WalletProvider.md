@@ -19,7 +19,7 @@ displayed_sidebar: unity
 | MagicAuth      | property |              |
 | ToString       | function |              |
 
-## Members
+# Members
 
 **`{property} string `[`Value`](#class_thirdweb_1_1_wallet_provider_1a030e054a925dc65ae9fd3e687a2f89b4)**
 

@@ -14,7 +14,7 @@ displayed_sidebar: unity
 | contractAddress | variable | the [ERC721](docs/unity/ERC721.md#class_thirdweb_1_1_e_r_c721) contract address      |
 | tokenId         | variable | the tokenId of the [NFT](docs/unity/NFT.md#struct_thirdweb_1_1_n_f_t) to be rewarded |
 
-## Members
+# Members
 
 **`public string `[`contractAddress`](#class_thirdweb_1_1_e_r_c721_reward_1a45879339b184e314e37bdec76a70fbcb)**
 

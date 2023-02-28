@@ -33,7 +33,7 @@ Connect and Interact with a [Wallet](#class_thirdweb_1_1_wallet).
 | SendRawTransaction | function | Send a raw transaction from the connected wallet                                                                                                                 |
 | FundWallet         | function | Prompt the user to fund their wallet using one of the thirdweb pay providers (defaults to Coinbase Pay).                                                         |
 
-## Members
+# Members
 
 **`public inline `[`Wallet`](#class_thirdweb_1_1_wallet_1ab74001ead1e4a01b8f8d368af03d9eac)`()`**
 
@@ -43,7 +43,7 @@ Connect and Interact with a [Wallet](#class_thirdweb_1_1_wallet).
 
 Connect a user's wallet via a given wallet provider
 
-#### Parameters
+# Parameters
 
 - `walletConnection` The wallet provider and chainId to connect to. Defaults to the injected browser extension.
 
@@ -59,7 +59,7 @@ Disconnect the user's wallet
 
 Authenticate the user by signing a payload that can be used to securely identify users. See [https://portal.thirdweb.com/auth](https://portal.thirdweb.com/auth)
 
-#### Parameters
+# Parameters
 
 - `domain` The domain to authenticate to
 
@@ -69,7 +69,7 @@ Authenticate the user by signing a payload that can be used to securely identify
 
 Get the balance of the connected wallet
 
-#### Parameters
+### Parameters
 
 - `currencyAddress` Optional address of the currency to check balance of
 

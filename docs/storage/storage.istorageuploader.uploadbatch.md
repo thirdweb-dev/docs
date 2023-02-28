@@ -19,10 +19,10 @@ uploadBatch(data: FileOrBufferOrString[], options?: T): Promise<string[]>;
 
 ## Parameters
 
-| Parameter | Type                     | Description                                               |
-| --------- | ------------------------ | --------------------------------------------------------- |
-| data      | FileOrBufferOrString\[\] | Array of arbitrary file data or JSON strings to upload    |
-| options   | T                        | <i>(Optional)</i> Options to pass through to the uploader |
+| Parameter | Type                     | Description                                            |
+| --------- | ------------------------ | ------------------------------------------------------ |
+| data      | FileOrBufferOrString\[\] | Array of arbitrary file data or JSON strings to upload |
+| options   | T                        | _(Optional)_ Options to pass through to the uploader   |
 
 **Returns:**
 

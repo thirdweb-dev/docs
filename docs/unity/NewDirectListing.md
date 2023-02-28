@@ -19,7 +19,7 @@ class NewDirectListing
 | NewDirectListing | function |              |
 | ToString         | function |              |
 
-## Members
+# Members
 
 **`public inline `[`NewDirectListing`](#class_thirdweb_1_1_new_direct_listing_1acd05184a2ce7a5b5437cba4841ef6ad6)`()`**
 

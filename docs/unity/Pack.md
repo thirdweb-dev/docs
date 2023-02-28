@@ -37,7 +37,7 @@ Interact with a [Pack](#class_thirdweb_1_1_pack) contract.
 | AddPackContents   | function | Add new contents to an existing pack                                                                                                                                         |
 | Open              | function | Open a pack and transfer the rewards to the connected wallet                                                                                                                 |
 
-## Members
+# Members
 
 **`public string `[`chain`](#class_thirdweb_1_1_pack_1ae65c4c6bbb9e1fc75686d4fb25274ed4)**
 
@@ -71,7 +71,7 @@ Get a all NFTs in this contract
 
 Get a all NFTs owned by the connected wallet
 
-#### Parameters
+# Parameters
 
 - `address` Optional wallet address to query NFTs of
 
@@ -93,7 +93,7 @@ Get the balance of the given [NFT](docs/unity/NFT.md#struct_thirdweb_1_1_n_f_t) 
 
 Check whether the given contract address has been approved to transfer NFTs on behalf of the given wallet address
 
-#### Parameters
+# Parameters
 
 - `address` The wallet address
 

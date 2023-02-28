@@ -32,7 +32,7 @@ Convenient wrapper to interact with any EVM contract
 | Write       | function | Execute a write transaction on a contract                                                            |
 | Write       | function | Execute a write transaction on a contract                                                            |
 
-## Members
+# Members
 
 **`public string `[`chain`](#class_thirdweb_1_1_contract_1ab674895831e2f9aae85200f6125d0ba6)**
 
@@ -88,13 +88,13 @@ Call any [Pack](docs/unity/Pack.md#class_thirdweb_1_1_pack) supported functions
 
 Read data from a contract
 
-#### Parameters
+# Parameters
 
 - `functionName` The contract function name to call
 
 - `args` Optional function arguments. Structs and Lists will get serialized automatically
 
-#### Returns
+# Returns
 
 The data deserialized to the given typed
 
@@ -104,7 +104,7 @@ The data deserialized to the given typed
 
 Execute a write transaction on a contract
 
-#### Parameters
+### Parameters
 
 - `functionName` The contract function name to call
 

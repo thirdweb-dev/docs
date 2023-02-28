@@ -18,7 +18,7 @@ The entry point for the thirdweb SDK.
 | ThirdwebSDK | function | Create an instance of the thirdweb SDK. Requires a webGL browser context. |
 | GetContract | function | Get an instance of a deployed contract.                                   |
 
-## Members
+# Members
 
 **`public `[`Wallet`](docs/unity/Wallet.md#class_thirdweb_1_1_wallet)` `[`wallet`](#class_thirdweb_1_1_thirdweb_s_d_k_1ab7b329ee63841aa20c31bd82b93ecdb1)**
 
@@ -36,7 +36,7 @@ Deploy new contracts
 
 Create an instance of the thirdweb SDK. Requires a webGL browser context.
 
-#### Parameters
+# Parameters
 
 - `chainOrRPC` The chain name or RPC url to connect to
 
@@ -48,13 +48,13 @@ Create an instance of the thirdweb SDK. Requires a webGL browser context.
 
 Get an instance of a deployed contract.
 
-#### Parameters
+# Parameters
 
 - `address` The contract address
 
 - `abi` Optionally pass the ABI for contracts that cannot be auto resolved. Expected format for the ABI is escaped JSON string
 
-#### Returns
+### Returns
 
 A contract instance
 

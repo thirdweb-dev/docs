@@ -15,7 +15,7 @@ displayed_sidebar: unity
 | erc721Rewards  | variable |              |
 | erc1155Rewards | variable |              |
 
-## Members
+# Members
 
 **`public List< `[`ERC20Reward`](docs/unity/ERC20Reward.md#class_thirdweb_1_1_e_r_c20_reward)`>`[`erc20Rewards`](#struct_thirdweb_1_1_pack_rewards_1a28f748694be9d09e4157bcd8fda9a856)**
 

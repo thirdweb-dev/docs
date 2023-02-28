@@ -19,10 +19,10 @@ static fromNetwork(network: Network, storage?: ThirdwebStorage): ThirdwebSDK;
 
 ## Parameters
 
-| Parameter | Type                        | Description                                                      |
-| --------- | --------------------------- | ---------------------------------------------------------------- |
-| network   | [Network](./sdk.network.md) | The network to connect to                                        |
-| storage   | ThirdwebStorage             | <i>(Optional)</i> The storage provider to use or IPFS by default |
+| Parameter | Type                        | Description                                                 |
+| --------- | --------------------------- | ----------------------------------------------------------- |
+| network   | [Network](./sdk.network.md) | The network to connect to                                   |
+| storage   | ThirdwebStorage             | _(Optional)_ The storage provider to use or IPFS by default |
 
 **Returns:**
 

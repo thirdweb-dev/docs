@@ -23,7 +23,7 @@ class MarketplaceDirect
 | AcceptOffer       | function |              |
 | CancelListing     | function |              |
 
-## Members
+# Members
 
 **`public inline `[`MarketplaceDirect`](#class_thirdweb_1_1_marketplace_direct_1a93737c9a97ff8881b93c30a5441d215c)`(string parentRoute)`**
 

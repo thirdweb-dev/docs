@@ -5,17 +5,6 @@ body {
   line-height: 27px;
 }
 
-// h1, h2, h3
-h1 {
-  letter-spacing: -0.5px !important;
-}
-h2 {
-  letter-spacing: -0.5px !important;
-}
-h3 {
-  letter-spacing: -0.5px !important;
-}
-
 @media (min-width: 996px) {
   main {
     border-left: 1px solid var(--thirdweb-border-color) !important;
@@ -108,8 +97,7 @@ aside {
   gap: 12px;
   width: 273px;
   height: 94px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid var(--thirdweb-border-color);
   border-radius: 8px;
   flex: none;
   order: 0;
@@ -147,7 +135,7 @@ aside {
   font-weight: 500;
   line-height: 22.4px;
   font-style: normal;
-  color: var(--thirdweb-body-text-color);
+  color: var(--thirdweb-heading-color);
   padding-bottom: 0px;
   margin-bottom: 0px;
 }
@@ -191,7 +179,6 @@ aside {
 
 // Explore Products Section
 .explore-products-container {
-
 }
 
 .explore-products-heading {
@@ -334,7 +321,7 @@ aside {
   display: flex;
   flex-direction: row;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   gap: 4%;
   margin-bottom: 32px;
 }
@@ -630,4 +617,8 @@ html[data-theme="light"] {
   opacity: 0;
   height: 0px;
   overflow: hidden;
+}
+
+.card {
+  border: 1px solid var(--thirdweb-border-color);
 }

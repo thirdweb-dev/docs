@@ -17,10 +17,10 @@ uploadBatch(data: FileOrBufferOrString[], options?: IpfsUploadBatchOptions): Pro
 
 ## Parameters
 
-| Parameter | Type                                                          | Description       |
-| --------- | ------------------------------------------------------------- | ----------------- |
-| data      | FileOrBufferOrString\[\]                                      |                   |
-| options   | [IpfsUploadBatchOptions](./storage.ipfsuploadbatchoptions.md) | <i>(Optional)</i> |
+| Parameter | Type                                                          | Description  |
+| --------- | ------------------------------------------------------------- | ------------ |
+| data      | FileOrBufferOrString\[\]                                      |              |
+| options   | [IpfsUploadBatchOptions](./storage.ipfsuploadbatchoptions.md) | _(Optional)_ |
 
 **Returns:**
 
