@@ -1,11 +1,15 @@
 ---
 title: ERC20SignatureMintable
-slug: /extensions/erc20signaturemintable
+slug: /sdk.erc20signaturemintable
 ---
 
 # ERC20SignatureMintable
 
-## `signature`
+Functionality available for contracts that implement the
+[`IERC20`](/contracts/IERC20) and
+[`ISignatureMintERC20`](/contracts/ISignatureMintERC20) interfaces.
+
+## signature
 
 Signature Minting
 
@@ -19,7 +23,7 @@ const signedPayload = contract.erc20.signature().generate(payload);
 const tx = contract.erc20.signature.mint(signedPayload);
 ```
 
-## `generate`
+## generate
 
 Generate a signature that can be used to mint a certain amount of tokens
 
@@ -42,7 +46,7 @@ const signedPayload = await contract.erc20.signature.generate(payload);
 // now anyone can use these to mint the NFT using `contract.erc20.signature.mint(signedPayload)`
 ```
 
-## `mint`
+## mint
 
 Mint tokens from a signature
 
