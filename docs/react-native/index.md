@@ -12,7 +12,6 @@ displayed_sidebar: react-native
 <h1 align="center">thirdweb React Native SDK </h1>
 <p align="center">
 <a href="https://www.npmjs.com/package/@thirdweb-dev/react-native"><img src="https://img.shields.io/npm/v/@thirdweb-dev/react-native?color=red&label=npm&logo=npm" alt="npm version"/></a>
-<a href="https://github.com/thirdweb-dev/js/actions/workflows/CI.yml"><img alt="Build Status" src="https://github.com/thirdweb-dev/js/actions/workflows/CI.yml/badge.svg"/></a>
 <a href="https://discord.gg/thirdweb"><img alt="Join our Discord!" src="https://img.shields.io/discord/834227967404146718.svg?color=7289da&label=discord&logo=discord&style=flat"/></a>
 
 </p>
@@ -21,9 +20,10 @@ displayed_sidebar: react-native
 The React Native SDK provides convenient hooks for connecting to wallets and communicating with blockchains.
 
 **Note**: The SDK can connect to wallets that support WalletConnect V2. To find a list of such wallets please search in the [Wallet Connect Explorer](https://explorer.walletconnect.com/?type=wallet&version=2). Please note that some of these wallets haven't added support for test chains yet. One wallet that worked great for us during development was the Trust Wallet on Ethereum mainnet.
+
 ## Creating a new React Native app
 
-If you already have a React Native app you can jump to the *[Installation](#installation)* section in this guide; otherwise follow the development environment setup steps for React Native [in this guide](https://reactnative.dev/docs/environment-setup). Once your environment is setup, read along.
+If you already have a React Native app you can jump to the _[Installation](#installation)_ section in this guide; otherwise follow the development environment setup steps for React Native [in this guide](https://reactnative.dev/docs/environment-setup). Once your environment is setup, read along.
 
 ### Thirdweb React Native App Template
 
@@ -48,6 +48,7 @@ npx create-expo-app --template
 ```
 
 ## Installation
+
 First, move into your app's folder:
 
 ```
@@ -105,7 +106,7 @@ In your `metro.config.js` (please, create one if you don’t have it) add the fo
  *
  * @format
  */
-const extraNodeModules = require('node-libs-browser');
+const extraNodeModules = require("node-libs-browser");
 
 module.exports = {
   resolver: {
@@ -126,7 +127,7 @@ We provide a package that imports all the necessary polyfills for you, please, i
 
 ```javascript
 // Import polyfills
-import '@thirdweb-dev/react-native-compat';
+import "@thirdweb-dev/react-native-compat";
 ```
 
 ### Why are all these packages needed?
@@ -137,7 +138,7 @@ As explained in the intro of this doc, we need to shim some of the packages avai
 
 - WalletConnect has a dependency on `@react-native-async-storage/async-storage` . They use it to store sessions on devices.
 - WalletConnect uses Node’s `crypto` package when signing transactions. Since this package is not available in React Native we need an alternative implementation for it and its dependencies, the following packages accomplishes this:
-    - `node-libs-browser`
-    - `react-native-crypto`
-    - `react-native-randombytes`
-    - `react-native-get-random-values`
+  - `node-libs-browser`
+  - `react-native-crypto`
+  - `react-native-randombytes`
+  - `react-native-get-random-values`
