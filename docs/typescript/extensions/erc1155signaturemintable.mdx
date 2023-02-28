@@ -5,14 +5,14 @@ slug: /extensions/erc1155signaturemintable
 
 # ERC1155SignatureMintable
 
-## `signature`
+## signature
 
 Signature Minting
 
 Generate dynamic NFTs with your own signature, and let others mint them using that signature.
 
 ```javascript
-// see how to craft a payload to sign in the `contract.erc1155.signature.generate()` documentation
+// see how to craft a payload to sign in the contract.erc1155.signature.generate() documentation
 const signedPayload = contract.erc1155.signature().generate(payload);
 
 // now anyone can mint the NFT
@@ -21,7 +21,7 @@ const receipt = tx.receipt; // the mint transaction receipt
 const mintedId = tx.id; // the id of the NFT minted
 ```
 
-## `generate`
+## generate
 
 Generate a signature that can be used to mint an NFT dynamically.
 
@@ -50,10 +50,10 @@ const payload = {
 };
 
 const signedPayload = await contract.erc1155.signature.generate(payload);
-// now anyone can use these to mint the NFT using `contract.erc1155.signature.mint(signedPayload)`
+// now anyone can use these to mint the NFT using contract.erc1155.signature.mint(signedPayload)
 ```
 
-## `generateFromTokenId`
+## generateFromTokenId
 
 Generate a signature that can be used to mint additionaly supply to an existing NFT.
 
@@ -82,38 +82,38 @@ const payload = {
 };
 
 const signedPayload = await contract.erc1155.signature.generateFromTokenId(payload);
-// now anyone can use these to mint the NFT using `contract.erc1155.signature.mint(signedPayload)`
+// now anyone can use these to mint the NFT using contract.erc1155.signature.mint(signedPayload)
 ```
 
-## `mint`
+## mint
 
 Mint a dynamically generated NFT
 
 Mint a dynamic NFT with a previously generated signature.
 
 ```javascript
-// see how to craft a payload to sign in the `generate()` documentation
+// see how to craft a payload to sign in the generate() documentation
 const signedPayload = contract.erc1155.signature.generate(payload);
 
 // now anyone can mint the NFT
 const tx = contract.erc1155.signature.mint(signedPayload);
 ```
 
-## `mintBatch`
+## mintBatch
 
 Mint any number of dynamically generated NFT at once
 
 Mint multiple dynamic NFTs in one transaction. Note that this is only possible for free mints (cannot batch mints with a price attached to it for security reasons)
 
 ```javascript
-// see how to craft a batch of payloads to sign in the `generateBatch()` documentation
+// see how to craft a batch of payloads to sign in the generateBatch() documentation
 const signedPayloads = contract.erc1155.signature.generateBatch(payloads);
 
 // now anyone can mint the NFT
 const tx = contract.erc1155.signature.mintBatch(signedPayloads);
 ```
 
-## `verify`
+## verify
 
 Verify that a payload is correctly signed
 

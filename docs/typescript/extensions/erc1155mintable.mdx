@@ -5,7 +5,7 @@ slug: /extensions/erc1155mintable
 
 # ERC1155Mintable
 
-## `mint`
+## mint
 
 Mint an NFT with a limited supply to the connected wallet.
 
@@ -31,7 +31,7 @@ const tokenId = tx.id; // the id of the NFT minted
 const nft = await tx.data(); // (optional) fetch details of minted NFT
 ```
 
-## `mintAdditionalSupply`
+## mintAdditionalSupply
 
 Increase the supply of an existing NFT and mint it to the connected wallet address
 
@@ -41,7 +41,7 @@ const additionalSupply = 1000;
 await contract.erc1155.mintAdditionalSupply(tokenId, additionalSupply);
 ```
 
-## `mintTo`
+## mintTo
 
 Mint an NFT with a limited supply to a specified wallet.
 

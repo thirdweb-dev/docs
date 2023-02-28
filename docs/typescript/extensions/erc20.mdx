@@ -5,11 +5,11 @@ slug: /extensions/erc20
 
 # ERC20
 
-## `allowance`
+## allowance
 
 Get Token Allowance
 
-Get the allowance of a 'spender' wallet over the connected wallet's funds - the allowance of a different address for a token is the amount of tokens that the `spender` wallet is allowed to spend on behalf of the connected wallet.
+Get the allowance of a 'spender' wallet over the connected wallet's funds - the allowance of a different address for a token is the amount of tokens that the spender wallet is allowed to spend on behalf of the connected wallet.
 
 ```javascript
 // Address of the wallet to check token allowance
@@ -17,7 +17,7 @@ const spenderAddress = "0x...";
 const allowance = await contract.erc20.allowance(spenderAddress);
 ```
 
-## `allowanceOf`
+## allowanceOf
 
 Get Token Allowance
 
@@ -31,7 +31,7 @@ const spender = "0x...";
 const allowance = await contract.erc20.allowanceOf(owner, spender);
 ```
 
-## `balance`
+## balance
 
 Get Token Balance for the currently connected wallet
 
@@ -41,7 +41,7 @@ Get a wallets token balance.
 const balance = await contract.erc20.balance();
 ```
 
-## `balanceOf`
+## balanceOf
 
 Get Token Balance
 
@@ -53,7 +53,7 @@ const walletAddress = "{{wallet_address}}";
 const balance = await contract.erc20.balanceOf(walletAddress);
 ```
 
-## `get`
+## get
 
 Get the token Metadata (name, symbol, etc...)
 
@@ -61,9 +61,9 @@ Get the token Metadata (name, symbol, etc...)
 const token = await contract.erc20.get();
 ```
 
-## `setAllowance`
+## setAllowance
 
-Allows the specified `spender` wallet to transfer the given `amount` of tokens to another wallet
+Allows the specified spender wallet to transfer the given amount of tokens to another wallet
 
 ```javascript
 // Address of the wallet to allow transfers from
@@ -73,7 +73,7 @@ const amount = 100;
 await contract.erc20.setAllowance(spenderAddress, amount);
 ```
 
-## `totalSupply`
+## totalSupply
 
 The total supply for this Token
 
@@ -83,7 +83,7 @@ Get how much supply has been minted
 const balance = await contract.erc20.totalSupply();
 ```
 
-## `transfer`
+## transfer
 
 Transfer Tokens
 
@@ -97,7 +97,7 @@ const amount = 0.1;
 await contract.erc20.transfer(toAddress, amount);
 ```
 
-## `transferFrom`
+## transferFrom
 
 Transfer Tokens From Address
 

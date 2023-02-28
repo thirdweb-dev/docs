@@ -5,7 +5,7 @@ slug: /extensions/erc1155
 
 # ERC1155
 
-## `balanceOf`
+## balanceOf
 
 Get a wallets NFT balance (number of NFTs in this contract owned by the wallet).
 
@@ -16,7 +16,7 @@ const tokenId = 0; // Id of the NFT to check
 const balance = await contract.erc1155.balanceOf(walletAddress, tokenId);
 ```
 
-## `get`
+## get
 
 Get a single NFT Metadata
 
@@ -24,7 +24,7 @@ Get a single NFT Metadata
 const nft = await contract.erc1155.get(0);
 ```
 
-## `transfer`
+## transfer
 
 Transfer an NFT from the connected wallet to another wallet.
 

@@ -5,7 +5,7 @@ slug: /extensions/erc20claimablewithconditions
 
 # ERC20ClaimableWithConditions
 
-## `claimConditions`
+## claimConditions
 
 Define who can claim NFTs in the collection, when and how many.
 
@@ -27,7 +27,7 @@ const claimConditions = [
 await contract.erc20.claimConditions.set(claimConditions);
 ```
 
-## `claim`
+## claim
 
 Claim a certain amount of tokens to the connected Wallet
 
@@ -39,7 +39,7 @@ const tx = await contract.erc20.claim(address, quantity);
 const receipt = tx.receipt; // the transaction receipt
 ```
 
-## `claimTo`
+## claimTo
 
 Claim a certain amount of tokens to a specific Wallet
 

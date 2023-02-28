@@ -5,14 +5,14 @@ slug: /extensions/erc721signaturemint
 
 # ERC721SignatureMint
 
-## `signature`
+## signature
 
 Signature Minting
 
 Generate dynamic NFTs with your own signature, and let others mint them using that signature.
 
 ```javascript
-// see how to craft a payload to sign in the `contract.erc721.signature.generate()` documentation
+// see how to craft a payload to sign in the contract.erc721.signature.generate() documentation
 const signedPayload = contract.erc721.signature().generate(payload);
 
 // now anyone can mint the NFT
@@ -21,7 +21,7 @@ const receipt = tx.receipt; // the mint transaction receipt
 const mintedId = tx.id; // the id of the NFT minted
 ```
 
-## `generate`
+## generate
 
 Generate a signature that can be used to mint a dynamic NFT
 
@@ -50,15 +50,15 @@ const payload = {
 };
 
 const signedPayload = await contract.erc721.signature.generate(payload);
-// now anyone can use these to mint the NFT using `contract.erc721.signature.mint(signedPayload)`
+// now anyone can use these to mint the NFT using contract.erc721.signature.mint(signedPayload)
 ```
 
-## `mint`
+## mint
 
 Mint a dynamic NFT with a previously generated signature.
 
 ```javascript
-// see how to craft a payload to sign in the `generate()` documentation
+// see how to craft a payload to sign in the generate() documentation
 const signedPayload = contract.erc721.signature.generate(payload);
 
 // now anyone can mint the NFT
@@ -67,7 +67,7 @@ const receipt = tx.receipt; // the mint transaction receipt
 const mintedId = tx.id; // the id of the NFT minted
 ```
 
-## `verify`
+## verify
 
 Verify that a payload is correctly signed
 

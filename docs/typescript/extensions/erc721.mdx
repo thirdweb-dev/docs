@@ -5,7 +5,7 @@ slug: /extensions/erc721
 
 # ERC721
 
-## `balanceOf`
+## balanceOf
 
 Get a wallets NFT balance (number of NFTs in this contract owned by the wallet).
 
@@ -15,7 +15,7 @@ const balance = await contract.erc721.balanceOf(walletAddress);
 console.log(balance);
 ```
 
-## `get`
+## get
 
 Get a single NFT Metadata
 
@@ -24,7 +24,7 @@ const tokenId = 0;
 const nft = await contract.erc721.get(tokenId);
 ```
 
-## `transfer`
+## transfer
 
 Transfer an NFT from the connected wallet to another wallet.
 
