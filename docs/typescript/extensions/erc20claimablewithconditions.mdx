@@ -1,0 +1,52 @@
+---
+title: ERC20ClaimableWithConditions
+slug: /extensions/erc20claimablewithconditions
+---
+
+# ERC20ClaimableWithConditions
+
+## `claimConditions`
+
+Define who can claim NFTs in the collection, when and how many.
+
+```javascript
+const presaleStartTime = new Date();
+const publicSaleStartTime = new Date(Date.now() + 60 * 60 * 24 * 1000);
+const claimConditions = [
+  {
+    startTime: presaleStartTime, // start the presale now
+    maxQuantity: 2, // limit how many mints for this presale
+    price: 0.01, // presale price
+    snapshot: ['0x...', '0x...'], // limit minting to only certain addresses
+  },
+  {
+    startTime: publicSaleStartTime, // 24h after presale, start public sale
+    price: 0.08, // public sale price
+  }
+]);
+await contract.erc20.claimConditions.set(claimConditions);
+```
+
+## `claim`
+
+Claim a certain amount of tokens to the connected Wallet
+
+```javascript
+const address = "{{wallet_address}}"; // address of the wallet you want to claim the NFTs
+const quantity = 42.69; // how many tokens you want to claim
+
+const tx = await contract.erc20.claim(address, quantity);
+const receipt = tx.receipt; // the transaction receipt
+```
+
+## `claimTo`
+
+Claim a certain amount of tokens to a specific Wallet
+
+```javascript
+const address = "{{wallet_address}}"; // address of the wallet you want to claim the NFTs
+const quantity = 42.69; // how many tokens you want to claim
+
+const tx = await contract.erc20.claim(address, quantity);
+const receipt = tx.receipt; // the transaction receipt
+```

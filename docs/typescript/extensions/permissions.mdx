@@ -1,0 +1,64 @@
+---
+title: Permissions
+slug: /extensions/permissions
+---
+
+# Permissions
+
+## `get`
+
+Call this to get a list of addresses that are members of a specific role.
+
+```javascript
+const minterAddresses = await contract.roles.get("minter");
+```
+
+## `getAll`
+
+Call this to get get a list of addresses for all supported roles on the contract.
+
+```javascript
+const rolesAndMembers = await contract.roles.getAll();
+```
+
+## `grant`
+
+Call this to grant a role to a specific address.
+
+Make sure you are sure you want to grant the role to the address.
+
+```javascript
+await contract.roles.grant(
+  "minter",
+  "0x1234567890123456789012345678901234567890",
+);
+```
+
+## `revoke`
+
+Call this to revoke a role from a specific address.
+
+-- Caution --
+
+This will let you remove yourself from the role, too. If you remove yourself from the admin role, you will no longer be able to administer the contract. There is no way to recover from this.
+
+```javascript
+await contract.roles.revoke(
+  "minter",
+  "0x1234567890123456789012345678901234567890",
+);
+```
+
+## `setAll`
+
+Call this to OVERWRITE the list of addresses that are members of specific roles.
+
+Every role in the list will be overwritten with the new list of addresses provided with them. If you want to add or remove addresses for a single address use {@link ContractRoles.grant} and {@link ContractRoles.revoke} respectively instead.
+
+```javascript
+const minterAddresses = await contract.roles.get("minter");
+await contract.roles.setAll({
+  minter: [],
+});
+console.log(await contract.roles.get("minter")); // No matter what members had the role before, the new list will be set to []
+```

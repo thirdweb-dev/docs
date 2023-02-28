@@ -1,0 +1,62 @@
+---
+title: ERC1155Burnable
+slug: /extensions/erc1155burnable
+---
+
+# ERC1155Burnable
+
+## `burn`
+
+Burn the specified NFTs from the connected wallet
+
+```javascript
+// The token ID to burn NFTs of
+const tokenId = 0;
+// The amount of the NFT you want to burn
+const amount = 2;
+
+const result = await contract.erc1155.burn(tokenId, amount);
+```
+
+## `burnBatch`
+
+Burn a batch NFTs from the connected wallet
+
+```javascript
+// The token IDs to burn NFTs of
+const tokenIds = [0, 1];
+// The amounts of each NFT you want to burn
+const amounts = [2, 2];
+
+const result = await contract.erc1155.burnBatch(tokenIds, amounts);
+```
+
+## `burnBatchFrom`
+
+Burn the batch NFTs from the specified wallet
+
+```javascript
+// The address of the wallet to burn NFTS from
+const account = "0x...";
+// The token IDs to burn NFTs of
+const tokenIds = [0, 1];
+// The amounts of each NFT you want to burn
+const amounts = [2, 2];
+
+const result = await contract.erc1155.burnBatchFrom(account, tokenIds, amounts);
+```
+
+## `burnFrom`
+
+Burn the specified NFTs from a specified wallet
+
+```javascript
+// The address of the wallet to burn NFTS from
+const account = "0x...";
+// The token ID to burn NFTs of
+const tokenId = 0;
+// The amount of this NFT you want to burn
+const amount = 2;
+
+const result = await contract.erc1155.burnFrom(account, tokenId, amount);
+```

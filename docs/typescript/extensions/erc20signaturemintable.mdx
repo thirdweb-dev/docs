@@ -1,0 +1,57 @@
+---
+title: ERC20SignatureMintable
+slug: /extensions/erc20signaturemintable
+---
+
+# ERC20SignatureMintable
+
+## `signature`
+
+Signature Minting
+
+Generate dynamic tokens with your own signature, and let others mint them using that signature.
+
+```javascript
+// see how to craft a payload to sign in the `contract.erc20.signature.generate()` documentation
+const signedPayload = contract.erc20.signature().generate(payload);
+
+// now the payload can be used to mint tokens
+const tx = contract.erc20.signature.mint(signedPayload);
+```
+
+## `generate`
+
+Generate a signature that can be used to mint a certain amount of tokens
+
+Takes in a quantity of tokens, some conditions for how it can be minted and signs it with your private key. The generated signature can then be used to mint those tokens using the exact payload and signature generated.
+
+```javascript
+const startTime = new Date();
+const endTime = new Date(Date.now() + 60 * 60 * 24 * 1000);
+const payload = {
+  quantity: 4.2, // The quantity of tokens to be minted
+  to: {{wallet_address}}, // Who will receive the tokens
+  price: 0.5, // the price to pay for minting those tokens
+  currencyAddress: NATIVE_TOKEN_ADDRESS, // the currency to pay with
+  mintStartTime: startTime, // can mint anytime from now
+  mintEndTime: endTime, // to 24h from now,
+  primarySaleRecipient: "0x...", // custom sale recipient for this token mint
+};
+
+const signedPayload = await contract.erc20.signature.generate(payload);
+// now anyone can use these to mint the NFT using `contract.erc20.signature.mint(signedPayload)`
+```
+
+## `mint`
+
+Mint tokens from a signature
+
+Mint a certain amount of tokens from a previously generated signature.
+
+```javascript
+// see how to craft a payload to sign in the `generate()` documentation
+const signedPayload = contract.erc20.signature.generate(payload);
+
+// Use the signed payload to mint the tokens
+const tx = contract.erc20.signature.mint(signedPayload);
+```

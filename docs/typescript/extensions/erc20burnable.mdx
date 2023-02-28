@@ -1,0 +1,31 @@
+---
+title: ERC20Burnable
+slug: /extensions/erc20burnable
+---
+
+# ERC20Burnable
+
+## `burn`
+
+Burn tokens held by the connected wallet
+
+```javascript
+// The amount of this token you want to burn
+const amount = 1.2;
+
+await contract.erc20.burn(amount);
+```
+
+## `burnFrom`
+
+Burn tokens held by the specified wallet
+
+```javascript
+// Address of the wallet sending the tokens
+const holderAddress = "{{wallet_address}}";
+
+// The amount of this token you want to burn
+const amount = 1.2;
+
+await contract.erc20.burnFrom(holderAddress, amount);
+```

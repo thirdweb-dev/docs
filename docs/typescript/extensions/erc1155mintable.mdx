@@ -1,0 +1,68 @@
+---
+title: ERC1155Mintable
+slug: /extensions/erc1155mintable
+---
+
+# ERC1155Mintable
+
+## `mint`
+
+Mint an NFT with a limited supply to the connected wallet.
+
+```javascript
+// Address of the wallet you want to mint the NFT to
+const toAddress = "{{wallet_address}}";
+
+// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.
+const metadata = {
+  name: "Cool NFT",
+  description: "This is a cool NFT",
+  image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
+};
+
+const metadataWithSupply = {
+  metadata,
+  supply: 1000, // The number of this NFT you want to mint
+};
+
+const tx = await contract.erc1155.mint(toAddress, metadataWithSupply);
+const receipt = tx.receipt; // the transaction receipt
+const tokenId = tx.id; // the id of the NFT minted
+const nft = await tx.data(); // (optional) fetch details of minted NFT
+```
+
+## `mintAdditionalSupply`
+
+Increase the supply of an existing NFT and mint it to the connected wallet address
+
+```javascript
+const tokenId = 0;
+const additionalSupply = 1000;
+await contract.erc1155.mintAdditionalSupply(tokenId, additionalSupply);
+```
+
+## `mintTo`
+
+Mint an NFT with a limited supply to a specified wallet.
+
+```javascript
+// Address of the wallet you want to mint the NFT to
+const toAddress = "{{wallet_address}}";
+
+// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.
+const metadata = {
+  name: "Cool NFT",
+  description: "This is a cool NFT",
+  image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
+};
+
+const metadataWithSupply = {
+  metadata,
+  supply: 1000, // The number of this NFT you want to mint
+};
+
+const tx = await contract.erc1155.mintTo(toAddress, metadataWithSupply);
+const receipt = tx.receipt; // the transaction receipt
+const tokenId = tx.id; // the id of the NFT minted
+const nft = await tx.data(); // (optional) fetch details of minted NFT
+```

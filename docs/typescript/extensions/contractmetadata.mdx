@@ -1,0 +1,36 @@
+---
+title: ContractMetadata
+slug: /extensions/contractmetadata
+---
+
+# ContractMetadata
+
+## `get`
+
+Get the metadata of a contract
+
+```javascript
+const metadata = await contract.metadata.get();
+```
+
+## `set`
+
+OVERWRITE the metadata of a contract
+
+```javascript
+await contract.metadata.set({
+  name: "My Contract",
+  description: "My contract description",
+});
+```
+
+## `update`
+
+Update the metadata of a contract
+
+```javascript
+await contract.metadata.update({
+  name: "My Contract",
+  description: "My contract description",
+});
+```

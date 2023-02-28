@@ -1,0 +1,44 @@
+---
+title: Royalty
+slug: /extensions/royalty
+---
+
+# Royalty
+
+## `getDefaultRoyaltyInfo`
+
+Gets the royalty recipient and BPS (basis points) of the contract
+
+```javascript
+const royaltyInfo = await contract.royalties.getDefaultRoyaltyInfo();
+```
+
+## `getTokenRoyaltyInfo`
+
+Gets the royalty recipient and BPS (basis points) of a particular token
+
+```javascript
+const royaltyInfo = await contract.royalties.getDefaultRoyaltyInfo();
+```
+
+## `setDefaultRoyaltyInfo`
+
+Set the royalty recipient and fee for a contract
+
+```javascript
+await contract.roles.setDefaultRoyaltyInfo({
+  seller_fee_basis_points: 100, // 1% royalty fee
+  fee_recipient: "0x...", // the fee recipient
+});
+```
+
+## `setTokenRoyaltyInfo`
+
+Set the royalty recipient and fee for a particular token
+
+```javascript
+await contract.roles.setTokenRoyaltyInfo(tokenId, {
+  seller_fee_basis_points: 100, // 1% royalty fee
+  fee_recipient: "0x...", // the fee recipient
+});
+```
