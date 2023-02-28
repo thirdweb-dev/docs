@@ -1175,7 +1175,7 @@
     "html_url": "https://github.com/thirdweb-example/signature-based-minting",
     "description": "Create a community-made NFT collection with restrictions that you specify using signature based minting in thirdweb's NFT Collection contract.",
     "created_at": "2022-04-07T20:17:43Z",
-    "updated_at": "2023-01-22T09:07:01Z",
+    "updated_at": "2023-02-28T18:25:40Z",
     "clone_url": "https://github.com/thirdweb-example/signature-based-minting.git",
     "topics": [
       "nextjs",
@@ -1184,7 +1184,7 @@
       "typescript"
     ],
     "language": "TypeScript",
-    "stargazers_count": 25,
+    "stargazers_count": 26,
     "is_template": false,
     "homepage": "https://signature-based-minting.thirdweb-example.com"
   },
