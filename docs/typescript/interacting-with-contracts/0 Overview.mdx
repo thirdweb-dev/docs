@@ -1,0 +1,67 @@
+---
+title: Overview
+slug: /extensions/
+hide_title: true
+---
+
+import CodeBlock from "@theme/CodeBlock";
+
+# Extensions
+
+Each [extension](/contractkit/interfaces) _(i.e. Solidity interface)_ that your smart contract implements unlocks new functionality for you to use in the SDK.
+For example, NFT collection smart contracts implements the [ERC721](/contractkit/interfaces/IERC721) extension,
+allowing you can to use the [ERC721](/typescript/extensions/erc721) extension in the SDK when interacting with that contract.
+
+These extension interfaces are available for the most common EIP standards, including support for ERC20, ERC721, ERC1155, permissions, metadata,
+and more. They handle the pre-processing of calling the smart contract functions for you, such as checking for token approval, uploading metadata to IPFS, formatting inputs, etc.
+Making your code safer and easier to write.
+
+For interacting with non-standard smart contracts, the [`call`](TODO) function can be used to call any function on the contract.
+
+<div
+  style={{
+    width: "100%",
+    display: "flex",
+    alignItems: "center",
+    gap: "2%",
+  }}
+>
+  <div
+    style={{
+      width: "48%",
+      display: "flex",
+      flexDirection: "column",
+    }}
+  >
+    <CodeBlock
+      title="MyContract.sol"
+      language={"solidity"}
+    >{`contract MyContract is 
+  ERC721, 
+  IERC721Mintable {
+    // ...
+  }`}</CodeBlock>
+
+  </div>
+    <div
+    style={{
+      width: "48%",
+      display: "flex",
+      flexDirection: "column",
+    }}
+  >
+    <CodeBlock
+      title="MyApp.js"
+      language={"solidity"}
+    >{`const MyApp = () => {
+  // ERC721 -> ".erc721"
+  // IERC721Mintable -> ".mint"
+  const tx = await contract.erc721.mint({...})
+}`}</CodeBlock>
+  </div>
+</div>
+<p style={{opacity:0.9}}>Example: the "mint" function above uploads and pins your NFT metadata to IPFS for you before minting.</p>
+
+## Supported Extensions
+
+View the full list of supported extensions in the [ContractKit Extensions Documentation](/contractkit) (TODO).
