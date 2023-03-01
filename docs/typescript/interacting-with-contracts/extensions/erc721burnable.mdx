@@ -10,10 +10,27 @@ Functionality available for contracts that implement the
 [`IBurnableERC721`](/contracts/IBurnableERC721)
 interfaces.
 
+Allows you to burn an NFT (transfer it to a **null address** that is unrecoverable).
+
 ## burn
 
-Burn a single NFT
+Burn an NFT from the **connected wallet**.
 
 ```javascript
-const result = await contract.erc721.burn(tokenId);
+const txResult = await contract.erc721.burn("{{token_id}}");
+```
+
+### Configuration
+
+#### tokenId
+
+The token ID of the NFT to burn.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.erc721.burn(
+  // highlight-next-line
+  "{{token_id}}",
+);
 ```
