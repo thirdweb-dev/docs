@@ -9,53 +9,149 @@ Functionality available for contracts that implement the
 [`IERC20`](/contracts/IERC20) and
 [`ISignatureMintERC20`](/contracts/ISignatureMintERC20) interfaces.
 
-## signature
-
-Signature Minting
-
-Generate dynamic tokens with your own signature, and let others mint them using that signature.
-
-```javascript
-// see how to craft a payload to sign in the `contract.erc20.signature.generate()` documentation
-const signedPayload = contract.erc20.signature().generate(payload);
-
-// now the payload can be used to mint tokens
-const tx = contract.erc20.signature.mint(signedPayload);
-```
+Allows you to utilize [signature-based minting](/sdk/advanced-features/on-demand-minting) of new tokens.
 
 ## generate
 
-Generate a signature that can be used to mint a certain amount of tokens
+Generate a signature that a wallet address can use to mint the specified number of tokens.
 
-Takes in a quantity of tokens, some conditions for how it can be minted and signs it with your private key. The generated signature can then be used to mint those tokens using the exact payload and signature generated.
+This is typically an **admin** operation, where the owner of the contract generates a signature that allows _another_ wallet to mint tokens.
 
 ```javascript
-const startTime = new Date();
-const endTime = new Date(Date.now() + 60 * 60 * 24 * 1000);
 const payload = {
-  quantity: 4.2, // The quantity of tokens to be minted
-  to: {{wallet_address}}, // Who will receive the tokens
-  price: 0.5, // the price to pay for minting those tokens
-  currencyAddress: NATIVE_TOKEN_ADDRESS, // the currency to pay with
-  mintStartTime: startTime, // can mint anytime from now
-  mintEndTime: endTime, // to 24h from now,
-  primarySaleRecipient: "0x...", // custom sale recipient for this token mint
+  quantity: 100, // (Required) The quantity of tokens to be minted
+  to: "{{wallet_address}}", // (Required) Who will receive the tokens
+  currencyAddress: "{{currency_contract_address}}", // (Optional) the currency to pay with
+  price: 0.5, // (Optional) the price to pay for minting those tokens (in the currency above)
+  mintStartTime: new Date(), // (Optional) can mint anytime from now
+  mintEndTime: new Date(Date.now() + 60 * 60 * 24 * 1000), // (Optional) to 24h from now,
+  primarySaleRecipient: "0x...", // (Optional) custom sale recipient for this token mint
 };
 
-const signedPayload = await contract.erc20.signature.generate(payload);
-// now anyone can use these to mint the NFT using `contract.erc20.signature.mint(signedPayload)`
+const signature = await contract.erc20.signature.generate(payload);
+```
+
+### Configuration
+
+The `mintRequest` object you provide to the `generate` function outlines what the signature can be used for.
+
+The `quantity` and `to` fields are required, while the rest are optional.
+
+#### quantity (required)
+
+The number of tokens this signature can be used to mint.
+
+```javascript
+const signature = await contract.erc20.signature.generate({
+  // highlight-next-line
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+});
+```
+
+#### to (required)
+
+The wallet address that can use this signature to mint tokens.
+
+This is to prevent another wallet from intercepting the signature and using it to mint tokens for themselves.
+
+```javascript
+const signature = await contract.erc20.signature.generate({
+  quantity: "{{quantity}}",
+  // highlight-next-line
+  to: "{{wallet_address}}",
+});
+```
+
+#### currencyAddress (optional)
+
+The address of the currency to pay for minting the tokens (use the [`price`](#price-optional) field to specify the price).
+
+Defaults to `NATIVE_TOKEN_ADDRESS` (the native currency of the network, e.g. Ether on Ethereum).
+
+```javascript
+const signature = await contract.erc20.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  // highlight-next-line
+  currencyAddress: "{{currency_contract_address}}",
+});
+```
+
+#### price (optional)
+
+If you want the user to pay for minting the tokens, you can specify the price **per token**.
+
+Defaults to `0` (free minting).
+
+```javascript
+const signature = await contract.erc20.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  // highlight-next-line
+  price: "{{price}}", // The user will have to pay `price * quantity` for minting the tokens
+});
+```
+
+#### mintStartTime (optional)
+
+The time from which the signature can be used to mint tokens.
+
+Defaults to `Date.now()` (now).
+
+```javascript
+const signature = await contract.erc20.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  // highlight-next-line
+  mintStartTime: new Date(), // The user can mint the tokens from this time
+});
+```
+
+#### mintEndTime (optional)
+
+The time until which the signature can be used to mint tokens.
+
+Defaults to `new Date(Date.now() + 1000 * 60 * 60 * 24 * 365 * 10),` (10 years from now).
+
+```javascript
+const signature = await contract.erc20.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  // highlight-next-line
+  mintEndTime: new Date(Date.now() + 60 * 60 * 24 * 1000), // The user can mint the tokens until this time
+});
+```
+
+#### primarySaleRecipient (optional)
+
+If a `price` is specified, the funds will be sent to the `primarySaleRecipient` address.
+
+Defaults to the `primarySaleRecipient` address of the contract.
+
+```javascript
+const signature = await contract.erc20.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  price: "{{price}}",
+  // highlight-next-line
+  primarySaleRecipient: "{{wallet_address}}", // The funds will be sent to this address
+});
 ```
 
 ## mint
 
-Mint tokens from a signature
-
-Mint a certain amount of tokens from a previously generated signature.
+Mint a certain amount of tokens from a previously generated signature (see [`generate`](#generate)).
 
 ```javascript
-// see how to craft a payload to sign in the `generate()` documentation
-const signedPayload = contract.erc20.signature.generate(payload);
-
 // Use the signed payload to mint the tokens
-const tx = contract.erc20.signature.mint(signedPayload);
+const txResult = contract.erc20.signature.mint(signature);
 ```
+
+### Configuration
+
+#### signature (required)
+
+The signature generated by the [`generate`](#generate) function.
+
+The typical pattern is the **admin** generates a signature, and the **user** uses it to mint the tokens, under the conditions specified in the signature.
