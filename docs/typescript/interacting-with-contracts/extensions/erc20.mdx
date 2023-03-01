@@ -9,45 +9,127 @@ Functionality available for contracts that implement the [`IERC20`](/contracts/I
 
 ## allowance
 
-Get Token Allowance
+Get the allowance of another wallet address over the **connected wallet's** funds.
 
-Get the allowance of a 'spender' wallet over the connected wallet's funds - the allowance of a different address for a token is the amount of tokens that the spender wallet is allowed to spend on behalf of the connected wallet.
+"Allowance" refers to the number of tokens that another wallet is allowed to spend on behalf of the connected wallet.
 
 ```javascript
 // Address of the wallet to check token allowance
-const spenderAddress = "0x...";
+const spenderAddress = "{{wallet_address}}";
 const allowance = await contract.erc20.allowance(spenderAddress);
 ```
 
+### Configuration
+
+#### spender
+
+The address of the wallet to check the allowance of.
+
+```javascript
+const allowance = await contract.erc20.allowance(
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```typescript
+{
+  value: BigNumber;
+  symbol: string;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}
+```
+
+<hr className="divider" />
+
 ## allowanceOf
 
-Get Token Allowance
-
-Get the allowance of one wallet over another wallet's funds - the allowance of a different address for a token is the amount of tokens that the wallet is allowed to spend on behalf of the specified wallet.
+The same as [`allowance`](#allowance), but allows you to specify the owner wallet to check, instead of using the connected wallet.
 
 ```javascript
 // Address of the wallet who owns the funds
 const owner = "{{wallet_address}}";
 // Address of the wallet to check token allowance
-const spender = "0x...";
+const spender = "{{wallet_address}}";
+
 const allowance = await contract.erc20.allowanceOf(owner, spender);
 ```
 
+### Configuration
+
+#### owner
+
+The address of the wallet that owns the funds.
+
+```javascript
+const allowance = await contract.erc20.allowanceOf(
+  // highlight-next-line
+  "{{wallet_address}}", // owner
+  "{{wallet_address}}", // spender
+);
+```
+
+#### spender
+
+The address of the wallet to check the allowance of.
+
+```javascript
+const allowance = await contract.erc20.allowanceOf(
+  "{{wallet_address}}", // owner
+  // highlight-next-line
+  "{{wallet_address}}", // spender
+);
+```
+
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```typescript
+{
+  value: BigNumber;
+  symbol: string;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}
+```
+
+<hr className="divider" />
+
 ## balance
 
-Get Token Balance for the currently connected wallet
-
-Get a wallets token balance.
+View the balance (i.e. number of tokens) the **connected wallet** has in their wallet from this contract.
 
 ```javascript
 const balance = await contract.erc20.balance();
 ```
 
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```typescript
+{
+  value: BigNumber;
+  symbol: string;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}
+```
+
+<hr className="divider" />
+
 ## balanceOf
 
-Get Token Balance
-
-Get a wallets token balance.
+The same as [`balance`](#balance), but allows you to specify the wallet address to check, instead of using the connected wallet.
 
 ```javascript
 // Address of the wallet to check token balance
@@ -55,41 +137,123 @@ const walletAddress = "{{wallet_address}}";
 const balance = await contract.erc20.balanceOf(walletAddress);
 ```
 
-## get
+### Configuration
 
-Get the token Metadata (name, symbol, etc...)
+#### address
+
+The address of the wallet to check the balance of.
 
 ```javascript
-const token = await contract.erc20.get();
+const balance = await contract.erc20.balanceOf(
+  // highlight-next-line
+  "{{wallet_address}}",
+);
 ```
+
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```typescript
+{
+  value: BigNumber;
+  symbol: string;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}
+```
+
+<hr className="divider" />
+
+## get
+
+Get the metadata of the token smart contract, such as the name, symbol, and decimals.
+
+```javascript
+const metadata = await contract.erc20.get();
+```
+
+### Return Value
+
+```typescript
+{
+  symbol: string; // ticker, e.g. "ETH"
+  name: string; // Name of the token, e.g. "Ether"
+  decimals: number; // Number of decimals, e.g. 18
+}
+```
+
+<hr className="divider" />
 
 ## setAllowance
 
-Allows the specified spender wallet to transfer the given amount of tokens to another wallet
+Grant allowance to another wallet address to spend the **connected wallet's** funds (of this token).
 
 ```javascript
 // Address of the wallet to allow transfers from
 const spenderAddress = "0x...";
 // The number of tokens to give as allowance
 const amount = 100;
+
 await contract.erc20.setAllowance(spenderAddress, amount);
 ```
 
+### Configuration
+
+#### spender
+
+The address of the wallet to grant allowance to.
+
+```javascript
+await contract.erc20.setAllowance(
+  // highlight-next-line
+  "{{wallet_address}}",
+  100,
+);
+```
+
+#### amount
+
+The number of tokens to give as allowance.
+
+```javascript
+await contract.erc20.setAllowance(
+  "{{wallet_address}}",
+  // highlight-next-line
+  100,
+);
+```
+
+<hr className="divider" />
+
 ## totalSupply
 
-The total supply for this Token
-
-Get how much supply has been minted
+Get the number of tokens in circulation for this contract.
 
 ```javascript
 const balance = await contract.erc20.totalSupply();
 ```
 
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```typescript
+{
+  value: BigNumber;
+  symbol: string;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}
+```
+
+<hr className="divider" />
+
 ## transfer
 
-Transfer Tokens
-
-Transfer tokens from the connected wallet to another wallet.
+Transfer tokens from the **connected wallet** to another wallet.
 
 ```javascript
 // Address of the wallet you want to send the tokens to
@@ -99,11 +263,40 @@ const amount = 0.1;
 await contract.erc20.transfer(toAddress, amount);
 ```
 
+### Configuration
+
+#### to
+
+The address of the wallet to send the tokens to.
+
+```javascript
+await contract.erc20.transfer(
+  // highlight-next-line
+  "{{wallet_address}}",
+  0.1,
+);
+```
+
+#### amount
+
+The amount of tokens to send.
+
+```javascript
+await contract.erc20.transfer(
+  "{{wallet_address}}",
+  // highlight-next-line
+  0.1,
+);
+```
+
+<hr className="divider" />
+
 ## transferFrom
 
-Transfer Tokens From Address
+The same as [`transfer`](#transfer), but allows you to specify the wallet address to send the tokens from,
+instead of using the connected wallet.
 
-Transfer tokens from one wallet to another
+This is only possible if the wallet initiating this transaction has been given allowance to transfer the tokens of the `fromAddress`.
 
 ```javascript
 // Address of the wallet sending the tokens
@@ -114,4 +307,45 @@ const toAddress = "0x...";
 const amount = 1.2;
 // Note that the connected wallet must have approval to transfer the tokens of the fromAddress
 await contract.erc20.transferFrom(fromAddress, toAddress, amount);
+```
+
+### Configuration
+
+#### from
+
+The address of the wallet to send the tokens from.
+
+```javascript
+await contract.erc20.transferFrom(
+  // highlight-next-line
+  "{{wallet_address}}",
+  "{{wallet_address}}",
+  1.2,
+);
+```
+
+#### to
+
+The address of the wallet to send the tokens to.
+
+```javascript
+await contract.erc20.transferFrom(
+  "{{wallet_address}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+  1.2,
+);
+```
+
+#### amount
+
+The amount of tokens to send.
+
+```javascript
+await contract.erc20.transferFrom(
+  "{{wallet_address}}",
+  "{{wallet_address}}",
+  // highlight-next-line
+  1.2,
+);
 ```

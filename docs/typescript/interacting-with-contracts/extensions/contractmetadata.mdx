@@ -15,7 +15,7 @@ Under the hood, the metadata object you provide is uploaded and pinned to IPFS. 
 When you retrieve the metadata of a contract, the IPFS hash is retrieved from the blockchain and the metadata is retrieved from IPFS
 and returned to you in an object.
 
-## Get
+## get
 
 Get the metadata of a contract
 
@@ -31,19 +31,19 @@ properties that follow the
 
 ```typescript
 {
-  name: string;
-  description?: string;
-  image?: string;
-  symbol?: string;
-  external_link?: string;
-  seller_fee_basis_points?: number
-  fee_recipient?: string;
+  name: string; // Name of your smart contract
+  description?: string; // Short description of your smart contract
+  image?: string; // Image of your smart contract (any URL, or IPFS URI)
+  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
+  external_link?: string; // Link to view this smart contract on your website
+  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
+  fee_recipient?: string; // Wallet address that receives the seller fee
 }
 ```
 
 <hr className="divider" />
 
-## Update
+## update
 
 Update the metadata of your smart contract.
 
@@ -78,9 +78,10 @@ If you do not provide a new value for a previously set property, it will remain 
 
 <hr className="divider" />
 
-## Set
+## set
 
-**Overwrite** the metadata of a contract.
+**Overwrite** the metadata of a contract, an object following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
 
 This operation ignores any existing metadata and replaces it with the new metadata provided.
 
