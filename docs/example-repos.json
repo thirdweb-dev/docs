@@ -915,17 +915,15 @@
     "html_url": "https://github.com/thirdweb-example/nft-staking-app",
     "description": "An NFT Staking contract deployed using thirdweb deploy, where users stake their ERC721 tokens and earn ERC20 tokens in return!",
     "created_at": "2022-05-31T05:09:19Z",
-    "updated_at": "2023-02-22T17:26:40Z",
+    "updated_at": "2023-02-28T22:40:42Z",
     "clone_url": "https://github.com/thirdweb-example/nft-staking-app.git",
     "topics": [
-      "contract-kit",
       "erc20",
       "erc721",
       "ethereum",
       "nft-staking",
       "solidity",
-      "staking",
-      "thirdweb-deploy"
+      "staking"
     ],
     "language": "TypeScript",
     "stargazers_count": 91,
@@ -1336,14 +1334,14 @@
     "html_url": "https://github.com/thirdweb-example/thirdweb-auth-next-auth",
     "description": "Enable wallet-based login with thirdweb Auth & Next Auth",
     "created_at": "2022-08-30T21:44:52Z",
-    "updated_at": "2023-02-27T10:56:47Z",
+    "updated_at": "2023-03-01T09:21:49Z",
     "clone_url": "https://github.com/thirdweb-example/thirdweb-auth-next-auth.git",
     "topics": [
       "auth",
       "nextauth"
     ],
     "language": "TypeScript",
-    "stargazers_count": 9,
+    "stargazers_count": 10,
     "is_template": false,
     "homepage": ""
   },
