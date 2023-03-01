@@ -7,7 +7,15 @@ slug: /sdk.contractmetadata
 
 Functionality available for contracts that inherit the [`ContractMetadata`](/contracts/ContractMetadata) contract.
 
-## get
+Read, set, or update the metadata of a smart contract, such as it&rsquo;s name, description, image, etc.
+
+If [`Permissions`](/typescript/sdk.permissions) are enabled, `admin` permissions are required to set/update the metadata (unless otherwise specified).
+
+Under the hood, the metadata object you provide is uploaded and pinned to IPFS. The IPFS hash that is returned is then stored on-chain.
+When you retrieve the metadata of a contract, the IPFS hash is retrieved from the blockchain and the metadata is retrieved from IPFS
+and returned to you in an object.
+
+## Get
 
 Get the metadata of a contract
 
@@ -15,24 +23,89 @@ Get the metadata of a contract
 const metadata = await contract.metadata.get();
 ```
 
-## set
+### Return Value
 
-OVERWRITE the metadata of a contract
+While the actual return type is `any`, you can expect an object containing
+properties that follow the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata), outlined below:
+
+```typescript
+{
+  name: string;
+  description?: string;
+  image?: string;
+  symbol?: string;
+  external_link?: string;
+  seller_fee_basis_points?: number
+  fee_recipient?: string;
+}
+```
+
+<hr className="divider" />
+
+## Update
+
+Update the metadata of your smart contract.
 
 ```javascript
-await contract.metadata.set({
+const txResult = await contract.metadata.update({
   name: "My Contract",
   description: "My contract description",
 });
 ```
 
-## update
+### Configuration
 
-Update the metadata of a contract
+#### metadata
+
+Provide an object containing the metadata of your smart contract following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+New properties will be added, and existing properties will be overwritten.
+If you do not provide a new value for a previously set property, it will remain unchanged.
+
+```typescript
+{
+  name: string; // Name of your smart contract
+  description?: string; // Short description of your smart contract
+  image?: string; // Image of your smart contract (any URL, or IPFS URI)
+  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
+  external_link?: string; // Link to view this smart contract on your website
+  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
+  fee_recipient?: string; // Wallet address that receives the seller fee
+}
+```
+
+<hr className="divider" />
+
+## Set
+
+**Overwrite** the metadata of a contract.
+
+This operation ignores any existing metadata and replaces it with the new metadata provided.
 
 ```javascript
-await contract.metadata.update({
+const txResult = await contract.metadata.set({
   name: "My Contract",
   description: "My contract description",
 });
+```
+
+### Configuration
+
+#### metadata
+
+Provide an object containing the metadata of your smart contract following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+```typescript
+{
+  name: string; // Name of your smart contract
+  description?: string; // Short description of your smart contract
+  image?: string; // Image of your smart contract (any URL, or IPFS URI)
+  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
+  external_link?: string; // Link to view this smart contract on your website
+  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
+  fee_recipient?: string; // Wallet address that receives the seller fee
+}
 ```
