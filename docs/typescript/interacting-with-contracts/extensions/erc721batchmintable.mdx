@@ -11,9 +11,9 @@ Functionality available for contracts that implement the
 [`IMulticall`](/contracts/IMulticall)
 interfaces.
 
-## mintBatchTo
+Allows you to mint multiple NFTs at once to a wallet.
 
-Mint many unique NFTs at once to a specified wallet.
+## mintBatchTo
 
 ```javascript
 // Address of the wallet you want to mint the NFT to
@@ -24,17 +24,65 @@ const metadatas = [
   {
     name: "Cool NFT #1",
     description: "This is a cool NFT",
-    image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
+    image: "https://example.com/image.png", // URL, IPFS URI, or File object
   },
   {
     name: "Cool NFT #2",
     description: "This is a cool NFT",
-    image: fs.readFileSync("path/to/other/image.png"),
+    image: "https://example.com/image.png", // URL, IPFS URI, or File object
   },
 ];
 
 const tx = await contract.erc721.mintBatchTo(walletAddress, metadatas);
-const receipt = tx[0].receipt; // same transaction receipt for all minted NFTs
-const firstTokenId = tx[0].id; // token id of the first minted NFT
-const firstNFT = await tx[0].data(); // (optional) fetch details of the first minted NFT
+```
+
+### Configuration
+
+#### receiver
+
+The wallet address to mint the NFTs to.
+
+Must be a `string`.
+
+```javascript
+const metadatas = [
+  // ...
+];
+
+const tx = await contract.erc721.mintBatchTo(
+  // highlight-next-line
+  "{{wallet_address}}",
+  metadatas,
+);
+```
+
+#### metadatas
+
+An array of metadata objects for the NFTs you want to mint.
+
+Must be an `array` of `object`s that conform to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+
+```javascript
+// highlight-start
+const metadatas = [
+  {
+    name: "Cool NFT #1",
+    description: "This is a cool NFT",
+    image: "https://example.com/image.png", // URL, IPFS URI, or File object
+    // ... Any other metadata you want to include
+  },
+  {
+    name: "Cool NFT #2",
+    description: "This is a cool NFT",
+    image: "https://example.com/image.png", // URL, IPFS URI, or File object
+    // ... Any other metadata you want to include
+  },
+];
+// highlight-end
+
+const tx = await contract.erc721.mintBatchTo(
+  "{{wallet_address}}",
+  // highlight-next-line
+  metadatas,
+);
 ```
