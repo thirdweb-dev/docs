@@ -10,6 +10,8 @@ Functionality available for contracts that implement the
 [`IMintableERC20`](/contracts/IMintableERC20),
 and [`IMulticall`](/contracts/IMulticall) interfaces.
 
+Allow you to mint tokens to multiple wallet addresses in one transaction.
+
 ## mintBatchTo
 
 Mint tokens to many wallets in one transaction.
@@ -27,5 +29,31 @@ const data = [
   },
 ];
 
-await contract.mintBatchTo(data);
+await contract.erc20.mintBatchTo(data);
+```
+
+### Configuration
+
+#### args
+
+An array of objects containing the following properties:
+
+- `toAddress` - The address to mint tokens to. `string`.
+- `amount` - The number of tokens to mint to the specified address. `string` or `number`.
+
+```javascript
+await contract.erc20.mintBatchTo(
+  // highlight-start
+  [
+    {
+      toAddress: "{{wallet_address}}", // Address to mint tokens to
+      amount: 0.2, // How many tokens to mint to specified address
+    },
+    {
+      toAddress: "0x...", // Another address to mint tokens to
+      amount: 1.4, // How many tokens to mint to specified address
+    },
+  ],
+  // highlight-end
+);
 ```

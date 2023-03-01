@@ -9,20 +9,35 @@ Functionality available for contracts that implement the
 [`IERC20`](/contracts/IERC20) and
 [`IBurnableERC20`](/contracts/IBurnableERC20) interfaces.
 
+Allows you to burn tokens (take them out of circulation).
+
 ## burn
 
-Burn tokens held by the connected wallet
+Burn tokens held by the **connected wallet**.
 
 ```javascript
 // The amount of this token you want to burn
 const amount = 1.2;
 
-await contract.erc20.burn(amount);
+const txResult = await contract.erc20.burn(amount);
+```
+
+### Configuration
+
+#### amount
+
+The amount of this token you want to burn.
+
+```javascript
+const txResult = await contract.erc20.burn(
+  // highlight-next-line
+  1.2, // The amount of tokens to burn (e.g. 1.2)
+);
 ```
 
 ## burnFrom
 
-Burn tokens held by the specified wallet
+Burn tokens held by a specified wallet (requires [`allowance`](/typescript/sdk.erc20#allowanceof)).
 
 ```javascript
 // Address of the wallet sending the tokens
@@ -31,5 +46,35 @@ const holderAddress = "{{wallet_address}}";
 // The amount of this token you want to burn
 const amount = 1.2;
 
-await contract.erc20.burnFrom(holderAddress, amount);
+const txResult = await contract.erc20.burnFrom(holderAddress, amount);
+```
+
+### Configuration
+
+#### holder
+
+The address of the wallet holding to burn tokens from.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.erc20.burnFrom(
+  // highlight-next-line
+  "{{wallet_address}}", // The address of the wallet holding the tokens to burn
+  1.2, // The amount of tokens to burn (e.g. 1.2)
+);
+```
+
+#### amount
+
+The amount of this token you want to burn.
+
+Must be a `string` or a `number`.
+
+```javascript
+const txResult = await contract.erc20.burnFrom(
+  "{{wallet_address}}", // The address of the wallet holding the tokens to burn
+  // highlight-next-line
+  1.2, // The amount of tokens to burn (e.g. 1.2)
+);
 ```

@@ -9,21 +9,68 @@ Functionality available for contracts that implement the
 [`IERC20`](/contracts/IERC20) and
 [`IMintableERC20`](/contracts/IMintableERC20) interfaces.
 
+Allows the minting of new tokens into the contract.
+
 ## mint
 
-Mint tokens to the connected wallet.
+Mint tokens to the **connected wallet**.
 
 ```javascript
 const amount = "1.5"; // The amount of this token you want to mint
-await contract.erc20.mint(toAddress, amount);
+const txResult = await contract.erc20.mint(amount);
+```
+
+### Configuration
+
+#### amount
+
+The amount of tokens to mint.
+
+Must be a `string` or `number`.
+
+```javascript
+const txResult = await contract.erc20.mint(
+  // highlight-next-line
+  "1.5",
+);
 ```
 
 ## mintTo
 
-Mint tokens to a specified address.
+The same as [`mint`](#mint), but allows you to specify the address to mint the tokens to.
 
 ```javascript
 const toAddress = "{{wallet_address}}"; // Address of the wallet you want to mint the tokens to
 const amount = "1.5"; // The amount of this token you want to mint
-await contract.erc20.mintTo(toAddress, amount);
+const txResult = await contract.erc20.mintTo(toAddress, amount);
+```
+
+### Configuration
+
+#### to
+
+The wallet address to mint the tokens to.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.erc20.mintTo(
+  // highlight-next-line
+  "{{wallet_address}}",
+  "1.5",
+);
+```
+
+#### amount
+
+The number of tokens to mint.
+
+Must be a `string` or `number`.
+
+```javascript
+const txResult = await contract.erc20.mintTo(
+  "{{wallet_address}}",
+  // highlight-next-line
+  "1.5",
+);
 ```

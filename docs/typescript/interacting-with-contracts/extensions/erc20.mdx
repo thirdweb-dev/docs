@@ -25,6 +25,8 @@ const allowance = await contract.erc20.allowance(spenderAddress);
 
 The address of the wallet to check the allowance of.
 
+Must be a `string`.
+
 ```javascript
 const allowance = await contract.erc20.allowance(
   // highlight-next-line
@@ -67,6 +69,8 @@ const allowance = await contract.erc20.allowanceOf(owner, spender);
 
 The address of the wallet that owns the funds.
 
+Must be a `string`.
+
 ```javascript
 const allowance = await contract.erc20.allowanceOf(
   // highlight-next-line
@@ -78,6 +82,8 @@ const allowance = await contract.erc20.allowanceOf(
 #### spender
 
 The address of the wallet to check the allowance of.
+
+Must be a `string`.
 
 ```javascript
 const allowance = await contract.erc20.allowanceOf(
@@ -143,6 +149,8 @@ const balance = await contract.erc20.balanceOf(walletAddress);
 
 The address of the wallet to check the balance of.
 
+Must be a `string`.
+
 ```javascript
 const balance = await contract.erc20.balanceOf(
   // highlight-next-line
@@ -205,6 +213,8 @@ await contract.erc20.setAllowance(spenderAddress, amount);
 
 The address of the wallet to grant allowance to.
 
+Must be a `string`.
+
 ```javascript
 await contract.erc20.setAllowance(
   // highlight-next-line
@@ -216,6 +226,8 @@ await contract.erc20.setAllowance(
 #### amount
 
 The number of tokens to give as allowance.
+
+Must be a `string` or `number`.
 
 ```javascript
 await contract.erc20.setAllowance(
@@ -269,6 +281,8 @@ await contract.erc20.transfer(toAddress, amount);
 
 The address of the wallet to send the tokens to.
 
+Must be a `string`.
+
 ```javascript
 await contract.erc20.transfer(
   // highlight-next-line
@@ -280,6 +294,8 @@ await contract.erc20.transfer(
 #### amount
 
 The amount of tokens to send.
+
+Must be a `string` or `number`.
 
 ```javascript
 await contract.erc20.transfer(
@@ -315,6 +331,8 @@ await contract.erc20.transferFrom(fromAddress, toAddress, amount);
 
 The address of the wallet to send the tokens from.
 
+Must be a `string`.
+
 ```javascript
 await contract.erc20.transferFrom(
   // highlight-next-line
@@ -328,6 +346,8 @@ await contract.erc20.transferFrom(
 
 The address of the wallet to send the tokens to.
 
+Must be a `string`.
+
 ```javascript
 await contract.erc20.transferFrom(
   "{{wallet_address}}",
@@ -340,6 +360,8 @@ await contract.erc20.transferFrom(
 #### amount
 
 The amount of tokens to send.
+
+Can be a `number` or a `string`.
 
 ```javascript
 await contract.erc20.transferFrom(
