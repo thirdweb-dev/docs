@@ -9,29 +9,129 @@ Functionality available for contracts that implement the [`IERC721`](/contracts/
 
 ## balanceOf
 
-Get a wallets NFT balance (number of NFTs in this contract owned by the wallet).
+Get a wallet&rsquo;s NFT balance (number of NFTs in this contract owned by the wallet).
 
 ```javascript
 const walletAddress = "{{wallet_address}}";
 const balance = await contract.erc721.balanceOf(walletAddress);
-console.log(balance);
 ```
+
+### Configuration
+
+#### walletAddress
+
+The wallet address to check the balance for.
+
+Must be a `string`.
+
+```javascript
+const balance = await contract.erc721.balanceOf(
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+### Return Value
+
+Returns a `BigNumber` representing the number of NFTs owned by the wallet.
+
+```typescript
+BigNumber;
+```
+
+<hr className="divider" />
 
 ## get
 
-Get a single NFT Metadata
+Get the metadata for an NFT in this contract using it&rsquo;s token ID.
+
+If the metadata is hosted on IPFS, the metadata is fetched and made available as an object.
+The object&rsquo;s `image` property will be a URL that is available through the thirdweb IPFS gateway.
 
 ```javascript
 const tokenId = 0;
 const nft = await contract.erc721.get(tokenId);
 ```
 
+### Configuration
+
+#### tokenId
+
+The token ID of the NFT to get the metadata for.
+
+Must be a `BigNumber`, `number`, or `string`.
+
+```javascript
+const nft = await contract.erc721.get(
+  // highlight-next-line
+  "{{token_id}}",
+);
+```
+
+### Return Value
+
+Returns an `NFT` object containing the NFT metadata.
+
+```typescript
+{
+  metadata: {
+    id: string;
+    uri: string; // The raw URI of the metadata
+    owner: string;
+    name?: string | number | undefined;
+    description?: string | null | undefined;
+    image?: string | null | undefined; // If the image is hosted on IPFS, the URL is https://gateway.ipfscdn.io/ipfs/<hash>
+    external_url?: string | null | undefined;
+    animation_url?: string | null | undefined;
+    background_color?: string | undefined;
+    properties?: {
+        [x: string]: unknown;
+    } | {
+        [x: string]: unknown;
+    }[] | undefined;
+  };
+  type: "ERC1155" | "ERC721";
+}
+```
+
+<hr className="divider" />
+
 ## transfer
 
-Transfer an NFT from the connected wallet to another wallet.
+Transfer an NFT from the **connected wallet** to another wallet.
 
 ```javascript
 const walletAddress = "{{wallet_address}}";
 const tokenId = 0;
 await contract.erc721.transfer(walletAddress, tokenId);
+```
+
+### Configuration
+
+#### walletAddress
+
+The wallet address to transfer the NFT to.
+
+Must be a `string`.
+
+```javascript
+await contract.erc721.transfer(
+  // highlight-next-line
+  "{{wallet_address}}",
+  "{{token_id}}",
+);
+```
+
+#### tokenId
+
+The token ID of the NFT to transfer.
+
+Must be a `BigNumber`, `number`, or `string`.
+
+```javascript
+await contract.erc721.transfer(
+  "{{wallet_address}}",
+  // highlight-next-line
+  "{{token_id}}",
+);
 ```
