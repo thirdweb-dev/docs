@@ -9,9 +9,57 @@ Functionality available for contracts that implement the
 [`IERC1155`](/contracts/IERC1155) and
 [`IMintableERC1155`](/contracts/IMintableERC1155) interfaces.
 
+Allows you to mint new NFTs on the contract.
+
+By default, the NFT metadata is uploaded and pinned to IPFS before minting.
+You can override this default behavior by providing a `string` that points to valid metadata object instead of an object.
+
 ## mint
 
-Mint an NFT with a limited supply to the connected wallet.
+Mint a new NFT to the **connected wallet**.
+
+```javascript
+const metadata = {
+  name: "Cool NFT #1",
+  description: "This is a cool NFT",
+  image: "https://example.com/image.png", // URL, IPFS URI, or File object
+  // ... Any other metadata you want to include
+};
+
+const tx = await contract.erc1155.mint({
+  metadata: metadata,
+  supply: 1000, // The number of this NFT you want to mint
+});
+```
+
+### Configuration
+
+#### metadataWithSupply
+
+An object containing a `metadata` object and a `supply` property.
+
+The metadata object can either be a string that points to valid metadata that
+conforms to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure),
+or an object that conforms to the same standards.
+
+If you provide an object, the metadata is uploaded and pinned to IPFS before
+the NFT(s) are minted.
+
+```javascript
+// Below is an example of using a string rather than an object for metadata
+const metadata = "https://example.com/metadata.json"; // Any URL or IPFS URI that points to metadata
+
+const txResult = await contract.erc1155.mint({
+  metadata: metadata,
+  supply: 1000, // The number of this NFT you want to mint
+});
+```
+
+<hr className="divider" />
+
+## mintTo
+
+The same as [`mint`](#mint), but allows you to specify the address of the wallet rather than using the connected wallet.
 
 ```javascript
 // Address of the wallet you want to mint the NFT to
@@ -29,15 +77,38 @@ const metadataWithSupply = {
   supply: 1000, // The number of this NFT you want to mint
 };
 
-const tx = await contract.erc1155.mint(toAddress, metadataWithSupply);
-const receipt = tx.receipt; // the transaction receipt
-const tokenId = tx.id; // the id of the NFT minted
-const nft = await tx.data(); // (optional) fetch details of minted NFT
+const txResult = await contract.erc1155.mintTo(toAddress, metadataWithSupply);
 ```
+
+### Configuration
+
+#### to
+
+The address of the wallet you want to mint the NFT to.
+
+Must be a `string`.
+
+```javascript
+const metadataWithSupply = {
+  // ...
+};
+
+const txResult = await contract.erc1155.mintTo(
+  // highlight-next-line
+  "{{wallet_address}}",
+  metadataWithSupply,
+);
+```
+
+#### metadataWithSupply
+
+Same as [`metadataWithSupply`](#metadatawithsupply) in the [`mint`](#mint) method.
+
+<hr className="divider" />
 
 ## mintAdditionalSupply
 
-Increase the supply of an existing NFT and mint it to the connected wallet address
+Mint additional quantity of an NFT that already exists on the contract.
 
 ```javascript
 const tokenId = 0;
@@ -45,28 +116,32 @@ const additionalSupply = 1000;
 await contract.erc1155.mintAdditionalSupply(tokenId, additionalSupply);
 ```
 
-## mintTo
+### Configuration
 
-Mint an NFT with a limited supply to a specified wallet.
+#### tokenId
+
+The ID of the NFT you want to mint additional supply for.
+
+Must be a `string`, `number`, or `BigNumber`.
 
 ```javascript
-// Address of the wallet you want to mint the NFT to
-const toAddress = "{{wallet_address}}";
+await contract.erc1155.mintAdditionalSupply(
+  // highlight-next-line
+  "{{token_id}}",
+  "{{additional_supply}}",
+);
+```
 
-// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.
-const metadata = {
-  name: "Cool NFT",
-  description: "This is a cool NFT",
-  image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
-};
+#### additionalSupply
 
-const metadataWithSupply = {
-  metadata,
-  supply: 1000, // The number of this NFT you want to mint
-};
+How much additional supply you want to mint.
 
-const tx = await contract.erc1155.mintTo(toAddress, metadataWithSupply);
-const receipt = tx.receipt; // the transaction receipt
-const tokenId = tx.id; // the id of the NFT minted
-const nft = await tx.data(); // (optional) fetch details of minted NFT
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+await contract.erc1155.mintAdditionalSupply(
+  "{{token_id}}",
+  // highlight-next-line
+  "{{additional_supply}}",
+);
 ```
