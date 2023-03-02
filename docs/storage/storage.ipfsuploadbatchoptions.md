@@ -20,6 +20,7 @@ export type IpfsUploadBatchOptions = {
   onProgress?: (event: UploadProgressEvent) => void;
   uploadWithoutDirectory?: boolean;
   metadata?: Record<string, string>;
+  alwaysUpload?: boolean;
 };
 ```
 

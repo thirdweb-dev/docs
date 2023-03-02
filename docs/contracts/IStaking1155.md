@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # IStaking1155
 
+_thirdweb_
+
 ## Methods
 
 ### claimRewards

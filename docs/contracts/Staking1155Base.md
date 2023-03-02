@@ -258,7 +258,7 @@ _Handles the receipt of a multiple ERC1155 token types. This function is called 
 ### onERC1155Received
 
 ```solidity
-function onERC1155Received(address, address, uint256, uint256, bytes) external nonpayable returns (bytes4)
+function onERC1155Received(address, address, uint256, uint256, bytes) external view returns (bytes4)
 ```
 
 #### Parameters
