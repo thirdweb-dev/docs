@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # IOperatorFilterToggle
 
+_thirdweb_
+
 ## Methods
 
 ### operatorRestriction

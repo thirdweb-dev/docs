@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # IBurnableERC721
 
+_thirdweb_
+
 ## Methods
 
 ### burn

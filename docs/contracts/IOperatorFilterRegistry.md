@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # IOperatorFilterRegistry
 
+_thirdweb_
+
 ## Methods
 
 ### codeHashOf
