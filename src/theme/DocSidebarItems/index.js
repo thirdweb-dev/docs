@@ -39,7 +39,6 @@ function DocSidebarItems({ items, ...props }) {
       "Prebuilt Contracts",
       "EVM SDK",
       "Solana SDK",
-      // "GamingKit",
       "UI Components",
       "Deploy",
       "Publish",
