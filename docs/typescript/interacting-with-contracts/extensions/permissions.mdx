@@ -8,60 +8,227 @@ toc_max_heading_level: 4 # Show up to h4 in table of contents (default is up to 
 
 Functionality available for contracts that inherit the [`Permissions`](/contracts/Permissions) contract.
 
+Allows you to manage the roles and permissions of the smart contract.
+
+Roles include
+`admin`, `transfer`, `minter`, `pauser`, `lister`, `asset`, `unwrap`, `factory`,
+or any other custom roles you have created.
+
 ## get
 
-Call this to get a list of addresses that are members of a specific role.
+Get a list of wallet addresses that are members of a given role.
 
 ```javascript
-const minterAddresses = await contract.roles.get("minter");
+const members = await contract.roles.get("{{role_name}}");
 ```
+
+### Configuration
+
+#### role
+
+The name of the role.
+
+Must be a `string`.
+
+```javascript
+const members = await contract.roles.get(
+  // highlight-next-line
+  "{{role_name}}",
+);
+```
+
+### Return Value
+
+An array of `string`s representing the wallet addresses associated with the given role.
+
+```typescript
+string[];
+```
+
+<hr className="divider" />
 
 ## getAll
 
-Call this to get get a list of addresses for all supported roles on the contract.
+Retrieve all of the roles and associated wallets.
 
 ```javascript
-const rolesAndMembers = await contract.roles.getAll();
+const allRoles = await contract.roles.getAll();
 ```
+
+### Return Value
+
+An object containing role names as keys and an array of wallet addresses as the value.
+
+```typescript
+<Record<any, string[]>>
+```
+
+<hr className="divider" />
 
 ## grant
 
-Call this to grant a role to a specific address.
-
-Make sure you are sure you want to grant the role to the address.
+Make a wallet a member of a given role.
 
 ```javascript
-await contract.roles.grant(
-  "minter",
-  "0x1234567890123456789012345678901234567890",
+const txResult = await contract.roles.grant(
+  "{{role_name}}",
+  "{{wallet_address}}",
 );
 ```
+
+### Configuration
+
+#### role
+
+The name of the role to grant.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.grant(
+  // highlight-next-line
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
+```
+
+#### wallet
+
+The wallet address to assign the role to.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.grant(
+  "{{role_name}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+<hr className="divider" />
 
 ## revoke
 
-Call this to revoke a role from a specific address.
-
--- Caution --
-
-This will let you remove yourself from the role, too. If you remove yourself from the admin role, you will no longer be able to administer the contract. There is no way to recover from this.
+Revoke a given role from a wallet.
 
 ```javascript
-await contract.roles.revoke(
-  "minter",
-  "0x1234567890123456789012345678901234567890",
+const txResult = await contract.roles.revoke(
+  "{{role_name}}",
+  "{{wallet_address}}",
 );
 ```
 
-## setAll
+### Configuration
 
-Call this to OVERWRITE the list of addresses that are members of specific roles.
+#### role
 
-Every role in the list will be overwritten with the new list of addresses provided with them. If you want to add or remove addresses for a single address use {@link ContractRoles.grant} and {@link ContractRoles.revoke} respectively instead.
+The name of the role to revoke.
+
+Must be a `string`.
 
 ```javascript
-const minterAddresses = await contract.roles.get("minter");
-await contract.roles.setAll({
-  minter: [],
+const txResult = await contract.roles.revoke(
+  // highlight-next-line
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
+```
+
+#### wallet
+
+The wallet address to remove the role from.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.revoke(
+  "{{role_name}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+<hr className="divider" />
+
+## setAll
+
+Overwrite all roles with new members.
+
+:::warning Dangerous Operation
+
+This **overwrites** all members, INCLUDING YOUR OWN WALLET ADDRESS!
+
+This means you can permanently remove yourself as an admin, which is non-reversible.
+
+Please use this method with caution.
+
+:::
+
+```javascript
+const txResult = await contract.roles.setAll({
+  admin: ["0x12", "0x123"],
+  minter: ["0x1234"],
 });
-console.log(await contract.roles.get("minter")); // No matter what members had the role before, the new list will be set to []
+```
+
+### Configuration
+
+#### roles
+
+An object containing role names as keys and an array of wallet addresses as the value.
+
+```javascript
+const txResult = await contract.roles.setAll(
+  // highlight-next-line
+  {
+    admin: ["0x12", "0x123"], // Grant these two wallets the admin role
+    minter: ["0x1234"], // Grant this wallet the minter role
+  },
+);
+```
+
+<hr className="divider" />
+
+## verify
+
+Check to see if a wallet has a set of roles.
+
+Throws an **error** if the wallet does not have any of the given roles.
+
+```javascript
+const verifyRole = await contract.roles.verify(
+  ["admin", "minter"],
+  "{{wallet_addres}}",
+);
+```
+
+### Configuration
+
+#### roles
+
+An array of roles to check.
+
+Must be an array of `string`s.
+
+```javascript
+const verifyRole = await contract.roles.verify(
+  // highlight-next-line
+  ["admin", "minter"],
+  "{{wallet_addres}}",
+);
+```
+
+#### wallet
+
+The wallet address to check.
+
+Must be a `string`.
+
+```javascript
+const verifyRole = await contract.roles.verify(
+  ["admin", "minter"],
+  // highlight-next-line
+  "{{wallet_addres}}",
+);
 ```

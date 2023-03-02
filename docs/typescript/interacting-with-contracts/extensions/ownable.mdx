@@ -8,3 +8,42 @@ toc_max_heading_level: 4 # Show up to h4 in table of contents (default is up to 
 
 Functionality available for contracts that implement the
 [`IOwnable`](/contracts/IOwnable) interface.
+
+## get
+
+Retrieve the wallet address of the owner of the smart contract.
+
+```javascript
+const owner = await contract.owner.get();
+```
+
+### Return Value
+
+A `string` representing the owner&rsquo;s wallet address.
+
+```typescript
+string;
+```
+
+## set
+
+Set the owner address of the contract.
+
+```javascript
+const txResult = await contract.owner.set("{{wallet_address}}");
+```
+
+### Configuration
+
+#### owner
+
+The wallet address of the new owner.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.owner.set(
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
