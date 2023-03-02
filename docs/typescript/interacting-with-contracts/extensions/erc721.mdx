@@ -45,6 +45,8 @@ BigNumber;
 
 Get the metadata for an NFT in this contract using it&rsquo;s token ID.
 
+Metadata is fetched from the `uri` property of the NFT.
+
 If the metadata is hosted on IPFS, the metadata is fetched and made available as an object.
 The object&rsquo;s `image` property will be a URL that is available through the thirdweb IPFS gateway.
 
@@ -90,7 +92,7 @@ Returns an `NFT` object containing the NFT metadata.
         [x: string]: unknown;
     }[] | undefined;
   };
-  type: "ERC1155" | "ERC721";
+  type: "ERC721";
 }
 ```
 

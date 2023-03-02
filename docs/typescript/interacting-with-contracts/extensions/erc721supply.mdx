@@ -33,6 +33,8 @@ const queryParams = {
   // The index to start from
   start: 0, // Default is 0
 };
+
+const nfts = await contract.erc721.getAll(queryParams);
 ```
 
 ### Return Value
