@@ -39,7 +39,7 @@ function DocSidebarItems({ items, ...props }) {
       "Prebuilt Contracts",
       "EVM SDK",
       "Solana SDK",
-      "GamingKit",
+      // "GamingKit",
       "UI Components",
       "Deploy",
       "Publish",
@@ -48,6 +48,8 @@ function DocSidebarItems({ items, ...props }) {
 
     // Infrastructure
     ["Auth", "Storage"],
+    // //Solutions
+    ["CommerceKit", "GamingKit"],
 
     // SDK References
     [

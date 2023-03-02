@@ -28,6 +28,7 @@ export const iconMapping = {
   "Solana SDK": "/assets/product/sdk.png",
   Solana: "/assets/product/sdk.png",
   GamingKit: "/assets/product/sdk.png",
+  CommerceKit: "/assets/product/sdk.png",
   Storage: "/assets/product/storage.png",
   "UI Components": "/assets/product/ui.png",
   Home: "/assets/icons/home.png",

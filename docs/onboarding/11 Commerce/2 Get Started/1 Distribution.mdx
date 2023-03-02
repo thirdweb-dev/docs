@@ -1,0 +1,32 @@
+---
+slug: /commercekit/get-started/distribution
+title: Distribution & Selling Options
+---
+
+### Claimable Drops
+
+The primary sale of digital collections can be set up as a drop to be claimed by end users. All of the thirdweb Drop contracts (both ERC721 and ERC1155) use a highly configurable “[claim with conditions](https://portal.thirdweb.com/sdk/interacting-with-contracts/erc721claimablewithconditions)” framework called Claim Conditions.
+
+Examples of types of primary sale drop mechanics that can be configured by users with thirdweb contracts:
+
+- Private allowlist
+- Public sale
+- Public sale with overrides (allow certain wallets to claim for different prices, different number)
+- [Delayed Reveal](https://blog.thirdweb.com/changelog/delayed-reveal-nfts/)
+- [Open edition](https://blog.thirdweb.com/guides/how-to-create-an-open-edition-nft-drop/)
+
+### Reward Users via Airdrops & Bulk Transfers
+
+In instances where digital assets are to be sent directly to users, CommerceKit supports delivery via airdrop functionality. Airdrops can be done via the Dashboard ([guide](https://blog.thirdweb.com/guides/how-to-airdrop-nfts-to-a-list-of-wallets/), [guide](https://blog.thirdweb.com/guides/how-to-airdrop-erc-1155-tokens-to-a-list-of-wallets/)) or programmatically [via the SDK](https://portal.thirdweb.com/typescript/sdk.erc1155.airdrop).
+
+### Free/Gasless Mints
+
+All thirdweb smart contracts support integrating a [gasless relayer service](https://portal.thirdweb.com/sdk/advanced-features/gasless-transactions) that allows for companies to pay all on-chain gas fees on behalf of their users.
+
+### White Labeled Marketplaces
+
+Brands can launch their own white labeled marketplaces where their community can buy and sell their NFTs ([example](https://marketplace-v3.thirdweb-preview.com/)) either as direct listings or as auctions. At the heart of the white labeled marketplace solution is [an extensible Marketplace smart contract](https://portal.thirdweb.com/sdk/interacting-with-contracts/marketplace) that handles all on-chain transfers and payments.
+
+### Royalties
+
+thirdweb smart contracts are all configurable to allow for both primary sales as well as royalties collected on secondary marketplaces to be distributed automatically to individual wallet address or to multiple recipients via mapping a Split contract as the recipient ([guide](https://blog.thirdweb.com/guides/nft-drop-with-revenue-share/)).
