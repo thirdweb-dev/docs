@@ -1,11 +1,44 @@
 ---
 title: ERC1155
 slug: /sdk.erc1155
+toc_max_heading_level: 4 # Show up to h4 in table of contents (default is up to h3)
 ---
 
 # ERC1155
 
 Functionality available for contracts that implement the [`IERC1155`](/contracts/IERC1155) interface.
+
+## balance
+
+Get the quantity of a specific NFT owned by the connected wallet.
+
+```javascript
+const tokenId = 0; // Id of the NFT to check
+const balance = await contract.erc1155.balanceOf(tokenId);
+```
+
+### Configuration
+
+#### tokenId
+
+The token ID of the NFT to check the balance of.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const balance = await contract.erc1155.balanceOf(
+  // highlight-next-line
+  "{{token_id}}",
+);
+```
+
+### Return Value
+
+A `BigNumber` representing the quantity of the NFT owned by the wallet.
+
+```typescript
+BigNumber;
+```
 
 ## balanceOf
 
@@ -13,7 +46,7 @@ Get the quantity of a specific NFT owned by a wallet.
 
 ```javascript
 // Address of the wallet to check NFT balance
-const walletAddress = ;
+const walletAddress = "{{wallet_address}}";
 const tokenId = 0; // Id of the NFT to check
 const balance = await contract.erc1155.balanceOf(walletAddress, tokenId);
 ```

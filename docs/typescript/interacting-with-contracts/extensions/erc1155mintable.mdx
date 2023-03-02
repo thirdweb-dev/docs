@@ -1,6 +1,7 @@
 ---
 title: ERC1155Mintable
 slug: /sdk.erc1155mintable
+toc_max_heading_level: 4 # Show up to h4 in table of contents (default is up to h3)
 ---
 
 # ERC1155Mintable
@@ -67,9 +68,10 @@ const toAddress = "{{wallet_address}}";
 
 // Custom metadata of the NFT, note that you can fully customize this metadata with other properties.
 const metadata = {
-  name: "Cool NFT",
+  name: "Cool NFT #1",
   description: "This is a cool NFT",
-  image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
+  image: "https://example.com/image.png", // URL, IPFS URI, or File object
+  // ... Any other metadata you want to include
 };
 
 const metadataWithSupply = {

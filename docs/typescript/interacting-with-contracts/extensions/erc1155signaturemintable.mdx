@@ -1,6 +1,7 @@
 ---
 title: ERC1155SignatureMintable
 slug: /sdk.erc1155signaturemintable
+toc_max_heading_level: 4 # Show up to h4 in table of contents (default is up to h3)
 ---
 
 # ERC1155SignatureMintable
@@ -9,141 +10,270 @@ Functionality available for contracts that implement the
 [`IERC1155`](/contracts/IERC1155) and
 [`ISignatureMintERC1155`](/contracts/ISignatureMintERC1155) interfaces.
 
-## signature
-
-Signature Minting
-
-Generate dynamic NFTs with your own signature, and let others mint them using that signature.
-
-```javascript
-// see how to craft a payload to sign in the contract.erc1155.signature.generate() documentation
-const signedPayload = contract.erc1155.signature().generate(payload);
-
-// now anyone can mint the NFT
-const tx = contract.erc1155.signature.mint(signedPayload);
-const receipt = tx.receipt; // the mint transaction receipt
-const mintedId = tx.id; // the id of the NFT minted
-```
+Allows you to utilize [signature-based minting](/sdk/advanced-features/on-demand-minting) of NFTs.
 
 ## generate
 
-Generate a signature that can be used to mint an NFT dynamically.
+Generate a signature that a wallet address can use to mint the specified number of NFTs.
 
-Takes in an NFT and some information about how it can be minted, uploads the metadata and signs it with your private key. The generated signature can then be used to mint an NFT using the exact payload and signature generated.
+This is typically an **admin** operation, where the owner of the contract generates a signature that allows _another_ wallet to mint tokens.
 
 ```javascript
-const nftMetadata = {
-  name: "Cool NFT #1",
-  description: "This is a cool NFT",
-  image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
-};
-
-const startTime = new Date();
-const endTime = new Date(Date.now() + 60 * 60 * 24 * 1000);
-const payload = {
-  metadata: nftMetadata, // The NFT to mint
-  to: {{wallet_address}}, // Who will receive the NFT
-  quantity: 2, // the quantity of NFTs to mint
-  price: 0.5, // the price per NFT
-  currencyAddress: NATIVE_TOKEN_ADDRESS, // the currency to pay with
-  mintStartTime: startTime, // can mint anytime from now
-  mintEndTime: endTime, // to 24h from now
-  royaltyRecipient: "0x...", // custom royalty recipient for this NFT
-  royaltyBps: 100, // custom royalty fees for this NFT (in bps)
-  primarySaleRecipient: "0x...", // custom sale recipient for this NFT
-};
-
-const signedPayload = await contract.erc1155.signature.generate(payload);
-// now anyone can use these to mint the NFT using contract.erc1155.signature.mint(signedPayload)
+const signedPayload = contract.erc1155.signature().generate(payload);
 ```
+
+### Configuration
+
+The `mintRequest` object you provide to the `generate` function outlines what the signature can be used for.
+
+The `quantity`, `to`, and `metadata` fields are required, while the rest are optional.
+
+#### quantity (required)
+
+The number of tokens this signature can be used to mint.
+
+```javascript
+const signature = await contract.erc1155.signature.generate({
+  // highlight-next-line
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  metadata: {
+    // ... Your NFT metadata
+  },
+});
+```
+
+#### to (required)
+
+The wallet address that can use this signature to mint tokens.
+
+This is to prevent another wallet from intercepting the signature and using it to mint tokens for themselves.
+
+```javascript
+const signature = await contract.erc1155.signature.generate({
+  quantity: "{{quantity}}",
+  // highlight-next-line
+  to: "{{wallet_address}}",
+  metadata: {
+    // ... Your NFT metadata
+  },
+});
+```
+
+#### metadata (required)
+
+The metadata of the NFT to mint.
+
+Can either be a `string` URL that points to valid metadata that conforms to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure),
+or an object that conforms to the same standards.
+
+If you provide an object, the metadata is uploaded and pinned to IPFS before
+the NFT(s) are minted.
+
+```javascript
+const signature = await contract.erc1155.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  // highlight-start
+  metadata: {
+    name: "Cool NFT #1",
+    description: "This is a cool NFT",
+    image: "https://example.com/image.png", // URL, IPFS URI, or File object
+    // ... Any other metadata you want to include
+  },
+  // highlight-end
+});
+```
+
+#### currencyAddress (optional)
+
+The address of the currency to pay for minting the tokens (use the [`price`](#price-optional) field to specify the price).
+
+Defaults to `NATIVE_TOKEN_ADDRESS` (the native currency of the network, e.g. Ether on Ethereum).
+
+```javascript
+const signature = await contract.erc1155.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  metadata: {
+    // ... Your NFT metadata
+  },
+  // highlight-next-line
+  currencyAddress: "{{currency_contract_address}}",
+});
+```
+
+#### price (optional)
+
+If you want the user to pay for minting the tokens, you can specify the price **per token**.
+
+Defaults to `0` (free minting).
+
+```javascript
+const signature = await contract.erc1155.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  metadata: {
+    // ... Your NFT metadata
+  },
+  // highlight-next-line
+  price: "{{price}}", // The user will have to pay `price * quantity` for minting the tokens
+});
+```
+
+#### mintStartTime (optional)
+
+The time from which the signature can be used to mint tokens.
+
+Defaults to `Date.now()` (now).
+
+```javascript
+const signature = await contract.erc1155.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  metadata: {
+    // ... Your NFT metadata
+  },
+  // highlight-next-line
+  mintStartTime: new Date(), // The user can mint the tokens from this time
+});
+```
+
+#### mintEndTime (optional)
+
+The time until which the signature can be used to mint tokens.
+
+Defaults to `new Date(Date.now() + 1000 * 60 * 60 * 24 * 365 * 10),` (10 years from now).
+
+```javascript
+const signature = await contract.erc1155.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  metadata: {
+    // ... Your NFT metadata
+  },
+  // highlight-next-line
+  mintEndTime: new Date(Date.now() + 60 * 60 * 24 * 1000), // The user can mint the tokens until this time
+});
+```
+
+#### primarySaleRecipient (optional)
+
+If a `price` is specified, the funds will be sent to the `primarySaleRecipient` address.
+
+Defaults to the `primarySaleRecipient` address of the contract.
+
+```javascript
+const signature = await contract.erc1155.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  metadata: {
+    // ... Your NFT metadata
+  },
+  price: "{{price}}",
+  // highlight-next-line
+  primarySaleRecipient: "{{wallet_address}}", // The funds will be sent to this address
+});
+```
+
+#### royaltyBps (optional)
+
+The percentage fee you want to charge for secondary sales.
+
+Defaults to the `royaltyBps` of the contract.
+
+```javascript
+const signature = await contract.erc1155.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  metadata: {
+    // ... Your NFT metadata
+  },
+  price: "{{price}}",
+  // highlight-next-line
+  royaltyBps: 500, // A 5% royalty fee.
+});
+```
+
+#### royaltyRecipient (optional)
+
+The address that will receive the royalty fees from secondary sales.
+
+Defaults to the `royaltyRecipient` address of the contract.
+
+```javascript
+const signature = await contract.erc1155.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  metadata: {
+    // ... Your NFT metadata
+  },
+  price: "{{price}}",
+  // highlight-next-line
+  royaltyBps: 500, // A 5% royalty fee.
+  royaltyRecipient: "{{wallet_address}}", // The royalty fees will be sent to this address
+});
+```
+
+<hr className="divider" />
 
 ## generateFromTokenId
 
-Generate a signature that can be used to mint additionaly supply to an existing NFT.
+Generate a signature that can be used to mint additional supply of an existing NFT in the contract.
 
-Takes in a payload with the token ID of an existing NFT, and signs it with your private key. The generated signature can then be used to mint additional supply to the NFT using the exact payload and signature generated.
+This is the same as [`generate`](#generate) but it allows you to specify the `tokenId` of the NFT you want to mint additional supply for, rather than
+providing the `metadata` of the NFT. Each other configuration option is the same as [`generate`](#generate).
 
 ```javascript
-const nftMetadata = {
-  name: "Cool NFT #1",
-  description: "This is a cool NFT",
-  image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
-};
-
-const startTime = new Date();
-const endTime = new Date(Date.now() + 60 * 60 * 24 * 1000);
-const payload = {
-  tokenId: 0, // Instead of metadata, we specificy the token ID of the NFT to mint supply to
-  to: {{wallet_address}}, // Who will receive the NFT (or AddressZero for anyone)
-  quantity: 2, // the quantity of NFTs to mint
-  price: 0.5, // the price per NFT
-  currencyAddress: NATIVE_TOKEN_ADDRESS, // the currency to pay with
-  mintStartTime: startTime, // can mint anytime from now
-  mintEndTime: endTime, // to 24h from now
-  royaltyRecipient: "0x...", // custom royalty recipient for this NFT
-  royaltyBps: 100, // custom royalty fees for this NFT (in bps)
-  primarySaleRecipient: "0x...", // custom sale recipient for this NFT
-};
-
-const signedPayload = await contract.erc1155.signature.generateFromTokenId(payload);
-// now anyone can use these to mint the NFT using contract.erc1155.signature.mint(signedPayload)
+const signature = await contract.erc1155.signature.generateFromTokenId({
+  to: "{{wallet_address}}",
+  tokenId: "{{token_id}}",
+  quantity: "{{quantity}}",
+});
 ```
+
+### Configuration
+
+The configuration options available are the same as those in [`generate`](#generate) except for replacing `metadata` with `tokenId`.
+
+#### tokenId
+
+The `tokenId` of the NFT you want to mint additional supply for.
+
+```javascript
+const signature = await contract.erc1155.signature.generateFromTokenId({
+  to: "{{wallet_address}}",
+  // highlight-next-line
+  tokenId: "{{token_id}}",
+  quantity: "{{quantity}}",
+});
+```
+
+<hr className="divider" />
 
 ## mint
 
-Mint a dynamically generated NFT
-
-Mint a dynamic NFT with a previously generated signature.
+Mint tokens from a previously generated signature (see [`generate`](#generate)).
 
 ```javascript
-// see how to craft a payload to sign in the generate() documentation
-const signedPayload = contract.erc1155.signature.generate(payload);
-
-// now anyone can mint the NFT
-const tx = contract.erc1155.signature.mint(signedPayload);
+// Use the signed payload to mint the tokens
+const txResult = contract.erc1155.signature.mint(signature);
 ```
 
-## mintBatch
+### Configuration
 
-Mint any number of dynamically generated NFT at once
+#### signature (required)
 
-Mint multiple dynamic NFTs in one transaction. Note that this is only possible for free mints (cannot batch mints with a price attached to it for security reasons)
+The signature created by the [`generate`](#generate) function.
 
-```javascript
-// see how to craft a batch of payloads to sign in the generateBatch() documentation
-const signedPayloads = contract.erc1155.signature.generateBatch(payloads);
+The typical pattern is the **admin** generates a signature, and the **user** uses it to mint the tokens, under the conditions specified in the signature.
 
-// now anyone can mint the NFT
-const tx = contract.erc1155.signature.mintBatch(signedPayloads);
-```
-
-## verify
-
-Verify that a payload is correctly signed
+Must be of type `SignedPayload1155`.
 
 ```javascript
-const nftMetadata = {
-  name: "Cool NFT #1",
-  description: "This is a cool NFT",
-  image: fs.readFileSync("path/to/image.png"), // This can be an image url or file
-};
-
-const startTime = new Date();
-const endTime = new Date(Date.now() + 60 * 60 * 24 * 1000);
-const payload = {
-  metadata: nftMetadata, // The NFT to mint
-  to: {{wallet_address}}, // Who will receive the NFT
-  quantity: 2, // the quantity of NFTs to mint
-  price: 0.5, // the price per NFT
-  currencyAddress: NATIVE_TOKEN_ADDRESS, // the currency to pay with
-  mintStartTime: startTime, // can mint anytime from now
-  mintEndTime: endTime, // to 24h from now
-  royaltyRecipient: "0x...", // custom royalty recipient for this NFT
-  royaltyBps: 100, // custom royalty fees for this NFT (in bps)
-  primarySaleRecipient: "0x...", // custom sale recipient for this NFT
-};
-
-const signedPayload = contract.erc1155.signature.generate(payload);
-// Now you can verify that the payload is valid
-const isValid = await contract.erc1155.signature.verify(signedPayload);
+// Use the signed payload to mint the tokens
+const txResult = contract.erc1155.signature.mint(
+  // highlight-next-line
+  signature, // Signature generated by the `generate` function
+);
 ```
