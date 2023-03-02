@@ -7,6 +7,8 @@ displayed_sidebar: contracts
 
 # IClaimableERC1155
 
+_thirdweb_
+
 ## Methods
 
 ### claim

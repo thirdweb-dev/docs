@@ -19,9 +19,12 @@ displayed_sidebar: storage
 
 ## Functions
 
-| Function                                            | Description |
-| --------------------------------------------------- | ----------- |
-| [isFileOrBuffer(data)](./storage.isfileorbuffer.md) |             |
+| Function                                                                                        | Description |
+| ----------------------------------------------------------------------------------------------- | ----------- |
+| [getCID(content, wrapWithDirectory, cidVersion)](./storage.getcid.md)                           |             |
+| [getCIDForUpload(data, fileNames, wrapWithDirectory, cidVersion)](./storage.getcidforupload.md) |             |
+| [isFileOrBuffer(data)](./storage.isfileorbuffer.md)                                             |             |
+| [isUploaded(cid)](./storage.isuploaded.md)                                                      |             |
 
 ## Interfaces
 

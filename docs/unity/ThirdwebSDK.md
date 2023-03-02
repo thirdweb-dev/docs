@@ -54,7 +54,7 @@ Get an instance of a deployed contract.
 
 - `abi` Optionally pass the ABI for contracts that cannot be auto resolved. Expected format for the ABI is escaped JSON string
 
-### Returns
+## Returns
 
 A contract instance
 
