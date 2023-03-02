@@ -7,3 +7,445 @@ toc_max_heading_level: 4 # Show up to h4 in table of contents (default is up to 
 # DirectListings
 
 Functionality available for contracts that implement the [`IDirectListings`](/contracts/IDirectListings) interface.
+
+## approveBuyerForReservedListing
+
+Approve a wallet address to be able to buy a reserved listing.
+
+```javascript
+const txResult = await contract.directListings.approveBuyerForReservedListing(
+  "{{listing_id}}",
+  "{{wallet_address}}",
+);
+```
+
+### Configuration
+
+#### listingId
+
+The ID of the listing you want to approve a buyer for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.directListings.approveBuyerForReservedListing(
+  // highlight-next-line
+  "{{listing_id}}",
+  "{{wallet_address}}",
+);
+```
+
+#### buyer
+
+The wallet address of the buyer you want to approve.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.directListings.approveBuyerForReservedListing(
+  "{{listing_id}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+<hr className="divider" />
+
+## buyFromListing
+
+Buy a token from a listing.
+
+```javascript
+const txResult = await contract.directListings.buyFromListing(
+  "{{listing_id}}",
+  "{{quantity}}",
+  "{{wallet_address}}",
+);
+```
+
+### Configuration
+
+#### listingId
+
+The ID of the listing.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.directListings.buyFromListing(
+  // highlight-next-line
+  "{{listing_id}}",
+  "{{quantity}}",
+  "{{wallet_address}}",
+);
+```
+
+#### quantity
+
+The number of tokens to buy (default is `1` for ERC721 NFTs)
+
+Must be a `string` or `number`.
+
+```javascript
+const txResult = await contract.directListings.buyFromListing(
+  "{{listing_id}}",
+  // highlight-next-line
+  "{{quantity}}",
+  "{{wallet_address}}",
+);
+```
+
+#### buyer
+
+The wallet address of the buyer.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.directListings.buyFromListing(
+  "{{listing_id}}",
+  "{{quantity}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+<hr className="divider" />
+
+## cancelListing
+
+Cancel a listing.
+
+```javascript
+const txResult = await contract.directListings.cancelListing("{{listing_id}}");
+```
+
+### Configuration
+
+#### listingId
+
+The ID of the listing you want to cancel.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.directListings.cancelListing(
+  // highlight-next-line
+  "{{listing_id}}",
+);
+```
+
+<hr className="divider" />
+
+## createListing
+
+Create a new direct listing on the marketplace.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  pricePerToken: "{{price_per_token}}", // Required - price of each token in the listing
+  currencyContractAddress: "{{currency_contract_address}}", // Optional - smart contract address of the currency to use for the listing
+  isReservedListing: false, // Optional - whether or not the listing is reserved (only specific wallet addresses can buy)
+  quantity: "{{quantity}}", // Optional - number of tokens to sell (1 for ERC721 NFTs)
+  startTimestamp: new Date(), // Optional - when the listing should start (default is now)
+  endTimestamp: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000), // Optional - when the listing should end (default is 7 days from now)
+});
+```
+
+### Configuration
+
+#### assetContractAddress (required)
+
+The smart contract address of the NFT you want to list for sale.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  // highlight-next-line
+  assetContractAddress: "{{asset_contract_address}}",
+  tokenId: "{{token_id}}",
+  pricePerToken: "{{price_per_token}}",
+});
+```
+
+#### tokenId (required)
+
+The token ID of the NFT you want to list for sale.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}",
+  // highlight-next-line
+  tokenId: "{{token_id}}",
+  pricePerToken: "{{price_per_token}}",
+});
+```
+
+#### pricePerToken (required)
+
+The price of each token in the listing.
+
+- For ERC721 NFTs, this is the price to buy the NFT.
+- For ERC1155 NFTs, this is the price to buy one token in the listing.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}",
+  tokenId: "{{token_id}}",
+  // highlight-next-line
+  pricePerToken: "{{price_per_token}}",
+});
+```
+
+#### currencyContractAddress (optional)
+
+The address of the ERC20 token smart contract you want buyers to pay with.
+
+Defaults to `NATIVE_TOKEN_ADDRESS` if not provided. e.g. Ether for Ethereum.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}",
+  tokenId: "{{token_id}}",
+  pricePerToken: "{{price_per_token}}",
+  // highlight-next-line
+  currencyContractAddress: "{{currency_contract_address}}",
+  isReservedListing: false,
+  quantity: "{{quantity}}",
+  startTimestamp: new Date(),
+  endTimestamp: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000),
+});
+```
+
+#### isReservedListing (optional)
+
+Whether the listing is reserved or not.
+
+Reserved listings can only be bought by specific wallet addresses, which you can add by calling
+[`approveBuyerForReservedListing`](#approvebuyerforreservedlisting).
+
+Must be a `boolean`. Defaults to `false`.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}",
+  tokenId: "{{token_id}}",
+  pricePerToken: "{{price_per_token}}",
+  currencyContractAddress: "{{currency_contract_address}}",
+  // highlight-next-line
+  isReservedListing: false,
+  quantity: "{{quantity}}",
+  startTimestamp: new Date(),
+  endTimestamp: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000),
+});
+```
+
+#### quantity (optional)
+
+For ERC1155 NFTs, the number of tokens to sell in the listing.
+
+For ERC721 NFTs, this is always `1`.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}",
+  tokenId: "{{token_id}}",
+  pricePerToken: "{{price_per_token}}",
+  // highlight-next-line
+  quantity: "{{quantity}}",
+});
+```
+
+#### startTimestamp (optional)
+
+The start timestamp of the listing.
+
+Must be a `Date`. The default is `new Date()` (now).
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}",
+  tokenId: "{{token_id}}",
+  pricePerToken: "{{price_per_token}}",
+  // highlight-next-line
+  startTimestamp: new Date(),
+});
+```
+
+#### endTimestamp (optional)
+
+The end timestamp of the listing.
+
+Must be a `Date`. The default is 7 days from now.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}",
+  tokenId: "{{token_id}}",
+  pricePerToken: "{{price_per_token}}",
+  // highlight-next-line
+  endTimestamp: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000),
+});
+```
+
+<hr className="divider" />
+
+## getAll
+
+Retrieve data for all direct listings on the marketplace.
+
+```javascript
+const txResult = await contract.directListings.getAll();
+```
+
+### Configuration
+
+#### filter (optional)
+
+Optionally, provide a filter object to narrow the results returned.
+
+```javascript
+const txResult = await contract.directListings.getAll({
+  count: 100, // Number of listings to fetch
+  offeror: "{{offeror_address}}", // Has offers from this address
+  seller: "{{seller_address}}", // Being sold by this address
+  start: 0, // Start from this index (pagination)
+  tokenContract: "{{token_contract_address}}", // Only show NFTs from this collection
+  tokenId: "{{token_id}}", // Only show NFTs with this ID
+});
+```
+
+### Return Value
+
+Returns an array of `DirectListingV3` objects containing the following properties:
+
+```typescript
+{
+  id: string; // The id of the listing.
+  creatorAddress: string; // The address of the creator of listing.
+  assetContractAddress: string; // The address of the asset being listed.
+  tokenId: string; // The ID of the token to list.
+  quantity: string; //  The quantity of tokens to include in the listing (always 1 for ERC721).
+  currencyContractAddress: string; // The address of the currency to accept for the listing.
+  currencyValuePerToken: CurrencyValue; // The `CurrencyValue` of the listing. Useful for displaying the price information.
+  pricePerToken: string; // The price to pay per unit of NFTs listed.
+  asset: NFTMetadata; // The asset being listed.
+  startTimeInSeconds: number; // The start time of the listing.
+  endTimeInSeconds: number; // The end time of the listing.
+  isReservedListing: boolean; // Whether the listing is reserved to be bought from a specific set of buyers.
+  status: Status; // Whether the listing is CREATED, COMPLETED, or CANCELLED.
+}
+```
+
+<hr className="divider" />
+
+## getAllValid
+
+### Configuration
+
+### Return Value
+
+Returns an array of `DirectListingV3` objects containing the following properties:
+
+```typescript
+{
+  id: string; // The id of the listing.
+  creatorAddress: string; // The address of the creator of listing.
+  assetContractAddress: string; // The address of the asset being listed.
+  tokenId: string; // The ID of the token to list.
+  quantity: string; //  The quantity of tokens to include in the listing (always 1 for ERC721).
+  currencyContractAddress: string; // The address of the currency to accept for the listing.
+  currencyValuePerToken: CurrencyValue; // The `CurrencyValue` of the listing. Useful for displaying the price information.
+  pricePerToken: string; // The price to pay per unit of NFTs listed.
+  asset: NFTMetadata; // The asset being listed.
+  startTimeInSeconds: number; // The start time of the listing.
+  endTimeInSeconds: number; // The end time of the listing.
+  isReservedListing: boolean; // Whether the listing is reserved to be bought from a specific set of buyers.
+  status: Status; // Whether the listing is CREATED, COMPLETED, or CANCELLED.
+}
+```
+
+<hr className="divider" />
+
+## getListing
+
+Retrieve data for a specific direct listing on the marketplace.
+
+```javascript
+
+```
+
+### Configuration
+
+### Return Value
+
+Returns a `DirectListingV3` object containing the following properties:
+
+```typescript
+{
+  id: string; // The id of the listing.
+  creatorAddress: string; // The address of the creator of listing.
+  assetContractAddress: string; // The address of the asset being listed.
+  tokenId: string; // The ID of the token to list.
+  quantity: string; //  The quantity of tokens to include in the listing (always 1 for ERC721).
+  currencyContractAddress: string; // The address of the currency to accept for the listing.
+  currencyValuePerToken: CurrencyValue; // The `CurrencyValue` of the listing. Useful for displaying the price information.
+  pricePerToken: string; // The price to pay per unit of NFTs listed.
+  asset: NFTMetadata; // The asset being listed.
+  startTimeInSeconds: number; // The start time of the listing.
+  endTimeInSeconds: number; // The end time of the listing.
+  isReservedListing: boolean; // Whether the listing is reserved to be bought from a specific set of buyers.
+  status: Status; // Whether the listing is CREATED, COMPLETED, or CANCELLED.
+}
+```
+
+## getTotalCount
+
+### Configuration
+
+### Return Value
+
+<hr className="divider" />
+
+## isBuyerApprovedForListing
+
+### Configuration
+
+### Return Value
+
+<hr className="divider" />
+
+## isCurrencyApprovedForListing
+
+### Configuration
+
+### Return Value
+
+<hr className="divider" />
+
+## revokeBuyerApprovalForReservedListing
+
+### Configuration
+
+<hr className="divider" />
+
+## revokeCurrencyApprovalForListing
+
+### Configuration
+
+<hr className="divider" />
+
+## updateListing
+
+### Configuration
