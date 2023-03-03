@@ -115,7 +115,10 @@ Mint additional quantity of an NFT that already exists on the contract.
 ```javascript
 const tokenId = 0;
 const additionalSupply = 1000;
-await contract.erc1155.mintAdditionalSupply(tokenId, additionalSupply);
+const txResult = await contract.erc1155.mintAdditionalSupply(
+  tokenId,
+  additionalSupply,
+);
 ```
 
 ### Configuration
@@ -127,7 +130,7 @@ The ID of the NFT you want to mint additional supply for.
 Must be a `string`, `number`, or `BigNumber`.
 
 ```javascript
-await contract.erc1155.mintAdditionalSupply(
+const txResult = await contract.erc1155.mintAdditionalSupply(
   // highlight-next-line
   "{{token_id}}",
   "{{additional_supply}}",
@@ -141,9 +144,74 @@ How much additional supply you want to mint.
 Must be a `string`, `number`, or `BigNumber`.
 
 ```javascript
-await contract.erc1155.mintAdditionalSupply(
+const txResult = await contract.erc1155.mintAdditionalSupply(
   "{{token_id}}",
   // highlight-next-line
   "{{additional_supply}}",
+);
+```
+
+<hr className="divider" />
+
+## mintAdditionalSupplyTo
+
+The same as [`mintAdditionalSupply`](#mintadditionalsupply), but allows you to specify the address of the wallet rather than using the connected wallet.
+
+```javascript
+const toAddress = "{{wallet_address}}";
+const tokenId = 0;
+const additionalSupply = 1000;
+
+const txResult = await contract.erc1155.mintAdditionalSupplyTo(
+  toAddress,
+  tokenId,
+  additionalSupply,
+);
+```
+
+### Configuration
+
+#### to
+
+The address of the wallet you want to mint the NFT to.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.erc1155.mintAdditionalSupplyTo(
+  // highlight-next-line
+  "{{wallet_address}}",
+  "{{token_id}}",
+  "{{additoinal_supply}}",
+);
+```
+
+#### tokenId
+
+The ID of the NFT you want to mint additional supply for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.erc1155.mintAdditionalSupplyTo(
+  "{{wallet_address}}",
+  // highlight-next-line
+  "{{token_id}}",
+  "{{additoinal_supply}}",
+);
+```
+
+#### additionalSupply
+
+How much additional supply you want to mint.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.erc1155.mintAdditionalSupplyTo(
+  "{{wallet_address}}",
+  "{{token_id}}",
+  // highlight-next-line
+  "{{additoinal_supply}}",
 );
 ```
