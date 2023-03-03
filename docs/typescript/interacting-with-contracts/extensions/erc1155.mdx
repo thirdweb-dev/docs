@@ -270,3 +270,177 @@ const txResult = await contract.erc1155.airdrop("{{token_id}}", [
   // highlight-end
 ]);
 ```
+
+## isApproved
+
+Get whether this wallet has approved transfers from the given operator.
+
+This means that the operator can transfer NFTs on behalf of this wallet.
+
+```javascript
+const isApproved = await contract.erc1155.isApproved(
+  // Address of the wallet to check
+  "{{wallet_address}}",
+  // Address of the operator to check
+  "{{wallet_address}}",
+);
+```
+
+### Configuration
+
+#### owner
+
+The wallet address that owns the NFT.
+
+Must be a `string`.
+
+```javascript
+const isApproved = await contract.erc1155.isApproved(
+  // highlight-next-line
+  "{{wallet_address}}",
+  "{{wallet_address}}",
+);
+```
+
+#### operator
+
+The wallet address of the operator to check (i.e. the wallet that does/does not have approval).
+
+Must be a `string`.
+
+```javascript
+const isApproved = await contract.erc1155.isApproved(
+  "{{wallet_address}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+## setApprovalForAll
+
+Give another address approval (or remove approval) to transfer all of your NFTs from this collection.
+
+:::warning Warning
+
+Proceed with caution. Only approve addresses you trust.
+
+:::
+
+```javascript
+const txResult = await contract.erc1155.setApprovalForAll(
+  // Address of the wallet to approve
+  "{{wallet_address}}",
+  // Whether to grant approval (true) or remove approval (false)
+  true,
+);
+```
+
+### Configuration
+
+#### operator
+
+The wallet address to approve.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.erc1155.setApprovalForAll(
+  // highlight-next-line
+  "{{wallet_address}}",
+  true,
+);
+```
+
+#### approved
+
+Whether to grant approval (true) or remove approval (false).
+
+Must be a `boolean`.
+
+```javascript
+const txResult = await contract.erc1155.setApprovalForAll(
+  "{{wallet_address}}",
+  // highlight-next-line
+  true,
+);
+```
+
+## totalCirculatingSupply
+
+Get the total **circulating** supply of a token in the collection.
+
+Circulating supply considers NFTs that have not been burned.
+
+```javascript
+const totalCirculatingSupply = await contract.erc1155.totalCirculatingSupply(
+  "{{token_id}}",
+);
+```
+
+### Configuration
+
+#### tokenId
+
+The token ID of the NFT to get the total circulating supply of.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const totalCirculatingSupply = await contract.erc1155.totalCirculatingSupply(
+  // highlight-next-line
+  "{{token_id}}",
+);
+```
+
+### Return Value
+
+Returns a `BigNumber` representing the total circulating supply of the token.
+
+```typescript
+BigNumber;
+```
+
+## totalCount
+
+Get the total number of unique NFTs in the collection.
+
+```javascript
+const totalCount = await contract.erc1155.totalCount();
+```
+
+### Return Value
+
+Returns a `BigNumber` representing the total number of unique NFTs in the collection.
+
+```typescript
+BigNumber;
+```
+
+## totalSupply
+
+Returns the total supply of a token in the collection, including burned tokens.
+
+```javascript
+const totalSupply = await contract.erc1155.totalSupply("{{token_id}}");
+```
+
+### Configuration
+
+#### tokenId
+
+The token ID of the NFT to get the total supply of.
+
+```javascript
+const totalSupply = await contract.erc1155.totalSupply(
+  // highlight-next-line
+  "{{token_id}}",
+);
+```
+
+### Return Value
+
+Returns a `BigNumber` representing the total supply of the token.
+
+```typescript
+BigNumber;
+```
