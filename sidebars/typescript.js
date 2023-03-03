@@ -52,13 +52,6 @@ const sidebars = {
       ],
     },
 
-    // Connect to a contract
-    {
-      type: "doc",
-      label: "Connect to a Contract",
-      id: "thirdwebsdk.getcontract",
-    },
-
     // Interacting with contracts
     {
       type: "category",
@@ -69,6 +62,11 @@ const sidebars = {
           type: "doc",
           label: "Overview",
           id: "interacting-with-contracts/0 Overview",
+        },
+        {
+          type: "doc",
+          label: "Get A Contract",
+          id: "interacting-with-contracts/thirdwebsdk.smartcontract",
         },
         {
           type: "doc",
