@@ -206,3 +206,67 @@ await contract.erc1155.transfer(
   "{{amount}}",
 );
 ```
+
+<hr className="divider" />
+
+## airdrop
+
+Transfer NFTs from the connected wallet to multiple different wallets at once.
+
+```javascript
+const txResult = await contract.erc1155.airdrop(
+  // Token ID of the NFT to transfer
+  "{{token_id}}",
+
+  // Array of wallet addresses to transfer to
+  [
+    {
+      address: "{{wallet_address}}", // Wallet address to transfer to
+      quantity: 1, // Quantity of the NFT to transfer
+    },
+    {
+      address: "{{wallet_address}}", // Wallet address to transfer to
+      quantity: 2, // Quantity of the NFT to transfer
+    },
+  ],
+);
+```
+
+### Configuration
+
+#### tokenId
+
+The token ID of the NFT to transfer.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.erc1155.airdrop(
+  // highlight-next-line
+  "{{token_id}}",
+  [
+    // ...
+  ],
+);
+```
+
+#### addresses
+
+An array of objects containing `address` and `quantity` properties.
+
+These are the recipients of the airdrop.
+
+```javascript
+const txResult = await contract.erc1155.airdrop("{{token_id}}", [
+  // highlight-start
+  {
+    address: "{{wallet_address}}",
+    quantity: 1,
+  },
+  {
+    address: "{{wallet_address}}",
+    quantity: 2,
+  },
+  // highlight-end
+]);
+```
