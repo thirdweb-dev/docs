@@ -53,7 +53,7 @@ const txResult = await contract.directListings.approveBuyerForReservedListing(
 
 ## buyFromListing
 
-Buy a token from a listing.
+Buy an NFT from a listing.
 
 ```javascript
 const txResult = await contract.directListings.buyFromListing(
@@ -114,7 +114,9 @@ const txResult = await contract.directListings.buyFromListing(
 
 ## cancelListing
 
-Cancel a listing.
+Cancel a listing that you created.
+
+Only the creator of the listing can cancel it.
 
 ```javascript
 const txResult = await contract.directListings.cancelListing("{{listing_id}}");
@@ -219,10 +221,6 @@ const txResult = await contract.directListings.createListing({
   pricePerToken: "{{price_per_token}}",
   // highlight-next-line
   currencyContractAddress: "{{currency_contract_address}}",
-  isReservedListing: false,
-  quantity: "{{quantity}}",
-  startTimestamp: new Date(),
-  endTimestamp: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000),
 });
 ```
 
@@ -240,12 +238,8 @@ const txResult = await contract.directListings.createListing({
   assetContractAddress: "{{asset_contract_address}}",
   tokenId: "{{token_id}}",
   pricePerToken: "{{price_per_token}}",
-  currencyContractAddress: "{{currency_contract_address}}",
   // highlight-next-line
   isReservedListing: false,
-  quantity: "{{quantity}}",
-  startTimestamp: new Date(),
-  endTimestamp: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000),
 });
 ```
 
@@ -306,24 +300,28 @@ const txResult = await contract.directListings.createListing({
 Retrieve data for all direct listings on the marketplace.
 
 ```javascript
-const txResult = await contract.directListings.getAll();
+const allListings = await contract.directListings.getAll();
 ```
 
 ### Configuration
 
 #### filter (optional)
 
-Optionally, provide a filter object to narrow the results returned.
+Optionally, provide a filter object to narrow the returned results.
 
 ```javascript
-const txResult = await contract.directListings.getAll({
-  count: 100, // Number of listings to fetch
-  offeror: "{{offeror_address}}", // Has offers from this address
-  seller: "{{seller_address}}", // Being sold by this address
-  start: 0, // Start from this index (pagination)
-  tokenContract: "{{token_contract_address}}", // Only show NFTs from this collection
-  tokenId: "{{token_id}}", // Only show NFTs with this ID
-});
+const allListings = await contract.directListings.getAll(
+  // highlight-start
+  {
+    count: 100, // Number of listings to fetch
+    offeror: "{{offeror_address}}", // Has offers from this address
+    seller: "{{seller_address}}", // Being sold by this address
+    start: 0, // Start from this index (pagination)
+    tokenContract: "{{token_contract_address}}", // Only show NFTs from this collection
+    tokenId: "{{token_id}}", // Only show NFTs with this ID
+  },
+  // highlight-end
+);
 ```
 
 ### Return Value
@@ -352,7 +350,39 @@ Returns an array of `DirectListingV3` objects containing the following propertie
 
 ## getAllValid
 
+Get all the valid direct listings on the marketplace.
+
+A listing is considered valid if the:
+
+- Seller still owns the NFT
+- Listing has not expired (time is before endTimeInSeconds)
+- Listing has not been canceled
+- Listing has not been bought out (all quantity of the NFTs have not been purchased)
+
+```javascript
+const validListings = await contract.directListings.getAllValid();
+```
+
 ### Configuration
+
+#### filter (optional)
+
+Optionally, provide a filter object to narrow the returned results.
+
+```javascript
+const validListings = await contract.directListings.getAllValid(
+  // highlight-start
+  {
+    count: 100, // Number of listings to fetch
+    offeror: "{{offeror_address}}", // Has offers from this address
+    seller: "{{seller_address}}", // Being sold by this address
+    start: 0, // Start from this index (pagination)
+    tokenContract: "{{token_contract_address}}", // Only show NFTs from this collection
+    tokenId: "{{token_id}}", // Only show NFTs with this ID
+  },
+  // highlight-end
+);
+```
 
 ### Return Value
 
@@ -380,13 +410,26 @@ Returns an array of `DirectListingV3` objects containing the following propertie
 
 ## getListing
 
-Retrieve data for a specific direct listing on the marketplace.
+Retrieve data for a specific direct listing on the marketplace using the listing ID.
 
 ```javascript
-
+const listing = await contract.directListings.getListing("{{listing_id}}");
 ```
 
 ### Configuration
+
+#### listingId
+
+The ID of the listing to retrieve.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const listing = await contract.directListings.getListing(
+  // highlight-next-line
+  1,
+);
+```
 
 ### Return Value
 
@@ -412,40 +455,242 @@ Returns a `DirectListingV3` object containing the following properties:
 
 ## getTotalCount
 
-### Configuration
+Get the total number of direct listings on the marketplace.
+
+```javascript
+const numListings = await contract.directListings.getTotalCount();
+```
 
 ### Return Value
+
+Returns a `BigNumber` representing the total number of direct listings on the marketplace.
+
+```typescript
+BigNumber;
+```
 
 <hr className="divider" />
 
 ## isBuyerApprovedForListing
 
+Check if a buyer is approved to purchase a reserved listing.
+
+```javascript
+const isApproved = await contract.directListings.isBuyerApprovedForListing(
+  "{{listing_id}}",
+  "{{wallet_address}}",
+);
+```
+
 ### Configuration
 
+#### listingId
+
+The ID of the listing to check.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const isApproved = await contract.directListings.isBuyerApprovedForListing(
+  // highlight-next-line
+  1,
+  "{{wallet_address}}",
+);
+```
+
+#### buyerAddress
+
+The wallet address of the buyer to check.
+
+Must be a `string`.
+
+```javascript
+const isApproved = await contract.directListings.isBuyerApprovedForListing(
+  "{{listing_id}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
 ### Return Value
+
+Returns a `boolean` representing whether the buyer is approved to purchase the listing.
+
+```typescript
+boolean;
+```
 
 <hr className="divider" />
 
 ## isCurrencyApprovedForListing
 
+Check whether you can use a specific currency to purchase a listing.
+
+```javascript
+const isApproved = await contract.directListings.isCurrencyApprovedForListing(
+  "{{listing_id}}",
+  "{{currency_contract_address}}",
+);
+```
+
 ### Configuration
 
+#### listingId
+
+The ID of the listing to check.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const isApproved = await contract.directListings.isCurrencyApprovedForListing(
+  // highlight-next-line
+  1,
+  "{{currency_contract_address}}",
+);
+```
+
+#### currencyContractAddress
+
+The smart contract address of the ERC20 token to check.
+
+Must be a `string`.
+
+```javascript
+const isApproved = await contract.directListings.isCurrencyApprovedForListing(
+  "{{listing_id}}",
+  // highlight-next-line
+  "{{currency_contract_address}}",
+);
+```
+
 ### Return Value
+
+Returns a `boolean` representing whether the currency is approved to purchase the listing.
+
+```typescript
+boolean;
+```
 
 <hr className="divider" />
 
 ## revokeBuyerApprovalForReservedListing
 
+Revoke approval for a buyer to purchase a reserved listing.
+
+```javascript
+const txResult =
+  await contract.directListings.revokeBuyerApprovalForReservedListing(
+    "{{listing_id}}",
+    "{{wallet_address}}",
+  );
+```
+
 ### Configuration
+
+#### listingId
+
+The ID of the listing to revoke approval for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult =
+  await contract.directListings.revokeBuyerApprovalForReservedListing(
+    // highlight-next-line
+    1,
+    "{{wallet_address}}",
+  );
+```
+
+#### buyerAddress
+
+The wallet address of the buyer to revoke approval for.
+
+Must be a `string`.
+
+```javascript
+const txResult =
+  await contract.directListings.revokeBuyerApprovalForReservedListing(
+    "{{listing_id}}",
+    // highlight-next-line
+    "{{wallet_address}}",
+  );
+```
 
 <hr className="divider" />
 
 ## revokeCurrencyApprovalForListing
 
+Revoke approval for a currency to purchase a listing.
+
+```javascript
+const txResult = await contract.directListings.revokeCurrencyApprovalForListing(
+  "{{listing_id}}",
+  "{{currency_contract_address}}",
+);
+```
+
 ### Configuration
+
+#### listingId
+
+The ID of the listing to revoke approval for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.directListings.revokeCurrencyApprovalForListing(
+  // highlight-next-line
+  1,
+  "{{currency_contract_address}}",
+);
+```
+
+#### currencyContractAddress
+
+The smart contract address of the ERC20 token to revoke approval for.
+
+Must be a `string`.
+
+Use the `NATIVE_TOKEN_ADDRESS` constant to revoke approval for the native currency.
+
+```javascript
+const txResult = await contract.directListings.revokeCurrencyApprovalForListing(
+  "{{listing_id}}",
+  // highlight-next-line
+  "{{currency_contract_address}}",
+);
+```
 
 <hr className="divider" />
 
 ## updateListing
 
+Update a previously created listing.
+
+```javascript
+const txResult = await contract.directListings.updateListing("{{listing_id}}", {
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  pricePerToken: "{{price_per_token}}", // Required - price of each token in the listing
+  currencyContractAddress: "{{currency_contract_address}}", // Optional - smart contract address of the currency to use for the listing
+  isReservedListing: false, // Optional - whether or not the listing is reserved (only specific wallet addresses can buy)
+  quantity: "{{quantity}}", // Optional - number of tokens to sell (1 for ERC721 NFTs)
+  startTimestamp: new Date(), // Optional - when the listing should start (default is now)
+  endTimestamp: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000), // Optional - when the listing should end (default is 7 days from now)
+});
+```
+
 ### Configuration
+
+#### listingId
+
+The ID of the listing to update.
+
+#### listing
+
+The information to update about the listing.
+
+If you do not want to update a field, do not include it in the provided `listing` object. The previous value will be used.
+
+For information about each property, see [`createListing`](#createlisting).
