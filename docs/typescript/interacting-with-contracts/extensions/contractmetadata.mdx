@@ -1,7 +1,7 @@
 ---
 title: ContractMetadata
 slug: /sdk.contractmetadata
-toc_max_heading_level: 4 # Show up to h4 in table of contents (default is up to h3)
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
 ---
 
 # ContractMetadata
@@ -24,7 +24,9 @@ Get the metadata of a smart contract.
 const metadata = await contract.metadata.get();
 ```
 
-### Return Value
+<details>
+<summary>Return Value</summary>
+<div>
 
 While the actual return type is `any`, you can expect an object containing
 properties that follow the
@@ -42,7 +44,8 @@ properties that follow the
 }
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## update
 
@@ -55,7 +58,9 @@ const txResult = await contract.metadata.update({
 });
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### metadata
 
@@ -64,6 +69,8 @@ Provide an object containing the metadata of your smart contract following the
 
 New properties will be added, and existing properties will be overwritten.
 If you do not provide a new value for a previously set property, it will remain unchanged.
+
+Below are the properties you can define on your smart contract.
 
 ```typescript
 {
@@ -77,7 +84,8 @@ If you do not provide a new value for a previously set property, it will remain 
 }
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## set
 
@@ -93,7 +101,9 @@ const txResult = await contract.metadata.set({
 });
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### metadata
 
@@ -111,3 +121,6 @@ Provide an object containing the metadata of your smart contract following the
   fee_recipient?: string; // Wallet address that receives the seller fee
 }
 ```
+
+</div>
+</details>

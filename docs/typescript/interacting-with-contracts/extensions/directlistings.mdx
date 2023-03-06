@@ -1,7 +1,7 @@
 ---
 title: DirectListings
 slug: /sdk.directlistings
-toc_max_heading_level: 4 # Show up to h4 in table of contents (default is up to h3)
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
 ---
 
 # DirectListings
@@ -19,7 +19,9 @@ const txResult = await contract.directListings.approveBuyerForReservedListing(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -49,7 +51,8 @@ const txResult = await contract.directListings.approveBuyerForReservedListing(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## buyFromListing
 
@@ -63,7 +66,9 @@ const txResult = await contract.directListings.buyFromListing(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -110,7 +115,8 @@ const txResult = await contract.directListings.buyFromListing(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## cancelListing
 
@@ -122,7 +128,9 @@ Only the creator of the listing can cancel it.
 const txResult = await contract.directListings.cancelListing("{{listing_id}}");
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -137,7 +145,8 @@ const txResult = await contract.directListings.cancelListing(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## createListing
 
@@ -156,7 +165,9 @@ const txResult = await contract.directListings.createListing({
 });
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### assetContractAddress (required)
 
@@ -293,7 +304,8 @@ const txResult = await contract.directListings.createListing({
 });
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## getAll
 
@@ -303,7 +315,9 @@ Retrieve data for all direct listings on the marketplace.
 const allListings = await contract.directListings.getAll();
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### filter (optional)
 
@@ -346,7 +360,8 @@ Returns an array of `DirectListingV3` objects containing the following propertie
 }
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## getAllValid
 
@@ -363,7 +378,9 @@ A listing is considered valid if the:
 const validListings = await contract.directListings.getAllValid();
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### filter (optional)
 
@@ -406,7 +423,8 @@ Returns an array of `DirectListingV3` objects containing the following propertie
 }
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## getListing
 
@@ -416,7 +434,9 @@ Retrieve data for a specific direct listing on the marketplace using the listing
 const listing = await contract.directListings.getListing("{{listing_id}}");
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -453,6 +473,9 @@ Returns a `DirectListingV3` object containing the following properties:
 }
 ```
 
+</div>
+</details>
+
 ## getTotalCount
 
 Get the total number of direct listings on the marketplace.
@@ -460,6 +483,10 @@ Get the total number of direct listings on the marketplace.
 ```javascript
 const numListings = await contract.directListings.getTotalCount();
 ```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 ### Return Value
 
@@ -469,7 +496,8 @@ Returns a `BigNumber` representing the total number of direct listings on the ma
 BigNumber;
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## isBuyerApprovedForListing
 
@@ -482,7 +510,9 @@ const isApproved = await contract.directListings.isBuyerApprovedForListing(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -520,7 +550,8 @@ Returns a `boolean` representing whether the buyer is approved to purchase the l
 boolean;
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## isCurrencyApprovedForListing
 
@@ -533,7 +564,9 @@ const isApproved = await contract.directListings.isCurrencyApprovedForListing(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -571,7 +604,8 @@ Returns a `boolean` representing whether the currency is approved to purchase th
 boolean;
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## revokeBuyerApprovalForReservedListing
 
@@ -585,7 +619,9 @@ const txResult =
   );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -617,7 +653,8 @@ const txResult =
   );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## revokeCurrencyApprovalForListing
 
@@ -630,7 +667,9 @@ const txResult = await contract.directListings.revokeCurrencyApprovalForListing(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -662,7 +701,8 @@ const txResult = await contract.directListings.revokeCurrencyApprovalForListing(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## updateListing
 
@@ -681,7 +721,9 @@ const txResult = await contract.directListings.updateListing("{{listing_id}}", {
 });
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -694,3 +736,6 @@ The information to update about the listing.
 If you do not want to update a field, do not include it in the provided `listing` object. The previous value will be used.
 
 For information about each property, see [`createListing`](#createlisting).
+
+</div>
+</details>

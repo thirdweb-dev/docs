@@ -1,7 +1,7 @@
 ---
 title: ERC20Burnable
 slug: /sdk.erc20burnable
-toc_max_heading_level: 4 # Show up to h4 in table of contents (default is up to h3)
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
 ---
 
 # ERC20Burnable
@@ -23,11 +23,15 @@ const amount = 1.2;
 const txResult = await contract.erc20.burn(amount);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### amount
 
 The amount of this token you want to burn.
+
+Must be a `string` or a `number`.
 
 ```javascript
 const txResult = await contract.erc20.burn(
@@ -36,7 +40,8 @@ const txResult = await contract.erc20.burn(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## burnFrom
 
@@ -52,7 +57,9 @@ const amount = 1.2;
 const txResult = await contract.erc20.burnFrom(holderAddress, amount);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### holder
 
@@ -81,3 +88,6 @@ const txResult = await contract.erc20.burnFrom(
   1.2, // The amount of tokens to burn (e.g. 1.2)
 );
 ```
+
+</div>
+</details>

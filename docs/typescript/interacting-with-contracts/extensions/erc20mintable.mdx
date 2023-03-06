@@ -1,7 +1,7 @@
 ---
 title: ERC20Mintable
 slug: /sdk.erc20mintable
-toc_max_heading_level: 4 # Show up to h4 in table of contents (default is up to h3)
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
 ---
 
 # ERC20Mintable
@@ -21,7 +21,9 @@ const amount = "1.5"; // The amount of this token you want to mint
 const txResult = await contract.erc20.mint(amount);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### amount
 
@@ -36,7 +38,8 @@ const txResult = await contract.erc20.mint(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## mintTo
 
@@ -48,7 +51,9 @@ const amount = "1.5"; // The amount of this token you want to mint
 const txResult = await contract.erc20.mintTo(toAddress, amount);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### to
 
@@ -77,3 +82,55 @@ const txResult = await contract.erc20.mintTo(
   "1.5",
 );
 ```
+
+</div>
+</details>
+
+## getMintTransaction
+
+Construct a mint transaction without executing it.
+This is useful for estimating the gas cost of a mint transaction,
+overriding transaction options and having fine grained control over the transaction execution.
+
+```javascript
+const amount = "1.5"; // The amount of this token you want to mint
+const tx = await contract.erc20.getMintTransaction(
+  "{{wallet_address}}", // Receiver of the tokens
+  amount,
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+    
+<h4>to</h4>
+
+Address you want to mint the tokens to
+
+Must be a `string`.
+
+```javascript
+const tx = await contract.erc20.getMintTransaction(
+  // highlight-next-line
+  "{{wallet_address}}",
+  "1.5",
+);
+```
+
+#### amount
+
+The amount of tokens you want to mint
+
+Must be a `string`, `number` or `BigNumber`.
+
+```javascript
+const tx = await contract.erc20.getMintTransaction(
+  "{{wallet_address}}", // Receiver of the tokens
+  // highlight-next-line
+  "1.5",
+);
+```
+
+</div>
+</details>

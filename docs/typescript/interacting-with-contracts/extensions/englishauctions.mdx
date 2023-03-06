@@ -1,7 +1,7 @@
 ---
 title: EnglishAuctions
 slug: /sdk.englishauctions
-toc_max_heading_level: 4 # Show up to h4 in table of contents (default is up to h3)
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
 ---
 
 # EnglishAuctions
@@ -16,7 +16,9 @@ Pay the full price per token to buy an NFT from an auction listing.
 const txResult = await contract.englishAuctions.buyoutAuction("{{listing_id}}");
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -31,7 +33,8 @@ const txResult = await contract.englishAuctions.buyoutAuction(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## cancelAuction
 
@@ -43,7 +46,9 @@ Only the creator of the listing can cancel it. Auctions cannot be canceled once 
 const txResult = await contract.englishAuctions.cancelAuction("{{listing_id}}");
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -58,7 +63,8 @@ const txResult = await contract.englishAuctions.cancelAuction(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## closeAuctionForBidder
 
@@ -74,7 +80,9 @@ const txResult = await contract.englishAuctions.closeAuctionForBidder(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -89,7 +97,8 @@ const txResult = await contract.englishAuctions.closeAuctionForBidder(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## closeAuctionForSeller
 
@@ -104,7 +113,9 @@ const txResult = await contract.englishAuctions.closeAuctionForSeller(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -119,7 +130,8 @@ const txResult = await contract.englishAuctions.closeAuctionForSeller(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## createAuction
 
@@ -140,7 +152,9 @@ const txResult = await contract.englishAuctions.createAuction({
 });
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### assetContractAddress (required)
 
@@ -321,7 +335,8 @@ const txResult = await contract.englishAuctions.createAuction({
 });
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## executeSale
 
@@ -335,7 +350,9 @@ This function can only be called **after** the auction has ended.
 const txResult = await contract.englishAuctions.executeSale("{{listing_id}}");
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -347,7 +364,8 @@ Must be a `string`, `number`, or `BigNumber`.
 const txResult = await contract.englishAuctions.executeSale("{{listing_id}}");
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## getAll
 
@@ -357,7 +375,9 @@ Retrieve data for all auction listings on the marketplace.
 const txResult = await contract.englishAuctions.getAll();
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### filter (optional)
 
@@ -404,7 +424,8 @@ Returns an array of `EnglishAuction` objects containing the following properties
 [];
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## getAllValid
 
@@ -420,7 +441,9 @@ A listing is considered valid if the:
 const validListings = await contract.englishAuctions.getAllValid();
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### filter (optional)
 
@@ -463,7 +486,8 @@ const validListings = await contract.englishAuctions.getAllValid(
 [];
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## getAuction
 
@@ -473,7 +497,9 @@ Retrieve data for a specific auction listing on the marketplace using the listin
 const listing = await contract.englishAuctions.getAuction("{{listing_id}}");
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -511,7 +537,8 @@ const listing = await contract.englishAuctions.getAuction(
 }
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## getBidBufferBps
 
@@ -529,7 +556,9 @@ const bidBufferBps = await contract.englishAuctions.getBidBufferBps(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -552,7 +581,8 @@ Returns a `number` representing the basis points of the bid buffer.
 number;
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## getMinimumNextBid
 
@@ -567,7 +597,9 @@ const minimumNextBid = await contract.englishAuctions.getMinimumNextBid(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -596,7 +628,8 @@ Returns a `CurrencyValue` object containing the following properties:
 }
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## getTotalCount
 
@@ -606,6 +639,10 @@ Get the total number of auction listings on the marketplace.
 const numListings = await contract.englishAuctions.getTotalCount();
 ```
 
+<details>
+  <summary>Configuration</summary>
+  <div>
+
 ### Return Value
 
 Returns a `BigNumber` representing the total number of auction listings on the marketplace.
@@ -614,7 +651,8 @@ Returns a `BigNumber` representing the total number of auction listings on the m
 BigNumber;
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## getWinner
 
@@ -626,7 +664,9 @@ Can only be called _after_ the auction has ended.
 const winner = await contract.englishAuctions.getWinner("{{listing_id}}");
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -649,7 +689,8 @@ Returns a `string` representing the wallet address of the winner.
 string;
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## getWinningBid
 
@@ -661,7 +702,9 @@ const winningBid = await contract.englishAuctions.getWinningBid(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -696,7 +739,8 @@ Returns a `Bid` object containing the following properties:
 }
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## isWinningBid
 
@@ -709,7 +753,9 @@ const isWinningBid = await contract.englishAuctions.isWinningBid(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -747,7 +793,8 @@ Returns a `boolean` representing whether the value is the winning bid.
 boolean;
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## makeBid
 
@@ -760,7 +807,9 @@ const txResult = await contract.englishAuctions.makeBid(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### listingId
 
@@ -791,3 +840,6 @@ const txResult = await contract.englishAuctions.makeBid(
   "{{bid_amount}}",
 );
 ```
+
+</div>
+</details>
