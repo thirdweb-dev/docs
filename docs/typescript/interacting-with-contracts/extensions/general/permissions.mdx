@@ -22,7 +22,9 @@ Get a list of wallet addresses that are members of a given role.
 const members = await contract.roles.get("{{role_name}}");
 ```
 
-### Configuration
+<details>
+    <summary>Configuration</summary>
+    <div>
 
 #### role
 
@@ -45,7 +47,8 @@ An array of `string`s representing the wallet addresses associated with the give
 string[];
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## getAll
 
@@ -55,6 +58,10 @@ Retrieve all of the roles and associated wallets.
 const allRoles = await contract.roles.getAll();
 ```
 
+<details>
+    <summary>Configuration</summary>
+    <div>
+
 ### Return Value
 
 An object containing role names as keys and an array of wallet addresses as the value.
@@ -63,7 +70,8 @@ An object containing role names as keys and an array of wallet addresses as the 
 <Record<any, string[]>>
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## grant
 
@@ -76,7 +84,9 @@ const txResult = await contract.roles.grant(
 );
 ```
 
-### Configuration
+<details>
+    <summary>Configuration</summary>
+    <div>
 
 #### role
 
@@ -106,7 +116,8 @@ const txResult = await contract.roles.grant(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## revoke
 
@@ -119,7 +130,9 @@ const txResult = await contract.roles.revoke(
 );
 ```
 
-### Configuration
+<details>
+    <summary>Configuration</summary>
+    <div>
 
 #### role
 
@@ -149,7 +162,8 @@ const txResult = await contract.roles.revoke(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## setAll
 
@@ -172,7 +186,9 @@ const txResult = await contract.roles.setAll({
 });
 ```
 
-### Configuration
+<details>
+    <summary>Configuration</summary>
+    <div>
 
 #### roles
 
@@ -188,7 +204,8 @@ const txResult = await contract.roles.setAll(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## verify
 
@@ -203,7 +220,9 @@ const verifyRole = await contract.roles.verify(
 );
 ```
 
-### Configuration
+<details>
+    <summary>Configuration</summary>
+    <div>
 
 #### roles
 
@@ -232,3 +251,6 @@ const verifyRole = await contract.roles.verify(
   "{{wallet_addres}}",
 );
 ```
+
+</div>
+</details>

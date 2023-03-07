@@ -17,7 +17,9 @@ const tokenId = 0; // Id of the NFT to check
 const balance = await contract.erc1155.balanceOf(tokenId);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### tokenId
 
@@ -40,6 +42,9 @@ A `BigNumber` representing the quantity of the NFT owned by the wallet.
 BigNumber;
 ```
 
+</div>
+</details>
+
 ## balanceOf
 
 Get the quantity of a specific NFT owned by a wallet.
@@ -51,7 +56,9 @@ const tokenId = 0; // Id of the NFT to check
 const balance = await contract.erc1155.balanceOf(walletAddress, tokenId);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### address
 
@@ -87,7 +94,8 @@ A `BigNumber` representing the quantity of the NFT owned by the wallet.
 BigNumber;
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## get
 
@@ -102,7 +110,9 @@ The object&rsquo;s `image` property will be a URL that is available through the 
 const nft = await contract.erc1155.get(0);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### tokenId
 
@@ -146,7 +156,8 @@ Returns an `NFT` object containing the following properties:
 }
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## transfer
 
@@ -160,7 +171,9 @@ const amount = 3; // How many copies of the NFTs to transfer
 await contract.erc1155.transfer(toAddress, tokenId, amount);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### to
 
@@ -207,7 +220,8 @@ await contract.erc1155.transfer(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## airdrop
 
@@ -232,7 +246,9 @@ const txResult = await contract.erc1155.airdrop(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### tokenId
 
@@ -271,6 +287,9 @@ const txResult = await contract.erc1155.airdrop("{{token_id}}", [
 ]);
 ```
 
+</div>
+</details>
+
 ## isApproved
 
 Get whether this wallet has approved transfers from the given operator.
@@ -286,7 +305,9 @@ const isApproved = await contract.erc1155.isApproved(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### owner
 
@@ -316,6 +337,9 @@ const isApproved = await contract.erc1155.isApproved(
 );
 ```
 
+</div>
+</details>
+
 ## setApprovalForAll
 
 Give another address approval (or remove approval) to transfer all of your NFTs from this collection.
@@ -335,7 +359,9 @@ const txResult = await contract.erc1155.setApprovalForAll(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### operator
 
@@ -365,6 +391,9 @@ const txResult = await contract.erc1155.setApprovalForAll(
 );
 ```
 
+</div>
+</details>
+
 ## totalCirculatingSupply
 
 Get the total **circulating** supply of a token in the collection.
@@ -377,7 +406,9 @@ const totalCirculatingSupply = await contract.erc1155.totalCirculatingSupply(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### tokenId
 
@@ -416,6 +447,9 @@ Returns a `BigNumber` representing the total number of unique NFTs in the collec
 BigNumber;
 ```
 
+</div>
+</details>
+
 ## totalSupply
 
 Returns the total supply of a token in the collection, including burned tokens.
@@ -424,7 +458,9 @@ Returns the total supply of a token in the collection, including burned tokens.
 const totalSupply = await contract.erc1155.totalSupply("{{token_id}}");
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### tokenId
 
@@ -444,3 +480,6 @@ Returns a `BigNumber` representing the total supply of the token.
 ```typescript
 BigNumber;
 ```
+
+</div>
+</details>

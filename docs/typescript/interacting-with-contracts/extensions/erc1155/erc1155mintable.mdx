@@ -33,7 +33,9 @@ const tx = await contract.erc1155.mint({
 });
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### metadataWithSupply
 
@@ -56,7 +58,8 @@ const txResult = await contract.erc1155.mint({
 });
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## mintTo
 
@@ -82,7 +85,9 @@ const metadataWithSupply = {
 const txResult = await contract.erc1155.mintTo(toAddress, metadataWithSupply);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### to
 
@@ -106,7 +111,8 @@ const txResult = await contract.erc1155.mintTo(
 
 Same as [`metadataWithSupply`](#metadatawithsupply) in the [`mint`](#mint) method.
 
-<hr className="divider" />
+</div>
+</details>
 
 ## mintAdditionalSupply
 
@@ -121,7 +127,9 @@ const txResult = await contract.erc1155.mintAdditionalSupply(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### tokenId
 
@@ -151,7 +159,8 @@ const txResult = await contract.erc1155.mintAdditionalSupply(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## mintAdditionalSupplyTo
 
@@ -169,7 +178,9 @@ const txResult = await contract.erc1155.mintAdditionalSupplyTo(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### to
 
@@ -215,3 +226,73 @@ const txResult = await contract.erc1155.mintAdditionalSupplyTo(
   "{{additoinal_supply}}",
 );
 ```
+
+</div>
+</details>
+
+## getMintTransaction
+
+Construct a mint transaction without executing it.
+This is useful for estimating the gas cost of a mint transaction,
+overriding transaction options and having fine grained control over the transaction execution.
+
+```javascript
+const txResult = await contract.erc1155.getMintTransaction(
+  "{{wallet_address}}", // Wallet address to mint to
+  {
+    metadata: {
+      name: "Cool NFT #1",
+      description: "This is a cool NFT",
+      image: "https://example.com/image.png", // URL, IPFS URI, or File object
+      // ... Any other metadata you want to include
+    },
+    supply: 1000, // The number of this NFT you want to mint
+  },
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to
+
+The address of the wallet you want to mint the NFT to.
+
+Must be a `string`.
+
+#### metadataWithSupply
+
+See [`metadataWithSupply`](#metadatawithsupply) in the [`mint`](#mint) method.
+
+### Return Value
+
+```typescript
+TransactionTask;
+```
+
+</div>
+</details>
+
+## nextTokenIdToMint
+
+Get the next token ID that will be minted on the contract.
+
+```javascript
+const nextTokenId = await contract.erc1155.nextTokenIdToMint();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+Returns a `BigNumber` representing the next token ID that will be minted on the contract.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>

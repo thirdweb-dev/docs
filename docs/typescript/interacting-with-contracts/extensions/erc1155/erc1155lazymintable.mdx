@@ -1,0 +1,57 @@
+---
+title: ERC1155LazyMintable
+slug: /sdk.erc1155lazymintable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+Functionality available for contracts that implement
+the [`IERC1155`](/contracts/IERC1155) interface and [`LazyMint`](/contracts/LazyMint) contract.
+
+## lazyMint
+
+Lazy mint a new batch of NFTs into the smart contract.
+
+By default, the NFT metadata is uploaded and pinned to IPFS before minting.
+You can override this default behavior by providing a `string` that points to valid metadata instead of objects.
+
+The metadata must conform to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+
+```javascript
+// Custom metadata of the NFT, note that you can fully customize this metadata with other properties.
+const metadataOne = {
+  name: "Cool NFT #1",
+  description: "This is a cool NFT",
+  image: "https://example.com/image.png", // URL, IPFS URI, or File object
+  // ... Any other metadata you want to include
+};
+
+const metadataTwo = {
+  name: "Cool NFT #2",
+  description: "This is a cool NFT",
+  image: "https://example.com/image.png", // URL, IPFS URI, or File object
+  // ... Any other metadata you want to include
+};
+
+const txResult = await contract.erc1155.lazyMint([metadataOne, metadataTwo]);
+```
+
+Alternatively, you can provide a `string` that points to valid metadata instead of objects.
+
+```javascript
+const metadataOne = "ipfs://Qm..."; // IPFS URI
+const metadataTwo = "https://my-nft-metadata.json"; // Some other URL
+
+const txResult = await contract.erc1155.lazyMint([metadataOne, metadataTwo]);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### metadatas
+
+Provide an array of either `strings` that point to, or `objects` that contain
+[valid metadata properties](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+
+</div>
+</details>

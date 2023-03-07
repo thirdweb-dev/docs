@@ -15,7 +15,7 @@ Enables wallets to claim (mint) tokens from the contract under specific conditio
 Claim a specified number of tokens to the **connected wallet**.
 
 ```javascript
-const txResult = contract.erc20.claimConditions.claim("{{amount}}");
+const txResult = await contract.erc20.claim("{{amount}}");
 ```
 
 <details>
@@ -39,8 +39,10 @@ There are three options available:
 - `pricePerToken` - The price to pay for each token claimed. Not relevant when using claim conditions.
 
 ```javascript
-const txResult = contract?.erc20.claim("{{amount}}", {
+const txResult = await contract.erc20.claim("{{amount}}", {
   checkERC20Allowance: false, // Set to true if you want to check ERC20 allowance
+  currencyAddress: "{{currency_contract_address}}",
+  pricePerToken: "{{price}}",
 });
 ```
 
@@ -52,10 +54,7 @@ const txResult = contract?.erc20.claim("{{amount}}", {
 The same as [`claim`](#claim), but allows specifying the recipient address rather than using the connected wallet.
 
 ```javascript
-const txResult = contract.erc20.claimConditions.claimTo(
-  "{{recipient}}",
-  "{{amount}}",
-);
+const txResult = await contract.erc20.claimTo("{{recipient}}", "{{amount}}");
 ```
 
 <details>
@@ -89,7 +88,7 @@ Check if tokens are currently available for claiming, optionally specifying if a
 address can claim.
 
 ```javascript
-const canClaim = contract.erc20.claimConditions.canClaim("{{quantity}}");
+const canClaim = await contract.erc20.claimConditions.canClaim("{{quantity}}");
 ```
 
 <details>
@@ -131,7 +130,7 @@ boolean;
 Retrieve the currently active claim phase, if any.
 
 ```javascript
-const activePhase = contract.erc20.claimConditions.getActive();
+const activePhase = await contract.erc20.claimConditions.getActive();
 ```
 
 <details>
@@ -203,7 +202,7 @@ If a claim condition is active, returns a `ClaimCondition` object containing the
 Get all the claim phases configured on the drop contract.
 
 ```javascript
-const claimPhases = contract.erc20.claimConditions.getAll();
+const claimPhases = await contract.erc20.claimConditions.getAll();
 ```
 
 <details>
@@ -259,7 +258,7 @@ Returns an array of `ClaimCondition` objects.
 Get an array of reasons why a specific wallet address is not eligible to claim tokens, if any.
 
 ```javascript
-const reasons = contract.erc20.getClaimIneligibilityReasons(
+const reasons = await contract.erc20.getClaimIneligibilityReasons(
   "{{quantity}}", // Quantity of tokens to claim
   "{{wallet_address}}", // Wallet address to check
 );
@@ -275,7 +274,7 @@ The amount of tokens to check if the wallet address can claim.
 
 Must be a `string` or `number`.
 
-#### addressToCheck (required)
+#### addressToCheck (optional)
 
 The wallet address to check if it can claim tokens.
 
@@ -316,10 +315,11 @@ This is useful for estimating the gas cost of a claim transaction,
 overriding transaction options and having fine grained control over the transaction execution.
 
 ```javascript
-const claimTransaction = contract.erc20.claimConditions.getClaimTransaction(
-  "{{wallet_address}}",
-  "{{quantity}}",
-);
+const claimTransaction =
+  await contract.erc20.claimConditions.getClaimTransaction(
+    "{{wallet_address}}",
+    "{{quantity}}",
+  );
 ```
 
 <details>
@@ -356,8 +356,9 @@ TransactionTask;
 Returns allowlist information and merkle proofs for a given wallet address.
 
 ```javascript
-const claimerProofs =
-  contract.erc20.claimConditions.getClaimerProofs("{{wallet_address}}");
+const claimerProofs = await contract.erc20.claimConditions.getClaimerProofs(
+  "{{wallet_address}}",
+);
 ```
 
 <details>

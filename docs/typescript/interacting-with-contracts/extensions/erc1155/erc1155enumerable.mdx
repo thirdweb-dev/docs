@@ -23,7 +23,9 @@ By default, returns the first `100` NFTs (in order of token ID). Use [`queryPara
 const nfts = await contract.erc1155.getAll();
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### queryParams (optional)
 
@@ -66,7 +68,8 @@ Returns an array of `NFT` objects containing the following properties:
 }[]
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## getOwned
 
@@ -78,7 +81,9 @@ const address = "{{wallet_address}}";
 const nfts = await contract.erc1155.getOwned(address);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### address
 
@@ -118,3 +123,6 @@ Returns an array of `NFT` objects containing the following properties:
   type: "ERC1155";
 }[]
 ```
+
+</div>
+</details>

@@ -19,10 +19,28 @@ Generate a signature that a wallet address can use to mint the specified number 
 This is typically an **admin** operation, where the owner of the contract generates a signature that allows _another_ wallet to mint tokens.
 
 ```javascript
-const signedPayload = contract.erc1155.signature().generate(payload);
+const payload = {
+  quantity: 100, // (Required) The quantity of tokens to be minted
+  to: "{{wallet_address}}", // (Required) Who will receive the tokens
+  metadata: {
+    name: "Cool NFT #1",
+    description: "This is a cool NFT",
+    image: "https://example.com/image.png", // URL, IPFS URI, or File object
+    // ... Any other metadata you want to include
+  },
+  currencyAddress: "{{currency_contract_address}}", // (Optional) the currency to pay with
+  price: 0.5, // (Optional) the price to pay for minting those tokens (in the currency above)
+  mintStartTime: new Date(), // (Optional) can mint anytime from now
+  mintEndTime: new Date(Date.now() + 60 * 60 * 24 * 1000), // (Optional) to 24h from now,
+  primarySaleRecipient: "0x...", // (Optional) custom sale recipient for this token mint
+};
+
+const signedPayload = contract.erc1155.signature.generate(payload);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 The `mintRequest` object you provide to the `generate` function outlines what the signature can be used for.
 
@@ -215,7 +233,8 @@ const signature = await contract.erc1155.signature.generate({
 });
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## generateBatch
 
@@ -242,7 +261,9 @@ const signatures = await contract.erc1155.signature.generateBatch([
 ]);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### payloadsToSign
 
@@ -250,7 +271,8 @@ An array of objects containing the configuration options for each signature.
 
 See [`generate`](#generate) for the configuration options available for each signature.
 
-<hr className="divider" />
+</div>
+</details>
 
 ## generateFromTokenId
 
@@ -267,7 +289,9 @@ const signature = await contract.erc1155.signature.generateFromTokenId({
 });
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 The configuration options available are the same as those in [`generate`](#generate) except for replacing `metadata` with `tokenId`.
 
@@ -284,7 +308,8 @@ const signature = await contract.erc1155.signature.generateFromTokenId({
 });
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## generateBatchFromTokenIds
 
@@ -307,13 +332,16 @@ const signatures = await contract.erc1155.signature.generateBatchFromTokenIds([
 ]);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 Provide an array of objects containing the configuration options for each signature.
 
 See [`generateFromTokenId`](#generatefromtokenid) for the configuration options available for each signature.
 
-<hr className="divider" />
+</div>
+</details>
 
 ## mint
 
@@ -324,7 +352,9 @@ Mint tokens from a previously generated signature (see [`generate`](#generate)).
 const txResult = contract.erc1155.signature.mint(signature);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### signature (required)
 
@@ -342,7 +372,8 @@ const txResult = contract.erc1155.signature.mint(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## mintBatch
 
@@ -355,13 +386,18 @@ This is the same as [`mint`](#mint) but it allows you to provide multiple signat
 const txResult = contract.erc1155.signature.mintBatch(signatures);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### signatures (required)
 
 An array of signatures created by the [`generate`](#generate) or [`generateBatch`](#generatebatch) functions.
 
 Must be of type `SignedPayload1155[]`.
+
+</div>
+</details>
 
 ## verify
 
@@ -379,7 +415,9 @@ if you want to show a more user-friendly error message.
 const isValid = await contract.erc1155.signature.verify(payload);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### payload (required)
 
@@ -394,3 +432,6 @@ Returns `true` if the payload is valid, `false` otherwise.
 ```typescript
 boolean;
 ```
+
+</div>
+</details>

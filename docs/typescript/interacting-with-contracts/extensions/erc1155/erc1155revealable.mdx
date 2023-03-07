@@ -56,7 +56,9 @@ const txResult = await contract.erc1155.revealer.createDelayedRevealBatch(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### placeholder
 
@@ -156,7 +158,8 @@ const txResult = await contract.erc1155.revealer.createDelayedRevealBatch(
 );
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## getBatchesToReveal
 
@@ -165,6 +168,10 @@ Get a list of unrevealed batches.
 ```javascript
 const batches = await contract.erc1155.revealer.getBatchesToReveal();
 ```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 ### Return Value
 
@@ -195,7 +202,8 @@ Returns an array of `BatchToReveal` objects, containing the following properties
 }[];
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## reveal
 
@@ -207,7 +215,9 @@ const batchId = 0; // the batch to reveal
 await contract.erc1155.revealer.reveal(batchId, "my secret password");
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### batchId
 
@@ -239,3 +249,6 @@ await contract.erc1155.revealer.reveal(
   "{{password}}",
 );
 ```
+
+</div>
+</details>

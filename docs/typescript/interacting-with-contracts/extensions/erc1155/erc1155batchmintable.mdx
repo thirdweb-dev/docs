@@ -48,7 +48,9 @@ const metadataWithSupply = [
 const txResult = await contract.erc1155.mintBatch(metadataWithSupply);
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### metadataWithSupply
 
@@ -78,7 +80,8 @@ const metadatas = [
 const txResult = await contract.erc1155.mintBatch(metadatas);
 ```
 
-<hr className="divider" />
+</div>
+</details>
 
 ## mintBatchTo
 
@@ -116,7 +119,9 @@ const txResult = await contract.erc1155.mintBatchTo(
 );
 ```
 
-### Configuration
+<details>
+  <summary>Configuration</summary>
+  <div>
 
 #### toAddress
 
@@ -140,3 +145,6 @@ const txResult = await contract.erc1155.mintBatchTo(
 #### metadataWithSupply
 
 See [`mintBatch`](#mintbatch) for more details.
+
+</div>
+</details>

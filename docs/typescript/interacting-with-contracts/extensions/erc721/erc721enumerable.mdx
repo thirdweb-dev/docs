@@ -21,7 +21,9 @@ const address = "{{wallet_address}}"; // Optional - Defaults to the connected wa
 const nfts = await contract.erc721.getOwned(address);
 ```
 
-### Configuration
+<details>
+    <summary>Configuration</summary>
+    <div>
 
 #### address (optional)
 
@@ -59,3 +61,39 @@ Returns an array of `NFT` objects.
   type: "ERC1155" | "ERC721";
 }[]
 ```
+
+</div>
+</details>
+
+## getOwnedTokenIds
+
+Get the token IDs of all NFTs a wallet owns from this contract.
+
+```javascript
+const ownedTokenIds = await contract.erc721.getOwnedTokenIds(
+  "{{wallet_address}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### address (optional)
+
+The address of the wallet to get the NFTs of.
+
+Defaults to the **connected wallet** address.
+
+Must be a `string`.
+
+### Return Value
+
+Returns an array of `BigNumber`s representing the token IDs of the NFTs.
+
+```typescript
+BigNumber[]
+```
+
+</div>
+</details>
