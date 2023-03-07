@@ -52,6 +52,13 @@ const sidebars = {
       ],
     },
 
+    // Deploying Contracts
+    {
+      type: "doc",
+      label: "Contract Deployer",
+      id: "thirdwebsdk.sdk.contractdeployer",
+    },
+
     // Interacting with contracts
     {
       type: "category",
@@ -135,6 +142,25 @@ const sidebars = {
         },
       ],
     },
+
+    // Contract Events
+    {
+      type: "doc",
+      label: "Contract Events",
+      id: "thirdwebsdk.sdk.contractevents",
+    },
+
+    // UserWallet
+
+    // Auth
+
+    // Storage
+
+    // Utils
+
+    // Constants
+
+    // Migration Guide
   ],
 };
 
