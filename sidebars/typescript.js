@@ -74,6 +74,16 @@ const sidebars = {
           id: "interacting-with-contracts/thirdwebsdk.smartcontract.call",
         },
         {
+          type: "doc",
+          label: "Transaction Builder",
+          id: "interacting-with-contracts/thirdwebsdk.smartcontract.prepare", // ???
+        },
+        {
+          type: "doc",
+          label: "Detecting Contract Extensions",
+          id: "interacting-with-contracts/thirdwebsdk.smartcontract.detectfeatures", // ???
+        },
+        {
           type: "category",
           label: "Using Extensions",
           items: [

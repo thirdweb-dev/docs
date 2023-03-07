@@ -16,10 +16,38 @@ Get the primary sale recipient.
 const salesRecipient = await contract.sales.getRecipient();
 ```
 
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns a `string` containing the wallet address of the primary sale recipient.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
 ## setRecipient
 
-Set the primary sale recipient
+Set the primary sale recipient.
 
 ```javascript
-await contract.sales.setRecipient(recipientWalletAddress);
+await contract.sales.setRecipient("{{wallet_address}}");
 ```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### recipient
+
+The wallet address of the primary sale recipient.
+
+Must be a `string`.
+
+</div>
+</details>

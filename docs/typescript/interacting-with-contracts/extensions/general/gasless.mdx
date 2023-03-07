@@ -4,7 +4,19 @@ slug: /sdk.gasless
 toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
 ---
 
-# ERC1155SignatureMintable
+# Gasless
 
 Functionality available for contracts that implement the
 [`IERC2771Context`](/contracts/IERC2771Context) interface.
+
+Enables the usage of [gasless transactions](/sdk/advanced-features/gasless-transactions).
+
+## Gasless Transactions
+
+You can use gasless transactions in two ways.
+
+1. Gasless transactions for **all** transactions.
+   Learn how to configure `gasless` settings on the [`ThirdwebSDK` overview page](/typescript/sdk.thirdwebsdk#gasless-optional).
+2. Gasless transactions for **specific** transactions.
+   Learn how to use the [`Transaction builder`](/typescript/sdk.smartcontract.prepare) to specify
+   gasless options on a specific transaction.

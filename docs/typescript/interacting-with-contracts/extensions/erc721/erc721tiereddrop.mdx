@@ -178,6 +178,10 @@ The `tierPriority`, `to` fields are required, while the rest are optional.
 
 The tier(s) to allow the user to claim from.
 
+The array of tiers is used in order of rarity, i.e. On claiming,
+the contract will try to give the claimer as many NFTs from the first-priority tier,
+and only then move down the priority list once that tier is exhausted.
+
 ```javascript
 const signature = await contract.erc721.tieredDrop.generate({
   // highlight-next-line
