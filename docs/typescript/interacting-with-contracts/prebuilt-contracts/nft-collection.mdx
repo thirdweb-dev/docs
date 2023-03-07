@@ -2,3 +2,14 @@
 title: NFT Collection
 slug: /sdk.nftcollection
 ---
+
+When using the [NFT Collection](https://thirdweb.com/thirdweb.eth/TokenERC721) smart contract, additional top-level functionality is available to use.
+
+## Get an NFT Collection
+
+```javascript
+const contract = await sdk.getContract(
+  "{{contract_address}}",
+  "nft-collection",
+);
+```

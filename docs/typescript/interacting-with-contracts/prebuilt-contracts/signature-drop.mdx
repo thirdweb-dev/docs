@@ -2,3 +2,14 @@
 title: Signature Drop
 slug: /sdk.signaturedrop
 ---
+
+When using the [Signature Drop](https://thirdweb.com/thirdweb.eth/SignatureDrop) smart contract, additional top-level functionality is available to use.
+
+## Get a Signature Drop
+
+```javascript
+const contract = await sdk.getContract(
+  "{{contract_address}}",
+  "signature-drop",
+);
+```
