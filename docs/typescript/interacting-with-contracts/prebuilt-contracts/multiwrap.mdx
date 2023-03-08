@@ -5,8 +5,148 @@ slug: /sdk.multiwrap
 
 When using the [Multiwrap](https://thirdweb.com/thirdweb.eth/Multiwrap) smart contract, additional top-level functionality is available to use.
 
-## Get a Multiwrap
-
 ```javascript
 const contract = await sdk.getContract("{{contract_address}}", "multiwrap");
 ```
+
+As each multiwrap NFT is a newly created NFT, in addition to functionalities listed, the multiwrap contract also implements the following extensions for you to use:
+
+- [ERC721](/typescript/sdk.erc721)
+- [ERC721Supply](/typescript/sdk.erc721supply)
+- [ERC721Enumerable](/typescript/sdk.erc721enumerable)
+- [Royalty](/typescript/sdk.contractroyalty)
+- [Permissions](/typescript/sdk.permissions)
+- [ContractMetadata](/typescript/sdk.contractmetadata)
+- [Ownable](/typescript/sdk.ownable)
+- [Gasless](/typescript/sdk.gasless)
+
+## getWrappedContents
+
+Get the contents that are wrapped inside of a multiwrap NFT.
+
+```javascript
+const contents = await contract.getWrappedContents("{{token_id}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### tokenId
+
+The token ID of the multiwrap NFT to get the contents of.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>
+
+## unwrap
+
+Unwrap a multiwrap NFT and get the contents out of it.
+
+Note: this process **burns** the multiwrap NFT.
+
+```javascript
+const txResult = await contract.unwrap("{{token_id}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### tokenId
+
+The token ID of the multiwrap NFT to unwrap.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### recipientAddress (optional)
+
+The wallet address that will receive the tokens that are unwrapped.
+
+Must be a `string`. By default, the wallet address of the connected wallet is used.
+
+</div>
+</details>
+
+## wrap
+
+Wrap a set of tokens into a new multiwrap NFT.
+
+Note: you need to provide the multiwrap smart contract `allowance` (for ERC20 tokens), or `approval` (for ERC721 and ERC1155 NFTs)
+before calling the `wrap` function.
+
+- ERC721 tokens: [`setApprovalForToken`](/typescript/sdk.erc721#setapprovalfortoken).
+- ERC1155 tokens: [`setApprovalForAll`](/typescript/sdk.erc1155#setapprovalforall).
+- ERC20 tokens: [`setAllowance`](/typescript/sdk.erc20#setallowance).
+
+```javascript
+// Grant approval - ERC721 tokens
+await erc721Contract.setApprovalForToken(multiwrapAddress, "{{token_id}}";
+
+// Grant approval - ERC1155 tokens
+await erc1155Contract.setApprovalForAll(multiwrapAddress, true);
+
+// Grant approval - ERC20 tokens
+await erc20Contract.setAllowance(multiwrapAddress, "{{quantity}}");
+
+
+// Finally, wrap the tokens in to a new multiwrap NFT
+const txResult = await contract.wrap(
+    {
+      erc20Tokens: [
+        {
+          contractAddress: "0x...", // Contract address of the token contract
+          quantity: "0.8", // Quantity of this token to wrap
+        },
+      ],
+      erc721Tokens: [
+        {
+          contractAddress: "0x...", // Contract address of the NFT smart contract
+          tokenId: "0", // Token ID of the NFT to wrap
+        },
+      ],
+      erc1155Tokens: [
+        {
+          contractAddress: "0x...", // Contract address of the NFT smart contract
+          tokenId: "1", // Token ID of the NFT to wrap
+          quantity: "2", // Quantity of this NFT to wrap
+        },
+      ],
+    },
+
+    // Metadata of the new multiwrap NFT to create
+    {
+      name: "Wrapped bundle",
+      description: "This is a wrapped bundle of tokens and NFTs",
+      image: "ipfs://...", // Can be any IPFS URI, or URL, or File object.
+    }
+  );
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### erc20Tokens
+
+An array of objects containing a `contractAddress` and `quantity` of the ERC20 token to wrap.
+
+#### erc721Tokens
+
+An array of objects containing a `contractAddress` and `tokenId` of the ERC721 token to wrap.
+
+#### erc1155Tokens
+
+An array of objects containing a `contractAddress`, `tokenId`, and `quantity` of the ERC1155 token to wrap.
+
+#### metadata
+
+An object containing the metadata of the new multiwrap NFT to create.
+
+Metadata can be a `string`, containing a URL that points to,
+or an object containing [valid metadata properties](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+
+</div>
+</details>
