@@ -169,7 +169,7 @@ The rewards will be granted automatically to the connected address after VRF req
 This is essentially a shortcut for calling [`open`](#open) and [`claimRewards`](#claimrewards) in sequence.
 
 ```javascript
-const txResult = await contract.pack.openAndClaim("{{token_id}}", "{{amount}}");
+const txResult = await contract.vrf.openAndClaim("{{token_id}}", "{{amount}}");
 ```
 
 <details>
