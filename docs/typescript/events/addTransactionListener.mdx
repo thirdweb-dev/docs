@@ -1,0 +1,51 @@
+---
+title: addTransactionListener
+slug: /sdk.contractevents.addtransactionlistener
+---
+
+Subscribe to all transactions in the contract.
+
+## Usage
+
+Register a listener that will be called whenever a transaction occurs in the contract.
+
+The listener will be called with an `event` object that contains the status of the transaction (`submitted` and `completed`) as well as the transaction hash.
+
+```javascript
+const unsubscribe = contract.events.addTransactionListener((event) => {
+  console.log(event);
+});
+```
+
+## Configuration
+
+### listener
+
+The callback function to be called when a transaction is sent to the contract.
+
+The function comes with an `event` parameter that contains the transaction's status (`submitted` and `completed`) and hash.
+
+```javascript
+const unsubscribe = contract.events.addTransactionListener(
+  // highlight-start
+  (event) => {
+    console.log(event);
+  },
+  // highlight-end
+);
+```
+
+## Return Value
+
+Returns a function that can be called to unsubscribe the listener.
+
+To stop listening to transactions, call the function.
+
+```javascript
+const unsubscribe = contract.events.addTransactionListener((event) => {
+  console.log(event);
+});
+
+// Stop listening to the events
+unsubscribe();
+```
