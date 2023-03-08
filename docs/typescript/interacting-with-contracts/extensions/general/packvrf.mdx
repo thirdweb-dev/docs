@@ -7,4 +7,217 @@ toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to 
 # PackVRF
 
 Functionality available for contracts that implement the
-[`IPackVRFDirect`](/contracts/IPackVRFDirect) interface.
+[`IPackVRFDirect`](/contracts/IPackVRFDirect) interface;
+the [Chainlink VRF](https://docs.chain.link/vrf/v2/introduction) variation of the pack interface.
+
+## addPackOpenEventListener
+
+Create an event listener that calls a `callback` function whenever a pack is opened on the contract.
+
+```javascript
+const unsubscribe = await contract.vrf.addPackOpenEventListener(
+  (packId, openerAddress, rewards) => {
+    console.log(
+      `Pack ${packId} was opened by ${openerAddress} and contained:, ${rewards})`,
+    );
+  },
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### callback
+
+The function to run whenever the event is emitted.
+
+Contains three parameters that you can use to access the event data:
+
+- `packId` - The ID of the pack that was opened. `string`.
+- `openerAddress` - The address of the account that opened the pack. `string`.
+- `rewards` - The rewards that were claimed from the pack. Type below:
+  ```typescript
+  {
+    erc20Rewards?: {
+        contractAddress: string;
+        quantityPerReward: string | number;
+    }[] | undefined;
+    erc721Rewards?: {
+        tokenId: string | number | bigint | BigNumber;
+        contractAddress: string;
+    }[] | undefined;
+    erc1155Rewards?: {
+        tokenId: string | number | bigint | BigNumber;
+        contractAddress: string;
+        quantityPerReward: string | number | bigint | BigNumber;
+    }[] | undefined;
+  }
+  ```
+
+</div>
+</details>
+
+## canClaimRewards
+
+Check if a specific wallet can claim rewards after opening a pack.
+
+```javascript
+const canClaim = await contract.vrf.canClaimRewards("{{wallet_address}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### walletAddress (optional)
+
+The address of the wallet to check. If not provided, the currently connected wallet will be used.
+
+Must be a `string`.
+
+### Return Value
+
+A `boolean` indicating whether the wallet can claim rewards.
+
+```typescript
+boolean;
+```
+
+</div>
+</details>
+
+## claimRewards
+
+Claim the rewards from an opened pack.
+
+Use [`canClaimRewards`](#canclaimrewards) to check if the wallet can claim rewards before calling this method.
+
+```javascript
+const txResult = await contract.vrf.claimRewards();
+```
+
+## getLinkBalance
+
+Get the LINK balance of the contract.
+
+```javascript
+const linkBalance = await contract.vrf.getLinkBalance();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+```typescript
+{
+  symbol: string;
+  value: BigNumber;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}
+```
+
+</div>
+</details>
+
+## open
+
+Open a pack using Chainlink VRFs random number generation.
+
+```javascript
+const result = await contract.vrf.open("{{token_id}}", "{{amount}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### tokenId
+
+The token ID of the pack NFT to open.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### amount (optional)
+
+The amount of packs to open.
+
+If not provided, the default value of `1` will be used.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+### Return Value
+
+This function returns a transaction result with the requestId of the open request, _not_ the contents of the pack.
+
+To get the contents of the pack, you must call [`claimRewards`](#claimrewards) once the VRF request has been fulfilled
+
+</div>
+</details>
+
+## openAndClaim
+
+Open a pack and claim the rewards.
+
+This function will start the flow of opening a pack.
+The rewards will be granted automatically to the connected address after VRF request is fulfilled.
+
+This is essentially a shortcut for calling [`open`](#open) and [`claimRewards`](#claimrewards) in sequence.
+
+```javascript
+const txResult = await contract.pack.openAndClaim("{{token_id}}", "{{amount}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### tokenId
+
+The token ID of the pack NFT to open.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### amount (optional)
+
+The amount of packs to open.
+
+If not provided, the default value of `1` will be used.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### gasLimit (optional)
+
+The gas limit to use for the VRF callback transaction, defaults to `500000`.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>
+
+## transferLink
+
+Transfer LINK to this contract.
+
+Note: the wallet that initiates this transaction must have the amount of LINK specified in the `amount` parameter.
+
+```javascript
+const txResult = await contract.vrf.transferLink("{{amount}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### amount
+
+The amount of LINK to transfer.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>
