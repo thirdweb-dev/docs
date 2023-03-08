@@ -3,10 +3,18 @@ title: Token Drop
 slug: /sdk.tokendrop
 ---
 
-When using the [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20) smart contract, additional top-level functionality is available to use.
+When using the [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20) smart contract,
+there is **no need** to provide a contract type argument, as the functionality of the smart contract is all available
+through the [extensions](/typescript/extensions) interface.
 
-## Get a Token Drop
+The extensions that the Token Drop contract supports are listed below.
 
-```javascript
-const contract = await sdk.getContract("{{contract_address}}", "token-drop");
-```
+- [ERC20](/typescript/sdk.erc20)
+- [ERC20Burnable](/typescript/sdk.erc20burnable)
+- [ERC20ClaimPhases](/typescript/sdk.erc20claimconditions)
+- [ERC20Permit](/typescript/sdk.erc20permit)
+- [PlatformFee](/typescript/sdk.platformfee)
+- [PrimarySale](/typescript/sdk.contractprimarysale)
+- [Permissions](/typescript/sdk.permissions)
+- [ContractMetadata](/typescript/sdk.contractmetadata)
+- [Gasless](/typescript/sdk.gasless)

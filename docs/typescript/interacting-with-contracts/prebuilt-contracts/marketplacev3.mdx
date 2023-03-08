@@ -3,13 +3,18 @@ title: Marketplace V3
 slug: /sdk.marketplacev3
 ---
 
-When using the [Marketplace V3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) smart contract, additional top-level functionality is available to use.
-
-## Get a Marketplace V3
+When using the smart contract, additional top-level functionality is available to use.
 
 ```javascript
 const contract = await sdk.getContract(
   "{{contract_address}}",
-  "marketplace-v3",
+  // highlight-next-line
+  "marketplace-v3", // Provide the "marketplace-v3" contract type
 );
 ```
+
+Once connected, the capabilities unique to the Marketplace V3 are available from the following extensions:
+
+- [DirectListings](/typescript/sdk.directlistings)
+- [EnglishAuctions](/typescript/sdk.englishauctions)
+- [Offers](/typescript/sdk.offers)

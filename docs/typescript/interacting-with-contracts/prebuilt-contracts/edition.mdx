@@ -3,10 +3,22 @@ title: Edition
 slug: /sdk.edition
 ---
 
-When using the [Edition](https://thirdweb.com/thirdweb.eth/TokenERC1155) smart contract, additional top-level functionality is available to use.
+When using the [Edition](https://thirdweb.com/thirdweb.eth/TokenERC1155) smart contract,
+there is **no need** to provide a contract type argument, as the functionality of the smart contract is all available
+through the [extensions](/typescript/extensions) interface.
 
-## Get an Edition Drop
+The extensions that the edition contract supports are listed below.
 
-```javascript
-const contract = await sdk.getContract("{{contract_address}}", "edition");
-```
+- [ERC1155](/typescript/sdk.erc1155)
+- [ERC1155Burnable](/typescript/sdk.erc1155burnable)
+- [ERC1155Enumerable](/typescript/sdk.erc1155enumerable)
+- [ERC1155Mintable](/typescript/sdk.erc1155mintable)
+- [ERC1155BatchMintable](/typescript/sdk.erc1155batchmintable)
+- [ERC1155SignatureMintable](/typescript/sdk.erc1155signaturemintable)
+- [Royalty](/typescript/sdk.contractroyalty)
+- [PlatformFee](/typescript/sdk.platformfee)
+- [PrimarySale](/typescript/sdk.contractprimarysale)
+- [Permissions](/typescript/sdk.permissions)
+- [ContractMetadata](/typescript/sdk.contractmetadata)
+- [Ownable](/typescript/sdk.ownable)
+- [Gasless](/typescript/sdk.gasless)
