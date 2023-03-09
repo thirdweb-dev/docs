@@ -1,0 +1,313 @@
+---
+title: Pack
+slug: /sdk.pack
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+When using the [Pack](https://thirdweb.com/thirdweb.eth/Pack) smart contract, additional top-level functionality is available to use.
+
+:::info Pack VRF
+
+When using the [Chainlink VRF variation](https://thirdweb.com/thirdweb.eth/PackVRF) of the Pack contract,
+use the functionality of the [PackVRF Extension](/typescript/sdk.packvrf) instead.
+
+:::
+
+To access the top-level functionality, provide the `pack` contract type when creating the contract instance:
+
+```javascript
+const contract = await sdk.getContract(
+  "{{contract_address}}",
+  // highlight-next-line
+  "pack", // Provide the "pack" contract type
+);
+```
+
+In addition to the methods listed below, the pack contract supports the following extensions:
+
+- [ERC1155](/typescript/sdk.erc1155)
+- [ERC1155enumerable](/typescript/sdk.erc1155enumerable)
+- [Royalty](/typescript/sdk.contractroyalty)
+- [Permissions](/typescript/sdk.permissions)
+- [ContractMetadata](/typescript/sdk.contractmetadata)
+- [Ownable](/typescript/sdk.ownable)
+- [Gasless](/typescript/sdk.gasless)
+
+## addPackContents
+
+Add additional tokens to the pool of tokens that can be opened from a pack.
+
+```javascript
+const txResult = await contract.addPackContents(
+  // ID of the pack you want to add tokens to
+  "{{pack_id}}",
+
+  // Different kinds of tokens to add
+  {
+    erc721Rewards: [
+      {
+        contractAddress: "{{contract_address}}",
+        tokenId: "{{token_id}}",
+      },
+    ],
+    erc1155Rewards: [
+      {
+        contractAddress: "{{contract_address}}",
+        tokenId: "{{token_id}}",
+        quantityPerReward: "{{quantity}}",
+      },
+    ],
+    erc20Rewards: [
+      {
+        contractAddress: "{{contract_address}}",
+        quantityPerReward: "{{quantity}}",
+      },
+    ],
+  },
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### packId
+
+The ID of the pack you want to add tokens to.
+
+For example, in your pack contract you may have a common pack with ID `0` and a rare pack with ID `1`.
+
+To add more tokens to the common pack, you would pass `0` as the `packId`.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### rewards
+
+An object containing three (optional) properties:
+
+- `erc721Rewards`: An array of ERC721 tokens to add to the pack. Each item in the array must be an object containing a `contractAddress` and `tokenId` property.
+- `erc1155Rewards`: An array of ERC1155 tokens to add to the pack. Each item in the array must be an object containing a `contractAddress`, `tokenId`, and `quantityPerReward` property.
+- `erc20Rewards`: An array of ERC20 tokens to add to the pack. Each item in the array must be an object containing a `contractAddress` and `quantityPerReward` property.
+
+</div>
+</details>
+
+## create
+
+Mint a new pack NFT, which can be opened to receive rewards, to the **connected** wallet.
+
+Each pack NFT is an ERC1155 token, which means it can have more than one quantity.
+
+Provide the metadata for the pack NFT itself, and the rewards that can be opened from the pack.
+
+The quantity of packs created is determined by the total number of rewards available, divided by the number of rewards per pack.
+For example, if you had `20` total ERC20 rewards + `60` total ERC1155 rewards + `20` total ERC721 rewards,
+and you wanted to create packs with `5` rewards each, the result would be the creation of `20` packs (100 total rewards / 5 rewards per pack = 20 packs).
+
+```javascript
+const txResult = await contract.create({
+  // The metadata for the pack NFT itself
+  packMetadata: {
+    name: "My Pack",
+    description: "This is a new pack",
+    image: "ipfs://...", // Any IPFS URI, URL, or File object.
+    // ... Any other metadata you want to include
+  },
+  // ERC20 rewards to be included in the pack
+  erc20Rewards: [
+    {
+      contractAddress: "0x...",
+      quantityPerReward: 5,
+      totalRewards: 20,
+    },
+  ],
+  // ERC721 rewards to be included in the pack
+  erc721Rewards: [
+    {
+      contractAddress: "0x...",
+      tokenId: 0,
+    },
+  ],
+  // ERC1155 rewards to be included in the pack
+  erc1155Rewards: [
+    {
+      contractAddress: "0x...",
+      tokenId: 0,
+      quantityPerReward: 1,
+      totalRewards: 100,
+    },
+  ],
+  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now
+  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### packMetadata
+
+Either a string containing a URL that points to, or an object that contains [standard metadata properties](https://docs.opensea.io/docs/metadata-standards).
+
+If you provide an object, (like the example above), the metadata is uploaded and pinned to IPFS for you before the packs are minted. The IPFS URI is then used as the metadata for the pack NFT.
+
+#### erc20Rewards
+
+An array of ERC20 tokens to include in the pack. Each item in the array must be an object containing a `contractAddress`, `quantityPerReward`, and `totalRewards` property.
+
+#### erc721Rewards
+
+An array of ERC721 tokens to include in the pack. Each item in the array must be an object containing a `contractAddress` and `tokenId` property.
+
+#### erc1155Rewards
+
+An array of ERC1155 tokens to include in the pack. Each item in the array must be an object containing a `contractAddress`, `tokenId`, `quantityPerReward`, and `totalRewards` property.
+
+#### openStartTime
+
+The date that packs can start to be opened. Defaults to `new Date()` (i.e. now).
+
+Must be of type `Date`.
+
+#### rewardsPerPack
+
+The number of rewards in each pack. Defaults to `1`.
+
+Must be a `number`.
+
+</div>
+</details>
+
+## createTo
+
+The same as [`create`](#create), but allows you to specify the address that will receive the pack NFT(s), rather than using the connected wallet.
+
+```javascript
+const txResult = await contract.createTo("{{wallet_address}}", {
+  // The metadata for the pack NFT itself
+  packMetadata: {
+    name: "My Pack",
+    description: "This is a new pack",
+    image: "ipfs://...",
+  },
+  // ERC20 rewards to be included in the pack
+  erc20Rewards: [
+    {
+      contractAddress: "0x...",
+      quantityPerReward: 5,
+      totalRewards: 20,
+    },
+  ],
+  // ERC721 rewards to be included in the pack
+  erc721Rewards: [
+    {
+      contractAddress: "0x...",
+      tokenId: 0,
+    },
+  ],
+  // ERC1155 rewards to be included in the pack
+  erc1155Rewards: [
+    {
+      contractAddress: "0x...",
+      tokenId: 0,
+      quantityPerReward: 1,
+      totalRewards: 100,
+    },
+  ],
+  openStartTime: new Date(), // the date that packs can start to be opened, defaults to now
+  rewardsPerPack: 1, // the number of rewards in each pack, defaults to 1
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### to
+
+The wallet address to mint the pack NFTs to.
+
+Must be a `string`.
+
+See [`create`](#create) for more information on the rest of the configuration options.
+
+</div>
+</details>
+
+## getPackContents
+
+Get all the tokens that were "wrapped up" in the pack NFTs when they were created.
+
+```javascript
+const contents = await contract.getPackContents("{{pack_id}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### packId
+
+The token ID of the pack to get the contents of.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+### Return Value
+
+Returns all the tokens that were included in the rewards when the packs were created.
+
+```typescript
+{
+  erc20Rewards: {
+    contractAddress: string;
+    quantityPerReward: string;
+    totalRewards: string;
+  }
+  [];
+  erc721Rewards: {
+    tokenId: string;
+    contractAddress: string;
+  }
+  [];
+  erc1155Rewards: {
+    tokenId: string;
+    contractAddress: string;
+    quantityPerReward: string;
+    totalRewards: string;
+  }
+  [];
+}
+```
+
+</div>
+</details>
+
+## open
+
+Open a pack NFT to receive the rewards inside.
+
+To open a pack, the wallet that initiates this transaction must have sufficient quantity of the pack NFT to open.
+
+```javascript
+const results = await contract.open("{{pack_id}}", "{{amount_to_open}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### packId
+
+The token ID of the pack to open.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### amount
+
+The number of packs to open.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>

@@ -1,0 +1,65 @@
+---
+title: ERC20BatchMintable
+slug: /sdk.erc20batchmintable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC20BatchMintable
+
+Functionality available for contracts that implement the
+[`IERC20`](/contracts/IERC20),
+[`IMintableERC20`](/contracts/IMintableERC20),
+and [`IMulticall`](/contracts/IMulticall) interfaces.
+
+Allow you to mint tokens to multiple wallet addresses in one transaction.
+
+## mintBatchTo
+
+Mint tokens to many wallets in one transaction.
+
+```javascript
+// Data of the tokens you want to mint
+const data = [
+  {
+    toAddress: "{{wallet_address}}", // Address to mint tokens to
+    amount: 0.2, // How many tokens to mint to specified address
+  },
+  {
+    toAddress: "0x...",
+    amount: 1.4,
+  },
+];
+
+await contract.erc20.mintBatchTo(data);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### args
+
+An array of objects containing the following properties:
+
+- `toAddress` - The address to mint tokens to. `string`.
+- `amount` - The number of tokens to mint to the specified address. `string` or `number`.
+
+```javascript
+await contract.erc20.mintBatchTo(
+  // highlight-start
+  [
+    {
+      toAddress: "{{wallet_address}}", // Address to mint tokens to
+      amount: 0.2, // How many tokens to mint to specified address
+    },
+    {
+      toAddress: "0x...", // Another address to mint tokens to
+      amount: 1.4, // How many tokens to mint to specified address
+    },
+  ],
+  // highlight-end
+);
+```
+
+</div>
+</details>

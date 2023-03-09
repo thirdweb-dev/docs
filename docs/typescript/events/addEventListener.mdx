@@ -1,0 +1,80 @@
+---
+title: addEventListener
+slug: /sdk.contractevents.addeventlistener
+---
+
+Create a new subscription to a [smart contract&rsquo;s](https://docs.soliditylang.org/en/v0.8.19/structure-of-a-contract.html#events) events being emitted.
+
+## Usage
+
+Use the name of the event as it appears on the smart contract to subscribe to it.
+
+In the example below, the listener will be called whenever the `TokensMinted` event is emitted by the contract.
+
+```javascript
+const unsubscribe = contract.events.addEventListener(
+  "TokensMinted",
+  (event) => {
+    // Perform some logic when the event is emitted
+    console.log(event);
+  },
+);
+```
+
+## Configuration
+
+### eventName
+
+The name of the event to listen to.
+
+In Solidity, an event is triggered by the `emit` keyword.
+
+```solidity title="Example.sol"
+// An example Solidity contract
+emit TokensMinted(); // Triggering event
+```
+
+To listen to this event, use the name of the event as it appears in the contract.
+
+```javascript
+const unsubscribe = contract.events.addEventListener(
+  // highlight-next-line
+  "TokensMinted",
+  (event) => {}, // Perform some logic
+);
+```
+
+### listener
+
+The callback function to be called when the event is emitted.
+
+The function comes with an `event` parameter that contains the event data, in the type of `Record<string, any>`, (an object).
+
+```javascript
+const unsubscribe = contract.events.addEventListener(
+  "TokensMinted",
+  // highlight-start
+  (event) => {
+    console.log(event);
+  },
+  // highlight-end
+);
+```
+
+## Return Value
+
+Returns a function that can be called to unsubscribe the listener.
+
+To stop listening to events, call the function.
+
+```javascript
+const unsubscribe = contract.events.addEventListener(
+  "TokensMinted",
+  (event) => {
+    console.log(event);
+  },
+);
+
+// Stop listening to the events
+unsubscribe();
+```

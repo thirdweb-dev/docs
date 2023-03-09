@@ -1,0 +1,524 @@
+---
+title: ERC20ClaimConditions
+slug: /sdk.erc20claimconditions
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+Functionality available for contracts that implement the
+[`IDropSinglePhase`](/contracts/IDropSinglePhase) or
+[`IDropSinglePhase_V1`](/contracts/IDropSinglePhase_V1) interfaces.
+
+Enables wallets to claim (mint) tokens from the contract under specific conditions.
+
+## claim
+
+Claim a specified number of tokens to the **connected wallet**.
+
+```javascript
+const txResult = await contract.erc20.claim("{{amount}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### amount (required)
+
+The amount of tokens to claim.
+
+Must be a `string` or `number`.
+
+#### options (optional)
+
+Customizable `ClaimOptions` object that can be used to override the default behaviour of the claim.
+
+There are three options available:
+
+- `checkERC20Allowance` - Whether to check the ERC20 allowance of the sender, defaults to true.
+- `currencyAddress` - The currency to pay for each token claimed, defaults to `NATIVE_TOKEN_ADDRESS` for native currency.
+- `pricePerToken` - The price to pay for each token claimed. Not relevant when using claim conditions.
+
+```javascript
+const txResult = await contract.erc20.claim("{{amount}}", {
+  checkERC20Allowance: false, // Set to true if you want to check ERC20 allowance
+  currencyAddress: "{{currency_contract_address}}",
+  pricePerToken: "{{price}}",
+});
+```
+
+</div>
+</details>
+
+## claimTo
+
+The same as [`claim`](#claim), but allows specifying the recipient address rather than using the connected wallet.
+
+```javascript
+const txResult = await contract.erc20.claimTo("{{recipient}}", "{{amount}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### recipient (required)
+
+The wallet address to receive the claimed tokens.
+
+Must be a `string`.
+
+#### amount (required)
+
+The amount of tokens to claim.
+
+Must be a `string` or `number`.
+
+#### options (optional)
+
+Customizable `ClaimOptions` object that can be used to override the default behaviour of the claim.
+
+See [`claim`](#claim) for more details.
+
+</div>
+</details>
+
+## canClaim
+
+Check if tokens are currently available for claiming, optionally specifying if a specific wallet
+address can claim.
+
+```javascript
+const canClaim = await contract.erc20.claimConditions.canClaim("{{quantity}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### quantity (required)
+
+The amount of tokens to claim.
+
+This checks to see if the specified amount of tokens are available for claiming. i.e.:
+
+- There is sufficient quantity available for claiming.
+- This amount of tokens can be claimed in a single transaction.
+
+Must be a `string` or `number`.
+
+#### addressToCheck (optional)
+
+The wallet address to check if it can claim tokens.
+
+This considers all aspects of the active claim phase, including allowlists, previous claims, etc.
+
+Must be a `string`.
+
+### Return Value
+
+Returns a `boolean` indicating if the specified amount of tokens can be claimed or not.
+
+```typescript
+boolean;
+```
+
+</div>
+</details>
+
+## getActive
+
+Retrieve the currently active claim phase, if any.
+
+```javascript
+const activePhase = await contract.erc20.claimConditions.getActive();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### options (optional)
+
+Provide an object containing a `withAllowlist` property to include the allowlist in the response.
+
+By default, the method will not include the allowlist in the returned data.
+
+To include the allowlist in the returned data, set the `withAllowlist` option to `true`.
+
+This will add a `snapshot` property to the returned data, which contains the allowlist in an array.
+
+```javascript
+const activePhase = contract?.erc20.getActive(
+  // highlight-start
+  {
+    withAllowlist: true,
+  },
+  // highlight-end
+);
+```
+
+### Return Value
+
+If there is no active claim phase, returns `undefined`.
+
+If a claim condition is active, returns a `ClaimCondition` object containing the following properties:
+
+```typescript
+{
+  maxClaimableSupply: string;
+  startTime: Date;
+  price: BigNumber;
+  currencyAddress: string;
+  maxClaimablePerWallet: string;
+  waitInSeconds: BigNumber;
+  merkleRootHash: string | number[];
+  availableSupply: string;
+  currentMintSupply: string;
+  currencyMetadata: {
+      symbol: string;
+      value: BigNumber;
+      name: string;
+      decimals: number;
+      displayValue: string;
+  };
+  metadata?: {
+      [x: string]: unknown;
+      name?: string | undefined;
+  } | undefined;
+  snapshot?: {
+      price?: string | undefined;
+      currencyAddress?: string | undefined;
+      address: string;
+      maxClaimable: string;
+  }[] | null | undefined;
+}
+```
+
+</div>
+</details>
+
+## getAll
+
+Get all the claim phases configured on the drop contract.
+
+```javascript
+const claimPhases = await contract.erc20.claimConditions.getAll();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### options (optional)
+
+Optionally return the allowlist with each claim phase.
+
+See [`getActive`](#getactive) configuration for more details.
+
+### Return Value
+
+Returns an array of `ClaimCondition` objects.
+
+```typescript
+{
+  maxClaimableSupply: string;
+  startTime: Date;
+  price: BigNumber;
+  currencyAddress: string;
+  maxClaimablePerWallet: string;
+  waitInSeconds: BigNumber;
+  merkleRootHash: string | number[];
+  availableSupply: string;
+  currentMintSupply: string;
+  currencyMetadata: {
+      symbol: string;
+      value: BigNumber;
+      name: string;
+      decimals: number;
+      displayValue: string;
+  };
+  metadata?: {
+      [x: string]: unknown;
+      name?: string | undefined;
+  } | undefined;
+  snapshot?: {
+      price?: string | undefined;
+      currencyAddress?: string | undefined;
+      address: string;
+      maxClaimable: string;
+  }[] | null | undefined;
+}[]
+```
+
+</div>
+</details>
+
+## getClaimIneligibilityReasons
+
+Get an array of reasons why a specific wallet address is not eligible to claim tokens, if any.
+
+```javascript
+const reasons = await contract.erc20.getClaimIneligibilityReasons(
+  "{{quantity}}", // Quantity of tokens to claim
+  "{{wallet_address}}", // Wallet address to check
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### quantity (required)
+
+The amount of tokens to check if the wallet address can claim.
+
+Must be a `string` or `number`.
+
+#### addressToCheck (optional)
+
+The wallet address to check if it can claim tokens.
+
+Must be a `string`.
+
+### Return Value
+
+Returns an array of `ClaimEligibility` strings, which may be empty.
+
+For example, if the user is not in the allowlist, this hook will return `["This address is not on the allowlist."]`.
+
+If the user _is_ eligible to claim tokens, the hook will return an empty array.
+
+```ts
+ClaimEligibility[]
+
+// ClaimEligibility Enum
+export enum ClaimEligibility {
+  NotEnoughSupply = "There is not enough supply to claim.",
+  AddressNotAllowed = "This address is not on the allowlist.",
+  WaitBeforeNextClaimTransaction = "Not enough time since last claim transaction. Please wait.",
+  AlreadyClaimed = "You have already claimed the token.",
+  NotEnoughTokens = "There are not enough tokens in the wallet to pay for the claim.",
+  NoActiveClaimPhase = "There is no active claim phase at the moment. Please check back in later.",
+  NoClaimConditionSet = "There is no claim condition set.",
+  NoWallet = "No wallet connected.",
+  Unknown = "No claim conditions found.",
+}
+```
+
+</div>
+</details>
+
+## getClaimTransaction
+
+Construct a claim transaction without executing it.
+This is useful for estimating the gas cost of a claim transaction,
+overriding transaction options and having fine grained control over the transaction execution.
+
+```javascript
+const claimTransaction =
+  await contract.erc20.claimConditions.getClaimTransaction(
+    "{{wallet_address}}",
+    "{{quantity}}",
+  );
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### walletAddress (required)
+
+The wallet address to claim tokens for.
+
+Must be a `string`.
+
+#### quantity (required)
+
+The amount of tokens to claim.
+
+Must be a `string`, `number` or `BigNumber`.
+
+#### options (optional)
+
+See [`claim`](#claim) configuration for more details.
+
+### Return Value
+
+```typescript
+TransactionTask;
+```
+
+</div>
+</details>
+
+## getClaimerProofs
+
+Returns allowlist information and merkle proofs for a given wallet address.
+
+```javascript
+const claimerProofs = await contract.erc20.claimConditions.getClaimerProofs(
+  "{{wallet_address}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### walletAddress (required)
+
+The wallet address to get the merkle proofs for.
+
+Must be a `string`.
+
+### Return Value
+
+```typescript
+{
+    price?: string | undefined;
+    currencyAddress?: string | undefined;
+    address: string;
+    proof: string[];
+    maxClaimable: string;
+} | null | undefined
+```
+
+</div>
+</details>
+
+## set
+
+Overwrite the claim phases on the drop contract.
+
+```javascript
+const txResult = await contract.erc20.claimConditions.set([
+  {
+    metadata: {
+      name: "Phase 1", // The name of the phase
+    },
+    currencyAddress: "0x...", // The address of the currency you want users to pay in
+    price: 1, // The price of the token in the currency specified above
+    maxClaimablePerWallet: 1, // The maximum number of tokens a wallet can claim
+    maxClaimableSupply: 100, // The total number of tokens that can be claimed in this phase
+    startTime: new Date(), // When the phase starts (i.e. when users can start claiming tokens)
+    waitInSeconds: 60 * 60 * 24 * 7, // The period of time users must wait between repeat claims
+    snapshot: [
+      {
+        address: "0x...", // The address of the wallet
+        currencyAddress: "0x...", // Override the currency address this wallet pays in
+        maxClaimable: 5, // Override the maximum number of tokens this wallet can claim
+        price: 0.5, // Override the price this wallet pays
+      },
+    ],
+    merkleRootHash: "0x...", // The merkle root hash of the snapshot
+  },
+]);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### price
+
+The price per token in the currency specified above.
+
+The default value is `0`.
+
+#### maxClaimablePerWallet
+
+The maximum number of tokens a wallet can claim.
+
+The default value is `unlimited`.
+
+#### maxClaimableSupply
+
+The total number of tokens that can be claimed in this phase.
+
+For example, if you lazy mint 1000 tokens and set the `maxClaimableSupply` to 100,
+then only 100 tokens will be claimable in this phase, leaving 900 tokens to be claimed in the next phases (if you have any).
+
+This is useful for "early bird" use cases, where you allow users to claim a limited number of tokens at a discounted price during
+the first X amount of time.
+
+#### startTime
+
+When the phase starts (i.e. when users can start claiming tokens).
+
+The default value is immediately.
+
+#### waitInSeconds
+
+The amount of time between claims a wallet must wait before they can claim again.
+
+The default value is `0`, meaning users can claim again immediately after claiming.
+
+#### snapshot
+
+A list of wallets that you want to override the default claim conditions for.
+
+Wallet addresses within this list can be set to pay in a
+different currency, have a different price, and have a different maximum claimable amount.
+
+```ts
+{
+  address: string;
+  currencyAddress?: string;
+  maxClaimable?: number;
+  price?: number;
+}
+```
+
+[Learn more about improved claim conditions](https://blog.thirdweb.com/announcing-improved-claim-conditions/).
+
+#### merkleRootHash
+
+If you want to provide your own merkle tree for your snapshot, provide the merkle root hash here.
+
+This is only recommended for advanced use cases.
+
+</div>
+</details>
+
+## update
+
+Update a single claim phase on the drop contract, by providing the index of that
+phase and the new phase configuration.
+
+The `index` is the position of the phase in the list of phases you have made, starting from zero.
+e.g. if you have two phases, the first phase has an index of `0` and the second phase has an index of `1`.
+
+```javascript
+const txResult = await contract.erc20.claimConditions.update(
+  0, // The index of the phase to update
+  {
+    metadata: {
+      name: "Phase 1", // The name of the phase
+    },
+    currencyAddress: "0x...", // The address of the currency you want users to pay in
+    price: 1, // The price of the token in the currency specified above
+    maxClaimablePerWallet: 1, // The maximum number of tokens a wallet can claim
+    maxClaimableSupply: 100, // The total number of tokens that can be claimed in this phase
+    startTime: new Date(), // When the phase starts (i.e. when users can start claiming tokens)
+    waitInSeconds: 60 * 60 * 24 * 7, // The period of time users must wait between repeat claims
+    snapshot: [
+      {
+        address: "0x...", // The address of the wallet
+        currencyAddress: "0x...", // Override the currency address this wallet pays in
+        maxClaimable: 5, // Override the maximum number of tokens this wallet can claim
+        price: 0.5, // Override the price this wallet pays
+      },
+    ],
+    merkleRootHash: "0x...", // The merkle root hash of the snapshot
+  },
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+See [`set`](#set) configuration for more details.
+
+</div>
+</details>

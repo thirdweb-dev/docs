@@ -1,0 +1,51 @@
+---
+title: listenToAllEvents
+slug: /sdk.contractevents.listentoallevents
+---
+
+Listen to all events emitted from the contract.
+
+## Usage
+
+Register a listener that runs a `callback` function for every new event emitted from the contract.
+
+The listener will be called with an `event` object that contains the name of the event and the event payload.
+
+```javascript
+const unsubscribe = contract.events.listenToAllEvents((event) => {
+  console.log(event.eventName); // the name of the emitted event
+  console.log(event.data); // event payload
+});
+```
+
+## Configuration
+
+### listener
+
+The callback function to be called when a new event is emitted.
+
+The function comes with an `event` parameter that contains the event name and data.
+
+```javascript
+const unsubscribe = contract.events.listenToAllEvents(
+  // highlight-start
+  (event) => {
+    console.log(event.eventName);
+    console.log(event.data);
+  },
+  // highlight-end
+);
+```
+
+## Return Value
+
+Returns a function that can be called to unsubscribe the listener.
+
+To stop listening to events, call the function.
+
+```javascript
+const unsubscribe = contract.events.listenToAllEvents((event) => {});
+
+// Stop listening to the events
+unsubscribe();
+```

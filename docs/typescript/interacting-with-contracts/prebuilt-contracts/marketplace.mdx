@@ -1,0 +1,1313 @@
+---
+title: Marketplace
+slug: /sdk.marketplace
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+When using the [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) smart contract, additional top-level functionality is available to use.
+
+```javascript
+const contract = await sdk.getContract(
+  "{{contract_address}}",
+  // highlight-next-line
+  "marketplace", // Provide the "marketplace" contract type
+);
+```
+
+## allowListingFromAnyAsset
+
+Set the marketplace to accept the listing of NFTs from any smart contract.
+
+```javascript
+const txResult = await contract.allowListingFromAnyAsset();
+```
+
+## allowListingFromSpecificAssetOnly
+
+Set the marketplace to accept the listing of **only** NFTs from a specific NFT smart contract.
+
+```javascript
+const txResult = await contract.allowListingFromSpecificAssetOnly(
+  "{{asset_contract_address}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### contractAddress
+
+The address of the NFT smart contract to allow listing from.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## Auction - buyoutListing
+
+```javascript
+const txResult = await contract.auction.buyoutListing("{{listing_id}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to buy.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>
+
+## Auction - cancelListing
+
+Cancel a listing that you made.
+
+Note: Auction listings cannot be canceled if a bid has been made.
+
+```javascript
+const txResult = await contract.auction.cancelListing("{{listing_id}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to cancel.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>
+
+## Auction - closeListing
+
+Closes the auction and execute the sale for the buyer or the seller.
+
+When an auction is finished, the closeAuction needs to be called for both the buyer and the seller.
+
+The `closeAuction` function takes in a `closeFor` value as the second parameter.
+
+- When the `closeFor` value is the address of the buyer, they are transferred the funds from the highest bid.
+- When the `closeFor` value is the address of the seller, the NFT is transferred to them.
+
+Any wallet address can call this function once an auction has completed.
+
+```javascript
+const txResult = await contract.auction.closeListing(
+  "{{listing_id}}",
+  "{{wallet_address}}", // Buyer or seller wallet address
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to close.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### closeFor
+
+The address of the buyer or seller to close the auction for.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## Auction - createListing
+
+List an NFT for sale in an auction listing on the marketplace.
+
+```javascript
+// If you want to use the native token as the currency, import the NATIVE_TOKEN_ADDRESS constant
+import { NATIVE_TOKEN_ADDRESS } from "@thirdweb-dev/sdk";
+
+const tx = await contract.auction.createListing({
+  assetContractAddress: "{{contract_address}}", // address of the contract the asset you want to list is on
+  tokenId: "{{token_id}}", // token ID of the asset you want to list
+  startTimestamp: new Date(), // when should the listing open up for offers
+  listingDurationInSeconds: 86400, // how long the listing will be open for in seconds
+  quantity: "{{quantity}}", // how many of the asset you want to list
+  currencyContractAddress: NATIVE_TOKEN_ADDRESS, // address of the currency contract that will be used to pay for the listing
+  buyoutPricePerToken: "{{price_to_buy}}", // how much people would have to bid to instantly buy the asset
+  reservePricePerToken: "{{minimum_bid_price}}", // the minimum bid that will be accepted for the token
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### assetContractAddress
+
+The address of the NFT smart contract that you are listing.
+
+Must be a `string`.
+
+#### tokenId
+
+The token ID of the NFT to list for sale.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### startTimestamp
+
+The date and time that the listing should start.
+
+Must be a `Date` object.
+
+#### listingDurationInSeconds
+
+How long the auction is open for, in seconds.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### quantity
+
+The quantity of the NFT to list for sale.
+
+Only relevant for ERC1155 NFTs. For ERC721 NFTs, this value should be `1`.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### currencyContractAddress
+
+The address of the currency contract that will be used to pay for the listing.
+
+To use the native currency, use the `NATIVE_TOKEN_ADDRESS` constant.
+
+Must be a `string`.
+
+#### buyoutPricePerToken
+
+The price that users must pay to **purhcase** the NFT from the auction, immediately closing the auction and executing a sale event for both buyer and seller.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### reservePricePerToken
+
+The minimum bid that will be accepted for the NFT.
+
+Bids below this amount cannot be placed on the auction.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>
+
+## Auction - executeSale
+
+Close the auction for both **buyer** and **seller**.
+
+This means that the NFT is transferred to the buyer, and the seller is paid the amount of the winning bid.
+
+```javascript
+const txResult = await contract.auction.executeSale("{{listing_id}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to execute the sale for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>
+
+## Auction - getBidBufferBps
+
+View the current bid buffer set on the marketplace.
+
+The bid buffer is what percentage higher the next bid must be than the current highest bid.
+
+The value is returned in basis points format, i.e. `100` basis points is equal to `1%`.
+
+```javascript
+const bidBufferBps = await contract.auction.getBidBufferBps();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+The current bid buffer set on the marketplace.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## Auction - getListing
+
+Get the details of a listing using the listing ID.
+
+```javascript
+const listing = await contract.auction.getListing("{{listing_id}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to get the details for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+### Return Value
+
+Returns an `AuctionListing` object, containing the following properties:
+
+```typescript
+{
+  /**
+   * The id of the listing
+   */
+  id: string;
+  /**
+   * The address of the asset being listed.
+   */
+  assetContractAddress: string;
+  /**
+   * The ID of the token to list.
+   */
+  tokenId: BigNumberish;
+  /**
+   * The asset being listed.
+   */
+  asset: NFTMetadata;
+  /**
+   * The start time of the listing.
+   */
+  startTimeInEpochSeconds: BigNumberish;
+  /**
+   * Number of seconds until the auction expires.
+   */
+  endTimeInEpochSeconds: BigNumberish;
+  /**
+   * The quantity of tokens to include in the listing.
+   *
+   * For ERC721s, this value should always be 1 (and will be forced internally regardless of what is passed here).
+   */
+  quantity: BigNumberish;
+  /**
+   * The address of the currency to accept for the listing.
+   */
+  currencyContractAddress: string;
+  /**
+   * The reserve price is the minimum price that a bid must be in order to be accepted.
+   */
+  reservePrice: BigNumber;
+  /**
+   * The buyout price of the listing.
+   */
+  buyoutPrice: BigNumber;
+  /**
+   * The `CurrencyValue` of the buyout price listing.
+   * Useful for displaying the price information.
+   */
+  buyoutCurrencyValuePerToken: CurrencyValue;
+  /**
+   * The `CurrencyValue` of the reserve price.
+   * Useful for displaying the price information.
+   */
+  reservePriceCurrencyValuePerToken: CurrencyValue;
+  /**
+   * The address of the seller.
+   */
+  sellerAddress: string;
+  type: ListingType.Auction;
+}
+```
+
+</div>
+</details>
+
+## Auction - getMinimumNextBid
+
+Get the value that the next bid must be in order to be accepted.
+
+- If there is no current bid, this value is the reserve price.
+- If there is a current bid, this value is the current bid plus the bid buffer.
+
+```javascript
+const minimumNextBid = await contract.auction.getMinimumNextBid(
+  "{{listing_id}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to get the minimum next bid for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+### Return Value
+
+The minimum next bid for the listing.
+
+```typescript
+{
+  symbol: string;
+  value: BigNumber;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}
+```
+
+</div>
+</details>
+
+## Auction - getWinner
+
+Get the address that won an auction _after_ an auction has ended.
+
+```javascript
+const winner = await contract.auction.getWinner("{{listing_id}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to get the winner for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+### Return Value
+
+The wallet address of the winner.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
+## Auction - getWinningBid
+
+Get the current highest bid of an active auction.
+
+```javascript
+const winningBid = await contract.auction.getWinningBid("{{listing_id}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to get the winning bid for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+### Return Value
+
+The current highest bid of the auction.
+
+```typescript
+{
+  /**
+   * The id of the listing.
+   */
+  listingId: BigNumberish;
+  /**
+   * The address of the buyer who made the offer.
+   */
+  buyerAddress: string;
+  /**
+   * The quantity of tokens to be bought.
+   */
+  quantityDesired: BigNumberish;
+  /**
+   * The amount of coins offered per token.
+   */
+  pricePerToken: BigNumber;
+  /**
+   * The `CurrencyValue` of the listing. Useful for displaying the price information.
+   */
+  currencyValue: CurrencyValue;
+  /**
+   * The currency contract address of the offer token.
+   */
+  currencyContractAddress: string;
+}
+```
+
+</div>
+</details>
+
+## Auction - makeBid
+
+Place a bid on an auction listing.
+
+```javascript
+const txResult = await contract.auction.makeBid(
+  "{{listing_id}}",
+  "{{bid_amount}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to make a bid on.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### bidAmount
+
+The amount to bid **per token**.
+
+- For ERC721 NFTs, this is the amount to bid to buy the NFT.
+- For ERC1155 NFTs, this is the amount to buy a token.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>
+
+## Auction - updateListing
+
+Update the listing details of an auction listing.
+
+```javascript
+// If you want to use the native token as the currency, import the NATIVE_TOKEN_ADDRESS constant
+import { NATIVE_TOKEN_ADDRESS } from "@thirdweb-dev/sdk";
+
+const txResult = await contract.auction.updateListing({
+  id: "{{listing_id}}", // The listing you want to update
+
+  // New information about the listing (see "createListing" for more details)
+  assetContractAddress: "{{contract_address}}", // address of the contract the asset you want to list is on
+  tokenId: "{{token_id}}", // token ID of the asset you want to list
+  startTimestamp: new Date(), // when should the listing open up for offers
+  listingDurationInSeconds: 86400, // how long the listing will be open for in seconds
+  quantity: "{{quantity}}", // how many of the asset you want to list
+  currencyContractAddress: NATIVE_TOKEN_ADDRESS, // address of the currency contract that will be used to pay for the listing
+  buyoutPricePerToken: "{{price_to_buy}}", // how much people would have to bid to instantly buy the asset
+  reservePricePerToken: "{{minimum_bid_price}}", // the minimum bid that will be accepted for the token
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+Provide an `id` property to specify the listing you want to update.
+
+See [`createListing`](#createListing) for details that you can update about the listing.
+
+</div>
+</details>
+
+## Direct - acceptOffer
+
+Accept an offer placed on your direct listing.
+
+```javascript
+const txResult = await contract.direct.acceptOffer(
+  "{{listing_id}}",
+  "{{wallet_address_of_offeror}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to accept an offer for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### offerorAddress
+
+The wallet address of the offeror.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## Direct - buyoutListing
+
+Buy the NFT(s) for sale on a direct listing.
+
+```javascript
+const txResult = await contract.direct.buyoutListing(
+  "{{listing_id}}",
+  "{{quantity}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to buyout.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### quantity
+
+The quantity of NFTs to buy from the listing.
+
+Only applicable for ERC1155 NFTs. For ERC721 NFTs, this should be `1`.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### receiver (optional)
+
+Optionally, buy the NFTs for a different wallet address other than the connected wallet.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## Direct - cancelListing
+
+Cancel a direct listing you created.
+
+Direct listings can be canceled at any time, unless a buyout has already been made.
+
+```javascript
+const txResult = await contract.direct.cancelListing("{{listing_id}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to cancel.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>
+
+## Direct - createListing
+
+List an NFT for sale on the marketplace for direct purchase.
+
+```javascript
+// If you want to use the native token as the currency, import the NATIVE_TOKEN_ADDRESS constant
+import { NATIVE_TOKEN_ADDRESS } from "@thirdweb-dev/sdk";
+
+const tx = await contract.direct.createListing({
+  assetContractAddress: "0x...", // address of the contract the asset you want to list is on
+  tokenId: "0", // token ID of the asset you want to list
+  startTimestamp: new Date(), // when should the listing open up for offers
+  listingDurationInSeconds: 86400, // how long the listing will be open for
+  quantity: 1, // how many of the asset you want to list
+  currencyContractAddress: NATIVE_TOKEN_ADDRESS, // address of the currency contract that will be used to pay for the listing
+  buyoutPricePerToken: "1.5", // how much the asset will be sold for
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### assetContractAddress
+
+The address of the NFT smart contract the asset you want to list is on.
+
+Must be a `string`.
+
+#### tokenId
+
+The token ID of the NFT you want to list.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### startTimestamp
+
+The date and time when the listing should open up for offers.
+
+Must be a `Date` object.
+
+#### listingDurationInSeconds
+
+How long the listing is open for, in seconds.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### quantity
+
+The quantity of NFTs to list.
+
+Only applicable for ERC1155 NFTs. For ERC721 NFTs, this should be `1`.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### currencyContractAddress
+
+The address of the currency contract that will be used to pay for the listing.
+
+To use the native token, use the `NATIVE_TOKEN_ADDRESS` constant.
+
+Must be a `string`.
+
+#### buyoutPricePerToken
+
+The price that users can buy the NFT for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>
+
+## Direct - getActiveOffer
+
+Get an active offer on a listing from a specific wallet address, if there is one.
+
+```javascript
+const offer = await contract.direct.getActiveOffer(
+  "{{listing_id}}",
+  "{{wallet_address}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to get the active offer for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### offerorAddress
+
+The wallet address of the offeror.
+
+Must be a `string`.
+
+### Return Value
+
+If there is no active offer made by hte `offerorAddress`, returns `undefined`.
+
+Otherwise, returns an `Offer` object with the following properties:
+
+```typescript
+{
+  /**
+   * The id of the listing.
+   */
+  listingId: BigNumberish;
+  /**
+   * The address of the buyer who made the offer.
+   */
+  buyerAddress: string;
+  /**
+   * The quantity of tokens to be bought.
+   */
+  quantityDesired: BigNumberish;
+  /**
+   * The amount of coins offered per token.
+   */
+  pricePerToken: BigNumber;
+  /**
+   * The `CurrencyValue` of the listing. Useful for displaying the price information.
+   */
+  currencyValue: CurrencyValue;
+  /**
+   * The currency contract address of the offer token.
+   */
+  currencyContractAddress: string;
+}
+```
+
+</div>
+</details>
+
+## Direct - getListing
+
+Get a direct listing by its ID.
+
+```javascript
+const listing = await contract.direct.getListing("{{listing_id}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to get.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+### Return Value
+
+Returns a `DirectListing` object containing the following properties:
+
+```typescript
+{
+  /**
+   * The id of the listing.
+   */
+  id: string;
+  /**
+   * The address of the asset being listed.
+   */
+  assetContractAddress: string;
+  /**
+   * The ID of the token to list.
+   */
+  tokenId: BigNumberish;
+  /**
+   * The asset being listed.
+   */
+  asset: NFTMetadata;
+  /**
+   * The start time of the listing.
+   */
+  startTimeInSeconds: BigNumberish;
+  /**
+   * Number of seconds until the listing expires.
+   */
+  secondsUntilEnd: BigNumberish;
+  /**
+   * The quantity of tokens to include in the listing.
+   *
+   * For ERC721s, this value should always be 1 (and will be forced internally regardless of what is passed here).
+   */
+  quantity: BigNumberish;
+  /**
+   * The address of the currency to accept for the listing.
+   */
+  currencyContractAddress: string;
+  /**
+   * The `CurrencyValue` of the listing. Useful for displaying the price information.
+   */
+  buyoutCurrencyValuePerToken: CurrencyValue;
+  /**
+   * The buyout price of the listing.
+   */
+  buyoutPrice: BigNumber;
+  /**
+   * The address of the seller.
+   */
+  sellerAddress: string;
+  type: ListingType.Direct;
+}
+```
+
+</div>
+</details>
+
+## Direct - isStillValidListing
+
+Check if a direct listing is still valid, meaning:
+
+The asset holder has not transferred the asset to another wallet
+The asset holder has not burned the asset
+The asset holder has not removed the approval on the marketplace
+
+```javascript
+const isValid = await contract.direct.isStillValidListing("{{listing_id}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to check.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+### Return Value
+
+```typescript
+{
+    valid: boolean;
+    error?: string | undefined;
+}
+```
+
+</div>
+</details>
+
+## Direct - makeOffer
+
+Make an offer to buy an NFT for a certain price on a direct listing.
+
+```javascript
+const txResult = await contract.direct.makeOffer(
+  "{{listing_id}}",
+  "{{quantity}}",
+  "{{currency_contract_addresss}}",
+  "{{price_per_token}}",
+  new Date(Date.now() + 60 * 60 * 24 * 1000), // e.g offer expires 1 day from now
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to make an offer for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### quantity
+
+The quantity of NFTs to buy.
+
+Only applicable for ERC1155 NFTs. For ERC721 NFTs, this should be `1`.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### currencyContractAddress
+
+The address of the currency contract that will be used to pay for the listing.
+
+To use the native token, use the `NATIVE_TOKEN_ADDRESS` constant.
+
+Must be a `string`.
+
+#### pricePerToken
+
+The price to offer to buy the NFT for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### expiresAt (optional)
+
+The time at which the offer expires.
+
+If not provided, the offer will never expire (uses max possible timestamp `MaxUint256`).
+
+Must be a `Date` object.
+
+</div>
+</details>
+
+## Direct - updateListing
+
+Update a direct listing.
+
+```javascript
+const txResult = await contract.direct.updateListing({
+  id: "{{listing_id}}", // The listing you want to update
+
+  // The new information about the listing
+  assetContractAddress: "0x...", // address of the contract the asset you want to list is on
+  tokenId: "0", // token ID of the asset you want to list
+  startTimestamp: new Date(), // when should the listing open up for offers
+  listingDurationInSeconds: 86400, // how long the listing will be open for
+  quantity: 1, // how many of the asset you want to list
+  currencyContractAddress: NATIVE_TOKEN_ADDRESS, // address of the currency contract that will be used to pay for the listing
+  buyoutPricePerToken: "1.5", // how much the asset will be sold for
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+Provide the `id` of the listing you want to update, and the new information about the listing.
+
+See [`createListing`](#direct---createlisting) for more information about the properties.
+
+</div>
+</details>
+
+## getActiveListings
+
+Get all active listings on the marketplace, both direct and auction listings.
+
+An active listing means it can be bought or bid on.
+
+```javascript
+const listings = await contract.getActiveListings();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### filter (optional)
+
+A filter to apply to the listings returned.
+
+```javascript
+const listings = await contract.getActiveListings(
+  // highlight-start
+  {
+    offeror: "{[wallet_address}}", // Only return listings that have an offer from this address
+    seller: "{{wallet_address}}", // Only return listings that have been created by this address
+    tokenContract: "{{contract_address}}", // Only return listings that are selling tokens from this contract
+    tokenId: "{{token_id}}", // Only return listings that are selling this token ID
+    start: 0, // Pagination: start at this index
+    count: 0, // Pagination: return this many listings
+  },
+  // highlight-end
+);
+```
+
+### Return Value
+
+Returns an array containing both `DirectListing` objects and `AuctionListing` objects.
+
+```typescript
+(DirectListing | AuctionListing)[];
+```
+
+</div>
+</details>
+
+## getAllListings
+
+Get all the listings on the marketplace, including inactive ones.
+
+```javascript
+const listings = await contract.getAllListings();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### filter (optional)
+
+A filter to apply to the listings returned.
+
+```javascript
+await contract.getAllListings(
+  // highlight-start
+  {
+    offeror: "{[wallet_address}}", // Only return listings that have an offer from this address
+    seller: "{{wallet_address}}", // Only return listings that have been created by this address
+    tokenContract: "{{contract_address}}", // Only return listings that are selling tokens from this contract
+    tokenId: "{{token_id}}", // Only return listings that are selling this token ID
+    start: 0, // Pagination: start at this index
+    count: 0, // Pagination: return this many listings
+  },
+  // highlight-end
+);
+```
+
+### Return Value
+
+Returns an array containing both `DirectListing` objects and `AuctionListing` objects.
+
+```typescript
+(DirectListing | AuctionListing)[];
+```
+
+</div>
+</details>
+
+## getBidBufferBps
+
+Get the current bid buffer basis points of the marketplace.
+
+```javascript
+const bidBufferBps = await contract.getBidBufferBps();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns in percentage format, i.e. `100` = `1%`.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## getListing
+
+Get a listing by its ID, regardless of whether it is a direct or auction listing.
+
+```javascript
+const listing = await contract.getListing("{{listing_id}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to get.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+### Return Value
+
+Returns a `DirectListing` or `AuctionListing` object.
+
+```typescript
+AuctionListing | DirectListing;
+```
+
+</div>
+</details>
+
+## getOffers
+
+Get all the offers made on a listing.
+
+```javascript
+const offers = await contract.getOffers("{{listing_id}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to get offers for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+### Return Value
+
+Returns an array of `Offer` objects.
+
+```typescript
+{
+  /**
+   * The id of the listing.
+   */
+  listingId: BigNumberish;
+  /**
+   * The address of the buyer who made the offer.
+   */
+  buyerAddress: string;
+  /**
+   * The quantity of tokens to be bought.
+   */
+  quantityDesired: BigNumberish;
+  /**
+   * The amount of coins offered per token.
+   */
+  pricePerToken: BigNumber;
+  /**
+   * The `CurrencyValue` of the listing. Useful for displaying the price information.
+   */
+  currencyValue: CurrencyValue;
+  /**
+   * The currency contract address of the offer token.
+   */
+  currencyContractAddress: string;
+}
+[];
+```
+
+</div>
+</details>
+
+## getTimeBufferInSeconds
+
+Get the current time buffer in seconds of the marketplace.
+
+The time buffer is the amount of seconds that are added to the close time of the auction listing when a new bid is made.
+
+```javascript
+const timeBufferInSeconds = await contract.getTimeBufferInSeconds();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns in seconds.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## getTotalCount
+
+Get the total number of listings on the marketplace.
+
+```javascript
+const totalCount = await contract.getTotalCount();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns the total number of listings on the marketplace.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## isRestrictedToListerRoleOnly
+
+A marketplace can be restricted to only allow wallet addresses with the `LISTER` role to create listings.
+
+This method returns `true` or `false` depending on whether this configuration is set.
+
+```javascript
+const isRestrictedToListerRoleOnly =
+  await contract.isRestrictedToListerRoleOnly();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns `true` or `false`.
+
+```typescript
+boolean;
+```
+
+</div>
+</details>
+
+## makeOffer
+
+Create a new bid on an auction listing or a new offer on a direct listing.
+
+```javascript
+const txResult = await contract.makeOffer(
+  "{{listing_id}}",
+  "{{price_per_token}}",
+  "{{quantity}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### listingId
+
+The ID of the listing to make an offer/bid on.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### pricePerToken
+
+The price per token to offer/bid.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### quantity
+
+The quantity of tokens to offer/bid on.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>
+
+## setBidBufferBps
+
+Set the bid buffer basis points of the marketplace.
+
+The bid buffer is the amount of percentage that is added to the current highest bid when a new bid is made.
+
+```javascript
+const txResult = await contract.setBidBufferBps("{{bid_buffer_bps}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### bidBufferBps
+
+The bid buffer basis points to set.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>
+
+## setTimeBufferInSeconds
+
+Set the time buffer in seconds of the marketplace.
+
+The time buffer is the amount of seconds that are added to the close time of the auction listing when a new bid is made.
+
+```javascript
+const txResult = await contract.setTimeBufferInSeconds(
+  "{{time_buffer_seconds}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### timeBufferSeconds
+
+The time buffer in seconds to set.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>

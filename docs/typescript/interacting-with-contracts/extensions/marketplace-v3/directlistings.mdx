@@ -1,0 +1,741 @@
+---
+title: DirectListings
+slug: /sdk.directlistings
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# DirectListings
+
+Functionality available for contracts that implement the [`IDirectListings`](/contracts/IDirectListings) interface.
+
+## approveBuyerForReservedListing
+
+Approve a wallet address to be able to buy a reserved listing.
+
+```javascript
+const txResult = await contract.directListings.approveBuyerForReservedListing(
+  "{{listing_id}}",
+  "{{wallet_address}}",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing you want to approve a buyer for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.directListings.approveBuyerForReservedListing(
+  // highlight-next-line
+  "{{listing_id}}",
+  "{{wallet_address}}",
+);
+```
+
+#### buyer
+
+The wallet address of the buyer you want to approve.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.directListings.approveBuyerForReservedListing(
+  "{{listing_id}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+</div>
+</details>
+
+## buyFromListing
+
+Buy an NFT from a listing.
+
+```javascript
+const txResult = await contract.directListings.buyFromListing(
+  "{{listing_id}}",
+  "{{quantity}}",
+  "{{wallet_address}}",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.directListings.buyFromListing(
+  // highlight-next-line
+  "{{listing_id}}",
+  "{{quantity}}",
+  "{{wallet_address}}",
+);
+```
+
+#### quantity
+
+The number of tokens to buy (default is `1` for ERC721 NFTs)
+
+Must be a `string` or `number`.
+
+```javascript
+const txResult = await contract.directListings.buyFromListing(
+  "{{listing_id}}",
+  // highlight-next-line
+  "{{quantity}}",
+  "{{wallet_address}}",
+);
+```
+
+#### buyer
+
+The wallet address of the buyer.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.directListings.buyFromListing(
+  "{{listing_id}}",
+  "{{quantity}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+</div>
+</details>
+
+## cancelListing
+
+Cancel a listing that you created.
+
+Only the creator of the listing can cancel it.
+
+```javascript
+const txResult = await contract.directListings.cancelListing("{{listing_id}}");
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing you want to cancel.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.directListings.cancelListing(
+  // highlight-next-line
+  "{{listing_id}}",
+);
+```
+
+</div>
+</details>
+
+## createListing
+
+Create a new direct listing on the marketplace.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  pricePerToken: "{{price_per_token}}", // Required - price of each token in the listing
+  currencyContractAddress: "{{currency_contract_address}}", // Optional - smart contract address of the currency to use for the listing
+  isReservedListing: false, // Optional - whether or not the listing is reserved (only specific wallet addresses can buy)
+  quantity: "{{quantity}}", // Optional - number of tokens to sell (1 for ERC721 NFTs)
+  startTimestamp: new Date(), // Optional - when the listing should start (default is now)
+  endTimestamp: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000), // Optional - when the listing should end (default is 7 days from now)
+});
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### assetContractAddress (required)
+
+The smart contract address of the NFT you want to list for sale.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  // highlight-next-line
+  assetContractAddress: "{{asset_contract_address}}",
+  tokenId: "{{token_id}}",
+  pricePerToken: "{{price_per_token}}",
+});
+```
+
+#### tokenId (required)
+
+The token ID of the NFT you want to list for sale.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}",
+  // highlight-next-line
+  tokenId: "{{token_id}}",
+  pricePerToken: "{{price_per_token}}",
+});
+```
+
+#### pricePerToken (required)
+
+The price of each token in the listing.
+
+- For ERC721 NFTs, this is the price to buy the NFT.
+- For ERC1155 NFTs, this is the price to buy one token in the listing.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}",
+  tokenId: "{{token_id}}",
+  // highlight-next-line
+  pricePerToken: "{{price_per_token}}",
+});
+```
+
+#### currencyContractAddress (optional)
+
+The address of the ERC20 token smart contract you want buyers to pay with.
+
+Defaults to `NATIVE_TOKEN_ADDRESS` if not provided. e.g. Ether for Ethereum.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}",
+  tokenId: "{{token_id}}",
+  pricePerToken: "{{price_per_token}}",
+  // highlight-next-line
+  currencyContractAddress: "{{currency_contract_address}}",
+});
+```
+
+#### isReservedListing (optional)
+
+Whether the listing is reserved or not.
+
+Reserved listings can only be bought by specific wallet addresses, which you can add by calling
+[`approveBuyerForReservedListing`](#approvebuyerforreservedlisting).
+
+Must be a `boolean`. Defaults to `false`.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}",
+  tokenId: "{{token_id}}",
+  pricePerToken: "{{price_per_token}}",
+  // highlight-next-line
+  isReservedListing: false,
+});
+```
+
+#### quantity (optional)
+
+For ERC1155 NFTs, the number of tokens to sell in the listing.
+
+For ERC721 NFTs, this is always `1`.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}",
+  tokenId: "{{token_id}}",
+  pricePerToken: "{{price_per_token}}",
+  // highlight-next-line
+  quantity: "{{quantity}}",
+});
+```
+
+#### startTimestamp (optional)
+
+The start timestamp of the listing.
+
+Must be a `Date`. The default is `new Date()` (now).
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}",
+  tokenId: "{{token_id}}",
+  pricePerToken: "{{price_per_token}}",
+  // highlight-next-line
+  startTimestamp: new Date(),
+});
+```
+
+#### endTimestamp (optional)
+
+The end timestamp of the listing.
+
+Must be a `Date`. The default is 7 days from now.
+
+```javascript
+const txResult = await contract.directListings.createListing({
+  assetContractAddress: "{{asset_contract_address}}",
+  tokenId: "{{token_id}}",
+  pricePerToken: "{{price_per_token}}",
+  // highlight-next-line
+  endTimestamp: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000),
+});
+```
+
+</div>
+</details>
+
+## getAll
+
+Retrieve data for all direct listings on the marketplace.
+
+```javascript
+const allListings = await contract.directListings.getAll();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### filter (optional)
+
+Optionally, provide a filter object to narrow the returned results.
+
+```javascript
+const allListings = await contract.directListings.getAll(
+  // highlight-start
+  {
+    count: 100, // Number of listings to fetch
+    offeror: "{{offeror_address}}", // Has offers from this address
+    seller: "{{seller_address}}", // Being sold by this address
+    start: 0, // Start from this index (pagination)
+    tokenContract: "{{token_contract_address}}", // Only show NFTs from this collection
+    tokenId: "{{token_id}}", // Only show NFTs with this ID
+  },
+  // highlight-end
+);
+```
+
+### Return Value
+
+Returns an array of `DirectListingV3` objects containing the following properties:
+
+```typescript
+{
+  id: string; // The id of the listing.
+  creatorAddress: string; // The address of the creator of listing.
+  assetContractAddress: string; // The address of the asset being listed.
+  tokenId: string; // The ID of the token to list.
+  quantity: string; //  The quantity of tokens to include in the listing (always 1 for ERC721).
+  currencyContractAddress: string; // The address of the currency to accept for the listing.
+  currencyValuePerToken: CurrencyValue; // The `CurrencyValue` of the listing. Useful for displaying the price information.
+  pricePerToken: string; // The price to pay per unit of NFTs listed.
+  asset: NFTMetadata; // The asset being listed.
+  startTimeInSeconds: number; // The start time of the listing.
+  endTimeInSeconds: number; // The end time of the listing.
+  isReservedListing: boolean; // Whether the listing is reserved to be bought from a specific set of buyers.
+  status: Status; // Whether the listing is CREATED, COMPLETED, or CANCELLED.
+}
+```
+
+</div>
+</details>
+
+## getAllValid
+
+Get all the valid direct listings on the marketplace.
+
+A listing is considered valid if the:
+
+- Seller still owns the NFT
+- Listing has not expired (time is before endTimeInSeconds)
+- Listing has not been canceled
+- Listing has not been bought out (all quantity of the NFTs have not been purchased)
+
+```javascript
+const validListings = await contract.directListings.getAllValid();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### filter (optional)
+
+Optionally, provide a filter object to narrow the returned results.
+
+```javascript
+const validListings = await contract.directListings.getAllValid(
+  // highlight-start
+  {
+    count: 100, // Number of listings to fetch
+    offeror: "{{offeror_address}}", // Has offers from this address
+    seller: "{{seller_address}}", // Being sold by this address
+    start: 0, // Start from this index (pagination)
+    tokenContract: "{{token_contract_address}}", // Only show NFTs from this collection
+    tokenId: "{{token_id}}", // Only show NFTs with this ID
+  },
+  // highlight-end
+);
+```
+
+### Return Value
+
+Returns an array of `DirectListingV3` objects containing the following properties:
+
+```typescript
+{
+  id: string; // The id of the listing.
+  creatorAddress: string; // The address of the creator of listing.
+  assetContractAddress: string; // The address of the asset being listed.
+  tokenId: string; // The ID of the token to list.
+  quantity: string; //  The quantity of tokens to include in the listing (always 1 for ERC721).
+  currencyContractAddress: string; // The address of the currency to accept for the listing.
+  currencyValuePerToken: CurrencyValue; // The `CurrencyValue` of the listing. Useful for displaying the price information.
+  pricePerToken: string; // The price to pay per unit of NFTs listed.
+  asset: NFTMetadata; // The asset being listed.
+  startTimeInSeconds: number; // The start time of the listing.
+  endTimeInSeconds: number; // The end time of the listing.
+  isReservedListing: boolean; // Whether the listing is reserved to be bought from a specific set of buyers.
+  status: Status; // Whether the listing is CREATED, COMPLETED, or CANCELLED.
+}
+```
+
+</div>
+</details>
+
+## getListing
+
+Retrieve data for a specific direct listing on the marketplace using the listing ID.
+
+```javascript
+const listing = await contract.directListings.getListing("{{listing_id}}");
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to retrieve.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const listing = await contract.directListings.getListing(
+  // highlight-next-line
+  1,
+);
+```
+
+### Return Value
+
+Returns a `DirectListingV3` object containing the following properties:
+
+```typescript
+{
+  id: string; // The id of the listing.
+  creatorAddress: string; // The address of the creator of listing.
+  assetContractAddress: string; // The address of the asset being listed.
+  tokenId: string; // The ID of the token to list.
+  quantity: string; //  The quantity of tokens to include in the listing (always 1 for ERC721).
+  currencyContractAddress: string; // The address of the currency to accept for the listing.
+  currencyValuePerToken: CurrencyValue; // The `CurrencyValue` of the listing. Useful for displaying the price information.
+  pricePerToken: string; // The price to pay per unit of NFTs listed.
+  asset: NFTMetadata; // The asset being listed.
+  startTimeInSeconds: number; // The start time of the listing.
+  endTimeInSeconds: number; // The end time of the listing.
+  isReservedListing: boolean; // Whether the listing is reserved to be bought from a specific set of buyers.
+  status: Status; // Whether the listing is CREATED, COMPLETED, or CANCELLED.
+}
+```
+
+</div>
+</details>
+
+## getTotalCount
+
+Get the total number of direct listings on the marketplace.
+
+```javascript
+const numListings = await contract.directListings.getTotalCount();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+Returns a `BigNumber` representing the total number of direct listings on the marketplace.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## isBuyerApprovedForListing
+
+Check if a buyer is approved to purchase a reserved listing.
+
+```javascript
+const isApproved = await contract.directListings.isBuyerApprovedForListing(
+  "{{listing_id}}",
+  "{{wallet_address}}",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to check.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const isApproved = await contract.directListings.isBuyerApprovedForListing(
+  // highlight-next-line
+  1,
+  "{{wallet_address}}",
+);
+```
+
+#### buyerAddress
+
+The wallet address of the buyer to check.
+
+Must be a `string`.
+
+```javascript
+const isApproved = await contract.directListings.isBuyerApprovedForListing(
+  "{{listing_id}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+### Return Value
+
+Returns a `boolean` representing whether the buyer is approved to purchase the listing.
+
+```typescript
+boolean;
+```
+
+</div>
+</details>
+
+## isCurrencyApprovedForListing
+
+Check whether you can use a specific currency to purchase a listing.
+
+```javascript
+const isApproved = await contract.directListings.isCurrencyApprovedForListing(
+  "{{listing_id}}",
+  "{{currency_contract_address}}",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to check.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const isApproved = await contract.directListings.isCurrencyApprovedForListing(
+  // highlight-next-line
+  1,
+  "{{currency_contract_address}}",
+);
+```
+
+#### currencyContractAddress
+
+The smart contract address of the ERC20 token to check.
+
+Must be a `string`.
+
+```javascript
+const isApproved = await contract.directListings.isCurrencyApprovedForListing(
+  "{{listing_id}}",
+  // highlight-next-line
+  "{{currency_contract_address}}",
+);
+```
+
+### Return Value
+
+Returns a `boolean` representing whether the currency is approved to purchase the listing.
+
+```typescript
+boolean;
+```
+
+</div>
+</details>
+
+## revokeBuyerApprovalForReservedListing
+
+Revoke approval for a buyer to purchase a reserved listing.
+
+```javascript
+const txResult =
+  await contract.directListings.revokeBuyerApprovalForReservedListing(
+    "{{listing_id}}",
+    "{{wallet_address}}",
+  );
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to revoke approval for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult =
+  await contract.directListings.revokeBuyerApprovalForReservedListing(
+    // highlight-next-line
+    1,
+    "{{wallet_address}}",
+  );
+```
+
+#### buyerAddress
+
+The wallet address of the buyer to revoke approval for.
+
+Must be a `string`.
+
+```javascript
+const txResult =
+  await contract.directListings.revokeBuyerApprovalForReservedListing(
+    "{{listing_id}}",
+    // highlight-next-line
+    "{{wallet_address}}",
+  );
+```
+
+</div>
+</details>
+
+## revokeCurrencyApprovalForListing
+
+Revoke approval for a currency to purchase a listing.
+
+```javascript
+const txResult = await contract.directListings.revokeCurrencyApprovalForListing(
+  "{{listing_id}}",
+  "{{currency_contract_address}}",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to revoke approval for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.directListings.revokeCurrencyApprovalForListing(
+  // highlight-next-line
+  1,
+  "{{currency_contract_address}}",
+);
+```
+
+#### currencyContractAddress
+
+The smart contract address of the ERC20 token to revoke approval for.
+
+Must be a `string`.
+
+Use the `NATIVE_TOKEN_ADDRESS` constant to revoke approval for the native currency.
+
+```javascript
+const txResult = await contract.directListings.revokeCurrencyApprovalForListing(
+  "{{listing_id}}",
+  // highlight-next-line
+  "{{currency_contract_address}}",
+);
+```
+
+</div>
+</details>
+
+## updateListing
+
+Update a previously created listing.
+
+```javascript
+const txResult = await contract.directListings.updateListing("{{listing_id}}", {
+  assetContractAddress: "{{asset_contract_address}}", // Required - smart contract address of NFT to sell
+  tokenId: "{{token_id}}", // Required - token ID of the NFT to sell
+  pricePerToken: "{{price_per_token}}", // Required - price of each token in the listing
+  currencyContractAddress: "{{currency_contract_address}}", // Optional - smart contract address of the currency to use for the listing
+  isReservedListing: false, // Optional - whether or not the listing is reserved (only specific wallet addresses can buy)
+  quantity: "{{quantity}}", // Optional - number of tokens to sell (1 for ERC721 NFTs)
+  startTimestamp: new Date(), // Optional - when the listing should start (default is now)
+  endTimestamp: new Date(new Date().getTime() + 7 * 24 * 60 * 60 * 1000), // Optional - when the listing should end (default is 7 days from now)
+});
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to update.
+
+#### listing
+
+The information to update about the listing.
+
+If you do not want to update a field, do not include it in the provided `listing` object. The previous value will be used.
+
+For information about each property, see [`createListing`](#createlisting).
+
+</div>
+</details>

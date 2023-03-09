@@ -1,0 +1,22 @@
+---
+title: Marketplace V3
+slug: /sdk.marketplacev3
+---
+
+When using the smart contract, additional top-level functionality is available to use.
+
+To access the top-level functionality, provide the `marketplace-v3` contract type when creating the contract instance:
+
+```javascript
+const contract = await sdk.getContract(
+  "{{contract_address}}",
+  // highlight-next-line
+  "marketplace-v3", // Provide the "marketplace-v3" contract type
+);
+```
+
+Once connected, the capabilities unique to the Marketplace V3 are available from the following extensions:
+
+- [DirectListings](/typescript/sdk.directlistings)
+- [EnglishAuctions](/typescript/sdk.englishauctions)
+- [Offers](/typescript/sdk.offers)

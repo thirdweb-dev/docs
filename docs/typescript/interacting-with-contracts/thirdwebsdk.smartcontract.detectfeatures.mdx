@@ -1,0 +1,90 @@
+---
+title: Detecting Contract Extensions
+slug: /sdk.thirdwebsdk.detectfeatures
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+In the case where you don&rsquo;t know ahead of time the functionality available in a contract,
+use the following methods to determine what extension interfaces you can use.
+
+## isFeatureEnabled
+
+Detect whether or not a given smart contract supports a given extension.
+
+```javascript
+import { isFeatureEnabled, ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+// ... Logic to initialize the SDK and get your contract
+const sdk = new ThirdwebSDK("ethereum");
+const contract = await sdk.getContract("0x...");
+
+// Detect whether the contract supports e.g. the "ERC721" extension
+const hasFeature = await isFeatureEnabled(contract.abi, "ERC721");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### abi
+
+The ABI of the smart contract to check.
+
+When using the `getContract` method, the ABI is available on the `abi` property of the returned contract object.
+
+#### featureName
+
+The name of the extension to check support for.
+
+View a full list of extension names on the [Extensions overview page](/typescript/extensions).
+
+### Return Value
+
+Returns a `boolean` indicating whether or not the contract supports the given extension.
+
+The return value will be `true` if the contract supports the extension, and `false` if it does not.
+
+```typescript
+boolean;
+```
+
+</div>
+</details>
+
+## getAllDetectedFeatureNames
+
+Get an array of the names of the features a given smart contract supports.
+
+```javascript
+import { detectContractFeature, ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+// ... Logic to initialize the SDK and get your contract
+const sdk = new ThirdwebSDK("ethereum");
+const contract = await sdk.getContract("0x...");
+
+// Get an array of the extensions the contract supports
+const features = getAllDetectedFeatureNames(contract.abi);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### abi
+
+The ABI of the smart contract to check.
+
+When using the `getContract` method, the ABI is available on the `abi` property of the returned contract object.
+
+### Return Value
+
+Returns an array of strings containing the names of the extensions the contract supports.
+
+```typescript
+string[];
+```
+
+</div>
+</details>
+
+##

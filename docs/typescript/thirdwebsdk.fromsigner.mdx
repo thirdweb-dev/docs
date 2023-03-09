@@ -1,0 +1,24 @@
+---
+title: ThirdwebSDK.fromSigner
+slug: /sdk.thirdwebsdk.fromsigner
+---
+
+Instantiate the [`ThirdwebSDK`](/sdk.thirdwebsdk) in read-write mode using a [`Signer`](https://docs.ethers.org/v5/api/signer/).
+
+This is useful when using the SDK on the client-side, such as when using our [React SDK](/react).
+
+Use the [`useSigner`](/react/react.usesigner) hook to get the currently connected wallet&rsquo;s signer on the client.
+
+The SDK will be instantiated on the [chain](/typescript/sdk.thirdwebsdk#chain-required) that the signer is connected to.
+
+## Usage
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+// An example of a signer using the ethers library
+import ethers from "ethers";
+const signer = new ethers.Wallet("{{private_key}}");
+
+const sdk = ThirdwebSDK.fromSigner(signer);
+```

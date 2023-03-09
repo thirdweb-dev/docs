@@ -1,0 +1,234 @@
+---
+title: ThirdwebSDK
+slug: /sdk.thirdwebsdk
+---
+
+The `ThirdwebSDK` is the entry point to all functionality of the TypeScript SDK.
+
+You initialize the SDK on your desired chain and use the instance to access the different methods and properties of the SDK.
+
+## Usage
+
+The SDK can be initialized in either read-only mode or read-write mode.
+
+- **Read-only mode**: Define the chain you want to use.
+- **Read-write mode**: Define the chain you want to use, _and_ provide a
+  [private key](/typescript/sdk.thirdwebsdk.fromprivatekey), [wallet instance](/typescript/sdk.thirdwebsdk.fromwallet), or [signer](/typescript/sdk.thirdwebsdk.fromsigner).
+
+If you are using one of our <code>default chains</code>, provide the name of the chain as a `string`.
+
+For non-default chains, see [configuring chains](#chain-required) or [custom chains](#custom-evm-chains).
+
+<details>
+  <summary>View default chains</summary>
+  <div>
+    <ul>
+      <li>
+        <b>Ethereum</b>: <code>"ethereum"</code>
+      </li>
+      <li>
+        <b>Goerli</b>: <code>"goerli"</code>
+      </li>
+      <li>
+        <b>Polygon</b>: <code>"polygon"</code>
+      </li>
+      <li>
+        <b>Mumbai</b>: <code>"mumbai"</code>
+      </li>
+      <li>
+        <b>Arbitrum One</b>: <code>"arbitrum"</code>
+      </li>
+      <li>
+        <b>Arbitrum Goerli</b>: <code>"arbitrum-goerli"</code>
+      </li>
+      <li>
+        <b>Optimism</b>: <code>"optimism"</code>
+      </li>
+      <li>
+        <b>Optimism Goerli Testnet</b>: <code>"optimism-goerli"</code>
+      </li>
+      <li>
+        <b>Binance SmartChain</b>: <code>"binance"</code>
+      </li>
+      <li>
+        <b>Binance SmartChain Testnet</b>: <code>"binance-testnet"</code>
+      </li>
+      <li>
+        <b>Fantom Opera</b>: <code>"fantom"</code>
+      </li>
+      <li>
+        <b>Fantom Testnet</b>: <code>"fantom-testnet"</code>
+      </li>
+      <li>
+        <b>Avalanche C Chain</b>: <code>"avalanche-fuji"</code>
+      </li>
+      <li>
+        <b>Avalanche Fuji Testnet</b>: <code>"avalanche-fuji-testnet"</code>
+      </li>
+      <li>
+        <b>Localhost</b>: <code>"localhost"</code>
+      </li>
+    </ul>
+  </div>
+</details>
+
+Using this method, you can only read data from the blockchain.
+
+```typescript
+// Read-only mode
+const readOnlySdk = new ThirdwebSDK("ethereum");
+```
+
+## Configuration
+
+### Chain (required)
+
+The chain you want your SDK instance to use.
+
+There are 700+ chains available in the [`@thirdweb-dev/chains`](https://github.com/thirdweb-dev/js/tree/main/packages/chains) package.
+Import the chain you want to use from the package and pass it to the `activeChain` prop.
+If your chain is not included, see [configuring custom chains](#custom-evm-chains).
+
+:::tip Install Package
+
+Install the `@thirdweb-dev/chains` package to use non-default chains.
+
+```bash npm2yarn
+npm install @thirdweb-dev/chains
+```
+
+:::
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+// highlight-next-line
+import { Gnosis } from "@thirdweb-dev/chains";
+
+const sdk = new ThirdwebSDK(
+  // highlight-next-line
+  Gnosis,
+);
+```
+
+### Custom EVM Chains
+
+If your chain is not included in the `@thirdweb-dev/chains` package,
+you can provide the chain information yourself.
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+const sdk = new ThirdwebSDK({
+  // === Required information for connecting to the network === \\
+  chainId: 59140, // Chain ID of the network
+  // Array of RPC URLs to use
+  rpc: ["<your-rpc-url-here>"],
+
+  // === Information for adding the network to your wallet (how it will appear for first time users) === \\
+  // Information about the chains native currency (i.e. the currency that is used to pay for gas)
+  nativeCurrency: {
+    decimals: 18,
+    name: "Consensys ETH",
+    symbol: "crETH",
+  },
+  shortName: "czkevm", // Display value shown in the wallet UI
+  slug: "consensys", // Display value shown in the wallet UI
+  testnet: true, // Boolean indicating whether the chain is a testnet or mainnet
+  chain: "ConsenSys", // Name of the network
+  name: "ConsenSys zkEVM Testnet", // Name of the network
+});
+```
+
+### Override Default Values
+
+Override the default values (such as an RPC URL) for any given chain.
+
+:::info Optional
+By default, the SDK provides free-to-use RPCs. No configuration required!
+
+[View the default RPC URLs for each network](https://github.com/thirdweb-dev/js/tree/main/packages/chains/chains).
+:::
+
+Using the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax),
+you can override any properties of a chain, such as the `rpc` field.
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+import { Dogechain } from "@thirdweb-dev/chains";
+
+const sdk = new ThirdwebSDK({
+  // highlight-start
+  ...Dogechain,
+  rpc: ["https://<your-rpc-to-use>.com"], // Override the "rpc" field.
+  // ... Override any other fields you want to customize.
+  // highlight-end
+});
+```
+
+<!-- ### Multiple Chains -->
+
+### gasless (optional)
+
+Use [gasless transactions](https://portal.thirdweb.com/sdk/advanced-features/gasless-transactions) to forward all transactions to a relayer.
+
+Currently supports either [OpenZeppelin Defender](https://blog.thirdweb.com/guides/setup-gasless-transactions/)
+or [Biconomy](https://blog.thirdweb.com/guides/biconomy-gasless-guide/) relayers.
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+const sdk = new ThirdwebSDK("ethereum", {
+  // highlight-start
+  gasless: {
+    // By specifying a gasless configuration - all transactions will get forwarded to enable gasless transactions
+    openzeppelin: {
+      relayerUrl: "<open-zeppelin-relayer-url>", // your OZ Defender relayer URL
+      relayerForwarderAddress: "<open-zeppelin-forwarder-address>", // the OZ defender relayer address (defaults to the standard one)
+    },
+    biconomy: {
+      apiId: "biconomy-api-id", // your Biconomy API Id
+      apiKey: "biconomy-api-key", // your Biconomy API Key
+      deadlineSeconds: 123, // your Biconomy timeout preference
+    },
+  },
+  // highlight-end
+});
+```
+
+### gasSettings (optional)
+
+The gas settings to use when sending transactions.
+
+- `maxPriceInGwei`: Maximum gas fee to pay for a transaction. Defaults to `300`.
+- `speed`: The [priority](https://www.youtube.com/watch?v=gsfJywNxpi4) level to set for a transaction.
+  Either "standard", "fast", or "fastest". Defaults to `fastest`.
+
+```typescript
+import { ThirdwebSDK } from "@thirdweb-dev/sdk";
+
+const sdk = new ThirdwebSDK("ethereum", {
+  // highlight-start
+  gasSettings: {
+    maxPriceInGwei: 300,
+    speed: "fastest", // standard, fast, fastest
+  },
+  // highlight-end
+});
+```
+
+### readOnlySettings (optional)
+
+Override the RPC URL that is used for read operations on a given chain.
+
+```typescript
+import { ThirdwebSDK, ChainId } from "@thirdweb-dev/sdk";
+
+const sdk = new ThirdwebSDK("ethereum", {
+  // highlight-start
+  readonlySettings: {
+    rpcUrl: "https://my-rpc-url.com", // Use this RPC URL for read operations
+    chainId: ChainId.Mainnet, // On this chain ID
+  },
+  // highlight-end
+});
+```

@@ -1,0 +1,477 @@
+---
+title: ERC20
+slug: /sdk.erc20
+toc_max_heading_level: 2 # Show up to h4 in table of contents (default is up to h3)
+---
+
+# ERC20
+
+Functionality available for contracts that implement the [`IERC20`](/contracts/IERC20) interface.
+
+## allowance
+
+Get the allowance of another wallet address over the **connected wallet's** funds.
+
+"Allowance" refers to the number of tokens that another wallet is allowed to spend on behalf of the connected wallet.
+
+```javascript
+// Address of the wallet to check token allowance
+const spenderAddress = "{{wallet_address}}";
+const allowance = await contract.erc20.allowance(spenderAddress);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### spender
+
+The address of the wallet to check the allowance of.
+
+Must be a `string`.
+
+```javascript
+const allowance = await contract.erc20.allowance(
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```typescript
+{
+  value: BigNumber;
+  symbol: string;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}
+```
+
+</div>
+</details>
+
+## allowanceOf
+
+The same as [`allowance`](#allowance), but allows you to specify the owner wallet to check, instead of using the connected wallet.
+
+```javascript
+// Address of the wallet who owns the funds
+const owner = "{{wallet_address}}";
+// Address of the wallet to check token allowance
+const spender = "{{wallet_address}}";
+
+const allowance = await contract.erc20.allowanceOf(owner, spender);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### owner
+
+The address of the wallet that owns the funds.
+
+Must be a `string`.
+
+```javascript
+const allowance = await contract.erc20.allowanceOf(
+  // highlight-next-line
+  "{{wallet_address}}", // owner
+  "{{wallet_address}}", // spender
+);
+```
+
+#### spender
+
+The address of the wallet to check the allowance of.
+
+Must be a `string`.
+
+```javascript
+const allowance = await contract.erc20.allowanceOf(
+  "{{wallet_address}}", // owner
+  // highlight-next-line
+  "{{wallet_address}}", // spender
+);
+```
+
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```typescript
+{
+  value: BigNumber;
+  symbol: string;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}
+```
+
+</div>
+</details>
+
+## balance
+
+View the balance (i.e. number of tokens) the **connected wallet** has in their wallet from this contract.
+
+```javascript
+const balance = await contract.erc20.balance();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```typescript
+{
+  value: BigNumber;
+  symbol: string;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}
+```
+
+</div>
+</details>
+
+## balanceOf
+
+The same as [`balance`](#balance), but allows you to specify the wallet address to check, instead of using the connected wallet.
+
+```javascript
+// Address of the wallet to check token balance
+const walletAddress = "{{wallet_address}}";
+const balance = await contract.erc20.balanceOf(walletAddress);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### address
+
+The address of the wallet to check the balance of.
+
+Must be a `string`.
+
+```javascript
+const balance = await contract.erc20.balanceOf(
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```typescript
+{
+  value: BigNumber;
+  symbol: string;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}
+```
+
+</div>
+</details>
+
+## get
+
+Get the metadata of the token smart contract, such as the name, symbol, and decimals.
+
+```javascript
+const metadata = await contract.erc20.get();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+```typescript
+{
+  symbol: string; // ticker, e.g. "ETH"
+  name: string; // Name of the token, e.g. "Ether"
+  decimals: number; // Number of decimals, e.g. 18
+}
+```
+
+</div>
+</details>
+
+## normalizeAmount
+
+Convert a number of tokens to a number of wei.
+
+```javascript
+const amount = 100;
+const weiAmount = await contract.erc20.normalizeAmount(amount);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### amount
+
+The number of tokens to convert to wei.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const weiAmount = await contract.erc20.normalizeAmount(
+  // highlight-next-line
+  100,
+);
+```
+
+### Return Value
+
+A `BigNumber` object is returned with the amount in wei.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## setAllowance
+
+Grant allowance to another wallet address to spend the **connected wallet's** funds (of this token).
+
+```javascript
+// Address of the wallet to allow transfers from
+const spenderAddress = "0x...";
+// The number of tokens to give as allowance
+const amount = 100;
+
+await contract.erc20.setAllowance(spenderAddress, amount);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### spender
+
+The address of the wallet to grant allowance to.
+
+Must be a `string`.
+
+```javascript
+await contract.erc20.setAllowance(
+  // highlight-next-line
+  "{{wallet_address}}",
+  100,
+);
+```
+
+#### amount
+
+The number of tokens to give as allowance.
+
+Must be a `string` or `number`.
+
+```javascript
+await contract.erc20.setAllowance(
+  "{{wallet_address}}",
+  // highlight-next-line
+  100,
+);
+```
+
+</div>
+</details>
+
+## totalSupply
+
+Get the number of tokens in circulation for this contract.
+
+```javascript
+const balance = await contract.erc20.totalSupply();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```typescript
+{
+  value: BigNumber;
+  symbol: string;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}
+```
+
+</div>
+</details>
+
+## transfer
+
+Transfer tokens from the **connected wallet** to another wallet.
+
+```javascript
+// Address of the wallet you want to send the tokens to
+const toAddress = "0x...";
+// The amount of tokens you want to send
+const amount = 0.1;
+await contract.erc20.transfer(toAddress, amount);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to
+
+The address of the wallet to send the tokens to.
+
+Must be a `string`.
+
+```javascript
+await contract.erc20.transfer(
+  // highlight-next-line
+  "{{wallet_address}}",
+  0.1,
+);
+```
+
+#### amount
+
+The amount of tokens to send.
+
+Must be a `string` or `number`.
+
+```javascript
+await contract.erc20.transfer(
+  "{{wallet_address}}",
+  // highlight-next-line
+  0.1,
+);
+```
+
+</div>
+</details>
+
+## transferFrom
+
+The same as [`transfer`](#transfer), but allows you to specify the wallet address to send the tokens from,
+instead of using the connected wallet.
+
+This is only possible if the wallet initiating this transaction has been given allowance to transfer the tokens of the `fromAddress`.
+
+```javascript
+// Address of the wallet sending the tokens
+const fromAddress = "{{wallet_address}}";
+// Address of the wallet you want to send the tokens to
+const toAddress = "0x...";
+// The number of tokens you want to send
+const amount = 1.2;
+// Note that the connected wallet must have approval to transfer the tokens of the fromAddress
+await contract.erc20.transferFrom(fromAddress, toAddress, amount);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### from
+
+The address of the wallet to send the tokens from.
+
+Must be a `string`.
+
+```javascript
+await contract.erc20.transferFrom(
+  // highlight-next-line
+  "{{wallet_address}}",
+  "{{wallet_address}}",
+  1.2,
+);
+```
+
+#### to
+
+The address of the wallet to send the tokens to.
+
+Must be a `string`.
+
+```javascript
+await contract.erc20.transferFrom(
+  "{{wallet_address}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+  1.2,
+);
+```
+
+#### amount
+
+The amount of tokens to send.
+
+Can be a `number` or a `string`.
+
+```javascript
+await contract.erc20.transferFrom(
+  "{{wallet_address}}",
+  "{{wallet_address}}",
+  // highlight-next-line
+  1.2,
+);
+```
+
+</div>
+</details>
+
+## transferBatch
+
+Transfer multiple tokens from the **connected wallet** to multiple wallets.
+
+```javascript
+const txResult = await contract.erc20.transferBatch([
+  {
+    amount: 1,
+    toAddress: "0x123",
+  },
+  {
+    amount: 2,
+    toAddress: "0x456",
+  },
+]);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+    #### args
+
+    An array of objects, each containing a `toAddress` and an `amount` property.
+
+    - The `toAddress` property must be a `string`, and is the wallet address you want to send the tokens to.
+    - The `amount` property must be a `string`, `number`, or `BigNumber`, and is the amount of tokens you want to send to the `toAddress`
+
+</div>
+</details>

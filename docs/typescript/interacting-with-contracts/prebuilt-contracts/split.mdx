@@ -1,0 +1,288 @@
+---
+title: Split
+slug: /sdk.split
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+When using the [Split](https://thirdweb.com/thirdweb.eth/Split) smart contract, additional top-level functionality is available to use.
+
+To access the top-level functionality, provide the `split` contract type when creating the contract instance:
+
+```javascript
+const contract = await sdk.getContract(
+  "{{contract_address}}",
+  // highlight-next-line
+  "split", // Provide the "split" contract type
+);
+```
+
+In addition to the methods listed below, the pack contract supports the following extensions:
+
+- [Permissions](/typescript/sdk.permissions)
+- [ContractMetadata](/typescript/sdk.contractmetadata)
+- [Gasless](/typescript/sdk.gasless)
+
+## balanceOf
+
+Get the amount of funds that a recipient is entitled to from the split contract.
+
+```javascript
+const balance = await contract.balanceOf("{{recipient_address}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### address
+
+The wallet address to check the balance of.
+
+Must be a `string`.
+
+### Return Value
+
+The balance of the recipient.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## balanceOfAllRecipients
+
+Get the amount of funds that each recipient is entitled to from the split contract.
+
+```javascript
+const balances = await contract.balanceOfAllRecipients();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns an object where each recipient address is a key and the value is the balance of that recipient.
+
+```typescript
+{
+    [key: string]: BigNumber;
+}
+```
+
+</div>
+</details>
+
+## balanceOfToken
+
+Get the amount of non-native tokens that a recipient is entitled to from the split contract.
+
+```javascript
+const balance = await contract.balanceOfToken("{{recipient_address}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### address
+
+The wallet address to check the balance of.
+
+Must be a `string`.
+
+### Return Value
+
+The balance of the recipient.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## balanceOfTokenAllRecipients
+
+Get the amount of non-native tokens that each recipient is entitled to from the split contract.
+
+```javascript
+const balances = await contract.balanceOfTokenAllRecipients();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns an object where each recipient address is a key and the value is the balance of that recipient.
+
+```typescript
+{
+    [key: string]: BigNumber;
+}
+```
+
+</div>
+</details>
+
+## distribute
+
+Distribute funds held by the contract in the native currency to all recipients.
+
+```javascript
+const txResult = await contract.distribute();
+```
+
+## distributeToken
+
+Distribute funds held by the contract in a non-native currency to all recipients.
+
+```javascript
+const txResult = await contract.distributeToken("{{token_contract_address}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### tokenContractAddress
+
+The address of the token contract to distribute.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## getAllRecipients
+
+Get all the recipients of the split contract.
+
+```javascript
+const recipients = await contract.getAllRecipients();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+```typescript
+{
+  /**
+   * The address of the recipient
+   */
+  address: string;
+  /**
+   * The split of the recipient as a percentage of the total amount
+   *
+   * I.e. If a recipient has a split of 50%, and the asset sells for 100 ETH,
+   * the recipient will receive 50 ETH.
+   */
+  splitPercentage: number;
+}
+[];
+```
+
+</div>
+</details>
+
+## getRecipientSplitPercentage
+
+Get the split percentage of a specific recipient.
+
+```javascript
+const splitPercentage = await contract.getRecipientSplitPercentage(
+  "{{recipient_address}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### address
+
+The wallet address of the recipient to check the split percentage of.
+
+Must be a `string`.
+
+### Return Value
+
+Returns the split percentage of the recipient.
+
+```typescript
+{
+  /**
+   * The address of the recipient
+   */
+  address: string;
+  /**
+   * The split of the recipient as a percentage of the total amount
+   *
+   * I.e. If a recipient has a split of 50%, and the asset sells for 100 ETH,
+   * the recipient will receive 50 ETH.
+   */
+  splitPercentage: number;
+}
+```
+
+</div>
+</details>
+
+## withdraw
+
+Withdraw funds owed to a recipient from the split contract.
+
+```javascript
+const txResult = await contract.withdraw("{{recipient_address}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### address
+
+The wallet address of the recipient to withdraw funds for.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## withdrawToken
+
+Withdraw non-native tokens owed to a recipient from the split contract.
+
+```javascript
+const txResult = await contract.withdraw(
+  "{{recipient_address}}",
+  "{{token_contract_address}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### address
+
+The wallet address of the recipient to withdraw funds for.
+
+Must be a `string`.
+
+#### tokenContractAddress
+
+The address of the token contract to withdraw.
+
+Must be a `string`.
+
+</div>
+</details>
