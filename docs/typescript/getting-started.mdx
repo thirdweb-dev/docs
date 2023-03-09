@@ -70,4 +70,8 @@ const contract = await sdk.getContract("{{contract_address}}");
 
 // Call a function on your smart contract using the function name
 const name = await contract.call("myFunctionName");
+
+// Or Using the extensions API matching your contract extensions
+const allNFTs = await contract.erc721.getAll();
+const tokenSupply = await contract.erc20.totalSupply();
 ```
