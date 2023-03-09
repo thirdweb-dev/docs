@@ -12,13 +12,20 @@ Create a `TransactionRequest` object with the raw transaction data, and pass it 
 The method will return the transaction receipt once the transaction is mined.
 
 ```javascript
-const signer = this.requireWallet();
-const tx = await signer.sendTransaction({
-  to: "0x...",
-  data: "0x...",
-  value: 1,
+const txResult = await sdk.wallet.sendRawTransaction({
+  accessList: [], // The AccessList to include; only available for EIP-2930 and EIP-1559 transactions.
+  blockTag: "latest", // A BlockTag specifies a specific block location in the Blockchain.
+  ccipReadEnabled: false, // https://eips.ethereum.org/EIPS/eip-3668#use-of-ccip-read-for-transactions
+  customData: {}, // The transaction data.
+  from: "0x...", // The address this transaction is from.
+  gasLimit: 100000, // The maximum amount of gas this transaction is permitted to use.
+  gasPrice: 100000, // The price (in wei) per unit of gas this transaction will pay.
+  maxFeePerGas: 100000, // The maximum price (in wei) per unit of gas this transaction will pay
+  maxPriorityFeePerGas: 0, // The price (in wei) per unit of gas this transaction will allow in addition to the block's base fee
+  nonce: 0, // The nonce used as part of the proof-of-work to mine this block.
+  type: 0, // The EIP-2718 type of this transaction envelope, or undefined for to use the network default
+  value: ethers.utils.parseEther("0.1"), // send 0.1 ether with the contract call
 });
-const receipt = await tx.wait();
 ```
 
 ## Configuration
