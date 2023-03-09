@@ -1,0 +1,49 @@
+---
+title: sendRawTransaction
+slug: /sdk.userwallet.sendrawtransaction
+---
+
+Send a raw transaction to the blockchain from the connected wallet.
+
+## Usage
+
+Create a `TransactionRequest` object with the raw transaction data, and pass it to this method.
+
+The method will return the transaction receipt once the transaction is mined.
+
+```javascript
+const signer = this.requireWallet();
+const tx = await signer.sendTransaction({
+  to: "0x...",
+  data: "0x...",
+  value: 1,
+});
+const receipt = await tx.wait();
+```
+
+## Configuration
+
+### transactionRequest
+
+The raw transaction data to be sent to the blockchain.
+
+Must be an object of type `TransactionRequest`, which can contain the following properties:
+
+```typescript
+{
+    to?: string,
+    from?: string,
+    nonce?: BigNumberish,
+    gasLimit?: BigNumberish,
+    gasPrice?: BigNumberish,
+    data?: BytesLike,
+    value?: BigNumberish,
+    chainId?: number
+    type?: number;
+    accessList?: AccessListish;
+    maxPriorityFeePerGas?: BigNumberish;
+    maxFeePerGas?: BigNumberish;
+    customData?: Record<string, any>;
+    ccipReadEnabled?: boolean;
+}
+```
