@@ -20,34 +20,40 @@ const sidebars = {
   typescript: [
     {
       type: "doc",
-      label: "Getting Started",
+      label: "Overview",
       id: "index",
     },
     {
       type: "doc",
-      label: "Migration Guide",
-      id: "migration-guide",
+      label: "Getting Started",
+      id: "getting-started",
     },
 
     // ThirdwebSDK
     {
       type: "category",
-      label: "Initializing the SDK",
+      label: "ThirdwebSDK",
+      collapsed: false,
       items: [
         {
           type: "doc",
-          label: "From Private Key (Backend)",
-          id: "sdk.thirdwebsdk.fromprivatekey",
+          label: "Overview",
+          id: "thirdwebsdk",
         },
         {
           type: "doc",
-          label: "From Signer",
-          id: "sdk.thirdwebsdk.fromsigner",
+          label: "fromPrivateKey",
+          id: "thirdwebsdk.fromprivatekey",
         },
         {
           type: "doc",
-          label: "All SDK Options",
-          id: "sdk.sdkoptions",
+          label: "fromWallet",
+          id: "thirdwebsdk.fromwallet",
+        },
+        {
+          type: "doc",
+          label: "fromSigner",
+          id: "thirdwebsdk.fromsigner",
         },
       ],
     },
