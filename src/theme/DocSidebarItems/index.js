@@ -35,7 +35,7 @@ function DocSidebarItems({ items, ...props }) {
 
     // Tools
     [
-      "ContractKit",
+      "Solidity SDK",
       "Prebuilt Contracts",
       "EVM SDK",
       "Solana SDK",
@@ -51,15 +51,7 @@ function DocSidebarItems({ items, ...props }) {
     ["CommerceKit", "GamingKit"],
 
     // SDK References
-    [
-      "React",
-      "React Native",
-      "TypeScript",
-      "Python",
-      "Go",
-      "Unity",
-      "Solidity",
-    ],
+    ["React", "React Native", "TypeScript", "Python", "Go", "Unity"],
 
     // Resources
     [
@@ -81,10 +73,6 @@ function DocSidebarItems({ items, ...props }) {
       return "UI Components";
     }
 
-    if (formatted === "Contractkit") {
-      return "ContractKit";
-    }
-
     if (formatted === "Gamingkit") {
       return "GamingKit";
     }
@@ -93,8 +81,8 @@ function DocSidebarItems({ items, ...props }) {
       return "TypeScript";
     }
 
-    if (formatted === "Contracts") {
-      return "Solidity";
+    if (formatted === "Solidity") {
+      return "Solidity SDK";
     }
 
     // If not the word pre-built, split by dash and capitalize each word

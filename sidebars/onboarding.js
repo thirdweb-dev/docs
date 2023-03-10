@@ -35,8 +35,8 @@ const sidebars = {
     },
     {
       type: "link",
-      label: "ContractKit",
-      href: "/contractkit",
+      label: "Solidity SDK",
+      href: "/solidity",
     },
     {
       type: "link",
@@ -137,11 +137,6 @@ const sidebars = {
       type: "link",
       label: "Unity",
       href: "/unity",
-    },
-    {
-      type: "link",
-      label: "Solidity",
-      href: "/contracts",
     },
   ],
 

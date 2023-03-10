@@ -137,7 +137,8 @@ async function main() {
   await copyReadMe();
 }
 
-main();
+// Don't autogenerate contract docs
+// main();
 
 async function copyReadMe() {
   const header = [

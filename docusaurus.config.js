@@ -142,18 +142,6 @@ const config = {
     [
       "@docusaurus/plugin-content-docs",
       {
-        id: "contracts",
-        path: "docs/contracts",
-        routeBasePath: "contracts",
-        sidebarPath: require.resolve("./sidebars/contracts.js"),
-        remarkPlugins: [[npm2yarn, { sync: true }]],
-        editUrl: "https://github.com/thirdweb-dev/docs/edit/main",
-        // ... other options
-      },
-    ],
-    [
-      "@docusaurus/plugin-content-docs",
-      {
         id: "python",
         path: "docs/python",
         routeBasePath: "python",
