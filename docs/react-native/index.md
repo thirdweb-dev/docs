@@ -51,19 +51,6 @@ Our SDK supports Android `minSdkVersion = 23` and `ios.platform = 13`
   </TabItem>
 </Tabs>
 
-</TabItem>
-<TabItem value="new" label="New Projects">
-
-<Tabs>
-  <TabItem value="cli" label="React Native CLI" default>
-    <CodeBlock
-language={"bash"} >{`npx thirdweb create --template react-native-typescript-starter`}</CodeBlock>
-  </TabItem>
-</Tabs>
-
-</TabItem>
-</Tabs>
-
 Our wallets package uses the Expo Modules API, please [configure it](https://docs.expo.dev/modules/overview/) in your app:
 
 ```sh
@@ -114,6 +101,15 @@ We provide a package that imports all the necessary polyfills for you, please, i
 // Import polyfills
 import "@thirdweb-dev/react-native-compat";
 ```
+
+</TabItem>
+<TabItem value="new" label="New Projects">
+
+<CodeBlock
+language={"bash"} >{`npx thirdweb create --template react-native-typescript-starter`}</CodeBlock>
+
+</TabItem>
+</Tabs>
 
 ### Why are all these packages needed?
 
