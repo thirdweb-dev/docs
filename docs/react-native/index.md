@@ -28,10 +28,10 @@ Connect to user’s wallets, interact with smart contracts, sign messages, and u
 
 ## Installation
 
-Our SDK supports Android `minSdkVersion = 23` and `ios.platform = 13`
-
 <Tabs>
 <TabItem value="existing" label="Existing Projects">
+
+Our SDK supports Android `minSdkVersion = 23` and `ios.platform >= 13`
 
 <Tabs>
   <TabItem value="npm" label="npm" default>
