@@ -102,15 +102,6 @@ We provide a package that imports all the necessary polyfills for you, please, i
 import "@thirdweb-dev/react-native-compat";
 ```
 
-</TabItem>
-<TabItem value="new" label="New Projects">
-
-<CodeBlock
-language={"bash"} >{`npx thirdweb create --template react-native-typescript-starter`}</CodeBlock>
-
-</TabItem>
-</Tabs>
-
 ### Why are all these packages needed?
 
 As explained in the intro of this doc, we need to shim some of the packages available in Node and web environments. Find below who’s using these packages:
@@ -124,3 +115,12 @@ As explained in the intro of this doc, we need to shim some of the packages avai
   - `react-native-get-random-values`
 - Coinbase wallet connector package depends on `react-native-mmkv` and `expo-modules`.
 - WalletConnect V2 connectors depend on `@react-native-async-storage/async-storage`.
+
+</TabItem>
+<TabItem value="new" label="New Projects">
+
+<CodeBlock
+language={"bash"} >{`npx thirdweb create --template react-native-typescript-starter`}</CodeBlock>
+
+</TabItem>
+</Tabs>
