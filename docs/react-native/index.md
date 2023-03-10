@@ -4,94 +4,79 @@ hide_title: true
 displayed_sidebar: react-native
 ---
 
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import QuickstartCard from "@components/QuickstartCard";
+
 <p align="center">
-<br />
-<a href="https://thirdweb.com"><img src="https://github.com/thirdweb-dev/js/blob/main/packages/sdk/logo.svg?raw=true" width="200" alt=""/></a>
-<br />
+  <br />
+  <a href="https://thirdweb.com">
+    <img
+      src="https://github.com/thirdweb-dev/js/blob/main/packages/sdk/logo.svg?raw=true"
+      width="200"
+      alt=""
+    />
+  </a>
+  <br />
 </p>
-<h1 align="center">thirdweb React Native SDK </h1>
-<p align="center">
-<a href="https://www.npmjs.com/package/@thirdweb-dev/react-native"><img src="https://img.shields.io/npm/v/@thirdweb-dev/react-native?color=red&label=npm&logo=npm" alt="npm version"/></a>
-<a href="https://discord.gg/thirdweb"><img alt="Join our Discord!" src="https://img.shields.io/discord/834227967404146718.svg?color=7289da&label=discord&logo=discord&style=flat"/></a>
+<h1 align="center">thirdweb React Native SDK</h1>
 
-</p>
-<p align="center"><strong>Ultimate collection of React Native hooks for your web3 apps (👷🚧 Alpha 🚧👷)</strong></p>
+A collection of 100+ React hooks and React Native UI components for your web3 mobile apps, for any EVM-compatible blockchain.
 
-The React Native SDK provides convenient hooks for connecting to wallets and communicating with blockchains.
-
-**Note**: The SDK can connect to wallets that support WalletConnect V2. To find a list of such wallets please search in the [Wallet Connect Explorer](https://explorer.walletconnect.com/?type=wallet&version=2). Please note that some of these wallets haven't added support for test chains yet. One wallet that worked great for us during development was the Trust Wallet on Ethereum mainnet.
-
-## Creating a new React Native app
-
-If you already have a React Native app you can jump to the _[Installation](#installation)_ section in this guide; otherwise follow the development environment setup steps for React Native [in this guide](https://reactnative.dev/docs/environment-setup). Once your environment is setup, read along.
-
-### Thirdweb React Native App Template
-
-The easiest way to get started with the React Native SDK is to use the CLI to generate a sample app which will have all the setup needed to connect a wallet and begin interacting with your favorite chain:
-
-```sh
-npx thirdweb create --template react-native-typescript-starter
-```
-
-### React Native CLI
-
-Alternatively create you can use the React Native CLI:
-
-```sh
-npx react-native init MyRNApp --template react-native-template-typescript
-```
-
-### Expo CLI
-
-```sh
-npx create-expo-app --template
-```
+Connect to user’s wallets, interact with smart contracts, sign messages, and utilize common standards such as tokens, NFTs, marketplaces; all with built-in caching, RPC URLs, IPFS gateways, and more. See more on the React section: [How It Works](https://portal.thirdweb.com/react#how-it-works)
 
 ## Installation
 
-First, move into your app's folder:
+Our SDK supports Android `minSdkVersion = 23` and `ios.platform = 13`
 
-```
-cd your-react-native-app
-```
+<Tabs>
+<TabItem value="existing" label="Existing Projects">
 
-Install the following packages using your favorite package manager:
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+    <CodeBlock
+      language={"bash"}
+    >{`npm i 'ethers@^5.0.0' node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage @thirdweb-dev/react-native @thirdweb-dev/react-native-compat`}</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock
+      language={"bash"}
+    >{`yarn add 'ethers@^5.0.0' node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage @thirdweb-dev/react-native @thirdweb-dev/react-native-compat`}</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock
+      language={"bash"}
+    >{`pnpm i 'ethers@^5.0.0' node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @thirdweb-dev/react-native @thirdweb-dev/react-native-compat`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+</TabItem>
+<TabItem value="new" label="New Projects">
+
+<Tabs>
+  <TabItem value="cli" label="React Native CLI" default>
+    <CodeBlock
+language={"bash"} >{`npx thirdweb create --template react-native-typescript-starter`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+</TabItem>
+</Tabs>
+
+Our wallets package uses the Expo Modules API, please [configure it](https://docs.expo.dev/modules/overview/) in your app:
 
 ```sh
-npm install 'ethers@^5.0.0' @react-native-async-storage/async-storage node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values @thirdweb-dev/react-native @thirdweb-dev/react-native-compat
+npx install-expo-modules@latest
 ```
 
-```sh
-yarn add 'ethers@^5.0.0' @react-native-async-storage/async-storage node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values @thirdweb-dev/react-native @thirdweb-dev/react-native-compat
-```
-
-Move into your `/ios` folder and run the following command to install ios' pods:
+Move into your `/ios` folder and run the following command to install the ios' pods:
 
 ```sh
 cd ios/ && pod install
 ```
 
-### Android (React Native CLI)
-
-If you are targeting Android 11 (API level 30) or higher [you need to specify the app schemes you are going to call from your application](https://developer.android.com/training/package-visibility). Since we are using wallet connect and their scheme is wc: then you need to define the following in your AndroidManifest.xml
-
-```xml
-<manifest xmlns:android="http://schemas.android.com/apk/res/android">
-  ...
-	<queries>
-	  <intent>
-	    <action android:name="android.intent.action.VIEW" />
-	    <data android:scheme="wc"/>
-	  </intent>
-	</queries>
-
-  <application>
-  ...
-  </application>
-</manifest>
-```
-
-### Adding shims for nodejs' libraries
+### Add shims for the crypto nodejs' libraries
 
 React Native is based on [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore?language=objc) (part of WebKit) and does not use Node.js or the common Web and DOM APIs. As such, there are many operations missing that a normal web environment or Node.js instance would provide. [[1]](https://docs.ethers.org/v5/cookbook/react-native/#cookbook-reactnative-security).
 
@@ -136,9 +121,10 @@ As explained in the intro of this doc, we need to shim some of the packages avai
 
 **WalletConnect**
 
-- WalletConnect has a dependency on `@react-native-async-storage/async-storage` . They use it to store sessions on devices.
 - WalletConnect uses Node’s `crypto` package when signing transactions. Since this package is not available in React Native we need an alternative implementation for it and its dependencies, the following packages accomplishes this:
   - `node-libs-browser`
   - `react-native-crypto`
   - `react-native-randombytes`
   - `react-native-get-random-values`
+- Coinbase wallet connector package depends on `react-native-mmkv` and `expo-modules`.
+- WalletConnect V2 connectors depend on `@react-native-async-storage/async-storage`.
