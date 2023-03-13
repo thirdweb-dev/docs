@@ -14,6 +14,8 @@ such as the [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721) and [Editio
 
 ```jsx
 import { useUnclaimedNFTSupply } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useUnclaimedNFTSupply(contract);
 ```
 
 ## Usage
@@ -36,8 +38,15 @@ function App() {
 
 ## Return Value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 The hook's `data` property, once loaded, contains a `BigNumber` representing the number of unclaimed NFTs.
 
 ```ts
 BigNumber;
 ```
+
+</div>
+</details>

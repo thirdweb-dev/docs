@@ -10,6 +10,8 @@ Returns `undefined` if no wallet is connected.
 
 ```jsx
 import { useAddress } from "@thirdweb-dev/react";
+
+const address = useAddress();
 ```
 
 ## Usage
@@ -30,9 +32,16 @@ function App() {
 
 ## Return value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 ```ts
 string | undefined;
 ```
 
 - Returns a `string` containing the wallet address.
 - Returns `undefined` if no wallet is connected.
+
+</div>
+</details>

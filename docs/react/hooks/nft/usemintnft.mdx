@@ -17,6 +17,8 @@ By default, the process uploads and pins the NFT metadata to IPFS before minting
 
 ```jsx
 import { useMintNFT } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useMintNFT(contract);
 ```
 
 ## Usage
@@ -54,6 +56,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>metadata</summary>
+  <div>
 
 ### metadata (required)
 
@@ -127,6 +133,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>to</summary>
+  <div>
+
 ### to (required)
 
 The wallet address to mint the NFT to.
@@ -173,3 +186,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

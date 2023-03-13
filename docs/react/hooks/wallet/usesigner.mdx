@@ -12,6 +12,8 @@ in the TypeScript SDK, or using other web3 libraries that require a signer such 
 
 ```jsx
 import { useSigner } from "@thirdweb-dev/react";
+
+const signer = useSigner();
 ```
 
 ## Usage
@@ -33,8 +35,15 @@ function App() {
 
 ## Return Value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 The hook's return type is `Signer | undefined` where `Signer` is the [EthersJS](https://docs.ethers.org/v5/api/signer/) signer instance.
 
 ```ts
 Signer | undefined;
 ```
+
+</div>
+</details>

@@ -36,6 +36,7 @@ export const iconMapping = {
   "Getting Started": "/assets/icons/rocket.png",
   Templates: "/assets/sdk-reference.svg",
   Guides: "/assets/guides.svg",
+  CLI: "/assets/icons/extension-check.svg",
 };
 
 export default function DocSidebarItemLink({

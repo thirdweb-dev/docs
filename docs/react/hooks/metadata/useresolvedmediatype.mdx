@@ -12,6 +12,10 @@ Hook for resolving the media type and URL of a given URI (including IPFS URIs).
 
 ```jsx
 import { useResolvedMediaType } from "@thirdweb-dev/react";
+
+const { url, mimeType } = useResolvedMediaType(
+  "https://example.com/image.jpg", // URL or URI of the media asset
+);
 ```
 
 :::tip IPFS Media Renderer
@@ -39,6 +43,10 @@ function App() {
 
 ## Return Value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 The hook returns an object containing two properties: :
 
 - `url`: The fully resolved URL, or `undefined` if the URI is invalid.
@@ -50,3 +58,6 @@ The hook returns an object containing two properties: :
   mimeType: string | undefined;
 }
 ```
+
+</div>
+</details>

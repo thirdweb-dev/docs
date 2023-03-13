@@ -8,6 +8,8 @@ Hook for retrieving the chain ID of the network the user is connected to.
 
 ```jsx
 import { useChainId } from "@thirdweb-dev/react";
+
+const chainId = useChainId();
 ```
 
 ## Usage
@@ -24,8 +26,15 @@ function App() {
 
 ## Return value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 A `number` representing the current chain id, or `undefined` if the chain id could not be found.
 
 ```ts
 number | undefined;
 ```
+
+</div>
+</details>

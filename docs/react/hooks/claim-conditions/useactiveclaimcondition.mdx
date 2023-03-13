@@ -16,6 +16,8 @@ and [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20).
 
 ```jsx
 import { useActiveClaimCondition } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useActiveClaimCondition(contract);
 ```
 
 ## Usage
@@ -35,7 +37,9 @@ function App() {
 
 ## Configuration
 
-### tokenId (ERC1155 only)
+<details>
+  <summary>tokenId (ERC1155 only)</summary>
+  <div>
 
 When using the hook with ERC1155 contracts such as the [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155),
 pass the `tokenId` as the second parameter; as each token can have unique claim conditions.
@@ -61,7 +65,12 @@ function App() {
 }
 ```
 
-### withAllowlist (optional)
+</div>
+</details>
+
+<details>
+  <summary>withAllowlist (optional)</summary>
+  <div>
 
 By default, the hook will not include the allowlist or "snapshot" in the returned data.
 
@@ -91,7 +100,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, contains the following properties:
 
@@ -125,3 +141,6 @@ The hook's `data` property, once loaded, contains the following properties:
   }[] | null | undefined;
 }
 ```
+
+</div>
+</details>

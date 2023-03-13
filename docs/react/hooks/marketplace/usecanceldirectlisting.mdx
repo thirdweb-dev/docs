@@ -20,6 +20,8 @@ contracts, use [useCancelListing](/react/react.usecancellisting) instead.
 
 ```jsx
 import { useCancelDirectListing } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useCancelDirectListing(contract);
 ```
 
 ## Usage
@@ -62,6 +64,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>listingId (required)</summary>
+  <div>
 
 ### listingId (required)
 
@@ -106,3 +112,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

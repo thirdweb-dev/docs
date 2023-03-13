@@ -10,6 +10,8 @@ Available to use on smart contracts that implement the [ERC20](/contractkit/inte
 
 ```jsx
 import { useBurnToken } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useBurnToken(contract);
 ```
 
 ## Usage
@@ -43,6 +45,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>amount (required)</summary>
+  <div>
+
 ### amount (required)
 
 The amount of tokens to burn.
@@ -74,3 +80,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
