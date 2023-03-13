@@ -119,6 +119,8 @@ As explained in the intro of this doc, we need to shim some of the packages avai
 </TabItem>
 <TabItem value="new" label="New Projects">
 
+Make sure to have your React Native environment setup before using the template. Please follow React Native's [Setting up the development environment](https://reactnative.dev/docs/environment-setup)
+
 <CodeBlock
 language={"bash"} >{`npx thirdweb create --template react-native-typescript-starter`}</CodeBlock>
 
