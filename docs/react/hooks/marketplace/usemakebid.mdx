@@ -15,6 +15,8 @@ Bids have several important properties:
 
 ```jsx
 import { useMakeBid } from "@thirdweb-dev/react";
+
+const { mutateAsync: makeBid, isLoading, error } = useMakeBid(contract);
 ```
 
 ## Usage
@@ -50,6 +52,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>listingId (required)</summary>
+  <div>
 
 ### listingId (required)
 
@@ -87,6 +93,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>bid (required)</summary>
+  <div>
 
 ### bid (required)
 
@@ -132,3 +145,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

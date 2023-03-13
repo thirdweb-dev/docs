@@ -10,6 +10,8 @@ Available to use on contracts that implement the [Primary Sale](/contractkit/ext
 
 ```jsx
 import { usePrimarySaleRecipient } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = usePrimarySaleRecipient(contract);
 ```
 
 ## Usage
@@ -29,8 +31,15 @@ function App() {
 
 ## Return Value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 The hook's `data` property, once loaded, is a string with the wallet address of the primary sales recipient.
 
 ```ts
 string;
 ```
+
+</div>
+</details>

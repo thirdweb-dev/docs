@@ -10,6 +10,8 @@ Available to use on contracts that implement the [Royalty](/contractkit/extensio
 
 ```jsx
 import { useRoyaltySettings } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useRoyaltySettings(contract);
 ```
 
 ## Usage
@@ -30,6 +32,10 @@ function App() {
 
 ## Return Value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 The hook's `data` property, once loaded, is an object with two properties:
 
 ```ts
@@ -42,3 +48,6 @@ The hook's `data` property, once loaded, is an object with two properties:
 - The `seller_fee_basis_points` is the royalty amount (in basis points) that the seller
   will receive for each token sale on secondary markets.
 - The `fee_recipient` is the wallet address that will receive the royalty payments.
+
+</div>
+</details>

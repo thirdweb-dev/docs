@@ -13,6 +13,8 @@ or [ERC1155](/contractkit/interfaces/erc1155) standard.
 
 ```jsx
 import { useLazyMint } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useLazyMint(contract);
 ```
 
 ## Usage
@@ -53,6 +55,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>metadatas (required)</summary>
+  <div>
+
 ### metadatas (required)
 
 An array of objects containing the metadata of the NFTs to lazy mint.
@@ -91,3 +97,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

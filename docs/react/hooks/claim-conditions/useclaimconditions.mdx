@@ -16,6 +16,8 @@ and [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20).
 
 ```jsx
 import { useClaimConditions } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useClaimConditions(contract);
 ```
 
 ## Usage
@@ -32,13 +34,15 @@ function App() {
   // Contract can be any contract that implements claim conditions.
   // Including ERC721, ERC1155, and ERC20 drop contracts.
   const { contract } = useContract(contractAddress);
-  const { data: conditions, isLoading, error } = useClaimConditions(contract);
+  const { data, isLoading, error } = useClaimConditions(contract);
 }
 ```
 
 ## Configuration
 
-### tokenId (ERC1155 only)
+<details>
+  <summary>tokenId (ERC1155 only)</summary>
+  <div>
 
 When using the hook with ERC1155 contracts, pass the `tokenId` as the second parameter; as each token can have unique claim conditions.
 
@@ -62,7 +66,12 @@ function App() {
 }
 ```
 
-### withAllowlist (optional)
+</div>
+</details>
+
+<details>
+  <summary>withAllowlist (optional)</summary>
+  <div>
 
 By default, the hook will not include the allowlist in the returned data.
 
@@ -92,7 +101,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, contains an array of objects with the following properties:
 
@@ -126,3 +142,6 @@ The hook's `data` property, once loaded, contains an array of objects with the f
   }[] | null | undefined;
 }
 ```
+
+</div>
+</details>

@@ -14,6 +14,8 @@ A listing is considered valid if the:
 
 ```jsx
 import { useValidEnglishAuctions } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useValidEnglishAuctions(contract);
 ```
 
 ## Usage
@@ -38,6 +40,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>filter (optional)</summary>
+  <div>
 
 ### filter (optional)
 
@@ -71,7 +77,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, is an
 array of `EnglishAuction` objects, each containing the following properties:
@@ -155,3 +168,6 @@ array of `EnglishAuction` objects, each containing the following properties:
 }
 [];
 ```
+
+</div>
+</details>

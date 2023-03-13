@@ -15,6 +15,8 @@ or [ERC1155](/contractkit/interfaces/erc1155) standard.
 
 ```jsx
 import { useBurnNFT } from "@thirdweb-dev/react";
+
+const { mutateAsync: burnNft, isLoading, error } = useBurnNFT(contract);
 ```
 
 ## Usage
@@ -27,7 +29,8 @@ import { useBurnNFT, useContract, Web3Button } from "@thirdweb-dev/react";
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
 // The tokenId of the NFT you want to burn
-const tokenIdToBurn = 1;
+const tokenIdToBurn = "{{tokenId}}}}";
+const amount = 1;
 
 function App() {
   const { contract } = useContract(contractAddress);
@@ -39,7 +42,7 @@ function App() {
       action={() =>
         burnNft({
           tokenId: tokenIdToBurn,
-          amount: 1,
+          amount: amount,
         })
       }
     >
@@ -50,6 +53,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>tokenId</summary>
+  <div>
 
 ### tokenId (required)
 
@@ -84,6 +91,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>amount</summary>
+  <div>
 
 ### amount (optional)
 
@@ -121,3 +135,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

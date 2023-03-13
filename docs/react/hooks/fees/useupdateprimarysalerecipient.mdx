@@ -12,6 +12,9 @@ The wallet that initiates this transaction must have the required permissions to
 
 ```jsx
 import { useUpdatePrimarySaleRecipient } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } =
+  useUpdatePrimarySaleRecipient(contract);
 ```
 
 ## Usage

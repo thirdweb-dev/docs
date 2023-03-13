@@ -17,6 +17,8 @@ Allows the seller _(the user who listed the NFT for sale)_ to accept an offer on
 
 ```jsx
 import { useAcceptDirectListingOffer } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useAcceptDirectListingOffer(contract);
 ```
 
 ## Usage
@@ -60,6 +62,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>listingId</summary>
+  <div>
+
 ### listingId (required)
 
 The `listingId` of the listing you wish to accept.
@@ -101,6 +107,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>addressOfOfferor</summary>
+  <div>
+
 ### addressOfOfferor (required)
 
 The wallet address of the user who made the offer you wish to accept.
@@ -141,3 +154,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

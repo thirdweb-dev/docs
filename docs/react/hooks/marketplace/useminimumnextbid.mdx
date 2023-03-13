@@ -13,6 +13,8 @@ and increments it by the bid buffer to calculate the minimum next bid.
 
 ```jsx
 import { useMinimumNextBid } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useMinimumNextBid(contract, listingId);
 ```
 
 ## Usage
@@ -23,7 +25,7 @@ Provide your marketplace contract and the listing ID you wish to check as the ar
 import { useContract, useMinimumNextBid } from "@thirdweb-dev/react";
 
 const contractAddress = "{{contract_address}}";
-const listingId = 0;
+const listingId = "{{listing_id}}";
 
 function App() {
   const { contract } = useContract(contractAddress, "marketplace");
@@ -32,6 +34,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>listingId (required)</summary>
+  <div>
 
 ### listingId (required)
 
@@ -56,7 +62,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, is an object containing the minimum next bid for the listing.
 
@@ -69,3 +82,6 @@ The hook's `data` property, once loaded, is an object containing the minimum nex
   displayValue: string;
 } | undefined
 ```
+
+</div>
+</details>

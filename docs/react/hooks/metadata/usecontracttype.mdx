@@ -14,6 +14,8 @@ This is useful if you want to determine if a contract is a [prebuilt contract](h
 
 ```jsx
 import { useContractType } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useContractType("{{contract_address}}");
 ```
 
 ## Usage
@@ -31,7 +33,11 @@ function App() {
 }
 ```
 
-## Return Values
+## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, will be one of the following values:
 
@@ -52,3 +58,6 @@ The hook's `data` property, once loaded, will be one of the following values:
   `vote` |
   `null`;
 ```
+
+</div>
+</details>

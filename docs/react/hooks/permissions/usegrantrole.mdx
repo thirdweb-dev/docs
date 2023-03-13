@@ -15,6 +15,8 @@ interface.
 
 ```jsx
 import { useGrantRole, useContract, Web3Button } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useGrantRole(contract);
 ```
 
 ## Usage
@@ -51,6 +53,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>role (required)</summary>
+  <div>
+
 ### role (required)
 
 The name of the role to grant the address.
@@ -70,6 +76,13 @@ string |
   "pauser" |
   "factory";
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>address (required)</summary>
+  <div>
 
 ### address (required)
 
@@ -112,3 +125,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

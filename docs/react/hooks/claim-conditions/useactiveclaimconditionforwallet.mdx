@@ -19,6 +19,11 @@ and [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20).
 
 ```jsx
 import { useActiveClaimConditionForWallet } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useActiveClaimConditionForWallet(
+  contract,
+  "{{wallet_address}}",
+);
 ```
 
 ## Usage
@@ -53,6 +58,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>address (required)</summary>
+  <div>
+
 ### address (required)
 
 The second parameter is the `address` of the wallet you want to get the active claim condition for.
@@ -82,6 +91,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>tokenId (ERC1155 only)</summary>
+  <div>
 
 ### tokenId (ERC1155 only)
 
@@ -113,7 +129,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, contains the following properties:
 
@@ -137,3 +160,6 @@ The hook's `data` property, once loaded, contains the following properties:
   };
 }
 ```
+
+</div>
+</details>

@@ -15,6 +15,8 @@ The bid buffer is what percentage higher the next bid must be than the current h
 
 ```jsx
 import { useBidBuffer } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useBidBuffer(contract, listingId);
 ```
 
 ## Usage
@@ -40,6 +42,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>listingId (required)</summary>
+  <div>
 
 ### listingId (required)
 
@@ -69,7 +75,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, returns a `BigNumber` value representing the current bid buffer.
 
@@ -79,3 +92,6 @@ bidBuffer: BigNumber;
 
 The `bidBuffer` value returned is in percentage format.
 For example, a value of `500` means that the next bid must be 5% higher than the current highest bid.
+
+</div>
+</details>

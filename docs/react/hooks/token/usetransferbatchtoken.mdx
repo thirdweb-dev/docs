@@ -13,6 +13,8 @@ and must have transfer permissions on the contract, i.e. tokens are not soulboun
 
 ```jsx
 import { useTransferBatchToken } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useTransferBatchToken(contract);
 ```
 
 ## Usage
@@ -60,3 +62,17 @@ function App() {
   );
 }
 ```
+
+## Configuration
+
+<details>
+  <summary>addresses</summary>
+  <div>
+
+An array of objects containing `to` and `amount` properties.
+
+- `to` - The wallet address to transfer tokens to. Must be a `string`.
+- `amount` - The amount of tokens to transfer. Must be a `number`.
+
+</div>
+</details>

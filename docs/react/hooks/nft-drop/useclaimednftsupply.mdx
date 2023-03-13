@@ -11,6 +11,8 @@ or [`ERC1155Claimable`](/contractkit/interfaces/erc1155claimable).
 
 ```jsx
 import { useClaimedNFTSupply } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useClaimedNFTSupply(contract);
 ```
 
 ## Usage
@@ -31,9 +33,16 @@ function App() {
 
 ## Return Value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 The hook's `data` property, once loaded, is a `BigNumber`
 representing the total supply of NFTs claimed from the NFT drop contract so far.
 
 ```ts
 BigNumber;
 ```
+
+</div>
+</details>

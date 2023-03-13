@@ -12,6 +12,8 @@ Hook to get the total number of direct listings on a [Marketplace V3](https://th
 
 ```jsx
 import { useDirectListingsCount } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useDirectListingsCount(contract);
 ```
 
 ## Usage
@@ -36,8 +38,15 @@ function App() {
 
 ## Return Value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 The hook's `data` property, once loaded, is a `BigNumber` containing the number of direct listings on the Marketplace V3 contract.
 
 ```ts
 BigNumber;
 ```
+
+</div>
+</details>
