@@ -545,6 +545,26 @@
     {
       "source": "/templates/token-gated-membership/exploring-the-example-repo",
       "destination": "/templates"
+    },
+    {
+      "source": "/ui-components",
+      "destination": "/react/react.web3button"
+    },
+    {
+      "source": "/ui-components/web3button",
+      "destination": "/react/react.web3button"
+    },
+    {
+      "source": "/ui-components/connectwalletbutton",
+      "destination": "/react/react.connectwallet"
+    },
+    {
+      "source": "/ui-components/nft-renderer",
+      "destination": "/react/react.thirdwebnftmedia"
+    },
+    {
+      "source": "/ui-components/ipfs-media-renderer",
+      "destination": "/react/react.mediarenderer"
     }
   ]
 }
