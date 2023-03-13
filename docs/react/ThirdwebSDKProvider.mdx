@@ -1,0 +1,428 @@
+---
+title: ThirdwebSDKProvider
+slug: /react.thirdwebsdkprovider
+displayed_sidebar: react
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+The `ThirdwebSDKProvider` is used when you want to provide your own wallet connection logic and just use the thirdweb SDK to
+interact with smart contracts and the blockchain. This means you can use everything in the SDK except for wallet connection-related components and hooks.
+
+Wrap your app in the `ThirdwebSDKProvider` to access the SDK&rsquo;s functionality from anywhere in your app. Provide a `signer`
+prop to inform the SDK of the wallet you want to use, among other configuration options.
+
+## Usage
+
+If you are using one of our <code>default chains</code>, provide the name of the chain as a `string` to the `activeChain` prop.
+
+For non-default chains, see [configuring active chains](#active-chain) or [custom chains](#custom-chains).
+
+You&rsquo;ll likely want to provide a `signer` to enable the initiation of transactions.
+
+<details>
+  <summary>View default chains</summary>
+  <div>
+    <ul>
+      <li>
+        <b>Ethereum</b>: <code>"ethereum"</code>
+      </li>
+      <li>
+        <b>Goerli</b>: <code>"goerli"</code>
+      </li>
+      <li>
+        <b>Polygon</b>: <code>"polygon"</code>
+      </li>
+      <li>
+        <b>Mumbai</b>: <code>"mumbai"</code>
+      </li>
+      <li>
+        <b>Arbitrum One</b>: <code>"arbitrum"</code>
+      </li>
+      <li>
+        <b>Arbitrum Goerli</b>: <code>"arbitrum-goerli"</code>
+      </li>
+      <li>
+        <b>Optimism</b>: <code>"optimism"</code>
+      </li>
+      <li>
+        <b>Optimism Goerli Testnet</b>: <code>"optimism-goerli"</code>
+      </li>
+      <li>
+        <b>Binance SmartChain</b>: <code>"binance"</code>
+      </li>
+      <li>
+        <b>Binance SmartChain Testnet</b>: <code>"binance-testnet"</code>
+      </li>
+      <li>
+        <b>Fantom Opera</b>: <code>"fantom"</code>
+      </li>
+      <li>
+        <b>Fantom Testnet</b>: <code>"fantom-testnet"</code>
+      </li>
+      <li>
+        <b>Avalanche C Chain</b>: <code>"avalanche-fuji"</code>
+      </li>
+      <li>
+        <b>Avalanche Fuji Testnet</b>: <code>"avalanche-fuji-testnet"</code>
+      </li>
+      <li>
+        <b>Localhost</b>: <code>"localhost"</code>
+      </li>
+    </ul>
+  </div>
+</details>
+
+```jsx
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
+import { ethers } from "ethers";
+
+function MyApp() {
+  return (
+    <ThirdwebSDKProvider
+      activeChain={"ethereum"}
+      // Example: Use ethers to get the signer from the window.ethereum object
+      signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
+    >
+      <Component {...pageProps} />
+    </ThirdwebSDKProvider>
+  );
+}
+```
+
+## Configuration
+
+### signer (recommended)
+
+A signer is an abstraction of an Ethereum Account,
+which can be used to sign messages and initiate transactions.
+
+Since the `ThirdwebSDKProvider` is used when you want to provide your own wallet connection logic,
+you will need to provide a `signer` prop to inform the SDK of the wallet you want to use to sign transactions.
+
+Libraries such as [ethers.js](https://docs.ethers.io/v5/), [web3.js](https://web3js.readthedocs.io/en/v1.5.2/), [wagmi](https://wagmi.sh), etc.
+all provide ways to get a signer.
+
+To use this signer with the SDK, pass it to the `signer` prop. If the signer is connected, the SDK will use this wallet
+to sign transactions for all write operations on the blockchain.
+
+```jsx
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
+// highlight-next-line
+import { ethers } from "ethers";
+
+function MyApp() {
+  return (
+    <ThirdwebSDKProvider
+      activeChain={"ethereum"}
+      // highlight-start
+      // Example: Use ethers to get the signer from the window.ethereum object
+      signer={new ethers.providers.Web3Provider(window.ethereum).getSigner()}
+      // highlight-end
+    >
+      <Component {...pageProps} />
+    </ThirdwebSDKProvider>
+  );
+}
+```
+
+### activeChain (recommended)
+
+The `activeChain` prop determines which chain you want your app to be operating on.
+
+There are 700+ chains available in the [`@thirdweb-dev/chains`](https://github.com/thirdweb-dev/js/tree/main/packages/chains) package.
+Import the chain you want to use from the package and pass it to the `activeChain` prop.
+If your chain is not included, see [configuring custom chains](#custom-chains).
+
+:::tip Install Package
+
+Install the `@thirdweb-dev/chains` package to use non-default chains.
+
+```bash npm2yarn
+npm install @thirdweb-dev/chains
+```
+
+:::
+
+```jsx
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
+// highlight-start
+import { Gnosis } from "@thirdweb-dev/chains";
+// highlight-end
+
+function MyApp() {
+  return (
+    <ThirdwebSDKProvider
+      // highlight-start
+      activeChain={Gnosis}
+      // highlight-end
+    >
+      <YourApp />
+    </ThirdwebSDKProvider>
+  );
+}
+```
+
+### Custom EVM Chains
+
+If your chain is not included in the `@thirdweb-dev/chains` package,
+you can provide the chain information yourself to the `activeChain` prop.
+
+```js
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
+
+const App = () => {
+  return (
+    <ThirdwebSDKProvider
+      activeChain={{
+        // === Required information for connecting to the network === \\
+        chainId: 59140, // Chain ID of the network
+        // Array of RPC URLs to use
+        rpc: ["<your-rpc-url-here>"],
+
+        // === Information for adding the network to your wallet (how it will appear for first time users) === \\
+        // Information about the chains native currency (i.e. the currency that is used to pay for gas)
+        nativeCurrency: {
+          decimals: 18,
+          name: "Consensys ETH",
+          symbol: "crETH",
+        },
+        shortName: "czkevm", // Display value shown in the wallet UI
+        slug: "consensys", // Display value shown in the wallet UI
+        testnet: true, // Boolean indicating whether the chain is a testnet or mainnet
+        chain: "ConsenSys", // Name of the network
+        name: "ConsenSys zkEVM Testnet", // Name of the network
+      }}
+    >
+      <YourApp />
+    </ThirdwebSDKProvider>
+  );
+};
+```
+
+<!-- ### Multiple Networks
+
+The `chains` prop defines which networks your app supports.
+
+Provide multiple networks to the `chains` prop to allow users to switch between them.
+
+- If you provide both `network` and `chains` props, the SDK uses the `network` value as the network your app is **currently** operating on.
+- If you do _not_ provide a `network`, the SDK will default to the first network in the `chains` array as the network your app is **currently** operating on.
+
+```jsx
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
+// highlight-start
+import { Mumbai, Polygon } from "@thirdweb-dev/chains";
+// highlight-end
+
+function MyApp() {
+  return (
+    <ThirdwebSDKProvider
+      // highlight-start
+      activeChain={Mumbai.chainId} // The network that the SDK will use at this point in time.
+      chains={[Polygon, Mumbai]} // Allow users to switch between Polygon and Mumbai networks.
+      // highlight-end
+    >
+      <YourApp />
+    </ThirdwebSDKProvider>
+  );
+}
+```
+
+:::tip Helper Values
+
+The `@thirdweb-dev/chains` package also exposes:
+
+- `defaultChains`: An array that contains all of the most common networks.
+- `allChains`: An array that contains all of the networks the SDK is aware of by default.
+
+```jsx
+import { defaultChains, allChains } from "@thirdweb-dev/chains";
+```
+
+::: -->
+
+### Override Default Values
+
+Override the default values (such as an RPC URL) for any given chain.
+
+:::info Optional
+By default, the SDK provides free-to-use RPCs. No configuration required!
+
+[View the default RPC URLs for each network](https://github.com/thirdweb-dev/js/tree/main/packages/chains/chains).
+:::
+
+Using the [spread syntax](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_syntax),
+you can override any properties of a chain, such as the `rpc` field.
+
+```jsx
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
+import { Dogechain } from "@thirdweb-dev/chains";
+
+const App = () => {
+  return (
+    <ThirdwebSDKProvider
+      activeChain={{
+        // highlight-start
+        ...Dogechain,
+        rpc: ["https://<your-rpc-to-use>.com"], // Override the "rpc" field.
+        // ... Override any other fields you want to customize.
+        // highlight-end
+      }}
+    >
+      <YourApp />
+    </ThirdwebSDKProvider>
+  );
+};
+```
+
+### authConfig (optional)
+
+The configuration object for setting up [Auth](/auth); allowing users to sign in with their wallet.
+
+| Property  | Type   | Description                                                                                                                                                                |
+| --------- | ------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `authUrl` | string | The backend URL of the authentication endpoints. For example, if your endpoints are at `/api/auth/login`, `/api/auth/logout`, etc. then this should be set to `/api/auth`. |
+| `domain`  | string | The frontend domain used to generate the login payload. This domain should match the domain used on your auth backend.                                                     |
+
+```jsx
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
+
+function MyApp() {
+  return (
+    <ThirdwebSDKProvider
+      // highlight-start
+      authConfig={{
+        authUrl: "/api/auth",
+        domain: "https://example.com",
+      }}
+      // highlight-end
+    >
+      <YourApp />
+    </ThirdwebSDKProvider>
+  );
+}
+```
+
+### sdkOptions (optional)
+
+Override any of the default values for the SDK.
+
+Gas settings, gasless transactions, RPC configuration, and more.
+
+```jsx
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
+
+function MyApp() {
+  return (
+    <ThirdwebSDKProvider
+      // highlight-start
+      sdkOptions={{
+        readonlySettings: {
+          rpcUrl: "<rpc-url>", // force read calls to go through your own RPC url
+          chainId: 1, // reduce RPC calls by sepcifying your chain ID
+        },
+        gasSettings: {
+          maxPriceInGwei: 123, // Maximum gas price for transactions (default 300 gwei)
+          speed: "fastest", // the tx speed setting: 'standard'|'fast|'fastest' (default: 'fastest')
+        },
+        gasless: {
+          // By specifying a gasless configuration - all transactions will get forwarded to enable gasless transactions
+          openzeppelin: {
+            relayerUrl: "<open-zeppelin-relayer-url>", // your OZ Defender relayer URL
+            relayerForwarderAddress: "<open-zeppelin-forwarder-address>", // the OZ defender relayer address (defaults to the standard one)
+          },
+          biconomy: {
+            apiId: "biconomy-api-id", // your Biconomy API Id
+            apiKey: "biconomy-api-key", // your Biconomy API Key
+            deadlineSeconds: 123, // your Biconomy timeout preference
+          },
+        },
+        infuraApiKey: "<infura-api-key>", // your Infura API key
+        alchemyApiKey: "<alchemy-api-key>", // your Alchemy API key
+        thirdwebApiKey: "<thirdweb-api-key>", // your thirdweb API key
+      }}
+      // highlight-end
+    >
+      <YourApp />
+    </ThirdwebSDKProvider>
+  );
+}
+```
+
+### storageInterface (optional)
+
+Override the default [Storage](/storage) interface used by the SDK.
+
+Allows you to create an instance of `ThirdwebStorage` with your own customized config, and pass it to the SDK.
+
+:::tip Storage
+
+This requires the `@thirdweb-dev/storage` package to be installed.
+
+[Learn more about Storage](/storage)
+
+:::
+
+```jsx
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
+import {
+  ThirdwebStorage,
+  StorageDownloader,
+  IpfsUploader,
+} from "@thirdweb-dev/storage";
+
+// Configure a custom ThirdwebStorage instance
+const gatewayUrls = {
+  "ipfs://": [
+    "https://gateway.ipfscdn.io/ipfs/",
+    "https://cloudflare-ipfs.com/ipfs/",
+    "https://ipfs.io/ipfs/",
+  ],
+};
+const downloader = new StorageDownloader();
+const uploader = new IpfsUploader();
+const storage = new ThirdwebStorage({ uploader, downloader, gatewayUrls });
+
+// Provide the custom storage instance to the SDK
+function MyApp() {
+  return (
+    <ThirdwebSDKProvider
+      // highlight-start
+      storageInterface={storage}
+      // highlight-end
+    >
+      <YourApp />
+    </ThirdwebSDKProvider>
+  );
+}
+```
+
+### queryClient (optional)
+
+If you are using [React Query](https://react-query.tanstack.com/) and have your own `QueryClient`, (or are using [wagmi](https://wagmi.sh)),
+you can pass it as the `queryClient` prop to use this client instead of the SDK's default client.
+
+```jsx
+import { ThirdwebSDKProvider } from "@thirdweb-dev/react";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+function MyApp() {
+  // Your React Query client (or client from other library such as wagmi)
+  const queryClient = new QueryClient();
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ThirdwebSDKProvider
+        // highlight-start
+        queryClient={queryClient}
+        // highlight-end
+      >
+        <YourApp />
+      </ThirdwebSDKProvider>
+    </QueryClientProvider>
+  );
+}
+```

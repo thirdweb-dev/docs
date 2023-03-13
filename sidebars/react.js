@@ -34,6 +34,11 @@ const sidebars = {
       id: "ThirdwebProvider",
     },
     {
+      type: "doc",
+      label: "ThirdwebSDKProvider",
+      id: "ThirdwebSDKProvider",
+    },
+    {
       type: "category",
       label: "UI Components",
       collapsed: false,
