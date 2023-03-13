@@ -18,6 +18,8 @@ Returns an array value containing two elements.
 
 ```jsx
 import { useNetwork } from "@thirdweb-dev/react";
+
+const [{ data, error, loading }, switchNetwork] = useNetwork();
 ```
 
 ## Usage
@@ -26,8 +28,6 @@ import { useNetwork } from "@thirdweb-dev/react";
 import { ChainId, useNetwork } from "@thirdweb-dev/react";
 
 function App() {
-  const [{ data, error, loading }, switchNetwork] = useNetwork();
-
   // Button to switch network to Goerli
   return (
     <button onClick={() => switchNetwork?.(ChainId.Goerli)}>
@@ -38,6 +38,10 @@ function App() {
 ```
 
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, contains the following properties:
 
@@ -72,3 +76,6 @@ readonly [{
     error: undefined;
 }>) | undefined];
 ```
+
+</div>
+</details>

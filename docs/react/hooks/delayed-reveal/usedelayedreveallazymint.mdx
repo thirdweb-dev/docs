@@ -18,6 +18,8 @@ interfaces.
 
 ```jsx
 import { useDelayedRevealLazyMint } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useDelayedRevealLazyMint(contract);
 ```
 
 ## Usage
@@ -71,6 +73,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>placeholder</summary>
+    <div>
+
 ### placeholder (required)
 
 The placeholder object represents the metadata the NFTs will have until the owner reveals the metadata.
@@ -122,6 +128,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>metadatas</summary>
+    <div>
 
 ### metadatas (required)
 
@@ -176,6 +189,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>password</summary>
+    <div>
 
 ### password (required)
 
@@ -234,3 +254,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

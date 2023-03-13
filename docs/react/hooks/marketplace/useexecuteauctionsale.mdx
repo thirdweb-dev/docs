@@ -18,6 +18,8 @@ to the buyer and the funds to the seller.
 
 ```jsx
 import { useExecuteAuctionSale } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useExecuteAuctionSale(contract);
 ```
 
 ## Usage
@@ -62,6 +64,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>listingId</summary>
+  <div>
+
 ### listingId
 
 The ID of the auction listing to execute the sale on.
@@ -102,3 +108,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

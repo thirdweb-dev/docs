@@ -10,6 +10,8 @@ Available to use on contracts that implement the [PlatformFee](/contractkit/exte
 
 ```jsx
 import { usePlatformFees } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = usePlatformFees(contract);
 ```
 
 ## Usage
@@ -30,6 +32,10 @@ function App() {
 
 ## Return Value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 The hook's `data` property, once loaded, is an object containing two fields:
 
 - `platform_fee_basis_points`: the platform fee basis points set on the contract
@@ -43,3 +49,6 @@ _Note_: The basis points are in percentage format, meaning that a value of `500`
   platform_fee_recipient: string;
 }
 ```
+
+</div>
+</details>

@@ -12,6 +12,8 @@ Hook to get a specific direct listing from a [Marketplace V3](https://thirdweb.c
 
 ```jsx
 import { useDirectListing } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useDirectListing(contract, listingId);
 ```
 
 ## Usage
@@ -39,6 +41,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>listingId</summary>
+  <div>
 
 ### listingId (required)
 
@@ -70,7 +76,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, is a `DirectListingV3` object, containing the following properties:
 
@@ -132,3 +145,6 @@ The hook's `data` property, once loaded, is a `DirectListingV3` object, containi
   status: Status;
 }
 ```
+
+</div>
+</details>

@@ -16,6 +16,11 @@ and [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20).
 
 ```jsx
 import { useClaimIneligibilityReasons } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useClaimIneligibilityReasons(contract, {
+  walletAddress: "{{wallet_address}}",
+  quantity: 1,
+});
 ```
 
 ## Usage
@@ -39,7 +44,9 @@ function App() {
 
 ## Configuration
 
-### eligibilityParams (required)
+<details>
+  <summary>eligibilityParams (required)</summary>
+  <div>
 
 The conditions to check eligibility for. The `walletAddress` and `quantity` properties are required.
 
@@ -68,7 +75,12 @@ function App() {
 }
 ```
 
-### tokenId (ERC1155)
+</div>
+</details>
+
+<details>
+  <summary>tokenId (ERC1155)</summary>
+  <div>
 
 When using ERC1155 contracts, provide a third argument to specify the token ID.
 
@@ -95,7 +107,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, contains an array of `ClaimEligibility` strings, which may be empty.
 
@@ -127,3 +146,6 @@ export enum ClaimEligibility {
   Unknown = "No claim conditions found.",
 }
 ```
+
+</div>
+</details>

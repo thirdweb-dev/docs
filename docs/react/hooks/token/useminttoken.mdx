@@ -13,6 +13,8 @@ The wallet address that initiates this transaction must have minting permissions
 
 ```jsx
 import { useMintToken } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useMintToken(contract);
 ```
 
 ## Usage
@@ -49,6 +51,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>amount (required)</summary>
+  <div>
+
 ### amount (required)
 
 The quantity of tokens to mint. Can be a `string` or `number`.
@@ -82,6 +88,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>to (required)</summary>
+  <div>
 
 ### to (required)
 
@@ -123,3 +136,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

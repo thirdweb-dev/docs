@@ -13,6 +13,8 @@ or [ERC1155](https://portal.thirdweb.com/contractkit/interfaces/erc1155) standar
 
 ```jsx
 import { useTotalCirculatingSupply } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useTotalCirculatingSupply(contract);
 ```
 
 ## Usage
@@ -32,6 +34,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>tokenId (ERC1155 only)</summary>
+  <div>
 
 ### tokenId (ERC1155 only)
 
@@ -55,10 +61,20 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook returns a `BigNumber` representing the total circulating supply.
 
 ```ts
 BigNumber;
 ```
+
+</div>
+</details>

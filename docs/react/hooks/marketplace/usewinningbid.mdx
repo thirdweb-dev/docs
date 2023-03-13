@@ -8,6 +8,8 @@ Hook for getting the winning bid of an auction listing on a [Marketplace](https:
 
 ```jsx
 import { useWinningBid } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useWinningBid(contract, listingId);
 ```
 
 ## Usage
@@ -29,6 +31,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>listingId (required)</summary>
+  <div>
 
 ### listingId (required)
 
@@ -55,7 +61,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, is an object of type `Offer`, or `undefined` if no winning bid exists.
 
@@ -87,3 +100,6 @@ The hook's `data` property, once loaded, is an object of type `Offer`, or `undef
   currencyContractAddress: string;
 } | undefined;
 ```
+
+</div>
+</details>

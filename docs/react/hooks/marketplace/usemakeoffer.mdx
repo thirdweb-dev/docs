@@ -8,6 +8,8 @@ Hook for placing an offer on a [Marketplace](https://thirdweb.com/thirdweb.eth/M
 
 ```jsx
 import { useMakeOffer } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useMakeOffer(contract);
 ```
 
 ## Usage
@@ -45,6 +47,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>listingId</summary>
+    <div>
+
 ### listingId (required)
 
 The ID of the listing to make an offer on.
@@ -81,6 +87,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>pricePerToken</summary>
+    <div>
 
 ### pricePerToken (required)
 
@@ -120,6 +133,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>quantity</summary>
+    <div>
+
 ### quantity (optional)
 
 Used for ERC1155 NFTs, where multiple quantity of the same NFT can be bought at once.
@@ -157,3 +177,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

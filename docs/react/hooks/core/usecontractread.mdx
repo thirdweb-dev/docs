@@ -12,6 +12,8 @@ Generic hook for reading any data from a smart contract via it&rsquo;s function/
 
 ```jsx
 import { useContractRead } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useContractRead(contract, "getName");
 ```
 
 ## Usage
@@ -34,6 +36,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>Function Name</summary>
+  <div>
+
 ### Function Name
 
 The function name you provide should be the name of the function in your smart contract.
@@ -55,6 +61,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>Arguments</summary>
+  <div>
 
 ### Arguments
 
@@ -88,6 +101,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>Call Overrides</summary>
+  <div>
 
 ### Call Overrides (optional)
 
@@ -127,3 +147,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

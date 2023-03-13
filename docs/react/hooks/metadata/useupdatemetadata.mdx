@@ -12,6 +12,8 @@ The wallet initiating this transaction must have the required permissions to upd
 
 ```jsx
 import { useUpdateMetadata } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useUpdateMetadata(contract);
 ```
 
 ## Usage

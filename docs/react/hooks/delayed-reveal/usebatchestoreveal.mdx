@@ -18,6 +18,8 @@ interfaces, such as the [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721)
 
 ```jsx
 import { useBatchesToReveal } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useBatchesToReveal(contract);
 ```
 
 ## Usage
@@ -39,6 +41,10 @@ function App() {
 
 ## Return Value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 The hook's `data` property, once loaded, contains an array of batches that need to be revealed.
 
 Each batch is an object with the following properties:
@@ -50,3 +56,6 @@ Each batch is an object with the following properties:
   placeholderMetadata: NFTMetadata;
 }
 ```
+
+</div>
+</details>

@@ -16,6 +16,8 @@ use [useListingsCount](/react/react.usedirectlistingscount) or [useEnglishAuctio
 
 ```jsx
 import { useListingsCount } from "@thirdweb-dev/react";
+
+const { data: listingsCount, isLoading, error } = useListingsCount(contract);
 ```
 
 ## Usage
@@ -35,8 +37,15 @@ function App() {
 
 ## Return Value
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 The hook's `data` property, once loaded, is a `BigNumber` containing the total number of listings on the contract.
 
 ```ts
 BigNumber | undefined;
 ```
+
+</div>
+</details>

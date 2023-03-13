@@ -12,6 +12,8 @@ and [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20).
 
 ```jsx
 import { useSetClaimConditions } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useSetClaimConditions(contract);
 ```
 
 ## Usage
@@ -103,6 +105,10 @@ Provide an array of phases that occur in chronological order.
 
 Below, each property of a phase is described. Each property is optional.
 
+<details>
+  <summary>metadata</summary>
+  <div>
+
 ### metadata
 
 An object representing the metadata of the phase.
@@ -114,6 +120,13 @@ This is only for display purposes in the dashboard and isn&rsquo;t used elsewher
   name: string;
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>currencyAddress</summary>
+  <div>
 
 ### currencyAddress
 
@@ -166,17 +179,38 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>price</summary>
+  <div>
+
 ### price
 
 The price per token in the currency specified above.
 
 The default value is `0`.
 
+</div>
+</details>
+
+<details>
+  <summary>maxClaimablePerWallet</summary>
+  <div>
+
 ### maxClaimablePerWallet
 
 The maximum number of tokens a wallet can claim.
 
 The default value is `unlimited`.
+
+</div>
+</details>
+
+<details>
+  <summary>maxClaimableSupply</summary>
+  <div>
 
 ### maxClaimableSupply
 
@@ -188,17 +222,38 @@ then only 100 tokens will be claimable in this phase, leaving 900 tokens to be c
 This is useful for "early bird" use cases, where you allow users to claim a limited number of tokens at a discounted price during
 the first X amount of time.
 
+</div>
+</details>
+
+<details>
+  <summary>startTime</summary>
+  <div>
+
 ### startTime
 
 When the phase starts (i.e. when users can start claiming tokens).
 
 The default value is immediately.
 
+</div>
+</details>
+
+<details>
+  <summary>waitInSeconds</summary>
+  <div>
+
 ### waitInSeconds
 
 The amount of time between claims a wallet must wait before they can claim again.
 
 The default value is `0`, meaning users can claim again immediately after claiming.
+
+</div>
+</details>
+
+<details>
+  <summary>snapshot</summary>
+  <div>
 
 ### snapshot
 
@@ -218,8 +273,18 @@ different currency, have a different price, and have a different maximum claimab
 
 [Learn more about improved claim conditions](https://blog.thirdweb.com/announcing-improved-claim-conditions/).
 
+</div>
+</details>
+
+<details>
+  <summary>merkleRootHash</summary>
+  <div>
+
 ### merkleRootHash
 
 If you want to provide your own merkle tree for your snapshot, provide the merkle root hash here.
 
 This is only recommended for advanced use cases.
+
+</div>
+</details>

@@ -13,6 +13,8 @@ or [MarketplaceV3](https://thirdweb.com/thirdweb.eth/MarketplaceV3) contract.
 
 ```jsx
 import { useAuctionWinner } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useAuctionWinner(contract, listingId);
 ```
 
 ## Usage
@@ -24,17 +26,22 @@ import { useAuctionWinner, useContract } from "@thirdweb-dev/react";
 
 // Your smart contract address
 const contractAddress = "{{contract_address}}";
+const listingId = "{{listing_id}}";
 
 function App() {
   const { contract } = useContract(contractAddress, "marketplace");
   const { data, isLoading, error } = useAuctionWinner(
     contract,
-    1, // The listing id of the item that you want to get the auction winner for
+    listingId, // The listing id of the item that you want to get the auction winner for
   );
 }
 ```
 
 ## Configuration
+
+<details>
+  <summary>listingId</summary>
+  <div>
 
 ### listingId (required)
 
@@ -60,7 +67,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, contains a string
 representing the address of the auction winner, or undefined if there is no winner.
@@ -68,3 +82,6 @@ representing the address of the auction winner, or undefined if there is no winn
 ```ts
 string | undefined;
 ```
+
+</div>
+</details>

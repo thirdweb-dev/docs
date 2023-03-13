@@ -10,6 +10,8 @@ Available to use on smart contracts that implement the [PlatformFee](/contractki
 
 ```jsx
 import { useUpdatePlatformFees } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useUpdatePlatformFees(contract);
 ```
 
 ## Usage
@@ -52,6 +54,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>platform_fee_basis_points</summary>
+  <div>
+
 ### platform_fee_basis_points (required)
 
 The `platform_fee_basis_points` property is a `number` between `0` - `10000` that defines the fee rate.
@@ -93,6 +99,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>fee_recipient</summary>
+  <div>
+
 ### fee_recipient (required)
 
 The `fee_recipient` property is the address of the wallet that will receive the fees.
@@ -133,3 +146,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
