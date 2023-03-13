@@ -34,15 +34,15 @@ Connect to user’s wallets, interact with smart contracts, sign messages, and u
 Our SDK supports Android `minSdkVersion = 23` and `ios.platform >= 13`
 
 <Tabs>
-  <TabItem value="npm" label="npm" default>
-    <CodeBlock
-      language={"bash"}
-    >{`npm i 'ethers@^5.0.0' node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage @thirdweb-dev/react-native @thirdweb-dev/react-native-compat`}</CodeBlock>
-  </TabItem>
-  <TabItem value="yarn" label="yarn">
+  <TabItem value="yarn" label="yarn" default>
     <CodeBlock
       language={"bash"}
     >{`yarn add 'ethers@^5.0.0' node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage @thirdweb-dev/react-native @thirdweb-dev/react-native-compat`}</CodeBlock>
+  </TabItem>
+  <TabItem value="npm" label="npm">
+    <CodeBlock
+      language={"bash"}
+    >{`npm i 'ethers@^5.0.0' node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage @thirdweb-dev/react-native @thirdweb-dev/react-native-compat`}</CodeBlock>
   </TabItem>
   <TabItem value="pnpm" label="pnpm">
     <CodeBlock
@@ -121,8 +121,21 @@ As explained in the intro of this doc, we need to shim some of the packages avai
 
 Make sure to have your React Native environment setup before using the template. Please follow React Native's [Setting up the development environment](https://reactnative.dev/docs/environment-setup)
 
-<CodeBlock
-language={"bash"} >{`npx thirdweb create --template react-native-typescript-starter`}</CodeBlock>
+<Tabs>
+  <TabItem value="thirdweb-cli" label="Thirdweb CLI" default>
+    <CodeBlock
+      language={"bash"}
+    >{`npx thirdweb create --template react-native-typescript-starter`}</CodeBlock>
+  </TabItem>
+  <TabItem value="react-native-cli" label="React Native CLI">
+    Alternatively you can use the React Native CLI. Note that you need to follow
+    `Existing Projects` steps in this guide after executing the following
+    command:
+    <CodeBlock
+      language={"bash"}
+    >{`npx react-native init MyRNApp --template react-native-template-typescript`}</CodeBlock>
+  </TabItem>
+</Tabs>
 
 </TabItem>
 </Tabs>
