@@ -16,6 +16,11 @@ Available to use on contracts that implement the [ERC20](/contractkit/interfaces
 
 ```jsx
 import { useTokenBalance } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useTokenBalance(
+  contract,
+  "{{wallet_address}}",
+);
 ```
 
 ## Usage
@@ -43,6 +48,10 @@ function App() {
 
 The hook returns an object containing the following properties:
 
+<details>
+  <summary>Return Value</summary>
+  <div>
+
 ```ts
 {
   // The symbol of the token
@@ -61,3 +70,6 @@ The hook returns an object containing the following properties:
   displayValue: string;
 }
 ```
+
+</div>
+</details>

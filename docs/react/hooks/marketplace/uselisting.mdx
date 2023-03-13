@@ -16,6 +16,8 @@ use [useDirectListing](/react/react.useDirectListing) or [useEnglishAuction](/re
 
 ```jsx
 import { useListing } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useListing(contract, "{{listing_id}}");
 ```
 
 ## Usage
@@ -35,6 +37,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>listingId</summary>
+  <div>
 
 ### listingId
 
@@ -57,7 +63,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, is an object containing the desired listing data.
 
@@ -184,3 +197,6 @@ interface DirectListing {
   type: ListingType.Direct;
 }
 ```
+
+</div>
+</details>

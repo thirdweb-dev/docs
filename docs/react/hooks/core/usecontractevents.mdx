@@ -8,6 +8,8 @@ Hook for reading events emitted by a smart contract, including new events as the
 
 ```jsx
 import { useContractEvents } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useContractEvents(contract);
 ```
 
 ## Usage
@@ -29,6 +31,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>eventName</summary>
+  <div>
 
 ### eventName (optional)
 
@@ -52,6 +58,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>options</summary>
+  <div>
 
 ### options (optional)
 
@@ -90,7 +103,14 @@ function App() {
   );
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, contains an array of event objects, each containing the following properties:
 
@@ -111,3 +131,6 @@ The hook's `data` property, once loaded, contains an array of event objects, eac
   }
 }
 ```
+
+</div>
+</details>

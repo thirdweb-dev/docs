@@ -16,6 +16,8 @@ such as the [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20/2.0.0).
 
 ```jsx
 import { useClaimToken } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useClaimToken(contract);
 ```
 
 ## Usage
@@ -49,6 +51,10 @@ function App() {
 ```
 
 ## Parameters
+
+<details>
+  <summary>to (required)</summary>
+  <div>
 
 ### to (required)
 
@@ -92,6 +98,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>amount (required)</summary>
+  <div>
+
 ### amount (required)
 
 The amount of tokens to be claimed.
@@ -123,6 +136,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>checkERC20Allowance (optional)</summary>
+  <div>
 
 ### checkERC20Allowance (optional)
 
@@ -164,3 +184,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

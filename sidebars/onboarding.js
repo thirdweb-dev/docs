@@ -61,7 +61,7 @@ const sidebars = {
     {
       type: "link",
       label: "UI Components",
-      href: "/ui-components",
+      href: "/react/react.connectwallet",
     },
     {
       type: "link",

@@ -9,6 +9,8 @@ direct listing on a [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace)
 
 ```jsx
 import { useOffers } from "@thirdweb-dev/react";
+
+const { data: offers, isLoading, error } = useOffers(contract, listingId);
 ```
 
 ## Usage
@@ -33,6 +35,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>listingId (required)</summary>
+  <div>
 
 ### listingId (required)
 
@@ -64,7 +70,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 This hook uses the [`useEvents`](/react.useevents) hook under the hood to fetch `NewOffer` events for the given listing ID.
 
@@ -89,3 +102,6 @@ The return value is an array of `NewOffer` event objects. Each event object has 
   }
 }
 ```
+
+</div>
+</details>

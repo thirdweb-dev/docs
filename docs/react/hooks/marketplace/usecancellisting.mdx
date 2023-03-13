@@ -15,6 +15,8 @@ Hook for canceling an existing auction or listing on a
 
 ```jsx
 import { useCancelListing } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useCancelListing(contract);
 ```
 
 ## Usage
@@ -56,6 +58,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>listingId (required)</summary>
+  <div>
+
 ### listingId (required)
 
 The ID of the listing you want to cancel.
@@ -94,6 +100,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>listingType (required)</summary>
+  <div>
+
 ### listingType (required)
 
 The type of listing you are canceling. Either `ListingType.Direct` (0) or `ListingType.Auction` (1).
@@ -129,3 +142,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

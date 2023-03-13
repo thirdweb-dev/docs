@@ -10,6 +10,12 @@ Available to use on contracts that implement [Permission Controls](/contractkit/
 
 ```jsx
 import { useIsAddressRole } from "@thirdweb-dev/react";
+
+const isMember = useIsAddressRole(
+  contract,
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
 ```
 
 ## Usage
@@ -39,6 +45,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>roleName (reuqired)</summary>
+  <div>
 
 ### roleName (reuqired)
 
@@ -70,6 +80,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>walletAddress (reuqired)</summary>
+  <div>
+
 ### walletAddress (reuqired)
 
 The wallet address to check if it is a member of the role.
@@ -99,10 +116,20 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's returns a boolean, indicating if the given address is a member of the role. `true` if it is, and `false` if it isn't.
 
 ```ts
 boolean;
 ```
+
+</div>
+</details>

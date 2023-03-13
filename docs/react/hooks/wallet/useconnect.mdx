@@ -9,6 +9,8 @@ as defined in the [`ThirdwebProvider`&rsquo;s `walletConnectors` prop](/react/re
 
 ```jsx
 import { useConnect } from "@thirdweb-dev/react";
+
+const [{ data }, connect] = useConnect();
 ```
 
 ## Usage
@@ -22,6 +24,10 @@ function App() {
 ```
 
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The data property contains an object with the following properties:
 
@@ -43,3 +49,6 @@ and connects the user to your dapp using that connector.
     error?: Error | undefined;
   }>;
 ```
+
+</div>
+</details>

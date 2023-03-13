@@ -9,6 +9,8 @@ i.e. the chain specified in the [`activeChain`](/react/react.thirdwebprovider#ac
 
 ```jsx
 import { useNetworkMismatch } from "@thirdweb-dev/react";
+
+const isMismatched = useNetworkMismatch();
 ```
 
 ## Usage
@@ -25,10 +27,17 @@ const App = () => {
 
 Using this value, you can prompt users to switch their network using the [`useNetwork`](/react/react.useNetwork) hook.
 
-## Return value
+## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 Returns `true` if the `chainId` of the connected wallet is different from the `chainId` of the [`activeChain`](/react/react.thirdwebprovider#activechain) on the [`</ThirdwebProvider`](/react/react.thirdwebprovider).
 
 ```ts
 boolean;
 ```
+
+</div>
+</details>

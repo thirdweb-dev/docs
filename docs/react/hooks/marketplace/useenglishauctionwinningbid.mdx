@@ -13,6 +13,11 @@ Hook to get the winning bid for an English auction listing from a
 
 ```jsx
 import { useEnglishAuctionWinningBid } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useEnglishAuctionWinningBid(
+  contract,
+  listingId,
+);
 ```
 
 ## Usage
@@ -40,6 +45,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>listingId (required)</summary>
+  <div>
 
 ### listingId (required)
 
@@ -71,7 +80,14 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 If there are no bids, the `data` property will be `undefined`. Use the `isLoading` property to differentiate between
 the loading state and the no bids state.
@@ -108,3 +124,6 @@ If there is a bid, the hook's `data` property, once loaded, will be an object of
   }
 }
 ```
+
+</div>
+</details>

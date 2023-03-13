@@ -14,6 +14,8 @@ The wallet address that initiates this transaction must have minting permissions
 
 ```jsx
 import { useMintNFTSupply } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useMintNFTSupply(contract);
 ```
 
 ## Usage
@@ -55,6 +57,10 @@ function App() {
 ```
 
 ## Configuration
+
+<details>
+  <summary>additionalSupply</summary>
+  <div>
 
 ### additionalSupply (required)
 
@@ -99,6 +105,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>to</summary>
+  <div>
 
 ### to (required)
 
@@ -147,6 +160,13 @@ function App() {
 }
 ```
 
+</div>
+</details>
+
+<details>
+  <summary>tokenId</summary>
+  <div>
+
 ### tokenId (required)
 
 The token ID of the NFT to mint additional supply to.
@@ -188,3 +208,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

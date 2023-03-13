@@ -12,6 +12,8 @@ The wallet address that initiates this transaction must have the relevant permis
 
 ```jsx
 import { useRevokeRole } from "@thirdweb-dev/react";
+
+const { mutateAsync, isLoading, error } = useRevokeRole(contract);
 ```
 
 ## Usage
@@ -48,7 +50,11 @@ function App() {
 
 ## Configuration
 
-### role (reuqired)
+<details>
+  <summary>role</summary>
+  <div>
+
+### role (required)
 
 The role to revoke from the wallet address.
 
@@ -84,6 +90,13 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>
+
+<details>
+  <summary>address</summary>
+  <div>
 
 ### address
 
@@ -126,3 +139,6 @@ function App() {
   );
 }
 ```
+
+</div>
+</details>

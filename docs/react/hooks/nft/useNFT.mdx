@@ -19,6 +19,8 @@ property available as a URL through our IPFS gateway (if the image is hosted on 
 
 ```jsx
 import { useNFT } from "@thirdweb-dev/react";
+
+const { data, isLoading, error } = useNFT(contract, "{{token_id}}");
 ```
 
 ## Usage
@@ -45,6 +47,10 @@ function App() {
 
 ## Configuration
 
+<details>
+  <summary>tokenId</summary>
+  <div>
+
 ### tokenId
 
 The token ID of the NFT you want to fetch.
@@ -70,15 +76,14 @@ function App() {
 }
 ```
 
-<!-- ## Demo Playground
-
-Edit the code below to see how the hook works and what data is returned.
-
-_Note: Playground uses the Goerli test network._
-
-<UseNFTHook /> -->
+</div>
+</details>
 
 ## Return Value
+
+<details>
+  <summary>Return Value</summary>
+  <div>
 
 The hook's `data` property, once loaded, contains the following properties:
 
@@ -105,3 +110,6 @@ The hook's `data` property, once loaded, contains the following properties:
     quantityOwned?: number;  // Only available for ERC1155
 }
 ```
+
+</div>
+</details>

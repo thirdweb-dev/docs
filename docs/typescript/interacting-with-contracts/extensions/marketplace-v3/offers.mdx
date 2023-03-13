@@ -129,7 +129,7 @@ const offers = await contract.offers.getAllValid();
 Filter the results returned by the function.
 
 ```javascript
-const offers = await contract.offers.getAll({
+const offers = await contract.offers.getAllValid({
   offeror: "{{wallet_address}}", // Offers made by this wallet address
   seller: "{{wallet_address}}", // Offers on items being sold by this wallet address
   tokenContract: "{{contract_address}}", // Offers on items from this contract
