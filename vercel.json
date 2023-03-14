@@ -565,6 +565,14 @@
     {
       "source": "/ui-components/ipfs-media-renderer",
       "destination": "/react/react.mediarenderer"
+    },
+    {
+      "source": "/typescript/sdk.thirdwebsdk.fromwallet",
+      "destination": "/typescript/sdk.thirdwebsdk.fromwallet"
+    },
+    {
+      "source": "/sdk/set-up-the-sdk/securing-your-private-key",
+      "destination": "/typescript/sdk.thirdwebsdk.fromwallet"
     }
   ]
 }
