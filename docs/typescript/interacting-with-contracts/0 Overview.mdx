@@ -11,12 +11,12 @@ import CodeBlock from "@theme/CodeBlock";
 The TypeScript SDK provides different ways for you to interact with smart contract functionality:
 
 1. Generic reading data _from_ and writing transactions _to_ smart contracts using the [`call`](/typescript/sdk.smartcontract.call) method.
-2. Using special features that are available for each [extension](/contractkit/interfaces) that your smart contract implements.
+2. Using special features that are available for each [extension](/solidity/interfaces) that your smart contract implements.
 
 ## Extensions
 
-Each [extension](/contractkit/interfaces) _(i.e. Solidity interface)_ that your smart contract implements unlocks new functionality for you to use in the SDK.
-For example, NFT collection smart contracts implements the [ERC721](/contractkit/interfaces/erc721) extension,
+Each [extension](/solidity/interfaces) _(i.e. Solidity interface)_ that your smart contract implements unlocks new functionality for you to use in the SDK.
+For example, NFT collection smart contracts implements the [ERC721](/solidity/interfaces/erc721) extension,
 allowing you can to use the [ERC721](/typescript/sdk.erc721) extension in the SDK when interacting with that contract.
 
 These extension interfaces are available for the most common EIP standards, including support for ERC20, ERC721, ERC1155, permissions, metadata,

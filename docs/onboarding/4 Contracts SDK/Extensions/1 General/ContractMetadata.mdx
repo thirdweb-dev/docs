@@ -1,5 +1,5 @@
 ---
-slug: /contractkit/extension-contracts/contractmetadata
+slug: /solidity/extension-contracts/contractmetadata
 title: Contract Metadata
 ---
 
@@ -21,7 +21,7 @@ The `ContractMetadata` smart contract is an extension usable with any base smart
 
 ## Availability in base contracts
 
-The `ContractMetadata` extension is _already_ available in the following [base contracts](/contractkit/base-contracts):
+The `ContractMetadata` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
 
 - All ERC20, ERC721 and ERC1155 base contracts.
 
@@ -45,7 +45,7 @@ The `ContractMetadata` extension is an _abstract contract_, and expects you to i
 
 | Name                                                                                         | Type                    | Parameters | Returns | Description                                                                                                                             |
 | -------------------------------------------------------------------------------------------- | ----------------------- | ---------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSetContractURI`](/contractkit/extension-contracts/contractmetadata#_cansetcontracturi) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the metadata of the contract. Returns whether contract metadata can be set in the given execution context. |
+| [`_canSetContractURI`](/solidity/extension-contracts/contractmetadata#_cansetcontracturi) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the metadata of the contract. Returns whether contract metadata can be set in the given execution context. |
 
 ```solidity
 // SPDX-License-Identifier: MIT

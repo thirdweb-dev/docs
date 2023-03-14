@@ -1,5 +1,5 @@
 ---
-slug: /contractkit/extension-contracts/primarysale
+slug: /solidity/extension-contracts/primarysale
 title: Primary Sale
 ---
 
@@ -22,11 +22,11 @@ import "@thirdweb-dev/contracts/extension/PrimarySale.sol";
 
 ## Availability in base contracts
 
-The `PrimarySale` extension is _already_ available in the following [base contracts](/contractkit/base-contracts):
+The `PrimarySale` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
 
-- **ERC20**: [`ERC20Drop`](/contractkit/base-contracts/erc-20/erc20drop), [`ERC20SignatureMint`](/contractkit/base-contracts/erc-20/erc20signaturemint), [`ERC20DropVote`](/contractkit/base-contracts/erc-20/erc20drop-vote), [`ERC20SignatureMintVote`](/contractkit/base-contracts/erc-20/erc20signaturemint-vote)
-- **ERC721**: [`ERC721Drop`](/contractkit/base-contracts/erc-721/erc721drop), [`ERC721SignatureMint`](/contractkit/base-contracts/erc-721/erc721signaturemint)
-- **ERC1155**: [`ERC1155Drop`](/contractkit/base-contracts/erc-1155/erc1155drop), [`ERC1155SignatureMint`](/contractkit/base-contracts/erc-1155/erc1155signaturemint)
+- **ERC20**: [`ERC20Drop`](/solidity/base-contracts/erc-20/erc20drop), [`ERC20SignatureMint`](/solidity/base-contracts/erc-20/erc20signaturemint), [`ERC20DropVote`](/solidity/base-contracts/erc-20/erc20drop-vote), [`ERC20SignatureMintVote`](/solidity/base-contracts/erc-20/erc20signaturemint-vote)
+- **ERC721**: [`ERC721Drop`](/solidity/base-contracts/erc-721/erc721drop), [`ERC721SignatureMint`](/solidity/base-contracts/erc-721/erc721signaturemint)
+- **ERC1155**: [`ERC1155Drop`](/solidity/base-contracts/erc-1155/erc1155drop), [`ERC1155SignatureMint`](/solidity/base-contracts/erc-1155/erc1155signaturemint)
 
 ## Unlocked Features
 
@@ -48,7 +48,7 @@ The `PrimarySale` extension is an _abstract contract_, and expects you to implem
 
 | Name                                                                                                      | Type                    | Parameters | Returns | Description                                                                                                                     |
 | --------------------------------------------------------------------------------------------------------- | ----------------------- | ---------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSetPrimarySaleRecipient`](/contractkit/extension-contracts/primarysale#_cansetprimarysalerecipient) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set a new primary sale recipient. Returns whether this info can be set in the given execution context. |
+| [`_canSetPrimarySaleRecipient`](/solidity/extension-contracts/primarysale#_cansetprimarysalerecipient) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set a new primary sale recipient. Returns whether this info can be set in the given execution context. |
 
 ```solidity
 // SPDX-License-Identifier: MIT

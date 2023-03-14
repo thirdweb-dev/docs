@@ -24,7 +24,7 @@ Select which card best describes your contract needs below.
 <h3>Creating A Project</h3>
 
 We can use the [CLI](/cli) to create a new project with a smart contract inside,
-and [ContractKit](/contractkit) installed for us.
+and [Solidity SDK]](/solidity) installed for us.
 
 ```bash
 npx thirdweb create contract
@@ -34,8 +34,8 @@ This will kick off an interactive series of questions to help you get started:
 
 - Give your project a name
 - Select [`Hardhat`](https://hardhat.org/) as the framework
-- Select `ERC721` as the [base contract](/contractkit/base-contracts/erc-721/erc721base)
-- Select `None` for optional [extensions](/contractkit/extensions)
+- Select `ERC721` as the [base contract](/solidity/base-contracts/erc-721/erc721base)
+- Select `None` for optional [extensions](/solidity/extensions)
 
 <h3 style={{ marginTop: 48 }}>Exploring The Project</h3>
 
@@ -44,12 +44,12 @@ Open this directory in your text editor.
 
 Inside the `contracts` folder, you'll find a `Contract.sol` file; this is our smart contract written in Solidity!
 
-If we take a look at the code, you can see that our contract is inheriting the functionality of [ERC721Base](/contractkit/base-contracts/erc-721/erc721base),
+If we take a look at the code, you can see that our contract is inheriting the functionality of [ERC721Base](/solidity/base-contracts/erc-721/erc721base),
 by:
 
 1. [Importing](https://solidity-by-example.org/import/) the contract
 2. [Inheriting](https://docs.soliditylang.org/en/v0.8.17/contracts.html#inheritance) the contract; by declaring that our contract `is ERC721Base`
-3. Implementing any [required methods](/contractkit/base-contracts/erc-721/erc721base#implementing-the-contract) such as the [`constructor`](https://docs.soliditylang.org/en/v0.8.17/contracts.html#constructors).
+3. Implementing any [required methods](/solidity/base-contracts/erc-721/erc721base#implementing-the-contract) such as the [`constructor`](https://docs.soliditylang.org/en/v0.8.17/contracts.html#constructors).
 
 ```solidity title="contracts/Contract.sol"
 // SPDX-License-Identifier: MIT
@@ -71,12 +71,12 @@ This inheritance pattern lets us use functionality from other contracts inside o
 
 For example, our contract currently implements all of the logic inside
 the [ERC721Base.sol](https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC721Base.sol) contract; which
-implements the [ERC721A](https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC721A.sol) standard with several useful [extensions](/contractkit/extensions).
+implements the [ERC721A](https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC721A.sol) standard with several useful [extensions](/solidity/extensions).
 
 <h3 style={{ marginTop: 48 }}>Adding Extensions</h3>
 
-[Extensions](/contractkit/extensions) are a great way to add individual pieces of
-functionality to your contract, such as [Permissions](/contractkit/extension-contracts/permissions).
+[Extensions](/solidity/extensions) are a great way to add individual pieces of
+functionality to your contract, such as [Permissions](/solidity/extension-contracts/permissions).
 
 You can follow the same pattern as we did with the base contract to add an extension:
 
@@ -178,7 +178,7 @@ smart contract built by the thirdweb team:
 ![discover smart contracts on explore page](./assets/18.png)
 
 From this page, we can discover the contract's features,
-view its source code, see which [extensions](https://portal.thirdweb.com/contractkit/extensions) it implements,
+view its source code, see which [extensions](https://portal.thirdweb.com/solidity/extensions) it implements,
 and deploy it to the [blockchain of our choice](https://blog.thirdweb.com/guides/which-network-should-you-use/).
 
 Click the "Deploy Now" button to enter the deployment flow, and

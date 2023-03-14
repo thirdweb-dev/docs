@@ -33,7 +33,7 @@ Moreover, over time, we received feature requests for `Marketplace`, some of whi
 
 For all these reasons and feature additions, the `Marketplace` contract is getting an update, and being rolled out as `Marketplace V3`. In this update:
 
-- the contract has been broken down into independent extensions (later offered in ContractKit).
+- the contract has been broken down into independent extensions (later offered in Solidity SDK).
 - the contract provides explicit functions for each important action (something that is missing from the contract, today).
 - the contract provides convenient view functions for all relevant state of the contract, without expecting users to rely on events to read critical information.
 

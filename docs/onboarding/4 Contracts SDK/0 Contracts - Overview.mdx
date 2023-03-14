@@ -1,12 +1,12 @@
 ---
-slug: /contractkit
+slug: /solidity
 title: Overview
 ---
 
 import QuickstartCard from "@components/QuickstartCard";
 import YoutubeEmbed from "@components/YoutubeEmbed";
 
-# ContractKit
+# Solidity SDK
 
 <div className="heroGrid">
 <div>
@@ -16,9 +16,9 @@ import YoutubeEmbed from "@components/YoutubeEmbed";
   <a href="/dashboard">dashboard</a> and <a href="/sdk">SDK</a>, with:
 </p>
 
-- **Base Contracts** that you can build upon, such as [ERC721Base](/contractkit/base-contracts/erc-721/erc721base).
-- **Extension contracts** that you can plug-in to unlock specific functionality, such as [Permission Controls](/contractkit/extension-contracts/permissions) and [Royalty Fees](/contractkit/extension-contracts/royalty).
-- **Interfaces** that you can implement, and use to interact with other contracts that use **ContractKit**.
+- **Base Contracts** that you can build upon, such as [ERC721Base](/solidity/base-contracts/erc-721/erc721base).
+- **Extension contracts** that you can plug-in to unlock specific functionality, such as [Permission Controls](/solidity/extension-contracts/permissions) and [Royalty Fees](/solidity/extension-contracts/royalty).
+- **Interfaces** that you can implement, and use to interact with other contracts that use **Solidity SDK**.
 
 </div>
 
@@ -29,7 +29,7 @@ import YoutubeEmbed from "@components/YoutubeEmbed";
 
 :::info Solana Programs
 
-ContractKit is coming to Solana soon!
+Solidity SDK is coming to Solana soon!
 
 In the meantime, you can use the [programs](/solana/creating-programs) we have available.
 
@@ -47,18 +47,18 @@ Or install the `contracts` package into your existing Solidity project:
 npm install @thirdweb-dev/contracts
 ```
 
-## Why ContractKit?
+## Why Solidity SDK?
 
 Each feature you implement in your smart contracts unlocks functionality in both the dashboard and SDK to help you build applications on top of them.
 
-For example, if you implement the [ERC721Base](/contractkit/base-contracts/erc-721/erc721base) contract, you'll unlock the `mint` button in the dashboard and
+For example, if you implement the [ERC721Base](/solidity/base-contracts/erc-721/erc721base) contract, you'll unlock the `mint` button in the dashboard and
 can use the [mint](/sdk/interacting-with-contracts/erc721mintable) function in the SDK; which automatically uploads and pins your metadata to IPFS!
 
 <div className="row" style={{marginBottom:24}}>
 
 <div className="col col--12" style={{ padding: 8 }}>
   <QuickstartCard
-    name="Quick Start - ContractKit"
+    name="Quick Start - Solidity SDK"
     link="/getting-started/contracts"
     image="/assets/icons/drop.png"
   />
@@ -78,7 +78,7 @@ can use the [mint](/sdk/interacting-with-contracts/erc721mintable) function in t
   </div>
   <div className="col col--6" style={{ padding: 8 }}>
     <QuickstartCard
-      name="Guide: Get started with ContractKit by building an NFT Contract"
+      name="Guide: Get started with Solidity SDK by building an NFT Contract"
       link="https://blog.thirdweb.com/guides/get-started-with-the-contracts-sdk/"
       image="/assets/icons/education.png"
     />
@@ -99,7 +99,7 @@ can use the [mint](/sdk/interacting-with-contracts/erc721mintable) function in t
   </div>
   <div className="col col--6" style={{ padding: 8 }}>
     <QuickstartCard
-      name="Video: Build A Blockchain Game with ContractKit"
+      name="Video: Build A Blockchain Game with Solidity SDK"
       link="https://www.youtube.com/watch?v=Mdpf0n-tGvE"
       image="/assets/icons/education.png"
     />
@@ -113,15 +113,15 @@ can use the [mint](/sdk/interacting-with-contracts/erc721mintable) function in t
   </div>
 </div>
 
-## Using ContractKit
+## Using Solidity SDK
 
-You can start using ContractKit to build out your smart contract project _end-to-end_, or to simply add features to your own, existing smart contract.
+You can start using Solidity SDK to build out your smart contract project _end-to-end_, or to simply add features to your own, existing smart contract.
 
 ### Using Base Contracts
 
-ContractKit gives you [**base contracts**](/contractkit/base-contracts) that you can use as the foundation of your smart contract.
+Solidity SDK gives you [**base contracts**](/solidity/base-contracts) that you can use as the foundation of your smart contract.
 
-**1.** To start, import and inherit the base contract that is right for your project. You can find the list of all available base contracts [here](/contractkit/base-contracts#list-of-base-contracts).
+**1.** To start, import and inherit the base contract that is right for your project. You can find the list of all available base contracts [here](/solidity/base-contracts#list-of-base-contracts).
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -156,9 +156,9 @@ contract MyNFT is ERC721Base {
 
 ### Using Extension Contracts
 
-With the foundation for your smart contract ready, you can now plug-in additional features to your smart contract using [**extension contracts**](/contractkit/extensions).
+With the foundation for your smart contract ready, you can now plug-in additional features to your smart contract using [**extension contracts**](/solidity/extensions).
 
-**1.** To start, import and inherit the extension contract that is right for your project. You can find the list of all available extensions [here](/contractkit/extensions#list-of-extensions).
+**1.** To start, import and inherit the extension contract that is right for your project. You can find the list of all available extensions [here](/solidity/extensions#list-of-extensions).
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -177,7 +177,7 @@ contract MyNFT is ERC721Base, Permissions {
 }
 ```
 
-**Note:** for some extension contracts (e.g. [`LazyMint`](/contractkit/extension-contracts/lazymint)) you may see the following error at this step: `Contract "MyNFT" should be marked as abstract.`
+**Note:** for some extension contracts (e.g. [`LazyMint`](/solidity/extension-contracts/lazymint)) you may see the following error at this step: `Contract "MyNFT" should be marked as abstract.`
 No problem! To resolve this error, look at the usage guide for the particular extension contract you're using.
 
 **2.** Use the functions provided by the extension contract to change the behaviour of your smart contract.

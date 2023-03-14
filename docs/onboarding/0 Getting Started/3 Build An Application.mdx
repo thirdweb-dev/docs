@@ -51,15 +51,15 @@ export default function Home() {
 
 You can now call any function on your smart contract with [`useContractRead`](/sdk/interacting-with-contracts/custom-contracts/using-contracts#read-contract-data) and
 [`useContractWrite`](/sdk/interacting-with-contracts/custom-contracts/using-contracts#write-transactions) hooks.
-Each [extension](/contractkit/extensions) you implemented in your smart contract also
+Each [extension](/solidity/extensions) you implemented in your smart contract also
 unlocks a new functionality for you to use in the [SDK](/sdk).
 
 Let's look at how this works by reading our smart contract's NFTs and then minting new ones.
 
 ### Reading Data
 
-The NFT Collection contract we built earlier implements the [ERC721](/contractkit/base-contracts/erc-721/erc721base)
-and [ERC721Supply](/contractkit/interfaces/erc721supply) extensions.
+The NFT Collection contract we built earlier implements the [ERC721](/solidity/base-contracts/erc-721/erc721base)
+and [ERC721Supply](/solidity/interfaces/erc721supply) extensions.
 
 By doing so, we can use the [View All](/sdk/interacting-with-contracts/erc721supply)
 functionality in our application! In the React SDK, that is available

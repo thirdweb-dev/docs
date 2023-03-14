@@ -1,5 +1,5 @@
 ---
-slug: /contractkit/extension-contracts/lazymint
+slug: /solidity/extension-contracts/lazymint
 title: Lazy Mint
 ---
 
@@ -23,10 +23,10 @@ Here, 'lazy mint' means defining the metadata for particular tokenIds of your NF
 
 ## Availability in base contracts
 
-The `LazyMint` extension is _already_ available in the following [base contracts](/contractkit/base-contracts):
+The `LazyMint` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
 
-- **ERC721**: [`ERC721LazyMint`](/contractkit/base-contracts/erc-721/erc721lazymint), [`ERC721DelayedReveal`](/contractkit/base-contracts/erc-721/erc721delayedreveal), [`ERC721Drop`](/contractkit/base-contracts/erc-721/erc721drop)
-- **ERC1155**: [`ERC1155LazyMint`](/contractkit/base-contracts/erc-1155/erc1155lazymint), [`ERC1155DelayedReveal`](/contractkit/base-contracts/erc-1155/erc1155delayedreveal), [`ERC1155Drop`](/contractkit/base-contracts/erc-1155/erc1155drop)
+- **ERC721**: [`ERC721LazyMint`](/solidity/base-contracts/erc-721/erc721lazymint), [`ERC721DelayedReveal`](/solidity/base-contracts/erc-721/erc721delayedreveal), [`ERC721Drop`](/solidity/base-contracts/erc-721/erc721drop)
+- **ERC1155**: [`ERC1155LazyMint`](/solidity/base-contracts/erc-1155/erc1155lazymint), [`ERC1155DelayedReveal`](/solidity/base-contracts/erc-1155/erc1155delayedreveal), [`ERC1155Drop`](/solidity/base-contracts/erc-1155/erc1155drop)
 
 ## Unlocked Features
 
@@ -48,7 +48,7 @@ The `LazyMint` extension is an _abstract contract_, and expects you to implement
 
 | Name                                                                     | Type                    | Parameters | Returns | Description                                                                                                                      |
 | ------------------------------------------------------------------------ | ----------------------- | ---------- | ------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canLazyMint`](/contractkit/extension-contracts/lazymint#_canlazymint) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to lazy mint NFTs on the contract. Returns whether NFTs can be lazy minted in the given execution context. |
+| [`_canLazyMint`](/solidity/extension-contracts/lazymint#_canlazymint) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to lazy mint NFTs on the contract. Returns whether NFTs can be lazy minted in the given execution context. |
 
 ```solidity
 // SPDX-License-Identifier: MIT

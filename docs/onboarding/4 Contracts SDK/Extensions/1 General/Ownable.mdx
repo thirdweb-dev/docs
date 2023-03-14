@@ -1,5 +1,5 @@
 ---
-slug: /contractkit/extension-contracts/ownable
+slug: /solidity/extension-contracts/ownable
 title: Ownable
 ---
 
@@ -21,7 +21,7 @@ The `Ownable` smart contract extension is usable with any base smart contract. I
 
 ## Availability in base contracts
 
-The `Ownable` extension is _already_ available in the following [base contracts](/contractkit/base-contracts):
+The `Ownable` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
 
 - All ERC20, ERC721 and ERC1155 base contracts.
 
@@ -45,7 +45,7 @@ The `Ownable` extension is an _abstract contract_, and expects you to implement 
 
 | Name                                                                    | Type                    | Parameters | Returns | Description                                                                                                                  |
 | ----------------------------------------------------------------------- | ----------------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSetOwner`](/contractkit/extension-contracts/ownable#_cansetowner) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the owner of the contract. Returns whether the owner can be set in the given execution context. |
+| [`_canSetOwner`](/solidity/extension-contracts/ownable#_cansetowner) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the owner of the contract. Returns whether the owner can be set in the given execution context. |
 
 ```solidity
 // SPDX-License-Identifier: MIT

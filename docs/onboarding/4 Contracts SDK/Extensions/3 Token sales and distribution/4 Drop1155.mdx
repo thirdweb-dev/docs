@@ -1,5 +1,5 @@
 ---
-slug: /contractkit/extension-contracts/dropmultiphase1155
+slug: /solidity/extension-contracts/dropmultiphase1155
 title: Drop Multi Phase (ERC1155)
 ---
 
@@ -43,9 +43,9 @@ The `Drop1155` extension is an _abstract contract_, and expects you to implement
 
 | Name                                                                                     | Type                    | Parameters | Returns | Description                                                                                                                                      |
 | ---------------------------------------------------------------------------------------- | ----------------------- | ---------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [`_collectPriceOnClaim`](/contractkit/extension-contracts/drop#_collectpriceonclaim)     | internal _virtual_      | n/a        | n/a     | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
-| [`_transferTokensOnClaim`](/contractkit/extension-contracts/drop#_transfertokensonclaim) | internal _virtual_      | n/a        | n/a     | Transfers the NFTs being claimed.                                                                                                                |
-| [`_canSetClaimConditions`](/contractkit/extension-contracts/drop#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
+| [`_collectPriceOnClaim`](/solidity/extension-contracts/drop#_collectpriceonclaim)     | internal _virtual_      | n/a        | n/a     | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
+| [`_transferTokensOnClaim`](/solidity/extension-contracts/drop#_transfertokensonclaim) | internal _virtual_      | n/a        | n/a     | Transfers the NFTs being claimed.                                                                                                                |
+| [`_canSetClaimConditions`](/solidity/extension-contracts/drop#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
 
 ```solidity
 // SPDX-License-Identifier: Apache-2.0

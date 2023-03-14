@@ -1,5 +1,5 @@
 ---
-slug: /contractkit/extension-contracts/dropsinglephase
+slug: /solidity/extension-contracts/dropsinglephase
 title: Drop Single Phase
 ---
 
@@ -23,10 +23,10 @@ This extension implements the 'Drop' distribution mechanism: set restrictions su
 
 ## Availability in base contracts
 
-The `DropSinglePhase` extension is _already_ available in the following [base contracts](/contractkit/base-contracts):
+The `DropSinglePhase` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
 
-- **ERC20**: [`ERC20Drop`](/contractkit/base-contracts/erc-20/erc20drop)
-- **ERC721**: [`ERC721Drop`](/contractkit/base-contracts/erc-721/erc721drop)
+- **ERC20**: [`ERC20Drop`](/solidity/base-contracts/erc-20/erc20drop)
+- **ERC721**: [`ERC721Drop`](/solidity/base-contracts/erc-721/erc721drop)
 
 ## Unlocked Features
 
@@ -44,15 +44,15 @@ Once deployed, you can use the features made available by these contracts on the
 
 ## Implementing the Contract
 
-This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/contractkit/extension-contracts/dropsinglephase#availability-in-base-contracts) that already implement Drop functionlity for you!
+This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/solidity/extension-contracts/dropsinglephase#availability-in-base-contracts) that already implement Drop functionlity for you!
 
 The `DropSinglePhase` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
 | Name                                                                                                | Type                    | Parameters | Returns   | Description                                                                                                                                      |
 | --------------------------------------------------------------------------------------------------- | ----------------------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [`_collectPriceOnClaim`](/contractkit/extension-contracts/dropsinglephase#_collectpriceonclaim)     | internal _virtual_      | n/a        | n/a       | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
-| [`_transferTokensOnClaim`](/contractkit/extension-contracts/dropsinglephase#_transfertokensonclaim) | internal _virtual_      | n/a        | `uint256` | Transfers the NFTs being claimed.                                                                                                                |
-| [`_canSetClaimConditions`](/contractkit/extension-contracts/dropsinglephase#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
+| [`_collectPriceOnClaim`](/solidity/extension-contracts/dropsinglephase#_collectpriceonclaim)     | internal _virtual_      | n/a        | n/a       | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
+| [`_transferTokensOnClaim`](/solidity/extension-contracts/dropsinglephase#_transfertokensonclaim) | internal _virtual_      | n/a        | `uint256` | Transfers the NFTs being claimed.                                                                                                                |
+| [`_canSetClaimConditions`](/solidity/extension-contracts/dropsinglephase#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
 
 ```solidity
 // SPDX-License-Identifier: Apache-2.0

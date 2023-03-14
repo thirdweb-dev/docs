@@ -1,5 +1,5 @@
 ---
-slug: /contractkit/interfaces
+slug: /solidity/interfaces
 title: Overview
 ---
 
@@ -11,14 +11,14 @@ import ThemedImage from "@theme/ThemedImage";
 <div className="heroGrid">
 <div>
   <p>
-The interfaces provide a representation of contracts and extensions present in the ContractKit. They also serve as a means to interact with contracts that implement these extensions.
+The interfaces provide a representation of contracts and extensions present in the Solidity SDK. They also serve as a means to interact with contracts that implement these extensions.
   </p>
 <p>
 You will find here the list of all interfaces and references implementations using each of these.
 </p>
 
-We provide interfaces for [ERC721](/contractkit/interfaces/erc721), [ERC1155](/contractkit/interfaces/erc1155), and
-[ERC20](/contractkit/interfaces/erc20); each representing various features depending on your use case.
+We provide interfaces for [ERC721](/solidity/interfaces/erc721), [ERC1155](/solidity/interfaces/erc1155), and
+[ERC20](/solidity/interfaces/erc20); each representing various features depending on your use case.
 
 You can implement these features by inheriting these interfaces and providing a custom implementation for inherited functions.
 
@@ -45,40 +45,40 @@ Below is a list of all the interfaces available.
 
 | Name                                                                           | Description                                                                              |
 | ------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------- |
-| [Base Standard](/contractkit/interfaces/erc721)                                | ERC721 is the standard for representing NFTs (non-fungible tokens).                      |
-| [Mint](/contractkit/interfaces/erc721mintable)                                 | Enable minting of new NFTs into the collection.                                          |
-| [Signature-Based Minting](/contractkit/interfaces/erc721signaturemintable)     | Generate signatures that allow other users to mint tokens on your smart contract.        |
-| [Batch Mint](/contractkit/interfaces/erc721batchmintable)                      | Enable minting multiple NFTs at once in a single transaction.                            |
-| [View All](/contractkit/interfaces/erc721supply)                               | View total supply of the NFTs from the collection.                                       |
-| [View Owned By Address](/contractkit/interfaces/erc721enumerable)              | View all of the NFTs owned by a specific wallet.                                         |
-| [Lazy Mint](/contractkit/interfaces/erc721lazymintable)                        | Enable batch lazy minting of NFTs.                                                       |
-| [Claim](/contractkit/interfaces/erc721claimable)                               | Allow users to claim lazy-minted NFTs.                                                   |
-| [Claim With Conditions](/contractkit/interfaces/erc721claimablewithconditions) | Allow users to claim lazy-minted NFTs, under the criteria of claim conditions.           |
-| [Delayed Reveal](/contractkit/interfaces/erc721revealable)                     | Encrypt the metadata of your NFTs until you reveal them.                                 |
-| [Burn](/contractkit/interfaces/erc721burnable)                                 | Allows the NFTs in the contract to be burned (transferred to a non-recoverable address). |
+| [Base Standard](/solidity/interfaces/erc721)                                | ERC721 is the standard for representing NFTs (non-fungible tokens).                      |
+| [Mint](/solidity/interfaces/erc721mintable)                                 | Enable minting of new NFTs into the collection.                                          |
+| [Signature-Based Minting](/solidity/interfaces/erc721signaturemintable)     | Generate signatures that allow other users to mint tokens on your smart contract.        |
+| [Batch Mint](/solidity/interfaces/erc721batchmintable)                      | Enable minting multiple NFTs at once in a single transaction.                            |
+| [View All](/solidity/interfaces/erc721supply)                               | View total supply of the NFTs from the collection.                                       |
+| [View Owned By Address](/solidity/interfaces/erc721enumerable)              | View all of the NFTs owned by a specific wallet.                                         |
+| [Lazy Mint](/solidity/interfaces/erc721lazymintable)                        | Enable batch lazy minting of NFTs.                                                       |
+| [Claim](/solidity/interfaces/erc721claimable)                               | Allow users to claim lazy-minted NFTs.                                                   |
+| [Claim With Conditions](/solidity/interfaces/erc721claimablewithconditions) | Allow users to claim lazy-minted NFTs, under the criteria of claim conditions.           |
+| [Delayed Reveal](/solidity/interfaces/erc721revealable)                     | Encrypt the metadata of your NFTs until you reveal them.                                 |
+| [Burn](/solidity/interfaces/erc721burnable)                                 | Allows the NFTs in the contract to be burned (transferred to a non-recoverable address). |
 
 ### ERC1155
 
 | Name                                                                            | Description                                                                                 |
 | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
-| [Base Standard](/contractkit/interfaces/erc1155)                                | ERC1155 is the standard for representing "Edition" NFTs.                                    |
-| [Mint](/contractkit/interfaces/erc1155mintable)                                 | Enable minting of new NFTs into the collection.                                             |
-| [Signature-Based Minting](/contractkit/interfaces/erc1155signaturemintable)     | Generate signatures that allow other users to mint tokens on your smart contract.           |
-| [Batch Mint](/contractkit/interfaces/erc1155batchmintable)                      | Enable minting multiple NFTs at once in a single transaction.                               |
-| [View All](/contractkit/interfaces/erc1155enumerable)                           | View all of the NFTs in the collection and all the NFTs owned by a specific wallet address. |
-| [Lazy Mint](/contractkit/interfaces/erc1155lazymintable)                        | Enable batch lazy minting of NFTs.                                                          |
-| [Claim](/contractkit/interfaces/erc1155claimable)                               | Allow users to claim lazy-minted NFTs.                                                      |
-| [Claim With Conditions](/contractkit/interfaces/erc1155claimablewithconditions) | Allow users to claim lazy-minted NFTs, under the criteria of claim conditions.              |
-| [Delayed Reveal](/contractkit/interfaces/erc1155revealable)                     | Encrypt the metadata of your NFTs until you reveal them.                                    |
-| [Burn](/contractkit/interfaces/erc1155burnable)                                 | Allows the NFTs in the contract to be burned (transferred to a non-recoverable address).    |
+| [Base Standard](/solidity/interfaces/erc1155)                                | ERC1155 is the standard for representing "Edition" NFTs.                                    |
+| [Mint](/solidity/interfaces/erc1155mintable)                                 | Enable minting of new NFTs into the collection.                                             |
+| [Signature-Based Minting](/solidity/interfaces/erc1155signaturemintable)     | Generate signatures that allow other users to mint tokens on your smart contract.           |
+| [Batch Mint](/solidity/interfaces/erc1155batchmintable)                      | Enable minting multiple NFTs at once in a single transaction.                               |
+| [View All](/solidity/interfaces/erc1155enumerable)                           | View all of the NFTs in the collection and all the NFTs owned by a specific wallet address. |
+| [Lazy Mint](/solidity/interfaces/erc1155lazymintable)                        | Enable batch lazy minting of NFTs.                                                          |
+| [Claim](/solidity/interfaces/erc1155claimable)                               | Allow users to claim lazy-minted NFTs.                                                      |
+| [Claim With Conditions](/solidity/interfaces/erc1155claimablewithconditions) | Allow users to claim lazy-minted NFTs, under the criteria of claim conditions.              |
+| [Delayed Reveal](/solidity/interfaces/erc1155revealable)                     | Encrypt the metadata of your NFTs until you reveal them.                                    |
+| [Burn](/solidity/interfaces/erc1155burnable)                                 | Allows the NFTs in the contract to be burned (transferred to a non-recoverable address).    |
 
 ### ERC20
 
 | Name                                                                          | Description                                                                                                        |
 | ----------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------ |
-| [Base Standard](/contractkit/interfaces/erc20)                                | ERC20 is the standard for representing fungible tokens; where each token is of equal valuable and interchangeable. |
-| [Mint](/contractkit/interfaces/erc20mintable)                                 | Enable minting tokens to multiple addresses in one transaction.                                                    |
-| [Batch Mint](/contractkit/interfaces/erc1155batchmintable)                    | Enable minting multiple NFTs at once in a single transaction.                                                      |
-| [Claim With Conditions](/contractkit/interfaces/erc20claimablewithconditions) | Allow users to claim/mint tokens from the contract under the criteria of claim conditions.                         |
-| [Burn](/contractkit/interfaces/erc20burnable)                                 | Support burning of tokens (transferred to a non-recoverable address).                                              |
-| [Signature-Based Minting](/contractkit/interfaces/erc20signaturemintable)     | Generate signatures that allow other users to mint tokens on your smart contract.                                  |
+| [Base Standard](/solidity/interfaces/erc20)                                | ERC20 is the standard for representing fungible tokens; where each token is of equal valuable and interchangeable. |
+| [Mint](/solidity/interfaces/erc20mintable)                                 | Enable minting tokens to multiple addresses in one transaction.                                                    |
+| [Batch Mint](/solidity/interfaces/erc1155batchmintable)                    | Enable minting multiple NFTs at once in a single transaction.                                                      |
+| [Claim With Conditions](/solidity/interfaces/erc20claimablewithconditions) | Allow users to claim/mint tokens from the contract under the criteria of claim conditions.                         |
+| [Burn](/solidity/interfaces/erc20burnable)                                 | Support burning of tokens (transferred to a non-recoverable address).                                              |
+| [Signature-Based Minting](/solidity/interfaces/erc20signaturemintable)     | Generate signatures that allow other users to mint tokens on your smart contract.                                  |

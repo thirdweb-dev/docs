@@ -1,5 +1,5 @@
 ---
-slug: /contractkit/extensions
+slug: /solidity/extensions
 title: Overview
 ---
 
@@ -22,8 +22,8 @@ There are two kinds of extensions:
 1. **Contracts**: Fully implemented smart contracts you can import and use.
 2. **Abstract contracts**: Smart contracts where one or more functions is defined but not implemented. They are left for you to implement in the way that makes overall sense for your smart contract.
 
-We provide several features for adding functionality to your [ERC721](/contractkit/base-contracts/erc-721/erc721base), [ERC1155](/contractkit/base-contracts/erc-1155/erc1155base), and
-[ERC20](/contractkit/base-contracts/erc-20/erc20base), as well as general extension for common use cases.
+We provide several features for adding functionality to your [ERC721](/solidity/base-contracts/erc-721/erc721base), [ERC1155](/solidity/base-contracts/erc-1155/erc1155base), and
+[ERC20](/solidity/base-contracts/erc-20/erc20base), as well as general extension for common use cases.
 
 </div>
 
@@ -54,22 +54,22 @@ Below is a list of all the extensions available.
 
 | Name                                                                        | Description                                                                                                                                                                                              |
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [ContractMetadata](/contractkit/extension-contracts/contractmetadata)       | Set metadata for your smart contract. This extension is necessary for NFT contracts that want royalties to get distributed on OpenSea.                                                                   |
-| [Multicall](/contractkit/extension-contracts/multicall)                     | Provides a function to batch together multiple calls in a single external call.                                                                                                                          |
-| [Ownable](/contractkit/extension-contracts/ownable)                         | Set an owner for your smart contract; restrict your smart contract's functions to only be callable by this owner.                                                                                        |
-| [Royalty](/contractkit/extension-contracts/royalty)                         | An [EIP-2981: NFT Royalty Standard](https://eips.ethereum.org/EIPS/eip-2981) compliant extension. Set a royalty fee and recipient for all your NFTs, or on a per NFT basis.                              |
-| [BatchMintMetadata](/contractkit/extension-contracts/batchmintmetadata)     | Set metadata for `n` number of NFTs all at once. This is enabled by storing a single base URI for a batch of `n` NFTs, where the metadata for each NFT in a relevant batch is `baseURI/tokenId`.         |
-| [LazyMint](/contractkit/extension-contracts/lazymint)                       | Lazy mint any number of NFTs at once. Here, 'lazy mint' means defining the metadata for particular tokenIds of your NFT contract, without actually minting a non-zero balance of NFTs of those tokenIds. |
-| [DelayedReveal](/contractkit/extension-contracts/delayedreveal)             | Create batches of 'delayed-reveal' NFTs. Lazy mint a batch of NFTs without initially revealing the metadata of these NFTs to spectators, and reveal it later at your discretion.                         |
-| [PlatformFee](/contractkit/extension-contracts/platformfee)                 | Charge a percentage fee wherever there is a transfer of currency (ERC20 tokens or native tokens) in your contract.                                                                                       |
-| [PrimarySale](/contractkit/extension-contracts/primarysale)                 | Set and manage a primary sale recipient for your smart contract.                                                                                                                                         |
-| [Permissions](/contractkit/extension-contracts/permissions)                 | Assign roles to wallets; restrict your smart contract's functions based on the roles held or not held by a wallet.                                                                                       |
-| [PermissionsEnumerable](/contractkit/extension-contracts/permissions)       | Same as Permissions but with added functionality - view all members with a given role, and total count of members.                                                                                       |
-| [DropSinglePhase](/contractkit/extension-contracts/dropsinglephase)         | A distribution mechanic for tokens. Set conditions - such as a price, an allowlist, etc. - under which tokens can be claimed on your smart contract.                                                     |
-| [DropSinglePhase1155](/contractkit/extension-contracts/dropsinglephase1155) | A distribution mechanic for ERC1155 tokens. Set conditions - such as a price, an allowlist, etc. - under which tokens can be claimed on your smart contract.                                             |
-| [SignatureMintERC20](/contractkit/extension-contracts/sigminterc20)         | A distribution mechanic for ERC20 tokens. Authorize a wallet to mint tokens on your smart contract on-demand; optionally, set a price and other configurables for the mint.                              |
-| [SignatureMintERC721](/contractkit/extension-contracts/sigminterc721)       | A distribution mechanic for ERC721 tokens. Authorize a wallet to mint tokens on your smart contract on-demand; optionally, set a price and other configurables for the mint.                             |
-| [SignatureMintERC1155](/contractkit/extension-contracts/sigminterc1155)     | A distribution mechanic for ERC1155 tokens. Authorize a wallet to mint tokens on your smart contract on-demand; optionally, set a price and other configurables for the mint.                            |
+| [ContractMetadata](/solidity/extension-contracts/contractmetadata)       | Set metadata for your smart contract. This extension is necessary for NFT contracts that want royalties to get distributed on OpenSea.                                                                   |
+| [Multicall](/solidity/extension-contracts/multicall)                     | Provides a function to batch together multiple calls in a single external call.                                                                                                                          |
+| [Ownable](/solidity/extension-contracts/ownable)                         | Set an owner for your smart contract; restrict your smart contract's functions to only be callable by this owner.                                                                                        |
+| [Royalty](/solidity/extension-contracts/royalty)                         | An [EIP-2981: NFT Royalty Standard](https://eips.ethereum.org/EIPS/eip-2981) compliant extension. Set a royalty fee and recipient for all your NFTs, or on a per NFT basis.                              |
+| [BatchMintMetadata](/solidity/extension-contracts/batchmintmetadata)     | Set metadata for `n` number of NFTs all at once. This is enabled by storing a single base URI for a batch of `n` NFTs, where the metadata for each NFT in a relevant batch is `baseURI/tokenId`.         |
+| [LazyMint](/solidity/extension-contracts/lazymint)                       | Lazy mint any number of NFTs at once. Here, 'lazy mint' means defining the metadata for particular tokenIds of your NFT contract, without actually minting a non-zero balance of NFTs of those tokenIds. |
+| [DelayedReveal](/solidity/extension-contracts/delayedreveal)             | Create batches of 'delayed-reveal' NFTs. Lazy mint a batch of NFTs without initially revealing the metadata of these NFTs to spectators, and reveal it later at your discretion.                         |
+| [PlatformFee](/solidity/extension-contracts/platformfee)                 | Charge a percentage fee wherever there is a transfer of currency (ERC20 tokens or native tokens) in your contract.                                                                                       |
+| [PrimarySale](/solidity/extension-contracts/primarysale)                 | Set and manage a primary sale recipient for your smart contract.                                                                                                                                         |
+| [Permissions](/solidity/extension-contracts/permissions)                 | Assign roles to wallets; restrict your smart contract's functions based on the roles held or not held by a wallet.                                                                                       |
+| [PermissionsEnumerable](/solidity/extension-contracts/permissions)       | Same as Permissions but with added functionality - view all members with a given role, and total count of members.                                                                                       |
+| [DropSinglePhase](/solidity/extension-contracts/dropsinglephase)         | A distribution mechanic for tokens. Set conditions - such as a price, an allowlist, etc. - under which tokens can be claimed on your smart contract.                                                     |
+| [DropSinglePhase1155](/solidity/extension-contracts/dropsinglephase1155) | A distribution mechanic for ERC1155 tokens. Set conditions - such as a price, an allowlist, etc. - under which tokens can be claimed on your smart contract.                                             |
+| [SignatureMintERC20](/solidity/extension-contracts/sigminterc20)         | A distribution mechanic for ERC20 tokens. Authorize a wallet to mint tokens on your smart contract on-demand; optionally, set a price and other configurables for the mint.                              |
+| [SignatureMintERC721](/solidity/extension-contracts/sigminterc721)       | A distribution mechanic for ERC721 tokens. Authorize a wallet to mint tokens on your smart contract on-demand; optionally, set a price and other configurables for the mint.                             |
+| [SignatureMintERC1155](/solidity/extension-contracts/sigminterc1155)     | A distribution mechanic for ERC1155 tokens. Authorize a wallet to mint tokens on your smart contract on-demand; optionally, set a price and other configurables for the mint.                            |
 
 ## Resources
 
@@ -77,7 +77,7 @@ Below is a list of all the extensions available.
   <div className="col col--12" style={{ padding: 8 }}>
     <QuickstartCard
       name="Guide: Add Permissions to Your Smart Contract"
-      link="https://blog.thirdweb.com/guides/how-to-add-permissions-to-your-smart-contract-contractkit/"
+      link="https://blog.thirdweb.com/guides/how-to-add-permissions-to-your-smart-contract-solidity/"
       image="/assets/icons/education.png"
     />
   </div>

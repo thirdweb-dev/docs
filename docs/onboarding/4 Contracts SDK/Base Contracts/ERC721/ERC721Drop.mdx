@@ -1,5 +1,5 @@
 ---
-slug: /contractkit/base-contracts/erc-721/erc721drop
+slug: /solidity/base-contracts/erc-721/erc721drop
 title: Drop
 ---
 
@@ -11,8 +11,8 @@ import ImportSnippet from "@components/ImportSnippet";
 
 The `ERC721Drop` base contract is a foundation for an NFT Drop that other wallets can claim.
 
-It implements the [ERC721A standard](/contractkit/erc721) with [Lazy Mint](/contractkit/extension-contracts/lazymint),
-[Delayed Reveal](/contractkit/extension-contracts/delayedreveal) and [Drop](/contractkit/extension-contracts/dropsinglephase) features;
+It implements the [ERC721A standard](/solidity/erc721) with [Lazy Mint](/solidity/extension-contracts/lazymint),
+[Delayed Reveal](/solidity/extension-contracts/delayedreveal) and [Drop](/solidity/extension-contracts/dropsinglephase) features;
 allowing you to batch lazy-mint NFTs, and allow other wallets to claim them under the criteria of claim conditions, with an optional delayed reveal.
 
 <ViewContractCodeButton
@@ -92,7 +92,7 @@ Once deployed, you can use the features made available by these contracts on the
 <div className="col col--4" style={{ padding: 8 }}>
   <QuickstartCard
     name="Ownable"
-    link="/contractkit/extension-contracts/ownable"
+    link="/solidity/extension-contracts/ownable"
     image="/assets/icons/general.png"
   />
 </div>
