@@ -34,8 +34,8 @@ export const iconMapping = {
   Home: "/assets/icons/home.png",
   "Platform Overview": "/assets/icons/wrench.png",
   "Getting Started": "/assets/icons/rocket.png",
-  Templates: "/assets/sdk-reference.svg",
-  Guides: "/assets/guides.svg",
+  Templates: "/assets/resources/sdk-reference.svg",
+  Guides: "/assets/resources/guides.svg",
   CLI: "/assets/icons/terminal.svg",
 };
 
