@@ -72,6 +72,20 @@ export default function NavbarContent() {
             )}
 
             <a
+              className={styles.normalLinks}
+              href="https://support.thirdweb.com/"
+            >
+              Support
+            </a>
+
+            <a
+              className={styles.normalLinks}
+              href="https://feedback.thirdweb.com/"
+            >
+              Feedback
+            </a>
+
+            <a
               className={styles.goToAppButton}
               href="https://thirdweb.com/dashboard"
             >

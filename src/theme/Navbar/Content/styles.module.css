@@ -13,6 +13,10 @@ Hide color mode toggle in small viewports
   .goToAppButton {
     display: none !important;
   }
+
+  .normalLinks {
+    display: none !important;
+  }
 }
 
 .goToAppButton {
@@ -32,6 +36,37 @@ Hide color mode toggle in small viewports
   line-height: 100%;
   text-decoration: none;
   color: #fff;
+  margin-left: 20px;
+}
+
+.normalLinks {
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
+  /* padding-left: 16px;
+  padding-right: 16px; */
+  height: 32px;
+  /* background-color: var(--thirdweb-primary-color); */
+  border-radius: 4px;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 100%;
+  text-decoration: none;
+  color: #fff;
+  margin-left: 20px;
+}
+
+html[data-theme="light"] .normalLinks {
+  color: #000 !important;
+}
+
+.normalLinks:hover {
+  color: #fff !important;
+  opacity: 0.9;
+  transition: all 0.2s ease-in-out;
 }
 
 .rightSideContainer {
