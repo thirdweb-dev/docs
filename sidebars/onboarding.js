@@ -50,7 +50,7 @@ const sidebars = {
     },
     {
       type: "link",
-      label: "Prebuilt Contracts",
+      label: "Explore",
       href: "/pre-built-contracts",
     },
     {

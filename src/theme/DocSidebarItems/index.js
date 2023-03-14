@@ -40,7 +40,7 @@ function DocSidebarItems({ items, ...props }) {
         // Tools
         [
           "ContractKit",
-          "Prebuilt Contracts",
+          "Explore",
           "EVM SDK",
           "Solana SDK",
           "UI Components",

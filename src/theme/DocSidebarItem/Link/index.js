@@ -19,7 +19,7 @@ export const iconMapping = {
   Solidity: "/assets/languages/solidity.png",
   Auth: "/assets/product/auth.png",
   ContractKit: "/assets/product/extensions.png",
-  "Prebuilt Contracts": "/assets/product/contracts.png",
+  Explore: "/assets/product/contracts.png",
   Dashboard: "/assets/product/dashboard.png",
   Deploy: "/assets/product/deploy.png",
   Publish: "/assets/product/publish.png",
