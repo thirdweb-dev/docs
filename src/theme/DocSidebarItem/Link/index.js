@@ -32,7 +32,7 @@ export const iconMapping = {
   Storage: "/assets/product/storage.png",
   "UI Components": "/assets/product/ui.png",
   Home: "/assets/icons/home.png",
-  "Platform Overview": "/assets/icons/wrench.png",
+  Overview: "/assets/icons/wrench.png",
   "Getting Started": "/assets/icons/rocket.png",
   Templates: "/assets/resources/sdk-reference.svg",
   Guides: "/assets/resources/guides.svg",
