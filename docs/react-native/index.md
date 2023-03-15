@@ -184,6 +184,11 @@ Make sure to have your React Native environment setup before using the template.
       language={"bash"}
     >{`npx thirdweb create --template react-native-typescript-starter`}</CodeBlock>
   </TabItem>
+  <TabItem value="thirdweb-cli-expo" label="Thidweb CLI Expo">
+    <CodeBlock
+      language={"bash"}
+    >{`npx thirdweb create --template react-native-expo-starter`}</CodeBlock>
+  </TabItem>
   <TabItem value="react-native-cli" label="React Native CLI">
     Alternatively you can use the React Native CLI. Note that you need to follow
     the "Existing Projects -> React Native CLI Project" steps in this guide
@@ -192,13 +197,13 @@ Make sure to have your React Native environment setup before using the template.
       language={"bash"}
     >{`npx react-native init MyRNApp --template react-native-template-typescript`}</CodeBlock>
   </TabItem>
-  <TabItem value="react-native-expo" label="React Native CLI">
-    Alternatively you can use the React Native Expo CLI. Note that you need to
+  <TabItem value="react-native-expo" label="Expo CLI">
+    Alternatively you can use the Expo CLI. Note that you need to
     follow the "Existing Projects -> React Native Expo Project" steps in this
     guide after executing the following command:
     <CodeBlock
       language={"bash"}
-    >{`npx thirdweb create --template react-native-expo-starter`}</CodeBlock>
+    >{`yarn create expo-app AwesomeProject`}</CodeBlock>
   </TabItem>
 </Tabs>
 
