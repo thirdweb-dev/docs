@@ -25,7 +25,7 @@ const sidebars = {
     },
     {
       type: "doc",
-      label: "Overview",
+      label: "Overview ",
       id: "0 1 Platform Overview",
     },
     {
