@@ -30,43 +30,53 @@ function DocSidebarItems({ items, ...props }) {
     props?.level === 1 && !checkIfShowCategoryPages(props?.activePath);
 
   const sidebarItems = [
-    // Overview pages
-    ["Home", "Platform Overview", "Getting Started"],
-
-    // Tools
-    [
-      "ContractKit",
-      "Prebuilt Contracts",
-      "EVM SDK",
-      "Solana SDK",
-      "UI Components",
-      "Deploy",
-      "Publish",
-      "Dashboard",
-    ],
-
-    // Infrastructure
-    ["Auth", "Storage"],
-    // //Solutions
-    ["CommerceKit", "GamingKit"],
-
-    // SDK References
-    [
-      "React",
-      "React Native",
-      "TypeScript",
-      "Python",
-      "Go",
-      "Unity",
-      "Solidity",
-    ],
-
-    // Resources
-    [
-      "Templates",
-      "Guides",
-      "CLI", // Should we have this here?
-    ],
+    {
+      title: null, // No title for the first section
+      items: ["Home", "Platform Overview", "Getting Started"],
+    },
+    {
+      title: "Tools",
+      items:
+        // Tools
+        [
+          "ContractKit",
+          "Prebuilt Contracts",
+          "EVM SDK",
+          "Solana SDK",
+          "UI Components",
+          "Deploy",
+          "Publish",
+          "Dashboard",
+        ],
+    },
+    {
+      title: "Infrastructure",
+      items: ["Auth", "Storage"],
+    },
+    {
+      title: "Solutions",
+      items: ["CommerceKit", "GamingKit"],
+    },
+    {
+      title: "SDK References",
+      items: [
+        "React",
+        "React Native",
+        "TypeScript",
+        "Python",
+        "Go",
+        "Unity",
+        "Solidity",
+      ],
+    },
+    {
+      title: "Resources",
+      items: [
+        "Templates",
+        "Guides",
+        "CLI", // Should we have this here?
+      ],
+    },
   ];
 
   const formatCategoryName = (name) => {
@@ -115,10 +125,13 @@ function DocSidebarItems({ items, ...props }) {
       <DocSidebarItemsExpandedStateProvider>
         {sidebarItems.map((section, index) => (
           <div key={index} className="sidebar-section-container">
+            {section.title && <p className="section-title">{section.title}</p>}
             {items
-              .filter((item) => section.includes(item.label))
+              .filter((item) => section.items.includes(item.label))
               .sort(
-                (a, b) => section.indexOf(a.label) - section.indexOf(b.label),
+                (a, b) =>
+                  section.items.indexOf(a.label) -
+                  section.items.indexOf(b.label),
               )
               .map((item, index) => (
                 <DocSidebarItem
