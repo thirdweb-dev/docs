@@ -1,38 +1,38 @@
 ---
-slug: /solidity/extension-contracts/staking721
-title: Staking ERC721
+slug: /solidity/extensions/erc20staking
+title: Staking ERC20
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 import ImportSnippet from "../../../../src/components/ImportSnippet";
 
-# Staking ERC721 NFTs
+# Staking ERC20 Tokens
 
 ```solidity
-import "@thirdweb-dev/contracts/extension/Staking721.sol";
+import "@thirdweb-dev/contracts/extension/Staking20.sol";
 ```
 
 <div className="heroGrid">
 <div>
 
-<p>Setup staking feature for your NFT Collection.</p>
+<p>Setup staking feature for your ERC20 tokens.</p>
 
-The `Staking721` smart contract extension implements NFT staking mechanism. With this extension you can setup a staking contract for NFT holders of your ERC721 Collection. Users can stake their NFTs and earn ERC20 tokens as rewards.
+The `Staking20` smart contract extension implements ERC20 staking mechanism. With this extension you can setup a staking contract for holders of your ERC20 tokens. Users can stake their tokens and earn a different set of ERC20 tokens as rewards.
 
 </div>
 </div>
 
 <ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Staking721.sol"
-  name="Staking721"
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Staking20.sol"
+  name="Staking20"
 />
 
 ## Availability in base contracts
 
-The `Staking721` is _already_ available in the following [base contracts](/solidity/base-contracts).
+The `Staking20` is _already_ available in the following [base contracts](/solidity/base-contracts).
 
-- **ERC721**: [`Staking721Base`](/solidity/base-contracts/staking/staking721base)
+- **ERC20**: [`Staking20Base`](/solidity/base-contracts/staking/staking20base)
 
 ## Implementing the Contract
 
@@ -42,10 +42,11 @@ Import the contract and make your contract inherit it.
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@thirdweb-dev/contracts/extension/Staking721.sol";
+import "@thirdweb-dev/contracts/extension/Staking20.sol";
 import "@thirdweb-dev/contracts/eip/interface/IERC20.sol";
+import "@thirdweb-dev/contracts/eip/interface/IERC20Metadata.sol";
 
-contract MyContract is Staking721 {
+contract MyContract is Staking20 {
     // ERC20 Reward Token address. See {_mintRewards}.
     address public rewardToken;
 
@@ -53,17 +54,24 @@ contract MyContract is Staking721 {
      *  We store the contract deployer's address only for the purposes of the example
      *  in the code comment below.
      *
-     *  Doing this is not necessary to use the `Staking721` extension.
+     *  Doing this is not necessary to use the `Staking20` extension.
      */
     address public deployer;
 
     constructor(
         uint256 _timeUnit,
-        uint256 _rewardsPerUnitTime,
+        uint256 _rewardRatioNumerator,
+        uint256 _rewardRatioDenominator,
         address _stakingToken,
-        address _rewardToken
-    ) Staking721(_stakingToken) {
-        _setStakingCondition(_timeUnit, _rewardsPerUnitTime);
+        address _rewardToken,
+        address _nativeTokenWrapper
+    ) Staking20(
+            _nativeTokenWrapper,
+            _stakingToken,
+            IERC20Metadata(_stakingToken).decimals(),
+            IERC20Metadata(_rewardToken).decimals()
+    ) {
+        _setStakingCondition(_timeUnit, _rewardRatioNumerator, _rewardRatioDenominator);
 
         rewardToken = _rewardToken;
         deployer = msg.sender;
@@ -92,20 +100,20 @@ contract MyContract is Staking721 {
 ### stake
 
 ```solidity
-function stake(uint256[] calldata tokenIds) external;
+function stake(uint256 amount) external;
 ```
 
-- Lets a user stake a number of ERC721 tokens by passing in token-Ids.
-- Parameter `tokenIds`: List of token-Ids to stake.
+- Lets a user stake a number of ERC20 tokens by passing in amount.
+- Parameter `amount`: Amount of tokens to stake.
 
 ### withdraw
 
 ```solidity
-function withdraw(uint256[] calldata tokenIds) external;
+function withdraw(uint256 amount) external payable;
 ```
 
-- Un-stake and withdraw NFTs from the contract.
-- Parameter `tokenIds`: List of token-Ids to withdraw.
+- Un-stake and withdraw tokens from the contract.
+- Parameter `amount`: Amount of tokens to withdraw.
 
 ### claimRewards
 
@@ -121,17 +129,18 @@ function claimRewards() external;
 function getStakeInfo(address staker) external view returns (uint256 tokensStaked, uint256 rewards);
 ```
 
-- View number of NFTs staked and total rewards available for a user.
+- View number of tokens staked and total rewards available for a user.
 - Parameter `staker`: Account address of staker.
 
-### setRewardsPerUnitTime
+### setRewardRatio
 
 ```solidity
-function setRewardsPerUnitTime(uint256 rewardsPerUnitTime) external;
+function setRewardRatio(uint256 numerator, uint256 denominator) external
 ```
 
-- Allows an authorized account to set rewards per unit of time. Interpreted as x rewards per second/per day/etc based on time-unit.
-- Parameter `rewardsPerUnitTime`: New rewards per unit time.
+- Allows an authorized account to set reward ratio. Interpreted as (numerator/denominator) rewards per second/per day/etc based on time-unit. For e.g., ratio of 1/20 would mean 1 reward token for every 20 tokens staked.
+- Parameter `numerator`: Reward ratio numerator.
+- Parameter `denominator`: Reward ratio denominator.
 
 ### setTimeUnit
 

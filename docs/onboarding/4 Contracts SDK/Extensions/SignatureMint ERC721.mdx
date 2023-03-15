@@ -1,31 +1,31 @@
 ---
-slug: /solidity/extension-contracts/sigminterc1155
-title: Signature Minting ERC1155
+slug: /solidity/extensions/erc721signaturemint
+title: Signature Minting ERC721
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 
-# Signature Minting ERC1155
+# Signature Minting ERC721
 
 ```solidity
-import "@thirdweb-dev/contracts/extension/SignatureMintERC1155.sol";
+import "@thirdweb-dev/contracts/extension/SignatureMintERC721.sol";
 ```
 
-The `SignatureMintERC1155` smart contract is an extension meant for distributing ERC721 tokens.
+The `SignatureMintERC721` smart contract is an extension meant for distributing ERC721 tokens.
 
-The 'signature minting' mechanism in the `SignatureMintERC1155` extension uses [EIP-712](https://eips.ethereum.org/EIPS/eip-712), and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract. At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
+The 'signature minting' mechanism in the `SignatureMintERC721` extension uses [EIP-712](https://eips.ethereum.org/EIPS/eip-712), and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract. At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
 
 <ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/SignatureMintERC1155.sol"
-  name="SignatureMintERC1155"
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/SignatureMintERC721.sol"
+  name="SignatureMintERC721"
 />
 
 ## Availability in base contracts
 
-The `SignatureMintERC1155` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
+The `SignatureMintERC721` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
 
-- **ERC1155**: [`ERC1155SignatureMint`](/solidity/base-contracts/erc-1155/erc1155signaturemint)
+- **ERC721**: [`ERC721SignatureMint`](/solidity/base-contracts/erc-721/erc721signaturemint)
 
 ## Unlocked Features
 
@@ -43,48 +43,39 @@ Once deployed, you can use the features made available by these contracts on the
 
 ## Implementing the Contract
 
-This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/solidity/extension-contracts/sigminterc1155#availability-in-base-contracts) that already implement signature minting functionlity for you!
+This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/solidity/extension-contracts/sigminterc721#availability-in-base-contracts) that already implement signature minting functionlity for you!
 
-The `SignatureMintERC1155` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
+The `SignatureMintERC721` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                                         | Type                    | Parameters | Returns   | Description                                                                                                                                     |
-| -------------------------------------------------------------------------------------------- | ----------------------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSignMintRequest`](/solidity/extension-contracts/sigminterc1155#_cansignmintrequest) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to mint tokens with signature on the contract. Returns whether the signer is authorized to issue a signature for minting. |
-| [`mintWithSignature`](/solidity/extension-contracts/sigminterc1155#mintwithsignature)     | external payable        | n/a        | `address` | Mints tokens according to the provided mint request.                                                                                            |
+| Name                                                                                        | Type                    | Parameters | Returns   | Description                                                                                                                                     |
+| ------------------------------------------------------------------------------------------- | ----------------------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSignMintRequest`](/solidity/extension-contracts/sigminterc721#_cansignmintrequest) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to mint tokens with signature on the contract. Returns whether the signer is authorized to issue a signature for minting. |
+| [`mintWithSignature`](/solidity/extension-contracts/sigminterc721#mintwithsignature)     | external payable        | n/a        | `address` | Mints tokens according to the provided mint request.                                                                                            |
 
 ```solidity
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@thirdweb-dev/contracts/base/ERC1155Base.sol";
-import "@thirdweb-dev/contracts/extension/SignatureMintERC1155.sol";
+import "@thirdweb-dev/contracts/base/ERC721Base.sol";
+import "@thirdweb-dev/contracts/extension/SignatureMintERC721.sol";
 import "@thirdweb-dev/contracts/lib/CurrencyTransferLib.sol";
 
-contract ERC1155SignatureMint is ERC1155Base, SignatureMintERC1155 {
+contract ERC721SignatureMint is ERC721Base, SignatureMintERC721 {
     constructor(
         string memory _name,
         string memory _symbol,
         address _royaltyRecipient,
         uint128 _royaltyBps
-    ) ERC1155Base(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+    ) ERC721Base(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
 
     /// @dev Mints tokens according to the provided mint request.
     function mintWithSignature(
         MintRequest calldata _req,
         bytes calldata _signature
     ) external payable virtual override returns (address signer) {
-        require(_req.quantity > 0, "Minting zero tokens.");
+        require(_req.quantity == 1, "quantiy must be 1");
 
-        uint256 tokenIdToMint;
-        uint256 nextIdToMint = nextTokenIdToMint();
-
-        if (_req.tokenId == type(uint256).max) {
-            tokenIdToMint = nextIdToMint;
-            nextTokenIdToMint_ += 1;
-        } else {
-            require(_req.tokenId < nextIdToMint, "invalid id");
-            tokenIdToMint = _req.tokenId;
-        }
+        uint256 tokenIdToMint = nextTokenIdToMint();
 
         // Verify and process payload.
         signer = _processRequest(_req, _signature);
@@ -99,22 +90,9 @@ contract ERC1155SignatureMint is ERC1155Base, SignatureMintERC1155 {
             _req.pricePerToken
         );
 
-        // Set royalties, if applicable.
-        if (_req.royaltyRecipient != address(0)) {
-            _setupRoyaltyInfoForToken(
-                tokenIdToMint,
-                _req.royaltyRecipient,
-                _req.royaltyBps
-            );
-        }
-
-        // Set URI
-        if (_req.tokenId == type(uint256).max) {
-            _setTokenURI(tokenIdToMint, _req.uri);
-        }
-
         // Mint tokens.
-        _mint(receiver, tokenIdToMint, _req.quantity, "");
+        _setTokenURI(tokenIdToMint, _req.uri);
+        _safeMint(receiver, _req.quantity);
 
         emit TokensMintedWithSignature(signer, receiver, tokenIdToMint, _req);
     }
@@ -169,7 +147,6 @@ struct MintRequest {
     address royaltyRecipient;
     uint256 royaltyBps;
     address primarySaleRecipient;
-    uint256 tokenId;
     string uri;
     uint256 quantity;
     uint256 pricePerToken;
@@ -191,7 +168,6 @@ function verify(MintRequest calldata req, bytes calldata signature)
   - `royaltyRecipient`: The recipient of the minted token's secondary sales royalties.
   - `royaltyBps`: The percentage of the minted token's secondary sales to take as royalties.
   - `primarySaleRecipient`: The recipient of the minted token's primary sales proceeds.
-  - `tokenId`: The tokenId of the NFT to mint.
   - `uri`: The metadata URI of the token to mint.
   - `quantity`: The quantity of tokens to mint.
   - `pricePerToken`: The price to pay per quantity of tokens minted.
@@ -209,7 +185,6 @@ struct MintRequest {
     address royaltyRecipient;
     uint256 royaltyBps;
     address primarySaleRecipient;
-    uint256 tokenId;
     string uri;
     uint256 quantity;
     uint256 pricePerToken;
@@ -231,7 +206,6 @@ function mintWithSignature(MintRequest calldata req, bytes calldata signature)
   - `royaltyRecipient`: The recipient of the minted token's secondary sales royalties.
   - `royaltyBps`: The percentage of the minted token's secondary sales to take as royalties.
   - `primarySaleRecipient`: The recipient of the minted token's primary sales proceeds.
-  - `tokenId`: The tokenId of the NFT to mint.
   - `uri`: The metadata URI of the token to mint.
   - `quantity`: The quantity of tokens to mint.
   - `pricePerToken`: The price to pay per quantity of tokens minted.
@@ -249,7 +223,6 @@ struct MintRequest {
     address royaltyRecipient;
     uint256 royaltyBps;
     address primarySaleRecipient;
-    uint256 tokenId;
     string uri;
     uint256 quantity;
     uint256 pricePerToken;
@@ -270,7 +243,6 @@ function _processRequest(MintRequest calldata req, bytes calldata signature)
   - `royaltyRecipient`: The recipient of the minted token's secondary sales royalties.
   - `royaltyBps`: The percentage of the minted token's secondary sales to take as royalties.
   - `primarySaleRecipient`: The recipient of the minted token's primary sales proceeds.
-  - `tokenId`: The tokenId of the NFT to mint.
   - `uri`: The metadata URI of the token to mint.
   - `quantity`: The quantity of tokens to mint.
   - `pricePerToken`: The price to pay per quantity of tokens minted.
@@ -288,7 +260,6 @@ struct MintRequest {
     address royaltyRecipient;
     uint256 royaltyBps;
     address primarySaleRecipient;
-    uint256 tokenId;
     string uri;
     uint256 quantity;
     uint256 pricePerToken;
@@ -310,7 +281,6 @@ function _recoverAddress(MintRequest calldata req, bytes calldata signature)
   - `royaltyRecipient`: The recipient of the minted token's secondary sales royalties.
   - `royaltyBps`: The percentage of the minted token's secondary sales to take as royalties.
   - `primarySaleRecipient`: The recipient of the minted token's primary sales proceeds.
-  - `tokenId`: The tokenId of the NFT to mint.
   - `uri`: The metadata URI of the token to mint.
   - `quantity`: The quantity of tokens to mint.
   - `pricePerToken`: The price to pay per quantity of tokens minted.

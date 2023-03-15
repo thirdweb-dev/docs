@@ -141,7 +141,7 @@ const sidebars = {
     {
       type: "link",
       label: "Solidity",
-      href: "/contracts",
+      href: "/solidity",
     },
   ],
 
