@@ -1,0 +1,163 @@
+---
+slug: /solidity/base-contracts/erc-1155/erc1155delayedreveal
+title: Delayed Reveal
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+import ImportSnippet from "@components/ImportSnippet";
+
+# ERC1155 Delayed Reveal
+
+`ERC1155DelayedReveal` adds the [Delayed Reveal](/sdk/interacting-with-contracts/erc1155delayedreveal) feature to the
+[ERC1155LazyMint](/solidity/base-contracts/erc-1155/erc1155lazymint) base contract.
+
+<div style={{ marginBottom: 24 }}>
+  <ViewContractCodeButton
+    link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC1155DelayedReveal.sol"
+    name="ERC1155DelayedReveal"
+  />
+</div>
+
+Delayed reveal allows you to distribute NFTs to your audience with placeholder metadata, and reveal the real metadata of the distributed NFTs at a later time using a password.
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn more about delayed reveal"
+      link="https://blog.thirdweb.com/delayed-reveal-nfts"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>
+
+## Detected Extensions
+
+Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
+
+Click on each feature to learn more about what functions are available.
+
+- [ContractMetadata](solidity/extensions/contractmetadata)
+- [ERC1155](https://eips.ethereum.org/EIPS/eip-1155)
+- [ERC1155LazyMintableV2](/solidity/extensions/erc1155lazymintable)
+- [ERC1155Burnable](/solidity/extensions/erc1155burnable)
+- [ERC1155Enumerable](/solidity/extensions/erc1155enumerable)
+- [ERC1155ClaimCustom](/solidity/extensions/erc1155claimable)
+- [ERC1155Revealable](/solidity/extensions/delayedreveal)
+- [Royalty](/solidity/extensions/royalty)
+- [Ownable](/solidity/extensions/ownable)
+
+## Usage
+
+Import the contract and inherit from it.
+
+```solidity
+// SPDX-License-Identifier: Apache-2.0
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC1155DelayedReveal.sol";
+
+contract MyNFT is ERC1155DelayedReveal {
+    constructor(
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps
+    ) ERC1155DelayedReveal(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+}
+```
+
+## Functions to Override
+
+The following functions have been implemented on this contract & are available to be overridden to add custom logic:
+
+<details>
+<summary>uri</summary>
+<div>
+
+```solidity
+    /**
+     *  @notice         Returns the metadata URI for an NFT.
+     *  @dev            See `BatchMintMetadata` for handling of metadata in this contract.
+     *
+     *  @param _tokenId The tokenId of an NFT.
+     */
+    function uri(uint256 _tokenId) public view override returns (string memory) {
+        (uint256 batchId, ) = _getBatchId(_tokenId);
+        string memory batchUri = _getBaseURI(_tokenId);
+
+        if (isEncryptedBatch(batchId)) {
+            return string(abi.encodePacked(batchUri, "0"));
+        } else {
+            return string(abi.encodePacked(batchUri, _tokenId.toString()));
+        }
+    }
+```
+
+</div>
+</details>
+
+<details>
+<summary>lazyMint</summary>
+<div>
+
+```solidity
+    /**
+     *  @notice                  Lets an authorized address lazy mint a given amount of NFTs.
+     *
+     *  @param _amount           The number of NFTs to lazy mint.
+     *  @param _baseURIForTokens The placeholder base URI for the 'n' number of NFTs being lazy minted, where the
+     *                           metadata for each of those NFTs is `${baseURIForTokens}/${tokenId}`.
+     *  @param _data             The encrypted base URI + provenance hash for the batch of NFTs being lazy minted.
+     *  @return batchId          A unique integer identifier for the batch of NFTs lazy minted together.
+     */
+    function lazyMint(
+        uint256 _amount,
+        string calldata _baseURIForTokens,
+        bytes calldata _data
+    ) public virtual override returns (uint256 batchId) {
+        if (_data.length > 0) {
+            (bytes memory encryptedURI, bytes32 provenanceHash) = abi.decode(_data, (bytes, bytes32));
+            if (encryptedURI.length != 0 && provenanceHash != "") {
+                _setEncryptedData(nextTokenIdToLazyMint + _amount, _data);
+            }
+        }
+
+        return super.lazyMint(_amount, _baseURIForTokens, _data);
+    }
+```
+
+</div>
+</details>
+
+<details>
+<summary>reveal</summary>
+<div>
+
+```solidity
+    /**
+     *  @notice       Lets an authorized address reveal a batch of delayed reveal NFTs.
+     *
+     *  @param _index The ID for the batch of delayed-reveal NFTs to reveal.
+     *  @param _key   The key with which the base URI for the relevant batch of NFTs was encrypted.
+     */
+    function reveal(uint256 _index, bytes calldata _key) external virtual override returns (string memory revealedURI) {
+        require(_canReveal(), "Not authorized");
+
+        uint256 batchId = getBatchIdAtIndex(_index);
+        revealedURI = getRevealURI(batchId, _key);
+
+        _setEncryptedData(batchId, "");
+        _setBaseURI(batchId, revealedURI);
+
+        emit TokenURIRevealed(_index, revealedURI);
+    }
+
+    /// @dev Checks whether NFTs can be revealed in the given execution context.
+    function _canReveal() internal view virtual returns (bool) {
+        return msg.sender == owner();
+    }
+```
+
+</div>
+</details>

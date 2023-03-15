@@ -1,0 +1,147 @@
+---
+slug: /solidity/base-contracts/erc-20/erc20signaturemint
+title: ERC20 Signature Mint
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+import ImportSnippet from "@components/ImportSnippet";
+
+# ERC20 Signature Mint
+
+The `ERC20SignatureMint` smart contract adds the [signature-based minting extension](/solidity/extensions/erc20signaturemint)
+functionality to the [ERC20Base](/solidity/base-contracts/erc-20/erc20base) contract.
+
+<div style={{ marginBottom: 24 }}>
+  <ViewContractCodeButton
+    link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/ERC20SignatureMint.sol"
+    name="ERC20SignatureMint"
+  />
+</div>
+
+Signature minting uses [EIP-712](https://eips.ethereum.org/EIPS/eip-712),
+which enables the contract admin to authorize an external party's request to mint tokens on the admin's contract.
+At a high level, this means you can authorize others to mint tokens
+on your contract, and specify what exactly will be minted by that external party.
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn more about signature-based minting"
+      link="/sdk/advanced-features/on-demand-minting"
+      image="/assets/icons/sdks.png"
+    />
+  </div>
+</div>
+
+## Detected Extensions
+
+Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
+
+Click on each feature to learn more about what functions are available.
+
+- [ERC20](https://eips.ethereum.org/EIPS/eip-20)
+- [ERC20Mintable](/solidity/extensions/erc20mintable)
+- [ERC20BatchMintable](/solidity/extensions/multicall)
+- [ERC20SignatureMintable](/solidity/extensions/erc20signaturemint)
+- [ERC20Permit](/solidity/extensions/erc20permit)
+- [PrimarySale](/solidity/extensions/primarysale)
+- [ContractMetadata](/solidity/extensions/contractmetadata)
+- [Ownable](/solidity/extensions/ownable)
+
+## Usage
+
+Import the contract and inherit from it.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC20SignatureMint.sol";
+
+contract MyToken is ERC20SignatureMint {
+	  constructor(
+        string memory _name,
+        string memory _symbol,
+        address _primarySaleRecipient
+    )
+        ERC20SignatureMint(
+            _name,
+            _symbol,
+            _primarySaleRecipient
+        )
+    {}
+}
+```
+
+## Functions to Override
+
+The following functions have been implemented on this contract & are available to be overridden to add custom logic:
+
+<details>
+<summary>mintWithSignature</summary>
+<div>
+
+```solidity
+    /**
+     *  @notice           Mints tokens according to the provided mint request.
+     *
+     *  @param _req       The payload / mint request.
+     *  @param _signature The signature produced by an account signing the mint request.
+     */
+    function mintWithSignature(MintRequest calldata _req, bytes calldata _signature)
+        external
+        payable
+        virtual
+        returns (address signer)
+    {
+        require(_req.quantity > 0, "Minting zero tokens.");
+
+        // Verify and process payload.
+        signer = _processRequest(_req, _signature);
+
+        address receiver = _req.to;
+
+        // Collect price
+        _collectPriceOnClaim(_req.primarySaleRecipient, _req.quantity, _req.currency, _req.pricePerToken);
+
+        // Mint tokens.
+        _mint(receiver, _req.quantity);
+
+        emit TokensMintedWithSignature(signer, receiver, _req);
+    }
+```
+
+</div>
+</details>
+
+<details>
+<summary>_collectPriceOnClaim</summary>
+<div>
+
+```solidity
+     /// @dev Collects and distributes the primary sale value of tokens being claimed.
+    function _collectPriceOnClaim(
+        address _primarySaleRecipient,
+        uint256 _quantityToClaim,
+        address _currency,
+        uint256 _pricePerToken
+    ) internal virtual {
+        if (_pricePerToken == 0) {
+            return;
+        }
+
+        uint256 totalPrice = (_quantityToClaim * _pricePerToken) / 1 ether;
+        require(totalPrice > 0, "quantity too low");
+
+        if (_currency == CurrencyTransferLib.NATIVE_TOKEN) {
+            require(msg.value == totalPrice, "Must send total price.");
+        }
+
+        address saleRecipient = _primarySaleRecipient == address(0) ? primarySaleRecipient() : _primarySaleRecipient;
+        CurrencyTransferLib.transferCurrency(_currency, msg.sender, saleRecipient, totalPrice);
+    }
+```
+
+</div>
+</details>

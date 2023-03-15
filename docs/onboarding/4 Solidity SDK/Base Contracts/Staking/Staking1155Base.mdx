@@ -1,0 +1,90 @@
+---
+slug: /solidity/base-contracts/staking/staking1155base
+title: Staking - ERC1155
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+import ImportSnippet from "@components/ImportSnippet";
+
+# Staking ERC1155 Base
+
+The `Staking1155Base` smart contract implements an NFT staking mechanism for ERC1155. It allows composition of an ERC1155 NFT Collection and an ERC20 Token contract into a staking mechanism.
+
+The base contract provides an implementation of staking logic. Contract admins can implement their own reward mechanisms by overriding existing functions.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/base/Staking1155Base.sol"
+  name="Staking1155Base"
+/>
+
+## Detected Extensions
+
+Once deployed, you can use the features made available by these extensions on the SDK and dashboard:
+
+Click on each feature to learn more about what functions are available.
+
+- [ContractMetadata](solidity/extensions/contractmetadata)
+- [ERC1155](https://eips.ethereum.org/EIPS/eip-1155)
+- [ERC1155Mintable](/solidity/extensions/erc1155mintable)
+- [ERC1155BatchMintable](/solidity/extensions/multicall)
+- [ERC1155Burnable](/solidity/extensions/erc1155burnable)
+- [ERC1155Enumerable](/solidity/extensions/erc1155enumerable)
+- [ERC1155SignatureMintable](/solidity/extensions/erc1155signaturemint)
+- [Royalty](/solidity/extensions/royalty)
+- [Ownable](/solidity/extensions/ownable)
+
+## Usage
+
+Import the contract and inherit from it.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/Staking1155Base.sol";
+
+contract MyContract is Staking1155Base {
+    constructor(
+        uint256 _defaultTimeUnit,
+        uint256 _defaultRewardsPerUnitTime,
+        address _stakingToken,
+        address _rewardToken,
+        address _nativeTokenWrapper
+    ) Staking1155Base(_defaultTimeUnit, _defaultRewardsPerUnitTime, _stakingToken, _rewardToken, _nativeTokenWrapper) {}
+}
+```
+
+## Functions to Override
+
+The following functions have been implemented on this contract & are available to be overridden to add custom logic:
+
+<details>
+<summary>tokenURI</summary>
+<div>
+
+```solidity
+    /**
+     *  @dev    Mint ERC20 rewards to the staker. Must override.
+     *
+     *  @param _staker    Address for which to calculated rewards.
+     *  @param _rewards   Amount of tokens to be given out as reward.
+     *
+     */
+    function _mintRewards(address _staker, uint256 _rewards) internal virtual override {
+        // Mint or transfer reward-tokens here.
+        // e.g.
+        //
+        // IERC20(rewardToken).transfer(_staker, _rewards);
+        //
+        // OR
+        //
+        // Use a mintable ERC20, such as thirdweb's `TokenERC20.sol`
+        //
+        // TokenERC20(rewardToken).mintTo(_staker, _rewards);
+        // note: The staking contract should have minter role to mint tokens.
+    }
+```
+
+</div>
+</details>
