@@ -33,21 +33,19 @@ Connect to user’s wallets, interact with smart contracts, sign messages, and u
 
 Our SDK supports Android `minSdkVersion = 23` and `ios.platform >= 13`
 
+<Tabs groupId='cli-expo'>
+<TabItem value="existing-rn-cli" label="React Native CLI Project">
+
 <Tabs>
   <TabItem value="yarn" label="yarn" default>
     <CodeBlock
       language={"bash"}
-    >{`yarn add 'ethers@^5.0.0' node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage @thirdweb-dev/react-native @thirdweb-dev/react-native-compat`}</CodeBlock>
+    >{`yarn add 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage`}</CodeBlock>
   </TabItem>
   <TabItem value="npm" label="npm">
     <CodeBlock
       language={"bash"}
-    >{`npm i 'ethers@^5.0.0' node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage @thirdweb-dev/react-native @thirdweb-dev/react-native-compat`}</CodeBlock>
-  </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-    <CodeBlock
-      language={"bash"}
-    >{`pnpm i 'ethers@^5.0.0' node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @thirdweb-dev/react-native @thirdweb-dev/react-native-compat`}</CodeBlock>
+    >{`npm i 'ethers@^5.0.0' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage`}</CodeBlock>
   </TabItem>
 </Tabs>
 
@@ -63,6 +61,44 @@ Move into your `/ios` folder and run the following command to install the ios' p
 cd ios/ && pod install
 ```
 
+</TabItem>
+
+<TabItem value="existing-rn-expo" label="React Native Expo Project">
+
+Our wallets package has custom native code so we need to prebuild the Expo project:
+
+<CodeBlock language={"bash"}>{`npx expo prebuild`}</CodeBlock>
+
+Now, we can add the dependencies:
+
+<Tabs>
+  <TabItem value="yarn" label="yarn" default>
+    <CodeBlock
+      language={"bash"}
+    >{`yarn add 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg @react-native-async-storage/async-storage`}</CodeBlock>
+  </TabItem>
+  <TabItem value="npm" label="npm">
+    <CodeBlock
+      language={"bash"}
+    >{`npm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg @react-native-async-storage/async-storage`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+Our wallets package uses the Expo Modules API, please [configure it](https://docs.expo.dev/modules/overview/) in your app:
+
+```sh
+npx install-expo-modules@latest
+```
+
+The package `react-native-mmkv` is used for our storage needs:
+
+```sh
+expo install react-native-mmkv
+```
+
+</TabItem>
+</Tabs>
+
 ### Add shims for the crypto nodejs' libraries
 
 React Native is based on [JavaScriptCore](https://developer.apple.com/documentation/javascriptcore?language=objc) (part of WebKit) and does not use Node.js or the common Web and DOM APIs. As such, there are many operations missing that a normal web environment or Node.js instance would provide. [[1]](https://docs.ethers.org/v5/cookbook/react-native/#cookbook-reactnative-security).
@@ -71,15 +107,16 @@ For this reason we need to add shims for some of the operations not available in
 
 In your `metro.config.js` (please, create one if you don’t have it) add the following to shim the nodejs modules needed:
 
-```javascript
-/**
+<Tabs groupId='cli-expo'>
+
+<TabItem value="existing-rn-cli" label="React Native CLI Project">
+  <CodeBlock language={"javascript"}>{`/**
  * Metro configuration for React Native
  * https://github.com/facebook/react-native
  *
  * @format
  */
 const extraNodeModules = require("node-libs-browser");
-
 module.exports = {
   resolver: {
     extraNodeModules,
@@ -93,7 +130,27 @@ module.exports = {
     }),
   },
 };
-```
+`}</CodeBlock>
+</TabItem>
+
+<TabItem value="existing-rn-expo" label="React Native Expo Project">
+<CodeBlock
+language={"javascript"} >{`// Learn more https://docs.expo.io/guides/customizing-metro
+const { getDefaultConfig } = require("expo/metro-config");
+const extraNodeModules = require("node-libs-browser");
+const config = getDefaultConfig(\_\_dirname);
+config.resolver.extraNodeModules = extraNodeModules;
+config.transformer.getTransformOptions = async () => ({
+  transform: {
+    experimentalImportSupport: false,
+    inlineRequires: true,
+  },
+});
+module.exports = config;
+`}</CodeBlock>
+
+</TabItem>
+</Tabs>
 
 We provide a package that imports all the necessary polyfills for you, please, import this package into your `index.js` file. Make sure it is at the top of your imports.
 
@@ -129,11 +186,19 @@ Make sure to have your React Native environment setup before using the template.
   </TabItem>
   <TabItem value="react-native-cli" label="React Native CLI">
     Alternatively you can use the React Native CLI. Note that you need to follow
-    `Existing Projects` steps in this guide after executing the following
-    command:
+    the "Existing Projects -> React Native CLI Project" steps in this guide
+    after executing the following command:
     <CodeBlock
       language={"bash"}
     >{`npx react-native init MyRNApp --template react-native-template-typescript`}</CodeBlock>
+  </TabItem>
+  <TabItem value="react-native-expo" label="React Native CLI">
+    Alternatively you can use the React Native Expo CLI. Note that you need to
+    follow the "Existing Projects -> React Native Expo Project" steps in this
+    guide after executing the following command:
+    <CodeBlock
+      language={"bash"}
+    >{`npx thirdweb create --template react-native-expo-starter`}</CodeBlock>
   </TabItem>
 </Tabs>
 
