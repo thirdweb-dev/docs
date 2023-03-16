@@ -1,18 +1,19 @@
 ---
-slug: /solidity/interfaces/erc20batchmintable
-title: Batch Mint
+slug: /solidity/extensions/erc20mintable
+title: ERC20 Mintable
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 
-# ERC20BatchMintable
+# ERC20Mintable
 
-Implement `IMintableERC20` and `Multicall` to support minting tokens to multiple addresses in one transaction.
+Enable the minting of new tokens by implementing `ERC20` and `IMintableERC20`.
 
 <ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Multicall.sol"
-  name="Multicall"
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IMintableERC20.sol"
+  name="ERC20"
+  isInterface={true}
 />
 
 ## Base Contracts Implementing This Feature
@@ -52,9 +53,9 @@ Implement `IMintableERC20` and `Multicall` to support minting tokens to multiple
 
 By implementing the `ERC20` standard, you unlock the following features in the SDK and dashboard:
 
-| SDK Feature                                                                                               | Description                                          |
-| --------------------------------------------------------------------------------------------------------- | ---------------------------------------------------- |
-| [Batch Mint Tokens](/sdk/interacting-with-contracts/erc20/erc20batchmintable#mint-tokens-to-many-wallets) | Mint tokens to many wallets in a single transaction. |
+| SDK Feature                                                        | Description                                                                       |
+| ------------------------------------------------------------------ | --------------------------------------------------------------------------------- |
+| [Mint Tokens](/sdk/interacting-with-contracts/erc20/erc20mintable) | Permit other addresses to transfer a specified amount of tokens from your wallet. |
 
 ## Implementing It Yourself
 
@@ -66,9 +67,8 @@ pragma solidity ^0.8.0;
 
 import "@thirdweb-dev/contracts/openzeppelin-presets/token/ERC20/ERC20.sol";
 import "@thirdweb-dev/contracts/extension/interface/IMintableERC20.sol";
-import "@thirdweb-dev/contracts/extension/Multicall.sol";
 
-contract Contract is ERC20, IMintableERC20, Multicall {
+contract Contract is ERC20, IMintableERC20 {
     constructor(
         string memory _name,
         string memory _symbol

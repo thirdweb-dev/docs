@@ -1,14 +1,14 @@
 ---
-slug: /solidity/interfaces/erc1155revealable
+slug: /solidity/extensions/erc721revealable
 title: Delayed Reveal
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 
-# ERC1155Revealable
+# ERC721Revealable
 
-Encrypt the metadata of your NFTs until you reveal them by implementing `ERC1155`, `LazyMint`, and `DelayedReveal`.
+Encrypt the metadata of your NFTs until you reveal them by implementing `ERC721A`, `LazyMint`, and `DelayedReveal`.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DelayedReveal.sol"
@@ -20,15 +20,15 @@ Encrypt the metadata of your NFTs until you reveal them by implementing `ERC1155
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--6" style={{ padding: 8 }}>
     <QuickstartCard
-      name="ERC1155 Delayed Reveal"
-      link="/solidity/base-contracts/erc-1155/erc1155delayedreveal"
+      name="ERC721 Delayed Reveal"
+      link="/solidity/base-contracts/erc-721/erc721delayedreveal"
       image="/assets/icons/general.png"
     />
   </div>
   <div className="col col--6" style={{ padding: 8 }}>
     <QuickstartCard
-      name="ERC1155 Drop"
-      link="/solidity/base-contracts/erc-1155/erc1155drop"
+      name="ERC721 Drop"
+      link="/solidity/base-contracts/erc-721/erc721drop"
       image="/assets/icons/general.png"
     />
   </div>
@@ -36,11 +36,11 @@ Encrypt the metadata of your NFTs until you reveal them by implementing `ERC1155
 
 ## Unlocked Features
 
-By implementing `ERC1155Claimable`, you unlock the following features in the SDK and dashboard:
+By implementing `ERC721Claimable`, you unlock the following features in the SDK and dashboard:
 
-| SDK Usage                                                               | Description                                                                   |
-| ----------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
-| [Delayed Reveals](/sdk/interacting-with-contracts/erc1155delayedreveal) | Pass in an array of NFT metadata to encrypt it and reveal it at a later time. |
+| SDK Usage                                                              | Description                                                                   |
+| ---------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| [Delayed Reveals](/sdk/interacting-with-contracts/erc721delayedreveal) | Pass in an array of NFT metadata to encrypt it and reveal it at a later time. |
 
 ## Implementing It Yourself
 
@@ -50,16 +50,16 @@ This section is meant for advanced users who want to write the functionality fro
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@thirdweb-dev/contracts/eip/ERC1155.sol";
+import "@thirdweb-dev/contracts/eip/ERC721A.sol";
 import "@thirdweb-dev/contracts/extension/LazyMint.sol";
 import "@thirdweb-dev/contracts/extension/DelayedReveal.sol";
 
-contract Contract is ERC1155, LazyMint, DelayedReveal {
+contract Contract is ERC721A, LazyMint, DelayedReveal {
     constructor(
         string memory _name,
         string memory _symbol
     )
-        ERC1155(
+        ERC721A(
             _name,
             _symbol
         )
@@ -84,6 +84,15 @@ contract Contract is ERC1155, LazyMint, DelayedReveal {
     {
         // Your custom implementation here
     }
-}
+
+    function tokenURI(uint256 tokenId)
+        public
+        view
+        virtual
+        override
+        returns (string memory)
+    {
+        // Your custom implementation here
+    }
 }
 ```

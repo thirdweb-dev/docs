@@ -1,18 +1,18 @@
 ---
-slug: /solidity/interfaces/erc20signaturemintable
+slug: /solidity/extensions/erc721signaturemintable
 title: Signature-Based Minting
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 
-# ERC20SignatureMint
+# ERC721SignatureMint
 
-Enable [signature-based minting](/sdk/advanced-features/on-demand-minting) of tokens in your smart contract by implementing `ERC20SignatureMint`.
+Enable [signature-based minting](/sdk/advanced-features/on-demand-minting) of NFTs in your smart contract by implementing `ERC721SignatureMint`.
 
 <ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/SignatureMintERC20.sol"
-  name="SignatureMintERC20"
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/SignatureMintERC721.sol"
+  name="SignatureMintERC721"
 />
 
 ## Base Contracts Implementing This Feature
@@ -20,15 +20,8 @@ Enable [signature-based minting](/sdk/advanced-features/on-demand-minting) of to
 <div className="row" style={{ marginBottom: 24 }}>
   <div className="col col--6" style={{ padding: 8 }}>
     <QuickstartCard
-      name="ERC20 Signature Mint"
-      link="/solidity/base-contracts/erc-20/erc20signaturemint"
-      image="/assets/icons/general.png"
-    />
-  </div>
-  <div className="col col--6" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="ERC20 Vote Signature Mint"
-      link="/solidity/base-contracts/erc-20/erc20signaturemint-vote"
+      name="ERC721 Signature Mint Base Contract"
+      link="/solidity/base-contracts/erc-721/erc721signaturemint"
       image="/assets/icons/general.png"
     />
   </div>
@@ -36,9 +29,9 @@ Enable [signature-based minting](/sdk/advanced-features/on-demand-minting) of to
 
 ## Unlocked Features
 
-By implementing the `ERC20` standard, you unlock the following features in the SDK and dashboard:
+By implementing the ERC721SignatureMint contract, you unlock the following features in the SDK and dashboard:
 
-| SDK Feature                                                                    | Description                                                                             |
+| SDK Usage                                                                      | Description                                                                             |
 | ------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------- |
 | [Signature-Based Minting](/sdk/interacting-with-contracts/erc721SignatureMint) | Generate signatures that allow other wallets can use to mint NFTs into your collection. |
 
@@ -50,15 +43,15 @@ This section is meant for advanced users who want to write the functionality fro
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@thirdweb-dev/contracts/openzeppelin-presets/token/ERC20/ERC20.sol";
-import "@thirdweb-dev/contracts/extension/SignatureMintERC20.sol";
+import "@thirdweb-dev/contracts/eip/ERC721A.sol";
+import "@thirdweb-dev/contracts/extension/SignatureMintERC721.sol";
 
-contract Contract is ERC20, SignatureMintERC20 {
+contract Contract is ERC721A, SignatureMintERC721 {
     constructor(
         string memory _name,
         string memory _symbol
     )
-        ERC20(
+        ERC721A(
             _name,
             _symbol
         )
@@ -68,11 +61,13 @@ contract Contract is ERC20, SignatureMintERC20 {
         // Your custom implementation here
     }
 
-    function mintWithSignature(
-        MintRequest calldata _req,
-        bytes calldata _signature
-    ) external payable virtual override returns (address signer) {
+    function mintWithSignature(MintRequest calldata req, bytes calldata signature)
+        external
+        payable
+        override
+    returns (address signer) {
         // Your custom implementation here
+
     }
 }
 ```
