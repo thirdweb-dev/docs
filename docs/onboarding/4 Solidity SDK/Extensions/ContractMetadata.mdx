@@ -12,7 +12,7 @@ import QuickstartCard from "@components/QuickstartCard";
 import "@thirdweb-dev/contracts/extension/ContractMetadata.sol";
 ```
 
-The `ContractMetadata` smart contract is an extension usable with any base smart contract. It lets you define metadata with your smart contract. Additionally, `ContractMetadata` is necessary to enable royalties on NFT contracts on OpenSea.
+The `ContractMetadata` smart contract is an extension usable with any smart contract. It lets you define metadata for your smart contract. Additionally, `ContractMetadata` is necessary to enable royalties on NFT contracts on OpenSea.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/ContractMetadata.sol"
@@ -25,21 +25,7 @@ The `ContractMetadata` extension is _already_ available in the following [base c
 
 - All ERC20, ERC721 and ERC1155 base contracts.
 
-## Unlocked Features
-
-Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
-  <div className="col col--12" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Contract Metadata"
-      link="/sdk/advanced-features/contract-settings#contract-metadata"
-      image="/assets/icons/general.png"
-    />
-  </div>
-</div>
-
-## Implementing the Contract
+## Usage
 
 The `ContractMetadata` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
@@ -79,6 +65,14 @@ contract MyContract is ContractMetadata {
     }
 }
 ```
+
+## SDK usage
+
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+## Dashboard Usage
+
+By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
 
 ## Full API reference
 

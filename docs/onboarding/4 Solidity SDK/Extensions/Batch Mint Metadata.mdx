@@ -12,20 +12,14 @@ import QuickstartCard from "@components/QuickstartCard";
 import "@thirdweb-dev/contracts/extension/BatchMintMetadata.sol";
 ```
 
-The `BatchMintMetadata` smart contract is an extension for any NFT contract. It lets the smart contract using this extension set the metadata for `n` number of NFTs in one transaction. This is enabled by storing a single base URI for a batch of `n` NFTs, where the metadata URI for each NFT in a relevant batch is `baseURI/tokenId`.
+The `BatchMintMetadata` smart contract is an extension for any NFT contract. It lets the smart contract using this extension set the metadata for `n` number of NFTs in one transaction. A single base URI for a batch of `n` NFTs is defined, where the metadata URI for each NFT in a relevant batch is `baseURI/tokenId`.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Multicall.sol"
   name="Multicall"
 />
 
-## Availability in base contracts
-
-The `BatchMintMetadata` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
-
-- All [ERC721](/solidity/base-contracts/erc-721/erc721base) and [ERC1155](/solidity/base-contracts/erc-1155/erc1155base) base contracts.
-
-## Implementing It Yourself
+## Usage
 
 Import the extension smart contract and inherit it.
 
@@ -40,7 +34,18 @@ contract MyContract is BatchMintMetadata {}
 
 ## SDK usage
 
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+
 ## Dashboard Usage
+
+By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
+
+## Availability in base contracts
+
+The `BatchMintMetadata` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
+
+- All [ERC721](/solidity/base-contracts/erc-721/erc721base) and [ERC1155](/solidity/base-contracts/erc-1155/erc1155base) base contracts.
 
 ## Full API reference
 
