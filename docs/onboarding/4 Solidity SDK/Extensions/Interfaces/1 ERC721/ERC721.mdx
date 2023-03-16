@@ -1,0 +1,91 @@
+---
+slug: /solidity/extensions/interfaces/erc721
+title: ERC721
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# ERC721
+
+ERC721 is the standard for representing NFTs (non-fungible tokens).
+
+We recommend using the optimized [ERC721A](https://www.erc721a.org/) standard for integrating NFT functionality into your smart contract.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC721A.sol"
+  name="ERC721A"
+/>
+
+## Base Contracts Implementing This Feature
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC721 Base"
+      link="/solidity/base-contracts/erc-721/erc721base"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC721 Signature Mint"
+      link="/solidity/base-contracts/erc-721/erc721signaturemint"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC721 Lazy Mint"
+      link="/solidity/base-contracts/erc-721/erc721lazymint"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC721 Delayed Reveal"
+      link="/solidity/base-contracts/erc-721/erc721delayedreveal"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC721 Drop"
+      link="/solidity/base-contracts/erc-721/erc721drop"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Unlocked Features
+
+By implementing the `ERC721A` standard, you unlock the following features in the SDK and dashboard:
+
+| SDK Feature                                                                           | Description                                         |
+| ------------------------------------------------------------------------------------- | --------------------------------------------------- |
+| [Get NFT Balance](/sdk/interacting-with-contracts/erc721#get-nft-balance)             | View the number of NFTs owned by a wallet address   |
+| [View NFT Metadata](/sdk/interacting-with-contracts/erc721#get-a-single-nft-metadata) | View the token URI and fetch the metadata from IPFS |
+| [Transfer NFT](/sdk/interacting-with-contracts/erc721#transfer-a-single-nft)          | Transfer an NFT from one wallet to another          |
+
+## Implementing It Yourself
+
+This section is meant for advanced users who want to write the functionality from scratch.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/eip/ERC721A.sol";
+
+contract Contract is ERC721A {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC721A(
+            _name,
+            _symbol
+        )
+    {}
+}
+```

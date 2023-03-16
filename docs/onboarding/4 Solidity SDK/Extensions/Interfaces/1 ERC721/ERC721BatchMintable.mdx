@@ -1,0 +1,73 @@
+---
+slug: /solidity/extensions/interfaces/erc721batchmintable
+title: ERC721BatchMintable
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# ERC721BatchMintable
+
+Enable minting multiple NFTs at once in a single transaction by Implementing `ERC721`, `IMintableERC721`, and `Multicall`.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Multicall.sol"
+  name="Multicall"
+/>
+
+## Base Contracts Implementing This Feature
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--6" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="ERC721 Base Contract"
+      link="/solidity/base-contracts/erc-721/erc721base"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC721 Signature Mint"
+      link="/solidity/base-contracts/erc-721/erc721signaturemint"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Unlocked Features
+
+By implementing `ERC721BatchMintable`, you unlock the following features in the SDK and dashboard:
+
+| SDK Usage                                                                                    | Description                                                                                     |
+| -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| [Batch Mint NFTs](/sdk/interacting-with-contracts/erc721BatchMintable#mint-many-unique-nfts) | Pass in an array of NFT metadata and mint multiple NFTs in one transaction to a wallet address. |
+
+## Implementing It Yourself
+
+This section is meant for advanced users who want to write the functionality from scratch.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/eip/ERC721A.sol";
+import "@thirdweb-dev/contracts/extension/interface/IMintableERC721.sol";
+import "@thirdweb-dev/contracts/extension/Multicall.sol";
+
+contract Contract is ERC721A, IMintableERC721, Multicall {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC721A(
+            _name,
+            _symbol
+        )
+    {}
+
+    function mintTo(address to, string calldata uri) external override returns (uint256) {
+        // Your custom implementation here
+    }
+
+}
+```

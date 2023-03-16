@@ -1,0 +1,91 @@
+---
+slug: /solidity/extensions/interfaceserc20claimconditions
+title: Claim with Conditions
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# ERC20ClaimableWithConditions
+
+Allow other wallets to claim/mint tokens from the contract under the criteria of claim conditions by
+implementing `ERC20` and `DropSinglePhase`.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DropSinglePhase.sol"
+  name="DropSinglePhase"
+/>
+
+## Base Contracts Implementing This Feature
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC20 Drop"
+      link="/solidity/base-contracts/erc-20/erc20drop"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC20 Vote Drop"
+      link="/solidity/base-contracts/erc-20/erc20drop-vote"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Unlocked Features
+
+By implementing the `ERC20` standard, you unlock the following features in the SDK and dashboard:
+
+| SDK Feature                                                                                    | Description                                                                       |
+| ---------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| [Claim Tokens](/sdk/interacting-with-contracts/erc721lazymintable#claim-a-lazy-minted-nft)     | Claim (mint) a lazy-minted NFT to a wallet address.                               |
+| [Claim Conditions](/sdk/interacting-with-contracts/erc721Claimable#configure-claim-conditions) | Mints a quantity of lazy-minted NFTs from the drop to a specified wallet address. |
+
+## Implementing It Yourself
+
+This section is meant for advanced users who want to write the functionality from scratch.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/openzeppelin-presets/token/ERC20/ERC20.sol";
+import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
+
+contract Contract is ERC20, DropSinglePhase {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC20(
+            _name,
+            _symbol
+        )
+    {}
+
+    function _canSetClaimConditions() internal view override returns (bool) {
+        // Your custom implementation here
+    }
+
+    function _collectPriceOnClaim(
+        address _primarySaleRecipient,
+        uint256 _quantityToClaim,
+        address _currency,
+        uint256 _pricePerToken
+    ) internal virtual override {
+        // Your custom implementation here
+    }
+
+    function _transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
+        internal
+        virtual
+        override
+        returns (uint256 startTokenId)
+    {
+        // Your custom implementation here
+    }
+}
+```

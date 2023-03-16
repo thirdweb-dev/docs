@@ -1,34 +1,27 @@
 ---
-slug: /solidity/extensions/dropsinglephase
-title: DropSinglePhase (ERC20 & ERC721)
+slug: /solidity/extensions/dropmultiphase
+title: DropMultiPhase
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import QuickstartCard from "@components/QuickstartCard";
 
-# DropSinglePhase (ERC20 & ERC721)
+# DropMultiPhase (ERC20 & ERC721)
 
 ```solidity
-import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
+import "@thirdweb-dev/contracts/extension/Drop.sol";
 ```
 
-The `DropSinglePhase` smart contract is an extension meant for distributing ERC20 or ERC721 tokens.
+The `Drop` smart contract is an extension meant for distributing ERC20 or ERC721 tokens. It allows setting up multiple claim phases unlike `DropSinglePhase`. This series of claim phases is ordered by their respective `startTimestamp`.
 
-This extension implements the 'Drop' distribution mechanism: set restrictions such as a price to charge, an allowlist etc. for the public / allowlisted mint of your tokens.
+This extension implements the 'Drop' distribution mechanism: set multiple claim phases with restrictions such as a price to charge, an allowlist etc. for the public / allowlisted mint of your tokens.
 
 <ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DropSinglePhase.sol"
-  name="DropSinglePhase"
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Drop.sol"
+  name="Drop"
 />
 
-## Availability in base contracts
-
-The `DropSinglePhase` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
-
-- **ERC20**: [`ERC20Drop`](/solidity/base-contracts/erc-20/erc20drop)
-- **ERC721**: [`ERC721Drop`](/solidity/base-contracts/erc-721/erc721drop)
-
-## Unlocked Features
+## Unlocked Extensions
 
 Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
 
@@ -36,7 +29,7 @@ Once deployed, you can use the features made available by these contracts on the
   <div className="col col--12" style={{ padding: 8 }}>
     <QuickstartCard
       name="Claim with conditions"
-      link="/sdk/interacting-with-contracts/erc721claimablewithconditions"
+      link="/solidity/extensions/erc721claimconditions"
       image="/assets/icons/general.png"
     />
   </div>
@@ -44,27 +37,27 @@ Once deployed, you can use the features made available by these contracts on the
 
 ## Implementing the Contract
 
-This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/solidity/extension-contracts/dropsinglephase#availability-in-base-contracts) that already implement Drop functionlity for you!
+This section is meant for advanced users who want to write functionality from scratch.
 
-The `DropSinglePhase` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
+The `Drop` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                                                | Type                    | Parameters | Returns   | Description                                                                                                                                      |
-| --------------------------------------------------------------------------------------------------- | ----------------------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [`_collectPriceOnClaim`](/solidity/extension-contracts/dropsinglephase#_collectpriceonclaim)     | internal _virtual_      | n/a        | n/a       | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
-| [`_transferTokensOnClaim`](/solidity/extension-contracts/dropsinglephase#_transfertokensonclaim) | internal _virtual_      | n/a        | `uint256` | Transfers the NFTs being claimed.                                                                                                                |
-| [`_canSetClaimConditions`](/solidity/extension-contracts/dropsinglephase#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
+| Name                                                                                     | Type                    | Parameters | Returns   | Description                                                                                                                                      |
+| ---------------------------------------------------------------------------------------- | ----------------------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| [`_collectPriceOnClaim`](/solidity/extension-contracts/drop#_collectpriceonclaim)     | internal _virtual_      | n/a        | n/a       | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
+| [`_transferTokensOnClaim`](/solidity/extension-contracts/drop#_transfertokensonclaim) | internal _virtual_      | n/a        | `uint256` | Transfers the NFTs being claimed.                                                                                                                |
+| [`_canSetClaimConditions`](/solidity/extension-contracts/drop#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
 
 ```solidity
 // SPDX-License-Identifier: Apache-2.0
 pragma solidity ^0.8.0;
 
-import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
+import "@thirdweb-dev/contracts/extension/Drop.sol";
 import "@thirdweb-dev/contracts/base/ERC20Base.sol";
 import "@thirdweb-dev/contracts/lib/CurrencyTransferLib.sol";
 
-/// This is an EXAMPLE of usage of `DropSinglePhase` for distributing ERC20 tokens.
+/// This is an EXAMPLE of usage of `Drop` for distributing ERC20 tokens.
 
-contract MyContract is ERC20Base, DropSinglePhase {
+contract MyContract is ERC20Base, Drop {
     /*//////////////////////////////////////////////////////////////
                             Constructor
     //////////////////////////////////////////////////////////////*/
@@ -165,12 +158,12 @@ struct ClaimCondition {
     string metadata;
 }
 
-function setClaimConditions(ClaimCondition calldata phase, bool resetClaimEligibility) external;
+function setClaimConditions(ClaimCondition[] calldata phases, bool resetClaimEligibility) external;
 ```
 
 - Lets an authorized wallet set the claim condition for the contract.
-- Parameter `phase`: The set of restrictions that will apply to the minting of tokens on the contract.
-  - `startTimestamp`: The unix timestamp after which the claim condition applies.
+- Parameter `phases`: The array where each `phase` contains a set of restrictions that will apply to the minting of tokens on the contract.
+  - `startTimestamp`: The unix timestamp after which the claim condition applies. The same claim condition applies until the `startTimestamp` of the next claim condition.
   - `maxClaimableSupply`: The maximum total number of tokens that can be claimed under the claim condition.
   - `supplyClaimed`: At any given point, the number of tokens that have been claimed under the claim condition.
   - `quantityLimitPerWallet`: The maximum number of tokens that can be claimed by a wallet.
@@ -192,6 +185,7 @@ struct AllowlistProof {
 }
 
 function verifyClaim(
+    uint256 conditionId,
     address claimer,
     uint256 quantity,
     address currency,
@@ -201,6 +195,7 @@ function verifyClaim(
 ```
 
 - Checks a request to claim tokens against the active claim condition's criteria.
+- Parameter `conditionId`: Id of the active claim condition.
 - Parameter `claimer`: The wallet claiming tokens.
 - Parameter `quantity`: The quantity of tokens to claim.
 - Parameter `currency`: The currency in which to pay the price for the claim.
@@ -211,13 +206,31 @@ function verifyClaim(
   - `pricePerToken`: The price per token the allowlisted wallet must pay to claim tokens.
   - `currency`: The currency in which the allowlisted wallet must pay the price for claiming tokens.
 
+### getActiveClaimConditionId
+
+```solidity
+function getActiveClaimConditionId() public view returns (uint256);
+```
+
+- Returns the Id of currently active claim condition.
+
+### getClaimConditionById
+
+```solidity
+function getClaimConditionById(uint256 conditionId) external view returns (ClaimCondition memory);
+```
+
+- Returns the claim condition for a given condition Id.
+- Parameter `conditionId`: Id of the claim condition being viewed.
+
 ### getSupplyClaimedByWallet
 
 ```solidity
-function getSupplyClaimedByWallet(address claimer) public view returns (uint256);
+function getSupplyClaimedByWallet(uint256 conditionId, address claimer) public view returns (uint256);
 ```
 
-- Returns the number of tokens claimed by a wallet under the active condition.
+- Returns the number of tokens claimed by a wallet under the given condition.
+- Parameter `conditionId`: Id of the claim condition under which to check the supply claimed.
 - Parameter `claimer`: The wallet claiming tokens.
 
 ### \_dropMsgSender

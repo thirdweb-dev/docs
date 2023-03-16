@@ -1,0 +1,183 @@
+---
+slug: /solidity/extensions/delayedreveal
+title: DelayedReveal
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# DelayedReveal
+
+```solidity
+import "@thirdweb-dev/contracts/extension/DelayedReveal.sol";
+```
+
+The `DelayedReveal` smart contract is an extension for any base NFT contract. It lets you create batches of 'delayed-reveal' NFTs.
+
+`DelayedReveal` uses the [`LazyMint`](/solidity/extension-contracts/lazymint) extension. When first lazy minting tokens, you can encrypt the metadata of NFTs and can reveal this metadata once your lazy minted NFTs have been distributed. You can learn more about how delayed reveal NFTs work, in this [blogpost](https://blog.thirdweb.com/delayed-reveal-nfts).
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DelayedReveal.sol"
+  name="DelayedReveal"
+/>
+
+## Availability in base contracts
+
+The `DelayedReveal` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
+
+- **ERC721**: [`ERC721DelayedReveal`](/solidity/base-contracts/erc-721/erc721delayedreveal), [`ERC721Drop`](/solidity/base-contracts/erc-721/erc721drop)
+- **ERC1155**: [`ERC1155DelayedReveal`](/solidity/base-contracts/erc-1155/erc1155delayedreveal), [`ERC1155Drop`](/solidity/base-contracts/erc-1155/erc1155drop)
+
+## Unlocked Features
+
+By implementing `DelayedReveal`, you unlock the following features in the SDK and dashboard:
+
+<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Delayed Reveal"
+      link="/sdk/interacting-with-contracts/erc721delayedreveal"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Implementing It Yourself
+
+This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/solidity/extension-contracts/delayedreveal#availability-in-base-contracts) that already implement delayed reveal functionlity for you!
+
+The `DelayedReveal` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
+
+| Name                                                              | Type     | Parameters | Returns         | Description                             |
+| ----------------------------------------------------------------- | -------- | ---------- | --------------- | --------------------------------------- |
+| [`reveal`](/solidity/extension-contracts/delayedreveal#reveal) | external | n/a        | `string memory` | Reveals a batch of delayed reveal NFTs. |
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/base/ERC721LazyMint.sol";
+import "@thirdweb-dev/contracts/extension/DelayedReveal.sol";
+
+/// This is just an EXAMPLE contract that uses `DelayedReveal`.
+
+contract MyContract is ERC721LazyMint, DelayedReveal {
+    using TWStrings for uint256;
+
+    constructor(
+        string memory _name,
+        string memory _symbol,
+        address _royaltyRecipient,
+        uint128 _royaltyBps
+    ) ERC721LazyMint(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
+
+    /**
+     *  We override the `lazyMint` function, and use the `_data` paramter for storing encrypted metadata
+     *  for 'delayed reveal' NFTs.
+     */
+    function lazyMint(
+        uint256 _amount,
+        string calldata _baseURIForTokens,
+        bytes calldata _data
+    ) public override returns (uint256 batchId) {
+        if (_data.length > 0) {
+            (bytes memory encryptedURI, bytes32 provenanceHash) = abi.decode(
+                _data,
+                (bytes, bytes32)
+            );
+            if (encryptedURI.length != 0 && provenanceHash != "") {
+                _setEncryptedData(nextTokenIdToLazyMint + _amount, _data);
+            }
+        }
+
+        return super.lazyMint(_amount, _baseURIForTokens, _data);
+    }
+
+    /**
+     *  We override `tokenURI` to return an appropriate URI for NFTs whose true metadata is encrypted.
+     */
+    function tokenURI(uint256 _tokenId)
+        public
+        view
+        virtual
+        override
+        returns (string memory)
+    {
+        (uint256 batchId, ) = _getBatchId(_tokenId);
+        string memory batchUri = _getBaseURI(_tokenId);
+
+        if (isEncryptedBatch(batchId)) {
+            return string(abi.encodePacked(batchUri, "0"));
+        } else {
+            return string(abi.encodePacked(batchUri, _tokenId.toString()));
+        }
+    }
+
+    /**
+     *  We only let the owner of the contract reveal the metadata for a batch of NFTs.
+     */
+    function reveal(uint256 _index, bytes calldata _key)
+        external
+        override
+        returns (string memory revealedURI)
+    {
+        require(msg.sender == owner(), "Not authorized");
+
+        uint256 batchId = getBatchIdAtIndex(_index);
+        revealedURI = getRevealURI(batchId, _key);
+
+        _setEncryptedData(batchId, "");
+        _setBaseURI(batchId, revealedURI);
+    }
+}
+```
+
+## Full API Reference
+
+### \_setEncryptedData
+
+```solidity
+function _setEncryptedData(uint256 batchId, bytes memory encryptedData) internal;
+```
+
+- Sets the delayed reveal data for a given batch of NFTs.
+- Parameter `batchId`: The identifier for the batch of delayed reveal NFTs.
+- Parameter `encryptedData`: The encrypted metadata to store for the given batch of NFTs.
+
+### getRevealURI
+
+```solidity
+function getRevealURI(uint256 batchId, bytes calldata key) public view returns (string memory revealedURI);
+```
+
+- Returns revealed URI i.e. true metadata URI for a batch of NFTs.
+- Parameter `batchId`: The identifier for the batch of delayed reveal NFTs whose true metadata URI is being retrieved.
+- Parameter `key`: Secure key used by caller/admin for initially encrypting the metadata of the relevant batch of NFTs.
+
+### encryptDecrypt
+
+```solidity
+function encryptDecrypt(bytes memory data, bytes calldata key) public pure override returns (bytes memory result);
+```
+
+- Standard XOR encryption implementation in Solidity. Used to encrypt the metadata of NFTs.
+- Learn more about the usage of this function in this [blogpost](https://blog.thirdweb.com/delayed-reveal-nfts).
+
+### isEncryptedBatch
+
+```solidity
+function isEncryptedBatch(uint256 batchId) public view returns (bool);
+```
+
+- Returns whether the relvant batch of NFTs is subject to a delayed reveal.
+- Parameter `batchId`: The identifier for a batch of NFTs.
+
+### reveal
+
+```solidity
+function reveal(uint256 batchId, bytes calldata key) external returns (string memory revealedURI);
+```
+
+- Reveals a batch of delayed reveal NFTs.
+- Parameter `batchId`: The ID for the batch of delayed-reveal NFTs to reveal.
+- Parameter `key`: The key with which the base URI for the relevant batch of NFTs was encrypted.
