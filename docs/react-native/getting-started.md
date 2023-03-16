@@ -46,36 +46,14 @@ yarn ios
 
 ```javascript
 import React from "react";
-import { SafeAreaView, Text, TouchableOpacity } from "react-native";
+import { SafeAreaView } from "react-native";
 
-import {
-  useAccount,
-  useDisconnect,
-  useWalletConnect,
-} from "@thirdweb-dev/react-native";
+import { ConnectWallet } from "@thirdweb-dev/react-native";
 
 const AppInner = () => {
-  const disconnect = useDisconnect();
-
-  const { connect, displayUri } = useWalletConnect();
-
-  const { address: account } = useAccount();
-
-  const onConnectPress = () => {
-    if (account) {
-      disconnect();
-    } else {
-      connect();
-    }
-  };
-
   return (
     <SafeAreaView style={styles.backgroundStyle}>
-      <Text>{account ? `Account: ${account}` : "Wallet not connected"}</Text>
-
-      <TouchableOpacity style={styles.button} onPress={onConnectPress}>
-        <Text style={styles.text}>{account ? "Disconnect" : "Connect"}</Text>
-      </TouchableOpacity>
+      <ConnectWallet />
     </SafeAreaView>
   );
 };

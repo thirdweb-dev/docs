@@ -28,10 +28,14 @@ Connect to user’s wallets, interact with smart contracts, sign messages, and u
 
 ## Installation
 
+Requirements:
+
+- Android minSdkVersion = 23
+- iOS platform >= 13
+- XCode > 14
+
 <Tabs>
 <TabItem value="existing" label="Existing Projects">
-
-Our SDK supports Android `minSdkVersion = 23` and `ios.platform >= 13`
 
 <Tabs groupId='cli-expo'>
 <TabItem value="existing-rn-cli" label="React Native CLI Project">
@@ -40,12 +44,12 @@ Our SDK supports Android `minSdkVersion = 23` and `ios.platform >= 13`
   <TabItem value="yarn" label="yarn" default>
     <CodeBlock
       language={"bash"}
-    >{`yarn add 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage`}</CodeBlock>
+    >{`yarn add 'ethers@^5' @thirdweb-dev/react-native@nightly @thirdweb-dev/react-native-compat@nightly node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage`}</CodeBlock>
   </TabItem>
   <TabItem value="npm" label="npm">
     <CodeBlock
       language={"bash"}
-    >{`npm i 'ethers@^5.0.0' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage`}</CodeBlock>
+    >{`npm i 'ethers@^5.0.0' @thirdweb-dev/react-native@nightly @thirdweb-dev/react-native-compat@nightly node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage`}</CodeBlock>
   </TabItem>
 </Tabs>
 
@@ -65,7 +69,7 @@ cd ios/ && pod install
 
 <TabItem value="existing-rn-expo" label="React Native Expo Project">
 
-Our wallets package has custom native code so we need to prebuild the Expo project:
+Our wallets package depends on the new Coinbase Wallet Mobile SDK which [contains custom native code](https://github.com/coinbase/wallet-mobile-sdk/issues/206), which breaks support for Expo Go. We are working on turning this into an optional dependency but for now you need to prebuild the Expo project:
 
 <CodeBlock language={"bash"}>{`npx expo prebuild`}</CodeBlock>
 
@@ -75,12 +79,12 @@ Now, we can add the dependencies:
   <TabItem value="yarn" label="yarn" default>
     <CodeBlock
       language={"bash"}
-    >{`yarn add 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg @react-native-async-storage/async-storage`}</CodeBlock>
+    >{`yarn add 'ethers@^5' @thirdweb-dev/react-native@nightly @thirdweb-dev/react-native-compat@nightly node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg @react-native-async-storage/async-storage`}</CodeBlock>
   </TabItem>
   <TabItem value="npm" label="npm">
     <CodeBlock
       language={"bash"}
-    >{`npm i 'ethers@^5' @thirdweb-dev/react-native @thirdweb-dev/react-native-compat node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg @react-native-async-storage/async-storage`}</CodeBlock>
+    >{`npm i 'ethers@^5' @thirdweb-dev/react-native@nightly @thirdweb-dev/react-native-compat@nightly node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg @react-native-async-storage/async-storage`}</CodeBlock>
   </TabItem>
 </Tabs>
 
