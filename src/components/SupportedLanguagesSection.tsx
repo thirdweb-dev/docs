@@ -13,6 +13,7 @@ const languageToImageMapping = {
 const languageToUrlMapping = {
   JavaScript: `/typescript`,
   React: `/react`,
+  "React Native": "/react-native",
   Python: `/python`,
   Go: `/go`,
   Unity: `/unity`,
