@@ -186,12 +186,12 @@ Make sure to have your React Native environment setup before using the template.
   <TabItem value="thirdweb-cli" label="Thirdweb CLI" default>
     <CodeBlock
       language={"bash"}
-    >{`npx thirdweb create --template react-native-typescript-starter`}</CodeBlock>
+    >{`npx thirdweb@nightly create --template react-native-typescript-starter`}</CodeBlock>
   </TabItem>
   <TabItem value="thirdweb-cli-expo" label="Thidweb CLI Expo">
     <CodeBlock
       language={"bash"}
-    >{`npx thirdweb create --template react-native-expo-starter`}</CodeBlock>
+    >{`npx thirdweb@nightly create --template react-native-expo-starter`}</CodeBlock>
   </TabItem>
   <TabItem value="react-native-cli" label="React Native CLI">
     Alternatively you can use the React Native CLI. Note that you need to follow
