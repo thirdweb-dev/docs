@@ -8,130 +8,54 @@ import YoutubeEmbed from "@components/YoutubeEmbed";
 
 # Solidity SDK
 
-<div className="heroGrid">
-<div>
-
-<p>
-  Build smart contracts with Solidity and unlock the features of the{" "}
-  <a href="/dashboard">dashboard</a> and <a href="/sdk">SDK</a>, with:
-</p>
+  Build custom smart contracts using audited and gas-optimized [base-contracts](/solidity/base-contracts) and [Extensions](/solidity/extensions) as the building-blocks. Unlock smarter [SDKs](/sdk), custom admin [Dashboards](/dashboard) and tailored data feeds by using:
 
 - **Base Contracts** that you can build upon, such as [ERC721Base](/solidity/base-contracts/erc-721/erc721base).
-- **Extension contracts** that you can plug-in to unlock specific functionality, such as [Permission Controls](/solidity/extension-contracts/permissions) and [Royalty Fees](/solidity/extension-contracts/royalty).
-- **Interfaces** that you can implement, and use to interact with other contracts that use **Solidity SDK**.
+- **Extension contracts** that you can add to contracts to unlock specific functionality, such as [Permission Controls](/solidity/extensions/permissions) and [Royalty Fees](/solidity/extensions/royalty).
 
-</div>
-
-<div className="heroGridImageContainer">
-  <YoutubeEmbed link={"https://www.youtube.com/embed/G3IHeKhVtpQ"} />
-</div>
-</div>
 
 :::info Solana Programs
 
-Solidity SDK is coming to Solana soon!
+Rust SDK is coming to Solana soon!
 
 In the meantime, you can use the [programs](/solana/creating-programs) we have available.
 
 :::
 
-To get started, run the command below to create a new project with your preferences set up:
+To get started, run the following command to create a new project:
 
 ```bash
 npx thirdweb create contract
 ```
 
-Or install the `contracts` package into your existing Solidity project:
+Or, install the `contracts` package into your existing Solidity project:
+
+```bash
+forge install thirdweb-dev/contracts
+```
 
 ```bash
 npm install @thirdweb-dev/contracts
 ```
 
-## Why Solidity SDK?
+## Why Use the Solidity SDK?
 
-Each feature you implement in your smart contracts unlocks functionality in both the dashboard and SDK to help you build applications on top of them.
+Each Extensions you implement in your smart contract unlocks functionality in both the dashboard and SDK to help you build applications on top of them.
 
-For example, if you implement the [ERC721Base](/solidity/base-contracts/erc-721/erc721base) contract, you'll unlock the `mint` button in the dashboard and
+For example, if you implement the [ERC721Base](/solidity/base-contracts/erc-721/erc721base) contract which inherits from multiple extensions inclusing [ERC721Mintable](/solidity/extensions/erc721mintable), you'll unlock the `mint` button in the dashboard and
 can use the [mint](/sdk/interacting-with-contracts/erc721mintable) function in the SDK; which automatically uploads and pins your metadata to IPFS!
 
-<div className="row" style={{marginBottom:24}}>
+![Extensions](/assets/extensions-graphic.png)
 
-<div className="col col--12" style={{ padding: 8 }}>
-  <QuickstartCard
-    name="Quick Start - Solidity SDK"
-    link="/getting-started/contracts"
-    image="/assets/icons/drop.png"
-  />
-</div>
+## Using the Solidity SDK
 
-</div>
-
-## Resources
-
-<div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--6" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Video: Create An ERC721A Smart Contract in Solidity"
-      link="https://www.youtube.com/watch?v=cqPb3hqm5H0"
-      image="/assets/icons/education.png"
-    />
-  </div>
-  <div className="col col--6" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Guide: Get started with Solidity SDK by building an NFT Contract"
-      link="https://blog.thirdweb.com/guides/get-started-with-the-contracts-sdk/"
-      image="/assets/icons/education.png"
-    />
-  </div>
-  <div className="col col--6" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Guide: Get Started with NFT Base Contracts"
-      link="https://blog.thirdweb.com/guides/get-started-with-the-contracts-sdk/"
-      image="/assets/icons/education.png"
-    />
-  </div>
-  <div className="col col--6" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Video: Create Evolving NFTs with ERC1155 Base Contracts"
-      link="https://www.youtube.com/watch?v=cKc8JVl_u30"
-      image="/assets/icons/education.png"
-    />
-  </div>
-  <div className="col col--6" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Video: Build A Blockchain Game with Solidity SDK"
-      link="https://www.youtube.com/watch?v=Mdpf0n-tGvE"
-      image="/assets/icons/education.png"
-    />
-  </div>
-  <div className="col col--6" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Guide: Create A Generative Art NFT Collection"
-      link="https://blog.thirdweb.com/guides/create-a-generative-art-nft-collection-using-solidity-javascript/"
-      image="/assets/icons/education.png"
-    />
-  </div>
-</div>
-
-## Using Solidity SDK
-
-You can start using Solidity SDK to build out your smart contract project _end-to-end_, or to simply add features to your own, existing smart contract.
+The Solidity SDK can be used to build a new smart contracts _end-to-end_, or to add Extensions to your own, existing smart contract.
 
 ### Using Base Contracts
 
-Solidity SDK gives you [**base contracts**](/solidity/base-contracts) that you can use as the foundation of your smart contract.
+The Solidity SDK includes [**base contracts**](/solidity/base-contracts) that are fully complete smart contracts that can be customized by overriding functions OR by adding Extensions.
 
-**1.** To start, import and inherit the base contract that is right for your project. You can find the list of all available base contracts [here](/solidity/base-contracts#list-of-base-contracts).
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-import "@thirdweb-dev/contracts/base/ERC721Base.sol";
-
-// Error: Contract "MyNFT" should be marked as abstract.
-contract MyNFT is ERC721Base {}
-```
+**1.** To start, import and inherit the base contract. You can find the list of all available base contracts [here](/solidity/base-contracts#list-of-base-contracts).
 
 **2.** Base contracts expect certain constructor arguments to function as intended. Implement a constructor for your smart contract and pass the
 appropriate values to the constructor of your base contract.
@@ -152,13 +76,13 @@ contract MyNFT is ERC721Base {
 }
 ```
 
-**3.** Now you're all set up! 🎉 Your smart contract now has all the functionality provided by the base contract it inherits and is ready to be deployed to any EVM blockchain of your choice.
+**3.** Now you're all set up! 🎉 Your smart contract now has all the [Extensions](/solidity/extensions) provided by the [base contract](/solidity/base-contracts/) it inherits and is ready to be deployed to any EVM blockchain of your choice.
 
 ### Using Extension Contracts
 
-With the foundation for your smart contract ready, you can now plug-in additional features to your smart contract using [**extension contracts**](/solidity/extensions).
+Additional [**Extensionss**](/solidity/extensions) can be added to your smart contract, exisiting or to the [**base contracts**](/solidity/base-contracts) to add extra functionality and unlocking features in the SDKs and Dashboard.
 
-**1.** To start, import and inherit the extension contract that is right for your project. You can find the list of all available extensions [here](/solidity/extensions#list-of-extensions).
+**1.** To start, import and inherit the Extension. You can find the list of all available extensions [here](/solidity/extensions#list-of-extensions).
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -177,10 +101,13 @@ contract MyNFT is ERC721Base, Permissions {
 }
 ```
 
-**Note:** for some extension contracts (e.g. [`LazyMint`](/solidity/extension-contracts/lazymint)) you may see the following error at this step: `Contract "MyNFT" should be marked as abstract.`
-No problem! To resolve this error, look at the usage guide for the particular extension contract you're using.
+**Note:** 
+- Some Extensions are __Abstract__ and so require certain functions to be implemented*.
+- Some Extensions are __Interfaces__ and so require **all** the functions to be implemented*.
 
-**2.** Use the functions provided by the extension contract to change the behaviour of your smart contract.
+*implement = write the logic for the function with a matching function signature (matching name, parameters, visibility and return type)
+
+**2.** Use the functions provided by the Extension to change the behaviour of your smart contract.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -217,3 +144,50 @@ contract MyNFT is ERC721Base, Permissions {
     }
 }
 ```
+
+## Resources
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Video: Create An ERC721A Smart Contract in Solidity"
+      link="https://www.youtube.com/watch?v=cqPb3hqm5H0"
+      image="/assets/icons/education.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Guide: Get started with the Solidity SDK by building an NFT Contract"
+      link="https://blog.thirdweb.com/guides/get-started-with-the-contracts-sdk/"
+      image="/assets/icons/education.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Guide: Get Started with NFT Base Contracts"
+      link="https://blog.thirdweb.com/guides/get-started-with-the-contracts-sdk/"
+      image="/assets/icons/education.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Video: Create Evolving NFTs with ERC1155 Base Contracts"
+      link="https://www.youtube.com/watch?v=cKc8JVl_u30"
+      image="/assets/icons/education.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Video: Build A Blockchain Game with the Solidity SDK"
+      link="https://www.youtube.com/watch?v=Mdpf0n-tGvE"
+      image="/assets/icons/education.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Guide: Create A Generative Art NFT Collection"
+      link="https://blog.thirdweb.com/guides/create-a-generative-art-nft-collection-using-solidity-javascript/"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
