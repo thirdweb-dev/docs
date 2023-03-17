@@ -1,0 +1,121 @@
+---
+title: Royalties
+slug: /contractroyalty
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# Royalty
+
+Functionality available for contracts that inherit the [`Royalty`](/contracts/Royalty) contract.
+
+## getDefaultRoyaltyInfo
+
+Gets the royalty recipient and BPS (basis points) of the smart contract.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns an object containing the royalty recipient address and BPS (basis points) of the smart contract.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## getTokenRoyaltyInfo
+
+Gets the royalty recipient and BPS (basis points) of a particular token in the contract.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### tokenId
+
+The token ID to get the royalty info for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+### Return Value
+
+Returns an object containing the royalty recipient address and BPS (basis points) of the token.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## setDefaultRoyaltyInfo
+
+Set the royalty recipient and fee for the smart contract.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### seller_fee_basis_points
+
+The royalty fee in BPS (basis points). 100 = 1%.
+
+Must be a `number`.
+
+#### fee_recipient
+
+The wallet address that will receive the royalty fees.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## setTokenRoyaltyInfo
+
+Set the royalty recipient and fee for a particular token in the contract.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### tokenId
+
+The token ID to set the royalty info for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### seller_fee_basis_points
+
+The royalty fee in BPS (basis points). 100 = 1%.
+
+Must be a `number`.
+
+#### fee_recipient
+
+The wallet address that will receive the royalty fees.
+
+Must be a `string`.
+
+</div>
+</details>

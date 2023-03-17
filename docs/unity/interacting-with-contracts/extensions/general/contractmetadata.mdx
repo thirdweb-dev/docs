@@ -1,0 +1,98 @@
+---
+title: Contract Metadata
+slug: /contractmetadata
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ContractMetadata
+
+Functionality available for contracts that inherit the [`ContractMetadata`](/contracts/ContractMetadata) contract.
+
+Read, set, or update the metadata of a smart contract, such as it&rsquo;s name, description, image, etc.
+
+If [`Permissions`](/typescript/sdk.permissions) are enabled, `admin` permissions are required to set/update the metadata (unless otherwise specified).
+
+Under the hood, the metadata object you provide is uploaded and pinned to IPFS. The IPFS hash that is returned is then stored on-chain.
+When you retrieve the metadata of a contract, the IPFS hash is retrieved from the blockchain and the metadata is retrieved from IPFS
+and returned to you in an object.
+
+## get
+
+Get the metadata of a smart contract.
+
+```csharp
+
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+### Return Value
+
+While the actual return type is `any`, you can expect an object containing
+properties that follow the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata), outlined below:
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## update
+
+Update the metadata of your smart contract.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### metadata
+
+Provide an object containing the metadata of your smart contract following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+New properties will be added, and existing properties will be overwritten.
+If you do not provide a new value for a previously set property, it will remain unchanged.
+
+Below are the properties you can define on your smart contract.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## set
+
+**Overwrite** the metadata of a contract, an object following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+This operation ignores any existing metadata and replaces it with the new metadata provided.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### metadata
+
+Provide an object containing the metadata of your smart contract following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+```csharp
+
+```
+
+</div>
+</details>

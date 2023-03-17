@@ -1,0 +1,1626 @@
+---
+title: Edition
+slug: /edition
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+When using the [Edition](https://thirdweb.com/thirdweb.eth/TokenERC1155) smart contract,
+there is **no need** to provide a contract type argument, as the functionality of the smart contract is all available
+through the [extensions](/typescript/extensions) interface.
+
+The extensions that the edition contract supports are listed below.
+
+- [ERC1155](/typescript/sdk.erc1155)
+- [ERC1155Burnable](/typescript/sdk.erc1155burnable)
+- [ERC1155Enumerable](/typescript/sdk.erc1155enumerable)
+- [ERC1155Mintable](/typescript/sdk.erc1155mintable)
+- [ERC1155BatchMintable](/typescript/sdk.erc1155batchmintable)
+- [ERC1155SignatureMintable](/typescript/sdk.erc1155signaturemintable)
+- [Royalty](/typescript/sdk.contractroyalty)
+- [PlatformFee](/typescript/sdk.platformfee)
+- [PrimarySale](/typescript/sdk.contractprimarysale)
+- [Permissions](/typescript/sdk.permissions)
+- [ContractMetadata](/typescript/sdk.contractmetadata)
+- [Ownable](/typescript/sdk.ownable)
+- [Gasless](/typescript/sdk.gasless)
+
+## airdrop
+
+Transfer NFTs from the connected wallet to multiple different wallets at once.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT to transfer.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+#### addresses
+
+An array of objects containing `address` and `quantity` properties.
+
+These are the recipients of the airdrop.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## balance
+
+Get the quantity of a specific NFT owned by the connected wallet.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT to check the balance of.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+### Return Value
+
+A `BigNumber` representing the quantity of the NFT owned by the wallet.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## balanceOf
+
+Get the quantity of a specific NFT owned by a wallet.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### address
+
+The wallet address to check the NFT balance for.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### tokenId
+
+The token ID of the NFT to check the balance of.
+
+```csharp
+
+```
+
+### Return Value
+
+A `BigNumber` representing the quantity of the NFT owned by the wallet.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## get
+
+Get the metadata of an NFT using it&rsquo;s token ID.
+
+Metadata is fetched from the `uri` property of the NFT.
+
+If the metadata is hosted on IPFS, the metadata is fetched and made available as an object.
+The object&rsquo;s `image` property will be a URL that is available through the thirdweb IPFS gateway.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT to get the metadata for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+### Return Value
+
+Returns an `NFT` object containing the following properties:
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## transfer
+
+Transfer an NFT from the connected wallet to another wallet.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to
+
+The wallet address to send the NFT to.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### tokenId
+
+The token ID of the NFT to transfer.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+#### amount
+
+The quantity of the NFT to transfer.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## isApproved
+
+Get whether this wallet has approved transfers from the given operator.
+
+This means that the operator can transfer NFTs on behalf of this wallet.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### owner
+
+The wallet address that owns the NFT.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### operator
+
+The wallet address of the operator to check (i.e. the wallet that does/does not have approval).
+
+Must be a `string`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## setApprovalForAll
+
+Give another address approval (or remove approval) to transfer all of your NFTs from this collection.
+
+:::warning Warning
+
+Proceed with caution. Only approve addresses you trust.
+
+:::
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### operator
+
+The wallet address to approve.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### approved
+
+Whether to grant approval (true) or remove approval (false).
+
+Must be a `boolean`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## totalCirculatingSupply
+
+Get the total **circulating** supply of a token in the collection.
+
+Circulating supply considers NFTs that have not been burned.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT to get the total circulating supply of.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+### Return Value
+
+Returns a `BigNumber` representing the total circulating supply of the token.
+
+```csharp
+
+```
+
+## totalCount
+
+Get the total number of unique NFTs in the collection.
+
+```csharp
+
+```
+
+### Return Value
+
+Returns a `BigNumber` representing the total number of unique NFTs in the collection.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## totalSupply
+
+Returns the total supply of a token in the collection, including burned tokens.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT to get the total supply of.
+
+```csharp
+
+```
+
+### Return Value
+
+Returns a `BigNumber` representing the total supply of the token.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## burn
+
+Burn the specified NFTs from the **connected wallet**.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT(s) you want to burn.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+#### amount
+
+The amount of the NFT you want to burn of the specified token ID.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## burnFrom
+
+The same as [`burn`](#burn), but allows you to specify the wallet to burn NFTs from.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### account
+
+The address of the wallet to burn NFTs from.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### tokenId
+
+Same as [`tokenId` in `burn`](#tokenid).
+
+#### amount
+
+Same as [`amount` in `burn`](#amount).
+
+</div>
+</details>
+
+## burnBatch
+
+Burn multiple different NFTs in the same transaction from the **connected wallet**.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenIds
+
+An array of token IDs of the NFTs you want to burn.
+
+Must be an array of `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+#### amounts
+
+An array of the amounts of each NFT you want to burn.
+
+The index of each amount corresponds to the index of the token ID in the `tokenIds` array.
+
+For example, the first item in the `tokenIds` array will have the first item in the `amounts` array burned.
+
+Must be an array of `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## burnBatchFrom
+
+Burn the batch NFTs from the specified wallet
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### address
+
+The address of the wallet to burn NFTs from.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### tokenIds
+
+Same as [`tokenIds` in `burnBatch`](#tokenids).
+
+#### amounts
+
+Same as [`amounts` in `burnBatch`](#amounts).
+
+</div>
+</details>
+
+## lazyMint
+
+Lazy mint a new batch of NFTs into the smart contract.
+
+By default, the NFT metadata is uploaded and pinned to IPFS before minting.
+You can override this default behavior by providing a `string` that points to valid metadata instead of objects.
+
+The metadata must conform to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+
+```csharp
+
+```
+
+Alternatively, you can provide a `string` that points to valid metadata instead of objects.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### metadatas
+
+Provide an array of either `strings` that point to, or `objects` that contain
+[valid metadata properties](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+
+</div>
+</details>
+
+## mint
+
+Mint a new NFT to the **connected wallet**.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### metadataWithSupply
+
+An object containing a `metadata` object and a `supply` property.
+
+The metadata object can either be a string that points to valid metadata that
+conforms to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure),
+or an object that conforms to the same standards.
+
+If you provide an object, the metadata is uploaded and pinned to IPFS before
+the NFT(s) are minted.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## mintTo
+
+The same as [`mint`](#mint), but allows you to specify the address of the wallet rather than using the connected wallet.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to
+
+The address of the wallet you want to mint the NFT to.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### metadataWithSupply
+
+Same as [`metadataWithSupply`](#metadatawithsupply) in the [`mint`](#mint) method.
+
+</div>
+</details>
+
+## mintAdditionalSupply
+
+Mint additional quantity of an NFT that already exists on the contract.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The ID of the NFT you want to mint additional supply for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+#### additionalSupply
+
+How much additional supply you want to mint.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## mintAdditionalSupplyTo
+
+The same as [`mintAdditionalSupply`](#mintadditionalsupply), but allows you to specify the address of the wallet rather than using the connected wallet.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to
+
+The address of the wallet you want to mint the NFT to.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### tokenId
+
+The ID of the NFT you want to mint additional supply for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+#### additionalSupply
+
+How much additional supply you want to mint.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## getMintTransaction
+
+Construct a mint transaction without executing it.
+This is useful for estimating the gas cost of a mint transaction,
+overriding transaction options and having fine grained control over the transaction execution.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to
+
+The address of the wallet you want to mint the NFT to.
+
+Must be a `string`.
+
+#### metadataWithSupply
+
+See [`metadataWithSupply`](#metadatawithsupply) in the [`mint`](#mint) method.
+
+### Return Value
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## nextTokenIdToMint
+
+Get the next token ID that will be minted on the contract.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+Returns a `BigNumber` representing the next token ID that will be minted on the contract.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## mintBatch
+
+Mint many different NFTs with limited supplies to the **connected wallet**.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### metadataWithSupply
+
+An array of objects that contain the metadata and supply of each NFT you want to mint.
+
+The `supply` property is the number of this NFT you want to mint.
+Must be a `string`, `number`, `bigint`, or `BigNumber`.
+
+The `metadata` object must follow the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+Alternatively, you can provide a `string`s that points to a valid metadata object
+to override the default behavior of uploading and pinning the metadata to IPFS (shown below).
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## mintBatchTo
+
+The same as [`mintBatch`](#mintbatch), but allows you to specify the wallet, rather than using the connected one.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### toAddress
+
+The address of the wallet you want to mint the NFT to.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### metadataWithSupply
+
+See [`mintBatch`](#mintbatch) for more details.
+
+</div>
+</details>
+
+## generate
+
+Generate a signature that a wallet address can use to mint the specified number of NFTs.
+
+This is typically an **admin** operation, where the owner of the contract generates a signature that allows _another_ wallet to mint tokens.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+The `mintRequest` object you provide to the `generate` function outlines what the signature can be used for.
+
+The `quantity`, `to`, and `metadata` fields are required, while the rest are optional.
+
+#### quantity (required)
+
+The number of tokens this signature can be used to mint.
+
+```csharp
+
+```
+
+#### to (required)
+
+The wallet address that can use this signature to mint tokens.
+
+This is to prevent another wallet from intercepting the signature and using it to mint tokens for themselves.
+
+```csharp
+
+```
+
+#### metadata (required)
+
+The metadata of the NFT to mint.
+
+Can either be a `string` URL that points to valid metadata that conforms to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure),
+or an object that conforms to the same standards.
+
+If you provide an object, the metadata is uploaded and pinned to IPFS before
+the NFT(s) are minted.
+
+```csharp
+
+```
+
+#### currencyAddress (optional)
+
+The address of the currency to pay for minting the tokens (use the [`price`](#price-optional) field to specify the price).
+
+Defaults to `NATIVE_TOKEN_ADDRESS` (the native currency of the network, e.g. Ether on Ethereum).
+
+```csharp
+
+```
+
+#### price (optional)
+
+If you want the user to pay for minting the tokens, you can specify the price **per token**.
+
+Defaults to `0` (free minting).
+
+```javascript
+const signature = await contract.erc1155.signature.generate({
+  quantity: "{{quantity}}",
+  to: "{{wallet_address}}",
+  metadata: {
+    // ... Your NFT metadata
+  },
+  // highlight-next-line
+  price: "{{price}}", // The user will have to pay `price * quantity` for minting the tokens
+});
+```
+
+#### mintStartTime (optional)
+
+The time from which the signature can be used to mint tokens.
+
+Defaults to `Date.now()` (now).
+
+```csharp
+
+```
+
+#### mintEndTime (optional)
+
+The time until which the signature can be used to mint tokens.
+
+Defaults to `new Date(Date.now() + 1000 * 60 * 60 * 24 * 365 * 10),` (10 years from now).
+
+```csharp
+
+```
+
+#### primarySaleRecipient (optional)
+
+If a `price` is specified, the funds will be sent to the `primarySaleRecipient` address.
+
+Defaults to the `primarySaleRecipient` address of the contract.
+
+```csharp
+
+```
+
+#### royaltyBps (optional)
+
+The percentage fee you want to charge for secondary sales.
+
+Defaults to the `royaltyBps` of the contract.
+
+```csharp
+
+```
+
+#### royaltyRecipient (optional)
+
+The address that will receive the royalty fees from secondary sales.
+
+Defaults to the `royaltyRecipient` address of the contract.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## generateBatch
+
+Generate a batch of signatures at once.
+
+This is the same as [`generate`](#generate) but it allows you to generate multiple signatures at once.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### payloadsToSign
+
+An array of objects containing the configuration options for each signature.
+
+See [`generate`](#generate) for the configuration options available for each signature.
+
+</div>
+</details>
+
+## generateFromTokenId
+
+Generate a signature that can be used to mint additional supply of an existing NFT in the contract.
+
+This is the same as [`generate`](#generate) but it allows you to specify the `tokenId` of the NFT you want to mint additional supply for, rather than
+providing the `metadata` of the NFT. Each other configuration option is the same as [`generate`](#generate).
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+The configuration options available are the same as those in [`generate`](#generate) except for replacing `metadata` with `tokenId`.
+
+#### tokenId
+
+The `tokenId` of the NFT you want to mint additional supply for.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## generateBatchFromTokenIds
+
+Generate a batch of signatures that can be used to mint additional supply of existing NFTs in the contract.
+
+This is the same as [`generateBatch`](#generatebatch) but allows you to generate multiple signatures at once.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+Provide an array of objects containing the configuration options for each signature.
+
+See [`generateFromTokenId`](#generatefromtokenid) for the configuration options available for each signature.
+
+</div>
+</details>
+
+## mint - Signature-based
+
+Mint tokens from a previously generated signature (see [`generate`](#generate)).
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### signature (required)
+
+The signature created by the [`generate`](#generate) function.
+
+The typical pattern is the **admin** generates a signature, and the **user** uses it to mint the tokens, under the conditions specified in the signature.
+
+Must be of type `SignedPayload1155`.
+
+```javascript
+// Use the signed payload to mint the tokens
+const txResult = contract.erc1155.signature.mint(
+  // highlight-next-line
+  signature, // Signature generated by the `generate` function
+);
+```
+
+</div>
+</details>
+
+## mintBatch - Signature-based
+
+Use multiple signatures at once to mint tokens.
+
+This is the same as [`mint`](#mint) but it allows you to provide multiple signatures at once.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### signatures (required)
+
+An array of signatures created by the [`generate`](#generate) or [`generateBatch`](#generatebatch) functions.
+
+Must be of type `SignedPayload1155[]`.
+
+</div>
+</details>
+
+## verify - Signature-based
+
+Verify that a payload is correctly signed.
+
+This allows you to provide a payload, and prove that it was valid and was generated
+by a wallet with permission to generate signatures.
+
+If a payload is not valid, the `mint`/`mintBatch` functions will fail,
+but you can use this function to verify that the payload is valid before attempting to mint the tokens
+if you want to show a more user-friendly error message.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### payload (required)
+
+The payload to verify.
+
+Must be of type `SignedPayload1155`.
+
+### Return Value
+
+Returns `true` if the payload is valid, `false` otherwise.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## getDefaultRoyaltyInfo
+
+Gets the royalty recipient and BPS (basis points) of the smart contract.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns an object containing the royalty recipient address and BPS (basis points) of the smart contract.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## getTokenRoyaltyInfo
+
+Gets the royalty recipient and BPS (basis points) of a particular token in the contract.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### tokenId
+
+The token ID to get the royalty info for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+### Return Value
+
+Returns an object containing the royalty recipient address and BPS (basis points) of the token.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## setDefaultRoyaltyInfo
+
+Set the royalty recipient and fee for the smart contract.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### seller_fee_basis_points
+
+The royalty fee in BPS (basis points). 100 = 1%.
+
+Must be a `number`.
+
+#### fee_recipient
+
+The wallet address that will receive the royalty fees.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## setTokenRoyaltyInfo
+
+Set the royalty recipient and fee for a particular token in the contract.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### tokenId
+
+The token ID to set the royalty info for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### seller_fee_basis_points
+
+The royalty fee in BPS (basis points). 100 = 1%.
+
+Must be a `number`.
+
+#### fee_recipient
+
+The wallet address that will receive the royalty fees.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## get - Platform Fee
+
+Get the platform fee recipient and basis points.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns an object containing the platform fee recipient and basis points.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## set - Platform Fee
+
+Set the platform fee recipient and basis points.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### platform_fee_basis_points
+
+The percentage fee to take, in basis points. For example, 100 basis points is 1%.
+
+Must be a `number`.
+
+#### platform_fee_recipient
+
+The wallet address that will receive the platform fees.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## getRecipient
+
+Get the primary sale recipient.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns a `string` containing the wallet address of the primary sale recipient.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## setRecipient
+
+Set the primary sale recipient.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### recipient
+
+The wallet address of the primary sale recipient.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## get - Permissions
+
+Get a list of wallet addresses that are members of a given role.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### role
+
+The name of the role.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+### Return Value
+
+An array of `string`s representing the wallet addresses associated with the given role.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## getAll - Permissions
+
+Retrieve all of the roles and associated wallets.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+An object containing role names as keys and an array of wallet addresses as the value.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## grant - Permissions
+
+Make a wallet a member of a given role.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### role
+
+The name of the role to grant.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### wallet
+
+The wallet address to assign the role to.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## revoke - Permissions
+
+Revoke a given role from a wallet.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### role
+
+The name of the role to revoke.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### wallet
+
+The wallet address to remove the role from.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## setAll - Permissions
+
+Overwrite all roles with new members.
+
+:::warning Dangerous Operation
+
+This **overwrites** all members, INCLUDING YOUR OWN WALLET ADDRESS!
+
+This means you can permanently remove yourself as an admin, which is non-reversible.
+
+Please use this method with caution.
+
+:::
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### roles
+
+An object containing role names as keys and an array of wallet addresses as the value.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## verify - Permissions
+
+Check to see if a wallet has a set of roles.
+
+Throws an **error** if the wallet does not have any of the given roles.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### roles
+
+An array of roles to check.
+
+Must be an array of `string`s.
+
+```csharp
+
+```
+
+#### wallet
+
+The wallet address to check.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## get - Contract Metadata
+
+Get the metadata of a smart contract.
+
+```csharp
+
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+### Return Value
+
+While the actual return type is `any`, you can expect an object containing
+properties that follow the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata), outlined below:
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## update - Contract Metadata
+
+Update the metadata of your smart contract.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### metadata
+
+Provide an object containing the metadata of your smart contract following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+New properties will be added, and existing properties will be overwritten.
+If you do not provide a new value for a previously set property, it will remain unchanged.
+
+Below are the properties you can define on your smart contract.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## set - Contract Metadata
+
+**Overwrite** the metadata of a contract, an object following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+This operation ignores any existing metadata and replaces it with the new metadata provided.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### metadata
+
+Provide an object containing the metadata of your smart contract following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## get - Owner
+
+Retrieve the wallet address of the owner of the smart contract.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+A `string` representing the owner&rsquo;s wallet address.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## set - Owner
+
+Set the owner address of the contract.
+
+```csharp
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### owner
+
+The wallet address of the new owner.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+</div>
+</details>

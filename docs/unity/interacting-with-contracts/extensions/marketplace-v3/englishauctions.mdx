@@ -1,0 +1,669 @@
+---
+title: English Auctions
+slug: /englishauctions
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# EnglishAuctions
+
+Functionality available for contracts that implement the [`IEnglishAuctions`](/contracts/IEnglishAuctions) interface.
+
+## buyoutAuction
+
+Pay the full price per token to buy an NFT from an auction listing.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to buy NFT(s) from.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## cancelAuction
+
+Cancel an auction listing you previously created.
+
+Only the creator of the listing can cancel it. Auctions cannot be canceled once a bid has been made.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to buy NFT(s) from.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## closeAuctionForBidder
+
+After an auction has concluded _(and a [`buyout`](#buyoutauction) did not occur)_, execute the sale for the **buyer**,
+meaning the buyer receives the NFT(s).
+
+You must also call [`closeAuctionForSeller`](#closeauctionforseller) to execute the sale for the **seller**,
+meaning the seller receives the payment from the highest bid.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to execute the sale for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## closeAuctionForSeller
+
+After an auction has concluded _(and a [`buyout`](#buyoutauction) did not occur)_, execute the sale for the **seller**,
+meaning the seller receives the payment from the highest bid.
+
+You must also call [`closeAuctionForBidder`](#closeauctionforbidder) to execute the sale for the **buyer**, meaning the buyer receives the NFT(s).
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to execute the sale for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## createAuction
+
+Create a new auction listing on the marketplace.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### assetContractAddress (required)
+
+The smart contract address of the NFT you want to list for sale.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### tokenId (required)
+
+The token ID of the NFT you want to list for sale.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+#### buyoutBidAmount (required)
+
+The price to buy the NFT and close the listing immediately, executing a sale event for both buyer and seller.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+#### minimumBidAmount (required)
+
+The minimum "reserve price" for bids.
+
+The first bid must be at least this amount, and all subsequent bids must be higher than the previous highest bid by the
+percentage set in [`bidBufferBps`](#bidbufferbps).
+
+```csharp
+
+```
+
+#### currencyContractAddress (optional)
+
+The address of the ERC20 token smart contract you want buyers to pay with.
+
+Defaults to `NATIVE_TOKEN_ADDRESS` if not provided. e.g. Ether for Ethereum.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### quantity (optional)
+
+For ERC1155 NFTs, the number of tokens to sell in the listing.
+
+For ERC721 NFTs, this is always `1`.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+#### startTimestamp (optional)
+
+The start timestamp of the listing.
+
+Must be a `Date`. The default is `new Date()` (now).
+
+```csharp
+
+```
+
+#### endTimestamp (optional)
+
+The end timestamp of the listing.
+
+Must be a `Date`. The default is 7 days from now.
+
+```csharp
+
+```
+
+#### bidBufferBps (optional)
+
+The percentage the next bid must be higher than the current highest bid.
+
+This is used to avoid users placing bids minuscule amounts higher than the current highest bid.
+
+Must be a `string`, `number`, `bigint`, or `BigNumber`.
+
+The default value is the bid buffer BPS set on the marketplace contract.
+
+```csharp
+
+```
+
+#### timeBufferInSeconds (optional)
+
+The time in seconds that is added to the end time of the auction when a bid is placed.
+
+This is used to avoid users placing a bid at the last moment and winning the auction.
+
+Must be a `string`, `number`, `bigint`, or `BigNumber`.
+
+The default value is the time buffer in seconds set on the marketplace contract.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## executeSale
+
+Close the auction for **both** buyer and seller.
+
+This means the NFT(s) will be transferred to the buyer and the seller will receive the funds.
+
+This function can only be called **after** the auction has ended.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to execute the sale for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## getAll
+
+Retrieve data for all auction listings on the marketplace.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### filter (optional)
+
+Optionally, provide a filter object to narrow the returned results.
+
+```csharp
+
+```
+
+### Return Value
+
+Returns an array of `EnglishAuction` objects containing the following properties:
+
+```typescript
+{
+  id: string; // The id of the auction listing
+  creatorAddress: string; // The wallet address of the creator of auction.
+  assetContractAddress: string; // The address of the asset being auctioned.
+  tokenId: string; // The ID of the token being auctioned.
+  quantity: string; // The quantity of tokens included in the auction.
+  currencyContractAddress: string; // The address of the currency to accept for the auction.
+  minimumBidAmount: string; // The minimum price that a bid must be in order to be accepted.
+  minimumBidCurrencyValue: CurrencyValue; // The `CurrencyValue` of the minimum bid amount. Useful for displaying the price information.
+  buyoutBidAmount: string; // The buyout price of the auction.
+  buyoutCurrencyValue: CurrencyValue; //  The `CurrencyValue` of the buyout price. Useful for displaying the price information.
+  timeBufferInSeconds: number; // This is a buffer e.g. x seconds.
+  bidBufferBps: number; // To be considered as a new winning bid, a bid must be at least x% greater than the previous bid.
+  startTimeInSeconds: number; // The start time of the auction.
+  endTimeInSeconds: number; // The end time of the auction.
+  asset: NFTMetadata; // The asset being auctioned.
+  status: Status; // Whether the listing is CREATED, COMPLETED, or CANCELLED.
+}
+[];
+```
+
+</div>
+</details>
+
+## getAllValid
+
+Get all the valid auction listings on the marketplace.
+
+A listing is considered valid if the:
+
+- Auction has not expired (i.e. current time is before the end time of the auction)
+- Auction has not been canceled
+- Auction has not been bought out (all quantity has been sold)
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### filter (optional)
+
+```csharp
+
+```
+
+### Return Value
+
+```typescript
+{
+  id: string; // The id of the auction listing
+  creatorAddress: string; // The wallet address of the creator of auction.
+  assetContractAddress: string; // The address of the asset being auctioned.
+  tokenId: string; // The ID of the token being auctioned.
+  quantity: string; // The quantity of tokens included in the auction.
+  currencyContractAddress: string; // The address of the currency to accept for the auction.
+  minimumBidAmount: string; // The minimum price that a bid must be in order to be accepted.
+  minimumBidCurrencyValue: CurrencyValue; // The `CurrencyValue` of the minimum bid amount. Useful for displaying the price information.
+  buyoutBidAmount: string; // The buyout price of the auction.
+  buyoutCurrencyValue: CurrencyValue; //  The `CurrencyValue` of the buyout price. Useful for displaying the price information.
+  timeBufferInSeconds: number; // This is a buffer e.g. x seconds.
+  bidBufferBps: number; // To be considered as a new winning bid, a bid must be at least x% greater than the previous bid.
+  startTimeInSeconds: number; // The start time of the auction.
+  endTimeInSeconds: number; // The end time of the auction.
+  asset: NFTMetadata; // The asset being auctioned.
+  status: Status; // Whether the listing is CREATED, COMPLETED, or CANCELLED.
+}
+[];
+```
+
+</div>
+</details>
+
+## getAuction
+
+Retrieve data for a specific auction listing on the marketplace using the listing ID.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to retrieve.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+### Return Value
+
+```typescript
+{
+  id: string; // The id of the auction listing
+  creatorAddress: string; // The wallet address of the creator of auction.
+  assetContractAddress: string; // The address of the asset being auctioned.
+  tokenId: string; // The ID of the token being auctioned.
+  quantity: string; // The quantity of tokens included in the auction.
+  currencyContractAddress: string; // The address of the currency to accept for the auction.
+  minimumBidAmount: string; // The minimum price that a bid must be in order to be accepted.
+  minimumBidCurrencyValue: CurrencyValue; // The `CurrencyValue` of the minimum bid amount. Useful for displaying the price information.
+  buyoutBidAmount: string; // The buyout price of the auction.
+  buyoutCurrencyValue: CurrencyValue; //  The `CurrencyValue` of the buyout price. Useful for displaying the price information.
+  timeBufferInSeconds: number; // This is a buffer e.g. x seconds.
+  bidBufferBps: number; // To be considered as a new winning bid, a bid must be at least x% greater than the previous bid.
+  startTimeInSeconds: number; // The start time of the auction.
+  endTimeInSeconds: number; // The end time of the auction.
+  asset: NFTMetadata; // The asset being auctioned.
+  status: Status; // Whether the listing is CREATED, COMPLETED, or CANCELLED.
+}
+```
+
+</div>
+</details>
+
+## getBidBufferBps
+
+Get the basis points of the bid buffer.
+
+This is the percentage higher that a new bid must be than the current highest bid in order to be placed.
+
+If there is no current bid, the bid must be at least the minimum bid amount.
+
+Returns the value in percentage format, e.g. 100 = 1%.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to retrieve.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+### Return Value
+
+Returns a `number` representing the basis points of the bid buffer.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## getMinimumNextBid
+
+Helper function to calculate the value that the next bid must be in order to be accepted.
+
+- If there is no current bid, the bid must be at least the minimum bid amount.
+- If there is a current bid, the bid must be at least the current bid amount + the bid buffer.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to retrieve the minimum next bid for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+### Return Value
+
+Returns a `CurrencyValue` object containing the following properties:
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## getTotalCount
+
+Get the total number of auction listings on the marketplace.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+Returns a `BigNumber` representing the total number of auction listings on the marketplace.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## getWinner
+
+Get the wallet address that won an auction.
+
+Can only be called _after_ the auction has ended.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to retrieve the winner for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+### Return Value
+
+Returns a `string` representing the wallet address of the winner.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## getWinningBid
+
+Get the current highest bid of an **active** auction.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to retrieve the winning bid for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+### Return Value
+
+Returns a `Bid` object containing the following properties:
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## isWinningBid
+
+Check if a value is/would be the current winning bid of an auction.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to check if a value is the winning bid for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+#### bidAmount
+
+The amount of the bid to check if it is the winning bid.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+### Return Value
+
+Returns a `boolean` representing whether the value is the winning bid.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## makeBid
+
+Place a new bid on an auction listing.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### listingId
+
+The ID of the listing to place a bid on.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+#### bidAmount
+
+The amount of the bid to place in the currency of the listing.
+
+Use [`getNextBidAmount`](#getnextbidamount) to get the minimum amount for the next bid.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+</div>
+</details>

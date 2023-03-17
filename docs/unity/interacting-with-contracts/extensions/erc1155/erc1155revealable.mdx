@@ -1,0 +1,135 @@
+---
+title: Delayed Reveal
+slug: /delayedreveal1155
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC1155Revealable
+
+Functionality available for contracts that implement the
+[`IERC1155`](/contracts/IERC1155) and
+[`ILazyMint`](/contracts/ILazyMint) interfaces and inherit the
+[`DelayedReveal`](/contracts/DelayedReveal) contract.
+
+Allows you to lazy-mint batches of NFTs that are encrypted until a later time,
+and reveal them at any time using a password.
+
+## createDelayedRevealBatch
+
+Create a batch of encrypted NFTs that can be revealed at a later time.
+
+Provide an array of metadata for the NFTs you want to create, which can either be a
+`string` URL that points to metadata, or an object.
+The metadata must conform to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+
+If you provide an object, it is uploaded and pinned to IPFS before being
+lazy-minted into the contract.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### placeholder
+
+A single metadata `object` or URL string that points to
+[valid metadata](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+
+This is the metadata users will see until you [`reveal`](#reveal) the batch.
+
+```csharp
+
+```
+
+#### metadatas
+
+An array of metadata objects or URL strings that point to valid metadata.
+
+These are the NFTs that will be revealed when you [`reveal`](#reveal) the batch.
+
+```csharp
+
+```
+
+#### password
+
+The password that will be used to [`reveal`](#reveal) the batch.
+
+:::warning Unrecoverable
+
+Passwords cannot be recovered or reset. If you forget your password, you will
+not be able to reveal your NFTs.
+
+:::
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## getBatchesToReveal
+
+Get a list of unrevealed batches.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+Returns an array of `BatchToReveal` objects, containing the following properties:
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## reveal
+
+Reveal a batch of NFTs that were previously created with
+[`createDelayedRevealBatch`](#createdelayedrevealbatch).
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### batchId
+
+The ID of the batch to reveal, which you can get from
+[`getBatchesToReveal`](#getbatchestoreveal).
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+#### password
+
+When you create a batch using [`createDelayedRevealBatch`](#createdelayedrevealbatch),
+you specify a password. To you reveal the batch, you must provide the same
+password.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+</div>
+</details>

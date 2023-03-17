@@ -1,0 +1,361 @@
+---
+title: Standard
+slug: /erc1155
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC1155
+
+Functionality available for contracts that implement the [`IERC1155`](/contracts/IERC1155) interface.
+
+## balance
+
+Get the quantity of a specific NFT owned by the connected wallet.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT to check the balance of.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+### Return Value
+
+A `BigNumber` representing the quantity of the NFT owned by the wallet.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## balanceOf
+
+Get the quantity of a specific NFT owned by a wallet.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### address
+
+The wallet address to check the NFT balance for.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### tokenId
+
+The token ID of the NFT to check the balance of.
+
+```csharp
+
+```
+
+### Return Value
+
+A `BigNumber` representing the quantity of the NFT owned by the wallet.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## get
+
+Get the metadata of an NFT using it&rsquo;s token ID.
+
+Metadata is fetched from the `uri` property of the NFT.
+
+If the metadata is hosted on IPFS, the metadata is fetched and made available as an object.
+The object&rsquo;s `image` property will be a URL that is available through the thirdweb IPFS gateway.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT to get the metadata for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+### Return Value
+
+Returns an `NFT` object containing the following properties:
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## transfer
+
+Transfer an NFT from the connected wallet to another wallet.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to
+
+The wallet address to send the NFT to.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### tokenId
+
+The token ID of the NFT to transfer.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+#### amount
+
+The quantity of the NFT to transfer.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## airdrop
+
+Transfer NFTs from the connected wallet to multiple different wallets at once.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT to transfer.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+#### addresses
+
+An array of objects containing `address` and `quantity` properties.
+
+These are the recipients of the airdrop.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## isApproved
+
+Get whether this wallet has approved transfers from the given operator.
+
+This means that the operator can transfer NFTs on behalf of this wallet.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### owner
+
+The wallet address that owns the NFT.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### operator
+
+The wallet address of the operator to check (i.e. the wallet that does/does not have approval).
+
+Must be a `string`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## setApprovalForAll
+
+Give another address approval (or remove approval) to transfer all of your NFTs from this collection.
+
+:::warning Warning
+
+Proceed with caution. Only approve addresses you trust.
+
+:::
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### operator
+
+The wallet address to approve.
+
+Must be a `string`.
+
+```csharp
+
+```
+
+#### approved
+
+Whether to grant approval (true) or remove approval (false).
+
+Must be a `boolean`.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## totalCirculatingSupply
+
+Get the total **circulating** supply of a token in the collection.
+
+Circulating supply considers NFTs that have not been burned.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT to get the total circulating supply of.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```csharp
+
+```
+
+### Return Value
+
+Returns a `BigNumber` representing the total circulating supply of the token.
+
+```csharp
+
+```
+
+## totalCount
+
+Get the total number of unique NFTs in the collection.
+
+```csharp
+
+```
+
+### Return Value
+
+Returns a `BigNumber` representing the total number of unique NFTs in the collection.
+
+```csharp
+
+```
+
+</div>
+</details>
+
+## totalSupply
+
+Returns the total supply of a token in the collection, including burned tokens.
+
+```csharp
+
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT to get the total supply of.
+
+```csharp
+
+```
+
+### Return Value
+
+Returns a `BigNumber` representing the total supply of the token.
+
+```csharp
+
+```
+
+</div>
+</details>
