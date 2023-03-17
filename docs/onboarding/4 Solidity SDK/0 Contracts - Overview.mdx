@@ -7,6 +7,9 @@ title: Overview
 
 import QuickstartCard from "@components/QuickstartCard";
 import ThemedImage from "@theme/ThemedImage";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
 
 <div className="heroGrid">
 
@@ -51,13 +54,18 @@ npx thirdweb create contract
 
 Or, install the `contracts` package into your existing Solidity project:
 
-```bash
-forge install thirdweb-dev/contracts
-```
-
-```bash
-npm install @thirdweb-dev/contracts
-```
+<Tabs>
+  <TabItem value="Hardhat" label="Hardhat" default>
+    <CodeBlock
+      language={"bash"}
+    >{`npm install @thirdweb-dev/contracts`}</CodeBlock>
+  </TabItem>
+  <TabItem value="Forge" label="Forge">
+    <CodeBlock
+      language={"bash"}
+    >{`forge install thirdweb-dev/contracts`}</CodeBlock>
+  </TabItem>
+</Tabs>
 
 ## Why Use the Solidity SDK?
 
