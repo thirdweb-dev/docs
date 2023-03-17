@@ -17,12 +17,13 @@ import ThemedImage from "@theme/ThemedImage";
 
 Each extension you implement in your smart contract unlocks the corresponding functionality for you to utilize in the SDK.
 
-There are two kinds of extensions:
+There are three types of Extension:
 
-1. **Contracts**: Fully implemented smart contracts you can import and use.
+1. **Contracts**: Fully implemented Entension smart contracts that can be imported and used.
 2. **Abstract contracts**: Smart contracts where one or more functions is defined but not implemented. They are left for you to implement in the way that makes overall sense for your smart contract.
+3. **Interfaces*: Smart contracts where all of the functions are definied but none of them are implemented. The logic is specified by the contract inheriting from the interface.
 
-We provide several features for adding functionality to your [ERC721](/solidity/base-contracts/erc-721/erc721base), [ERC1155](/solidity/base-contracts/erc-1155/erc1155base), and
+There are several Extensions which are compatible with [ERC721](/solidity/base-contracts/erc-721/erc721base), [ERC1155](/solidity/base-contracts/erc-1155/erc1155base), and
 [ERC20](/solidity/base-contracts/erc-20/erc20base), as well as general extension for common use cases.
 
 </div>
