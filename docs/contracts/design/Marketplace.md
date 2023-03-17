@@ -103,7 +103,7 @@ The previous (v1) [thirdweb Market contract](https://github.com/thirdweb-dev/con
 - NFTs listed for sale in a direct listings are escrowed in the contract.
 - Buyers cannot make offers to direct listings.
 
-These are features that are already offered by popular marketplaces like [OpenSea](https://opensea.io/). The current thirdweb [Marketplace](https://github.com/thirdweb-dev/contracts/blob/main/contracts/marketplace/Marketplace.sol) contract consolidates all these features into a single smart contract, so thirdweb's users can _truly_ have their own OpenSea and more.
+These are features that are already offered by popular marketplaces like [OpenSea](https://opensea.io/). The current thirdweb [Marketplace](https://github.com/thirdweb-dev/contracts/blob/main/contracts/old-marketplace/Marketplace.sol) contract consolidates all these features into a single smart contract, so thirdweb's users can _truly_ have their own OpenSea and more.
 
 We're building this for customers who want to have their NFTs listed for sale on their _own_ market.
 
