@@ -12,12 +12,12 @@ Functionality available for contracts that implement the
 
 Allows you to burn tokens (take them out of circulation).
 
-## burn
+## Burn
 
 Burn tokens held by the **connected wallet**.
 
 ```csharp
-
+var data = await contract.ERC20.Burn("{{amount}}");
 ```
 
 <details>
@@ -27,47 +27,8 @@ Burn tokens held by the **connected wallet**.
 #### amount
 
 The amount of this token you want to burn.
-
-Must be a `string` or a `number`.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## burnFrom
-
-Burn tokens held by a specified wallet (requires [`allowance`](/typescript/sdk.erc20#allowanceof)).
-
-```csharp
-
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### holder
-
-The address of the wallet holding to burn tokens from.
 
 Must be a `string`.
-
-```csharp
-
-```
-
-#### amount
-
-The amount of this token you want to burn.
-
-Must be a `string` or a `number`.
-
-```csharp
-
-```
 
 </div>
 </details>

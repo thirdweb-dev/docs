@@ -10,12 +10,12 @@ Functionality available for contracts that implement the
 
 Enables wallets to claim (mint) tokens from the contract under specific conditions.
 
-## claim
+## Claim
 
 Claim a specified number of tokens to the **connected wallet**.
 
 ```csharp
-
+var data = await contract.ERC20.Claim("{{amount}}");
 ```
 
 <details>
@@ -26,31 +26,17 @@ Claim a specified number of tokens to the **connected wallet**.
 
 The amount of tokens to claim.
 
-Must be a `string` or `number`.
-
-#### options (optional)
-
-Customizable `ClaimOptions` object that can be used to override the default behaviour of the claim.
-
-There are three options available:
-
-- `checkERC20Allowance` - Whether to check the ERC20 allowance of the sender, defaults to true.
-- `currencyAddress` - The currency to pay for each token claimed, defaults to `NATIVE_TOKEN_ADDRESS` for native currency.
-- `pricePerToken` - The price to pay for each token claimed. Not relevant when using claim conditions.
-
-```csharp
-
-```
+Must be a `string`.
 
 </div>
 </details>
 
-## claimTo
+## ClaimTo
 
 The same as [`claim`](#claim), but allows specifying the recipient address rather than using the connected wallet.
 
 ```csharp
-
+var data = await contract.ERC20.ClaimTo("{{wallet_address}}", "{{amount}}");
 ```
 
 <details>
@@ -67,24 +53,18 @@ Must be a `string`.
 
 The amount of tokens to claim.
 
-Must be a `string` or `number`.
-
-#### options (optional)
-
-Customizable `ClaimOptions` object that can be used to override the default behaviour of the claim.
-
-See [`claim`](#claim) for more details.
+Must be a `string`.
 
 </div>
 </details>
 
-## canClaim
+## CanClaim
 
 Check if tokens are currently available for claiming, optionally specifying if a specific wallet
 address can claim.
 
 ```csharp
-
+var data = await contract.ERC20.claimConditions.CanClaim("{{quantity}}", "{{wallet_address}}");
 ```
 
 <details>
@@ -100,7 +80,7 @@ This checks to see if the specified amount of tokens are available for claiming.
 - There is sufficient quantity available for claiming.
 - This amount of tokens can be claimed in a single transaction.
 
-Must be a `string` or `number`.
+Must be a `string`.
 
 #### addressToCheck (optional)
 
@@ -112,84 +92,47 @@ Must be a `string`.
 
 ### Return Value
 
-Returns a `boolean` indicating if the specified amount of tokens can be claimed or not.
+Returns a `bool` indicating if the specified amount of tokens can be claimed or not.
 
 ```csharp
-
+bool
 ```
 
 </div>
 </details>
 
-## getActive
+## GetActive
 
 Retrieve the currently active claim phase, if any.
 
 ```csharp
-
+var data = await contract.ERC20.claimConditions.GetActive();
 ```
 
 <details>
     <summary>Configuration</summary>
     <div>
 
-#### options (optional)
-
-Provide an object containing a `withAllowlist` property to include the allowlist in the response.
-
-By default, the method will not include the allowlist in the returned data.
-
-To include the allowlist in the returned data, set the `withAllowlist` option to `true`.
-
-This will add a `snapshot` property to the returned data, which contains the allowlist in an array.
-
-```csharp
-
-```
-
 ### Return Value
 
-If there is no active claim phase, returns `undefined`.
-
-If a claim condition is active, returns a `ClaimCondition` object containing the following properties:
+If a claim condition is active, returns a `ClaimConditions` struct containing the following properties:
 
 ```csharp
-
+{
+    string availableSupply;
+    string currentMintSupply;
+    CurrencyValue currencyMetadata;
+    string currencyAddress;
+    string maxClaimableSupply;
+    string maxClaimablePerWallet;
+    string waitInSeconds;
+}
 ```
 
 </div>
 </details>
 
-## getAll
-
-Get all the claim phases configured on the drop contract.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### options (optional)
-
-Optionally return the allowlist with each claim phase.
-
-See [`getActive`](#getactive) configuration for more details.
-
-### Return Value
-
-Returns an array of `ClaimCondition` objects.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## getClaimIneligibilityReasons
+## GetIneligibilityReasons
 
 Get an array of reasons why a specific wallet address is not eligible to claim tokens, if any.
 
@@ -217,15 +160,13 @@ Must be a `string`.
 
 Returns an array of `ClaimEligibility` strings, which may be empty.
 
-For example, if the user is not in the allowlist, this hook will return `["This address is not on the allowlist."]`.
+If the user _is_ eligible to claim tokens, the method will return an empty array.
 
-If the user _is_ eligible to claim tokens, the hook will return an empty array.
+```csharp
+string[]
 
-```ts
-ClaimEligibility[]
-
-// ClaimEligibility Enum
-export enum ClaimEligibility {
+// Options:
+{
   NotEnoughSupply = "There is not enough supply to claim.",
   AddressNotAllowed = "This address is not on the allowlist.",
   WaitBeforeNextClaimTransaction = "Not enough time since last claim transaction. Please wait.",
@@ -241,51 +182,12 @@ export enum ClaimEligibility {
 </div>
 </details>
 
-## getClaimTransaction
-
-Construct a claim transaction without executing it.
-This is useful for estimating the gas cost of a claim transaction,
-overriding transaction options and having fine grained control over the transaction execution.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### walletAddress (required)
-
-The wallet address to claim tokens for.
-
-Must be a `string`.
-
-#### quantity (required)
-
-The amount of tokens to claim.
-
-Must be a `string`, `number` or `BigNumber`.
-
-#### options (optional)
-
-See [`claim`](#claim) configuration for more details.
-
-### Return Value
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## getClaimerProofs
+## GetClaimerProofs
 
 Returns allowlist information and merkle proofs for a given wallet address.
 
 ```csharp
-
+var data = await contract.ERC20.claimConditions.GetClaimerProofs("{{wallet_address}}");
 ```
 
 <details>
@@ -301,102 +203,8 @@ Must be a `string`.
 ### Return Value
 
 ```csharp
-
+bool
 ```
-
-</div>
-</details>
-
-## set
-
-Overwrite the claim phases on the drop contract.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### price
-
-The price per token in the currency specified above.
-
-The default value is `0`.
-
-#### maxClaimablePerWallet
-
-The maximum number of tokens a wallet can claim.
-
-The default value is `unlimited`.
-
-#### maxClaimableSupply
-
-The total number of tokens that can be claimed in this phase.
-
-For example, if you lazy mint 1000 tokens and set the `maxClaimableSupply` to 100,
-then only 100 tokens will be claimable in this phase, leaving 900 tokens to be claimed in the next phases (if you have any).
-
-This is useful for "early bird" use cases, where you allow users to claim a limited number of tokens at a discounted price during
-the first X amount of time.
-
-#### startTime
-
-When the phase starts (i.e. when users can start claiming tokens).
-
-The default value is immediately.
-
-#### waitInSeconds
-
-The amount of time between claims a wallet must wait before they can claim again.
-
-The default value is `0`, meaning users can claim again immediately after claiming.
-
-#### snapshot
-
-A list of wallets that you want to override the default claim conditions for.
-
-Wallet addresses within this list can be set to pay in a
-different currency, have a different price, and have a different maximum claimable amount.
-
-```ts
-{
-  address: string;
-  currencyAddress?: string;
-  maxClaimable?: number;
-  price?: number;
-}
-```
-
-[Learn more about improved claim conditions](https://blog.thirdweb.com/announcing-improved-claim-conditions/).
-
-#### merkleRootHash
-
-If you want to provide your own merkle tree for your snapshot, provide the merkle root hash here.
-
-This is only recommended for advanced use cases.
-
-</div>
-</details>
-
-## update
-
-Update a single claim phase on the drop contract, by providing the index of that
-phase and the new phase configuration.
-
-The `index` is the position of the phase in the list of phases you have made, starting from zero.
-e.g. if you have two phases, the first phase has an index of `0` and the second phase has an index of `1`.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-See [`set`](#set) configuration for more details.
 
 </div>
 </details>

@@ -8,14 +8,14 @@ toc_max_heading_level: 2 # Show up to h4 in table of contents (default is up to 
 
 Functionality available for contracts that implement the [`IERC20`](/contracts/IERC20) interface.
 
-## allowance
+## Allowance
 
 Get the allowance of another wallet address over the **connected wallet's** funds.
 
 "Allowance" refers to the number of tokens that another wallet is allowed to spend on behalf of the connected wallet.
 
 ```csharp
-
+var data = await contract.ERC20.Allowance("{{spender_address}}");
 ```
 
 <details>
@@ -28,27 +28,29 @@ The address of the wallet to check the allowance of.
 
 Must be a `string`.
 
-```csharp
-
-```
-
 ### Return Value
 
-A `CurrencyValue` object is returned with the allowance available in the `value` property.
+A `CurrencyValue` struct is returned with the allowance available in the `value` property.
 
 ```csharp
-
+{
+  string name;
+  string symbol;
+  string decimals;
+  string value;
+  string displayValue;
+}
 ```
 
 </div>
 </details>
 
-## allowanceOf
+## AllowanceOf
 
 The same as [`allowance`](#allowance), but allows you to specify the owner wallet to check, instead of using the connected wallet.
 
 ```csharp
-
+var data = await contract.ERC20.AllowanceOf("{{owner_address}}", "{{spender_address}}");
 ```
 
 <details>
@@ -61,37 +63,35 @@ The address of the wallet that owns the funds.
 
 Must be a `string`.
 
-```csharp
-
-```
-
 #### spender
 
 The address of the wallet to check the allowance of.
 
 Must be a `string`.
 
-```csharp
-
-```
-
 ### Return Value
 
-A `CurrencyValue` object is returned with the allowance available in the `value` property.
+A `CurrencyValue` struct is returned with the allowance available in the `value` property.
 
 ```csharp
-
+{
+  string name;
+  string symbol;
+  string decimals;
+  string value;
+  string displayValue;
+}
 ```
 
 </div>
 </details>
 
-## balance
+## Balance
 
 View the balance (i.e. number of tokens) the **connected wallet** has in their wallet from this contract.
 
 ```csharp
-
+var data = await contract.ERC20.Balance();
 ```
 
 <details>
@@ -100,21 +100,27 @@ View the balance (i.e. number of tokens) the **connected wallet** has in their w
 
 ### Return Value
 
-A `CurrencyValue` object is returned with the allowance available in the `value` property.
+A `CurrencyValue` struct is returned with the allowance available in the `value` property.
 
 ```csharp
-
+{
+  string name;
+  string symbol;
+  string decimals;
+  string value;
+  string displayValue;
+}
 ```
 
 </div>
 </details>
 
-## balanceOf
+## BalanceOf
 
 The same as [`balance`](#balance), but allows you to specify the wallet address to check, instead of using the connected wallet.
 
 ```csharp
-
+var data = await contract.ERC20.BalanceOf("{{wallet_address}}");
 ```
 
 <details>
@@ -127,27 +133,29 @@ The address of the wallet to check the balance of.
 
 Must be a `string`.
 
-```csharp
-
-```
-
 ### Return Value
 
-A `CurrencyValue` object is returned with the allowance available in the `value` property.
+A `CurrencyValue` struct is returned with the allowance available in the `value` property.
 
 ```csharp
-
+{
+  string name;
+  string symbol;
+  string decimals;
+  string value;
+  string displayValue;
+}
 ```
 
 </div>
 </details>
 
-## get
+## Get
 
 Get the metadata of the token smart contract, such as the name, symbol, and decimals.
 
 ```csharp
-
+var data = await contract.ERC20.Get();
 ```
 
 <details>
@@ -157,51 +165,22 @@ Get the metadata of the token smart contract, such as the name, symbol, and deci
 ### Return Value
 
 ```csharp
-
+{
+  string name;
+  string symbol;
+  string decimals;
+}
 ```
 
 </div>
 </details>
 
-## normalizeAmount
-
-Convert a number of tokens to a number of wei.
-
-```csharp
-
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### amount
-
-The number of tokens to convert to wei.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-```csharp
-
-```
-
-### Return Value
-
-A `BigNumber` object is returned with the amount in wei.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## setAllowance
+## SetAllowance
 
 Grant allowance to another wallet address to spend the **connected wallet's** funds (of this token).
 
 ```csharp
-
+var data = await contract.ERC20.SetAllowance("{{spender_address}}", 1);
 ```
 
 <details>
@@ -214,29 +193,21 @@ The address of the wallet to grant allowance to.
 
 Must be a `string`.
 
-```csharp
-
-```
-
 #### amount
 
 The number of tokens to give as allowance.
 
-Must be a `string` or `number`.
-
-```csharp
-
-```
+Must be an `int`.
 
 </div>
 </details>
 
-## totalSupply
+## TotalSupply
 
 Get the number of tokens in circulation for this contract.
 
 ```csharp
-
+var data = await contract.ERC20.TotalSupply();
 ```
 
 <details>
@@ -245,21 +216,25 @@ Get the number of tokens in circulation for this contract.
 
 ### Return Value
 
-A `CurrencyValue` object is returned with the allowance available in the `value` property.
+A `CurrencyValue` struct is returned with the allowance available in the `value` property.
 
 ```csharp
-
+{
+  string name;
+  string symbol;
+  string decimals;
+}
 ```
 
 </div>
 </details>
 
-## transfer
+## Transfer
 
 Transfer tokens from the **connected wallet** to another wallet.
 
 ```csharp
-
+var data = await contract.ERC20.Transfer("{{wallet_address}}", "{{amount}}");
 ```
 
 <details>
@@ -272,89 +247,11 @@ The address of the wallet to send the tokens to.
 
 Must be a `string`.
 
-```csharp
-
-```
-
 #### amount
 
 The amount of tokens to send.
 
-Must be a `string` or `number`.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## transferFrom
-
-The same as [`transfer`](#transfer), but allows you to specify the wallet address to send the tokens from,
-instead of using the connected wallet.
-
-This is only possible if the wallet initiating this transaction has been given allowance to transfer the tokens of the `fromAddress`.
-
-```csharp
-
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### from
-
-The address of the wallet to send the tokens from.
-
 Must be a `string`.
-
-```csharp
-
-```
-
-#### to
-
-The address of the wallet to send the tokens to.
-
-Must be a `string`.
-
-```csharp
-
-```
-
-#### amount
-
-The amount of tokens to send.
-
-Can be a `number` or a `string`.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## transferBatch
-
-Transfer multiple tokens from the **connected wallet** to multiple wallets.
-
-```csharp
-
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-    #### args
-
-    An array of objects, each containing a `toAddress` and an `amount` property.
-
-    - The `toAddress` property must be a `string`, and is the wallet address you want to send the tokens to.
-    - The `amount` property must be a `string`, `number`, or `BigNumber`, and is the amount of tokens you want to send to the `toAddress`
 
 </div>
 </details>

@@ -12,12 +12,12 @@ Functionality available for contracts that implement the
 
 Allows the minting of new tokens into the contract.
 
-## mint
+## Mint
 
 Mint tokens to the **connected wallet**.
 
 ```csharp
-
+var data = await contract.ERC20.Mint("{{amount}}");
 ```
 
 <details>
@@ -28,21 +28,17 @@ Mint tokens to the **connected wallet**.
 
 The amount of tokens to mint.
 
-Must be a `string` or `number`.
-
-```csharp
-
-```
+Must be a `string`.
 
 </div>
 </details>
 
-## mintTo
+## MintTo
 
 The same as [`mint`](#mint), but allows you to specify the address to mint the tokens to.
 
 ```csharp
-
+var data = await contract.ERC20.MintTo("{{wallet_address}}", "{{amount}}");
 ```
 
 <details>
@@ -55,62 +51,11 @@ The wallet address to mint the tokens to.
 
 Must be a `string`.
 
-```csharp
-
-```
-
 #### amount
 
 The number of tokens to mint.
 
-Must be a `string` or `number`.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## getMintTransaction
-
-Construct a mint transaction without executing it.
-This is useful for estimating the gas cost of a mint transaction,
-overriding transaction options and having fine grained control over the transaction execution.
-
-```csharp
-
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-    
-<h4>to</h4>
-
-Address you want to mint the tokens to
-
 Must be a `string`.
-
-```csharp
-
-```
-
-#### amount
-
-The amount of tokens you want to mint
-
-Must be a `string`, `number` or `BigNumber`.
-
-```csharp
-
-```
-
-### Return Value
-
-```csharp
-
-```
 
 </div>
 </details>

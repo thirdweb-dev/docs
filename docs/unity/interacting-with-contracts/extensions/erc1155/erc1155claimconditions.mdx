@@ -37,7 +37,7 @@ Must be an `int`.
 </div>
 </details>
 
-## claimTo
+## ClaimTo
 
 The same as [`claim`](#claim), but allows specifying the recipient
 address rather than using the connected wallet.
@@ -71,7 +71,7 @@ Must be an `int`.
 </div>
 </details>
 
-## canClaim
+## CanClaim
 
 Check if tokens are currently available for claiming, optionally specifying if a specific wallet
 address can claim.
@@ -120,7 +120,7 @@ bool
 </div>
 </details>
 
-## getActive
+## GetActive
 
 Retrieve the currently active claim phase for a specific token ID, if any.
 
@@ -139,8 +139,6 @@ The token ID of the NFT you want to get the claim conditions for.
 Must be a `string`.
 
 ### Return Value
-
-If there is no active claim phase, returns `undefined`.
 
 If a claim condition is active, returns a `ClaimConditions` struct containing the following properties:
 
@@ -193,9 +191,7 @@ Must be a `string`.
 
 Returns a list of `ClaimEligibility` strings, which may be empty.
 
-For example, if the user is not in the allowlist, this hook will return `["This address is not on the allowlist."]`.
-
-If the user _is_ eligible to claim tokens, the hook will return an empty array.
+If the user _is_ eligible to claim tokens, the method will return an empty array.
 
 ```ts
 string[]
@@ -217,7 +213,7 @@ string[]
 </div>
 </details>
 
-## getClaimerProofs
+## GetClaimerProofs
 
 Returns allowlist information and merkle proofs for a given wallet address.
 

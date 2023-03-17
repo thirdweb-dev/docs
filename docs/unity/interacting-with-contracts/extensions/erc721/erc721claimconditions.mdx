@@ -161,8 +161,6 @@ var data = await contract.ERC721.claimConditions.GetActive();
 
 ### Return Value
 
-If there is no active claim phase, returns `undefined`.
-
 If a claim condition is active, returns a `ClaimConditions` struct containing the following properties:
 
 ```csharp
@@ -208,9 +206,7 @@ Must be a `string`.
 
 Returns an array of `ClaimEligibility` strings, which may be empty.
 
-For example, if the user is not in the allowlist, this hook will return `["This address is not on the allowlist."]`.
-
-If the user _is_ eligible to claim tokens, the hook will return an empty array.
+If the user _is_ eligible to claim tokens, the method will return an empty array.
 
 ```csharp
 string[];
