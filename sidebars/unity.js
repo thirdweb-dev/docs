@@ -34,6 +34,35 @@ const sidebars = {
       id: "thirdwebsdk",
     },
 
+    // Prefabs
+    {
+      type: "category",
+      label: "Prefabs",
+      collapsed: false,
+      items: [
+        {
+          type: "doc",
+          label: "Connect Wallet Button",
+          id: "prefabs/ConnectWallet",
+        },
+        {
+          type: "doc",
+          label: "Connect Wallet Button (Native)",
+          id: "prefabs/ConnectWalletNative",
+        },
+        {
+          type: "doc",
+          label: "NFT Renderer",
+          id: "prefabs/NFT",
+        },
+        {
+          type: "doc",
+          label: "ThirdwebManager",
+          id: "prefabs/ThirdwebManager",
+        },
+      ],
+    },
+
     // Deploying contracts
 
     // Interacting with contracts

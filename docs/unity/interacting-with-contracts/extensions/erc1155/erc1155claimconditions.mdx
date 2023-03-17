@@ -10,12 +10,12 @@ Functionality available for contracts that implement the
 
 Enables wallets to claim (mint) NFTs from the contract under specific conditions.
 
-## claim
+## Claim
 
 Claim a specified number of tokens to the **connected wallet**.
 
 ```csharp
-
+var data = await contract.ERC1155.Claim("{{token_id}}", 1);
 ```
 
 <details>
@@ -26,27 +26,13 @@ Claim a specified number of tokens to the **connected wallet**.
 
 The token ID of the NFT you want to claim.
 
-Must be a `string`, `number` or `BigNumber`.
+Must be a `string`.
 
 #### quantity (required)
 
 The number of tokens to claim.
 
-Must be a `string` or `number`.
-
-#### options (optional)
-
-Customizable `ClaimOptions` object that can be used to override the default behaviour of the claim.
-
-There are three options available:
-
-- `checkERC20Allowance` - Whether to check the ERC20 allowance of the sender, defaults to true.
-- `currencyAddress` - The currency to pay for each token claimed, defaults to `NATIVE_TOKEN_ADDRESS` for native currency.
-- `pricePerToken` - The price to pay for each token claimed. Not relevant when using claim conditions.
-
-```csharp
-
-```
+Must be an `int`.
 
 </div>
 </details>
@@ -57,7 +43,7 @@ The same as [`claim`](#claim), but allows specifying the recipient
 address rather than using the connected wallet.
 
 ```csharp
-
+var data = await contract.ERC1155.ClaimTo("{{wallet_address}}", "{{token_id}}", 1);
 ```
 
 <details>
@@ -74,19 +60,13 @@ Must be a `string`.
 
 The token ID of the NFT you want to claim.
 
-Must be a `string`, `number` or `BigNumber`.
+Must be a `string`.
 
 #### quantity (required)
 
 The number of tokens to claim.
 
-Must be a `string` or `number`.
-
-#### options (optional)
-
-Customizable `ClaimOptions` object that can be used to override the default behaviour of the claim.
-
-See [`claim`](#claim) for more details.
+Must be an `int`.
 
 </div>
 </details>
@@ -97,7 +77,7 @@ Check if tokens are currently available for claiming, optionally specifying if a
 address can claim.
 
 ```csharp
-
+var data = await contract.ERC1155.claimConditions.CanClaim("{{token_id}}", 1, "{{wallet_address}}");
 ```
 
 <details>
@@ -108,7 +88,7 @@ address can claim.
 
 The token ID of the NFT you want to claim.
 
-Must be a `string`, `number` or `BigNumber`.
+Must be a `string`.
 
 #### quantity (required)
 
@@ -119,7 +99,7 @@ This checks to see if the specified amount of tokens are available for claiming.
 - There is sufficient quantity available for claiming.
 - This amount of tokens can be claimed in a single transaction.
 
-Must be a `string` or `number`.
+Must be an `int`.
 
 #### addressToCheck (optional)
 
@@ -131,10 +111,10 @@ Must be a `string`.
 
 ### Return Value
 
-Returns a `boolean` indicating if the specified amount of tokens can be claimed or not.
+Returns a `bool` indicating if the specified amount of tokens can be claimed or not.
 
 ```csharp
-
+bool
 ```
 
 </div>
@@ -145,7 +125,7 @@ Returns a `boolean` indicating if the specified amount of tokens can be claimed 
 Retrieve the currently active claim phase for a specific token ID, if any.
 
 ```csharp
-
+var data = await contract.ERC1155.claimConditions.GetActive("{{token_id}}");
 ```
 
 <details>
@@ -156,76 +136,35 @@ Retrieve the currently active claim phase for a specific token ID, if any.
 
 The token ID of the NFT you want to get the claim conditions for.
 
-Must be a `string`, `number` or `BigNumber`.
-
-#### options (optional)
-
-Provide an object containing a `withAllowlist` property to include the allowlist in the response.
-
-By default, the method will not include the allowlist in the returned data.
-
-To include the allowlist in the returned data, set the `withAllowlist` option to `true`.
-
-This will add a `snapshot` property to the returned data, which contains the allowlist in an array.
-
-```csharp
-
-```
+Must be a `string`.
 
 ### Return Value
 
 If there is no active claim phase, returns `undefined`.
 
-If a claim condition is active, returns a `ClaimCondition` object containing the following properties:
+If a claim condition is active, returns a `ClaimConditions` struct containing the following properties:
 
 ```csharp
-
+{
+    string availableSupply;
+    string currentMintSupply;
+    CurrencyValue currencyMetadata;
+    string currencyAddress;
+    string maxClaimableSupply;
+    string maxClaimablePerWallet;
+    string waitInSeconds;
+}
 ```
 
 </div>
 </details>
 
-## getAll
+## GetIneligibilityReasons
 
-Get all the claim phases configured for a specific token ID.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### tokenId (required)
-
-The token ID of the NFT you want to get the claim conditions for.
-
-Must be a `string`, `number` or `BigNumber`.
-
-#### options (optional)
-
-Optionally return the allowlist with each claim phase.
-
-See [`getActive`](#getactive) configuration for more details.
-
-### Return Value
-
-Returns an array of `ClaimCondition` objects.
+Get a list of reasons why a specific wallet address is not eligible to claim tokens, if any.
 
 ```csharp
-
-```
-
-</div>
-</details>
-
-## getClaimIneligibilityReasons
-
-Get an array of reasons why a specific wallet address is not eligible to claim tokens, if any.
-
-```csharp
-
+var data = await contract.ERC1155.claimConditions.GetIneligibilityReasons("{{token_id}}", 1, "{{wallet_address}}");
 ```
 
 <details>
@@ -236,13 +175,13 @@ Get an array of reasons why a specific wallet address is not eligible to claim t
 
 The token ID of the NFT you want to check if the wallet address can claim.
 
-Must be a `string`, `number` or `BigNumber`.
+Must be a `string`.
 
 #### quantity (required)
 
 The amount of tokens to check if the wallet address can claim.
 
-Must be a `string` or `number`.
+Must be a `string`.
 
 #### addressToCheck (optional)
 
@@ -252,17 +191,17 @@ Must be a `string`.
 
 ### Return Value
 
-Returns an array of `ClaimEligibility` strings, which may be empty.
+Returns a list of `ClaimEligibility` strings, which may be empty.
 
 For example, if the user is not in the allowlist, this hook will return `["This address is not on the allowlist."]`.
 
 If the user _is_ eligible to claim tokens, the hook will return an empty array.
 
 ```ts
-ClaimEligibility[]
+string[]
 
-// ClaimEligibility Enum
-export enum ClaimEligibility {
+// Options:
+{
   NotEnoughSupply = "There is not enough supply to claim.",
   AddressNotAllowed = "This address is not on the allowlist.",
   WaitBeforeNextClaimTransaction = "Not enough time since last claim transaction. Please wait.",
@@ -278,57 +217,12 @@ export enum ClaimEligibility {
 </div>
 </details>
 
-## getClaimTransaction
-
-Construct a claim transaction without executing it.
-This is useful for estimating the gas cost of a claim transaction,
-overriding transaction options and having fine grained control over the transaction execution.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### walletAddress (required)
-
-The wallet address to claim tokens for.
-
-Must be a `string`.
-
-#### tokenId (required)
-
-The token ID of the NFT you want to claim.
-
-Must be a `string`, `number` or `BigNumber`.
-
-#### quantity (required)
-
-The amount of tokens to claim.
-
-Must be a `string`, `number` or `BigNumber`.
-
-#### options (optional)
-
-See [`claim`](#claim) configuration for more details.
-
-### Return Value
-
-```csharp
-
-```
-
-</div>
-</details>
-
 ## getClaimerProofs
 
 Returns allowlist information and merkle proofs for a given wallet address.
 
 ```csharp
-
+var data = await contract.ERC1155.claimConditions.GetClaimerProofs("{{token_id}}", "{{wallet_address}}");
 ```
 
 <details>
@@ -339,7 +233,7 @@ Returns allowlist information and merkle proofs for a given wallet address.
 
 The token ID of the NFT you want to get the claimer proofs for.
 
-Must be a `string`, `number` or `BigNumber`.
+Must be a `string`.
 
 #### walletAddress (required)
 
@@ -350,147 +244,8 @@ Must be a `string`.
 ### Return Value
 
 ```csharp
-
+bool
 ```
-
-</div>
-</details>
-
-## set
-
-Overwrite the claim conditions for a specific token ID.
-
-All properties of a phase are optional, with the default being a free, open, unlimited claim, in the native currency, starting immediately.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### tokenId
-
-The token ID of the NFT you want to set the claim conditions for.
-
-#### price
-
-The price per token in the currency specified above.
-
-The default value is `0`.
-
-#### maxClaimablePerWallet
-
-The maximum number of tokens a wallet can claim.
-
-The default value is `unlimited`.
-
-#### maxClaimableSupply
-
-The total number of tokens that can be claimed in this phase.
-
-For example, if you lazy mint 1000 tokens and set the `maxClaimableSupply` to 100,
-then only 100 tokens will be claimable in this phase, leaving 900 tokens to be claimed in the next phases (if you have any).
-
-This is useful for "early bird" use cases, where you allow users to claim a limited number of tokens at a discounted price during
-the first X amount of time.
-
-#### startTime
-
-When the phase starts (i.e. when users can start claiming tokens).
-
-The default value is immediately.
-
-#### waitInSeconds
-
-The amount of time between claims a wallet must wait before they can claim again.
-
-The default value is `0`, meaning users can claim again immediately after claiming.
-
-#### snapshot
-
-A list of wallets that you want to override the default claim conditions for.
-
-Wallet addresses within this list can be set to pay in a
-different currency, have a different price, and have a different maximum claimable amount.
-
-```ts
-{
-  address: string;
-  currencyAddress?: string;
-  maxClaimable?: number;
-  price?: number;
-}
-```
-
-[Learn more about improved claim conditions](https://blog.thirdweb.com/announcing-improved-claim-conditions/).
-
-#### merkleRootHash
-
-If you want to provide your own merkle tree for your snapshot, provide the merkle root hash here.
-
-This is only recommended for advanced use cases.
-
-#### resetClaimEligibilityForAll
-
-This means you reset any previous claim conditions that existed and
-allow users to claim again as if the drop had just started.
-
-A boolean value that determines whether to reset the claim conditions or to keep the existing state.
-
-By resetting them, any previous claims that were made will be ignored by the claim condition restrictions.
-
-For example, if you had a limit of 1 token per wallet, and a user claimed a token,
-then you reset the claim conditions, that user will be able to claim another token.
-
-Must be a `boolean`.
-
-Defaults to `false`.
-
-</div>
-</details>
-
-## setBatch
-
-Allows you to [`set`](#set) claim conditions for multiple token IDs in a single transaction.
-
-All properties of a phase are optional, with the default being a free, open, unlimited claim, in the native currency, starting immediately.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-Provide an array of objects, each containing the `tokenId` and `claimConditions` you want to set.
-
-See the [`set`](#set) method for more information on the `claimConditions` configuration.
-
-</div>
-</details>
-
-## update
-
-Update a single claim phase on a specific token ID, by providing the index of the claim
-phase and the new phase configuration.
-
-The `index` is the position of the phase in the list of phases you have made, starting from zero.
-e.g. if you have two phases, the first phase has an index of `0` and the second phase has an index of `1`.
-
-All properties of a phase are optional, with the default being a free, open, unlimited claim, in the native currency, starting immediately.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-See [`set`](#set) configuration for more details.
 
 </div>
 </details>

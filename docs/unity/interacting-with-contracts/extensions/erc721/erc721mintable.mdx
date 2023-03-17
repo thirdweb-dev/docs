@@ -34,7 +34,11 @@ var data = await contract.ERC721.Mint(new NFTMetadata()
 
 #### metadata
 
-Provide a `string` that points to [valid metadata object](https://docs.opensea.io/docs/metadata-standards#metadata-structure)..
+Provide a `string` that points to, or an `NFTMetadata` struct containing
+[valid metadata object](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+
+If you provide a struct, the metadata is uploaded and pinned to IPFS before
+the NFT(s) are minted.
 
 The `image` property can be an IPFS URI, or a URL to an image.
 

@@ -163,7 +163,7 @@ var data = await contract.ERC721.claimConditions.GetActive();
 
 If there is no active claim phase, returns `undefined`.
 
-If a claim condition is active, returns a `ClaimCondition` object containing the following properties:
+If a claim condition is active, returns a `ClaimConditions` struct containing the following properties:
 
 ```csharp
 {

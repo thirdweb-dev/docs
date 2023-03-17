@@ -20,7 +20,14 @@ You can override this default behavior by providing a `string` that points to va
 Mint a new NFT to the **connected wallet**.
 
 ```csharp
-
+var data = await contract.ERC1155.Mint(new NFTMetadataWithSupply() {
+    supply = 1,
+    metadata = new NFTMetadata() {
+        name = "My NFT", // Name of the NFT
+        image = "my-image-url", // An image URL or IPFS URI
+        // Any other valid metadata properties
+    }
+});
 ```
 
 <details>
@@ -29,28 +36,31 @@ Mint a new NFT to the **connected wallet**.
 
 #### metadataWithSupply
 
-An object containing a `metadata` object and a `supply` property.
+Provide a `string` that points to, or an `NFTMetadataWithSupply` struct containing
+`metadata` that conforms to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure),
+along with the `supply` of the NFT to mint.
 
-The metadata object can either be a string that points to valid metadata that
-conforms to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure),
-or an object that conforms to the same standards.
-
-If you provide an object, the metadata is uploaded and pinned to IPFS before
+If you provide a struct, the metadata is uploaded and pinned to IPFS before
 the NFT(s) are minted.
 
-```csharp
-
-```
+The `image` property can be an IPFS URI, or a URL to an image.
 
 </div>
 </details>
 
-## mintTo
+## MintTo
 
 The same as [`mint`](#mint), but allows you to specify the address of the wallet rather than using the connected wallet.
 
 ```csharp
-
+var data = await contract.ERC1155.MintTo("{{wallet_address}}", new NFTMetadataWithSupply() {
+    supply = 1,
+    metadata = new NFTMetadata() {
+        name = "My NFT", // Name of the NFT
+        image = "my-image-url", // An image URL or IPFS URI
+        // Any other valid metadata properties
+    }
+});
 ```
 
 <details>
@@ -62,10 +72,6 @@ The same as [`mint`](#mint), but allows you to specify the address of the wallet
 The address of the wallet you want to mint the NFT to.
 
 Must be a `string`.
-
-```csharp
-
-```
 
 #### metadataWithSupply
 
@@ -74,12 +80,12 @@ Same as [`metadataWithSupply`](#metadatawithsupply) in the [`mint`](#mint) metho
 </div>
 </details>
 
-## mintAdditionalSupply
+## MintAdditionalSupply
 
 Mint additional quantity of an NFT that already exists on the contract.
 
 ```csharp
-
+var data = await contract.ERC1155.MintAdditionalSupply("{{token_id}}", 1);
 ```
 
 <details>
@@ -90,31 +96,23 @@ Mint additional quantity of an NFT that already exists on the contract.
 
 The ID of the NFT you want to mint additional supply for.
 
-Must be a `string`, `number`, or `BigNumber`.
-
-```csharp
-
-```
+Must be a `string`.
 
 #### additionalSupply
 
 How much additional supply you want to mint.
 
-Must be a `string`, `number`, or `BigNumber`.
-
-```csharp
-
-```
+Must be an `int`.
 
 </div>
 </details>
 
-## mintAdditionalSupplyTo
+## MintAdditionalSupplyTo
 
 The same as [`mintAdditionalSupply`](#mintadditionalsupply), but allows you to specify the address of the wallet rather than using the connected wallet.
 
 ```csharp
-
+var data = await contract.ERC1155.MintAdditionalSupplyTo("{{wallet_address", "{{token_id}}", 1);
 ```
 
 <details>
@@ -126,86 +124,18 @@ The same as [`mintAdditionalSupply`](#mintadditionalsupply), but allows you to s
 The address of the wallet you want to mint the NFT to.
 
 Must be a `string`.
-
-```csharp
-
-```
 
 #### tokenId
 
 The ID of the NFT you want to mint additional supply for.
 
-Must be a `string`, `number`, or `BigNumber`.
-
-```csharp
-
-```
+Must be a `string`.
 
 #### additionalSupply
 
 How much additional supply you want to mint.
 
-Must be a `string`, `number`, or `BigNumber`.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## getMintTransaction
-
-Construct a mint transaction without executing it.
-This is useful for estimating the gas cost of a mint transaction,
-overriding transaction options and having fine grained control over the transaction execution.
-
-```csharp
-
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### to
-
-The address of the wallet you want to mint the NFT to.
-
-Must be a `string`.
-
-#### metadataWithSupply
-
-See [`metadataWithSupply`](#metadatawithsupply) in the [`mint`](#mint) method.
-
-### Return Value
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## nextTokenIdToMint
-
-Get the next token ID that will be minted on the contract.
-
-```csharp
-
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-### Return Value
-
-Returns a `BigNumber` representing the next token ID that will be minted on the contract.
-
-```csharp
-
-```
+Must be an `int`.
 
 </div>
 </details>
