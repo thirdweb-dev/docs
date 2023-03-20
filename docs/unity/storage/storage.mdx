@@ -1,0 +1,104 @@
+---
+title: Storage
+slug: /storage
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# Storage
+
+## DownloadImage
+
+Download an image from a URL or IPFS URI into a `Sprite` object.
+
+```csharp
+var data = await sdk.storage.DownloadImage("{{image_url}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### imageUri
+
+An IPFS URI or a URL that points to an image.
+
+Must be a `string`.
+
+### Return Value
+
+Returns a [Sprite](https://docs.unity3d.com/Manual/Sprites.html).
+
+</div>
+</details>
+
+## DownloadText
+
+Download text data such as JSON from a URL or IPFS URI.
+
+```csharp
+var data = await sdk.storage.DownloadText<string>("{{text_uri}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### Data type (generic type)
+
+The type of data to return. Any type that can be deserialized with `JsonConvert.DeserializeObject`.
+
+#### textUri
+
+An IPFS URI or a URL that points to data.
+
+Must be a `string`.
+
+### Return Value
+
+Returns the data as the specified type.
+
+</div>
+</details>
+
+## UploadFromPath
+
+Upload and pin data in IPFS using the path to a file.
+
+```csharp
+var data = await sdk.storage.UploadFromPath("{{path/to-file}}");
+
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### path
+
+The path to the file to upload.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## UploadText
+
+Upload raw data to IPFS.
+
+```csharp
+var data = await sdk.storage.UploadText("Hello world!");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### text
+
+The text to upload.
+
+Must be a `string`.
+
+</div>
+</details>
