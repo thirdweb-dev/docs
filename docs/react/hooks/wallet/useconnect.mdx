@@ -4,51 +4,75 @@ slug: /react.useconnect
 displayed_sidebar: react
 ---
 
-Hook for viewing the connection status and what connectors are available to be used
-as defined in the [`ThirdwebProvider`&rsquo;s `walletConnectors` prop](/react/react.thirdwebprovider#walletconnectors).
+Hook for connecting your app to given wallet
 
 ```jsx
 import { useConnect } from "@thirdweb-dev/react";
 
-const [{ data }, connect] = useConnect();
+const connect = useConnect();
 ```
 
 ## Usage
 
 ```jsx
-import { useConnect } from "@thirdweb-dev/react";
+import { useConnect, MetamaskWallet } from "@thirdweb-dev/react";
 
 function App() {
-  const [{ data }, connect] = useConnect();
+  const connect = useConnect();
+
+  const handleClick = () => {
+    connect(MetamaskWallet, options);
+  };
+
+  return <button onClick={handleClick}> connect to metamask </button>;
 }
 ```
 
-## Return Value
+## options
 
-<details>
-  <summary>Return Value</summary>
-  <div>
+The second argument to `connect` function is wallet specific. Different wallets take different options, But - all wallets allow passing an optional `chainId` property which allows the user to connect to a specific network directly
 
-The data property contains an object with the following properties:
+The options object can be optional or required depending on the wallet.
 
-```ts
-{
-  connected: boolean; // Whether the user is connected to this site with their wallet
-  connector: Connector<any, any> | undefined; // The connector that the user is connected with (or undefined)
-  connectors: Connector<any, any>[]; // All the connectors that are available to be used
+For `MetamaskWallet`, `CoinbaseWallet`, `WalletConnectV1` and `WalletConnect` it is optional, but for `DeviceWallet` it is required and must also have a "password" property.
+
+### Connecting to a specific Network
+
+If you want the user to connect to a specific network directly when connecting the wallet, you can pass the chain ID in the `options` object to the second argument
+
+```jsx
+import { useMetamask } from "@thirdweb-dev/react";
+import { DogechainTestnet } from "@thirdweb-dev/chains";
+
+function App() {
+  const connect = useConnect();
+  const handleClick = () => {
+    connect(MetamaskWallet, {
+      chainId: DogechainTestnet.chainId,
+    });
+  };
+
+  return <button onClick={handleClick}> connect to metamask </button>;
 }
 ```
 
-The `connect` property is a function that takes a connector as an argument
-and connects the user to your dapp using that connector.
+Make sure to also add this network in the `supportedChains` prop of `ThirdwebProvider` as shown below
 
-```ts
-(connector: Connector<any, any>) =>
-  Promise<{
-    data?: ConnectorData<any> | undefined;
-    error?: Error | undefined;
-  }>;
+```jsx
+import { DogechainTestnet } from "@thirdweb-dev/chains";
+
+export function YourApp() {
+  return (
+    <ThirdwebProvider supportedChains={[DogechainTestnet]}>
+      <App />
+    </ThirdwebProvider>
+  );
+}
 ```
 
-</div>
-</details>
+:::info
+It's not necessary to get the chain object from `@thirdweb-dev/chains` package.
+
+You can also create your custom chain as mentioned [here](/react/react.thirdwebprovider#custom-chains)
+
+:::

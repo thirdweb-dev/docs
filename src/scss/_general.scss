@@ -635,3 +635,7 @@ html[data-theme="light"] {
   padding: 0;
   margin-left: 22px;
 }
+
+html {
+  scroll-behavior: smooth;
+}
