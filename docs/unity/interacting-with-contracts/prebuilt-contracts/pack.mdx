@@ -6,35 +6,40 @@ toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to 
 
 When using the [Pack](https://thirdweb.com/thirdweb.eth/Pack) smart contract, additional top-level functionality is available to use.
 
-:::info Pack VRF
-
-When using the [Chainlink VRF variation](https://thirdweb.com/thirdweb.eth/PackVRF) of the Pack contract,
-use the functionality of the [PackVRF Extension](/typescript/sdk.packvrf) instead.
-
-:::
-
-To access the top-level functionality, provide the `pack` contract type when creating the contract instance:
+To access the top-level functionality, provide the `marketplace` contract type when creating the contract instance:
 
 ```csharp
-
+Contract contract = sdk.GetContract("0x...");
+Pack pack = contract.pack;
 ```
 
-In addition to the methods listed below, the pack contract supports the following extensions:
-
-- [ERC1155](/typescript/sdk.erc1155)
-- [ERC1155enumerable](/typescript/sdk.erc1155enumerable)
-- [Royalty](/typescript/sdk.contractroyalty)
-- [Permissions](/typescript/sdk.permissions)
-- [ContractMetadata](/typescript/sdk.contractmetadata)
-- [Ownable](/typescript/sdk.ownable)
-- [Gasless](/typescript/sdk.gasless)
-
-## addPackContents
+## AddPackContents
 
 Add additional tokens to the pool of tokens that can be opened from a pack.
 
 ```csharp
+// Define ERC20 rewards to add to the pack
+ERC20Reward erc20Reward = new ERC20Reward();
+erc20Reward.contractAddress = "0x123abc";
+erc20Reward.quantityPerReward = "100";
 
+// Define ERC721 rewards to add to the pack
+ERC721Reward erc721Reward = new ERC721Reward();
+erc721Reward.contractAddress = "0x456def";
+erc721Reward.tokenId = "12345";
+
+// Define ERC1155 rewards to add to the pack
+ERC1155Reward erc1155Reward = new ERC1155Reward();
+erc1155Reward.contractAddress = "0x789ghi";
+erc1155Reward.tokenId = "67890";
+erc1155Reward.quantityPerReward = "5";
+
+PackRewards packRewards = new PackRewards();
+packRewards.erc20Rewards = new List<ERC20Reward>() { erc20Reward };
+packRewards.erc721Rewards = new List<ERC721Reward>() { erc721Reward };
+packRewards.erc1155Rewards = new List<ERC1155Reward>() { erc1155Reward };
+
+var data = await pack.AddPackContents("{{token_id}}", packRewards);
 ```
 
 <details>
@@ -47,22 +52,18 @@ The ID of the pack you want to add tokens to.
 
 For example, in your pack contract you may have a common pack with ID `0` and a rare pack with ID `1`.
 
-To add more tokens to the common pack, you would pass `0` as the `packId`.
+To add more tokens to the common pack, you would pass `"0"` as the `packId`.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 #### rewards
 
-An object containing three (optional) properties:
-
-- `erc721Rewards`: An array of ERC721 tokens to add to the pack. Each item in the array must be an object containing a `contractAddress` and `tokenId` property.
-- `erc1155Rewards`: An array of ERC1155 tokens to add to the pack. Each item in the array must be an object containing a `contractAddress`, `tokenId`, and `quantityPerReward` property.
-- `erc20Rewards`: An array of ERC20 tokens to add to the pack. Each item in the array must be an object containing a `contractAddress` and `quantityPerReward` property.
+An instance of the `PackRewards` class containing the tokens you want to add to the pack.
 
 </div>
 </details>
 
-## create
+## Create
 
 Mint a new pack NFT, which can be opened to receive rewards, to the **connected** wallet.
 
@@ -75,7 +76,53 @@ For example, if you had `20` total ERC20 rewards + `60` total ERC1155 rewards + 
 and you wanted to create packs with `5` rewards each, the result would be the creation of `20` packs (100 total rewards / 5 rewards per pack = 20 packs).
 
 ```csharp
+var packContents = new PackContents
+{
+    erc20Contents = new List<ERC20Contents>
+    {
+        new ERC20Contents
+        {
+            contractAddress = "0x1234567890123456789012345678901234567890",
+            quantityPerReward = "10",
+            totalRewards = "5",
+        }
+    },
+    erc721Contents = new List<ERC721Contents>
+    {
+        new ERC721Contents
+        {
+            contractAddress = "0x0987654321098765432109876543210987654321",
+            tokenId = "1234"
+        }
+    },
+    erc1155Contents = new List<ERC1155Contents>
+    {
+        new ERC1155Contents
+        {
+            contractAddress = "0x4567890123456789012345678901234567890123",
+            tokenId = "5678",
+            quantityPerReward = "1",
+            totalRewards = "1",
+        }
+    }
+};
 
+var newPackInput = new NewPackInput
+{
+    packMetadata = new NFTMetadata
+    {
+        name = "My Pack",
+        description = "A pack of rewards",
+        image = "https://example.com/pack.png",
+        external_url = "https://example.com/pack"
+    },
+    rewardsPerPack = "3",
+    erc20Contents = packContents.erc20Contents,
+    erc721Contents = packContents.erc721Contents,
+    erc1155Contents = packContents.erc1155Contents
+};
+
+var data = await pack.Create(newPackInput);
 ```
 
 <details>
@@ -84,43 +131,89 @@ and you wanted to create packs with `5` rewards each, the result would be the cr
 
 #### packMetadata
 
-Either a string containing a URL that points to, or an object that contains [standard metadata properties](https://docs.opensea.io/docs/metadata-standards).
+An `NFTMetadata` struct containing [standard metadata properties](https://docs.opensea.io/docs/metadata-standards).
 
-If you provide an object, (like the example above), the metadata is uploaded and pinned to IPFS for you before the packs are minted. The IPFS URI is then used as the metadata for the pack NFT.
+The metadata is uploaded and pinned to IPFS for you before the packs are minted. The IPFS URI is then used as the metadata for the pack NFT.
 
-#### erc20Rewards
+#### erc20Contents
 
-An array of ERC20 tokens to include in the pack. Each item in the array must be an object containing a `contractAddress`, `quantityPerReward`, and `totalRewards` property.
+A list of of ERC20 tokens to include in the pack.
 
-#### erc721Rewards
+Each item in the list must contain a `contractAddress`, `quantityPerReward`, and `totalRewards` property.
 
-An array of ERC721 tokens to include in the pack. Each item in the array must be an object containing a `contractAddress` and `tokenId` property.
+#### erc721Contents
 
-#### erc1155Rewards
+A list of ERC721 tokens to include in the pack.
 
-An array of ERC1155 tokens to include in the pack. Each item in the array must be an object containing a `contractAddress`, `tokenId`, `quantityPerReward`, and `totalRewards` property.
+Each item in the list must contain a `contractAddress` and `tokenId` property.
 
-#### openStartTime
+#### erc1155Contents
 
-The date that packs can start to be opened. Defaults to `new Date()` (i.e. now).
+A list of ERC1155 tokens to include in the pack.
 
-Must be of type `Date`.
+Each item in the list must contain a `contractAddress`, `tokenId`, `quantityPerReward`, and `totalRewards` property.
 
 #### rewardsPerPack
 
-The number of rewards in each pack. Defaults to `1`.
+The number of rewards in each pack.
 
-Must be a `number`.
+Must be a `string`.
 
 </div>
 </details>
 
-## createTo
+## CreateTo
 
-The same as [`create`](#create), but allows you to specify the address that will receive the pack NFT(s), rather than using the connected wallet.
+The same as [`Create`](#create), but allows you to specify the address that will receive the pack NFT(s), rather than using the connected wallet.
 
 ```csharp
+var packContents = new PackContents
+{
+    erc20Contents = new List<ERC20Contents>
+    {
+        new ERC20Contents
+        {
+            contractAddress = "0x1234567890123456789012345678901234567890",
+            quantityPerReward = "10",
+            totalRewards = "5",
+        }
+    },
+    erc721Contents = new List<ERC721Contents>
+    {
+        new ERC721Contents
+        {
+            contractAddress = "0x0987654321098765432109876543210987654321",
+            tokenId = "1234"
+        }
+    },
+    erc1155Contents = new List<ERC1155Contents>
+    {
+        new ERC1155Contents
+        {
+            contractAddress = "0x4567890123456789012345678901234567890123",
+            tokenId = "5678",
+            quantityPerReward = "1",
+            totalRewards = "1",
+        }
+    }
+};
 
+var newPackInput = new NewPackInput
+{
+    packMetadata = new NFTMetadata
+    {
+        name = "My Pack",
+        description = "A pack of rewards",
+        image = "https://example.com/pack.png",
+        external_url = "https://example.com/pack"
+    },
+    rewardsPerPack = "3",
+    erc20Contents = packContents.erc20Contents,
+    erc721Contents = packContents.erc721Contents,
+    erc1155Contents = packContents.erc1155Contents
+};
+
+var data = await pack.CreateTo("{{wallet_address}}", newPackInput);
 ```
 
 <details>
@@ -133,17 +226,17 @@ The wallet address to mint the pack NFTs to.
 
 Must be a `string`.
 
-See [`create`](#create) for more information on the rest of the configuration options.
+See [`Create`](#Create) for more information on the rest of the configuration options.
 
 </div>
 </details>
 
-## getPackContents
+## GetPackContents
 
 Get all the tokens that were "wrapped up" in the pack NFTs when they were created.
 
 ```csharp
-
+var data = await pack.GetPackContents("{{pack_id}}");
 ```
 
 <details>
@@ -154,27 +247,31 @@ Get all the tokens that were "wrapped up" in the pack NFTs when they were create
 
 The token ID of the pack to get the contents of.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 ### Return Value
 
 Returns all the tokens that were included in the rewards when the packs were created.
 
 ```csharp
-
+{
+  List<ERC20Contents> erc20Contents;
+  List<ERC721Contents> erc721Contents;
+  List<ERC1155Contents> erc1155Contents;
+}
 ```
 
 </div>
 </details>
 
-## open
+## Open
 
 Open a pack NFT to receive the rewards inside.
 
 To open a pack, the wallet that initiates this transaction must have sufficient quantity of the pack NFT to open.
 
 ```csharp
-
+var data = await pack.Open("{{pack_id}}", "{{amount}}");
 ```
 
 <details>
@@ -185,23 +282,25 @@ To open a pack, the wallet that initiates this transaction must have sufficient 
 
 The token ID of the pack to open.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 #### amount
 
 The number of packs to open.
 
-Must be a `string`, `number`, or `BigNumber`.
+Optional. Defaults to `"1"`.
+
+Must be a `string`.
 
 </div>
 </details>
 
-## balance
+## Balance
 
 Get the quantity of a specific NFT owned by the connected wallet.
 
 ```csharp
-
+var data = await contract.ERC1155.Balance("{{token_id}}");
 ```
 
 <details>
@@ -212,29 +311,25 @@ Get the quantity of a specific NFT owned by the connected wallet.
 
 The token ID of the NFT to check the balance of.
 
-Must be a `string`, `number`, or `BigNumber`.
-
-```csharp
-
-```
+Must be a `string`.
 
 ### Return Value
 
-A `BigNumber` representing the quantity of the NFT owned by the wallet.
+A `string` representing the quantity of the NFT owned by the wallet.
 
 ```csharp
-
+string
 ```
 
 </div>
 </details>
 
-## balanceOf
+## BalanceOf
 
 Get the quantity of a specific NFT owned by a wallet.
 
 ```csharp
-
+var data = await contract.ERC1155.BalanceOf("{{wallet_address}}", "{{token_id}}");
 ```
 
 <details>
@@ -247,30 +342,24 @@ The wallet address to check the NFT balance for.
 
 Must be a `string`.
 
-```csharp
-
-```
-
 #### tokenId
 
 The token ID of the NFT to check the balance of.
 
-```csharp
-
-```
+Must be a `string`.
 
 ### Return Value
 
-A `BigNumber` representing the quantity of the NFT owned by the wallet.
+A `string` representing the quantity of the NFT owned by the wallet.
 
 ```csharp
-
+string
 ```
 
 </div>
 </details>
 
-## get
+## Get
 
 Get the metadata of an NFT using it&rsquo;s token ID.
 
@@ -291,29 +380,39 @@ The object&rsquo;s `image` property will be a URL that is available through the 
 
 The token ID of the NFT to get the metadata for.
 
-Must be a `string`, `number`, or `BigNumber`.
-
-```csharp
-
-```
+Must be a `string`.
 
 ### Return Value
 
-Returns an `NFT` object containing the following properties:
+Returns an `NFT` struct containing the following properties:
 
 ```csharp
-
+{
+  {
+    string id;
+    string uri;
+    string description;
+    string image;
+    string name;
+    string external_url;
+    object attributes;
+  }
+  string owner;
+  string type;
+  int supply;
+  int quantityOwned; // only for ERC1155
+}
 ```
 
 </div>
 </details>
 
-## transfer
+## Transfer
 
 Transfer an NFT from the connected wallet to another wallet.
 
 ```csharp
-
+var data = await contract.ERC1155.Transfer("{{wallet_address}}", "{{token_id}}", 1);
 ```
 
 <details>
@@ -326,76 +425,29 @@ The wallet address to send the NFT to.
 
 Must be a `string`.
 
-```csharp
-
-```
-
 #### tokenId
 
 The token ID of the NFT to transfer.
 
-Must be a `string`, `number`, or `BigNumber`.
-
-```csharp
-
-```
+Must be a `string`.
 
 #### amount
 
 The quantity of the NFT to transfer.
 
-Must be a `string`, `number`, or `BigNumber`.
-
-```csharp
-
-```
+Must be an `int`.
 
 </div>
 </details>
 
-## airdrop
-
-Transfer NFTs from the connected wallet to multiple different wallets at once.
-
-```csharp
-
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### tokenId
-
-The token ID of the NFT to transfer.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-```csharp
-
-```
-
-#### addresses
-
-An array of objects containing `address` and `quantity` properties.
-
-These are the recipients of the airdrop.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## isApproved
+## IsApprovedForAll
 
 Get whether this wallet has approved transfers from the given operator.
 
 This means that the operator can transfer NFTs on behalf of this wallet.
 
 ```csharp
-
+var data = await contract.ERC1155.IsApprovedForAll("{{owner_address}}", "{{operator_address}}");
 ```
 
 <details>
@@ -408,24 +460,16 @@ The wallet address that owns the NFT.
 
 Must be a `string`.
 
-```csharp
-
-```
-
 #### operator
 
 The wallet address of the operator to check (i.e. the wallet that does/does not have approval).
 
 Must be a `string`.
 
-```csharp
-
-```
-
 </div>
 </details>
 
-## setApprovalForAll
+## SetApprovalForAll
 
 Give another address approval (or remove approval) to transfer all of your NFTs from this collection.
 
@@ -436,7 +480,7 @@ Proceed with caution. Only approve addresses you trust.
 :::
 
 ```csharp
-
+var data = await contract.ERC1155.SetApprovalForAll("{{operator_address}}", true);
 ```
 
 <details>
@@ -449,80 +493,44 @@ The wallet address to approve.
 
 Must be a `string`.
 
-```csharp
-
-```
-
 #### approved
 
 Whether to grant approval (true) or remove approval (false).
 
-Must be a `boolean`.
-
-```csharp
-
-```
+Must be a `bool`.
 
 </div>
 </details>
 
-## totalCirculatingSupply
+## TotalCount
 
-Get the total **circulating** supply of a token in the collection.
-
-Circulating supply considers NFTs that have not been burned.
+Get the total number of unique NFTs in the collection.
 
 ```csharp
-
+var data = await contract.ERC1155.TotalCount();
 ```
 
 <details>
   <summary>Configuration</summary>
   <div>
 
-#### tokenId
-
-The token ID of the NFT to get the total circulating supply of.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-```csharp
-
-```
-
 ### Return Value
 
-Returns a `BigNumber` representing the total circulating supply of the token.
+Returns an `int` representing the total number of unique NFTs in the collection.
 
 ```csharp
-
-```
-
-## totalCount
-
-Get the total number of unique NFTs in the collection.
-
-```csharp
-
-```
-
-### Return Value
-
-Returns a `BigNumber` representing the total number of unique NFTs in the collection.
-
-```csharp
-
+int
 ```
 
 </div>
 </details>
 
-## totalSupply
+## TotalSupply
 
 Returns the total supply of a token in the collection, including burned tokens.
 
 ```csharp
-
+var data = await contract.ERC1155.TotalSupply("{{token_id}}");
 ```
 
 <details>
@@ -533,29 +541,27 @@ Returns the total supply of a token in the collection, including burned tokens.
 
 The token ID of the NFT to get the total supply of.
 
-```csharp
-
-```
+Must be a `string`.
 
 ### Return Value
 
-Returns a `BigNumber` representing the total supply of the token.
+Returns an `int` representing the total supply of the token.
 
 ```csharp
-
+int
 ```
 
 </div>
 </details>
 
-## getAll
+## GetAll
 
 Get the metadata and current owner of all NFTs in the contract.
 
 By default, returns the first `100` NFTs (in order of token ID). Use [`queryParams`](#queryParams-optional) to paginate the results.
 
 ```csharp
-
+var data = await contract.ERC1155.GetAll();
 ```
 
 <details>
@@ -567,26 +573,44 @@ By default, returns the first `100` NFTs (in order of token ID). Use [`queryPara
 Provide an optional object to configure the query. Useful for paginating the results.
 
 ```csharp
-
+var data = await contract.ERC1155.GetAll(new QueryAllParams()
+{
+    count = 100,
+    start = 0
+});
 ```
 
 ### Return Value
 
-Returns an array of `NFT` objects containing the following properties:
+Returns a list of `NFT` structs, each containing the following properties:
 
 ```csharp
-
+{
+  {
+    string id;
+    string uri;
+    string description;
+    string image;
+    string name;
+    string external_url;
+    object attributes;
+  }
+  string owner;
+  string type;
+  int supply;
+  int quantityOwned;
+}
 ```
 
 </div>
 </details>
 
-## getOwned
+## GetOwned
 
 Get all the data associated with the NFTs owned by a specific wallet.
 
 ```csharp
-
+var data = await contract.ERC1155.GetOwned();
 ```
 
 <details>
@@ -599,453 +623,26 @@ The address of the wallet to get the NFTs of.
 
 Must be a `string`.
 
-```csharp
-
-```
-
 ### Return Value
 
-Returns an array of `NFT` objects containing the following properties:
+Returns a list of `NFT` structs, each containing the following properties:
 
 ```csharp
-
-```
-
-</div>
-</details>
-
-## getDefaultRoyaltyInfo
-
-Gets the royalty recipient and BPS (basis points) of the smart contract.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-Returns an object containing the royalty recipient address and BPS (basis points) of the smart contract.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## getTokenRoyaltyInfo
-
-Gets the royalty recipient and BPS (basis points) of a particular token in the contract.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### tokenId
-
-The token ID to get the royalty info for.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-### Return Value
-
-Returns an object containing the royalty recipient address and BPS (basis points) of the token.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## setDefaultRoyaltyInfo
-
-Set the royalty recipient and fee for the smart contract.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### seller_fee_basis_points
-
-The royalty fee in BPS (basis points). 100 = 1%.
-
-Must be a `number`.
-
-#### fee_recipient
-
-The wallet address that will receive the royalty fees.
-
-Must be a `string`.
-
-</div>
-</details>
-
-## setTokenRoyaltyInfo
-
-Set the royalty recipient and fee for a particular token in the contract.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### tokenId
-
-The token ID to set the royalty info for.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-#### seller_fee_basis_points
-
-The royalty fee in BPS (basis points). 100 = 1%.
-
-Must be a `number`.
-
-#### fee_recipient
-
-The wallet address that will receive the royalty fees.
-
-Must be a `string`.
-
-</div>
-</details>
-
-## get - Permissions
-
-Get a list of wallet addresses that are members of a given role.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### role
-
-The name of the role.
-
-Must be a `string`.
-
-```csharp
-
-```
-
-### Return Value
-
-An array of `string`s representing the wallet addresses associated with the given role.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## getAll - Permissions
-
-Retrieve all of the roles and associated wallets.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-An object containing role names as keys and an array of wallet addresses as the value.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## grant - Permissions
-
-Make a wallet a member of a given role.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### role
-
-The name of the role to grant.
-
-Must be a `string`.
-
-```csharp
-
-```
-
-#### wallet
-
-The wallet address to assign the role to.
-
-Must be a `string`.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## revoke - Permissions
-
-Revoke a given role from a wallet.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### role
-
-The name of the role to revoke.
-
-Must be a `string`.
-
-```csharp
-
-```
-
-#### wallet
-
-The wallet address to remove the role from.
-
-Must be a `string`.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## setAll - Permissions
-
-Overwrite all roles with new members.
-
-:::warning Dangerous Operation
-
-This **overwrites** all members, INCLUDING YOUR OWN WALLET ADDRESS!
-
-This means you can permanently remove yourself as an admin, which is non-reversible.
-
-Please use this method with caution.
-
-:::
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### roles
-
-An object containing role names as keys and an array of wallet addresses as the value.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## verify - Permissions
-
-Check to see if a wallet has a set of roles.
-
-Throws an **error** if the wallet does not have any of the given roles.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### roles
-
-An array of roles to check.
-
-Must be an array of `string`s.
-
-```csharp
-
-```
-
-#### wallet
-
-The wallet address to check.
-
-Must be a `string`.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## get - Contract Metadata
-
-Get the metadata of a smart contract.
-
-```csharp
-
-```
-
-<details>
-<summary>Configuration</summary>
-<div>
-
-### Return Value
-
-While the actual return type is `any`, you can expect an object containing
-properties that follow the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata), outlined below:
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## update - Contract Metadata
-
-Update the metadata of your smart contract.
-
-```csharp
-
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### metadata
-
-Provide an object containing the metadata of your smart contract following the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
-
-New properties will be added, and existing properties will be overwritten.
-If you do not provide a new value for a previously set property, it will remain unchanged.
-
-Below are the properties you can define on your smart contract.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## set - Contract Metadata
-
-**Overwrite** the metadata of a contract, an object following the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
-
-This operation ignores any existing metadata and replaces it with the new metadata provided.
-
-```csharp
-
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### metadata
-
-Provide an object containing the metadata of your smart contract following the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## get - Owner
-
-Retrieve the wallet address of the owner of the smart contract.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-A `string` representing the owner&rsquo;s wallet address.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## set - Owner
-
-Set the owner address of the contract.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### owner
-
-The wallet address of the new owner.
-
-Must be a `string`.
-
-```csharp
-
+{
+  {
+    string id;
+    string uri;
+    string description;
+    string image;
+    string name;
+    string external_url;
+    object attributes;
+  }
+  string owner;
+  string type;
+  int supply;
+  int quantityOwned;
+}
 ```
 
 </div>

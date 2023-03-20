@@ -13,7 +13,7 @@ Contract contract = sdk.GetContract("0x...");
 Marketplace marketplace = contract.marketplace;
 ```
 
-## Auction - cancelListing
+## Auction - CancelListing
 
 Cancel a listing that you made.
 
@@ -36,7 +36,7 @@ Must be a `string`.
 </div>
 </details>
 
-## Auction - createListing
+## Auction - CreateListing
 
 List an NFT for sale in an auction listing on the marketplace.
 
@@ -110,7 +110,7 @@ Must be a `string`.
 </div>
 </details>
 
-## Auction - executeSale
+## Auction - ExecuteSale
 
 Close the auction for both **buyer** and **seller**.
 
@@ -133,7 +133,7 @@ Must be a `string`.
 </div>
 </details>
 
-## Auction - getListing
+## Auction - GetListing
 
 Get the details of a listing using the listing ID.
 
@@ -177,7 +177,7 @@ Returns an `AuctionListing` struct, containing the following properties:
 </div>
 </details>
 
-## Auction - getMinimumNextBid
+## Auction - GetMinimumNextBid
 
 Get the value that the next bid must be in order to be accepted.
 
@@ -215,7 +215,7 @@ The minimum next bid for the listing.
 </div>
 </details>
 
-## Auction - getWinner
+## Auction - GetWinner
 
 Get the address that won an auction _after_ an auction has ended.
 
@@ -244,7 +244,7 @@ string
 </div>
 </details>
 
-## Auction - getWinningBid
+## Auction - GetWinningBid
 
 Get the current highest bid of an active auction.
 
@@ -280,76 +280,14 @@ The current highest bid of the auction.
 </div>
 </details>
 
-## Direct - acceptOffer
-
-Accept an offer placed on your direct listing.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### listingId
-
-The ID of the listing to accept an offer for.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-#### offerorAddress
-
-The wallet address of the offeror.
-
-Must be a `string`.
-
-</div>
-</details>
-
-## Direct - buyoutListing
-
-Buy the NFT(s) for sale on a direct listing.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### listingId
-
-The ID of the listing to buyout.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-#### quantity
-
-The quantity of NFTs to buy from the listing.
-
-Only applicable for ERC1155 NFTs. For ERC721 NFTs, this should be `1`.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-#### receiver (optional)
-
-Optionally, buy the NFTs for a different wallet address other than the connected wallet.
-
-Must be a `string`.
-
-</div>
-</details>
-
-## Direct - cancelListing
+## Direct - CancelListing
 
 Cancel a direct listing you created.
 
-Direct listings can be canceled at any time, unless a buyout has already been made.
+Direct listings can be canceled at any time, unless a buyout has already occurred.
 
 ```csharp
-
+var data = await marketplace.direct.CancelListing("{{listing_id}}");
 ```
 
 <details>
@@ -360,17 +298,27 @@ Direct listings can be canceled at any time, unless a buyout has already been ma
 
 The ID of the listing to cancel.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 </div>
 </details>
 
-## Direct - createListing
+## Direct - CreateListing
 
 List an NFT for sale on the marketplace for direct purchase.
 
 ```csharp
-
+var data = await marketplace.direct.CreateListing(new NewDirectListing()
+{
+    assetContractAddress = "{{contract_address}}",
+    tokenId = "{{token_id}}",
+    startTimestamp = DateTime.Now.Ticks,
+    listingDurationInSeconds = 86400,
+    quantity = 1,
+    currencyContractAddress = "{{contract_address}}",
+    reservePricePerToken = "{{reserve_price}}",
+    buyoutPricePerToken = "{{buyout_price}}"
+});
 ```
 
 <details>
@@ -387,19 +335,19 @@ Must be a `string`.
 
 The token ID of the NFT you want to list.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be an `int`.
 
 #### startTimestamp
 
 The date and time when the listing should open up for offers.
 
-Must be a `Date` object.
+Must be a `long`.
 
 #### listingDurationInSeconds
 
 How long the listing is open for, in seconds.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be an `int`.
 
 #### quantity
 
@@ -407,13 +355,13 @@ The quantity of NFTs to list.
 
 Only applicable for ERC1155 NFTs. For ERC721 NFTs, this should be `1`.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be an `int`.
 
 #### currencyContractAddress
 
 The address of the currency contract that will be used to pay for the listing.
 
-To use the native token, use the `NATIVE_TOKEN_ADDRESS` constant.
+Defaults to the native currency of the network, i.e. Ether for Ethereum.
 
 Must be a `string`.
 
@@ -421,17 +369,23 @@ Must be a `string`.
 
 The price that users can buy the NFT for.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
+
+#### reservePricePerToken
+
+The minimum price that users can bid for the NFT.
+
+Must be a `string`.
 
 </div>
 </details>
 
-## Direct - getActiveOffer
+## Direct - GetActiveOffer
 
 Get an active offer on a listing from a specific wallet address, if there is one.
 
 ```csharp
-
+var data = await marketplace.direct.GetActiveOffer("{{listing_id}}", "{{wallet_address}}");
 ```
 
 <details>
@@ -442,7 +396,7 @@ Get an active offer on a listing from a specific wallet address, if there is one
 
 The ID of the listing to get the active offer for.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 #### offerorAddress
 
@@ -452,48 +406,28 @@ Must be a `string`.
 
 ### Return Value
 
-If there is no active offer made by hte `offerorAddress`, returns `undefined`.
+Returns an `Offer` struct with the following properties:
 
-Otherwise, returns an `Offer` object with the following properties:
-
-```typescript
+```csharp
 {
-  /**
-   * The id of the listing.
-   */
-  listingId: BigNumberish;
-  /**
-   * The address of the buyer who made the offer.
-   */
-  buyerAddress: string;
-  /**
-   * The quantity of tokens to be bought.
-   */
-  quantityDesired: BigNumberish;
-  /**
-   * The amount of coins offered per token.
-   */
-  pricePerToken: BigNumber;
-  /**
-   * The `CurrencyValue` of the listing. Useful for displaying the price information.
-   */
-  currencyValue: CurrencyValue;
-  /**
-   * The currency contract address of the offer token.
-   */
-  currencyContractAddress: string;
+    string listingId;
+    string buyerAddress;
+    int quantityDesired;
+    string pricePerToken;
+    CurrencyValue currencyValue;
+    string currencyContractAddress;
 }
 ```
 
 </div>
 </details>
 
-## Direct - getListing
+## Direct - GetListing
 
 Get a direct listing by its ID.
 
 ```csharp
-
+var data = await marketplace.direct.GetListing("{{listing_id}}");
 ```
 
 <details>
@@ -504,176 +438,40 @@ Get a direct listing by its ID.
 
 The ID of the listing to get.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 ### Return Value
 
 Returns a `DirectListing` object containing the following properties:
 
-```typescript
+```csharp
 {
-  /**
-   * The id of the listing.
-   */
-  id: string;
-  /**
-   * The address of the asset being listed.
-   */
-  assetContractAddress: string;
-  /**
-   * The ID of the token to list.
-   */
-  tokenId: BigNumberish;
-  /**
-   * The asset being listed.
-   */
-  asset: NFTMetadata;
-  /**
-   * The start time of the listing.
-   */
-  startTimeInSeconds: BigNumberish;
-  /**
-   * Number of seconds until the listing expires.
-   */
-  secondsUntilEnd: BigNumberish;
-  /**
-   * The quantity of tokens to include in the listing.
-   *
-   * For ERC721s, this value should always be 1 (and will be forced internally regardless of what is passed here).
-   */
-  quantity: BigNumberish;
-  /**
-   * The address of the currency to accept for the listing.
-   */
-  currencyContractAddress: string;
-  /**
-   * The `CurrencyValue` of the listing. Useful for displaying the price information.
-   */
-  buyoutCurrencyValuePerToken: CurrencyValue;
-  /**
-   * The buyout price of the listing.
-   */
-  buyoutPrice: BigNumber;
-  /**
-   * The address of the seller.
-   */
-  sellerAddress: string;
-  type: ListingType.Direct;
+    string id;
+    string sellerAddress;
+    string assetContractAddress;
+    string tokenId;
+    NFTMetadata asset;
+    int quantity;
+    string currencyContractAddress;
+    string buyoutPrice;
+    CurrencyValue buyoutCurrencyValuePerToken;
+    int type;
+    string startTimeInSeconds;
+    string secondsUntilEnd;
 }
 ```
 
 </div>
 </details>
 
-## Direct - isStillValidListing
-
-Check if a direct listing is still valid, meaning:
-
-The asset holder has not transferred the asset to another wallet
-The asset holder has not burned the asset
-The asset holder has not removed the approval on the marketplace
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### listingId
-
-The ID of the listing to check.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-### Return Value
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## Direct - makeOffer
-
-Make an offer to buy an NFT for a certain price on a direct listing.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### listingId
-
-The ID of the listing to make an offer for.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-#### quantity
-
-The quantity of NFTs to buy.
-
-Only applicable for ERC1155 NFTs. For ERC721 NFTs, this should be `1`.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-#### currencyContractAddress
-
-The address of the currency contract that will be used to pay for the listing.
-
-To use the native token, use the `NATIVE_TOKEN_ADDRESS` constant.
-
-Must be a `string`.
-
-#### pricePerToken
-
-The price to offer to buy the NFT for.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-#### expiresAt (optional)
-
-The time at which the offer expires.
-
-If not provided, the offer will never expire (uses max possible timestamp `MaxUint256`).
-
-Must be a `Date` object.
-
-</div>
-</details>
-
-## Direct - updateListing
-
-Update a direct listing.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-Provide the `id` of the listing you want to update, and the new information about the listing.
-
-See [`createListing`](#direct---createlisting) for more information about the properties.
-
-</div>
-</details>
-
-## getActiveListings
+## GetActiveListings
 
 Get all active listings on the marketplace, both direct and auction listings.
 
 An active listing means it can be bought or bid on.
 
 ```csharp
-
+var data = await marketplace.GetActiveListings();
 ```
 
 <details>
@@ -685,26 +483,44 @@ An active listing means it can be bought or bid on.
 A filter to apply to the listings returned.
 
 ```csharp
-
+var data = await marketplace.GetActiveListings(new MarketplaceFilter()
+{
+    seller = "{{wallet_address}}", // Only show results from this seller
+    tokenContract = "{{contract_address}}", // Only show results from this contract address
+    tokenId = "{{token_id}}", // Only show results with this token ID
+    start = 0, // Pagination: start index
+    count = 100 // Pagination: number of results to return
+});
 ```
 
 ### Return Value
 
-Returns an array containing both `DirectListing` objects and `AuctionListing` objects.
+Returns a list of `Listing` structs, each containing the following properties:
 
 ```csharp
-
+{
+    string id;
+    string sellerAddress;
+    string assetContractAddress;
+    string tokenId;
+    NFTMetadata asset;
+    int quantity;
+    string currencyContractAddress;
+    string buyoutPrice;
+    CurrencyValue buyoutCurrencyValuePerToken;
+    int type;
+}
 ```
 
 </div>
 </details>
 
-## getAllListings
+## GetAllListings
 
 Get all the listings on the marketplace, including inactive ones.
 
 ```csharp
-
+var data = await marketplace.GetAllListings();
 ```
 
 <details>
@@ -716,78 +532,44 @@ Get all the listings on the marketplace, including inactive ones.
 A filter to apply to the listings returned.
 
 ```csharp
-
+var data = await marketplace.GetAllListings(new MarketplaceFilter()
+{
+    seller = "{{wallet_address}}", // Only show results from this seller
+    tokenContract = "{{contract_address}}", // Only show results from this contract address
+    tokenId = "{{token_id}}", // Only show results with this token ID
+    start = 0, // Pagination: start index
+    count = 100 // Pagination: number of results to return
+});
 ```
 
 ### Return Value
 
-Returns an array containing both `DirectListing` objects and `AuctionListing` objects.
+Returns a list of `Listing` structs, each containing the following properties:
 
 ```csharp
-
+{
+    string id;
+    string sellerAddress;
+    string assetContractAddress;
+    string tokenId;
+    NFTMetadata asset;
+    int quantity;
+    string currencyContractAddress;
+    string buyoutPrice;
+    CurrencyValue buyoutCurrencyValuePerToken;
+    int type;
+}
 ```
 
 </div>
 </details>
 
-## getBidBufferBps
-
-Get the current bid buffer basis points of the marketplace.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-Returns in percentage format, i.e. `100` = `1%`.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## getListing
-
-Get a listing by its ID, regardless of whether it is a direct or auction listing.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### listingId
-
-The ID of the listing to get.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-### Return Value
-
-Returns a `DirectListing` or `AuctionListing` object.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## getOffers
+## GetOffers
 
 Get all the offers made on a listing.
 
 ```csharp
-
+var data = await marketplace.GetOffers("{{listing_id}}");
 ```
 
 <details>
@@ -798,124 +580,32 @@ Get all the offers made on a listing.
 
 The ID of the listing to get offers for.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 ### Return Value
 
-Returns an array of `Offer` objects.
+Returns a list of `Offer` structs, each containing the following properties:
 
 ```typescript
 {
-  /**
-   * The id of the listing.
-   */
-  listingId: BigNumberish;
-  /**
-   * The address of the buyer who made the offer.
-   */
-  buyerAddress: string;
-  /**
-   * The quantity of tokens to be bought.
-   */
-  quantityDesired: BigNumberish;
-  /**
-   * The amount of coins offered per token.
-   */
-  pricePerToken: BigNumber;
-  /**
-   * The `CurrencyValue` of the listing. Useful for displaying the price information.
-   */
-  currencyValue: CurrencyValue;
-  /**
-   * The currency contract address of the offer token.
-   */
-  currencyContractAddress: string;
+    public string listingId;
+    public string buyerAddress;
+    public int quantityDesired;
+    public string pricePerToken;
+    public CurrencyValue currencyValue;
+    public string currencyContractAddress;
 }
-[];
 ```
 
 </div>
 </details>
 
-## getTimeBufferInSeconds
-
-Get the current time buffer in seconds of the marketplace.
-
-The time buffer is the amount of seconds that are added to the close time of the auction listing when a new bid is made.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-Returns in seconds.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## getTotalCount
-
-Get the total number of listings on the marketplace.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-Returns the total number of listings on the marketplace.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## isRestrictedToListerRoleOnly
-
-A marketplace can be restricted to only allow wallet addresses with the `LISTER` role to create listings.
-
-This method returns `true` or `false` depending on whether this configuration is set.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-Returns `true` or `false`.
-
-```csharp
-
-```
-
-</div>
-</details>
-
-## makeOffer
+## MakeOffer
 
 Create a new bid on an auction listing or a new offer on a direct listing.
 
 ```csharp
-
+var data = await marketplace.MakeOffer("{{listing_id}}", "{{price}}", 1);
 ```
 
 <details>
@@ -926,65 +616,19 @@ Create a new bid on an auction listing or a new offer on a direct listing.
 
 The ID of the listing to make an offer/bid on.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 #### pricePerToken
 
 The price per token to offer/bid.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 #### quantity
 
 The quantity of tokens to offer/bid on.
 
-Must be a `string`, `number`, or `BigNumber`.
-
-</div>
-</details>
-
-## setBidBufferBps
-
-Set the bid buffer basis points of the marketplace.
-
-The bid buffer is the amount of percentage that is added to the current highest bid when a new bid is made.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### bidBufferBps
-
-The bid buffer basis points to set.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-</div>
-</details>
-
-## setTimeBufferInSeconds
-
-Set the time buffer in seconds of the marketplace.
-
-The time buffer is the amount of seconds that are added to the close time of the auction listing when a new bid is made.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### timeBufferSeconds
-
-The time buffer in seconds to set.
-
-Must be a `string`, `number`, or `BigNumber`.
+Optional, defaults to `1`. Must be an int.
 
 </div>
 </details>
