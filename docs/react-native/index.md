@@ -44,12 +44,12 @@ Requirements:
   <TabItem value="yarn" label="yarn" default>
     <CodeBlock
       language={"bash"}
-    >{`yarn add 'ethers@^5' @thirdweb-dev/react-native@nightly @thirdweb-dev/react-native-compat@nightly node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage`}</CodeBlock>
+    >{`yarn add 'ethers@^5' @thirdweb-dev/react-native@nightly @thirdweb-dev/react-native-compat@nightly node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage`}</CodeBlock>
   </TabItem>
   <TabItem value="npm" label="npm">
     <CodeBlock
       language={"bash"}
-    >{`npm i 'ethers@^5.0.0' @thirdweb-dev/react-native@nightly @thirdweb-dev/react-native-compat@nightly node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv@2.5.1 @react-native-async-storage/async-storage`}</CodeBlock>
+    >{`npm i 'ethers@^5' @thirdweb-dev/react-native@nightly @thirdweb-dev/react-native-compat@nightly node-libs-browser react-native-crypto react-native-randombytes react-native-get-random-values react-native-svg react-native-mmkv @react-native-async-storage/async-storage`}</CodeBlock>
   </TabItem>
 </Tabs>
 
