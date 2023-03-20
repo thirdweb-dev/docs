@@ -1,0 +1,43 @@
+---
+title: Connect
+slug: /wallet/connect
+---
+
+Connect a user&rsquo;s wallet to your game.
+
+## Usage
+
+```csharp
+string address = await sdk.wallet.Connect();
+```
+
+## Configuration
+
+### walletConnection
+
+The type of wallet to connect to, and which chain to connect to.
+
+```csharp
+// Connect to the user's wallet via CoinbaseWallet
+string address = await sdk.wallet.Connect(new WalletConnection()
+{
+    provider = WalletProvider.CoinbaseWallet, // e.g. use Coinbase Wallet
+    chainId = 1 // Switch the wallet Ethereum Mainnet on connection
+});
+```
+
+#### provider
+
+Available providers:
+
+- `WalletProvider.Injected`: Injected (window.ethereum)
+- `WalletProvider.CoinbaseWallet`: Coinbase Wallet
+- `WalletProvider.MetaMask`: MetaMask
+- `WalletProvider.WalletConnect`: WalletConnect
+- `WalletProvider.MagicAuth`: Magic.Link
+
+#### chainId
+
+The ID of the blockchain to switch to upon connection.
+
+Must be an `int`.
