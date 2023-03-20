@@ -1,0 +1,59 @@
+---
+title: Get Owned
+slug: /erc721enumerable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC721Enumerable
+
+Functionality available for contracts that implement the
+[`IERC721`](/contracts/IERC721) and
+[`IERC721Enumerable`](/contracts/IERC721Enumerable)
+interfaces.
+
+## GetOwned
+
+Get the metadata of all NFTs a wallet owns from this contract.
+
+```csharp
+var data = await contract.ERC721.GetOwned();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### address (optional)
+
+The address of the wallet to get the NFTs of. If not provided, defaults to the **connected wallet** address.
+
+Must be a `string`.
+
+```csharp
+var data = await contract.ERC721.GetOwned("{{wallet_address}}");
+```
+
+### Return Value
+
+Returns a List of `NFT` structs, containing the following properties:
+
+```csharp
+{
+  {
+    string id;
+    string uri;
+    string description;
+    string image;
+    string name;
+    string external_url;
+    object attributes;
+  }
+  string owner;
+  string type;
+  int supply;
+  int quantityOwned; // only for ERC1155
+}
+```
+
+</div>
+</details>
