@@ -79,7 +79,7 @@ async function main() {
       input.close();
 
       const titleLineIndex = output.findIndex((line) => line.startsWith("##"));
-      output[titleLineIndex] = output[titleLineIndex].replace("##", "#");  
+      output[titleLineIndex] = output[titleLineIndex].replace("##", "#");
 
       await writeFile(docPathOut.replace("Thirdweb::", ""), output.join("\n"));
       if (docPath.includes("Thirdweb::")) {
@@ -91,4 +91,5 @@ async function main() {
   }
 }
 
-main();
+// Don't autogenerate unity docs
+// main();

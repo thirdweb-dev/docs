@@ -1,0 +1,34 @@
+---
+title: Sign
+slug: /wallet/sign
+---
+
+Sign any message with the connected wallet.
+
+## Usage
+
+Create a message to be signed and pass it to this method.
+
+This will prompt the user to sign the message from their wallet (or sign it automatically if [initialized with a private key](/typescript/sdk.thirdwebsdk.fromprivatekey)).
+
+Once signed, the signature is returned.
+
+```csharp
+var data = await sdk.wallet.Sign("my message");
+```
+
+## Configuration
+
+### message
+
+The message to be signed.
+
+Must be a `string`.
+
+## Return Value
+
+Returns a `string` with the signature.
+
+```csharp
+string
+```
