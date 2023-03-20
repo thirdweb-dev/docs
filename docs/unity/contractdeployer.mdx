@@ -1,0 +1,924 @@
+---
+title: Contract Deployer
+displayed_sidebar: unity
+---
+
+Deploy smart contracts from the connected wallet.
+
+## DeployReleasedContract
+
+Deploy a smart contract that is available through [release](/release).
+
+```csharp
+string contractAddress = await sdk.deployer.DeployReleasedContract(
+    "{{releaser_wallet_address}}",
+    "contractName",
+    new object[]
+    {
+        // Constructor arguments
+    }
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### releaserWalletAddress
+
+The wallet address of that released the contract.
+
+Must be a `string`.
+
+#### contractName
+
+The name of the contract they released, that you want to deploy.
+
+Must be a `string`.
+
+#### constructorArguments
+
+The arguments to pass to the constructor of the contract.
+
+Must be an `object[]`.
+
+</div>
+</details>
+
+## DeployFromContractUri
+
+Deploy a smart contract using it&rsquo;s URI.
+
+```csharp
+string contractAddress = await sdk.deployer.DeployFromContractUri("{{uri}}", new object[]
+{
+    // ... constructor arguments
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### uri
+
+The URI of the contract to deploy.
+
+Must be a `string`.
+
+#### constructorArguments
+
+The arguments to pass to the constructor of the contract.
+
+Must be an `object[]`.
+
+</div>
+</details>
+
+## DeployEdition
+
+Deploy a new [Edition](https://thirdweb.com/thirdweb.eth/TokenERC1155) smart contract.
+
+```csharp
+string contractAddress = await sdk.deployer.DeployEdition(new NFTContractDeployMetadata()
+{
+    name = "My Edition",
+    description = "A description for my smart contract",
+    symbol = "{{symbol}}",
+    image = "ipfs://some-image-uri",
+    primary_sale_recipient = "{{wallet_address}}"
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### name
+
+The name of your smart contract.
+
+Must be a `string`.
+
+#### description
+
+The description of your smart contract.
+
+Must be a `string`.
+
+#### symbol
+
+The symbol of your smart contract, used as the ticker symbol for the token.
+
+Must be a `string`.
+
+#### image
+
+An IPFS URI or URL to an image representing your smart contract.
+
+Must be a `string`.
+
+#### external_link
+
+Where users can view more information about your smart contract.
+
+Must be a `string`.
+
+#### primary_sale_recipient
+
+The wallet address that will receive the primary sales on the smart contract.
+
+Must be a `string`.
+
+#### fee_recipient
+
+The wallet address that will receive the funds from secondary sales on the smart contract.
+
+Must be a `string`.
+
+#### seller_fee_basis_points
+
+The amount of fees that are taken on secondary sales.
+
+Must be an `int`.
+
+#### platform_fee_recipient
+
+The wallet address that will receive the funds from platform fees on the smart contract.
+
+Must be a `string`.
+
+#### platform_fee_basis_points
+
+The platform fee that is taken whenever funds are transferred on the smart contract.
+
+Must be an `int`.
+
+#### trusted_forwarders
+
+An array of strings containing the addresses of trusted forwarders.
+
+Used for gasless transactions.
+
+</div>
+</details>
+
+## DeployEditionDrop
+
+Deploy a new [Edition Drop](https://thirdweb.com/thirdweb.eth/DropERC1155) smart contract.
+
+```csharp
+string contractAddress = await sdk.deployer.DeployEditionDrop(new NFTContractDeployMetadata()
+{
+    name = "My Edition Drop",
+    description = "A description for my smart contract",
+    symbol = "{{symbol}}",
+    image = "ipfs://some-image-uri",
+    primary_sale_recipient = "{{wallet_address}}"
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### name
+
+The name of your smart contract.
+
+Must be a `string`.
+
+#### description
+
+The description of your smart contract.
+
+Must be a `string`.
+
+#### symbol
+
+The symbol of your smart contract, used as the ticker symbol for the token.
+
+Must be a `string`.
+
+#### image
+
+An IPFS URI or URL to an image representing your smart contract.
+
+Must be a `string`.
+
+#### external_link
+
+Where users can view more information about your smart contract.
+
+Must be a `string`.
+
+#### primary_sale_recipient
+
+The wallet address that will receive the primary sales on the smart contract.
+
+Must be a `string`.
+
+#### fee_recipient
+
+The wallet address that will receive the funds from secondary sales on the smart contract.
+
+Must be a `string`.
+
+#### seller_fee_basis_points
+
+The amount of fees that are taken on secondary sales.
+
+Must be an `int`.
+
+#### platform_fee_recipient
+
+The wallet address that will receive the funds from platform fees on the smart contract.
+
+Must be a `string`.
+
+#### platform_fee_basis_points
+
+The platform fee that is taken whenever funds are transferred on the smart contract.
+
+Must be an `int`.
+
+#### trusted_forwarders
+
+An array of strings containing the addresses of trusted forwarders.
+
+Used for gasless transactions.
+
+</div>
+</details>
+
+## DeployMarketplace
+
+Deploy a new [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) smart contract.
+
+```csharp
+string contractAddress = await sdk.deployer.DeployMarketplace(new MarketplaceContractDeployMetadata()
+{
+    name = "My Marketplace",
+    description = "A description for my smart contract",
+    image = "ipfs://some-image-uri"
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### name
+
+The name of your smart contract.
+
+Must be a `string`.
+
+#### description
+
+The description of your smart contract.
+
+Must be a `string`.
+
+#### image
+
+An IPFS URI or URL to an image representing your smart contract.
+
+Must be a `string`.
+
+#### external_link
+
+Where users can view more information about your smart contract.
+
+Must be a `string`.
+
+#### primary_sale_recipient
+
+The wallet address that will receive the primary sales on the smart contract.
+
+Must be a `string`.
+
+#### fee_recipient
+
+The wallet address that will receive the funds from secondary sales on the smart contract.
+
+Must be a `string`.
+
+#### seller_fee_basis_points
+
+The amount of fees that are taken on secondary sales.
+
+Must be an `int`.
+
+#### platform_fee_recipient
+
+The wallet address that will receive the funds from platform fees on the smart contract.
+
+Must be a `string`.
+
+#### platform_fee_basis_points
+
+The platform fee that is taken whenever funds are transferred on the smart contract.
+
+Must be an `int`.
+
+#### trusted_forwarders
+
+An array of strings containing the addresses of trusted forwarders.
+
+Used for gasless transactions.
+
+</div>
+</details>
+
+## DeployMultiwrap
+
+Deploy a new [Multiwrap](https://thirdweb.com/thirdweb.eth/Multiwrap) smart contract.
+
+```csharp
+string contractAddress = await sdk.deployer.DeployMultiwrap(new NFTContractDeployMetadata()
+{
+    name = "My NFT Collection",
+    description = "A description for my smart contract",
+    symbol = "{{symbol}}",
+    image = "ipfs://some-image-uri",
+    primary_sale_recipient = "{{wallet_address}}"
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### name
+
+The name of your smart contract.
+
+Must be a `string`.
+
+#### description
+
+The description of your smart contract.
+
+Must be a `string`.
+
+#### symbol
+
+The symbol of your smart contract, used as the ticker symbol for the token.
+
+Must be a `string`.
+
+#### image
+
+An IPFS URI or URL to an image representing your smart contract.
+
+Must be a `string`.
+
+#### external_link
+
+Where users can view more information about your smart contract.
+
+Must be a `string`.
+
+#### primary_sale_recipient
+
+The wallet address that will receive the primary sales on the smart contract.
+
+Must be a `string`.
+
+#### fee_recipient
+
+The wallet address that will receive the funds from secondary sales on the smart contract.
+
+Must be a `string`.
+
+#### seller_fee_basis_points
+
+The amount of fees that are taken on secondary sales.
+
+Must be an `int`.
+
+#### platform_fee_recipient
+
+The wallet address that will receive the funds from platform fees on the smart contract.
+
+Must be a `string`.
+
+#### platform_fee_basis_points
+
+The platform fee that is taken whenever funds are transferred on the smart contract.
+
+Must be an `int`.
+
+#### trusted_forwarders
+
+An array of strings containing the addresses of trusted forwarders.
+
+Used for gasless transactions.
+
+</div>
+</details>
+
+## DeployNFTCollection
+
+Deploy a new [NFT Collection](https://thirdweb.com/thirdweb.eth/TokenERC721) smart contract.
+
+```csharp
+string contractAddress = await sdk.deployer.DeployNFTCollection(new NFTContractDeployMetadata()
+{
+    name = "My NFT Collection",
+    description = "A description for my smart contract",
+    symbol = "{{symbol}}",
+    image = "ipfs://some-image-uri",
+    primary_sale_recipient = "{{wallet_address}}"
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### name
+
+The name of your smart contract.
+
+Must be a `string`.
+
+#### description
+
+The description of your smart contract.
+
+Must be a `string`.
+
+#### symbol
+
+The symbol of your smart contract, used as the ticker symbol for the token.
+
+Must be a `string`.
+
+#### image
+
+An IPFS URI or URL to an image representing your smart contract.
+
+Must be a `string`.
+
+#### external_link
+
+Where users can view more information about your smart contract.
+
+Must be a `string`.
+
+#### primary_sale_recipient
+
+The wallet address that will receive the primary sales on the smart contract.
+
+Must be a `string`.
+
+#### fee_recipient
+
+The wallet address that will receive the funds from secondary sales on the smart contract.
+
+Must be a `string`.
+
+#### seller_fee_basis_points
+
+The amount of fees that are taken on secondary sales.
+
+Must be an `int`.
+
+#### platform_fee_recipient
+
+The wallet address that will receive the funds from platform fees on the smart contract.
+
+Must be a `string`.
+
+#### platform_fee_basis_points
+
+The platform fee that is taken whenever funds are transferred on the smart contract.
+
+Must be an `int`.
+
+#### trusted_forwarders
+
+An array of strings containing the addresses of trusted forwarders.
+
+Used for gasless transactions.
+
+</div>
+</details>
+
+## DeployNFTDrop
+
+Deploy a new [NFT Drop](https://thirdweb.com/thirdweb.eth/DropERC721) smart contract.
+
+```csharp
+string contractAddress = await sdk.deployer.DeployNFTDrop(new NFTContractDeployMetadata()
+{
+    name = "My NFT Collection",
+    description = "A description for my smart contract",
+    symbol = "{{symbol}}",
+    image = "ipfs://some-image-uri",
+    primary_sale_recipient = "{{wallet_address}}"
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### name
+
+The name of your smart contract.
+
+Must be a `string`.
+
+#### description
+
+The description of your smart contract.
+
+Must be a `string`.
+
+#### symbol
+
+The symbol of your smart contract, used as the ticker symbol for the token.
+
+Must be a `string`.
+
+#### image
+
+An IPFS URI or URL to an image representing your smart contract.
+
+Must be a `string`.
+
+#### external_link
+
+Where users can view more information about your smart contract.
+
+Must be a `string`.
+
+#### primary_sale_recipient
+
+The wallet address that will receive the primary sales on the smart contract.
+
+Must be a `string`.
+
+#### fee_recipient
+
+The wallet address that will receive the funds from secondary sales on the smart contract.
+
+Must be a `string`.
+
+#### seller_fee_basis_points
+
+The amount of fees that are taken on secondary sales.
+
+Must be an `int`.
+
+#### platform_fee_recipient
+
+The wallet address that will receive the funds from platform fees on the smart contract.
+
+Must be a `string`.
+
+#### platform_fee_basis_points
+
+The platform fee that is taken whenever funds are transferred on the smart contract.
+
+Must be an `int`.
+
+#### trusted_forwarders
+
+An array of strings containing the addresses of trusted forwarders.
+
+Used for gasless transactions.
+
+</div>
+</details>
+
+## DeployPack
+
+Deploy a new [Pack](https://thirdweb.com/thirdweb.eth/Pack) smart contract.
+
+```csharp
+string contractAddress = await sdk.deployer.DeployPack(new NFTContractDeployMetadata()
+{
+    name = "My Pack",
+    description = "A description for my smart contract",
+    symbol = "{{symbol}}",
+    image = "ipfs://some-image-uri",
+    primary_sale_recipient = "{{wallet_address}}"
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### name
+
+The name of your smart contract.
+
+Must be a `string`.
+
+#### description
+
+The description of your smart contract.
+
+Must be a `string`.
+
+#### symbol
+
+The symbol of your smart contract, used as the ticker symbol for the token.
+
+Must be a `string`.
+
+#### image
+
+An IPFS URI or URL to an image representing your smart contract.
+
+Must be a `string`.
+
+#### external_link
+
+Where users can view more information about your smart contract.
+
+Must be a `string`.
+
+#### primary_sale_recipient
+
+The wallet address that will receive the primary sales on the smart contract.
+
+Must be a `string`.
+
+#### fee_recipient
+
+The wallet address that will receive the funds from secondary sales on the smart contract.
+
+Must be a `string`.
+
+#### seller_fee_basis_points
+
+The amount of fees that are taken on secondary sales.
+
+Must be an `int`.
+
+#### platform_fee_recipient
+
+The wallet address that will receive the funds from platform fees on the smart contract.
+
+Must be a `string`.
+
+#### platform_fee_basis_points
+
+The platform fee that is taken whenever funds are transferred on the smart contract.
+
+Must be an `int`.
+
+#### trusted_forwarders
+
+An array of strings containing the addresses of trusted forwarders.
+
+Used for gasless transactions.
+
+</div>
+</details>
+
+## DeploySignatureDrop
+
+Deploy a new [Signature Drop](https://thirdweb.com/thirdweb.eth/SignatureDrop) smart contract.
+
+```csharp
+string contractAddress = await sdk.deployer.DeploySignatureDrop(new NFTContractDeployMetadata()
+{
+    name = "My Signature Drop",
+    description = "A description for my smart contract",
+    symbol = "{{symbol}}",
+    image = "ipfs://some-image-uri",
+    primary_sale_recipient = "{{wallet_address}}"
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### name
+
+The name of your smart contract.
+
+Must be a `string`.
+
+#### description
+
+The description of your smart contract.
+
+Must be a `string`.
+
+#### symbol
+
+The symbol of your smart contract, used as the ticker symbol for the token.
+
+Must be a `string`.
+
+#### image
+
+An IPFS URI or URL to an image representing your smart contract.
+
+Must be a `string`.
+
+#### external_link
+
+Where users can view more information about your smart contract.
+
+Must be a `string`.
+
+#### primary_sale_recipient
+
+The wallet address that will receive the primary sales on the smart contract.
+
+Must be a `string`.
+
+#### fee_recipient
+
+The wallet address that will receive the funds from secondary sales on the smart contract.
+
+Must be a `string`.
+
+#### seller_fee_basis_points
+
+The amount of fees that are taken on secondary sales.
+
+Must be an `int`.
+
+#### platform_fee_recipient
+
+The wallet address that will receive the funds from platform fees on the smart contract.
+
+Must be a `string`.
+
+#### platform_fee_basis_points
+
+The platform fee that is taken whenever funds are transferred on the smart contract.
+
+Must be an `int`.
+
+#### trusted_forwarders
+
+An array of strings containing the addresses of trusted forwarders.
+
+Used for gasless transactions.
+
+</div>
+</details>
+
+## DeployToken
+
+Deploy a new [Token](https://thirdweb.com/thirdweb.eth/TokenERC20) smart contract.
+
+```csharp
+string contractAddress = await sdk.deployer.DeployToken(new TokenContractDeployMetadata()
+{
+    name = "My Token",
+    description = "A description for my smart contract",
+    symbol = "MYCOIN",
+    image = "ipfs://some-image-uri",
+    primary_sale_recipient = "{{wallet_address}}"
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### name
+
+The name of your smart contract.
+
+Must be a `string`.
+
+#### description
+
+The description of your smart contract.
+
+Must be a `string`.
+
+#### symbol
+
+The symbol of your smart contract, used as the ticker symbol for the token.
+
+Must be a `string`.
+
+#### image
+
+An IPFS URI or URL to an image representing your smart contract.
+
+Must be a `string`.
+
+#### external_link
+
+Where users can view more information about your smart contract.
+
+Must be a `string`.
+
+#### primary_sale_recipient
+
+The wallet address that will receive the primary sales on the smart contract.
+
+Must be a `string`.
+
+#### platform_fee_recipient
+
+The wallet address that will receive the funds from platform fees on the smart contract.
+
+Must be a `string`.
+
+#### platform_fee_basis_points
+
+The platform fee that is taken whenever funds are transferred on the smart contract.
+
+Must be an `int`.
+
+#### trusted_forwarders
+
+An array of strings containing the addresses of trusted forwarders.
+
+Used for gasless transactions.
+
+</div>
+</details>
+
+## DeployTokenDrop
+
+Deploy a new [Token Drop](https://thirdweb.com/thirdweb.eth/DropERC20) smart contract.
+
+```csharp
+string contractAddress = await sdk.deployer.DeployTokenDrop(new TokenContractDeployMetadata()
+{
+    name = "My Token",
+    description = "A description for my smart contract",
+    symbol = "MYCOIN",
+    image = "ipfs://some-image-uri",
+    primary_sale_recipient = "{{wallet_address}}"
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### name
+
+The name of your smart contract.
+
+Must be a `string`.
+
+#### description
+
+The description of your smart contract.
+
+Must be a `string`.
+
+#### symbol
+
+The symbol of your smart contract, used as the ticker symbol for the token.
+
+Must be a `string`.
+
+#### image
+
+An IPFS URI or URL to an image representing your smart contract.
+
+Must be a `string`.
+
+#### external_link
+
+Where users can view more information about your smart contract.
+
+Must be a `string`.
+
+#### primary_sale_recipient
+
+The wallet address that will receive the primary sales on the smart contract.
+
+Must be a `string`.
+
+#### platform_fee_recipient
+
+The wallet address that will receive the funds from platform fees on the smart contract.
+
+Must be a `string`.
+
+#### platform_fee_basis_points
+
+The platform fee that is taken whenever funds are transferred on the smart contract.
+
+Must be an `int`.
+
+#### trusted_forwarders
+
+An array of strings containing the addresses of trusted forwarders.
+
+Used for gasless transactions.
+
+</div>
+</details>

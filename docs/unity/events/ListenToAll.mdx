@@ -1,0 +1,21 @@
+---
+title: ListenToAll
+slug: /events/listentoall
+---
+
+Create a new subscription to listen to all new events on a smart contract.
+
+## Usage
+
+```csharp
+var listener = contract.events.ListenToAll((ContractEvent<object> anyEvent) => Debug.Log("Event occured: " + anyEvent.data));
+```
+
+## Configuration
+
+### action
+
+The action to be executed when the event is triggered.
+
+It receives a `ContractEvent` object as a parameter that contains the event data to
+be used within the logic of the action.
