@@ -12,6 +12,7 @@
     "clear": "docusaurus clear",
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
+    "format": "prettier --write '(docs|guides|blog)/**/*.{js,jsx,ts,tsx,md,mdx}'",
     "write-heading-ids": "docusaurus write-heading-ids",
     "typecheck": "tsc",
     "generate-snippets": "node ./scripts/generate-snippets.mjs && node  ./scripts/generate-snippets-solana.mjs",
