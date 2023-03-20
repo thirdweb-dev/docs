@@ -1,0 +1,38 @@
+---
+title: Connect to a Contract
+slug: /contract
+---
+
+Connect to a deployed smart contract to start interacting with it.
+
+## Usage
+
+```csharp
+Contract contract = sdk.GetContract("{{contract_address}}");
+```
+
+## Configuration
+
+### address (required)
+
+The address of the smart contract you want to connect to.
+
+Must be a `string`.
+
+:::info Import Smart Contracts
+If your smart contract was not deployed using thirdweb, you&rsquo;ll need to import it on the [dashboard](/dashboard).
+:::
+
+### Using Contract ABI
+
+Optionally, (if you don&rsquo;t want to use the import feature),
+you can provide your smart contract&rsquo;s ABI to the second parameter of the `getContract` method.
+Useful when developing on a [local node](https://docs-fjt5whjye.thirdweb-preview.com/sdk/set-up-the-sdk/backend#local-nodes),
+where it may be faster to use the ABI than to import the contract using the [dashboard](/dashboard).
+
+The ABI is only necessary if you have not deployed your contract with, or imported your contract
+to the thirdweb dashboard.
+
+```csharp
+Contract contract = sdk.GetContract("0x...", "my-abi");
+```
