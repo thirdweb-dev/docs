@@ -9,56 +9,9 @@ When using the [Marketplace](https://thirdweb.com/thirdweb.eth/Marketplace) smar
 To access the top-level functionality, provide the `marketplace` contract type when creating the contract instance:
 
 ```csharp
-
+Contract contract = sdk.GetContract("0x...");
+Marketplace marketplace = contract.marketplace;
 ```
-
-## allowListingFromAnyAsset
-
-Set the marketplace to accept the listing of NFTs from any smart contract.
-
-```csharp
-
-```
-
-## allowListingFromSpecificAssetOnly
-
-Set the marketplace to accept the listing of **only** NFTs from a specific NFT smart contract.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### contractAddress
-
-The address of the NFT smart contract to allow listing from.
-
-Must be a `string`.
-
-</div>
-</details>
-
-## Auction - buyoutListing
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### listingId
-
-The ID of the listing to buy.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-</div>
-</details>
 
 ## Auction - cancelListing
 
@@ -67,7 +20,7 @@ Cancel a listing that you made.
 Note: Auction listings cannot be canceled if a bid has been made.
 
 ```csharp
-
+var data = await marketplace.auction.CancelListing("{{listing_id}}");
 ```
 
 <details>
@@ -77,42 +30,6 @@ Note: Auction listings cannot be canceled if a bid has been made.
 #### listingId
 
 The ID of the listing to cancel.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-</div>
-</details>
-
-## Auction - closeListing
-
-Closes the auction and execute the sale for the buyer or the seller.
-
-When an auction is finished, the closeAuction needs to be called for both the buyer and the seller.
-
-The `closeAuction` function takes in a `closeFor` value as the second parameter.
-
-- When the `closeFor` value is the address of the buyer, they are transferred the funds from the highest bid.
-- When the `closeFor` value is the address of the seller, the NFT is transferred to them.
-
-Any wallet address can call this function once an auction has completed.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### listingId
-
-The ID of the listing to close.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-#### closeFor
-
-The address of the buyer or seller to close the auction for.
 
 Must be a `string`.
 
@@ -124,7 +41,14 @@ Must be a `string`.
 List an NFT for sale in an auction listing on the marketplace.
 
 ```csharp
-
+var data = await marketplace.auction.CreateListing(new NewAuctionListing() {
+    assetContractAddress = "{{contract_address}}",
+    tokenId = "0",
+    startTimestamp = DateTime.Now.Ticks,
+    buyoutPricePerToken = "{{price}}",
+    listingDurationInSeconds = 86400,
+    quantity = 1,
+});
 ```
 
 <details>
@@ -141,19 +65,19 @@ Must be a `string`.
 
 The token ID of the NFT to list for sale.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 #### startTimestamp
 
 The date and time that the listing should start.
 
-Must be a `Date` object.
+Must be a `long`.
 
 #### listingDurationInSeconds
 
 How long the auction is open for, in seconds.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be an `int`.
 
 #### quantity
 
@@ -161,13 +85,11 @@ The quantity of the NFT to list for sale.
 
 Only relevant for ERC1155 NFTs. For ERC721 NFTs, this value should be `1`.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be an `int`.
 
 #### currencyContractAddress
 
 The address of the currency contract that will be used to pay for the listing.
-
-To use the native currency, use the `NATIVE_TOKEN_ADDRESS` constant.
 
 Must be a `string`.
 
@@ -175,7 +97,7 @@ Must be a `string`.
 
 The price that users must pay to **purhcase** the NFT from the auction, immediately closing the auction and executing a sale event for both buyer and seller.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 #### reservePricePerToken
 
@@ -183,7 +105,7 @@ The minimum bid that will be accepted for the NFT.
 
 Bids below this amount cannot be placed on the auction.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 </div>
 </details>
@@ -195,7 +117,7 @@ Close the auction for both **buyer** and **seller**.
 This means that the NFT is transferred to the buyer, and the seller is paid the amount of the winning bid.
 
 ```csharp
-
+var data = await marketplace.auction.ExecuteSale("{{listing_id}}");
 ```
 
 <details>
@@ -206,34 +128,7 @@ This means that the NFT is transferred to the buyer, and the seller is paid the 
 
 The ID of the listing to execute the sale for.
 
-Must be a `string`, `number`, or `BigNumber`.
-
-</div>
-</details>
-
-## Auction - getBidBufferBps
-
-View the current bid buffer set on the marketplace.
-
-The bid buffer is what percentage higher the next bid must be than the current highest bid.
-
-The value is returned in basis points format, i.e. `100` basis points is equal to `1%`.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-The current bid buffer set on the marketplace.
-
-```csharp
-
-```
+Must be a `string`.
 
 </div>
 </details>
@@ -243,7 +138,7 @@ The current bid buffer set on the marketplace.
 Get the details of a listing using the listing ID.
 
 ```csharp
-
+var data = await marketplace.auction.GetListing("{{listing_id}}");
 ```
 
 <details>
@@ -254,71 +149,28 @@ Get the details of a listing using the listing ID.
 
 The ID of the listing to get the details for.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 ### Return Value
 
-Returns an `AuctionListing` object, containing the following properties:
+Returns an `AuctionListing` struct, containing the following properties:
 
-```typescript
+```csharp
 {
-  /**
-   * The id of the listing
-   */
-  id: string;
-  /**
-   * The address of the asset being listed.
-   */
-  assetContractAddress: string;
-  /**
-   * The ID of the token to list.
-   */
-  tokenId: BigNumberish;
-  /**
-   * The asset being listed.
-   */
-  asset: NFTMetadata;
-  /**
-   * The start time of the listing.
-   */
-  startTimeInEpochSeconds: BigNumberish;
-  /**
-   * Number of seconds until the auction expires.
-   */
-  endTimeInEpochSeconds: BigNumberish;
-  /**
-   * The quantity of tokens to include in the listing.
-   *
-   * For ERC721s, this value should always be 1 (and will be forced internally regardless of what is passed here).
-   */
-  quantity: BigNumberish;
-  /**
-   * The address of the currency to accept for the listing.
-   */
-  currencyContractAddress: string;
-  /**
-   * The reserve price is the minimum price that a bid must be in order to be accepted.
-   */
-  reservePrice: BigNumber;
-  /**
-   * The buyout price of the listing.
-   */
-  buyoutPrice: BigNumber;
-  /**
-   * The `CurrencyValue` of the buyout price listing.
-   * Useful for displaying the price information.
-   */
-  buyoutCurrencyValuePerToken: CurrencyValue;
-  /**
-   * The `CurrencyValue` of the reserve price.
-   * Useful for displaying the price information.
-   */
-  reservePriceCurrencyValuePerToken: CurrencyValue;
-  /**
-   * The address of the seller.
-   */
-  sellerAddress: string;
-  type: ListingType.Auction;
+    string startTimeInEpochSeconds;
+    string endTimeInEpochSeconds;
+    string reservePrice;
+    CurrencyValue reservePriceCurrencyValuePerToken;
+    string id;
+    string sellerAddress;
+    string assetContractAddress;
+    string tokenId;
+    NFTMetadata asset;
+    int quantity;
+    string currencyContractAddress;
+    string buyoutPrice;
+    CurrencyValue buyoutCurrencyValuePerToken;
+    int type;
 }
 ```
 
@@ -333,7 +185,7 @@ Get the value that the next bid must be in order to be accepted.
 - If there is a current bid, this value is the current bid plus the bid buffer.
 
 ```csharp
-
+var data = await marketplace.auction.GetMinimumNextBid("{{listing_id}}");
 ```
 
 <details>
@@ -344,14 +196,20 @@ Get the value that the next bid must be in order to be accepted.
 
 The ID of the listing to get the minimum next bid for.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 ### Return Value
 
 The minimum next bid for the listing.
 
 ```csharp
-
+{
+    string name;
+    string symbol;
+    string decimals;
+    string value;
+    string displayValue;
+}
 ```
 
 </div>
@@ -362,7 +220,7 @@ The minimum next bid for the listing.
 Get the address that won an auction _after_ an auction has ended.
 
 ```csharp
-
+var data = await marketplace.auction.GetWinner("{{listing_id}}");
 ```
 
 <details>
@@ -373,14 +231,14 @@ Get the address that won an auction _after_ an auction has ended.
 
 The ID of the listing to get the winner for.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 ### Return Value
 
 The wallet address of the winner.
 
 ```csharp
-
+string
 ```
 
 </div>
@@ -391,7 +249,7 @@ The wallet address of the winner.
 Get the current highest bid of an active auction.
 
 ```csharp
-
+var data = await marketplace.auction.GetWinningBid("{{listing_id}}");
 ```
 
 <details>
@@ -402,7 +260,7 @@ Get the current highest bid of an active auction.
 
 The ID of the listing to get the winning bid for.
 
-Must be a `string`, `number`, or `BigNumber`.
+Must be a `string`.
 
 ### Return Value
 
@@ -410,81 +268,14 @@ The current highest bid of the auction.
 
 ```typescript
 {
-  /**
-   * The id of the listing.
-   */
-  listingId: BigNumberish;
-  /**
-   * The address of the buyer who made the offer.
-   */
-  buyerAddress: string;
-  /**
-   * The quantity of tokens to be bought.
-   */
-  quantityDesired: BigNumberish;
-  /**
-   * The amount of coins offered per token.
-   */
-  pricePerToken: BigNumber;
-  /**
-   * The `CurrencyValue` of the listing. Useful for displaying the price information.
-   */
-  currencyValue: CurrencyValue;
-  /**
-   * The currency contract address of the offer token.
-   */
-  currencyContractAddress: string;
+    string listingId;
+    string buyerAddress;
+    int quantityDesired;
+    string pricePerToken;
+    CurrencyValue currencyValue;
+    string currencyContractAddress;
 }
 ```
-
-</div>
-</details>
-
-## Auction - makeBid
-
-Place a bid on an auction listing.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### listingId
-
-The ID of the listing to make a bid on.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-#### bidAmount
-
-The amount to bid **per token**.
-
-- For ERC721 NFTs, this is the amount to bid to buy the NFT.
-- For ERC1155 NFTs, this is the amount to buy a token.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-</div>
-</details>
-
-## Auction - updateListing
-
-Update the listing details of an auction listing.
-
-```csharp
-
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-Provide an `id` property to specify the listing you want to update.
-
-See [`createListing`](#createListing) for details that you can update about the listing.
 
 </div>
 </details>

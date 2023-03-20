@@ -42,6 +42,11 @@ const sidebars = {
       items: [
         {
           type: "doc",
+          label: "ThirdwebManager",
+          id: "prefabs/ThirdwebManager",
+        },
+        {
+          type: "doc",
           label: "Connect Wallet Button",
           id: "prefabs/ConnectWallet",
         },
@@ -54,11 +59,6 @@ const sidebars = {
           type: "doc",
           label: "NFT Renderer",
           id: "prefabs/NFT",
-        },
-        {
-          type: "doc",
-          label: "ThirdwebManager",
-          id: "prefabs/ThirdwebManager",
         },
       ],
     },

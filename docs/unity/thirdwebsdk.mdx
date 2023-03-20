@@ -92,16 +92,16 @@ or [Biconomy](https://blog.thirdweb.com/guides/biconomy-gasless-guide/) relayers
 ThirdwebSDK sdk = new ThirdwebSDK("goerli", -1, new ThirdwebSDK.Options()
 {
     // highlight-start
-    gasless= new ThirdwebSDK.GaslessOptions()
+    gasless = new ThirdwebSDK.GaslessOptions()
     {
-        biconomy= new ThirdwebSDK.BiconomyOptions() {
-            apiId= "biconomy-api-id",  // your Biconomy API Id
-            apiKey= "biconomy-api-key" // your Biconomy API Key
+        biconomy = new ThirdwebSDK.BiconomyOptions() {
+            apiId = "biconomy-api-id",  // your Biconomy API Id
+            apiKey = "biconomy-api-key" // your Biconomy API Key
         },
-        openzeppelin= new ThirdwebSDK.OZDefenderOptions()
+        openzeppelin = new ThirdwebSDK.OZDefenderOptions()
         {
-            relayerForwarderAddress= "0x...", // the OZ defender relayer address (defaults to the standard one)
-            relayerUrl="open-zeppelin-forwarder-address" // your OZ Defender relayer URL
+            relayerForwarderAddress = "0x...", // the OZ defender relayer address (defaults to the standard one)
+            relayerUrl ="open-zeppelin-forwarder-address" // your OZ Defender relayer URL
         },
     }
     // highlight-end
@@ -112,11 +112,11 @@ ThirdwebSDK sdk = new ThirdwebSDK("goerli", -1, new ThirdwebSDK.Options()
 
 Override the default IPFS gateway URL to use your own.
 
-```
+```csharp
 ThirdwebSDK sdk = new ThirdwebSDK("goerli", -1, new ThirdwebSDK.Options()
 {
     // highlight-start
-    storage= new ThirdwebSDK.StorageOptions()
+    storage = new ThirdwebSDK.StorageOptions()
     {
         ipfsGatewayUrl= "https://my-ipfs-gateway.com/ipfs/"
     }
@@ -132,7 +132,7 @@ Add extra data to pass to the wallet provider.
 ThirdwebSDK sdk = new ThirdwebSDK("goerli", -1, new ThirdwebSDK.Options()
 {
     // highlight-start
-    wallet= new ThirdwebSDK.WalletOptions()
+    wallet = new ThirdwebSDK.WalletOptions()
     {
         appName= "My App", // the app name that will show in different wallet providers
         extras= new Dictionary<string, object>() // extra data to pass to the wallet provider
