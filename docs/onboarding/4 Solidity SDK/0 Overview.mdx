@@ -19,24 +19,24 @@ import QuickstartCard from "@components/QuickstartCard";
 </p>
 <h1 align="center">thirdweb Solidity SDK</h1>
 
-Provides the tools needed to build custom smart contracts efficiently by offering a set of pre-built [base contracts](/solidity/base-contracts)
+Provides the tools needed to build custom smart contracts efficiently by offering a set of pre built [base contracts](/solidity/base-contracts)
  and a set of reusable components, or [extensions](/solidity/extensions), that can be integrated into your own smart contracts.
 
 ## Base Contracts
 
-[Base-contracts](/solidity/base-contracts) are pre-built smart contracts that you can build upon or modify, such as the [ERC721Base](/solidity/base-contracts/erc-721/erc721base) contract. These contracts work out of the box and do not require any functions to be implemented.
-They are built using [extensions](/solidity/extensions) and thus provide intelligent features in the [SDKs](/sdk) and custom tabs on the [Dashboard](/dashboard) to fit the needs of your smart contract.
+[Base contracts](/solidity/base-contracts) are pre built smart contracts that you can build on top of or modify, such as the [ERC721Base](/solidity/base-contracts/erc-721/erc721base) contract. These contracts work out of the box and do not require any functions to be implemented.
+They are built using [extensions](/solidity/extensions) and thus unlock intelligent features in the [SDKs](/sdk) and custom sections on the [Dashboard](/dashboard) to easily interact with your smart comtract.
 
 ## Extensions
 
 [Extensions](/solidity/extensions) are Solidity interfaces that are recognizable by the Dashboard and unlock functionality in the SDKs. Common EIPs are also recognizable as extensions as our interfaces conform to industry standards.
 They are composable pieces of logic that can be added to smart contracts easily via [inheritance](/solidity/getting-started#inheritance-and-overriding-functions). 
 
-These extensions require varying levels of logic implementation* in the inheriting smart contract. The three different types of extension in this SDK are:
+These extensions require varying levels of logic implementation* in the inheriting smart contract. The three different types of extensions in this SDK are:
 
-- Extension contracts: These extensions are fully complete and do not require any logic to be implemented. By inheriting from these contracts, you add the functionality and therefore the logic to your inheriting smart contract.
-- Abstract contracts: These extensions require some of the logic to be implemented. Some of the functions on the extension depend on the use case and therefore require custom logic that is specific to your inheriting smart contract.
-- Interfaces: These extensions do not have an implementation. They provide the guidelines to write your own logic by giving you the functions, parameters and return types. This allows you to ensure that your contract conforms to this particular extension so that you can unlock features in the SDKs and Dashboard.
+- *Extension contracts*: These extensions are fully complete and do not require any logic to be implemented. By inheriting from these contracts, you add the functionality and therefore the logic to your inheriting smart contract.
+- *Abstract contracts*: These extensions require some of the logic to be implemented. Some of the functions on the extension depend on the use case and therefore require custom logic that is specific to your inheriting smart contract.
+- *Interfaces*: These extensions do not have an implementation. They provide the guidelines to write your own logic by giving you the functions, parameters and return types. This allows you to ensure that your contract conforms to this particular extension so that you can unlock features in the SDKs and Dashboard.
 
 *implement = write the logic for the function with a matching function signature (matching name, parameters, visibility and return type)
 
@@ -46,7 +46,7 @@ These extensions require varying levels of logic implementation* in the inheriti
 
 - Effortlessly integrate common smart contract features, including popular EIPs such as [ERC20](/solidity/extensions/erc20), [ERC721](/solidity/extensions/erc721), [ERC1155](/solidity/extensions/erc1155), [permissions](/solidity/extensions/permissions), and [contract metadata](/solidity/extensions/contractmetadata), and more. 
 - Simplify the development workflow, allowing you to focus on more intricate systems.
-- Using the [base-contracts](/solidity/base-contracts) gives you a gas-optimized and audited foundation to build your projects.
+- Using the [base contracts](/solidity/base-contracts) gives you a gas-optimized and audited foundation to build your projects.
 - Each extension you inherit unlocks smarter [SDKs](/sdk), custom admin [Dashboards](/dashboard) and tailored data feeds.
 
 For example, if you deploy the [ERC721Base](/solidity/base-contracts/erc-721/erc721base) contract which inherits from multiple extensions including [ERC721Mintable](/solidity/extensions/erc721mintable), you'll unlock the `mint` button in the dashboard and
