@@ -10,7 +10,7 @@ import CodeBlock from "@theme/CodeBlock";
 
 # Getting Started
 
-To get started, run the following command to create a new project:
+To get started with the Solidity SDK, run the following command to create a new project:
 
 ```bash
 npx thirdweb create contract
@@ -33,18 +33,18 @@ Or, install the `contracts` package into your existing Solidity project:
 
 ## Using the Solidity SDK
 
-The Solidity SDK can be used to build new smart contracts _end-to-end_, or to add extensions to your own, existing smart contract.
+The Solidity SDK can be used to build new smart contracts _end-to-end_, or to add functionality to your own, existing smart contract using [extensions](/solidity/extensions).
 
-All functions in the base-contracts and extensions can be modified by overriding.
+All functions in the [base-contracts][extensions](/solidity/base-contracts) and [extensions][extensions](/solidity/extensions) can be modified by [overriding them][extensions](/solidity/getting-started#inheriting-and-overriding-functions).
 
 ### Using Base Contracts
 
 The Solidity SDK includes [**base contracts**](/solidity/base-contracts) that are fully complete smart contracts that can be customized by overriding functions OR by adding extensions.
 
-**1.** To start, import and inherit the base contract. You can find the list of all available base contracts [here](/solidity/base-contracts#list-of-base-contracts).
+**1.** To start, import and inherit the base contract. You can find the list of all available base contracts [here](/solidity/base-contracts).
 
 **2.** Base contracts expect certain constructor arguments to function as intended. Implement a constructor for your smart contract and pass the
-appropriate values to the constructor of your base contract.
+appropriate values to a constructor for the base contract.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -62,15 +62,15 @@ contract MyNFT is ERC721Base {
 }
 ```
 
-**3.** Now you're all set up! 🎉 Your smart contract now has all the [Extensions](/solidity/extensions) provided by the [base contract](/solidity/base-contracts/) it inherits and is ready to be deployed to any EVM blockchain of your choice.
+**3.** Now you're all set up! 🎉 Your smart contract now has all the [extensions](/solidity/extensions) provided by the [base contract](/solidity/base-contracts/) it inherits and is ready to be [deployed](/deploy) to any EVM blockchain of your choice.
 
 ### Using Extensions
 
-The extension smart contracts are to be used via inheritance - your project's smart contract will inherit from them.
+Extensions are to be used via inheritance - your project's smart contract will inherit from them.
 
-Additional [**Extensions**](/solidity/extensions) can be added to your smart contract, existing or to the [**base contracts**](/solidity/base-contracts) to add extra functionality and unlocking features in the SDKs and Dashboard.
+Additional [**extensions**](/solidity/extensions) can be added to existing smart contracts or to the [**base contracts**](/solidity/base-contracts) to add extra functionality and unlocking features in the SDKs and Dashboard.
 
-**1.** To start, import and inherit the Extension. You can find the list of all available extensions [here](/solidity/extensions#list-of-extensions).
+**1.** To start, import and inherit the extension. You can find the list of all available extensions [here](/solidity/extensions).
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -139,12 +139,14 @@ Inheritance allows you to extend your smart contract's properties to include the
 The inherited functions from this parent contract can be modified in the child contract via a process known as overriding.
 
 Parent contract: Contract that the inheriting contract is inheriting from.
+
 Child contract: The inheriting contract.
 
-To override a function to add your own custom logic, simply use the keyword `override` when declaring the function, making sure that the function signature matches, next to the state visibility.
-To add the original logic from the parent contract, use the keyword `super`
+To override a function, to add your own custom logic, simply use the keyword `override` when declaring the function, making sure that the function signature matches.
+To add the original logic from the parent contract, use the keyword `super`.
 
-For example, the `ERC721Base` contract has an implementation of the function `mintTo`, I could restrict this function in the `myNFT` contract to only allow 1 NFT per wallet:
+For example, the `ERC721Base` contract has an implementation of the function `mintTo`, I could instead override this function to add custom logic 
+and restrict this function in the `myNFT` contract to only allow 1 NFT per wallet:
 
 ```solidity
 // SPDX-License-Identifier: MIT
