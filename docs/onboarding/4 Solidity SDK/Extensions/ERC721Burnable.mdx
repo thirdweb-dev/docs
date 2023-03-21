@@ -1,5 +1,5 @@
 ---
-slug: /solidity/extensions/interfaces/erc721burnable
+slug: /solidity/extensions/erc721burnable
 title: ERC721Burnable
 ---
 
@@ -13,8 +13,42 @@ ERC721Burnable allows the NFTs in the contract to be burned (transferred to a no
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IBurnableERC721.sol"
   name="IBurnableERC721"
-  isInterface
+  isInterface={true}
 />
+
+:::info
+
+This extension is an interface and requires all of the functions to be implemented
+
+:::
+
+## Usage
+
+This is an example smart contract demonstrating how to use this extension.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/eip/ERC721A.sol";
+import "@thirdweb-dev/contracts/extension/interface/IBurnableERC721.sol";
+
+contract Contract is ERC721A, IBurnableERC721 {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC721A(
+            _name,
+            _symbol
+        )
+    {}
+
+    function burn(uint256 tokenId) external {
+        // Your custom implementation here
+    }
+}
+```
 
 ## Base Contracts Implementing This Feature
 
@@ -55,39 +89,3 @@ ERC721Burnable allows the NFTs in the contract to be burned (transferred to a no
     />
   </div>
 </div>
-
-## Unlocked Features
-
-By implementing the ERC721Mintable contract, you unlock the following features in the SDK and dashboard:
-
-| SDK Usage                                                            | Description  |
-| -------------------------------------------------------------------- | ------------ |
-| [Burn NFT](/sdk/interacting-with-contracts/erc721burnable#burn-nfts) | Burn an NFT. |
-
-## Implementing It Yourself
-
-This section is meant for advanced users who want to write the functionality from scratch.
-
-```solidity
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-import "@thirdweb-dev/contracts/eip/ERC721A.sol";
-import "@thirdweb-dev/contracts/extension/interface/IBurnableERC721.sol";
-
-contract Contract is ERC721A, IBurnableERC721 {
-    constructor(
-        string memory _name,
-        string memory _symbol
-    )
-        ERC721A(
-            _name,
-            _symbol
-        )
-    {}
-
-    function burn(uint256 tokenId) external {
-        // Your custom implementation here
-    }
-}
-```

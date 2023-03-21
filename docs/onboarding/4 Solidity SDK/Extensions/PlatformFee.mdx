@@ -38,13 +38,15 @@ Once deployed, you can use the features made available by these contracts on the
   </div>
 </div>
 
-## Implementing the Contract extension
+## Usage
 
 The `PlatformFee` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
 | Name                                                                                            | Type                    | Parameters | Returns | Description                                                                                                                            |
 | ----------------------------------------------------------------------------------------------- | ----------------------- | ---------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
 | [`_canSetPlatformFeeInfo`](/solidity/extension-contracts/platformfee#_cansetplatformfeeinfo) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set a new platform fee recipient or bps. Returns whether this info can be set in the given execution context. |
+
+This is an example smart contract demonstrating how to use this extension.
 
 ```solidity
 // SPDX-License-Identifier: MIT

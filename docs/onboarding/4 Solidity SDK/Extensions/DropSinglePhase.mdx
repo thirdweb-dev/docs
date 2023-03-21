@@ -1,6 +1,6 @@
 ---
 slug: /solidity/extensions/dropsinglephase
-title: DropSinglePhase (ERC20 & ERC721)
+title: DropSinglePhase
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
@@ -14,37 +14,18 @@ import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
 
 The `DropSinglePhase` smart contract is an extension meant for distributing ERC20 or ERC721 tokens.
 
-This extension implements the 'Drop' distribution mechanism: set restrictions such as a price to charge, an allowlist etc. for the public / allowlisted mint of your tokens.
+This extension implements the 'Drop' distribution mechanism: set restrictions, known as a claim phase, such as a price to charge, an allowlist etc. for the public / allowlisted mint of your tokens.
+
+`DropSinglePhase` allows you to set one claim phase unlike the [`Drop`](/solidity/extensions/drop) extension.
+
+It is recommended to use this extension alongside the [LazyMint](/solidity/extensions/lazymint) extension.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DropSinglePhase.sol"
   name="DropSinglePhase"
 />
 
-## Availability in base contracts
-
-The `DropSinglePhase` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
-
-- **ERC20**: [`ERC20Drop`](/solidity/base-contracts/erc-20/erc20drop)
-- **ERC721**: [`ERC721Drop`](/solidity/base-contracts/erc-721/erc721drop)
-
-## Unlocked Features
-
-Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
-  <div className="col col--12" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Claim with conditions"
-      link="/sdk/interacting-with-contracts/erc721claimablewithconditions"
-      image="/assets/icons/general.png"
-    />
-  </div>
-</div>
-
-## Implementing the Contract
-
-This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/solidity/extension-contracts/dropsinglephase#availability-in-base-contracts) that already implement Drop functionlity for you!
+## Usage
 
 The `DropSinglePhase` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
@@ -53,6 +34,8 @@ The `DropSinglePhase` extension is an _abstract contract_, and expects you to im
 | [`_collectPriceOnClaim`](/solidity/extension-contracts/dropsinglephase#_collectpriceonclaim)     | internal _virtual_      | n/a        | n/a       | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
 | [`_transferTokensOnClaim`](/solidity/extension-contracts/dropsinglephase#_transfertokensonclaim) | internal _virtual_      | n/a        | `uint256` | Transfers the NFTs being claimed.                                                                                                                |
 | [`_canSetClaimConditions`](/solidity/extension-contracts/dropsinglephase#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
+
+This is an example smart contract demonstrating how to use this extension.
 
 ```solidity
 // SPDX-License-Identifier: Apache-2.0
@@ -127,6 +110,17 @@ contract MyContract is ERC20Base, DropSinglePhase {
     }
 }
 ```
+
+## SDK Usage
+
+## Dashboard Usage
+
+## Availability in base contracts
+
+The `DropSinglePhase` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
+
+- **ERC20**: [`ERC20Drop`](/solidity/base-contracts/erc-20/erc20drop)
+- **ERC721**: [`ERC721Drop`](/solidity/base-contracts/erc-721/erc721drop)
 
 ## Full API reference
 

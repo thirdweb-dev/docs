@@ -12,18 +12,12 @@ import QuickstartCard from "@components/QuickstartCard";
 import "@thirdweb-dev/contracts/extension/ContractMetadata.sol";
 ```
 
-The `ContractMetadata` smart contract is an extension usable with any smart contract. It lets you define metadata for your smart contract. Additionally, `ContractMetadata` is necessary to enable royalties on NFT contracts on OpenSea.
+The `ContractMetadata` smart contract is an extension usable with any smart contract. It lets you define metadata for your smart contract. Additionally, `ContractMetadata` is necessary to enable [royalties](/solidity/extensions/royalty) on NFT contracts on OpenSea.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/ContractMetadata.sol"
   name="ContractMetadata"
 />
-
-## Availability in base contracts
-
-The `ContractMetadata` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
-
-- All ERC20, ERC721 and ERC1155 base contracts.
 
 ## Usage
 
@@ -32,6 +26,8 @@ The `ContractMetadata` extension is an _abstract contract_, and expects you to i
 | Name                                                                                         | Type                    | Parameters | Returns | Description                                                                                                                             |
 | -------------------------------------------------------------------------------------------- | ----------------------- | ---------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | [`_canSetContractURI`](/solidity/extensions/contractmetadata#_cansetcontracturi) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the metadata of the contract. Returns whether contract metadata can be set in the given execution context. |
+
+This is an example smart contract demonstrating how to use this extension.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -73,6 +69,12 @@ By adding this extension to a smart contract, the following features, hooks and 
 ## Dashboard Usage
 
 By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
+
+## Availability in base contracts
+
+The `ContractMetadata` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
+
+- All ERC20, ERC721 and ERC1155 base contracts.
 
 ## Full API reference
 

@@ -1,4 +1,159 @@
 ---
-slug: /solidity/extensions/permissionsenumerable
+slug: /solidity/extensions/PermissionsEnumerable
 title: PermissionsEnumerable
 ---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+import ImportSnippet from "../../../../src/components/ImportSnippet";
+import YoutubeEmbed from "@components/YoutubeEmbed";
+
+# PermissionsEnumerable
+
+```solidity
+import "@thirdweb-dev/contracts/extension/PermissionsEnumerable.sol";
+```
+
+<div className="heroGrid">
+<div>
+
+<p>
+  Add PermissionsEnumerable to your smart contract to control which addresses can perform
+  certain actions.
+</p>
+
+The `PermissionsEnumerable` extension provides role-based access control: you can create roles and write custom logic in your smart contract that depends on whether a given wallet holds a given role.
+
+</div>
+
+<div className="heroGridImageContainer">
+  <YoutubeEmbed link={"https://www.youtube.com/embed/22ajBu3B_18"} />
+</div>
+</div>
+
+There are two different contracts you can implement to add PermissionsEnumerable:
+
+- `PermissionsEnumerable`: Create roles and restrict access to functions based on those roles.
+- `PermissionsEnumerableEnumerable`: `PermissionsEnumerable` plus the capability to view all the addresses holding a specific role (or all roles).
+
+You only need to implement **one** of the two.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/PermissionsEnumerable.sol"
+  name="PermissionsEnumerable"
+/>
+
+## Usage
+
+This is an example smart contract demonstrating how to use this extension.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/extension/PermissionsEnumerable.sol";
+
+contract MyContract is PermissionsEnumerable {
+    // Any `bytes32` value is a valid role. You can create roles by defining them like this.
+    bytes32 public constant NUMBER_ROLE = keccak256("NUMBER_ROLE");
+
+    // See comments for `setNumber`, below.
+    uint256 public number;
+
+    /**
+     *  The `PermissionsEnumerable` contract makes an already defined role available: the `DEFAULT_ADMIN_ROLE`.
+     *
+     *  As an EXAMPLE, we grant the deployer of the contract this admin role.
+     */
+    constructor() {
+        _setupRole(DEFAULT_ADMIN_ROLE, msg.sender);
+    }
+
+    /**
+     *  EXAMPLE: here we have a function that we want to restrict only to holders of `NUMBER_ROLE`.
+     *
+     *  To accomplish this, we use the `onlyRole` modifier made available by `PermissionsEnumerable`, and
+     *  pass it `NUMBER_ROLE` as an argument.
+     */
+    function setNumber(uint256 _newNumber) public onlyRole(NUMBER_ROLE) {
+        number = _newNumber;
+    }
+}
+```
+
+## SDK Usage
+
+## Dashboard Usage
+
+## Availability in base contracts
+
+The `PermissionsEnumerable` and `PermissionsEnumerableEnumerable` extensions are _not_ already included in any [base contracts](/solidity/base-contracts). To use this extension, check out the [implementation guide](/solidity/extension-contracts/platformfee#implementing-the-contract-extension) and [full API reference](/solidity/extension-contracts/PermissionsEnumerable#full-api-reference).
+
+## Full API Reference
+
+### hasRole
+
+```solidity
+function hasRole(bytes32 role, address account) external view returns (bool);
+```
+
+- Returns `true` if `account` has been granted `role`.
+
+### getRoleAdmin
+
+```solidity
+function getRoleAdmin(bytes32 role) external view returns (bytes32);
+```
+
+- Returns the admin role that controls `role` i.e. the holders of the admin role (the return value) can grant or revoke `role` from wallets.
+
+### grantRole
+
+```solidity
+function grantRole(bytes32 role, address account) external;
+```
+
+- Grants `role` to `account`. Can only be called by a holder of the admin role of the role being granted.
+
+### revokeRole
+
+```solidity
+function revokeRole(bytes32 role, address account) external;
+```
+
+- Revokes `role` from `account`. Can only be called by a holder of the admin role of the role being granted.
+
+### renounceRole
+
+```solidity
+function renounceRole(bytes32 role, address account) external;
+```
+
+- Revokes `role` from the calling account.
+
+### hasRoleWithSwitch
+
+```solidity
+function hasRoleWithSwitch(bytes32 role, address account) public view returns (bool);
+```
+
+- Returns `true` if `account` has been granted `role`.
+- Role restrictions can be swtiched on and off:
+  - If `address(0)` has `role`, then the role restrictions don't apply i.e. this function will always return `true`.
+  - If `address(0)` does not have `role`, then the role restrictions will apply i.e. this function will behave like `hasRole`.
+
+### getRoleMember (PermissionsEnumerableEnumerable)
+
+```solidity
+function getRoleMember(bytes32 role, uint256 index) external view returns (address);
+```
+
+- Returns one of the accounts that have `role`. `index` must be a value between 0 and the value of `getRoleMemberCount` at the time, non-inclusive.
+
+### getRoleMemberCount (PermissionsEnumerableEnumerable)
+
+```solidity
+function getRoleMemberCount(bytes32 role) external view returns (uint256);
+```
+
+- Returns the number of accounts that have `role`. Can be used together with `getRoleMember` to enumerate all bearers of a role.

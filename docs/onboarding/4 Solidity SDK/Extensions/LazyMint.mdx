@@ -42,13 +42,15 @@ By implementing `LazyMint`, you unlock the following features in the SDK and das
   </div>
 </div>
 
-## Implementing It Yourself
+## Usage
 
 The `LazyMint` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
 | Name                                                                     | Type                    | Parameters | Returns | Description                                                                                                                      |
 | ------------------------------------------------------------------------ | ----------------------- | ---------- | ------- | -------------------------------------------------------------------------------------------------------------------------------- |
 | [`_canLazyMint`](/solidity/extension-contracts/lazymint#_canlazymint) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to lazy mint NFTs on the contract. Returns whether NFTs can be lazy minted in the given execution context. |
+
+This is an example smart contract demonstrating how to use this extension.
 
 ```solidity
 // SPDX-License-Identifier: MIT

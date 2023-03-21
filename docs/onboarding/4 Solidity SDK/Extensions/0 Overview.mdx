@@ -5,72 +5,59 @@ title: Overview
 
 # Extensions
 
-import QuickstartCard from "@components/QuickstartCard";
-import ThemedImage from "@theme/ThemedImage";
+#### ERC721
 
-<div className="heroGrid">
+| Name                  | Description                                                                           | Documentation                                         |
+| --------------------- | ------------------------------------------------------------------------------------- | ----------------------------------------------------- |
+| ERC721                | Basic functionality of ERC721 "non-fungible" NFTs                                     | [ERC721](/unity/erc721)                               |
+| ERC721BatchMintable   | Batch minting of new NFTs                                                             | [ERC721BatchMintable](/unity/erc721batchmintable)     |
+| ERC721Burnable        | Burn (take out of circulation) NFTs                                                   | [ERC721Burnable](/unity/erc721burnable)               |
+| ERC721ClaimConditions | Allow users to claim NFTs from your drop under specific conditions                    | [ERC721ClaimConditions](/unity/erc721claimconditions) |
+| ERC721LazyMintable    | Batch lazy-mint new NFTs for others to claim them                                     | [ERC721LazyMintable](/unity/erc721lazymintable)       |
+| ERC721Enumerable      | Enumerate through NFTs in a contract to get all or get owned NFTs                     | [ERC721Enumerable](/unity/erc721enumerable)           |
+| ERC721Mintable        | Mint new NFTs into the contract                                                       | [ERC721Mintable](/unity/erc721mintable)               |
+| ERC721Revealable      | Use delayed reveal on NFTs you lazy mint                                              | [ERC721Revealable](/unity/delayedreveal721)           |
+| ERC721Supply          | View information about the supply of the NFT collection                               | [ERC721Supply](/unity/erc721supply)                   |
+| ERC721TieredDrop      | Use special [tiered drop](https://thirdweb.com/thirdweb.eth/TieredDrop) functionality | [ERC721TieredDrop](/unity/erc721tiereddrop)           |
+| ERC721SignatureMint   | Use signature-based minting functionality to mint new NFTs into the contract          | [ERC721SignatureMint](/unity/erc721signaturemint)     |
 
-  <div>
-    <p>
-        Extensions are individual pieces of functionality you can add to your smart contracts.
-    </p>
+#### ERC1155
 
-Each extension you implement in your smart contract unlocks the corresponding functionality for you to utilize in the SDK.
+| Name                     | Description                                                                  | Documentation                                               |
+| ------------------------ | ---------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| ERC1155                  | Basic functionality of ERC1155 "semi-fungible" NFTs                          | [ERC1155](/unity/erc1155)                                   |
+| ERC1155BatchMintable     | Batch minting of new NFTs                                                    | [ERC1155BatchMintable](/unity/erc1155batchmintable)         |
+| ERC1155Burnable          | Burn (take out of circulation) NFTs                                          | [ERC1155Burnable](/unity/erc1155burnable)                   |
+| ERC1155ClaimConditions   | Allow users to claim NFTs from your drop under specific conditions           | [ERC1155ClaimConditions](/unity/erc1155claimconditions)     |
+| ERC1155Enumerable        | Enumerate through NFTs in a contract to get all or get owned NFTs            | [ERC1155Enumerable](/unity/erc1155enumerable)               |
+| ERC1155LazyMintable      | Batch lazy-mint new NFTs for others to claim them                            | [ERC1155LazyMintable](/unity/erc1155lazymintable)           |
+| ERC1155Mintable          | Mint new NFTs into the contract                                              | [ERC1155Mintable](/unity/erc1155mintable)                   |
+| ERC1155Revealable        | Use delayed reveal on NFTs you lazy mint                                     | [ERC1155Revealable](/unity/delayedreveal1155)               |
+| ERC1155SignatureMintable | Use signature-based minting functionality to mint new NFTs into the contract | [ERC1155SignatureMintable](/unity/erc1155signaturemintable) |
 
-There are three types of Extension:
+#### ERC20
 
-1. **Contracts**: Fully implemented Entension smart contracts that can be imported and used.
-2. **Abstract contracts**: Smart contracts where one or more functions is defined but not implemented. They are left for you to implement in the way that makes overall sense for your smart contract.
-3. **Interfaces*: Smart contracts where all of the functions are definied but none of them are implemented. The logic is specified by the contract inheriting from the interface.
+| Name                   | Description                                                                    | Documentation                                           |
+| ---------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| ERC20                  | Basic functionality of ERC20 "fungible" tokens                                 | [ERC20](/unity/erc20)                                   |
+| ERC20BatchMintable     | Batch minting of new tokens                                                    | [ERC20BatchMintable](/unity/erc20batchmintable)         |
+| ERC20Burnable          | Burn (take out of circulation) tokens                                          | [ERC20Burnable](/unity/erc20burnable)                   |
+| ERC20Mintable          | Mint new tokens into the contract                                              | [ERC20Mintable](/unity/erc20mintable)                   |
+| ERC20SignatureMintable | Use signature-based minting functionality to mint new tokens into the contract | [ERC20SignatureMintable](/unity/erc20signaturemintable) |
+| ERC20ClaimConditions   | Allow users to claim tokens from your drop under specific conditions           | [ERC20ClaimConditions](/unity/erc20claimconditions)     |
 
-There are several Extensions which are compatible with [ERC721](/solidity/base-contracts/erc-721/erc721base), [ERC1155](/solidity/base-contracts/erc-1155/erc1155base), and
-[ERC20](/solidity/base-contracts/erc-20/erc20base), as well as general extension for common use cases.
+#### General 
 
-</div>
+| Name                   | Description                                                                    | Documentation                                           |
+| ---------------------- | ------------------------------------------------------------------------------ | ------------------------------------------------------- |
+| Multicall              | Basic functionality of ERC20 "fungible" tokens                                 | [ERC20](/unity/erc20)                                   |
+| ERC20BatchMintable     | Batch minting of new tokens                                                    | [ERC20BatchMintable](/unity/erc20batchmintable)         |
+| ERC20Burnable          | Burn (take out of circulation) tokens                                          | [ERC20Burnable](/unity/erc20burnable)                   |
+| ERC20Mintable          | Mint new tokens into the contract                                              | [ERC20Mintable](/unity/erc20mintable)                   |
+| ERC20SignatureMintable | Use signature-based minting functionality to mint new tokens into the contract | [ERC20SignatureMintable](/unity/erc20signaturemintable) |
+| ERC20ClaimConditions   | Allow users to claim tokens from your drop under specific conditions           | [ERC20ClaimConditions](/unity/erc20claimconditions)     |
 
-<div className="heroGridImageContainer">
-  <ThemedImage
-    sources={{
-      light: "/assets/extensions.png",
-      dark: "/assets/extensions.png",
-    }}
-    className="heroGridImage"
-    alt="thirdweb dashboard"
-  />
-</div>
 
-</div>
-
-## Detecting Extensions
-
-You can detect all of the extensions your contract implements using the CLI:
-
-```bash
-npx thirdweb detect
-```
-
-## List of Extensions
-
-Below is a list of all the extensions available.
-
-| Name                                                                        | Description                                                                                                                                                                                              |
-| --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| [ContractMetadata](/solidity/extension-contracts/contractmetadata)       | Set metadata for your smart contract. This extension is necessary for NFT contracts that want royalties to get distributed on OpenSea.                                                                   |
-| [Multicall](/solidity/extension-contracts/multicall)                     | Provides a function to batch together multiple calls in a single external call.                                                                                                                          |
-| [Ownable](/solidity/extension-contracts/ownable)                         | Set an owner for your smart contract; restrict your smart contract's functions to only be callable by this owner.                                                                                        |
-| [Royalty](/solidity/extension-contracts/royalty)                         | An [EIP-2981: NFT Royalty Standard](https://eips.ethereum.org/EIPS/eip-2981) compliant extension. Set a royalty fee and recipient for all your NFTs, or on a per NFT basis.                              |
-| [BatchMintMetadata](/solidity/extension-contracts/batchmintmetadata)     | Set metadata for `n` number of NFTs all at once. This is enabled by storing a single base URI for a batch of `n` NFTs, where the metadata for each NFT in a relevant batch is `baseURI/tokenId`.         |
-| [LazyMint](/solidity/extension-contracts/lazymint)                       | Lazy mint any number of NFTs at once. Here, 'lazy mint' means defining the metadata for particular tokenIds of your NFT contract, without actually minting a non-zero balance of NFTs of those tokenIds. |
-| [DelayedReveal](/solidity/extension-contracts/delayedreveal)             | Create batches of 'delayed-reveal' NFTs. Lazy mint a batch of NFTs without initially revealing the metadata of these NFTs to spectators, and reveal it later at your discretion.                         |
-| [PlatformFee](/solidity/extension-contracts/platformfee)                 | Charge a percentage fee wherever there is a transfer of currency (ERC20 tokens or native tokens) in your contract.                                                                                       |
-| [PrimarySale](/solidity/extension-contracts/primarysale)                 | Set and manage a primary sale recipient for your smart contract.                                                                                                                                         |
-| [Permissions](/solidity/extension-contracts/permissions)                 | Assign roles to wallets; restrict your smart contract's functions based on the roles held or not held by a wallet.                                                                                       |
-| [PermissionsEnumerable](/solidity/extension-contracts/permissions)       | Same as Permissions but with added functionality - view all members with a given role, and total count of members.                                                                                       |
-| [DropSinglePhase](/solidity/extension-contracts/dropsinglephase)         | A distribution mechanic for tokens. Set conditions - such as a price, an allowlist, etc. - under which tokens can be claimed on your smart contract.                                                     |
-| [DropSinglePhase1155](/solidity/extension-contracts/dropsinglephase1155) | A distribution mechanic for ERC1155 tokens. Set conditions - such as a price, an allowlist, etc. - under which tokens can be claimed on your smart contract.                                             |
-| [SignatureMintERC20](/solidity/extension-contracts/sigminterc20)         | A distribution mechanic for ERC20 tokens. Authorize a wallet to mint tokens on your smart contract on-demand; optionally, set a price and other configurables for the mint.                              |
-| [SignatureMintERC721](/solidity/extension-contracts/sigminterc721)       | A distribution mechanic for ERC721 tokens. Authorize a wallet to mint tokens on your smart contract on-demand; optionally, set a price and other configurables for the mint.                             |
-| [SignatureMintERC1155](/solidity/extension-contracts/sigminterc1155)     | A distribution mechanic for ERC1155 tokens. Authorize a wallet to mint tokens on your smart contract on-demand; optionally, set a price and other configurables for the mint.                            |
 
 ## Resources
 

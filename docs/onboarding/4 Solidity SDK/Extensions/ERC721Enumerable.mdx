@@ -1,5 +1,5 @@
 ---
-slug: /solidity/extensions/interfaces/erc721enumerable
+slug: /solidity/extensions/erc721enumerable
 title: ERC721Enumerable
 ---
 
@@ -16,21 +16,15 @@ View all of the NFTs owned by a specific wallet address by implementing the `IER
   isInterface={true}
 />
 
-## Base Contracts Implementing This Feature
+:::info
 
-No base contracts implement this functionality by default.
+This extension is an interface and requires all of the functions to be implemented
 
-## Unlocked Features
+:::
 
-By implementing `ERC721Enumerable`, you unlock the following features in the SDK and dashboard:
+## Usage
 
-| SDK Usage                                                                          | Description                                                                         |
-| ---------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
-| [View Owned NFTs](/sdk/interacting-with-contracts/erc721Enumerable#get-owned-nfts) | View all the NFTs a wallet address owns from this collection at this point in time. |
-
-## Implementing It Yourself
-
-This section is meant for advanced users who want to write the functionality from scratch.
+This is an example smart contract demonstrating how to use this extension.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -59,3 +53,11 @@ contract Contract is ERC721A, IERC721Enumerable {
     }
 }
 ```
+
+## SDK Usage
+
+## Dashboard Usage 
+
+## Base Contracts Implementing This Feature
+
+No base contracts implement this functionality by default.

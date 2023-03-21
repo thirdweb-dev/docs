@@ -1,5 +1,5 @@
 ---
-slug: /solidity/extensions/interfaces/erc20burnable
+slug: /solidity/extensions/erc20burnable
 title: ERC20Burnable
 ---
 
@@ -16,21 +16,15 @@ Support burning tokens by implementing the `IBurnableERC20` interface.
   isInterface={true}
 />
 
-## Base Contracts Implementing This Feature
+:::info
 
-No base contracts implement this functionality by default.
+This extension is an interface and requires all of the functions to be implemented
 
-## Unlocked Features
+:::
 
-By implementing the `ERC20` standard, you unlock the following features in the SDK and dashboard:
+## Usage
 
-| SDK Feature                                                             | Description                        |
-| ----------------------------------------------------------------------- | ---------------------------------- |
-| [Burn Tokens](/sdk/interacting-with-contracts/erc721burnable#burn-nfts) | Burn a specified amount of tokens. |
-
-## Implementing It Yourself
-
-This section is meant for advanced users who want to write the functionality from scratch.
+This is an example smart contract demonstrating how to use this extension.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -60,3 +54,11 @@ contract Contract is ERC20, IBurnableERC20 {
 
 }
 ```
+
+## SDK Usage
+
+## Dashboard Usage 
+
+## Base Contracts Implementing This Feature
+
+No base contracts implement this functionality by default.

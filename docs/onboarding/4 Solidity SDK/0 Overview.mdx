@@ -1,0 +1,100 @@
+---
+slug: /solidity
+title: Overview
+hide_title: true
+---
+
+import QuickstartCard from "@components/QuickstartCard";
+
+<p align="center">
+  <br />
+  <a href="https://thirdweb.com">
+    <img
+      src="https://github.com/thirdweb-dev/js/blob/main/packages/sdk/logo.svg?raw=true"
+      width="200"
+      alt=""
+    />
+  </a>
+  <br />
+</p>
+<h1 align="center">thirdweb Solidity SDK</h1>
+
+Provides the tools needed to build custom smart contracts efficiently by offering a set of pre-built base contracts
+ and a set of reusable components, or extensions, that can be integrated into your own smart contracts.
+
+## Base Contracts
+
+[Base-contracts](/solidity/base-contracts) are pre-built smart contracts that you can build upon or modify, such as the [ERC721Base](/solidity/base-contracts/erc-721/erc721base) contract. These contracts work out of the box and do not require any functions to be implemented.
+They are built using extensions and thus provide intelligent features in the SDKs and custom tabs on the Dashboard to fit the needs of your smart contract.
+
+## Extensions
+
+Extensions are interfaces that are recognizable by the Dashboard and unlock functionality in the SDKs. Common EIPs are also recognizable as extensions as our interfaces conform to industry standards.
+They are composable pieces of logic that can be added to smart contracts easily via inheritance. 
+
+The extensions require varying levels of logic implementation* in the inheriting smart contract:
+
+- Extension contracts: These extensions are fully complete and do not require any logic to be implemented. By inheriting from these contracts, you add the functionality and therefore the logic to your inheriting smart contract.
+- Abstract contracts: These extensions require some of the logic to be implemented. Some of the functions on the extension depend on the use case and therefore require custom logic that is specific to your inheriting smart contract.
+- Interfaces: these extensions do not have an implementation. They provide the guidelines to write your own logic by giving you the functions, parameters and return types. This allows you to ensure that your contract conforms to this particular extension so that you can unlock features in the SDKs and Dashboard.
+
+*implement = write the logic for the function with a matching function signature (matching name, parameters, visibility and return type)
+
+![Extensions](/assets/extensions-graphic.png)
+
+## Why use the Solidity SDK?
+
+- Effortlessly integrate common smart contract features, including popular EIPs such as ERC20, ERC721, ERC1155, permissions, and contract metadata, among others. 
+- Simplify the development workflow, affording you the opportunity to focus on more intricate systems.
+- Using the base-contracts gives you a gas-optimized and audited foundation to build your projects.
+- Each extensions you inherit unlocks smarter [SDKs](/sdk), custom admin [Dashboards](/dashboard) and tailored data feeds.
+
+For example, if you deploy the [ERC721Base](/solidity/base-contracts/erc-721/erc721base) contract which inherits from multiple extensions including [ERC721Mintable](/solidity/extensions/erc721mintable), you'll unlock the `mint` button in the dashboard and
+can use the [mint](/sdk/interacting-with-contracts/erc721mintable) function in the SDK; which automatically uploads and pins your metadata to IPFS!
+
+## Additional Resources
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Video: Create An ERC721A Smart Contract in Solidity"
+      link="https://www.youtube.com/watch?v=cqPb3hqm5H0"
+      image="/assets/icons/education.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Guide: Get started with the Solidity SDK by building an NFT Contract"
+      link="https://blog.thirdweb.com/guides/get-started-with-the-contracts-sdk/"
+      image="/assets/icons/education.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Guide: Get Started with NFT Base Contracts"
+      link="https://blog.thirdweb.com/guides/get-started-with-the-contracts-sdk/"
+      image="/assets/icons/education.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Video: Create Evolving NFTs with ERC1155 Base Contracts"
+      link="https://www.youtube.com/watch?v=cKc8JVl_u30"
+      image="/assets/icons/education.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Video: Build A Blockchain Game with the Solidity SDK"
+      link="https://www.youtube.com/watch?v=Mdpf0n-tGvE"
+      image="/assets/icons/education.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Guide: Create A Generative Art NFT Collection"
+      link="https://blog.thirdweb.com/guides/create-a-generative-art-nft-collection-using-solidity-javascript/"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>

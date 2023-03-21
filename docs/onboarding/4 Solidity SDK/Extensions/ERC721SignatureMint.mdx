@@ -21,29 +21,7 @@ The 'signature minting' mechanism in the `SignatureMintERC721` extension uses [E
   name="SignatureMintERC721"
 />
 
-## Availability in base contracts
-
-The `SignatureMintERC721` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
-
-- **ERC721**: [`ERC721SignatureMint`](/solidity/base-contracts/erc-721/erc721signaturemint)
-
-## Unlocked Features
-
-Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
-  <div className="col col--12" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Signature Minting"
-      link="/sdk/advanced-features/on-demand-minting"
-      image="/assets/icons/general.png"
-    />
-  </div>
-</div>
-
-## Implementing the Contract
-
-This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/solidity/extension-contracts/sigminterc721#availability-in-base-contracts) that already implement signature minting functionlity for you!
+## Usage
 
 The `SignatureMintERC721` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
@@ -51,6 +29,8 @@ The `SignatureMintERC721` extension is an _abstract contract_, and expects you t
 | ------------------------------------------------------------------------------------------- | ----------------------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
 | [`_canSignMintRequest`](/solidity/extension-contracts/sigminterc721#_cansignmintrequest) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to mint tokens with signature on the contract. Returns whether the signer is authorized to issue a signature for minting. |
 | [`mintWithSignature`](/solidity/extension-contracts/sigminterc721#mintwithsignature)     | external payable        | n/a        | `address` | Mints tokens according to the provided mint request.                                                                                            |
+
+This is an example smart contract demonstrating how to use this extension.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -136,6 +116,16 @@ contract ERC721SignatureMint is ERC721Base, SignatureMintERC721 {
     }
 }
 ```
+
+## SDK Usage
+
+## Dashboard Usage
+
+## Availability in base contracts
+
+The `SignatureMintERC721` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
+
+- **ERC721**: [`ERC721SignatureMint`](/solidity/base-contracts/erc-721/erc721signaturemint)
 
 ## Full API reference
 

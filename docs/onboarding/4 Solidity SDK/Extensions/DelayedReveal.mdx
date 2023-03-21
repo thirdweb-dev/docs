@@ -12,45 +12,24 @@ import QuickstartCard from "@components/QuickstartCard";
 import "@thirdweb-dev/contracts/extension/DelayedReveal.sol";
 ```
 
-The `DelayedReveal` smart contract is an extension for any base NFT contract. It lets you create batches of 'delayed-reveal' NFTs.
+The `DelayedReveal` smart contract is an extension for any NFT contract. It lets you create batches of 'delayed-reveal' NFTs.
 
-`DelayedReveal` uses the [`LazyMint`](/solidity/extension-contracts/lazymint) extension. When first lazy minting tokens, you can encrypt the metadata of NFTs and can reveal this metadata once your lazy minted NFTs have been distributed. You can learn more about how delayed reveal NFTs work, in this [blogpost](https://blog.thirdweb.com/delayed-reveal-nfts).
+It is recommended to use this extension alongside the [`LazyMint`](/solidity/extension-contracts/lazymint) extension. When first lazy minting tokens, you can encrypt the metadata of NFTs and can reveal this metadata once your lazy minted NFTs have been distributed. You can learn more about how delayed reveal NFTs work, in this [blogpost](https://blog.thirdweb.com/delayed-reveal-nfts).
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DelayedReveal.sol"
   name="DelayedReveal"
 />
 
-## Availability in base contracts
-
-The `DelayedReveal` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
-
-- **ERC721**: [`ERC721DelayedReveal`](/solidity/base-contracts/erc-721/erc721delayedreveal), [`ERC721Drop`](/solidity/base-contracts/erc-721/erc721drop)
-- **ERC1155**: [`ERC1155DelayedReveal`](/solidity/base-contracts/erc-1155/erc1155delayedreveal), [`ERC1155Drop`](/solidity/base-contracts/erc-1155/erc1155drop)
-
-## Unlocked Features
-
-By implementing `DelayedReveal`, you unlock the following features in the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
-  <div className="col col--12" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Delayed Reveal"
-      link="/sdk/interacting-with-contracts/erc721delayedreveal"
-      image="/assets/icons/general.png"
-    />
-  </div>
-</div>
-
-## Implementing It Yourself
-
-This section is meant for advanced users who want to write functionality from scratch. If that's not you, use one of these [base contracts](/solidity/extension-contracts/delayedreveal#availability-in-base-contracts) that already implement delayed reveal functionlity for you!
+## Usage
 
 The `DelayedReveal` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
 | Name                                                              | Type     | Parameters | Returns         | Description                             |
 | ----------------------------------------------------------------- | -------- | ---------- | --------------- | --------------------------------------- |
-| [`reveal`](/solidity/extension-contracts/delayedreveal#reveal) | external | n/a        | `string memory` | Reveals a batch of delayed reveal NFTs. |
+| [`reveal`](/solidity/extensions/delayedreveal#reveal) | external | n/a        | `string memory` | Reveals a batch of delayed reveal NFTs. |
+
+This is an example smart contract demonstrating how to use this extension.
 
 ```solidity
 // SPDX-License-Identifier: MIT
@@ -131,6 +110,17 @@ contract MyContract is ERC721LazyMint, DelayedReveal {
     }
 }
 ```
+
+## SDK Usage
+
+## Dashboard Usage
+
+## Availability in base contracts
+
+The `DelayedReveal` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
+
+- **ERC721**: [`ERC721DelayedReveal`](/solidity/base-contracts/erc-721/erc721delayedreveal), [`ERC721Drop`](/solidity/base-contracts/erc-721/erc721drop)
+- **ERC1155**: [`ERC1155DelayedReveal`](/solidity/base-contracts/erc-1155/erc1155delayedreveal), [`ERC1155Drop`](/solidity/base-contracts/erc-1155/erc1155drop)
 
 ## Full API Reference
 

@@ -1,0 +1,88 @@
+---
+slug: /solidity/extensions/erc1155batchmintable
+title: ERC1155BatchMintable
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import QuickstartCard from "@components/QuickstartCard";
+
+# ERC1155BatchMintable
+
+Enable minting multiple NFTs at once in a single transaction by Implementing `ERC1155`, `IMintableERC1155`, and `Multicall`.
+
+It is an extension which is detectable in the dashboard if the smart contract implements the 
+[ERC1155](/solidity/extensions/erc1155), [Multicall](/solidity/extensions/multicall) and [ERC1155Mintable](/solidity/extensions/interfaces/erc1155mintable) extensions.
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/Multicall.sol"
+  name="Multicall"
+/>
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IMintableERC1155.sol"
+  name="ERC1155Mintable"
+/>
+
+:::info
+
+This extension requires other extensions to be inherited to be detectable on the Dashboard
+
+:::
+
+## Implementing It Yourself
+
+This is an example smart contract which will have ERC1155BatchMintable detected on it in the dashboard.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/eip/ERC1155.sol";
+import "@thirdweb-dev/contracts/extension/interface/IMintableERC1155.sol";
+import "@thirdweb-dev/contracts/extension/Multicall.sol";
+
+contract Contract is ERC1155, IMintableERC1155, Multicall {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC1155(
+            _name,
+            _symbol
+        )
+    {}
+
+    function mintTo(
+        address to,
+        uint256 tokenId,
+        string calldata uri,
+        uint256 amount
+    ) external override {
+        // Your custom implementation here
+    }
+}
+```
+
+## SDK Usage
+
+## Dashboard Usage
+
+## Base Contracts Implementing This Feature
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC1155 Base"
+      link="/solidity/base-contracts/erc-1155/erc1155base"
+      image="/assets/icons/general.png"
+    />
+  </div>
+  <div className="col col--6" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="ERC721 Signature Mint"
+      link="/solidity/base-contracts/erc-721/erc721signaturemint"
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
