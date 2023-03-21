@@ -3,77 +3,195 @@ title: Overview
 slug: /pre-built-contracts
 ---
 
-import DeployThisContractButton from "@components/DeployThisContractButton";
-import QuickstartCard from "@components/QuickstartCard";
+Explore is a directory of smart contracts that have been carefully curated in collaboration with protocols, communities, and include thirdweb's ready-to-deploy contracts. With Explore, developers can deploy smart contracts to any EVM chain without exposing their wallet's private keys.
 
-# Pre-Built Contracts Overview
+Using Explore, developers can discover unique contracts that suit their specific use cases. Once a contract has been deployed, a dashboard is provided for easy interaction and management of the contract. These contracts can also be used with SDKs to build applications for end-users.
 
-Pre-built contracts are written by the thirdweb team, and cover the most common use cases for smart contracts; each of them are:
+Protocols and companies can easily publish their contracts on Explore, allowing developers to discover and deploy them with ease. If you're interested in deploying your contract on Explore, please fill out our [partnership form](https://form.typeform.com/to/FAwehBFl?typeform-source=thirdweb.com).
 
-- [Open source](https://github.com/thirdweb-dev/contracts) and free to deploy (excl. gas fees)
-- [Audited](https://gateway.thirdweb.dev/ipfs/QmWfueeKQrggrVQNjWkF4sYJECp56vNnuAXCPVecFFKz2j) and supported by our [bug bounty program](https://thirdweb.notion.site/thirdweb-Bug-Bounty-Program-f78d1db776ab4f0e974c9da176fcf706)
-- Fully owned by the contract deployer _(you)_
-- 10x cheaper to deploy than traditional contracts
+### Key Features
 
-### Quick Start
+Explore offers several key features, including:
 
-<div className="row" style={{marginBottom:24}}>
+- Open source contracts that are free to deploy (excluding gas fees)
+- A directory of contracts that can be easily deployed to any EVM compatible blockchain
+- Accessible audit reports for each audited contract, ensuring transparency and trustworthiness
+- A wide selection of ready-to-deploy contracts covering popular use cases such as NFTs, tokens, DAOs, marketplaces, airdrops, staking, and more
+- Unlock access to the [Dashboard](https://thirdweb.com/dashboard) for contract management, analytics, and interaction.
 
-<div className="col col--4" style={{ marginTop: 8 }}>
-  <QuickstartCard
-    name="Releasing an NFT Drop"
-    link="https://blog.thirdweb.com/guides/signature-drop/"
-    image="/assets/icons/drop.png"
-  />
-</div>
+### Benefits
 
-<div className="col col--4" style={{ marginTop: 8 }}>
-  <QuickstartCard
-    name="Creating your own Token"
-    link="https://blog.thirdweb.com/guides/create-your-currency-with-typescript-sdk"
-    image="/assets/icons/token.png"
-  />
-</div>
+Explore contracts offer several benefits, including:
 
-<div className="col col--4" style={{ marginTop: 8 }}>
-  <QuickstartCard
-    name="Building an NFT Marketplace"
-    link="https://blog.thirdweb.com/guides/nft-marketplace-with-typescript-next"
-    image="/assets/icons/marketplace.png"
-  />
-</div>
+- Full ownership by the contract deployer, giving you complete control over your assets
+- Cost savings of up to 10x compared to standard deployment methods with thirdweb's ready-to-deploy contracts
+- Streamlined deployment process, reducing friction and making it easier to get your contracts up and running.
 
-</div>
+## Ready-to-Deploy Contracts
 
-## How Pre-Built Contracts Work
+### How thirdweb’s Ready-to-Deploy Contracts Work
 
-Each contract makes use of the extensions that are available in our [ContractKit](/contractkit),
-and all come with a standard set of features that enable fine-grained control over the contract's behavior, such as:
+Each contract makes use of extensions available in thirdweb’s Solidity SDK and come with a standard set of features that enable fine-grained control over the contract's behavior, such as:
 
-- [Contract metadata](/dashboard/contract-settings#contract-metadata)
-- [Permission controls](/dashboard/permission-controls)
-- [Royalties and platform fees](/dashboard/contract-settings#royalty-fees)
+- Contract metadata
+- Permission controls
+- Royalty and platform fees
 
-When you deploy a prebuilt contract, under the hood you are creating a **proxy contract**;
-which reduces the gas cost for you by **~90%**!
+When using Ready-to-Deply contracts under the hood you are creating a **proxy contract**;
+which reduces the gas cost by **~90%**!
 
-This works by having our smart contracts run the underlying logic, meaning you only deploy the code that is unique to _your_ contract.
-This is possible since all prebuilt contracts run the same logic for things
-like minting, transferring, and burning tokens.
-
-<div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--12" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Blog: thirdweb V2 - How Prebuilt Contracts Work"
-      link="https://blog.thirdweb.com/thirdweb-v2/"
-      image="/assets/icons/general.png"
-    />
-  </div>
-</div>
-
-Your contract stores knowledge of its metadata and state, for example; its name, and what NFTs have been minted so far.
-For any logic (such as minting an NFT), it delegates this to our underlying smart contract to handle, since this logic is the same for every NFT collection.
-
-You still maintain 100% ownership of the contract.
+This works by having our smart contracts run the underlying logic, meaning you only deploy the code that is unique to _your_ contract. This is possible since all ready-to-deploy contracts run the same logic for actions such as minting, transferring, and burning tokens.
 
 ![Proxy Contract Flow](./2EVM/assets/delegating-calls.png)
+
+<table>
+  <tr>
+    <th>Category</th>
+    <th>Contact</th>
+    <th>Standard</th>
+    <th>Description</th>
+  </tr>
+  <tr>
+    <td rowspan="4">NFTs</td>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/TokenERC721">NFT Collection</a>
+    </td>
+    <td>ERC721</td>
+    <td>Create collection of unique NFTs</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/TokenERC1155">Edition</a>
+    </td>
+    <td>ERC1155</td>
+    <td>Create editions of ERC1155 semi-fungible tokens</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/Multiwrap">Multiwrap</a>
+    </td>
+    <td>-</td>
+    <td>Bundle multiple ERC20/ERC721/ERC1155 tokens into a single ERC721</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/Pack">Pack</a>
+    </td>
+    <td>-</td>
+    <td>
+      Pack multiple tokens into ERC1155 NFTs that act as randomized loot boxes
+    </td>
+  </tr>
+  <tr>
+    <td rowspan="4">Drops</td>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/DropERC20">Token Drop</a>
+    </td>
+    <td>ERC20</td>
+    <td>Release new ERC20 tokens for a set price</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/DropERC721">NFT Drop</a>
+    </td>
+    <td>ERC721</td>
+    <td>Release collection of unique NFTs for a set price</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/SignatureDrop">
+        Signature Drop
+      </a>
+    </td>
+    <td>ERC721A</td>
+    <td>Signature based minting of ERC721 tokens</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/DropERC1155">Edition Drop</a>
+    </td>
+    <td>ERC1155</td>
+    <td>Release ERC1155 tokens for a set price</td>
+  </tr>
+  <tr>
+    <td rowspan="4">Marketplace, DAOS & Governance</td>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/Marketplace">Marketplace</a>
+    </td>
+    <td>-</td>
+    <td>Buy and sell ERC721/ERC1155 tokens</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/TokenERC20">Token</a>
+    </td>
+    <td>ERC20</td>
+    <td>Create cryptocurrency compliant with ERC20 standard</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/Split">Split</a>
+    </td>
+    <td>-</td>
+    <td>Distribute funds among multiple recipients</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/VoteERC20">Vote</a>
+    </td>
+    <td>-</td>
+    <td>Create and vote on proposals</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Airdrop</td>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/AirdropERC20">Airdrop ERC20</a>
+    </td>
+    <td>-</td>
+    <td>
+      Airdrop ERC20 tokens or the chain’s native token to a list of recipients
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/AirdropERC721">
+        Airdrop ERC721
+      </a>
+    </td>
+    <td>-</td>
+    <td>Airdrop ERC721 NFTs to a list of recipients</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/AirdropERC1155">
+        Airdrop ERC1155
+      </a>
+    </td>
+    <td>-</td>
+    <td>Airdrop ERC71155 NFTs to a list of recipients</td>
+  </tr>
+  <tr>
+    <td rowspan="3">Staking</td>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/TokenStake">StakeERC20</a>
+    </td>
+    <td>-</td>
+    <td>Contract for staking ERC720 NFTs, for ERC20 tokens as rewards</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/NFTStake">StakeERC721</a>
+    </td>
+    <td>-</td>
+    <td>Contract for staking ERC721 NFTs, for ERC20 tokens as rewards</td>
+  </tr>
+  <tr>
+    <td>
+      <a href="https://thirdweb.com/thirdweb.eth/EditionStake">StakeERC1155</a>
+    </td>
+    <td>-</td>
+    <td>
+      Contract for staking ERC1155 tokens, for another ERC20 token as rewards
+    </td>
+  </tr>
+</table>{" "}
