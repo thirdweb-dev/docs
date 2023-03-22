@@ -2165,28 +2165,31 @@ const txResult = await contract?.erc721.claimConditions.update(
 ```
 
 <details>
-    <summary>Configuration</summary>
-    <div>
-See [`set`](#set) configuration for more details.
-</div>
+  <summary>Configuration</summary>
+  <div>See [`set`](#set) configuration for more details.</div>
 </details>
-## update - Contract Metadata
-Update the metadata of your smart contract.
+
+## update - Contract Metadata Update the metadata of your smart contract.
+
 ```javascript
 const txResult = await contract.metadata.update({
   name: "My Contract",
   description: "My contract description",
 });
 ```
+
 <details>
   <summary>Configuration</summary>
   <div>
+
 #### metadata
+
 Provide an object containing the metadata of your smart contract following the
 [contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
 New properties will be added, and existing properties will be overwritten.
 If you do not provide a new value for a previously set property, it will remain unchanged.
 Below are the properties you can define on your smart contract.
+
 ```typescript
 {
   name: string; // Name of your smart contract
@@ -2198,6 +2201,7 @@ Below are the properties you can define on your smart contract.
   fee_recipient?: string; // Wallet address that receives the seller fee
 }
 ```
+
 </div>
 </details>
 ## verify
