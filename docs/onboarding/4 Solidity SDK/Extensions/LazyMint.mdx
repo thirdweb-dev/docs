@@ -4,7 +4,7 @@ title: LazyMint
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
-import QuickstartCard from "@components/QuickstartCard";
+import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
 
 # Lazy Mint
 
@@ -20,6 +20,16 @@ Here, 'lazy mint' means defining the metadata for particular tokenIds of your NF
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/LazyMint.sol"
   name="LazyMint"
 />
+
+<br/>
+
+:::info
+
+In order for the `ERC721LazyMintable`, `ERC1155LazyMintable` or `ERC20LazyMintable` extension to show up
+in the Dashboard, the corresponding [`ERC721`](/solidity/extensions/erc721), [`ERC1155`](/solidity/extensions/erc1155) or [`ERC20`](/solidity/extensions/erc20) extensions need to be added alongside 
+the `LazyMint` extension
+
+:::
 
 ## Usage
 
@@ -63,13 +73,6 @@ contract MyContract is LazyMint {
 }
 ```
 
-## Availability in base contracts
-
-The `LazyMint` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
-
-- **ERC721**: [`ERC721LazyMint`](/solidity/base-contracts/erc-721/erc721lazymint), [`ERC721DelayedReveal`](/solidity/base-contracts/erc-721/erc721delayedreveal), [`ERC721Drop`](/solidity/base-contracts/erc-721/erc721drop)
-- **ERC1155**: [`ERC1155LazyMint`](/solidity/base-contracts/erc-1155/erc1155lazymint), [`ERC1155DelayedReveal`](/solidity/base-contracts/erc-1155/erc1155delayedreveal), [`ERC1155Drop`](/solidity/base-contracts/erc-1155/erc1155drop)
-
 ## SDK Usage
 
 By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
@@ -77,6 +80,13 @@ By adding this extension to a smart contract, the following features, hooks and 
 ## Dashboard Usage
 
 By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
+
+## Availability in base contracts
+
+The `LazyMint` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
+
+- **ERC721**: [`ERC721LazyMint`](/solidity/base-contracts/erc-721/erc721lazymint), [`ERC721DelayedReveal`](/solidity/base-contracts/erc-721/erc721delayedreveal), [`ERC721Drop`](/solidity/base-contracts/erc-721/erc721drop)
+- **ERC1155**: [`ERC1155LazyMint`](/solidity/base-contracts/erc-1155/erc1155lazymint), [`ERC1155DelayedReveal`](/solidity/base-contracts/erc-1155/erc1155delayedreveal), [`ERC1155Drop`](/solidity/base-contracts/erc-1155/erc1155drop)
 
 ## Full API Reference
 

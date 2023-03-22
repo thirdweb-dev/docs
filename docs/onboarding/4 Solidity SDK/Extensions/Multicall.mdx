@@ -4,7 +4,7 @@ title: Multicall
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
-import QuickstartCard from "@components/QuickstartCard";
+import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
 
 # Multicall
 
@@ -19,6 +19,15 @@ The `Multicall` smart contract is an extension usable with any base smart contra
   name="Multicall"
 />
 
+<br/>
+
+:::info
+
+It is recommended to use this extension alongside the [`ERC721Mintable`](/solidity/extensions/erc721mintable), [`ERC1155Mintable`](/solidity/extensions/erc1155mintable) or [`ERC20Mintable`](/solidity/extensions/erc20mintable)
+extension to unlock the [`ERC721BatchMintable`](/solidity/extensions/erc721batchmintable), [`ERC1155BatchMintable`](/solidity/extensions/erc1155batchmintable) or [`ERC20BatchMintable`](/solidity/extensions/erc20batchmintable) dashboard extension detection.
+
+:::
+
 ## Usage
 
 ```solidity
@@ -32,11 +41,11 @@ contract MyContract is Multicall { ... }
 
 ## SDK Usage
 
-By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+This extension alone does not unlock anything extra in the SDKs.
 
 ## Dashboard Usage
 
-By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
+This extension alone does not unlock anything in the Dashboard.
 
 ## Availability in base contracts
 

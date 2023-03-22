@@ -4,7 +4,7 @@ title: DropSinglePhase
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
-import QuickstartCard from "@components/QuickstartCard";
+import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
 
 # DropSinglePhase (ERC20 & ERC721)
 
@@ -18,12 +18,18 @@ This extension implements the 'Drop' distribution mechanism: set restrictions, k
 
 `DropSinglePhase` allows you to set one claim phase unlike the [`Drop`](/solidity/extensions/drop) extension.
 
-It is recommended to use this extension alongside the [LazyMint](/solidity/extensions/lazymint) extension.
-
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DropSinglePhase.sol"
   name="DropSinglePhase"
 />
+
+<br/>
+
+:::info
+
+It is recommended to use this extension alongside the [LazyMint](/solidity/extensions/lazymint) extension.
+
+:::
 
 ## Usage
 
@@ -45,7 +51,7 @@ import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
 import "@thirdweb-dev/contracts/base/ERC20Base.sol";
 import "@thirdweb-dev/contracts/lib/CurrencyTransferLib.sol";
 
-/// This is an EXAMPLE of usage of `DropSinglePhase` for distributing ERC20 tokens.
+/// This is an EXAMPLE of the usage of `DropSinglePhase` for distributing ERC20 tokens.
 
 contract MyContract is ERC20Base, DropSinglePhase {
     /*//////////////////////////////////////////////////////////////
@@ -114,6 +120,117 @@ contract MyContract is ERC20Base, DropSinglePhase {
 ## SDK Usage
 
 By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+<details>
+<summary>Get Active Claim Conditions</summary>
+<div>
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721ClaimConditionsV2"}
+  languageFunctionMapping={{
+    javascript: "get",
+    react: "useActiveClaimCondition",
+  }}
+  showHr={false}
+/>
+
+</div>
+</details>
+
+<details>
+<summary>Get Active Claim Conditions for a Specific Wallet</summary>
+<div>
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721ClaimConditionsV2"}
+  languageFunctionMapping={{
+    javascript: "get",
+    react: "useActiveClaimConditionForWallet",
+  }}
+  showHr={false}
+/>
+
+</div>
+</details>
+
+<details>
+<summary>Get All Claim Conditions</summary>
+<div>
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721ClaimConditionsV2"}
+  languageFunctionMapping={{
+    javascript: "get",
+    react: "useClaimConditions",
+  }}
+  showHr={false}
+/>
+
+</div>
+</details>
+
+<details>
+<summary>Get All Claimer Proofs </summary>
+<div>
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721ClaimConditionsV2"}
+  languageFunctionMapping={{
+    javascript: "get",
+    react: "useClaimerProofs",
+  }}
+  showHr={false}
+/>
+
+</div>
+</details>
+
+<details>
+<summary>Get Reasons Why a Specific Wallet Cannot Claim</summary>
+<div>
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721ClaimConditionsV2"}
+  languageFunctionMapping={{
+    javascript: "get",
+    react: "useClaimIneligibilityReasons",
+  }}
+  showHr={false}
+/>
+
+</div>
+</details>
+
+<details>
+<summary>Reset Claim Conditions</summary>
+<div>
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721ClaimConditionsV2"}
+  languageFunctionMapping={{
+    react: "useResetClaimConditions",
+  }}
+  showHr={false}
+/>
+
+</div>
+</details>
+
+<details>
+<summary>Set Claim Conditions</summary>
+<div>
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721ClaimConditionsV2"}
+  languageFunctionMapping={{
+    javascript: "set",
+    react: "useSetClaimConditions",
+  }}
+  showHr={false}
+/>
+
+</div>
+</details>
 
 ## Dashboard Usage
 

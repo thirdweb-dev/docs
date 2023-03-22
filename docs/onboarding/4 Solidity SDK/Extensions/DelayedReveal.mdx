@@ -4,7 +4,7 @@ title: DelayedReveal
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
-import QuickstartCard from "@components/QuickstartCard";
+import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
 
 # DelayedReveal
 
@@ -14,12 +14,16 @@ import "@thirdweb-dev/contracts/extension/DelayedReveal.sol";
 
 The `DelayedReveal` smart contract is an extension for any NFT contract. It lets you create batches of 'delayed-reveal' NFTs.
 
-It is recommended to use this extension alongside the [`LazyMint`](/solidity/extension-contracts/lazymint) extension. When first lazy minting tokens, you can encrypt the metadata of NFTs and can reveal this metadata once your lazy minted NFTs have been distributed. You can learn more about how delayed reveal NFTs work, in this [blogpost](https://blog.thirdweb.com/delayed-reveal-nfts).
-
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DelayedReveal.sol"
   name="DelayedReveal"
 />
+
+:::info
+
+It is recommended to use this extension alongside the [`LazyMint`](/solidity/extension-contracts/lazymint) extension. When first lazy minting tokens, you can encrypt the metadata of NFTs and can reveal this metadata once your lazy minted NFTs have been distributed. You can learn more about how delayed reveal NFTs work, in this [blogpost](https://blog.thirdweb.com/delayed-reveal-nfts).
+
+:::
 
 ## Usage
 
@@ -114,6 +118,36 @@ contract MyContract is ERC721LazyMint, DelayedReveal {
 ## SDK Usage
 
 By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+<details>
+<summary>Mint Delayed Reveal ERC721 NFTs</summary>
+<div>
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC721Revealable"}
+  languageFunctionMapping={{
+    javascript: "revealer",
+  }}
+  showHr={false}
+/>
+
+</div>
+</details>
+
+<details>
+<summary>Mint Delayed Reveal ERC1155 NFTs</summary>
+<div>
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155Revealable"}
+  languageFunctionMapping={{
+    javascript: "revealer",
+  }}
+  showHr={false}
+/>
+
+</div>
+</details>
 
 ## Dashboard Usage
 

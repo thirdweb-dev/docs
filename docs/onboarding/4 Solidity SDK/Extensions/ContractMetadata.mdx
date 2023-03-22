@@ -4,7 +4,7 @@ title: ContractMetadata
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
-import QuickstartCard from "@components/QuickstartCard";
+import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
 
 # ContractMetadata
 
@@ -65,6 +65,70 @@ contract MyContract is ContractMetadata {
 ## SDK usage
 
 By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+<details>
+<summary>Get App URI</summary>
+<div>
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"AppURI"}
+  languageFunctionMapping={{
+    javascript: "get",
+    react: "useAppURI",
+  }}
+  showHr={false}
+/>
+
+</div>
+</details>
+
+<details>
+<summary>Get App URI</summary>
+<div>
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"AppURI"}
+  languageFunctionMapping={{
+    javascript: "set",
+    react: "useSetAppURI",
+  }}
+  showHr={false}
+/>
+
+</div>
+</details>
+
+<details>
+<summary>Get the Contract Metadata</summary>
+<div>
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ContractMetadata"}
+  languageFunctionMapping={{
+    javascript: "get",
+    react: "useContractMetadata",
+  }}
+  showHr={false}
+/>
+
+</div>
+</details>
+
+<details>
+<summary>Update Contract Metadata</summary>
+<div>
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ContractMetadata"}
+  languageFunctionMapping={{
+    javascript: "set",
+    react: "useContractMetadataUpdate",
+  }}
+  showHr={false}
+/>
+
+</div>
+</details>
 
 ## Dashboard Usage
 
