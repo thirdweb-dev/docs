@@ -2,6 +2,7 @@
 title: Getting Started
 hide_title: true
 displayed_sidebar: react
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
 ---
 
 import Tabs from "@theme/Tabs";
@@ -81,76 +82,19 @@ const Home = () => {
 
 ## Configuration
 
+When using client-side libraries, additional [polyfills](https://developer.mozilla.org/en-US/docs/Glossary/Polyfill) are required.
+
 <details>
   <summary>
-    CRA
+    Create React App
 </summary>
 <div>
 
-If you are using Create React App, you can use the [Thirdweb CLI](/cli) to create a new project with the thirdweb SDK already set up.
-
-```bash
-npx thirdweb create app --cra
-```
-
-If you want to go through the process manually, you can follow the steps below.
-
-### Install Dependencies
+Use [react-app-rewired](https://www.npmjs.com/package/react-app-rewired) to
+tweak the webpack configuration.
 
 <Tabs>
-  <TabItem value="npm" label="npm" default>
-    <CodeBlock language="bash">
-      npm i @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5
-    </CodeBlock>
-  </TabItem>
-  <TabItem value="yarn" label="yarn">
-    <CodeBlock language="bash">
-      yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5
-    </CodeBlock>
-  </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-    <CodeBlock language="bash">
-      pnpm i @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5
-    </CodeBlock>
-  </TabItem>
-</Tabs>
-
-In your `index.js`/`index.tsx` file, wrap your application in the [`ThirdwebProvider`](/react/react.thirdwebprovider) component to start using the SDK.
-
-```jsx
-import React from "react";
-import { createRoot } from "react-dom/client";
-import App from "./App";
-import reportWebVitals from "./reportWebVitals";
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-
-// This is the chain your dApp will work on.
-// Change this to the chain your app is built for.
-// You can also import additional chains from `@thirdweb-dev/chains` and pass them directly.
-const activeChain = "goerli";
-
-const container = document.getElementById("root");
-const root = createRoot(container!);
-root.render(
-  <React.StrictMode>
-    <ThirdwebProvider activeChain={activeChain}>
-      <App />
-    </ThirdwebProvider>
-  </React.StrictMode>
-);
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
-```
-
-### Configuring Polyfills
-
-We also need to configure, so install the following dependencies:
-
-<Tabs>
-  <TabItem value="npm" label="npm" default>
+  <TabItem value="npm" label="npm">
     <CodeBlock language="bash">
       npm i assert react-app-rewired stream -D
     </CodeBlock>
@@ -178,7 +122,7 @@ Finally, update the scripts to use `react-app-rewired`:
   },
 ```
 
-Now, create a `config-overrides.js` file in the root of your project and add the following:
+Next, create a `config-overrides.js` file in the root of your project and add the following:
 
 ```js
 const webpack = require("webpack");
@@ -235,55 +179,7 @@ Now, you can start using the SDK!
    </summary>
     <div>
 
-If you are using Vite, you can use the [Thirdweb CLI](/cli) to create a new project with the thirdweb SDK already set up.
-
-```bash
-npx thirdweb create app --vite
-```
-
-If you want to go through the process manually, you can follow the steps below.
-
-### Install Dependencies
-
-<Tabs>
-  <TabItem value="npm" label="npm" default>
-    <CodeBlock language="bash">
-      npm i @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5
-    </CodeBlock>
-  </TabItem>
-  <TabItem value="yarn" label="yarn">
-    <CodeBlock language="bash">
-      yarn add @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5
-    </CodeBlock>
-  </TabItem>
-  <TabItem value="pnpm" label="pnpm">
-    <CodeBlock language="bash">
-      pnpm i @thirdweb-dev/react @thirdweb-dev/sdk ethers@^5
-    </CodeBlock>
-  </TabItem>
-</Tabs>
-
-In your `main.js`/`main.ts` file, wrap your application in the [`ThirdwebProvider`](/react/react.thirdwebprovider) component to start using the SDK.
-
-```jsx
-import React from "react";
-import ReactDOM from "react-dom/client";
-import App from "./App";
-import "./index.css";
-import { ThirdwebProvider } from "@thirdweb-dev/react";
-
-ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
-    <ThirdwebProvider activeChain="goerli">
-      <App />
-    </ThirdwebProvider>
-  </React.StrictMode>
-);
-```
-
-### Configuring Vite
-
-In your `vite.config.js` file, add the following:
+In the `vite.config.js` file, add the following configuration:
 
 ```js
 import react from "@vitejs/plugin-react";
