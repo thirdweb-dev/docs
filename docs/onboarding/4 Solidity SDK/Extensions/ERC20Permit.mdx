@@ -13,7 +13,8 @@ Implementing the `ERC20Permit` extensions allows approvals to be made via signat
 
 The `permit` function can be used to change an account's ERC20 allowance (see {IERC20-allowance}) by
 presenting a message signed by the account. By not relying on {IERC20-approve}, the token holder account doesn't
-need to send a transaction, and thus is not required to hold Ether at all.
+need to send a transaction and thus is not required to hold Ether at all.
+
 
 :::info
 
@@ -112,7 +113,11 @@ contract Contract is ERC721A {
 
 ## SDK Usage
 
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
 ## Dashboard Usage
+
+By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
 
 ## Base Contracts Implementing This Feature
 

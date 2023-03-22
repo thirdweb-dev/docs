@@ -23,20 +23,6 @@ It is recommended to use this extension alongside the [LazyMint](/solidity/exten
   name="Drop"
 />
 
-## Unlocked Extensions
-
-Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
-  <div className="col col--12" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Claim with conditions"
-      link="/solidity/extensions/erc721claimconditions"
-      image="/assets/icons/general.png"
-    />
-  </div>
-</div>
-
 ## Usage
 
 The `Drop` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
@@ -122,6 +108,14 @@ contract MyContract is ERC20Base, Drop {
     }
 }
 ```
+
+## SDK Usage
+
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+## Dashboard Usage
+
+By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
 
 ## Full API reference
 

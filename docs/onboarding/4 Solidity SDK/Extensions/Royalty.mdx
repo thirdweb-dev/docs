@@ -21,26 +21,6 @@ support on NFT marketplaces, allowing you to take a percentage fee of secondary 
   name="Royalty"
 />
 
-## Availability in base contracts
-
-The `ContractMetadata` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
-
-- All [ERC721](/solidity/base-contracts/erc-721/erc721base) and [ERC1155](/solidity/base-contracts/erc-1155/erc1155base) base contracts.
-
-## Unlocked Features
-
-Once deployed, you can use the features made available by these contracts on the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
-  <div className="col col--12" style={{ marginTop: 16 }}>
-    <QuickstartCard
-      name="Royalty Fees"
-      link="/sdk/advanced-features/contract-settings#royalty-fees"
-      image="/assets/icons/general.png"
-    />
-  </div>
-</div>
-
 ## Usage
 
 The `Royalty` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
@@ -97,6 +77,20 @@ contract MyContract is Royalty {
     }
 }
 ```
+
+## SDK Usage
+
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+## Dashboard Usage
+
+By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
+
+## Availability in base contracts
+
+The `ContractMetadata` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
+
+- All [ERC721](/solidity/base-contracts/erc-721/erc721base) and [ERC1155](/solidity/base-contracts/erc-1155/erc1155base) base contracts.
 
 ## Full API Reference
 

@@ -21,27 +21,6 @@ Here, 'lazy mint' means defining the metadata for particular tokenIds of your NF
   name="LazyMint"
 />
 
-## Availability in base contracts
-
-The `LazyMint` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
-
-- **ERC721**: [`ERC721LazyMint`](/solidity/base-contracts/erc-721/erc721lazymint), [`ERC721DelayedReveal`](/solidity/base-contracts/erc-721/erc721delayedreveal), [`ERC721Drop`](/solidity/base-contracts/erc-721/erc721drop)
-- **ERC1155**: [`ERC1155LazyMint`](/solidity/base-contracts/erc-1155/erc1155lazymint), [`ERC1155DelayedReveal`](/solidity/base-contracts/erc-1155/erc1155delayedreveal), [`ERC1155Drop`](/solidity/base-contracts/erc-1155/erc1155drop)
-
-## Unlocked Features
-
-By implementing `LazyMint`, you unlock the following features in the SDK and dashboard:
-
-<div className="row" style={{ marginBottom: 24, flexWrap: "wrap" }}>
-  <div className="col col--12" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="Lazy Mint"
-      link="/sdk/interacting-with-contracts/erc721lazymintable#create-a-batch-of-unique-nfts-to-be-claimed-in-the-future"
-      image="/assets/icons/general.png"
-    />
-  </div>
-</div>
-
 ## Usage
 
 The `LazyMint` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
@@ -83,6 +62,21 @@ contract MyContract is LazyMint {
     }
 }
 ```
+
+## Availability in base contracts
+
+The `LazyMint` extension is _already_ available in the following [base contracts](/solidity/base-contracts):
+
+- **ERC721**: [`ERC721LazyMint`](/solidity/base-contracts/erc-721/erc721lazymint), [`ERC721DelayedReveal`](/solidity/base-contracts/erc-721/erc721delayedreveal), [`ERC721Drop`](/solidity/base-contracts/erc-721/erc721drop)
+- **ERC1155**: [`ERC1155LazyMint`](/solidity/base-contracts/erc-1155/erc1155lazymint), [`ERC1155DelayedReveal`](/solidity/base-contracts/erc-1155/erc1155delayedreveal), [`ERC1155Drop`](/solidity/base-contracts/erc-1155/erc1155drop)
+
+## SDK Usage
+
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+## Dashboard Usage
+
+By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
 
 ## Full API Reference
 

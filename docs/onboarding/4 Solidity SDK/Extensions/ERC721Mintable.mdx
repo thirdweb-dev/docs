@@ -8,13 +8,14 @@ import QuickstartCard from "@components/QuickstartCard";
 
 # ERC721Mintable
 
-Enable minting of new NFTs into the collection by implementing the `IMintableERC721` interface on your ERC721(A) contract.
+Enable new NFTs to be minted into the collection by implementing the `IMintableERC721` interface on your ERC721(A) contract.
 
 <ViewContractCodeButton
   link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IMintableERC721.sol"
   name="IMintableERC721"
   isInterface={true}
 />
+
 
 :::info
 
@@ -53,7 +54,11 @@ contract Contract is ERC721A, IMintableERC721 {
 
 ## SDK Usage
 
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
 ## Dashboard Usage
+
+By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
 
 ## Base Contracts Implementing This Feature
 
