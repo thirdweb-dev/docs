@@ -3,6 +3,7 @@ import React from "react";
 const languageToImageMapping = {
   JavaScript: `/assets/languages/javascript.png`,
   React: `/assets/languages/react.png`,
+  "React Native": `/assets/languages/react.png`,
   Python: `/assets/languages/python.png`,
   Go: `/assets/languages/go.png`,
   Unity: `/assets/languages/unity.webp`,
@@ -11,6 +12,7 @@ const languageToImageMapping = {
 const languageToUrlMapping = {
   JavaScript: `/typescript`,
   React: `/react`,
+  "React Native": "/react-native",
   Python: `/python`,
   Go: `/go`,
   Unity: `/unity`,
