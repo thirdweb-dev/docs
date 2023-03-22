@@ -2231,34 +2231,41 @@ boolean;
 ## verify - Permissions
 Check to see if a wallet has a set of roles.
 Throws an **error** if the wallet does not have any of the given roles.
+
 ```javascript
 const verifyRole = await contract.roles.verify(
   ["admin", "minter"],
-  "{{wallet_addres}}",
+  "{{wallet_address}}",
 );
 ```
+
 <details>
     <summary>Configuration</summary>
     <div>
 #### roles
 An array of roles to check.
 Must be an array of `string`s.
+
 ```javascript
 const verifyRole = await contract.roles.verify(
   // highlight-next-line
   ["admin", "minter"],
-  "{{wallet_addres}}",
+  "{{wallet_address}}",
 );
 ```
+
 #### wallet
+
 The wallet address to check.
 Must be a `string`.
+
 ```javascript
 const verifyRole = await contract.roles.verify(
   ["admin", "minter"],
   // highlight-next-line
-  "{{wallet_addres}}",
+  "{{wallet_address}}",
 );
 ```
+
 </div>
 </details>
