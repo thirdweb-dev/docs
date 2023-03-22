@@ -7,7 +7,7 @@ displayed_sidebar: contracts
 
 # ERC1967Upgrade
 
-_This abstract contract provides getters and event emitting update functions for https://eips.ethereum.org/EIPS/eip-1967[EIP1967] slots. *Available since v4.1.*_
+_This abstract contract provides getters and event emitting update functions for [EIP1967](https://eips.ethereum.org/EIPS/eip-1967) slots. *Available since v4.1.*_
 
 ## Events
 
