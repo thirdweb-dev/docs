@@ -25,7 +25,7 @@ const sidebars = {
     },
     {
       type: "doc",
-      label: "Platform Overview",
+      label: "Overview ",
       id: "0 1 Platform Overview",
     },
     {
@@ -50,7 +50,7 @@ const sidebars = {
     },
     {
       type: "link",
-      label: "Prebuilt Contracts",
+      label: "Explore",
       href: "/pre-built-contracts",
     },
     {
