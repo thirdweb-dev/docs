@@ -72,8 +72,22 @@ export default function NavbarContent() {
             )}
 
             <a
+              className={styles.normalLinks}
+              href="https://support.thirdweb.com/?utm_source=portal"
+            >
+              Support
+            </a>
+
+            <a
+              className={styles.normalLinks}
+              href="https://feedback.thirdweb.com/?utm_source=portal"
+            >
+              Feedback
+            </a>
+
+            <a
               className={styles.goToAppButton}
-              href="https://thirdweb.com/dashboard"
+              href="https://thirdweb.com/dashboard?utm_source=portal"
             >
               Dashboard
             </a>
