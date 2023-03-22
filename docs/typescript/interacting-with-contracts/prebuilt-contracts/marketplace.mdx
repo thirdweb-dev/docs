@@ -194,7 +194,7 @@ Must be a `string`.
 
 #### buyoutPricePerToken
 
-The price that users must pay to **purhcase** the NFT from the auction, immediately closing the auction and executing a sale event for both buyer and seller.
+The price that users must pay to **purchase** the NFT from the auction, immediately closing the auction and executing a sale event for both buyer and seller.
 
 Must be a `string`, `number`, or `BigNumber`.
 
@@ -883,7 +883,7 @@ Make an offer to buy an NFT for a certain price on a direct listing.
 const txResult = await contract.direct.makeOffer(
   "{{listing_id}}",
   "{{quantity}}",
-  "{{currency_contract_addresss}}",
+  "{{currency_contract_address}}",
   "{{price_per_token}}",
   new Date(Date.now() + 60 * 60 * 24 * 1000), // e.g offer expires 1 day from now
 );
