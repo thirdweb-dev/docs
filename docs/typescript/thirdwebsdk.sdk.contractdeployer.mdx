@@ -94,7 +94,7 @@ An object containing the metadata for the contract to deploy.
 Deploy a proxy contract of a given implementation directly
 
 ```javascript
-sdk.deployer.deployProxy(
+const txResult = await sdk.deployer.deployProxy(
   "{{implementation_contract_address}}",
   implementationAbi,
   "initialize",

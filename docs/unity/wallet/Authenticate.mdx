@@ -1,0 +1,43 @@
+---
+title: Authenticate
+slug: /wallet/authenticate
+---
+
+Using [Auth](/auth), authenticate the user by signing a payload that can be used to securely identify users.
+
+## Usage
+
+```csharp
+var data = await sdk.wallet.Authenticate("domain");
+```
+
+## Configuration
+
+### domain
+
+The domain you used in your authentication backend.
+
+[Learn more about how auth works](/auth/how-auth-works/sign-in-with-wallet).
+
+Must be a `string`.
+
+```csharp
+var data = await sdk.wallet.GetBalance("{{currency_contract_address}}");
+```
+
+## Return Value
+
+Returns a `LoginPayload` struct containing the following properties:
+
+```csharp
+{
+  string signature;
+  {
+    string domain;
+    string address;
+    string nonce;
+    string expiration_time;
+    string chain_id;
+  }
+}
+```
