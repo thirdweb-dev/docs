@@ -1013,61 +1013,6 @@ string;
 </div>
 </details>
 
-## setRecipient
-
-Set the primary sale recipient.
-
-```javascript
-await contract.sales.setRecipient("{{wallet_address}}");
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### recipient
-
-The wallet address of the primary sale recipient.
-
-Must be a `string`.
-
-</div>
-</details>
-
-## getTokenRoyaltyInfo
-
-Gets the royalty recipient and BPS (basis points) of a particular token in the contract.
-
-```javascript
-const royaltyInfo = await contract.royalties.getTokenRoyaltyInfo(
-  "{{token_id}}",
-);
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### tokenId
-
-The token ID to get the royalty info for.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-### Return Value
-
-Returns an object containing the royalty recipient address and BPS (basis points) of the token.
-
-```typescript
-{
-  seller_fee_basis_points: number;
-  fee_recipient: string;
-}
-```
-
-</div>
-</details>
-
 ## grant - Permissions
 
 Make a wallet a member of a given role.
@@ -1689,6 +1634,61 @@ Must be a `number`.
 The wallet address that will receive the royalty fees.
 
 Must be a `string`.
+
+</div>
+</details>
+
+## setRecipient
+
+Set the primary sale recipient.
+
+```javascript
+await contract.sales.setRecipient("{{wallet_address}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### recipient
+
+The wallet address of the primary sale recipient.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## getTokenRoyaltyInfo
+
+Gets the royalty recipient and BPS (basis points) of a particular token in the contract.
+
+```javascript
+const royaltyInfo = await contract.royalties.getTokenRoyaltyInfo(
+  "{{token_id}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### tokenId
+
+The token ID to get the royalty info for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+### Return Value
+
+Returns an object containing the royalty recipient address and BPS (basis points) of the token.
+
+```typescript
+{
+  seller_fee_basis_points: number;
+  fee_recipient: string;
+}
+```
 
 </div>
 </details>
