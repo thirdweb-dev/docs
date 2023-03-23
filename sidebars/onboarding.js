@@ -178,6 +178,11 @@ const sidebars = {
       id: "3 Web3 SDK/1 How it works",
     },
     {
+      type: "doc",
+      label: "Library Comparison",
+      id: "3 Web3 SDK/2 Library Comparison",
+    },
+    {
       type: "category",
       label: "SDK References",
       items: [
