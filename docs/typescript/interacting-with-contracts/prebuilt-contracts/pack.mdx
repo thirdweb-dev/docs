@@ -92,6 +92,162 @@ An object containing three (optional) properties:
 </div>
 </details>
 
+## airdrop
+
+Transfer NFTs from the connected wallet to multiple different wallets at once.
+
+```javascript
+const txResult = await contract.erc1155.airdrop(
+  // Token ID of the NFT to transfer
+  "{{token_id}}",
+
+  // Array of wallet addresses to transfer to
+  [
+    {
+      address: "{{wallet_address}}", // Wallet address to transfer to
+      quantity: 1, // Quantity of the NFT to transfer
+    },
+    {
+      address: "{{wallet_address}}", // Wallet address to transfer to
+      quantity: 2, // Quantity of the NFT to transfer
+    },
+  ],
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT to transfer.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const txResult = await contract.erc1155.airdrop(
+  // highlight-next-line
+  "{{token_id}}",
+  [
+    // ...
+  ],
+);
+```
+
+#### addresses
+
+An array of objects containing `address` and `quantity` properties.
+
+These are the recipients of the airdrop.
+
+```javascript
+const txResult = await contract.erc1155.airdrop("{{token_id}}", [
+  // highlight-start
+  {
+    address: "{{wallet_address}}",
+    quantity: 1,
+  },
+  {
+    address: "{{wallet_address}}",
+    quantity: 2,
+  },
+  // highlight-end
+]);
+```
+
+</div>
+</details>
+
+## balance
+
+Get the quantity of a specific NFT owned by the connected wallet.
+
+```javascript
+const tokenId = 0; // Id of the NFT to check
+const balance = await contract.erc1155.balanceOf(tokenId);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT to check the balance of.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const balance = await contract.erc1155.balanceOf(
+  // highlight-next-line
+  "{{token_id}}",
+);
+```
+
+### Return Value
+
+A `BigNumber` representing the quantity of the NFT owned by the wallet.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## balanceOf
+
+Get the quantity of a specific NFT owned by a wallet.
+
+```javascript
+// Address of the wallet to check NFT balance
+const walletAddress = "{{wallet_address}}";
+const tokenId = 0; // Id of the NFT to check
+const balance = await contract.erc1155.balanceOf(walletAddress, tokenId);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### address
+
+The wallet address to check the NFT balance for.
+
+Must be a `string`.
+
+```javascript
+const balance = await contract.erc1155.balanceOf(
+  // highlight-next-line
+  "{{wallet_address}}",
+  "{{token_id}}",
+);
+```
+
+#### tokenId
+
+The token ID of the NFT to check the balance of.
+
+```javascript
+const balance = await contract.erc1155.balanceOf(
+  "{{wallet_address}}",
+  // highlight-next-line
+  "{{token_id}}",
+);
+```
+
+### Return Value
+
+A `BigNumber` representing the quantity of the NFT owned by the wallet.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
 ## create
 
 Mint a new pack NFT, which can be opened to receive rewards, to the **connected** wallet.
@@ -235,172 +391,6 @@ See [`create`](#create) for more information on the rest of the configuration op
 </div>
 </details>
 
-## getPackContents
-
-Get all the tokens that were "wrapped up" in the pack NFTs when they were created.
-
-```javascript
-const contents = await contract.getPackContents("{{pack_id}}");
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### packId
-
-The token ID of the pack to get the contents of.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-### Return Value
-
-Returns all the tokens that were included in the rewards when the packs were created.
-
-```typescript
-{
-  erc20Rewards: {
-    contractAddress: string;
-    quantityPerReward: string;
-    totalRewards: string;
-  }
-  [];
-  erc721Rewards: {
-    tokenId: string;
-    contractAddress: string;
-  }
-  [];
-  erc1155Rewards: {
-    tokenId: string;
-    contractAddress: string;
-    quantityPerReward: string;
-    totalRewards: string;
-  }
-  [];
-}
-```
-
-</div>
-</details>
-
-## open
-
-Open a pack NFT to receive the rewards inside.
-
-To open a pack, the wallet that initiates this transaction must have sufficient quantity of the pack NFT to open.
-
-```javascript
-const results = await contract.open("{{pack_id}}", "{{amount_to_open}}");
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### packId
-
-The token ID of the pack to open.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-#### amount
-
-The number of packs to open.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-</div>
-</details>
-
-## balance
-
-Get the quantity of a specific NFT owned by the connected wallet.
-
-```javascript
-const tokenId = 0; // Id of the NFT to check
-const balance = await contract.erc1155.balanceOf(tokenId);
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### tokenId
-
-The token ID of the NFT to check the balance of.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-```javascript
-const balance = await contract.erc1155.balanceOf(
-  // highlight-next-line
-  "{{token_id}}",
-);
-```
-
-### Return Value
-
-A `BigNumber` representing the quantity of the NFT owned by the wallet.
-
-```typescript
-BigNumber;
-```
-
-</div>
-</details>
-
-## balanceOf
-
-Get the quantity of a specific NFT owned by a wallet.
-
-```javascript
-// Address of the wallet to check NFT balance
-const walletAddress = "{{wallet_address}}";
-const tokenId = 0; // Id of the NFT to check
-const balance = await contract.erc1155.balanceOf(walletAddress, tokenId);
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### address
-
-The wallet address to check the NFT balance for.
-
-Must be a `string`.
-
-```javascript
-const balance = await contract.erc1155.balanceOf(
-  // highlight-next-line
-  "{{wallet_address}}",
-  "{{token_id}}",
-);
-```
-
-#### tokenId
-
-The token ID of the NFT to check the balance of.
-
-```javascript
-const balance = await contract.erc1155.balanceOf(
-  "{{wallet_address}}",
-  // highlight-next-line
-  "{{token_id}}",
-);
-```
-
-### Return Value
-
-A `BigNumber` representing the quantity of the NFT owned by the wallet.
-
-```typescript
-BigNumber;
-```
-
-</div>
-</details>
-
 ## get
 
 Get the metadata of an NFT using it&rsquo;s token ID.
@@ -463,326 +453,93 @@ Returns an `NFT` object containing the following properties:
 </div>
 </details>
 
-## transfer
+## get - Contract Metadata
 
-Transfer an NFT from the connected wallet to another wallet.
+Get the metadata of a smart contract.
 
 ```javascript
-// Address of the wallet you want to send the NFT to
-const toAddress = "{{wallet_address}}";
-const tokenId = "0"; // The token ID of the NFT you want to send
-const amount = 3; // How many copies of the NFTs to transfer
-await contract.erc1155.transfer(toAddress, tokenId, amount);
+const metadata = await contract.metadata.get();
 ```
 
 <details>
-  <summary>Configuration</summary>
-  <div>
+<summary>Configuration</summary>
+<div>
 
-#### to
+### Return Value
 
-The wallet address to send the NFT to.
+While the actual return type is `any`, you can expect an object containing
+properties that follow the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata), outlined below:
 
-Must be a `string`.
-
-```javascript
-await contract.erc1155.transfer(
-  // highlight-next-line
-  "{{wallet_address}}",
-  "{{token_id}}",
-  "{{amount}}",
-);
-```
-
-#### tokenId
-
-The token ID of the NFT to transfer.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-```javascript
-await contract.erc1155.transfer(
-  "{{wallet_address}}",
-  // highlight-next-line
-  "{{token_id}}",
-  "{{amount}}",
-);
-```
-
-#### amount
-
-The quantity of the NFT to transfer.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-```javascript
-await contract.erc1155.transfer(
-  "{{wallet_address}}",
-  "{{token_id}}",
-  // highlight-next-line
-  "{{amount}}",
-);
+```typescript
+{
+  name: string; // Name of your smart contract
+  description?: string; // Short description of your smart contract
+  image?: string; // Image of your smart contract (any URL, or IPFS URI)
+  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
+  external_link?: string; // Link to view this smart contract on your website
+  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
+  fee_recipient?: string; // Wallet address that receives the seller fee
+}
 ```
 
 </div>
 </details>
 
-## airdrop
+## get - Owner
 
-Transfer NFTs from the connected wallet to multiple different wallets at once.
+Retrieve the wallet address of the owner of the smart contract.
 
 ```javascript
-const txResult = await contract.erc1155.airdrop(
-  // Token ID of the NFT to transfer
-  "{{token_id}}",
-
-  // Array of wallet addresses to transfer to
-  [
-    {
-      address: "{{wallet_address}}", // Wallet address to transfer to
-      quantity: 1, // Quantity of the NFT to transfer
-    },
-    {
-      address: "{{wallet_address}}", // Wallet address to transfer to
-      quantity: 2, // Quantity of the NFT to transfer
-    },
-  ],
-);
+const owner = await contract.owner.get();
 ```
 
 <details>
-  <summary>Configuration</summary>
-  <div>
+    <summary>Configuration</summary>
+    <div>
 
-#### tokenId
+### Return Value
 
-The token ID of the NFT to transfer.
+A `string` representing the owner&rsquo;s wallet address.
 
-Must be a `string`, `number`, or `BigNumber`.
-
-```javascript
-const txResult = await contract.erc1155.airdrop(
-  // highlight-next-line
-  "{{token_id}}",
-  [
-    // ...
-  ],
-);
-```
-
-#### addresses
-
-An array of objects containing `address` and `quantity` properties.
-
-These are the recipients of the airdrop.
-
-```javascript
-const txResult = await contract.erc1155.airdrop("{{token_id}}", [
-  // highlight-start
-  {
-    address: "{{wallet_address}}",
-    quantity: 1,
-  },
-  {
-    address: "{{wallet_address}}",
-    quantity: 2,
-  },
-  // highlight-end
-]);
+```typescript
+string;
 ```
 
 </div>
 </details>
 
-## isApproved
+## get - Permissions
 
-Get whether this wallet has approved transfers from the given operator.
-
-This means that the operator can transfer NFTs on behalf of this wallet.
+Get a list of wallet addresses that are members of a given role.
 
 ```javascript
-const isApproved = await contract.erc1155.isApproved(
-  // Address of the wallet to check
-  "{{wallet_address}}",
-  // Address of the operator to check
-  "{{wallet_address}}",
-);
+const members = await contract.roles.get("{{role_name}}");
 ```
 
 <details>
-  <summary>Configuration</summary>
-  <div>
+    <summary>Configuration</summary>
+    <div>
 
-#### owner
+#### role
 
-The wallet address that owns the NFT.
+The name of the role.
 
 Must be a `string`.
 
 ```javascript
-const isApproved = await contract.erc1155.isApproved(
+const members = await contract.roles.get(
   // highlight-next-line
-  "{{wallet_address}}",
-  "{{wallet_address}}",
-);
-```
-
-#### operator
-
-The wallet address of the operator to check (i.e. the wallet that does/does not have approval).
-
-Must be a `string`.
-
-```javascript
-const isApproved = await contract.erc1155.isApproved(
-  "{{wallet_address}}",
-  // highlight-next-line
-  "{{wallet_address}}",
-);
-```
-
-</div>
-</details>
-
-## setApprovalForAll
-
-Give another address approval (or remove approval) to transfer all of your NFTs from this collection.
-
-:::warning Warning
-
-Proceed with caution. Only approve addresses you trust.
-
-:::
-
-```javascript
-const txResult = await contract.erc1155.setApprovalForAll(
-  // Address of the wallet to approve
-  "{{wallet_address}}",
-  // Whether to grant approval (true) or remove approval (false)
-  true,
-);
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### operator
-
-The wallet address to approve.
-
-Must be a `string`.
-
-```javascript
-const txResult = await contract.erc1155.setApprovalForAll(
-  // highlight-next-line
-  "{{wallet_address}}",
-  true,
-);
-```
-
-#### approved
-
-Whether to grant approval (true) or remove approval (false).
-
-Must be a `boolean`.
-
-```javascript
-const txResult = await contract.erc1155.setApprovalForAll(
-  "{{wallet_address}}",
-  // highlight-next-line
-  true,
-);
-```
-
-</div>
-</details>
-
-## totalCirculatingSupply
-
-Get the total **circulating** supply of a token in the collection.
-
-Circulating supply considers NFTs that have not been burned.
-
-```javascript
-const totalCirculatingSupply = await contract.erc1155.totalCirculatingSupply(
-  "{{token_id}}",
-);
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### tokenId
-
-The token ID of the NFT to get the total circulating supply of.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-```javascript
-const totalCirculatingSupply = await contract.erc1155.totalCirculatingSupply(
-  // highlight-next-line
-  "{{token_id}}",
+  "{{role_name}}",
 );
 ```
 
 ### Return Value
 
-Returns a `BigNumber` representing the total circulating supply of the token.
+An array of `string`s representing the wallet addresses associated with the given role.
 
 ```typescript
-BigNumber;
-```
-
-## totalCount
-
-Get the total number of unique NFTs in the collection.
-
-```javascript
-const totalCount = await contract.erc1155.totalCount();
-```
-
-### Return Value
-
-Returns a `BigNumber` representing the total number of unique NFTs in the collection.
-
-```typescript
-BigNumber;
-```
-
-</div>
-</details>
-
-## totalSupply
-
-Returns the total supply of a token in the collection, including burned tokens.
-
-```javascript
-const totalSupply = await contract.erc1155.totalSupply("{{token_id}}");
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### tokenId
-
-The token ID of the NFT to get the total supply of.
-
-```javascript
-const totalSupply = await contract.erc1155.totalSupply(
-  // highlight-next-line
-  "{{token_id}}",
-);
-```
-
-### Return Value
-
-Returns a `BigNumber` representing the total supply of the token.
-
-```typescript
-BigNumber;
+string[];
 ```
 
 </div>
@@ -846,6 +603,55 @@ Returns an array of `NFT` objects containing the following properties:
 </div>
 </details>
 
+## getAll - Permissions
+
+Retrieve all of the roles and associated wallets.
+
+```javascript
+const allRoles = await contract.roles.getAll();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+An object containing role names as keys and an array of wallet addresses as the value.
+
+```typescript
+<Record<any, string[]>>
+```
+
+</div>
+</details>
+
+## getDefaultRoyaltyInfo
+
+Gets the royalty recipient and BPS (basis points) of the smart contract.
+
+```javascript
+const royaltyInfo = await contract.royalties.getDefaultRoyaltyInfo();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns an object containing the royalty recipient address and BPS (basis points) of the smart contract.
+
+```typescript
+{
+  seller_fee_basis_points: number;
+  fee_recipient: string;
+}
+```
+
+</div>
+</details>
+
 ## getOwned
 
 Get all the data associated with the NFTs owned by a specific wallet.
@@ -902,26 +708,48 @@ Returns an array of `NFT` objects containing the following properties:
 </div>
 </details>
 
-## getDefaultRoyaltyInfo
+## getPackContents
 
-Gets the royalty recipient and BPS (basis points) of the smart contract.
+Get all the tokens that were "wrapped up" in the pack NFTs when they were created.
 
 ```javascript
-const royaltyInfo = await contract.royalties.getDefaultRoyaltyInfo();
+const contents = await contract.getPackContents("{{pack_id}}");
 ```
 
 <details>
     <summary>Configuration</summary>
     <div>
 
+#### packId
+
+The token ID of the pack to get the contents of.
+
+Must be a `string`, `number`, or `BigNumber`.
+
 ### Return Value
 
-Returns an object containing the royalty recipient address and BPS (basis points) of the smart contract.
+Returns all the tokens that were included in the rewards when the packs were created.
 
 ```typescript
 {
-  seller_fee_basis_points: number;
-  fee_recipient: string;
+  erc20Rewards: {
+    contractAddress: string;
+    quantityPerReward: string;
+    totalRewards: string;
+  }
+  [];
+  erc721Rewards: {
+    tokenId: string;
+    contractAddress: string;
+  }
+  [];
+  erc1155Rewards: {
+    tokenId: string;
+    contractAddress: string;
+    quantityPerReward: string;
+    totalRewards: string;
+  }
+  [];
 }
 ```
 
@@ -957,6 +785,339 @@ Returns an object containing the royalty recipient address and BPS (basis points
   seller_fee_basis_points: number;
   fee_recipient: string;
 }
+```
+
+</div>
+</details>
+
+## grant - Permissions
+
+Make a wallet a member of a given role.
+
+```javascript
+const txResult = await contract.roles.grant(
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### role
+
+The name of the role to grant.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.grant(
+  // highlight-next-line
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
+```
+
+#### wallet
+
+The wallet address to assign the role to.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.grant(
+  "{{role_name}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+</div>
+</details>
+
+## isApproved
+
+Get whether this wallet has approved transfers from the given operator.
+
+This means that the operator can transfer NFTs on behalf of this wallet.
+
+```javascript
+const isApproved = await contract.erc1155.isApproved(
+  // Address of the wallet to check
+  "{{wallet_address}}",
+  // Address of the operator to check
+  "{{wallet_address}}",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### owner
+
+The wallet address that owns the NFT.
+
+Must be a `string`.
+
+```javascript
+const isApproved = await contract.erc1155.isApproved(
+  // highlight-next-line
+  "{{wallet_address}}",
+  "{{wallet_address}}",
+);
+```
+
+#### operator
+
+The wallet address of the operator to check (i.e. the wallet that does/does not have approval).
+
+Must be a `string`.
+
+```javascript
+const isApproved = await contract.erc1155.isApproved(
+  "{{wallet_address}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+</div>
+</details>
+
+## open
+
+Open a pack NFT to receive the rewards inside.
+
+To open a pack, the wallet that initiates this transaction must have sufficient quantity of the pack NFT to open.
+
+```javascript
+const results = await contract.open("{{pack_id}}", "{{amount_to_open}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### packId
+
+The token ID of the pack to open.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### amount
+
+The number of packs to open.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+</div>
+</details>
+
+## revoke - Permissions
+
+Revoke a given role from a wallet.
+
+```javascript
+const txResult = await contract.roles.revoke(
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### role
+
+The name of the role to revoke.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.revoke(
+  // highlight-next-line
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
+```
+
+#### wallet
+
+The wallet address to remove the role from.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.revoke(
+  "{{role_name}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+</div>
+</details>
+
+## set - Contract Metadata
+
+**Overwrite** the metadata of a contract, an object following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+This operation ignores any existing metadata and replaces it with the new metadata provided.
+
+```javascript
+const txResult = await contract.metadata.set({
+  name: "My Contract",
+  description: "My contract description",
+});
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### metadata
+
+Provide an object containing the metadata of your smart contract following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+```typescript
+{
+  name: string; // Name of your smart contract
+  description?: string; // Short description of your smart contract
+  image?: string; // Image of your smart contract (any URL, or IPFS URI)
+  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
+  external_link?: string; // Link to view this smart contract on your website
+  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
+  fee_recipient?: string; // Wallet address that receives the seller fee
+}
+```
+
+</div>
+</details>
+
+## set - Owner
+
+Set the owner address of the contract.
+
+```javascript
+const txResult = await contract.owner.set("{{wallet_address}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### owner
+
+The wallet address of the new owner.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.owner.set(
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+</div>
+</details>
+
+## setAll - Permissions
+
+Overwrite all roles with new members.
+
+:::warning Dangerous Operation
+
+This **overwrites** all members, INCLUDING YOUR OWN WALLET ADDRESS!
+
+This means you can permanently remove yourself as an admin, which is non-reversible.
+
+Please use this method with caution.
+
+:::
+
+```javascript
+const txResult = await contract.roles.setAll({
+  admin: ["0x12", "0x123"],
+  minter: ["0x1234"],
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### roles
+
+An object containing role names as keys and an array of wallet addresses as the value.
+
+```javascript
+const txResult = await contract.roles.setAll(
+  // highlight-next-line
+  {
+    admin: ["0x12", "0x123"], // Grant these two wallets the admin role
+    minter: ["0x1234"], // Grant this wallet the minter role
+  },
+);
+```
+
+</div>
+</details>
+
+## setApprovalForAll
+
+Give another address approval (or remove approval) to transfer all of your NFTs from this collection.
+
+:::warning Warning
+
+Proceed with caution. Only approve addresses you trust.
+
+:::
+
+```javascript
+const txResult = await contract.erc1155.setApprovalForAll(
+  // Address of the wallet to approve
+  "{{wallet_address}}",
+  // Whether to grant approval (true) or remove approval (false)
+  true,
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### operator
+
+The wallet address to approve.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.erc1155.setApprovalForAll(
+  // highlight-next-line
+  "{{wallet_address}}",
+  true,
+);
+```
+
+#### approved
+
+Whether to grant approval (true) or remove approval (false).
+
+Must be a `boolean`.
+
+```javascript
+const txResult = await contract.erc1155.setApprovalForAll(
+  "{{wallet_address}}",
+  // highlight-next-line
+  true,
+);
 ```
 
 </div>
@@ -1028,194 +1189,195 @@ Must be a `string`.
 </div>
 </details>
 
-## get - Permissions
+## totalCirculatingSupply
 
-Get a list of wallet addresses that are members of a given role.
+Get the total **circulating** supply of a token in the collection.
+
+Circulating supply considers NFTs that have not been burned.
 
 ```javascript
-const members = await contract.roles.get("{{role_name}}");
+const totalCirculatingSupply = await contract.erc1155.totalCirculatingSupply(
+  "{{token_id}}",
+);
 ```
 
 <details>
-    <summary>Configuration</summary>
-    <div>
+  <summary>Configuration</summary>
+  <div>
 
-#### role
+#### tokenId
 
-The name of the role.
+The token ID of the NFT to get the total circulating supply of.
 
-Must be a `string`.
+Must be a `string`, `number`, or `BigNumber`.
 
 ```javascript
-const members = await contract.roles.get(
+const totalCirculatingSupply = await contract.erc1155.totalCirculatingSupply(
   // highlight-next-line
-  "{{role_name}}",
+  "{{token_id}}",
 );
 ```
 
 ### Return Value
 
-An array of `string`s representing the wallet addresses associated with the given role.
+Returns a `BigNumber` representing the total circulating supply of the token.
 
 ```typescript
-string[];
+BigNumber;
 ```
 
-</div>
-</details>
+## totalCount
 
-## getAll - Permissions
-
-Retrieve all of the roles and associated wallets.
+Get the total number of unique NFTs in the collection.
 
 ```javascript
-const allRoles = await contract.roles.getAll();
+const totalCount = await contract.erc1155.totalCount();
 ```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
 
 ### Return Value
 
-An object containing role names as keys and an array of wallet addresses as the value.
+Returns a `BigNumber` representing the total number of unique NFTs in the collection.
 
 ```typescript
-<Record<any, string[]>>
+BigNumber;
 ```
 
 </div>
 </details>
 
-## grant - Permissions
+## transfer
 
-Make a wallet a member of a given role.
+Transfer an NFT from the connected wallet to another wallet.
 
 ```javascript
-const txResult = await contract.roles.grant(
-  "{{role_name}}",
-  "{{wallet_address}}",
-);
+// Address of the wallet you want to send the NFT to
+const toAddress = "{{wallet_address}}";
+const tokenId = "0"; // The token ID of the NFT you want to send
+const amount = 3; // How many copies of the NFTs to transfer
+await contract.erc1155.transfer(toAddress, tokenId, amount);
 ```
 
 <details>
-    <summary>Configuration</summary>
-    <div>
+  <summary>Configuration</summary>
+  <div>
 
-#### role
+#### to
 
-The name of the role to grant.
+The wallet address to send the NFT to.
 
 Must be a `string`.
 
 ```javascript
-const txResult = await contract.roles.grant(
+await contract.erc1155.transfer(
   // highlight-next-line
-  "{{role_name}}",
   "{{wallet_address}}",
+  "{{token_id}}",
+  "{{amount}}",
 );
 ```
 
-#### wallet
+#### tokenId
 
-The wallet address to assign the role to.
+The token ID of the NFT to transfer.
 
-Must be a `string`.
+Must be a `string`, `number`, or `BigNumber`.
 
 ```javascript
-const txResult = await contract.roles.grant(
-  "{{role_name}}",
-  // highlight-next-line
+await contract.erc1155.transfer(
   "{{wallet_address}}",
+  // highlight-next-line
+  "{{token_id}}",
+  "{{amount}}",
+);
+```
+
+#### amount
+
+The quantity of the NFT to transfer.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+await contract.erc1155.transfer(
+  "{{wallet_address}}",
+  "{{token_id}}",
+  // highlight-next-line
+  "{{amount}}",
 );
 ```
 
 </div>
 </details>
 
-## revoke - Permissions
+## totalSupply
 
-Revoke a given role from a wallet.
+Returns the total supply of a token in the collection, including burned tokens.
 
 ```javascript
-const txResult = await contract.roles.revoke(
-  "{{role_name}}",
-  "{{wallet_address}}",
-);
+const totalSupply = await contract.erc1155.totalSupply("{{token_id}}");
 ```
 
 <details>
-    <summary>Configuration</summary>
-    <div>
+  <summary>Configuration</summary>
+  <div>
 
-#### role
+#### tokenId
 
-The name of the role to revoke.
-
-Must be a `string`.
+The token ID of the NFT to get the total supply of.
 
 ```javascript
-const txResult = await contract.roles.revoke(
+const totalSupply = await contract.erc1155.totalSupply(
   // highlight-next-line
-  "{{role_name}}",
-  "{{wallet_address}}",
+  "{{token_id}}",
 );
 ```
 
-#### wallet
+### Return Value
 
-The wallet address to remove the role from.
+Returns a `BigNumber` representing the total supply of the token.
 
-Must be a `string`.
-
-```javascript
-const txResult = await contract.roles.revoke(
-  "{{role_name}}",
-  // highlight-next-line
-  "{{wallet_address}}",
-);
+```typescript
+BigNumber;
 ```
 
 </div>
 </details>
 
-## setAll - Permissions
+## update - Contract Metadata
 
-Overwrite all roles with new members.
-
-:::warning Dangerous Operation
-
-This **overwrites** all members, INCLUDING YOUR OWN WALLET ADDRESS!
-
-This means you can permanently remove yourself as an admin, which is non-reversible.
-
-Please use this method with caution.
-
-:::
+Update the metadata of your smart contract.
 
 ```javascript
-const txResult = await contract.roles.setAll({
-  admin: ["0x12", "0x123"],
-  minter: ["0x1234"],
+const txResult = await contract.metadata.update({
+  name: "My Contract",
+  description: "My contract description",
 });
 ```
 
 <details>
-    <summary>Configuration</summary>
-    <div>
+  <summary>Configuration</summary>
+  <div>
 
-#### roles
+#### metadata
 
-An object containing role names as keys and an array of wallet addresses as the value.
+Provide an object containing the metadata of your smart contract following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
 
-```javascript
-const txResult = await contract.roles.setAll(
-  // highlight-next-line
-  {
-    admin: ["0x12", "0x123"], // Grant these two wallets the admin role
-    minter: ["0x1234"], // Grant this wallet the minter role
-  },
-);
+New properties will be added, and existing properties will be overwritten.
+If you do not provide a new value for a previously set property, it will remain unchanged.
+
+Below are the properties you can define on your smart contract.
+
+```typescript
+{
+  name: string; // Name of your smart contract
+  description?: string; // Short description of your smart contract
+  image?: string; // Image of your smart contract (any URL, or IPFS URI)
+  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
+  external_link?: string; // Link to view this smart contract on your website
+  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
+  fee_recipient?: string; // Wallet address that receives the seller fee
+}
 ```
 
 </div>
@@ -1263,168 +1425,6 @@ const verifyRole = await contract.roles.verify(
   ["admin", "minter"],
   // highlight-next-line
   "{{wallet_addres}}",
-);
-```
-
-</div>
-</details>
-
-## get - Contract Metadata
-
-Get the metadata of a smart contract.
-
-```javascript
-const metadata = await contract.metadata.get();
-```
-
-<details>
-<summary>Configuration</summary>
-<div>
-
-### Return Value
-
-While the actual return type is `any`, you can expect an object containing
-properties that follow the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata), outlined below:
-
-```typescript
-{
-  name: string; // Name of your smart contract
-  description?: string; // Short description of your smart contract
-  image?: string; // Image of your smart contract (any URL, or IPFS URI)
-  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
-  external_link?: string; // Link to view this smart contract on your website
-  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
-  fee_recipient?: string; // Wallet address that receives the seller fee
-}
-```
-
-</div>
-</details>
-
-## update - Contract Metadata
-
-Update the metadata of your smart contract.
-
-```javascript
-const txResult = await contract.metadata.update({
-  name: "My Contract",
-  description: "My contract description",
-});
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### metadata
-
-Provide an object containing the metadata of your smart contract following the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
-
-New properties will be added, and existing properties will be overwritten.
-If you do not provide a new value for a previously set property, it will remain unchanged.
-
-Below are the properties you can define on your smart contract.
-
-```typescript
-{
-  name: string; // Name of your smart contract
-  description?: string; // Short description of your smart contract
-  image?: string; // Image of your smart contract (any URL, or IPFS URI)
-  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
-  external_link?: string; // Link to view this smart contract on your website
-  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
-  fee_recipient?: string; // Wallet address that receives the seller fee
-}
-```
-
-</div>
-</details>
-
-## set - Contract Metadata
-
-**Overwrite** the metadata of a contract, an object following the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
-
-This operation ignores any existing metadata and replaces it with the new metadata provided.
-
-```javascript
-const txResult = await contract.metadata.set({
-  name: "My Contract",
-  description: "My contract description",
-});
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### metadata
-
-Provide an object containing the metadata of your smart contract following the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
-
-```typescript
-{
-  name: string; // Name of your smart contract
-  description?: string; // Short description of your smart contract
-  image?: string; // Image of your smart contract (any URL, or IPFS URI)
-  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
-  external_link?: string; // Link to view this smart contract on your website
-  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
-  fee_recipient?: string; // Wallet address that receives the seller fee
-}
-```
-
-</div>
-</details>
-
-## get - Owner
-
-Retrieve the wallet address of the owner of the smart contract.
-
-```javascript
-const owner = await contract.owner.get();
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-A `string` representing the owner&rsquo;s wallet address.
-
-```typescript
-string;
-```
-
-</div>
-</details>
-
-## set - Owner
-
-Set the owner address of the contract.
-
-```javascript
-const txResult = await contract.owner.set("{{wallet_address}}");
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### owner
-
-The wallet address of the new owner.
-
-Must be a `string`.
-
-```javascript
-const txResult = await contract.owner.set(
-  // highlight-next-line
-  "{{wallet_address}}",
 );
 ```
 

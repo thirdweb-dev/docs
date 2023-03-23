@@ -159,6 +159,88 @@ Must be a `string`.
 </div>
 </details>
 
+## get - Owner
+
+Retrieve the wallet address of the owner of the smart contract.
+
+```javascript
+const owner = await contract.owner.get();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+A `string` representing the owner&rsquo;s wallet address.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
+## get - Permissions
+
+Get a list of wallet addresses that are members of a given role.
+
+```javascript
+const members = await contract.roles.get("{{role_name}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### role
+
+The name of the role.
+
+Must be a `string`.
+
+```javascript
+const members = await contract.roles.get(
+  // highlight-next-line
+  "{{role_name}}",
+);
+```
+
+### Return Value
+
+An array of `string`s representing the wallet addresses associated with the given role.
+
+```typescript
+string[];
+```
+
+</div>
+</details>
+
+## getAll - Permissions
+
+Retrieve all of the roles and associated wallets.
+
+```javascript
+const allRoles = await contract.roles.getAll();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+An object containing role names as keys and an array of wallet addresses as the value.
+
+```typescript
+<Record<any, string[]>>
+```
+
+</div>
+</details>
+
 ## getAllRecipients
 
 Get all the recipients of the split contract.
@@ -231,116 +313,6 @@ Returns the split percentage of the recipient.
    */
   splitPercentage: number;
 }
-```
-
-</div>
-</details>
-
-## withdraw
-
-Withdraw funds owed to a recipient from the split contract.
-
-```javascript
-const txResult = await contract.withdraw("{{recipient_address}}");
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### address
-
-The wallet address of the recipient to withdraw funds for.
-
-Must be a `string`.
-
-</div>
-</details>
-
-## withdrawToken
-
-Withdraw non-native tokens owed to a recipient from the split contract.
-
-```javascript
-const txResult = await contract.withdraw(
-  "{{recipient_address}}",
-  "{{token_contract_address}}",
-);
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### address
-
-The wallet address of the recipient to withdraw funds for.
-
-Must be a `string`.
-
-#### tokenContractAddress
-
-The address of the token contract to withdraw.
-
-Must be a `string`.
-
-</div>
-</details>
-
-## get - Permissions
-
-Get a list of wallet addresses that are members of a given role.
-
-```javascript
-const members = await contract.roles.get("{{role_name}}");
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### role
-
-The name of the role.
-
-Must be a `string`.
-
-```javascript
-const members = await contract.roles.get(
-  // highlight-next-line
-  "{{role_name}}",
-);
-```
-
-### Return Value
-
-An array of `string`s representing the wallet addresses associated with the given role.
-
-```typescript
-string[];
-```
-
-</div>
-</details>
-
-## getAll - Permissions
-
-Retrieve all of the roles and associated wallets.
-
-```javascript
-const allRoles = await contract.roles.getAll();
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-An object containing role names as keys and an array of wallet addresses as the value.
-
-```typescript
-<Record<any, string[]>>
 ```
 
 </div>
@@ -430,6 +402,34 @@ Must be a `string`.
 ```javascript
 const txResult = await contract.roles.revoke(
   "{{role_name}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+</div>
+</details>
+
+## set - Owner
+
+Set the owner address of the contract.
+
+```javascript
+const txResult = await contract.owner.set("{{wallet_address}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### owner
+
+The wallet address of the new owner.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.owner.set(
   // highlight-next-line
   "{{wallet_address}}",
 );
@@ -528,53 +528,53 @@ const verifyRole = await contract.roles.verify(
 </div>
 </details>
 
-## get - Owner
+## withdraw
 
-Retrieve the wallet address of the owner of the smart contract.
+Withdraw funds owed to a recipient from the split contract.
 
 ```javascript
-const owner = await contract.owner.get();
+const txResult = await contract.withdraw("{{recipient_address}}");
 ```
 
 <details>
     <summary>Configuration</summary>
     <div>
 
-### Return Value
+#### address
 
-A `string` representing the owner&rsquo;s wallet address.
+The wallet address of the recipient to withdraw funds for.
 
-```typescript
-string;
-```
+Must be a `string`.
 
 </div>
 </details>
 
-## set - Owner
+## withdrawToken
 
-Set the owner address of the contract.
+Withdraw non-native tokens owed to a recipient from the split contract.
 
 ```javascript
-const txResult = await contract.owner.set("{{wallet_address}}");
+const txResult = await contract.withdraw(
+  "{{recipient_address}}",
+  "{{token_contract_address}}",
+);
 ```
 
 <details>
     <summary>Configuration</summary>
     <div>
 
-#### owner
+#### address
 
-The wallet address of the new owner.
+The wallet address of the recipient to withdraw funds for.
 
 Must be a `string`.
 
-```javascript
-const txResult = await contract.owner.set(
-  // highlight-next-line
-  "{{wallet_address}}",
-);
-```
+#### tokenContractAddress
+
+The address of the token contract to withdraw.
+
+Must be a `string`.
 
 </div>
 </details>
