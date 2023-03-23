@@ -66,7 +66,7 @@ displayed_sidebar: react-native
 
 | Hook                                                                                         | Description                                                                               |
 | -------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
-| [`useListing`](https://portal.thirdweb.com/react/react.useListing)                           | Use this to get a specific listing from the marketplace.                                  |
+| [`useListing`](https://portal.thirdweb.com/react/react.uselisting)                           | Use this to get a specific listing from the marketplace.                                  |
 | [`useListings`](https://portal.thirdweb.com/react/react.uselistings)                         | Use this to get a list all listings from your marketplace contract.                       |
 | [`useListingsCount`](https://portal.thirdweb.com/react/react.uselistingscount)               | Use this to get a count of all listings on your marketplace contract.                     |
 | [`useActiveListings`](https://portal.thirdweb.com/react/react.useactivelistings)             | Use this to get a list active listings from your marketplace contract.                    |
@@ -98,7 +98,7 @@ displayed_sidebar: react-native
 | [`useClaimedNFTs`](https://portal.thirdweb.com/react/react.useclaimednfts)                     | Use this to get a list of claimed (minted) NFT tokens of your ERC721 Drop contract.. |
 | [`useUnclaimedNFTSupply`](https://portal.thirdweb.com/react/react.useunclaimednftsupply)       | Use this to get the total unclaimed NFT supply of your ERC721 Drop contract.         |
 | [`useClaimedNFTSupply`](https://portal.thirdweb.com/react/react.useclaimednftsupply)           | Use this to get the total claimed (minted) NFT supply of your ERC721 Drop contract.  |
-| [`useBatchesToReveal`](https://portal.thirdweb.com/react/react.useBatchesToReveal)             | Use this to get a list of batches that are ready to be revealed.                     |
+| [`useBatchesToReveal`](https://portal.thirdweb.com/react/react.usebatchestoreveal)             | Use this to get a list of batches that are ready to be revealed.                     |
 | [`useClaimNFT`](https://portal.thirdweb.com/react/react.useclaimnft)                           | Use this to claim a NFT on your DropContract                                         |
 | [`useLazyMint`](https://portal.thirdweb.com/react/react.uselazymint)                           | Use this to lazy mint a batch of NFTs on your DropContract.                          |
 | [`useDelayedRevealLazyMint`](https://portal.thirdweb.com/react/react.usedelayedreveallazymint) | Use this to lazy mint a batch of delayed reveal NFTs on your DropContract.           |

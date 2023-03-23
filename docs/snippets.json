@@ -1580,7 +1580,7 @@
           "javascript": "https://portal.thirdweb.com/typescript/sdk.marketplace.getlisting",
           "python": "",
           "go": "https://docs.thirdweb.com/go/marketplace#func-marketplace-getlisting",
-          "react": "https://portal.thirdweb.com/react/react.useListing"
+          "react": "https://portal.thirdweb.com/react/react.uselisting"
         }
       },
       {
