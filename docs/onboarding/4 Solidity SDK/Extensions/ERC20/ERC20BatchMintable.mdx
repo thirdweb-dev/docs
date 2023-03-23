@@ -10,7 +10,7 @@ import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
 
 Enable minting multiple NFTs at once in a single transaction by Implementing `ERC20`, `IMintableERC20`, and `Multicall`.
 
-It is an extension which is detectable in the dashboard if the smart contract implements the 
+This is an extension which is detectable in the dashboard if the smart contract implements the 
 [ERC20](/solidity/extensions/erc20), [Multicall](/solidity/extensions/multicall) and [ERC20Mintable](/solidity/extensions/erc20mintable) extensions.
 
 <div className="row">
@@ -43,7 +43,7 @@ This extension requires other extensions to be inherited to be detectable on the
 
 :::
 
-## Implementing It Yourself
+## Usage
 
 This is an example smart contract that will have ERC20BatchMintable detected on it in the dashboard.
 
@@ -51,16 +51,16 @@ This is an example smart contract that will have ERC20BatchMintable detected on 
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@thirdweb-dev/contracts/eip/ERC20A.sol";
+import "@thirdweb-dev/contracts/openzeppelin-presets/token/ERC20/ERC20.sol";
 import "@thirdweb-dev/contracts/extension/interface/IMintableERC20.sol";
 import "@thirdweb-dev/contracts/extension/Multicall.sol";
 
-contract Contract is ERC20A, IMintableERC20, Multicall {
+contract Contract is ERC20, IMintableERC20, Multicall {
     constructor(
         string memory _name,
         string memory _symbol
     )
-        ERC20A(
+        ERC20(
             _name,
             _symbol
         )
@@ -81,21 +81,4 @@ By adding this extension to a smart contract, the following features, hooks and 
 
 By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
 
-## Base Contracts Implementing This Feature
-
-<div className="row" style={{ marginBottom: 24 }}>
-  <div className="col col--6" style={{ marginTop: 8 }}>
-    <QuickstartCard
-      name="ERC20 Base Contract"
-      link="/solidity/base-contracts/erc-20/erc20base"
-      image="/assets/icons/general.png"
-    />
-  </div>
-  <div className="col col--6" style={{ padding: 8 }}>
-    <QuickstartCard
-      name="ERC20 Signature Mint"
-      link="/solidity/base-contracts/erc-20/erc20signaturemint"
-      image="/assets/icons/general.png"
-    />
-  </div>
-</div>
+## Base Contracts Implementing This Extension

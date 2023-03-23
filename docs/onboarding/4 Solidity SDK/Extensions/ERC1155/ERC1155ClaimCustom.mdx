@@ -1,0 +1,125 @@
+---
+slug: /solidity/extensions/erc1155claimcustom
+title: ERC1155ClaimCustom
+---
+
+import ViewContractCodeButton from "@components/ViewContractCodeButton";
+import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
+
+# ERC1155ClaimCustom
+
+Allow other wallets to claim/mint tokens that you have Lazy Minted by 
+implementing `ERC1155`, `LazyMint` and `ERC1155Claimable`.
+
+This is an extension which is detectable in the dashboard if the smart contract implements the 
+[`ERC1155`](/solidity/extensions/erc1155), [`LazyMint`](/solidity/extensions/lazymint) and [`ERC1155Claimable`](/solidity/extensions/erc1155claimable) extensions.
+
+
+<div className="row">
+
+<div style={{ marginLeft: 24 }}>
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC1155A.sol"
+  name="ERC1155"
+/>
+
+</div>
+
+<div style={{ marginLeft: 24 }}>
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/LazyMint.sol"
+  name="LazyMint"
+/>
+
+</div>
+
+<div style={{ marginLeft: 24 }}>
+
+<ViewContractCodeButton
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IClaimableERC1155.sol"
+  name="ERC1155Claimable"
+/>
+
+</div>
+
+</div>
+
+<br/>
+
+:::info
+
+This extension requires other extensions to be inherited to be detectable on the Dashboard
+
+:::
+
+## Usage
+
+This is an example smart contract demonstrating how to use this extension.
+
+```solidity
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "@thirdweb-dev/contracts/eip/ERC1155.sol";
+import "@thirdweb-dev/contracts/extension/LazyMint.sol";
+import "@thirdweb-dev/contracts/extension/interface/IClaimableERC1155.sol";
+
+contract Contract is ERC1155, LazyMint, IClaimableERC1155 {
+    constructor(
+        string memory _name,
+        string memory _symbol
+    )
+        ERC1155(
+            _name,
+            _symbol
+        )
+    {}
+
+    function _canLazyMint() internal view override returns (bool) {
+        // Your custom implementation here
+    }
+
+    function _canSetClaimConditions() internal view override returns (bool) {
+        // Your custom implementation here
+    }
+
+    function _collectPriceOnClaim(
+        address _primarySaleRecipient,
+        uint256 _quantityToClaim,
+        address _currency,
+        uint256 _pricePerToken
+    ) internal virtual override {
+        // Your custom implementation here
+    }
+
+    function _transferTokensOnClaim(address _to, uint256 _quantityBeingClaimed)
+        internal
+        virtual
+        override
+        returns (uint256 startTokenId)
+    {
+        // Your custom implementation here
+    }
+    
+    function claim(address _receiver, uint256 _quantity) external payable override {
+        // Your custom implementation here
+    }
+
+    function verifyClaim(address _claimer, uint256 _quantity) external view override {
+        // Your custom implementation here
+    }
+}
+```
+
+## SDK Usage
+
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+
+## Dashboard Usage
+
+By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
+
+## Base Contracts Implementing This Extension
+
