@@ -1,0 +1,73 @@
+---
+slug: /sdk/interacting-with-contracts/erc1155
+title: Standard
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# ERC1155 Standard
+
+You can utilize these features of the SDK if your contract implements the [ERC1155](/contractkit/interfaces/erc1155) standard.
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement ERC721Burnable in your smart contract"
+      link={"/contractkit/base-contracts/erc-1155/erc1155base"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## View NFT Balance
+
+Get a wallet's NFT balance (number of NFTs in this contract owned by the wallet) for a specific token ID.
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155"}
+  languageFunctionMapping={{
+    javascript: "balanceOf",
+    react: "useNFTBalance",
+  }}
+/>
+
+## Get NFT Metadata
+
+Read the URI this NFT points to and fetch that data automatically.
+
+If the metadata is stored on IPFS, this function uses our IPFS gateway (or the one you specify) to read the data.
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155"}
+  languageFunctionMapping={{
+    javascript: "get",
+    react: "useNFT",
+  }}
+/>
+
+## Transfer NFTs
+
+Transfer an NFT from the connected wallet to another wallet.
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155"}
+  languageFunctionMapping={{
+    javascript: "transfer",
+    react: "useTransferNFT",
+  }}
+/>
+
+## Airdrop NFTs
+
+Transfer NFTs to a list of wallets in one transaction.
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC1155"}
+  languageFunctionMapping={{
+    javascript: "airdrop",
+    react: "useAirdropNFT",
+  }}
+  showHr={false}
+/>

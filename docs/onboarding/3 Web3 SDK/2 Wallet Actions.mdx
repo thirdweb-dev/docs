@@ -1,0 +1,87 @@
+---
+slug: /sdk/wallet-actions
+---
+
+import CodeSnippetWithSummary from "@components/CodeSnippetWithSummary";
+import YoutubeEmbed from "@components/YoutubeEmbed";
+
+# Wallet Actions
+
+Perform basic web3 actions using the currently connected wallet address, or the wallet you initialized the SDK with.
+
+## Get Native Token Balance
+
+Get the balance of the currently connected wallet address in the native token.
+
+The "native" token refers to the token that is used to pay gas fees for the current chain.
+
+For example, if you are on the Ethereum Mainnet, the native token is `Ether`.
+
+<CodeSnippetWithSummary
+  contract={"UserWallet"}
+  name={"balance"}
+  dontShowSummary
+  showHr={false}
+/>
+
+## Get Connected Wallet Address
+
+Get the currently connected wallet's public address, if there is one.
+
+<CodeSnippetWithSummary
+  contract={"UserWallet"}
+  name={"getAddress"}
+  dontShowSummary
+  showHr={false}
+/>
+
+## Transfer Tokens
+
+Transfer a specified quantity of either the native token or a specified ERC20 token to another wallet address.
+
+<CodeSnippetWithSummary
+  contract={"UserWallet"}
+  name={"transfer"}
+  dontShowSummary
+  showHr={false}
+/>
+
+## Sign A Message
+
+<div className="heroGrid">
+  <div>
+    <p>Sign a message you specify with the currently connected wallet.</p>
+
+Message signing can be utilized to prove that a user owns a wallet address.
+
+After a user has signed the message, you can then verify which wallet address signed the message
+by using the [`recoverAddress`](#recover-signing-address) method.
+
+  </div>
+  <div className="heroGridImageContainer">
+    <YoutubeEmbed link={"https://www.youtube.com/embed/xoFsOLP8a88"} />
+  </div>
+</div>
+
+:::tip Auth
+
+For verifying wallet ownership on the server-side, view our [Auth Documentation](/auth).
+:::
+
+<CodeSnippetWithSummary
+  contract={"UserWallet"}
+  name={"sign"}
+  dontShowSummary
+  showHr={false}
+/>
+
+## Recover Signing Address
+
+View the wallet address that signed a message you specify.
+
+<CodeSnippetWithSummary
+  contract={"UserWallet"}
+  name={"recoverAddress"}
+  dontShowSummary
+  showHr={false}
+/>

@@ -1,0 +1,76 @@
+---
+slug: /sdk/interacting-with-contracts/split
+title: Split
+---
+
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+
+# Split
+
+Learn how to interact with your [Split](/pre-built-contracts/split) contract in the SDK.
+
+## Create a Split Contract
+
+<CodeSnippetWithSummary contract={"ContractDeployer"} name={"deploySplit"} />
+
+## Getting the contract in your application
+
+To start using your Split contract inside your application, you'll need to use its contract address.
+You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+
+<CodeSnippetWithSummary
+  contract={"Split"}
+  name={"initializing the SDK"}
+  isGetContractCode
+  dontShowSummary
+  snippetOverrides={{
+    unity: `// Split is not yet supported in Unity. Reach out to us on Discord if you need this feature! \Split contract = sdk.GetContract("{{contract_address}}").split`,
+  }}
+/>
+
+## View Recipients
+
+<CodeSnippetWithSummary contract={"Split"} name={"getAllRecipients"} />
+
+## View Balance
+
+### Native Token Balance
+
+Use this if you have been tokens native to the network (e.g., `Ether` on the Ethereum network).
+
+<CodeSnippetWithSummary contract={"Split"} name={"balanceOf"} />
+
+### Non-Native Token Balance
+
+Use this if you have been sent custom tokens to the address.
+
+<CodeSnippetWithSummary contract={"Split"} name={"balanceOfToken"} />
+
+## Distribute funds
+
+This distributes funds held by the contract to **all recipients**.
+
+### Native Token
+
+<CodeSnippetWithSummary
+  contract={"Split"}
+  name={"distribute"}
+  dontShowSummary
+/>
+
+### Non-Native Token
+
+<CodeSnippetWithSummary
+  contract={"Split"}
+  name={"distributeToken"}
+  dontShowSummary
+/>
+
+## Withdraw Funds
+
+<CodeSnippetWithSummary
+  contract={"Split"}
+  name={"withdraw"}
+  dontShowSummary
+  showHr={false}
+/>

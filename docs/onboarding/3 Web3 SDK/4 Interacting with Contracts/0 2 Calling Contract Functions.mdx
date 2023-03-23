@@ -1,0 +1,64 @@
+---
+slug: /sdk/interacting-with-contracts/custom-contracts/using-contracts
+title: Calling Contract Functions
+---
+
+import CodeSnippetWithSummary from "@components/CodeSnippetWithSummary";
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+
+Read data and make transactions on your contract from the connected wallet.
+
+## Read Contract Data
+
+Use the name of the function, view, or mapping, and provide any required arguments.
+
+<Tabs groupId={"thirdweb-code-snippet"} defaultValue={"react"}>
+  <TabItem key={"react"} value={"react"} label={"React"}>
+    <CodeBlock language={"javascript"}>{`const { contract } = useContract("{{contract_address}}");
+const { data: myData, isLoading } = useContractRead(contract, "myFunction");`}
+</CodeBlock>
+
+  </TabItem>
+  <TabItem key={"javascript"} value={"javascript"} label={"JavaScript"}>
+    <CodeBlock language={"javascript"}>{`// read functions will return the data from the contract
+const myValue = await contract.call("myReadFunction");
+console.log(myValue);`}</CodeBlock>
+  </TabItem>
+
+<TabItem key={"unity"} value={"unity"} label={"Unity"}>
+  <CodeBlock
+    language={"csharp"}
+  >{`// Place the type of the return value in the <> brackets
+var result = await contract.Read<string>("functionName", arg1, arg2);`}</CodeBlock>
+</TabItem>
+
+</Tabs>
+
+## Write Transactions
+
+Transactions are made using the connected wallet (or the wallet you instantiated the SDK with).
+
+<Tabs groupId={"thirdweb-code-snippet"} defaultValue={"react"}>
+  <TabItem key={"react"} value={"react"} label={"React"}>
+    <CodeBlock language={"javascript"}>{`const { contract } = useContract("{{contract_address}}");
+const { mutateAsync: myFunctionAsync } = useContractWrite(contract, "myFunction");
+const tx = await myFunctionAsync(["argument1", "argument2"]) // Call the function`}</CodeBlock>
+
+  </TabItem>
+  <TabItem key={"javascript"} value={"javascript"} label={"JavaScript"}>
+    <CodeBlock language={"csharp"}>{`// write functions will return the transaction receipt
+const tx = await contract.call("myWriteFunction", arg1, arg2);
+const receipt = tx.receipt;
+// Optionally override transaction options
+await contract.call("myWriteFunction", arg1, arg2, {
+  gasLimit: 1000000, // override default gas limit
+  value: ethers.utils.parseEther("0.1"), // send 0.1 ether with the contract call
+});`}</CodeBlock>
+  </TabItem>
+
+  <TabItem key={"unity"} value={"unity"} label={"Unity"}>
+    <CodeBlock language={"csharp"}>{`await contract.Write("functionName", arg1, arg2);`}</CodeBlock>
+  </TabItem>
+</Tabs>

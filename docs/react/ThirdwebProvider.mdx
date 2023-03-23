@@ -161,11 +161,14 @@ const App = () => {
 };
 ```
 
-### Multiple Chains
+<!-- ### Multiple Networks
 
-The SDK also supports using multiple chains, by using the `chains` prop to define which networks your app supports.
+The `chains` prop defines which networks your app supports.
 
 Provide multiple networks to the `chains` prop to allow users to switch between them.
+
+- If you provide both `network` and `chains` props, the SDK uses the `network` value as the network your app is **currently** operating on.
+- If you do _not_ provide a `network`, the SDK will default to the first network in the `chains` array as the network your app is **currently** operating on.
 
 ```jsx
 import { ThirdwebProvider } from "@thirdweb-dev/react";
@@ -177,8 +180,8 @@ function MyApp() {
   return (
     <ThirdwebProvider
       // highlight-start
-      activeChain={Mumbai} // The chains that the SDK will use at this point in time.
-      chains={[Polygon, Mumbai]} // Allow users to switch between Polygon and Mumbai chains.
+      activeChain={Mumbai.chainId} // The network that the SDK will use at this point in time.
+      chains={[Polygon, Mumbai]} // Allow users to switch between Polygon and Mumbai networks.
       // highlight-end
     >
       <YourApp />
@@ -198,27 +201,7 @@ The `@thirdweb-dev/chains` package also exposes:
 import { defaultChains, allChains } from "@thirdweb-dev/chains";
 ```
 
-:::
-
-### Local Nodes
-
-If you are running a local node using a tool such as [Hardhat](https://hardhat.org/hardhat-network/docs/overview) or
-[Anvil](https://github.com/foundry-rs/foundry/blob/master/anvil/README.md),
-provide `"localhost"` as the `activeChain` prop, (or `Localhost` imported from `@thirdweb-dev/chains`).
-[Deploy](/deploy) or [import](https://thirdweb.com/dashboard/contracts) your contracts to the dashboard to interact with them.
-
-```jsx
-function MyApp() {
-  return (
-    <ThirdwebProvider
-      // highlight-next-line
-      activeChain="localhost"
-    >
-      <YourApp />
-    </ThirdwebProvider>
-  );
-}
-```
+::: -->
 
 ### Override Default Values
 

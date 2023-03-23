@@ -1,0 +1,72 @@
+---
+slug: /sdk/interacting-with-contracts/edition
+title: Edition
+---
+
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+
+# Edition
+
+Learn how to interact with your [Edition](/pre-built-contracts/edition) contract in the SDK.
+
+## Create an Edition Contract
+
+<CodeSnippetWithSummary contract={"ContractDeployer"} name={"deployEdition"} />
+
+## Getting the contract in your application
+
+To start using your Edition contract inside your application, you'll need to use its contract address. You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+
+<CodeSnippetWithSummary
+  contract={"Edition"}
+  name={"initializing the SDK"}
+  isGetContractCode
+  dontShowSummary
+  snippetOverrides={{
+    unity: `Contract contract = sdk.GetContract("{{contract_address}}");`,
+  }}
+/>
+
+## Setting Royalty Fees
+
+<CodeSnippetWithSummary contract={"Edition"} name={"royalties"} />
+
+## Minting NFTs
+
+### Mint One NFT
+
+<CodeSnippetWithSummary contract={"Edition"} name={"mintTo"} />
+
+### Mint Many NFTs (Batch Mint)
+
+<CodeSnippetWithSummary contract={"Edition"} name={"mintBatchTo"} />
+
+## Airdrop NFTs
+
+<CodeSnippetWithSummary contract={"Edition"} name={"airdrop"} />
+
+## Viewing NFTs
+
+### One NFT
+
+<CodeSnippetWithSummary contract={"Edition"} name={"get"} />
+
+### All NFTs
+
+<CodeSnippetWithSummary contract={"Edition"} name={"getAll"} />
+
+### NFTs owned by a specific wallet
+
+<CodeSnippetWithSummary contract={"Edition"} name={"getOwned"} />
+
+### Amount of tokens owned by a specific wallet
+
+<CodeSnippetWithSummary contract={"Edition"} name={"balanceOf"} />
+
+## Transferring NFTs
+
+<CodeSnippetWithSummary contract={"Edition"} name={"transfer"} />
+
+## Burning NFTs
+
+<CodeSnippetWithSummary contract={"Edition"} name={"burn"} showHr={false} />

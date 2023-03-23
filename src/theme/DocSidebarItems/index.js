@@ -75,7 +75,6 @@ function DocSidebarItems({ items, ...props }) {
         "Templates",
         "Guides",
         "CLI", // Should we have this here?
-        "Glossary",
       ],
     },
   ];

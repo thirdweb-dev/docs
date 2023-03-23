@@ -37,7 +37,6 @@ export const iconMapping = {
   Templates: "/assets/resources/sdk-reference.svg",
   Guides: "/assets/resources/guides.svg",
   CLI: "/assets/icons/terminal.svg",
-  Glossary: "/assets/icons/journal-album.svg",
 };
 
 export default function DocSidebarItemLink({

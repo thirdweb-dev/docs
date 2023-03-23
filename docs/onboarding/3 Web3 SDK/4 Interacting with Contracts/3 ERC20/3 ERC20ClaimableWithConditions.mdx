@@ -1,0 +1,55 @@
+---
+slug: /sdk/interacting-with-contracts/erc20/erc20drop
+title: Drop
+---
+
+import FeatureCodeSnippets from "../../../../../src/components/FeatureCodeSnippets";
+import ThirdwebFeatureCodeSnippet from "../../../../../src/components/ThirdwebFeatureCodeSnippet";
+import QuickstartCard from "../../../../../src/components/QuickstartCard";
+
+# ERC20 - Claim Conditions
+
+You can utilize these features of the SDK on your contract if it implements [Drop](/contractkit/extension-contracts/dropsinglephase).
+
+<div className="row" style={{ marginBottom: 24 }}>
+  <div className="col col--12" style={{ marginTop: 8 }}>
+    <QuickstartCard
+      name="Learn how to implement Drop in your smart contract"
+      link={"/contractkit/extension-contracts/dropsinglephase"}
+      image="/assets/icons/general.png"
+    />
+  </div>
+</div>
+
+## Claim Tokens
+
+Mint tokens to a specified address.
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC20ClaimableWithConditions"}
+  languageFunctionMapping={{
+    javascript: "claim",
+  }}
+/>
+
+## Configure claim conditions
+
+Define the criteria of how NFTs can be claimed from your drop.
+
+Each claim phase can define:
+
+- When the claim phase will start
+- How many tokens to drop
+- How much to charge per NFT
+- What currency to use to sell the tokens
+- Which wallet addresses are allowed to mint (allowlist)
+- How many tokens can be claimed per wallet
+- Metadata for the claim condition
+
+<ThirdwebFeatureCodeSnippet
+  featureName={"ERC20ClaimableWithConditions"}
+  languageFunctionMapping={{
+    javascript: "claimConditions",
+  }}
+  showHr={false}
+/>

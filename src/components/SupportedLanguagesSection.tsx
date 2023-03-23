@@ -2,9 +2,8 @@ import React from "react";
 
 const languageToImageMapping = {
   JavaScript: `/assets/languages/javascript.png`,
-  TypeScript: `/assets/languages/typescript.png`,
   React: `/assets/languages/react.png`,
-  "React Native": `/assets/languages/react-native.png`,
+  "React Native": `/assets/languages/react.png`,
   Python: `/assets/languages/python.png`,
   Go: `/assets/languages/go.png`,
   Unity: `/assets/languages/unity.webp`,
@@ -17,8 +16,6 @@ const languageToUrlMapping = {
   Python: `/python`,
   Go: `/go`,
   Unity: `/unity`,
-  TypeScript: `/typescript`,
-  "React Native": `/react-native`,
 };
 
 export default function SupportedLanguagesSection({
@@ -47,7 +44,7 @@ export default function SupportedLanguagesSection({
                 className={`supported-language-section__icon supported-language-section__icon__${lang}`}
                 src={languageToImageMapping[lang]}
               />
-              <p>{lang}</p>
+              <h3>{lang}</h3>
             </div>
           </a>
         </div>

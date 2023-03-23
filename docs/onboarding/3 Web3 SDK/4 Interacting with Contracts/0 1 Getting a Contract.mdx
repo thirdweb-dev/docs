@@ -1,0 +1,44 @@
+---
+slug: /sdk/interacting-with-contracts/custom-contracts/getting-a-contract
+title: Getting a Contract
+---
+
+import CodeSnippetWithSummary from "@components/CodeSnippetWithSummary";
+import QuickstartCard from "@components/QuickstartCard";
+
+# Getting a Contract
+
+Connect to your smart contract using its contract address.
+
+## Connect to a contract
+
+<CodeSnippetWithSummary
+  contract={"ThirdwebSDK"}
+  name={"getContract"}
+  dontShowSummary
+  showHr={false}
+/>
+
+## Get Contract From ABI
+
+If you have compiled your Solidity code into an [ABI](https://docs.soliditylang.org/en/v0.8.13/abi-spec.html#contract-abi-specification),
+you can use it to connect to your contract.
+
+This is useful if you want to interact with a contract that was **not** deployed using thirdweb.
+
+<div className="row" style={{ marginBottom: 16 }}>
+  <div className="col col--12" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Guide: Interact with Any Smart Contract using its ABI"
+      link="https://blog.thirdweb.com/guides/how-to-use-any-smart-contract-with-thirdweb-sdk-using-abi/"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
+
+<CodeSnippetWithSummary
+  contract={"ThirdwebSDK"}
+  name={"getContractFromAbi"}
+  dontShowSummary
+  showHr={false}
+/>

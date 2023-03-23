@@ -1,0 +1,175 @@
+---
+slug: /sdk/interacting-with-contracts/marketplace
+title: Marketplace
+---
+
+import CodeSnippetWithSummary from "../../../../../src/components/CodeSnippetWithSummary";
+
+# Marketplace
+
+Learn how to interact with your [Marketplace](/pre-built-contracts/marketplace) contract in the SDK.
+
+## Create a Marketplace Contract
+
+<CodeSnippetWithSummary
+  contract={"ContractDeployer"}
+  name={"deployMarketplace"}
+/>
+
+## Getting the contract in your application
+
+To start using your Marketplace contract inside your application, you'll need to use its contract address.
+You can get the contract address from the [dashboard](https://thirdweb.com/dashboard).
+
+<CodeSnippetWithSummary
+  contract={"Marketplace"}
+  name={"initializing the SDK"}
+  isGetContractCode
+  dontShowSummary
+  snippetOverrides={{
+    unity: `Marketplace contract = sdk.GetContract("{{contract_address}}").marketplace;`,
+  }}
+/>
+
+## Creating Listings
+
+### Creating a new Direct Listing
+
+<CodeSnippetWithSummary contract={"MarketplaceDirect"} name={"createListing"} />
+
+### Creating a new Auction Listing
+
+<CodeSnippetWithSummary
+  contract={"MarketplaceAuction"}
+  name={"createListing"}
+/>
+
+## Viewing Listings
+
+### One Listing
+
+<CodeSnippetWithSummary contract={"Marketplace"} name={"getListing"} />
+
+### All Listings
+
+<CodeSnippetWithSummary contract={"Marketplace"} name={"getAllListings"} />
+
+### Active Listings
+
+<CodeSnippetWithSummary contract={"Marketplace"} name={"getActiveListings"} />
+
+## Creating Offers / Bids
+
+### Direct Listings
+
+**Offers** are made on direct listings.
+
+<CodeSnippetWithSummary
+  contract={"MarketplaceDirect"}
+  name={"makeOffer"}
+  dontShowSummary
+/>
+
+### Auction Listings
+
+**Bids** are made on auction listings.
+
+- Once a bid is made, it cannot be withdrawn.
+- Bids must be higher than either the **reserve price**, OR if there is an existing bid, it must be higher than the current bid by a certain percentage -
+  (see [Auction Bid Buffers](#auction-bid-buffers)).
+- The previous highest bid is refunded automatically when a higher bid is made.
+
+<CodeSnippetWithSummary
+  contract={"MarketplaceAuction"}
+  name={"makeBid"}
+  dontShowSummary
+/>
+
+## Buying an NFT from a Listing
+
+Buying a listing is the same for both direct listings and auction listings.
+
+When a `buyout` is made, the NFT is transferred to the buyer, and the seller receives the funds immediately.
+
+<CodeSnippetWithSummary
+  contract={"Marketplace"}
+  name={"buyoutListing"}
+  dontShowSummary
+/>
+
+## Accept Offers (Direct Only)
+
+Offers can only be accepted on direct listings.
+
+<CodeSnippetWithSummary
+  contract={"MarketplaceDirect"}
+  name={"acceptOffer"}
+  dontShowSummary
+/>
+
+## Cancel a Listing
+
+### Direct Listing
+
+<CodeSnippetWithSummary contract={"MarketplaceDirect"} name={"cancelListing"} />
+
+### Auction Listing
+
+Auction listings **cannot** be canceled after a bid has been made.
+
+<CodeSnippetWithSummary
+  contract={"MarketplaceAuction"}
+  name={"cancelListing"}
+  dontShowSummary
+/>
+
+## Close a Listing (Auction Only)
+
+When an auction is finished, the `closeAuction` needs to be called for both the **buyer** and the **seller**.
+
+The `closeAuction` function takes in a `closeFor` parameter.
+
+- When the `closeFor` value is the address of the **buyer**, they are transferred the funds from the highest bid.
+
+- When the `closeFor` value is the address of the **seller**, the NFT is transferred to them.
+
+<CodeSnippetWithSummary
+  contract={"MarketplaceAuction"}
+  name={"closeListing"}
+  dontShowSummary
+/>
+
+## View Auction Bidding Info
+
+### Winning Bid
+
+<CodeSnippetWithSummary
+  contract={"MarketplaceAuction"}
+  name={"getWinningBid"}
+/>
+
+### Auction Winner
+
+<CodeSnippetWithSummary contract={"MarketplaceAuction"} name={"getWinner"} />
+
+## Auction Bid Buffers
+
+We made a few important considerations for auctions in our smart contract.
+
+- When someone makes a bid in an auction, the time until the auction is finished is extended by a set amount you can configure to avoid users not bidding at the last possible second to win the auction.
+- The user must bid a certain percentage higher than the current highest bid to prevent users from bidding minuscule amounts above the previous bid.
+
+### Set Time Buffer
+
+<CodeSnippetWithSummary
+  contract={"Marketplace"}
+  name={"setTimeBufferInSeconds"}
+/>
+
+### Set Bid Buffer
+
+<CodeSnippetWithSummary
+  contract={"Marketplace"}
+  name={"setBidBufferBps"}
+  showHr={false}
+/>
