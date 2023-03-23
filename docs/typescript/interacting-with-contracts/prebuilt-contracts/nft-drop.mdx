@@ -84,263 +84,6 @@ BigNumber;
 </div>
 </details>
 
-## get
-
-Get the metadata for an NFT in this contract using it&rsquo;s token ID.
-
-Metadata is fetched from the `uri` property of the NFT.
-
-If the metadata is hosted on IPFS, the metadata is fetched and made available as an object.
-The object&rsquo;s `image` property will be a URL that is available through the thirdweb IPFS gateway.
-
-```javascript
-const tokenId = 0;
-const nft = await contract.erc721.get(tokenId);
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### tokenId
-
-The token ID of the NFT to get the metadata for.
-
-Must be a `BigNumber`, `number`, or `string`.
-
-```javascript
-const nft = await contract.erc721.get(
-  // highlight-next-line
-  "{{token_id}}",
-);
-```
-
-### Return Value
-
-Returns an `NFT` object containing the NFT metadata.
-
-```typescript
-{
-  metadata: {
-    id: string;
-    uri: string; // The raw URI of the metadata
-    owner: string;
-    name?: string | number | undefined;
-    description?: string | null | undefined;
-    image?: string | null | undefined; // If the image is hosted on IPFS, the URL is https://gateway.ipfscdn.io/ipfs/<hash>
-    external_url?: string | null | undefined;
-    animation_url?: string | null | undefined;
-    background_color?: string | undefined;
-    properties?: {
-        [x: string]: unknown;
-    } | {
-        [x: string]: unknown;
-    }[] | undefined;
-  };
-  type: "ERC721";
-}
-```
-
-</div>
-</details>
-
-## isApproved
-
-Get whether this wallet has approved transfers from the given operator.
-
-This means that the operator can transfer NFTs on behalf of this wallet.
-
-```javascript
-const isApproved = await contract.erc721.isApproved(
-  // Address of the wallet to check
-  "{{wallet_address}}",
-  // Address of the operator to check
-  "{{wallet_address}}",
-);
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### owner
-
-The wallet address that owns the NFT.
-
-Must be a `string`.
-
-```javascript
-const isApproved = await contract.erc721.isApproved(
-  // highlight-next-line
-  "{{wallet_address}}",
-  "{{wallet_address}}",
-);
-```
-
-#### operator
-
-The wallet address of the operator to check (i.e. the wallet that does/does not have approval).
-
-Must be a `string`.
-
-```javascript
-const isApproved = await contract.erc721.isApproved(
-  "{{wallet_address}}",
-  // highlight-next-line
-  "{{wallet_address}}",
-);
-```
-
-</div>
-</details>
-
-## ownerOf
-
-Get the wallet address of the owner of an NFT.
-
-```javascript
-const owner = await contract.erc721.ownerOf("{{token_id}}");
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### tokenId
-
-The token ID of the NFT to get the owner of.
-
-Must be a `BigNumber`, `number`, or `string`.
-
-### Return Value
-
-Returns a `string` representing the wallet address of the owner of the NFT.
-
-```typescript
-string;
-```
-
-</div>
-</details>
-
-## setApprovalForToken
-
-Give another address approval (or remove approval) to transfer a specific one of your NFTs from this collection.
-
-:::warning Warning
-
-Proceed with caution. Only approve addresses you trust.
-
-:::
-
-```javascript
-// Approve the wallet address
-await contract.erc721.setApprovalForToken(
-  "{{wallet_address}}", // The wallet address to approve
-  "{{token_id}}", // The token ID of the NFT to allow them to transfer
-);
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### operator
-
-The wallet address to approve.
-
-Must be a `string`.
-
-#### tokenId
-
-The token ID of the NFT to allow the operator to transfer.
-
-Must be a `BigNumber`, `number`, or `string`.
-
-</div>
-</details>
-
-## setApprovalForAll
-
-Give another address approval (or remove approval) to transfer any of your NFTs from this collection.
-
-:::warning Warning
-
-Proceed with caution. Only approve addresses you trust.
-
-:::
-
-```javascript
-await contract.erc721.setApprovalForAll(
-  "{{wallet_address}}", // The wallet address to approve
-  true, // Whether to approve (true) or remove approval (false)
-);
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### operator
-
-The wallet address to approve.
-
-Must be a `string`.
-
-#### approved
-
-Whether to approve (true) or remove approval (false).
-
-Must be a `boolean`.
-
-</div>
-</details>
-
-## transfer
-
-Transfer an NFT from the **connected wallet** to another wallet.
-
-```javascript
-const walletAddress = "{{wallet_address}}";
-const tokenId = 0;
-await contract.erc721.transfer(walletAddress, tokenId);
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### walletAddress
-
-The wallet address to transfer the NFT to.
-
-Must be a `string`.
-
-```javascript
-await contract.erc721.transfer(
-  // highlight-next-line
-  "{{wallet_address}}",
-  "{{token_id}}",
-);
-```
-
-#### tokenId
-
-The token ID of the NFT to transfer.
-
-Must be a `BigNumber`, `number`, or `string`.
-
-```javascript
-await contract.erc721.transfer(
-  "{{wallet_address}}",
-  // highlight-next-line
-  "{{token_id}}",
-);
-```
-
-</div>
-</details>
-
 ## burn
 
 Burn an NFT from the **connected wallet**.
@@ -369,185 +112,121 @@ const txResult = await contract.erc721.burn(
 </div>
 </details>
 
-## getAll
+## canClaim
 
-Get the metadata and current owner of all NFTs in the contract.
-
-By default, returns the first `100` NFTs (in order of token ID). Use [`queryParams`](#queryParams-optional) to paginate the results.
+Check if tokens are currently available for claiming, optionally specifying if a specific wallet
+address can claim.
 
 ```javascript
-const nfts = await contract.erc721.getAll();
+const canClaim = await contract.erc721.claimConditions.canClaim("{{quantity}}");
 ```
 
 <details>
     <summary>Configuration</summary>
     <div>
 
-#### queryParams (optional)
+#### quantity (required)
 
-Provide an optional object to configure the query. Useful for paginating the results.
+The amount of tokens to claim.
 
-```javascript
-const queryParams = {
-  // The number of NFTs to return
-  count: 100, // Default is 100
-  // The index to start from
-  start: 0, // Default is 0
-};
+This checks to see if the specified amount of tokens are available for claiming. i.e.:
 
-const nfts = await contract.erc721.getAll(queryParams);
-```
+- There is sufficient quantity available for claiming.
+- This amount of tokens can be claimed in a single transaction.
+
+Must be a `string` or `number`.
+
+#### addressToCheck (optional)
+
+The wallet address to check if it can claim tokens.
+
+This considers all aspects of the active claim phase, including allowlists, previous claims, etc.
+
+Must be a `string`.
 
 ### Return Value
 
-Returns an array of `NFT` objects.
+Returns a `boolean` indicating if the specified amount of tokens can be claimed or not.
 
 ```typescript
-{
-  metadata: {
-    id: string;
-    uri: string; // The raw URI of the metadata
-    owner: string;
-    name?: string | number | undefined;
-    description?: string | null | undefined;
-    image?: string | null | undefined; // If the image is hosted on IPFS, the URL is https://gateway.ipfscdn.io/ipfs/<hash>
-    external_url?: string | null | undefined;
-    animation_url?: string | null | undefined;
-    background_color?: string | undefined;
-    properties?: {
-        [x: string]: unknown;
-    } | {
-        [x: string]: unknown;
-    }[] | undefined;
-  };
-  type: "ERC1155" | "ERC721";
-}[]
+boolean;
 ```
 
 </div>
 </details>
 
-## getAllOwners
+## claim
 
-Get all wallet addresses that own an NFT in this contract.
+Claim a specified number of tokens to the **connected wallet**.
+
+```javascript
+const txResult = await contract.erc721.claim("{{quantity}}");
+```
 
 <details>
     <summary>Configuration</summary>
     <div>
 
-### Return Value
+#### quantity (required)
 
-Returns an array of objects containing a `tokenId` and `owner` address.
+The number of tokens to claim.
 
-- `tokenId` is the ID of the NFT.
-- `owner` is the wallet address of the owner that owns the NFT.
+Must be a `string` or `number`.
 
-```typescript
-{
-  tokenId: number;
-  owner: string;
-}
-[];
+#### options (optional)
+
+Customizable `ClaimOptions` object that can be used to override the default behaviour of the claim.
+
+There are three options available:
+
+- `checkERC20Allowance` - Whether to check the ERC20 allowance of the sender, defaults to true.
+- `currencyAddress` - The currency to pay for each token claimed, defaults to `NATIVE_TOKEN_ADDRESS` for native currency.
+- `pricePerToken` - The price to pay for each token claimed. Not relevant when using claim conditions.
+
+```javascript
+const txResult = await contract.erc721.claim("{{token_id}}", "{{quantity}}", {
+  checkERC20Allowance: true,
+  currencyAddress: "{{currency_contract_address}}",
+  pricePerToken: "{{price}}",
+});
 ```
 
 </div>
 </details>
 
-## totalCount
+## claimTo
 
-Get the total number of NFTs minted in this contract.
-
-Unlike [`totalCirculatingSupply`](#totalCirculatingSupply), this includes NFTs that have been burned.
+The same as [`claim`](#claim), but allows specifying the recipient
+address rather than using the connected wallet.
 
 ```javascript
-const totalSupply = await contract.erc721.totalCount();
+const txResult = await contract.erc721.claimTo(
+  "{{wallet_address}}",
+  "{{quantity}}",
+);
 ```
 
 <details>
     <summary>Configuration</summary>
     <div>
 
-### Return Value
+#### recipient (required)
 
-Returns a `BigNumber`.
+The wallet address to receive the claimed tokens.
 
-```typescript
-BigNumber;
-```
+Must be a `string`.
 
-</div>
-</details>
+#### quantity (required)
 
-## totalCirculatingSupply
+The number of tokens to claim.
 
-Get the total number of NFTs that are currently in circulation.
+Must be a `string` or `number`.
 
-i.e. the number of NFTs that have been minted and not burned.
+#### options (optional)
 
-```javascript
-const totalSupply = await contract.erc721.totalCirculatingSupply();
-```
+Customizable `ClaimOptions` object that can be used to override the default behaviour of the claim.
 
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-Returns a `BigNumber`.
-
-```typescript
-BigNumber;
-```
-
-</div>
-</details>
-
-## lazyMint
-
-Define an array of metadata objects that you want to lazy-mint.
-
-```javascript
-// Custom metadata of the NFTs you want to mint.
-const metadatas = [
-  {
-    name: "Cool NFT #1",
-    description: "This is a cool NFT",
-    image: "https://example.com/image.png", // URL, IPFS URI, or File object
-    // ... Any other metadata you want to include
-  },
-  {
-    name: "Cool NFT #2",
-    description: "This is a cool NFT",
-    image: "https://example.com/image.png", // URL, IPFS URI, or File object
-    // ... Any other metadata you want to include
-  },
-];
-
-const txResult = await contract.erc721.lazyMint(metadatas); // uploads and creates the NFTs on chain
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-An array of metadata objects for the NFTs you want to mint.
-
-Must be an `array` of `object`s that conform to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
-Alternatively, you can provide an array of `string`s that point to valid metadata objects,
-to override the default behavior of uploading and pinning the metadata to IPFS (shown below).
-
-```javascript
-// highlight-start
-const metadatas = [
-  "https://example.com/metadata1.json",
-  "ipfs://my-ipfs-hash",
-  "https://some-other-url.com/metadata2.json",
-];
-// highlight-end
-
-const txResult = await contract.erc721.lazyMint(metadatas);
-```
+See [`claim`](#claim) for more details.
 
 </div>
 </details>
@@ -699,221 +378,164 @@ const txResult = await contract.erc721.revealer.createDelayedRevealBatch(
 </div>
 </details>
 
-## getBatchesToReveal
+## get
 
-Get a list of unrevealed batches.
+Get the metadata for an NFT in this contract using it&rsquo;s token ID.
+
+Metadata is fetched from the `uri` property of the NFT.
+
+If the metadata is hosted on IPFS, the metadata is fetched and made available as an object.
+The object&rsquo;s `image` property will be a URL that is available through the thirdweb IPFS gateway.
 
 ```javascript
-const batches = await contract.erc721.revealer.getBatchesToReveal();
+const tokenId = 0;
+const nft = await contract.erc721.get(tokenId);
 ```
 
 <details>
   <summary>Configuration</summary>
   <div>
 
-Returns an array of `BatchToReveal` objects, containing the following properties:
+#### tokenId
+
+The token ID of the NFT to get the metadata for.
+
+Must be a `BigNumber`, `number`, or `string`.
+
+```javascript
+const nft = await contract.erc721.get(
+  // highlight-next-line
+  "{{token_id}}",
+);
+```
+
+### Return Value
+
+Returns an `NFT` object containing the NFT metadata.
 
 ```typescript
 {
-  batchId: BigNumber;
-  batchUri: string;
-  placeholderMetadata: {
-      id: string;
-      uri: string; // The raw URI of the metadata
-      owner: string;
-      name?: string | number | undefined;
-      description?: string | null | undefined;
-      image?: string | null | undefined; // If the image is hosted on IPFS, the URL is https://gateway.ipfscdn.io/ipfs/<hash>
-      external_url?: string | null | undefined;
-      animation_url?: string | null | undefined;
-      background_color?: string | undefined;
-      properties?: {
-          [x: string]: unknown;
-      } | {
-          [x: string]: unknown;
-      }[] | undefined;
-    };
-    type: "erc721";
+  metadata: {
+    id: string;
+    uri: string; // The raw URI of the metadata
+    owner: string;
+    name?: string | number | undefined;
+    description?: string | null | undefined;
+    image?: string | null | undefined; // If the image is hosted on IPFS, the URL is https://gateway.ipfscdn.io/ipfs/<hash>
+    external_url?: string | null | undefined;
+    animation_url?: string | null | undefined;
+    background_color?: string | undefined;
+    properties?: {
+        [x: string]: unknown;
+    } | {
+        [x: string]: unknown;
+    }[] | undefined;
   };
-}[];
+  type: "ERC721";
+}
 ```
 
 </div>
 </details>
 
-## reveal
+## get - Contract Metadata
 
-Reveal a batch of NFTs that were previously created with
-[`createDelayedRevealBatch`](#createdelayedrevealbatch).
+Get the metadata of a smart contract.
 
 ```javascript
-const batchId = 0; // the batch to reveal
-await contract.erc721.revealer.reveal(batchId, "my secret password");
+const metadata = await contract.metadata.get();
 ```
 
 <details>
-  <summary>Configuration</summary>
-  <div>
+<summary>Configuration</summary>
+<div>
 
-#### batchId
+### Return Value
 
-The ID of the batch to reveal, which you can get from
-[`getBatchesToReveal`](#getbatchestoreveal).
+While the actual return type is `any`, you can expect an object containing
+properties that follow the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata), outlined below:
 
-Must be a `string`, `number`, or `BigNumber`.
+```typescript
+{
+  name: string; // Name of your smart contract
+  description?: string; // Short description of your smart contract
+  image?: string; // Image of your smart contract (any URL, or IPFS URI)
+  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
+  external_link?: string; // Link to view this smart contract on your website
+  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
+  fee_recipient?: string; // Wallet address that receives the seller fee
+}
+```
+
+</div>
+</details>
+
+## get - Owner
+
+Retrieve the wallet address of the owner of the smart contract.
 
 ```javascript
-await contract.erc721.revealer.reveal(
+const owner = await contract.owner.get();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+A `string` representing the owner&rsquo;s wallet address.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
+## get - Permissions
+
+Get a list of wallet addresses that are members of a given role.
+
+```javascript
+const members = await contract.roles.get("{{role_name}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### role
+
+The name of the role.
+
+Must be a `string`.
+
+```javascript
+const members = await contract.roles.get(
   // highlight-next-line
-  "{{batch_id}}",
-  "{{password}}",
+  "{{role_name}}",
 );
 ```
-
-#### password
-
-When you create a batch using [`createDelayedRevealBatch`](#createdelayedrevealbatch),
-you specify a password. To you reveal the batch, you must provide the same
-password.
-
-Must be a `string`.
-
-```javascript
-await contract.erc721.revealer.reveal(
-  "{{batch_id}}",
-  // highlight-next-line
-  "{{password}}",
-);
-```
-
-</div>
-</details>
-
-## claim
-
-Claim a specified number of tokens to the **connected wallet**.
-
-```javascript
-const txResult = await contract.erc721.claim("{{quantity}}");
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### quantity (required)
-
-The number of tokens to claim.
-
-Must be a `string` or `number`.
-
-#### options (optional)
-
-Customizable `ClaimOptions` object that can be used to override the default behaviour of the claim.
-
-There are three options available:
-
-- `checkERC20Allowance` - Whether to check the ERC20 allowance of the sender, defaults to true.
-- `currencyAddress` - The currency to pay for each token claimed, defaults to `NATIVE_TOKEN_ADDRESS` for native currency.
-- `pricePerToken` - The price to pay for each token claimed. Not relevant when using claim conditions.
-
-```javascript
-const txResult = await contract.erc721.claim("{{token_id}}", "{{quantity}}", {
-  checkERC20Allowance: true,
-  currencyAddress: "{{currency_contract_address}}",
-  pricePerToken: "{{price}}",
-});
-```
-
-</div>
-</details>
-
-## claimTo
-
-The same as [`claim`](#claim), but allows specifying the recipient
-address rather than using the connected wallet.
-
-```javascript
-const txResult = await contract.erc721.claimTo(
-  "{{wallet_address}}",
-  "{{quantity}}",
-);
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### recipient (required)
-
-The wallet address to receive the claimed tokens.
-
-Must be a `string`.
-
-#### quantity (required)
-
-The number of tokens to claim.
-
-Must be a `string` or `number`.
-
-#### options (optional)
-
-Customizable `ClaimOptions` object that can be used to override the default behaviour of the claim.
-
-See [`claim`](#claim) for more details.
-
-</div>
-</details>
-
-## canClaim
-
-Check if tokens are currently available for claiming, optionally specifying if a specific wallet
-address can claim.
-
-```javascript
-const canClaim = await contract.erc721.claimConditions.canClaim("{{quantity}}");
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### quantity (required)
-
-The amount of tokens to claim.
-
-This checks to see if the specified amount of tokens are available for claiming. i.e.:
-
-- There is sufficient quantity available for claiming.
-- This amount of tokens can be claimed in a single transaction.
-
-Must be a `string` or `number`.
-
-#### addressToCheck (optional)
-
-The wallet address to check if it can claim tokens.
-
-This considers all aspects of the active claim phase, including allowlists, previous claims, etc.
-
-Must be a `string`.
 
 ### Return Value
 
-Returns a `boolean` indicating if the specified amount of tokens can be claimed or not.
+An array of `string`s representing the wallet addresses associated with the given role.
 
 ```typescript
-boolean;
+string[];
 ```
 
 </div>
 </details>
 
-## totalClaimedSupply
+## get - Platform Fee
 
-Get the total number of tokens claimed from the drop so far.
+Get the platform fee recipient and basis points.
 
 ```javascript
-const totalClaimedSupply = await contract.erc721.totalClaimedSupply();
+const feeInfo = await contract.platformFee.get();
 ```
 
 <details>
@@ -922,33 +544,13 @@ const totalClaimedSupply = await contract.erc721.totalClaimedSupply();
 
 ### Return Value
 
-Returns a `BigNumber` representing the total number of tokens claimed from the drop so far.
+Returns an object containing the platform fee recipient and basis points.
 
 ```typescript
-BigNumber;
-```
-
-</div>
-</details>
-
-## totalUnclaimedSupply
-
-Get the total number of tokens that are still available to be claimed from the drop.
-
-```javascript
-const totalUnclaimedSupply = await contract.erc721.totalUnclaimedSupply();
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-Returns a `BigNumber` representing the total number of tokens that are still available to be claimed from the drop.
-
-```typescript
-BigNumber;
+{
+  platform_fee_basis_points: number;
+  platform_fee_recipient: string;
+}
 ```
 
 </div>
@@ -1022,6 +624,64 @@ If a claim condition is active, returns a `ClaimCondition` object containing the
 </div>
 </details>
 
+## getAll
+
+Get the metadata and current owner of all NFTs in the contract.
+
+By default, returns the first `100` NFTs (in order of token ID). Use [`queryParams`](#queryParams-optional) to paginate the results.
+
+```javascript
+const nfts = await contract.erc721.getAll();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### queryParams (optional)
+
+Provide an optional object to configure the query. Useful for paginating the results.
+
+```javascript
+const queryParams = {
+  // The number of NFTs to return
+  count: 100, // Default is 100
+  // The index to start from
+  start: 0, // Default is 0
+};
+
+const nfts = await contract.erc721.getAll(queryParams);
+```
+
+### Return Value
+
+Returns an array of `NFT` objects.
+
+```typescript
+{
+  metadata: {
+    id: string;
+    uri: string; // The raw URI of the metadata
+    owner: string;
+    name?: string | number | undefined;
+    description?: string | null | undefined;
+    image?: string | null | undefined; // If the image is hosted on IPFS, the URL is https://gateway.ipfscdn.io/ipfs/<hash>
+    external_url?: string | null | undefined;
+    animation_url?: string | null | undefined;
+    background_color?: string | undefined;
+    properties?: {
+        [x: string]: unknown;
+    } | {
+        [x: string]: unknown;
+    }[] | undefined;
+  };
+  type: "ERC1155" | "ERC721";
+}[]
+```
+
+</div>
+</details>
+
 ## getAll - Claim Conditions
 
 Get all the claim phases configured for the drop.
@@ -1075,6 +735,97 @@ Returns an array of `ClaimCondition` objects.
       maxClaimable: string;
   }[] | null | undefined;
 }[]
+```
+
+</div>
+</details>
+
+## getAll - Permissions
+
+Retrieve all of the roles and associated wallets.
+
+```javascript
+const allRoles = await contract.roles.getAll();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+An object containing role names as keys and an array of wallet addresses as the value.
+
+```typescript
+<Record<any, string[]>>
+```
+
+</div>
+</details>
+
+## getAllOwners
+
+Get all wallet addresses that own an NFT in this contract.
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns an array of objects containing a `tokenId` and `owner` address.
+
+- `tokenId` is the ID of the NFT.
+- `owner` is the wallet address of the owner that owns the NFT.
+
+```typescript
+{
+  tokenId: number;
+  owner: string;
+}
+[];
+```
+
+</div>
+</details>
+
+## getBatchesToReveal
+
+Get a list of unrevealed batches.
+
+```javascript
+const batches = await contract.erc721.revealer.getBatchesToReveal();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+Returns an array of `BatchToReveal` objects, containing the following properties:
+
+```typescript
+{
+  batchId: BigNumber;
+  batchUri: string;
+  placeholderMetadata: {
+      id: string;
+      uri: string; // The raw URI of the metadata
+      owner: string;
+      name?: string | number | undefined;
+      description?: string | null | undefined;
+      image?: string | null | undefined; // If the image is hosted on IPFS, the URL is https://gateway.ipfscdn.io/ipfs/<hash>
+      external_url?: string | null | undefined;
+      animation_url?: string | null | undefined;
+      background_color?: string | undefined;
+      properties?: {
+          [x: string]: unknown;
+      } | {
+          [x: string]: unknown;
+      }[] | undefined;
+    };
+    type: "erc721";
+  };
+}[];
 ```
 
 </div>
@@ -1213,6 +964,323 @@ Must be a `string`.
 </div>
 </details>
 
+## getDefaultRoyaltyInfo
+
+Gets the royalty recipient and BPS (basis points) of the smart contract.
+
+```javascript
+const royaltyInfo = await contract.royalties.getDefaultRoyaltyInfo();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns an object containing the royalty recipient address and BPS (basis points) of the smart contract.
+
+```typescript
+{
+  seller_fee_basis_points: number;
+  fee_recipient: string;
+}
+```
+
+</div>
+</details>
+
+## getRecipient
+
+Get the primary sale recipient.
+
+```javascript
+const salesRecipient = await contract.sales.getRecipient();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns a `string` containing the wallet address of the primary sale recipient.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
+## grant - Permissions
+
+Make a wallet a member of a given role.
+
+```javascript
+const txResult = await contract.roles.grant(
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### role
+
+The name of the role to grant.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.grant(
+  // highlight-next-line
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
+```
+
+#### wallet
+
+The wallet address to assign the role to.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.grant(
+  "{{role_name}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+</div>
+</details>
+
+## isApproved
+
+Get whether this wallet has approved transfers from the given operator.
+
+This means that the operator can transfer NFTs on behalf of this wallet.
+
+```javascript
+const isApproved = await contract.erc721.isApproved(
+  // Address of the wallet to check
+  "{{wallet_address}}",
+  // Address of the operator to check
+  "{{wallet_address}}",
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### owner
+
+The wallet address that owns the NFT.
+
+Must be a `string`.
+
+```javascript
+const isApproved = await contract.erc721.isApproved(
+  // highlight-next-line
+  "{{wallet_address}}",
+  "{{wallet_address}}",
+);
+```
+
+#### operator
+
+The wallet address of the operator to check (i.e. the wallet that does/does not have approval).
+
+Must be a `string`.
+
+```javascript
+const isApproved = await contract.erc721.isApproved(
+  "{{wallet_address}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+</div>
+</details>
+
+## lazyMint
+
+Define an array of metadata objects that you want to lazy-mint.
+
+```javascript
+// Custom metadata of the NFTs you want to mint.
+const metadatas = [
+  {
+    name: "Cool NFT #1",
+    description: "This is a cool NFT",
+    image: "https://example.com/image.png", // URL, IPFS URI, or File object
+    // ... Any other metadata you want to include
+  },
+  {
+    name: "Cool NFT #2",
+    description: "This is a cool NFT",
+    image: "https://example.com/image.png", // URL, IPFS URI, or File object
+    // ... Any other metadata you want to include
+  },
+];
+
+const txResult = await contract.erc721.lazyMint(metadatas); // uploads and creates the NFTs on chain
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+An array of metadata objects for the NFTs you want to mint.
+
+Must be an `array` of `object`s that conform to the [metadata standards](https://docs.opensea.io/docs/metadata-standards#metadata-structure).
+Alternatively, you can provide an array of `string`s that point to valid metadata objects,
+to override the default behavior of uploading and pinning the metadata to IPFS (shown below).
+
+```javascript
+// highlight-start
+const metadatas = [
+  "https://example.com/metadata1.json",
+  "ipfs://my-ipfs-hash",
+  "https://some-other-url.com/metadata2.json",
+];
+// highlight-end
+
+const txResult = await contract.erc721.lazyMint(metadatas);
+```
+
+</div>
+</details>
+
+## ownerOf
+
+Get the wallet address of the owner of an NFT.
+
+```javascript
+const owner = await contract.erc721.ownerOf("{{token_id}}");
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### tokenId
+
+The token ID of the NFT to get the owner of.
+
+Must be a `BigNumber`, `number`, or `string`.
+
+### Return Value
+
+Returns a `string` representing the wallet address of the owner of the NFT.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
+## reveal
+
+Reveal a batch of NFTs that were previously created with
+[`createDelayedRevealBatch`](#createdelayedrevealbatch).
+
+```javascript
+const batchId = 0; // the batch to reveal
+await contract.erc721.revealer.reveal(batchId, "my secret password");
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### batchId
+
+The ID of the batch to reveal, which you can get from
+[`getBatchesToReveal`](#getbatchestoreveal).
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+await contract.erc721.revealer.reveal(
+  // highlight-next-line
+  "{{batch_id}}",
+  "{{password}}",
+);
+```
+
+#### password
+
+When you create a batch using [`createDelayedRevealBatch`](#createdelayedrevealbatch),
+you specify a password. To you reveal the batch, you must provide the same
+password.
+
+Must be a `string`.
+
+```javascript
+await contract.erc721.revealer.reveal(
+  "{{batch_id}}",
+  // highlight-next-line
+  "{{password}}",
+);
+```
+
+</div>
+</details>
+
+## revoke - Permissions
+
+Revoke a given role from a wallet.
+
+```javascript
+const txResult = await contract.roles.revoke(
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### role
+
+The name of the role to revoke.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.revoke(
+  // highlight-next-line
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
+```
+
+#### wallet
+
+The wallet address to remove the role from.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.revoke(
+  "{{role_name}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+</div>
+</details>
+
 ## set - Claim Conditions
 
 Overwrite the claim conditions for the drop.
@@ -1329,6 +1397,479 @@ Defaults to `false`.
 </div>
 </details>
 
+## set - Contract Metadata
+
+**Overwrite** the metadata of a contract, an object following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+This operation ignores any existing metadata and replaces it with the new metadata provided.
+
+```javascript
+const txResult = await contract.metadata.set({
+  name: "My Contract",
+  description: "My contract description",
+});
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### metadata
+
+Provide an object containing the metadata of your smart contract following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+```typescript
+{
+  name: string; // Name of your smart contract
+  description?: string; // Short description of your smart contract
+  image?: string; // Image of your smart contract (any URL, or IPFS URI)
+  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
+  external_link?: string; // Link to view this smart contract on your website
+  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
+  fee_recipient?: string; // Wallet address that receives the seller fee
+}
+```
+
+</div>
+</details>
+
+## set - Owner
+
+Set the owner address of the contract.
+
+```javascript
+const txResult = await contract.owner.set("{{wallet_address}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### owner
+
+The wallet address of the new owner.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.owner.set(
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+</div>
+</details>
+
+## set - Platform Fee
+
+Set the platform fee recipient and basis points.
+
+```javascript
+const txResult = await contract.platformFees.set({
+  platform_fee_basis_points: 100,
+  platform_fee_recipient: "0x123",
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### platform_fee_basis_points
+
+The percentage fee to take, in basis points. For example, 100 basis points is 1%.
+
+Must be a `number`.
+
+#### platform_fee_recipient
+
+The wallet address that will receive the platform fees.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## setAll - Permissions
+
+Overwrite all roles with new members.
+
+:::warning Dangerous Operation
+
+This **overwrites** all members, INCLUDING YOUR OWN WALLET ADDRESS!
+
+This means you can permanently remove yourself as an admin, which is non-reversible.
+
+Please use this method with caution.
+
+:::
+
+```javascript
+const txResult = await contract.roles.setAll({
+  admin: ["0x12", "0x123"],
+  minter: ["0x1234"],
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### roles
+
+An object containing role names as keys and an array of wallet addresses as the value.
+
+```javascript
+const txResult = await contract.roles.setAll(
+  // highlight-next-line
+  {
+    admin: ["0x12", "0x123"], // Grant these two wallets the admin role
+    minter: ["0x1234"], // Grant this wallet the minter role
+  },
+);
+```
+
+</div>
+</details>
+
+## setApprovalForAll
+
+Give another address approval (or remove approval) to transfer any of your NFTs from this collection.
+
+:::warning Warning
+
+Proceed with caution. Only approve addresses you trust.
+
+:::
+
+```javascript
+await contract.erc721.setApprovalForAll(
+  "{{wallet_address}}", // The wallet address to approve
+  true, // Whether to approve (true) or remove approval (false)
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### operator
+
+The wallet address to approve.
+
+Must be a `string`.
+
+#### approved
+
+Whether to approve (true) or remove approval (false).
+
+Must be a `boolean`.
+
+</div>
+</details>
+
+## setApprovalForToken
+
+Give another address approval (or remove approval) to transfer a specific one of your NFTs from this collection.
+
+:::warning Warning
+
+Proceed with caution. Only approve addresses you trust.
+
+:::
+
+```javascript
+// Approve the wallet address
+await contract.erc721.setApprovalForToken(
+  "{{wallet_address}}", // The wallet address to approve
+  "{{token_id}}", // The token ID of the NFT to allow them to transfer
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### operator
+
+The wallet address to approve.
+
+Must be a `string`.
+
+#### tokenId
+
+The token ID of the NFT to allow the operator to transfer.
+
+Must be a `BigNumber`, `number`, or `string`.
+
+</div>
+</details>
+
+## setDefaultRoyaltyInfo
+
+Set the royalty recipient and fee for the smart contract.
+
+```javascript
+await contract.royalties.setDefaultRoyaltyInfo({
+  seller_fee_basis_points: 100, // 1% royalty fee
+  fee_recipient: "0x...", // the fee recipient
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### seller_fee_basis_points
+
+The royalty fee in BPS (basis points). 100 = 1%.
+
+Must be a `number`.
+
+#### fee_recipient
+
+The wallet address that will receive the royalty fees.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## setRecipient
+
+Set the primary sale recipient.
+
+```javascript
+await contract.sales.setRecipient("{{wallet_address}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### recipient
+
+The wallet address of the primary sale recipient.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## getTokenRoyaltyInfo
+
+Gets the royalty recipient and BPS (basis points) of a particular token in the contract.
+
+```javascript
+const royaltyInfo = await contract.royalties.getTokenRoyaltyInfo(
+  "{{token_id}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### tokenId
+
+The token ID to get the royalty info for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+### Return Value
+
+Returns an object containing the royalty recipient address and BPS (basis points) of the token.
+
+```typescript
+{
+  seller_fee_basis_points: number;
+  fee_recipient: string;
+}
+```
+
+</div>
+</details>
+
+## setTokenRoyaltyInfo
+
+Set the royalty recipient and fee for a particular token in the contract.
+
+```javascript
+await contract.royalties.setTokenRoyaltyInfo("{{token_id}}", {
+  seller_fee_basis_points: 100, // 1% royalty fee
+  fee_recipient: "0x...", // the fee recipient
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### tokenId
+
+The token ID to set the royalty info for.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+#### seller_fee_basis_points
+
+The royalty fee in BPS (basis points). 100 = 1%.
+
+Must be a `number`.
+
+#### fee_recipient
+
+The wallet address that will receive the royalty fees.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## transfer
+
+Transfer an NFT from the **connected wallet** to another wallet.
+
+```javascript
+const walletAddress = "{{wallet_address}}";
+const tokenId = 0;
+await contract.erc721.transfer(walletAddress, tokenId);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### walletAddress
+
+The wallet address to transfer the NFT to.
+
+Must be a `string`.
+
+```javascript
+await contract.erc721.transfer(
+  // highlight-next-line
+  "{{wallet_address}}",
+  "{{token_id}}",
+);
+```
+
+#### tokenId
+
+The token ID of the NFT to transfer.
+
+Must be a `BigNumber`, `number`, or `string`.
+
+```javascript
+await contract.erc721.transfer(
+  "{{wallet_address}}",
+  // highlight-next-line
+  "{{token_id}}",
+);
+```
+
+</div>
+</details>
+
+## totalCirculatingSupply
+
+Get the total number of NFTs that are currently in circulation.
+
+i.e. the number of NFTs that have been minted and not burned.
+
+```javascript
+const totalSupply = await contract.erc721.totalCirculatingSupply();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns a `BigNumber`.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## totalClaimedSupply
+
+Get the total number of tokens claimed from the drop so far.
+
+```javascript
+const totalClaimedSupply = await contract.erc721.totalClaimedSupply();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns a `BigNumber` representing the total number of tokens claimed from the drop so far.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## totalCount
+
+Get the total number of NFTs minted in this contract.
+
+Unlike [`totalCirculatingSupply`](#totalCirculatingSupply), this includes NFTs that have been burned.
+
+```javascript
+const totalSupply = await contract.erc721.totalCount();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns a `BigNumber`.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## totalUnclaimedSupply
+
+Get the total number of tokens that are still available to be claimed from the drop.
+
+```javascript
+const totalUnclaimedSupply = await contract.erc721.totalUnclaimedSupply();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns a `BigNumber` representing the total number of tokens that are still available to be claimed from the drop.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
 ## update - Claim Conditions
 
 Update a single claim phase, by providing the index of the claim
@@ -1374,420 +1915,41 @@ See [`set`](#set) configuration for more details.
 </div>
 </details>
 
-## getDefaultRoyaltyInfo
+## update - Contract Metadata
 
-Gets the royalty recipient and BPS (basis points) of the smart contract.
+Update the metadata of your smart contract.
 
 ```javascript
-const royaltyInfo = await contract.royalties.getDefaultRoyaltyInfo();
+const txResult = await contract.metadata.update({
+  name: "My Contract",
+  description: "My contract description",
+});
 ```
 
 <details>
-    <summary>Configuration</summary>
-    <div>
+  <summary>Configuration</summary>
+  <div>
 
-### Return Value
+#### metadata
 
-Returns an object containing the royalty recipient address and BPS (basis points) of the smart contract.
+Provide an object containing the metadata of your smart contract following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+New properties will be added, and existing properties will be overwritten.
+If you do not provide a new value for a previously set property, it will remain unchanged.
+
+Below are the properties you can define on your smart contract.
 
 ```typescript
 {
-  seller_fee_basis_points: number;
-  fee_recipient: string;
+  name: string; // Name of your smart contract
+  description?: string; // Short description of your smart contract
+  image?: string; // Image of your smart contract (any URL, or IPFS URI)
+  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
+  external_link?: string; // Link to view this smart contract on your website
+  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
+  fee_recipient?: string; // Wallet address that receives the seller fee
 }
-```
-
-</div>
-</details>
-
-## getTokenRoyaltyInfo
-
-Gets the royalty recipient and BPS (basis points) of a particular token in the contract.
-
-```javascript
-const royaltyInfo = await contract.royalties.getTokenRoyaltyInfo(
-  "{{token_id}}",
-);
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### tokenId
-
-The token ID to get the royalty info for.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-### Return Value
-
-Returns an object containing the royalty recipient address and BPS (basis points) of the token.
-
-```typescript
-{
-  seller_fee_basis_points: number;
-  fee_recipient: string;
-}
-```
-
-</div>
-</details>
-
-## setDefaultRoyaltyInfo
-
-Set the royalty recipient and fee for the smart contract.
-
-```javascript
-await contract.royalties.setDefaultRoyaltyInfo({
-  seller_fee_basis_points: 100, // 1% royalty fee
-  fee_recipient: "0x...", // the fee recipient
-});
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### seller_fee_basis_points
-
-The royalty fee in BPS (basis points). 100 = 1%.
-
-Must be a `number`.
-
-#### fee_recipient
-
-The wallet address that will receive the royalty fees.
-
-Must be a `string`.
-
-</div>
-</details>
-
-## setTokenRoyaltyInfo
-
-Set the royalty recipient and fee for a particular token in the contract.
-
-```javascript
-await contract.royalties.setTokenRoyaltyInfo("{{token_id}}", {
-  seller_fee_basis_points: 100, // 1% royalty fee
-  fee_recipient: "0x...", // the fee recipient
-});
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### tokenId
-
-The token ID to set the royalty info for.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-#### seller_fee_basis_points
-
-The royalty fee in BPS (basis points). 100 = 1%.
-
-Must be a `number`.
-
-#### fee_recipient
-
-The wallet address that will receive the royalty fees.
-
-Must be a `string`.
-
-</div>
-</details>
-
-## get - Platform Fee
-
-Get the platform fee recipient and basis points.
-
-```javascript
-const feeInfo = await contract.platformFee.get();
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-Returns an object containing the platform fee recipient and basis points.
-
-```typescript
-{
-  platform_fee_basis_points: number;
-  platform_fee_recipient: string;
-}
-```
-
-</div>
-</details>
-
-## set - Platform Fee
-
-Set the platform fee recipient and basis points.
-
-```javascript
-const txResult = await contract.platformFees.set({
-  platform_fee_basis_points: 100,
-  platform_fee_recipient: "0x123",
-});
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### platform_fee_basis_points
-
-The percentage fee to take, in basis points. For example, 100 basis points is 1%.
-
-Must be a `number`.
-
-#### platform_fee_recipient
-
-The wallet address that will receive the platform fees.
-
-Must be a `string`.
-
-</div>
-</details>
-
-## getRecipient
-
-Get the primary sale recipient.
-
-```javascript
-const salesRecipient = await contract.sales.getRecipient();
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-Returns a `string` containing the wallet address of the primary sale recipient.
-
-```typescript
-string;
-```
-
-</div>
-</details>
-
-## setRecipient
-
-Set the primary sale recipient.
-
-```javascript
-await contract.sales.setRecipient("{{wallet_address}}");
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### recipient
-
-The wallet address of the primary sale recipient.
-
-Must be a `string`.
-
-</div>
-</details>
-
-## get - Permissions
-
-Get a list of wallet addresses that are members of a given role.
-
-```javascript
-const members = await contract.roles.get("{{role_name}}");
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### role
-
-The name of the role.
-
-Must be a `string`.
-
-```javascript
-const members = await contract.roles.get(
-  // highlight-next-line
-  "{{role_name}}",
-);
-```
-
-### Return Value
-
-An array of `string`s representing the wallet addresses associated with the given role.
-
-```typescript
-string[];
-```
-
-</div>
-</details>
-
-## getAll - Permissions
-
-Retrieve all of the roles and associated wallets.
-
-```javascript
-const allRoles = await contract.roles.getAll();
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-An object containing role names as keys and an array of wallet addresses as the value.
-
-```typescript
-<Record<any, string[]>>
-```
-
-</div>
-</details>
-
-## grant - Permissions
-
-Make a wallet a member of a given role.
-
-```javascript
-const txResult = await contract.roles.grant(
-  "{{role_name}}",
-  "{{wallet_address}}",
-);
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### role
-
-The name of the role to grant.
-
-Must be a `string`.
-
-```javascript
-const txResult = await contract.roles.grant(
-  // highlight-next-line
-  "{{role_name}}",
-  "{{wallet_address}}",
-);
-```
-
-#### wallet
-
-The wallet address to assign the role to.
-
-Must be a `string`.
-
-```javascript
-const txResult = await contract.roles.grant(
-  "{{role_name}}",
-  // highlight-next-line
-  "{{wallet_address}}",
-);
-```
-
-</div>
-</details>
-
-## revoke - Permissions
-
-Revoke a given role from a wallet.
-
-```javascript
-const txResult = await contract.roles.revoke(
-  "{{role_name}}",
-  "{{wallet_address}}",
-);
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### role
-
-The name of the role to revoke.
-
-Must be a `string`.
-
-```javascript
-const txResult = await contract.roles.revoke(
-  // highlight-next-line
-  "{{role_name}}",
-  "{{wallet_address}}",
-);
-```
-
-#### wallet
-
-The wallet address to remove the role from.
-
-Must be a `string`.
-
-```javascript
-const txResult = await contract.roles.revoke(
-  "{{role_name}}",
-  // highlight-next-line
-  "{{wallet_address}}",
-);
-```
-
-</div>
-</details>
-
-## setAll - Permissions
-
-Overwrite all roles with new members.
-
-:::warning Dangerous Operation
-
-This **overwrites** all members, INCLUDING YOUR OWN WALLET ADDRESS!
-
-This means you can permanently remove yourself as an admin, which is non-reversible.
-
-Please use this method with caution.
-
-:::
-
-```javascript
-const txResult = await contract.roles.setAll({
-  admin: ["0x12", "0x123"],
-  minter: ["0x1234"],
-});
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### roles
-
-An object containing role names as keys and an array of wallet addresses as the value.
-
-```javascript
-const txResult = await contract.roles.setAll(
-  // highlight-next-line
-  {
-    admin: ["0x12", "0x123"], // Grant these two wallets the admin role
-    minter: ["0x1234"], // Grant this wallet the minter role
-  },
-);
 ```
 
 </div>
@@ -1835,168 +1997,6 @@ const verifyRole = await contract.roles.verify(
   ["admin", "minter"],
   // highlight-next-line
   "{{wallet_addres}}",
-);
-```
-
-</div>
-</details>
-
-## get - Contract Metadata
-
-Get the metadata of a smart contract.
-
-```javascript
-const metadata = await contract.metadata.get();
-```
-
-<details>
-<summary>Configuration</summary>
-<div>
-
-### Return Value
-
-While the actual return type is `any`, you can expect an object containing
-properties that follow the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata), outlined below:
-
-```typescript
-{
-  name: string; // Name of your smart contract
-  description?: string; // Short description of your smart contract
-  image?: string; // Image of your smart contract (any URL, or IPFS URI)
-  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
-  external_link?: string; // Link to view this smart contract on your website
-  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
-  fee_recipient?: string; // Wallet address that receives the seller fee
-}
-```
-
-</div>
-</details>
-
-## update - Contract Metadata
-
-Update the metadata of your smart contract.
-
-```javascript
-const txResult = await contract.metadata.update({
-  name: "My Contract",
-  description: "My contract description",
-});
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### metadata
-
-Provide an object containing the metadata of your smart contract following the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
-
-New properties will be added, and existing properties will be overwritten.
-If you do not provide a new value for a previously set property, it will remain unchanged.
-
-Below are the properties you can define on your smart contract.
-
-```typescript
-{
-  name: string; // Name of your smart contract
-  description?: string; // Short description of your smart contract
-  image?: string; // Image of your smart contract (any URL, or IPFS URI)
-  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
-  external_link?: string; // Link to view this smart contract on your website
-  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
-  fee_recipient?: string; // Wallet address that receives the seller fee
-}
-```
-
-</div>
-</details>
-
-## set - Contract Metadata
-
-**Overwrite** the metadata of a contract, an object following the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
-
-This operation ignores any existing metadata and replaces it with the new metadata provided.
-
-```javascript
-const txResult = await contract.metadata.set({
-  name: "My Contract",
-  description: "My contract description",
-});
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### metadata
-
-Provide an object containing the metadata of your smart contract following the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
-
-```typescript
-{
-  name: string; // Name of your smart contract
-  description?: string; // Short description of your smart contract
-  image?: string; // Image of your smart contract (any URL, or IPFS URI)
-  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
-  external_link?: string; // Link to view this smart contract on your website
-  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
-  fee_recipient?: string; // Wallet address that receives the seller fee
-}
-```
-
-</div>
-</details>
-
-## get - Owner
-
-Retrieve the wallet address of the owner of the smart contract.
-
-```javascript
-const owner = await contract.owner.get();
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-A `string` representing the owner&rsquo;s wallet address.
-
-```typescript
-string;
-```
-
-</div>
-</details>
-
-## set - Owner
-
-Set the owner address of the contract.
-
-```javascript
-const txResult = await contract.owner.set("{{wallet_address}}");
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### owner
-
-The wallet address of the new owner.
-
-Must be a `string`.
-
-```javascript
-const txResult = await contract.owner.set(
-  // highlight-next-line
-  "{{wallet_address}}",
 );
 ```
 
