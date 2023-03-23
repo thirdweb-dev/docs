@@ -25,7 +25,7 @@ The `create` command generates a new directory with your project name.
 Open this directory in your text editor.
 
 Inside the [`index.js`](https://github.com/thirdweb-example/cra-javascript-starter/blob/main/src/index.js#L15-L17) file,
-you'll find the [`ThirdwebProvider`](/sdk/set-up-the-sdk/frontend#manual-installation) wrapping the entire application.
+you'll find the [`ThirdwebProvider`](/react/react.thirdwebprovider) wrapping the entire application.
 
 This wrapper allows us to use all of the [React SDK](/react)'s hooks and [UI Components](/react/react.web3button) throughout the application, as well as configure an `activeChain`;
 which declares which chain our smart contracts are deployed to.
@@ -36,7 +36,7 @@ Since we deployed our smart contract to the `Goerli` network, we'll set the `act
 
 To connect to your smart contract in the application,
 provide your smart contract address (_which you can get from the dashboard_) to the
-[`useContract`](/sdk/interacting-with-contracts/custom-contracts/getting-a-contract#connect-to-a-contract)
+[`useContract`](/react/react.usecontract)
 hook like so:
 
 ```jsx title="src/App.js"
@@ -49,8 +49,8 @@ export default function Home() {
 }
 ```
 
-You can now call any function on your smart contract with [`useContractRead`](/sdk/interacting-with-contracts/custom-contracts/using-contracts#read-contract-data) and
-[`useContractWrite`](/sdk/interacting-with-contracts/custom-contracts/using-contracts#write-transactions) hooks.
+You can now call any function on your smart contract with [`useContractRead`](/react/react.usecontractread) and
+[`useContractWrite`](/react/react.usecontractwrite) hooks.
 Each [extension](/contractkit/extensions) you implemented in your smart contract also
 unlocks a new functionality for you to use in the [SDK](/sdk).
 
@@ -61,7 +61,7 @@ Let's look at how this works by reading our smart contract's NFTs and then minti
 The NFT Collection contract we built earlier implements the [ERC721](/contractkit/base-contracts/erc-721/erc721base)
 and [ERC721Supply](/contractkit/interfaces/erc721supply) extensions.
 
-By doing so, we can use the [View All](/sdk/interacting-with-contracts/erc721supply)
+By doing so, we can use the "View All"
 functionality in our application! In the React SDK, that is available
 through the [`useNFTs`](/react/react.usenfts) hook, which we can use by providing the `contract` object to the hook like so:
 
@@ -105,7 +105,7 @@ export default function Home() {
 ### Writing Transactions
 
 Since our smart contract implements the `ERC721Mintable` extension,
-the [Mint](/sdk/interacting-with-contracts/erc721mintable) feature is available to us in the SDK.
+the `mint` feature is available to us in the SDK.
 
 Use the [`Web3Button`](/ui-components/web3button) component to perform a `mint` transaction; which ensures the user
 has their wallet connected and is on the right network before calling the function:

@@ -201,293 +201,6 @@ A `CurrencyValue` object is returned with the allowance available in the `value`
 </div>
 </details>
 
-## get
-
-Get the metadata of the token smart contract, such as the name, symbol, and decimals.
-
-```javascript
-const metadata = await contract.erc20.get();
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-### Return Value
-
-```typescript
-{
-  symbol: string; // ticker, e.g. "ETH"
-  name: string; // Name of the token, e.g. "Ether"
-  decimals: number; // Number of decimals, e.g. 18
-}
-```
-
-</div>
-</details>
-
-## normalizeAmount
-
-Convert a number of tokens to a number of wei.
-
-```javascript
-const amount = 100;
-const weiAmount = await contract.erc20.normalizeAmount(amount);
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### amount
-
-The number of tokens to convert to wei.
-
-Must be a `string`, `number`, or `BigNumber`.
-
-```javascript
-const weiAmount = await contract.erc20.normalizeAmount(
-  // highlight-next-line
-  100,
-);
-```
-
-### Return Value
-
-A `BigNumber` object is returned with the amount in wei.
-
-```typescript
-BigNumber;
-```
-
-</div>
-</details>
-
-## setAllowance
-
-Grant allowance to another wallet address to spend the **connected wallet's** funds (of this token).
-
-```javascript
-// Address of the wallet to allow transfers from
-const spenderAddress = "0x...";
-// The number of tokens to give as allowance
-const amount = 100;
-
-await contract.erc20.setAllowance(spenderAddress, amount);
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### spender
-
-The address of the wallet to grant allowance to.
-
-Must be a `string`.
-
-```javascript
-await contract.erc20.setAllowance(
-  // highlight-next-line
-  "{{wallet_address}}",
-  100,
-);
-```
-
-#### amount
-
-The number of tokens to give as allowance.
-
-Must be a `string` or `number`.
-
-```javascript
-await contract.erc20.setAllowance(
-  "{{wallet_address}}",
-  // highlight-next-line
-  100,
-);
-```
-
-</div>
-</details>
-
-## totalSupply
-
-Get the number of tokens in circulation for this contract.
-
-```javascript
-const balance = await contract.erc20.totalSupply();
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-### Return Value
-
-A `CurrencyValue` object is returned with the allowance available in the `value` property.
-
-```typescript
-{
-  value: BigNumber;
-  symbol: string;
-  name: string;
-  decimals: number;
-  displayValue: string;
-}
-```
-
-</div>
-</details>
-
-## transfer
-
-Transfer tokens from the **connected wallet** to another wallet.
-
-```javascript
-// Address of the wallet you want to send the tokens to
-const toAddress = "0x...";
-// The amount of tokens you want to send
-const amount = 0.1;
-await contract.erc20.transfer(toAddress, amount);
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### to
-
-The address of the wallet to send the tokens to.
-
-Must be a `string`.
-
-```javascript
-await contract.erc20.transfer(
-  // highlight-next-line
-  "{{wallet_address}}",
-  0.1,
-);
-```
-
-#### amount
-
-The amount of tokens to send.
-
-Must be a `string` or `number`.
-
-```javascript
-await contract.erc20.transfer(
-  "{{wallet_address}}",
-  // highlight-next-line
-  0.1,
-);
-```
-
-</div>
-</details>
-
-## transferFrom
-
-The same as [`transfer`](#transfer), but allows you to specify the wallet address to send the tokens from,
-instead of using the connected wallet.
-
-This is only possible if the wallet initiating this transaction has been given allowance to transfer the tokens of the `fromAddress`.
-
-```javascript
-// Address of the wallet sending the tokens
-const fromAddress = "{{wallet_address}}";
-// Address of the wallet you want to send the tokens to
-const toAddress = "0x...";
-// The number of tokens you want to send
-const amount = 1.2;
-// Note that the connected wallet must have approval to transfer the tokens of the fromAddress
-await contract.erc20.transferFrom(fromAddress, toAddress, amount);
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### from
-
-The address of the wallet to send the tokens from.
-
-Must be a `string`.
-
-```javascript
-await contract.erc20.transferFrom(
-  // highlight-next-line
-  "{{wallet_address}}",
-  "{{wallet_address}}",
-  1.2,
-);
-```
-
-#### to
-
-The address of the wallet to send the tokens to.
-
-Must be a `string`.
-
-```javascript
-await contract.erc20.transferFrom(
-  "{{wallet_address}}",
-  // highlight-next-line
-  "{{wallet_address}}",
-  1.2,
-);
-```
-
-#### amount
-
-The amount of tokens to send.
-
-Can be a `number` or a `string`.
-
-```javascript
-await contract.erc20.transferFrom(
-  "{{wallet_address}}",
-  "{{wallet_address}}",
-  // highlight-next-line
-  1.2,
-);
-```
-
-</div>
-</details>
-
-## transferBatch
-
-Transfer multiple tokens from the **connected wallet** to multiple wallets.
-
-```javascript
-const txResult = await contract.erc20.transferBatch([
-  {
-    amount: 1,
-    toAddress: "0x123",
-  },
-  {
-    amount: 2,
-    toAddress: "0x456",
-  },
-]);
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-    #### args
-
-    An array of objects, each containing a `toAddress` and an `amount` property.
-
-    - The `toAddress` property must be a `string`, and is the wallet address you want to send the tokens to.
-    - The `amount` property must be a `string`, `number`, or `BigNumber`, and is the amount of tokens you want to send to the `toAddress`
-
-</div>
-</details>
-
 ## burn
 
 Burn tokens held by the **connected wallet**.
@@ -568,6 +281,49 @@ const txResult = await contract.erc20.burnFrom(
 </div>
 </details>
 
+## canClaim
+
+Check if tokens are currently available for claiming, optionally specifying if a specific wallet
+address can claim.
+
+```javascript
+const canClaim = await contract.erc20.claimConditions.canClaim("{{quantity}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### quantity (required)
+
+The amount of tokens to claim.
+
+This checks to see if the specified amount of tokens are available for claiming. i.e.:
+
+- There is sufficient quantity available for claiming.
+- This amount of tokens can be claimed in a single transaction.
+
+Must be a `string` or `number`.
+
+#### addressToCheck (optional)
+
+The wallet address to check if it can claim tokens.
+
+This considers all aspects of the active claim phase, including allowlists, previous claims, etc.
+
+Must be a `string`.
+
+### Return Value
+
+Returns a `boolean` indicating if the specified amount of tokens can be claimed or not.
+
+```typescript
+boolean;
+```
+
+</div>
+</details>
+
 ## claim
 
 Claim a specified number of tokens to the **connected wallet**.
@@ -640,44 +396,121 @@ See [`claim`](#claim) for more details.
 </div>
 </details>
 
-## canClaim
+## get
 
-Check if tokens are currently available for claiming, optionally specifying if a specific wallet
-address can claim.
+Get the metadata of the token smart contract, such as the name, symbol, and decimals.
 
 ```javascript
-const canClaim = await contract.erc20.claimConditions.canClaim("{{quantity}}");
+const metadata = await contract.erc20.get();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+```typescript
+{
+  symbol: string; // ticker, e.g. "ETH"
+  name: string; // Name of the token, e.g. "Ether"
+  decimals: number; // Number of decimals, e.g. 18
+}
+```
+
+</div>
+</details>
+
+## get - Contract Metadata
+
+Get the metadata of a smart contract.
+
+```javascript
+const metadata = await contract.metadata.get();
+```
+
+<details>
+<summary>Configuration</summary>
+<div>
+
+### Return Value
+
+While the actual return type is `any`, you can expect an object containing
+properties that follow the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata), outlined below:
+
+```typescript
+{
+  name: string; // Name of your smart contract
+  description?: string; // Short description of your smart contract
+  image?: string; // Image of your smart contract (any URL, or IPFS URI)
+  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
+  external_link?: string; // Link to view this smart contract on your website
+  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
+  fee_recipient?: string; // Wallet address that receives the seller fee
+}
+```
+
+</div>
+</details>
+
+## get - Permissions
+
+Get a list of wallet addresses that are members of a given role.
+
+```javascript
+const members = await contract.roles.get("{{role_name}}");
 ```
 
 <details>
     <summary>Configuration</summary>
     <div>
 
-#### quantity (required)
+#### role
 
-The amount of tokens to claim.
-
-This checks to see if the specified amount of tokens are available for claiming. i.e.:
-
-- There is sufficient quantity available for claiming.
-- This amount of tokens can be claimed in a single transaction.
-
-Must be a `string` or `number`.
-
-#### addressToCheck (optional)
-
-The wallet address to check if it can claim tokens.
-
-This considers all aspects of the active claim phase, including allowlists, previous claims, etc.
+The name of the role.
 
 Must be a `string`.
 
+```javascript
+const members = await contract.roles.get(
+  // highlight-next-line
+  "{{role_name}}",
+);
+```
+
 ### Return Value
 
-Returns a `boolean` indicating if the specified amount of tokens can be claimed or not.
+An array of `string`s representing the wallet addresses associated with the given role.
 
 ```typescript
-boolean;
+string[];
+```
+
+</div>
+</details>
+
+## get - PlatformFee
+
+Get the platform fee recipient and basis points.
+
+```javascript
+const feeInfo = await contract.platformFee.get();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns an object containing the platform fee recipient and basis points.
+
+```typescript
+{
+  platform_fee_basis_points: number;
+  platform_fee_recipient: string;
+}
 ```
 
 </div>
@@ -806,6 +639,29 @@ Returns an array of `ClaimCondition` objects.
       maxClaimable: string;
   }[] | null | undefined;
 }[]
+```
+
+</div>
+</details>
+
+## getAll - Permissions
+
+Retrieve all of the roles and associated wallets.
+
+```javascript
+const allRoles = await contract.roles.getAll();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+An object containing role names as keys and an array of wallet addresses as the value.
+
+```typescript
+<Record<any, string[]>>
 ```
 
 </div>
@@ -944,6 +800,158 @@ Must be a `string`.
 </div>
 </details>
 
+## getRecipient
+
+Get the primary sale recipient.
+
+```javascript
+const salesRecipient = await contract.sales.getRecipient();
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+### Return Value
+
+Returns a `string` containing the wallet address of the primary sale recipient.
+
+```typescript
+string;
+```
+
+</div>
+</details>
+
+## grant - Permissions
+
+Make a wallet a member of a given role.
+
+```javascript
+const txResult = await contract.roles.grant(
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### role
+
+The name of the role to grant.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.grant(
+  // highlight-next-line
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
+```
+
+#### wallet
+
+The wallet address to assign the role to.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.grant(
+  "{{role_name}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+</div>
+</details>
+
+## normalizeAmount
+
+Convert a number of tokens to a number of wei.
+
+```javascript
+const amount = 100;
+const weiAmount = await contract.erc20.normalizeAmount(amount);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### amount
+
+The number of tokens to convert to wei.
+
+Must be a `string`, `number`, or `BigNumber`.
+
+```javascript
+const weiAmount = await contract.erc20.normalizeAmount(
+  // highlight-next-line
+  100,
+);
+```
+
+### Return Value
+
+A `BigNumber` object is returned with the amount in wei.
+
+```typescript
+BigNumber;
+```
+
+</div>
+</details>
+
+## revoke - Permissions
+
+Revoke a given role from a wallet.
+
+```javascript
+const txResult = await contract.roles.revoke(
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### role
+
+The name of the role to revoke.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.revoke(
+  // highlight-next-line
+  "{{role_name}}",
+  "{{wallet_address}}",
+);
+```
+
+#### wallet
+
+The wallet address to remove the role from.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.roles.revoke(
+  "{{role_name}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+</div>
+</details>
+
 ## set - Claim Conditions
 
 Overwrite the claim phases on the drop contract.
@@ -1038,6 +1046,362 @@ This is only recommended for advanced use cases.
 </div>
 </details>
 
+## set - Contract Metadata
+
+**Overwrite** the metadata of a contract, an object following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+This operation ignores any existing metadata and replaces it with the new metadata provided.
+
+```javascript
+const txResult = await contract.metadata.set({
+  name: "My Contract",
+  description: "My contract description",
+});
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### metadata
+
+Provide an object containing the metadata of your smart contract following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+```typescript
+{
+  name: string; // Name of your smart contract
+  description?: string; // Short description of your smart contract
+  image?: string; // Image of your smart contract (any URL, or IPFS URI)
+  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
+  external_link?: string; // Link to view this smart contract on your website
+  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
+  fee_recipient?: string; // Wallet address that receives the seller fee
+}
+```
+
+</div>
+</details>
+
+## set - PlatformFee
+
+Set the platform fee recipient and basis points.
+
+```javascript
+const txResult = await contract.platformFees.set({
+  platform_fee_basis_points: 100,
+  platform_fee_recipient: "0x123",
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### platform_fee_basis_points
+
+The percentage fee to take, in basis points. For example, 100 basis points is 1%.
+
+Must be a `number`.
+
+#### platform_fee_recipient
+
+The wallet address that will receive the platform fees.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## setAll - Permissions
+
+Overwrite all roles with new members.
+
+:::warning Dangerous Operation
+
+This **overwrites** all members, INCLUDING YOUR OWN WALLET ADDRESS!
+
+This means you can permanently remove yourself as an admin, which is non-reversible.
+
+Please use this method with caution.
+
+:::
+
+```javascript
+const txResult = await contract.roles.setAll({
+  admin: ["0x12", "0x123"],
+  minter: ["0x1234"],
+});
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### roles
+
+An object containing role names as keys and an array of wallet addresses as the value.
+
+```javascript
+const txResult = await contract.roles.setAll(
+  // highlight-next-line
+  {
+    admin: ["0x12", "0x123"], // Grant these two wallets the admin role
+    minter: ["0x1234"], // Grant this wallet the minter role
+  },
+);
+```
+
+</div>
+</details>
+
+## setAllowance
+
+Grant allowance to another wallet address to spend the **connected wallet's** funds (of this token).
+
+```javascript
+// Address of the wallet to allow transfers from
+const spenderAddress = "0x...";
+// The number of tokens to give as allowance
+const amount = 100;
+
+await contract.erc20.setAllowance(spenderAddress, amount);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### spender
+
+The address of the wallet to grant allowance to.
+
+Must be a `string`.
+
+```javascript
+await contract.erc20.setAllowance(
+  // highlight-next-line
+  "{{wallet_address}}",
+  100,
+);
+```
+
+#### amount
+
+The number of tokens to give as allowance.
+
+Must be a `string` or `number`.
+
+```javascript
+await contract.erc20.setAllowance(
+  "{{wallet_address}}",
+  // highlight-next-line
+  100,
+);
+```
+
+</div>
+</details>
+
+## setRecipient
+
+Set the primary sale recipient.
+
+```javascript
+await contract.sales.setRecipient("{{wallet_address}}");
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### recipient
+
+The wallet address of the primary sale recipient.
+
+Must be a `string`.
+
+</div>
+</details>
+
+## totalSupply
+
+Get the number of tokens in circulation for this contract.
+
+```javascript
+const balance = await contract.erc20.totalSupply();
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+### Return Value
+
+A `CurrencyValue` object is returned with the allowance available in the `value` property.
+
+```typescript
+{
+  value: BigNumber;
+  symbol: string;
+  name: string;
+  decimals: number;
+  displayValue: string;
+}
+```
+
+</div>
+</details>
+
+## transfer
+
+Transfer tokens from the **connected wallet** to another wallet.
+
+```javascript
+// Address of the wallet you want to send the tokens to
+const toAddress = "0x...";
+// The amount of tokens you want to send
+const amount = 0.1;
+await contract.erc20.transfer(toAddress, amount);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to
+
+The address of the wallet to send the tokens to.
+
+Must be a `string`.
+
+```javascript
+await contract.erc20.transfer(
+  // highlight-next-line
+  "{{wallet_address}}",
+  0.1,
+);
+```
+
+#### amount
+
+The amount of tokens to send.
+
+Must be a `string` or `number`.
+
+```javascript
+await contract.erc20.transfer(
+  "{{wallet_address}}",
+  // highlight-next-line
+  0.1,
+);
+```
+
+</div>
+</details>
+
+## transferBatch
+
+Transfer multiple tokens from the **connected wallet** to multiple wallets.
+
+```javascript
+const txResult = await contract.erc20.transferBatch([
+  {
+    amount: 1,
+    toAddress: "0x123",
+  },
+  {
+    amount: 2,
+    toAddress: "0x456",
+  },
+]);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+    #### args
+
+    An array of objects, each containing a `toAddress` and an `amount` property.
+
+    - The `toAddress` property must be a `string`, and is the wallet address you want to send the tokens to.
+    - The `amount` property must be a `string`, `number`, or `BigNumber`, and is the amount of tokens you want to send to the `toAddress`
+
+</div>
+</details>
+
+## transferFrom
+
+The same as [`transfer`](#transfer), but allows you to specify the wallet address to send the tokens from,
+instead of using the connected wallet.
+
+This is only possible if the wallet initiating this transaction has been given allowance to transfer the tokens of the `fromAddress`.
+
+```javascript
+// Address of the wallet sending the tokens
+const fromAddress = "{{wallet_address}}";
+// Address of the wallet you want to send the tokens to
+const toAddress = "0x...";
+// The number of tokens you want to send
+const amount = 1.2;
+// Note that the connected wallet must have approval to transfer the tokens of the fromAddress
+await contract.erc20.transferFrom(fromAddress, toAddress, amount);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### from
+
+The address of the wallet to send the tokens from.
+
+Must be a `string`.
+
+```javascript
+await contract.erc20.transferFrom(
+  // highlight-next-line
+  "{{wallet_address}}",
+  "{{wallet_address}}",
+  1.2,
+);
+```
+
+#### to
+
+The address of the wallet to send the tokens to.
+
+Must be a `string`.
+
+```javascript
+await contract.erc20.transferFrom(
+  "{{wallet_address}}",
+  // highlight-next-line
+  "{{wallet_address}}",
+  1.2,
+);
+```
+
+#### amount
+
+The amount of tokens to send.
+
+Can be a `number` or a `string`.
+
+```javascript
+await contract.erc20.transferFrom(
+  "{{wallet_address}}",
+  "{{wallet_address}}",
+  // highlight-next-line
+  1.2,
+);
+```
+
+</div>
+</details>
+
 ## update - Claim Conditions
 
 Update a single claim phase on the drop contract, by providing the index of that
@@ -1081,294 +1445,41 @@ See [`set`](#set) configuration for more details.
 </div>
 </details>
 
-## get - PlatformFee
+## update - Contract Metadata
 
-Get the platform fee recipient and basis points.
+Update the metadata of your smart contract.
 
 ```javascript
-const feeInfo = await contract.platformFee.get();
+const txResult = await contract.metadata.update({
+  name: "My Contract",
+  description: "My contract description",
+});
 ```
 
 <details>
-    <summary>Configuration</summary>
-    <div>
+  <summary>Configuration</summary>
+  <div>
 
-### Return Value
+#### metadata
 
-Returns an object containing the platform fee recipient and basis points.
+Provide an object containing the metadata of your smart contract following the
+[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
+
+New properties will be added, and existing properties will be overwritten.
+If you do not provide a new value for a previously set property, it will remain unchanged.
+
+Below are the properties you can define on your smart contract.
 
 ```typescript
 {
-  platform_fee_basis_points: number;
-  platform_fee_recipient: string;
+  name: string; // Name of your smart contract
+  description?: string; // Short description of your smart contract
+  image?: string; // Image of your smart contract (any URL, or IPFS URI)
+  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
+  external_link?: string; // Link to view this smart contract on your website
+  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
+  fee_recipient?: string; // Wallet address that receives the seller fee
 }
-```
-
-</div>
-</details>
-
-## set - PlatformFee
-
-Set the platform fee recipient and basis points.
-
-```javascript
-const txResult = await contract.platformFees.set({
-  platform_fee_basis_points: 100,
-  platform_fee_recipient: "0x123",
-});
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### platform_fee_basis_points
-
-The percentage fee to take, in basis points. For example, 100 basis points is 1%.
-
-Must be a `number`.
-
-#### platform_fee_recipient
-
-The wallet address that will receive the platform fees.
-
-Must be a `string`.
-
-</div>
-</details>
-
-## getRecipient
-
-Get the primary sale recipient.
-
-```javascript
-const salesRecipient = await contract.sales.getRecipient();
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-Returns a `string` containing the wallet address of the primary sale recipient.
-
-```typescript
-string;
-```
-
-</div>
-</details>
-
-## setRecipient
-
-Set the primary sale recipient.
-
-```javascript
-await contract.sales.setRecipient("{{wallet_address}}");
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### recipient
-
-The wallet address of the primary sale recipient.
-
-Must be a `string`.
-
-</div>
-</details>
-
-## get - Permissions
-
-Get a list of wallet addresses that are members of a given role.
-
-```javascript
-const members = await contract.roles.get("{{role_name}}");
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### role
-
-The name of the role.
-
-Must be a `string`.
-
-```javascript
-const members = await contract.roles.get(
-  // highlight-next-line
-  "{{role_name}}",
-);
-```
-
-### Return Value
-
-An array of `string`s representing the wallet addresses associated with the given role.
-
-```typescript
-string[];
-```
-
-</div>
-</details>
-
-## getAll - Permissions
-
-Retrieve all of the roles and associated wallets.
-
-```javascript
-const allRoles = await contract.roles.getAll();
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-### Return Value
-
-An object containing role names as keys and an array of wallet addresses as the value.
-
-```typescript
-<Record<any, string[]>>
-```
-
-</div>
-</details>
-
-## grant - Permissions
-
-Make a wallet a member of a given role.
-
-```javascript
-const txResult = await contract.roles.grant(
-  "{{role_name}}",
-  "{{wallet_address}}",
-);
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### role
-
-The name of the role to grant.
-
-Must be a `string`.
-
-```javascript
-const txResult = await contract.roles.grant(
-  // highlight-next-line
-  "{{role_name}}",
-  "{{wallet_address}}",
-);
-```
-
-#### wallet
-
-The wallet address to assign the role to.
-
-Must be a `string`.
-
-```javascript
-const txResult = await contract.roles.grant(
-  "{{role_name}}",
-  // highlight-next-line
-  "{{wallet_address}}",
-);
-```
-
-</div>
-</details>
-
-## revoke - Permissions
-
-Revoke a given role from a wallet.
-
-```javascript
-const txResult = await contract.roles.revoke(
-  "{{role_name}}",
-  "{{wallet_address}}",
-);
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### role
-
-The name of the role to revoke.
-
-Must be a `string`.
-
-```javascript
-const txResult = await contract.roles.revoke(
-  // highlight-next-line
-  "{{role_name}}",
-  "{{wallet_address}}",
-);
-```
-
-#### wallet
-
-The wallet address to remove the role from.
-
-Must be a `string`.
-
-```javascript
-const txResult = await contract.roles.revoke(
-  "{{role_name}}",
-  // highlight-next-line
-  "{{wallet_address}}",
-);
-```
-
-</div>
-</details>
-
-## setAll - Permissions
-
-Overwrite all roles with new members.
-
-:::warning Dangerous Operation
-
-This **overwrites** all members, INCLUDING YOUR OWN WALLET ADDRESS!
-
-This means you can permanently remove yourself as an admin, which is non-reversible.
-
-Please use this method with caution.
-
-:::
-
-```javascript
-const txResult = await contract.roles.setAll({
-  admin: ["0x12", "0x123"],
-  minter: ["0x1234"],
-});
-```
-
-<details>
-    <summary>Configuration</summary>
-    <div>
-
-#### roles
-
-An object containing role names as keys and an array of wallet addresses as the value.
-
-```javascript
-const txResult = await contract.roles.setAll(
-  // highlight-next-line
-  {
-    admin: ["0x12", "0x123"], // Grant these two wallets the admin role
-    minter: ["0x1234"], // Grant this wallet the minter role
-  },
-);
 ```
 
 </div>
@@ -1417,117 +1528,6 @@ const verifyRole = await contract.roles.verify(
   // highlight-next-line
   "{{wallet_addres}}",
 );
-```
-
-</div>
-</details>
-
-## get - Contract Metadata
-
-Get the metadata of a smart contract.
-
-```javascript
-const metadata = await contract.metadata.get();
-```
-
-<details>
-<summary>Configuration</summary>
-<div>
-
-### Return Value
-
-While the actual return type is `any`, you can expect an object containing
-properties that follow the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata), outlined below:
-
-```typescript
-{
-  name: string; // Name of your smart contract
-  description?: string; // Short description of your smart contract
-  image?: string; // Image of your smart contract (any URL, or IPFS URI)
-  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
-  external_link?: string; // Link to view this smart contract on your website
-  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
-  fee_recipient?: string; // Wallet address that receives the seller fee
-}
-```
-
-</div>
-</details>
-
-## update - Contract Metadata
-
-Update the metadata of your smart contract.
-
-```javascript
-const txResult = await contract.metadata.update({
-  name: "My Contract",
-  description: "My contract description",
-});
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### metadata
-
-Provide an object containing the metadata of your smart contract following the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
-
-New properties will be added, and existing properties will be overwritten.
-If you do not provide a new value for a previously set property, it will remain unchanged.
-
-Below are the properties you can define on your smart contract.
-
-```typescript
-{
-  name: string; // Name of your smart contract
-  description?: string; // Short description of your smart contract
-  image?: string; // Image of your smart contract (any URL, or IPFS URI)
-  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
-  external_link?: string; // Link to view this smart contract on your website
-  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
-  fee_recipient?: string; // Wallet address that receives the seller fee
-}
-```
-
-</div>
-</details>
-
-## set - Contract Metadata
-
-**Overwrite** the metadata of a contract, an object following the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
-
-This operation ignores any existing metadata and replaces it with the new metadata provided.
-
-```javascript
-const txResult = await contract.metadata.set({
-  name: "My Contract",
-  description: "My contract description",
-});
-```
-
-<details>
-  <summary>Configuration</summary>
-  <div>
-
-#### metadata
-
-Provide an object containing the metadata of your smart contract following the
-[contract level metadata standards](https://docs.opensea.io/docs/contract-level-metadata).
-
-```typescript
-{
-  name: string; // Name of your smart contract
-  description?: string; // Short description of your smart contract
-  image?: string; // Image of your smart contract (any URL, or IPFS URI)
-  symbol?: string; // Symbol of your smart contract (ticker, e.g. "ETH")
-  external_link?: string; // Link to view this smart contract on your website
-  seller_fee_basis_points?: number // The fee you charge on secondary sales, e.g. 100 = 1% seller fee.
-  fee_recipient?: string; // Wallet address that receives the seller fee
-}
 ```
 
 </div>
