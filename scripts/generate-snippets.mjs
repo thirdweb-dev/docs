@@ -257,6 +257,15 @@ fs.writeFileSync(
   ),
 );
 
+// feature_snippets_python
+fs.writeFileSync(
+  `${process.cwd()}/docs/feature_snippets_python.json`,
+  fs.readFileSync(
+    `${process.cwd()}/submodules/python/docs/docs/feature_snippets.json`,
+    "utf8",
+  ),
+);
+
 // feature_snippets_react
 fs.writeFileSync(
   `${process.cwd()}/docs/feature_snippets_react.json`,
