@@ -5,6 +5,7 @@ title: Multicall
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
+import QuickstartCard from "@components/QuickstartCard";
 
 # Multicall
 
@@ -41,13 +42,23 @@ contract MyContract is Multicall { ... }
 
 ## SDK Usage
 
-This extension alone does not unlock anything extra in the SDKs.
+This extension alone does not unlock anything extra in the SDKs. Checkout [`ERC721BatchMintable`](/solidity/extensions/erc721batchmintable), [`ERC1155BatchMintable`](/solidity/extensions/erc1155batchmintable) or [`ERC20BatchMintable`](/solidity/extensions/erc20batchmintable) extensions 
+to see what this extension unlocks in the SDK when combined with [`ERC721Mintable`](/solidity/extensions/erc721mintable), [`ERC1155Mintable`](/solidity/extensions/erc1155mintable) or [`ERC20Mintable`](/solidity/extensions/erc20mintable).
 
 ## Dashboard Usage
 
 This extension alone does not unlock anything in the Dashboard.
 
 ## Base Contracts Implementing This Extension
+
+- [ERC721Base](/solidity/base-contracts/erc721base)
+- [ERC721SignatureMint](/solidity/base-contracts/erc721signaturemint)
+- [ERC1155Base](/solidity/base-contracts/erc1155base)
+- [ERC1155SignatureMint](/solidity/base-contracts/erc1155signaturemint)
+- [ERC20Base](/solidity/base-contracts/erc20base)
+- [ERC20SignatureMint](/solidity/base-contracts/erc20signaturemint)
+- [ERC20SignatureMintVote](/solidity/base-contracts/erc20signaturemintvote)
+- [ERC20Vote](/solidity/base-contracts/erc20vote)
 
 ## Full API reference
 

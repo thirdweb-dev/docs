@@ -5,6 +5,7 @@ title: ERC1155SignatureMint
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
+import QuickstartCard from "@components/QuickstartCard";
 
 # ERC1155SignatureMint
 
@@ -12,7 +13,7 @@ import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
 import "@thirdweb-dev/contracts/extension/SignatureMintERC1155.sol";
 ```
 
-The `SignatureMintERC1155` smart contract is an extension meant for distributing ERC721 tokens.
+The `SignatureMintERC1155` smart contract is an extension meant for distributing ERC1155 tokens.
 
 The 'signature minting' mechanism in the `SignatureMintERC1155` extension uses [EIP-712](https://eips.ethereum.org/EIPS/eip-712), and is a way for a contract admin to authorize an external party's request to mint tokens on the admin's contract. At a high level, this means you can authorize some external party to mint tokens on your contract, and specify what exactly will be minted by that external party.
 
@@ -143,11 +144,33 @@ contract ERC1155SignatureMint is ERC1155Base, SignatureMintERC1155 {
 
 By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
 
-## Dashboard Usage
-
-By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc1155signaturemint"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/erc1155-signature-minting"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc1155signaturemint"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
 
 ## Base Contracts Implementing This Extension
+
+- [ERC1155SignatureMint](/solidity/base-contracts/erc1155signaturemint)
 
 ## Full API reference
 

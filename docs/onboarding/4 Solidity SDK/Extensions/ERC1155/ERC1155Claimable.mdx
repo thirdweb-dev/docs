@@ -5,6 +5,7 @@ title: ERC1155 Claimable
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
+import QuickstartCard from "@components/QuickstartCard";
 
 # ERC1155Claimable
 
@@ -67,8 +68,41 @@ contract Contract is ERC1155, LazyMint, IClaimableERC1155 {
 
 By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
 
-## Dashboard Usage
-
-By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.usenfts"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc1155"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/erc1155"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc1155"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
 
 ## Base Contracts Implementing This Extension
+
+This extension is used as part of the [ERC1155ClaimCustom](/solidity/extensions/erc1155claimcustom) extension.
+The base contracts which have ERC1155ClaimCustom detected on them will also implement ERC1155Claimable.
+
+- [ERC1155DelayedReveal](/solidity/base-contract/erc1155delayedreveal)
+- [ERC1155LazyMint](/solidity/base-contracts/erc1155lazymint)

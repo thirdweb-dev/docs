@@ -5,6 +5,7 @@ title: PrimarySale
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
+import QuickstartCard from "@components/QuickstartCard";
 
 # PrimarySale
 
@@ -70,11 +71,40 @@ contract MyContract is PrimarySale {
 
 By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
 
-## Dashboard Usage
-
-By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.useprimarysalerecipient"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.contractprimarysale"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/contract-sales"
+      image="/assets/languages/python.png"
+    />
+  </div>
+</div>
 
 ## Base Contracts Implementing This Extension
+
+- [`ERC20Drop`](/solidity/base-contracts/erc20drop)
+- [`ERC20DropVote`](/solidity/base-contracts/erc20dropvote)
+- [`ERC20SignatureMint`](/solidity/base-contracts/erc20signaturemint)
+- [`ERC20SignatureMintVote`](/solidity/base-contracts/erc20signaturemintvote)
+- [`ERC721Drop`](/solidity/base-contracts/erc721drop)
+- [`ERC721SignatureMint`](/solidity/base-contracts/erc721signaturemint)
+- [`ERC1155Drop`](/solidity/base-contracts/erc1155drop)
+- [`ERC1155SignatureMint`](/solidity/base-contracts/erc1155signaturemint)
 
 ## Full API Reference
 

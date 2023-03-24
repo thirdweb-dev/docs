@@ -5,6 +5,7 @@ title: LazyMint
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
+import QuickstartCard from "@components/QuickstartCard";
 
 # Lazy Mint
 
@@ -75,13 +76,42 @@ contract MyContract is LazyMint {
 
 ## SDK Usage
 
-By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK (if combined with either [`ERC721`](/solidity/extensions/erc721) or [`ERC1155`](/solidity/extensions/erc155)):
 
-## Dashboard Usage
-
-By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.uselazymint"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript ERC721"
+      link="/typescript/sdk.erc721lazymint"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript - ERC1155"
+      link="/typescript/sdk.erc1155lazymint"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+</div>
 
 ## Base Contracts Implementing This Extension
+(if combined with either [`ERC721`](/solidity/extensions/erc721) or [`ERC1155`](/solidity/extensions/erc155))
+
+- [`ERC721LazyMint`](/solidity/base-contracts/erc721lazymint)
+- [`ERC721DelayedReveal`](/solidity/base-contracts/erc721delayedreveal)
+- [`ERC721Drop`](/solidity/base-contracts/erc721drop)
+- [`ERC1155LazyMint`](/solidity/base-contracts/erc1155lazymint)
+- [`ERC1155DelayedReveal`](/solidity/base-contracts/erc1155delayedreveal)
+- [`ERC1155Drop`](/solidity/base-contracts/erc1155drop)
+
 
 ## Full API Reference
 

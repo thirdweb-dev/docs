@@ -5,6 +5,7 @@ title: ERC721Burnable
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
+import QuickstartCard from "@components/QuickstartCard";
 
 # ERC721Burnable
 
@@ -56,9 +57,41 @@ contract Contract is ERC721A, IBurnableERC721 {
 
 By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
 
-## Dashboard Usage
-
-By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.useburnnft"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc721burnable"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/erc721#burn"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc721burnable"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
 
 ## Base Contracts Implementing This Extension
 
+- [ERC721Base](/solidity/base-contracts/erc721base)
+- [ERC721DelayedReveal](/solidity/base-contracts/erc721delayedreveal)
+- [ERC721Drop](/solidity/base-contracts/erc721drop)
+- [ERC721LazyMint](/solidity/base-contracts/erc721lazymint)
+- [ERC721SignatureMint](/solidity/base-contracts/erc721signaturemint)

@@ -5,15 +5,14 @@ title: ERC721Revealable
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
+import QuickstartCard from "@components/QuickstartCard";
 
 # ERC721Revealable
 
-Allow other wallets to claim/mint tokens from the contract under the criteria of claim conditions by
-implementing `ERC721`, `LazyMint` and `DropSinglePhase`.
+Create batches of 'delayed-reveal' NFTs that can be revealed at a later date after they have been minted and claimed.
 
 This is an extension which is detectable in the dashboard if the smart contract implements the 
 [ERC721](/solidity/extensions/erc721) and [LazyMint](/solidity/extensions/delayedreveal) extensions.
-
 
 <div className="row">
 
@@ -109,8 +108,32 @@ contract Contract is ERC721A, LazyMint, DropSinglePhase {
 
 By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
 
-## Dashboard Usage
-
-By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.usereveallazymint"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.delayedreveal721"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/delayedreveal721"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
 
 ## Base Contracts Implementing This Extension
+
+- [ERC721DelayedReveal](/solidity/base-contracts/erc721delayedreveal)
+- [ERC721Drop](/solidity/base-contracts/erc721drop)
+

@@ -5,6 +5,7 @@ title: ERC721ClaimConditions
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
+import QuickstartCard from "@components/QuickstartCard";
 
 # ERC721ClaimConditions
 
@@ -109,8 +110,41 @@ contract Contract is ERC721A, LazyMint, DropSinglePhase {
 
 By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
 
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.useactiveclaimcondition"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc721claimconditions"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/nft-drop-claim-conditions"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc721claimconditions"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
+
 ## Dashboard Usage
 
 By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
 
 ## Base Contracts Implementing This Extension
+
+- [ERC721Drop](/solidity/base-contracts/erc721drop)

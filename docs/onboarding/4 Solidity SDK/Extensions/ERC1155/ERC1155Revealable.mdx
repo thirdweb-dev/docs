@@ -1,19 +1,18 @@
 ---
-slug: /solidity/extensions/erc1155claimcustom
-title: ERC1155ClaimCustom
+slug: /solidity/extensions/erc1155revealable
+title: ERC1155Revealable
 ---
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
 import QuickstartCard from "@components/QuickstartCard";
 
-# ERC1155ClaimCustom
+# ERC1155Revealable
 
-Allow other wallets to claim/mint tokens that you have Lazy Minted by 
-implementing `ERC1155`, `LazyMint` and `ERC1155Claimable`.
+Create batches of 'delayed-reveal' NFTs that can be revealed at a later date after they have been minted and claimed.
 
 This is an extension which is detectable in the dashboard if the smart contract implements the 
-[`ERC1155`](/solidity/extensions/erc1155), [`LazyMint`](/solidity/extensions/lazymint) and [`ERC1155Claimable`](/solidity/extensions/erc1155claimable) extensions.
+[ERC1155](/solidity/extensions/erc1155) and [LazyMint](/solidity/extensions/delayedreveal) extensions.
 
 
 <div className="row">
@@ -21,7 +20,7 @@ This is an extension which is detectable in the dashboard if the smart contract 
 <div style={{ marginLeft: 24 }}>
 
 <ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC1155A.sol"
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/ERC1155.sol"
   name="ERC1155"
 />
 
@@ -39,8 +38,8 @@ This is an extension which is detectable in the dashboard if the smart contract 
 <div style={{ marginLeft: 24 }}>
 
 <ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/interface/IClaimableERC1155.sol"
-  name="ERC1155Claimable"
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/extension/DropSinglePhase.sol"
+  name="DropSinglePhase"
 />
 
 </div>
@@ -63,16 +62,16 @@ This is an example smart contract demonstrating how to use this extension.
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-import "@thirdweb-dev/contracts/eip/ERC1155.sol";
+import "@thirdweb-dev/contracts/eip/ERC1155A.sol";
 import "@thirdweb-dev/contracts/extension/LazyMint.sol";
-import "@thirdweb-dev/contracts/extension/interface/IClaimableERC1155.sol";
+import "@thirdweb-dev/contracts/extension/DropSinglePhase.sol";
 
-contract Contract is ERC1155, LazyMint, IClaimableERC1155 {
+contract Contract is ERC1155A, LazyMint, DropSinglePhase {
     constructor(
         string memory _name,
         string memory _symbol
     )
-        ERC1155(
+        ERC1155A(
             _name,
             _symbol
         )
@@ -103,14 +102,6 @@ contract Contract is ERC1155, LazyMint, IClaimableERC1155 {
     {
         // Your custom implementation here
     }
-    
-    function claim(address _receiver, uint256 _quantity) external payable override {
-        // Your custom implementation here
-    }
-
-    function verifyClaim(address _claimer, uint256 _quantity) external view override {
-        // Your custom implementation here
-    }
 }
 ```
 
@@ -122,21 +113,21 @@ By adding this extension to a smart contract, the following features, hooks and 
   <div className="col col--3" style={{ padding: 8 }}>
     <QuickstartCard
       name="React"
-      link="/react/react.useclaimnft"
+      link="/react/react.usereveallazymint"
       image="/assets/languages/react.png"
     />
   </div>
   <div className="col col--3" style={{ padding: 8 }}>
     <QuickstartCard
       name="TypeScript"
-      link="/typescript/sdk.erc1155claimconditions"
+      link="/typescript/sdk.delayedreveal1155"
       image="/assets/languages/typescript.png"
     />
   </div>
   <div className="col col--3" style={{ padding: 8 }}>
     <QuickstartCard
       name="Unity"
-      link="/unity/erc1155claimconditions"
+      link="/unity/delayedreveal1155"
       image="/assets/languages/unity.webp"
     />
   </div>
@@ -144,6 +135,6 @@ By adding this extension to a smart contract, the following features, hooks and 
 
 ## Base Contracts Implementing This Extension
 
-- [ERC1155DelayedReveal](/solidity/base-contract/erc1155delayedreveal)
-- [ERC1155LazyMint](/solidity/base-contracts/erc1155lazymint)
+- [ERC1155DelayedReveal](/solidity/base-contracts/erc1155delayedreveal)
+- [ERC1155Drop](/solidity/base-contracts/erc1155drop)
 

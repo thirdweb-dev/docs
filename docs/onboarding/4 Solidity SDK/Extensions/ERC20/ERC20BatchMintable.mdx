@@ -5,6 +5,7 @@ title: ERC20BatchMintable
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
+import QuickstartCard from "@components/QuickstartCard";
 
 # ERC20BatchMintable
 
@@ -77,8 +78,34 @@ contract Contract is ERC20, IMintableERC20, Multicall {
 
 By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
 
-## Dashboard Usage
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.useminttoken"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc20batchmintable"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc20batchmintable"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
 
-By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
 
 ## Base Contracts Implementing This Extension
+
+- [ERC20Base](/solidity/base-contracts/erc20base)
+- [ERC20SignatureMint](/solidity/base-contracts/erc20signaturemint)
+- [ERC20SignatureMintVote](/solidity/base-contracts/erc20signaturemintvote)
+- [ERC20Vote](/solidity/base-contracts/erc20vote)

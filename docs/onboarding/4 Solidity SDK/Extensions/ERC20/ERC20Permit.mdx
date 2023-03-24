@@ -5,6 +5,7 @@ title: ERC20Permit
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
+import QuickstartCard from "@components/QuickstartCard";
 
 # ERC721Permit
 
@@ -116,10 +117,47 @@ contract Contract is ERC20, IERC20Permit {
 
 By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
 
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.usetokensupply"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc20permit"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/erc20#total_supply"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc20permit"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
+
 ## Dashboard Usage
 
 By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
 
 ## Base Contracts Implementing This Extension
 
+- [ERC20Base](/solidity/base-contracts/erc20base)
+- [ERC20Drop](/solidity/base-contracts/erc20drop)
+- [ERC20DropVote](/solidity/base-contracts/erc20dropvote)
+- [ERC20SignatureMint](/solidity/base-contracts/erc20signaturemint)
+- [ERC20SignatureMintVote](/solidity/base-contracts/erc20signaturemintvote)
+- [ERC20Vote](/solidity/base-contracts/erc20vote)
 

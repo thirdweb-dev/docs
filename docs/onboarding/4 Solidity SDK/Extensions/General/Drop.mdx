@@ -5,6 +5,7 @@ title: Drop
 
 import ViewContractCodeButton from "@components/ViewContractCodeButton";
 import ThirdwebFeatureCodeSnippet from "@components/ThirdwebFeatureCodeSnippet";
+import QuickstartCard from "@components/QuickstartCard";
 
 # Drop (ERC20 & ERC721)
 
@@ -117,13 +118,43 @@ contract MyContract is ERC20Base, Drop {
 
 ## SDK Usage
 
-By adding this extension to a smart contract, the following features, hooks and functions are unlocked in the SDK:
+This extension alone does not unlock anything in the SDK. 
+By combining this extension with [`LazyMint`](/solidity/extensions/lazymint) and [`ERC1155`](/solidity/extensions/erc1155) extensions you will have the `ERC1155ClaimPhases` extension detected on your contract which unlocks these features in the SDK:
 
-## Dashboard Usage
-
-By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
+<div className="row" style={{ marginBottom: 12 }}>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="React"
+      link="/react/react.useclaimconditions"
+      image="/assets/languages/react.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="TypeScript"
+      link="/typescript/sdk.erc1155claimconditions"
+      image="/assets/languages/typescript.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Python"
+      link="/python/nft-drop-claim-conditions"
+      image="/assets/languages/python.png"
+    />
+  </div>
+  <div className="col col--3" style={{ padding: 8 }}>
+    <QuickstartCard
+      name="Unity"
+      link="/unity/erc1155claimconditions"
+      image="/assets/languages/unity.webp"
+    />
+  </div>
+</div>
 
 ## Base Contracts Implementing This Extension
+
+None of the base contracts implement this extension.
 
 ## Full API reference
 
