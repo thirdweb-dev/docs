@@ -2,10 +2,10 @@ git submodule init
 git submodule update --remote
 git submodule foreach git checkout main
 git submodule foreach git pull origin main
-yarn install
+pnpm install
 # go into js package and build
 cd ./submodules/js
-yarn install
+pnpm install
 yarn build
 # generate sdk docs
 cd ./packages/sdk
