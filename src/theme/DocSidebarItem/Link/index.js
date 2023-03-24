@@ -32,12 +32,12 @@ export const iconMapping = {
   Storage: "/assets/product/storage.png",
   "UI Components": "/assets/product/ui.png",
   Home: "/assets/icons/home.png",
-  "Platform Overview": "/assets/icons/wrench.png",
+  "Overview ": "/assets/icons/wrench.png",
   "Getting Started": "/assets/icons/rocket.png",
-  Templates: "/assets/sdk-reference.svg",
-  Guides: "/assets/guides.svg",
+  Templates: "/assets/resources/sdk-reference.svg",
+  Guides: "/assets/resources/guides.svg",
   CLI: "/assets/icons/terminal.svg",
-  Extensions: "/assets/icons/extensions.png"
+  Glossary: "/assets/icons/journal-album.svg",
 };
 
 export default function DocSidebarItemLink({
@@ -103,7 +103,7 @@ export default function DocSidebarItemLink({
 
             ${
               (label === "Home" ||
-                label === "Platform Overview" ||
+                label === "Overview " ||
                 label === "Getting Started") &&
               styles.invertLightIcon
             }

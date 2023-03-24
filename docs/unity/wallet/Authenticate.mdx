@@ -21,10 +21,6 @@ The domain you used in your authentication backend.
 
 Must be a `string`.
 
-```csharp
-var data = await sdk.wallet.GetBalance("{{currency_contract_address}}");
-```
-
 ## Return Value
 
 Returns a `LoginPayload` struct containing the following properties:
@@ -35,9 +31,15 @@ Returns a `LoginPayload` struct containing the following properties:
   {
     string domain;
     string address;
-    string nonce;
-    string expiration_time;
+    string statement;
+    string uri;
+    string version;
     string chain_id;
+    string nonce;
+    string issued_at;
+    string expiration_time;
+    string invalid_before;
+    List<string> resources;
   }
 }
 ```

@@ -14,22 +14,40 @@ const resources: Resource[] = [
     description:
       "Learn more about how you can use thirdweb to build your web3 app",
     link: "https://blog.thirdweb.com/guides/",
-    image: "/assets/guides.svg",
+    image: "/assets/resources/guides.svg",
   },
   {
     name: "Templates",
     description:
       "Kickstart your project using one of our templates with a 1-line command",
     link: "/templates",
-    image: "/assets/sdk-reference.svg",
+    image: "/assets/resources/sdk-reference.svg",
   },
   {
     name: "YouTube",
     description:
       "Learn web3 development by building working apps with video tutorials",
     link: "https://www.youtube.com/thirdweb",
-    image: "/assets/youtube.svg",
+    image: "/assets/resources/youtube.svg",
   },
+  {
+    name: "Events",
+    description: "Attend live workshops and office hours to get hands-on with code",
+    link: 'https://thirdweb.com/events',
+    image: "/assets/resources/calendar.svg",
+  },
+  {
+    name: "Discord",
+    description: "Join our community of developers building the future of web3",
+    link: 'https://discord.gg/thirdweb',
+    image: "/assets/resources/discord.svg",
+  },
+  {
+    name: "Support",
+    description: "Troubleshooting articles and live support from customer support team",
+    link: 'https://support.thirdweb.com',
+    image: "/assets/resources/support.svg",
+  }
 ];
 
 export default function ResourceCards() {
