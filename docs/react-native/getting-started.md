@@ -105,7 +105,7 @@ Each [extension](https://portal.thirdweb.com/extensions) you implement in your s
 
 These hooks make it easy to interact with your smart contracts by implementing the complex logic for you under the hood.
 
-For example, if your smart contract implements [ERC721Supply](https://portal.thirdweb.com/contractkit/interfaces/erc721supply#unlocked-features), you unlock the ability to [view all NFTs](https://portal.thirdweb.com/typescript/sdk.erc721supply) on that contract using the SDK; which fetches all of your NFT metadata and the current owner of each NFT in parallel. In the React SDK, that is available using `useNFTs`:
+For example, if your smart contract implements [ERC721Supply](solidity/extensions/erc721supply#sdk-usage), you unlock the ability to [view all NFTs](https://portal.thirdweb.com/typescript/sdk.erc721supply) on that contract using the SDK; which fetches all of your NFT metadata and the current owner of each NFT in parallel. In the React SDK, that is available using `useNFTs`:
 
 ```jsx
 import { useContract, useNFTs } from "@thirdweb-dev/react-native";
@@ -116,7 +116,7 @@ export default function Home() {
 }
 ```
 
-If we want to mint an NFT and our contract implements [ERC721Mintable](/contractkit/interfaces/erc721mintable#unlocked-features), we can use the [`useMintNFT`](/react/react.usemintnft) hook to mint an NFT from the connected wallet; handling all of the logic of uploading and pinning the metadata to IPFS for us behind the scenes.
+If we want to mint an NFT and our contract implements [ERC721Mintable](/solidity/extensions/erc721mintable), we can use the [`useMintNFT`](/react/react.usemintnft) hook to mint an NFT from the connected wallet; handling all of the logic of uploading and pinning the metadata to IPFS for us behind the scenes.
 
 ```jsx
 import { useContract, useNFTs, useMintNFT } from "@thirdweb-dev/react-native";
