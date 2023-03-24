@@ -24,14 +24,14 @@ This extension is an interface and requires all of the functions to be implement
 :::
 
 <ViewContractCodeButton
-  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/interface/IERC721Permit.sol"
+  link="https://github.com/thirdweb-dev/contracts/blob/main/contracts/eip/interface/IERC20Permit.sol"
   name="IERC721Permit"
   isInterface={true}
 />
 
 ## Usage
 
-This is an example smart contract demonstrating how to use this extension.
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
 The [ERC721A](/solidity/extensions/erc721) contract comes with a `totalPermit`
 function that returns the total number of NFTs that have been minted in the collection (including tokens that have been burned).

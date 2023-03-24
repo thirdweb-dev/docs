@@ -34,7 +34,7 @@ The `DropSinglePhase1155` extension is an _abstract contract_, and expects you t
 | [`_transferTokensOnClaim`](/solidity/extension-contracts/dropsinglephase1155#_transfertokensonclaim) | internal _virtual_      | n/a        | n/a     | Transfers the NFTs being claimed.                                                                                                                |
 | [`_canSetClaimConditions`](/solidity/extension-contracts/dropsinglephase1155#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
 
-This is an example smart contract demonstrating how to use this extension.
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
 ```solidity
 // SPDX-License-Identifier: Apache-2.0

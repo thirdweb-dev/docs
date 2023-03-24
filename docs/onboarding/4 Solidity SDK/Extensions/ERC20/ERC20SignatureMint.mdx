@@ -31,7 +31,7 @@ The `SignatureMintERC20` extension is an _abstract contract_, and expects you to
 | [`_canSignMintRequest`](/solidity/extension-contracts/sigminterc20#_cansignmintrequest) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to mint tokens with signature on the contract. Returns whether the signer is authorized to issue a signature for minting. |
 | [`mintWithSignature`](/solidity/extension-contracts/sigminterc20#mintwithsignature)     | external payable        | n/a        | `address` | Mints tokens according to the provided mint request.                                                                                            |
 
-This is an example smart contract demonstrating how to use this extension.
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
 ```solidity
 // SPDX-License-Identifier: MIT

@@ -1,5 +1,5 @@
 ---
-slug: /solidity/base-contracts/erc-721/erc721base
+slug: /solidity/base-contracts/erc721base
 title: ERC721 Base
 ---
 
@@ -28,7 +28,7 @@ Click on each feature to learn more about what functions are available.
 - [ERC721BatchMintable](/solidity/extensions/erc721batchmintable)
 - [ERC721Supply](/solidity/extensions/erc721supply)
 - [Royalty](/solidity/extensions/royalty)
-- [ContractMetadata](solidity/extensions/contractmetadata)
+- [ContractMetadata](/solidity/extensions/contractmetadata)
 - [Ownable](/solidity/extensions/ownable)
 
 ## Usage
@@ -162,6 +162,42 @@ The following functions have been implemented on this contract & are available t
     /// @notice The tokenId assigned to the next new NFT to be minted.
     function nextTokenIdToMint() public view virtual returns (uint256) {
         return _currentIndex;
+    }
+```
+
+</div>
+</details>
+
+<details>
+<summary>transferFron</summary>
+<div>
+
+```solidity
+    /// @dev See {ERC721-_transferFrom}.
+    function transferFrom(
+        address from,
+        address to,
+        uint256 tokenId
+    ) public virtual override(ERC721A) onlyAllowedOperator(from) {
+        super.transferFrom(from, to, tokenId);
+    }
+```
+
+</div>
+</details>
+
+<details>
+<summary>safeTransferFron</summary>
+<div>
+
+```solidity
+    /// @dev See {ERC721-_safeTransferFrom}.
+    function safeTransferFrom(
+        address from,
+        address to,
+        uint256 tokenId
+    ) public virtual override(ERC721A) onlyAllowedOperator(from) {
+        super.safeTransferFrom(from, to, tokenId);
     }
 ```
 

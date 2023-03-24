@@ -28,7 +28,7 @@ The `ContractMetadata` extension is an _abstract contract_, and expects you to i
 | -------------------------------------------------------------------------------------------- | ----------------------- | ---------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
 | [`_canSetContractURI`](/solidity/extensions/contractmetadata#_cansetcontracturi) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the metadata of the contract. Returns whether contract metadata can be set in the given execution context. |
 
-This is an example smart contract demonstrating how to use this extension.
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
 ```solidity
 // SPDX-License-Identifier: MIT

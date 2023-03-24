@@ -19,12 +19,12 @@ import QuickstartCard from "@components/QuickstartCard";
 </p>
 <h1 align="center">thirdweb Solidity SDK</h1>
 
-Provides the tools needed to build custom smart contracts efficiently by offering a set of pre built [base contracts](/solidity/base-contracts)
+Provides the tools needed to build custom smart contracts efficiently by offering a set of prebuilt [base contracts](/solidity/base-contracts)
  and a set of reusable components, or [extensions](/solidity/extensions), that can be integrated into your own smart contracts.
 
 ## Base Contracts
 
-[Base contracts](/solidity/base-contracts) are pre built smart contracts that you can build on top of or modify, such as the [ERC721Base](/solidity/base-contracts/erc-721/erc721base) contract. These contracts work out of the box and do not require any functions to be implemented.
+[Base contracts](/solidity/base-contracts) are prebuilt smart contracts that you can build on top of or modify, such as the [ERC721Base](/solidity/base-contracts/erc-721/erc721base) contract. These contracts work out of the box and do not require any functions to be implemented.
 They are built using [extensions](/solidity/extensions) and thus unlock intelligent features in the [SDKs](/sdk) and custom sections on the [Dashboard](/dashboard) to easily interact with your smart contract.
 
 ## Extensions
@@ -34,9 +34,9 @@ They are composable pieces of logic that can be added to smart contracts easily 
 
 These extensions require varying levels of logic implementation* in the inheriting smart contract. The three different types of extensions in this SDK are:
 
-- *Extension contracts*: These extensions are fully complete and do not require any logic to be implemented. By inheriting from these contracts, you add the functionality and therefore the logic to your inheriting smart contract.
-- *Abstract contracts*: These extensions require some of the logic to be implemented. Some of the functions on the extension depend on the use case and therefore require custom logic that is specific to your inheriting smart contract.
-- *Interfaces*: These extensions do not have an implementation. They provide the guidelines to write your own logic by giving you the functions, parameters and return types. This allows you to ensure that your contract conforms to this particular extension so that you can unlock features in the SDKs and Dashboard.
+- **Extension contracts**: These extensions are fully complete and do not require any logic to be implemented. By inheriting from these contracts, you add the functionality and therefore the logic to your inheriting smart contract.
+- **Abstract contracts**: These extensions require some of the logic to be implemented. Some of the functions on the extension depend on the use case and therefore require custom logic that is specific to your inheriting smart contract.
+- **Interfaces**: These extensions do not have an implementation. They provide the guidelines to write your own logic by giving you the functions, parameters and return types. This allows you to ensure that your contract conforms to this particular extension so that you can unlock features in the SDKs and Dashboard.
 
 *implement = write the logic for the function with a matching function signature (matching name, parameters, visibility and return type)
 

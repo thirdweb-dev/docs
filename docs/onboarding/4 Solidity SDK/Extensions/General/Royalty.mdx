@@ -29,7 +29,7 @@ The `Royalty` extension is an _abstract contract_, and expects you to implement 
 | ----------------------------------------------------------------------------------- | ----------------------- | ---------- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
 | [`_canSetRoyaltyInfo`](/solidity/extension-contracts/royalty#_cansetroyaltyinfo) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set a new royalty recipient or BPS. Returns whether this info can be set in the given execution context. |
 
-This is an example smart contract demonstrating how to use this extension.
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
 ```solidity
 // SPDX-License-Identifier: MIT

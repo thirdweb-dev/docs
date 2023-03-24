@@ -40,7 +40,7 @@ The `Drop` extension is an _abstract contract_, and expects you to implement the
 | [`_transferTokensOnClaim`](/solidity/extension-contracts/drop#_transfertokensonclaim) | internal _virtual_      | n/a        | `uint256` | Transfers the NFTs being claimed.                                                                                                                |
 | [`_canSetClaimConditions`](/solidity/extension-contracts/drop#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
 
-This is an example smart contract demonstrating how to use this extension.
+This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
 ```solidity
 // SPDX-License-Identifier: Apache-2.0
