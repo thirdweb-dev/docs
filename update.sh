@@ -6,24 +6,24 @@ pnpm install
 # go into js package and build
 cd ./submodules/js
 pnpm install
-yarn build
+pnpm build
 # generate sdk docs
 cd ./packages/sdk
 mkdir ./etc
-yarn generate-docs
+pnpm generate-docs
 # generate react docs
 cd ../react
 mkdir ./etc
-yarn generate-docs
+pnpm generate-docs
 # generate react-core docs
 cd ../react-core
 mkdir ./etc
-yarn generate-docs
+pnpm generate-docs
 # generate storage docs
 cd ../storage
 mkdir ./etc
-yarn build
-yarn generate-docs
+pnpm build
+pnpm generate-docs
 # done with doc creation, back to root
 cd ../../../..
 yarn make-docs

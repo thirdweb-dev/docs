@@ -279,3 +279,21 @@ fs.writeFileSync(
     2,
   ),
 );
+
+// feature_snippets_python
+fs.writeFileSync(
+  `${process.cwd()}/docs/feature_snippets_python.json`,
+  fs.readFileSync(
+    `${process.cwd()}/submodules/python/docs/docs/feature_snippets.json`,
+    "utf8",
+  ),
+);
+
+// feature_snippets_go
+fs.writeFileSync(
+  `${process.cwd()}/docs/feature_snippets_go.json`,
+  fs.readFileSync(
+    `${process.cwd()}/submodules/go/docs/feature_snippets.json`,
+    "utf8",
+  ),
+);

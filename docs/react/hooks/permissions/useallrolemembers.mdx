@@ -39,7 +39,18 @@ function App() {
 The hook's `data` property, once loaded, is an object, where the keys are the role names and the values are arrays of wallet addresses that have that role.
 
 ```ts
-Record<"admin" | "transfer" | "minter" | "pauser" | "lister" | "asset" | "unwrap" | "factory" | (string & {}), string[]> | undefined
+Record<
+  | "admin"
+  | "transfer"
+  | "minter"
+  | "pauser"
+  | "lister"
+  | "asset"
+  | "unwrap"
+  | "factory"
+  | (string & {}),
+  string[]
+> | undefined;
 ```
 
 For example, if the contract has two roles, `admin` and `transfer`, and the `admin` role has two members, the `data` property will look like this:
