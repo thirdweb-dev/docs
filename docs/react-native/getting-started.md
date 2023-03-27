@@ -128,7 +128,7 @@ export default function Home() {
 }
 ```
 
-# Advanced Configuration
+## Advanced Configuration
 
 The `ThirdwebProvider` offers a number of configuration options to control the behavior of the React and Typescript SDK.
 
