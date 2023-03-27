@@ -116,7 +116,7 @@ export default function Home() {
 }
 ```
 
-If we want to mint an NFT and our contract implements [ERC721Mintable](https://portal.thirdweb.com/contractkit/interfaces/erc721mintable#unlocked-features), we can use the [`useMintNFT`](https://portal.thirdweb.comc/react/react.usemintnft) hook to mint an NFT from the connected wallet; handling all of the logic of uploading and pinning the metadata to IPFS for us behind the scenes.
+If we want to mint an NFT and our contract implements [ERC721Mintable](https://portal.thirdweb.com/contractkit/interfaces/erc721mintable#unlocked-features), we can use the [`useMintNFT`](https://portal.thirdweb.com/react/react.usemintnft) hook to mint an NFT from the connected wallet; handling all of the logic of uploading and pinning the metadata to IPFS for us behind the scenes.
 
 ```jsx
 import { useContract, useNFTs, useMintNFT } from "@thirdweb-dev/react-native";
