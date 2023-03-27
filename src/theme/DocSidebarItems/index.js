@@ -32,7 +32,7 @@ function DocSidebarItems({ items, ...props }) {
   const sidebarItems = [
     {
       title: null, // No title for the first section
-      items: ["Home", "Platform Overview", "Getting Started"],
+      items: ["Home", "Overview ", "Getting Started"],
     },
     {
       title: "Tools",
@@ -40,7 +40,7 @@ function DocSidebarItems({ items, ...props }) {
         // Tools
         [
           "ContractKit",
-          "Prebuilt Contracts",
+          "Explore",
           "EVM SDK",
           "Solana SDK",
           "UI Components",
@@ -75,6 +75,7 @@ function DocSidebarItems({ items, ...props }) {
         "Templates",
         "Guides",
         "CLI", // Should we have this here?
+        "Glossary",
       ],
     },
   ];
