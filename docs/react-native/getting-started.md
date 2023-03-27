@@ -137,7 +137,11 @@ We provide defaults for all of these, but you customize them to suit your needs.
 
 ```jsx title="App.jsx"
 import { Ethereum } from "@thirdweb-dev/chains";
-import { CoinbaseWallet, MetaMaskWallet, ThirdwebProvider } from "@thirdweb-dev/react-native";
+import {
+  CoinbaseWallet,
+  MetaMaskWallet,
+  ThirdwebProvider,
+} from "@thirdweb-dev/react-native";
 
 const KitchenSinkExample = () => {
   return (

@@ -8,13 +8,13 @@ displayed_sidebar: react-native
 
 ## Main hooks
 
-| Hook                                                                                 | Description                                                                |
-| ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------- |
-| [`useSDK`](https://portal.thirdweb.com/react/react.usesdk)                           | Access the instance of the thirdweb SDK created by the ThirdwebProvider.   |
-| [`useContract`](https://portal.thirdweb.com/react/react.usecontract)                 | Use this resolve a contract address to a smart contract instance.          |
-| [`useContractWrite`](https://portal.thirdweb.com/react/react.usecontractwrite)       | Use this to get data from a contract read-function call.                   |
-| [`useContractRead`](https://portal.thirdweb.com/react/react.usecontractread)         | Use this to get a function to make a write call to your contract.          |
-| [`useContractEvents`](https://portal.thirdweb.com/react/react.usecontractevents)     | Use this to get the contract metadata for a (built-in or custom) contract. |
+| Hook                                                                             | Description                                                                |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| [`useSDK`](https://portal.thirdweb.com/react/react.usesdk)                       | Access the instance of the thirdweb SDK created by the ThirdwebProvider.   |
+| [`useContract`](https://portal.thirdweb.com/react/react.usecontract)             | Use this resolve a contract address to a smart contract instance.          |
+| [`useContractWrite`](https://portal.thirdweb.com/react/react.usecontractwrite)   | Use this to get data from a contract read-function call.                   |
+| [`useContractRead`](https://portal.thirdweb.com/react/react.usecontractread)     | Use this to get a function to make a write call to your contract.          |
+| [`useContractEvents`](https://portal.thirdweb.com/react/react.usecontractevents) | Use this to get the contract metadata for a (built-in or custom) contract. |
 
 ## Wallet connection
 
@@ -80,13 +80,13 @@ displayed_sidebar: react-native
 
 ## Permissions Controls
 
-| Hook                                                                                   | Description                                                                     |
-| -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| [`useAllRoleMembers`](https://portal.thirdweb.com/react/react.useallrolemembers)       | Use this to get the roles of all members.                                       |
-| [`useRoleMembers`](https://portal.thirdweb.com/react/react.userolemembers)             | Use this to get the members of a role.                                          |
-| [`useIsAddressRole`](https://portal.thirdweb.com/react/react.useisaddressrole)         | Use this to check if a WalletAddress is a member of a role.                     |
-| [`useGrantRole`](https://portal.thirdweb.com/react/react.usegrantrole)                 | Use this to grant a WalletAddress a specific role.                              |
-| [`useRevokeRole`](https://portal.thirdweb.com/react/react.userevokerole)               | Use this to revoke a WalletAddress a specific role.                             |
+| Hook                                                                             | Description                                                 |
+| -------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| [`useAllRoleMembers`](https://portal.thirdweb.com/react/react.useallrolemembers) | Use this to get the roles of all members.                   |
+| [`useRoleMembers`](https://portal.thirdweb.com/react/react.userolemembers)       | Use this to get the members of a role.                      |
+| [`useIsAddressRole`](https://portal.thirdweb.com/react/react.useisaddressrole)   | Use this to check if a WalletAddress is a member of a role. |
+| [`useGrantRole`](https://portal.thirdweb.com/react/react.usegrantrole)           | Use this to grant a WalletAddress a specific role.          |
+| [`useRevokeRole`](https://portal.thirdweb.com/react/react.userevokerole)         | Use this to revoke a WalletAddress a specific role.         |
 
 ## Drop
 
