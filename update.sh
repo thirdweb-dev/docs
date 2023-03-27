@@ -2,7 +2,7 @@ git submodule init
 git submodule update --remote
 git submodule foreach git checkout main
 git submodule foreach git pull origin main
-pnpm install
+yarn install
 # go into js package and build
 # cd ./submodules/js
 # pnpm install
