@@ -24,7 +24,7 @@ Provides the tools needed to build custom smart contracts efficiently by offerin
 
 ## Base Contracts
 
-[Base contracts](/solidity/base-contracts) are prebuilt smart contracts that you can build on top of or modify, such as the [ERC721Base](/solidity/base-contracts/erc-721/erc721base) contract. These contracts work out of the box and do not require any functions to be implemented.
+[Base contracts](/solidity/base-contracts) are prebuilt smart contracts that you can build on top of or modify, such as the [ERC721Base](/solidity/base-contracts/erc721base) contract. These contracts work out of the box and do not require any functions to be implemented.
 They are built using [extensions](/solidity/extensions) and thus unlock intelligent features in the [SDKs](/sdk) and custom sections on the [Dashboard](/dashboard) to easily interact with your smart contract.
 
 ## Extensions
@@ -44,10 +44,10 @@ These extensions require varying levels of logic implementation* in the inheriti
 
 ## Why use the Solidity SDK?
 
-- Effortlessly integrate common smart contract features, including popular EIPs such as [ERC20](/solidity/extensions/erc20), [ERC721](/solidity/extensions/erc721), [ERC1155](/solidity/extensions/erc1155), [permissions](/solidity/extensions/permissions), and [contract metadata](/solidity/extensions/contractmetadata), and more. 
+- Effortlessly integrate common smart contract features, including popular EIPs such as [ERC20](/solidity/extensions/erc20), [ERC721](/solidity/extensions/erc721), [ERC1155](/solidity/extensions/erc1155), [permissions](/solidity/extensions/permissions), [contract metadata](/solidity/extensions/contractmetadata), and more. 
 - Simplify the development workflow, allowing you to focus on more intricate systems.
 - Using the [base contracts](/solidity/base-contracts) gives you a gas-optimized and audited foundation to build your projects.
 - Each extension you inherit unlocks smarter [SDKs](/sdk), custom admin [Dashboards](/dashboard) and tailored data feeds.
 
-For example, if you deploy the [ERC721Base](/solidity/base-contracts/erc-721/erc721base) contract which inherits from multiple extensions including [ERC721Mintable](/solidity/extensions/erc721mintable), you'll unlock the `mint` button in the dashboard and
+For example, if you deploy the [ERC721Base](/solidity/base-contracts/erc721base) contract which inherits from multiple extensions including [ERC721Mintable](/solidity/extensions/erc721mintable), you'll unlock the `mint` button in the dashboard and
 can use the [mint](/sdk/interacting-with-contracts/erc721mintable) function in the SDK; which automatically uploads and pins your metadata to IPFS!

@@ -24,9 +24,9 @@ The `Ownable` smart contract extension is usable with any base smart contract. I
 
 The `Ownable` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                    | Type                    | Parameters | Returns | Description                                                                                                                  |
-| ----------------------------------------------------------------------- | ----------------------- | ---------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSetOwner`](/solidity/extension-contracts/ownable#_cansetowner) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the owner of the contract. Returns whether the owner can be set in the given execution context. |
+| Name                                                                    | Type                    | Returns | Description                                                                                                                  |
+| ----------------------------------------------------------------------- | ----------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSetOwner`](/solidity/extension-contracts/ownable#_cansetowner) | internal view _virtual_ | `bool`  | Runs on every attempt to set the owner of the contract. Returns whether the owner can be set in the given execution context. |
 
 This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
@@ -60,7 +60,9 @@ All of the base contracts implement this extension.
 
 ## Full API reference
 
-### owner
+<details>
+<summary>owner</summary>
+<div>
 
 ```solidity
 function owner() public view override returns (address);
@@ -69,7 +71,12 @@ function owner() public view override returns (address);
 - Returns the owner of the contract.
 - Set this value using the `setOwner` function.
 
-### setOwner
+</div>
+</details>
+
+<details>
+<summary>setOwner</summary>
+<div>
 
 ```solidity
 function setOwner(address _newOwner) external;
@@ -79,7 +86,12 @@ function setOwner(address _newOwner) external;
 - Parameter `_newOwner`: The address to make the owner of the contract.
 - The `_canSetOwner` function is run on every call to this function. If the return value of `_canSetOwner` is `false`, the `setOwner` call will revert.
 
-### \_setupOwner
+</div>
+</details>
+
+<details>
+<summary>_setupOwner</summary>
+<div>
 
 ```solidity
 function _setupOwner(address _newOwner) internal;
@@ -89,7 +101,12 @@ function _setupOwner(address _newOwner) internal;
 - Parameter `_newOwner`: The address to make the owner of the contract.
 - The `_canSetOwner` function is _not_ run on a call to this function.
 
-### \_canSetOwner
+</div>
+</details>
+
+<details>
+<summary>_canSetOwner</summary>
+<div>
 
 ```solidity
 function _canSetOwner() internal view virtual returns (bool);
@@ -98,3 +115,6 @@ function _canSetOwner() internal view virtual returns (bool);
 - Runs on every `setOwner` function call.
 - Returns whether a new owner can be set in the given execution context.
 - For example, this function can check whether the wallet calling `setOwner` is the contract owner, and enforce that only the current owner should be able to successfully call `setOwner`.
+
+</div>
+</details>

@@ -145,7 +145,7 @@ Child contract: The inheriting contract.
 To override a function, to add your own custom logic, simply use the keyword `override` when declaring the function, making sure that the function signature matches.
 To add the original logic from the parent contract, use the keyword `super`.
 
-For example, the `ERC721Base` contract has an implementation of the function `mintTo`, I could instead override this function to add custom logic 
+For example, the [`ERC721Base`](/solidity/base-contracts/erc721base) contract has an implementation of the function `mintTo`, I could instead override this function to add custom logic 
 and restrict this function in the `myNFT` contract to only allow 1 NFT per wallet:
 
 ```solidity

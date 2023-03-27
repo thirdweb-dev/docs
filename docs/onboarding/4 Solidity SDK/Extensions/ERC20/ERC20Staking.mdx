@@ -91,7 +91,9 @@ contract MyContract is Staking20 {
 
 ## Full API Reference
 
-### stake
+<details>
+<summary>stake</summary>
+<div>
 
 ```solidity
 function stake(uint256 amount) external;
@@ -100,7 +102,12 @@ function stake(uint256 amount) external;
 - Lets a user stake a number of ERC20 tokens by passing in amount.
 - Parameter `amount`: Amount of tokens to stake.
 
-### withdraw
+</div>
+</details>
+
+<details>
+<summary>withdraw</summary>
+<div>
 
 ```solidity
 function withdraw(uint256 amount) external payable;
@@ -109,7 +116,12 @@ function withdraw(uint256 amount) external payable;
 - Un-stake and withdraw tokens from the contract.
 - Parameter `amount`: Amount of tokens to withdraw.
 
-### claimRewards
+</div>
+</details>
+
+<details>
+<summary>claimRewards</summary>
+<div>
 
 ```solidity
 function claimRewards() external;
@@ -117,7 +129,12 @@ function claimRewards() external;
 
 - Claim accumulated rewards. This claim method allows for a pull mechanism where users must initiate claiming of rewards.
 
-### getStakeInfo
+</div>
+</details>
+
+<details>
+<summary>getStakeInfo</summary>
+<div>
 
 ```solidity
 function getStakeInfo(address staker) external view returns (uint256 tokensStaked, uint256 rewards);
@@ -126,7 +143,13 @@ function getStakeInfo(address staker) external view returns (uint256 tokensStake
 - View number of tokens staked and total rewards available for a user.
 - Parameter `staker`: Account address of staker.
 
-### setRewardRatio
+</div>
+</details>
+
+
+<details>
+<summary>setRewardRatio</summary>
+<div>
 
 ```solidity
 function setRewardRatio(uint256 numerator, uint256 denominator) external
@@ -136,7 +159,13 @@ function setRewardRatio(uint256 numerator, uint256 denominator) external
 - Parameter `numerator`: Reward ratio numerator.
 - Parameter `denominator`: Reward ratio denominator.
 
-### setTimeUnit
+</div>
+</details>
+
+
+<details>
+<summary>setTimeUnit</summary>
+<div>
 
 ```solidity
 function setTimeUnit(uint256 timeUnit) external;
@@ -144,3 +173,6 @@ function setTimeUnit(uint256 timeUnit) external;
 
 - Allows an authorized account to set time unit as a number of seconds. For e.g. 1 hour can be set as 3600 seconds - setting the reward frequency as _per hour_.
 - Parameter `timeUnit`: New time unit.
+
+</div>
+</details>

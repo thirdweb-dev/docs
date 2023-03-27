@@ -26,10 +26,10 @@ The ['signature minting'](/glossary/signature-based-minting) mechanism in the `S
 
 The `SignatureMintERC1155` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                                         | Type                    | Parameters | Returns   | Description                                                                                                                                     |
-| -------------------------------------------------------------------------------------------- | ----------------------- | ---------- | --------- | ----------------------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSignMintRequest`](/solidity/extension-contracts/sigminterc1155#_cansignmintrequest) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to mint tokens with signature on the contract. Returns whether the signer is authorized to issue a signature for minting. |
-| [`mintWithSignature`](/solidity/extension-contracts/sigminterc1155#mintwithsignature)     | external payable        | n/a        | `address` | Mints tokens according to the provided mint request.                                                                                            |
+| Name                                                                                         | Type                    |  Description                                                                                                                                     |
+| -------------------------------------------------------------------------------------------- | ----------------------- |  ----------------------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSignMintRequest`](/solidity/extension-contracts/sigminterc1155#_cansignmintrequest) | internal view _virtual_ |  Runs on every attempt to mint tokens with signature on the contract. Returns whether the signer is authorized to issue a signature for minting. |
+| [`mintWithSignature`](/solidity/extension-contracts/sigminterc1155#mintwithsignature)     | external payable        |  Mints tokens according to the provided mint request.                                                                                            |
 
 This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
@@ -174,7 +174,9 @@ By adding this extension to a smart contract, the following features, hooks and 
 
 ## Full API reference
 
-### verify
+<details>
+<summary>verify</summary>
+<div>
 
 ```solidity
 struct MintRequest {
@@ -214,7 +216,12 @@ function verify(MintRequest calldata req, bytes calldata signature)
   - `uid`: A unique identifier for the payload.
 - Parameter `signature`: The signature produced by an authorized wallet signing the mint request.
 
-### mintWithSignature
+</div>
+</details>
+
+<details>
+<summary>mintWithSignature</summary>
+<div>
 
 ```solidity
 struct MintRequest {
@@ -254,7 +261,12 @@ function mintWithSignature(MintRequest calldata req, bytes calldata signature)
   - `uid`: A unique identifier for the payload.
 - Parameter `signature`: The signature produced by an authorized wallet signing the mint request.
 
-### \_processRequest
+</div>
+</details>
+
+<details>
+<summary>_processRequest</summary>
+<div>
 
 ```solidity
 struct MintRequest {
@@ -293,7 +305,12 @@ function _processRequest(MintRequest calldata req, bytes calldata signature)
   - `uid`: A unique identifier for the payload.
 - Parameter `signature`: The signature produced by an authorized wallet signing the mint request.
 
-### \_recoverAddress
+</div>
+</details>
+
+<details>
+<summary>_recoverAddress</summary>
+<div>
 
 ```solidity
 struct MintRequest {
@@ -333,7 +350,12 @@ function _recoverAddress(MintRequest calldata req, bytes calldata signature)
   - `uid`: A unique identifier for the payload.
 - Parameter `signature`: The signature produced by an authorized wallet signing the mint request.
 
-### \_canSignMintRequest
+</div>
+</details>
+
+<details>
+<summary>_canSignMintRequest</summary>
+<div>
 
 ```solidity
 function _canSignMintRequest(address signer) internal view virtual returns (bool);
@@ -341,3 +363,6 @@ function _canSignMintRequest(address signer) internal view virtual returns (bool
 
 - Returns whether a given address is authorized to sign mint requests.
 - Parameter `signer`: the address that the contract checks is eligible to sign mint requests, or not.
+
+</div>
+</details>

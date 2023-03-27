@@ -85,6 +85,32 @@ contract Contract is ERC721A, LazyMint, DropSinglePhase {
         // Your custom implementation here
     }
 
+    /// @dev Runs before every `claim` function call.
+    function _beforeClaim(
+        uint256 _tokenId,
+        address _receiver,
+        uint256 _quantity,
+        address _currency,
+        uint256 _pricePerToken,
+        AllowlistProof calldata _allowlistProof,
+        bytes memory _data
+    ) internal virtual override {
+      // Your custom implementation logic here
+    }
+
+    /// @dev Runs after every `claim` function call.
+    function _afterClaim(
+        uint256 _tokenId,
+        address _receiver,
+        uint256 _quantity,
+        address _currency,
+        uint256 _pricePerToken,
+        AllowlistProof calldata _allowlistProof,
+        bytes memory _data
+    ) internal virtual override {
+      // Your custom implementation logic here
+    }
+
     function _canSetClaimConditions() internal view override returns (bool) {
         // Your custom implementation here
     }

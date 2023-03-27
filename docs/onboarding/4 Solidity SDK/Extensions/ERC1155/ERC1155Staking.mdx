@@ -89,7 +89,9 @@ contract MyContract is Staking1155 {
 
 ## Full API Reference
 
-### stake
+<details>
+<summary>stake</summary>
+<div>
 
 ```solidity
 function stake(uint256 tokenId, uint256 amount) external;
@@ -99,7 +101,12 @@ function stake(uint256 tokenId, uint256 amount) external;
 - Parameter `tokenId`: ERC1155 token-id to stake.
 - Parameter `amount`: Amount to stake.
 
-### withdraw
+</div>
+</details>
+
+<details>
+<summary>withdraw</summary>
+<div>
 
 ```solidity
 function stake(uint256 tokenId, uint256 amount) external;
@@ -109,7 +116,12 @@ function stake(uint256 tokenId, uint256 amount) external;
 - Parameter `tokenId`: ERC1155 token-id to withdraw.
 - Parameter `amount`: Amount to withdraw.
 
-### claimRewards
+</div>
+</details>
+ 
+<details>
+<summary>claimRewards</summary>
+<div>
 
 ```solidity
 function claimRewards(uint256 tokenId) external;
@@ -118,7 +130,12 @@ function claimRewards(uint256 tokenId) external;
 - Claim accumulated rewards. This claim method allows for a pull mechanism where users must initiate claiming of rewards.
 - Parameter `tokenId`: ERC1155 token-id to claim rewards for.
 
-### getStakeInfo
+</div>
+</details>
+
+<details>
+<summary>getStakeInfo</summary>
+<div>
 
 ```solidity
 function getStakeInfo(address staker) external view returns (uint256[] memory tokensStaked, uint256[] memory tokenAmounts, uint256 totalRewards)
@@ -127,7 +144,12 @@ function getStakeInfo(address staker) external view returns (uint256[] memory to
 - View number of NFTs staked and total rewards available for a user.
 - Parameter `staker`: Account address of staker.
 
-### getStakeInfoForToken
+</div>
+</details>
+
+<details>
+<summary>getStakeInfoForToken</summary>
+<div>
 
 ```solidity
 function getStakeInfoForToken(uint256 tokenId, address staker) external view returns (uint256 tokensStaked, uint256 rewards)
@@ -137,7 +159,12 @@ function getStakeInfoForToken(uint256 tokenId, address staker) external view ret
 - Parameter `tokenId`: ERC1155 token-id to view rewards for.
 - Parameter `staker`: Account address of staker.
 
-### setRewardsPerUnitTime
+</div>
+</details>
+
+<details>
+<summary>setRewardsPerUnitTime</summary>
+<div>
 
 ```solidity
 function setRewardsPerUnitTime(uint256 tokenId, uint256 rewardsPerUnitTime) external;
@@ -147,7 +174,12 @@ function setRewardsPerUnitTime(uint256 tokenId, uint256 rewardsPerUnitTime) exte
 - Parameter `tokenId`: ERC1155 token-id to set this for.
 - Parameter `rewardsPerUnitTime`: New rewards per unit time.
 
-### setTimeUnit
+</div>
+</details>
+
+<details>
+<summary>setTimeUnit</summary>
+<div>
 
 ```solidity
 function setTimeUnit(uint256 tokenId, uint256 timeUnit) external;
@@ -157,7 +189,12 @@ function setTimeUnit(uint256 tokenId, uint256 timeUnit) external;
 - Parameter `tokenId`: ERC1155 token-id to set this for.
 - Parameter `timeUnit`: New time unit.
 
-### setDefaultRewardsPerUnitTime
+</div>
+</details>
+
+<details>
+<summary>setDefaultRewardsPerUnitTime</summary>
+<div>
 
 ```solidity
 function setDefaultRewardsPerUnitTime(uint256 defaultRewardsPerUnitTime) external;
@@ -166,7 +203,12 @@ function setDefaultRewardsPerUnitTime(uint256 defaultRewardsPerUnitTime) externa
 - Allows an authorized account to set rewards per unit of time applicable for all token-Ids by default.
 - Parameter `defaultRewardsPerUnitTime`: New rewards per unit time.
 
-### setDefaultTimeUnit
+</div>
+</details>
+
+<details>
+<summary>setDefaultTimeUnit</summary>
+<div>
 
 ```solidity
 function setDefaultTimeUnit(uint256 defaultTimeUnit) external;
@@ -174,3 +216,6 @@ function setDefaultTimeUnit(uint256 defaultTimeUnit) external;
 
 - Allows an authorized account to set time unit applicable for all token-Ids by default.
 - Parameter `defaultTimeUnit`: New time unit.
+
+</div>
+</details>

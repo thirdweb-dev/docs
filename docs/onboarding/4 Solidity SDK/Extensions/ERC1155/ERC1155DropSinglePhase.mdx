@@ -28,11 +28,13 @@ It is recommended to use this extension alongside the [`LazyMint`](/solidity/ext
 
 The `DropSinglePhase1155` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                                                    | Type                    | Parameters | Returns | Description                                                                                                                                      |
-| ------------------------------------------------------------------------------------------------------- | ----------------------- | ---------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [`_collectPriceOnClaim`](/solidity/extension-contracts/dropsinglephase1155#_collectpriceonclaim)     | internal _virtual_      | n/a        | n/a     | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
-| [`_transferTokensOnClaim`](/solidity/extension-contracts/dropsinglephase1155#_transfertokensonclaim) | internal _virtual_      | n/a        | n/a     | Transfers the NFTs being claimed.                                                                                                                |
-| [`_canSetClaimConditions`](/solidity/extension-contracts/dropsinglephase1155#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
+| Name                                                                                                    | Type                    | Description                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `_afterClaim`        | internal _virtual_   | Runs after every `claim` function call. |
+| `_beforeClaim`        | internal _virtual_    | Runs before every `claim` function call. |
+| `_collectPriceOnClaim`    | internal _virtual_      | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
+| `_transferTokensOnClaim` | internal _virtual_      | Transfers the NFTs being claimed.                                                                                                                |
+| `_canSetClaimConditions` | internal view _virtual_ | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
 
 This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
@@ -58,6 +60,32 @@ contract ERC1155Drop is
         uint128 _royaltyBps
     ) ERC1155Base(_name, _symbol, _royaltyRecipient, _royaltyBps) {}
 
+    /// @dev Runs before every `claim` function call.
+    function _beforeClaim(
+        uint256 _tokenId,
+        address _receiver,
+        uint256 _quantity,
+        address _currency,
+        uint256 _pricePerToken,
+        AllowlistProof calldata _allowlistProof,
+        bytes memory _data
+    ) internal virtual override {
+      // Your custom implementation logic here
+    }
+
+    /// @dev Runs after every `claim` function call.
+    function _afterClaim(
+        uint256 _tokenId,
+        address _receiver,
+        uint256 _quantity,
+        address _currency,
+        uint256 _pricePerToken,
+        AllowlistProof calldata _allowlistProof,
+        bytes memory _data
+    ) internal virtual override {
+      // Your custom implementation logic here
+    }
+    
     /// @dev Collects and distributes the primary sale value of NFTs being claimed.
     function _collectPriceOnClaim(
         address _primarySaleRecipient,

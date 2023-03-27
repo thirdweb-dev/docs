@@ -108,69 +108,36 @@ None of the base contracts implement this extension.
 
 ## Full API Reference
 
-### hasRole
+`PermissionsEnumerable` inherits from the [`Permissions`](/solidity/extensions/permissions#full-api-reference) extension so includes 
+all of the functions in that extension. It also includes the following functions:
+
+<details>
+<summary>getRoleMember</summary>
+<div>
 
 ```solidity
-function hasRole(bytes32 role, address account) external view returns (bool);
-```
-
-- Returns `true` if `account` has been granted `role`.
-
-### getRoleAdmin
-
-```solidity
-function getRoleAdmin(bytes32 role) external view returns (bytes32);
-```
-
-- Returns the admin role that controls `role` i.e. the holders of the admin role (the return value) can grant or revoke `role` from wallets.
-
-### grantRole
-
-```solidity
-function grantRole(bytes32 role, address account) external;
-```
-
-- Grants `role` to `account`. Can only be called by a holder of the admin role of the role being granted.
-
-### revokeRole
-
-```solidity
-function revokeRole(bytes32 role, address account) external;
-```
-
-- Revokes `role` from `account`. Can only be called by a holder of the admin role of the role being granted.
-
-### renounceRole
-
-```solidity
-function renounceRole(bytes32 role, address account) external;
-```
-
-- Revokes `role` from the calling account.
-
-### hasRoleWithSwitch
-
-```solidity
-function hasRoleWithSwitch(bytes32 role, address account) public view returns (bool);
-```
-
-- Returns `true` if `account` has been granted `role`.
-- Role restrictions can be swtiched on and off:
-  - If `address(0)` has `role`, then the role restrictions don't apply i.e. this function will always return `true`.
-  - If `address(0)` does not have `role`, then the role restrictions will apply i.e. this function will behave like `hasRole`.
-
-### getRoleMember (PermissionsEnumerableEnumerable)
-
-```solidity
-function getRoleMember(bytes32 role, uint256 index) external view returns (address);
+function getRoleMember(bytes32 role, uint256 index) external view returns (address member);
 ```
 
 - Returns one of the accounts that have `role`. `index` must be a value between 0 and the value of `getRoleMemberCount` at the time, non-inclusive.
+- Parameters:
+  - `role`: keccak256 hash of the role. e.g. keccak256("TRANSFER_ROLE")
+  - `index`: Index in list of current members for the role.
 
-### getRoleMemberCount (PermissionsEnumerableEnumerable)
+</div>
+</details>
+
+<details>
+<summary>getRoleMemberCount</summary>
+<div>
 
 ```solidity
-function getRoleMemberCount(bytes32 role) external view returns (uint256);
+function getRoleMemberCount(bytes32 role) external view returns (uint256 count);
 ```
 
 - Returns the number of accounts that have `role`. Can be used together with `getRoleMember` to enumerate all bearers of a role.
+- Parameters: 
+  - `role`: keccak256 hash of the role. e.g. keccak256("TRANSFER_ROLE")
+
+</div>
+</details>

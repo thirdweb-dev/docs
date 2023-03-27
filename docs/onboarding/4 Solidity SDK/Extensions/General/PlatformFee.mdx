@@ -24,9 +24,9 @@ import "@thirdweb-dev/contracts/extension/PlatformFee.sol";
 
 The `PlatformFee` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                                            | Type                    | Parameters | Returns | Description                                                                                                                            |
-| ----------------------------------------------------------------------------------------------- | ----------------------- | ---------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSetPlatformFeeInfo`](/solidity/extension-contracts/platformfee#_cansetplatformfeeinfo) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set a new platform fee recipient or bps. Returns whether this info can be set in the given execution context. |
+| Name                                                                                            | Type                    | Returns | Description                                                                                                                            |
+| ----------------------------------------------------------------------------------------------- | ----------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSetPlatformFeeInfo`](/solidity/extension-contracts/platformfee#_cansetplatformfeeinfo) | internal view _virtual_ | `bool`  | Runs on every attempt to set a new platform fee recipient or bps. Returns whether this info can be set in the given execution context. |
 
 This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
@@ -90,17 +90,15 @@ By adding this extension to a smart contract, the following features, hooks and 
   </div>
 </div>
 
-## Dashboard Usage
-
-By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
-
 ## Base Contracts Implementing This Extension
 
 None of the base contracts implement this extension.
 
 ## Full API reference
 
-### getPlatformFeeInfo
+<details>
+<summary>getPlatformFeeInfo</summary>
+<div>
 
 ```solidity
 function getPlatformFeeInfo() public view returns (address, uint16);
@@ -109,7 +107,12 @@ function getPlatformFeeInfo() public view returns (address, uint16);
 - Returns the platform fee recipient and bps.
 - Set this value using the `setPlatformFeeInfo` function.
 
-### setPlatformFeeInfo
+</div>
+</details>
+
+<details>
+<summary>setPlatformFeeInfo</summary>
+<div>
 
 ```solidity
 function setPlatformFeeInfo(address platformFeeRecipient, uint256 platformFeeBps) external;
@@ -120,7 +123,12 @@ function setPlatformFeeInfo(address platformFeeRecipient, uint256 platformFeeBps
 - Parameter `platformFeeBps`: The value to set as the new platform fee BPS.
 - The `_canSetPlatformFeeInfo` function is run on every call to this function. If the return value of `_canSetPlatformFeeInfo` is `false`, the `setPlatformFeeInfo` call will revert.
 
-### \_setupPlatformFeeInfo
+</div>
+</details>
+
+<details>
+<summary>_setupPlatformFeeInfo</summary>
+<div>
 
 ```solidity
 function _setupPlatformFeeInfo(address platformFeeRecipient, uint256 platformFeeBps) internal;
@@ -131,7 +139,12 @@ function _setupPlatformFeeInfo(address platformFeeRecipient, uint256 platformFee
 - Parameter `platformFeeBps`: The value to set as the new platform fee BPS.
 - The `_canSetPlatformFeeInfo` function is _not_ run on a call to this function.
 
-### \_canSetPlatformFeeInfo
+</div>
+</details>
+
+<details>
+<summary>_canSetPlatformFeeInfo</summary>
+<div>
 
 ```solidity
 function _canSetPlatformFeeInfo() internal view virtual returns (bool);
@@ -140,3 +153,6 @@ function _canSetPlatformFeeInfo() internal view virtual returns (bool);
 - Runs on every `setPlatformFeeInfo` function call.
 - Returns whether a new platform fee recipient or bps can be set in the given execution context.
 - For example, this function can check whether the wallet calling `setPlatformFeeInfo` is the contract owner, and enforce that only the current owner should be able to successfully call `setPlatformFeeInfo`.
+
+</div>
+</details>

@@ -83,6 +83,32 @@ contract Contract is ERC1155, LazyMint, DropSinglePhase1155 {
         // Your custom implementation here
     }
 
+    /// @dev Runs before every `claim` function call.
+    function _beforeClaim(
+        uint256 _tokenId,
+        address _receiver,
+        uint256 _quantity,
+        address _currency,
+        uint256 _pricePerToken,
+        AllowlistProof calldata _allowlistProof,
+        bytes memory _data
+    ) internal virtual override {
+      // Your custom implementation logic here
+    }
+
+    /// @dev Runs after every `claim` function call.
+    function _afterClaim(
+        uint256 _tokenId,
+        address _receiver,
+        uint256 _quantity,
+        address _currency,
+        uint256 _pricePerToken,
+        AllowlistProof calldata _allowlistProof,
+        bytes memory _data
+    ) internal virtual override {
+      // Your custom implementation logic here
+    }
+
     function _canSetClaimConditions() internal view override returns (bool) {
         // Your custom implementation here
     }
@@ -141,10 +167,6 @@ By adding this extension to a smart contract, the following features, hooks and 
     />
   </div>
 </div>
-
-## Dashboard Usage
-
-By adding this extension to a smart contract, the following features are unlocked on the contract [Dashboard](/dashboard)
 
 ## Base Contracts Implementing This Extension
 

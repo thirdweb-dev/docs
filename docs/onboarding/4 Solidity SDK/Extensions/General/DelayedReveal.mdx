@@ -35,9 +35,9 @@ It is recommended to use this extension alongside the [`LazyMint`](/solidity/ext
 
 The `DelayedReveal` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                              | Type     | Parameters | Returns         | Description                             |
-| ----------------------------------------------------------------- | -------- | ---------- | --------------- | --------------------------------------- |
-| [`reveal`](/solidity/extensions/delayedreveal#reveal) | external | n/a        | `string memory` | Reveals a batch of delayed reveal NFTs. |
+| Name                                                              | Type     | Returns         | Description                             |
+| ----------------------------------------------------------------- | -------- | --------------- | --------------------------------------- |
+| [`reveal`](/solidity/extensions/delayedreveal#reveal) | external | `string memory` | Reveals a batch of delayed reveal NFTs. |
 
 This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
@@ -160,7 +160,9 @@ For example, for ERC721 contracts the following features are unlocked in the SDK
 
 ## Full API Reference
 
-### \_setEncryptedData
+<details>
+<summary>_setEncryptedData</summary>
+<div>
 
 ```solidity
 function _setEncryptedData(uint256 batchId, bytes memory encryptedData) internal;
@@ -170,7 +172,12 @@ function _setEncryptedData(uint256 batchId, bytes memory encryptedData) internal
 - Parameter `batchId`: The identifier for the batch of delayed reveal NFTs.
 - Parameter `encryptedData`: The encrypted metadata to store for the given batch of NFTs.
 
-### getRevealURI
+</div>
+</details>
+
+<details>
+<summary>getRevealURI</summary>
+<div>
 
 ```solidity
 function getRevealURI(uint256 batchId, bytes calldata key) public view returns (string memory revealedURI);
@@ -180,7 +187,12 @@ function getRevealURI(uint256 batchId, bytes calldata key) public view returns (
 - Parameter `batchId`: The identifier for the batch of delayed reveal NFTs whose true metadata URI is being retrieved.
 - Parameter `key`: Secure key used by caller/admin for initially encrypting the metadata of the relevant batch of NFTs.
 
-### encryptDecrypt
+</div>
+</details>
+
+<details>
+<summary>encryptDecrypt</summary>
+<div>
 
 ```solidity
 function encryptDecrypt(bytes memory data, bytes calldata key) public pure override returns (bytes memory result);
@@ -189,7 +201,12 @@ function encryptDecrypt(bytes memory data, bytes calldata key) public pure overr
 - Standard XOR encryption implementation in Solidity. Used to encrypt the metadata of NFTs.
 - Learn more about the usage of this function in this [blogpost](https://blog.thirdweb.com/delayed-reveal-nfts).
 
-### isEncryptedBatch
+</div>
+</details>
+
+<details>
+<summary>isEncryptedBatch</summary>
+<div>
 
 ```solidity
 function isEncryptedBatch(uint256 batchId) public view returns (bool);
@@ -198,7 +215,12 @@ function isEncryptedBatch(uint256 batchId) public view returns (bool);
 - Returns whether the relvant batch of NFTs is subject to a delayed reveal.
 - Parameter `batchId`: The identifier for a batch of NFTs.
 
-### reveal
+</div>
+</details>
+
+<details>
+<summary>reveal</summary>
+<div>
 
 ```solidity
 function reveal(uint256 batchId, bytes calldata key) external returns (string memory revealedURI);
@@ -207,3 +229,6 @@ function reveal(uint256 batchId, bytes calldata key) external returns (string me
 - Reveals a batch of delayed reveal NFTs.
 - Parameter `batchId`: The ID for the batch of delayed-reveal NFTs to reveal.
 - Parameter `key`: The key with which the base URI for the relevant batch of NFTs was encrypted.
+
+</div>
+</details>

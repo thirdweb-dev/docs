@@ -36,11 +36,13 @@ It is recommended to use this extension alongside the [LazyMint](/solidity/exten
 
 The `DropSinglePhase` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                                                | Type                    | Parameters | Returns   | Description                                                                                                                                      |
-| --------------------------------------------------------------------------------------------------- | ----------------------- | ---------- | --------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [`_collectPriceOnClaim`](/solidity/extension-contracts/dropsinglephase#_collectpriceonclaim)     | internal _virtual_      | n/a        | n/a       | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
-| [`_transferTokensOnClaim`](/solidity/extension-contracts/dropsinglephase#_transfertokensonclaim) | internal _virtual_      | n/a        | `uint256` | Transfers the NFTs being claimed.                                                                                                                |
-| [`_canSetClaimConditions`](/solidity/extension-contracts/dropsinglephase#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`    | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
+| Name                                                                                                    | Type                    | Description                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `_afterClaim`        | internal _virtual_   | Runs after every `claim` function call. |
+| `_beforeClaim`        | internal _virtual_    | Runs before every `claim` function call. |
+| `_collectPriceOnClaim`    | internal _virtual_      | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
+| `_transferTokensOnClaim` | internal _virtual_      | Transfers the NFTs being claimed.                                                                                                                |
+| `_canSetClaimConditions` | internal view _virtual_ | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
 
 This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
@@ -66,6 +68,32 @@ contract MyContract is ERC20Base, DropSinglePhase {
     /*//////////////////////////////////////////////////////////////
                         Internal (overrideable) functions
     //////////////////////////////////////////////////////////////*/
+
+    /// @dev Runs before every `claim` function call.
+    function _beforeClaim(
+        uint256 _tokenId,
+        address _receiver,
+        uint256 _quantity,
+        address _currency,
+        uint256 _pricePerToken,
+        AllowlistProof calldata _allowlistProof,
+        bytes memory _data
+    ) internal virtual override {
+      // Your custom implementation logic here
+    }
+
+    /// @dev Runs after every `claim` function call.
+    function _afterClaim(
+        uint256 _tokenId,
+        address _receiver,
+        uint256 _quantity,
+        address _currency,
+        uint256 _pricePerToken,
+        AllowlistProof calldata _allowlistProof,
+        bytes memory _data
+    ) internal virtual override {
+      // Your custom implementation logic here
+    }
 
     /// @dev Collects and distributes the primary sale value of tokens being claimed.
     function _collectPriceOnClaim(
@@ -162,7 +190,9 @@ For example, for ERC721 contracts the following features are unlocked in the SDK
 
 ## Full API reference
 
-### claim
+<details>
+<summary>claim</summary>
+<div>
 
 ```solidity
 function claim(
@@ -183,7 +213,12 @@ function claim(
 - Parameter `allowlistProof`: The proof of the claimer's inclusion in the merkle root allowlist.
 - Parameter `data`: Arbitrary bytes data that can be leveraged in the implementation of this interface.
 
-### setClaimConditions
+</div>
+</details>
+
+<details>
+<summary>setClaimConditions</summary>
+<div>
 
 ```solidity
 struct ClaimCondition {
@@ -213,7 +248,12 @@ function setClaimConditions(ClaimCondition calldata phase, bool resetClaimEligib
 - Parameter `resetClaimEligibility`: Whether to carry over the restrictions active for wallets that claimed tokens in the incumbent claim condition (e.g. next valid claim timestamp for a given wallet).
 - The `_canSetClaimConditions` function is run on every call to this function. If the return value of `_canSetClaimConditions` is `false`, the `setClaimConditions` call will revert.
 
-### verifyClaim
+</div>
+</details>
+
+<details>
+<summary>verifyClaim</summary>
+<div>
 
 ```solidity
 struct AllowlistProof {
@@ -243,7 +283,12 @@ function verifyClaim(
   - `pricePerToken`: The price per token the allowlisted wallet must pay to claim tokens.
   - `currency`: The currency in which the allowlisted wallet must pay the price for claiming tokens.
 
-### getSupplyClaimedByWallet
+</div>
+</details>
+
+<details>
+<summary>getSupplyClaimedByWallet</summary>
+<div>
 
 ```solidity
 function getSupplyClaimedByWallet(address claimer) public view returns (uint256);
@@ -252,7 +297,12 @@ function getSupplyClaimedByWallet(address claimer) public view returns (uint256)
 - Returns the number of tokens claimed by a wallet under the active condition.
 - Parameter `claimer`: The wallet claiming tokens.
 
-### \_dropMsgSender
+</div>
+</details>
+
+<details>
+<summary>_dropMsgSender</summary>
+<div>
 
 ```solidity
 function _dropMsgSender() internal virtual returns (address);
@@ -260,7 +310,12 @@ function _dropMsgSender() internal virtual returns (address);
 
 - Exposes the ability to override the msg sender.
 
-### \_beforeClaim
+</div>
+</details>
+
+<details>
+<summary>_beforeClaim</summary>
+<div>
 
 ```solidity
 function _beforeClaim(
@@ -281,7 +336,12 @@ function _beforeClaim(
 - Parameter `allowlistProof`: The proof of the claimer's inclusion in the merkle root allowlist.
 - Parameter `data`: Arbitrary bytes data that can be leveraged in the implementation of this interface.
 
-### \_afterClaim
+</div>
+</details>
+
+<details>
+<summary>_afterClaim</summary>
+<div>
 
 ```solidity
 function _afterClaim(
@@ -302,7 +362,12 @@ function _afterClaim(
 - Parameter `allowlistProof`: The proof of the claimer's inclusion in the merkle root allowlist.
 - Parameter `data`: Arbitrary bytes data that can be leveraged in the implementation of this interface.
 
-### \_collectPriceOnClaim
+</div>
+</details>
+
+<details>
+<summary>_collectPriceOnClaim</summary>
+<div>
 
 ```solidity
 function _collectPriceOnClaim(
@@ -319,7 +384,12 @@ function _collectPriceOnClaim(
 - Parameter `currency`: The currency used to pay for the claim.
 - Parameter `pricePerToken`: The price per token to pay for the claim.
 
-### \_transferTokensOnClaim
+</div>
+</details>
+
+<details>
+<summary>_transferTokensOnClaim</summary>
+<div>
 
 ```solidity
 function _transferTokensOnClaim(address to, uint256 quantityBeingClaimed)
@@ -332,7 +402,12 @@ function _transferTokensOnClaim(address to, uint256 quantityBeingClaimed)
 - Parameter `to`: The recipient of the tokens for a claim.
 - Parameter `quantityBeingClaimed`: The quantity of tokens being claimed.
 
-### \_canSetClaimConditions
+</div>
+</details>
+
+<details>
+<summary>_canSetClaimConditions</summary>
+<div>
 
 ```solidity
 function _canSetClaimConditions() internal view virtual returns (bool);
@@ -341,3 +416,6 @@ function _canSetClaimConditions() internal view virtual returns (bool);
 - Runs on every `setClaimConditions` function call.
 - Returns whether the claim condition can be set in the given execution context.
 - For example, this function can check whether the wallet calling `setClaimConditions` is the contract owner, and enforce that only the owner should be able to successfully call `setClaimConditions`.
+
+</div>
+</details>

@@ -74,7 +74,9 @@ None of the base contracts implement this extension.
 
 ## Full API reference
 
-### getBaseURICount
+<details>
+<summary>getBaseURICount</summary>
+<div>
 
 ```solidity
 function getBaseURICount() public view returns (uint256);
@@ -83,7 +85,12 @@ function getBaseURICount() public view returns (uint256);
 - Returns the total number of batches of NFTs, where each batch has a single base URI and metadata for NFTs in the batch is stored as `baseURI/tokenId`.
 - This value is updated when the metadata of a new set of NFTs is 'batch minted' using the `_batchMintMetadata` function.
 
-### getBatchIdAtIndex
+</div>
+</details>
+
+<details>
+<summary>getBatchIdAtIndex</summary>
+<div>
 
 ```solidity
 function getBatchIdAtIndex(uint256 _index) public view returns (uint256);
@@ -91,7 +98,12 @@ function getBatchIdAtIndex(uint256 _index) public view returns (uint256);
 
 - The extension smart contract stores an array of 'batch IDs' i.e. IDs for different batches of NFTs minted on the contract. This function returns the batch ID at a given index in this ordered array of batch IDs.
 
-### \_getBatchId
+</div>
+</details>
+
+<details>
+<summary>_getBatchId</summary>
+<div>
 
 ```solidity
 function _getBatchId(uint256 tokenId) internal view returns (uint256 batchId, uint256 index);
@@ -100,7 +112,12 @@ function _getBatchId(uint256 tokenId) internal view returns (uint256 batchId, ui
 - Returns the batch ID for the batch of NFTs the given tokenId belongs to.
 - Parameter `tokenId`: the tokenId for which to retrieve the associated batch ID.
 
-### \_getBaseURI
+</div>
+</details>
+
+<details>
+<summary>_getBaseURI</summary>
+<div>
 
 ```solidity
 function _getBaseURI(uint256 _tokenId) internal view returns (string memory);
@@ -109,7 +126,12 @@ function _getBaseURI(uint256 _tokenId) internal view returns (string memory);
 - Returns the base metadata URI for the given tokenId.
 - Parameter `tokenId`: the tokenId for which to retrieve the associated base metadata URI.
 
-### \_setBaseURI
+</div>
+</details>
+
+<details>
+<summary>_setBaseURI</summary>
+<div>
 
 ```solidity
 function _setBaseURI(uint256 batchId, string memory baseURI) internal;
@@ -119,7 +141,12 @@ function _setBaseURI(uint256 batchId, string memory baseURI) internal;
 - Parameter `batchID`: the batch ID of the batch of NFTs whose metadata URI is to be updated.
 - Parameter `baseURI`: the value to set as the new base URI for the relevant batch of NFTs.
 
-### \_batchMintMetadata
+</div>
+</details>
+
+<details>
+<summary>_batchMintMetadata</summary>
+<div>
 
 ```solidity
 function _batchMintMetadata(
@@ -133,3 +160,6 @@ function _batchMintMetadata(
 - Parameter `_startId`: The lowest tokenId from the batch of NFTs to mint. It is assumed that token Ids are assigned to NFTs in a serial order, when batch minting e.g. `[startId, startId + 1, ... n-1, n]`
 - Parameter `_amountToMint`: The number of NFTs to mint at once.
 - Parameter `_baseURIForTokens`: The common base URI for the batch of NFTs being minted, where for a batch of NFTs with token IDs `[startId, startId + 1, ... n-1, n]`, each NFT's associated metadata URI is `[baseURI/startId, baseURI/startId+1, ... baseURI/n-1, baseURI/n]`
+
+</div>
+</details>

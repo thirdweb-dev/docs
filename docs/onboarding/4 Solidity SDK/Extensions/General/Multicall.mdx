@@ -47,10 +47,6 @@ contract MyContract is Multicall { ... }
 This extension alone does not unlock anything extra in the SDKs. Checkout [`ERC721BatchMintable`](/solidity/extensions/erc721batchmintable), [`ERC1155BatchMintable`](/solidity/extensions/erc1155batchmintable) or [`ERC20BatchMintable`](/solidity/extensions/erc20batchmintable) extensions 
 to see what this extension unlocks in the SDK when combined with [`ERC721Mintable`](/solidity/extensions/erc721mintable), [`ERC1155Mintable`](/solidity/extensions/erc1155mintable) or [`ERC20Mintable`](/solidity/extensions/erc20mintable).
 
-## Dashboard Usage
-
-This extension alone does not unlock anything in the Dashboard.
-
 ## Base Contracts Implementing This Extension
 
 - [ERC721Base](/solidity/base-contracts/erc721base)
@@ -64,7 +60,9 @@ This extension alone does not unlock anything in the Dashboard.
 
 ## Full API reference
 
-### multicall
+<details>
+<summary>multicall</summary>
+<div>
 
 ```solidity
 function multicall(bytes[] calldata data) external virtual override returns (bytes[] memory results);
@@ -73,3 +71,6 @@ function multicall(bytes[] calldata data) external virtual override returns (byt
 - Receives and executes a batch of function calls on the contract.
 - Parameter `data`: The bytes data that makes up the batch of function calls to execute.
 - Return value `results`: The bytes data that makes up the result of the batch of function calls executed.
+
+</div>
+</details>

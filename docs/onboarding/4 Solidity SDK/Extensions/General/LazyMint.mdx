@@ -36,9 +36,9 @@ the `LazyMint` extension
 
 The `LazyMint` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                     | Type                    | Parameters | Returns | Description                                                                                                                      |
-| ------------------------------------------------------------------------ | ----------------------- | ---------- | ------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canLazyMint`](/solidity/extension-contracts/lazymint#_canlazymint) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to lazy mint NFTs on the contract. Returns whether NFTs can be lazy minted in the given execution context. |
+| Name                                                                     | Type                    | Returns | Description                                                                                                                      |
+| ------------------------------------------------------------------------ | ----------------------- | ------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canLazyMint`](/solidity/extension-contracts/lazymint#_canlazymint) | internal view _virtual_ | `bool`  | Runs on every attempt to lazy mint NFTs on the contract. Returns whether NFTs can be lazy minted in the given execution context. |
 
 This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
@@ -115,7 +115,9 @@ By adding this extension to a smart contract, the following features, hooks and 
 
 ## Full API Reference
 
-### lazyMint
+<details>
+<summary>lazyMint</summary>
+<div>
 
 ```solidity
 function lazyMint(
@@ -130,7 +132,12 @@ function lazyMint(
 - Parameter `baseURIForTokens`: The base URI for the 'n' number of NFTs being lazy minted, where the metadata for each of those NFTs is `baseURIForTokens/tokenId`.
 - Parameter `extraData`: Additional bytes data to be used at the discretion of the contract.
 
-### \_canLazyMint
+</div>
+</details>
+
+<details>
+<summary>_canLazyMint</summary>
+<div>
 
 ```solidity
 function _canLazyMint() internal view virtual returns (bool);
@@ -139,3 +146,6 @@ function _canLazyMint() internal view virtual returns (bool);
 - Runs on every `lazyMint` function call.
 - Returns whether NFTs can be lazy minted in the given execution context.
 - For example, this function can check whether the wallet calling `lazyMint` is the contract owner, and enforce that only the owner should be able to successfully call `lazyMint`.
+
+</div>
+</details>

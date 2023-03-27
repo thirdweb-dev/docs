@@ -89,7 +89,9 @@ contract MyContract is Staking721 {
 
 ## Full API Reference
 
-### stake
+<details>
+<summary>stake</summary>
+<div>
 
 ```solidity
 function stake(uint256[] calldata tokenIds) external;
@@ -98,7 +100,12 @@ function stake(uint256[] calldata tokenIds) external;
 - Lets a user stake a number of ERC721 tokens by passing in token-Ids.
 - Parameter `tokenIds`: List of token-Ids to stake.
 
-### withdraw
+</div>
+</details>
+
+<details>
+<summary>withdraw</summary>
+<div>
 
 ```solidity
 function withdraw(uint256[] calldata tokenIds) external;
@@ -107,7 +114,12 @@ function withdraw(uint256[] calldata tokenIds) external;
 - Un-stake and withdraw NFTs from the contract.
 - Parameter `tokenIds`: List of token-Ids to withdraw.
 
-### claimRewards
+</div>
+</details>
+
+<details>
+<summary>claimRewards</summary>
+<div>
 
 ```solidity
 function claimRewards() external;
@@ -115,7 +127,12 @@ function claimRewards() external;
 
 - Claim accumulated rewards. This claim method allows for a pull mechanism where users must initiate claiming of rewards.
 
-### getStakeInfo
+</div>
+</details>
+
+<details>
+<summary>getStakeInfo</summary>
+<div>
 
 ```solidity
 function getStakeInfo(address staker) external view returns (uint256 tokensStaked, uint256 rewards);
@@ -124,7 +141,12 @@ function getStakeInfo(address staker) external view returns (uint256 tokensStake
 - View number of NFTs staked and total rewards available for a user.
 - Parameter `staker`: Account address of staker.
 
-### setRewardsPerUnitTime
+</div>
+</details>
+
+<details>
+<summary>setRewardsPerUnitTime</summary>
+<div>
 
 ```solidity
 function setRewardsPerUnitTime(uint256 rewardsPerUnitTime) external;
@@ -133,7 +155,12 @@ function setRewardsPerUnitTime(uint256 rewardsPerUnitTime) external;
 - Allows an authorized account to set rewards per unit of time. Interpreted as x rewards per second/per day/etc based on time-unit.
 - Parameter `rewardsPerUnitTime`: New rewards per unit time.
 
-### setTimeUnit
+</div>
+</details>
+
+<details>
+<summary>setTimeUnit</summary>
+<div>
 
 ```solidity
 function setTimeUnit(uint256 timeUnit) external;
@@ -141,3 +168,6 @@ function setTimeUnit(uint256 timeUnit) external;
 
 - Allows an authorized account to set time unit as a number of seconds. For e.g. 1 hour can be set as 3600 seconds - setting the reward frequency as _per hour_.
 - Parameter `timeUnit`: New time unit.
+
+</div>
+</details>

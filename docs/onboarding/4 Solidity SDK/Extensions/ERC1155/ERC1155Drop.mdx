@@ -28,11 +28,13 @@ It is recommended to use this extension alongside the [`LazyMint`](/solidity/ext
 
 The `Drop1155` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                                     | Type                    | Parameters | Returns | Description                                                                                                                                      |
-| ---------------------------------------------------------------------------------------- | ----------------------- | ---------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
-| [`_collectPriceOnClaim`](/solidity/extension-contracts/drop#_collectpriceonclaim)     | internal _virtual_      | n/a        | n/a     | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
-| [`_transferTokensOnClaim`](/solidity/extension-contracts/drop#_transfertokensonclaim) | internal _virtual_      | n/a        | n/a     | Transfers the NFTs being claimed.                                                                                                                |
-| [`_canSetClaimConditions`](/solidity/extension-contracts/drop#_cansetclaimconditions) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
+| Name                                                                                                    | Type                    | Description                                                                                                                                      |
+| ------------------------------------------------------------------------------------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `_afterClaim`        | internal _virtual_   | Runs after every `claim` function call. |
+| `_beforeClaim`        | internal _virtual_    | Runs before every `claim` function call. |
+| `_collectPriceOnClaim`    | internal _virtual_      | Collects and distributes the primary sale value of NFTs being claimed.                                                                           |
+| `_transferTokensOnClaim` | internal _virtual_      | Transfers the NFTs being claimed.                                                                                                                |
+| `_canSetClaimConditions` | internal view _virtual_ | Runs on every attempt to set the claim condition on the contract. Returns whether the claim condition can be set in the given execution context. |
 
 This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
@@ -150,7 +152,9 @@ None of the base contracts implement this extension.
 
 ## Full API reference
 
-### claim
+<details>
+<summary>claim</summary>
+<div>
 
 ```solidity
 function claim(
@@ -173,7 +177,12 @@ function claim(
 - Parameter `allowlistProof`: The proof of the claimer's inclusion in the merkle root allowlist.
 - Parameter `data`: Arbitrary bytes data that can be leveraged in the implementation of this interface.
 
-### setClaimConditions
+</div>
+</details>
+
+<details>
+<summary>setClaimConditions</summary>
+<div>
 
 ```solidity
 struct ClaimCondition {
@@ -204,7 +213,12 @@ function setClaimConditions(uint256 tokenId, ClaimCondition[] calldata phases, b
 - Parameter `resetClaimEligibility`: Whether to carry over the restrictions active for wallets that claimed tokens in the incumbent claim condition (e.g. next valid claim timestamp for a given wallet).
 - The `_canSetClaimConditions` function is run on every call to this function. If the return value of `_canSetClaimConditions` is `false`, the `setClaimConditions` call will revert.
 
-### verifyClaim
+</div>
+</details>
+
+<details>
+<summary>verifyClaim</summary>
+<div>
 
 ```solidity
 struct AllowlistProof {
@@ -238,7 +252,12 @@ function verifyClaim(
   - `pricePerToken`: The price per token the allowlisted wallet must pay to claim tokens.
   - `currency`: The currency in which the allowlisted wallet must pay the price for claiming tokens.
 
-### getActiveClaimConditionId
+</div>
+</details>
+
+<details>
+<summary>getActiveClaimConditionId</summary>
+<div>
 
 ```solidity
 function getActiveClaimConditionId(uint256 tokenId) public view returns (uint256);
@@ -247,7 +266,12 @@ function getActiveClaimConditionId(uint256 tokenId) public view returns (uint256
 - Returns the Id of currently active claim condition.
 - Parameter `tokenId`: The token ID for which to check active claim condition.
 
-### getClaimConditionById
+</div>
+</details>
+
+<details>
+<summary>getClaimConditionById</summary>
+<div>
 
 ```solidity
 function getClaimConditionById(uint256 tokenId, uint256 conditionId) external view returns (ClaimCondition memory);
@@ -257,7 +281,12 @@ function getClaimConditionById(uint256 tokenId, uint256 conditionId) external vi
 - Parameter `tokenId`: The token ID for which check claim condition.
 - Parameter `conditionId`: Id of the claim condition being viewed.
 
-### getSupplyClaimedByWallet
+</div>
+</details>
+
+<details>
+<summary>getSupplyClaimedByWallet</summary>
+<div>
 
 ```solidity
 function getSupplyClaimedByWallet(uint256 tokenId, uint256 conditionId, address claimer) public view returns (uint256);
@@ -268,7 +297,12 @@ function getSupplyClaimedByWallet(uint256 tokenId, uint256 conditionId, address 
 - Parameter `conditionId`: Id of the claim condition under which to check the supply claimed.
 - Parameter `claimer`: The wallet claiming tokens.
 
-### \_dropMsgSender
+</div>
+</details>
+
+<details>
+<summary>_dropMsgSender</summary>
+<div>
 
 ```solidity
 function _dropMsgSender() internal virtual returns (address);
@@ -276,7 +310,12 @@ function _dropMsgSender() internal virtual returns (address);
 
 - Exposes the ability to override the msg sender.
 
-### \_beforeClaim
+</div>
+</details>
+
+<details>
+<summary>_beforeClaim</summary>
+<div>
 
 ```solidity
 function _beforeClaim(
@@ -299,7 +338,12 @@ function _beforeClaim(
 - Parameter `allowlistProof`: The proof of the claimer's inclusion in the merkle root allowlist.
 - Parameter `data`: Arbitrary bytes data that can be leveraged in the implementation of this interface.
 
-### \_afterClaim
+</div>
+</details>
+
+<details>
+<summary>_afterClaim</summary>
+<div>
 
 ```solidity
 function _afterClaim(
@@ -322,7 +366,12 @@ function _afterClaim(
 - Parameter `allowlistProof`: The proof of the claimer's inclusion in the merkle root allowlist.
 - Parameter `data`: Arbitrary bytes data that can be leveraged in the implementation of this interface.
 
-### \_collectPriceOnClaim
+</div>
+</details>
+
+<details>
+<summary>_collectPriceOnClaim</summary>
+<div>
 
 ```solidity
 function _collectPriceOnClaim(
@@ -341,7 +390,12 @@ function _collectPriceOnClaim(
 - Parameter `currency`: The currency used to pay for the claim.
 - Parameter `pricePerToken`: The price per token to pay for the claim.
 
-### \_transferTokensOnClaim
+</div>
+</details>
+
+<details>
+<summary>_transferTokensOnClaim</summary>
+<div>
 
 ```solidity
 function _transferTokensOnClaim(address to, uint256 tokenId, uint256 quantityBeingClaimed)
@@ -354,7 +408,12 @@ function _transferTokensOnClaim(address to, uint256 tokenId, uint256 quantityBei
 - Parameter `tokenId`: The tokenId of the NFTs to claim.
 - Parameter `quantityBeingClaimed`: The quantity of tokens being claimed.
 
-### \_canSetClaimConditions
+</div>
+</details>
+
+<details>
+<summary>_canSetClaimConditions</summary>
+<div>
 
 ```solidity
 function _canSetClaimConditions() internal view virtual returns (bool);
@@ -363,3 +422,6 @@ function _canSetClaimConditions() internal view virtual returns (bool);
 - Runs on every `setClaimConditions` function call.
 - Returns whether the claim condition can be set in the given execution context.
 - For example, this function can check whether the wallet calling `setClaimConditions` is the contract owner, and enforce that only the owner should be able to successfully call `setClaimConditions`.
+
+</div>
+</details>

@@ -24,9 +24,9 @@ import "@thirdweb-dev/contracts/extension/PrimarySale.sol";
 
 The `PrimarySale` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                                                      | Type                    | Parameters | Returns | Description                                                                                                                     |
-| --------------------------------------------------------------------------------------------------------- | ----------------------- | ---------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSetPrimarySaleRecipient`](/solidity/extension-contracts/primarysale#_cansetprimarysalerecipient) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set a new primary sale recipient. Returns whether this info can be set in the given execution context. |
+| Name                                                                                                      | Type                    | Returns | Description                                                                                                                     |
+| --------------------------------------------------------------------------------------------------------- | ----------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSetPrimarySaleRecipient`](/solidity/extension-contracts/primarysale#_cansetprimarysalerecipient) | internal view _virtual_ | `bool`  | Runs on every attempt to set a new primary sale recipient. Returns whether this info can be set in the given execution context. |
 
 This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
@@ -108,7 +108,9 @@ By adding this extension to a smart contract, the following features, hooks and 
 
 ## Full API Reference
 
-### primarySaleRecipient
+<details>
+<summary>primarySaleRecipient</summary>
+<div>
 
 ```solidity
 function primarySaleRecipient() public view returns (address);
@@ -117,7 +119,12 @@ function primarySaleRecipient() public view returns (address);
 - Returns the primary sale recipient address stored in the contract.
 - Set this value using the `setPrimarySaleRecipient` function.
 
-### setPrimarySaleRecipient
+</div>
+</details>
+
+<details>
+<summary>setPrimarySaleRecipient</summary>
+<div>
 
 ```solidity
 function setPrimarySaleRecipient(address saleRecipient) external;
@@ -127,7 +134,12 @@ function setPrimarySaleRecipient(address saleRecipient) external;
 - Parameter `saleRecipient`: The address to set as the new primary sale recipient.
 - The `_canSetPrimarySaleRecipient` function is run on every call to this function. If the return value of `_canSetPrimarySaleRecipient` is `false`, the `setPrimarySaleRecipient` call will revert.
 
-### \_setupPrimarySaleRecipient
+</div>
+</details>
+
+<details>
+<summary>_setupPrimarySaleRecipient</summary>
+<div>
 
 ```solidity
 function _setupPrimarySaleRecipient(address saleRecipient) internal;
@@ -137,7 +149,12 @@ function _setupPrimarySaleRecipient(address saleRecipient) internal;
 - Parameter `saleRecipient`: The address to set as the new primary sale recipient.
 - The `_canSetPrimarySaleRecipient` function is _not_ run on a call to this function.
 
-### \_canSetPrimarySaleRecipient
+</div>
+</details>
+
+<details>
+<summary>_canSetPrimarySaleRecipient</summary>
+<div>
 
 ```solidity
 function _canSetPrimarySaleRecipient() internal view virtual returns (bool);
@@ -146,3 +163,6 @@ function _canSetPrimarySaleRecipient() internal view virtual returns (bool);
 - Runs on every `setPrimarySaleRecipient` function call.
 - Returns whether a new primary sale recipient can be set in the given execution context.
 - For example, this function can check whether the wallet calling `setPrimarySaleRecipient` is the contract owner, and enforce that only the current owner should be able to successfully call `setPrimarySaleRecipient`.
+
+</div>
+</details>

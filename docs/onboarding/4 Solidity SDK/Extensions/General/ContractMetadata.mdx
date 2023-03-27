@@ -24,9 +24,9 @@ The `ContractMetadata` smart contract is an extension usable with any smart cont
 
 The `ContractMetadata` extension is an _abstract contract_, and expects you to implement the following functions by yourself:
 
-| Name                                                                                         | Type                    | Parameters | Returns | Description                                                                                                                             |
-| -------------------------------------------------------------------------------------------- | ----------------------- | ---------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| [`_canSetContractURI`](/solidity/extensions/contractmetadata#_cansetcontracturi) | internal view _virtual_ | n/a        | `bool`  | Runs on every attempt to set the metadata of the contract. Returns whether contract metadata can be set in the given execution context. |
+| Name                                                                                         | Type                    | Returns | Description                                                                                                                             |
+| -------------------------------------------------------------------------------------------- | ----------------------- | ------- | --------------------------------------------------------------------------------------------------------------------------------------- |
+| [`_canSetContractURI`](/solidity/extensions/contractmetadata#_cansetcontracturi) | internal view _virtual_ | `bool`  | Runs on every attempt to set the metadata of the contract. Returns whether contract metadata can be set in the given execution context. |
 
 This is an example smart contract demonstrating how to inherit from this extension and override the functions to add (optional) custom functionality. 
 
@@ -97,7 +97,9 @@ All of the base contracts implement this extension.
 
 ## Full API reference
 
-### contractURI
+<details>
+<summary>contractURI</summary>
+<div>
 
 ```solidity
 function contractURI() external view returns (string memory);
@@ -106,7 +108,12 @@ function contractURI() external view returns (string memory);
 - Returns the URI for the metadata associated with the smart contract. Generally, an IPFS URI.
 - Set this value using the `setContractURI` function.
 
-### setContractURI
+</div>
+</details>
+
+<details>
+<summary>setContractURI</summary>
+<div>
 
 ```solidity
 function setContractURI(string calldata _uri) external;
@@ -116,7 +123,12 @@ function setContractURI(string calldata _uri) external;
 - Parameter `_uri`: The URI of the metadata to associate with the contract.
 - The `_canSetContractURI` function is run on every call to this function. If the return value of `_canSetContractURI` is `false`, the `setContractURI` call will revert.
 
-### \_setupContractURI
+</div>
+</details>
+
+<details>
+<summary>_setupContractURI</summary>
+<div>
 
 ```solidity
 function _setupContractURI(string memory _uri) internal;
@@ -126,7 +138,12 @@ function _setupContractURI(string memory _uri) internal;
 - Parameter `_uri`: The URI of the metadata to associate with the contract.
 - The `_canSetContractURI` function is _not_ run on a call to this function.
 
-### \_canSetContractURI
+</div>
+</details>
+
+<details>
+<summary>_canSetContractURI</summary>
+<div>
 
 ```solidity
 function _canSetContractURI() internal view virtual returns (bool);
@@ -135,3 +152,6 @@ function _canSetContractURI() internal view virtual returns (bool);
 - Runs on every `setContractURI` function call.
 - Returns whether contract metadata can be set in the given execution context.
 - For example, this function can check whether the wallet calling `setContractURI` is the contract owner, and enforce that only the owner should be able to successfully call `setContractURI`.
+
+</div>
+</details>
