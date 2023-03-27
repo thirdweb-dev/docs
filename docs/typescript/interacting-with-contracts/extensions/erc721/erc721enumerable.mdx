@@ -1,0 +1,99 @@
+---
+title: Get Owned
+slug: /sdk.erc721enumerable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC721Enumerable
+
+Functionality available for contracts that implement the
+[`IERC721`](/contracts/IERC721) and
+[`IERC721Enumerable`](/contracts/IERC721Enumerable)
+interfaces.
+
+## getOwned
+
+Get the metadata of all NFTs a wallet owns from this contract.
+
+```javascript
+// Address of the wallet to get the NFTs of
+const address = "{{wallet_address}}"; // Optional - Defaults to the connected wallet
+const nfts = await contract.erc721.getOwned(address);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### address (optional)
+
+The address of the wallet to get the NFTs of. If not provided, defaults to the **connected wallet** address.
+
+```javascript
+const nfts = await contract.erc721.getOwned(
+  // highlight-next-line
+  "{{wallet_address}}",
+);
+```
+
+### Return Value
+
+Returns an array of `NFT` objects.
+
+```typescript
+{
+  metadata: {
+    id: string;
+    uri: string; // The raw URI of the metadata
+    owner: string;
+    name?: string | number | undefined;
+    description?: string | null | undefined;
+    image?: string | null | undefined; // If the image is hosted on IPFS, the URL is https://gateway.ipfscdn.io/ipfs/<hash>
+    external_url?: string | null | undefined;
+    animation_url?: string | null | undefined;
+    background_color?: string | undefined;
+    properties?: {
+        [x: string]: unknown;
+    } | {
+        [x: string]: unknown;
+    }[] | undefined;
+  };
+  type: "ERC1155" | "ERC721";
+}[]
+```
+
+</div>
+</details>
+
+## getOwnedTokenIds
+
+Get the token IDs of all NFTs a wallet owns from this contract.
+
+```javascript
+const ownedTokenIds = await contract.erc721.getOwnedTokenIds(
+  "{{wallet_address}}",
+);
+```
+
+<details>
+    <summary>Configuration</summary>
+    <div>
+
+#### address (optional)
+
+The address of the wallet to get the NFTs of.
+
+Defaults to the **connected wallet** address.
+
+Must be a `string`.
+
+### Return Value
+
+Returns an array of `BigNumber`s representing the token IDs of the NFTs.
+
+```typescript
+BigNumber[]
+```
+
+</div>
+</details>

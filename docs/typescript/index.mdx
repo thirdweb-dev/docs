@@ -1,0 +1,74 @@
+---
+title: thirdweb TypeScript SDK
+hide_title: true
+displayed_sidebar: typescript
+---
+
+import Tabs from "@theme/Tabs";
+import TabItem from "@theme/TabItem";
+import CodeBlock from "@theme/CodeBlock";
+import QuickstartCard from "@components/QuickstartCard";
+
+<p align="center">
+  <br />
+  <a href="https://thirdweb.com">
+    <img src="/assets/icons/thirdweb.svg" width="200" alt="thirdweb logo" />
+  </a>
+  <br />
+</p>
+<h1 align="center">thirdweb TypeScript SDK</h1>
+
+A type-safe library to interact with any EVM-compatible blockchain in both Node.js and the browser.
+
+Connect to user&rsquo;s wallets, interact with smart contracts, sign
+messages, and utilize common standards such as tokens, NFTs, marketplaces; all with built-in RPC URLs, IPFS gateways, and more.
+
+## Installation
+
+<Tabs>
+  <TabItem value="npm" label="npm" default>
+    <CodeBlock
+      language={"bash"}
+    >{`npm i @thirdweb-dev/sdk ethers^5`}</CodeBlock>
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+    <CodeBlock
+      language={"bash"}
+    >{`yarn add @thirdweb-dev/sdk ethers^5`}</CodeBlock>
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+    <CodeBlock
+      language={"bash"}
+    >{`pnpm i @thirdweb-dev/sdk ethers^5`}</CodeBlock>
+  </TabItem>
+</Tabs>
+
+<a href="https://github.com/thirdweb-example#starter-kits">Starter Kits</a> • <a href="/templates">
+  Templates
+</a> • <a href="https://github.com/thirdweb-dev/js"> GitHub</a>
+
+## Get Started
+
+Check out the [getting started](/typescript/getting-started) guide to learn how to use the SDK in less than 2 minutes.
+
+<div className="row" style={{ marginBottom: 24, padding: 8 }}>
+  <div className="col col--12" style={{ padding: 8, paddingTop: 0 }}>
+    <QuickstartCard
+      name="Get started with the TypeScript SDK"
+      link="/typescript/getting-started"
+      image="/assets/icons/education.png"
+    />
+  </div>
+</div>
+
+## How It Works
+
+The TypeScript SDK provides a type-safe interface to interact with your smart contracts, wallets, and the blockchain.
+
+Each [extension](/contractkit/interfaces) that your smart contract implements unlock new functionality for you to use in the SDK, which
+does the heavy lifting for you under the hood.
+For example, if your smart contract implements the [`IMintableERC721`](/contractkit/interfaces/erc721mintable) interface,
+you unlock the ability to mint NFTs in a type-safe manner, using the [`contract.erc721.mint`](/typescript/sdk.erc721mintable) method.
+
+Instantiate an instance of the [`ThirdwebSDK`](/typescript/sdk.thirdwebsdk) class to connect to your smart contract and start
+interacting with it&rsquo;s extensions!

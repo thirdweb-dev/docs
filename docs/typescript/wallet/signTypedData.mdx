@@ -1,0 +1,89 @@
+---
+title: signTypedData
+slug: /sdk.userwallet.signtypeddata
+---
+
+Sign a typed data structure that follows the [EIP-712](https://eips.ethereum.org/EIPS/eip-712) standard with the connected wallet.
+
+## Usage
+
+Create a typed data structure and message to be signed (for more information, see [EIP-712](https://eips.ethereum.org/EIPS/eip-712)), and pass it to this method.
+
+This will prompt the user to sign the structured message from their wallet (or sign it automatically if [initialized with a private key](/typescript/sdk.thirdwebsdk.fromprivatekey)).
+
+Once signed, the the payload and its associated signature are returned.
+
+```javascript
+// An example message to ask the user to sign
+const message = {
+  to: "0x...",
+  quantity: 1,
+};
+
+// Sign the message with the connected wallet
+const { payload, signature } = await sdk.wallet.signTypedData(
+  {
+    name: "MyEIP721Domain",
+    version: "1",
+    chainId: 1,
+    verifyingContract: "0x...",
+  },
+  {
+    MyStruct: [
+      { name: "to", type: "address" },
+      { name: "quantity", type: "uint256" },
+    ],
+  },
+  message,
+);
+```
+
+## Configuration
+
+### domain
+
+The domain object as defined by the [EIP712](https://eips.ethereum.org/EIPS/eip-712) standard.
+
+```javascript
+const domain = {
+  name: "MyEIP721Domain",
+  version: "1",
+  chainId: 1,
+  verifyingContract: "0x...",
+};
+```
+
+### types
+
+The structure and data types as defined by the [EIP712](https://eips.ethereum.org/EIPS/eip-712) standard.
+
+```javascript
+const types = {
+  MyStruct: [
+    { name: "to", type: "address" },
+    { name: "quantity", type: "uint256" },
+  ],
+};
+```
+
+### message
+
+The data to be signed.
+
+```javascript
+const message = {
+  to: "0x...",
+  quantity: 1,
+};
+```
+
+## Return Value
+
+Returns an object with the payload and the associated signature:
+
+```typescript
+{
+  payload: any;
+  signature: string;
+}
+```

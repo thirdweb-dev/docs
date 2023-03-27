@@ -1,0 +1,142 @@
+---
+title: Mint
+slug: /sdk.erc20mintable
+toc_max_heading_level: 2 # Show up to h2 in table of contents (default is up to h3)
+---
+
+# ERC20Mintable
+
+Functionality available for contracts that implement the
+[`IERC20`](/contracts/IERC20) and
+[`IMintableERC20`](/contracts/IMintableERC20) interfaces.
+
+Allows the minting of new tokens into the contract.
+
+## mint
+
+Mint tokens to the **connected wallet**.
+
+```javascript
+const amount = "1.5"; // The amount of this token you want to mint
+const txResult = await contract.erc20.mint(amount);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### amount
+
+The amount of tokens to mint.
+
+Must be a `string` or `number`.
+
+```javascript
+const txResult = await contract.erc20.mint(
+  // highlight-next-line
+  "1.5",
+);
+```
+
+</div>
+</details>
+
+## mintTo
+
+The same as [`mint`](#mint), but allows you to specify the address to mint the tokens to.
+
+```javascript
+const toAddress = "{{wallet_address}}"; // Address of the wallet you want to mint the tokens to
+const amount = "1.5"; // The amount of this token you want to mint
+const txResult = await contract.erc20.mintTo(toAddress, amount);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+
+#### to
+
+The wallet address to mint the tokens to.
+
+Must be a `string`.
+
+```javascript
+const txResult = await contract.erc20.mintTo(
+  // highlight-next-line
+  "{{wallet_address}}",
+  "1.5",
+);
+```
+
+#### amount
+
+The number of tokens to mint.
+
+Must be a `string` or `number`.
+
+```javascript
+const txResult = await contract.erc20.mintTo(
+  "{{wallet_address}}",
+  // highlight-next-line
+  "1.5",
+);
+```
+
+</div>
+</details>
+
+## getMintTransaction
+
+Construct a mint transaction without executing it.
+This is useful for estimating the gas cost of a mint transaction,
+overriding transaction options and having fine grained control over the transaction execution.
+
+```javascript
+const amount = "1.5"; // The amount of this token you want to mint
+const tx = await contract.erc20.getMintTransaction(
+  "{{wallet_address}}", // Receiver of the tokens
+  amount,
+);
+```
+
+<details>
+  <summary>Configuration</summary>
+  <div>
+    
+<h4>to</h4>
+
+Address you want to mint the tokens to
+
+Must be a `string`.
+
+```javascript
+const tx = await contract.erc20.getMintTransaction(
+  // highlight-next-line
+  "{{wallet_address}}",
+  "1.5",
+);
+```
+
+#### amount
+
+The amount of tokens you want to mint
+
+Must be a `string`, `number` or `BigNumber`.
+
+```javascript
+const tx = await contract.erc20.getMintTransaction(
+  "{{wallet_address}}", // Receiver of the tokens
+  // highlight-next-line
+  "1.5",
+);
+```
+
+### Return Value
+
+```typescript
+TransactionTask;
+```
+
+</div>
+</details>
